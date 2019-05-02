@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation sur les partenaires Azure Stack
+metadata:
+  document_id: null
+  title: 'Partenaires Azure Stack D\documentation - tutoriels, API R\réference'
+  description: Découvrez comment valider le matériel destiné à héberger Azure Stack. Validation en tant que Service est un service Azure natif conçu pour être utilisé par les partenaires de solutions qui conçoivent conjointement les offres Azure Stack avec Microsoft.
+  services: azure-stack
+  author: mattbriggs
+  manager: femila
+  ms.service: azure-stack
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/25/2018
+  ms.author: mabrigg
+  ms.reviewer: johnhas
+abstract:
+  description: Vous pouvez utiliser la validation en tant que service pour vérifier l’utilisation de votre matériel avec Azure Stack. Ce service Azure natif est conçu pour être utilisé par les partenaires de solutions qui conçoivent conjointement les offres Azure Stack avec Microsoft.
+sections:
+  - title: "Démarrage rapide en\_5\_minutes"
+    items:
+      - type: paragraph
+        text: Découvrez comment utiliser le portail de validation en tant que service pour planifier des tests sur votre matériel.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/i_account-management.svg
+            text: Utiliser le portail de validation en tant que service pour planifier votre premier test
+            href: azure-stack-vaas-schedule-test-pass.md
+  - title: Didacticiels pas à pas
+    items:
+      - type: paragraph
+        text: Découvrez comment valider votre matériel Azure Stack.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-solution-new">Valider une nouvelle solution Azure Stack</a>
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-oem-package">Valider les packages OEM</a>
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">Valider les mises à jour logicielles issues de Microsoft</a>

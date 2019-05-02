@@ -1,0 +1,73 @@
+---
+title: Infrastructure des rapports d’utilisation pour les fournisseurs de services cloud | Microsoft Docs
+description: Azure Stack inclut l’infrastructure nécessaire pour suivre l’utilisation prise en charge par un fournisseur de services cloud (CSP) au moment où elle se produit et la transfère à Azure.
+services: azure-stack
+documentationcenter: ''
+author: WenJason
+manager: digimobile
+editor: ''
+ms.service: azure-stack
+ms.workload: na
+pms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 01/05/2019
+ms.date: 04/29/2019
+ms.author: v-jay
+ms.reviewer: alfredop
+ms.lastreviewed: 01/05/2019
+ms.openlocfilehash: 1b8b83491211ae26493a6bb41c7f0f219f47f620
+ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "64307193"
+---
+# <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>Infrastructure des rapports d’utilisation pour les fournisseurs de services Cloud
+
+Azure Stack inclut l’infrastructure nécessaire pour suivre l’utilisation au moment où elle se produit et la transfère à Azure. Dans Azure, Azure Commerce traite les données d’utilisation et facture l’utilisation aux abonnements Azure appropriés. Cela se déroule de la même façon que la surveillance du suivi de l’utilisation dans le cloud Azure global.
+
+Vous devez noter que certains concepts sont cohérents entre Azure global et Azure Stack. Azure Stack a des abonnements locaux qui remplissent un rôle similaire à un abonnement Azure. Les abonnements locaux sont valides uniquement localement. Les abonnements locaux sont mappés à des abonnements Azure quand l’utilisation est transférée à Azure.
+
+Azure Stack dispose de compteurs d’utilisation locale. L’utilisation locale est mappée aux compteurs utilisés dans Azure Commerce. Toutefois, les ID de compteurs sont différents. Les compteurs disponibles localement sont plus nombreux que ceux que Microsoft utilise pour la facturation.
+
+Il existe des différences entre la façon dont la tarification des services est fixée dans Azure Stack et dans Azure. Par exemple, dans Azure Stack, les frais pour les machines virtuelles reposent uniquement sur la mémoire à tores magnétiques virtuelle (vcore)/les heures, avec le même tarif pour toutes les séries de machine virtuelle, contrairement à Azure. Cela s’explique par le fait que dans Azure global, les différents prix reflètent les différents matériels. Dans Azure Stack, étant donné que le client fournit le matériel, il n’y a aucune raison d’appliquer une tarification différente pour les différentes catégories de machine virtuelle.
+
+Vous trouverez plus d’informations sur les compteurs Azure Stack utilisés dans Azure Commerce et leurs prix dans l’Espace partenaires, comme vous le feriez pour les services Azure :
+
+1. Dans l’Espace partenaires, accédez au **menu Tableau de bord** > **Tarification et offres**.
+2. Sous **Services basés sur l’utilisation**, sélectionnez **Actuelle**.
+3. Ouvrez la feuille de calcul**Liste des prix Azure dans l’environnement CSP global**.
+4. Filtrez sur **Region = Azure Stack**.
+
+## <a name="usage-and-billing-error-codes"></a>Codes d’erreur d’utilisation et de facturation
+
+Les messages d’erreur suivants peuvent être rencontrés lors de l’ajout de locataires à une inscription.
+
+| Error                           | Détails                                                                                                                                                                                                                                                                                                                           | Commentaires                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **RegistrationNotFound**            | L’inscription fournie est introuvable. Vérifiez que les informations suivantes ont été fournies correctement :<br>1. Identificateur d’abonnement (valeur fournie : _identificateur de l’abonnement_),<br>2. Groupe de ressources (valeur fournie : _groupe de ressources_),<br>3. Nom d’inscription (valeur fournie : _nom de l’inscription_).                             | Cette erreur se produit généralement quand les informations pointant vers l’inscription initiale ne sont pas correctes. Pour vérifier le groupe de ressources et le nom de votre inscription, consultez le portail Azure, en répertoriant toutes les ressources. Si vous trouvez plusieurs ressources d’inscription, examinez la valeur **CloudDeploymentID** dans les propriétés, puis sélectionnez l’inscription dont la valeur **CloudDeploymentID** correspond à celle de votre cloud. Pour rechercher la valeur **CloudDeploymentID**, vous pouvez utiliser la commande PowerShell suivante sur l’environnement Azure Stack :<br>`$azureStackStampInfo = Invoke-Command -Session $session -ScriptBlock { Get-AzureStackStampInformation }` |
+| **BadCustomerSubscriptionId**       | L’_identificateur d’abonnement du client_ et l’identificateur d’abonnement du _nom d’inscription_ fournis ne sont pas détenus par le même fournisseur de services cloud Microsoft. Vérifiez que l’identificateur d’abonnement du client est correct. Si le problème persiste, contactez le support technique. | Cette erreur se produit quand l’abonnement du client est un abonnement CSP, mais qu’il est associé à un partenaire CSP différent de celui auquel est associé l’abonnement utilisé pour l’inscription initiale. Cette vérification est effectuée afin d’éviter une situation qui entraînerait la facturation d’un partenaire CSP qui n’est pas responsable de l’environnement Azure Stack utilisé.                                                                                                                                                                                                                                                                          |
+| **InvalidCustomerSubscriptionId**   | La valeur '_identificateur d’abonnement du client_' n’est pas valide. Vérifiez qu’un abonnement Azure valide est fourni.                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **CustomerSubscriptionNotFound**    | L’_identificateur d’abonnement du client_ est introuvable sous le nom _registration. Vérifiez qu’un abonnement Azure valide est utilisé et que l’identificateur d’abonnement a été ajouté à l’inscription à l’aide de l’opération PUT.                                                   | Cette erreur se produit quand vous tentez de vérifier qu’un locataire a été ajouté à un abonnement et que l’abonnement du client est introuvable pour être associé à l’inscription. Le client n’a pas été ajouté à l’inscription ou l’ID de l’abonnement a été écrit de manière incorrecte.                                                                                                                                                                                                                                                                                                                                |
+| **UnauthorizedCspRegistration**     | Le _nom d’inscription_ fourni n’est pas approuvé pour utiliser la mutualisation. Envoyez un e-mail à azstCSP@microsoft.com et incluez le nom, le groupe de ressources et l’identificateur d’abonnement de votre inscription utilisés pour l’inscription.                                                                                    | Une inscription doit être approuvée pour la mutualisation par Microsoft avant que vous puissiez y ajouter des locataires.                                                                                                                                                                                                                                                                                                                                                                                             |
+| **CustomerSubscriptionsNotAllowed** | Les opérations d’abonnement de client ne sont pas prises en charge pour les clients déconnectés. Pour pouvoir utiliser cette fonctionnalité, réinscrivez-vous avec une licence de paiement à l’utilisation.                                                                                                                                                                    | L’inscription à laquelle vous essayez d’ajouter des locataires est une inscription de capacité, c’est-à-dire que le paramètre `BillingModel Capacity` a été utilisé lors de la création de l’inscription. Seules les inscriptions avec paiement à l’utilisation sont autorisées à ajouter des locataires. Vous devez vous réinscrire en utilisant le paramètre `BillingModel PayAsYouUse`.                                                                                                                                                                                                                                                                                          |
+| **InvalidCSPSubscription**          | L’_identificateur d’abonnement du client_ fourni n’est pas un abonnement CSP valide. Vérifiez qu’un abonnement Azure valide est fourni.                                                                                                                                                        | Cela est probablement dû à une saisie incorrecte de l’abonnement du client.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| **MetadataResolverBadGatewayError** | Un des serveurs en amont a renvoyé une erreur inattendue. Réessayez ultérieurement. Si le problème persiste, contactez le support technique.                                                                                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+
+## <a name="terms-used-for-billing-and-usage"></a>Termes utilisés pour la facturation et l’utilisation
+
+Les termes et concepts suivants sont utilisés pour l’utilisation et la facturation dans Azure Stack :
+
+| Terme | Définition |
+| --- | --- |
+| Partenaire CSP direct | Un partenaire fournisseur de solutions cloud (CSP) direct reçoit une facture directement de Microsoft pour l’utilisation d’Azure et d’Azure Stack et facture directement les clients. |
+| Fournisseur de solutions cloud (CSP) indirect | Les revendeurs indirects travaillent avec un fournisseur indirect (également appelé serveur de distribution). Les revendeurs recrutement des clients finaux. Le fournisseur indirect maintient la relation de facturation avec Microsoft, gère la facturation du client et fournit des services supplémentaires tels que le support technique. |
+| Client final | Les clients finaux sont les entreprises et les organismes publics qui possèdent les applications et d’autres charges de travail qui s’exécutent sur Azure Stack. |
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- Pour en savoir plus sur le programme CSP, consultez [Programme des fournisseurs de solutions cloud](https://partner.microsoft.com/solutions/microsoft-cloud-solutions).
+- Pour en savoir plus sur la récupération d’informations d’utilisation de ressources à partir d’Azure Stack, consultez [Utilisation et facturation dans Azure Stack](azure-stack-billing-and-chargeback.md).
+
+<!-- Update_Description: wording update -->
