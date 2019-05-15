@@ -3,7 +3,7 @@ title: Gestion et mise à jour des machines virtuelles avec Azure Stack | Micros
 description: Découvrez comment utiliser les solutions Azure Monitor pour machines virtuelles, Update Management, Change Tracking et Inventory dans Azure Automation pour gérer les machines virtuelles Windows et Linux déployées dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: cb8258c0f837d0e70ba87a26246f055b0efe5c00
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 6726e8ff261565691e2e9e3c01827e8e056db139
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311513"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618822"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Gestion et mise à jour des machines virtuelles avec Azure Stack
 Vous pouvez utiliser les fonctionnalités des solutions Azure Automation suivantes pour gérer les machines virtuelles Windows et Linux déployées avec Azure Stack :

@@ -3,25 +3,24 @@ title: Mettre à jour Azure App Service sur Azure Stack | Microsoft Docs
 description: Instructions détaillées pour la mise à jour d’Azure App Service dans Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/18/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 03/18/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: f451d59d11c79198a3bce3ec358769d423948d29
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: bc379bfa93983c2e1579ebf657ce86558abc7d20
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64308867"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618212"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Mettre à jour Azure App Service sur Azure Stack
 

@@ -3,7 +3,7 @@ title: Utilisation de bases de données SQL sur Azure Stack | Microsoft Docs
 description: Découvrez comment déployer des bases de données SQL en tant que service sur Azure Stack et les étapes rapides à suivre pour déployer l’adaptateur de fournisseur de ressources SQL Server.
 services: azure-stack
 documentationCenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 2a558bc6276384cd78c1d20bfbaf09ebd9860fa1
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 12815bff535e45f42481d17029467227650e8aea
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307811"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618429"
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Utiliser des bases de données SQL sur Microsoft Azure Stack
 

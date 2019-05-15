@@ -3,7 +3,7 @@ title: Utilisation de bases de données MySQL sur Azure Stack | Microsoft Docs
 description: Découvrez comment déployer des bases de données MySQL en tant que services sur Azure Stack et les étapes rapides à suivre pour déployer l’adaptateur de fournisseur de ressources MySQL Server.
 services: azure-stack
 documentationCenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 9b2fb5f6ae1fef29801f7decc6adfbd7e68abd0c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 197c5002378be8229a6ec60fc0f3d7659b7c56b9
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64308297"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618150"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Déployer un fournisseur de ressources MySQL sur Azure Stack
 

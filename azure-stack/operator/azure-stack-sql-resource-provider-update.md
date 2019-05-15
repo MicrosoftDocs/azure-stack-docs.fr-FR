@@ -3,7 +3,7 @@ title: Mise à jour du fournisseur de ressources SQL Azure Stack | Microsoft Doc
 description: Découvrez comment vous pouvez mettre à jour le fournisseur de ressources SQL Azure Stack.
 services: azure-stack
 documentationCenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 5238c60493820fe6d784049da9862b4347e563c4
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 558853309faecbf2955a08d7a8f629d83a38dbd1
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307331"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617831"
 ---
 # <a name="update-the-sql-resource-provider"></a>Mettre à jour le fournisseur de ressources SQL
 

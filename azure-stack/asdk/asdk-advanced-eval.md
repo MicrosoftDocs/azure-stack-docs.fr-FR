@@ -3,8 +3,8 @@ title: Tâches d’évaluation avancées d’Azure Stack | Microsoft Docs
 description: Cet article aborde les tâches d’évaluation avancées d’Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 02/12/2019
+ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 04a1dbb28c55fff15d1087bc85ca65e5dcc7b8c0
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: a0b42a600036cca90741cd64517a86e8ae3a7344
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64306371"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65615825"
 ---
 # <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>Tâches d’évaluation avancées du kit de développement Azure Stack
 Une fois familiarisé avec les fonctionnalités de base du kit de développement Azure Stack (ASDK), vous pouvez approfondir vos connaissances d’Azure Stack en testant des scénarios plus avancés. Ces tâches d’évaluation plus avancées sont intégralement documentées dans la documentation destinée aux opérateurs Azure Stack.

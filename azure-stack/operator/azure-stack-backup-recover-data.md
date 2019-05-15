@@ -3,8 +3,8 @@ title: Récupérer suite à une perte catastrophique de données dans Azure Stac
 description: Lorsqu’une défaillance catastrophique provoque l’échec d’Azure Stack, vous pouvez restaurer vos données d’infrastructure lors du rétablissement de votre déploiement Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.assetid: 2ECE8580-0BDE-4D4A-9120-1F6771F2E815
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 02/12/2019
+ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 3fd91ef17415e2c6ebb735fdedb098f8aa319d8c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: f459804d33871ec97bf50e55ed01685001dcbfc7
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307445"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617917"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Récupérer des données suite à une perte catastrophique
 
@@ -76,5 +75,3 @@ Aucune ressource Infrastructure as a Service (IaaS) ou Platform as a Service (Pa
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur les meilleures pratiques relatives à l’[utilisation du service de sauvegarde d’infrastructure](azure-stack-backup-best-practices.md).
-
-<!-- Update_Description: update metedata properties -->

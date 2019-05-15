@@ -3,24 +3,24 @@ title: Suppression du fournisseur de ressources SQL sur Azure Stack | Microsoft 
 description: Découvrez comment supprimer le fournisseur de ressources SQL de votre déploiement Azure Stack.
 services: azure-stack
 documentationCenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/20/2018
-ms.date: 12/31/2018
-ms.author: v-jay
+ms.date: 11/20/2018
+ms.author: mabrigg
 ms.reviewer: quying
-ms.openlocfilehash: ac0b4ddf876fb8108e20eeaf48c6fb0ab797af0d
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 11/20/2018
+ms.openlocfilehash: d7b512315eb1631d37ed51a2dcb83015fad197be
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307937"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618413"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Supprimer le fournisseur de ressources SQL
 

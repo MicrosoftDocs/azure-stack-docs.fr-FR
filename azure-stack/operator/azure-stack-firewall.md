@@ -3,8 +3,8 @@ title: Planification de l’intégration d’Azure Stack à un pare-feu pour les
 description: Décrit les considérations relatives à l’intégration d’Azure Stack à un pare-feu pour les déploiements d’Azure Stack à plusieurs nœuds connectés à Azure.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 02/12/2019
+ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 023201d221ee5d7ec884c6a760407e8da8340d3f
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: a98f89866fd7679a0d6ce7c6ecb40d7e8e8b51e7
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64309989"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618690"
 ---
 # <a name="azure-stack-firewall-integration"></a>Intégration d’Azure Stack à un pare-feu
 Nous vous recommandons d’utiliser un dispositif de pare-feu pour sécuriser Azure Stack. Les pare-feu peuvent contribuer à la défense contre les attaques par déni de service distribué (DDoS), à la détection des intrusions et à l'inspection de contenu. Mais ils peuvent également se transformer en goulot d'étranglement pour les services de stockage Azure (objets blobs, tables, files d'attente, etc.).

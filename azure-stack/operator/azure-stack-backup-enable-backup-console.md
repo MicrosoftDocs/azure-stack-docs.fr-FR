@@ -3,7 +3,7 @@ title: Activer la sauvegarde d’Azure Stack à partir du portail d’administra
 description: Activez le service de sauvegarde d’infrastructure via le portail d’administration pour permettre la restauration d’Azure Stack en cas de panne.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: 56C948E7-4523-43B9-A236-1EF906A0304F
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 829516e145e56ca9e0409494052f64f5cc059fc8
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: adda9ec9052c11e412c7bd251482e1e3a5c09223
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64309413"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618177"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Activer la sauvegarde d’Azure Stack à partir du portail d’administration
 Activez le service Infrastructure Backup sur le portail d’administration afin qu’Azure Stack puisse générer des sauvegardes de l’infrastructure. Le partenaire matériel peut utiliser ces sauvegardes pour restaurer votre environnement par récupération cloud en cas [d’erreur grave](./azure-stack-backup-recover-data.md). L’objectif d’une récupération cloud est de s’assurer que les opérateurs et utilisateurs peuvent se reconnecter au portail une fois la récupération terminée. Les abonnements des utilisateurs sont restaurés : rôles et autorisations d’accès en fonction du rôle, plans et offres d’origine, quotas de calcul, de stockage et de réseau définis précédemment et secrets Key Vault.
