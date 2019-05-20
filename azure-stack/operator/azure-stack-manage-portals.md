@@ -16,12 +16,12 @@ ms.date: 02/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 02/25/2019
-ms.openlocfilehash: 02b761531546b621cf35ac357ebc61114ccb6310
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 71932642d8c44d2043fe185eab3ebda25be7bb3f
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985170"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618616"
 ---
 # <a name="quickstart-use-the-azure-stack-administration-portal"></a>Démarrage rapide : Utiliser le portail d’administration Azure Stack
 
