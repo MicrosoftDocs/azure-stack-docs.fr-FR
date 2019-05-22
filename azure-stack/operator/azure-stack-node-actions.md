@@ -3,25 +3,24 @@ title: Mettre à l’échelle des actions de nœud d’unité dans Azure Stack |
 description: Découvrez comment afficher l’état d’un nœud et utiliser les actions de nœud (mise sous tension, mise hors tension, désactivation et reprise) sur un système intégré Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 01/22/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 05/16/2019
+ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: cd7e66961a0b9a80150a3d3e132efd29485cdb66
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: fa0292419a228fcf9bbfef2bbfc2503f4ba5a702
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307865"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782332"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Mettre à l’échelle des actions de nœud d’unité dans Azure Stack
 
@@ -86,7 +85,7 @@ Cette action est généralement utilisée lorsqu’un nœud est dans un état su
 
 Pour exécuter l’action d’arrêt, ouvrez une invite de commandes PowerShell avec élévation de privilèges et exécutez l’applet de commande suivante :
 
-```PowerShell  
+```powershell  
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -100,7 +99,7 @@ L’action de **démarrage** active le nœud. Cela revient à appuyer sur le bou
  
 Pour exécuter l’action de démarrage, ouvrez une invite de commandes PowerShell avec élévation de privilèges et exécutez l’applet de commande suivante :
 
-```PowerShell  
+```powershell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -119,7 +118,7 @@ Cette action est généralement utilisée au cours du remplacement de champs de 
 
 Pour exécuter l’action de vidage, ouvrez une invite de commandes PowerShell avec élévation de privilèges et exécutez l’applet de commande suivante :
 
-```PowerShell  
+```powershell  
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -131,7 +130,7 @@ L’action de **reprise** reprend un nœud désactivé et le marque comme actif 
 
 Pour exécuter l’action de reprise, ouvrez une invite de commandes PowerShell avec élévation de privilèges et exécutez l’applet de commande suivante :
 
-```PowerShell  
+```powershell  
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -150,7 +149,7 @@ Lorsque vous exécutez l’action de réparation, vous devez spécifier l’adre
 
 Pour exécuter l’action de réparation, ouvrez une invite de commandes PowerShell avec élévation de privilèges et exécutez l’applet de commande suivante :
 
-  ```PowerShell
+  ```powershell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
   ```
 
@@ -164,7 +163,7 @@ En cas d’échec de l’opération d’arrêt, essayez l’opération de [drain
 
 Pour exécuter l’action d’arrêt, ouvrez une invite PowerShell avec élévation de privilèges, puis exécutez l’applet de commande suivante :
 
-  ```PowerShell
+  ```powershell
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 

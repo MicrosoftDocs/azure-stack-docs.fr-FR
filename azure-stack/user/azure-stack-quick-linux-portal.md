@@ -7,17 +7,17 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 37ff24258b12c9b042c7b0dc5a113a62d1d1ec60
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 2c0997599b8da1f77f61e0953eb56f834f718efb
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64477358"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782828"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Démarrage rapide : créer une machine virtuelle serveur Linux avec le portail Azure Stack
 
@@ -49,7 +49,7 @@ Vous pouvez créer une machine virtuelle Ubuntu Server 16.04 LTS à partir du p
 
 Vous avez besoin d’une paire de clés SSH pour terminer toutes les étapes de cet article. Si vous disposez déjà d’une paire de clés SSH, vous pouvez ignorer cette étape.
 
-1. Accédez au dossier d’installation PuTTY (l’emplacement par défaut est ```C:\Program Files\PuTTY```) et exécutez ```puttygen.exe```.
+1. Accédez au dossier d’installation PuTTY (l’emplacement par défaut est `C:\Program Files\PuTTY`) et exécutez `puttygen.exe`.
 2. Dans la fenêtre PuTTY Key Generator (Générateur de clé PuTTY), vérifiez que le type de clé à générer (**Type of key to generate**) est **RSA** et que le nombre de bits dans une clé générée (**Number of bits in a generated key**) est **2048**. Quand vous êtes prêt, cliquez sur **Générer**.
 
    ![Configuration du générateur de clé PuTTY](media/azure-stack-quick-linux-portal/Putty01.PNG)
@@ -106,7 +106,7 @@ Connectez-vous au portail Azure Stack. L’adresse du portail Azure Stack varie 
    ![Connecter une machine virtuelle](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. Défiler vers le haut dans la fenêtre **catégorie**, puis cliquez sur **Session**.
-5. Dans la zone **Nom d’hôte (ou adresse IP)**, collez la chaîne de connexion affichée dans le portail Azure Stack. Dans cet exemple, la chaîne est ```asadmin@192.168.102.34```.
+5. Dans la zone **Nom d’hôte (ou adresse IP)**, collez la chaîne de connexion affichée dans le portail Azure Stack. Dans cet exemple, la chaîne est `asadmin@192.168.102.34`.
 
    ![Chaîne de connexion de configuration puTTY](media/azure-stack-quick-linux-portal/Putty04.PNG)
 
@@ -145,7 +145,7 @@ Un groupe de sécurité réseau (NSG) sécurise les trafics entrant et sortant. 
 
 Avec NGINX installé et le port 80 ouvert sur votre machine virtuelle, vous pouvez accéder au serveur web à l’aide de l’adresse IP publique de la machine virtuelle. (L’adresse IP publique est affichée sur la page de vue d’ensemble de la machine virtuelle.)
 
-Ouvrez un navigateur web et accédez à ```http://<public IP address>```.
+Ouvrez un navigateur web et accédez à `http://<public IP address>`.
 
 ![Page d’accueil du serveur web NGINX](media/azure-stack-quick-linux-portal/linux-05.PNG)
 

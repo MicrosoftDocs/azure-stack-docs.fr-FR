@@ -3,24 +3,23 @@ title: Surveiller l’intégrité et les alertes dans Azure Stack | Microsoft Do
 description: Découvrez comment surveiller l’intégrité et les alertes dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/18/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 05/16/2019
+ms.author: mabrigg
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 3e37b8f45d7068586d20b9c4b3ccdabb017d0416
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 4763025917172e3b8acaeb1ad748410e65143864
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64309569"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782517"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Surveiller l’intégrité et les alertes dans Azure Stack
 
@@ -96,5 +95,3 @@ Une fois l’instance de rôle d’infrastructure de nouveau en ligne, cette ale
 [Gérer les mises à jour dans Azure Stack](azure-stack-updates.md)
 
 [Gestion des régions dans Azure Stack](azure-stack-region-management.md)
-
-<!-- Update_Description: wording update -->

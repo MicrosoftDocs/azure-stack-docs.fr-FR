@@ -2,20 +2,20 @@
 title: Présentation de la gestion réseau Azure Stack | Microsoft Docs
 description: En savoir plus sur la gestion réseau Azure Stack
 services: azure-stack
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
-ms.topic: get-started-article
-origin.date: 09/28/2018
-ms.date: 11/12/2018
-ms.author: v-jay
+ms.topic: conceptual
+ms.date: 05/16/2019
+ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: 67465a64f38ce4767b384cf5395179c0dbcb99fe
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: 7eb57c38de01c3ad7de34b96b4c6baf7a4c14ad8
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310271"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782608"
 ---
 # <a name="introduction-to-azure-stack-networking"></a>Présentation de la gestion réseau Azure Stack
 
@@ -44,4 +44,3 @@ Azure Stack fournit un éventail de fonctionnalités de mise en réseau qui peuv
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Considérations relatives à la mise en réseau Azure Stack](azure-stack-network-differences.md)
-<!-- Update_Description: wording update -->

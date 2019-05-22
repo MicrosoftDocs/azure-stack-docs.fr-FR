@@ -3,24 +3,23 @@ title: Activer Azure CLI pour les utilisateurs d’Azure Stack | Microsoft Docs
 description: Découvrez comment utiliser l’interface de ligne de commande (CLI) multiplateforme pour gérer et déployer des ressources sur Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: article
-origin.date: 01/15/2019
-ms.date: 04/29/2019
-ms.author: v-jay
-ms.lastreviewed: 01/15/2019
-ms.openlocfilehash: efec1cc58b263c9580ab4a8ab3d7973a8f230d93
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.date: 05/16/2019
+ms.author: mabrigg
+ms.lastreviewed: 05/16/2019
+ms.openlocfilehash: ace99053d9aac4c525e9481e5430ac1f5648f194
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64306389"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782328"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Activer Azure CLI pour les utilisateurs d’Azure Stack
 
@@ -61,7 +60,7 @@ certutil -encode root.cer root.pem
 
 Nous recommandons aux opérateurs Azure Stack de configurer un point de terminaison accessible publiquement qui héberge un fichier d’alias de machines virtuelles. Le fichier d’alias de machines virtuelles est un fichier JSON qui fournit un nom commun pour une image. Vous utiliserez ce nom lorsque vous déploierez une machine virtuelle en tant que paramètre Azure CLI.  
 
-Avant d'ajouter une entrée à un fichier d'alias, pensez à [télécharger les images à partir de la Place de marché Azure](azure-stack-download-azure-marketplace-item.md) ou à [publier votre propre image personnalisée](azure-stack-add-vm-image.md). Si vous publiez une image personnalisée, prenez note des informations concernant l’éditeur, l’offre, la référence (SKU) et la version que vous avez spécifiées lors de la publication. S'il s'agit d'une image provenant de la Place de marché, vous pouvez afficher les informations en utilisant la cmdlet ```Get-AzureVMImage```.  
+Avant d'ajouter une entrée à un fichier d'alias, pensez à [télécharger les images à partir de la Place de marché Azure](azure-stack-download-azure-marketplace-item.md) ou à [publier votre propre image personnalisée](azure-stack-add-vm-image.md). Si vous publiez une image personnalisée, prenez note des informations concernant l’éditeur, l’offre, la référence (SKU) et la version que vous avez spécifiées lors de la publication. S'il s'agit d'une image provenant de la Place de marché, vous pouvez afficher les informations en utilisant la cmdlet `Get-AzureVMImage`.  
 
 Un [exemple de fichier d’alias](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) contenant de nombreux alias d’images communs est disponible. Vous pouvez l’utiliser comme point de départ. Hébergez ce fichier dans un espace accessible à vos clients utilisant l’interface CLI. Une façon de le faire consiste à héberger le fichier dans un compte Stockage Blob et à partager l’URL avec vos utilisateurs :
 

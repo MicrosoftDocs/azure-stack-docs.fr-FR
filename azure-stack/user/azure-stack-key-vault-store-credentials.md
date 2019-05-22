@@ -3,24 +3,23 @@ title: Stockage d’informations d’identification du principal de service Azur
 description: Découvrez comment Key Vault stocke les informations d’identification du principal de service sur Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/16/2019
-ms.date: 02/18/2019
-ms.author: v-jay
+ms.date: 05/21/2019
+ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d4bc560a1c607d4a12cfb3d08ffeacf9b5d2196a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 1a9fc71f6e57621dba4488821ea2ca8b1e119e48
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310859"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991324"
 ---
 # <a name="store-service-principal-credentials-in-key-vault"></a>Stocker les informations d’identification du principal de service dans Key Vault
 

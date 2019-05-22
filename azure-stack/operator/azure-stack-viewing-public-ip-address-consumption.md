@@ -3,24 +3,24 @@ title: Afficher la consommation d’adresses IP publiques dans Azure Stack | Mic
 description: Les administrateurs peuvent afficher la consommation d’adresses IP publiques dans une région
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 01/14/2019
-ms.date: 03/18/2019
-ms.author: v-jay
+ms.topic: conceptual
+ms.date: 05/16/2019
+ms.author: mabrigg
+ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 2cb1dde60f8d8aa76e0b678347df9be120c39e7c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 35dc40fc3539038ab3c44318374e8c1fb327e6e4
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64308729"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782439"
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>Afficher la consommation d’adresses IP publiques dans Azure Stack
 
@@ -73,5 +73,3 @@ Quand une adresse IP publique est affectée, elle apparaît dans une liste ou da
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Gérer les comptes de stockage dans Azure Stack](azure-stack-manage-storage-accounts.md)
-
-<!-- Update_Description: wording update -->
