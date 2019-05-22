@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 05/07/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 68ba971ada087bed31a65db037963b601953f1c6
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 476ffeaf7712e5cee22befbc822545382f808de5
+ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64309563"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65386619"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Déléguer des offres dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-En tant qu’opérateur Azure Stack, vous êtes souvent amené à confier à d’autres personnes la charge d’inscrire les utilisateurs et de créer des inscriptions. Par exemple, si vous êtes un fournisseur de services et souhaitez que les revendeurs inscrivent les clients et les gèrent à votre place. Si vous faites partie d’un groupe informatique centralisé d’une entreprise, vous pouvez aussi déléguer l’inscription des utilisateurs à d’autres membres de l’équipe informatique.
+En tant qu’opérateur Azure Stack, vous pouvez être amené à confier à d’autres personnes la charge d’inscrire des utilisateurs et de créer des abonnements. Par exemple, si vous êtes un fournisseur de services et souhaitez que les revendeurs inscrivent les clients et les gèrent à votre place. Si vous faites partie d’un groupe informatique centralisé d’une entreprise, vous pouvez aussi déléguer l’inscription des utilisateurs à d’autres membres de l’équipe informatique.
 
 La délégation permet d’atteindre et de gérer plus facilement davantage d’utilisateurs que ce que vous pouvez faire par vous-même, comme le montre la figure suivante :
 
@@ -34,9 +34,7 @@ La délégation permet d’atteindre et de gérer plus facilement davantage d’
 
 Avec la délégation, le fournisseur délégué gère une offre (offre déléguée) et les clients finaux obtiennent des inscriptions sous cette offre, sans intervention de l’administrateur système.
 
-## <a name="understand-delegation-roles-and-steps"></a>Comprendre les rôles et les étapes de la délégation
-
-### <a name="delegation-roles"></a>Rôles de la délégation
+## <a name="delegation-roles"></a>Rôles de la délégation
 
 Les rôles suivants font partie de la délégation :
 
@@ -46,7 +44,7 @@ Les rôles suivants font partie de la délégation :
 
 * Les *utilisateurs* s’inscrivent aux offres et les utilisent pour gérer leurs charges de travail, la création de machines virtuelles, le stockage des données, etc.
 
-### <a name="delegation-steps"></a>Étapes de la délégation
+## <a name="delegation-steps"></a>Étapes de la délégation
 
 Vous configurez une délégation en deux étapes principales :
 
@@ -58,7 +56,7 @@ La figure suivante illustre les étapes de configuration d’une délégation :
 
 ![Créer le fournisseur délégué et lui permettre d’inscrire des utilisateurs](media/azure-stack-delegated-provider/image2.png)
 
-#### <a name="delegated-provider-requirements"></a>Exigences pour le fournisseur délégué
+### <a name="delegated-provider-requirements"></a>Exigences pour le fournisseur délégué
 
 Pour agir comme fournisseur délégué, un utilisateur établit une relation avec le fournisseur principal en créant un abonnement. Cet abonnement identifie le fournisseur délégué comme ayant le droit de présenter des offres déléguées pour le compte du fournisseur principal.
 

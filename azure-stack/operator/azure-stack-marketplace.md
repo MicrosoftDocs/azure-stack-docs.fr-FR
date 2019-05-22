@@ -3,8 +3,8 @@ title: Publier un élément de Place de Marché personnalisé dans Azure Stack (
 description: En tant qu’opérateur Azure Stack, découvrez comment publier un élément de Place de Marché personnalisé dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: 60871cbb-eed2-433c-a76d-d605c7aec06c
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2019
-ms.date: 02/18/2019
-ms.author: v-jay
+ms.date: 05/07/2019
+ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 6c1750e6a523828400b3d06d4e1c22fb34f8273f
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 70a1e1223accda5dfb273372da486588fb030afc
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307601"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172752"
 ---
 # <a name="azure-stack-marketplace-overview"></a>Vue d’ensemble de la Place de Marché Azure Stack
 
@@ -37,7 +36,7 @@ En tant qu’opérateur Azure Stack, c’est vous qui décidez des éléments à
 
 Pour ouvrir Place de marché, dans la console d’administration, sélectionnez **+ Créer une ressource**.
 
-![Marketplace](media/azure-stack-publish-custom-marketplace-item/image1.png)
+![Marketplace](media/azure-stack-marketplace/marketplace1.png)
 
 ## <a name="marketplace-items"></a>Éléments du Marketplace
 
@@ -49,7 +48,7 @@ Chaque élément du Marketplace comporte :
 * Les métadonnées telles que les chaînes, les icônes et autres supports marketing.
 * Des informations de mise en forme permettant d’afficher l’élément dans le portail.
 
-Chaque élément publié sur Marketplace utilise un format Azure Gallery Package (.azpkg). Ajoutez les ressources de déploiement ou d’exécution (code, fichiers zip avec logiciels, ou images de machine virtuelle) à Azure Stack séparément, et non dans le cadre de l’élément de Place de Marché.
+Chaque élément publié sur Marketplace utilise un format Azure Gallery Package (.azpkg). Ajoutez les ressources de déploiement ou de runtime (code, fichiers .zip avec logiciels, ou images de machine virtuelle) à Azure Stack séparément, et non dans le cadre de l’élément de Place de Marché.
 
 Avec la version 1803 ou plus, Azure Stack convertit les images en fichiers partiellement alloués lors du téléchargement à partir d’Azure ou lorsque vous téléchargez des images personnalisées. Ce processus ajoute du temps lors de l’ajout d’une image, mais économise de l’espace et accélère le déploiement de ces images. La conversion s’applique uniquement aux nouvelles images. Les images existantes ne sont pas modifiées.
 
@@ -57,5 +56,3 @@ Avec la version 1803 ou plus, Azure Stack convertit les images en fichiers parti
 
 * [Télécharger des éléments de la Place de marché](azure-stack-download-azure-marketplace-item.md)  
 * [Créer et publier un élément de Place de Marché](azure-stack-create-and-publish-marketplace-item.md)
-
-<!-- Update_Description: wording update -->

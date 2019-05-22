@@ -3,25 +3,24 @@ title: Ajouter des locataires pour l’utilisation et la facturation sur Azure S
 description: Les étapes requises permettent d’ajouter un utilisateur final à Azure Stack géré par un fournisseur de services cloud.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/05/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 05/07/2019
+ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 8e177944a5f57c9475287325b705fac34ec513c0
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 5f03b80b871d3df467bc52b735432ce5568a3ad8
+ms.sourcegitcommit: a78c0d143eadcab65a601746b9ea24be28091ad2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307823"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212301"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Ajouter un locataire pour l’utilisation et la facturation sur Azure Stack
 
@@ -33,34 +32,36 @@ Les fournisseurs de services cloud proposent souvent des services à plusieurs c
 
 La figure suivante illustre les étapes qu’un fournisseur de services cloud doit suivre pour permettre à un nouveau client d’utiliser Azure Stack et pour configurer le suivi de l’utilisation pour le client. En ajoutant le client final, vous pouvez également gérer les ressources dans Azure Stack. Deux options s’offrent à vous pour gérer ses ressources :
 
-1. Vous pouvez conserver le client final et fournir les informations d’identification de l’abonnement Azure Stack local au client final.  
-2. L’utilisateur final peut travailler avec son abonnement en local et ajouter le fournisseur de services cloud en tant qu’invité avec des autorisations de propriétaire.  
+- Vous pouvez conserver le client final et fournir les informations d’identification de l’abonnement Azure Stack local au client final.  
+- L’utilisateur final peut travailler avec son abonnement en local et ajouter le fournisseur de services cloud en tant qu’invité avec des autorisations de propriétaire.  
 
-## <a name="steps-to-add-an-end-customer"></a>Étapes à suivre pour l’ajout d’un client final
+## <a name="add-an-end-customer"></a>Ajouter un client final
+
+Procédez comme suit pour ajouter un client final, comme illustré dans la figure suivante :
 
 ![Configurer le fournisseur de services cloud pour le suivi de l’utilisation et pour gérer le compte du client final](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
 
 ### <a name="create-a-new-customer-in-partner-center"></a>Créer un client dans l’Espace partenaires
 
-Dans l’Espace partenaires, créez un abonnement Azure pour le client. Pour obtenir des instructions, consultez [Ajouter un nouveau client](https://msdn.microsoft.com/partner-center/add-a-new-customer).
+Dans l’Espace partenaires, créez un abonnement Azure pour le client. Pour obtenir des instructions, consultez [Ajouter un nouveau client](/partner-center/add-a-new-customer).
 
 ### <a name="create-an-azure-subscription-for-the-end-customer"></a>Créer un abonnement Azure pour le client final
 
-Une fois que vous avez créé un enregistrement de votre client dans l’Espace partenaires, vous pouvez lui vendre des abonnements à des produits figurant dans le catalogue. Pour obtenir des instructions, consultez [Créer un abonnement](https://msdn.microsoft.com/partner-center/create-a-new-subscription).
+Une fois que vous avez créé un enregistrement de votre client dans l’Espace partenaires, vous pouvez lui vendre des abonnements à des produits figurant dans le catalogue. Pour obtenir des instructions, consultez [Créer un abonnement](/partner-center/create-a-new-subscription).
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>Créer un utilisateur invité dans le répertoire de client final
 
-Si le client final gère son propre compte, créez un utilisateur invité dans son répertoire et envoyez-lui les informations. L’utilisateur final ajoute ensuite l’invité, et élève l’autorisation d’invité pour qu’elle soit définie sur **Propriétaire** pour le compte de fournisseur de services cloud Azure Stack.
+Si le client final gère son propre compte, créez un utilisateur invité dans son répertoire et envoyez-lui les informations. L’utilisateur final ajoute ensuite l’invité et élève l’autorisation d’invité pour qu’elle soit définie sur **Propriétaire** pour le compte de fournisseur de services cloud Azure Stack.
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>Mettre à jour l’inscription avec l’abonnement du client final
 
 Mettez à jour votre inscription avec l’abonnement de nouveau client. Azure signale l’utilisation du client à l’aide de l’identité du client dans l’Espace partenaires. Cette étape garantit que l’utilisation de chaque client est signalée dans l’abonnement de fournisseur de services cloud individuel de ce client. Cela permet de faciliter le suivi de l’utilisation de l’utilisateur et la facturation.
 
 > [!NOTE]  
-> Pour pouvoir effectuer cette étape, vous devez [avoir inscrit Azure Stack](azure-stack-registration.md ).
+> Pour pouvoir effectuer cette étape, vous devez [avoir inscrit Azure Stack](azure-stack-registration.md).
 
 1. Ouvrez Windows PowerShell avec une invite élevée et exécutez :  
-    `Add-AzureRmAccount -EnvironmentName AzureChinaCloud`
+    `Add-AzureRmAccount`
 2. Entrez vos informations d’identification Azure.
 3. Dans la session PowerShell, exécutez :
 
