@@ -10,12 +10,12 @@ ms.date: 05/02/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 262b1790b102483daca1a77d475815b34aa7a1b2
-ms.sourcegitcommit: 61de365c93eb7435891867f9808ec37486882d7f
+ms.openlocfilehash: 885568035070bc4f74b94cddff200302fccfbb72
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65097128"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618100"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Intégration au centre de données Azure Stack : publier des points de terminaison
 

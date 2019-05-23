@@ -15,12 +15,12 @@ ms.date: 03/26/2019
 ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 54394d654bafae669addb2ccb0ceeb9cc4e3a6ed
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: a56e1e8c3c5109c638432652adf9260f59f6a467
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984926"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618437"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Ajouter des serveurs d’hébergement pour le fournisseur de ressources SQL
 
@@ -29,7 +29,7 @@ Vous pouvez créer une base de données SQL Server hébergeant des serveurs sur 
 > [!NOTE]
 > Le fournisseur de ressources SQL doit être créé dans l’abonnement fournisseur par défaut, alors que les serveurs d’hébergement SQL doivent être créés dans un abonnement utilisateur facturable. Le serveur du fournisseur de ressources ne doit pas héberger de bases de données utilisateur.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Avant d’ajouter un serveur d’hébergement SQL, consultez les exigences générales et obligations suivantes.
 

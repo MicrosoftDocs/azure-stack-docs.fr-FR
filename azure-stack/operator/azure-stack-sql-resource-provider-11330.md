@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 8533f5db100e9eed8bb090fdc1aac1c3d6c9b7d3
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 5e5e44ed9eca3cde0844c0eafbc4188bd1449da2
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172505"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618163"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>Notes de publication de la version 1.1.33.0 du fournisseur de ressources SQL
 

@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
+ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 2c775c982cf72d687d04b32db742fdbcd8e38fb9
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: ef82c50a8150f10fdbe2b38acf77b5539c575b51
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986139"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782793"
 ---
 # <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Créer une machine virtuelle avec un mot de passe sécurisé stocké dans un coffre de clés Azure Stack
 
@@ -27,7 +28,7 @@ ms.locfileid: "64986139"
 
 Cet article décrit pas à pas le déploiement d’une machine virtuelle Windows Server avec un mot de passe stocké dans un coffre de clés Azure Stack. L’utilisation d’un mot de passe d’un coffre de clés est plus sûre que la transmission d’un mot de passe en texte brut.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Vous pouvez stocker des valeurs, comme des mots de passe, en tant que secrets dans un coffre de clés Azure Stack. Après avoir créé un secret, vous pouvez le référencer dans des modèles Azure Resource Manager. L’utilisation de secrets avec Resource Manager offre les avantages suivants :
 

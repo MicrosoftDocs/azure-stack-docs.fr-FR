@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: d65489d0c401158b83ac20f4314fe6bdae886107
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 1dfe1cba366d9b30c53a43724741c9a9e0f65819
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983815"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618533"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Ajouter un fournisseur de ressources App Service à un environnement Azure Stack déconnecté sécurisé par AD FS
 

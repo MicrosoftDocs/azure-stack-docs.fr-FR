@@ -15,12 +15,12 @@ ms.date: 05/06/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 5725de6d9f55d31c6e9b927b3f4e62cabce15472
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 77b341baca92e53448065325118088ff01a59052
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172586"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617813"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Opérations de maintenance du fournisseur de ressources SQL
 

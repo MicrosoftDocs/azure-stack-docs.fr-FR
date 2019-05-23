@@ -17,12 +17,12 @@ ms.author: mabrigg
 ms.reviewer: prchint
 ms.lastreviewed: 04/03/2019
 ms.custom: ''
-ms.openlocfilehash: f20dd8499abf4d8c7fd2097d47e655790c19d33d
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 907a10caa2a23b58d0c63ee1abb7f4e4a074d1a1
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983998"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618915"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Planification de la capacité de calcul Azure Stack
 Les [tailles de machine virtuelle prises en charge dans Azure Stack](../user/azure-stack-vm-sizes.md) sont un sous-ensemble de celles prises en charge dans Azure. Azure impose des limites de ressources à différents niveaux pour éviter la consommation excessive des ressources (au niveau du service ou du serveur local). Si aucune limite n’est appliquée à la consommation des locataires, la surconsommation de ressources par certains locataires aurait un impact négatif sur l’expérience des autres locataires. Pour la sortie réseau de la machine virtuelle, des limites de bande passante sont en place dans Azure Stack conformément aux limites d’Azure. Pour les ressources de stockage, Azure Stack implémente des limites d’E/S par seconde de stockage pour éviter une consommation excessive de base des ressources par les locataires pour l’accès au stockage.  

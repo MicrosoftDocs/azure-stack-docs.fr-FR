@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 96708a3c88b593f0d423b227d43c356ef38c1515
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 8c6881ebcb07f2ca922bcd7d8fbfb07f395c9007
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985186"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782351"
 ---
 # <a name="manage-role-based-access-control"></a>Gérer le contrôle d’accès en fonction du rôle
 
@@ -50,5 +50,5 @@ Un utilisateur Azure Stack peut être un lecteur, un propriétaire ou un collabo
 4. Dans le panneau **Rôles**, cliquez sur **Ajouter** pour ajouter des autorisations pour le groupe Active Directory universel.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Ajouter un locataire Azure Stack](azure-stack-add-new-user-aad.md)
 
+[Ajouter un locataire Azure Stack](azure-stack-add-new-user-aad.md)
