@@ -9,39 +9,38 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 7744d1adcdcb1dde53c6ef887498a9a3978f4513
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: f7867e963551d04336ac4092e8b1b2f033c29e94
+ms.sourcegitcommit: 05a16552569fae342896b6300514c656c1df3c4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64482295"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65838328"
 ---
-# <a name="how-to-deploy-a-ruby-web-app-to-a-vm-in-azure-stack"></a>Guide pratique pour déployer une application web Ruby sur une machine virtuelle dans Azure Stack
+# <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack"></a>Déployer une application web Ruby sur une machine virtuelle dans Azure Stack
 
-Vous pouvez créer une machine virtuelle pour héberger votre application web Ruby dans Azure Stack. Cet article explique étape par étape comment configurer le serveur, le paramétrer de façon à héberger une application web Ruby, puis déployer l’application.
-
-Ruby est un langage homogène. Son créateur, Yukihiro « Matz » Matsumoto, a rassemblé certaines fonctionnalités de ses langages préférés (Perl, Smalltalk, Eiffel, Ada et Lisp) afin d’imaginer un nouveau langage qui mêlerait programmations impérative et fonctionnelle. Pour apprendre le langage de programmation Ruby et trouver des ressources supplémentaires sur Ruby, voir [Ruby-lang.org](https://www.ruby-lang.org).
+Vous pouvez créer une machine virtuelle pour héberger votre application web Ruby dans Azure Stack. Dans cet article, vous installez un serveur et vous le configurez pour qu’il héberge votre application web Ruby, puis vous déployez l’application sur Azure Stack.
 
 Cet article utilise Ruby et un framework web Ruby on Rails.
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
-1. Configurez votre machine virtuelle dans Azure Stack. Suivez les étapes de [Déployer une machine virtuelle Linux pour héberger une application web dans Azure Stack](azure-stack-dev-start-howto-deploy-linux.md).
+1. Configurez votre machine virtuelle dans Azure Stack. Pour obtenir des instructions, consultez [Déployer une machine virtuelle Linux pour héberger une application web dans Azure Stack](azure-stack-dev-start-howto-deploy-linux.md).
 
-2. Dans le panneau du réseau machines virtuelles, vérifiez que les ports suivants sont accessibles :
+2. Dans le volet du réseau de machines virtuelles, vérifiez que les ports suivants sont accessibles :
 
     | Port | Protocole | Description |
     | --- | --- | --- |
-    | 80 | HTTP | Le protocole HTTP (Hypertext Transfer Protocol) est un protocole d’application pour les systèmes d’information hypermédias, collaboratifs et distribués. Les clients se connectent à l’application web avec l’adresse IP publique ou le nom DNS de la machine virtuelle. |
-    | 443 | HTTPS | Le protocole HTTPS (Hypertext Transfer Protocol Secure) est une extension du protocole HTTP (Hypertext Transfer Protocol). Il sert à sécuriser la communication sur un réseau d’ordinateurs. Les clients se connectent à l’application web avec l’adresse IP publique ou le nom DNS de la machine virtuelle. |
-    | 22 | SSH | Le protocole SSH (Secure Shell) est un protocole réseau de chiffrement qui permet d’exploiter en toute sécurité des services réseau sur un réseau non sécurisé. Nous utiliserons cette connexion avec un client SSH pour configurer la machine virtuelle et déployer l’application. |
-    | 3389 | RDP | facultatif. Le protocole RDP (Remote Desktop Protocol) permet d’utiliser une connexion Bureau à distance avec une interface graphique utilisateur.   |
-    | 3000 | Personnalisée | Le port 3000 est utilisé par l’infrastructure web Ruby on Rails dans le développement. Pour un serveur de production, le trafic est acheminé par les ports 80 et 443. |
+    | 80 | HTTP | HTTP (Hypertext Transfer Protocol) est le protocole utilisé pour fournir des pages web à partir des serveurs. Les clients se connectent via HTTP avec une adresse IP ou un nom DNS. |
+    | 443 | HTTPS | HTTPS (Hypertext Transfer Protocol Secure) est une version sécurisée du protocole HTTP qui nécessite un certificat de sécurité pour la transmission chiffrée des informations. |
+    | 22 | SSH | SSH (Secure Shell) est un protocole réseau chiffré pour les communications sécurisées. Vous utilisez cette connexion avec un client SSH pour configurer la machine virtuelle et déployer l’application. |
+    | 3389 | RDP | facultatif. Le protocole RDP (Remote Desktop Protocol) permet d’utiliser une connexion Bureau à distance avec une interface graphique utilisateur sur votre machine.   |
+    | 3000 | Personnalisée | Port utilisé par le framework web Ruby on Rails dans le développement. Pour un serveur de production, vous routez le trafic par les ports 80 et 443. |
 
 ## <a name="install-ruby"></a>Installer Ruby
 
-1. Connectez-vous à votre machine virtuelle en utilisant votre client SSH. Pour obtenir des instructions, voir [Se connecter par SSH avec PuTTy](azure-stack-dev-start-howto-ssh-public-key.md#connect-via-ssh-with-putty).
-1. Installez le référentiel PPA. Dans l’invite Bash de votre machine virtuelle, tapez les commandes suivantes :
+1. Connectez-vous à votre machine virtuelle en utilisant votre client SSH. Pour obtenir des instructions, voir [Se connecter par SSH avec PuTTy](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty).
+
+1. Installez le référentiel PPA. À l’invite Bash sur votre machine virtuelle, entrez les commandes suivantes :
 
     ```bash  
     sudo apt -y install software-properties-common
@@ -50,14 +49,14 @@ Cet article utilise Ruby et un framework web Ruby on Rails.
     sudo apt update
     ```
 
-2. Installez Ruby et Ruby on Rails sur votre machine virtuelle. Tout en conservant la connexion à votre machine virtuelle dans votre session SSH, tapez les commandes suivantes :
+2. Installez Ruby et Ruby on Rails sur votre machine virtuelle. Tout en restant connecté à votre machine virtuelle dans votre session SSH, entrez les commandes suivantes :
 
     ```bash  
     sudo apt install ruby
     gem install rails -v 4.2.6
     ```
 
-3. Installez les dépendances Ruby on Rails. Tout en conservant la connexion à votre machine virtuelle dans votre session SSH, tapez les commandes suivantes :
+3. Installez les dépendances Ruby on Rails. Tout en restant connecté à votre machine virtuelle dans votre session SSH, entrez les commandes suivantes :
 
     ```bash  
     sudo apt-get install make
@@ -69,15 +68,15 @@ Cet article utilise Ruby et un framework web Ruby on Rails.
     ```
 
     > [!Note]  
-    > Plusieurs exécutions de `sudo gem install bundler` seront peut-être nécessaires lors de l’installation. Si l’installation de certaines dépendances échoue, consultez les journaux des erreurs et résolvez les problèmes.
+    > Durant l’installation des dépendances Ruby on Rails, vous devrez peut-être exécuter `sudo gem install bundler` à plusieurs reprises. Si l’installation échoue, passez en revue les journaux d’erreurs et résolvez les problèmes.
 
-4. Validez votre installation. Tout en conservant la connexion à votre machine virtuelle dans votre session SSH, tapez les commandes suivantes :
+4. Validez votre installation. Tout en restant connecté à votre machine virtuelle dans votre session SSH, entrez la commande suivante :
 
     ```bash  
         ruby -v
     ```
 
-3. Installez Git. [Git](https://git-scm.com) est un système très courant de gestion de code source et de contrôle des révisions. Tout en conservant la connexion à votre machine virtuelle dans votre session SSH, tapez les commandes suivantes :
+3. [Installez Git](https://git-scm.com), système couramment utilisé pour la gestion du code source et des versions. Tout en restant connecté à votre machine virtuelle dans votre session SSH, entrez la commande suivante :
 
     ```bash  
        sudo apt-get -y install git
@@ -85,7 +84,7 @@ Cet article utilise Ruby et un framework web Ruby on Rails.
 
 ## <a name="create-and-run-an-app"></a>Création et exécution d’une application
 
-1. Tout en conservant la connexion à votre machine virtuelle dans votre session SSH, tapez les commandes suivantes :
+1. Tout en restant connecté à votre machine virtuelle dans votre session SSH, entrez les commandes suivantes :
 
     ```bash
         rails new myapp
@@ -93,7 +92,7 @@ Cet article utilise Ruby et un framework web Ruby on Rails.
         rails server -b 0.0.0.0 -p 3000
     ```
 
-2.  Accédez maintenant à votre nouveau serveur. Vous devriez voir votre application web en cours d’exécution.
+2. Accédez au nouveau serveur. Vous devriez voir votre application web en cours d’exécution.
 
     ```HTTP  
        http://yourhostname.cloudapp.net:3000
@@ -101,5 +100,6 @@ Cet article utilise Ruby et un framework web Ruby on Rails.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Apprenez à [Développer dans Azure Stack](azure-stack-dev-start.md).
+- Découvrez comment [développer pour Azure Stack](azure-stack-dev-start.md).
 - Découvrez les [Déploiements courants pour Azure Stack en IaaS](azure-stack-dev-start-deploy-app.md).
+- Pour apprendre le langage de programmation Ruby et trouver des ressources supplémentaires sur Ruby, voir [Ruby-lang.org](https://www.ruby-lang.org).

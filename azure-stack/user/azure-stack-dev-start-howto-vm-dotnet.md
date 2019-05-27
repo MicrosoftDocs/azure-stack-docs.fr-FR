@@ -9,18 +9,16 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: b41c64d64a2c2abe6d1f145f11c2d4d84686b207
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 14baf5d5ca411e7c32cbfcf4a6138193a2215b0a
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617703"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783080"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>Déployer une application web ASP.NET C# sur une machine virtuelle dans Azure Stack
 
 Vous pouvez créer une machine virtuelle pour héberger votre application web ASP.NET C# dans Azure Stack. Cet article décrit les instructions à suivre pour installer votre serveur, le configurer pour héberger votre application web ASP.NET C# puis ensuite déployer l’application directement à partir de Visual Studio.
-
-C# est un langage de programmation multiparadigme à usage général qui recouvre des disciplines de programmation à typage fort, à portée lexicale, impératives, déclaratives, fonctionnelles, génériques, orientées objet et orientées composant. Pour apprendre le langage de programmation C# et trouver des ressources supplémentaires sur C#, voir [Guide C#](https://docs.microsoft.com/dotnet/csharp/).
 
 Cet article utilise une application C# 6.0 qui utilise ASP.NET Core 2.2 sur un serveur Windows 2016.
 
@@ -59,10 +57,11 @@ Cet article utilise une application C# 6.0 qui utilise ASP.NET Core 2.2 sur un s
 
     | Port | Protocole | Description |
     | --- | --- | --- |
-    | 80 | HTTP | Le protocole HTTP (Hypertext Transfer Protocol) est un protocole d’application pour les systèmes d’information hypermédias, collaboratifs et distribués. Les clients se connectent à l’application web avec l’adresse IP publique ou le nom DNS de la machine virtuelle. |
-    | 443 | HTTPS | Le protocole HTTPS (Hypertext Transfer Protocol Secure) est une extension du protocole HTTP (Hypertext Transfer Protocol). Il sert à sécuriser la communication sur un réseau d’ordinateurs. Les clients se connectent à l’application web avec l’adresse IP publique ou le nom DNS de la machine virtuelle. |
-    | 22 | SSH | Le protocole SSH (Secure Shell) est un protocole réseau de chiffrement qui permet d’exploiter en toute sécurité des services réseau sur un réseau non sécurisé. Vous utilisez cette connexion avec un client SSH pour configurer la machine virtuelle et déployer l’application. |
-    | 3389 | RDP | facultatif. Le protocole RDP (Remote Desktop Protocol) permet d’utiliser une connexion Bureau à distance avec une interface graphique utilisateur avec votre machine.   |
+    | 80 | HTTP | HTTP (Hypertext Transfer Protocol) est le protocole utilisé pour fournir des pages web à partir des serveurs. Les clients se connectent via HTTP avec une adresse IP ou un nom DNS. |
+    | 443 | HTTPS | HTTPS (Hypertext Transfer Protocol Secure) est une version sécurisée du protocole HTTP qui nécessite un certificat de sécurité pour la transmission chiffrée des informations.  |
+    | 22 | SSH | SSH (Secure Shell) est un protocole réseau chiffré pour les communications sécurisées. Nous utiliserons cette connexion avec un client SSH pour configurer la machine virtuelle et déployer l’application. |
+    | 3389 | RDP | facultatif. Le protocole RDP (Remote Desktop Protocol) permet d’utiliser une connexion Bureau à distance avec une interface graphique utilisateur.   |
+    | 8080 | Personnalisée | Le port par défaut du service Apache Tomcat est 8080. Pour un serveur de production, le trafic est acheminé par les ports 80 et 443. |
 
     Pour chaque port :
 
@@ -131,7 +130,7 @@ Créez une cible de publication sur votre machine virtuelle dans Azure Stack.
 1. Sélectionnez **Publier**.
 1. Accédez à votre nouveau server. Vous devriez voir votre application web en cours d’exécution.
 
-    ```HTTP  
+    ```http  
         mywebapp.local.cloudapp.azurestack.external
     ```
 
@@ -139,3 +138,4 @@ Créez une cible de publication sur votre machine virtuelle dans Azure Stack.
 
 - Découvrez comment [configurer un environnement de développement dans Azure Stack](azure-stack-dev-start.md).
 - Découvrez les [Déploiements courants pour Azure Stack en IaaS](azure-stack-dev-start-deploy-app.md).
+- Pour apprendre le langage de programmation C# et trouver des ressources supplémentaires sur C#, consultez le [Guide C#](https://docs.microsoft.com/dotnet/csharp/).

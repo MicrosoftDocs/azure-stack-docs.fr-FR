@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour déployer une application web Go sur une machine virtuelle dans Azure Stack | Microsoft Docs
+title: Déployer une application web Go sur une machine virtuelle dans Azure Stack | Microsoft Docs
 description: Guide pratique pour déployer une application web Go sur une machine virtuelle dans Azure Stack
 services: azure-stack
 author: mattbriggs
@@ -9,37 +9,36 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: c0cef076522e77a6d0fdafbd8848d5e9bb8a90a8
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 8b1f207929e018b27bb3f20db8d2b7d5abe46088
+ms.sourcegitcommit: 05a16552569fae342896b6300514c656c1df3c4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64482283"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65838361"
 ---
-# <a name="how-to-deploy-a-go-web-app-to-a-vm-in-azure-stack"></a>Guide pratique pour déployer une application web Go sur une machine virtuelle dans Azure Stack
+# <a name="deploy-a-go-web-app-to-a-vm-in-azure-stack"></a>Déployer une application web Go sur une machine virtuelle dans Azure Stack
 
-Vous pouvez créer une machine virtuelle pour héberger votre application web Go dans Azure Stack. Cet article explique étape par étape comment configurer le serveur, le paramétrer de façon à héberger une application web Go, puis déployer l’application.
-
-Go est expressif, concis, épuré et efficace. Ses mécanismes de concurrence facilitent l’écriture de programmes qui tirent le meilleur parti des ordinateurs multicœurs et en réseau, tandis que son système de type permet la construction de programmes flexibles et modulaires. Pour apprendre le langage de programmation Go et trouver des ressources supplémentaires sur Go, voir [Golang.org](https://golang.org).
+Vous pouvez créer une machine virtuelle pour héberger une application web Go dans Azure Stack. Dans cet article, vous installez un serveur et vous le configurez pour qu’il héberge votre application web Go, puis vous déployez l’application sur Azure Stack.
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
-1. Configurez votre machine virtuelle dans Azure Stack. Suivez les étapes de [Déployer une machine virtuelle Linux pour héberger une application web dans Azure Stack](azure-stack-dev-start-howto-deploy-linux.md).
+1. Configurez votre machine virtuelle dans Azure Stack en suivant les instructions fournies dans [Déployer une machine virtuelle Linux pour héberger une application web dans Azure Stack](azure-stack-dev-start-howto-deploy-linux.md).
 
-2. Dans le panneau du réseau machines virtuelles, vérifiez que les ports suivants sont accessibles :
+2. Dans le volet du réseau de machines virtuelles, vérifiez que les ports suivants sont accessibles :
 
     | Port | Protocole | Description |
     | --- | --- | --- |
-    | 80 | HTTP | Le protocole HTTP (Hypertext Transfer Protocol) est un protocole d’application pour les systèmes d’information hypermédias, collaboratifs et distribués. Les clients se connectent à l’application web avec l’adresse IP publique ou le nom DNS de la machine virtuelle. |
-    | 443 | HTTPS | Le protocole HTTPS (Hypertext Transfer Protocol Secure) est une extension du protocole HTTP (Hypertext Transfer Protocol). Il sert à sécuriser la communication sur un réseau d’ordinateurs. Les clients se connectent à l’application web avec l’adresse IP publique ou le nom DNS de la machine virtuelle. |
-    | 22 | SSH | Le protocole SSH (Secure Shell) est un protocole réseau de chiffrement qui permet d’exploiter en toute sécurité des services réseau sur un réseau non sécurisé. Nous utiliserons cette connexion avec un client SSH pour configurer la machine virtuelle et déployer l’application. |
-    | 3389 | RDP | facultatif. Le protocole RDP (Remote Desktop Protocol) permet d’utiliser une connexion Bureau à distance avec une interface graphique utilisateur.   |
-    | 3000 | Personnalisée | Le port 3000 est utilisé par l’infrastructure web Go dans le développement. Pour un serveur de production, le trafic est acheminé par les ports 80 et 443. |
+    | 80 | HTTP | HTTP (Hypertext Transfer Protocol) est le protocole utilisé pour fournir des pages web à partir des serveurs. Les clients se connectent via HTTP avec une adresse IP ou un nom DNS. |
+    | 443 | HTTPS | HTTPS (Hypertext Transfer Protocol Secure) est une version sécurisée du protocole HTTP qui nécessite un certificat de sécurité pour la transmission chiffrée des informations. |
+    | 22 | SSH | SSH (Secure Shell) est un protocole réseau chiffré pour les communications sécurisées. Vous utilisez cette connexion avec un client SSH pour configurer la machine virtuelle et déployer l’application. |
+    | 3389 | RDP | facultatif. Le protocole RDP (Remote Desktop Protocol) permet d’utiliser une connexion Bureau à distance avec une interface graphique utilisateur sur votre machine.   |
+    | 3000 | Personnalisée | Port utilisé par le framework web Go dans le développement. Pour un serveur de production, vous routez le trafic par les ports 80 et 443. |
 
 ## <a name="install-go"></a>Installer Go
 
-1. Connectez-vous à votre machine virtuelle en utilisant votre client SSH. Pour obtenir des instructions, voir [Se connecter par SSH avec PuTTy](azure-stack-dev-start-howto-ssh-public-key.md#connect-via-ssh-with-putty).
-1. Dans l’invite Bash de votre machine virtuelle, tapez les commandes suivantes :
+1. Connectez-vous à votre machine virtuelle en utilisant votre client SSH. Pour obtenir des instructions, consultez [Se connecter par SSH avec PuTTy](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty).
+
+1. À l’invite Bash sur votre machine virtuelle, entrez les commandes suivantes :
 
     ```bash  
     wget https://dl.google.com/go/go1.10.linux-amd64.tar.gz
@@ -47,7 +46,7 @@ Go est expressif, concis, épuré et efficace. Ses mécanismes de concurrence fa
     sudo mv go /usr/local
     ```
 
-2. Configurez l’environnement Go sur votre machine virtuelle. Tout en conservant la connexion à votre machine virtuelle dans votre session SSH, tapez les commandes suivantes :
+2. Configurez l’environnement Go sur votre machine virtuelle. Tout en restant connecté à votre machine virtuelle dans votre session SSH, entrez les commandes suivantes :
 
     ```bash  
     export GOROOT=/usr/local/go
@@ -57,13 +56,13 @@ Go est expressif, concis, épuré et efficace. Ses mécanismes de concurrence fa
     vi ~/.profile
     ```
 
-3. Validez votre installation. Tout en conservant la connexion à votre machine virtuelle dans votre session SSH, tapez les commandes suivantes :
+3. Validez votre installation. Tout en restant connecté à votre machine virtuelle dans votre session SSH, entrez la commande suivante :
 
     ```bash  
         go version
     ```
 
-3. Installez Git. [Git](https://git-scm.com) est un système très courant de gestion de code source et de contrôle des révisions. Tout en conservant la connexion à votre machine virtuelle dans votre session SSH, tapez les commandes suivantes :
+3. [Installez Git](https://git-scm.com), système couramment utilisé pour la gestion du code source et des versions. Tout en restant connecté à votre machine virtuelle dans votre session SSH, entrez la commande suivante :
 
     ```bash  
        sudo apt-get -y install git
@@ -71,7 +70,7 @@ Go est expressif, concis, épuré et efficace. Ses mécanismes de concurrence fa
 
 ## <a name="deploy-and-run-the-app"></a>Déployer et exécuter l’application
 
-1. Configurez votre référentiel Git sur la machine virtuelle. Tout en conservant la connexion à votre machine virtuelle dans votre session SSH, tapez les commandes suivantes :
+1. Configurez votre référentiel Git sur la machine virtuelle. Tout en restant connecté à votre machine virtuelle dans votre session SSH, entrez les commandes suivantes :
 
     ```bash  
        git clone https://github.com/appleboy/go-hello
@@ -80,13 +79,13 @@ Go est expressif, concis, épuré et efficace. Ses mécanismes de concurrence fa
        go get -d
     ```
 
-2. Démarrez l’application. Tout en conservant la connexion à votre machine virtuelle dans votre session SSH, tapez la commande suivante :
+2. Démarrez l’application. Tout en restant connecté à votre machine virtuelle dans votre session SSH, entrez la commande suivante :
 
     ```bash  
        go run hello-world.go
     ```
 
-3.  Accédez maintenant à votre nouveau serveur. Vous devriez voir votre application web en cours d’exécution.
+3. Accédez au nouveau serveur. Vous devriez voir votre application web en cours d’exécution.
 
     ```HTTP  
        http://yourhostname.cloudapp.net:3000
@@ -94,5 +93,6 @@ Go est expressif, concis, épuré et efficace. Ses mécanismes de concurrence fa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Apprenez à [Développer dans Azure Stack](azure-stack-dev-start.md).
+- Découvrez comment [développer pour Azure Stack](azure-stack-dev-start.md).
 - Découvrez les [Déploiements courants pour Azure Stack en IaaS](azure-stack-dev-start-deploy-app.md).
+- Pour apprendre le langage de programmation Go et trouver des ressources supplémentaires sur Go, consultez [Golang.org](https://golang.org).

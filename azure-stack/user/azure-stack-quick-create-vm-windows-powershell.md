@@ -16,12 +16,12 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 04b2f2a5e4e9caa8e8eacc47b44c60a6884a6837
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: d6293aec1d9a4a7ce58442b21302c09162cc3a61
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986044"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712446"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Démarrage rapide : Créer une machine virtuelle Windows Server avec PowerShell dans Azure Stack
 
@@ -42,11 +42,14 @@ Il est possible de créer une machine virtuelle Windows Server 2016 avec Azure S
 
 * Azure Stack nécessite une version spécifique d’Azure PowerShell pour créer et gérer les ressources. Si PowerShell n’est pas configuré pour Azure Stack, suivez les étapes permettant [d’installer](../operator/azure-stack-powershell-install.md) PowerShell.
 
-* Une fois Azure Stack PowerShell configuré, vous devrez vous connecter à votre environnement Azure Stack. Pour plus d’informations, consultez [Se connecter en tant qu’utilisateur à Azure Stack à l’aide de PowerShell](azure-stack-powershell-configure-user.md).
+* Après avoir configuré PowerShell pour Azure Stack, vous devez vous connecter à votre environnement Azure Stack. Pour plus d’informations, consultez [Se connecter en tant qu’utilisateur à Azure Stack à l’aide de PowerShell](azure-stack-powershell-configure-user.md).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources est un conteneur logique dans lequel les ressources Azure Stack sont déployées et gérées. À partir de votre kit de développement ou du système intégré Azure Stack, exécutez le bloc de code suivant pour créer un groupe de ressources. Des valeurs sont attribuées à toutes les variables dans ce document. Vous pouvez utiliser ces valeurs ou en attribuer de nouvelles.
+Un groupe de ressources est un conteneur logique dans lequel les ressources Azure Stack sont déployées et gérées. À partir de votre kit de développement ou du système intégré Azure Stack, exécutez le bloc de code suivant pour créer un groupe de ressources. 
+
+> [!NOTE]
+> Des valeurs sont attribuées pour toutes les variables dans les exemples de code. Toutefois, vous pouvez attribuer de nouvelles valeurs si vous le souhaitez.
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -60,7 +63,7 @@ New-AzureRmResourceGroup `
 
 ## <a name="create-storage-resources"></a>Créer des ressources de stockage
 
-Créez un compte de stockage, ainsi qu’un conteneur de stockage pour stocker l’image Windows Server 2016.
+Créez un compte de stockage ainsi qu’un conteneur de stockage pour stocker l’image Windows Server 2016.
 
 ```powershell
 # Create variables to store the storage account name and the storage account SKU information
@@ -109,7 +112,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Créez un groupe de sécurité réseau et une règle de groupe de sécurité réseau
 
-Le groupe de sécurité réseau sécurise la machine virtuelle à l’aide de règles de trafic entrantes et sortantes. Créons une règle de trafic entrant pour le port 3389 pour autoriser les connexions Bureau à distance entrantes, et une règle de trafic entrant pour le port 80 pour autoriser le trafic web entrant.
+Le groupe de sécurité réseau sécurise la machine virtuelle à l’aide de règles de trafic entrantes et sortantes. Créez une règle de trafic entrant pour le port 3389 afin d’autoriser les connexions Bureau à distance entrantes, et une règle de trafic entrant pour le port 80 afin d’autoriser le trafic web entrant.
 
 ```powershell
 # Create an inbound network security group rule for port 3389
@@ -214,7 +217,7 @@ Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
 
-Utilisez la commande suivante pour créer une session Bureau à distance avec la machine virtuelle. Remplacez l’adresse IP par l’adresse publicIPAddress de votre machine virtuelle. Quand vous y êtes invité, entrez le nom d’utilisateur et le mot de passe que vous avez utilisés lors de la création de la machine virtuelle.
+Utilisez la commande suivante pour créer une session Bureau à distance avec la machine virtuelle. Remplacez l’adresse IP par l’adresse *publicIPAddress* de votre machine virtuelle. Quand vous y êtes invité, entrez le nom d’utilisateur et le mot de passe utilisés au moment de la création de la machine virtuelle.
 
 ```powershell
 mstsc /v <publicIpAddress>
@@ -230,7 +233,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Afficher la page d’accueil IIS
 
-Une fois IIS installé et le port 80 ouvert sur votre machine virtuelle, vous pouvez utiliser un navigateur web pour afficher la page d’accueil IIS par défaut. Utilisez l’élément *publicIpAddress* indiqué dans la section précédente pour vous rendre sur la page par défaut.
+Une fois qu’IIS est installé et que le port 80 est ouvert sur votre machine virtuelle, vous pouvez utiliser n’importe quel navigateur pour voir la page d’accueil IIS par défaut. Utilisez l’élément *publicIpAddress* indiqué dans la section précédente pour vous rendre sur la page par défaut.
 
 ![Site IIS par défaut](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Créer une machine virtuelle Windows sur Azure Stack avec Azure CLI | Microsoft Docs
-description: Découvrez comment créer une machine virtuelle Windows sur Azure Stack à l’aide d’Azure CLI
+description: Créer une machine virtuelle Windows sur Azure Stack avec Azure CLI
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,18 +11,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/14/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 67e0ccfa883e79d66eb9ca38a6cf15f00154c487
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 090ad90f15056d614e5f61b848e5c8c248889ef2
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64312938"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782635"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Démarrage rapide : créer une machine virtuelle Windows Server à l’aide d’Azure CLI dans Azure Stack
+# <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack"></a>Démarrage rapide : Créer une machine virtuelle Windows Server à l’aide d’Azure CLI dans Azure Stack
 
 ‎*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -45,7 +45,7 @@ Un groupe de ressources est un conteneur logique dans lequel vous pouvez déploy
 > [!NOTE]
 >  Des valeurs sont attribuées pour toutes les variables dans les exemples de code. Toutefois, vous pouvez attribuer de nouvelles valeurs si vous le souhaitez.
 
-L’exemple suivant crée un groupe de ressources nommé myResourceGroup à l’emplacement local.
+L’exemple suivant crée un groupe de ressources nommé myResourceGroup à l’emplacement local :
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -53,7 +53,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
-Créez une machine virtuelle en utilisant la commande [az vm create](/cli/azure/vm#az-vm-create). L’exemple suivant crée une machine virtuelle nommée myVM. Cet exemple utilise Demouser comme nom d’utilisateur administratif et Demouser@123 comme mot de passe utilisateur. Remplacez ces valeurs par quelque chose d’approprié pour votre environnement.
+Créez une machine virtuelle en utilisant la commande [az vm create](/cli/azure/vm#az-vm-create). L’exemple suivant crée une machine virtuelle nommée myVM. Cet exemple utilise Demouser comme nom d’utilisateur administrateur et Demouser@123 comme mot de passe administrateur. Remplacez ces valeurs par quelque chose d’approprié pour votre environnement.
 
 ```cli
 az vm create \
@@ -65,13 +65,13 @@ az vm create \
   --location local
 ```
 
-Lorsque la machine virtuelle est créée, le paramètre **PublicIPAddress** dans la sortie contient l’adresse IP publique de la machine virtuelle. Notez cette adresse, car vous en aurez besoin pour accéder à la machine virtuelle.
+Lorsque la machine virtuelle est créée, le paramètre **PublicIPAddress** dans la sortie contient l’adresse IP publique de la machine virtuelle. Notez cette adresse, car vous en aurez besoin pour utiliser la machine virtuelle.
 
 ## <a name="open-port-80-for-web-traffic"></a>Ouvrez le port 80 pour le trafic web
 
-Étant donné que cette machine virtuelle va exécuter le serveur web IIS, vous devez ouvrir le port 80 pour le trafic Internet.
+Étant donné que cette machine virtuelle va exécuter le serveur web IIS, vous devez ouvrir le port 80 pour le trafic Internet.
 
-Utilisez la commande [az vm open-port](/cli/azure/vm) pour ouvrir le port 80.
+Utilisez la commande [az vm open-port](/cli/azure/vm) pour ouvrir le port 80 :
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -95,7 +95,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Afficher la page d’accueil IIS
 
-Vous pouvez utiliser un navigateur web de votre choix pour visualiser la page d’accueil IIS par défaut. Veillez à utiliser l’adresse IP publique indiquée dans la section précédente pour vous rendre sur la page par défaut.
+Vous pouvez utiliser un navigateur de votre choix pour afficher la page d’accueil IIS par défaut. Utilisez l’adresse IP publique indiquée dans la section précédente pour accéder à la page par défaut :
 
 ![Site IIS par défaut](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png)
 

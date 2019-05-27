@@ -15,34 +15,35 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 29adea1cb8c07acc309ef7aae2856b9a14759de3
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: b35368804423a4647b84000d95adf41ee5fe09b2
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985884"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712463"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Déployer un cluster Service Fabric dans Azure Stack
 
 Pour déployer un cluster Service Fabric sécurisé dans Azure Stack, utilisez l’élément **Cluster Service Fabric** de la Place de marché Azure. 
 
-Pour plus d’informations sur l’utilisation de l’infrastructure de Service Fabric, consultez les articles [Vue d’ensemble d’Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) et [Scénarios de sécurité d’un cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) dans la documentation Azure.
+Pour plus d’informations sur l’utilisation de Service Fabric, consultez les articles [Vue d’ensemble d’Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) et [Scénarios de sécurité d’un cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) dans la documentation Azure.
 
-Le cluster Service Fabric dans Azure Stack n’utilise pas le fournisseur de ressources Microsoft.ServiceFabric. Au lieu de cela, dans Azure Stack, le cluster Service Fabric est un groupe de machines virtuelles identiques avec un ensemble de logiciels préinstallés à l’aide de DSC (Desired State Configuration).
+Le cluster Service Fabric dans Azure Stack n’utilise pas le fournisseur de ressources Microsoft.ServiceFabric. Au lieu de cela, dans Azure Stack, le cluster Service Fabric est un groupe de machines virtuelles identiques avec des logiciels préinstallés à l’aide de [DSC (Desired State Configuration)](https://docs.microsoft.com/powershell/dsc/overview/overview).
 
 ## <a name="prerequisites"></a>Prérequis
 
 Le déploiement du cluster Service Fabric requiert les éléments suivants :
 1. **Certificat de cluster**  
-   Il s’agit du certificat de serveur X.509 que vous ajoutez au coffre de clés lorsque vous déployez Service Fabric. 
+   Il s’agit du certificat de serveur X.509 que vous ajoutez au coffre de clés quand vous déployez Service Fabric. 
    - Le **CN** (nom commun) figurant sur ce certificat doit correspondre au nom de domaine complet (FQDN) du cluster Service Fabric que vous créez. 
    - Le certificat doit présenter le format PFX, car la procédure requiert à la fois les clés publiques et privées. 
      Consultez les [exigences](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) relatives à la création de ce certificat côté serveur.
 
      > [!NOTE]  
-     > Vous pouvez utiliser un certificat auto-signé à la place du certificat de serveur x.509 à des fins de test. Les certificats auto-signés ne doivent pas nécessairement correspondre au FQDN du cluster.
+     > Vous pouvez utiliser un certificat auto-signé à la place du certificat de serveur X.509 à des fins de test. Les certificats auto-signés ne doivent pas nécessairement correspondre au FQDN du cluster.
 
-1. **Certificat client d’administration** Il s’agit du certificat, éventuellement auto-signé, que le client utilisera pour s’authentifier auprès du cluster Service Fabric. Consultez les [exigences](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) relatives à la création de ce certificat client.
+1. **Certificat client d’administration**  
+   Il s’agit du certificat, éventuellement auto-signé, que le client utilise pour s’authentifier auprès du cluster Service Fabric. Consultez les [exigences](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) relatives à la création de ce certificat client.
 
 1. **Les éléments ci-après doivent être disponibles dans la Place de marché Azure Stack :**
     - **Windows Server 2016** : le modèle utilise l’image Windows Server 2016 pour créer le cluster.  
@@ -51,7 +52,7 @@ Le déploiement du cluster Service Fabric requiert les éléments suivants :
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Ajouter un secret au coffre de clés
-Pour déployer un cluster Service Fabric, vous devez spécifier *l’identificateur de secret* du coffre de clés ou l’URL appropriés pour le cluster Service Fabric. Le modèle Azure Resource Manager utilise KeyVault comme entrée. Le modèle récupère ensuite le certificat du cluster lors de l’installation du cluster Service Fabric.
+Pour déployer un cluster Service Fabric, vous devez spécifier l’*identificateur de secret* du coffre de clés ou l’URL appropriés pour le cluster Service Fabric. Le modèle Azure Resource Manager utilise un coffre de clés comme entrée. Le modèle récupère ensuite le certificat du cluster lors de l’installation du cluster Service Fabric.
 
 > [!IMPORTANT]  
 > Vous devez utiliser PowerShell pour ajouter un secret au coffre de clés en vue d’une utilisation avec Service Fabric. N’utilisez pas le portail.  
@@ -135,12 +136,12 @@ Pour plus d’informations, consultez l’article [Gérer Key Vault dans Azure S
 
    ![Paramètres réseau](media/azure-stack-solution-template-service-fabric-cluster/image4.png)
 
-1. Sur la page *Sécurité*, ajoutez les valeurs que vous avez obtenues à partir des procédures de [création du coffre de clés Azure](#add-a-secret-to-key-vault) et de chargement du secret.
+1. Dans la page *Sécurité*, ajoutez les valeurs que vous avez obtenues lors des étapes de [création du coffre de clés Azure Key Vault](#add-a-secret-to-key-vault) et du chargement du secret.
 
    Pour le champ *Admin Client Certificate Thumbprints* (Empreinte du certificat client d’administration), entrez l’empreinte du *certificat client d’administration*. (Consultez les [prérequis](#prerequisites).)
    
-   - Coffre de clés source :  spécifiez la chaîne *KeyVault id* complète obtenue dans les résultats du script. 
-   - Cluster Certificate URL (URL du certificat de cluster) : spécifiez l’URL complète de l’entrée *Secret Id* obtenue dans les résultats du script. 
+   - Coffre de clés source :  spécifiez la chaîne `keyVault id` complète indiquée dans les résultats du script. 
+   - Cluster Certificate URL (URL du certificat de cluster) : spécifiez l’URL complète de l’entrée `Secret Id` indiquée dans les résultats du script. 
    - Cluster Certificate thumbprint (Empreinte numérique du certificat de cluster) : spécifiez la valeur *Cluster Certificate Thumbprint* obtenue dans les résultats du script.
    - Admin Client Certificate Thumbprints (Empreinte numérique du certificat client d’administration) : spécifiez la valeur de l’*empreinte numérique du certificat client d’administration* que vous avez créée dans les prérequis. 
 
@@ -157,7 +158,7 @@ Vous pouvez accéder au cluster Service Fabric en utilisant l’outil Service Fa
 
 
 ### <a name="use-service-fabric-explorer"></a>Utiliser Service Fabric Explorer
-1.  Vérifiez que le navigateur Web a accès à votre certificat client d’administration et qu’il peut s’authentifier auprès de votre cluster Service Fabric.  
+1.  Assurez-vous que le navigateur a accès à votre certificat client d’administration et qu’il peut s’authentifier auprès de votre cluster Service Fabric.  
 
     a. Ouvrez Internet Explorer, puis accédez à **Options Internet** > **Contenu** > **Certificats**.
   
@@ -184,8 +185,8 @@ Vous pouvez accéder au cluster Service Fabric en utilisant l’outil Service Fa
 
 1. Pour rechercher l’URL de Service Fabric Explorer, ainsi que le point de terminaison de connexion du client, consultez les résultats de la solution Template deployment.
 
-1. Dans votre navigateur, accédez à https://*FQDN*:19080. Remplacez *FQDN* par le FQDN de votre cluster Service Fabric trouvé à l’étape 2.   
-   Si vous avez utilisé un certificat auto-signé, vous recevrez un avertissement signalant que la connexion n’est pas sécurisée. Pour passer au site web, sélectionnez **Informations supplémentaires**, puis **Atteindre la page web**. 
+1. Dans votre navigateur, accédez à <https://*FQDN*:19080>. Remplacez *FQDN* par le FQDN de votre cluster Service Fabric trouvé à l’étape 2.   
+   Si vous avez utilisé un certificat auto-signé, vous recevrez un avertissement signalant que la connexion n’est pas sécurisée. Pour accéder au site web, sélectionnez **Informations supplémentaires**, puis **Atteindre la page web**. 
 
 1. Pour vous authentifier auprès du site, vous devez sélectionner un certificat à utiliser. Sélectionnez **Autres choix**, sélectionnez le certificat approprié, puis cliquez sur **OK** pour vous connecter à Service Fabric Explorer. 
 
@@ -193,7 +194,7 @@ Vous pouvez accéder au cluster Service Fabric en utilisant l’outil Service Fa
 
 
 
-## <a name="use-service-fabric-powershell"></a>Utiliser PowerShell Service Fabric
+### <a name="use-service-fabric-powershell"></a>Utiliser PowerShell Service Fabric
 
 1. Installez le *Kit de développement logiciel (SDK) Microsoft Azure Service Fabric* en suivant les instructions de la procédure [Préparer votre environnement de développement sur Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools) dans la documentation Azure Service Fabric.  
 
@@ -225,7 +226,7 @@ Vous pouvez accéder au cluster Service Fabric en utilisant l’outil Service Fa
    ```
    
    > [!NOTE]  
-   > Le nom du cluster dans le script n’est pas précédé de *https://*. Le port 19000 est requis.
+   > Le nom du cluster dans le script n’est pas précédé de *https://* . Le port 19000 est requis.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
