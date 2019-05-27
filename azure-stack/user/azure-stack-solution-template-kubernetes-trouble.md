@@ -14,12 +14,12 @@ ms.author: mabrigg
 ms.date: 04/02/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 2d4176ceaf1651539a248928faf2034376a8b97a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 0e02489bc9750183754b27887fa701d1dd1a8567
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310985"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712428"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Résoudre les problèmes de déploiement Kubernetes sur Azure Stack
 
@@ -28,11 +28,11 @@ ms.locfileid: "64310985"
 > [!Note]  
 > Kubernetes sur Azure Stack est en préversion. Le scénario Azure Stack déconnecté n'est actuellement pas pris en charge par la préversion.
 
-L’article suivant traite de la résolution des problèmes rencontrés avec votre cluster Kubernetes. Vous pouvez consulter l’alerte de déploiement et examiner l’état de votre déploiement par le biais des éléments requis pour ce déploiement. Vous devrez peut-être collecter les journaux d’activité de déploiement à partir du système Azure Stack ou des machines virtuelles Linux qui hébergent Kubernetes. Vous pouvez également être amené à travailler avec votre administrateur Azure Stack pour récupérer des journaux d’activité à partir d’un point de terminaison d’administration.
+Cet article examine comment résoudre les problèmes sur votre cluster Kubernetes. Pour commencer, passez en revue les éléments requis pour le déploiement. Vous devrez peut-être collecter les journaux d’activité de déploiement à partir du système Azure Stack ou des machines virtuelles Linux qui hébergent Kubernetes. Pour récupérer les journaux d’activité à partir d’un point de terminaison d’administration, contactez votre administrateur Azure Stack.
 
 ## <a name="overview-of-kubernetes-deployment"></a>Vue d’ensemble du déploiement Kubernetes
 
-Avant de commencer à résoudre des problèmes sur votre cluster, vous souhaitez peut-être revoir rapidement les principes du déploiement d’un cluster Kubernetes Azure Stack. Ce déploiement utilise un modèle de solution Azure Resource Manager pour créer les machines virtuelles, puis installe le moteur ACS de votre cluster.
+Avant de commencer à résoudre les problèmes de votre cluster, passez en revue le processus de déploiement d’un cluster Kubernetes Azure Stack. Ce déploiement utilise un modèle de solution Azure Resource Manager pour créer les machines virtuelles, puis installe le moteur AKS de votre cluster.
 
 ### <a name="kubernetes-deployment-workflow"></a>Workflow du déploiement Kubernetes
 
@@ -56,8 +56,8 @@ Le schéma suivant illustre le processus général de déploiement du cluster.
     -  Exécuter le script personnalisé DVM. Le script effectue les tâches suivantes :
         1. Obtient le point de terminaison de la galerie à partir du point de terminaison de métadonnées Azure Resource Manager.
         2. Obtient l’ID de ressource Active Directory à partir du point de terminaison des métadonnées Azure Resource Manager.
-        3. Charge le modèle d’API pour le moteur ACS.
-        4. Déploie le moteur ACS sur le cluster Kubernetes et enregistre le profil cloud Azure Stack sur `/etc/kubernetes/azurestackcloud.json`.
+        3. Charge le modèle d’API pour le moteur AKS.
+        4. Déploie le moteur AKS sur le cluster Kubernetes et enregistre le profil cloud Azure Stack sur `/etc/kubernetes/azurestackcloud.json`.
 3. Créer les machines virtuelles principales.
 
 4. Télécharger et exécuter des extensions de scripts personnalisés.
@@ -81,9 +81,9 @@ Le schéma suivant illustre le processus général de déploiement du cluster.
     - Configure le service **kubelet**.
     - Rejoint le cluster Kubernetes
 
-## <a name="steps-for-troubleshooting"></a>Étapes pour la résolution de problème
+## <a name="steps-to-troubleshoot-kubernetes"></a>Étapes pour résoudre les problèmes de Kubernetes
 
-Vous pouvez collecter des journaux d’activité sur les machines virtuelles qui prennent en charge votre cluster Kubernetes. Vous pouvez également consulter le journal de déploiement. Vous aurez peut-être besoin de contacter votre administrateur Azure Stack pour vérifier la version d’Azure Stack à utiliser et obtenir à partir d’Azure Stack les journaux d’activité liés à votre déploiement.
+Vous pouvez collecter et examiner des journaux d’activité liés au déploiement sur les machines virtuelles qui prennent en charge votre cluster Kubernetes. Contactez votre administrateur Azure Stack pour vérifier la version d’Azure Stack à utiliser et obtenir à partir d’Azure Stack les journaux d’activité liés à votre déploiement.
 
 1. Examinez l’[état du déploiement](#review-deployment-status) et récupérez les journaux à partir du nœud principal de votre cluster Kubernetes.
 2. Assurez-vous que vous utilisez la version la plus récente d’Azure Stack. Si vous ne savez pas quelle version vous utilisez, contactez votre administrateur Azure Stack.
@@ -94,7 +94,7 @@ Vous pouvez collecter des journaux d’activité sur les machines virtuelles qui
 4.  Si la machine virtuelle est **OK**, passez à l’évaluation du DVM. Si le DVM affiche un message d’erreur :
 
     - La clé publique peut être non valide. Examinez la clé que vous avez créée.  
-    - Vous devez contacter votre administrateur Azure Stack pour récupérer les journaux d’activité Azure Stack en utilisant les points de terminaison privilégiés. Pour plus d’informations, voir [Outils de diagnostics Azure Stack](../operator/azure-stack-diagnostics.md).
+    - Contactez votre administrateur Azure Stack pour récupérer les journaux d’activité Azure Stack en utilisant les points de terminaison privilégiés. Pour plus d’informations, voir [Outils de diagnostics Azure Stack](../operator/azure-stack-diagnostics.md).
 5. Si vous avez une question concernant votre déploiement, vous pouvez la poster ou regarder si quelqu’un y a déjà répondu sur le [Forum Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## <a name="review-deployment-status"></a>Examiner l’état du déploiement
@@ -105,7 +105,7 @@ Lorsque vous déployez votre cluster Kubernetes, vous pouvez consulter l’état
 2. Sélectionnez **Groupe de ressources**, puis sélectionnez le nom du groupe de ressources utilisé lors du déploiement du cluster Kubernetes.
 3. Sélectionnez **Déploiements**, puis le **Nom du déploiement**.
 
-    ![Résolution de problèmes](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
+    ![Résoudre les problèmes de Kubernetes : sélectionner le déploiement](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
 
 4.  Consultez la fenêtre de résolution des problèmes. Chaque ressource déployée fournit les informations suivantes :
     
@@ -150,10 +150,10 @@ Suivez ces étapes pour collecter et télécharger les journaux de cluster :
     | -h, --help  | Utilisation de la commande d’impression. | |
     | -i, --identity-file | Fichier de clé privée RSA passé à l’élément de la Place de marché lors de la création du cluster Kubernetes. Nécessaire pour la connexion à distance aux nœuds Kubernetes. | C:\data\id_rsa.pem (PuTTY)<br>~/.ssh/id_rsa (SSH)
     | -m, --master-host   | Adresse IP publique ou nom de domaine complet (FQDN) d’un nœud maître Kubernetes. Le nom de la machine virtuelle commence par `k8s-master-`. | Adresse IP : 192.168.102.37<br>Nom de domaine complet : k8s-12345.local.cloudapp.azurestack.external      |
-    | -u, --user          | Nom d’utilisateur passé à l’élément de la Place de marché lors de la création du cluster Kubernetes. Nécessaire pour la connexion à distance aux nœuds Kubernetes | azureuser (valeur par défaut) |
+    | -u, --user          | Nom d’utilisateur passé à l’élément de la Place de marché lors de la création du cluster Kubernetes. Nécessaire pour la connexion à distance aux nœuds Kubernetes. | azureuser (valeur par défaut) |
 
 
-   Quand vous ajoutez vos valeurs de paramètres, votre commande peut ressembler à ce qui suit :
+   Quand vous ajoutez vos valeurs de paramètres, votre commande peut ressembler à l’exemple suivant :
 
     ```Bash  
     ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
@@ -161,7 +161,7 @@ Suivez ces étapes pour collecter et télécharger les journaux de cluster :
 
 4. Après quelques minutes, le script envoie les journaux collectés dans un répertoire nommé `KubernetesLogs_{{time-stamp}}`. Vous y trouverez un répertoire pour chaque machine virtuelle qui appartient au cluster.
 
-    Le script de collecteur de journaux recherche également des erreurs dans les fichiers journaux et présente une procédure de résolution s’il rencontre un problème connu. Vérifiez que vous exécutez la dernière version du script afin d’augmenter les chances de détecter les problèmes connus.
+    Le script de collecteur de journaux recherche également des erreurs dans les fichiers journaux et présente une procédure de résolution s’il rencontre un problème connu. Veillez à exécuter la dernière version du script afin d’augmenter les chances de détecter les problèmes connus.
 
 > [!Note]  
 > Consultez ce [dépôt](https://github.com/msazurestackworkloads/azurestack-gallery/tree/master/diagnosis) GitHub pour en savoir plus sur le script de collecteur de journaux.

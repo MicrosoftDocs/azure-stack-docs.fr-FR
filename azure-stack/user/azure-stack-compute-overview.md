@@ -6,16 +6,16 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: conceptual
-ms.date: 01/05/2019
+ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 88aabfc6ba054bc78612e6fa6f59b50fd1b4df76
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 33a7522994c23e20dddf587c2374c24e664e3171
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310073"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941155"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Présentation des machines virtuelles Azure Stack
 
@@ -27,18 +27,15 @@ Une machine virtuelle Azure Stack vous offre la souplesse de la virtualisation, 
 
 Vous pouvez utiliser des machines virtuelles Azure Stack de différentes manières. Par exemple : 
 
-- **Développement et tests**  
-    Les machines virtuelles Azure Stack vous permettent de créer un ordinateur avec une configuration spécifique nécessaire pour coder et tester une application.
+- **Développement et tests** : Les machines virtuelles Azure Stack vous permettent de créer un ordinateur avec une configuration spécifique nécessaire pour coder et tester une application.
 
-- **Applications dans le cloud**  
-    La demande de votre application étant susceptible de fluctuer, il peut être économique de l’exécuter sur une machine virtuelle dans Azure Stack. Vous payez pour des machines virtuelles supplémentaires lorsque vous en avez besoin et vous les arrêtez le reste du temps.
+- **Applications dans le cloud** : La demande de votre application étant susceptible de fluctuer, il peut être économique de l’exécuter sur une machine virtuelle dans Azure Stack. Vous payez pour des machines virtuelles supplémentaires lorsque vous en avez besoin et vous les arrêtez le reste du temps.
 
-- **Centre de données étendu**  
-    Les machines virtuelles au sein d’un réseau virtuel Azure Stack peuvent se connecter au réseau de votre organisation ou à Azure.
+- **Centre de données étendu** : Les machines virtuelles au sein d’un réseau virtuel Azure Stack peuvent se connecter au réseau de votre organisation ou à Azure.
 
 Les machines virtuelles utilisées par votre application peuvent augmenter en nombre (scale up) ou en taille (scale out) pour répondre à vos besoins.
 
-## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>À quoi dois-je penser avant de créer une machine virtuelle ?
+## <a name="before-creating-a-vm"></a>Avant de créer une machine virtuelle
 
 Vous devez toujours tenir compte de considérations liées à la conception quand vous créez une infrastructure d’application dans Azure Stack. Avant de commencer à créer votre infrastructure, il est important de réfléchir aux aspects suivants concernant les machines virtuelles :
 
@@ -82,14 +79,11 @@ Vous pouvez choisir de télécharger et d’utiliser votre propre image. Dans ce
 Les extensions de machines virtuelles étendent les fonctionnalités de votre machine virtuelle par le biais de la configuration post-déploiement et de tâches automatisées.
 Ces tâches courantes peuvent être accomplies à l’aide des extensions :
 
-- **Scripts personnalisés**  
-    L’extension de script personnalisé vous permet de configurer des charges de travail sur la machine virtuelle en exécutant votre script pendant le provisionnement de la machine virtuelle.
+- **Scripts personnalisés** : L’extension de script personnalisé vous permet de configurer des charges de travail sur la machine virtuelle en exécutant votre script pendant le provisionnement de la machine virtuelle.
 
-- **Déploiement et gestion des configurations**  
-    L’extension de configuration d’état souhaité (DSC) PowerShell vous permet de configurer DSC sur une machine virtuelle pour gérer les environnements et les configurations.
+- **Déploiement et gestion des configurations** : L’extension de configuration d’état souhaité (DSC) PowerShell vous permet de configurer DSC sur une machine virtuelle pour gérer les environnements et les configurations.
 
-- **Collecte des données de diagnostic**  
-    L’extension Diagnostics Azure vous permet de configurer la machine virtuelle de sorte qu’elle collecte des données de diagnostics utilisées pour superviser l’intégrité de votre application.
+- **Collecte des données de diagnostic** : L’extension Diagnostics Azure vous permet de configurer la machine virtuelle de sorte qu’elle collecte des données de diagnostics utilisées pour superviser l’intégrité de votre application.
 
 ### <a name="related-resources"></a>Ressources associées
 
@@ -98,7 +92,7 @@ Les ressources figurant dans le tableau suivant sont utilisées par la machine v
 |Ressource|Obligatoire|Description|
 |---------|---------|---------|
 |Groupe de ressources|OUI|La machine virtuelle doit être contenue dans un groupe de ressources.|
-|Compte de stockage|Non |La machine virtuelle ne nécessite pas que le compte de stockage stocke ses disques durs virtuels en cas d’utilisation de la fonctionnalité Disques managés. <br>La machine virtuelle exige que le compte de stockage stocke ses disques durs virtuels en cas d’utilisation de disques non managés.|
+|Compte de stockage|Non |La machine virtuelle ne nécessite pas que le compte de stockage stocke ses disques durs virtuels en cas d’utilisation de disques managés. <br>La machine virtuelle exige que le compte de stockage stocke ses disques durs virtuels en cas d’utilisation de disques non managés.|
 |Réseau virtuel|OUI|La machine virtuelle doit faire partie d’un réseau virtuel.|
 |Adresse IP publique|Non |La machine virtuelle peut avoir une adresse IP publique pour être accessible à distance.|
 |interface réseau|OUI|La machine virtuelle a besoin de l’interface réseau pour communiquer sur le réseau.|
@@ -130,7 +124,7 @@ Le tableau suivant indique différents moyens d’obtenir des informations sur u
 
 |Méthode|Description|
 |---------|---------|
-|Portail Azure Stack|Dans le menu Hub, cliquez sur Machines virtuelles, puis sélectionnez la machine virtuelle dans la liste. Sur la page de la machine virtuelle, vous pouvez consulter les informations de vue d’ensemble, fixer des valeurs et surveiller les métriques.|
+|Portail Azure Stack|Dans le menu Hub, cliquez sur **Machines virtuelles**, puis sélectionnez la machine virtuelle dans la liste. Sur la page de la machine virtuelle, vous pouvez consulter les informations de vue d’ensemble, fixer des valeurs et surveiller les métriques.|
 |Azure PowerShell|La gestion des machines virtuelles est similaire dans Azure et dans Azure Stack. Pour plus d’informations sur l’utilisation de PowerShell, consultez l’article suivant relatif à Azure :<br>[Créer et gérer des machines virtuelles Windows avec le module Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
 |Kits de développement logiciel (SDK) client|L’utilisation de C# pour gérer les machines virtuelles est similaire dans Azure et dans Azure Stack. Pour plus d’informations, consultez l’article suivant relatif à Azure :<br>[Créer et gérer des machines virtuelles Windows dans Azure à l’aide de C#](/azure/virtual-machines/windows/csharp)|
 

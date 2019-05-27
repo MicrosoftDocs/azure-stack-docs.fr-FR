@@ -9,205 +9,171 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 7662b696ce25cdb70f34824984f4d1ce14d88c69
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 61d9f21f35edf1a0e8ebf61c81580c4d53218970
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64482349"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617677"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack"></a>Déployer une machine virtuelle Linux pour héberger une application web dans Azure Stack
 
-Vous pouvez créer et déployer une machine virtuelle Linux de base avec l’image Ubuntu de la Place de marché pour héberger votre application web créée avec un framework web. Cette machine virtuelle peut héberger des applications web avec :
+Vous pouvez créer et déployer une machine virtuelle Linux de base avec l’image Ubuntu de la Place de marché Azure pour héberger l’application web que vous avez créée avec une infrastructure web. 
 
-- **Python** Flask, Bottle et Django figurent au nombre des frameworks web Python les plus courants.
-- **Go**. Revel, Martini, Gocraft/web et Gorilla figurent au nombre des frameworks web Go les plus courants. 
-- **Ruby**. Il est possible de configurer un framework Ruby on Rails de façon à distribuer des applications web Ruby. 
-- **Java**. Java permet de développer des applications web publiées sur un serveur Apache Tomcat. Vous pouvez installer Tomcat sur Linux, puis déployer directement vos fichiers WAR Java sur le serveur. 
+Cette machine virtuelle peut héberger des applications web avec :
 
-Les instructions de cet article permettent de se familiariser avec tous types d’applications web, de frameworks et de technologies back-end qui utilisent le système d’exploitation Linux. Vous pourrez alors utiliser Azure Stack pour gérer votre infrastructure, ainsi que les outils de gestion au sein de votre technologie pour mener à bien les tâches de maintenance de votre application.
+- **Python** : Flask, Bottle et Django figurent au nombre des frameworks web Python les plus courants.
+- **Go** : Revel, Martini, Gocraft/web et Gorilla figurent au nombre des frameworks web Go les plus courants. 
+- **Ruby** : Configurez une infrastructure Ruby on Rails de façon à distribuer des applications web Ruby. 
+- **Java** : Utilisez Java pour développer des applications web que vous publiez sur un serveur Apache Tomcat. Vous pouvez installer Tomcat sur Linux, puis déployer directement vos fichiers WAR Java sur le serveur. 
+
+Les instructions de cet article permettent de se familiariser avec tous types d’applications web, d’infrastructures et de technologies back-end qui utilisent le système d’exploitation Linux. Vous pouvez ensuite utiliser Azure Stack pour gérer votre infrastructure, ainsi que les outils de gestion au sein de votre technologie pour mener à bien les tâches de maintenance de votre application.
 
 ## <a name="deploy-a-linux-vm-for-a-web-app"></a>Déployer une machine virtuelle Linux pour une application web
 
-L’objectif est de créer une clé secrète, d’utiliser l’image de base de la machine virtuelle Linux, de spécifier ses attributs particuliers et ensuite de la créer. Vous ouvrirez alors les ports dont vous aurez besoin pour travailler avec la machine virtuelle et ceux dont celle-ci aura besoin pour héberger votre application. Vous créerez également le nom DNS. Il s’agira enfin de se connecter à la machine virtuelle et de la mettre à jour avec apt-get. À la fin de ce guide pratique, vous aurez dans votre système Azure Stack une machine virtuelle prête à héberger votre application web.
+Dans ce processus, créez une clé secrète, utilisez l’image de base de la machine virtuelle Linux, spécifiez ses attributs particuliers, puis créez la machine virtuelle. Une fois que vous avez créé la machine virtuelle, ouvrez les ports qui sont nécessaires pour travailler avec elle et pour que la machine virtuelle héberge votre application. Créez ensuite le nom DNS. Enfin, connectez-vous à la machine virtuelle et mettez-la à jour avec l’utilitaire apt-get. Une fois que vous avez effectué le processus, vous disposez d’une machine virtuelle dans votre instance Azure Stack qui est prête à héberger votre application web.
 
-Vous pouvez passer directement aux instructions ou bien vérifier que vous avez tout ce qu’il vous faut.
+Avant de commencer, vérifiez que tout ce dont vous avez besoin est en place.
 
-## <a name="prerequisites-and-considerations"></a>Prérequis et considérations
+## <a name="prerequisites"></a>Prérequis
 
-- Vous aurez besoin d’un abonnement Azure Stack
-- avec accès à l’image **Ubuntu Server 16.04 LTS**. Il est possible d’utiliser une version ultérieure de l’image, mais ces instructions sont écrites spécifiquement pour 16.04 LTS. Si vous n’avez pas cette image, contactez votre opérateur cloud pour l’obtenir sur votre Place de marché Azure Stack.
+- Un abonnement Azure Stack, avec accès à l’image Ubuntu Server 16.04 LTS. Il est possible d’utiliser une version ultérieure de l’image, mais ces instructions sont écrites spécifiquement pour 16.04 LTS. Si vous n’avez pas cette image, contactez votre opérateur cloud pour l’obtenir dans la Place de marché Azure Stack.
 
-<!-- Azure Stack specific considerations
+## <a name="deploy-the-vm-by-using-the-portal"></a>Déployer la machine virtuelle en utilisant le portail
 
-### Authentication
-
-Azure Stack works with two identity management services, Azure Active Directory (Azure AD) and Active Directory Federated Services (AD FS).  This section addresses how this procedure will work with either version.
-
-### Connectivity
-
-Azure Stack can be run in connected to completely disconnected scenarios. This section addresses considerations about the use case in relation to connectivity.
-
-### Azure Stack Development Kit and Integrated Systems
-
-While the two version of the product are the same product both version behave differently. Call out considerations about either version. 
-
-### Azure Stack version
-
-Place any version specific calls outs. The procedure will contain steps for the latest version. This section will contain call outs for previous version that are still supported. -->
-
-## <a name="deploy-vm-using-the-portal"></a>Déployer la machine virtuelle avec le portail
-
-Créez une clé publique SSH pour votre serveur à l’aide d’une application comme PuTTY. Accédez à votre portail Azure Stack et ajoutez le serveur Ubuntu. Configurez votre réseau et l’entrée DNS. Connectez-vous à votre serveur pour le mettre à jour.
+Pour déployer la machine virtuelle, suivez les instructions indiquées dans les sections suivantes.
 
 ### <a name="create-your-vm"></a>Créer votre machine virtuelle
 
-1. Créez une clé publique SSH pour votre serveur. Pour plus d’informations, voir [Guide pratique pour utiliser une clé publique SSH](azure-stack-dev-start-howto-ssh-public-key.md).
-2. Ouvrez votre portail Azure Stack.
-3. Sélectionnez **Créer une ressource** > **Calcul** > **Ubuntu Server 16.04 LTS**.
+1. Créez une clé publique SSH (Secure Shell) pour votre serveur. Pour plus d’informations, voir [Guide pratique pour utiliser une clé publique SSH](azure-stack-dev-start-howto-ssh-public-key.md).
+1. Dans le portail Azure Stack, sélectionnez **Créer une ressource** > **Calcul** > **Ubuntu Server 16.04 LTS**.
 
     ![Déployer une application web sur une machine virtuelle Azure Stack](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
 
-4. Dans le panneau **Créer une machine virtuelle**, pour **1. Configurer les paramètres de base** :
-    1. Tapez le **Nom de votre machine virtuelle**.
-    1. Sélectionnez le **Type de disque de machine virtuelle** : **SSD Premium** ou **HDD Standard**.
-    1. Tapez votre **Nom d’utilisateur**.
-    1. Sélectionnez **Clé publique SSH** comme **Type d’authentification**.
-    1. Récupérez la clé publique SSH que vous avez créée. Ouvrez-la dans un éditeur de texte, copiez-la et collez-la dans la zone **Clé publique SSH** en prenant en compte le texte entre `---- BEGIN SSH2 PUBLIC KEY ----` et `---- END SSH2 PUBLIC KEY ----`. Collez l’intégralité du bloc de texte dans la zone de clé :
-       ```text  
-            ---- BEGIN SSH2 PUBLIC KEY ----
-            Comment: "rsa-key-20190207"
-            <Your key block>
-            ---- END SSH2 PUBLIC KEY ----```
-    1. Select your Azure Stack subscription.
-    1. Create a new **Resource group** or use an existing depending on how you want to organize the resources for your app.
-    1. Select your location. The ASDK is usually in a **local** region. The location will depend on your Azure Stack.
-1. For **2. Size** type:
-    - Select the size of data and RAM for your VM that is available in your Azure Stack.
-    - You can either browse the list or filter for the size of your VM by **Compute type**, **CPUs**, and storage space.
-    - Prices presented are estimates in your local currency that include only Azure infrastructure costs and any discounts for the subscription and location. The prices don't include any applicable software costs. Recommended sizes are determined by the publisher of the selected image based on hardware and software requirements.
-    - Using a standard disk rather than a premium disk could impact operating system performance.
+4. Dans le volet **Créer une machine virtuelle**, pour **1. Configurer les paramètres de base** :
 
-1. in **3. Configure optional** features type:
-    1. For **High availability,** you can select an availability set. To provide redundancy to your application, you can group two or more virtual machines in an availability set. This configuration ensures that during a planned or unplanned maintenance event, at least one virtual machine will be available and meet the 99.95% Azure SLA. The availability set of a virtual machine can't be changed after it is created.
-    1. For **Storage** select **Premium disks (SSD)** or **Standard disks (HDD)**. Premium disks (SSD) are backed by solid-state drives and offer consistent, low-latency performance. They provide the best balance between price and performance, and are ideal for I/O-intensive applications and production workloads. Standard disks (HDD) are backed by magnetic drives and are preferable for applications where data is accessed infrequently. Zone- redundant disks are backed by Zone redundant storage (ZRS) that replicates your data across multiple zones and are available even if a single zone is down. 
-    1. You can select **Use managed disks**. Enable this feature to have Azure automatically manage the availability of disks to provide data redundancy and fault tolerance, without creating and managing storage accounts on your own. Managed disks may not be available in all regions. For more information, see [Introduction to Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
-    1. Select **virtual network** to configure your network. Virtual networks are logically isolated from each other in Azure. You can configure their IP address ranges, subnets, route tables, gateways, and security settings, much like a traditional network in your data center. Virtual machines in the same virtual network can access each other by default. 
-    1. Select **subnet** to configure your subnet. A subnet is a range of IP addresses in your virtual network, which can be used to isolate virtual machines from each other or from the Internet. 
-    1. Select **Public IP address** to configure access to your VM or services running on your VM. Use a public IP address if you want to communicate with the virtual machine from outside the virtual network. 
-    1. Select **Network Security Group**, **Basic, or **Advanced**. Set rules that allow or deny network traffic to the VM 
-    1. Select **public inbound ports** to set access for common or custom protocols to your VM. The service specifies the destination protocol and port range for this rule. You can choose a predefined service, like RDP or SSH, or provide a custom port range.  
-        For the  web server, you are going to want to HTTP (80), HTTPS (443), and SSH (22) open. If you plan on managing the machine with an RDP connection, open port 3389.
-    1. Select **Extensions** if you would like to add Extension to your VM. Extensions add new features, like configuration management or antivirus protection, to your virtual machine using extensions. 
-    1. Disable or enable **Monitoring**. Capture serial console output and screenshots of the virtual machine running on a host to help diagnose startup issues. 
-    1. Select **diagnostics storage account** to specify the storage account holding your metrics. Metrics are written to a storage account so you can analyze them with your own tools. . 
-    1. Select **OK**.
-1. Review **4. Summary**:
-    - The portal validates your settings.
-    - You can download the Azure Resource Manager template for your VM if you would like to reuse your settings with an Azure Resource Manager workflow.
-    - Press **OK** when the validation has passed. The deployment of the VM takes several minutes.
+    a. Entrez le **nom de votre machine virtuelle**.
 
-### Specify the open ports and DNS name
+    b. Sélectionnez le **type de disque de machine virtuelle** : **SSD Premium** (pour les disques Premium [SSD]) ou **HDD Standard** (pour les disques Standard [HDD]).
 
-You will want to make your web app accessible to users on your network by opening the ports used to connect to the machine and adding a friendly DNS name such as `mywebapp.local.cloudapp.azurestack.external` that users can use in their web browsers.
+    c. Entrez votre **nom d’utilisateur**.
 
-#### Open inbound ports
+    d. Sélectionnez **Clé publique SSH** comme **Type d’authentification**.
 
-You can modify the destination protocol and port range for predefined service, like RDP or SSH or provide a custom port range. For example, you may want to work with the port range of your web framework. GO, for instance, communicates on port 3000.
+    e. Récupérez la clé publique SSH que vous avez créée. Ouvrez-la dans un éditeur de texte, copiez-la et collez-la dans la zone **Clé publique SSH** en prenant en compte le texte entre `---- BEGIN SSH2 PUBLIC KEY ----` et `---- END SSH2 PUBLIC KEY ----`. Collez l’intégralité du bloc de texte dans la zone de clé :
 
-1. Open the Azure Stack portal for your tenant.
-1. Find your VM. You may have pinned the VM to your dashboard, or you can search for the VM in the **Search resources** box.
-1. Select **Networking** in your VM blade.
-1. Select **Add inbound port** rule to open a port.
-1. For Source, leave the default to **Any**.
-1. For Source port range, leave the wildcard (*).
-1. For Destination port range, add the port you would like to open, such as `3000`.
-1. For **Protocol** leave **Any**.
-1. For **Action** set to **Allow**.
-1. For **Priority** leave for the default.
-1. Type a **Name** and **Description** to help you remember why the port is open.
-1. Select **Add**.
+    ```text  
+    ---- BEGIN SSH2 PUBLIC KEY ----
+    Comment: "rsa-key-20190207"
+    <Your key block>
+    ---- END SSH2 PUBLIC KEY ----
+    ```
 
-#### Add a DNS name for your server
+    f. Sélectionnez l’abonnement pour votre instance Azure Stack.
 
-In addition, you can create a DNS name for your server, and then users can connect to your web site using a URL.
+    g. Créez un groupe de ressources ou utilisez-en un existant, en fonction de la façon dont vous souhaitez organiser les ressources pour votre application.
 
-1. Open the Azure Stack portal for your tenant.
-1. Find your VM. You may have pinned the VM to your dashboard, or you can search for the VM in the **Search resources** box.
-1. Select **Overview**.
-1. Select **Configure** under VM.
-1. Select **Dynamic** for **Assignment**.
-1. Type the DNS name label such as `mywebapp` so that your full URL will be: `mywebapp.local.cloudapp.azurestack.external` (for an ASDK app).
+    h. Sélectionnez votre emplacement. Le Kit de développement Azure Stack (ASDK) est généralement situé dans une région *locale*. L’emplacement dépend de votre instance Azure Stack.
+1. Pour **2. Taille**, entrez :
+    - Sélectionnez la taille de données et de RAM pour votre machine virtuelle qui est disponible dans votre instance Azure Stack.
+    - Vous pouvez parcourir la liste ou définir un filtre pour la taille de votre machine virtuelle par **type de calcul**, **processeur** et **espace de stockage**.
+    
+    > [!NOTE]
+    > - Les prix présentés sont des estimations en devise locale. Ils incluent uniquement les coûts d’infrastructure Azure et les remises pour l’abonnement et l’emplacement. Ils n’incluent pas les coûts logiciels applicables. 
+    > - Les tailles recommandées sont déterminées par l’éditeur de l’image sélectionnée en fonction de la configuration matérielle et logicielle requise.
+    > - L’utilisation de disques Standard (HDD) au lieu de disques Premium (SSD) peut affecter les performances du système d’exploitation.
 
-### Connect via SSH to update your VM
+1. Dans **3. Configurer les fonctionnalités facultatives**, entrez :
 
-1. On the same network as your Azure Stack, open your SSH client. For more information, see [How to use an SSH public key](azure-stack-dev-start-howto-ssh-public-key.md).
-1. Type:
+    a. Pour **Haute disponibilité,** sélectionnez un groupe à haute disponibilité. Pour assurer la redondance de votre application, regroupez au moins deux machines virtuelles dans un groupe à haute disponibilité. Cette configuration assure qu’au moins une des machines virtuelles est disponible pendant un événement de maintenance planifié ou non et répond au 99,95 % inscrits dans le contrat SLA Azure. Vous ne pouvez pas modifier le groupe à haute disponibilité d’une machine virtuelle après sa création.
+
+    b. Pour **Stockage**, sélectionnez **Disques Premium (SSD)** ou **Disques Standard (HDD)**. Les disques Premium (SSD) sont associés à des disques SSD afin d’offrir des performances constantes et une faible latence. Ils proposent le meilleur rapport prix/performances et conviennent parfaitement aux charges de travail de production et aux applications nécessitant beaucoup d’E/S. Les disques Standard sont associés à des lecteurs magnétiques et conviennent davantage aux applications dont les données sont rarement utilisées. Les disques redondants interzones sont associés à un stockage redondant interzone (ZRS) qui réplique vos données sur plusieurs zones, et restent disponibles même si une zone n’est pas disponible. 
+
+    c. Sélectionnez **Utiliser des disques managés**. Lorsque vous activez cette fonctionnalité, Azure gère automatiquement la disponibilité des disques. Vous bénéficiez de la redondance des données et de la tolérance de panne, sans avoir à créer ni à gérer des comptes de stockage vous-même. Les disques managés peuvent ne pas être disponibles dans toutes les régions. Pour plus d’informations, consultez [Présentation des disques managés Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
+
+    d. Pour configurer votre réseau, sélectionnez **Réseau virtuel**. Les réseaux virtuels sont isolés logiquement les uns des autres dans Azure. Vous pouvez configurer les plages d’adresses IP, sous-réseaux, tables de routage, passerelles et paramètres de sécurité, comme pour un réseau traditionnel dans votre centre de données. Des machines virtuelles situées dans le même réseau virtuel peuvent accéder les unes aux autres par défaut. 
+
+    e. Pour configurer votre sous-réseau, sélectionnez **Sous-réseau**. Un sous-réseau est une plage d’adresses IP dans votre réseau virtuel. Vous pouvez utiliser un sous-réseau pour isoler les machines virtuelles les unes des autres ou d’Internet. 
+
+    f. Pour configurer l’accès à votre machine virtuelle ou aux services en cours d’exécution sur votre machine virtuelle, sélectionnez **Adresse IP publique**. Utilisez une adresse IP publique pour communiquer avec la machine virtuelle en dehors du réseau virtuel. 
+
+    g. Sélectionnez **Groupe de sécurité réseau**, **De base** ou **Avancé**. Définissez des règles qui autorisent ou refusent le trafic réseau sur la machine virtuelle. 
+
+    h. Pour définir l’accès pour les protocoles courants ou personnalisés à votre machine virtuelle, sélectionnez **Ports d’entrée publics**. Le service spécifie la plage de ports et le protocole de destination pour cette règle. Vous pouvez choisir un service prédéfini, tel que le protocole RDP (Remote Desktop) ou SSH, ou fournir une plage de ports personnalisée. 
+        Pour le serveur web, utilisez HTTP (80), HTTPS (443) et SSH (22). Si vous prévoyez de gérer la machine à l’aide d’une connexion RDP, ouvrez le port 3389.
+
+    i. Pour ajouter des extensions à votre machine virtuelle, sélectionnez **Extensions**. Les extensions ajoutent de nouvelles fonctionnalités, par exemple la gestion des configurations ou la protection antivirus, à votre machine virtuelle. 
+
+    j. Activez ou désactivez **Monitoring (Surveillance)**. Pour aider à diagnostiquer les problèmes de démarrage, vous pouvez utiliser la surveillance pour capturer des captures d’écran et la sortie de la console série d’une machine virtuelle qui est en cours d’exécution sur un hôte. 
+
+    k. Pour spécifier le compte de stockage qui contient vos métriques, sélectionnez **Compte de stockage des diagnostics**. Les métriques sont écrites dans un compte de stockage et vous pouvez ensuite les analyser avec vos propres outils. 
+
+    l. Sélectionnez **OK**.
+
+1. Passez en revue **4. Summary (Synthèse)**  :
+    - Le portail valide vos paramètres.
+    - Pour réutiliser vos paramètres avec un workflow Azure Resource Manager, vous pouvez télécharger le modèle Azure Resource Manager pour votre machine virtuelle.
+    - Lorsque la validation a réussi, sélectionnez **OK**. Le déploiement d’une machine virtuelle prend plusieurs minutes.
+
+### <a name="specify-the-open-ports-and-dns-name"></a>Spécifier les ports ouverts et le nom DNS
+
+Pour que votre application web soit accessible aux utilisateurs sur votre réseau, ouvrez les ports utilisés pour la connexion à la machine et ajoutez un nom DNS convivial, tel que *mywebapp.local.cloudapp.azurestack.external*, que les utilisateurs peuvent utiliser dans leur navigateur web.
+
+#### <a name="open-inbound-ports"></a>Ports entrants ouverts
+
+Vous pouvez modifier la plage de ports et le protocole de destination pour un service prédéfini, comme RDP ou SSH, ou fournir une plage de ports personnalisée. Par exemple, vous pouvez utiliser la plage de ports de votre infrastructure web. GO, par exemple, communique sur le port 3000.
+
+1. Ouvrez le portail Azure Stack de votre locataire.
+
+1. Recherchez votre machine virtuelle. Vous l’avez peut-être épinglée sur votre tableau de bord ; sinon, vous pouvez la rechercher dans la zone **Rechercher des ressources**.
+
+1. Sélectionnez **Mise en réseau** dans le volet de votre machine virtuelle.
+
+1. Sélectionnez **Ajouter une règle de port d’entrée** pour ouvrir un port.
+
+1. Pour **Source**, conservez la sélection par défaut **Any (Tous)**.
+
+1. Pour **Plage de ports source**, laissez le caractère générique (*).
+
+1. Pour **Plage de ports de destination**, entrez le port que vous souhaitez ouvrir, tel que **3000**.
+
+1. Pour **Protocole**, conservez la sélection par défaut, **Tous**.
+
+1. Pour **Action**, sélectionnez **Autoriser**.
+
+1. Pour **Priorité**, conservez la sélection par défaut.
+
+1. Entrez un **nom** et une **description** pour vous rappeler la raison pour laquelle le port est ouvert.
+
+1. Sélectionnez **Ajouter**.
+
+#### <a name="add-a-dns-name-for-your-server"></a>Ajouter un nom DNS pour votre serveur
+
+En outre, vous pouvez créer un nom DNS pour votre serveur, afin que les utilisateurs puissent se connecter à votre site web à l’aide d’une URL.
+
+1. Ouvrez le portail Azure Stack de votre locataire.
+
+1. Recherchez votre machine virtuelle. Vous l’avez peut-être épinglée sur votre tableau de bord ; sinon, vous pouvez la rechercher dans la zone **Rechercher des ressources**.
+
+1. Sélectionnez **Vue d’ensemble**.
+
+1. Sous **Machine virtuelle**, sélectionnez **Configurer**.
+
+1. Pour **Attribution**, sélectionnez **Dynamique**.
+
+1. Entrez l’étiquette de nom DNS, telle que **mywebapp**, de sorte que votre URL complète devient *mywebapp.local.cloudapp.azurestack.external* (pour une application ASDK).
+
+### <a name="connect-via-ssh-to-update-your-vm"></a>Se connecter via le protocole SSH pour mettre à jour votre machine virtuelle
+
+1. Sur le même réseau que votre instance Azure Stack, ouvrez votre client SSH. Pour plus d’informations, consultez [Utiliser une clé publique SSH](azure-stack-dev-start-howto-ssh-public-key.md).
+
+1. Entrez les commandes suivantes :
+
     ```bash  
         sudo apt-get update
         sudo apt-get -y upgrade
     ```
 
-<!--
-
-## Deploy VM using the PowerShell
-
-Include a sentence or two to explain only what is needed to complete the procedure.
-
-1. Step one of the procedures.
-
-    | Parameter | Example | Description |
-    | --- | --- | --- |
-    | item      | "dog"   | Describe what it is and where to find the information. |
-
-2. Step two of the procedure
-
-    ```PowerShell  
-    verb-command -item "dog"
-    ```
-
-3. Step three of the procedures.
-
-    ```PowerShell  
-    verb-command -item "dog"
-    ```
-
-4. Step four of the procedures.
-
-    ```PowerShell  
-    verb-command -item "dog"
-    ```
-
-## Deploy VM using the CLI
-
-Include a sentence or two to explain only what is needed to complete the procedure.
-
-1. Step one of the procedures.
-
-    | Parameter | Example | Description |
-    | --- | --- | --- |
-    | item      | "dog"   | Describe what it is and where to find the information. |
-
-2. Step two of the procedure
-
-    ```CLI  
-    verb-command -item "dog"
-    ```
-
-3. Step three of the procedures.
-
-    ```CLI  
-    verb-command -item "dog"
-    ```
-
-4. Step four of the procedures.
-
-    ```CLI  
-    verb-command -item "dog"
-    ```
-
--->
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez à [Développer dans Azure Stack](azure-stack-dev-start.md).
+Découvrez comment [configurer un environnement de développement dans Azure Stack](azure-stack-dev-start.md).

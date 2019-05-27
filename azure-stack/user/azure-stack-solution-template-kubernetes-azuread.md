@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 05/17/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6e4402be7108f242e1d285ebe91dfece744f0805
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/17/2019
+ms.openlocfilehash: 62626240c59c9f78c0b0d21553e8c6ffeb0367a0
+ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311597"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65855385"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Déployer Kubernetes sur Azure Stack à l’aide d’Azure Active Directory
 
@@ -61,25 +61,21 @@ Créer un principal de service dans Azure. Le principal de service offre à votr
 
 1. Créez une application Azure AD.
 
-    a. Sélectionnez **Azure Active Directory** > **Inscriptions des applications** > **Nouvelle inscription d’application**.
-
-    b. Entrez le **nom** de l’application.
-
-    c. Sélectionnez **Application web/API**.
-
-    d. Entrez l’**URL de connexion** `http://localhost`.
-
-    c. Cliquez sur **Créer**.
+    a. Connectez-vous à votre compte Azure via le [portail Azure](https://portal.azure.com).  
+    b. Sélectionnez **Azure Active Directory** > **Inscriptions d’applications** > **Nouvelle inscription**.  
+    c. Fournissez un nom et une URL pour l’application.  
+    d. Sélectionnez les **Types de comptes pris en charge**.  
+    e.  Ajoutez `http://localhost` pour l’URI de l’application. Sélectionnez **Web** pour le type d’application que vous souhaitez créer. Après avoir défini les valeurs, sélectionnez **S’inscrire**.
 
 1. Notez l’**ID d’application**. Vous aurez besoin de l’ID lors de la création du cluster. L’ID est référencé en tant qu’**ID client du principal de service**.
 
-1. Sélectionnez **Paramètres** > **Clés**.
+1. Dans le panneau du principal de service, sélectionnez **Nouveau secret client**. **Paramètres** > **Clés**. Vous devez générer une clé d’authentification pour le principal de service.
 
     a. Entrez la **Description**.
 
     b. Pour **Expire**, sélectionnez **N’expire jamais**.
 
-    c. Sélectionnez **Enregistrer**. Notez la chaîne de clé. Vous aurez besoin de la chaîne de clé lors de la création du cluster. La clé est référencée comme **Secret client du principal de service**.
+    c. Sélectionnez **Ajouter**. Notez la chaîne de clé. Vous aurez besoin de la chaîne de clé lors de la création du cluster. La clé est référencée comme **Secret client du principal de service**.
 
 ## <a name="give-the-service-principal-access"></a>Accorder l’accès au principal de service
 

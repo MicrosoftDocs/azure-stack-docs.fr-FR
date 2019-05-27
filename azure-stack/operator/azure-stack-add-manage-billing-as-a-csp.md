@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 0cd8503ac57c65fb4bcf2c75367caa75bfcc2fe5
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 5f11e9dd4f029228e73e5933cd8362c0b4710178
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985831"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941163"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Gérer l’utilisation et la facturation pour Azure Stack comme fournisseur de services cloud
 
 *S’applique à : systèmes intégrés Azure Stack*
 
-Cet article vous guide tout au long des procédures d’inscription d’Azure Stack comme fournisseur de services cloud (CSP) et d’ajout de clients.
+Cet article décrit comment inscrire Azure Stack en tant que fournisseur de services cloud (CSP) et comment ajouter des clients.
 
 En tant que fournisseur de services cloud, vous travaillez avec différents clients qui utilisent votre infrastructure Azure Stack. Chaque client possède un abonnement de fournisseur de services cloud dans Azure. Vous devez diriger l’utilisation de votre infrastructure Azure Stack pour chaque abonnement d’utilisateur.
 
@@ -38,7 +38,7 @@ La figure suivante illustre les étapes nécessaires pour choisir votre compte d
 
 ### <a name="cloud-service-provider-subscription-types"></a>Types d’abonnements de fournisseur de services cloud
 
-Choisissez le type de compte de services partagés que vous utilisez pour Azure Stack. Les types d’abonnements pouvant être utilisés pour l’inscription d’un système Azure Stack multi-locataire sont les suivants :
+Choisissez le type de compte de services partagés que vous utilisez pour Azure Stack. Les types d’abonnements pouvant être utilisés pour l’inscription d’un système Azure Stack multilocataire sont les suivants :
 
 - Fournisseur de services cloud
 - Abonnement Partner Shared Services
@@ -49,11 +49,11 @@ Les abonnements APSS (Azure Partner Shared Services) sont le choix privilégié 
 
 Les abonnements APSS sont associés à un locataire de services partagés. Quand vous inscrivez Azure Stack, vous devez fournir les informations d’identification d’un compte qui est propriétaire de l’abonnement. Le compte que vous utilisez pour inscrire Azure Stack peut être différent du compte administrateur que vous utilisez pour le déploiement. En outre, les deux comptes n’ont pas besoin d’appartenir au même domaine ; vous pouvez déployer à l’aide du locataire que vous utilisez déjà. Par exemple, vous pouvez utiliser `ContosoCSP.onmicrosoft.com`, puis vous inscrire à l’aide d’un autre locataire ; par exemple, `IURContosoCSP.onmicrosoft.com`. Vous devez penser à vous connecter à l’aide de `ContosoCSP.onmicrosoft.com` lorsque vous effectuez des tâches d’administration Azure Stack quotidiennes. Vous vous connectez à Azure en utilisant `IURContosoCSP.onmicrosoft.com` quand vous devez effectuer des opérations d’inscription.
 
-Pour obtenir une description des abonnements APSS et de leur création, consultez [Ajouter Azure Partner Shared Services](https://msdn.microsoft.com/partner-center/shared-services).
+Pour obtenir une description des abonnements APSS et de leur création, consultez [Ajouter Azure Partner Shared Services](/partner-center/shared-services).
 
 #### <a name="csp-subscriptions"></a>Abonnements CSP
 
-Les abonnements de fournisseur de services cloud (CSP) sont le choix privilégié pour l’inscription quand un revendeur CSP ou un client final exploite Azure Stack.
+Les abonnements de fournisseur de services cloud sont le choix privilégié pour l’inscription quand un revendeur CSP ou un client final exploite Azure Stack.
 
 ## <a name="register-azure-stack"></a>Inscrire Azure Stack
 
@@ -61,16 +61,16 @@ Utilisez l’abonnement APSS créé en suivant les informations contenues dans l
 
 ## <a name="add-end-customer"></a>Ajouter un client final
 
-Pour configurer Azure Stack de sorte que quand un nouveau locataire utilise des ressources, leur utilisation soit signalée à son abonnement de fournisseur de services cloud (CSP), consultez [Ajouter un locataire pour l’utilisation et la facturation à Azure Stack](azure-stack-csp-howto-register-tenants.md).
+Pour configurer Azure Stack afin que quand un nouveau locataire utilise des ressources, leur utilisation soit signalée à son abonnement CSP, consultez [Ajouter un locataire pour l’utilisation et la facturation à Azure Stack](azure-stack-csp-howto-register-tenants.md).
 
 ## <a name="charge-the-right-subscriptions"></a>Facturer les abonnements appropriés
 
-Azure Stack utilise une fonctionnalité appelée « inscription ». Il s’agit d’un objet stocké dans Azure. L’objet d’inscription documente les abonnements Azure à utiliser pour facturer une infrastructure Azure Stack donnée. Cette section traite de l’importance de l’inscription.
+Azure Stack utilise une fonctionnalité appelée *inscription*. Il s’agit d’un objet stocké dans Azure. L’objet d’inscription documente les abonnements Azure à utiliser pour facturer une infrastructure Azure Stack donnée. Cette section traite de l’importance de l’inscription.
 
 Grâce à l’inscription, Azure Stack peut :
 
 - transférer les données d’utilisation d’Azure Stack à Azure Commerce et facturer un abonnement Azure ;
-- signaler l’utilisation de chaque client sur un autre abonnement avec un déploiement Azure Stack multilocataire. L’architecture multi-locataire permet à Azure Stack de prendre en charge différentes organisations sur la même instance d’Azure Stack.
+- signaler l’utilisation de chaque client sur un autre abonnement avec un déploiement Azure Stack multilocataire. L’architecture multilocataire permet à Azure Stack de prendre en charge différentes organisations sur la même instance Azure Stack.
 
 Pour chaque déploiement Azure Stack, il existe un seul abonnement par défaut et autant d’abonnements de locataires. L’abonnement par défaut est un abonnement Azure qui est facturé s’il n’existe aucun abonnement spécifique au locataire. Il doit être le premier abonnement inscrit. Pour que la génération de rapports sur l’utilisation de plusieurs locataires fonctionne, l’abonnement doit être un abonnement CSP ou APSS.
 

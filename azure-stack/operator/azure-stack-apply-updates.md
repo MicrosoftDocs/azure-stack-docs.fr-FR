@@ -15,12 +15,12 @@ ms.date: 04/25/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 124dc554e18f6d387a3e41d37809d43276094879
-ms.sourcegitcommit: 0d8ccf2a32b08ab9bcbe13d54c7c3dce2379757f
+ms.openlocfilehash: 147e6b7555d67b562b44102bfd022e954a87e0ae
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64490120"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521220"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Effectuer des mises à jour dans Azure Stack
 
@@ -68,14 +68,14 @@ Si vous utilisez la version 1807 ou antérieure des systèmes intégrés, vous 
 
 Lorsqu’une mise à jour Microsoft ou OEM pour Azure Stack est disponible, téléchargez le package vers un emplacement accessible à partir d’Azure Stack et vérifiez son contenu. Une mise à jour comprend généralement les fichiers suivants :
 
-- Un fichier `<PackageName>.exe` auto-extractible. Ce fichier contient la charge utile pour la mise à jour, par exemple la dernière mise à jour cumulative pour Windows Server.
+- Un fichier `<PackageName>.zip` auto-extractible. Ce fichier contient la charge utile pour la mise à jour, par exemple la dernière mise à jour cumulative pour Windows Server.
 
-- Des fichiers `<PackageName>.bin` correspondants. Ces fichiers fournissent la compression de la charge utile qui est associée au fichier *PackageName*.exe.
+- Des fichiers `<PackageName>.bin` correspondants. Ces fichiers fournissent la compression de la charge utile qui est associée au fichier *PackageName*.zip.
 
 - Un fichier `Metadata.xml`. Ce fichier contient des informations essentielles sur la mise à jour, par exemple l’éditeur, le nom, les prérequis, la taille et l’URL du chemin d’accès au support technique.
 
 > [!IMPORTANT]  
-> Après l’application du package de mise à jour Azure Stack 1901, le format des packages de mise à jour Azure Stack passera des formats .exe, .bin(s) et .xml aux formats .zip(s) et.xml. Les opérateurs Azure Stack ayant des horodatages connectés ne seront pas concernés par ce changement. Les opérateurs Azure Stack déconnectés importeront simplement le(s) fichier(s) .xml et .zip en utilisant le même processus que décrit ci-dessous.
+> Après l’application de la mise à jour Azure Stack 1901, le format des packages de mise à jour Azure Stack passe des formats .zip, .bin(s) et .xml aux formats .zip(s) et.xml. Les opérateurs Azure Stack ayant des horodatages connectés ne seront pas concernés par ce changement. Les opérateurs Azure Stack déconnectés importeront simplement le(s) fichier(s) .xml et .zip en utilisant le même processus que décrit ci-dessous.
 
 ## <a name="import-and-install-updates"></a>Importer et installer des mises à jour
 
@@ -102,13 +102,14 @@ La procédure suivante montre comment importer et installer des mises à jour da
  
     ![Indique comment charger les fichiers de package](media/azure-stack-apply-updates/ApplyUpdates5.png)
 
-6. Sous **Charger l’objet blob**, cliquez sur l’icône de dossier, accédez au fichier .exe de la mise à jour, puis cliquez sur **Ouvrir** dans la fenêtre de l’explorateur de fichiers.
+6. Sous **Charger l’objet blob**, cliquez sur l’icône de dossier, accédez au fichier .zip de la mise à jour, puis cliquez sur **Ouvrir** dans la fenêtre de l’explorateur de fichiers.
   
 7. Sous **Charger l’objet blob**, cliquez sur **Charger**.
   
     ![Indique où charger chaque fichier de package](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Répétez les étapes 6 et 7 pour les fichiers *PackageName*.bin et Metadata.xml. N’importez pas le fichier Notification supplémentaire.txt s’il est inclus.
+8. Répétez les étapes 6 et 7 pour les fichiers *PackageName*.bin et Metadata.xml. N’importez pas le fichier Notification supplémentaire.txt s’il est inclus. Notez que les fichiers sont au format .zip depuis la version 1901 et non plus aux formats .bin et .zip. Continuez à importer le fichier .xml comme d’habitude.
+
 9. Lorsque vous avez terminé, vous pouvez examiner les notifications (icône représentant une cloche dans le coin supérieur droit du portail). Les notifications doivent indiquer que le chargement est terminé.
 10. Revenez à la vignette Mise à jour dans le tableau de bord. La vignette doit indiquer qu’une mise à jour est disponible. Cliquez sur la vignette pour vérifier la mise à jour récemment ajoutée.
 11. Pour installer la mise à jour, sélectionnez le package marqué comme étant **Prêt**, cliquez dessus avec le bouton droit et sélectionnez **Mettre à jour maintenant** ou cliquez sur l’action **Mettre à jour maintenant** située en haut.

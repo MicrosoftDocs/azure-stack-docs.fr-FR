@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/05/2019
+ms.date: 05/21/2019
 ms.author: sethm
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 87c93f77011082d3e43b1c7d238999441f1b90c1
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 0167fd89e7bc9b17ff5b950a4ed5f12c368f1f8f
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310331"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991264"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>Introduction à Key Vault dans Azure Stack
 
@@ -50,7 +50,7 @@ Toute personne disposant d’un abonnement Azure Stack peut créer et utiliser d
 
 L’opérateur est ensuite à même de fournir aux développeurs des URI (Uniform Resource Identifier), qu’ils peuvent appeler à partir de leurs applications. Il peut également fournir aux administrateurs de sécurité les informations sur la journalisation relative à l’utilisation des clés.
 
-Les développeurs peuvent également gérer les clés directement à l’aide d’API. Pour plus d’informations, consultez le guide du développeur Key Vault.
+Les développeurs peuvent également gérer les clés directement à l’aide d’API. Pour plus d’informations, consultez le [guide du développeur Key Vault](/azure/key-vault/key-vault-developers-guide).
 
 ## <a name="scenarios"></a>Scénarios
 
@@ -78,4 +78,3 @@ Les scénarios suivants expliquent comment Key Vault peut permettre de répondre
 
 * [Gérer Key Vault dans Azure Stack par le biais du portail](azure-stack-key-vault-manage-portal.md)  
 * [Gérer Key Vault dans Azure Stack avec PowerShell](azure-stack-key-vault-manage-powershell.md)
-

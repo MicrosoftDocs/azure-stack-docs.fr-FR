@@ -1,25 +1,25 @@
 ---
 title: Versions des API du fournisseur de ressources prises en charge par des profils dans Azure Stack | Microsoft Docs
-description: En savoir plus sur la version d’Azure Resource Manager prise en charge par des profils dans Azure Stack.
+description: Découvrez les versions des API d’Azure Resource Manager prises en charge par des profils dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
-ms.author: sethm
+ms.date: 05/08/2019
+ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 2e73e6e00503171aafea4ae254af0427a3e245ac
-ms.sourcegitcommit: a78c0d143eadcab65a601746b9ea24be28091ad2
+ms.lastreviewed: 05/08/2019
+ms.openlocfilehash: 36fd25897e2d45d454f8e1f956f5e72991d45059
+ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65212320"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65706258"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versions des API du fournisseur de ressources prises en charge par des profils dans Azure Stack
 
@@ -33,45 +33,39 @@ Le profil de l’API utilise trois conventions d’affectation de noms :
 
 Pour obtenir une explication des profils d’API et de la cadence de publication de versions pour Azure Stack, consultez [Gérer les profils de version des API dans Azure Stack](azure-stack-version-profiles.md).
 
-> [!Note]  
+> [!Note]
 > Le **dernier** profil d’API contient la dernière version de l’API de fournisseur de ressources et n’est pas listé dans cet article.
 
-## <a name="overview-of-2018---03-01-hybrid"></a>Vue d’ensemble de 2018-03-01-hybride
+## <a name="overview-of-the-2019-03-01-hybrid-profile"></a>Vue d’ensemble du profil 2019-03-01-hybrid
 
 | Fournisseur de ressources | Api-version |
 |-----------------------------------------------|-----------------------------------------------------|
-| Microsoft.Compute | 2017-03-30 |
-| Microsoft.Network | 2017-10-01<br>La passerelle VPN sera 2017-03-01 |
-| Microsoft.Storage (plan de données) | 2017-04-17 |
-| Microsoft.Storage (plan de contrôle) | 2016-01-01 |
-| Microsoft. Web | 2016-08-01<br>à savoir la version la plus récente (à l’heure actuelle) dans Azure |
+| Microsoft.Compute | 2017-12-01 |
+| Microsoft.Network | 2017-10-01<br>La passerelle VPN sera 2017-10-01 |
+| Microsoft.Storage (plan de données) | 2017-10-01 |
+| Microsoft.Storage (plan de contrôle) | 2017-10-01 |
+| Microsoft.Web | 2018-02-01 |
 | Microsoft.KeyVault | 2016-10-01 (pas de modification) |
-| Microsoft.Resources         (Azure Resource Manager lui-même) | 2016-02-01 |
-| Microsoft.Authorization   (opérations de stratégie) | 2015-11-01 |
-| Microsoft.Insights | 2015-11-01 |
-| Microsoft.Keyvault | 2016-10-01 |
-| Stratégie | 2016-10-01 |
-| Ressources | 2016-10-01 |
-| Resources_Links | 2016-10-01 |
-| Resources_Locks | 2016-10-01 |
-| Abonnements | 2016-10-01 |
+| Microsoft.Resources (Azure Resource Manager lui-même) | 2016-06-01 |
+| Microsoft.Authorization (opérations de stratégie) | 2016-09-01 |
+| Microsoft.Insights | 2018-01-01 |
 
-Pour une liste des versions pour chaque type de ressource pour les fournisseurs dans le profil de l’API, consultez le profil [Détails pour 2018-03-01-hybride](#details-for-the-2018-03-01-hybrid).
+Pour une liste des versions pour chaque type de ressource pour les fournisseurs dans le profil de l’API, consultez [Détails du profil 2019-03-01-hybrid](#details-for-the-2019-03-01-hybrid-profile).
 
-## <a name="details-for-the-2018-03-01-hybrid"></a>Détails de 2018-03-01-hybride
+## <a name="details-for-the-2019-03-01-hybrid-profile"></a>Détails du profil 2019-03-01-hybrid
 
 ### <a name="microsoftauthorization"></a>Microsoft.Authorization
 
-Vous utilisez le contrôle d’accès en fonction du rôle pour gérer les actions que les utilisateurs de votre organisation peuvent entreprendre sur les ressources. Cet ensemble d’opérations vous permet de définir des rôles, d’assigner des rôles aux utilisateurs ou aux groupes, et d’obtenir des informations sur les autorisations. Pour plus d’informations, consultez [Autorisation](/rest/api/authorization/).
+Le contrôle d’accès en fonction du rôle vous permet de gérer les actions que les utilisateurs de votre organisation peuvent entreprendre sur les ressources. Vous pouvez définir des rôles, assigner des rôles aux utilisateurs ou aux groupes et obtenir des informations sur les autorisations. Pour plus d’informations, consultez [Autorisation](/rest/api/authorization/).
 
 | Types de ressources | Versions des API |
 |---------------------|--------------------|
-| Verrous | 2017-04-01 |
+| Verrous | 2016-09-01 |
 | Opérations | 2015-07-01 |
 | Autorisations | 2015-07-01 |
-| Affectations de stratégies | 2016-12-01 (2017-06-01-préversion) |
+| Affectations de stratégies | 2016-12-01 |
 | Définitions de stratégies | 2016-12-01 |
-| Opérations de fournisseur | 2015-07-01-préversion |
+| Opérations de fournisseur | 2015-07-01 |
 | Affectations de rôles | 2015-07-01 |
 | Définitions de rôles | 2015-07-01 |
 
@@ -92,20 +86,20 @@ Les API de calcul Azure vous donnent un accès par programme aux machines virtue
 
 | Type de ressource | Version de l'API |
 |---------------------------------------------------------------|-------------|
-| Groupes à haute disponibilité | 2016-03-30 |
-| Emplacements | 2016-03-30 |
-| Emplacements/opérations | 2016-03-30 |
-| Emplacements/serveurs de publication | 2016-03-30 |
-| Emplacements/utilisations | 2016-03-30 |
-| Emplacements/Tailles de machines virtuelles | 2016-03-30 |
-| Opérations | 2016-03-30 |
-| Virtual Machines | 2016-03-30 |
-| Machines virtuelles/extensions | 2016-03-30 |
-| Virtual Machine Scale Sets | 2016-03-30 |
-| Groupes de machines virtuelles identiques/extensions | 2016-03-30 |
-| Groupes de machines virtuelles identiques/interfaces réseau | 2016-03-30 |
-| Groupes de machines virtuelles identiques/machines virtuelles | 2016-03-30 |
-| Groupes de machines virtuelles identiques/Machines virtuelles/Interfaces réseau | 2016-03-30 |
+| Groupes à haute disponibilité | 2017-12-01 |
+| Emplacements | 2017-12-01 |
+| Emplacements/opérations | 2017-12-01 |
+| Emplacements/serveurs de publication | 2017-12-01 |
+| Emplacements/utilisations | 2017-12-01 |
+| Emplacements/Tailles de machines virtuelles | 2017-12-01 |
+| Opérations | 2017-12-01 |
+| Virtual Machines | 2017-12-01 |
+| Machines virtuelles/extensions | 2017-12-01 |
+| Virtual Machine Scale Sets | 2017-12-01 |
+| Groupes de machines virtuelles identiques/extensions | 2017-12-01 |
+| Groupes de machines virtuelles identiques/interfaces réseau | 2017-12-01 |
+| Groupes de machines virtuelles identiques/machines virtuelles | 2017-12-01|
+| Groupes de machines virtuelles identiques/Machines virtuelles/Interfaces réseau | 2017-12-01 |
 
 ### <a name="microsoftgallery"></a>Microsoft.Gallery
 
@@ -134,7 +128,7 @@ Les API de calcul Azure vous donnent un accès par programme aux machines virtue
 
 ### <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
-Gestion de vos coffres de clés, ainsi que des clés, des secrets et des certificats dans vos coffres de clés. Pour plus d’informations, consultez les [informations de référence sur l’API REST Azure Key Vault](/rest/api/keyvault/).
+Gérer vos coffres de clés, ainsi que les clés, les secrets et les certificats dans votre coffre de clés. Pour plus d’informations, consultez les [informations de référence sur l’API REST Azure Key Vault](/rest/api/keyvault/).
 
 | Types de ressources | Versions des API |
 |-------------------------|--------------|
@@ -149,21 +143,21 @@ Le résultat de l’appel des opérations est une représentation sous forme de 
 
 | Types de ressources | Versions des API |
 |---------------------------|--------------|
-| connexions | 2015-06-15 |
+| connexions | 2017-10-01 |
 | Zones DNS | 2016-04-01 |
-| Équilibreurs de charge | 2015-06-15 |
-| Passerelle de réseau local | 2015-06-15 |
-| Emplacements | 2016-04-01 |
-| Emplacement/operationResults | 2016-04-01 |
-| Emplacements/opérations | 2016-04-01 |
-| Emplacements/utilisations | 2016-04-01 |
-| Interfaces réseau | 2015-06-15 |
-| Network Security Group | 2015-06-15 |
-| Opérations | 2015-06-15 |
-| Adresse IP publique | 2015-06-15 |
-| Tables de routage | 2015-06-15 |
-| Passerelle de réseau virtuel | 2015-06-15 |
-| Virtual Network | 2015-06-15 |
+| Équilibreurs de charge | 2017-10-01 |
+| Passerelle de réseau local | 2017-10-01 |
+| Emplacements | 2017-10-01|
+| Emplacement/operationResults | 2017-10-01 |
+| Emplacements/opérations | 2017-10-01 |
+| Emplacements/utilisations |2017-10-01 |
+| Interfaces réseau | 2017-10-01 |
+| Network Security Group | 2017-10-01 |
+| Opérations | 2017-10-01 |
+| Adresse IP publique | 2017-10-01 |
+| Tables de routage | 2017-10-01 |
+| Passerelle de réseau virtuel | 2017-10-01 |
+| Virtual Network | 2017-10-01 |
 
 ### <a name="microsoftresources"></a>Microsoft.Resources
 
@@ -171,141 +165,39 @@ Azure Resource Manager vous permet de déployer et de gérer l’infrastructure 
 
 | Types de ressources | Versions des API |
 |-----------------------------------------|-------------------|
-| Inscriptions à l’application | 2015-01-01 |
-| Vérifier le nom de la ressource | 2016-09-01 |
-| Fournisseurs délégués | 2015-01-01 |
-| Fournisseurs délégués/offres | 2015-01-01 |
-| DelegatedProviders/offers/estimatePrice | 2015-01-01 |
-| Déploiements | 2016-09-01 |
-| Déploiements/opérations | 2016-09-01 |
-| Métadonnées d’extensions | 2015-01-01 |
-| Liens | 2016-09-01 |
-| Emplacements | 2015-01-01 |
-| Offres | 2015-01-01 |
-| Opérations | 2015-01-01 |
-| Fournisseurs | 2017-08-01 |
-| Groupes de ressources | 2016-09-01 |
-| Ressources | 2016-09-01 |
-| Abonnements | 2016-09-01 |
-| Abonnements/emplacement | 2016-09-01 |
-| Abonnements/résultats de l’opération | 2016-09-01 |
-| Abonnements/fournisseurs | 2017-08-01 |
-| Abonnements/Groupes de ressources | 2016-09-01 |
-| Subscriptions/resourceGroups/resources | 2016-09-01 |
-| Abonnements/ressources | 2016-09-01 |
-| Subscriptions/tagNames | 2016-09-01 |
-| Subscriptions/tagNames/tagValues | 2016-09-01 |
-| Locataires | 2017-08-01 |
+| Déploiements | 2018-05-01 |
+| Déploiements/opérations | 2018-05-01 |
+| Liens | 2018-05-01 |
+| Emplacements | 2018-05-01 |
+| Opérations | 2018-05-01 |
+| Fournisseurs | 2018-05-01 |
+| Groupes de ressources| 2018-05-01 |
+| Ressources | 2018-05-01/ |
+| Abonnements | 2018-05-01 |
+| Abonnements/emplacements | 2016-06-01 |
+| Abonnements/résultats des opérations | 2018-05-01 |
+| Abonnements/fournisseurs | 2018-05-01 |
+| Abonnements/groupes de ressources | 2018-05-01 |
+| Subscriptions/resourceGroups/resources | 2018-05-01 |
+| Abonnements/ressources | 2018-05-01 |
+| Subscriptions/tagNames | 2018-05-01 |
+| Subscriptions/tagNames/tagValues | 2018-05-01 |
+| Locataires | 2016-06-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage
 
-Le fournisseur de ressources de stockage (SRP) vous permet de gérer par programme votre compte de stockage et vos clés. Pour plus d’informations, consultez [Informations de référence sur l’API REST du fournisseur de ressources de stockage Azure](/rest/api/storagerp/).
+Le fournisseur de ressources de stockage (SRP) vous permet de gérer par programmation votre compte de stockage et vos clés. Pour plus d’informations, consultez [Informations de référence sur l’API REST du fournisseur de ressources de stockage Azure](/rest/api/storagerp/).
 
 | Types de ressources | Versions des API |
 |-------------------------|--------------|
-| Vérifier la disponibilité du nom | 2016-01-01 |
-| Emplacements | 2016-01-01 |
-| Emplacements/quotas | 2016-01-01 |
-| Opérations | 2016-01-01 |
-| StorageAccounts | 2016-01-01 |
-| Utilisations | 2016-01-01 |
-
-## <a name="details-for-the-2018-03-01-hybrid"></a>Détails de 2018-03-01-hybride
-
-### <a name="microsoft-authorization"></a>Autorisation Microsoft
-
-| Types de ressources | Versions des API |
-|---------------------|---------------------------------|
-| Verrous | 2017-04-01 |
-| Opérations | 2015-07-01 |
-| Autorisations | 2015-07-01 |
-| Affectations de stratégies | 2016-12-01 (2017-06-01-préversion) |
-| Définitions de stratégies | 2016-12-01 |
-| Opérations de fournisseur | 2015-07-01-préversion |
-| Affectations de rôles | 2015-07-01 |
-| Définitions de rôles | 2015-07-01 |
-
-### <a name="microsoftcompute"></a>Microsoft.Compute
-
-| Type de ressource | Version de l'API |
-|---------------------------------------------------------------|-------------|
-| Groupes à haute disponibilité | 2016-03-30 |
-| Emplacements | 2016-03-30 |
-| Emplacements/opérations | 2016-03-30 |
-| Emplacements/serveurs de publication | 2016-03-30 |
-| Emplacements/utilisations | 2016-03-30 |
-| Emplacements/Tailles de machines virtuelles | 2016-03-30 |
-| Opérations | 2016-03-30 |
-| Virtual Machines | 2016-03-30 |
-| Machines virtuelles/extensions | 2016-03-30 |
-| Virtual Machine Scale Sets | 2016-03-30 |
-| Groupes de machines virtuelles identiques/extensions | 2016-03-30 |
-| Groupes de machines virtuelles identiques/interfaces réseau | 2016-03-30 |
-| Groupes de machines virtuelles identiques/machines virtuelles | 2016-03-30 |
-| Groupes de machines virtuelles identiques/Machines virtuelles/Interfaces réseau | 2016-03-30 |
-
-### <a name="microsoftnetwork"></a>Microsoft.Network
-
-| Types de ressources | Versions des API |
-|---------------------------|--------------|
-| connexions | 2015-06-15 |
-| Zones DNS | 2016-04-01 |
-| Équilibreurs de charge | 2015-06-15 |
-| Passerelle de réseau local | 2015-06-15 |
-| Emplacements | 2016-04-01 |
-| Emplacement/operationResults | 2016-04-01 |
-| Emplacements/opérations | 2016-04-01 |
-| Emplacements/utilisations | 2016-04-01 |
-| Interfaces réseau | 2015-06-15 |
-| Network Security Group | 2015-06-15 |
-| Opérations | 2015-06-15 |
-| Adresse IP publique | 2015-06-15 |
-| Tables de routage | 2015-06-15 |
-| Passerelle de réseau virtuel | 2015-06-15 |
-| Virtual Network | 2015-06-15 |
-
-### <a name="microsoftresources"></a>Microsoft.Resources
-
-| Types de ressources | Versions des API |
-|-----------------------------------------|--------------|
-| Inscriptions à l’application | 2015-01-01 |
-| Vérifier le nom de la ressource | 2016-09-01 |
-| Fournisseurs délégués | 2015-01-01 |
-| Fournisseurs délégués/offres | 2015-01-01 |
-| DelegatedProviders/offers/estimatePrice | 2015-01-01 |
-| Déploiements | 2016-09-01 |
-| Déploiements/opérations | 2016-09-01 |
-| Métadonnées d’extensions | 2015-01-01 |
-| Liens | 2016-09-01 |
-| Emplacements | 2015-01-01 |
-| Offres | 2015-01-01 |
-| Opérations | 2015-01-01 |
-| Fournisseurs | 2017-08-01 |
-| Groupes de ressources | 2016-09-01 |
-| Ressources | 2016-09-01 |
-| Abonnements | 2016-09-01 |
-| Abonnements/emplacement | 2016-09-01 |
-| Abonnements/résultats de l’opération | 2016-09-01 |
-| Abonnements/fournisseurs | 2017-08-01 |
-| Abonnements/Groupes de ressources | 2016-09-01 |
-| Subscriptions/resourceGroups/resources | 2016-09-01 |
-| Abonnements/ressources | 2016-09-01 |
-| Subscriptions/tagNames | 2016-09-01 |
-| Subscriptions/tagNames/tagValues | 2016-09-01 |
-| Locataires | 2017-08-01 |
-
-### <a name="microsoftstorage"></a>Microsoft.Storage
-
-| Types de ressources | Versions des API |
-|-------------------------|--------------|
-| Vérifier la disponibilité du nom | 2016-01-01 |
-| Emplacements | 2016-01-01 |
-| Emplacements/quotas | 2016-01-01 |
-| Opérations | 2016-01-01 |
-| StorageAccounts | 2016-01-01 |
-| Utilisations | 2016-01-01 |
+| Vérification de la disponibilité des noms | 2017-10-01 |
+| Emplacements | 2017-10-01 |
+| Emplacements/quotas | 2017-10-01 |
+| Opérations | 2017-10-01 |
+| StorageAccounts | 2017-10-01 |
+| Utilisations | 2017-10-01 |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Installer PowerShell pour Azure Stack](../operator/azure-stack-powershell-install.md)
-- [Configurez l’environnement PowerShell de l’utilisateur Azure Stack.](azure-stack-powershell-configure-user.md)  
+* [Installer PowerShell pour Azure Stack](../operator/azure-stack-powershell-install.md)
+* [Configurez l’environnement PowerShell de l’utilisateur Azure Stack.](azure-stack-powershell-configure-user.md)  

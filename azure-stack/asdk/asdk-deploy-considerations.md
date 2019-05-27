@@ -12,22 +12,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2018
+ms.date: 05/13/2019
 ms.author: mabrigg
 ms.reviewer: misainat
-ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 3a5b506cdb7441ef60d4731718cafa8aa267c078
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.lastreviewed: 05/13/2019
+ms.openlocfilehash: 9cb349ec19edd493ca994b406b9311fe27bed242
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172436"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712246"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Considérations liées à la planification du déploiement d’Azure Stack
+
 Avant de déployer le kit de développement Azure Stack (ASDK), vérifiez que l’ordinateur hôte du kit de développement répond à la configuration requise décrite dans cet article.
 
-
 ## <a name="hardware"></a>Matériel
+
 | Composant | Minimale | Recommandé |
 | --- | --- | --- |
 | Lecteurs de disque : Système d’exploitation |1 disque de système d’exploitation avec un minimum de 200 Go disponibles pour la partition système (SSD ou HDD) |1 disque de système d’exploitation avec un minimum de 200 Go disponibles pour la partition système (SSD ou HDD) |
@@ -39,6 +40,8 @@ Avant de déployer le kit de développement Azure Stack (ASDK), vérifiez que l�
 | Logo de certification du matériel |[Certifié pour Windows Server 2012 R2](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certifié pour Windows Server 2016](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup> Vous aurez besoin d’une plus grande capacité que celle recommandée si vous prévoyez d’ajouter de nombreux [éléments de la Place de marché](../operator/azure-stack-create-and-publish-marketplace-item.md) Azure.
+
+### <a name="hardware-notes"></a>Remarques concernant le matériel
 
 **Configuration des lecteurs de disque de données :** tous les lecteurs de données doivent être de même type (SAS, SATA ou NVMe) et avoir la même capacité. Si vous utilisez des lecteurs de disque SAS, vous devez les joindre par le biais d’un chemin d’accès unique (aucune prise en charge de MPIO ou des chemins d’accès multiples n’est fournie).
 
@@ -63,6 +66,22 @@ Avant de déployer le kit de développement Azure Stack (ASDK), vérifiez que l�
 **Exemples de HBA** : LSI 9207-8i, LSI-9300-8i ou LSI-9265-8i en mode pass-through
 
 Des exemples de configurations OEM sont disponibles.
+
+### <a name="storage-resiliency-for-the-asdk"></a>Résilience du stockage pour le Kit ASDK
+
+En tant que système mono-nœud, le Kit ASDK n’est pas conçu pour la validation de la redondance en production d’un système intégré Azure Stack. Toutefois, vous pouvez augmenter le niveau de la redondance du stockage sous-jacent du kit ASDK en combinant de manière optimisée des disques HDD et SSD. Vous pouvez déployer une configuration en miroir bidirectionnelle, à l’image d’un système RAID1, plutôt qu’une configuration de résilience simple, qui est similaire à un système RAID0. Pour la configuration des espaces de stockage direct sous-jacents, utilisez des lecteurs appropriés en termes de capacité, type et quantité.
+
+Pour utiliser une configuration en miroir bidirectionnelle pour la résilience du stockage :
+
+- Capacité HDD dans le système supérieure à deux téraoctets.
+- Si vous n’avez pas de disques SSD dans votre kit ASDK, vous avez besoin d’au moins huit HDD pour une configuration en miroir bidirectionnelle.
+- Si vous avez des disques SSD dans votre kit ASDK ainsi que des disques HDD, vous avez besoin d’au moins cinq HDD. Toutefois, six disques HDD sont recommandés. Pour six disques HDD, il est également recommandé d’avoir au moins trois disques SSD dans le système afin d’avoir un cache disque (SSD) pour deux disques de capacité (HDD).
+
+Exemple de configuration en miroir bidirectionnelle :
+
+- Huit disques HDD
+- Trois disques SSD / six disques HDD
+- Quatre disques SSD / huit disques HDD
 
 ## <a name="operating-system"></a>Système d’exploitation
 |  | **Configuration requise** |
@@ -126,4 +145,7 @@ Azure Stack nécessite un accès à Internet, directement ou via un proxy transp
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Télécharger le package de déploiement de l’ASDK](asdk-download.md)
+
+- [Télécharger le package de déploiement de l’ASDK](asdk-download.md)
+- Pour en savoir plus sur les espaces de stockage direct, consultez [Vue d’ensemble des espaces de stockage direct](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview).
+

@@ -1,5 +1,5 @@
 ---
-title: Mise à jour 1904 d’Azure Stack | Microsoft Docs
+title: Notes de publication pour Azure Stack 1904 | Microsoft Docs
 description: 'Découvrez la mise à jour 1904 pour les systèmes intégrés Azure Stack : nouveautés, problèmes connus et emplacement de téléchargement.'
 services: azure-stack
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 05/06/2019
-ms.openlocfilehash: 6d1170727f8dccca98d68f2363a44b2c1cc2d210
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 99906760e51c87a7403eabfb94a64b74b999aab5
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172548"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941174"
 ---
 # <a name="azure-stack-1904-update"></a>Mise à jour 1904 d’Azure Stack
 
@@ -114,6 +114,8 @@ Le numéro de build de la mise à jour 1904 d’Azure Stack est **1.1904.0.36**
 
 - Mise à jour de l’agent Azure Linux version 2.2.38.0. Cette prise en charge permet aux clients de maintenir la cohérence des images Linux entre Azure et Azure Stack.
 
+- Modifications des journaux d’activité de mise à jour dans le portail des opérateurs. Les demandes de récupération de journaux d’activité des mises à jour réussies ne sont plus disponibles. Les journaux d’activité des mises à jour ayant échoué sont toujours téléchargeables, car ils sont exploitables à des fins de diagnostics.
+
 ### <a name="fixes"></a>Correctifs
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
@@ -142,13 +144,15 @@ Le numéro de build de la mise à jour 1904 d’Azure Stack est **1.1904.0.36**
 
 - Correction du problème suivant dans la gestion de la Place de marché : tous les produits téléchargés étaient masqués si l’inscription expirait ou était supprimée.
 
-- Correction du problème suivant : l’émission d’une commande **Set-AzureRmVirtualNetworkGatewayConnection** dans PowerShell en direction d’une connexion de passerelle de réseau virtuel existante échouait avec le message d’erreur **La clé partagée configurée n’est pas valide...**.
+- Correction du problème suivant : l’émission d’une commande **Set-AzureRmVirtualNetworkGatewayConnection** dans PowerShell en direction d’une connexion de passerelle de réseau virtuel existante échouait avec le message d’erreur **La clé partagée configurée n’est pas valide...** .
 
 - Correction du problème suivant : le fournisseur de ressources réseau (NRP) n’était pas synchronisé avec le contrôleur de réseau, ce qui entraînait des ressources en double demandées. Dans certains cas, cela avait pour conséquence qu’une ressource parente était dans un état d’erreur.
 
 - Correction du problème suivant : quand un utilisateur avait reçu le rôle de contributeur à un abonnement, mais n’avait pas reçu explicitement des autorisations de lecture, l’erreur **... Le client « somelogonaccount@domain.com » avec l’ID d’objet {GUID} n’est pas autorisé à effectuer l’action...** était générée lors de la tentative d’enregistrement d’une modification de ressource.
 
 - Correction du problème suivant : l’écran de gestion de la Place de marché était vide si l’outil de syndication hors connexion était utilisé pour charger des images et qu’aucune d’elles n’avait un URI d’icône.
+
+- Correction d’un problème qui empêchait de supprimer de la gestion de la Place de marché les produits dont le téléchargement avait échoué.
 
 ### <a name="security-updates"></a>Mises à jour de sécurité
 

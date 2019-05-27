@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/10/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: e89a2fc4adbe4a9d399cec67608c1c63748692e7
-ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
+ms.openlocfilehash: 1fcdcdc4f592056ce3da5074b2371fde91b47c85
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65387125"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532380"
 ---
 # <a name="azure-stack-1901-update"></a>Mise à jour 1901 d’Azure Stack
 
@@ -221,6 +221,8 @@ Cette mise à jour installe les mises à jour de sécurité suivantes :
 Pour plus d’informations sur ces vulnérabilités, cliquez sur les liens précédents ou consultez l’article [4480977](https://support.microsoft.com/en-us/help/4480977) de la Base de connaissances Microsoft.
 
 ## <a name="known-issues-with-the-update-process"></a>Problèmes connus avec le processus de mise à jour
+
+- Lorsque vous tentez d’installer une mise à jour Azure Stack, l’état de la mise à jour peut échouer et définir l’état sur **PreparationFailed**. Cela est dû au fait que le fournisseur de ressources de mise à jour est dans l’impossibilité de transférer correctement les fichiers du conteneur de stockage vers un partage d’infrastructure interne à des fins de traitement. À compter de la version 1901 (1.1901.0.95), vous pouvez contourner ce problème en cliquant sur **Mettre à jour maintenant** à nouveau (et pas sur **Reprendre**). Le fournisseur de ressources de mise à jour nettoie les fichiers de la tentative précédente, puis redémarre le téléchargement.
 
 - Lors de l’exécution de la commande [Test-AzureStack](azure-stack-diagnostic-test.md), si le test **AzsInfraRoleSummary** ou **AzsPortalApiSummary** échoue, vous êtes invité à exécuter la commande **Test-AzureStack** avec l’indicateur `-Repair`.  Si vous exécutez cette commande, elle échoue et le message d’erreur suivant s’affiche : `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`
 

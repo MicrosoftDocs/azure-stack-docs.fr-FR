@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/09/2019
-ms.author: efemmano
-ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: b0dba609acd7b12cdb95c1ec3e40ad906674244d
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.date: 05/10/2019
+ms.author: sethm
+ms.lastreviewed: 05/10/2019
+ms.openlocfilehash: 792589eabf13b9aca493e230f7e3e93cfab21736
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984774"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532371"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack"></a>Créer des abonnements pour des offres dans Azure Stack
 
@@ -92,7 +92,7 @@ En tant qu’utilisateur, vous pouvez vous connecter au portail utilisateur pour
 
 Si une offre possède un plan additionnel, vous pouvez ajouter ce plan à votre abonnement à tout moment.  
 
-1. Dans le portail utilisateur, sélectionnez **Tous les services**. Ensuite, dans la catégorie **GÉNÉRAL**, sélectionnez **Abonnements**, puis sélectionnez l’abonnement à modifier. Si des plans additionnels sont disponibles, l’option **+Ajouter un plan** est active et il existe une vignette pour **Plans additionnels**. 
+1. Dans le portail utilisateur, sélectionnez **Tous les services**. Ensuite, dans la catégorie **GÉNÉRAL**, sélectionnez **Abonnements**, puis sélectionnez l’abonnement à modifier. Si des plans additionnels sont disponibles, l’option **+Ajouter un plan** est active et il existe une vignette pour **Plans additionnels**.
 
    Si l’option **+Ajouter un plan** n’est pas active, cela signifie qu’il n’existe aucun plan additionnel pour l’offre associée à cet abonnement.
 

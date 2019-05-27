@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 05/21/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 2f7f0c55f02fd99a419619d878be8300d7326303
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 40a60c5207494ae70ccdfd051c8a223493b704c5
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64309647"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991104"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Ajouter des images Linux à Azure Stack
 
@@ -30,16 +30,17 @@ Vous pouvez déployer des machines virtuelles Linux sur Azure Stack en ajoutant 
 
 ## <a name="marketplace-management"></a>Gestion de la Place de marché
 
-Pour télécharger des images Linux à partir de la Place de Marché Azure, utilisez l’article [Télécharger des éléments de la Place de Marché à partir d’Azure dans Azure Stack](azure-stack-download-azure-marketplace-item.md). Sélectionnez les images Linux que vous souhaitez proposer aux utilisateurs sur votre système Azure Stack. 
+Pour télécharger des images Linux à partir de la Place de Marché Azure, utilisez l’article [Télécharger des éléments de la Place de Marché à partir d’Azure dans Azure Stack](azure-stack-download-azure-marketplace-item.md). Sélectionnez les images Linux que vous souhaitez proposer aux utilisateurs sur votre système Azure Stack.
 
-Notez qu’il existe des mises à jour fréquentes pour ces images, aussi reportez-vous régulièrement à la Gestion de la Place de marché pour les maintenir à jour.
+Il existe des mises à jour fréquentes pour ces images ; aussi reportez-vous régulièrement à la gestion de la Place de marché pour les maintenir à jour.
 
 ## <a name="prepare-your-own-image"></a>Préparer votre propre image
 
-Dans la mesure du possible, téléchargez les images disponibles via la Gestion de la Place de marché qui ont été préparées et testées pour Azure Stack.
+Dans la mesure du possible, téléchargez les images disponibles via la gestion de la Place de marché. Ces images ont été préparées et testées pour Azure Stack.
 
 ### <a name="azure-linux-agent"></a>Agent Linux Azure
-L’agent Azure Linux (généralement appelé `WALinuxAgent` ou `walinuxagent`) est requis, et toutes les versions de l’agent ne fonctionnent pas sur Azure Stack. Les versions entre 2.2.20 et 2.2.35 ne sont pas prises en charge sur Azure Stack. Pour utiliser les dernières versions de l’agent qui sont postérieures à 2.2.35, appliquez le correctif logiciel 1901/1902, ou mettez à jour votre environnement Azure Stack avec la version 1903 (ou supérieure). Notez que [cloud-init](https://cloud-init.io/) n’est pas pris en charge sur Azure Stack pour l’instant.
+
+L’Agent Azure Linux (généralement appelé `WALinuxAgent` ou `walinuxagent`) est requis, et toutes les versions de l’agent ne fonctionnent pas sur Azure Stack. Les versions entre 2.2.20 et 2.2.35 ne sont pas prises en charge sur Azure Stack. Pour utiliser les dernières versions de l’agent qui sont postérieures à 2.2.35, appliquez le correctif logiciel 1901/1902, ou mettez à jour votre environnement Azure Stack avec la version 1903 (ou supérieure). Notez que [cloud-init](https://cloud-init.io/) n’est pas pris en charge sur Azure Stack pour l’instant.
 
 | Build Azure Stack | Build Agent Linux Azure |
 | ------------- | ------------- |
@@ -66,7 +67,5 @@ Une fois que vous avez ajouté l’image à la Place de marché, un élément de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, consultez les articles suivants :
-
-- [Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack](azure-stack-download-azure-marketplace-item.md)
-- [Vue d’ensemble de la Place de Marché Azure Stack](azure-stack-marketplace.md)
+* [Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack](azure-stack-download-azure-marketplace-item.md)
+* [Vue d’ensemble de la Place de Marché Azure Stack](azure-stack-marketplace.md)

@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 1c096428bca07f557d62d0984ca1da1f428e9c28
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/16/2019
+ms.openlocfilehash: d2b7ec8beedcc0ffbcf881dd09d513d3e0b61426
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64306437"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782223"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Sauvegarde et récupération de données pour Azure Stack avec le service Infrastructure Backup
 
@@ -32,7 +32,7 @@ Vous pouvez activer la sauvegarde quand vous êtes prêt à passer votre cloud e
 Avant d’activer votre service de sauvegarde, vérifiez que [la configuration requise est en place](#verify-requirements-for-the-infrastructure-backup-service).
 
 > [!Note]  
-> Le service Infrastructure Backup n’inclut pas les données utilisateur ni les applications. Reportez-vous à [Protéger des machines virtuelles déployées sur Azure Stack](../user/azure-stack-manage-vm-protect.md) pour plus d’informations sur la façon de protéger les applications basées sur les machines virtuelles IaaS. Pour obtenir une parfaite compréhension de la protection des applications sur Azure Stack, reportez-vous au livre blanc [Azure Stack : Considérations relatives à la continuité et la reprise d’activité](https://aka.ms/azurestackbcdrconsiderationswp).
+> Le service Infrastructure Backup n’inclut pas les données utilisateur ni les applications. Pour plus d’informations sur la façon de protéger les applications basées sur les machines virtuelles IaaS, consultez [Protéger des machines virtuelles déployées sur Azure Stack](../user/azure-stack-manage-vm-protect.md). Pour obtenir une parfaite compréhension de la protection des applications sur Azure Stack, reportez-vous au livre blanc [Azure Stack : Considérations relatives à la continuité et la reprise d’activité](https://aka.ms/azurestackbcdrconsiderationswp).
 
 ## <a name="the-infrastructure-backup-service"></a>Le service Infrastructure Backup
 

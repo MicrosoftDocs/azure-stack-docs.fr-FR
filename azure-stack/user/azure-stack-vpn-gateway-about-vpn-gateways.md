@@ -3,25 +3,24 @@ title: À propos de la passerelle VPN pour Azure Stack | Microsoft Docs
 description: En savoir plus et configurer les passerelles VPN que vous utilisez avec Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: 0e30522f-20d6-4da7-87d3-28ca3567a890
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 02/15/2019
-ms.date: 03/04/2019
-ms.author: v-jay
-ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 83d5215049976b67d22e29c2e4b75ec63a505b36
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.topic: conceptual
+ms.date: 05/21/2019
+ms.author: sethm
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 03aea7833e59d3262fc54e71d3d5409b5b95c488
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311423"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991291"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>À propos de la passerelle VPN pour Azure Stack
 
@@ -35,14 +34,15 @@ Lorsque vous créez une passerelle de réseau virtuel, vous spécifiez le type d
 
 Chaque réseau virtuel peut avoir deux passerelles de réseau virtuel, mais une seule de chaque type. Selon les paramètres que vous choisissez, vous pouvez créer plusieurs connexions à une passerelle VPN unique. La configuration d’une connexion sur plusieurs sites en est un exemple.
 
-Avant de créer et configurer des passerelles VPN pour Azure Stack, passez en revue les [considérations relatives à la mise en réseau Azure Stack](azure-stack-network-differences.md) pour savoir dans quelle mesure les configurations pour Azure Stack diffèrent de celles pour Azure.
+Avant de créer et configurer des passerelles VPN pour Azure Stack, passez en revue les [considérations relatives au réseau Azure Stack](azure-stack-network-differences.md) pour savoir dans quelle mesure les configurations pour Azure Stack diffèrent de celles pour Azure.
 
 >[!NOTE]
 >Dans Azure, le débit de la bande passante pour la référence SKU de passerelle VPN que vous choisissez doit être réparti entre toutes les connexions connectées à la passerelle. Toutefois, dans Azure Stack, la valeur de la bande passante pour la référence SKU de la passerelle VPN est appliquée à chaque ressource de connexion connectée.
 >
 > Par exemple : 
+>
 > * Dans Azure, la référence SKU de passerelle VPN de base peut prendre en charge environ 100 Mbits/s de débit agrégé. Si vous créez deux connexions pour cette passerelle VPN, dont une connexion avec une bande passante de 50 Mbits/s, 50 Mbits/s sont disponibles pour l’autre connexion.
-> * Dans Azure Stack, *chaque* connexion à la référence SKU de passerelle VPN de base se voit allouer un débit de 100 Mbits/s.
+> * Dans Azure Stack, **chaque connexion** à la référence SKU de passerelle VPN de base se voit allouer un débit de 100 Mbits/s.
 
 ## <a name="configuring-a-vpn-gateway"></a>Configuration d’une passerelle VPN
 
@@ -52,7 +52,7 @@ Une connexion par passerelle VPN s’appuie sur plusieurs ressources qui sont co
 
 Les paramètres que vous choisissez pour chaque ressource sont essentiels à la création d’une connexion réussie.
 
-Pour plus d’informations sur les ressources et paramètres spécifiques pour la passerelle VPN, consultez [À propos des paramètres de passerelle VPN pour Azure Stack](azure-stack-vpn-gateway-settings.md). Cet article vous aidera à comprendre les éléments suivants :
+Pour plus d’informations sur les ressources et paramètres spécifiques pour la passerelle VPN, consultez [À propos des paramètres de passerelle VPN pour Azure Stack](azure-stack-vpn-gateway-settings.md). Cet article vous aide à comprendre :
 
 * Les types de passerelle, les types de VPN et les types de connexion.
 * Les sous-réseaux de passerelle, les passerelles de réseau local et les autres paramètres de ressource que vous souhaiterez peut-être prendre en compte.
@@ -108,11 +108,11 @@ Prenez en compte les éléments suivants lorsque vous sélectionnez la référen
 
 Le tableau suivant présente les types de passerelle et le débit total estimé par référence SKU de passerelle :
 
-|   | Débit de passerelle VPN *(1)* | Tunnels IPsec max de passerelle VPN *(2)* |
+|| Débit de passerelle VPN *(1)* | Tunnels IPsec max de passerelle VPN *(2)* |
 |-------|-------|-------|
-|**Référence SKU de base** ***(3)***    | 100 Mbits/s  | 20    |
-|**Référence Standard**       | 100 Mbits/s  | 20    |
-|**Référence Hautes performances** | 200 Mbits/s    | 10    |
+|**Référence SKU de base** ***(3)*** | 100 Mbits/s | 20 |
+|**Référence Standard** | 100 Mbits/s | 20 |
+|**Référence Hautes performances** | 200 Mbits/s | 10 |
 
 **Notes de la table :**
 
@@ -125,4 +125,4 @@ Le tableau suivant présente les types de passerelle et le débit total estimé 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Paramètres de configuration de la passerelle VPN pour Azure Stack](azure-stack-vpn-gateway-settings.md)
+* [Paramètres de configuration de la passerelle VPN pour Azure Stack](azure-stack-vpn-gateway-settings.md)

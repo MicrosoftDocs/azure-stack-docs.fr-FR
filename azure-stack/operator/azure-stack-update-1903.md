@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 04cec74873869f19c7bd762753f7fe89f51c184d
-ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
+ms.openlocfilehash: 5e0b19e753380c519704f9b2064ff56245004896
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65386738"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712331"
 ---
 # <a name="azure-stack-1903-update"></a>Mise à jour 1903 d’Azure Stack
 
@@ -98,6 +98,8 @@ Les correctifs logiciels Azure Stack sont uniquement applicables aux systèmes i
 
 ## <a name="known-issues-with-the-update-process"></a>Problèmes connus avec le processus de mise à jour
 
+- Lorsque vous tentez d’installer une mise à jour Azure Stack, l’état de la mise à jour peut échouer et définir l’état sur **PreparationFailed**. Cela est dû au fait que le fournisseur de ressources de mise à jour est dans l’impossibilité de transférer correctement les fichiers du conteneur de stockage vers un partage d’infrastructure interne à des fins de traitement. À compter de la version 1901 (1.1901.0.95), vous pouvez contourner ce problème en cliquant sur **Mettre à jour maintenant** à nouveau (et pas sur **Reprendre**). Le fournisseur de ressources de mise à jour nettoie les fichiers de la tentative précédente, puis redémarre le téléchargement.
+
 - Quand vous exécutez la commande [Test-AzureStack](azure-stack-diagnostic-test.md), un message d’avertissement du contrôleur de gestion de la carte de base (BMC) s’affiche. Vous pouvez ignorer cet avertissement sans problème.
 
 <!-- 2468613 - IS -->
@@ -142,7 +144,7 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 
   
 <!-- Daniel 3/28 -->
-- Dans le portail de l’utilisateur, lorsque vous essayez d’uploader un objet blob à l’aide de l’option **OAuth (préversion)**, la tâche échoue avec un message d’erreur. Pour contourner ce problème, uploadez l’objet blob à l’aide de l’option **SAS**.
+- Dans le portail de l’utilisateur, lorsque vous essayez d’uploader un objet blob à l’aide de l’option **OAuth (préversion)** , la tâche échoue avec un message d’erreur. Pour contourner ce problème, uploadez l’objet blob à l’aide de l’option **SAS**.
 
 - Lorsque vous êtes connecté aux portails Azure Stack, vous pouvez consulter les notifications concernant le portail public Azure. Vous pouvez ignorer ces notifications car elles ne s’appliquent pas à Azure Stack (par exemple, « 1 nouvelle mise à jour - Les mises à jour suivantes sont maintenant disponibles : Mise à jour d’avril 2019 du Portail Azure »).
 
@@ -214,7 +216,8 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 ### <a name="app-service"></a>App Service
 
 <!-- 2352906 - IS ASDK -->
-- Avant de créer votre première fonction Azure dans l’abonnement, vous devez inscrire le fournisseur de ressources de stockage.
+- Les locataires doivent inscrire le fournisseur de ressources de stockage avant de créer leur première fonction Azure dans l’abonnement.
+- Certaines expériences utilisateur du portail de locataire sont interrompues en raison d’une incompatibilité avec le framework du portail dans la version 1903, principalement l’expérience utilisateur pour les emplacements de déploiement, les tests en production et les extensions de site. Pour contourner ce problème, utilisez le [module PowerShell Azure App Service](/azure/app-service/deploy-staging-slots#automate-with-powershell) ou [Azure CLI](/cli/azure/webapp/deployment/slot?view=azure-cli-latest). L’expérience du portail sera restaurée dans la prochaine version d’Azure App Service sur Azure Stack 1.6 (mise à jour 6).
 
 <!-- ### Usage -->
 

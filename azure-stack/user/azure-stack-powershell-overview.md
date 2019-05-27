@@ -15,12 +15,12 @@ ms.date: 04/25/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: b28a90ceca59e5cd072018b217d81d101c1b0853
-ms.sourcegitcommit: 0d8ccf2a32b08ab9bcbe13d54c7c3dce2379757f
+ms.openlocfilehash: 0cef39147fdbc62fe0652b1e387aa23f5ecb8487
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64490038"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782894"
 ---
 # <a name="get-started-with-powershell-on-azure-stack"></a>Bien démarrer avec PowerShell sur Azure Stack
 
@@ -47,11 +47,11 @@ Le diagramme de blocs suivant illustre la relation entre chaque ensemble de modu
 
 ### <a name="global-azure"></a>Azure global
 
-Azure PowerShell fournit un ensemble d’applets de commande qui utilisent la version actuelle du modèle Azure Resource Manager pour la gestion de vos ressources Azure. Azure PowerShell utilise .NET Standard, permettant ainsi une disponibilité pour Windows, macOS et Linux. Azure PowerShell est également disponible sur Azure Cloud Shell. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Azure PowerShell contient un ensemble d’applets de commande qui utilisent la version actuelle d’Azure Resource Manager pour l’utilisation de vos ressources Azure. Azure PowerShell utilise .NET Standard. Ainsi, vous pouvez utiliser des versions de PowerShell avec Windows, macOS et Linux. Azure PowerShell est également disponible sur Azure Cloud Shell. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ### <a name="azure-stack-resource-manager"></a>Azure Stack Resource Manager
 
-Azure Stack PowerShell fournit un ensemble d’applets de commande qui utilisent des versions antérieures d’Azure Resource Manager, compatibles avec les fournisseurs de ressources dans Azure Stack. Chaque fournisseur de ressources dans Azure Stack utilise une version antérieure du fournisseur trouvé dans Azure global. Pour vous aider à coordonner la version de chaque fournisseur pris en charge par Azure Stack, vous pouvez utiliser des profils d’API. Azure Stack PowerShell utilise PowerShell 5.1 et est uniquement disponible sur Windows. Pour plus d’informations, consultez [Gérer les profils de version des API dans Azure Stack](azure-stack-version-profiles.md).
+Azure Stack PowerShell fournit un ensemble d’applets de commande qui utilisent des versions précédentes d’Azure Resource Manager. Ces applets de commande sont compatibles avec les fournisseurs de ressources dans Azure Stack. Chaque fournisseur de ressources dans Azure Stack utilise une version antérieure du fournisseur trouvé dans Azure global. Pour vous aider à coordonner la version de chaque fournisseur pris en charge par Azure Stack, vous pouvez utiliser des profils d’API. Azure Stack PowerShell utilise PowerShell 5.1 et est uniquement disponible sur Windows. Pour plus d’informations, consultez [Gérer les profils de version des API dans Azure Stack](azure-stack-version-profiles.md).
 
 ### <a name="azure-stack-administrator"></a>Azure Stack Administrator
 

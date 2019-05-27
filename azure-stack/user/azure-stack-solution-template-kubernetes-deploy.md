@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: e43ee8afd479d4bead1c513aee0229d8483fab33
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 55db30efd648c76938d71bc2067c7c68e6693f88
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310445"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712343"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>Déployer Kubernetes pour utiliser des conteneurs avec Azure Stack
 
@@ -33,7 +33,7 @@ Vous pouvez suivre les étapes de cet article pour déployer et configurer les r
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes et conteneurs
 
-Vous pouvez installer Kubernetes à l’aide de modèles Azure Resource Manager générés par le moteur ACS (Azure Container Services) sur Azure Stack. Un [Kubernetes](https://kubernetes.io) est un système open source permettant d’automatiser le déploiement, la mise à l’échelle et la gestion d’applications dans des conteneurs. Un [conteneur](https://www.docker.com/what-container) se trouve dans une image. L’image de conteneur est similaire à une machine virtuelle, avec cette différence que le conteneur inclut seulement les ressources nécessaires pour exécuter une application, comme le code, un runtime pour exécuter le code, des bibliothèques spécifiques et des paramètres.
+Vous pouvez installer Kubernetes à l’aide de modèles Azure Resource Manager générés par le moteur AKS (Azure Container Services) sur Azure Stack. Un [Kubernetes](https://kubernetes.io) est un système open source permettant d’automatiser le déploiement, la mise à l’échelle et la gestion d’applications dans des conteneurs. Un [conteneur](https://www.docker.com/what-container) se trouve dans une image. L’image de conteneur est similaire à une machine virtuelle, avec cette différence que le conteneur inclut seulement les ressources nécessaires pour exécuter une application, comme le code, un runtime pour exécuter le code, des bibliothèques spécifiques et des paramètres.
 
 Vous pouvez utiliser Kubernetes pour ce qui suit :
 

@@ -1,5 +1,5 @@
 ---
-title: Notes de publication Azure Stack - Problèmes connus dans la version 1904 | Microsoft Docs
+title: Problèmes connus dans Azure Stack 1904 | Microsoft Docs
 description: En savoir plus sur les problèmes connus dans Azure Stack 1904.
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 782e0aaea0eadddae24795616aaba6053b728134
-ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
+ms.lastreviewed: 05/15/2019
+ms.openlocfilehash: 52279a7498e253771e16e66e0c5025b9afd4494d
+ms.sourcegitcommit: 442bd62d1dfbc1597592d7285aba1453298261ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65387170"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969835"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Problèmes connus dans Azure Stack 1904
 
@@ -30,19 +30,19 @@ Cet article répertorie les problèmes connus dans la version 1904 d’Azure St
 > [!IMPORTANT]  
 > Passez en revue cette section avant d’appliquer la mise à jour.
 
-## <a name="portal"></a>Portail
-
-### <a name="add-on-plans"></a>Plans d’extension
+## <a name="update-process"></a>Processus de mise à jour
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Les plans ajoutés à un abonnement utilisateur comme plan d’extension ne peuvent pas être supprimés, même quand vous supprimez le plan de l’abonnement utilisateur. Le plan est conservé jusqu’à ce que les abonnements qui référencent le plan d’extension soient aussi supprimés.
-- Correction : Aucune atténuation.
+- Cause : Lorsque vous tentez d’installer une mise à jour Azure Stack, l’état de la mise à jour peut échouer et définir l’état sur **PreparationFailed**. Cela est dû au fait que le fournisseur de ressources de mise à jour est dans l’impossibilité de transférer correctement les fichiers du conteneur de stockage vers un partage d’infrastructure interne à des fins de traitement.
+- Correction : À compter de la version 1901 (1.1901.0.95), vous pouvez contourner ce problème en cliquant sur **Mettre à jour maintenant** à nouveau (et pas sur **Reprendre**). Le fournisseur de ressources de mise à jour nettoie les fichiers de la tentative précédente, puis redémarre le téléchargement.
 - Occurrence : Courant
+
+## <a name="portal"></a>Portail
 
 ### <a name="administrative-subscriptions"></a>Abonnements d’administration
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Les deux abonnements d’administration qui ont été introduits avec la version 1804 ne doivent pas être utilisés. Les types d’abonnements sont **Metering (Compteur)** et **Consumption (Consommation)**.
+- Cause : Les deux abonnements d’administration qui ont été introduits avec la version 1804 ne doivent pas être utilisés. Les types d’abonnements sont **Metering (Compteur)** et **Consumption (Consommation)** .
 - Correction : Ces abonnements seront interrompus à partir de la version 1905 et ensuite supprimés. Si vous disposez de ressources s’exécutant sur ces deux abonnements, recréez-les dans des abonnements utilisateur avant la publication de la version 1905.
 - Occurrence : Courant
 
@@ -62,9 +62,23 @@ Cet article répertorie les problèmes connus dans la version 1904 d’Azure St
 
 ### <a name="marketplace-management"></a>Gestion de la Place de marché
 
-- Champ d’application : Le problème s’applique à la version 1904.
-- Cause : L’écran de gestion de la Place de marché n’est pas visible lorsque vous vous connectez au portail d’administration.
+- Champ d’application : Il s’agit d’un problème qui concerne la version 1904.
+- Cause : L’écran de gestion de la Place de marché n’est pas visible quand vous vous connectez au portail d’administration.
 - Correction : Actualisez le navigateur.
+- Occurrence : De façon intermittente
+
+### <a name="marketplace-management"></a>Gestion de la Place de marché
+
+- Champ d’application : Le problème s’applique à la version 1904.
+- Cause : Quand vous filtrez les résultats dans le panneau **Ajouter à partir d’Azure** sous l’onglet Gestion de la Place de marché dans le portail d’administration, vous pouvez voir des résultats filtrés incorrects. 
+- Correction : triez les résultats par la colonne Nom pour les corriger. 
+- Occurrence : De façon intermittente
+
+### <a name="marketplace-management"></a>Gestion de la Place de marché
+
+- Champ d’application : Le problème s’applique à la version 1904.
+- Cause : Quand vous filtrez les résultats dans la gestion de la Place de marché dans le portail de l’administrateur, des noms d’éditeurs apparaissent en double dans la liste déroulante des éditeurs. 
+- Correction : Sélectionnez tous les doublons pour avoir la bonne liste de tous les produits de la Place de marché disponibles sous l’éditeur concerné. 
 - Occurrence : De façon intermittente
 
 ### <a name="upload-blob"></a>Charger l’objet blob
@@ -76,26 +90,26 @@ Cet article répertorie les problèmes connus dans la version 1904 d’Azure St
 
 ## <a name="networking"></a>Mise en réseau
 
-### <a name="load-balancer"></a>Load Balancer
+### <a name="load-balancer"></a>Équilibrage de charge
 
-#### <a name="add-backend-pool"></a>Ajouter un pool principal
+#### <a name="add-backend-pool"></a>Ajouter le pool principal
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, si vous essayez d’ajouter un **pool principal** à un **équilibreur de charge**, l’opération échoue avec le message d’erreur **Failed to update Load Balancer (Impossible de mettre à jour l’équilibreur de charge)**.
-- Correction : Utilisez PowerShell, CLI ou un modèle Resource Manager pour associer le pool principal à une ressource d’équilibreur de charge.
+- Cause : Dans le portail utilisateur, si vous essayez d’ajouter un **pool principal** à un **équilibreur de charge**, l’opération échoue avec le message d’erreur **Failed to update Load Balancer (Impossible de mettre à jour l’équilibreur de charge)** .
+- Correction : Utilisez PowerShell, CLI ou un modèle Azure Resource Manager pour associer le pool principal à une ressource d’équilibreur de charge.
 - Occurrence : Courant
 
 #### <a name="create-inbound-nat"></a>Créer des règles NAT de trafic entrant
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, si vous essayez de créer une **règle NAT de trafic entrant** pour un **équilibreur de charge**, l’opération échoue avec le message d’erreur **Failed to update Load Balancer (Impossible de mettre à jour l’équilibreur de charge)**.
-- Correction : Utilisez PowerShell, CLI ou un modèle Resource Manager pour associer le pool principal à une ressource d’équilibreur de charge.
+- Cause : Dans le portail utilisateur, si vous essayez de créer une **règle NAT de trafic entrant** pour un **équilibreur de charge**, l’opération échoue avec le message d’erreur **Failed to update Load Balancer (Impossible de mettre à jour l’équilibreur de charge)** .
+- Correction : Utilisez PowerShell, CLI ou un modèle Azure Resource Manager pour associer le pool principal à une ressource d’équilibreur de charge.
 - Occurrence : Courant
 
 #### <a name="create-load-balancer"></a>Créer un équilibreur de charge
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, la fenêtre **Créer un équilibreur de charge** affiche une option pour créer une référence SKU **Standard Load Balancer**. Cette option n’est pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, la fenêtre **Créer un équilibreur de charge** affiche une option pour créer une référence SKU d’équilibreur de charge **Standard**. Cette option n’est pas prise en charge dans Azure Stack.
 - Correction : Utilisez les options d’équilibreur de charge De base à la place.
 - Occurrence : Courant
 
@@ -103,7 +117,7 @@ Cet article répertorie les problèmes connus dans la version 1904 d’Azure St
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Dans le portail utilisateur, la fenêtre **Créer une adresse IP publique** affiche une option pour créer une référence SKU **Standard**. La référence SKU **Standard** n’est pas prise en charge dans Azure Stack.
-- Correction : Utilisez la référence SKU De base à la place pour l’adresse IP publique.
+- Correction : Utilisez la référence SKU **De base** à la place pour les adresses IP publiques.
 - Occurrence : Courant
 
 ## <a name="compute"></a>Calcul
@@ -111,7 +125,7 @@ Cet article répertorie les problèmes connus dans la version 1904 d’Azure St
 ### <a name="vm-boot-diagnostics"></a>Diagnostics de démarrage de machine virtuelle
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Lors de la création d'une machine virtuelle Windows, l’erreur suivante peut s’afficher : **Échec du démarrage de la machine virtuelle « vm-name ». Error: Failed to update serial output settings for VM 'vm-name' (Impossible de mettre à jour les paramètres de sortie en série de la machine virtuelle « vm-name »)**.
+- Cause : Lors de la création d'une machine virtuelle Windows, l’erreur suivante peut s’afficher : **Échec du démarrage de la machine virtuelle « vm-name ». Error: Failed to update serial output settings for VM 'vm-name' (Impossible de mettre à jour les paramètres de sortie en série de la machine virtuelle « vm-name »)** .
 Cette erreur se produit si vous activez les diagnostics de démarrage sur une machine virtuelle alors que vous avez supprimé votre compte de stockage des diagnostics de démarrage.
 - Correction : Recréez le compte de stockage avec le même nom que celui utilisé précédemment.
 - Occurrence : Courant
@@ -139,19 +153,22 @@ Cette erreur se produit si vous activez les diagnostics de démarrage sur une ma
 - Correction : Utilisez un accès à la machine virtuelle pour l’extension Linux afin d’implémenter des clés SSH après le provisionnement, ou utilisez une authentification par mot de passe.
 - Occurrence : Courant
 
-## <a name="infrastructure-backup"></a>Infrastructure Backup
-
-<!--Bug 3615401 - scheduler config lost; new issue in YYMM;  hectorl-->
-Après activation des sauvegardes automatiques, le service du planificateur passe à l’état désactivé de façon inattendue. Le service du contrôleur de sauvegarde détecte que les sauvegardes automatiques sont désactivées et déclenche un avertissement dans le portail administrateur. Cet avertissement est attendu quand les sauvegardes automatiques sont désactivées.
+### <a name="compute-host-agent-alert"></a>Alerte de l’agent hôte de calcul
 
 - Champ d’application : Il s’agit d’un problème qui concerne la version 1904.
-- Cause : Ce problème est dû à un bogue dans le service qui entraîne la perte de la configuration du planificateur. Ce bogue ne modifie pas l’emplacement de stockage, le nom d’utilisateur, le mot de passe ou la clé de chiffrement.
-- Correction : Pour résoudre ce problème, ouvrez le panneau des paramètres du contrôleur de sauvegarde dans le fournisseur de ressources Infrastructure Backup, puis sélectionnez **Activer les sauvegardes automatiques**. Veillez à définir la fréquence et la période de rétention souhaitées.
-- Occurrence : Faible
+- Cause : Un avertissement d’**agent hôte de calcul** s’affiche après le redémarrage d’un nœud dans l’unité d’échelle. Le redémarrage change le paramétrage par défaut du démarrage du service de l’agent hôte de calcul.
+- Correction :
+  - Cette alerte peut être ignorée. Le fait que l’agent ne réponde pas n’a pas d’impact sur l’opérateur et les opérations utilisateur ou les applications utilisateur. L’alerte réapparaît après 24 heures s’il est fermé manuellement.
+  - Le support Microsoft peut résoudre le problème en changeant le paramétrage du démarrage du service. Pour cela, vous devez ouvrir un ticket de support. Si le nœud est redémarré, une nouvelle alerte s’affiche.
+- Occurrence : Courant
+
+## <a name="app-service"></a>App Service
+
+- Les locataires doivent inscrire le fournisseur de ressources de stockage avant de créer leur première fonction Azure dans l’abonnement.
+- Certaines expériences utilisateur du portail de locataire sont interrompues en raison d’une incompatibilité avec le framework du portail dans la version 1903, principalement l’expérience utilisateur pour les emplacements de déploiement, les tests en production et les extensions de site. Pour contourner ce problème, utilisez le [module PowerShell Azure App Service](/azure/app-service/deploy-staging-slots#automate-with-powershell) ou [Azure CLI](/cli/azure/webapp/deployment/slot?view=azure-cli-latest). L’expérience du portail sera restaurée dans la prochaine version d’Azure App Service sur Azure Stack 1.6 (mise à jour 6).
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
-<!-- ## App Service -->
 <!-- ## Usage -->
 <!-- ### Identity -->
 <!-- ### Marketplace -->

@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2019
+ms.date: 05/21/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: e2bac108b47aeb1c4a1b6d777072fe4d6ff64f2d
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 9967da0434be577e3db8586f28e3078658623e9b
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310367"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991330"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Considérations relatives au modèle Azure Resource Manager
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Lorsque vous développez votre application, il est important de garantir la portabilité du modèle entre Azure et Azure Stack. Cet article présente certaines considérations relatives au développement de [modèles](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) Azure Resource Manager, afin que vous puissiez mettre au point un prototype de votre déploiement d’application et de test dans Azure sans avoir accès à un environnement Azure Stack.
+Lorsque vous développez votre application, il est important de garantir la portabilité du modèle entre Azure et Azure Stack. Cet article présente certaines considérations relatives au développement de [modèles Azure Resource Manager](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), afin que vous puissiez mettre au point un prototype de votre déploiement d’application et de test dans Azure sans avoir accès à un environnement Azure Stack.
 
 ## <a name="resource-provider-availability"></a>Disponibilité du fournisseur de ressources
 
@@ -35,7 +35,7 @@ Le modèle que vous envisagez de déployer ne doit utiliser que les services Mic
 
 ## <a name="public-namespaces"></a>Espaces de noms publics
 
-Comme Azure Stack est hébergé dans votre centre de données, il dispose d’espaces de noms de point de terminaison de service autres que le cloud public Azure. Par conséquent, les points de terminaison publics codés en dur dans les modèles Azure Resource Manager échouent lorsque vous essayez de les déployer sur Azure Stack. Vous pouvez générer dynamiquement des points de terminaison de service à l’aide des fonctions de `reference` et `concatenate` pour récupérer des valeurs à partir du fournisseur de ressources lors du déploiement. Par exemple, au lieu de coder en dur *blob.core.windows.net* dans votre modèle, récupérez l’objet [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) pour définir dynamiquement le point de terminaison *osDisk.URI* :
+Comme Azure Stack est hébergé dans votre centre de données, il dispose d’espaces de noms de point de terminaison de service autres que le cloud public Azure. Par conséquent, les points de terminaison publics codés en dur dans les modèles Azure Resource Manager échouent lorsque vous essayez de les déployer sur Azure Stack. Vous pouvez générer dynamiquement des points de terminaison de service à l’aide des fonctions de `reference` et `concatenate` pour récupérer des valeurs à partir du fournisseur de ressources lors du déploiement. Par exemple, au lieu de coder en dur `blob.core.windows.net` dans votre modèle, récupérez l’objet [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) pour définir dynamiquement le point de terminaison *osDisk.URI* :
 
 ```json
 "osDisk": {"name": "osdisk","vhd": {"uri":
@@ -49,11 +49,11 @@ Les versions de service Azure peuvent différer entre Azure et Azure Stack. Chaq
 
 | Fournisseur de ressources | apiVersion |
 | --- | --- |
-| Calcul |`'2015-06-15'` |
-| Réseau |`'2015-06-15'`, `'2015-05-01-preview'` |
-| Stockage |`'2016-01-01'`, `'2015-06-15'`, `'2015-05-01-preview'` |
-| KeyVault | `'2015-06-01'` |
-| App Service |`'2015-08-01'` |
+| Calcul |**2015-06-15** |
+| Réseau |**2015-06-15**, **2015-05-01-preview** |
+| Stockage |**2016-01-01**, **2015-06-15**, **2015-05-01-preview** |
+| KeyVault | **2015-06-01** |
+| App Service |**2015-08-01** |
 
 ## <a name="template-functions"></a>Fonctions des modèles de gestionnaire des ressources Azure
 

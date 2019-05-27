@@ -9,51 +9,51 @@ ms.date: 04/25/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 9b3d58e67d7c6ca7016b3ecb51c09171aae7c06a
-ms.sourcegitcommit: 0d8ccf2a32b08ab9bcbe13d54c7c3dce2379757f
+ms.openlocfilehash: 06c462ab46ce6bbae8d5c3bd6fcb757e14417edf
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64490034"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617625"
 ---
-# <a name="set-up-a-development-environment-on-azure-stack"></a>Configurer un environnement de développement dans Azure Stack 
+# <a name="set-up-a-development-environment-in-azure-stack"></a>Configurer un environnement de développement dans Azure Stack 
 
-Il est possible de développer des applications pour Azure Stack avec une station de travail Windows 10, Linux ou macOS. Cet article explore plusieurs points : 
+Vous pouvez développer des applications pour Azure Stack avec une station de travail Windows 10, Linux ou macOS. Dans cet article, nous allons répondre aux questions suivantes : 
 
 - les différents contextes d’exécution d’une application dans Azure Stack ; 
 - les étapes à suivre pour configurer une station de travail Windows 10, Linux ou macOS ; 
-- les étapes à suivre pour créer des ressources dans Azure Stack et déployer une application. 
+- les étapes à suivre pour créer des ressources dans Azure Stack et les déployer sur une application. 
 
 ## <a name="azure-stack-context-and-your-code"></a>Contexte Azure Stack et code 
 
-Il est possible d’écrire des scripts et des applications qui peuvent tout faire dans Azure Stack. Toutefois, il peut se révéler utile de restreindre les actions en trois modes différents. 
+Vous pouvez écrire des scripts et des applications qui peuvent effectuer de nombreuses tâches dans Azure Stack. Toutefois, il est utile de limiter votre étendue aux trois modes suivants : 
 
-1. Le premier mode permet de créer des applications qui provisionnent des ressources dans Azure Stack avec des modèles Azure Resource Manager. Par exemple, vous pouvez écrire un script construisant un modèle Azure Resource Manager dont l’objectif est de créer un réseau virtuel et les machines virtuelles qui hébergeront votre application. 
+1. Le premier mode permet de créer des applications qui provisionnent des ressources dans Azure Stack avec des modèles Azure Resource Manager. Par exemple, vous pouvez écrire un script construisant un modèle Azure Resource Manager dont l’objectif est de créer un réseau virtuel et les machines virtuelles qui hébergent votre application. 
 
-2. Dans le deuxième mode, il s’agit de travailler directement avec les points de terminaison à l’aide de l’API REST et d’un client REST créé dans le code. Vous pourriez écrire un script qui crée un réseau virtuel et les machines virtuelles en envoyant des demandes aux API. 
+2. Dans le deuxième mode, il s’agit de travailler directement avec les points de terminaison à l’aide de l’API REST et d’un client REST créés dans le code. Vous pouvez par exemple écrire un script qui crée un réseau virtuel et les machines virtuelles en envoyant des demandes aux API. 
 
-3. Dans le troisième mode, le code vise à créer une application hébergée dans Azure Stack. Une fois l’infrastructure définie dans Azure Stack pour héberger votre application, déployez cette dernière dans l’infrastructure. On prépare en général l’environnement avant d’y déployer l’application. 
+3. Dans le troisième mode, vous pouvez utiliser votre code pour créer une application hébergée dans Azure Stack. Une fois que vous avez créé l’infrastructure dans Azure Stack pour héberger votre application, déployez cette dernière dans l’infrastructure. Normalement, vous préparez l’environnement avant d’y déployer l’application. 
 
-###  <a name="infrastructure-as-a-service-and-platform-as-a-service"></a>Infrastructure as a service et platform as a service 
+###  <a name="infrastructure-as-a-service-and-platform-as-a-service"></a>PaaS (Platform as a Service) et IaaS (Infrastructure as a Service) 
 
-Dans sa forme cloud, Azure Stack prend en charge deux modèles : 
+En tant produit de la plateforme cloud, Azure Stack prend en charge deux modèles : 
 
-- infrastructure as a service (IaaS) ; 
-- platform as a service (PaaS). 
+- Infrastructure as a service (IaaS) 
+- Platform as a service (PaaS) 
 
 Les modèles IaaS et PaaS déterminent la configuration de l’ordinateur de développement. 
 
-Le modèle IaaS correspond à la virtualisation de différentes parties du centre de données : équipement réseau, réseau et serveurs. C’est celui qui est utilisé pour déployer une application sur une machine virtuelle qui héberge le serveur web. Dans ce paradigme, Azure Stack gère l’équipement virtuel ; l’application se trouve sur un serveur virtuel. Les fournisseurs de ressources Azure Stack prennent en charge les composants réseau et les serveurs virtuels. 
+Le modèle IaaS correspond à la virtualisation de différentes parties du centre de données : équipement réseau, réseau et serveurs. C’est celui qui est utilisé pour déployer une application sur une machine virtuelle qui héberge le serveur web. Dans ce modèle, Azure Stack gère l’équipement virtuel ; l’application se trouve sur un serveur virtuel. Les fournisseurs de ressources Azure Stack prennent en charge les composants réseau et les serveurs virtuels. 
 
-Le modèle PaaS extrait la couche d’infrastructure de telle sorte que l’application est déployée sur un point de terminaison qui l’exécutera ensuite. Dans le paradigme PaaS, il est possible d’héberger l’application dans un conteneur pour ensuite la déployer sur un service qui exécute le conteneur, ou bien d’envoyer directement l’application au service qui l’exécutera. Azure Stack peut être utilisé pour exécuter Azure App Service et Kubernetes. 
+Le modèle PaaS abstrait la couche d’infrastructure de telle sorte que l’application est déployée sur un point de terminaison qui l’exécute ensuite. Dans le modèle PaaS, il est possible d’héberger l’application dans un conteneur pour ensuite la déployer sur un service qui exécute le conteneur, ou bien d’envoyer directement l’application au service qui l’exécute. Vous pouvez utiliser Azure Stack pour exécuter Azure App Service et Kubernetes. 
 
 ### <a name="azure-stack-resource-manager"></a>Azure Stack Resource Manager 
 
-Ces trois modes ainsi que les modèles PaaS et IaaS sont accessibles avec la version Azure Stack d’Azure Resource Manager. L’infrastructure de gestion permet de déployer, de gérer et de surveiller les ressources Azure Stack. Elle offre la possibilité de travailler avec ces éléments en tant que groupe en une seule opération. Pour plus d’informations sur Azure Stack Resource Manager, voir [Gérer les profils de version des API dans Azure Stack](azure-stack-version-profiles.md). 
+Les trois modes mentionnés plus haut ainsi que les modèles PaaS et IaaS sont accessibles avec la version Azure Stack d’Azure Resource Manager. Cette infrastructure de gestion permet de déployer, de gérer et de surveiller les ressources Azure Stack. Elle offre la possibilité de travailler avec les ressources en tant que groupe en une seule opération. Pour plus d’informations sur Azure Stack Resource Manager, consultez [Gérer les profils de version des API dans Azure Stack](azure-stack-version-profiles.md). 
 
-### <a name="azure-stack-development-kits"></a>Kits de développement Azure Stack 
+### <a name="azure-stack-sdks"></a>SDK Azure Stack 
 
-Azure Stack utilise une version Azure Stack d’Azure Resource Manager.  Nous fournissons un certain nombre de kits de développement logiciel pour vous aider à travailler avec Azure Stack Resource Manager en utilisant le code de votre choix. Il s’agit des actions suivantes : 
+Azure Stack utilise une version Azure Stack d’Azure Resource Manager. Nous fournissons un certain nombre de SDK pour vous aider à travailler avec Azure Stack Resource Manager en utilisant le code de votre choix, notamment : 
 
 - [.NET/C#](azure-stack-version-profiles-net.md)
 - [Java](azure-stack-version-profiles-java.md)
@@ -63,29 +63,29 @@ Azure Stack utilise une version Azure Stack d’Azure Resource Manager.  Nous fo
 
 ## <a name="before-you-start"></a>Avant de commencer 
 
-Éléments requis : 
+Avant de commencer la configuration de votre environnement, voici ce dont vous avez besoin : 
 
 - l’accès au portail utilisateur Azure Stack ; 
 - le nom de votre locataire ; 
-- un gestionnaire d’identité au choix : soit Azure Active Directory (Azure AD), soit les services de fédération Active Directory (AD FS). 
+- un gestionnaire d’identité au choix : soit Azure Active Directory (Azure AD), soit les Services de fédération Active Directory (AD FS). 
 
-Pour toute question sur votre système Azure Stack, contactez votre opérateur cloud. 
+Pour toute question sur Azure Stack, contactez votre opérateur cloud. 
 
 ## <a name="windows-10"></a>Windows 10 
 
-Un ordinateur Windows 10 permet de travailler avec PowerShell 5.0, Visual Studio et, dans le cas d’un kit ASDK, de se connecter à l’environnement par VPN. 
+Si vous utilisez un ordinateur Windows 10, vous pouvez utiliser PowerShell 5.0 et Visual Studio. Par ailleurs, si vous utilisez un Kit de développement Azure Stack (ASDK), vous pouvez vous connecter à votre environnement avec une connexion VPN. 
 
 ### <a name="set-up-your-tools"></a>Configurer les outils 
 
-1. Configurez PowerShell. Pour obtenir des instructions, suivez les étapes de [Installer PowerShell d’Azure Stack](../operator/azure-stack-powershell-install.md). 
+1. Configurez PowerShell. Pour obtenir des instructions, consultez [Installer Azure Stack PowerShell](../operator/azure-stack-powershell-install.md). 
 
-2. Téléchargez les outils Azure Stack. Pour obtenir des instructions, suivez les étapes de [Télécharger les outils Azure Stack sur GitHub](../operator/azure-stack-powershell-download.md). 
+2. Téléchargez les outils Azure Stack. Pour obtenir des instructions, consultez [Télécharger les outils Azure Stack à partir de GitHub](../operator/azure-stack-powershell-download.md). 
 
-3. Si vous utilisez un ASDK, installez et configurez une [connexion VPN à Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). 
+3. Si vous utilisez un Kit ASDK, installez et configurez une [connexion VPN à Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). 
 
-4. Installez et configurez Azure CLI. Pour obtenir des instructions, suivez les étapes de [Utiliser des profils de version des API avec Azure CLI dans Azure Stack](azure-stack-version-profiles-azurecli2.md). 
+4. Installez et configurez Azure CLI. Pour obtenir des instructions, consultez [Utiliser des profils de version d’API avec Azure CLI dans Azure Stack](azure-stack-version-profiles-azurecli2.md). 
 
-5. Installez et configurez l’Explorateur Stockage Azure. Il s’agit d’une application autonome qui permet de travailler sur des données de stockage Azure Stack.  Pour obtenir des instructions, suivez les étapes de [Connecter l’Explorateur Stockage à un compte de stockage ou à un abonnement Azure Stack](azure-stack-storage-connect-se.md). 
+5. Installez et configurez l’Explorateur Stockage Azure. Il s’agit d’une application autonome qui permet de travailler sur des données de stockage Azure Stack. Pour obtenir des instructions, consultez [Connecter l’Explorateur de stockage à un compte de stockage ou abonnement Azure Stack](azure-stack-storage-connect-se.md). 
 
 ### <a name="install-your-integrated-development-environment"></a>Installer un environnement de développement intégré 
 
@@ -95,7 +95,7 @@ Un ordinateur Windows 10 permet de travailler avec PowerShell 5.0, Visual Studio
      - Visual Studio (.NET/C#). Téléchargez Visual Studio Community Edition à l’adresse [visualstudio.microsoft.com](https://visualstudio.microsoft.com/vs/community/). 
      - Eclipse (Java). Téléchargez Eclipse à l’adresse [eclipse.org](https://www.eclipse.org/downloads/). 
 
-2. Installez le kit de développement logiciel (SDK) pour votre code. 
+2. Installez le SDK pour votre code : 
 
      - [.NET/C#](azure-stack-version-profiles-net.md) 
      - [Java](azure-stack-version-profiles-java.md) 
@@ -105,16 +105,16 @@ Un ordinateur Windows 10 permet de travailler avec PowerShell 5.0, Visual Studio
 
 ## <a name="linux"></a>Linux 
 
-Un ordinateur Linux permet de travailler avec Azure CLI et Visual Studio Code, ou avec n’importe quel environnement de développement intégré. 
+Si vous utilisez un ordinateur Linux, vous pouvez utiliser Azure CLI, Visual Studio Code ou l’environnement de développement intégré de votre choix. 
 
 > [!Note]   
-> Si vous utilisez un ordinateur Linux avec le kit ASDK, votre ordinateur distant doit se trouver dans le même réseau que le kit. Vous ne pourrez pas vous connecter par réseau privé virtuel. 
+> Si vous utilisez un ordinateur Linux avec le Kit ASDK, votre ordinateur distant doit se trouver dans le même réseau que le kit. Vous ne pouvez pas vous connecter à l’aide d’un réseau privé virtuel. 
 
 ### <a name="set-up-your-tools"></a>Configurer les outils 
 
-1. Installez et configurez Azure CLI. Pour obtenir des instructions, suivez les étapes de [Utiliser des profils de version des API avec Azure CLI dans Azure Stack](azure-stack-version-profiles-azurecli2.md). 
+1. Installez et configurez Azure CLI. Pour obtenir des instructions, consultez [Utiliser des profils de version d’API avec Azure CLI dans Azure Stack](azure-stack-version-profiles-azurecli2.md). 
 
-2. Installez et configurez l’Explorateur Stockage Azure. Il s’agit d’une application autonome qui permet de travailler sur des données de stockage Azure Stack.  Pour obtenir des instructions, suivez les étapes de [Connecter l’Explorateur Stockage à un compte de stockage ou à un abonnement Azure Stack](azure-stack-storage-connect-se.md). 
+2. Installez et configurez l’Explorateur Stockage Azure. Il s’agit d’une application autonome qui permet de travailler sur des données de stockage Azure Stack. Pour obtenir des instructions, consultez [Connecter l’Explorateur de stockage à un compte de stockage ou abonnement Azure Stack](azure-stack-storage-connect-se.md). 
 
 ### <a name="install-your-integrated-development-environment"></a>Installer un environnement de développement intégré 
 
@@ -124,7 +124,7 @@ Un ordinateur Linux permet de travailler avec Azure CLI et Visual Studio Code, o
      - Visual Studio (.NET/C#). Téléchargez Visual Studio Community Edition à l’adresse [visualstudio.microsoft.com](https://visualstudio.microsoft.com/vs/community/). 
      - Eclipse (Java). Téléchargez Eclipse à l’adresse [eclipse.org](https://www.eclipse.org/downloads/). 
 
-2. Installez le kit de développement logiciel (SDK) pour votre code. 
+2. Installez le SDK pour votre code : 
 
      - [.NET/C#](azure-stack-version-profiles-net.md) 
      - [Java](azure-stack-version-profiles-java.md) 
@@ -134,16 +134,16 @@ Un ordinateur Linux permet de travailler avec Azure CLI et Visual Studio Code, o
 
 ## <a name="macos"></a>macOS 
 
-Un ordinateur macOS permet de travailler avec Azure CLI et Visual Studio Code, ou avec n’importe quel environnement de développement intégré. 
+Avec un ordinateur macOS, vous pouvez utiliser Azure CLI, Visual Studio Code ou l’environnement de développement intégré de votre choix. 
 
 > [!Note]   
-> Si vous utilisez un ordinateur macOS avec le kit ASDK, votre ordinateur distant doit se trouver dans le même réseau que le kit. Vous ne pourrez pas vous connecter par réseau privé virtuel. 
+> Si vous utilisez un ordinateur macOS avec le Kit ASDK, votre ordinateur distant doit se trouver dans le même réseau que le kit. Vous ne pouvez pas vous connecter à l’aide d’un réseau privé virtuel. 
 
 ### <a name="set-up-your-tools"></a>Configurer les outils 
 
-1. Installez et configurez Azure CLI. Pour obtenir des instructions, suivez les étapes de [Utiliser des profils de version des API avec Azure CLI dans Azure Stack](azure-stack-version-profiles-azurecli2.md). 
+1. Installez et configurez Azure CLI. Pour obtenir des instructions, consultez [Utiliser des profils de version d’API avec Azure CLI dans Azure Stack](azure-stack-version-profiles-azurecli2.md). 
 
-2. Installez et configurez l’Explorateur Stockage Azure. Il s’agit d’une application autonome qui permet de travailler sur des données de stockage Azure Stack. Pour obtenir des instructions, suivez les étapes de [Connecter l’Explorateur Stockage à un compte de stockage ou à un abonnement Azure Stack](azure-stack-storage-connect-se.md). 
+2. Installez et configurez l’Explorateur Stockage Azure. Il s’agit d’une application autonome qui permet de travailler sur des données de stockage Azure Stack. Pour obtenir des instructions, consultez [Connecter l’Explorateur de stockage à un compte de stockage ou abonnement Azure Stack](azure-stack-storage-connect-se.md). 
 
 ### <a name="install-your-integrated-development-environment"></a>Installer un environnement de développement intégré 
 
@@ -153,14 +153,14 @@ Un ordinateur macOS permet de travailler avec Azure CLI et Visual Studio Code, o
      - Visual Studio (.NET/C#). Téléchargez Visual Studio Community Edition à l’adresse [visualstudio.microsoft.com](https://visualstudio.microsoft.com/vs/community/). 
      - Eclipse (Java). Téléchargez Eclipse à l’adresse [eclipse.org](https://www.eclipse.org/downloads/). 
 
-2. Installez le kit de développement logiciel (SDK) pour votre code. 
+2. Installez le SDK pour votre code : 
 
      - [.NET/C#](azure-stack-version-profiles-net.md) 
      - [Java](azure-stack-version-profiles-java.md) 
-     - [Go](azure-stack-version-profiles-go.md) 
+     - [Go](azure-stack-version-profiles-go.md)
      - [Ruby](azure-stack-version-profiles-python.md) 
      - [Python](azure-stack-version-profiles-python.md) 
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
-Déployer une application dans des ressources dans Azure Stack. Vous trouverez les étapes à suivre dans [Déploiements courants pour Azure Stack](azure-stack-dev-start-deploy-app.md).
+Pour déployer une application sur des ressources dans Azure Stack, consultez [Déploiements courants pour Azure Stack](azure-stack-dev-start-deploy-app.md).
