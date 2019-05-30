@@ -3,7 +3,7 @@ title: Offrir des bases de données MySQL à haute disponibilité dans Azure Sta
 description: Découvrez comment créer un ordinateur hôte fournisseur de ressources MySQL Server et des bases de données MySQL à haute disponibilité dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 1b1ebd27f87030b34b132eb31c4b4ae83f13a3b0
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 61d839e0f34de9387023b272aff32cf69ad9ae13
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618229"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268494"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Tutoriel : Offrir des bases de données MySQL à haute disponibilité
 
@@ -174,7 +174,7 @@ Une fois que le cluster MySQL a été créé, configuré et ajouté en tant que 
 
    ![Créer une base de données MySQL](./media/azure-stack-tutorial-mysqlrp/createdb1.png)
 
-3. Sélectionnez **Référence (SKU)**, puis choisissez la référence de serveur d’hébergement MySQL appropriée à utiliser. Dans cet exemple, l’opérateur Azure Stack a créé la référence **MySQL-HA** pour prendre en charge la haute disponibilité pour les bases de données MySQL.
+3. Sélectionnez **Référence (SKU)** , puis choisissez la référence de serveur d’hébergement MySQL appropriée à utiliser. Dans cet exemple, l’opérateur Azure Stack a créé la référence **MySQL-HA** pour prendre en charge la haute disponibilité pour les bases de données MySQL.
 
    ![Sélectionner une référence (SKU)](./media/azure-stack-tutorial-mysqlrp/createdb2.png)
 

@@ -3,7 +3,7 @@ title: Mettre des applications web et API à la disposition des utilisateurs Azu
 description: Didacticiel pour installer le fournisseur de ressources App Service et créer des offres qui donnent la possibilité aux utilisateurs Azure Stack de créer des applications web et API.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/11/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: anwestg
 ms.custom: mvc
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 9954e351ecd584925d264d0c8c5e8fb8e2507192
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: fbf6993447f22a354c61102b9e670c8f1188f48d
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618654"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268095"
 ---
 # <a name="tutorial-make-web-and-api-apps-available-to-your-azure-stack-users"></a>Tutoriel : Mettre des applications web et API à la disposition des utilisateurs Azure Stack
 
@@ -68,7 +68,7 @@ Pour cet exemple, nous allons créer un système de gestion de contenu de platef
 
 ### <a name="create-a-sql-database"></a>Créer une base de données SQL
 
-1. Sélectionnez **+** > **Données et stockage** > **Base de données SQL**.
+1. Sélectionnez **+**  > **Données et stockage** > **Base de données SQL**.
 2. Conservez les valeurs par défaut, sauf pour les champs suivants :
 
     - **Nom de la base de données** : DNNdb
@@ -82,7 +82,7 @@ Pour cet exemple, nous allons créer un système de gestion de contenu de platef
 
 ### <a name="create-a-dnn-app"></a>Créer une application DNN
 
-1. Sélectionnez **+** > **Afficher tout** > **Aperçu de la plateforme DNN** > **Créer**.
+1. Sélectionnez **+**  > **Afficher tout** > **Aperçu de la plateforme DNN** > **Créer**.
 2. Entrez *DNNapp* sous **Nom de l’application**, puis sélectionnez **TestAppServiceOffer** sous **Abonnement**.
 3. Sélectionnez **Configurer les paramètres obligatoires** > **Créer** > entrez un nom de**Plan App Service**.
 4. Sélectionnez **Niveau tarifaire** > **F1 Gratuit** > **Sélectionner** > **OK**.

@@ -3,7 +3,7 @@ title: API d’utilisation des ressources de fournisseur | Microsoft Docs
 description: Informations de référence sur l’utilisation de ressources API, lesquelles récupèrent des informations relatives à l’utilisation d’Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: b6e026732e75b3271053a00946c2b72accc85b0d
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 8b9a8f403fbc4ca80bb7ce179547d5b7f8954525
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985124"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268290"
 ---
 # <a name="provider-resource-usage-api"></a>API Utilisation des ressources de fournisseur
 

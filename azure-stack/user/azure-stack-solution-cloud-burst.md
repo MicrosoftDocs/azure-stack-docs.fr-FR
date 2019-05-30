@@ -3,7 +3,7 @@ title: Créer des solutions de mise à l’échelle dans le cloud avec Azure | M
 description: Découvrez comment créer des solutions de mise à l’échelle dans le cloud avec Azure.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a82912b3acf18ce3be206e33da752bf8a03a4858
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: adbe1eba6c5d852466288ddf41c803072d4cd098
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "63448713"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252079"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Tutoriel : Créer des solutions de mise à l’échelle dans le cloud avec Azure
 
@@ -304,11 +304,11 @@ La création d’une définition de mise en production est la dernière étape d
 
 1.  Connectez-vous à Azure Pipelines et accédez à **Build et mise en production** pour le projet.
 
-2.  Sous l’onglet **Versions**, sélectionnez **[ + ]**, puis choisissez **Créer une définition de mise en production**.
+2.  Sous l’onglet **Versions**, sélectionnez **[ + ]** , puis choisissez **Créer une définition de mise en production**.
 
 3.  Sous **Sélectionner un modèle**, choisissez **Déploiement d'Azure App Service**, puis sélectionnez **Appliquer**.
 
-4.  Sous **Ajouter un artefact**, dans **Source (définition de build)**, sélectionnez l’application de build Azure Cloud.
+4.  Sous **Ajouter un artefact**, dans **Source (définition de build)** , sélectionnez l’application de build Azure Cloud.
 
 5.  Sous l’onglet **Pipeline**, sélectionnez le lien **1 Phase**, **1 Tâche** vers **Afficher les tâches d’environnement**.
 
@@ -324,7 +324,7 @@ La création d’une définition de mise en production est la dernière étape d
 
 11. Enregistrez toutes les modifications et revenez à **Pipeline**.
 
-12. Sous l’onglet **Pipeline**, sélectionnez **Ajouter un artefact** et choisissez **NorthwindCloud Traders-Vessel** dans la liste **Source (définition de build)**.
+12. Sous l’onglet **Pipeline**, sélectionnez **Ajouter un artefact** et choisissez **NorthwindCloud Traders-Vessel** dans la liste **Source (définition de build)** .
 
 13. Sous **Sélectionner un modèle**, ajoutez un autre environnement. Choisissez **Déploiement d'Azure App Service**, puis sélectionnez **Appliquer**.
 

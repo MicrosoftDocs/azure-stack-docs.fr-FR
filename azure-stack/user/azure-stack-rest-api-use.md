@@ -3,7 +3,7 @@ title: Utilisation de l’API Azure Stack | Microsoft Docs
 description: Découvrez comment récupérer une authentification d’Azure pour effectuer des requêtes d’API auprès d’Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
@@ -11,15 +11,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a471e23232be3fc1dae6788003d5f3e3f437471d
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 22aeab6c6f33462ebea50bafa795630a648e2dd5
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782764"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269399"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 

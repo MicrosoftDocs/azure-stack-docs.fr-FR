@@ -3,7 +3,7 @@ title: Déployer App Service sur Azure Stack dans une configuration hautement di
 description: Découvrez comment déployer App Service dans Azure Stack à l’aide d’une configuration hautement disponible.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: BryanLa
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2019
-ms.author: mabrigg
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 78476afd09d6c85fbe5790568dd46366beaf1991
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: dc4cb3e7931b456de6e807d9f7b691f9bfb71a33
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618360"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269509"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Déployer App Service dans une configuration hautement disponible
 

@@ -16,12 +16,12 @@ ms.date: 04/12/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: fa1cdc4937e75a8d87a6faa16048a800b62e79be
-ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
+ms.openlocfilehash: 43554f5659f3068657feda2997f90736a7be8495
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521304"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252130"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Éléments de Place de Marché Azure disponibles pour Azure Stack
 
@@ -57,8 +57,7 @@ Microsoft Azure Stack prend en charge les machines virtuelles et les modèles de
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Solutions d’entreprise simples à déployer, rentables, axées sur les applications et centrées sur l’utilisateur. Ces images sont régulièrement mises à jour avec les derniers correctifs. **Informations importantes : Les images téléchargées avant le 18 janvier 2018 doivent être supprimées et remplacées par les dernières versions.** | Microsoft |
 | ![Version d’évaluation de SharePoint Server 2013](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Version d’essai de Microsoft SharePoint Server 2013 sur Windows Server 2012 R2 Datacenter et Visual Studio 2019 Community Edition. | Microsoft |
 | ![Version d’évaluation de SharePoint Server 2016](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Version d’évaluation de Microsoft SharePoint Server 2016 sur Windows Server 2016 R2 Datacenter. | Microsoft |
-| ![SQL Server 2014 SP2 sur Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 sur Windows Server 2012 R2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2)
-) | SQL Server 2014 Service Pack 2. **Téléchargement nécessaire :** Extension IaaS SQL. | Microsoft |
+| ![SQL Server 2014 SP2 sur Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 sur Windows Server 2012 R2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2) | SQL Server 2014 Service Pack 2. **Téléchargement nécessaire :** Extension IaaS SQL. | Microsoft |
 | ![SQL Server 2016 SP2 Standard sur Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP2 Standard sur Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) | Plateforme de base de données pour les applications stratégiques intelligentes. **Téléchargement nécessaire :** Extension IaaS SQL. | Microsoft |
 | ![Licence gratuite : SQL Server 2016 SP2 Developer sur Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Licence gratuite : SQL Server 2016 SP2 Developer sur Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | Version de développement gratuite de SQL Server 2016 SP2 pour les charges de travail transactionnelles, d’entreposage des données, de décisionnel et analytiques. **Téléchargement nécessaire :** Extension IaaS SQL. | Microsoft |
 | ![Licence gratuite : SQL Server 2016 SP2 Express sur Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Licence gratuite : SQL Server 2016 SP2 Express sur Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | Version Express gratuite de SQL Server 2016 SP2. **Téléchargement nécessaire :** Extension IaaS SQL. | Microsoft |

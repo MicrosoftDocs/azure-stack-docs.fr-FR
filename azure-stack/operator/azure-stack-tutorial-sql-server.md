@@ -3,7 +3,7 @@ title: Mettre des bases de données SQL à la disposition de vos utilisateurs Az
 description: Didacticiel pour installer le fournisseur de ressources SQL Server et de créer des offres permettant aux utilisateurs d’Azure Stack de créer des bases de données SQL.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: quying
 ms.lastreviewed: 11/05/2018
 ms.custom: mvc
-ms.openlocfilehash: e65bebf5b6126455ef1294fabeb1450f91689d5d
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: cc3af256adbcea8e6055b237945dc2286762437e
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618371"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267997"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Didacticiel : mettre des bases de données SQL à la disposition de vos utilisateurs Azure Stack
 
@@ -65,7 +65,7 @@ Maintenant que vous avez déployé le fournisseur de ressources SQL Server et c
 
 ### <a name="create-a-sql-database"></a>Créer une base de données SQL
 
-1. Sélectionnez **+** > **Données et stockage** > **Base de données SQL**.
+1. Sélectionnez **+**  > **Données et stockage** > **Base de données SQL**.
 2. Conservez les valeurs par défaut ou utilisez ces exemples pour les champs suivants :
     - **Nom de la base de données** : SQLdb
     - **Taille maximale (en Mo)**  : 100

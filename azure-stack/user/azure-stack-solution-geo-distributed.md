@@ -3,7 +3,7 @@ title: Création d’une solution d’application géolocalisée avec Azure et A
 description: Découvrez comment créer une solution d’application géolocalisée avec Azure et Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 81dfc9c7571bc191582425962d1e7b37c2ed05cd
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: eee89c90113187b51418801a46720f49e07fa533
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "63449163"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252115"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Tutoriel : Créer une solution d’application géolocalisée avec Azure et Azure Stack
 
@@ -333,7 +333,7 @@ Après avoir ajouté l’enregistrement CNAME, la page d’enregistrements DNS r
 
 4. Effectuez cette tâche dans l’onglet du bureau d’enregistrement de domaine et validez à nouveau pour que le bouton **Ajouter un nom d’hôte** soit activé.
 
-5. Assurez-vous que **Type d’enregistrement du nom d’hôte est défini sur **Enregistrement CNAME (exemple.com ou tout sous-domaine)**.
+5. Assurez-vous que **Type d’enregistrement du nom d’hôte est défini sur **Enregistrement CNAME (exemple.com ou tout sous-domaine)** .
 
 6. Sélectionnez **Ajouter un nom d’hôte**.
 
@@ -343,7 +343,7 @@ Après avoir ajouté l’enregistrement CNAME, la page d’enregistrements DNS r
 
 9. **Ajouter** est activé.
 
-10. Assurez-vous que **Type d’enregistrement du nom d’hôte est défini sur **Enregistrement A (exemple.com)**.
+10. Assurez-vous que **Type d’enregistrement du nom d’hôte est défini sur **Enregistrement A (exemple.com)** .
 
 11. **Ajoutez un nom d’hôte**.
 
@@ -409,7 +409,7 @@ Pour lier un certificat SSL personnalisé à votre application web, le [plan App
 
 #### <a name="check-the-pricing-tier"></a>Vérification du niveau tarifaire
 
-1.  Dans le volet de navigation de gauche de la page d’application web, accédez à la section **Paramètres** et sélectionnez **Monter en puissance (plan App Service)**.
+1.  Dans le volet de navigation de gauche de la page d’application web, accédez à la section **Paramètres** et sélectionnez **Monter en puissance (plan App Service)** .
 
     ![Menu Monter en puissance](media/azure-stack-solution-geo-distributed/image34.png)
 
@@ -507,7 +507,7 @@ Lorsque App Service finit de charger le certificat, celui-ci apparaît dans la p
 
 1.  Dans la page **Ajouter une liaison SSL**, utilisez les listes déroulantes pour sélectionner le nom de domaine à sécuriser et le certificat à utiliser.
 
-2.  Dans **Type SSL**, choisissez d’utiliser [**l’indication du nom du serveur (SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication) ou le protocole SSL basé sur IP.
+2.  Dans **Type SSL**, choisissez d’utiliser [**l’indication du nom du serveur (SNI)** ](https://en.wikipedia.org/wiki/Server_Name_Indication) ou le protocole SSL basé sur IP.
 
 -   **SSL basé sur SNI** : plusieurs liaisons SSL basées sur SNI peuvent être ajoutées. Cette option permet de sécuriser plusieurs domaines sur la même adresse IP avec plusieurs certificats SSL. La plupart des navigateurs actuels (y compris Internet Explorer, Chrome, Firefox et Opera) prennent en charge SNI (plus d’informations sur la prise en charge des navigateurs dans [Indication du nom du serveur](https://wikipedia.org/wiki/Server_Name_Indication)).
 

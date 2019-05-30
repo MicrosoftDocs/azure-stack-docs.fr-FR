@@ -3,7 +3,7 @@ title: Déployer Azure Stack - PowerShell | Microsoft Docs
 description: Dans cet article, vous allez installer l’ASDK à partir de la ligne de commande à l’aide de PowerShell.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.custom: ''
 ms.date: 05/06/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 05a3d0a88f4852395942d58ac798d2eb06a1d766
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 4a32631441760db715443b8979e2769b55258fcf
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617562"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267170"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>Déployer l’ASDK à partir de la ligne de commande
 Le Kit de développement Azure Stack est un environnement de développement et de test que vous pouvez déployer pour évaluer et présenter les fonctionnalités et services Azure Stack. Pour l’installer et le rendre opérationnel, vous devez préparer l’environnement matériel nécessaire et exécuter plusieurs scripts (cette opération peut prendre plusieurs heures). Une fois que vous aurez effectué ces étapes préalables, vous pourrez vous connecter aux portails de l’administrateur et de l’utilisateur pour commencer à utiliser Azure Stack.
@@ -106,7 +106,7 @@ Pour déployer le kit de développement **à l’aide d’AD FS comme fournisseu
 
 Dans les déploiements AD FS, le service d’annuaire de marquage par défaut est utilisé comme fournisseur d’identité. Le compte par défaut avec lequel se connecter est azurestackadmin@azurestack.local et le mot de passe à utiliser est celui que vous avez fourni dans le cadre des commandes de configuration PowerShell.
 
-Le processus de déploiement peut prendre quelques heures, au cours desquelles le système ne redémarre automatiquement qu’une seule fois. Une fois le déploiement terminé, la console PowerShell affiche le message suivant : **TERMINÉ : Action « Déploiement »**. Si le déploiement échoue, vous pouvez essayer d’exécuter le script à nouveau en utilisant le paramètre -rerun. Vous pouvez aussi [redéployer ASDK](asdk-redeploy.md) à partir de zéro.
+Le processus de déploiement peut prendre quelques heures, au cours desquelles le système ne redémarre automatiquement qu’une seule fois. Une fois le déploiement terminé, la console PowerShell affiche le message suivant : **TERMINÉ : Action « Déploiement »** . Si le déploiement échoue, vous pouvez essayer d’exécuter le script à nouveau en utilisant le paramètre -rerun. Vous pouvez aussi [redéployer ASDK](asdk-redeploy.md) à partir de zéro.
 
 > [!IMPORTANT]
 > Si vous voulez surveiller la progression du déploiement, après le redémarrage de l’hôte ASDK, vous pouvez vous connecter en tant que AzureStack\AzureStackAdmin. Si vous vous connectez en tant qu’administrateur local une fois que l’ordinateur hôte est redémarré (et joint au domaine azurestack.local), vous ne verrez pas la progression du déploiement. Ne réexécutez pas le déploiement : au lieu de cela, connectez-vous en tant que AzureStack\AzureStackAdmin avec le mot de passe de l’administrateur local pour vérifier que l’installation est en cours d’exécution.

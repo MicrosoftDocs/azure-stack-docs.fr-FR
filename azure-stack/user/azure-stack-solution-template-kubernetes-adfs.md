@@ -15,12 +15,12 @@ ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: ca0dd74a08ce1abe454cb497a2569aae0b958d7c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 367053882e9e44ba983d5df552929c65222fcafc
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311501"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197351"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Déployer Kubernetes sur Azure Stack à l’aide d’Active Directory Federation Services
 
@@ -83,7 +83,7 @@ Vous devez travailler avec votre administrateur Azure Stack pour configurer votr
        | Nom du coffre de clés | Nom du coffre.<br> Modèle d’expression régulière : `^[a-zA-Z0-9-]{3,24}$` |
        | Emplacement du groupe de ressources | Emplacement du groupe de ressources. Il s’agit de la région que vous avez choisie pour votre installation Azure Stack. |
 
-   - Ouvrez PowerShell avec une invite de commandes avec élévation de privilèges et [connectez-vous à Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Exécutez le script suivant, en utilisant vos valeurs pour les paramètres :
+   - Ouvrez PowerShell avec une invite de commandes avec élévation de privilèges et [connectez-vous à Azure Stack](azure-stack-powershell-configure-user.md#connect-to-azure-stack-with-ad-fs). Exécutez le script suivant, en utilisant vos valeurs pour les paramètres :
 
    ```powershell  
        $armEndpoint="<Azure Resource Manager Endpoint>"
@@ -124,7 +124,7 @@ Vous devez travailler avec votre administrateur Azure Stack pour configurer votr
        | Point de terminaison Azure Resource Manager | Le point de terminaison dans le Kit de développement Azure Stack (ASDK) est : `https://management.local.azurestack.external/`.<br>Le point de terminaison dans les systèmes intégrés est : `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
        | Votre ID d’abonnement | [L’ID d’abonnement](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) correspond à la façon dont vous accédez à des offres dans Azure Stack. |
 
-   - Ouvrez PowerShell avec une invite de commandes avec élévation de privilèges et [connectez-vous à Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Exécutez le script suivant, en utilisant vos valeurs pour les paramètres :
+   - Ouvrez PowerShell avec une invite de commandes avec élévation de privilèges et [connectez-vous à Azure Stack](azure-stack-powershell-configure-user.md#connect-to-azure-stack-with-ad-fs). Exécutez le script suivant, en utilisant vos valeurs pour les paramètres :
 
     ```powershell
         

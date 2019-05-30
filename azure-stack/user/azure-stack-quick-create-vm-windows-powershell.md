@@ -1,6 +1,6 @@
 ---
-title: Créer une machine virtuelle Windows Server avec PowerShell dans Azure Stack | Microsoft Docs
-description: Créez une machine virtuelle Windows Server avec PowerShell dans Azure Stack.
+title: Créer une machine virtuelle Windows Server avec PowerShell dans Azure Stack | Microsoft Docs
+description: Créez une machine virtuelle Windows Server avec PowerShell dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,14 +16,14 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d6293aec1d9a4a7ce58442b21302c09162cc3a61
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 1b0f367540012b86da322329f0536b3c484c39b4
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712446"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269560"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Démarrage rapide : Créer une machine virtuelle Windows Server avec PowerShell dans Azure Stack
+# <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack"></a>Démarrage rapide : Créer une machine virtuelle Windows Server à l’aide de PowerShell dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -112,7 +112,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Créez un groupe de sécurité réseau et une règle de groupe de sécurité réseau
 
-Le groupe de sécurité réseau sécurise la machine virtuelle à l’aide de règles de trafic entrantes et sortantes. Créez une règle de trafic entrant pour le port 3389 afin d’autoriser les connexions Bureau à distance entrantes, et une règle de trafic entrant pour le port 80 afin d’autoriser le trafic web entrant.
+Le groupe de sécurité réseau sécurise la machine virtuelle à l’aide de règles de trafic entrant et sortant. Créez une règle de trafic entrant pour le port 3389 afin d’autoriser les connexions Bureau à distance entrantes, et une règle de trafic entrant pour le port 80 afin d’autoriser le trafic web entrant.
 
 ```powershell
 # Create an inbound network security group rule for port 3389
@@ -147,7 +147,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
   -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 ```
 
-### <a name="create-a-network-card-for-the-virtual-machine"></a>Créer une carte réseau pour la machine virtuelle
+### <a name="create-a-network-card-for-the-vm"></a>Créer une carte réseau pour la machine virtuelle
 
 La carte réseau connecte la machine virtuelle à un sous-réseau, un groupe de sécurité réseau et une adresse IP publique.
 
@@ -162,17 +162,17 @@ $nic = New-AzureRmNetworkInterface `
   -NetworkSecurityGroupId $nsg.Id
 ```
 
-## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
+## <a name="create-a-vm"></a>Créer une machine virtuelle
 
-Créez une configuration de machine virtuelle. Cette configuration inclut les paramètres utilisés lors du déploiement de la machine virtuelle. Par exemple : informations d’identification, taille et image de la machine virtuelle.
+Créez une configuration de machine virtuelle. Cette configuration inclut les paramètres utilisés lors du déploiement de la machine virtuelle. Par exemple : informations d’identification, taille et image de la machine virtuelle.
 
 ```powershell
-# Define a credential object to store the username and password for the virtual machine
+# Define a credential object to store the username and password for the VM
 $UserName='demouser'
 $Password='Password@123'| ConvertTo-SecureString -Force -AsPlainText
 $Credential=New-Object PSCredential($UserName,$Password)
 
-# Create the virtual machine configuration object
+# Create the VM configuration object
 $VmName = "VirtualMachinelatest"
 $VmSize = "Standard_A1"
 $VirtualMachine = New-AzureRmVMConfig `
@@ -192,7 +192,7 @@ $VirtualMachine = Set-AzureRmVMSourceImage `
   -Skus "2016-Datacenter" `
   -Version "latest"
 
-# Sets the operating system disk properties on a virtual machine.
+# Sets the operating system disk properties on a VM.
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
   -CreateOption FromImage | `
@@ -201,14 +201,14 @@ $VirtualMachine = Set-AzureRmVMOSDisk `
   Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 
-# Create the virtual machine.
+# Create the VM.
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
   -VM $VirtualMachine
 ```
 
-## <a name="connect-to-the-virtual-machine"></a>Connectez-vous à la machine virtuelle.
+## <a name="connect-to-the-vm"></a>Connexion à la machine virtuelle
 
 Pour accéder à distance à la machine virtuelle créée à l’étape précédente, vous avez besoin de son adresse IP publique. Exécutez la commande suivante pour obtenir l’adresse IP publique de la machine virtuelle :
 
@@ -237,7 +237,7 @@ Une fois qu’IIS est installé et que le port 80 est ouvert sur votre machine 
 
 ![Site IIS par défaut](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png)
 
-## <a name="delete-the-virtual-machine"></a>Supprimer la machine virtuelle
+## <a name="delete-the-vm"></a>Supprimer la machine virtuelle
 
 Quand vous n’en avez plus besoin, utilisez la commande suivante pour supprimer le groupe de ressources qui contient la machine virtuelle et les ressources qui lui sont associées :
 
@@ -248,4 +248,4 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez déployé une machine virtuelle Windows simple. Pour en savoir plus sur les machines virtuelles Azure Stack, continuez avec [Considérations relatives aux machines virtuelles dans Azure Stack](azure-stack-vm-considerations.md).
+Dans ce guide de démarrage rapide, vous avez déployé une machine virtuelle Windows simple. Pour en savoir plus sur les machines virtuelles Azure Stack, continuez avec [Fonctionnalités des machines virtuelles Azure Stack](azure-stack-vm-considerations.md).

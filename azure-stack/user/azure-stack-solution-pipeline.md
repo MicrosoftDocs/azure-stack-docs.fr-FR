@@ -3,7 +3,7 @@ title: Déployer votre application sur Azure et Azure Stack | Microsoft Docs
 description: Découvrez comment déployer des applications sur Azure et Azure Stack avec un pipeline CI/CD hybride.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/11/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 3b98714a6cbc3601f98d5f9dfcb26edb5182cfa4
-ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
+ms.openlocfilehash: dfec5ff97b4c7aa3c3de6b4817689412cb41ea6a
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521236"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252094"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutoriel : Déployer des applications sur Azure et Azure Stack
 
@@ -179,7 +179,7 @@ Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ress
 
     ![Visual Studio Enterprise](media/azure-stack-solution-hybrid-pipeline/000_11.png)
 
-3. Dans Visual Studio Enterprise, sélectionnez **Contrôle d’accès (IAM)**.
+3. Dans Visual Studio Enterprise, sélectionnez **Contrôle d’accès (IAM)** .
 
 4. Sélectionnez **Ajouter une attribution de rôle**.
 
@@ -382,7 +382,7 @@ Azure DevOps Services et Team Foundation Server (TFS) fournissent un pipeline ha
 La création d’un pipeline de mise en production est la dernière étape du processus de création d’application. Ce pipeline de mise en production est utilisé pour créer une mise en production et déployer une build.
 
 1. Connectez-vous à Azure DevOps Services et accédez aux **Pipelines Azure** pour votre projet.
-2. Sous l’onglet **Versions**, sélectionnez  **\[ +]**, puis choisissez **Créer une définition de mise en production**.
+2. Sous l’onglet **Versions**, sélectionnez  **\[ +]** , puis choisissez **Créer une définition de mise en production**.
 
    ![Créer un pipeline de mise en production](media/azure-stack-solution-hybrid-pipeline/021a_releasedef.png)
 
@@ -390,7 +390,7 @@ La création d’un pipeline de mise en production est la dernière étape du pr
 
     ![Appliquer le modèle](media/azure-stack-solution-hybrid-pipeline/102.png)
 
-4. Sous **Ajouter un artefact**, dans le menu déroulant **Source (définition de build)**, sélectionnez l’application de build Azure Cloud.
+4. Sous **Ajouter un artefact**, dans le menu déroulant **Source (définition de build)** , sélectionnez l’application de build Azure Cloud.
 
     ![Ajoutez un artefact](media/azure-stack-solution-hybrid-pipeline/103.png)
 
@@ -422,7 +422,7 @@ La création d’un pipeline de mise en production est la dernière étape du pr
 
     ![Texte de remplacement](media/azure-stack-solution-hybrid-pipeline/110.png)
 
-12. Sous l’onglet **Pipeline**, sélectionnez **Ajouter un artefact** et choisissez **NorthwindCloud Traders-Vessel** dans la liste déroulante **Source (définition de build)**.
+12. Sous l’onglet **Pipeline**, sélectionnez **Ajouter un artefact** et choisissez **NorthwindCloud Traders-Vessel** dans la liste déroulante **Source (définition de build)** .
 
     ![Ajouter un nouvel artefact](media/azure-stack-solution-hybrid-pipeline/111.png)
 

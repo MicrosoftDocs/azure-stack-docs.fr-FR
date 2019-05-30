@@ -3,7 +3,7 @@ title: Télémétrie Azure Stack | Microsoft Docs
 description: ’Décrit comment configurer les paramètres de télémétrie à l’aide de PowerShell.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 78ca05eb15570022e6eb25a7023d91c5ff8b817f
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 24948fb53ed4c5bdbbe0490f581daff7c66c33bc
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617335"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267430"
 ---
 # <a name="azure-stack-telemetry"></a>Télémétrie Azure Stack
 
@@ -81,9 +81,9 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 Les niveaux de télémétrie sont cumulés et répartis dans quatre niveaux (0 à 3) :
 
-**0 (Sécurité)**. Données de sécurité uniquement. Informations nécessaires pour permettre la sécurisation du système d’exploitation, y compris des données relatives aux paramètres du composant Expériences des utilisateurs connectés et télémétrie, et Windows Defender. Aucune donnée de télémétrie spécifique d’Azure Stack n’est émise à ce niveau.
+**0 (Sécurité)** . Données de sécurité uniquement. Informations nécessaires pour permettre la sécurisation du système d’exploitation, y compris des données relatives aux paramètres du composant Expériences des utilisateurs connectés et télémétrie, et Windows Defender. Aucune donnée de télémétrie spécifique d’Azure Stack n’est émise à ce niveau.
 
-**1 (De base)**. Données de sécurité, données de base relatives à l’intégrité et données concernant la qualité. Informations de base relatives à l’appareil, y compris, les données concernant la qualité, la compatibilité des applications, l’utilisation des applications et les données issues du niveau de sécurité. La définition du niveau de télémétrie sur De base a pour effet d’activer la télémétrie Azure Stack. Les données recueillies à ce niveau comprennent :
+**1 (De base)** . Données de sécurité, données de base relatives à l’intégrité et données concernant la qualité. Informations de base relatives à l’appareil, y compris, les données concernant la qualité, la compatibilité des applications, l’utilisation des applications et les données issues du niveau de sécurité. La définition du niveau de télémétrie sur De base a pour effet d’activer la télémétrie Azure Stack. Les données recueillies à ce niveau comprennent :
 
 - Des **informations de base relatives à l’appareil** qui aident à comprendre les types et les configurations des instances natives et virtualisées de Windows Server 2016 au sein de l’écosystème, y compris :
   - Les attributs de la machine, comme le fabricant OEM, le modèle.
@@ -94,9 +94,9 @@ Les niveaux de télémétrie sont cumulés et répartis dans quatre niveaux (0 �
 - Des **informations relatives à la qualité** qui permettent à Microsoft de comprendre les performances d’Azure Stack. Par exemple, le nombre d’alertes critiques sur une configuration matérielle spécifique.
 - **Données de compatibilité** qui permet d’identifier les fournisseurs de ressources installés sur un système ou une machine virtuelle, ainsi que d’identifier les problèmes de compatibilité potentiels.
 
-**2 (Amélioré)**. Informations supplémentaires, y compris : comment le système d’exploitation et les autres services Azure Stack sont utilisés, comment ils fonctionnent, données de fiabilité avancées et données issues des niveaux de base et de sécurité.
+**2 (Amélioré)** . Informations supplémentaires, y compris : comment le système d’exploitation et les autres services Azure Stack sont utilisés, comment ils fonctionnent, données de fiabilité avancées et données issues des niveaux de base et de sécurité.
 
-**3 (Complet)**. Toutes les données nécessaires pour identifier et vous aider à résoudre les problèmes, ainsi que les données issues des niveaux **Sécurité**, **De base**, et **Avancé**.
+**3 (Complet)** . Toutes les données nécessaires pour identifier et vous aider à résoudre les problèmes, ainsi que les données issues des niveaux **Sécurité**, **De base**, et **Avancé**.
 
 > [!NOTE]
 > La valeur du niveau de télémétrie par défaut est 2 (avancé).

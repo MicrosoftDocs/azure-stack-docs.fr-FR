@@ -3,7 +3,7 @@ title: Déployer un cloud hybride avec Azure et Azure Stack | Microsoft Docs
 description: Découvrez comment déployer un cloud hybride avec Azure et Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 4a77221ac9fcb365966435ed828ab743dd8e1034
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 7a599d3fdc68c6c41565111498108a202d8b3472
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985827"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252070"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Didacticiel : Déployer une solution de cloud hybride avec Azure et Azure Stack
 
@@ -109,7 +109,7 @@ Avant de commencer le didacticiel, veillez à disposer des éléments suivants :
      ![Configurer des fonctionnalités facultatives](media/azure-stack-solution-hybrid-cloud/image4.png)
 
 1. Sous **Paramètres SQL Server**, configurez les paramètres suivants :
-   - Pour **Connectivité SQL**, sélectionnez **Public (Internet)**.
+   - Pour **Connectivité SQL**, sélectionnez **Public (Internet)** .
    - Pour **Port**, conservez la valeur par défaut, **1433**.
    - Pour **Authentification SQL**, sélectionnez **Activer**.
 
@@ -301,7 +301,7 @@ Lorsque vous créez votre application web dans un environnement App Service, ell
 
 ### <a name="enable-automatic-scale-out"></a>Activer l’augmentation automatique de la taille des instances
 
-1. Dans Azure, recherchez le plan App Service des sites pour lesquels vous souhaitez augmenter la taille des instances, puis sélectionnez **Scale-out (plan App Service)**.
+1. Dans Azure, recherchez le plan App Service des sites pour lesquels vous souhaitez augmenter la taille des instances, puis sélectionnez **Scale-out (plan App Service)** .
 
     ![Montée en charge](media/azure-stack-solution-hybrid-cloud/image16.png)
 
@@ -405,7 +405,7 @@ Vous allez créer un profil Traffic Manager dans Azure, puis configurer les poin
 
    - Pour **Type**, sélectionnez **Point de terminaison externe**.
    - Saisissez un **Nom** pour ce point de terminaison.
-   - Pour **IP ou nom de domaine complet (FQDN)**, utilisez l’URL externe de votre application web Azure Stack.
+   - Pour **IP ou nom de domaine complet (FQDN)** , utilisez l’URL externe de votre application web Azure Stack.
    - Pour **Poids**, conservez la valeur par défaut **1**. Grâce à ce poids, tout le trafic est dirigé vers ce point de terminaison s’il est intègre.
    - Laissez la case **Ajouter comme désactivé** décochée.
 
@@ -447,8 +447,8 @@ Cet affichage vous permettra de créer une alerte pour augmenter la taille des i
 
 ### <a name="create-the-scale-out-alert"></a>Créer l’alerte pour augmenter la taille des instances
 
-1. Sous **CONFIGURER**, sélectionnez **Alertes (classique)**.
-2. Sélectionnez **Ajouter une alerte métrique (classique)**.
+1. Sous **CONFIGURER**, sélectionnez **Alertes (classique)** .
+2. Sélectionnez **Ajouter une alerte métrique (classique)** .
 3. Dans **Ajouter une règle**, configurez les éléments suivants :
 
    - Pour **Nom**, entrez **Augmenter la taille dans Azure Cloud**.
@@ -462,14 +462,14 @@ Cet affichage vous permettra de créer une alerte pour augmenter la taille des i
 7. Pour **Période**, sélectionnez **Au cours des 5 dernières minutes**.
 8. Sous **Notifier via** :
    - Cochez la case pour **Envoyer des e-mails aux propriétaires, contributeurs et lecteurs**.
-   - Saisissez votre adresse e-mail pour **Adresse(s) e-mail administrateur supplémentaire(s)**.
+   - Saisissez votre adresse e-mail pour **Adresse(s) e-mail administrateur supplémentaire(s)** .
 
 9. Dans la barre de menus, sélectionnez **Enregistrer**.
 
 ### <a name="create-the-scale-in-alert"></a>Créer l’alerte pour diminuer la taille des instances
 
-1. Sous **CONFIGURER**, sélectionnez **Alertes (classique)**.
-2. Sélectionnez **Ajouter une alerte métrique (classique)**.
+1. Sous **CONFIGURER**, sélectionnez **Alertes (classique)** .
+2. Sélectionnez **Ajouter une alerte métrique (classique)** .
 3. Dans **Ajouter une règle**, configurez les éléments suivants :
 
    - Pour **Nom**, entrez **Diminuer la taille dans Azure Stack**.
@@ -483,7 +483,7 @@ Cet affichage vous permettra de créer une alerte pour augmenter la taille des i
 7. Pour **Période**, sélectionnez **Au cours des 5 dernières minutes**.
 8. Sous **Notifier via** :
    - Cochez la case pour **Envoyer des e-mails aux propriétaires, contributeurs et lecteurs**.
-   - Saisissez votre adresse e-mail pour **Adresse(s) e-mail administrateur supplémentaire(s)**.
+   - Saisissez votre adresse e-mail pour **Adresse(s) e-mail administrateur supplémentaire(s)** .
 
 9. Dans la barre de menus, sélectionnez **Enregistrer**.
 

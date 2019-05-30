@@ -3,8 +3,8 @@ title: Notes de publication 1 de mise à jour d’App Service sur Azure Stack | 
 description: Découvrez le contenu de la mise à jour d’App Service sur Azure Stack, les problèmes connus et l’emplacement à partir duquel la télécharger.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digmobile
+author: bryanla
+manager: stefsch
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/25/2018
-ms.date: 04/29/2019
-ms.author: v-jay
-ms.reviewer: sethm
+ms.date: 03/25/2019
+ms.author: anwestg
+ms.reviewer: anwestg
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: 86eb23e57516bc108557bbdc4f2d131153f5e855
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: b9b884377e35b43670943f4cf94a24b5216bf233
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64306485"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269121"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 1
 
@@ -224,5 +223,3 @@ Reportez-vous aux [notes de publication de la mise à jour 1802 Azure Stack](azu
 
 - Pour une présentation d’Azure App Service, consultez [Vue d’ensemble d’App Service sur Azure Stack](azure-stack-app-service-overview.md).
 - Pour plus d’informations sur la préparation au déploiement d’App Service on Azure Stack, consultez [Avant de commencer avec App Service sur Azure Stack](azure-stack-app-service-before-you-get-started.md).
-
-<!-- Update_Description: wording update -->

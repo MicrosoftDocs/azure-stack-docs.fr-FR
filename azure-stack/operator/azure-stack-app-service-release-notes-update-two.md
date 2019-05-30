@@ -3,7 +3,7 @@ title: Notes de publication d’App Service sur Azure Stack Update 2 | Microsoft
 description: Découvrez le contenu de la mise à jour 2 d’App Service sur Azure Stack, les problèmes connus et l’emplacement à partir duquel la télécharger.
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
+author: bryanla
 manager: stefsch
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
-ms.reviewer: sethm
+ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: 790f01583d589cdea226133d3ded9693cdf68af0
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: b56c90d9bac8039d428b7ee06a384956924e94f5
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64306461"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269045"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 2
 

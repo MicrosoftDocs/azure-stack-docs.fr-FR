@@ -2,21 +2,21 @@
 title: Valider une sauvegarde Azure Stack à l’aide du Kit de développement Azure Stack (ASDK) | Microsoft Docs
 description: Comment valider une sauvegarde de systèmes intégrés Azure Stack à l’aide du Kit de développement Azure Stack (ASDK).
 services: azure-stack
-author: mattbriggs
+author: justinha
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
 ms.date: 02/15/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 02/15/2019
-ms.openlocfilehash: 6d300c54044f2eb22eac8efe6f9434660d0b6fb8
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 38c4de35b4d2b5eac16b8586aa6933b18c62b14a
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617322"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267327"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Utiliser l’ASDK pour valider une sauvegarde Azure Stack
 Après déploiement d’Azure Stack et approvisionnement de ressources utilisateur telles que des offres, des plans, des quotas et des abonnements, vous devez [activer la sauvegarde d’infrastructure Azure Stack](../operator/azure-stack-backup-enable-backup-console.md). La planification et l’exécution de sauvegardes d’infrastructure régulières garantit que les données de gestion d’infrastructure ne seront pas perdues en cas de défaillance catastrophique du matériel ou du service.

@@ -3,7 +3,7 @@ title: Installer le Kit de développement Azure Stack (ASDK) | Microsoft Docs
 description: Explique comment installer le Kit de développement Azure Stack (ASDK).
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: c14b55379bfad08cbb604b8f27b45a125741a241
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 277b2e8c86cda65167a734d0e5775ec1748ef219
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617409"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267639"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Installer le Kit de développement Azure Stack (ASDK)
 Après la [préparation de l’ordinateur hôte ASDK](asdk-prepare-host.md), le kit ASDK peut être déployé dans l’image CloudBuilder.vhdx en suivant les étapes de cet article.
@@ -73,7 +73,7 @@ Les étapes de cet article vous montrent comment déployer le kit ASDK à l’ai
 
 8. Si vous effectuez un déploiement Azure AD, vous serez invité à entrer les informations d’identification du compte administrateur général quelques minutes après le début de l’installation.
 
-9. Le processus de déploiement peut prendre quelques heures, au cours desquelles l’ordinateur hôte ne redémarre automatiquement qu’une seule fois. Si vous voulez surveiller la progression du déploiement, connectez-vous en tant que azurestack\AzureStackAdmin après le redémarrage de l’hôte du kit de développement. Une fois le déploiement terminé, la console PowerShell affiche le message suivant : **TERMINÉ : Action « Déploiement »**. 
+9. Le processus de déploiement peut prendre quelques heures, au cours desquelles l’ordinateur hôte ne redémarre automatiquement qu’une seule fois. Si vous voulez surveiller la progression du déploiement, connectez-vous en tant que azurestack\AzureStackAdmin après le redémarrage de l’hôte du kit de développement. Une fois le déploiement terminé, la console PowerShell affiche le message suivant : **TERMINÉ : Action « Déploiement »** . 
     > [!IMPORTANT]
     > Si vous vous connectez en tant qu’administrateur local une fois que la machine est jointe au domaine azurestack, vous ne voyez pas la progression du déploiement. Ne réexécutez pas le déploiement : au lieu de cela, connectez-vous en tant que azurestack\AzureStackAdmin pour vérifier qu’il est en cours d’exécution.
 

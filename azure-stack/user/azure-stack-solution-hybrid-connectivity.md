@@ -3,7 +3,7 @@ title: Configurer l’identité de cloud hybride avec Azure et Azure Stack | Mic
 description: Découvrez comment configurer l’identité de cloud hybride avec Azure et Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 845bc2a04fe3153d0385a75445b28b51264c6b6b
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 00f7c3b990e9930571ace8adec9a33d0c9105be6
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "63448167"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252033"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Tutoriel : Configurer l’identité de cloud hybride avec Azure et Azure Stack
 
@@ -147,7 +147,7 @@ Dans le [portail Azure](https://portal.azure.com/), accédez au réseau virtuel
 
 Procédez comme suit pour créer une passerelle de réseau virtuel dans Azure.
 
-1. À gauche dans la page du portail, sélectionnez **+** et entrez « passerelle de réseau virtuel » dans le champ de recherche.
+1. À gauche dans la page du portail, sélectionnez **+**  et entrez « passerelle de réseau virtuel » dans le champ de recherche.
 2. Dans **Résultats**, sélectionnez **Passerelle de réseau virtuel**.
 3. Dans **Passerelle de réseau virtuel**, sélectionnez **Créer** pour ouvrir la page **Créer une passerelle de réseau virtuel** .
 4. Dans **Créer une passerelle réseau virtuelle**, spécifiez les valeurs de votre passerelle de réseau, comme indiqué dans **Exemples de valeurs du didacticiel**, ainsi que les valeurs supplémentaires suivantes :

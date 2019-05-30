@@ -15,12 +15,12 @@ ms.date: 02/13/2019
 ms.author: patricka
 ms.reviewer: rtiberiu
 ms.lastreviewed: 02/13/2019
-ms.openlocfilehash: f5ccc5fc7a280cd8d0832edfe1be6f4ff35dba1d
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 09a75b7aad3d0a9a919883641d8dc901353a5048
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985343"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66251914"
 ---
 # <a name="create-a-registration-role-for-azure-stack"></a>Créer un rôle d’inscription pour Azure Stack
 
@@ -33,7 +33,7 @@ Pour les scénarios où vous ne voulez pas accorder des autorisations de propri�
 
 Lors de l’inscription d’Azure Stack, le compte d’inscription nécessite les autorisations Azure Active Directory et les autorisations de l’abonnement Azure suivantes :
 
-* **Autorisations d’inscription d’application dans votre locataire Azure Active Directory :** Les administrateurs ont des autorisations d’inscription d’application. L’autorisation pour les utilisateurs est un paramètre global pour tous les utilisateurs du locataire. Pour voir ou modifier le paramètre, consultez [Créer une application et un principal de service Azure AD qui peuvent accéder aux resources]((/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+* **Autorisations d’inscription d’application dans votre locataire Azure Active Directory :** Les administrateurs ont des autorisations d’inscription d’application. L’autorisation pour les utilisateurs est un paramètre global pour tous les utilisateurs du locataire. Pour voir ou changer le paramètre, consultez [Créer une application et un principal du service Azure AD pouvant accéder aux ressources](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
     Le paramètre *L’utilisateur peut inscrire des applications* doit être défini sur **Oui** pour permettre à un compte d’utilisateur d’inscrire Azure Stack. Si le paramètre d’inscription d’applications est défini sur **Non**, vous ne pouvez pas utiliser un compte d’utilisateur : vous devez utiliser un compte d’administrateur général pour inscrire Azure Stack.
 
@@ -41,7 +41,7 @@ Lors de l’inscription d’Azure Stack, le compte d’inscription nécessite le
 
 ## <a name="create-a-custom-role-using-powershell"></a>Créer un rôle personnalisé avec PowerShell
 
-Pour créer un rôle personnalisé, vous devez avoir l’autorisation `Microsoft.Authorization/roleDefinitions/write` sur tous les `AssignableScopes`, comme [Propriétaire]((/azure/role-based-access-control/built-in-roles#owner) ou [Administrateur de l’accès utilisateur] ((/azure/role-based-access-control/built-in-roles#user-access-administrator). Utilisez le modèle JSON suivant pour simplifier la définition du rôle personnalisé. Le modèle crée un rôle personnalisé qui permet l’accès en lecture et en écriture nécessaire pour l’inscription d’Azure Stack.
+Pour créer un rôle personnalisé, vous devez disposer de l’autorisation `Microsoft.Authorization/roleDefinitions/write` sur toutes les `AssignableScopes`, comme [Propriétaire](/azure/role-based-access-control/built-in-roles#owner) ou [Administrateur de l’accès utilisateur](/azure/role-based-access-control/built-in-roles#user-access-administrator). Utilisez le modèle JSON suivant pour simplifier la définition du rôle personnalisé. Le modèle crée un rôle personnalisé qui permet l’accès en lecture et en écriture nécessaire pour l’inscription d’Azure Stack.
 
 1. Créez un fichier JSON. Par exemple, `C:\CustomRoles\registrationrole.json`
 2. Ajoutez le code JSON suivant au fichier. Remplacez `<SubscriptionID>` par l’identifiant de votre abonnement Azure.
@@ -70,7 +70,7 @@ Pour créer un rôle personnalisé, vous devez avoir l’autorisation `Microsoft
     }
     ```
 
-3. Dans PowerShell, connectez-vous à Azure pour utiliser Azure Resource Manager. Lorsque vous y êtes invité, authentifiez-vous avec un compte disposant d’autorisations suffisantes, comme [Propriétaire]((/azure/role-based-access-control/built-in-roles#owner) ou [Administrateur de l’accès utilisateur] ((/azure/role-based-access-control/built-in-roles#user-access-administrator).
+3. Dans PowerShell, connectez-vous à Azure pour utiliser Azure Resource Manager. Quand vous y êtes invité, authentifiez-vous avec un compte disposant d’autorisations suffisantes, comme [Propriétaire](/azure/role-based-access-control/built-in-roles#owner) ou [Administrateur de l’accès utilisateur](/azure/role-based-access-control/built-in-roles#user-access-administrator).
 
     ```azurepowershell
     Connect-AzureRmAccount
@@ -86,7 +86,7 @@ Pour créer un rôle personnalisé, vous devez avoir l’autorisation `Microsoft
 
 Une fois le rôle personnalisé d’inscription créé, attribuez-le aux utilisateurs qui inscrivent Azure Stack.
 
-1. Connectez-vous avec le compte qui a des autorisations suffisantes sur l’abonnement Azure pour déléguer des droits, comme [Propriétaire]((/azure/role-based-access-control/built-in-roles#owner) ou [Administrateur de l’accès utilisateur] ((/azure/role-based-access-control/built-in-roles#user-access-administrator).
+1. Connectez-vous avec le compte qui a des autorisations suffisantes sur l’abonnement Azure pour déléguer des droits, comme [Propriétaire](/azure/role-based-access-control/built-in-roles#owner) ou [Administrateur de l’accès utilisateur](/azure/role-based-access-control/built-in-roles#user-access-administrator).
 2. Dans **Abonnements**, sélectionnez **Contrôle d’accès (IAM) > Ajouter une attribution de rôle**.
 3. Dans **Rôle**, choisissez le rôle personnalisé que vous avez créé, *Rôle d’inscription Azure Stack*.
 4. Sélectionnez les utilisateurs que vous voulez affecter au rôle.
@@ -94,7 +94,7 @@ Une fois le rôle personnalisé d’inscription créé, attribuez-le aux utilisa
 
     ![Sélectionner des utilisateurs à affecter au rôle](media/azure-stack-registration-role/assign-role.png)
 
-Pour plus d’informations sur l’utilisation de rôles personnalisés, consultez [Gérer les accès avec le contrôle d’accès en fonction du rôle et le portail Azure]((/azure/role-based-access-control/role-assignments-portal).
+Pour plus d’informations sur l’utilisation de rôles personnalisés, consultez [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](/azure/role-based-access-control/role-assignments-portal).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,7 +3,7 @@ title: Offrir des bases de données SQL à haute disponibilité dans Azure Stack
 description: Découvrez comment créer un ordinateur hôte fournisseur de ressources SQL Server et des bases de données SQL AlwaysOn à haute disponibilité avec Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: cf957fd69cf581d1ca63d1331f8ea407b24394ad
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: e21819fc6475161e63fcdb99a723847c5d7fbbad
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617726"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268408"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Didacticiel : Offrir des bases de données SQL hautement disponibles
 
@@ -88,7 +88,7 @@ Utilisez les étapes de cette section pour déployer le groupe de disponibilité
     [![](media/azure-stack-tutorial-sqlrp/4-sm.PNG "Créer un déploiement personnalisé")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
 
 
-6. Dans le portail d’administration, sélectionnez **Groupes de ressources**, puis le nom du groupe de ressources que vous avez créé pour le déploiement personnalisé (**resource-group** pour cet exemple). Regardez l’état du déploiement pour vérifier que tous les déploiements ont réussi.<br><br>Ensuite, passez en revue les éléments du groupe de ressources et sélectionnez l’élément Adresse IP publique de **SQLPIPsql\<nom_groupe_ressources\>**. Notez l’adresse IP publique et le nom de domaine complet de l’équilibreur de charge. Vous devrez fournir ces informations à un opérateur Azure Stack pour qu’il puisse créer un serveur d’hébergement SQL tirant parti de ce groupe de disponibilité SQL AlwaysOn.
+6. Dans le portail d’administration, sélectionnez **Groupes de ressources**, puis le nom du groupe de ressources que vous avez créé pour le déploiement personnalisé (**resource-group** pour cet exemple). Regardez l’état du déploiement pour vérifier que tous les déploiements ont réussi.<br><br>Ensuite, passez en revue les éléments du groupe de ressources et sélectionnez l’élément Adresse IP publique de **SQLPIPsql\<nom_groupe_ressources\>** . Notez l’adresse IP publique et le nom de domaine complet de l’équilibreur de charge. Vous devrez fournir ces informations à un opérateur Azure Stack pour qu’il puisse créer un serveur d’hébergement SQL tirant parti de ce groupe de disponibilité SQL AlwaysOn.
 
    > [!NOTE]
    > Le déploiement du modèle peut durer plusieurs heures.
@@ -137,7 +137,7 @@ Utilisez ces commandes pour définir l’option du serveur « contained database
 ## <a name="create-an-azure-stack-sql-hosting-server"></a>Créer un serveur d’hébergement SQL Azure Stack
 Une fois que le groupe de disponibilité SQL Server AlwaysOn a été créé et configuré correctement, un opérateur Azure Stack doit créer un serveur d’hébergement SQL Azure Stack pour rendre la fonctionnalité supplémentaire permettant de créer des bases de données disponible pour les utilisateurs. 
 
-Veillez à utiliser l’adresse IP publique ou le nom de domaine complet pour l’adresse IP publique de l’équilibreur de charge SQL que vous avez enregistré précédemment lors de la création du groupe de ressources du groupe de disponibilité AlwaysOn SQL (**SQLPIPsql\<nom du groupe de ressources\>**). En outre, vous devez connaître les informations d’identification SQL Server permettant d’accéder aux instances SQL du groupe de disponibilité AlwaysOn.
+Veillez à utiliser l’adresse IP publique ou le nom de domaine complet pour l’adresse IP publique de l’équilibreur de charge SQL que vous avez enregistré précédemment lors de la création du groupe de ressources du groupe de disponibilité AlwaysOn SQL (**SQLPIPsql\<nom du groupe de ressources\>** ). En outre, vous devez connaître les informations d’identification SQL Server permettant d’accéder aux instances SQL du groupe de disponibilité AlwaysOn.
 
 > [!NOTE]
 > Cette étape doit être effectuée à partir du portail d’administration Azure Stack par un opérateur Azure Stack.
@@ -162,7 +162,7 @@ Une fois que le groupe de disponibilité AlwaysOn SQL a été créé, configuré
 
    ![Créer une base de données SQL](./media/azure-stack-tutorial-sqlrp/createdb1.png)
 
-3. Sélectionnez **Référence (SKU)**, puis choisissez la référence de serveur d’hébergement SQL appropriée à utiliser. Dans cet exemple, l’opérateur Azure Stack a créé la référence **Enterprise-HA** pour prendre en charge la haute disponibilité pour les groupes de disponibilité AlwaysOn SQL.
+3. Sélectionnez **Référence (SKU)** , puis choisissez la référence de serveur d’hébergement SQL appropriée à utiliser. Dans cet exemple, l’opérateur Azure Stack a créé la référence **Enterprise-HA** pour prendre en charge la haute disponibilité pour les groupes de disponibilité AlwaysOn SQL.
 
    ![Sélectionner une référence (SKU)](./media/azure-stack-tutorial-sqlrp/createdb2.png)
 
