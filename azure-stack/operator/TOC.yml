@@ -4,6 +4,8 @@
   items:
     - name: "Qu’est-ce qu’Azure Stack\_?"
       href: azure-stack-overview.md
+    - name: "Qu’est-ce qu’Azure Stack HCI\_?"
+      href: azure-stack-hci-overview.md
     - name: Comparaison de l’écosystème Azure
       href: compare-azure-azure-stack.md
     - name: Notes de publication
@@ -381,18 +383,14 @@
           href: azure-stack-backup-best-practices.md
         - name: Référence liée à la sauvegarde
           href: azure-stack-backup-reference.md
-    - name: Obtenir de l’aide
+    - name: Résolution des problèmes
       items:
-        - name: Aide + Support
-          href: azure-stack-help-and-support.md
-        - name: Résolution des problèmes
-          items:
-            - name: Problèmes connus
-              href: azure-stack-troubleshooting.md
-            - name: Diagnostics dans Azure Stack
-              href: azure-stack-diagnostics.md
-            - name: "Validation pour Azure\_Stack"
-              href: azure-stack-diagnostic-test.md
+        - name: Problèmes connus
+          href: azure-stack-troubleshooting.md
+        - name: Diagnostics dans Azure Stack
+          href: azure-stack-diagnostics.md
+        - name: "Validation pour Azure\_Stack"
+          href: azure-stack-diagnostic-test.md
 - name: Informations de référence
   items:
     - name: Azure Stack PowerShell

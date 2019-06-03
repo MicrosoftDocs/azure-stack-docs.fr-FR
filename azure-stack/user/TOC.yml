@@ -171,6 +171,8 @@
               maintainContext: true
             - name: Utiliser Docker pour exécuter PowerShell
               href: azure-stack-powershell-user-docker.md
+            - name: Se connecter en utilisant une extension de compte Azure
+              href: azure-stack-dev-start-vscode-azure.md
             - name: Installation de Visual Studio
               href: azure-stack-install-visual-studio.md
             - name: Utiliser une clé publique SSH
