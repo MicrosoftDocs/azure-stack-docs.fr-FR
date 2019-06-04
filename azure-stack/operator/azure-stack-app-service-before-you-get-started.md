@@ -3,7 +3,7 @@ title: Avant de déployer App Service sur Azure Stack | Microsoft Docs
 description: Étapes à effectuer avant de déployer App Service sur Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: BryanLa
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 05/28/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 9b9e624abb23ef5c1bd0ae80e2338fdc0b1469ab
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: bb9d49c7feebc03f0f2f5bbaca084e9141f601e9
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618274"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269199"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Avant de commencer avec App Service sur Azure Stack
 
@@ -30,7 +30,7 @@ ms.locfileid: "65618274"
 Avant de déployer Azure App Service sur Azure Stack, vous devez effectuer les étapes de prérequis décrites dans cet article.
 
 > [!IMPORTANT]
-> Appliquez la mise à jour 1901 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack (ASDK) avant de déployer Azure App Service 1.5.
+> Appliquez la mise à jour 1904 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack (ASDK) avant de déployer Azure App Service 1.6.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Téléchargez le programme d’installation et les scripts d’assistance
 
@@ -196,6 +196,9 @@ Un [modèle de démarrage rapide d’architecture de référence](https://github
 >[!IMPORTANT]
 > Si vous choisissez de déployer App Service dans un réseau virtuel existant, le serveur de fichiers devra être déployé dans un sous-réseau distinct d’App Service.
 
+>[!NOTE]
+> Si vous avez choisi de déployer un serveur de fichiers à l’aide de l’un des modèles de démarrage rapide mentionnés ci-dessus, vous pouvez ignorer cette section car les serveurs de fichiers sont configurés dans le cadre du déploiement de modèle.
+
 #### <a name="provision-groups-and-accounts-in-active-directory"></a>Approvisionner des groupes et des comptes dans Active Directory
 
 1. Créez les groupes de sécurité globaux Active Directory suivants :
@@ -296,6 +299,9 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 ## <a name="prepare-the-sql-server-instance"></a>Préparer l’instance SQL Server
 
+>[!NOTE]
+> Si vous avez choisi de déployer le modèle de démarrage rapide pour un serveur de fichiers à haute disponibilité et SQL Server, vous pouvez ignorer cette section car le modèle déploie et configure SQL Server dans une configuration haute disponibilité (HA).
+
 Pour qu’Azure App Service sur Azure Stack héberge et contrôle les bases de données, vous devez préparer une instance SQL Server pour stocker les bases de données d’App Service.
 
 Pour les déploiements du Kit de développement Azure Stack, vous pouvez utiliser SQL Server Express 2014 SP2 ou une version ultérieure.
@@ -306,7 +312,7 @@ L’instance SQL Server pour Azure App Service sur Azure Stack doit être access
 
 > [!NOTE]
 > Un certain nombre d’images de machines virtuelles IaaS SQL sont disponibles via la fonctionnalité Gestion de la Place de Marché. Assurez-vous de toujours télécharger la dernière version de l’extension Iaas SQL avant de déployer une machine virtuelle à l’aide d’un élément de la Place de marché. Les images SQL sont les mêmes que les machines virtuelles SQL sont disponibles dans Azure. Pour les machines virtuelles SQL créées à partir de ces images, l’extension IaaS et les améliorations apportées au portail correspondantes fournissent des fonctionnalités de mise à jour corrective et de sauvegarde automatique.
-> 
+>
 > Pour tous les rôles SQL Server, vous pouvez utiliser une instance par défaut ou une instance nommée. Si vous utilisez une instance nommée, assurez-vous de démarrer manuellement le service SQL Server Browser et d’ouvrir le port 1434.
 
 Le programme d’installation App Service vérifie que l’autonomie de la base de données est activée sur SQL Server. Pour activer l’autonomie de la base de données sur le serveur SQL Server qui hébergera les bases de données App Service, exécutez ces commandes SQL :

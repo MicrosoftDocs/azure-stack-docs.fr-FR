@@ -1,6 +1,6 @@
 ---
 title: Se connecter à Azure Stack | Microsoft Docs
-description: Découvrez comment vous connecter à Azure Stack
+description: Découvrez comment vous connecter à Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: ee1314c26e0c30e64c3cb43af44d56a66911c1ff
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 8b7a9e58fd4d4d8c3a05fea60c79ff47a519bf8c
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783067"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197364"
 ---
 # <a name="connect-to-azure-stack"></a>Se connecter à Azure Stack
 
@@ -41,7 +41,7 @@ Avec une connexion Bureau à distance, un seul utilisateur à la fois peut se co
 
 ## <a name="connect-to-azure-stack-with-vpn"></a>Se connecter à Azure Stack avec l’option VPN
 
-Vous pouvez établir une connexion VPN avec tunneling fractionné à un Kit de développement Azure Stack. Par le biais de la connexion VPN, vous pouvez accéder au portail de l’administrateur, au portail de l’utilisateur et à des outils installés localement, tels que Visual Studio et PowerShell, pour gérer des ressources Azure Stack. La connectivité VPN est prise en charge dans les déploiements Azure Active Directory (AAD) et Active Directory Federation Services (AD FS). Les connexions VPN permettent à plusieurs clients de se connecter à Azure Stack en même temps. 
+Vous pouvez établir une connexion VPN avec tunneling fractionné à un Kit de développement Azure Stack. Par le biais de la connexion VPN, vous pouvez accéder au portail d’administration, au portail de l’utilisateur et à des outils installés localement, tels que Visual Studio et PowerShell, pour gérer des ressources Azure Stack. La connectivité VPN est prise en charge dans les déploiements Azure Active Directory (AAD) et Active Directory Federation Services (AD FS). Les connexions VPN permettent à plusieurs clients de se connecter à Azure Stack en même temps. 
 
 > [!NOTE] 
 > Cette connexion VPN ne fournit pas de connectivité aux machines virtuelles de l’infrastructure Azure Stack. 
@@ -84,7 +84,7 @@ Add-AzsVpnConnection `
 
 ```
 
-Si vous avez correctement configuré la connexion, vous devez voir **azurestack** dans votre liste de connexions VPN.
+Si la configuration réussit, `azurestack` apparaît dans votre liste des connexions VPN.
 
 ![Connexions réseau](media/azure-stack-connect-azure-stack/image3.png)  
 
@@ -99,13 +99,13 @@ Connectez-vous à l’instance Azure Stack à l’aide d’une des deux méthode
     -Password $Password
   ```
 
-  Quand vous y êtes invité, approuvez l’hôte Azure Stack et installez le certificat fourni par **AzureStackCertificateAuthority** dans le magasin de certificats de votre ordinateur local. (l’invite s’affiche parfois derrière la fenêtre de session PowerShell). 
+  Quand vous y êtes invité, approuvez l’hôte Azure Stack et installez le certificat fourni par **AzureStackCertificateAuthority** dans le magasin de certificats de votre ordinateur local. L’invite s’affiche parfois derrière la fenêtre de session PowerShell. 
 
-* Sur votre ordinateur local, ouvrez **Paramètres réseau** > **VPN** > cliquez sur **azurestack** > **Se connecter**. À l’invite de connexion, entrez le nom d’utilisateur (AzureStack\AzureStackAdmin) et le mot de passe.
+* Sur votre ordinateur local, accédez à **Paramètres réseau** > **VPN** > sélectionnez `azurestack` > **Se connecter**. À l’invite de connexion, entrez le nom d’utilisateur (AzureStack\AzureStackAdmin) et le mot de passe.
 
 ### <a name="test-the-vpn-connectivity"></a>Tester la connectivité VPN
 
-Pour tester la connexion au portail, ouvrez un navigateur Internet et accédez au portail de l’utilisateur (https://portal.local.azurestack.external/), connectez-vous et créez des ressources.  
+Pour tester la connexion au portail, ouvrez un navigateur et accédez au portail de l’utilisateur (https://portal.local.azurestack.external/), connectez-vous et créez des ressources.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

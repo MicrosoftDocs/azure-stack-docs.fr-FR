@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/28/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 05/15/2019
-ms.openlocfilehash: 52279a7498e253771e16e66e0c5025b9afd4494d
-ms.sourcegitcommit: 442bd62d1dfbc1597592d7285aba1453298261ce
+ms.lastreviewed: 05/28/2019
+ms.openlocfilehash: 9ebbdb19335db4f0c31d68c726f7b8c211d0f2e2
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969835"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268329"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Problèmes connus dans Azure Stack 1904
 
@@ -60,6 +60,13 @@ Cet article répertorie les problèmes connus dans la version 1904 d’Azure St
 - Correction : Utilisez [PowerShell pour vérifier les autorisations](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Occurrence : Courant
 
+
+### <a name="docker-extension"></a>Extension Docker
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans les portails d’administration et utilisateur, si vous recherchez « Docker », l’élément est incorrectement retourné dans les résultats. Il n’est pas disponible dans Azure Stack. Si vous essayez de le créer, un panneau indiquant une erreur s’affiche.
+- Correction : Aucune atténuation.
+- Occurrence : Courant
+
 ### <a name="marketplace-management"></a>Gestion de la Place de marché
 
 - Champ d’application : Il s’agit d’un problème qui concerne la version 1904.
@@ -70,16 +77,23 @@ Cet article répertorie les problèmes connus dans la version 1904 d’Azure St
 ### <a name="marketplace-management"></a>Gestion de la Place de marché
 
 - Champ d’application : Le problème s’applique à la version 1904.
-- Cause : Quand vous filtrez les résultats dans le panneau **Ajouter à partir d’Azure** sous l’onglet Gestion de la Place de marché dans le portail d’administration, vous pouvez voir des résultats filtrés incorrects. 
-- Correction : triez les résultats par la colonne Nom pour les corriger. 
+- Cause : Quand vous filtrez les résultats dans le panneau **Ajouter à partir d’Azure** sous l’onglet Gestion de la Place de marché dans le portail d’administration, vous pouvez voir des résultats filtrés incorrects.
+- Correction : triez les résultats par la colonne Nom pour les corriger.
 - Occurrence : De façon intermittente
 
 ### <a name="marketplace-management"></a>Gestion de la Place de marché
 
 - Champ d’application : Le problème s’applique à la version 1904.
 - Cause : Quand vous filtrez les résultats dans la gestion de la Place de marché dans le portail de l’administrateur, des noms d’éditeurs apparaissent en double dans la liste déroulante des éditeurs. 
-- Correction : Sélectionnez tous les doublons pour avoir la bonne liste de tous les produits de la Place de marché disponibles sous l’éditeur concerné. 
+- Correction : Sélectionnez tous les doublons pour avoir la bonne liste de tous les produits de la Place de marché disponibles sous l’éditeur concerné.
 - Occurrence : De façon intermittente
+
+### <a name="docker-extension"></a>Extension Docker
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans les portails d’administration et utilisateur, si vous recherchez **Docker**, l’élément est incorrectement retourné dans les résultats. Il n’est pas disponible dans Azure Stack. Si vous essayez de le créer, une erreur s’affiche.
+- Correction : Aucune atténuation.
+- Occurrence : Courant
 
 ### <a name="upload-blob"></a>Charger l’objet blob
 
@@ -156,11 +170,37 @@ Cette erreur se produit si vous activez les diagnostics de démarrage sur une ma
 ### <a name="compute-host-agent-alert"></a>Alerte de l’agent hôte de calcul
 
 - Champ d’application : Il s’agit d’un problème qui concerne la version 1904.
-- Cause : Un avertissement d’**agent hôte de calcul** s’affiche après le redémarrage d’un nœud dans l’unité d’échelle. Le redémarrage change le paramétrage par défaut du démarrage du service de l’agent hôte de calcul.
+- Cause : Un avertissement d’**agent hôte de calcul** s’affiche après le redémarrage d’un nœud dans l’unité d’échelle. Le redémarrage change le paramétrage par défaut du démarrage du service de l’agent hôte de calcul. Cette alerte ressemble à l’exemple suivant :
+
+   ```shell
+   NAME  
+   Compute Host Agent is not responding to calls.
+   SEVERITY  
+   Warning
+   STATE  
+   Active
+   CREATED TIME  
+   5/16/2019, 10:08:23 AM
+   UPDATED TIME  
+   5/22/2019, 12:27:27 PM
+   COMPONENT  
+   M#####-NODE02
+   DESCRIPTION  
+   Could not communicate with the Compute Host Agent running on node: M#####-NODE02
+   REMEDIATION  
+   Please disable Compute Host Agent feature flag and collect logs for further diagnosis.
+   ```
+
 - Correction :
   - Cette alerte peut être ignorée. Le fait que l’agent ne réponde pas n’a pas d’impact sur l’opérateur et les opérations utilisateur ou les applications utilisateur. L’alerte réapparaît après 24 heures s’il est fermé manuellement.
-  - Le support Microsoft peut résoudre le problème en changeant le paramétrage du démarrage du service. Pour cela, vous devez ouvrir un ticket de support. Si le nœud est redémarré, une nouvelle alerte s’affiche.
+  - Le problème est résolu dans le dernier [correctif logiciel Azure Stack pour la version 1904](https://support.microsoft.com/help/4505688).
 - Occurrence : Courant
+
+## <a name="storage"></a>Stockage
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) n’est pas pris en charge dans Azure Stack, ce qui se traduit par la création d’un disque ayant l’ID **$null**. Cela vous empêche d’effectuer des opérations sur la machine virtuelle, comme le démarrage et l’arrêt. Le disque n’apparaît pas dans l’interface utilisateur, ni par le biais de l’API. À ce stade, la machine virtuelle ne peut pas être réparée et doit être supprimée.
+- Correction : Pour convertir correctement vos disques, suivez le [guide de conversion de disques managés](../user/azure-stack-managed-disk-considerations.md#convert-to-managed-disks).
 
 ## <a name="app-service"></a>App Service
 

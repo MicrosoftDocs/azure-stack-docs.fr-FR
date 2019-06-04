@@ -3,7 +3,7 @@ title: Résolution des problèmes de Microsoft Azure Stack | Microsoft Docs
 description: Résolution des problèmes d’Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
@@ -12,32 +12,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
-ms.author: mabrigg
+ms.date: 05/20/2019
+ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: c7486cb56dee87b8a894d165fce4c3a0dfaae6d9
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 9b78a7ee9af9dde3cbb40b52268cb4cbfc0a6dcc
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618114"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268233"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Résolution des problèmes de Microsoft Azure Stack
 
-Ce document fournit des informations de résolution des problèmes courants pour Azure Stack. 
-
-> [!NOTE]
-> Étant donné que le Kit de développement technique Azure Stack (ASDK) est proposé comme environnement d’évaluation, il n’y a aucune prise en charge officielle de la part des services client Microsoft. Si vous rencontrez un problème, veillez à consulter le [Forum MSDN Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) pour obtenir une assistance et des informations supplémentaires.  
-
-Les recommandations pour la résolution des problèmes qui sont décrites dans cette section proviennent de différentes sources ; elles pourront peut-être résoudre votre problème en particulier. Les exemples de code sont fournis en l’état et les résultats attendus ne sont pas garantis. Cette section est susceptible de faire l’objet de modifications et de mises à jour fréquentes au fur et à mesure que des améliorations sont apportées au produit.
+Ce document fournit des informations de résolution des problèmes courants pour Azure Stack. Les recommandations et les exemples de code sont fournis en l’état et peuvent ne pas toujours résoudre votre problème. 
 
 ## <a name="deployment"></a>Déploiement
 ### <a name="general-deployment-failure"></a>Échec général du déploiement
 Si vous rencontrez un problème lors de l’installation, vous pouvez relancer le déploiement à partir de l’étape qui n’a pas abouti en utilisant l’option de réexécution du script de déploiement.  
 
 ### <a name="at-the-end-of-asdk-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>À la fin du déploiement du Kit de développement technique Azure Stack (ASDK), la session PowerShell est toujours ouverte et ne présente aucune sortie.
-Ce comportement est probablement tout simplement le résultat du comportement par défaut d’une fenêtre de commande PowerShell, lorsqu’elle a été sélectionnée. Le déploiement du kit de développement s’est déroulé correctement, mais le script a été interrompu au moment de la sélection de la fenêtre. Vous pouvez vérifier que l’installation est terminée en recherchant le mot « select » dans la barre de titre de la fenêtre de commande.  Appuyez sur la touche Échap pour la désélectionner ; le message d’achèvement devrait alors s’afficher.
+Ce comportement est probablement tout simplement le résultat du comportement par défaut d’une fenêtre de commande PowerShell, lorsqu’elle a été sélectionnée. Le déploiement du kit de développement s’est déroulé correctement, mais le script a été interrompu au moment de la sélection de la fenêtre. Vous pouvez vérifier que l’installation est terminée en recherchant le mot « select » dans la barre de titre de la fenêtre de commande. Appuyez sur la touche Échap pour la désélectionner ; le message d’achèvement devrait alors s’afficher.
 
 ### <a name="deployment-fails-due-to-lack-of-external-access"></a>Le déploiement échoue en raison d’un manque d’accès externe
 Lorsque le déploiement échoue à des étapes où l’accès externe est nécessaire, une exception telle que l’exemple suivant est retournée :
@@ -49,7 +44,7 @@ An error occurred while trying to test identity provider endpoints: System.Net.W
 ```
 Si cette erreur se produit, vérifiez que toutes les exigences réseau minimales ont été satisfaites en consultant la [documentation sur le déploiement du trafic réseau](deployment-networking.md). Un outil de vérification du réseau est également disponible pour les partenaires dans le cadre du Partner Toolkit.
 
-Les échecs de déploiement, à l’exception de l’exception ci-dessus, sont généralement dus à des problèmes de connexion aux ressources sur Internet
+Les échecs de déploiement, à l’exception du cas ci-dessus, sont généralement dus à des problèmes de connexion aux ressources sur Internet.
 
 Pour vérifier qu’il s’agit bien de votre problème, vous pouvez effectuer les étapes suivantes :
 

@@ -1,5 +1,5 @@
 ---
-title: Connexion d’Azure Stack à Azure à l’aide d’un VPN
+title: Connecter Azure Stack à Azure à l’aide d’un VPN | Microsoft Docs
 description: Découvrez comment connecter des réseaux virtuels Azure Stack à des réseaux virtuels Azure à l’aide d’un VPN.
 services: azure-stack
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 03/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: cfa4ec1209e78d8e7281048b6d6685ac5488734d
-ms.sourcegitcommit: 61de365c93eb7435891867f9808ec37486882d7f
+ms.openlocfilehash: f49c6f87ba3f33ae8d9c22068fa9ac4893ab7f0a
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65097066"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197406"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Connexion d’Azure Stack à Azure à l’aide d’un VPN
 
@@ -61,6 +61,7 @@ Tout d’abord, créez les ressources réseau pour Azure. Les instructions ci-ap
 ### <a name="create-the-virtual-network-and-virtual-machine-vm-subnet"></a>Créer le réseau virtuel et le sous-réseau de machine virtuelle
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) avec votre compte Azure.
+
 2. Dans le portail utilisateur, sélectionnez **+ Créer une ressource**.
 3. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 4. Sélectionnez **Réseau virtuel**.
@@ -85,23 +86,25 @@ Tout d’abord, créez les ressources réseau pour Azure. Les instructions ci-ap
 
 ### <a name="create-the-virtual-network-gateway"></a>Créer la passerelle de réseau virtuel
 
-1. Dans le Portail Azure, sélectionnez **+ Créer une ressource**.  
+1. Dans le Portail Azure, sélectionnez **+ Créer une ressource**.
+
 2. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 3. Dans la liste des ressources réseau, sélectionnez **Passerelle de réseau virtuel**.
-4. Sous **Nom**, saisissez **Azure-GW**.
+4. Dans le champ **Nom**, tapez **Azure-GW**.
 5. Pour choisir un réseau virtuel, sélectionnez **Réseau virtuel**. Sélectionnez ensuite **AzureVnet** dans la liste.
 6. Sélectionnez **Adresse IP publique**. Quand la section **Choisir une adresse IP publique** s’affiche, sélectionnez **Créer**.
-7. Sous **nom**, saisissez **Azure-GW-PiP**, puis sélectionnez **OK**.
+7. Dans le champ **Nom**, tapez **Azure-GW-PiP**, puis sélectionnez **OK**.
 8. Vérifiez que l’**abonnement** et l’**emplacement** sont corrects. Vous pouvez épingler la ressource au tableau de bord. Sélectionnez **Créer**.
 
 ### <a name="create-the-local-network-gateway-resource"></a>Créer la ressource de passerelle de réseau local
 
 1. Dans le Portail Azure, sélectionnez **+ Créer une ressource**.
+
 2. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 3. Dans la liste des ressources, sélectionnez **Passerelle de réseau local**.
-4. Dans le champ **Nom**, saisissez **Azs-GW**.
-5. Pour **Adresse IP**, saisissez l’adresse IP publique de votre passerelle de réseau virtuel Azure Stack, indiquée précédemment dans le tableau de configuration du réseau.
-6. Dans **Espace d’adressage**, à partir d’Azure Stack, entrez l’espace d’adressage **10.1.0.0/24** et **10.1.1.0/24** pour **AzureVNet**.
+4. Dans le champ **Nom**, tapez **Azs-GW**.
+5. Dans le champ **Adresse IP**, tapez l’adresse IP publique de votre passerelle de réseau virtuel Azure Stack, indiquée précédemment dans le tableau de configuration du réseau.
+6. Dans le champ **Espace d’adressage**, à partir d’Azure Stack, tapez l’espace d’adressage **10.1.0.0/24** et **10.1.1.0/24** pour **AzureVNet**.
 7. Vérifiez l’exactitude des valeurs des champs **Abonnement**, **Groupe de ressources** et **Emplacement**, puis sélectionnez **Créer**.
 
 ## <a name="create-the-connection"></a>Créer la connexion
@@ -109,25 +112,25 @@ Tout d’abord, créez les ressources réseau pour Azure. Les instructions ci-ap
 1. Dans le portail utilisateur, sélectionnez **+ Créer une ressource**.
 2. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 3. Dans la liste des ressources, sélectionnez **Connexion**.
-4. Dans la section de paramètres **De base**, pour le champ **Type de connexion**, choisissez **Site à site (IPSec)**.
+4. Dans la section de paramètres **De base**, pour le champ **Type de connexion**, choisissez **Site à site (IPSec)** .
 5. Renseignez les champs **Abonnement**, **Groupe de ressources** et **Emplacement**, puis sélectionnez **OK**.
 6. Dans la section **Paramètres**, sélectionnez **Passerelle de réseau virtuel**, puis **Azure-GW**.
 7. Sélectionnez **Passerelle de réseau local**, puis **Azs-GW**.
 8. Dans le champ **Nom de la connexion**, saisissez **Azure-Azs**.
-9. Dans le champ **Clé partagée (PSK)**, saisissez **12345**, puis sélectionnez **OK**.
+9. Dans le champ **Clé partagée (PSK)** , saisissez **12345**, puis sélectionnez **OK**.
 
    >[!NOTE]
    >Si vous utilisez une autre valeur pour la clé partagée, n’oubliez pas qu’elle doit correspondre à la valeur de la clé partagée que vous créez à l’autre extrémité de la connexion.
 
 10. Dans la section **Résumé**, vérifiez les paramètres, puis sélectionnez **OK**.
 
-## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
+## <a name="create-a-vm"></a>Créer une machine virtuelle
 
 À présent, créez une machine virtuelle dans Azure, puis ajoutez-la au sous-réseau de machine virtuelle dans votre réseau virtuel.
 
 1. Dans le Portail Azure, sélectionnez **+ Créer une ressource**.
 2. Accédez à la **Place de marché**, puis sélectionnez **Compute**.
-3. Dans la liste des images de machine virtuelle, sélectionnez l’image **Windows Server 2016 Datacenter Evals**.
+3. Dans la liste des images de machine virtuelle, sélectionnez l’image **Windows Server 2016 Datacenter Eval**.
 4. Dans la section **De base**, sous **Nom**, saisissez **AzureVM**.
 5. Entrez un nom d’utilisateur et un mot de passe valides. Vous utiliserez ce compte plus tard pour vous connecter à la machine virtuelle que vous créez actuellement.
 6. Renseignez les champs **Abonnement**, **Groupe de ressources** et **Emplacement**, puis sélectionnez **OK**.
@@ -147,7 +150,7 @@ Ensuite, créez les ressources réseau dans Azure Stack.
 
 ### <a name="sign-in-as-a-user"></a>Connectez-vous en tant qu’utilisateur
 
-Un administrateur de services fédérés peut se connecter en tant qu’utilisateur pour tester les plans, les offres et les abonnements mis à la disposition des utilisateurs. Si vous ne l’avez pas encore fait, [créez un compte d’utilisateur](../operator/azure-stack-add-new-user-aad.md) avant de vous connecter.
+Un administrateur de service peut se connecter en tant qu’utilisateur pour tester les plans, les offres et les abonnements mis à la disposition des utilisateurs. Si vous ne l’avez pas encore fait, [créez un compte d’utilisateur](../operator/azure-stack-add-new-user-aad.md) avant de vous connecter.
 
 ### <a name="create-the-virtual-network-and-a-vm-subnet"></a>Créer le réseau virtuel et un sous-réseau de machine virtuelle
 
@@ -187,6 +190,7 @@ Un administrateur de services fédérés peut se connecter en tant qu’utilisat
 6. Sélectionnez l’élément de menu **Adresse IP publique**. Quand la section **Choisir une adresse IP publique** s’affiche, sélectionnez **Créer**.
 7. Dans le champ **Nom**, saisissez **Azs-GW-PiP**, puis sélectionnez **OK**.
 8. L’élément **Basé sur itinéraires** est sélectionné par défaut dans le champ **Type de VPN**. Conservez le type de VPN **Basé sur itinéraires**.
+
 9. Vérifiez que l’**abonnement** et l’**emplacement** sont corrects. Vous pouvez épingler la ressource au tableau de bord. Sélectionnez **Créer**.
 
 ### <a name="create-the-local-network-gateway"></a>Créer la passerelle de réseau local
@@ -203,9 +207,10 @@ De façon plus générale, la ressource de passerelle de réseau local représen
 2. Dans le portail utilisateur, sélectionnez **+ Créer une ressource**.
 3. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 4. Dans la liste des ressources, sélectionnez **Passerelle de réseau local**.
-5. Sous **Nom**, saisissez **Azure-GW**.
-6. Dans le champ **Adresse IP**, entrez l’adresse IP publique de la passerelle de réseau virtuel dans Azure **Azure-GW-PiP**. Cette adresse figure dans la table de configuration réseau, plus haut dans cet article.
-7. Dans le champ **Espace d’adressage**, entrez **10.100.0.0/24** et **10.100.1.0/24** comme espace d’adressage du réseau virtuel Azure que vous venez de créer.
+5. Dans le champ **Nom**, tapez **Azure-GW**.
+6. Dans le champ **Adresse IP**, tapez l’adresse IP publique de la passerelle de réseau virtuel dans Azure **Azure-GW-PiP**. Cette adresse figure dans la table de configuration réseau, plus haut dans cet article.
+7. Dans le champ **Espace d’adressage**, tapez **10.100.0.0/24** et **10.100.1.0/24** comme espace d’adressage du réseau virtuel Azure que vous venez de créer.
+
 8. Vérifiez l’exactitude des valeurs des champs **Abonnement**, **Groupe de ressources** et **Emplacement**, puis sélectionnez **Créer**.
 
 ### <a name="create-the-connection"></a>Créer la connexion
@@ -213,26 +218,28 @@ De façon plus générale, la ressource de passerelle de réseau local représen
 1. Dans le portail utilisateur, sélectionnez **+ Créer une ressource**.
 2. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 3. Dans la liste des ressources, sélectionnez **Connexion**.
-4. Dans la section des paramètres **De base**, pour le champ **Type de connexion**, sélectionnez **Site à site (IPSec)**.
+4. Dans la section des paramètres **De base**, pour le champ **Type de connexion**, sélectionnez **Site à site (IPSec)** .
 5. Renseignez les champs **Abonnement**, **Groupe de ressources** et **Emplacement**, puis sélectionnez **OK**.
 6. Dans la section **Paramètres**, sélectionnez **Passerelle de réseau virtuel**, puis **Azs-GW**.
 7. Sélectionnez **Passerelle de réseau local**, puis **Azure-GW**.
 8. Dans le champ **Nom de la connexion**, entrez **Azs-Azure**.
-9. Sous **Clé partagée (PSK)**, entrez **12345**, puis sélectionnez **OK**.
+9. Sous **Clé partagée (PSK)** , entrez **12345**, puis sélectionnez **OK**.
+
 10. Dans la section **Résumé**, sélectionnez **OK**.
 
-### <a name="create-a-virtual-machine-vm"></a>Créer une machine virtuelle
+### <a name="create-a-vm"></a>Créer une machine virtuelle
 
 Pour vérifier la connexion VPN, créez deux machines virtuelles, une dans Azure et l’autre dans Azure Stack. Après avoir créé ces machines virtuelles, vous pouvez les utiliser pour envoyer et recevoir des données via le tunnel VPN.
 
 1. Dans le Portail Azure, sélectionnez **+ Créer une ressource**.
 2. Accédez à la **Place de marché**, puis sélectionnez **Compute**.
-3. Dans la liste des images de machine virtuelle, sélectionnez l’image **Windows Server 2016 Datacenter Evals**.
+3. Dans la liste des images de machine virtuelle, sélectionnez l’image **Windows Server 2016 Datacenter Eval**.
 4. Dans la section **De base**, sous **Nom**, saisissez **Azs-VM**.
 5. Entrez un nom d’utilisateur et un mot de passe valides. Vous utiliserez ce compte plus tard pour vous connecter à la machine virtuelle que vous créez actuellement.
 6. Renseignez les champs **Abonnement**, **Groupe de ressources** et **Emplacement**, puis sélectionnez **OK**.
 7. Dans la section **Taille**, sélectionnez une taille de machine virtuelle pour cette instance, puis choisissez **Sélectionner**.
 8. Dans la section **Paramètres**, acceptez les valeurs par défaut. Assurez-vous que le réseau virtuel **Azs-VNet** est sélectionné. Vérifiez que le sous-réseau est défini sur **10.1.0.0/24**. Sélectionnez ensuite **OK**.
+
 9. Dans la section **Résumé**, vérifiez les paramètres, puis sélectionnez **OK**.
 
 ## <a name="test-the-connection"></a>Tester la connexion
@@ -243,7 +250,7 @@ Maintenant que la connexion de site à site est établie, vous devez vérifier q
 * Connectez-vous à la machine virtuelle que vous avez créée dans Azure et effectuez un test ping sur la machine virtuelle dans Azure Stack.
 
 >[!NOTE]
->Pour vérifier que le trafic envoyé passe par la connexion de site à site, effectuez le test Ping sur l’adresse IP directe (DIP) de la machine virtuelle du sous-réseau distant, et non sur l’adresse IP virtuelle.
+>Pour vérifier que le trafic envoyé passe par la connexion de site à site, effectuez le test ping sur l’adresse IP directe (DIP) de la machine virtuelle du sous-réseau distant, et non sur l’adresse IP virtuelle.
 
 ### <a name="sign-in-to-the-user-vm-in-azure-stack"></a>Connectez-vous à la machine virtuelle utilisateur dans Azure Stack
 
@@ -284,19 +291,19 @@ Maintenant que la connexion de site à site est établie, vous devez vérifier q
     -Protocol ICMPv4
    ```
 
-10. À partir de la machine virtuelle dans Azure, effectuez un test Ping de la machine virtuelle dans Azure Stack, par le biais du tunnel. Pour cela, effectuez un test Ping sur l’adresse IP directe (DIP) que vous avez enregistrée à partir d’Azs-VM. Dans l’exemple d’environnement, l’adresse est **10.1.0.4**, mais vous devez effectuer le test ping sur l’adresse que vous avez notée dans votre lab. Vous devez obtenir un résultat semblable à celui présenté dans la capture d’écran suivante :
+10. À partir de la machine virtuelle dans Azure, effectuez un test ping de la machine virtuelle dans Azure Stack, par le biais du tunnel. Pour cela, effectuez un test Ping sur l’adresse IP directe (DIP) que vous avez enregistrée à partir d’Azs-VM. Dans l’exemple d’environnement, l’adresse est **10.1.0.4**, mais vous devez effectuer le test ping sur l’adresse que vous avez notée dans votre lab. Vous devez obtenir un résultat semblable à celui présenté dans la capture d’écran suivante :
 
     ![Test ping réussi](media/azure-stack-connect-vpn/image19b.png)
 
-11. La réception d’une réponse de la machine virtuelle distante indique que le test a réussi. Vous pouvez fermer la fenêtre de la machine virtuelle.
+11. Une réponse de la machine virtuelle distante indique que le test a réussi. Vous pouvez fermer la fenêtre de la machine virtuelle.
 
-Vous devez également effectuer un test plus rigoureux de transfert de données, en copiant par exemple dans les deux sens, des fichiers de tailles différentes.
+Vous devez également effectuer un test plus rigoureux de transfert de données, par exemple en copiant des fichiers de tailles différentes dans les deux sens.
 
 ### <a name="viewing-data-transfer-statistics-through-the-gateway-connection"></a>Affichage des statistiques de transfert de données via la connexion de passerelle
 
 Si vous souhaitez connaître la quantité de données qui transite par votre connexion de site à site, consultez cette information dans la section **Connexion**. Ce test est également un autre moyen de vérifier que la commande ping que vous venez d’envoyer est bien passée par la connexion VPN.
 
-1. Lorsque vous êtes connecté à la machine virtuelle utilisateur dans Azure Stack, utilisez votre compte d’utilisateur pour vous connecter au portail utilisateur.
+1. Lorsque vous êtes connecté à la machine virtuelle utilisateur dans Azure Stack, utilisez votre compte d’utilisateur pour vous connecter au portail de l’utilisateur.
 2. Accédez à **Toutes les ressources**, puis sélectionnez la connexion **Azs-Azure**. Le panneau **Connexion** s’affiche.
 3. La section **Connexion** affiche les statistiques pour **Données entrantes** et **Données sortantes**. Dans la capture d’écran suivante, les valeurs élevées sont dues au transfert de fichiers supplémentaires. Normalement, vous ne devez pas voir de valeurs nulles ici.
 

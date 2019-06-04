@@ -1,6 +1,6 @@
 ---
 title: Se connecter à Azure Stack en tant qu’utilisateur avec PowerShell | Microsoft Docs
-description: Étapes pour se connecter à Azure Stack avec PowerShell.
+description: Apprenez à vous connecter à Azure Stack à l’aide de PowerShell.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 04/26/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 855d7c03f4a18c4409d36b8ac5fd702c8549e413
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: c9ef9c1e936c71a8b0a2a0eb636da1eac5bf69da
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986242"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197323"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>Se connecter à Azure Stack en tant qu’utilisateur avec PowerShell
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Vous pouvez vous connecter à Azure Stack avec PowerShell. Vous devez vous connecter pour gérer les ressources Azure Stack avec PowerShell. Par exemple, vous pouvez utiliser PowerShell pour vous abonner à des offres, créer des machines virtuelles et déployer des modèles Azure Resource Manager.
+Vous pouvez vous connecter à Azure Stack à l’aide de PowerShell pour gérer les ressources Azure Stack. Par exemple, vous pouvez utiliser PowerShell pour vous abonner à des offres, créer des machines virtuelles et déployer des modèles Azure Resource Manager.
 
 Pour l’installation :
   - Vérifiez que vous disposez des éléments requis.
@@ -34,7 +34,7 @@ Pour l’installation :
   - Inscrivez des fournisseurs de ressources.
   - Testez votre connectivité.
 
-## <a name="prerequisites-to-connect-using-powershell"></a>Prérequis pour vous connecter avec PowerShell
+## <a name="prerequisites-to-connecting-with-powershell"></a>Prérequis pour vous connecter avec PowerShell
 
 Configurez les prérequis suivants à partir du [kit de développement](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) ou à partir d’un client externe Windows si vous êtes [connecté via un VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) :
 
@@ -44,11 +44,11 @@ Configurez les prérequis suivants à partir du [kit de développement](../asdk/
 Veillez à remplacer les variables de script suivantes par des valeurs de votre configuration Azure Stack :
 
 - **Nom du locataire Azure AD**  
-  Le nom de votre client Azure AD utilisé pour gérer Azure Stack, par exemple, yourdirectory.onmicrosoft.com.
+  Nom de votre locataire Azure AD utilisé pour gérer Azure Stack. Par exemple, yourdirectory.onmicrosoft.com.
 - **Point de terminaison Azure Resource Manager**  
   Pour le kit de développement Azure Stack, cette valeur est définie sur https://management.local.azurestack.external. Pour obtenir cette valeur pour les systèmes Azure Stack intégrés, contactez votre fournisseur de services.
 
-## <a name="connect-with-azure-ad"></a>Connexion à Azure AD
+## <a name="connect-to-azure-stack-with-azure-ad"></a>Se connecter à Azure Stack avec Azure AD
 
 ```powershell  
     Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
@@ -62,7 +62,7 @@ Veillez à remplacer les variables de script suivantes par des valeurs de votre 
     Add-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $TenantId
 ```
 
-## <a name="connect-with-ad-fs"></a>Connexion à AD FS
+## <a name="connect-to-azure-stack-with-ad-fs"></a>Se connecter à Azure Stack avec AD FS
 
   ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack instance

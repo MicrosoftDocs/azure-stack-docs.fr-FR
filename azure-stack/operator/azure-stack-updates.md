@@ -15,22 +15,22 @@ ms.date: 04/04/2019
 ms.author: mabrigg
 ms.lastreviewed: 04/04/2019
 ms.reviewer: justini
-ms.openlocfilehash: c0727ef3f55cba86bbb8c9953007256906852ccb
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 64ccb5ec0b24202aa847d5114ba35ae20af44cc8
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984605"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268026"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gérer les mises à jour dans Azure Stack - Vue d’ensemble
 
 *S’applique à : systèmes intégrés Azure Stack*
 
-En général, les packages de mise à jour de Microsoft pour les systèmes intégrés Azure Stack sont mis en production autour du quatrième mardi de chaque mois. Consultez votre fabricant de matériel OEM au sujet de son processus de notification pour vous assurer que votre organisation reçoive bien les notifications de mise à jour. Vous pouvez aussi rechercher dans cette bibliothèque de documentation sous **Vue d’ensemble** > **Notes de publication** des informations sur les versions dont le support est actif. 
+Les packages de mise à jour Microsoft pour les systèmes intégrés Azure Stack sont généralement mis en production chaque mois. Consultez votre fabricant de matériel OEM au sujet de son processus de notification pour vous assurer que votre organisation reçoive bien les notifications de mise à jour. Vous pouvez aussi rechercher dans cette bibliothèque de documentation sous **Vue d’ensemble** > **Notes de publication** des informations sur les versions dont le support est actif. 
 
-Chaque version des mises à jour logicielles Microsoft est fournie sous forme de package de mise à jour unique. En tant qu’opérateur Azure Stack, vous pouvez importer, installer et surveiller la progression de l’installation de ces packages de mise à jour à partir du portail administrateur. 
+Chaque version des mises à jour logicielles Microsoft est fournie sous forme de package de mise à jour unique. En tant qu’opérateur Azure Stack, vous pouvez importer des packages de mise à jour, les installer et superviser la progression de leur installation à partir du portail d’administration Azure Stack.
 
-Votre fournisseur OEM publiera également des mises à jour, notamment pour les pilotes et le microprogramme. Même si ces mises à jour sont proposées sous forme de packages distincts par votre fournisseur, elles sont importées, installées et gérées de la même façon que les packages de mise à jour de Microsoft.
+Votre fournisseur OEM publiera également des mises à jour, notamment pour les pilotes et le microprogramme. Même si ces mises à jour sont proposées sous forme de packages distincts par votre fournisseur, certaines sont importées, installées et gérées de la même façon que les packages de mise à jour de Microsoft.
 
 Pour conserver votre système dans un état de prise en charge, vous devez maintenir Azure Stack à jour à un niveau de version spécifique. Pensez à passer en revue la [Stratégie de maintenance d’Azure Stack](azure-stack-servicing-policy.md).
 
@@ -46,6 +46,8 @@ Lors de l’installation des mises à jour, vous pouvez afficher l’état gén�
 ## <a name="plan-for-updates"></a>Planifier les mises à jour
 
 Nous vous recommandons vivement d’informer les utilisateurs de toutes les opérations de maintenance, et de planifier dans la mesure du possible les fenêtres de maintenance ordinaire pendant les heures creuses. Les opérations de maintenance peuvent affecter les opérations de portail et les charges de travail de locataire.
+
+Lors de la planification de votre fenêtre de maintenance, il est important d’examiner le type spécifique du package de mise à jour proposé par Microsoft, comme indiqué dans la note de publication correspondante. Hormis le correctif logiciel occasionnel, chaque package de mise à jour aura un type correspondant, **Complète** ou **Express**. Les packages de mise à jour Complète mettent à jour les systèmes d’exploitation hôtes physique dans l’unité d’échelle et nécessitent une plus grande fenêtre de maintenance. Les packages de mise à jour Express, quant à eux, sont limités et ne mettent pas à jour les systèmes d’exploitation hôtes physiques sous-jacents.
 
 - Avant de démarrer l’installation de cette mise à jour, exécutez [Test-AzureStack](azure-stack-diagnostic-test.md) avec les paramètres suivants pour valider l’état de votre Azure Stack et résoudre les éventuels problèmes opérationnels détectés, y compris tous les avertissements et les échecs. Examinez aussi les alertes actives et résolvez toutes celles qui nécessitent une intervention.  
 

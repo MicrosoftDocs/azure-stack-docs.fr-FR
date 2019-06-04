@@ -1,0 +1,81 @@
+---
+title: Vue d’ensemble de la facturation d’Azure App Service sur Azure Stack et questions fréquentes (FAQ) | Microsoft Docs
+description: Informations sur le mode de calcul et de facturation d’Azure App Service sur Azure Stack.
+services: azure-stack
+documentationcenter: ''
+author: apwestgarth
+manager: femila
+editor: ''
+ms.assetid: ''
+ms.service: azure-stack
+ms.workload: app-service
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/23/2019
+ms.author: anwestg
+ms.reviewer: anwestg
+ms.lastreviewed: 05/23/2019
+ms.openlocfilehash: 7b11f00c98c6433ad035b6190789276ea5aa6fa7
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66213047"
+---
+# <a name="azure-app-service-on-azure-stack-billing-overview-and-faq"></a>Vue d’ensemble de la facturation d’Azure App Service sur Azure Stack et questions fréquentes (FAQ)
+
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+
+Les instructions de ce document illustrent la façon dont les opérateurs cloud sont facturés pour l’offre Azure App Service sur Azure Stack et dont ils peuvent, à leur tour, facturer leur utilisation du service à leurs locataires.
+
+## <a name="billing-overview"></a>Présentation de la facturation
+
+Les opérateurs cloud Azure Stack choisissent de déployer Azure App Service sur Azure Stack sur leur tampon Azure Stack afin de proposer les fonctionnalités de locataire d’Azure App Service et d’Azure Functions à leurs clients.  Le fournisseur de ressources Azure App Service est constitué de plusieurs types de rôles qui peuvent être divisés entre l’infrastructure et les niveaux de worker.
+
+Les rôles d’infrastructure ne sont pas facturés car ils sont obligatoires pour l’opération principale du service.  Les rôles d’infrastructure peuvent faire l’objet d’un scale-out si nécessaire pour prendre en charge les demandes des locataires de l’opérateur cloud.  Les rôles d’infrastructure sont les suivants :
+
+- Controllers
+- Rôles de gestion
+- Éditeurs
+- Front ends
+
+Les niveaux de worker comprennent deux types principaux : partagé et dédié. L’utilisation des workers est facturée à l’opérateur cloud en fonction des critères suivants.
+
+## <a name="shared-workers"></a>Workers partagés
+
+Les workers partagés sont des plans App Service partagés multilocataires et sans hôte ainsi que des fonctions Azure Functions basées sur la consommation pour de nombreux locataires. Les workers partagés émettent des compteurs d’utilisation quand ils sont marqués comme prêts dans le fournisseur de ressources Azure App Service.
+
+## <a name="dedicated-workers"></a>Workers dédiés
+
+Les workers dédiés sont liés aux plans App Service que le ou les locataires créent. Par exemple, dans la référence (SKU) S1, les locataires peuvent, par défaut, passer à 10 instances. Par conséquent, quand un locataire crée un plan App Service S1, Azure App Service alloue l’une des instances du groupe identique de niveau de worker Small au plan App Service du locataire. Par la suite, le worker affecté ne peut plus être affecté à un autre locataire.  Si le locataire choisit de mettre à l’échelle le plan App Service pour qu’il comporte 10 instances, 9 autres workers sont supprimés du pool disponible et sont affectés au plan App Service du locataire.
+
+Les compteurs sont émis pour les workers dédiés quand ils sont :
+
+- Marqués comme prêts dans le fournisseur de ressources Azure App Service.
+- Affectés à un plan App Service.
+
+Par conséquent, ce modèle de facturation permet aux opérateurs cloud de provisionner un pool de workers dédiés prêts à être utilisés par les clients sans qu’ils aient à payer pour les workers jusqu’à ce qu’ils soient effectivement réservés par le plan App Service de leur locataire. Par exemple, si vous avez 20 workers dans le niveau de Worker Small, que vous avez 5 clients qui créent chacun deux plans App Service S1 et que chacun met à l’échelle le plan App Service pour qu’il comporte deux instances, vous n’aurez aucun worker disponible. Par conséquent, il n’y aura pas non plus de capacité pour que l’un de vos clients ou que de nouveaux clients effectuent un scale-out ou créent des plans App Service. Les opérateurs cloud peuvent afficher le nombre actuel de workers disponibles par niveau de worker en examinant les niveaux de worker dans la configuration d’Azure App Service sur l’administration d’Azure Stack.
+
+![Niveaux de Worker App Service][1]
+
+## <a name="see-customer-usage-using-the-azure-stack-usage-service"></a>Consulter l’utilisation du client à l’aide du service d’utilisation Azure Stack
+
+Les opérateurs cloud peuvent interroger l’[API d’utilisation du locataire Azure Stack](azure-stack-tenant-resource-usage-api.md) pour récupérer les informations d’utilisation de leurs clients. Par ailleurs, vous trouverez tous les compteurs individuels qu’App Service émet pour décrire l’utilisation des locataires dans les [Questions fréquentes (FAQ)](azure-stack-usage-related-faq.md). Ces compteurs peuvent alors servir à calculer l’utilisation par abonnement client, laquelle peut ensuite être utilisée pour calculer les frais.
+
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+
+### <a name="how-do-i-license-the-sql-server-and-file-server-infrastructure-required-in-the-pre-requisites"></a>Comment obtenir la licence pour SQL Server et l’infrastructure du serveur de fichiers exigée dans les prérequis ?
+
+La gestion des licences pour SQL et l’infrastructure du serveur de fichiers, exigée par le fournisseur de ressources Azure App Service, est traitée dans l’article Azure App Service sur Azure Stack : [Avant de commencer](azure-stack-app-service-before-you-get-started.md#licensing-concerns-for-required-file-server-and-sql-server).
+
+### <a name="the-usage-faq-lists-the-tenant-meters-but-not-the-prices-for-those-meters-where-can-i-find-them"></a>Les Questions fréquentes (FAQ) sur l’utilisation listent les compteurs de locataire, mais pas les prix de ces compteurs, où les trouver ?
+
+Les opérateurs cloud sont libres d’appliquer leur propre modèle tarifaire à leurs clients finaux. Le service d’utilisation fournit le contrôle de l’utilisation. L’opérateur cloud doit alors utiliser la quantité de compteurs à facturer à ses clients en fonction du modèle tarifaire qu’il détermine. Avoir la possibilité de définir les tarifs permet aux opérateurs de se différencier des autres opérateurs Azure Stack.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [API d’utilisation du locataire Azure Stack](azure-stack-tenant-resource-usage-api.md)
+
+<!--Image references-->
+[1]: ./media/app-service-billing-faq/app-service-worker-tiers.png
