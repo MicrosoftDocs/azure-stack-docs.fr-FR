@@ -3,7 +3,7 @@ title: Utilisation des profils de version d’API avec le Kit de développement 
 description: Apprenez-en davantage sur l’utilisation des profils de version d’API avec .NET dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,21 +13,21 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 1b81836c6262a73611ebfb2cc771ab74fd9f03fc
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: da93d2683805c6e9769a3d27a9e9ab3a4b998db5
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782752"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269366"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Utiliser des profils de version d’API avec .NET dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Le Kit de développement logiciel (SDK) .NET pour Azure Stack Resource Manager fournit des outils pour vous aider à créer et gérer votre infrastructure. Le Kit de développement logiciel (SDK) comporte des fournisseurs de ressources de calcul, de réseau, de stockage, de services d’application et [KeyVault](/azure/key-vault/key-vault-whatis). Le SDK .NET inclut 14 packages NuGet. Ces packages doivent être téléchargés dans votre solution de projet chaque fois que les informations de profil sont incorporées. Toutefois, vous pouvez télécharger spécifiquement le fournisseur de ressources que vous utiliserez pour le profil 2018-03-01-hybrid ou 2017-03-09-profile afin d’optimiser la mémoire pour votre application. Chaque package se compose d’un fournisseur de ressources, de la version d’API correspondante et du profil d’API auquel il appartient. Les profils d’API dans le Kit de développement logiciel (SDK) .NET permettent le développement du cloud hybride en vous offrant la possibilité de basculer entre les ressources Azure globales et les ressources sur Azure Stack.
+Le Kit de développement logiciel (SDK) .NET pour Azure Stack Resource Manager fournit des outils pour vous aider à créer et gérer votre infrastructure. Le Kit de développement logiciel (SDK) comporte des fournisseurs de ressources de calcul, de réseau, de stockage, de services d’application et [KeyVault](/azure/key-vault/key-vault-whatis). Le SDK .NET inclut 14 packages NuGet. Ces packages doivent être téléchargés dans votre solution de projet chaque fois que les informations de profil sont incorporées. Toutefois, vous pouvez télécharger spécifiquement le fournisseur de ressources que vous utiliserez pour 2019-03-01-hybrid ou 2018-03-01-hybrid afin d’optimiser la mémoire pour votre application. Chaque package se compose d’un fournisseur de ressources, de la version d’API correspondante et du profil d’API auquel il appartient. Les profils d’API dans le Kit de développement logiciel (SDK) .NET permettent le développement du cloud hybride en vous offrant la possibilité de basculer entre les ressources Azure globales et les ressources sur Azure Stack.
 
 ## <a name="net-and-api-version-profiles"></a>.NET et les profils de version d’API
 
@@ -35,11 +35,11 @@ Un profil d’API est une combinaison de fournisseurs de ressources et de versio
 
 -   Pour utiliser les versions les plus récentes de tous les services, utilisez le profil **La plus récente** des packages. Ce profil fait partie du package NuGet **Microsoft.Azure.Management**.
 
--   Pour utiliser les services compatibles avec Azure Stack, utilisez le package **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.*ResourceProvider*.0.9.0-preview.nupkg** ou **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09.*ResourceProvider*.0.9.0-preview.nupkg**.
-
-    -   Il existe deux packages pour chaque fournisseur de ressources pour chaque profil.
-
-    -   Vérifiez que la partie **ResourceProvider** du package NuGet ci-dessus est remplacée par le fournisseur approprié.
+-   Pour utiliser les services compatibles avec Azure Stack, utilisez l’un des packages suivants :
+    - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg** 
+    - **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
+    
+    Vérifiez que la partie **ResourceProvider** du package NuGet ci-dessus est remplacée par le fournisseur approprié.
 
 -   Pour utiliser la dernière version d’API d’un service, utilisez le profil **La plus récente** du package NuGet spécifique. Par exemple, si vous souhaitez utiliser la **dernière version d’API** du service de calcul autonome, utilisez le profil **La plus récente** du package de **calcul**. Le profil **La plus récente** fait partie du package NuGet **Microsoft.Azure.Management**.
 
@@ -55,9 +55,9 @@ Vous pouvez combiner toutes les options dans la même application.
 
 3.  Les packages à installer dépendent de la version de profil que vous souhaitez utiliser. Les noms de package pour les versions de profil sont les suivants :
 
-    1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.*ResourceProvider*.0.9.0-preview.nupkg**
+    1.  **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
-    2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09.*ResourceProvider*.0.9.0-preview.nupkg**
+    2.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
 4.  Pour installer les packages NuGet corrects pour Visual Studio Code, consultez le lien suivant afin de télécharger les [instructions du gestionnaire de package NuGet][].
 
@@ -127,11 +127,11 @@ Exemple de fichier JSON :
 
 ## <a name="existing-api-profiles"></a>Profils d’API existants
 
-1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.*ResourceProvider*.0.9.0-preview.nupkg** : Dernier profil créé pour Azure Stack. Utilisez ce profil pour que les services soient davantage compatibles avec Azure Stack, à condition que vous utilisiez le tampon 1808 ou un tampon ultérieur.
+1.  **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg** : Dernier profil créé pour Azure Stack. Utilisez ce profil pour que les services soient davantage compatibles avec Azure Stack, à condition que vous utilisiez le tampon 1808 ou un tampon ultérieur.
 
-2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09.*ResourceProvider*.0.9.0-preview.nupkg** : si vous êtes sur un tampon inférieur à la build 1808, utilisez ce profil.
+2.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
-3.  **La plus récente** : profil constitué des dernières versions de l’ensemble des services. Utilisez les dernières versions de tous les services. Ce profil fait partie du package NuGet **Microsoft.Azure.Management**.
+3.  **Les dernières** : profil constitué des dernières versions de l’ensemble des services. Utilisez les dernières versions de tous les services. Ce profil fait partie du package NuGet **Microsoft.Azure.Management**.
 
 Pour plus d’informations sur les profils d’API et Azure Stack, consultez la section [Résumé des profils d’API][].
 
@@ -186,6 +186,7 @@ public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(s
     return settings;
 }
 ```
+
 Ceci vous permet d’utiliser les packages NuGet de profils d’API pour déployer correctement votre application sur Azure Stack.
 
 ## <a name="samples-using-api-profiles"></a>Exemples à l’aide de profils d’API
@@ -193,7 +194,7 @@ Ceci vous permet d’utiliser les packages NuGet de profils d’API pour déploy
 Les exemples suivants peuvent servir de références pour la création de solutions avec des profils d’API .NET et Azure Stack.
 - [Gérer des groupes de ressources](https://github.com/Azure-Samples/hybrid-resources-dotnet-manage-resource-group)
 - [Gérer des comptes de stockage](https://github.com/Azure-Samples/hybird-storage-dotnet-manage-storage-accounts)
-- [Gérer une machine virtuelle](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm)
+- [Gérer une machine virtuelle](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm) (cet exemple utilise le profil 2019-03-01-hybrid pris en charge par Azure Stack)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

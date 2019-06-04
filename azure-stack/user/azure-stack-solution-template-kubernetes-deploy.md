@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 55db30efd648c76938d71bc2067c7c68e6693f88
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 672528f05a4fb3214e9a97e78922eeb12739c44f
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712343"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269538"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>Déployer Kubernetes pour utiliser des conteneurs avec Azure Stack
 

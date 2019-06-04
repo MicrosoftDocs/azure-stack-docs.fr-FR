@@ -3,7 +3,7 @@ title: Ajouter un nouveau compte client Azure Stack dans Azure Active Directory 
 description: Après le déploiement du Kit de développement Microsoft Azure Stack, vous devez créer au moins un compte d’utilisateur locataire pour pouvoir explorer le portail locataire.
 services: azure-stack
 documentationcenter: ''
-author: patricka
+author: PatAltimore
 manager: femila
 editor: ''
 ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 05/20/2019
 ms.author: patricka
-ms.reviewer: unknown
+ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 52fb4074a476cb907f02628933b83d82b6ee4984
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 83a927cd0198798b4b1beaf8b84ed0b7ad2a11a0
+ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985754"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66043115"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Ajouter un nouveau compte de locataire Azure Stack dans Azure Active Directory
 
@@ -61,10 +61,17 @@ Pour utiliser le portail Azure, vous devez disposer d’un abonnement Azure.
 Si vous n’avez pas d’abonnement Azure, vous ne pouvez pas utiliser le portail Azure pour ajouter un compte utilisateur client. Dans ce cas, vous pouvez utiliser le module Azure Active Directory pour Windows PowerShell à la place.
 
 > [!NOTE]
-> Si vous utilisez un compte Microsoft (Live ID) pour déployer le Kit de développement Azure Stack, vous ne pouvez pas utiliser AAD PowerShell pour créer le compte client. 
+> Si vous utilisez un compte Microsoft pour déployer le Kit de développement Azure Stack, vous ne pouvez pas utiliser Azure AD PowerShell pour créer le compte locataire. 
 
-1. Installez [l’Assistant de connexion Microsoft Online Services pour les professionnels de l’informatique RTW](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
-2. Installez le [module Azure Active Directory pour Windows PowerShell (version 64 bits)](https://go.microsoft.com/fwlink/p/?linkid=236297) et ouvrez-le.
+1. Installez la version **64 bits** de l’[Assistant de connexion Microsoft Online Services pour les professionnels de l’informatique RTW](https://go.microsoft.com/fwlink/p/?LinkId=286152).
+
+2. Installez le module Microsoft Azure Active Directory pour Windows PowerShell en effectuant les étapes suivantes :
+
+    - Ouvrez une invite de commandes Windows PowerShell avec élévation de privilèges (exécutez Windows PowerShell en tant qu’administrateur).
+    - Exécutez la commande **Install-Module MSOnline**.
+    - Si vous êtes invité à installer le fournisseur NuGet, sélectionnez **O**, puis **Entrée**.
+    - Si vous êtes invité à installer le module à partir de PSGallery, sélectionnez **O**, puis **Entrée**.
+
 3. Exécutez les applets de commande suivantes :
 
     ```powershell

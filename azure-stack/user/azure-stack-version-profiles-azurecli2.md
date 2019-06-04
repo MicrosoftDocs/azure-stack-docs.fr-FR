@@ -3,7 +3,7 @@ title: Se connecter à Azure Stack avec l’interface CLI | Microsoft Docs
 description: Découvrez comment utiliser l’interface de ligne de commande (CLI) multiplateforme pour gérer et déployer des ressources sur Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 69eb6e676fb8c134e0184d4df7df95ba0c75e854
-ms.sourcegitcommit: 879165a66ff80f1463b6bb46e2245684224a9b92
+ms.openlocfilehash: 996dacc1c95a172ffa09247c56a12a5afd00e086
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473872"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269529"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Utiliser des profils de version des API avec Azure CLI dans Azure Stack
 
@@ -43,12 +43,21 @@ Si vous utilisez un système intégré, vous n'avez pas besoin d'exporter le cer
 
 Pour exporter le certificat racine ASDK au format PEM :
 
-1. [Créez une machine virtuelle Windows sur Azure Stack](azure-stack-quick-windows-portal.md).
+1. Obtenez le nom de votre certificat racine Azure Stack :
+    - Connectez-vous au locataire Azure Stack ou portail d’administration.
+    - Cliquez sur « Secure » (Sécurisé) près de la barre d’adresse.
+    - Dans la fenêtre indépendante, cliquez sur « Valid » (Valide).
+    - Dans la fenêtre Certificat, cliquez sur l’onglet « Chemin d’accès de certification ». 
+    - Notez le nom de votre certificat racine Azure Stack.
 
-2. Connectez-vous à la machine, ouvrez une invite PowerShell avec élévation de privilèges et exécutez le script suivant :
+    ![Certificat racine Azure Stack](media/azure-stack-version-profiles-azurecli2/root-cert-name.png)
+
+2. [Créez une machine virtuelle Windows sur Azure Stack](azure-stack-quick-windows-portal.md).
+
+3. Connectez-vous à la machine, ouvrez une invite PowerShell avec élévation de privilèges et exécutez le script suivant :
 
     ```powershell  
-      $label = "AzureStackSelfSignedRootCert"
+      $label = "<the name of your azure stack root cert from Step 1>"
       Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
       $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
       if (-not $root)
@@ -64,7 +73,7 @@ Pour exporter le certificat racine ASDK au format PEM :
     certutil -encode root.cer root.pem
     ```
 
-3. Copiez le certificat sur votre machine locale.
+4. Copiez le certificat sur votre machine locale.
 
 
 ### <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Configurer le point de terminaison des alias de machines virtuelles
@@ -104,9 +113,9 @@ Cette section vous guidera dans la configuration de l’interface CLI si vous ut
 
 Si vous utilisez l’ASDK, vous devez approuver le certificat racine de l’autorité de certification sur votre ordinateur distant. Cette opération n’est pas nécessaire sur les systèmes intégrés.
 
-Pour approuver le certificat racine d’autorité de certification Azure Stack, ajoutez-le au certificat Python existant pour la version de Python installée avec Azure CLI. Il se peut que vous exécutiez votre propre instance de Python. Azure CLI inclut sa propre version de Python.
+Pour approuver le certificat racine d’autorité de certification Azure Stack, ajoutez-le au magasin de certificats Python existant pour la version de Python installée avec Azure CLI. Il se peut que vous exécutiez votre propre instance de Python. Azure CLI inclut sa propre version de Python.
 
-1. Trouvez l’emplacement du certificat sur votre machine.  Vous pouvez trouver l’emplacement en exécutant la commande `az --version`.
+1. Trouvez l’emplacement du magasin de certificats sur votre machine.  Vous pouvez trouver l’emplacement en exécutant la commande `az --version`.
 
 2. Accédez au dossier qui contient votre application Python CLI. Vous devez exécuter cette version de Python. Si vous avez configuré Python dans votre chemin d’accès système, l’exécution de Python a pour effet d’exécuter votre propre version de Python. À la place, vous devez exécuter la version utilisée par l’interface CLI et ajouter votre certificat à cette version. Par exemple, votre instance Python CLI peut se trouver à l’emplacement suivant : `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`.
 
@@ -188,7 +197,7 @@ Pour approuver le certificat racine d’autorité de certification Azure Stack, 
    ```
 
     >[!NOTE]  
-    >Si vous exécutez une version d’Azure Stack antérieure à la build 1808, vous devez utiliser le profil de version API **2017-03-09-profile** plutôt que le profil de version API **2018-03-01-hybrid**. Vous devez utiliser une version récente de l’interface CLI.
+    >Si vous exécutez une version d’Azure Stack antérieure à la build 1808, vous devez utiliser le profil de version d’API **2017-03-09-profile** plutôt que le profil de version d’API **2019-03-01-hybrid**. Vous devez utiliser une version récente de l’interface CLI.
  
 1. Connectez-vous à votre environnement Azure Stack avec la commande `az login`. Vous pouvez vous connecter à l’environnement Azure Stack en tant qu’utilisateur ou que [principal de service](/azure/active-directory/develop/app-objects-and-service-principals). 
 
@@ -304,11 +313,11 @@ Si vous utilisez l’ASDK, vous devez approuver le certificat racine de l’auto
 1. Mettez à jour la configuration de votre environnement pour utiliser le profil de version des API propre à Azure Stack. Pour mettre à jour la configuration, exécutez la commande suivante :
 
     ```azurecli
-    az cloud update --profile 2018-03-01-hybrid
+    az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Si vous exécutez une version d’Azure Stack antérieure à la build 1808, vous devez utiliser le profil de version API **2017-03-09-profile** plutôt que le profil de version API **2018-03-01-hybrid**. Vous devez utiliser une version récente de l’interface CLI.
+    >Si vous exécutez une version d’Azure Stack antérieure à la build 1808, vous devez utiliser le profil de version d’API **2017-03-09-profile** plutôt que le profil de version d’API **2019-03-01-hybrid**. Vous devez utiliser une version récente de l’interface CLI.
 
 1. Connectez-vous à votre environnement Azure Stack avec la commande `az login`. Vous pouvez vous connecter à l’environnement Azure Stack en tant qu’utilisateur ou que [principal de service](/azure/active-directory/develop/app-objects-and-service-principals). 
 
@@ -317,7 +326,7 @@ Si vous utilisez l’ASDK, vous devez approuver le certificat racine de l’auto
      Vous pouvez spécifier directement le nom d’utilisateur et le mot de passe dans la commande `az login`, ou vous authentifier avec un navigateur. Vous devez choisir cette dernière solution si l’authentification multifacteur est activée sur votre compte :
 
      ```azurecli
-     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/" --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2018-03-01-hybrid"
+     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2019-03-01-hybrid"
      ```
 
      > [!NOTE]
@@ -420,11 +429,11 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
 4. Mettez à jour la configuration de votre environnement pour utiliser le profil de version des API propre à Azure Stack. Pour mettre à jour la configuration, exécutez la commande suivante :
 
     ```azurecli
-      az cloud update --profile 2018-03-01-hybrid
+      az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Si vous exécutez une version d’Azure Stack antérieure à la build 1808, vous devez utiliser le profil de version API **2017-03-09-profile** plutôt que le profil de version API **2018-03-01-hybrid**. Vous devez utiliser une version récente de l’interface CLI.
+    >Si vous exécutez une version d’Azure Stack antérieure à la build 1808, vous devez utiliser le profil de version d’API **2017-03-09-profile** plutôt que le profil de version d’API **2019-03-01-hybrid**. Vous devez utiliser une version récente de l’interface CLI.
 
 5. Connectez-vous à votre environnement Azure Stack avec la commande `az login`. Vous pouvez vous connecter à l’environnement Azure Stack en tant qu’utilisateur ou que [principal de service](/azure/active-directory/develop/app-objects-and-service-principals). 
 
@@ -531,11 +540,11 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
 4. Mettez à jour la configuration de votre environnement pour utiliser le profil de version des API propre à Azure Stack. Pour mettre à jour la configuration, exécutez la commande suivante :
 
     ```azurecli
-      az cloud update --profile 2018-03-01-hybrid
+      az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Si vous exécutez une version d’Azure Stack antérieure à la build 1808, vous devez utiliser le profil de version API **2017-03-09-profile** plutôt que le profil de version API **2018-03-01-hybrid**. Vous devez utiliser une version récente de l’interface CLI.
+    >Si vous exécutez une version d’Azure Stack antérieure à la build 1808, vous devez utiliser le profil de version d’API **2017-03-09-profile** plutôt que le profil de version d’API **2019-03-01-hybrid**. Vous devez utiliser une version récente de l’interface CLI.
 
 5. Connectez-vous à votre environnement Azure Stack avec la commande `az login`. Vous pouvez vous connecter à l’environnement Azure Stack en tant qu’utilisateur ou que [principal de service](/azure/active-directory/develop/app-objects-and-service-principals). 
 

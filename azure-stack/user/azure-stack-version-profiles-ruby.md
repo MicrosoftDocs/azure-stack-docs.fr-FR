@@ -3,7 +3,7 @@ title: Utilisation de profils de version d’API avec Ruby dans Azure Stack | Mi
 description: En savoir plus sur l’utilisation de profils de version d’API avec Ruby dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: B82E4979-FB78-4522-B9A1-84222D4F854B
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 1bf4842746aa6a7bcdeedb41f58c267919cf1542
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 625ddb8341b58c98e47b37701547de5d6acea45b
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782543"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269324"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Utiliser des profils de version d’API avec Ruby dans Azure Stack
 
@@ -34,7 +34,7 @@ Le Kit de développement logiciel (SDK) Ruby pour Azure Stack Resource Manager f
 Un profil d’API est une combinaison de fournisseurs de ressources et de versions de service. Vous pouvez utiliser un profil d’API pour combiner différents types de ressources.
 
 - Pour utiliser les versions les plus récentes de tous les services, utilisez le profil **Le plus récent** de la gemme cumulative du Kit de développement logiciel (SDK) Azure.
-- Pour utiliser les services compatibles avec Azure Stack, utilisez le profil **V2018_03_01** de la gemme cumulative du Kit de développement logiciel (SDK) Azure.
+- Pour utiliser les services compatibles avec Azure Stack, employez le profil **V2019_03_01_Hybrid** ou **V2018_03_01** de la gemme cumulative du SDK Azure.
 - Pour utiliser la dernière **version d’API** d’un service, utilisez le profil **Le plus récent** de la gemme spécifique. Par exemple, si vous souhaitez utiliser la dernière **version d’API** d’un service de calcul autonome, utilisez le profil **Le plus récent** de la gemme **Calcul**.
 - Pour utiliser une **version d’API** spécifique d’un service, utilisez les versions d’API spécifiques définies dans la gemme.
 
@@ -73,7 +73,7 @@ Le Kit de développement logiciel (SDK) Azure Resource Manager pour Ruby est en 
 
 ## <a name="use-the-azuresdk-gem"></a>Utiliser la gemme azure_sdk
 
-La gemme, **azure_sdk**, est un cumul de toutes les gemmes prises en charge dans le Kit de développement logiciel (SDK) Ruby. Cette gemme se compose du profil  **Le plus récent** , qui prend en charge la version la plus récente de tous les services. Elle présente les profils à deux à deux versions  **V2017_03_09** et **V2018_03_01** , qui sont générés pour Azure Stack.
+La gemme, **azure_sdk**, est un cumul de toutes les gemmes prises en charge dans le Kit de développement logiciel (SDK) Ruby. Cette gemme se compose du profil  **Le plus récent** , qui prend en charge la version la plus récente de tous les services. Elle inclut les profils avec version  **V2017_03_09** et **V2019_03_01_Hybrid**, qui sont générés pour Azure Stack.
 
 Vous pouvez installer la gemme cumulative azure_sdk avec la commande suivante :  
 
@@ -130,7 +130,7 @@ Pour définir les variables d’environnement dans une invite de commandes Windo
 
 La gemme cumulative Azure_sdk comprend les trois profils suivants :
 
-1. **V2018_03_01** Profil créé pour Azure Stack. Servez-vous de ce profil pour utiliser toutes les dernières versions des services disponibles dans Azure Stack.
+1. **V2019_03_01_Hybrid** Profil créé pour Azure Stack. Servez-vous de ce profil pour utiliser toutes les dernières versions des services disponibles dans Azure Stack.
 2. **V2017_03_09**  
   Profil créé pour Azure Stack. Utilisez ce profil pour que les services soient davantage compatibles avec Azure Stack.
 3. **La plus récente**  
@@ -160,7 +160,7 @@ options = {
 }
 
 # Target profile built for Azure Stack
-client = Azure::Resources::Profiles::V2018_03_01::Mgmt::Client.new(options)
+client = Azure::Resources::Profiles::V2019_03_01_Hybrid::Mgmt::Client.new(options)
 ```
 
 Le client de profil peut être utilisé pour accéder aux fournisseurs de ressources individuels, tels que le calcul, le stockage et le réseau :
@@ -174,7 +174,7 @@ purchase_plan_obj = profile_client.compute.model_classes.purchase_plan.new
 
 # Option 2: To access the models associated with Compute
 # Notice Namespace: Azure::Profiles::<Profile Name>::<Service Name>::Mgmt::Models::<Model Name>
-purchase_plan_obj = Azure::Profiles::V2018_03_01::Compute::Mgmt::Models::PurchasePlan.new
+purchase_plan_obj = Azure::Profiles::V2019_03_01_Hybrid::Compute::Mgmt::Models::PurchasePlan.new
 ```
 
 ## <a name="define-azure-stack-environment-setting-functions"></a>Définir des fonctions de définition d’environnement Azure Stack
@@ -204,7 +204,7 @@ end
 Vous pouvez utiliser les exemples trouvé sur GitHub ci-après en guise de références pour la création de solutions avec des profils d’API Ruby et Azure Stack :
 
 - [Manage Azure resources and resource groups with Ruby (Gérer des ressources et des groupes de ressources Azure avec Ruby)](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups)
-- [Manage virtual machines using Ruby](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM) (Gérer des machines virtuelles à l’aide de Ruby)
+- [Manage virtual machines using Ruby](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM)(Gérer des machines virtuelles à l’aide de Ruby) (Exemple qui utilise le profil 2019-03-01-hybrid pour cibler les dernières versions d’API prises en charge par Azure Stack).
 - [Deploy an SSH Enabled VM with a Template in Ruby (Déployer une machine virtuelle compatible SSH à l’aide d’un modèle dans Ruby)](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Template-Deployment)
 
 ### <a name="sample-resource-manager-and-groups"></a>Exemple Resource Manager et groupes
@@ -271,10 +271,10 @@ Pour exécuter l’exemple, assurez-vous que vous avez installé Ruby. Si vous u
 7. Créez un client de profil qui cible le profil Azure Stack :
 
    ```ruby  
-   client = Azure::Resources::Profiles::V2018_03_01::Mgmt::Client.new(options)
+   client = Azure::Resources::Profiles::V2019_03_01_Hybrid::Mgmt::Client.new(options)
    ```
 
-8. Pour authentifier le principal de service avec Azure Stack, les points de terminaison doivent être définis à l’aide de **get_active_directory_settings()**. Cette méthode utilise la variable d’environnement **ARM_Endpoint** que vous définissez lors de l’établissement de vos variables d’environnement :
+8. Pour authentifier le principal de service avec Azure Stack, les points de terminaison doivent être définis à l’aide de **get_active_directory_settings()** . Cette méthode utilise la variable d’environnement **ARM_Endpoint** que vous définissez lors de l’établissement de vos variables d’environnement :
 
    ```ruby  
    def get_active_directory_settings(armEndpoint)

@@ -3,7 +3,7 @@ title: Utilisation de profils de version des API avec Go dans Azure Stack | Micr
 description: En savoir plus sur l’utilisation de profils de version des API avec Go dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
@@ -11,15 +11,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 33fc05de4bf0107c8090badb77872082790aa087
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 6f9136cb92851d10deac3455b054fe3c18cb891e
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782554"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269353"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Utilisez des profils de version des API avec Go dans Azure Stack
 
@@ -32,10 +32,10 @@ Un profil est une combinaison de différents types de ressources dans différent
 - La stabilité de votre application en verrouillant sur des versions d’API spécifiques.
 - La compatibilité de votre application avec Azure Stack et les centres de données régionaux Azure.
 
-Dans le kit SDK Go, les profils sont disponibles sous le chemin des profils. Leur version est au format **AAAA-MM-JJ**. Pour le moment, la dernière version du profil d’API Azure Stack est la version **2017-03-09**. Pour importer un service donné à partir d’un profil, importez son module correspondant à partir du profil. Par exemple, pour importer le service **Compute** à partir du profil **2017-03-09**, utilisez le code suivant :
+Dans le kit SDK Go, les profils sont disponibles sous le chemin des profils. Leur version est au format **AAAA-MM-JJ**. Pour le moment, la dernière version du profil d’API Azure Stack est la version **2018-03-01**. Pour importer un service donné à partir d’un profil, importez son module correspondant à partir du profil. Par exemple, pour importer le service **Compute** à partir du profil **2018-03-01**, utilisez le code suivant :
 
 ```go
-import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute"
+import "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/compute/mgmt/compute"
 ```
 
 ## <a name="install-azure-sdk-for-go"></a>Installer le Kit de développement logiciel Microsoft Azure SDK pour Go
@@ -88,11 +88,11 @@ Pour exécuter un exemple de code Go sur Azure Stack, effectuez les étapes suiv
 
 4. Créez un principal de service avec l’étendue **Abonnement** et le rôle **Propriétaire**. Enregistrez l’ID et le secret du principal de service. Pour plus d’informations sur la création d’un principal de service pour Azure Stack, consultez [Créer un principal du service](azure-stack-create-service-principals.md). Votre environnement Azure Stack est désormais configuré.
 
-5. Importez un module de service à partir du profil de kit SDK Go dans votre code. La version actuelle du profil Azure Stack est **2017-03-09**. Par exemple, pour importer le module réseau à partir du type de profil **2017-03-09**, utilisez le code suivant :
+5. Importez un module de service à partir du profil de kit SDK Go dans votre code. La version actuelle du profil Azure Stack est **2018-03-01**. Par exemple, pour importer le module réseau à partir du type de profil **2018-03-01**, utilisez le code suivant :
 
    ```go
    package main
-    import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+    import "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/network/mgmt/network"
    ```
 
 6. Dans votre fonction, créez et authentifiez un client avec l’appel de fonction **Nouveau** client. Vous pouvez utiliser le code suivant pour créer un réseau virtuel client :  
@@ -100,7 +100,7 @@ Pour exécuter un exemple de code Go sur Azure Stack, effectuez les étapes suiv
    ```go
    package main
 
-   import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+   import "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/network/mgmt/network"
 
    func main() {
       vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
@@ -116,7 +116,7 @@ Pour exécuter un exemple de code Go sur Azure Stack, effectuez les étapes suiv
    ```go
    package main
 
-   import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+   import "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/network/mgmt/network"
    func main() {
    vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
    vnetClient .Authorizer = autorest.NewBearerAuthorizer(token)
@@ -193,7 +193,7 @@ Cet exemple montre un exemple de code Go créant un réseau virtuel sur Azure St
    import (
        "context"
        "fmt"
-       "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+       "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/network/mgmt/network"
        "github.com/Azure/go-autorest/autorest"
        "github.com/Azure/go-autorest/autorest/adal"
        "github.com/Azure/go-autorest/autorest/to"
@@ -239,7 +239,7 @@ Cet exemple montre un exemple de code Go créant un réseau virtuel sur Azure St
    import (
       "context"
       "fmt"
-      "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+      "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/network/mgmt/network"
       "github.com/Azure/go-autorest/autorest"
       "github.com/Azure/go-autorest/autorest/adal"
       "github.com/Azure/go-autorest/autorest/to"

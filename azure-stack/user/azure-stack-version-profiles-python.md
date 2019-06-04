@@ -3,7 +3,7 @@ title: Utilisation de profils de version des API avec Python dans Azure Stack | 
 description: Découvrez comment utiliser des profils de version des API avec Python dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
@@ -11,16 +11,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: ee5906e825af59e3b67792e8370cc5d26901ff2b
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 98014cfa015f839e1801ffae95d08f3cbd00c986
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782588"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269499"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Utiliser des profils de version des API avec Python dans Azure Stack
 
@@ -32,8 +32,10 @@ Le Kit de développement logiciel (SDK) Python prend en charge les profils de ve
 
 - **le plus récent**  
     Ce profil cible les dernières versions d’API de tous les fournisseurs de services de la plateforme Azure.
-- **2018-03-01-hybrid**     
+- **2019-03-01-hybrid**  
     Ce profil cible les dernières versions d’API de tous les fournisseurs de ressources de la plateforme Azure Stack.
+- **2018-03-01-hybrid**  
+    Ce profil cible les versions d’API les plus compatibles de tous les fournisseurs de ressources de la plateforme Azure Stack.
 - **2017-03-09-profile**  
     Ce profil cible les versions d’API les plus compatibles des fournisseurs de ressources pris en charge par Azure Stack.
 
@@ -64,7 +66,7 @@ Pour pouvoir utiliser le SDK Azure pour Python avec Azure Stack, vous devez four
 
 Si vous utilisez l’ASDK, vous devez approuver le certificat racine de l’autorité de certification sur votre ordinateur distant. Cette opération n’est pas nécessaire sur les systèmes intégrés.
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 1. Trouvez l’emplacement du magasin de certificats python sur votre machine. L’emplacement peut varier en fonction de l’endroit où vous avez installé Python. Ouvrez une invite de commande ou une invite de PowerShell avec élévation de privilèges et tapez la commande suivante :
 
@@ -117,7 +119,7 @@ Parmi les exemples de code disponibles pour Azure Stack à l’aide du kit SDK P
 
 - [Gérer des ressources et des groupes de ressources](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/).
 - [Gérer un compte de stockage](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/).
-- [Gérer des machines virtuelles](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/).
+- [Gérer des machines virtuelles](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/). (Exemple qui utilise 2019-03-01-hybrid qui cible les dernières versions d’API prises en charge par Azure Stack)
 
 ## <a name="python-manage-virtual-machine-sample"></a>Exemple Python de gestion de machines virtuelles
 

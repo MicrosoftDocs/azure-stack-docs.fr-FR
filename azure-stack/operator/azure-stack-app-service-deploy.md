@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 05/28/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 6db643e1123a27fe1716aeeb5ec97d6497764632
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: e89e8a9d2f773c289bc279a1b4aa9f47e65e8741
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618961"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269336"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Ajouter un fournisseur de ressources App Service à Azure Stack
 
@@ -29,16 +29,16 @@ ms.locfileid: "65618961"
 
 Utilisez les instructions de cet article pour déployer App Service dans Azure Stack.
 
-> [!IMPORTANT]  
-> Appliquez la mise à jour 1901 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack (ASDK) avant de déployer Azure App Service 1.5.
+> [!IMPORTANT]
+> Appliquez la mise à jour 1904 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack (ASDK) avant de déployer Azure App Service 1.6.
 
 Vous pouvez donner à vos utilisateurs la possibilité de créer des applications web et API. Pour permettre aux utilisateurs de créer ces applications, vous devez :
 
- - Ajouter le [fournisseur de ressources App Service](azure-stack-app-service-overview.md) à votre déploiement Azure Stack comme décrit dans cet article.
- - Après avoir installé le fournisseur de ressources App Service, vous pouvez l’inclure dans vos offres et vos plans. Les utilisateurs peuvent ensuite s’abonner pour obtenir le service et commencer à créer des applications.
+- Ajouter le [fournisseur de ressources App Service](azure-stack-app-service-overview.md) à votre déploiement Azure Stack comme décrit dans cet article.
+- Après avoir installé le fournisseur de ressources App Service, vous pouvez l’inclure dans vos offres et vos plans. Les utilisateurs peuvent ensuite s’abonner pour obtenir le service et commencer à créer des applications.
 
-> [!IMPORTANT]  
-> Avant d’exécuter le programme d’installation du fournisseur de ressources, assurez-vous d’avoir suivi les recommandations de la section [Avant de démarrer](azure-stack-app-service-before-you-get-started.md) et d’avoir lu les [notes de publication](azure-stack-app-service-release-notes-update-five.md) qui accompagnent la version 1.5 afin d’en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.
+> [!IMPORTANT]
+> Avant d’exécuter le programme d’installation du fournisseur de ressources, vérifiez que vous avez suivi les recommandations de la section [Avant de commencer](azure-stack-app-service-before-you-get-started.md) et lu les [notes de publication](azure-stack-app-service-release-notes-update-six.md) qui accompagnent la version 1.6 afin d’en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Exécuter le programme d’installation du fournisseur de ressources App Service
 
@@ -79,7 +79,7 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 
    b. Dans **Abonnements Azure Stack**, sélectionnez **Abonnement au fournisseur par défaut**.
 
-     > [!IMPORTANT]  
+     > [!IMPORTANT]
      > App Service **doit** être déployé sur **l’abonnement du fournisseur par défaut**.
 
    c. Dans **Emplacements Azure Stack**, sélectionnez l’emplacement qui correspond à la région où vous effectuez le déploiement. Par exemple, sélectionnez **local** si effectuez votre déploiement sur le Kit de développement Azure Stack.
@@ -99,7 +99,7 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 
    ![Programme d’installation App Service][4]
 
-8. Entrez les informations du partage de fichiers, puis sélectionnez **Suivant**. L’adresse du partage de fichiers doit utiliser le nom de domaine complet (FQDN) ou bien l’adresse IP de votre serveur de fichiers. Par exemple, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.  Si vous utilisez un serveur de fichiers qui est joint à un domaine, vous devez fournir le nom d’utilisateur complet, y compris le domaine, par exemple, myfileserverdomain\FileShareOwner.
+8. Entrez les informations du partage de fichiers, puis sélectionnez **Suivant**. L’adresse du partage de fichiers doit utiliser le nom de domaine complet (FQDN) ou bien l’adresse IP de votre serveur de fichiers. Par exemple, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.  Si vous utilisez un serveur de fichiers qui est joint à un domaine, vous devez fournir le nom d’utilisateur complet incluant le domaine ; par exemple, myfileserverdomain\FileShareOwner.
 
    >[!NOTE]
    >Le programme d’installation tente de tester la connectivité au partage de fichiers avant de continuer. Toutefois, si vous effectuez un déploiement vers un réseau virtuel existant, ce test de connectivité peut échouer. Vous recevez un avertissement et un message d’invite pour continuer. Si les informations de partage de fichiers sont correctes, continuez le déploiement.
@@ -186,8 +186,20 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 
 ## <a name="post-deployment-steps"></a>Étapes de post-déploiement
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Si vous avez indiqué le fournisseur de ressources App Service avec une instance SQL Always On, vous DEVEZ [ajouter les bases de données appservice_hosting et appservice_metering à un groupe de disponibilité](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) et synchroniser les bases de données pour éviter toute perte de service en cas de basculement d’une base de données.
+
+Si vous effectuez un déploiement sur un réseau virtuel existant en utilisant une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité de trafic sortant. Cette règle active le trafic SMB entre le sous-réseau worker et le serveur de fichiers.  Accédez au groupe de sécurité réseau WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
+
+- Source : Quelconque
+- Plage de ports source : : *
+- Destination : Adresses IP
+- Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
+- Plage de ports de destination : 445
+- Protocole : TCP
+- Action : AUTORISER
+- Priorité : 700
+- Nom : Outbound_Allow_SMB445
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Valider l’installation App Service sur Azure Stack
 
@@ -196,18 +208,6 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 2. Dans la vue d’ensemble, sous les statuts, vérifiez que le **Statut** affiche **Tous les rôles sont prêts**.
 
     ![Gestion d’App Service](media/azure-stack-app-service-deploy/image12.png)
-
-    Si vous effectuez un déploiement sur un réseau virtuel existant en utilisant une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité de trafic sortant. Cette règle active le trafic SMB entre le sous-réseau worker et le serveur de fichiers.  Pour ce faire, accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
-
-    - Source : Quelconque
-    - Plage de ports source : : *
-    - Destination : Adresses IP
-    - Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
-    - Plage de ports de destination : 445
-    - Protocole : TCP
-    - Action : AUTORISER
-    - Priorité : 700
-    - Nom : Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Tester App Service sur Azure Stack
 
@@ -241,7 +241,7 @@ Pour créer une application web de test, procédez comme suit :
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Déployer un site web WordPress, DNN ou Django (facultatif)
 
-1. Dans le portail du locataire Azure Stack, sélectionnez **+**, accédez à la Place de marché Azure, déployez un site web Django et attendez que l’opération se termine. La plateforme web Django utilise une base de données basée sur système de fichiers. Elle ne nécessite aucun fournisseur de ressources supplémentaire, comme SQL ou MySQL.
+1. Dans le portail du locataire Azure Stack, sélectionnez **+** , accédez à la Place de marché Azure, déployez un site web Django et attendez que l’opération se termine. La plateforme web Django utilise une base de données basée sur système de fichiers. Elle ne nécessite aucun fournisseur de ressources supplémentaire, comme SQL ou MySQL.
 
 2. Si vous avez également déployé un fournisseur de ressources MySQL, vous pouvez déployer un site web WordPress à partir de la Place de marché. Lorsque vous êtes invité à entrer les paramètres de la base de données, entrez le nom d’utilisateur *User1\@Server1*, avec le nom d’utilisateur et le nom de serveur de votre choix.
 
@@ -251,8 +251,8 @@ Pour créer une application web de test, procédez comme suit :
 
 Vous pouvez également tester d’autres [services PaaS](azure-stack-offer-services-overview.md).
 
- - [Fournisseur de ressources SQL Server](azure-stack-sql-resource-provider-deploy.md)
- - [Fournisseur de ressources MySQL](azure-stack-mysql-resource-provider-deploy.md)
+- [Fournisseur de ressources SQL Server](azure-stack-sql-resource-provider-deploy.md)
+- [Fournisseur de ressources MySQL](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
 [Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531

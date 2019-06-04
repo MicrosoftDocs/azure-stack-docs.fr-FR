@@ -14,14 +14,14 @@ ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: ab8c6c32a21afffd590a6f98359e051c7208b6ec
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: a7ec54d88a259b883f72c2396ab572118ba96a23
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712274"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269438"
 ---
-# <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Tailles de machine virtuelle prises en charge dans Azure Stack
+# <a name="vm-sizes-supported-in-azure-stack"></a>Tailles de machine virtuelle prises en charge dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -29,14 +29,14 @@ Cet article répertorie les tailles de machine virtuelle disponibles dans Azure 
 
 Sur Azure Stack, les IOPS disque (opérations d'entrée/sortie par seconde) dépendent de la taille de la machine virtuelle et non du type de disque. Cela signifie que, pour une machine virtuelle Standard_Fs, quel que soit le type de disque choisi (SSD ou HDD), la limite d'IOPS est de 2 300 par disque de données supplémentaire. La limite d'IOPS imposée est un plafond (maximum possible) pour éviter les voisins bruyants. Elle ne garantit pas les IOPS obtenues avec une taille de machine virtuelle spécifique.
 
-## <a name="virtual-machine-general-purpose"></a>Usage général d’une machine virtuelle
+## <a name="vm-general-purpose"></a>Usage général d’une machine virtuelle
 
-Les tailles de machine virtuelle à usage général ont un ratio processeur/mémoire équilibré. Idéal pour le test et le développement, les bases de données petites à moyennes et les serveurs web au trafic faible à moyen. Chaque disque de données est 2300 IOPS pour les tailles de machine virtuelle Premium, sauf la série De base A. Pour De base A, la taille de disque de données est de 500 IOPS.
+Les tailles de machine virtuelle à usage général ont un ratio processeur/mémoire équilibré. Elles conviennent pour le test et le développement, les bases de données petites à moyennes et les serveurs web au trafic faible à moyen. Chaque disque de données est 2300 IOPS pour les tailles de machine virtuelle Premium, sauf la série De base A. Pour De base A, la taille de disque de données est de 500 IOPS.
 
 ### <a name="basic-a"></a>De base A
 
 > [!NOTE]
-> Les tailles de machine virtuelle *De base A* ne sont plus disponibles pour la [création de groupes de machines virtuelles identiques](../operator/azure-stack-compute-add-scalesets.md) (VMSS) dans le portail. Pour créer un groupe de machines virtuelles identiques avec cette taille, utilisez PowerShell ou un modèle.
+> Les tailles de machine virtuelle *De base A* ne sont plus disponibles pour la [création de groupes identiques de machines virtuelles](../operator/azure-stack-compute-add-scalesets.md) dans le portail. Pour créer un groupe de machines virtuelles identiques avec cette taille, utilisez PowerShell ou un modèle.
 
 |Taille - Taille\Nom |Processeurs virtuels     |Mémoire | Taille max. du disque temporaire | Débit de disque du système d’exploitation max : (IOPS) | Débit de stockage temporaire max. (E/S par seconde) | Débit de disque de données max. (E/S par seconde) | Nombre max de cartes réseau |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
@@ -185,4 +185,4 @@ Les tailles de machine virtuelle à mémoire optimisée offrent un ratio mémoir
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Considérations relatives aux machines virtuelles dans Azure Stack](azure-stack-vm-considerations.md)
+[Fonctionnalités des machines virtuelles Azure Stack](azure-stack-vm-considerations.md)

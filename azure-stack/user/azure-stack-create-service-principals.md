@@ -1,9 +1,9 @@
 ---
 title: Créer un principal de service pour Azure Stack | Microsoft Docs
-description: Cet article explique comment créer un principal de service utilisable avec le contrôle d’accès en fonction du rôle dans Azure Resource Manager pour gérer l’accès aux ressources.
+description: Découvrez comment créer un principal de service utilisable avec le contrôle d’accès en fonction du rôle dans Azure Resource Manager pour gérer l’accès aux ressources.
 services: azure-resource-manager
 documentationcenter: na
-author: mattbriggs
+author: PatAltimore
 manager: femila
 ms.service: azure-resource-manager
 ms.devlang: na
@@ -11,17 +11,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/15/2019
-ms.author: mabrigg
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 3860f8dcc99f3505fe2f838e75f5e8f09b78aefe
-ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
+ms.openlocfilehash: 8b3d0ad1f0854f7028e9dfff2d9114df141394a6
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65855374"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269606"
 ---
-# <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Permettre à des applications d’accéder à des ressources Azure Stack en créant des principaux de service
+# <a name="create-service-principals-to-give-applications-access-to-azure-stack-resources"></a>Créer des principaux de service pour permettre à des applications d’accéder à des ressources Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -50,7 +50,7 @@ La façon que vous avez configuré Active Directory pour Azure Stack détermine 
 * Créez un principal de service pour [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad).
 * Créez un service principal pour les [Services de fédération Active Directory (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
-Les étapes d’assignation d’un principal de service à un rôle sont identiques pour Azure AD et AD FS. Après avoir créé le principal de service, vous pouvez [déléguer des autorisations](azure-stack-create-service-principals.md) en l’assignant à un rôle.
+Les étapes d’assignation d’un principal de service à un rôle sont identiques pour Azure AD et AD FS. Après avoir créé le principal de service, vous pouvez déléguer des autorisations en l’assignant à un rôle.
 
 ## <a name="create-service-principal-for-azure-ad"></a>Créer un principal de service pour Azure AD
 
