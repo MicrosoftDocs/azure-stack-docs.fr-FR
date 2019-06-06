@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: eefe72aaf3e82c80d26a2963e0d8b4b921d9acf6
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 8badb1fbcabc6f1a3ffbef0b8489dea0f06e649c
+ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267542"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453436"
 ---
 # <a name="differences-between-global-azure-azure-stack-and-azure-stack-hci"></a>Différences entre Azure international, Azure Stack et Azure Stack HCI
 
@@ -76,9 +76,9 @@ En plus des fournisseurs de ressources décrits ci-dessus, il existe des service
 
 Découvrez en plus sur Azure Stack dans la page [Présentation d’Azure Stack](azure-stack-overview.md).
 
-## <a name="azure-stack-hci"></a>Azure Stack HCI 
+## <a name="azure-stack-hci"></a>Azure Stack HCI
 
-Les solutions Azure Stack HCI vous permettent d’exécuter des machines virtuelles localement et de vous connecter facilement à Azure avec une solution d’infrastructure hyperconvergée (HCI). Créez et exécutez des applications cloud en utilisant des services Azure cohérents localement pour répondre aux exigences réglementaires ou techniques. En plus d’exécuter des applications virtualisées localement, Azure Stack HCI vous permet de remplacer et de consolider l’infrastructure de serveur vieillissante et de vous connecter à Azure pour les services cloud à l’aide de Windows Admin Center.
+Les solutions [Azure Stack HCI](azure-stack-hci-overview.md) vous permettent d’exécuter des machines virtuelles localement et de vous connecter facilement à Azure avec une solution d’infrastructure hyperconvergée (HCI). Créez et exécutez des applications cloud en utilisant des services Azure cohérents localement pour répondre aux exigences réglementaires ou techniques. En plus d’exécuter des applications virtualisées localement, Azure Stack HCI vous permet de remplacer et de consolider l’infrastructure de serveur vieillissante et de vous connecter à Azure pour les services cloud à l’aide de Windows Admin Center.
 
 Azure Stack HCI fournit des solutions HCI validées bénéficiant des technologies Hyper-V et des espaces de stockage direct avec le SDDC (Software-Defined Datacenter) Windows Server 2019. Windows Admin Center est utilisé pour la gestion et l’accès intégré aux services Azure tels que :
 
