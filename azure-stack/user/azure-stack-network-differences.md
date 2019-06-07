@@ -5,18 +5,18 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 05/16/2019
+ms.date: 06/04/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 841e30367ded29e10c28573056f4a70361e28a9e
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 06/04/2019
+ms.openlocfilehash: de39645d1414fc852b98036e7071befcf5262cb1
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782577"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469179"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Considérations relatives à la mise en réseau Azure Stack
 
@@ -68,6 +68,7 @@ Cet article fournit une vue d’ensemble de considérations propres à la gestio
 |  | Groupes de sécurité d’application | Pris en charge | Pas encore pris en charge. |
 |  | Étiquette du nom DNS interne | Pris en charge | Pas encore pris en charge. |
 |  | Version d’adresse IP privée | Les adresses IPv6 et IPv4 sont prises en charge. | Seul le protocole IPv4 est pris en charge. |
+|  | Adresse MAC statique | Non pris en charge | Non pris en charge. Chaque système Azure Stack utilise le même pool d’adresses MAC. |
 | Network Watcher | Fonctionnalités de surveillance réseau de locataire Network Watcher | Pris en charge | Pas encore pris en charge. |
 | CDN | Profils de réseau de distribution de contenu (CDN) | Pris en charge | Pas encore pris en charge. |
 | passerelle d’application | Équilibrage de charge de couche 7 | Pris en charge | Pas encore pris en charge. |

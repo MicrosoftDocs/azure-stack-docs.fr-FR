@@ -1,6 +1,6 @@
 ---
 title: Notes de publication pour Azure Stack 1904 | Microsoft Docs
-description: 'Découvrez la mise à jour 1904 pour les systèmes intégrés Azure Stack : nouveautés, problèmes connus et emplacement de téléchargement.'
+description: 'Découvrez la mise à jour 1904 pour les systèmes intégrés Azure Stack : nouveautés, problèmes connus, emplacement de téléchargement et notes de publications Azure Stack archivées.'
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.lastreviewed: 05/22/2019
-ms.openlocfilehash: 3bb69c9817eaa12f2a6fab0f20bc79f510a3c251
-ms.sourcegitcommit: 9f5157ce6b938d190ef9df5a2df4342266ca5545
+ms.lastreviewed: 05/30/2019
+ms.openlocfilehash: 8d9603184e824bff5efc2536b3c4a89fdd87d685
+ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66174354"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66506349"
 ---
 # <a name="azure-stack-1904-update"></a>Mise à jour 1904 d’Azure Stack
 
@@ -34,6 +34,10 @@ Cet article décrit le contenu de la mise à jour 1904. La mise à jour inclut 
 
 > [!IMPORTANT]  
 > Cette mise à jour est destinée uniquement aux systèmes intégrés d’Azure Stack. N’appliquez pas cette mise à jour au Kit de développement Azure Stack.
+
+## <a name="archived-release-notes"></a>Notes de publication archivées
+
+Vous pouvez voir les [versions antérieures des notes de publication d’Azure Stack dans la galerie TechNet](http://aka.ms/azsarchivedrelnotes). Ces notes de publication archivées sont fournies uniquement à des fins de référence et n’impliquent aucune prise en charge de ces versions. Pour obtenir de l’aide, contactez les services de support technique Microsoft.
 
 ## <a name="build-reference"></a>Référence de build
 
@@ -208,4 +212,4 @@ Les clients utilisant des systèmes qui peuvent accéder à Internet à partir d
 - Pour plus d’informations sur la façon d’appliquer des mises à jour avec Azure Stack, consultez [Effectuer des mises à jour dans Azure Stack](azure-stack-apply-updates.md).
 - Pour passer en revue la stratégie de maintenance pour les systèmes intégrés Azure Stack et pour connaître la marche à suivre afin de conserver votre système dans un état de prise en charge, consultez [Stratégie de maintenance Azure Stack](azure-stack-servicing-policy.md).  
 - Pour utiliser le Point de terminaison privilégié (PEP) afin de surveiller et de reprendre les mises à jour, consultez [Surveiller les mises à jour dans Azure Stack à l’aide du point de terminaison privilégié](azure-stack-monitor-update.md).  
-- Remplissez le questionnaire pour fournir [des commentaires sur les notes de publication](https://forms.microsoft.com).
+

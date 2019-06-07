@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 06/03/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: bd58611e08bf0b0de6808c9719311f904ea682ba
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: f57ded9df4fe799a5795ee541f7a03e650202aab
+ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985260"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66459051"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Vue d’ensemble d’une identité pour Azure Stack
 
@@ -60,7 +60,7 @@ La façon de créer et de gérer les utilisateurs et les groupes dépend de la s
 
 Dans Azure Stack, des comptes d’utilisateur :
 
-- Sont créés au format *nom_utilisateur\@domaine*. Bien qu’AD FS mappe les comptes d’utilisateur à une instance Active Directory, AD FS ne prend pas en charge le format *\\\<domain>\\\<alias>*.
+- Sont créés au format *nom_utilisateur\@domaine*. Bien qu’AD FS mappe les comptes d’utilisateur à une instance Active Directory, AD FS ne prend pas en charge le format *\\\<domain>\\\<alias>* .
 - Peuvent être configurés pour utiliser l’authentification multifacteur.
 - Sont limités au répertoire où ils se sont inscrits en premier lieu, qui est le répertoire de leur organisation.
 - Peuvent être importés à partir de vos répertoires locaux. Pour obtenir plus d’informations, consultez [Intégrer vos répertoires locaux avec Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).

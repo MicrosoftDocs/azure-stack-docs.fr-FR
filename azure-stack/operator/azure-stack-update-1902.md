@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 3a59470075e7903f354646be5c6ddb9fb0e5b301
-ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
+ms.openlocfilehash: 4a69ece2b97fca13a87819dce6e02e8971121944
+ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65532342"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66506307"
 ---
 # <a name="azure-stack-1902-update"></a>Mise à jour 1902 d’Azure Stack
 
@@ -32,9 +32,17 @@ Cet article décrit le contenu de la mise à jour 1902. La mise à jour inclut 
 > [!IMPORTANT]  
 > Cette mise à jour est destinée uniquement aux systèmes intégrés d’Azure Stack. N’appliquez pas cette mise à jour au Kit de développement Azure Stack.
 
+## <a name="archived-release-notes"></a>Notes de publication archivées
+
+Vous pouvez voir les [versions antérieures des notes de publication d’Azure Stack dans la galerie TechNet](http://aka.ms/azsarchivedrelnotes). Ces notes de publication archivées sont fournies uniquement à des fins de référence et n’impliquent aucune prise en charge de ces versions. Pour obtenir de l’aide, contactez les services de support technique Microsoft.
+
 ## <a name="build-reference"></a>Référence de build
 
 Le numéro de build de la mise à jour 1902 d’Azure Stack est **1.1902.0.69**.
+
+### <a name="update-type"></a>Type de mise à jour
+
+Le type de build de la mise à jour 1902 d’Azure Stack est **Complet**. Pour plus d’informations sur les types de build de mise à jour, consultez l’article [Gérer les mises à jour dans Azure Stack](azure-stack-updates.md).
 
 ## <a name="hotfixes"></a>Correctifs logiciels
 
@@ -220,7 +228,7 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
    Cette erreur se produit si vous activez les diagnostics de démarrage sur une machine virtuelle alors que vous avez supprimé votre compte de stockage des diagnostics de démarrage. Pour contourner ce problème, recréez le compte de stockage avec le même nom que celui utilisé précédemment.
 
 <!-- 2967447 - IS, ASDK, to be fixed in 1902 -->
-- Quand vous créez un groupe de machines virtuelles identiques, l’option CentOS 7.2 est proposée pour le déploiement. Étant donné que cette image n’est pas disponible sur Azure Stack, sélectionnez un autre système d’exploitation pour votre déploiement, ou choisissez un modèle Azure Resource Manager spécifiant une autre image CentOS qui a été téléchargée par l’opérateur avant le déploiement à partir de la Place de marché.  
+- Quand vous créez un groupe identique de machines virtuelles, l’option CentOS 7.2 est proposée pour le déploiement. Étant donné que cette image n’est pas disponible sur Azure Stack, sélectionnez un autre système d’exploitation pour votre déploiement, ou choisissez un modèle Azure Resource Manager spécifiant une autre image CentOS qui a été téléchargée par l’opérateur avant le déploiement à partir de la Place de marché.  
 
 <!-- TBD - IS ASDK --> 
 - Après avoir appliqué la mise à jour 1902, vous rencontrerez peut-être les problèmes suivants lors du déploiement de machines virtuelles avec la fonctionnalité Disques managés :
@@ -233,6 +241,8 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 - Une machine virtuelle 18.04 Ubuntu créée avec une autorisation SSH activée ne vous permet pas d’utiliser les clés SSH pour vous connecter. Pour contourner ce problème, utilisez un accès à la machine virtuelle pour l’extension Linux afin d’implémenter des clés SSH après l’approvisionnement, ou utilisez une authentification par mot de passe.
 
 - Vous ne pouvez pas supprimer un groupe identique à partir du panneau **Virtual Machine Scale Sets**. Pour résoudre ce problème, sélectionnez le groupe identique que vous souhaitez supprimer, puis cliquez sur le bouton **Supprimer** dans le volet **Vue d’ensemble**.
+
+- La création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur et la création d’une instance de groupe identique de machines virtuelles échouent avec une erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds. Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. En revanche, la création d’instances de groupe identique n’est toujours pas disponible pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
 
 ### <a name="networking"></a>Mise en réseau  
 
@@ -256,6 +266,12 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 
 <!-- 3203799 - IS, ASDK -->
 - Azure Stack ne permet pas d’attacher plus de quatre interfaces réseau à une instance de machine virtuelle, quelle que soit la taille de cette instance.
+
+- Dans le portail utilisateur, si vous essayez d’ajouter un **pool back-end** à un **équilibreur de charge**, l’opération échoue avec le message d’erreur **Échec de la mise à jour de l’équilibreur de charge...** .  Pour contourner ce problème, utilisez PowerShell, CLI ou un modèle Azure Resource Manager afin d’associer le pool back-end à une ressource d’équilibreur de charge.
+
+- Dans le portail utilisateur, si vous essayez de créer une **règle NAT de trafic entrant** pour un **équilibreur de charge**, l’opération échoue avec le message d’erreur **Échec de la mise à jour de l’équilibreur de charge...** .  Pour contourner ce problème, utilisez PowerShell, CLI ou un modèle Azure Resource Manager afin d’associer le pool back-end à une ressource d’équilibreur de charge.
+
+- Dans le portail utilisateur, la fenêtre **Créer un équilibreur de charge** affiche une option pour créer une référence SKU d’équilibreur de charge **Standard**. Cette option n’est pas prise en charge dans Azure Stack.
 
 <!-- ### SQL and MySQL-->
 

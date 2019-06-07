@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 05/01/2019
-ms.openlocfilehash: 935f144ebbb40da66ac43fc8e9d5dfc7c3e3d0b6
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/30/2019
+ms.openlocfilehash: 8de4447cd30204d0d4e1611afd057a75dc7688da
+ms.sourcegitcommit: 2cd17b8e7352891d8b3eb827d732adf834b7693e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983598"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428679"
 ---
 # <a name="asdk-release-notes"></a>Notes de publication relatives à l’ASDK
 
@@ -37,6 +37,15 @@ Tenez-vous informé des nouveautés concernant le kit ASDK en vous abonnant au [
 - Pour obtenir la liste des nouvelles fonctionnalités dans cette version, consultez [cette section](../operator/azure-stack-release-notes-1904.md#whats-in-this-update) des notes de publication Azure Stack.
 
 ### <a name="fixed-and-known-issues"></a>Problèmes connus et résolus
+
+- En raison d’un délai d’expiration du principal du service lors de l’exécution du script d’inscription, vous devez, pour réussir à [inscrire le kit ASDK](asdk-register.md), modifier le script PowerShell **RegisterWithAzure.psm1**. Effectuez les actions suivantes :
+
+  1. Sur l’ordinateur hôte du kit ASDK, ouvrez le fichier **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** dans un éditeur avec élévation de privilèges.
+  2. À la fin de la ligne 1249, ajoutez un paramètre `-TimeoutInSeconds 1800`. Cet ajout est exigé en raison d’un délai d’expiration du principal du service lors de l’exécution du script d’inscription. La ligne 1249 doit maintenant ressembler à ceci :
+
+     ```powershell
+      $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
+      ```
 
 - Résolution du problème de connexion VPN identifié [ici, dans la version 1902](#known-issues).
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: c8232031a40eb3d4471b9507299907df51f82edb
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: d280ffacf9cb74c519857ebafc907debc915ec21
+ms.sourcegitcommit: 85367001c332ed53fba0d2294eae3c06e8578070
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66270705"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66307832"
 ---
 # <a name="app-service-on-azure-stack-update-6-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 6
 
@@ -34,7 +34,7 @@ Ces notes de publication décrivent les améliorations et les correctifs apport�
 
 ## <a name="build-reference"></a>Référence de build
 
-Le numéro de build d’App Service sur Azure Stack Update 6 est **82.0.50.0**
+Le numéro de build d’App Service sur Azure Stack Update 6 est **82.0.1.50**
 
 ### <a name="prerequisites"></a>Prérequis
 

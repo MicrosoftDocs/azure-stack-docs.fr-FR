@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 5e0b19e753380c519704f9b2064ff56245004896
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 972b47e5c8787d41d918544f220e082b9ac2d69d
+ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712331"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66506284"
 ---
 # <a name="azure-stack-1903-update"></a>Mise à jour 1903 d’Azure Stack
 
@@ -32,9 +32,17 @@ Cet article décrit le contenu de la mise à jour 1903. La mise à jour inclut 
 > [!IMPORTANT]
 > Cette mise à jour est destinée uniquement aux systèmes intégrés d’Azure Stack. N’appliquez pas cette mise à jour au Kit de développement Azure Stack.
 
+## <a name="archived-release-notes"></a>Notes de publication archivées
+
+Vous pouvez voir les [versions antérieures des notes de publication d’Azure Stack dans la galerie TechNet](http://aka.ms/azsarchivedrelnotes). Ces notes de publication archivées sont fournies uniquement à des fins de référence et n’impliquent aucune prise en charge de ces versions. Pour obtenir de l’aide, contactez les services de support technique Microsoft.
+
 ## <a name="build-reference"></a>Référence de build
 
 Le numéro de build de la mise à jour 1903 d’Azure Stack est **1.1903.0.35**.
+
+### <a name="update-type"></a>Type de mise à jour
+
+Le type de build de la mise à jour 1903 d’Azure Stack est **Express**. Pour plus d’informations sur les types de build de mise à jour, consultez l’article [Gérer les mises à jour dans Azure Stack](azure-stack-updates.md). La mise à jour 1903 devrait prendre environ 16 heures, mais la durée exacte peut varier. Cette approximation d’exécution est spécifique à la mise à jour 1903 et ne doit pas être comparée à d’autres mises à jour Azure Stack.
 
 > [!IMPORTANT]
 > La charge utile 1903 n’inclut aucune version ASDK.
@@ -56,8 +64,6 @@ Les correctifs logiciels Azure Stack sont uniquement applicables aux systèmes i
 - **1903** : [KB 4500638 – Correctif logiciel d’Azure Stack 1.1903.2.39](https://support.microsoft.com/help/4500638)
 
 ## <a name="improvements"></a>Améliorations
-
-- La charge utile de la mise à jour 1903 contient une mise à jour pour les composants Azure Stack qui n’incluent pas le système d’exploitation sous-jacent hébergeant Azure Stack. Cela permet d’inclure certaines mises à jour dans l’étendue. Par conséquent, la mise à jour 1903 devrait prendre moins de temps (environ 16 heures, mais la durée exacte peut varier). Cette diminution dans le runtime est spécifique à la mise à jour 1903, et les mises à jour ultérieures peuvent contenir des mises à jour du système d’exploitation, ce qui implique différents runtimes. Les prochaines mises à jour contiendront des informations similaires sur le temps nécessaire à leur application en fonction de la charge utile incluse.
 
 - Correction d’un bogue sur le réseau qui empêchait l’application des modifications apportées à la valeur **Délai d’inactivité (minutes)** d’une **adresse IP publique**. Auparavant, les modifications apportées à cette valeur étaient ignorées, de sorte que, quelles que soient ces modifications, la valeur par défaut était de 4 minutes. Ce paramètre contrôle la durée (en minutes) de maintien d’une connexion TCP ouverte sans utiliser les clients pour envoyer des messages keep-alive. Notez que ce bogue n’affectait que les adresses IP publiques au niveau de l’instance, et non les adresses IP publiques attribuées à un équilibreur de charge.
 
@@ -187,6 +193,8 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
    ```
 
 - Vous ne pouvez pas supprimer un groupe identique à partir du panneau **Virtual Machine Scale Sets**. Pour résoudre ce problème, sélectionnez le groupe identique que vous souhaitez supprimer, puis cliquez sur le bouton **Supprimer** dans le volet **Vue d’ensemble**.
+
+- La création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur et la création d’une instance de groupe identique de machines virtuelles échouent avec une erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds. Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. En revanche, la création d’instances de groupe identique n’est toujours pas disponible pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
 
 ### <a name="networking"></a>Mise en réseau
 

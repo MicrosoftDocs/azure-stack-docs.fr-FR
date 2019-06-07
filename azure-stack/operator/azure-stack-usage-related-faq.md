@@ -11,22 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 52613c394d7a1caeef42a85f1dd4d5b645f5e8e4
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 6a5ef529d2eabf8039be1da6c53da907c0b7aaaf
+ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267941"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66459043"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Forum aux questions sur l’API d’utilisation d’Azure Stack
 
 Cet article répond à certaines questions fréquentes sur l’API d’utilisation d’Azure Stack.
 
 ## <a name="what-meter-ids-can-i-see"></a>Quels ID de compteur sont visibles ?
+
 Des rapports d’utilisation sont générés pour les fournisseurs de ressources suivants :
 
 ### <a name="network"></a>Réseau
@@ -76,7 +77,7 @@ Des rapports d’utilisation sont générés pour les fournisseurs de ressources
 **ID du compteur** : 1B8C1DEC-EE42-414B-AA36-6229CF199370  
 **Nom du compteur** : TableDataTransOut  
 **Unité** : Sortie en Go  
-**Remarques**: Sortie de données de service de Table, en Go  
+**Remarques**: Sortie de données de service de Table, en Go.
   
 **ID du compteur** : 43DAF82B-4618-444A-B994-40C23F7CD438  
 **Nom du compteur** : BlobTransactions  
@@ -108,7 +109,7 @@ Des rapports d’utilisation sont générés pour les fournisseurs de ressources
 **Unité** : Sortie en Go  
 **Remarques**: Sortie de données de service de File d’attente, en Go  
 
-### <a name="compute"></a>Calcul 
+### <a name="compute"></a>Calcul
   
 **ID du compteur** : FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5  
 **Nom du compteur** : Base VM Size Hours  
@@ -385,23 +386,25 @@ Des rapports d’utilisation sont générés pour les fournisseurs de ressources
 **Unité** : GB  
 **Remarques**: Total d’octets de la réponse à la demande entrante + total d’octets de la demande sortante + total d’octets de la réponse à la demande FTP entrante + total d’octets de la réponse à la demande de déploiement web entrante.  
   
-
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>En quoi les API d’utilisation d’Azure Stack sont-elles comparables aux [API d’utilisation d’Azure](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (actuellement en préversion publique) ?
+
 * L’API d’utilisation du locataire est cohérente avec l’API Azure, à une exception près : l’indicateur *showDetails* n’est actuellement pas pris en charge dans Azure Stack.
 * L’API d’utilisation du fournisseur s’applique uniquement à Azure Stack.
-* Actuellement, l’[API RateCard](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) qui est disponible dans Azure n’est pas disponible dans Azure Stack.
+* Actuellement, l’[API RateCard](/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) qui est disponible dans Azure n’est pas disponible dans Azure Stack.
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>Quelle est la différence entre l’Heure d’utilisation et l’Heure du rapport ?
+
 Les rapports de données d’utilisation comportent deux valeurs de durée principales :
 
 * **Heure du rapport**. Heure à laquelle l’événement d’utilisation est entré dans le système d’utilisation
 * **Heure d’utilisation**. Heure à laquelle la ressource Azure Stack a été consommée
 
-Vous pouvez voir une différence entre les valeurs Heure d’utilisation et Heure du rapport pour un événement d’utilisation spécifique. Ce décalage peut atteindre plusieurs heures dans n’importe quel environnement.
+Vous pouvez voir une différence entre l’heure d’utilisation et l’heure du rapport pour un événement d’utilisation spécifique. Ce décalage peut atteindre plusieurs heures dans n’importe quel environnement.
 
 Actuellement, vous pouvez interroger uniquement par *Heure du rapport*.
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>Que signifient les codes d’erreur de l’API d’utilisation suivants ?
+
 | **Code d’état HTTP** | **Code d’erreur** | **Description** |
 | --- | --- | --- |
 | 400 - Demande incorrecte |*NoApiVersion* |Le paramètre de requête *api-version* est manquant. |
@@ -417,8 +420,7 @@ Actuellement, vous pouvez interroger uniquement par *Heure du rapport*.
 Les machines virtuelles en cours d’exécution ou arrêtés génèrent des données d’utilisation. De manière cohérente avec Azure, la désallocation est nécessaire pour arrêter l’émission de données d’utilisation. Si le portail n’est pas disponible, mais que le fournisseur de ressources de calcul est en cours d’exécution, une utilisation est émise.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Facturation des clients et rétrofacturation dans Azure Stack](azure-stack-billing-and-chargeback.md)
 
-[API d’utilisation des ressources de fournisseur](azure-stack-provider-resource-api.md)
-
-[API d’utilisation des ressources de locataire](azure-stack-tenant-resource-usage-api.md)
+* [Facturation des clients et rétrofacturation dans Azure Stack](azure-stack-billing-and-chargeback.md)
+* [API d’utilisation des ressources de fournisseur](azure-stack-provider-resource-api.md)
+* [API d’utilisation des ressources de locataire](azure-stack-tenant-resource-usage-api.md)

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 05/28/2019
-ms.openlocfilehash: 9ebbdb19335db4f0c31d68c726f7b8c211d0f2e2
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 05/31/2019
+ms.openlocfilehash: 9b92e6e2e059f4b57742248672751111b504136c
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268329"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469139"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Problèmes connus dans Azure Stack 1904
 
@@ -43,7 +43,7 @@ Cet article répertorie les problèmes connus dans la version 1904 d’Azure St
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Les deux abonnements d’administration qui ont été introduits avec la version 1804 ne doivent pas être utilisés. Les types d’abonnements sont **Metering (Compteur)** et **Consumption (Consommation)** .
-- Correction : Ces abonnements seront interrompus à partir de la version 1905 et ensuite supprimés. Si vous disposez de ressources s’exécutant sur ces deux abonnements, recréez-les dans des abonnements utilisateur avant la publication de la version 1905.
+- Correction : Ces abonnements seront interrompus à partir de la version 1906 et ensuite supprimés. Si vous disposez de ressources s’exécutant sur ces deux abonnements, recréez-les dans des abonnements utilisateur avant la publication de la version 1906.
 - Occurrence : Courant
 
 ### <a name="subscription-resources"></a>Ressources d’abonnement
@@ -60,10 +60,10 @@ Cet article répertorie les problèmes connus dans la version 1904 d’Azure St
 - Correction : Utilisez [PowerShell pour vérifier les autorisations](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Occurrence : Courant
 
-
 ### <a name="docker-extension"></a>Extension Docker
+
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans les portails d’administration et utilisateur, si vous recherchez « Docker », l’élément est incorrectement retourné dans les résultats. Il n’est pas disponible dans Azure Stack. Si vous essayez de le créer, un panneau indiquant une erreur s’affiche.
+- Cause : Dans les portails d’administration et utilisateur, si vous recherchez **Docker**, l’élément est incorrectement retourné dans les résultats. Il n’est pas disponible dans Azure Stack. Si vous essayez de le créer, une erreur s’affiche.
 - Correction : Aucune atténuation.
 - Occurrence : Courant
 
@@ -144,7 +144,7 @@ Cette erreur se produit si vous activez les diagnostics de démarrage sur une ma
 - Correction : Recréez le compte de stockage avec le même nom que celui utilisé précédemment.
 - Occurrence : Courant
 
-### <a name="virtual-machine-scale-set"></a>Groupe de machines virtuelles identiques
+### <a name="virtual-machine-scale-set"></a>Jeu de mise à l’échelle de machine virtuelle
 
 #### <a name="centos"></a>CentOS
 
@@ -159,6 +159,12 @@ Cette erreur se produit si vous activez les diagnostics de démarrage sur une ma
 - Cause : Vous ne pouvez pas supprimer un groupe identique à partir du panneau **Virtual Machine Scale Sets**.
 - Correction : Sélectionnez le groupe identique que vous souhaitez supprimer, puis cliquez sur le bouton **Supprimer** dans le volet **Vue d’ensemble**.
 - Occurrence : Courant
+
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Créer des échecs au cours des correctifs et mises à jour sur des environnements Azure Stack à 4 nœuds
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : La création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur et la création d’une instance de groupe de machines virtuelles identiques échouent avec une erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
+- Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. En revanche, la création d’instances n’est toujours pas disponible pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
 
 ### <a name="ubuntu-ssh-access"></a>Accès SSH Ubuntu
 
@@ -196,6 +202,12 @@ Cette erreur se produit si vous activez les diagnostics de démarrage sur une ma
   - Le problème est résolu dans le dernier [correctif logiciel Azure Stack pour la version 1904](https://support.microsoft.com/help/4505688).
 - Occurrence : Courant
 
+### <a name="virtual-machine-scale-set-instance-view"></a>Affichage des instances d’un groupe de machines virtuelles identiques
+
+- Champ d’application : Ce problème s’applique aux versions 1904 et 1905.
+- Cause : Le panneau d’affichage des instances de groupe de machines virtuelles identiques situé dans le portail Azure Stack, dans **Tableau de bord** > **Groupes de machines virtuelles identiques** > **AnyScaleSet - Instances** > **AnyScaleSetInstance** ne parvient pas à se charger.
+- Correction : Il n’existe actuellement aucune solution à ce problème sur lequel nous continuons de travailler. En attendant, utilisez l’applet de commande CLI `az vmss get-instance-view` pour obtenir la vue des instances d’un groupe de machines virtuelles identiques.
+
 ## <a name="storage"></a>Stockage
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
@@ -205,7 +217,7 @@ Cette erreur se produit si vous activez les diagnostics de démarrage sur une ma
 ## <a name="app-service"></a>App Service
 
 - Les locataires doivent inscrire le fournisseur de ressources de stockage avant de créer leur première fonction Azure dans l’abonnement.
-- Certaines expériences utilisateur du portail de locataire sont interrompues en raison d’une incompatibilité avec le framework du portail dans la version 1903, principalement l’expérience utilisateur pour les emplacements de déploiement, les tests en production et les extensions de site. Pour contourner ce problème, utilisez le [module PowerShell Azure App Service](/azure/app-service/deploy-staging-slots#automate-with-powershell) ou [Azure CLI](/cli/azure/webapp/deployment/slot?view=azure-cli-latest). L’expérience du portail sera restaurée dans la prochaine version d’Azure App Service sur Azure Stack 1.6 (mise à jour 6).
+- Certaines expériences utilisateur du portail de locataire sont interrompues en raison d’une incompatibilité avec le framework du portail dans la version 1903, principalement l’expérience utilisateur pour les emplacements de déploiement, les tests en production et les extensions de site. Pour contourner ce problème, utilisez le [module PowerShell Azure App Service](/azure/app-service/deploy-staging-slots#automate-with-powershell) ou [Azure CLI](/cli/azure/webapp/deployment/slot?view=azure-cli-latest). L’expérience du portail sera restaurée en mettant à niveau votre déploiement d’[Azure App Service sur Azure Stack vers la version 1.6 (mise à jour 6)](azure-stack-app-service-release-notes-update-six.md).
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

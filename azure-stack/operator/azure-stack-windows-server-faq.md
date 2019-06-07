@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 3f177ea0c261771b67e6434215df67211452b767
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: ffb58392075521b81d9b0cd71928ac0db680991f
+ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307247"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66459073"
 ---
-# <a name="windows-server-in-azure-stack-marketplace-faq"></a>Questions fréquentes sur Windows Server dans la Place de marché Azure Stack
+# <a name="windows-server-in-azure-stack-marketplace-faq"></a>FAQ relative à Windows Server dans la Place de marché Azure Stack
 
-Cet article répond à certaines questions fréquemment posées sur les images Windows Server dans la [Place de marché Azure Stack](azure-stack-marketplace.md).
+Cet article répond à certaines questions fréquentes sur les images Windows Server dans la [Place de marché Azure Stack](azure-stack-marketplace.md).
 
 ## <a name="marketplace-items"></a>Éléments du Marketplace
 
@@ -47,7 +47,7 @@ Azure Hybrid Use Benefit (AHUB) n’est pas pris en charge sur Azure Stack. Les 
 
 ### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>Que faire si je télécharge la mauvaise version et que j’offre celle-ci à mes clients/utilisateurs ?
 
-Commencez par supprimer la version incorrecte à l’aide du panneau Gestion de la Place de marché. Attendez que l’opération se termine entièrement (ce qui est indiqué dans une notification, et non dans le panneau Gestion de la Place de marché). Téléchargez ensuite la bonne version.
+Commencez par supprimer la version incorrecte à l’aide du panneau Gestion de la Place de marché. Attendez que l’opération se termine entièrement (ce qui est indiqué dans une notification, et non dans le panneau **Gestion de la Place de marché**). Téléchargez ensuite la bonne version.
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>Que faire si l’un de mes utilisateurs a par erreur coché la case « J’ai une licence » dans les builds Windows précédentes alors qu’il n’a pas de licence ?
 
@@ -70,7 +70,7 @@ Vous pouvez ajouter **licenseType : Windows_Server** dans un modèle Azure Reso
 Pour activer une machine virtuelle Windows Server sur Azure Stack, les conditions suivantes doivent être remplies :
 
 - Le fabricant OEM a défini le marqueur BIOS approprié sur chaque système hôte dans Azure Stack.
-- Windows Server 2012 R2 et Windows Server 2016 doivent utiliser l’[activation automatique de machine virtuelle](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)). Le service de gestion de clés (KMS) et d’autres services d’activation ne sont pas pris en charge sur Azure Stack.
+- Windows Server 2012 R2 et Windows Server 2016 doivent utiliser l’[activation automatique de machine virtuelle](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)). Le service de gestion de clés (KMS) et d’autres services d’activation ne sont pas pris en charge sur Azure Stack.
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>Comment vérifier que ma machine virtuelle est activée ?
 
@@ -90,7 +90,7 @@ Exécutez la commande suivante à partir d’une invite de commandes avec élév
 slmgr /ipk <AVMA key>
 ```
 
-Consultez l’article [Activation automatique de machine virtuelle](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) pour obtenir les clés à utiliser pour votre image.
+Consultez l’article [Activation automatique de machine virtuelle](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) pour obtenir les clés à utiliser pour votre image.
 
 ### <a name="i-create-my-own-windows-server-images-how-can-i-make-sure-they-use-avma"></a>Je crée mes propres images Windows Server. Comment m’assurer qu’elles utilisent AVMA ?
 
@@ -106,7 +106,7 @@ Contactez le fournisseur de votre matériel pour vérifier que les bons marqueur
 
 ### <a name="what-about-earlier-versions-of-windows-server"></a>Qu’en est-il des versions antérieures de Windows Server ?
 
-L’[activation automatique de machine virtuelle](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) n’est pas prise en charge dans les versions antérieures de Windows Server. Vous devez activer manuellement les machines virtuelles.
+L’[activation automatique de machine virtuelle](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) n’est pas prise en charge dans les versions antérieures de Windows Server. Vous devez activer manuellement les machines virtuelles.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
