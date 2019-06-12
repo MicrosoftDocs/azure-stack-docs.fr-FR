@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0ed3dfda57bc544bd61efcc52ef7588a553ac634
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 9ad15342a8c0116f928b416f26e64b08563a5c14
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "63447615"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748946"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Didacticiel : Configurer des ressources pour la validation en tant que service
 
@@ -74,7 +74,7 @@ Ce processus autorise votre locataire dans l’application Azure AD **Azure Stac
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | Nom de l’organisation | Nom officiel de l’organisation. |
     | Nom du répertoire du locataire Azure AD | Nom de l’annuaire du locataire Azure AD en cours d’inscription. |
-    | ID de l’annuaire du locataire Azure AD | GUID de l’annuaire du locataire AD Azure associé à l’annuaire. Pour plus d’informations sur la façon de trouver votre ID d’annuaire de locataire Azure AD, consultez [Obtenir l’ID de locataire](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). |
+    | ID de l’annuaire du locataire Azure AD | GUID de l’annuaire du locataire AD Azure associé à l’annuaire. Pour plus d’informations sur la façon de trouver votre ID d’annuaire de locataire Azure AD, consultez [Obtenir l’ID de locataire](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in). |
 
 2. Attendez la confirmation de l’équipe de validation Azure Stack pour vérifier que votre locataire peut utiliser le portail VaaS.
 
@@ -111,7 +111,7 @@ Le compte de stockage Azure est hébergé dans le cloud public Azure, et non sur
     - Le champ **Modèle de déploiement** est défini par défaut sur **Resource Manager**.
     - Le champ **Performances** est défini par défaut sur **Standard**.
     - Dans le champ **Type de compte**, sélectionnez **Stockage Blob**.
-    - Le champ **Réplication** est défini par défaut sur **Stockage localement redondant (LRS)**.
+    - Le champ **Réplication** est défini par défaut sur **Stockage localement redondant (LRS)** .
     - Le champ **Niveau d’accès** est défini par défaut sur **Chaud**.
 
 7. Cliquez sur **Vérifier + créer** pour passer en revue vos paramètres de compte de stockage et créer le compte.

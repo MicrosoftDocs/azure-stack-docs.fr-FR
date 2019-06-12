@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: 6d930c99890f8cf0be7b2a47199772c58a10b34d
-ms.sourcegitcommit: 4e0b450c91c6515794b663a39f9a4b8b49999918
+ms.openlocfilehash: aac9bb8edce4b15d3d058cdb3b6cc6e23aa58493
+ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66411485"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66835010"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Tâches de configuration après l’installation du kit ASDK
 
@@ -146,28 +146,6 @@ L’exécution de ces tests nécessite quelques minutes. Si l’installation a r
 ![test-azurestack](media/asdk-post-deploy/test-azurestack.png)
 
 En cas d’échec, suivez les étapes de dépannage.
-
-## <a name="reset-the-password-expiration-policy"></a>Réinitialiser la stratégie d’expiration du mot de passe
-
-Pour faire en sorte que le mot de passe de l’hôte du kit de développement n’expire pas avant la fin de la période d’expiration, suivez ces étapes après avoir déployé l’ASDK.
-
-### <a name="to-change-the-password-expiration-policy-from-powershell"></a>Pour modifier la stratégie d’expiration de mot de passe à partir de Powershell
-
-À partir d’une console Powershell avec élévation de privilèges, exécutez la commande :
-
-```powershell
-Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurestack.local
-```
-
-### <a name="to-change-the-password-expiration-policy-manually"></a>Pour modifier la stratégie d’expiration de mot de passe manuellement
-
-1. Sur l’hôte du kit de développement, ouvrez **Gestion des stratégies de groupe** (GPMC.MMC), puis accédez à **Gestion des stratégies de groupe** - **Forêt : azurestack.local** - **Domaines** - **azurestack.local**.
-2. Cliquez avec le bouton droit sur **Stratégie de domaine par défaut**, puis cliquez sur **Modifier**.
-3. Dans l’Éditeur de gestion de stratégie de groupe, accédez à **Configuration de l’ordinateur** -  **Stratégies** - **Paramètres Windows** - **Paramètres de sécurité** - **Stratégies de comptes** - **Stratégie de mot de passe**.
-4. Dans le volet droit, double-cliquez sur **Antériorité maximale du mot de passe**.
-5. Dans la boîte de dialogue **Antériorité maximale du mot de passe - Propriétés**, remplacez la valeur de **Le mot de passe expirera dans** par **180**, puis cliquez sur **OK**.
-
-![Console de gestion des stratégies de groupe](media/asdk-post-deploy/gpmc.png)
 
 ## <a name="enable-multi-tenancy"></a>Activer l’architecture mutualisée
 

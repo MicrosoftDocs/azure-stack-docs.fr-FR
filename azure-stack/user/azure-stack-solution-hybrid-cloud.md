@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 7a599d3fdc68c6c41565111498108a202d8b3472
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.openlocfilehash: f1dd98c8c75c28ee176ca318fb9d274110e9b5fe
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252070"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749026"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Didacticiel : Déployer une solution de cloud hybride avec Azure et Azure Stack
 
@@ -255,7 +255,7 @@ Vous allez configurer le code d’application pour envoyer les données de tél�
 
 1. Ouvrez votre application web dans Microsoft Visual Studio.
 
-2. [Ajoutez Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core#add-application-insights-telemetry) à votre projet pour transmettre les données de télémétrie qu’Application Insights utilise pour créer des alertes lorsque le trafic web augmente ou diminue.
+2. [Ajoutez Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#enable-client-side-telemetry-for-web-applications) à votre projet pour transmettre les données de télémétrie qu’Application Insights utilise pour créer des alertes lorsque le trafic web augmente ou diminue.
 
 ### <a name="configure-dynamic-connection-strings"></a>Configurer des chaînes de connexion dynamiques
 

@@ -14,12 +14,12 @@ ms.date: 05/08/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 996dacc1c95a172ffa09247c56a12a5afd00e086
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 7dba3d791a2ce19429506699ae538c747ed37dbd
+ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269529"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66821788"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Utiliser des profils de version des API avec Azure CLI dans Azure Stack
 
@@ -402,8 +402,8 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
 1. Inscrivez votre environnement Azure Stack en exécutant la commande `az cloud register`. Dans certains scénarios, la connectivité Internet sortante directe est acheminée par l'intermédiaire d'un proxy ou d'un pare-feu, qui assure l'interception SSL. La commande `az cloud register` peut alors échouer avec une erreur de type « Impossible d'obtenir les points de terminaison du cloud ». Pour contourner cette erreur, vous pouvez définir les variables d'environnement suivantes :
 
    ```shell
-   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
-   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
+   export ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
 2. Inscrivez votre environnement. Utilisez les paramètres suivants lors de l’exécution de `az cloud register`.
@@ -513,8 +513,8 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
 1. Inscrivez votre environnement Azure Stack en exécutant la commande `az cloud register`. Dans certains scénarios, la connectivité Internet sortante directe est acheminée par l'intermédiaire d'un proxy ou d'un pare-feu, qui assure l'interception SSL. La commande `az cloud register` peut alors échouer avec une erreur de type « Impossible d'obtenir les points de terminaison du cloud ». Pour contourner cette erreur, vous pouvez définir les variables d'environnement suivantes :
 
    ```shell
-   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
-   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
+   export ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
 2. Inscrivez votre environnement. Utilisez les paramètres suivants lors de l’exécution de `az cloud register`.

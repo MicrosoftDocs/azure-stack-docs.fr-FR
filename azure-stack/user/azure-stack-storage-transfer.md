@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 087b7b8a5b307c5be56774024c99369286ae321d
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: bdbf30a0913aeb4839d31e68c84a4b1b7965bf85
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986175"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748977"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Utiliser des outils de transfert de données pour le stockage Azure Stack
 
@@ -67,7 +67,7 @@ Il existe deux versions de l’utilitaire AzCopy : AzCopy sur Windows et AzCopy
  - **AzCopy sur Linux**
 
     - Vous pouvez installer et utiliser AzCopy sur Azure Stack comme sur Azure. Pour plus d’informations, voir [AzCopy sur Linux](/azure/storage/common/storage-use-azcopy-linux).
-    - Pour les versions précédentes (mises à jour 1802 à 1809), consultez la [Procédure d’installation d’AzCopy 7.1 et versions antérieures](/azure/storage/common/storage-use-azcopy-linux#installation-steps-for-azcopy-71-and-earlier-versions).
+    - Pour les versions précédentes (mises à jour 1802 à 1809), consultez la [Procédure d’installation d’AzCopy 7.1 et versions antérieures](/azure/storage/common/storage-use-azcopy-v10#use-the-previous-version-of-azcopy).
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Exemples de commandes AzCopy pour le transfert de données
 

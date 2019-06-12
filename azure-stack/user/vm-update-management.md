@@ -16,23 +16,23 @@ ms.date: 03/20/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 6726e8ff261565691e2e9e3c01827e8e056db139
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: fc5466880c7340f5e9a79b7ece79663d12c9a598
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618822"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749010"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Gestion et mise à jour des machines virtuelles avec Azure Stack
 Vous pouvez utiliser les fonctionnalités des solutions Azure Automation suivantes pour gérer les machines virtuelles Windows et Linux déployées avec Azure Stack :
 
-- **[Update Management](https://docs.microsoft.com/azure/automation/automation-update-management)**. La solution Update Management vous permet d’évaluer rapidement l’état des mises à jour disponibles sur tous les ordinateurs d’agent et de gérer le processus d’installation des mises à jour obligatoires pour ces machines virtuelles Windows et Linux.
+- **[Update Management](https://docs.microsoft.com/azure/automation/automation-update-management)** . La solution Update Management vous permet d’évaluer rapidement l’état des mises à jour disponibles sur tous les ordinateurs d’agent et de gérer le processus d’installation des mises à jour obligatoires pour ces machines virtuelles Windows et Linux.
 
-- **[Change Tracking](https://docs.microsoft.com/azure/automation/automation-change-tracking)**. Les modifications apportées aux logiciels installés, aux services Windows, aux fichiers et au Registre Windows ainsi qu’aux démons Linux sur les serveurs supervisés sont envoyées au service cloud Azure Monitor pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données. En utilisant les informations du tableau de bord de suivi des modifications, vous pouvez facilement voir les modifications apportées à votre infrastructure de serveur.
+- **[Change Tracking](https://docs.microsoft.com/azure/automation/automation-change-tracking)** . Les modifications apportées aux logiciels installés, aux services Windows, aux fichiers et au Registre Windows ainsi qu’aux démons Linux sur les serveurs supervisés sont envoyées au service cloud Azure Monitor pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données. En utilisant les informations du tableau de bord de suivi des modifications, vous pouvez facilement voir les modifications apportées à votre infrastructure de serveur.
 
-- **[Inventory](https://docs.microsoft.com/azure/automation/automation-vm-inventory)**. Le suivi Inventory pour une machine virtuelle dans Azure Stack fournit une interface utilisateur basée sur le navigateur pour définir et configurer la collecte d’inventaire.
+- **[Inventory](https://docs.microsoft.com/azure/automation/automation-vm-inventory)** . Le suivi Inventory pour une machine virtuelle dans Azure Stack fournit une interface utilisateur basée sur le navigateur pour définir et configurer la collecte d’inventaire.
 
-- **[Azure Monitor pour machines virtuelles](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)**. Azure Monitor pour machines virtuelles supervise les machines virtuelles et groupes de machines virtuelles identiques Azure et Azure Stack à grande échelle. Il analyse les performances et l’intégrité des machines virtuelles Windows et Linux, et supervise leurs processus et dépendances vis-à-vis d’autres ressources et des processus externes. 
+- **[Azure Monitor pour machines virtuelles](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)** . Azure Monitor pour machines virtuelles supervise les machines virtuelles et groupes de machines virtuelles identiques Azure et Azure Stack à grande échelle. Il analyse les performances et l’intégrité des machines virtuelles Windows et Linux, et supervise leurs processus et dépendances vis-à-vis d’autres ressources et des processus externes. 
 
 > [!IMPORTANT]
 > Ces solutions sont les mêmes que celles utilisées pour gérer des machines virtuelles Azure. Les machines virtuelles Azure et Azure Stack sont gérées de la même façon, à partir de la même interface et avec les mêmes outils. Les machines virtuelles Azure Stack sont également soumises aux mêmes tarifs que les machines virtuelles Azure quand vous utilisez les solutions Update Management, Change Tracking, Inventory et Azure Monitor pour machines Virtuelles avec Azure Stack.
@@ -74,7 +74,7 @@ La solution Azure Monitor pour machines virtuelles prend en charge le monitoring
 
 3. Carte des dépendances : affiche les composants interconnectés avec la machine virtuelle de différents groupes de ressources et abonnements.
 
-Après avoir créé l’espace de travail Log Analytics, vous devez activer les compteurs de performances dans l’espace de travail pour la collection sur les machines virtuelles Linux et Windows, et installer et activer les solutions ServiceMap et InfrastructureInsights dans votre espace de travail. Ce processus est décrit dans le guide [Déployer Azure Monitor pour machines virtuelles](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-onboard#deploy-azure-monitor-for-vms).
+Après avoir créé l’espace de travail Log Analytics, vous devez activer les compteurs de performances dans l’espace de travail pour la collection sur les machines virtuelles Linux et Windows, et installer et activer les solutions ServiceMap et InfrastructureInsights dans votre espace de travail. Ce processus est décrit dans le guide [Déployer Azure Monitor pour machines virtuelles](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-onboard#how-to-enable-azure-monitor-for-vms-preview).
 
 ### <a name="in-the-azure-stack-administration-portal"></a>Dans le portail d’administration Azure Stack
 Après avoir activé les solutions Azure Automation dans le portail Azure, vous devez vous connecter au portail d’administration Azure Stack en tant qu’administrateur cloud, puis télécharger les éléments d’extension **Azure Monitor, Update and Configuration Management** et **Azure Monitor, Update and Configuration Management for Linux** de la Place de marché Azure Stack. 

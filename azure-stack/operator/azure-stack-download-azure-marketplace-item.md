@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 5b35e69a5308589223d9b5987dd3de2e8bb49cc7
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 5b90bc5014d0f8ebfaed8532f62b7c4f3aee8667
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985443"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691863"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack
 
@@ -92,7 +92,7 @@ Ce scénario comporte deux parties :
 
 - L’outil de syndication Place de marché est téléchargé lors de la première procédure. 
 
-- Vous pouvez installer [AzCopy]((/azure/storage/common/storage-use-azcopy) pour bénéficier de performances de téléchargement optimales, mais cette opération n’est pas obligatoire.
+- Vous pouvez installer [AzCopy](/azure/storage/common/storage-use-azcopy) pour bénéficier de performances de téléchargement optimales, mais cette opération n’est pas obligatoire.
 
 ### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Utiliser l’outil de syndication Place de marché pour télécharger les éléments de la Place de marché
 
@@ -198,7 +198,7 @@ Ce scénario comporte deux parties :
    
    4. Dans le volet Charger l’objet blob, recherchez le package et les fichiers disque que vous souhaitez charger dans le stockage, puis sélectionnez **Charger**: [![Charger](media/azure-stack-download-azure-marketplace-item/uploadsm.png "Charger")](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
 
-   5. Les fichiers que vous téléchargez apparaissent dans le volet du conteneur. Sélectionnez un fichier, puis copiez l’URL à partir du volet **Propriétés d’objets blob**. Vous allez utiliser cette URL à l’étape suivante lorsque vous importez l’élément de Place de marché dans Azure Stack.  Dans l’image suivante, le conteneur est *blob-test-storage* et le fichier est *Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  L’URL du fichier est *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
+   5. Les fichiers que vous téléchargez apparaissent dans le volet du conteneur. Sélectionnez un fichier, puis copiez l’URL à partir du volet **Propriétés d’objets blob**. Vous allez utiliser cette URL à l’étape suivante lorsque vous importez l’élément de Place de marché dans Azure Stack.  Dans l’image suivante, le conteneur est *blob-test-storage* et le fichier est *Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  L’URL du fichier est *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg* .  
       [![Propriétés d’objets blob](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "Propriétés d’objets blob")](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
 
 3. Importez l’image VHD dans Azure Stack à l’aide de la cmdlet **Add-AzsPlatformimage**. Lorsque vous utilisez cette cmdlet, remplacez les valeurs *publisher*, *offer* et les autres valeurs de paramètre par les valeurs de l’image que vous importez. 
@@ -231,7 +231,7 @@ Ce scénario comporte deux parties :
    Vous n’utilisez pas *Offre* pour les extensions.   
 
 
-4.  Utilisez PowerShell pour publier l’élément de Place de marché sur Azure Stack en utilisant l’applet de commande **Add-AzsGalleryItem**. Par exemple :   
+4.  Utilisez PowerShell pour publier l’élément de Place de marché sur Azure Stack en utilisant l’applet de commande **Add-AzsGalleryItem**. Par exemple :  
     ```powershell  
     Add-AzsGalleryItem `
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
@@ -241,7 +241,7 @@ Ce scénario comporte deux parties :
    marché**.  Si vous avez téléchargé un modèle de solution, veillez également à ajouter toute image VHD dépendante pour ce modèle solution.  
 [![Afficher la Place de marché](media/azure-stack-download-azure-marketplace-item/view-marketplacesm.png "Afficher la Place de marché")](media/azure-stack-download-azure-marketplace-item/view-marketplace.png#lightbox)  
 
-Avec la version 1.3.0 de Azure Stack PowerShell, vous pouvez maintenant ajouter des extensions de machine virtuelle. Par exemple : 
+Avec la version 1.3.0 de Azure Stack PowerShell, vous pouvez maintenant ajouter des extensions de machine virtuelle. Par exemple :
 
 ```powershell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"

@@ -14,12 +14,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: a039830e01b85ec5e8d9c66a0c815a38d9c694f8
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 8f8d7ee82890788f60266f671bcc4041795c075e
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985740"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691638"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Connexion d’Azure Stack à Azure à l’aide d’Azure ExpressRoute
 
@@ -33,7 +33,7 @@ Vous pouvez utiliser cet article sous forme de didacticiel et utiliser les exemp
 
 Azure ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de Microsoft via une connexion privée assurée par un fournisseur de connectivité. ExpressRoute n’est pas une connexion VPN établie via le réseau Internet public.
 
-Pour en savoir plus sur ExpressRoute, consultez [Présentation d’ExpressRoute]((/azure/expressroute/expressroute-introduction).
+Pour en savoir plus sur ExpressRoute, consultez la rubrique [Présentation d’ExpressRoute](/azure/expressroute/expressroute-introduction).
 
 ### <a name="assumptions"></a>Hypothèses
 
@@ -47,7 +47,7 @@ Cet article suppose que vous avez :
 
 Pour connecter Azure Stack et Azure à l’aide d’ExpressRoute, vous devez tenir compte des exigences suivantes :
 
-* Un [circuit ExpressRoute]((/azure/expressroute/expressroute-circuit-peerings) provisionné via un [fournisseur de connectivité]((/azure/expressroute/expressroute-locations).
+* Un [circuit ExpressRoute](/azure/expressroute/expressroute-circuit-peerings) doit être configuré via un [fournisseur de connectivité](/azure/expressroute/expressroute-locations).
 * Vous devez disposer d’un abonnement Azure pour créer un circuit ExpressRoute et des réseaux virtuels dans Azure.
 * Un routeur qui doit :
   * prendre en charge les connexions VPN de site à site entre son interface LAN et la passerelle multi-locataire d’Azure Stack.
@@ -171,7 +171,7 @@ La ressource de passerelle de réseau local identifie la passerelle distante pr�
 1. Sous **Paramètres**, sélectionnez **Passerelle de réseau virtuel**, puis **GW1**.
 1. Sélectionnez **Passerelle de réseau local**, puis **ER Router GW**.
 1. Dans le champ **Nom de la connexion**, entrez **ConnectToAzure**.
-1. Dans le champ **Clé partagée (PSK)**, entrez **abc123**, puis sélectionnez **OK**.
+1. Dans le champ **Clé partagée (PSK)** , entrez **abc123**, puis sélectionnez **OK**.
 1. Sous **Résumé**, sélectionnez **OK**.
 
 #### <a name="get-the-virtual-network-gateway-public-ip-address"></a>Obtenir l’adresse IP publique de la passerelle de réseau virtuel
@@ -324,22 +324,22 @@ Pour en savoir plus sur la création de réseaux virtuels dans Azure, consultez 
 
 ### <a name="configure-an-expressroute-circuit"></a>Configurer un circuit ExpressRoute
 
-1. Passez en revue les prérequis d’ExpressRoute dans [Prérequis et check-list ExpressRoute]((/azure/expressroute/expressroute-prerequisites).
+1. Passez en revue la configuration requise d’ExpressRoute dans [Configuration requise pour ExpressRoute et liste de contrôle](/azure/expressroute/expressroute-prerequisites).
 
-1. Suivez les étapes décrites dans la rubrique [Créer et modifier un circuit ExpressRoute]((/azure/expressroute/expressroute-howto-circuit-portal-resource-manager) pour créer un circuit ExpressRoute avec votre abonnement Azure.
+1. Suivez les étapes décrites dans la rubrique [Création et modification d’un circuit ExpressRoute](/azure/expressroute/expressroute-howto-circuit-portal-resource-manager) pour créer un circuit ExpressRoute via votre abonnement Azure.
 
    >[!NOTE]
    >Donnez la clé de service pour votre circuit à votre service afin qu’ils puissent configurer votre circuit ExpressRoute à leur extrémité.
 
-1. Suivez les étapes décrites dans la rubrique [Créer et modifier le peering pour un circuit ExpressRoute]((/azure/expressroute/expressroute-howto-routing-portal-resource-manager) pour configurer le peering privé sur le circuit ExpressRoute.
+1. Suivez les étapes décrites dans la rubrique [Créer et modifier l’homologation pour un circuit ExpressRoute](/azure/expressroute/expressroute-howto-routing-portal-resource-manager) pour configurer l’homologation privée sur le circuit ExpressRoute.
 
 ### <a name="create-the-virtual-network-gateway"></a>Créer la passerelle de réseau virtuel
 
-Suivez les étapes décrites dans la rubrique [Configurer une passerelle de réseau virtuel pour ExpressRoute à l’aide de PowerShell]((/azure/expressroute/expressroute-howto-add-gateway-resource-manager) afin de créer une passerelle de réseau virtuel pour ExpressRoute dans le réseau virtuel hub.
+Suivez les étapes décrites dans la rubrique [Configurer une passerelle de réseau virtuel pour ExpressRoute à l’aide de PowerShell](/azure/expressroute/expressroute-howto-add-gateway-resource-manager) pour créer une passerelle de réseau virtuel pour ExpressRoute dans le réseau virtuel Hub.
 
 ### <a name="create-the-connection"></a>Créer la connexion
 
-Pour connecter le circuit ExpressRoute au réseau virtuel hub, suivez les étapes décrites dans [Connecter un réseau virtuel à un circuit ExpressRoute]((/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager).
+Pour connecter le circuit ExpressRoute au réseau virtuel Hub, suivez les étapes décrites dans [Connecter un réseau virtuel à un circuit ExpressRoute](/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager).
 
 ### <a name="peer-the-vnets"></a>Homologuer les réseaux virtuels
 

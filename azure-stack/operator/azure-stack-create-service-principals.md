@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 05/17/2019
 ms.author: patricka
 ms.lastreviewed: 05/17/2019
-ms.openlocfilehash: 57c5547c37fee58b37f8386983d43556ed0fd515
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: b08d2b59653b099b0cd0a314347ea2667fa42ca8
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268794"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691296"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fournir l’accès des applications à Azure Stack
 
@@ -45,7 +45,7 @@ Une fois que vous avez créé le principal de service, une série d’étapes co
 
 ## <a name="manage-service-principal-for-azure-ad"></a>Gérer un principal de service pour Azure AD
 
-Si vous avez déployé Azure Stack avec Azure Active Directory (Azure AD) comme service de gestion des identités, vous pouvez créer des principaux de service comme vous le feriez pour Azure. Cette rubrique explique comment suivre ces étapes sur le portail. Vérifiez que vous disposez des [autorisations Azure AD exigées]((/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) avant de commencer.
+Si vous avez déployé Azure Stack avec Azure Active Directory (Azure AD) comme service de gestion des identités, vous pouvez créer des principaux de service comme vous le feriez pour Azure. Cette rubrique explique comment suivre ces étapes sur le portail. Vérifiez que vous disposez des [autorisations Azure AD requises](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) avant de commencer.
 
 ### <a name="create-service-principal"></a>Créer un principal du service
 
@@ -181,7 +181,7 @@ Les informations suivantes sont nécessaires en entrée pour les paramètres Aut
 
 2. Quand Automation a terminé, il affiche les informations nécessaires pour utiliser le SPN. Il est recommandé de stocker la sortie en vue d’une utilisation ultérieure.
 
-   Par exemple : 
+   Par exemple :
 
    ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -362,7 +362,7 @@ Les informations suivantes sont nécessaires en entrée pour les paramètres Aut
 
 ## <a name="assign-a-role"></a>Attribuer un rôle
 
-Pour accéder aux ressources de votre abonnement, vous devez affecter un rôle à l’application. Vous devez décider du rôle qui doit représenter les autorisations appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : Rôles intégrés]((/azure/role-based-access-control/built-in-roles).
+Pour accéder aux ressources de votre abonnement, vous devez affecter un rôle à l’application. Vous devez décider du rôle qui doit représenter les autorisations appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](/azure/role-based-access-control/built-in-roles).
 
 Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue (par exemple, l’ajout d’une application au rôle Lecteur pour un groupe de ressources signifie qu’elle peut lire le groupe de ressources et toutes les ressources qu’il contient).
 

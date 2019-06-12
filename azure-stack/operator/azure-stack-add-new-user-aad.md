@@ -16,12 +16,12 @@ ms.date: 05/20/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 83a927cd0198798b4b1beaf8b84ed0b7ad2a11a0
-ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
+ms.openlocfilehash: 70151d7793ef1f58b544517cecb7aa53bf5b3041
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66043115"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691402"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Ajouter un nouveau compte de locataire Azure Stack dans Azure Active Directory
 
@@ -43,9 +43,9 @@ Pour utiliser le portail Azure, vous devez disposer d’un abonnement Azure.
 
    - **Nom (obligatoire).** Prénom et nom du nouvel utilisateur. Par exemple, Mary Parker.
    - **Nom d’utilisateur (obligatoire).** Nom d’utilisateur du nouvel utilisateur. Par exemple : mary@contoso.com.
-       Le domaine dans le nom d’utilisateur doit correspondre au nom de domaine par défaut initial, <_votrenomdedomaine_>.onmicrosoft.com, ou à un nom de domaine personnalisé, comme contoso.com. Pour plus d’informations sur la création d’un nom de domaine personnalisé, consultez [Guide pratique pour ajouter un nom de domaine personnalisé dans Azure Active Directory]((/azure/active-directory/fundamentals/add-custom-domain).
-   - **Profil.** Si vous le souhaitez, ajoutez des informations supplémentaires sur l’utilisateur. Vous pouvez également ajouter ces informations ultérieurement. Pour plus d’informations sur l’ajout d’informations utilisateur, consultez [Guide pratique pour ajouter ou modifier des informations de profil utilisateur]((/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal).
-   - **Rôle de répertoire.**  Choisissez **Utilisateur**.
+       Le domaine dans le nom d’utilisateur doit correspondre au nom de domaine par défaut initial, <_votrenomdedomaine_>.onmicrosoft.com, ou à un nom de domaine personnalisé, comme contoso.com. Pour plus d’informations sur la création d’un nom de domaine personnalisé, consultez [Ajouter un nom de domaine personnalisé dans Azure Active Directory](/azure/active-directory/fundamentals/add-custom-domain).
+   - **Profil.** Si vous le souhaitez, ajoutez des informations supplémentaires sur l’utilisateur. Vous pouvez également ajouter ces informations ultérieurement. Pour plus d’informations sur l’ajout d’informations sur l’utilisateur, consultez [Ajouter ou modifier des informations de profil utilisateur](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal).
+   - **Rôle d’annuaire.**  Choisissez **Utilisateur**.
 
 5. Cochez **Afficher le mot de passe** et copiez le mot de passe généré automatiquement dans le champ **Mot de passe**. Vous aurez besoin de ce mot de passe pour vous connecter la première fois.
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 03aea7833e59d3262fc54e71d3d5409b5b95c488
-ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
+ms.openlocfilehash: a8fe96d645d9277003e17144089a91e0722d0088
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991291"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836839"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>À propos de la passerelle VPN pour Azure Stack
 
@@ -39,7 +39,7 @@ Avant de créer et configurer des passerelles VPN pour Azure Stack, passez en re
 >[!NOTE]
 >Dans Azure, le débit de la bande passante pour la référence SKU de passerelle VPN que vous choisissez doit être réparti entre toutes les connexions connectées à la passerelle. Toutefois, dans Azure Stack, la valeur de la bande passante pour la référence SKU de la passerelle VPN est appliquée à chaque ressource de connexion connectée.
 >
-> Par exemple : 
+> Par exemple :
 >
 > * Dans Azure, la référence SKU de passerelle VPN de base peut prendre en charge environ 100 Mbits/s de débit agrégé. Si vous créez deux connexions pour cette passerelle VPN, dont une connexion avec une bande passante de 50 Mbits/s, 50 Mbits/s sont disponibles pour l’autre connexion.
 > * Dans Azure Stack, **chaque connexion** à la référence SKU de passerelle VPN de base se voit allouer un débit de 100 Mbits/s.
@@ -102,7 +102,6 @@ Prenez en compte les éléments suivants lorsque vous sélectionnez la référen
 * Azure Stack ne prend pas en charge les passerelles basées sur les stratégies.
 * Le protocole de passerelle frontière (BGP) n’est pas pris en charge pour la référence SKU de base.
 * Les configurations de passerelle VPN et ExpressRoute coexistantes ne sont pas prises en charge dans Azure Stack.
-* Les connexions VPN S2S en mode actif-actif avec des passerelles peuvent uniquement être configurées sur la référence SKU HighPerformance.
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a>Débit agrégé estimé par SKU
 
