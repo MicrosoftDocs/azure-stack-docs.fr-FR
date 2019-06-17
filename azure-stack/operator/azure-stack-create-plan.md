@@ -3,8 +3,8 @@ title: Créer un plan dans Azure Stack | Microsoft Docs
 description: En tant qu’administrateur cloud, créez un plan permettant aux abonnés d’approvisionner des machines virtuelles.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
@@ -12,23 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 03/07/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 06/11/2019
+ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 85c6fd58108653ba4876d8aa7802d5674ae1336c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/11/2019
+ms.openlocfilehash: b120346d489f676919cb05863f81db9bfb102634
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311237"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836977"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Créer un plan dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Les [plans](azure-stack-overview.md) regroupent un ou plusieurs services et leurs quotas. En tant que fournisseur, vous pouvez créer des plans à proposer à vos utilisateurs. En retour, ceux-ci s’abonnent à vos offres pour utiliser les plans, les services et les quotas qu’elles comprennent. Cet exemple montre comment créer un plan comprenant les fournisseurs de ressources de stockage, réseau et de calcul. Ce plan donne aux abonnés la possibilité d’approvisionner des machines virtuelles.
+Les [plans Azure Stack](azure-stack-overview.md) regroupent un ou plusieurs services et leurs quotas. En tant que fournisseur, vous pouvez créer des plans à proposer à vos utilisateurs. En retour, ceux-ci s’abonnent à vos offres pour utiliser les plans, les services et les quotas qu’elles comprennent. Cet exemple montre comment créer un plan comprenant les fournisseurs de ressources de stockage, réseau et de calcul. Ce plan donne aux abonnés la possibilité d’approvisionner des machines virtuelles.
 
 ## <a name="create-a-plan-1902-and-later"></a>Créer un plan (1902 et versions ultérieures)
 
@@ -48,11 +47,11 @@ Les [plans](azure-stack-overview.md) regroupent un ou plusieurs services et leur
 
    ![Spécifier le groupe de ressources](media/azure-stack-create-plan/resource-group.png)
 
-5. Sélectionnez l’onglet **Services**, puis cochez la case pour **Microsoft.Compute**, **Microsoft.Network** et **Microsoft.Storage**.
+5. Sélectionnez l’onglet **Services** ou cliquez sur le bouton **Suivant : Services >** , puis cochez la case pour **Microsoft.Compute**, **Microsoft.Network** et **Microsoft.Storage**.
   
    ![Sélectionner des services](media/azure-stack-create-plan/services.png)
 
-6. Sélectionnez l’onglet **Quotas**. En regard de **Microsoft.Storage**, choisissez le quota par défaut dans la liste déroulante ou sélectionnez **Créer un quota** pour créer un quota personnalisé.
+6. Sélectionnez l’onglet **Quotas** ou cliquez sur le bouton **Suivant : Quotas >** . En regard de **Microsoft.Storage**, choisissez le quota par défaut dans la liste déroulante ou sélectionnez **Créer un quota** pour créer un quota personnalisé.
   
    ![Quotas](media/azure-stack-create-plan/quotas.png)
 
@@ -70,13 +69,13 @@ Les [plans](azure-stack-overview.md) regroupent un ou plusieurs services et leur
 
 10. Quand vous êtes prêt, sélectionnez **Créer** pour créer le plan.
 
-11. Pour voir le nouveau plan, sélectionnez **Plans**, puis recherchez le plan et sélectionnez son nom. Si votre liste de ressources est longue, utilisez **Rechercher** pour retrouver votre plan par nom.
+11. Pour afficher le nouveau plan, sur le côté gauche, cliquez sur **Tous les services**, sélectionnez **Plans**, puis recherchez le plan et sélectionnez son nom. Si votre liste de ressources est longue, utilisez **Rechercher** pour retrouver votre plan par nom.
 
 ## <a name="create-a-plan-1901-and-earlier"></a>Créer un plan (1901 et versions antérieures)
 
 1. Connectez-vous au [portail d’administration Azure Stack](https://adminportal.local.azurestack.external).
 
-2. Pour créer un plan et une offre auxquels les utilisateurs peuvent s’abonner, sélectionnez **+ Créer une ressource**, puis **Offres + plans** et **Plan**.
+2. Pour créer un plan et une offre auxquels les utilisateurs peuvent s’abonner, sélectionnez **+ Nouveau**, puis **Offres + plans** et **Plan**.
   
    ![Sélectionner un plan](media/azure-stack-create-plan/select-plan1901.png)
 
@@ -92,7 +91,7 @@ Les [plans](azure-stack-overview.md) regroupent un ou plusieurs services et leur
   
    ![Sélectionner des services](media/azure-stack-create-plan/services1901.png)
 
-6. Sélectionnez **Quotas**, **Microsoft.Storage (local)**, puis choisissez le quota par défaut ou sélectionnez **Créer un quota** pour créer un quota personnalisé.
+6. Sélectionnez **Quotas**, **Microsoft.Storage (local)** , puis choisissez le quota par défaut ou sélectionnez **Créer un quota** pour créer un quota personnalisé.
   
    ![Quotas](media/azure-stack-create-plan/quotas1901.png)
 
@@ -104,7 +103,7 @@ Les [plans](azure-stack-overview.md) regroupent un ou plusieurs services et leur
   
    ![Assigner le quota](media/azure-stack-create-plan/assign-quota1901.png)
 
-8. Répétez les étapes 6 et 7 pour créer et assigner des quotas pour **Microsoft.Network (local)** et **Microsoft.Compute (local)**. Une fois que des quotas ont été assignés aux trois services, ces derniers ressemblent à l’exemple suivant.
+8. Répétez les étapes 6 et 7 pour créer et assigner des quotas pour **Microsoft.Network (local)** et **Microsoft.Compute (local)** . Une fois que des quotas ont été assignés aux trois services, ces derniers ressemblent à l’exemple suivant.
 
    ![Affectations de quota terminées](media/azure-stack-create-plan/all-quotas-assigned1901.png)
 
@@ -119,5 +118,3 @@ Les [plans](azure-stack-overview.md) regroupent un ou plusieurs services et leur
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer une offre](azure-stack-create-offer.md)
-
-<!-- Update_Description: wording update -->
