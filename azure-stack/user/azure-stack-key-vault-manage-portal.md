@@ -3,8 +3,8 @@ title: Gérer Key Vault dans Azure Stack en utilisant le portail | Microsoft Doc
 description: Découvrez comment gérer Key Vault dans Azure Stack en utilisant le portail
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: D4300668-461F-45F6-BF3B-33B502C39D17
 ms.service: azure-stack
@@ -12,18 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/04/2019
-ms.date: 02/18/2019
-ms.author: v-jay
+ms.date: 06/11/2019
+ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: bc73e80acddaac8676b4cb47c0b9ced2467cdc44
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 57a23dc63c72657c19a92fa8f69e029be7f12f60
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311291"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836847"
 ---
-# <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>Gérer Key Vault dans Azure Stack en utilisant le portail
+# <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>Gérer Key Vault dans Azure Stack à l’aide du portail
 
 Vous pouvez gérer Key Vault dans Azure Stack à l’aide du portail Azure Stack. Cet article explique comment créer et gérer un coffre de clés dans Azure Stack.
 
@@ -55,7 +54,7 @@ Vous devez vous abonner à une offre qui inclut le service Azure Key Vault.
 
 ## <a name="manage-keys-and-secrets"></a>Gérer les clés et les secrets
 
-Après avoir créé un coffre, procédez comme suit pour y créer et y gérer des clés et des secrets.
+Après avoir créé un coffre de clés, procédez comme suit pour y créer et y gérer des clés et des secrets.
 
 ### <a name="create-a-key"></a>Créer une clé
 
@@ -85,7 +84,7 @@ Une fois la clé créée, vous pouvez la sélectionner sous **Clés** et affiche
 
 3. Sous **Secrets**, sélectionnez **Ajouter**.
 
-4. Sous **Créer un secret**, accédez à la liste **Options de chargement** et choisissez l’option avec laquelle vous voulez créer un secret. Vous pouvez créer un secret **Manuellement** en entrant une valeur pour le secret, ou en chargeant un **Certificat** à partir de votre ordinateur local.
+4. Sous **Créer un secret**, accédez à la liste **Options de chargement** et choisissez l’option avec laquelle vous voulez créer un secret. Vous pouvez créer un secret **manuellement** en entrant une valeur pour le secret, ou en chargeant un **certificat** à partir de votre machine locale.
 
 5. Entrez un **Nom** pour le secret. Le nom du secret peut contenir uniquement des caractères alphanumériques et des traits d’union (-).
 

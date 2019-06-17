@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: fb39928b50e6cce35d5c35c33a95fc2c6b82c160
-ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
+ms.openlocfilehash: fde2936f3b57fdf9fc6ddeda1786b9ffd5aa9fe0
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65941136"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691521"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Utiliser les modèles Azure Resource Manager dans Azure Stack
 
@@ -31,12 +31,11 @@ Vous pouvez utiliser les modèles Azure Resource Manager pour déployer et provi
 
 Ces modèles peuvent être déployés à l’aide du portail Microsoft Azure Stack, de PowerShell, de l’interface de ligne de commande et de Visual Studio.
 
-Les modèles de démarrage rapide suivants sont disponibles sur [GitHub](https://aka.ms/azurestackgithub) :
-
+Les modèles de démarrage rapide suivants sont [disponibles sur GitHub](https://aka.ms/azurestackgithub) :
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Déployer SharePoint Server (déploiement sans haute disponibilité)
 
-Utilisez l’extension DSC ([Desired State Configuration](https://docs.microsoft.com/powershell/dsc/overview/overview)) PowerShell pour [créer une batterie de serveurs SharePoint Server 2013](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha) comprenant les ressources suivantes :
+Utilisez l’extension DSC ([Desired State Configuration](/powershell/dsc/overview/overview)) PowerShell pour [créer une batterie de serveurs SharePoint Server 2013](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha) comprenant les ressources suivantes :
 
 * Un réseau virtuel
 * Trois comptes de stockage
@@ -78,7 +77,7 @@ Utilisez l’extension PowerShell DSC pour configurer un gestionnaire local de 
 
 ## <a name="cancel-a-running-template-deployment"></a>Annuler le déploiement d’un modèle en cours d’exécution
 
-Pour annuler le déploiement d’un modèle en cours d’exécution, utilisez l’[applet de commande](https://docs.microsoft.com/powershell/developer/cmdlet/cmdlet-overview) PowerShell [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment).
+Pour annuler le déploiement d’un modèle en cours d’exécution, utilisez l’[applet de commande](/powershell/developer/cmdlet/cmdlet-overview) PowerShell [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

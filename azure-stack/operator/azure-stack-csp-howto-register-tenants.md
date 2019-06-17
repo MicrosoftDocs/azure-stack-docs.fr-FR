@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 06/07/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 5f03b80b871d3df467bc52b735432ce5568a3ad8
-ms.sourcegitcommit: a78c0d143eadcab65a601746b9ea24be28091ad2
+ms.lastreviewed: 06/07/2019
+ms.openlocfilehash: edc6fc17e426e5e391eb61d510097101ddcfce58
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65212301"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828343"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Ajouter un locataire pour l’utilisation et la facturation sur Azure Stack
 
@@ -51,7 +51,7 @@ Une fois que vous avez créé un enregistrement de votre client dans l’Espace 
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>Créer un utilisateur invité dans le répertoire de client final
 
-Si le client final gère son propre compte, créez un utilisateur invité dans son répertoire et envoyez-lui les informations. L’utilisateur final ajoute ensuite l’invité et élève l’autorisation d’invité pour qu’elle soit définie sur **Propriétaire** pour le compte de fournisseur de services cloud Azure Stack.
+Par défaut,en tant que CSP, vous n’avez pas accès à l’abonnement Azure Stack du client final. Toutefois, si votre client souhaite vous permettre de gérer ses ressources, il peut ajouter votre compte en tant que propriétaire/contributeur à son abonnement Azure Stack. Pour ce faire, il doit ajouter votre compte en tant qu’utilisateur invité à son locataire AAD. Si possible, utilisez un compte différent de votre compte Azure CSP pour gérer l’abonnement Azure Stack de votre client. Cela vous garantit de toujours conserver l’accès à l’abonnement Azure du client.
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>Mettre à jour l’inscription avec l’abonnement du client final
 

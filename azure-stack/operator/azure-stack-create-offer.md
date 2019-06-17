@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/07/2019
+ms.date: 06/11/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 087c3b95f96600f6ff0cf14ab0fb8618046b86d7
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/11/2019
+ms.openlocfilehash: a2bb84cef5c24cd84653092a34dea7f0e20b624e
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311729"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836904"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Créer une offre dans Azure Stack
 
@@ -34,11 +34,11 @@ Les [offres](azure-stack-overview.md) sont des groupes d’un ou plusieurs plans
 
 2. Une interface utilisateur à onglets s’affiche qui vous permet de définir le nom de l’offre et d’ajouter des plans de base et additionnels ou d’en créer. Plus important encore, vous pouvez consulter les détails de l’offre que vous créez, avant de décider de la créer.
 
-   Dans l’onglet **Concepts de base**, sous **Nouvelle offre**, renseignez le **Nom d’affichage** et le **Nom de la ressource**, puis sélectionnez un **Groupe de ressources**, sélectionnez **Créer nouveau** ou **Utiliser existant**. Le nom d’affichage correspond au nom convivial de l’offre. Ce nom convivial est la seule information sur l’offre que les utilisateurs verront au moment de l’abonnement à l’offre dans le portail utilisateur. Utilisez un nom intuitif qui aide les utilisateurs à comprendre en quoi elle consiste. Seul l’administrateur peut voir le nom de la ressource. Il s’agit du nom que les administrateurs utilisent pour gérer l’offre en tant que ressource Azure Resource Manager. Dans cet onglet, vous pouvez également choisir de rendre cette offre publique ou de la garder privée, la valeur par défaut. Vous pouvez aussi [modifier l’état public ou privé de l’offre](#change-the-state-of-an-offer) ultérieurement.
+   Sous l’onglet **De base**, entrez un **Nom d’affichage** et le **Nom de la ressource**, puis sous **Groupe de ressources**, sélectionnez **Créer nouveau** ou **Utiliser existant**. Le nom d’affichage correspond au nom convivial de l’offre. Ce nom convivial est la seule information sur l’offre que les utilisateurs verront au moment de l’abonnement à l’offre dans le portail utilisateur. Utilisez un nom intuitif qui aide les utilisateurs à comprendre en quoi elle consiste. Seul l’administrateur peut voir le nom de la ressource. Il s’agit du nom que les administrateurs utilisent pour gérer l’offre en tant que ressource Azure Resource Manager. Dans cet onglet, vous pouvez également choisir de rendre cette offre publique ou de la garder privée, la valeur par défaut. Vous pouvez aussi [modifier l’état public ou privé de l’offre](#change-the-state-of-an-offer) ultérieurement.
 
    ![Nouvelle offre](media/azure-stack-create-offer/new-offer.png)
   
-3. Sélectionnez l’onglet **Plans de base**. Sélectionnez le(s) plan(s) que vous souhaitez inclure dans l’offre.
+3. Sélectionnez l’onglet **Plans de base** ou cliquez sur le bouton **Suivant : Plans de base >** . Sélectionnez le(s) plan(s) que vous souhaitez inclure dans l’offre.
 
    ![Sélectionner un plan](media/azure-stack-create-offer/select-plan.png)
 
@@ -67,7 +67,7 @@ Il existe deux façons de changer l’état d’une offre :
 
    ![Choix de l’état](media/azure-stack-create-offer/change-state.png)
 
-2. Dans **Toutes les ressources**, sélectionnez le nom de l’offre. Puis sélectionnez **Paramètres de l’offre**. Choisissez l’état à utiliser (par exemple, **Public**), puis sélectionnez **Enregistrer**.
+2. Sélectionnez **Paramètres de l’offre**. Choisissez l’état à utiliser (par exemple, **Public**), puis sélectionnez **Enregistrer**.
 
    ![Sélectionner État de l’accessibilité](media/azure-stack-create-offer/offer-settings.png)
 

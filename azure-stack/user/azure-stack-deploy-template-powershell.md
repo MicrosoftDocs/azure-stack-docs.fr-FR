@@ -1,10 +1,10 @@
 ---
-title: Déployer des modèles avec PowerShell dans Azure Stack | Microsoft Docs
-description: Déployez un modèle dans Azure Stack avec PowerShell.
+title: Déployer un modèle à l’aide de PowerShell dans Azure Stack | Microsoft Docs
+description: Déployez un modèle à l’aide de PowerShell dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: 12fe32d7-0a1a-4c02-835d-7b97f151ed0f
 ms.service: azure-stack
@@ -12,19 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/08/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 04/08/2019
+ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 9c1df99557293030dc0b1c0693b0bbc517a3f0ff
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: be325c41023c859ee70b8ee932673db75f41ec4b
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310355"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691443"
 ---
-# <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Déployer un modèle dans Azure Stack avec PowerShell
+# <a name="deploy-a-template-using-powershell-in-azure-stack"></a>Déployer un modèle à l’aide de PowerShell dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -70,4 +69,4 @@ Cet exemple utilise les applets de commande **AzureRM** PowerShell et un modèle
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Déployer des modèles avec Visual Studio](azure-stack-deploy-template-visual-studio.md)
+- [Déployer un modèle avec Visual Studio](azure-stack-deploy-template-visual-studio.md)

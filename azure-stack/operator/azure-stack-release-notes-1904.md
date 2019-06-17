@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 05/30/2019
-ms.openlocfilehash: 8d9603184e824bff5efc2536b3c4a89fdd87d685
-ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
+ms.openlocfilehash: 31f2df0b5c7598c678daff8abe34a40b4e08d590
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66506349"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691600"
 ---
 # <a name="azure-stack-1904-update"></a>Mise à jour 1904 d’Azure Stack
 
@@ -43,6 +43,10 @@ Vous pouvez voir les [versions antérieures des notes de publication d’Azure S
 
 Le numéro de build de la mise à jour 1904 d’Azure Stack est **1.1904.0.36**.
 
+### <a name="update-type"></a>Type de mise à jour
+
+Le type de build de la mise à jour 1904 d’Azure Stack est **Express**. Pour plus d’informations sur les types de build de mise à jour, consultez l’article [Gérer les mises à jour dans Azure Stack](azure-stack-updates.md). La mise à jour 1904 prend environ 16 heures, mais la durée exacte peut varier. Cette approximation d’exécution est propre à la mise à jour 1904 et n’est pas comparable aux autres mises à jour d’Azure Stack.
+
 ## <a name="whats-in-this-update"></a>Éléments de cette mise à jour
 
 <!-- The current theme (if any) of this release. -->
@@ -52,8 +56,6 @@ Le numéro de build de la mise à jour 1904 d’Azure Stack est **1.1904.0.36**
 ### <a name="improvements"></a>Améliorations
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
-
-- La charge utile de la mise à jour 1904 contient une mise à jour pour les composants Azure Stack qui n’incluent pas le système d’exploitation sous-jacent hébergeant Azure Stack. Cela permet d’inclure certaines mises à jour dans l’étendue. Par conséquent, la mise à jour 1904 devrait prendre moins de temps (environ 16 heures, mais la durée exacte peut varier). Cette diminution dans le runtime est semblable à la mise à jour 1903. Toutefois, les mises à jour ultérieures peuvent contenir des mises à jour du système d’exploitation, ce qui implique différents runtimes. Les prochaines mises à jour contiendront des informations similaires sur le temps nécessaire à leur application en fonction de la charge utile incluse.
 
 - Des améliorations significatives ont été apportées à la pile Mise en réseau à définition logicielle (SDN, Software Defined Networking) dans la version 1904. Ces améliorations augmentent la maintenance globale et la fiabilité de la pile SDN dans Azure Stack.
 

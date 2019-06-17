@@ -11,28 +11,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2019
+ms.date: 06/05/2019
 ms.author: sethm
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: bbcc68f97fe55a6b4a67f5890b69c03803335438
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 278b010cd1883043549217d657e1315ea697a303
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310643"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691967"
 ---
 # <a name="using-dns-in-azure-stack"></a>Utilisation de DNS dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Azure Stack prend en charge les fonctionnalités DNS (Domain Name System) suivantes :
+Azure Stack prend en charge les fonctionnalités Azure DNS suivantes :
 
 * Résolution de nom d’hôte DNS
 * Créer et gérer des enregistrements et des zones DNS à l’aide de l’API
 
 ## <a name="support-for-dns-hostname-resolution"></a>Prise en charge de la résolution de nom d’hôte DNS
 
-Vous pouvez spécifier une étiquette de nom de domaine DNS pour les ressources de l’adresse IP publique. Azure Stack utilise **domainnamelabel.location.cloudapp.azurestack.external** comme nom d’étiquette et le mappe à l’adresse IP publique dans les serveurs DNS gérés par Azure Stack.
+Vous pouvez spécifier une étiquette de nom de domaine DNS pour les ressources de l’adresse IP publique. Azure Stack utilise **domainnamelabel.location.cloudapp.azurestack.external** comme nom d’étiquette et mappe ce nom à l’adresse IP publique dans les serveurs DNS gérés par Azure Stack.
 
 Par exemple, si vous créez une ressource d’adresse IP publique avec **contoso** comme étiquette de nom de domaine à l’emplacement Azure Stack local, le [nom de domaine complet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN) **contoso.local.cloudapp.azurestack.external** est résolu en adresse IP publique de la ressource. Vous pouvez utiliser ce nom de domaine complet pour créer un enregistrement CNAME de domaine personnalisé qui pointe vers l’adresse IP publique dans Azure Stack.
 
@@ -63,7 +63,7 @@ Le système DNS dans Azure Stack est semblable au système DNS dans Azure, mais 
 
 * **Il ne prend pas en charge les enregistrements AAAA** : Azure Stack ne prend pas en charge les enregistrements AAAA, car il ne prend pas en charge les adresses IPv6. Il s’agit d’une différence essentielle entre les systèmes DNS Azure et Azure Stack.
 
-* **Il n’est pas multilocataire** : Le service DNS dans Azure Stack n’est pas multilocataire. Chaque client ne peut pas créer la même zone DNS. Seul le premier abonnement qui tente de créer la zone y parvient, et les requêtes suivantes échouent. Il s’agit d’une différence essentielle entre les systèmes DNS Azure et Azure Stack.
+* **Il n’est pas multilocataire** : Le service DNS dans Azure Stack n’est pas multilocataire. Chaque client ne peut pas créer la même zone DNS. Seul le premier abonnement qui tente de créer la zone y parvient, et les requêtes suivantes échouent. Il s’agit d’une autre grande différence entre les systèmes DNS Azure et Azure Stack.
 
 * **Balises, métadonnées et ETags** : Il existe des différences mineures dans la façon dont Azure Stack gère les balises, les métadonnées, les ETags et les limites.
 
@@ -106,4 +106,4 @@ Les limites par défaut suivantes s’appliquent lors de l’utilisation du syst
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Introduction aux noms de domaine internationaux (IDN) pour Azure Stack](azure-stack-understanding-dns.md)
+* [Introduction aux noms de domaine internationaux (IDN) pour Azure Stack](azure-stack-understanding-dns.md)

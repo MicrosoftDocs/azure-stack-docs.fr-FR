@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/25/2019
+ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
-ms.lastreviewed: 02/25/2019
-ms.openlocfilehash: b6863a86a5307375ea13f67c349da9f87b797fe5
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 06/07/2019
+ms.openlocfilehash: cb57d43306b69c3698441b9bb7b01c0c292bd704
+ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268450"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66821751"
 ---
 # <a name="quickstart-use-the-azure-stack-administration-portal"></a>Démarrage rapide : Utiliser le portail d’administration Azure Stack
 
@@ -86,7 +86,7 @@ Pour accéder à la documentation de l’opérateur Azure Stack, utilisez l’ic
 
 ### <a name="quick-access-to-help-and-support"></a>Accès rapide à l’aide et au support
 
-Si vous sélectionnez l’icône d’aide et de support (point d’interrogation) dans le coin supérieur droit du portail d’administration et que vous sélectionnez ensuite **Nouvelle demande de support**, vous obtenez l’un des résultats suivants :
+Si vous cliquez successivement sur l’icône d’aide (point d’interrogation) dans le coin supérieur droit du portail d’administration, sur **Aide + support**, puis sur **Nouvelle demande de support** sous **Support**, vous obtenez l’un des résultats suivants :
 
 - Si vous utilisez un système intégré, cette action ouvre un site sur lequel vous pouvez ouvrir directement un ticket de support auprès des services de support technique Microsoft. Reportez-vous à la section [Où obtenir un support technique ?](azure-stack-manage-basics.md#where-to-get-support) pour comprendre quand vous devez vous adresser au support technique Microsoft ou au support technique de votre fournisseur de matériel OEM.
 - Si vous utilisez le kit ASDK, cette action ouvre directement le [site des forums Azure Stack](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack). Ces forums sont consultés régulièrement. Le kit ASDK étant un environnement d’évaluation, les services de support Microsoft n’assurent aucun support officiel.

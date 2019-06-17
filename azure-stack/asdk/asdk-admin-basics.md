@@ -16,12 +16,12 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: cff86ea851b2be030faf0c42a91fed60ac17634d
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: a375cc83410214f56eb38f676bf45cf529641972
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267024"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691098"
 ---
 # <a name="asdk-administration-basics"></a>Informations de base sur l’administration de l’ASDK 
 Si vous débutez avec l’administration du kit de développement Azure Stack, vous devez prendre connaissance de plusieurs choses. Ce guide présente le rôle d’opérateur Azure Stack dans l’environnement d’évaluation, et explique comment permettre aux utilisateurs de test de devenir productifs plus rapidement.
@@ -60,7 +60,9 @@ En plus de fournir des services, vous devez effectuer toutes les tâches standar
 - Remplacer l’ordinateur hôte du kit de développement en cas de panne 
 
 ## <a name="where-to-get-support"></a>Où obtenir un support technique ?
-Pour le kit de développement, votre seule option de support est de poser des questions sur le [forum Microsoft Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Si vous cliquez sur l’icône d’aide et de support (point d’interrogation) dans le coin supérieur droit du portail administrateur, puis sur **Nouvelle demande de support**, le site des forums s’ouvre directement. Ces forums sont consultés régulièrement. 
+Pour le Kit de développement Azure Stack (ASDK), vous pouvez poser des questions de support technique sur le [Forum MSDN Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+
+Vous pouvez cliquer sur **Aide** (point d’interrogation) dans le coin supérieur droit du portail d’administration et cliquer ensuite sur **Aide + support** pour ouvrir Aide + support **Vue d’ensemble**, où vous trouverez un lien vers le forum. Les forums MSDN sont consultés régulièrement.  
 
 > [!IMPORTANT]
 > Le kit de développement étant un environnement d’évaluation, aucune prise en charge officielle n’est proposée par les services de support technique Microsoft.

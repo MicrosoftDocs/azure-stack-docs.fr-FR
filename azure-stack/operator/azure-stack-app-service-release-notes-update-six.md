@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: d280ffacf9cb74c519857ebafc907debc915ec21
-ms.sourcegitcommit: 85367001c332ed53fba0d2294eae3c06e8578070
+ms.openlocfilehash: d3464681463cfb66a368210beed79d5ef4c28739
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307832"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828317"
 ---
 # <a name="app-service-on-azure-stack-update-6-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 6
 
@@ -102,6 +102,16 @@ Si vous avez choisi de procéder au déploiement dans un réseau virtuel existan
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problèmes connus des administrateurs cloud utilisant Azure App Service sur Azure Stack
 
 Reportez-vous à la documentation des [notes de publication d’Azure Stack 1904](azure-stack-release-notes-1904.md).
+
+### <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack"></a>Problèmes connus pour les locataires déployant des applications sur Azure App Service dans Azure Stack
+
+- La fonctionnalité Centre de déploiement est grisée
+
+Les locataires ne peuvent pas encore utiliser le Centre de déploiement, qui est une fonctionnalité ayant été publiée dans le cloud public fin 2018.  Les locataires peuvent toujours utiliser les méthodes de déploiement standard (FTP, Web Deploy, Git, etc.) par le biais du portail, de la CLI et de PowerShell.
+
+- L’expérience utilisateur (classique) des options de déploiement et les options du portail Informations d’identification du déploiement ne sont pas disponibles
+
+Pour accéder aux expériences utilisateur des options de déploiement et des informations d’identification du déploiement dans le déploiement Azure Stack, les locataires doivent accéder au portail à l’aide d’une URL au format https://portal.&lt ;*region*&gt;.&lt;*FQDN*&gt; /?websitesExtension_oldvsts=true (à savoir [https://portal.local.azurestack.external/?websitesExtension_oldvsts=true](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) pour le Kit ASDK), puis accéder à leurs applications normalement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -16,12 +16,12 @@ ms.date: 05/02/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: c4c77cc08b1452c34ca7eba123a38b9d20001645
-ms.sourcegitcommit: 20becab55ac2bd4b7a974ed3928238412a22a4a6
+ms.openlocfilehash: bcf499b0b3e7cd58d4b938b4be64c19eecf649e2
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030541"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691482"
 ---
 # <a name="azure-stack-servicing-policy"></a>Stratégie de maintenance Azure Stack
 
@@ -53,10 +53,10 @@ Pour lire la documentation relative à la planification et à la gestion des mis
 
 Pour en savoir plus sur une mise à jour, notamment comment la télécharger, consultez les notes de publication qui s’y rapportent :
 
+- [Mise à jour 1905 d’Azure Stack](azure-stack-release-notes-1905.md)
 - [Mise à jour 1904 d’Azure Stack](azure-stack-release-notes-1904.md)
 - [Mise à jour 1903 d’Azure Stack](azure-stack-update-1903.md)
 - [Mise à jour 1902 d’Azure Stack](azure-stack-update-1902.md)
-- [Mise à jour 1901 d’Azure Stack](azure-stack-update-1901.md)
 
 ## <a name="hotfixes"></a>Correctifs logiciels
 

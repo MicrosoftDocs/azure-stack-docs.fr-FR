@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 4a69ece2b97fca13a87819dce6e02e8971121944
-ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
+ms.openlocfilehash: 53b33c7eb0dc71a65113ef8807de1c5b3c3c4c80
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66506307"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691384"
 ---
 # <a name="azure-stack-1902-update"></a>Mise à jour 1902 d’Azure Stack
 
@@ -63,7 +63,7 @@ Les correctifs logiciels Azure Stack sont uniquement applicables aux systèmes i
 ## <a name="prerequisites"></a>Prérequis
 
 > [!IMPORTANT]
-> Vous pouvez installer la mise à jour 1902 directement à partir de la version [1.1901.0.95 ou 1.1901.0.99](azure-stack-update-1901.md#build-reference), sans installer au préalable un correctif logiciel 1901. Mais si vous avez installé l’ancien correctif logiciel **1901.2.103**, vous devez installer le nouveau [correctif logiciel 1901.3.105](https://support.microsoft.com/help/4495662) avant de passer à la mise à jour 1902.
+> Vous pouvez installer la mise à jour 1902 directement à partir de la version **1.1901.0.95** ou **1.1901.0.99**, sans installer au préalable un correctif logiciel 1901. Mais si vous avez installé l’ancien correctif logiciel **1901.2.103**, vous devez installer le nouveau [correctif logiciel 1901.3.105](https://support.microsoft.com/help/4495662) avant de passer à la mise à jour 1902.
 
 - Avant de démarrer l’installation de cette mise à jour, exécutez [Test-AzureStack](azure-stack-diagnostic-test.md) avec les paramètres suivants pour valider l’état de votre Azure Stack et résoudre les éventuels problèmes opérationnels détectés, y compris tous les avertissements et les échecs. Examinez aussi les alertes actives et résolvez toutes celles qui nécessitent une action :
 

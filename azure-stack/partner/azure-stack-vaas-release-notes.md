@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 06/10/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: eefd39c751bdbd9ed9c8f3b9112fee1ddbffb9a0
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 9360e8e5f4db14fbebba2642ed11ca2e3830bdf1
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310097"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828398"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Notes de publication de Validation en tant que service
 
@@ -29,11 +29,18 @@ Cet article présente les notes de publication d’Azure Stack Validation en tan
 
 ## <a name="version-405"></a>Version 4.0.5
 
+7 juin 2019
+
+- Cloud Simulation Engine dans le workflow de validation de package a été mis à jour afin d’accélérer le processus de validation :  
+    Temps d’exécution : réduit à 6 heures  
+    Version : 5.1.13.0 -> 5.1.22.0  
+
+
 17 janvier 2019
 
 - Disk Identification Test mis à jour pour résoudre les incohérences du pool de stockage. Version : 5.1.14.0 -> 5.1.15.0
 - Azure Stack Monthly Update Verification mis à jour pour résoudre les incohérences de validation du contenu et du logiciel approuvés. Version : 5.1.14.0 -> 5.1.17.0
-- Vérification des packages d’extensions OEM mise à jour pour effectuer les contrôles nécessaires avant l’étape de mise à jour Azure Stack. Version : 5.1.14.0 -> 5.1.16.0
+- OEM Extension Package Verification mis à jour pour effectuer les vérifications nécessaires avant l’étape de mise à jour d’Azure Stack. Version : 5.1.14.0 -> 5.1.16.0
 - Correctifs de bogues internes
 
 ## <a name="version-402"></a>Version 4.0.2

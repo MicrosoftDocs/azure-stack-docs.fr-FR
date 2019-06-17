@@ -11,22 +11,45 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 05/30/2019
-ms.openlocfilehash: 8de4447cd30204d0d4e1611afd057a75dc7688da
-ms.sourcegitcommit: 2cd17b8e7352891d8b3eb827d732adf834b7693e
+ms.lastreviewed: 06/04/2019
+ms.openlocfilehash: 2ca85da5d9fde42fb06eef149e7304ab08bc32ee
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428679"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691203"
 ---
 # <a name="asdk-release-notes"></a>Notes de publication relatives à l’ASDK
 
 Cet article fournit des informations sur des modifications, des correctifs et des problèmes connus en lien avec le Kit de développement Azure Stack (ASDK). Si vous n’êtes pas sûr de la version que vous exécutez, consultez le [portail pour vérifier](../operator/azure-stack-updates.md#determine-the-current-version).
 
 Tenez-vous informé des nouveautés concernant le kit ASDK en vous abonnant au [flux RSS](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
+
+## <a name="build-11905040"></a>Build 1.1905.0.40
+
+<!-- ### Changes -->
+
+### <a name="new-features"></a>Nouvelles fonctionnalités
+
+- Pour obtenir la liste des nouvelles fonctionnalités dans cette version, consultez [cette section](../operator/azure-stack-release-notes-1905.md#whats-in-this-update) des notes de publication Azure Stack.
+
+### <a name="fixed-and-known-issues"></a>Problèmes connus et résolus
+
+- En raison d’un délai d’expiration du principal du service lors de l’exécution du script d’inscription, vous devez, pour réussir à [inscrire le kit ASDK](asdk-register.md), modifier le script PowerShell **RegisterWithAzure.psm1**. Effectuez les actions suivantes :
+
+  1. Sur l’ordinateur hôte du kit ASDK, ouvrez le fichier **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** dans un éditeur avec élévation de privilèges.
+  2. À la fin de la ligne 1249, ajoutez un paramètre `-TimeoutInSeconds 1800`. Cet ajout est exigé en raison d’un délai d’expiration du principal du service lors de l’exécution du script d’inscription. La ligne 1249 doit maintenant ressembler à ceci :
+
+     ```powershell
+      $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
+      ```
+
+- Pour obtenir la liste des autres problèmes Azure Stack corrigés dans cette version, consultez [cette section](../operator/azure-stack-release-notes-1905.md#fixes) des notes de publication Azure Stack.
+- Pour obtenir la liste des problèmes connus, consultez [cet article](../operator/azure-stack-release-notes-known-issues-1905.md).
+- Notez que les [correctifs logiciels d’Azure Stack](../operator/azure-stack-release-notes-1905.md#hotfixes) ne sont pas applicables au kit ASDK Azure Stack.
 
 ## <a name="build-11904036"></a>Build 1.1904.0.36
 
@@ -118,23 +141,3 @@ La charge utile 1903 n’inclut aucune version ASDK.
   netsh interface ipv4 set sub "hostnic" mtu=1660
   netsh interface ipv4 set sub "management" mtu=1660
   ```
-
-## <a name="build-11901095"></a>Version 1.1901.0.95
-
-Consultez les [informations importantes sur la build dans les notes de publication Azure Stack](../operator/azure-stack-update-1901.md#build-reference).
-
-### <a name="changes"></a>Changements
-
-Cette version inclut les améliorations suivantes pour Azure Stack :
-
-- Les composants BGP et NAT sont maintenant déployés sur l'hôte physique. Il n'est donc plus nécessaire d'avoir deux adresses IP publiques ou d'entreprise pour pouvoir déployer le kit ASDK, ce qui simplifie également le déploiement.
-- Les sauvegardes des systèmes intégrés Azure Stack peuvent maintenant [être validées](asdk-validate-backup.md) à l’aide du script PowerShell **asdk-installer.ps1**.
-
-### <a name="new-features"></a>Nouvelles fonctionnalités
-
-- Pour obtenir la liste des nouvelles fonctionnalités dans cette version, consultez [cette section](../operator/azure-stack-update-1901.md#new-features) des notes de publication Azure Stack.
-
-### <a name="fixed-and-known-issues"></a>Problèmes connus et résolus
-
-- Pour obtenir la liste des problèmes corrigés dans cette version, consultez [cette section](../operator/azure-stack-update-1901.md#fixed-issues) des notes de publication Azure Stack. Pour obtenir la liste des problèmes connus, consultez [cette section](../operator/azure-stack-update-1901.md#known-issues-post-installation).
-- Notez que les [correctifs logiciels d’Azure Stack](../operator/azure-stack-update-1901.md#azure-stack-hotfixes) ne sont pas applicables au kit ASDK Azure Stack.

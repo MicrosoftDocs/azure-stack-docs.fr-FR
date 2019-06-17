@@ -12,32 +12,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 06/05/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.lastreviewed: 05/02/2019
-ms.openlocfilehash: 576ca42d231aa12d88ed307df610a769a7907622
-ms.sourcegitcommit: 91c5056cb6d9bbd852132bebfbefa05b6b4d6cb3
+ms.lastreviewed: 06/05/2019
+ms.openlocfilehash: 5dcbb331d27bdf07a268ba883c2dfbbfe821105a
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64988126"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691591"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Check-list des activités de mise à jour Azure Stack
 
-Cet article contient une check-list des activités liées aux mises à jour pour les opérateurs Azure Stack. Si vous vous apprêtez à appliquer une mise à jour à Azure Stack, vous pouvez consulter ces informations.
+Cet article contient une check-list des activités liées aux mises à jour pour les opérateurs Azure Stack. Si vous vous préparez à appliquer une mise à jour sur Azure Stack, vous pouvez consulter ces informations.
 
 ## <a name="prepare-for-azure-stack-update"></a>Se préparer à la mise à jour d’Azure Stack
 
 | Activité              | Détails                                                                          |
 |-----------------------|----------------------------------------------------------------------------------|
-| Passer en revue les problèmes connus   | [Liste des problèmes connus](azure-stack-release-notes-known-issues-1904.md).                |
-| Passer en revue les mises à jour de sécurité | [Liste des mises à jour de sécurité](azure-stack-release-notes-security-updates-1904.md).      |
+| Passer en revue les problèmes connus   | [Liste des problèmes connus](azure-stack-release-notes-known-issues-1905.md).                |
+| Passer en revue les mises à jour de sécurité | [Liste des mises à jour de sécurité](azure-stack-release-notes-security-updates-1905.md).      |
 | Exécuter l’applet de commande Test-AzureStack   | Exécutez `Test-AzureStack -Group UpdateReadiness` pour identifier les problèmes fonctionnels.      |
 | Résoudre les problèmes        | Résolvez les problèmes fonctionnels identifiés par **Test-AzureStack**.                |
 | Appliquer les derniers correctifs | Appliquez les derniers correctifs qui s’appliquent à la version actuellement installée.         |
 | Exécuter l’outil de planification des capacités | Veillez à utiliser la dernière version de l’outil [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner)  pour planifier et dimensionner votre charge de travail. La dernière version contient des corrections de bogues et fournit de nouvelles fonctionnalités publiées à chaque mise à jour d’Azure Stack. |
-| Mise à jour disponible       | Dans les scénarios connectés, et uniquement dans ceux-ci, les déploiements Azure Stack consultent régulièrement un point de terminaison sécurisé et vous avertissent automatiquement si une mise à jour est disponible pour votre cloud. Les clients déconnectés peuvent télécharger et importer le nouveau package 1904 en suivant la [procédure décrite ici](azure-stack-apply-updates.md).               |
+| Mise à jour disponible       | Dans les scénarios connectés, et uniquement dans ceux-ci, les déploiements Azure Stack consultent régulièrement un point de terminaison sécurisé et vous avertissent automatiquement si une mise à jour est disponible pour votre cloud. Les clients déconnectés peuvent télécharger et importer le nouveau package 1905 en suivant la [procédure décrite ici](azure-stack-apply-updates.md).               |
 
 ## <a name="during-azure-stack-update"></a>Pendant la mise à jour d’Azure Stack
 
@@ -59,5 +59,5 @@ Cet article contient une check-list des activités liées aux mises à jour pour
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Consulter la liste des problèmes connus](azure-stack-release-notes-known-issues-1904.md)
-- [Consulter la liste des mises à jour de sécurité](azure-stack-release-notes-security-updates-1904.md)
+- [Consulter la liste des problèmes connus](azure-stack-release-notes-known-issues-1905.md)
+- [Consulter la liste des mises à jour de sécurité](azure-stack-release-notes-security-updates-1905.md)

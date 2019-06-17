@@ -12,26 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2019
-ms.author: PatAltimore
+ms.date: 06/10/2019
+ms.author: patricka
 ms.reviewer: chengwei
-ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: e0b62c9f9519e1b77211327c4f9b48d4b53cf99a
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 9da7ced492a86cb97a1b90a2224383d834073423
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985870"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828354"
 ---
 # <a name="azure-stack-log-and-customer-data-handling"></a>Gestion des données client et des journaux Azure Stack 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*  
 
-Dans la mesure où Microsoft est un processeur ou un sous-processeur de données personnelles dans le cadre d’Azure Stack, Microsoft s’engage envers tous les clients, à partir du 25 mai 2018, à appliquer les engagements (a) dans le « Traitement des données personnelles, RGPD » de la section « Conditions de protection des données » des[Conditions d’utilisation des services en ligne](https://nam06.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.microsoftvolumelicensing.com%2FDocumentSearch.aspx%3FMode%3D3%26DocumentTypeId%3D31&data=02%7C01%7Ccomartin%40microsoft.com%7Ce2ce478261764c79c3f308d68df01136%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636852459551078818&sdata=cpWsfZTBHpqEFr50DWQOryq342U8shgeFgMXVPQz5ug%3D&reserved=0) et (b) dans les conditions générales du Règlement Général sur la Protection des données de l’Union européenne de la pièce jointe 4 des [Conditions d’utilisation des services en ligne](https://nam06.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.microsoftvolumelicensing.com%2FDocumentSearch.aspx%3FMode%3D3%26DocumentTypeId%3D31&data=02%7C01%7Ccomartin%40microsoft.com%7Ce2ce478261764c79c3f308d68df01136%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636852459551088813&sdata=bv1CBiaCnYmjiv6S0dFCbWEd4fNCkPBjBwgylNa%2FNt0%3D&reserved=0). 
+Dans la mesure où Microsoft est un processeur ou un sous-processeur de données personnelles dans le cadre d’Azure Stack, Microsoft s’engage envers tous les clients, à partir du 25 mai 2018, à appliquer les engagements (a) dans le « Traitement des données personnelles, RGPD » de la section « Conditions de protection des données » des[Conditions d’utilisation des services en ligne](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) et (b) dans les conditions générales du Règlement Général sur la Protection des données de l’Union européenne de la pièce jointe 4 des [Conditions d’utilisation des services en ligne](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). 
 
 Comme Azure Stack réside dans les centres de données client, Microsoft est le Responsable de fichier uniquement pour les données qui sont partagées avec Microsoft via les [Diagnostics](azure-stack-diagnostics.md), la [Télémétrie](azure-stack-telemetry.md) et la [Facturation](azure-stack-usage-reporting.md).  
 
 ## <a name="data-access-controls"></a>Contrôles d’accès aux données 
-Les employés de Microsoft, qui doivent examiner une demande de support spécifique, auront un accès en lecture seule aux données chiffrées. Les employés de Microsoft ont également accès aux outils qui peuvent être utilisés pour supprimer les données si nécessaire. Tout accès aux données client est audité et journalisé.  
+Les employés de Microsoft, qui doivent examiner une demande de support spécifique, auront un accès en lecture seule aux données chiffrées. Les employés de Microsoft ont également accès aux outils utilisés pour supprimer les données si nécessaire. Tout accès aux données client est audité et journalisé.  
 
 Contrôles d’accès aux données :
 1.  Les données ne sont conservées que pendant 90 jours maximum après la clôture du dossier.
@@ -43,7 +43,7 @@ Contrôles d’accès aux données :
 Comme mentionné précédemment, Microsoft prend en charge la suppression des données sur demande suite à une requête du client. Les clients peuvent demander à notre ingénieur du support de supprimer tous leurs journaux d’activité pour un dossier donné, au moment de leur choix, avant que les données ne soient effacées définitivement.  
 
 ### <a name="does-microsoft-notify-customers-when-the-data-is-deleted"></a>Est-ce que Microsoft informe les clients lorsque les données sont supprimées ?
-Pour l’action de suppression automatique des données (90 jours après la clôture du dossier), nous ne contactons pas de manière proactive les clients pour les informer de la suppression. 
+Pour l’action de suppression automatique des données (90 jours après la clôture du dossier), nous ne contactons pas directement les clients pour les informer de la suppression. 
 
 Pour l’action de suppression des données sur demande, l’ingénieur du support Microsoft a accès à l’outil qui lui permet d’initier la suppression des données sur demande, et il peut fournir une confirmation par téléphone au client une fois la suppression effectuée.
 

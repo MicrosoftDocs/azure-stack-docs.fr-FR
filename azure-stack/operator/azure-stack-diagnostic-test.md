@@ -14,12 +14,12 @@ ms.date: 04/20/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 3ec925406ad3553c0beb073d39d84ae20f5bc472
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: f95dcf44c2d9d30bc6ba40facbecff97ff26bf49
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268643"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836691"
 ---
 # <a name="validate-azure-stack-system-state"></a>Valider l’état du système Azure Stack
 
@@ -48,13 +48,9 @@ Comme indiqué précédemment, l’outil de validation est exécuté par le biai
 
    Pour plus d’informations, consultez les sections [Considérations relatives aux paramètres](azure-stack-diagnostic-test.md#parameter-considerations) et [Exemples d’utilisation](azure-stack-diagnostic-test.md#use-case-examples).
 
-3. Si un test retourne **FAIL**, exécutez :
+3. Si un test retourne **FAIL**, exécutez `Get-AzureStackLog`. Pour obtenir des instructions sur un système intégré, consultez [Pour exécuter Get-AzureStackLog sur des systèmes intégrés Azure Stack](/azure-stack-diagnostics#to-run-get-azurestacklog-on-azure-stack-integrated-systems) ou, dans le Kit ASDK, consultez [Pour exécuter Get-AzureStackLog sur un système ASDK (Kit de développement Azure Stack)](/azure-stack-diagnostics#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
-   ```powershell
-   Get-AzureStackLog -FilterByRole SeedRing -OutputSharePath "<path>" -OutputShareCredential $cred
-   ```
-
-   L’applet de commande recueille des journaux d’activité générés par Test-AzureStack. Pour plus d’informations sur les journaux de diagnostic, voir [Outils de diagnostics Azure Stack](azure-stack-diagnostics.md). Vous ne devez pas recueillir de journaux d’activité ni contacter les services de support technique si les tests retournent **WARN**.
+   L’applet de commande recueille des journaux d’activité générés par Test-AzureStack. Vous ne devez pas recueillir de journaux d’activité ni contacter les services de support technique si les tests retournent **WARN**.
 
 4. Si les services de support technique vous ont demandé d’exécuter l’outil de validation, le représentant du support technique vous demandera de lui fournir les journaux d’activité que vous avez recueillis afin de poursuivre la résolution de votre problème.
 

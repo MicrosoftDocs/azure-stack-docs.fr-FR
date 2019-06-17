@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: mabrigg
-ms.reviewer: brbartle
+ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: b70cd30653b8b324ae4d11a4a3e8aafe47d9a179
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 94eb107450271722af773bc96bec7dfeb12ff52e
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617979"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836708"
 ---
 # <a name="register-azure-stack-with-azure"></a>Inscrire Azure Stack auprès d’Azure
 
@@ -255,7 +255,17 @@ Si vous inscrivez Azure Stack dans un environnement déconnecté (sans connectiv
 
 ### <a name="connect-to-azure-and-register"></a>Se connecter à Azure et s’inscrire
 
-Sur l’ordinateur qui est connecté à Internet, effectuez les mêmes étapes pour importer le module RegisterWithAzure.psm1 et vous connecter au bon contexte Azure Powershell. Appelez ensuite Register-AzsEnvironment. Spécifiez le jeton d’inscription pour vous inscrire auprès d’Azure. Si vous inscrivez plusieurs instances Azure Stack en utilisant le même ID d’abonnement Azure, spécifiez un nom d’inscription unique. Exécutez l’applet de commande suivante :
+Sur l’ordinateur qui est connecté à Internet, effectuez les mêmes étapes pour importer le module RegisterWithAzure.psm1 et vous connecter au bon contexte Azure Powershell. Appelez ensuite Register-AzsEnvironment. Spécifiez le jeton d’inscription pour vous inscrire auprès d’Azure. Si vous inscrivez plusieurs instances Azure Stack en utilisant le même ID d’abonnement Azure, spécifiez un nom d’inscription unique.
+
+Vous avez besoin de votre jeton d’inscription et d’un nom de jeton unique.
+
+1. Démarrez PowerShell ISE en tant qu'administrateur et accédez au dossier **Registration** du répertoire **AzureStack-Tools-master** créé lorsque vous avez téléchargé les outils Azure Stack. Importez le module **RegisterWithAzure.psm1** :  
+
+   ```powershell  
+   Import-Module .\RegisterWithAzure.psm1
+   ```
+
+2. Exécutez ensuite les applets de commande PowerShell suivantes :  
 
   ```powershell  
   $RegistrationToken = "<Your Registration Token>"
@@ -263,7 +273,17 @@ Sur l’ordinateur qui est connecté à Internet, effectuez les mêmes étapes p
   Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
   ```
 
-Si vous le souhaitez, vous pouvez utiliser l’applet de commande Get-Content pour pointer vers un fichier contenant votre jeton d’inscription :
+Si vous le souhaitez, utilisez l’applet de commande Get-Content pour pointer vers un fichier contenant votre jeton d’inscription.
+
+Vous avez besoin de votre jeton d’inscription et d’un nom de jeton unique.
+
+1. Démarrez PowerShell ISE en tant qu'administrateur et accédez au dossier **Registration** du répertoire **AzureStack-Tools-master** créé lorsque vous avez téléchargé les outils Azure Stack. Importez le module **RegisterWithAzure.psm1** :  
+
+  ```powershell  
+  Import-Module .\RegisterWithAzure.psm1
+  ```
+
+2. Exécutez ensuite les applets de commande PowerShell suivantes :  
 
   ```powershell  
   $RegistrationToken = Get-Content -Path '<Path>\<Registration Token File>'
