@@ -50,8 +50,6 @@
       href: azure-stack-use-portal.md
     - name: Se connecter avec PowerShell
       href: azure-stack-powershell-configure-user.md
-    - name: Utiliser l’API Azure Stack
-      href: azure-stack-rest-api-use.md
     - name: Security & Compliance
       items:
         - name: Utiliser le contrôle d’accès en fonction du rôle
@@ -152,36 +150,36 @@
                   href: azure-stack-solution-template-kubernetes-trouble.md
             - name: Déployer Cognitive Services
               href: azure-stack-solution-template-cognitive-services.md
-    - name: Créer des applications
+    - name: Utiliser Azure Stack Resource Manager
       items:
-        - name: Développer pour Azure Stack
-          href: azure-stack-developer.md
-        - name: Configurer l’environnement de développement
-          href: azure-stack-dev-start.md
+        - name: Configurer votre client
           items:
-            - name: Vue d’ensemble d’Azure Stack PowerShell
-              href: azure-stack-powershell-overview.md
-            - name: Installer Azure Stack PowerShell
-              href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
-              maintainContext: true
-            - name: Se connecter avec PowerShell
-              href: azure-stack-powershell-configure-user.md
-            - name: Télécharger les outils Azure Stack
-              href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
-              maintainContext: true
-            - name: Utiliser Docker pour exécuter PowerShell
-              href: azure-stack-powershell-user-docker.md
-            - name: Se connecter en utilisant une extension de compte Azure
-              href: azure-stack-dev-start-vscode-azure.md
-            - name: Installation de Visual Studio
-              href: azure-stack-install-visual-studio.md
-            - name: Utiliser une clé publique SSH
-              href: azure-stack-dev-start-howto-ssh-public-key.md
-            - name: Déployer une machine virtuelle Linux pour une application web
-              href: azure-stack-dev-start-howto-deploy-linux.md
-            - name: Utiliser des profils de version d’API
-              href: azure-stack-version-profiles.md
+            - name: Clients de kit de développement logiciel (SDK) Azure
+              href: azure-stack-dev-start.md
+            - name: Client d’Azure Stack PowerShell
               items:
+                - name: Vue d’ensemble d’Azure Stack PowerShell
+                  href: azure-stack-powershell-overview.md
+                - name: Installer Azure Stack PowerShell
+                  href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  maintainContext: true
+                - name: Se connecter avec PowerShell
+                  href: azure-stack-powershell-configure-user.md
+                - name: Télécharger les outils Azure Stack
+                  href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  maintainContext: true
+                - name: Utiliser Docker pour exécuter PowerShell
+                  href: azure-stack-powershell-user-docker.md
+            - name: Client de Visual Studio Code
+              href: azure-stack-dev-start-vscode-azure.md
+            - name: Client de Visual Studio
+              href: azure-stack-install-visual-studio.md
+            - name: Client de Secure Shell
+              href: azure-stack-dev-start-howto-ssh-public-key.md
+            - name: Utiliser les profils de version d’API
+              items:
+                - name: Vue d'ensemble
+                  href: azure-stack-version-profiles.md
                 - name: .NET
                   href: azure-stack-version-profiles-net.md
                 - name: Java
@@ -196,21 +194,24 @@
                   href: azure-stack-version-profiles-python.md
                 - name: API du fournisseur de ressources prises en charge par les profils
                   href: azure-stack-profiles-azure-resource-manager-versions.md
-        - name: Déploiements courants pour Azure Stack
-          href: azure-stack-dev-start-deploy-app.md
+        - name: Déployer une machine virtuelle et une application web
           items:
-            - name: 'Déployer .Net Core (C#) sur une machine virtuelle'
+            - name: 'Déployer une application web C# sur une machine virtuelle Windows'
               href: azure-stack-dev-start-howto-vm-dotnet.md
-            - name: Déployer Java sur une machine virtuelle
-              href: azure-stack-dev-start-howto-vm-java.md
-            - name: Déployer Go sur une machine virtuelle
-              href: azure-stack-dev-start-howto-vm-go.md
-            - name: Déployer Ruby sur une machine virtuelle
-              href: azure-stack-dev-start-howto-vm-ruby.md
-            - name: Déployer Python sur une machine virtuelle
-              href: azure-stack-dev-start-howto-vm-python.md
-            - name: Déployer NodeJS sur une machine virtuelle
-              href: azure-stack-dev-start-howto-vm-nodejs.md
+            - name: Déployer une application web sur une machine virtuelle Linux
+              items:
+                - name: Déployer une machine virtuelle Linux pour une application web
+                  href: azure-stack-dev-start-howto-deploy-linux.md
+                - name: Déployer une application web Java
+                  href: azure-stack-dev-start-howto-vm-java.md
+                - name: Déployer une application web Go
+                  href: azure-stack-dev-start-howto-vm-go.md
+                - name: Déployer une application web Ruby
+                  href: azure-stack-dev-start-howto-vm-ruby.md
+                - name: Déployer une application web Python
+                  href: azure-stack-dev-start-howto-vm-python.md
+                - name: Déployer une application web NodeJS
+                  href: azure-stack-dev-start-howto-vm-nodejs.md
         - name: Utiliser le module de stratégie Azure Stack
           href: azure-stack-policy-module.md
         - name: Utiliser des modèles
@@ -219,6 +220,8 @@
               href: azure-stack-arm-templates.md
             - name: Considérations relatives aux modèles
               href: azure-stack-develop-templates.md
+            - name: Développer des modèles dans Azure
+              href: azure-stack-developer.md
             - name: Vérifier des modèles
               href: azure-stack-validate-templates.md
             - name: Déployer avec le portail
@@ -229,6 +232,8 @@
               href: azure-stack-deploy-template-command-line.md
             - name: Déployer avec Visual Studio
               href: azure-stack-deploy-template-visual-studio.md
+        - name: Utiliser REST pour accéder aux ressources
+          href: azure-stack-rest-api-use.md
     - name: Activer un fournisseur de service cloud
       href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: Informations de référence
