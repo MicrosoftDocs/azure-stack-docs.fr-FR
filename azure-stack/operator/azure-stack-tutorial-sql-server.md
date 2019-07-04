@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: justinha
-ms.reviewer: quying
+ms.reviewer: xiaofmao
 ms.lastreviewed: 11/05/2018
 ms.custom: mvc
-ms.openlocfilehash: cc3af256adbcea8e6055b237945dc2286762437e
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 7198b48eef8ceb2cd802fb81e8ab835f4e254e04
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267997"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308449"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Didacticiel : mettre des bases de données SQL à la disposition de vos utilisateurs Azure Stack
 
