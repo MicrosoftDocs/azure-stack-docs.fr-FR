@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: sethm
-ms.reviewer: ''
+ms.reviewer: hectorl
 ms.lastreviewed: 05/30/2019
-ms.openlocfilehash: 31f2df0b5c7598c678daff8abe34a40b4e08d590
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: d3a50288464b81104ddd1dd032f93128fde43eae
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691600"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152518"
 ---
 # <a name="azure-stack-1904-update"></a>Mise à jour 1904 d’Azure Stack
 
@@ -75,8 +75,6 @@ Le type de build de la mise à jour 1904 d’Azure Stack est **Express**. Pour 
 
 <!-- this applies to bug 3725384 and bug #4225643 -->
 - Amélioration du volume de messages Syslog en filtrant les événements inutiles et en fournissant un paramètre de configuration pour sélectionner le niveau de gravité souhaité pour les messages transférés. Pour plus d’informations sur la façon de configurer le niveau de gravité, consultez [Intégration au centre de données Azure Stack - transfert syslog](azure-stack-integrate-security.md).
-
-- À partir de la mise à jour 1904, l’infrastructure Azure Stack consomme 12 Go supplémentaires + (4 Go * nombre d’hôtes Azure Stack). Cela signifie que dans un tampon de 4 nœuds, une consommation de capacité supplémentaire de 28 Go (12 Go + 4 Go * 4) est reflétée dans l’écran Capacité du portail administrateur Azure Stack. Votre mise à jour vers la version 1904 doit réussir même si la consommation de mémoire supplémentaire entraîne le dépassement de la capacité de votre tampon Azure Stack. Si votre tampon Azure Stack a une utilisation supérieure en mémoire une fois que la mise à jour est effectuée, une alerte reflétant cet état s’affiche et indique les étapes de correction pour libérer certaines machines virtuelles.
 
 <!--this applied to Bug 1473487 -->
 - Ajout d’une nouvelle fonctionnalité à l’applet de commande **Get-AzureStackLog** en incorporant le paramètre supplémentaire `-OutputSASUri`. Vous pouvez maintenant collecter des journaux Azure Stack à partir de votre environnement et les stocker dans le conteneur d’objets blob Stockage Azure spécifié. Pour plus d’informations, consultez [Diagnostics Azure Stack](azure-stack-diagnostics.md#examples).

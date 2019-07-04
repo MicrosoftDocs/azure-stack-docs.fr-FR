@@ -11,12 +11,12 @@ ms.date: 05/29/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 98ad556bf1b0b5f0297cb7964cd9911a50145496
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 58d06d20da6890474969318b3a7450975848c84a
+ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691764"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67138882"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Outils de diagnostics Azure Stack
 
@@ -164,7 +164,8 @@ Suivez ces étapes pour exécuter `Get-AzureStackLog` sur un ordinateur hôte AS
 
   |   |   |   |    |
   | - | - | - | -  |
-  |ACS                   |CacheService                   |IBC                            |OEM|
+  |ACS                   |CA                             |HRP                            |OboService|
+  |ACSBlob               |CacheService                   |IBC                            |OEM|
   |ACSDownloadService    |Calcul                        |InfraServiceController         |OnboardRP|
   |ACSFabric             |IPC                            |KeyVaultAdminResourceProvider  |PXE|
   |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
@@ -182,7 +183,6 @@ Suivez ces étapes pour exécuter `Get-AzureStackLog` sur un ordinateur hôte AS
   |AzureMonitor          |Passerelle                        |NC                             |WAS|
   |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |WASPUBLIC|
   |BRP                   |HintingServiceV2               |NRP                            |   |
-  |CA                    |HRP                            |OboService                     |   |
   |   |   |   |    |
 
 ### <a name="additional-considerations"></a>Considérations supplémentaires

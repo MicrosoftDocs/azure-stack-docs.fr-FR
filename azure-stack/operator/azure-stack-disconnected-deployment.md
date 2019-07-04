@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: df0989886d34581950eca04ebe63104d477d003f
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: a3986bcdff911fb70957dcb7529a07f77b586c0a
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617997"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131512"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Décisions relatives à la planification du déploiement déconnecté de Azure pour les systèmes intégrés Azure Stack
 Une fois que vous avez décidé [comment vous allez intégrer Azure Stack dans votre environnement de cloud hybride](azure-stack-connection-models.md), vous pouvez finaliser vos décisions de déploiement de Azure Stack.

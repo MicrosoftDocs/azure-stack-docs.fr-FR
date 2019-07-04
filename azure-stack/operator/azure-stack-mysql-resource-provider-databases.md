@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
-ms.reviewer: quying
+ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 4cf406461c7a231617d40c50d2b5491bb4427b63
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 4f2e7a77af14c71c2b3231436d723c6e721ceca9
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618638"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308617"
 ---
 # <a name="create-mysql-databases"></a>Créer des bases de données MySQL
 Un utilisateur Azure Stack abonné à une offre comprenant le service de base de données MySQL peut créer et gérer des bases de données MySQL libre-service dans le portail de l’utilisateur.
@@ -33,7 +33,7 @@ Un utilisateur Azure Stack abonné à une offre comprenant le service de base de
 
     ![Créer une base de données MySQL test](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
 
-4. Sous **Créer une base de données**, sélectionnez **Référence (SKU)**. Sous **Sélectionner une référence (SKU) MySQL**, choisissez la référence de votre base de données.
+4. Sous **Créer une base de données**, sélectionnez **Référence (SKU)** . Sous **Sélectionner une référence (SKU) MySQL**, choisissez la référence de votre base de données.
 
     ![Sélectionner une référence (SKU) MySQL](./media/azure-stack-mysql-rp-deploy/mysql-select-sku.png)
 

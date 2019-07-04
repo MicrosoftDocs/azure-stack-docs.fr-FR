@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 04/20/2019
+ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: f95dcf44c2d9d30bc6ba40facbecff97ff26bf49
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 25280d1f5465776aedf2e3e0dfd84118e866a944
+ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836691"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67397285"
 ---
 # <a name="validate-azure-stack-system-state"></a>Valider l’état du système Azure Stack
 
@@ -48,7 +48,7 @@ Comme indiqué précédemment, l’outil de validation est exécuté par le biai
 
    Pour plus d’informations, consultez les sections [Considérations relatives aux paramètres](azure-stack-diagnostic-test.md#parameter-considerations) et [Exemples d’utilisation](azure-stack-diagnostic-test.md#use-case-examples).
 
-3. Si un test retourne **FAIL**, exécutez `Get-AzureStackLog`. Pour obtenir des instructions sur un système intégré, consultez [Pour exécuter Get-AzureStackLog sur des systèmes intégrés Azure Stack](/azure-stack-diagnostics#to-run-get-azurestacklog-on-azure-stack-integrated-systems) ou, dans le Kit ASDK, consultez [Pour exécuter Get-AzureStackLog sur un système ASDK (Kit de développement Azure Stack)](/azure-stack-diagnostics#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+3. Si un test retourne **FAIL**, exécutez `Get-AzureStackLog`. Pour obtenir des instructions sur un système intégré, consultez [Pour exécuter Get-AzureStackLog sur des systèmes intégrés Azure Stack](azure-stack-diagnostics.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems) ou, dans le Kit ASDK, consultez [Pour exécuter Get-AzureStackLog sur un système ASDK (Kit de développement Azure Stack)](azure-stack-diagnostics.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
    L’applet de commande recueille des journaux d’activité générés par Test-AzureStack. Vous ne devez pas recueillir de journaux d’activité ni contacter les services de support technique si les tests retournent **WARN**.
 

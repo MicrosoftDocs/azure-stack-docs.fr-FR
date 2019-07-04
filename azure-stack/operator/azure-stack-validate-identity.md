@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 06/24/2019
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: e8a52b1d3a111ee425276eab427c290c1ed2455e
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 9f455d6614917c0365b2143f0523ff2a44b3c05d
+ms.sourcegitcommit: fdeb2760845c9760ea7df1414b8e140b0624a823
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267897"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67334416"
 ---
 # <a name="validate-azure-identity"></a>Valider l’identité Azure
 
@@ -54,7 +54,7 @@ Les prérequis suivants sont obligatoires :
 - [PowerShell configuré pour Azure Stack](azure-stack-powershell-install.md).
 - Dernière version de l’outil [Microsoft Azure Stack Readiness Checker](https://aka.ms/AzsReadinessChecker).
 
-**Environnement Azure Active Directory :** 
+**Environnement Azure Active Directory :**
 
 - Identifiez le compte Azure AD à utiliser pour Azure Stack et vérifiez qu’il correspond à un administrateur général Azure Active Directory.
 - Identifiez le nom du locataire Azure AD. Le nom du locataire doit être le nom de domaine principal de votre annuaire Azure Active Directory, par exemple, **contoso.onmicrosoft.com**.

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a98f89866fd7679a0d6ce7c6ecb40d7e8e8b51e7
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: abca6560e8644b201483001258542121fefb6b08
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618690"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131517"
 ---
 # <a name="azure-stack-firewall-integration"></a>Intégration d’Azure Stack à un pare-feu
 Nous vous recommandons d’utiliser un dispositif de pare-feu pour sécuriser Azure Stack. Les pare-feu peuvent contribuer à la défense contre les attaques par déni de service distribué (DDoS), à la détection des intrusions et à l'inspection de contenu. Mais ils peuvent également se transformer en goulot d'étranglement pour les services de stockage Azure (objets blobs, tables, files d'attente, etc.).

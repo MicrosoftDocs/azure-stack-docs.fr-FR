@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
-ms.reviewer: quying
+ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 2b177f14fc787c05c0a7c1f654e8bcfaf8638b93
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: a8ebc50be9b1c3e1eaae491b6d8f8916f900e500
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618188"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308463"
 ---
 # <a name="create-sql-databases"></a>Créer des bases de données SQL
 
@@ -30,14 +30,14 @@ Vous pouvez créer et gérer des bases de données libre-service dans le portail
 
 2. Sélectionnez **+ Nouveau** &gt;**Données + stockage** &gt; **Base de données SQL Server** &gt; **Ajouter**.
 
-3. Sous **Créer une base de données**, entrez les informations requises, telles que **Nom de la base de données** et **Taille maximale (en Mo)**.
+3. Sous **Créer une base de données**, entrez les informations requises, telles que **Nom de la base de données** et **Taille maximale (en Mo)** .
 
    >[!NOTE]
    >La base de données doit présenter une taille minimale de 64 Mo et pourra être étendue après son déploiement.
 
    Configurez les autres paramètres requis pour votre environnement.
 
-4. Sous **Créer une base de données**, sélectionnez **Référence (SKU)**. Sous **Sélectionner une référence (SKU)**, choisissez la référence SKU de votre base de données.
+4. Sous **Créer une base de données**, sélectionnez **Référence (SKU)** . Sous **Sélectionner une référence (SKU)** , choisissez la référence SKU de votre base de données.
 
    ![Créer une base de données](./media/azure-stack-sql-rp-deploy/newsqldb.png)
 
@@ -69,7 +69,7 @@ La capture d’écran ci-après vous indique comment vous pouvez utiliser SQL Se
 
 ![État d’une base de données SQL](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
 
-Les bases de données AlwaysOn doivent s’afficher avec l’état Synchronisé et comme étant disponibles sur toutes les instances SQL, et elles doivent apparaître dans les groupes de disponibilité. Dans la capture d’écran précédente, l’exemple de base de données considéré est newdb1 et présente l’état **newdb1 (Synchronized)**.
+Les bases de données AlwaysOn doivent s’afficher avec l’état Synchronisé et comme étant disponibles sur toutes les instances SQL, et elles doivent apparaître dans les groupes de disponibilité. Dans la capture d’écran précédente, l’exemple de base de données considéré est newdb1 et présente l’état **newdb1 (Synchronized)** .
 
 ### <a name="delete-an-alwayson-database"></a>Supprimer une base de données AlwaysOn
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: mabrigg
-ms.reviewer: quying
+ms.reviewer: xiaofmao
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 00469e3dedca4609b26e1d4e967837ff0925cb9c
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 9469904ddcb27d5526e35a33091e0ea3e54600f8
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618573"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308609"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Ajouter des serveurs d’hébergement pour le fournisseur de ressources MySQL
 
@@ -37,7 +37,7 @@ Assurez-vous de détenir les informations d’identification d’un compte dispo
 
 1. Connectez-vous au portail d’administration Azure Stack en tant qu’administrateur de service.
 2. Sélectionnez **Tous les services**.
-3. Sous la catégorie **RESSOURCES ADMINISTRATIVES**, sélectionnez **Serveurs d’hébergement MySQL** > **+Ajouter**. Cette opération ouvre la boîte de dialogue **Ajouter un serveur d’hébergement MySQL**, illustrée dans la capture d’écran suivante.
+3. Sous la catégorie **RESSOURCES ADMINISTRATIVES**, sélectionnez **Serveurs d’hébergement MySQL** >  **+Ajouter**. Cette opération ouvre la boîte de dialogue **Ajouter un serveur d’hébergement MySQL**, illustrée dans la capture d’écran suivante.
 
    ![Configurer un serveur d’hébergement](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
@@ -53,7 +53,7 @@ Assurez-vous de détenir les informations d’identification d’un compte dispo
    > [!NOTE]
    > Si l’instance MySQL est accessible par le locataire et l’administrateur Azure Resource Manager, vous pouvez la placer sous le contrôle du fournisseur de ressources. Mais, l’instance MySQL **doit** être allouée exclusivement au fournisseur de ressources.
 
-5. Sélectionnez **Références (SKU)** pour ouvrir la boîte de dialogue **Créer une référence (SKU)**.
+5. Sélectionnez **Références (SKU)** pour ouvrir la boîte de dialogue **Créer une référence (SKU)** .
 
    ![Créer une référence (SKU) MySQL](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
