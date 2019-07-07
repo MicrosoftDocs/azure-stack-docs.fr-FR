@@ -1,6 +1,6 @@
 ---
-title: Configurer l’identité de cloud hybride avec Azure et Azure Stack | Microsoft Docs
-description: Découvrez comment configurer l’identité de cloud hybride avec Azure et Azure Stack.
+title: Configurer une connectivité au cloud hybride avec Azure et Azure Stack | Microsoft Docs
+description: Découvrez comment configurer une connectivité au cloud hybride avec Azure et Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -15,20 +15,20 @@ ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 00f7c3b990e9930571ace8adec9a33d0c9105be6
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.openlocfilehash: 94554162cc91ddc4e9be7f24f9c7fafc32051e3c
+ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252033"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67492399"
 ---
-# <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Tutoriel : Configurer l’identité de cloud hybride avec Azure et Azure Stack
+# <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Didacticiel : Configurer une connectivité au cloud hybride avec Azure et Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Vous pouvez accéder aux ressources en toute sécurité dans Azure global et Azure Stack à l’aide du modèle de connectivité hybride.
 
-Dans ce tutoriel, vous créez un exemple d’environnement pour :
+Dans ce tutoriel, vous créez un exemple d’environnement pour :
 
 > [!div class="checklist"]
 > - Conserver les données localement pour le respect de la confidentialité ou des obligations réglementaires, tout en gardant l’accès aux ressources Azure globales.
@@ -36,22 +36,22 @@ Dans ce tutoriel, vous créez un exemple d’environnement pour :
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local et active le seul cloud hybride qui vous permet de créer et de déployer des applications hybrides en tous lieux.  
+> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local et active le seul cloud hybride qui vous permet de créer et de déployer des applications hybrides en tout lieu.  
 > 
-> Le livre blanc [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Étude des conceptions pour les applications hybrides) se penche sur les fondements de la qualité logicielle (sélection élective, extensibilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception des applications hybrides, en réduisant les risques dans les environnements de production.
+> Le livre blanc [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Étude des conceptions pour les applications hybrides) se penche sur les fondements de la qualité logicielle (sélection élective, extensibilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Certains composants sont nécessaires pour créer un déploiement de connectivité hybride. La préparation de certains de ces composants peut prendre du temps, vous devrez donc planifier en conséquence.
+Certains composants sont nécessaires pour créer un déploiement de connectivité hybride. La préparation de certains de ces composants pouvant prendre du temps, vous devez planifier en conséquence.
 
 **Azure Stack**
 
-Un partenaire OEM/matériel Azure peut déployer un service Azure Stack de production et tous les utilisateurs peuvent déployer un Kit de développement Azure Stack.
+Un partenaire OEM/matériel Azure peut déployer une infrastructure Azure Stack de production et tous les utilisateurs peuvent déployer un Kit de développement Azure Stack (ASDK).
 
 **Composants d’Azure Stack**
 
-Un opérateur Azure Stack doit déployer le service App Service, créer des plans et des offres, créer un abonnement de locataire et ajouter l’image Windows Server 2016. Si vous disposez déjà de certains de ces composants, vérifiez qu’ils répondent aux conditions requises avant de commencer ce didacticiel.
+Un opérateur Azure Stack doit déployer l’App Service, créer des plans et des offres, créer un abonnement de locataire et ajouter l’image Windows Server 2016. Si vous disposez déjà de ces composants, vérifiez qu’ils répondent aux conditions requises avant de commencer ce didacticiel.
 
 Ce tutoriel suppose que vous disposez de connaissances de base sur Azure et Azure Stack. Pour en savoir plus avant de commencer le didacticiel, lisez les articles suivants :
 
@@ -77,27 +77,27 @@ Ce tutoriel suppose que vous disposez de connaissances de base sur Azure et Azur
 
 Vérifiez que vous remplissez les conditions suivantes avant de commencer la configuration de la connectivité de cloud hybride :
 
- - Vous avez besoin d’une adresse IPv4 publique exposée en externe pour votre périphérique VPN. Cette adresse IP ne peut pas se trouver derrière un NAT.
+ - Vous avez besoin d’une adresse IPv4 publique exposée en externe pour votre périphérique VPN. Cette adresse IP ne peut pas se trouver derrière une NAT (traduction d’adresses réseau).
  - Toutes les ressources sont déployées dans la même région/le même emplacement.
 
 #### <a name="tutorial-example-values"></a>Exemples de valeurs du didacticiel
 
-Nous utilisons les valeurs suivantes dans les exemples de ce didacticiel. Vous pouvez utiliser ces valeurs pour créer un environnement de test ou vous y référer pour mieux comprendre les exemples. Pour plus d’informations générales sur les paramètres de passerelle VPN, consultez  [À propos des paramètres de la passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings).
+Nous utilisons les valeurs suivantes dans les exemples de ce didacticiel. Vous pouvez utiliser ces valeurs pour créer un environnement de test ou vous y référer pour mieux comprendre les exemples. Pour plus d’informations générales sur les paramètres de passerelle VPN, voir  [À propos des paramètres de la passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings).
 
 Spécifications de la connexion :
 
- - **Type de VPN** : basé sur la route
- - **Type de connexion** : Site à site (IPsec)
+ - **Type de VPN** : basé sur itinéraires
+ - **Type de connexion :** de site à site (IPsec)
  - **Type de passerelle** : VPN
  - **Nom de la connexion Azure** : Azure-Gateway-AzureStack-S2SGateway (cette valeur est automatiquement remplie dans le portail)
  - **Nom de la connexion Azure Stack** : AzureStack-Gateway-Azure-S2SGateway (cette valeur est automatiquement remplie dans le portail)
- - **Clé partagée** : toute clé compatible avec le matériel VPN, avec des valeurs correspondantes des deux côtés de la connexion
- - **Abonnement**: tout abonnement de votre choix
+ - **Clé partagée** : toute clé compatible avec le matériel VPN, avec des valeurs correspondantes des deux côtés de la connexion
+ - **Abonnement** : abonnement de votre choix
  - **Groupe de ressources** : Test-Infra
 
 Adresses IP réseau et sous-réseau :
 
-| Connexion Azure/Azure Stack | Nom | Sous-réseau | Adresse IP |
+| Connexion Azure/Azure Stack | Nom | Subnet | Adresse IP |
 |-------------------------------------|---------------------------------------------|---------------------------------------|-----------------------------|
 | Réseau virtuel Azure | ApplicationvNet<br>10.100.102.9/23 | ApplicationSubnet<br>10.100.102.0/24 |  |
 |  |  | Sous-réseau de passerelle<br>10.100.103.0/24 |  |
@@ -112,7 +112,7 @@ Adresses IP réseau et sous-réseau :
 
 ## <a name="create-a-virtual-network-in-global-azure-and-azure-stack"></a>Créer un réseau virtuel dans Azure global et Azure Stack
 
-Procédez comme suit pour créer un réseau virtuel à l’aide du portail Azure. Vous pouvez reprendre ces [exemples de valeurs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#values) si vous utilisez cet article comme tutoriel. Toutefois, si vous utilisez cet article pour configurer un environnement de production, remplacez les exemples de paramètres par vos propres valeurs.
+Procédez comme suit pour créer un réseau virtuel à l’aide du portail Azure. Vous pouvez reprendre ces  [exemples de valeurs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#values)  si vous utilisez cet article uniquement comme didacticiel. Si vous utilisez cet article pour configurer un environnement de production, remplacez les exemples de paramètres par vos propres valeurs.
 
 > [!IMPORTANT]
 > Vous devez vous assurer que les adresses IP ne se chevauchent pas dans les espaces d’adressage du réseau virtuel Azure ou Azure Stack.
@@ -120,7 +120,7 @@ Procédez comme suit pour créer un réseau virtuel à l’aide du portail Azure
 Pour créer un réseau virtuel dans Azure :
 
 1. À partir de votre navigateur, connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide des informations d’identification de votre compte Azure.
-2. Sélectionnez **Créer une ressource**. Dans le champ **Rechercher dans le marketplace**, entrez `virtual network`. Recherchez **Réseau virtuel** dans la liste des résultats, puis sélectionnez **Réseau virtuel**.
+2. Sélectionnez **Créer une ressource**. Dans le champ  **Rechercher dans la Place de marché** , entrez « réseau virtuel ». Sélectionnez **Réseau virtuel** dans les résultats.
 3. Dans la liste **Sélectionner un modèle de déploiement**, sélectionnez **Gestionnaire des ressources**, puis sélectionnez **Créer**.
 4. Dans **Créer un réseau virtuel**, configurez les paramètres du réseau virtuel. Les noms des champs obligatoires sont précédés d’un astérisque rouge.  Lorsque vous entrez une valeur valide, l’astérisque devient une coche verte.
 
@@ -183,13 +183,13 @@ La passerelle de réseau local fait généralement référence à votre emplacem
   >En cas de modification du réseau local ou si vous devez modifier l’adresse IP publique du périphérique VPN, vous pouvez facilement mettre à jour les valeurs ultérieurement.
 
 1. Dans le portail, sélectionnez **+Créer une ressource**.
-2. Dans la zone de recherche, entrez **Passerelle de réseau local**, puis sélectionnez **Entrée** pour lancer la recherche. Une liste de résultats apparaîtra.
+2. Dans la zone de recherche, entrez **Passerelle de réseau local**, puis sélectionnez **Entrée** pour lancer la recherche. Une liste de résultats s’affiche.
 3. Sélectionnez **Passerelle de réseau local**, puis sélectionnez **Créer** pour ouvrir la page **Créer une passerelle de réseau local** .
 4. Dans **Créer une passerelle de réseau local**, spécifiez les valeurs de votre passerelle de réseau local à l’aide de nos **Exemples de valeurs du didacticiel**. Incluez les valeurs supplémentaires suivantes.
 
-    - **Adresse IP** : il s’agit de l’adresse IP publique du périphérique VPN auquel vous souhaitez qu’Azure ou Azure Stack se connecte. Spécifiez une adresse IP publique valide qui ne se trouve pas derrière un NAT pour qu’Azure puisse atteindre l’adresse. Si vous ne disposez pas de l’adresse IP actuellement, vous pouvez utiliser une valeur de l’exemple comme un espace réservé. Toutefois, vous devrez revenir en arrière et remplacer l’espace réservé par l’adresse IP publique de votre périphérique VPN. Azure ne peut pas se connecter à l’appareil tant que vous ne fournissez pas une adresse valide.
-    - **Espace d’adressage** : il s’agit de la plage d’adresses du réseau qui représente ce réseau local. Vous pouvez ajouter plusieurs plages d’espaces d’adressage. Assurez-vous que les plages que vous spécifiez ici ne chevauchent pas les plages d’autres réseaux auxquels vous souhaitez vous connecter. Azure achemine la plage d’adresses que vous spécifiez vers l’adresse IP du périphérique VPN local. Utilisez vos propres valeurs (et non un exemple de valeur) si vous voulez vous connecter à votre site local.
-    - **Configurer les paramètres BGP** : À utiliser uniquement durant la configuration de BGP. pour la configuration du protocole BGP.
+    - **Adresse IP** : adresse IP publique de l’appareil VPN auquel vous souhaitez qu’Azure ou Azure Stack se connecte. Spécifiez une adresse IP publique valide qui ne se trouve pas derrière un NAT pour qu’Azure puisse atteindre l’adresse. Si vous ne disposez pas de l’adresse IP actuellement, vous pouvez utiliser une valeur de l’exemple comme un espace réservé. Toutefois, vous devrez revenir en arrière et remplacer l’espace réservé par l’adresse IP publique de votre périphérique VPN. Azure ne peut pas se connecter à l’appareil tant que vous ne fournissez pas une adresse valide.
+    - **Espace d’adressage** : plage d’adresses du réseau que ce réseau local représente. Vous pouvez ajouter plusieurs plages d’espaces d’adressage. Assurez-vous que les plages que vous spécifiez ici ne chevauchent pas les plages d’autres réseaux auxquels vous souhaitez vous connecter. Azure achemine la plage d’adresses que vous spécifiez vers l’adresse IP du périphérique VPN local. Utilisez vos propres valeurs (et non un exemple de valeur) si vous voulez vous connecter à votre site local.
+    - **Configurer les paramètres BGP** : À utiliser uniquement durant la configuration de BGP. Dans le cas contraire, ne sélectionnez pas cette option.
     - **Abonnement**: Vérifiez que l’abonnement approprié s’affiche.
     - **Groupe de ressources** : Sélectionnez le groupe de ressources à utiliser. Vous pouvez créer un groupe de ressources ou en sélectionner un déjà créé.
     - **Emplacement** : Sélectionnez l’emplacement dans lequel cet objet va être créé. Vous pouvez sélectionner l’emplacement dans lequel se trouve votre réseau virtuel, mais vous n’êtes pas obligé de le faire.
@@ -198,12 +198,12 @@ La passerelle de réseau local fait généralement référence à votre emplacem
 
 ## <a name="configure-your-connection"></a>Configurer votre connexion
 
-Les connexions site à site vers un réseau local nécessitent un périphérique VPN. Le périphérique VPN que vous configurez est appelé une connexion. Pour configurer votre connexion, vous devez :
+Les connexions de site à site vers un réseau local nécessitent un appareil VPN. L’appareil VPN que vous configurez est appelé une connexion. Pour configurer votre connexion, vous devez :
 
-- Une clé partagée. Il s’agit de la clé partagée spécifiée lors de la création de la connexion VPN de site à site. Dans nos exemples, nous utilisons une clé partagée basique. Nous vous conseillons de générer une clé plus complexe.
+- Une clé partagée. Clé partagée que vous avez spécifiée lors de la création de la connexion VPN de site à site. Dans nos exemples, nous utilisons une clé partagée basique. Nous vous conseillons de générer une clé plus complexe.
 - L’adresse IP publique de votre passerelle de réseau virtuel. Vous pouvez afficher l’adresse IP publique à l’aide du portail Azure, de PowerShell ou de l’interface de ligne de commande. Pour rechercher l’adresse IP publique de votre passerelle VPN à l’aide du portail Azure, accédez à Passerelles de réseau virtuel, puis sélectionnez le nom de votre passerelle.
 
-Procédez comme suit pour créer une connexion VPN de site à site entre votre passerelle de réseau virtuel et votre périphérique VPN local.
+Procédez comme suit pour créer une connexion VPN de site à site entre votre passerelle de réseau virtuel et votre appareil VPN local.
 
 1. Dans le portail Azure, sélectionnez **+Créer une ressource**.
 2. Recherchez des **connexions**.
@@ -211,12 +211,12 @@ Procédez comme suit pour créer une connexion VPN de site à site entre votre p
 4. Dans **Connexions**, sélectionnez **Créer**.
 5. Dans **Créer une connexion**, configurez les paramètres suivants :
 
-    - **Type de connexion** : sélectionnez Site à site (IPsec).
+    - **Type de connexion** : sélectionnez De site à site (IPsec).
     - **Groupe de ressources** : sélectionnez votre groupe de ressources de test.
     - **Passerelle de réseau virtuel** : sélectionnez la passerelle de réseau virtuel que vous avez créée.
     - **Passerelle de réseau local** : sélectionnez la passerelle de réseau local que vous avez créée.
     - **Nom de la connexion** : ce champ est automatiquement rempli avec les valeurs provenant des deux passerelles.
-    - **Clé partagée** : cette valeur doit correspondre à celle que vous utilisez pour votre périphérique VPN local. Dans l’exemple du didacticiel, nous avons utilisé « abc123 », mais vous pouvez (et devriez) utiliser une valeur plus complexe. L’important, c’est que cette valeur DOIT être identique à celle spécifiée lors de la configuration de votre périphérique VPN.
+    - **Clé partagée** : cette valeur doit correspondre à celle que vous utilisez pour votre appareil VPN local. Dans l’exemple du didacticiel, nous avons utilisé « abc123 », mais vous pouvez utiliser une valeur plus complexe. L’important, c’est que cette valeur DOIT être identique à celle spécifiée lors de la configuration de votre périphérique VPN.
     - Les valeurs pour **Abonnement**, **Groupe de ressources**, et **Emplacement** sont fixes.
 
 6. Sélectionnez **OK** pour créer votre connexion.

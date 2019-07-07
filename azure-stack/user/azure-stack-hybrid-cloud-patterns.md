@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/06/2019
+ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.lastreviewed: 05/06/2019
-ms.openlocfilehash: a1e13b471c9eaed9dcac79c4002ceca6b3b8e7d2
-ms.sourcegitcommit: a78c0d143eadcab65a601746b9ea24be28091ad2
+ms.lastreviewed: 06/20/2019
+ms.openlocfilehash: 442e12d435102c06a334a8a93271d3d4a27aa578
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65212669"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308768"
 ---
 # <a name="create-hybrid-cloud-apps-with-azure-and-azure-stack"></a>Créer des applications de cloud hybride avec Azure et Azure Stack
 
@@ -30,22 +30,19 @@ Microsoft Azure est un cloud hybride cohérent. Azure vous permet de réutiliser
 
 Les scénarios hybrides varient considérablement avec les ressources qui sont disponibles pour le développement et englobent des considérations telles que la géographie, la sécurité, l’accès à Internet et bien d’autres. Même si ces scénarios ne peuvent pas répondre à vos besoins spécifiques, ils peuvent fournir des indications clés et des exemples qui vous permettent d’explorer l’implémentation de solutions hybrides.
 
-Vous pouvez utiliser le cloud hybride pour gérer ce qui suit :
-- Un exemple de données à plusieurs niveaux.
-- SQL Server dans Azure et Azure Stack.
-- Des déploiements de base de données Mongo de bout en bout dans Azure et Azure Stack.
-- Détection de vide d’inférence d’intelligence artificielle à la périphérie Microsoft.
-
 ## <a name="step-by-step-tutorials"></a>Didacticiels pas à pas
 
 - [Déployer des applications sur Azure et Azure Stack](azure-stack-solution-pipeline.md)
 - [Déployer des applications sur Azure et Azure Stack](azure-stack-solution-hybrid-identity.md)
 - [Configurer l’identité de cloud hybride avec Azure et Azure Stack](azure-stack-solution-hybrid-connectivity.md)
 - [Configurer l’identité de cloud hybride avec Azure et Azure Stack](azure-stack-solution-staged-data-analytics.md)
-- [Créer une solution d’analyse des données mises en lots avec Azure et Azure Stack](azure-stack-solution-cloud-burst.md)
+- [Créer une solution d’analyse des données mises en lots avec Azure et Azure Stack](azure-stack-solution-staged-data.md)
 - [Créer des solutions de mise à l’échelle dans le cloud avec Azure](azure-stack-solution-cloud-burst.md)
 - [Créer une solution d’application géolocalisée avec Azure et Azure Stack](azure-stack-solution-geo-distributed.md)
 - [Déployer une solution de cloud hybride avec Azure et Azure Stack](azure-stack-solution-hybrid-cloud.md)
+- [Déployer MongoDB dans Azure et Azure Stack](azure-stack-solution-mongodb-ha.md)
+- [Déployer SQL Server 2016 Azure et Azure Stack](azure-stack-solution-sql-ha.md)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
