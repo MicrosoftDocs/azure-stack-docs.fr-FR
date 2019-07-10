@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2019
+ms.date: 06/14/2019
 ms.author: sethm
-ms.reviewer: unknown
-ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 3c962f0ef9fccdf814ccfaf0a432b1c303a63368
-ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
+ms.reviewer: ihcherie
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: dd6421e915f170ee576d6486362e8b93ac01465f
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66835106"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152579"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Éléments de Place de Marché Azure disponibles pour Azure Stack
 
@@ -54,7 +54,7 @@ Microsoft Azure Stack prend en charge les machines virtuelles et les modèles de
 
 |  | Nom de l’élément | Description | Publisher |
 | --- | --- | --- | --- |
-| ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Solutions d’entreprise simples à déployer, rentables, axées sur les applications et centrées sur l’utilisateur. Ces images sont régulièrement mises à jour avec les derniers correctifs. **Informations importantes : Les images téléchargées avant le 18 janvier 2018 doivent être supprimées et remplacées par les dernières versions.** | Microsoft |
+| ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) | Solutions d’entreprise simples à déployer, rentables, axées sur les applications et centrées sur l’utilisateur. Ces images sont régulièrement mises à jour avec les derniers correctifs. **Informations importantes : Les images téléchargées avant le 18 janvier 2018 doivent être supprimées et remplacées par les dernières versions.** | Microsoft |
 | ![Version d’évaluation de SharePoint Server 2013](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Version d’essai de Microsoft SharePoint Server 2013 sur Windows Server 2012 R2 Datacenter et Visual Studio 2019 Community Edition. | Microsoft |
 | ![Version d’évaluation de SharePoint Server 2016](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Version d’évaluation de Microsoft SharePoint Server 2016 sur Windows Server 2016 R2 Datacenter. | Microsoft |
 | ![SQL Server 2014 SP2 sur Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 sur Windows Server 2012 R2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2) | SQL Server 2014 Service Pack 2. **Téléchargement nécessaire :** Extension IaaS SQL. | Microsoft |
@@ -249,4 +249,5 @@ Microsoft Azure Stack prend en charge les machines virtuelles et les modèles de
 | ![Quest Rapid Recovery](media/azure-stack-marketplace-azure-items/quest.png) | [Quest Rapid Recovery Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | La protection de données avancée de Rapid Recovery unifie la sauvegarde, la réplication et la restauration dans une solution simple à utiliser. | Quest Software |
 | ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos?tab=Overview) | Gestion d’infrastructure Open Source de haute qualité. | SUSE |
 | ![Gestionnaire de clés cloud CipherTrust](media/azure-stack-marketplace-azure-items/cckm.png) | [Gestionnaire de clés cloud CipherTrust](https://azuremarketplace.microsoft.com/marketplace/apps/thales-vormetric.ciphertrust-ckm) | En tirant parti des API BYOK de Microsoft Azure et d’autres fournisseurs cloud, le Gestionnaire de clés cloud CipherTrust réduit la complexité de gestion des clés et les coûts d’exploitation en vous donnant le contrôle du cycle de vie sur plusieurs clouds des clés de chiffrement avec une gestion et une visibilité centralisée. | Thales eSecurity |
+| ![Veeam Backup & Replication](media/azure-stack-marketplace-azure-items/veeam.png) | [Veeam Backup & Replication](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication?tab=Overview) | Veeam® Backup & Replication™ aide les entreprises à assurer la protection complète des données pour toutes les charges de travail, virtuelles, physiques et cloud. Avec une seule console, vous pouvez obtenir une sauvegarde rapide, flexible et fiable, la récupération et la réplication de toutes les applications et données. | Logiciel Veeam |
 | ![ZeroDown Software BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown Software Business Continuity as a Service](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | La technologie ZeroDown® Software fournit aux entreprises un accès continu à leurs données d’entreprise par le biais de leur architecture Business Continuity as a Service (BCaaS)™, qui protège les applications et les transactions si des interruptions réseau susceptibles de paralyser l’activité de l’entreprise se produisent. | ZeroDown Software |

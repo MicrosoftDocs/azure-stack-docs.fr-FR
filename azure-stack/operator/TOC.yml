@@ -10,7 +10,7 @@
       href: compare-azure-azure-stack.md
     - name: Notes de publication
       items:
-        - name: Mises à jour récentes
+        - name: Mises à jour et stratégie de maintenance
           href: azure-stack-servicing-policy.md
         - name: Check-list pour appliquer les mises à jour
           href: azure-stack-release-notes-checklist.md

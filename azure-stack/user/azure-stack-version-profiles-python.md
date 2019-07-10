@@ -15,12 +15,12 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: 98014cfa015f839e1801ffae95d08f3cbd00c986
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 18884a4570f5c90d00b8e17e42fe8bc1b3c073c2
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269499"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198602"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Utiliser des profils de version des API avec Python dans Azure Stack
 
@@ -33,7 +33,7 @@ Le Kit de développement logiciel (SDK) Python prend en charge les profils de ve
 - **le plus récent**  
     Ce profil cible les dernières versions d’API de tous les fournisseurs de services de la plateforme Azure.
 - **2019-03-01-hybrid**  
-    Ce profil cible les dernières versions d’API de tous les fournisseurs de ressources de la plateforme Azure Stack.
+    Ce profil cible les dernières versions d’API de tous les fournisseurs de ressources de la plateforme Azure Stack pour les versions de tampon 1904 ou versions ultérieures.
 - **2018-03-01-hybrid**  
     Ce profil cible les versions d’API les plus compatibles de tous les fournisseurs de ressources de la plateforme Azure Stack.
 - **2017-03-09-profile**  

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6a636a1ed7b2426649afbe163b15780bfc4e9f0e
-ms.sourcegitcommit: 2cd17b8e7352891d8b3eb827d732adf834b7693e
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: cf25678ad84ac79dd29ddd1684b1ca2f958180ff
+ms.sourcegitcommit: 5a720b17bd6a5aab44929c0247db8d512e0669ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428705"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67197193"
 ---
 # <a name="azure-stack-registration"></a>Inscription d’Azure Stack
 
@@ -32,13 +32,13 @@ Si vous n’inscrivez pas votre Kit de développement Azure Stack (ASDK), il se 
 
 Avant de suivre ces instructions pour inscrire le kit ASDK auprès d’Azure, veillez à installer Azure Stack PowerShell et télécharger les outils Azure Stack, comme décrit dans l’article relatif à la [configuration post-déploiement](asdk-post-deploy.md).
 
-De plus, le mode de langage PowerShell doit avoir la valeur **FullLanguageMode** sur l’ordinateur utilisé pour inscrire le kit ASDK auprès d’Azure. Pour vérifier que le mode de langage actuel est défini sur full, ouvrez une fenêtre PowerShell avec élévation de privilèges et exécutez les commandes PowerShell suivantes :
+De plus, le mode de langage PowerShell doit avoir la valeur **FullLanguage** sur l’ordinateur utilisé pour inscrire le kit ASDK auprès d’Azure. Pour vérifier que le mode de langage actuel est défini sur full, ouvrez une fenêtre PowerShell avec élévation de privilèges et exécutez les commandes PowerShell suivantes :
 
 ```powershell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
-Vérifiez que la sortie retourne **FullLanguageMode**. Si tout autre mode de langage est retourné, vous devez exécuter l’inscription sur un autre ordinateur ou définir le mode de langage sur **FullLanguageMode** avant de continuer.
+Vérifiez que la sortie retourne **FullLanguage**. Si tout autre mode de langage est retourné, vous devez exécuter l’inscription sur un autre ordinateur ou définir le mode de langage sur **FullLanguage** avant de continuer.
 
 Le compte Azure AD utilisé pour l'inscription doit avoir accès à l'abonnement Azure et disposer des autorisations nécessaires pour créer des applications avec une identité et des principaux de service dans le répertoire associé à cet abonnement. Nous vous recommandons d'inscrire Azure Stack auprès d'Azure à l'aide de l'administration des privilèges minimum en [créant un compte de service à utiliser pour l'inscription](../operator/azure-stack-registration-role.md) plutôt qu'en utilisant les informations d'identification de l'administrateur général.
 
@@ -51,15 +51,7 @@ Pour inscrire le kit ASDK auprès d’Azure, procédez aux étapes suivantes.
 
 1. Ouvrez une console PowerShell en tant qu’administrateur.  
 
-2. Sur l’ordinateur hôte du kit ASDK, ouvrez le fichier **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** dans un éditeur avec élévation de privilèges.
-
-3. À la fin de la ligne 1249, ajoutez un paramètre `-TimeoutInSeconds 1800`. Cet ajout est exigé afin d’éviter un délai d’expiration du principal du service lors de l’exécution du script d’inscription. La ligne 1249 doit maintenant ressembler à ceci :
-
-   ```powershell
-   $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
-   ```
-
-4. Exécutez les commandes PowerShell suivantes pour inscrire votre installation ASDK auprès d’Azure. Vous devrez vous connecter à votre ID d'abonnement de facturation Azure et à l’installation ASDK locale. Si vous n’avez toujours pas d’ID d’abonnement de facturation Azure, vous pouvez créer un [compte Azure gratuit ici](https://azure.microsoft.com/free/?b=17.06). L’inscription d’Azure Stack n’entraîne aucun frais sur votre abonnement Azure.<br><br>Définissez un nom unique pour l'inscription au moment de l'exécution de la cmdlet **Set-AzsRegistration**. Par défaut, le paramètre **RegistrationName** a la valeur **AzureStackRegistration**. Cependant, si vous utilisez le même nom dans plusieurs instances Azure Stack, le script échoue.
+2. Exécutez les commandes PowerShell suivantes pour inscrire votre installation ASDK auprès d’Azure. Vous devrez vous connecter à votre ID d'abonnement de facturation Azure et à l’installation ASDK locale. Si vous n’avez toujours pas d’ID d’abonnement de facturation Azure, vous pouvez créer un [compte Azure gratuit ici](https://azure.microsoft.com/free/?b=17.06). L’inscription d’Azure Stack n’entraîne aucun frais sur votre abonnement Azure.<br><br>Définissez un nom unique pour l'inscription au moment de l'exécution de la cmdlet **Set-AzsRegistration**. Par défaut, le paramètre **RegistrationName** a la valeur **AzureStackRegistration**. Cependant, si vous utilisez le même nom dans plusieurs instances Azure Stack, le script échoue.
 
     ```powershell  
     # Add the Azure cloud subscription environment name. 
@@ -87,7 +79,7 @@ Pour inscrire le kit ASDK auprès d’Azure, procédez aux étapes suivantes.
     -UsageReportingEnabled:$true
     ```
 
-5. Une fois le script terminé, le message **Votre environnement est à présent enregistré et activé à l’aide des paramètres fournis.** s’affiche.
+3. Une fois le script terminé, le message **Votre environnement est à présent enregistré et activé à l’aide des paramètres fournis.** s’affiche.
 
     ![Votre environnement est maintenant inscrit](media/asdk-register/1.PNG)
 

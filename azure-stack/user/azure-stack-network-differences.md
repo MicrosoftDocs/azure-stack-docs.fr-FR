@@ -5,18 +5,18 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 06/04/2019
+ms.date: 06/17/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: de39645d1414fc852b98036e7071befcf5262cb1
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: a59b716df7e8bf7c9a76abbfcdbe6b300c985c9f
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469179"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198816"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Considérations relatives à la mise en réseau Azure Stack
 
@@ -35,6 +35,7 @@ Cet article fournit une vue d’ensemble de considérations propres à la gestio
 |  | Zones DNS par abonnement | 100 (par défaut)<br>Peut être augmenté à la demande. | 100 |
 |  | Jeux d’enregistrements DNS par zone | 5000 (par défaut)<br>Peut être augmenté à la demande. | 5 000 |
 |  | Serveurs de noms pour la délégation de zone | Azure fournit quatre serveurs de noms pour chaque zone utilisateur (locataire) créée. | Azure Stack fournit deux serveurs de noms pour chaque zone utilisateur (locataire) créée. |
+| Pare-feu Azure | Service de sécurité réseau | Pare-feu Azure est un service de sécurité réseau informatique géré qui protège vos ressources Réseau virtuel Azure. | Pas encore pris en charge. |
 | Réseau virtuel | Homologation de réseaux virtuels | Connecter deux réseaux virtuels situés dans la même région par le biais du réseau principal Azure. | Pas encore pris en charge |
 |  | Adresses IPv6 | Vous pouvez affecter une adresse IPv6 dans le cadre de la [Configuration de l’interface réseau](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions). | Seul le protocole IPv4 est pris en charge. |
 |  | Plan de protection DDoS | Pris en charge | Pas encore pris en charge. |
@@ -54,7 +55,7 @@ Cet article fournit une vue d’ensemble de considérations propres à la gestio
 |  | Paramètres BGP | Azure prend en charge la configuration de l’adresse d’homologation BGP et le poids des pairs. | L’adresse d’homologation BGP et le poids des pairs sont configurés automatiquement dans Azure Stack. Il n’existe aucun moyen pour l’utilisateur de configurer ces paramètres avec ses propres valeurs. |
 |  | Site de passerelle par défaut | Azure prend en charge la configuration d’un site par défaut pour le tunneling forcé. | Pas encore pris en charge. |
 |  | Redimensionnement de passerelle | Azure prend en charge le redimensionnement de la passerelle après le déploiement. | Redimensionnement non pris en charge. |
-|  | Configuration active/active | Pris en charge | Pas encore pris en charge. |
+|  | Configuration de la disponibilité | actif/actif | Actif/passif |
 |  | UsePolicyBasedTrafficSelectors | Azure prend en charge les sélecteurs de trafic basés sur la stratégie (Policy-based) avec des connexions de passerelle basées sur l’itinéraire (Route-based). | Pas encore pris en charge. |
 | Équilibrage de charge | SKU | Les équilibreurs de charge de base et standard sont pris en charge | Seul l’équilibreur de charge de base est pris en charge.  Cette propriété de référence SKU n'est pas prise en charge. |
 |  | Zones | Les zones de disponibilité sont prises en charge. | Pas encore pris en charge |

@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 850d99232b408aa9264caf0d928231ed229e5c23
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: b66354baa30bb6bf9ec4b8cb39cab0b9def763f6
+ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782428"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67557890"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilisation du point de terminaison privilégié dans Azure Stack
 
@@ -84,7 +84,7 @@ Avant de commencer cette procédure pour un système intégré, vérifiez que vo
      > [!NOTE]
      > Si vous ne parvenez pas à vous connecter au point de terminaison ERCS, essayez à nouveau les étapes 1 et 2 en utilisant l’adresse IP d’une machine virtuelle ERCS à laquelle vous n’avez pas déjà essayé de vous connecter.
 
-3. Une fois connecté, l'invite devient **[*adresse IP ou nom de la machine virtuelle ERCS*]: PS>** ou à **[azs-ercs01]: PS>**, en fonction de l'environnement. Depuis cette invite, exécutez `Get-Command` pour afficher la liste des applets de commande disponibles.
+3. Une fois connecté, l'invite devient **[*adresse IP ou nom de la machine virtuelle ERCS*]: PS>** ou à **[azs-ercs01]: PS>** , en fonction de l'environnement. Depuis cette invite, exécutez `Get-Command` pour afficher la liste des applets de commande disponibles.
 
    Un grand nombre de ces applets de commande sont uniquement destinées aux environnements de système intégré (par exemple, les applets de commande associées à l’intégration au centre de données). Dans le Kit ASDK, les applets de commande suivantes ont été validées :
 
@@ -123,7 +123,7 @@ Pour importer la session du point de terminaison privilégié sur votre ordinate
 
 1. Établir une relation de confiance.
 
-    - Sur un système intégré, exécutez la commande suivante à partir d’une session Windows PowerShell avec élévation de privilèges pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur la machine virtuelle renforcée en cours d’exécution sur l’hôte de cycle de vie du matériel ou sur la station de travail d’accès privilégié.
+    \- Sur un système intégré, exécutez la commande suivante à partir d’une session Windows PowerShell avec élévation de privilèges pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur la machine virtuelle renforcée en cours d’exécution sur l’hôte de cycle de vie du matériel ou sur la station de travail d’accès privilégié.
 
       ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
@@ -167,10 +167,16 @@ Pour importer la session du point de terminaison privilégié sur votre ordinate
 Pour fermer la session du point de terminaison :
 
 1. Créez un partage de fichiers externe qui est accessible au point de terminaison privilégié. Dans un environnement avec Kit de développement, vous pouvez simplement créer un partage de fichiers sur l’hôte du Kit de développement.
-2. Exécutez l’applet de commande `Close-PrivilegedEndpoint`. 
-3. Vous êtes invité à entrer le chemin sur lequel stocker le fichier journal de transcription. Spécifiez le partage de fichiers que vous avez créé précédemment, dans le format &#92;&#92;*nom_serveur*&#92;*nom_partage*. Si vous ne spécifiez pas de chemin, l’applet de commande échoue et la session reste ouverte. 
+2. Exécutez le cmdlet 
+    ```powershell
+    Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
+    ```
+where
+| Paramètre | Description | Type | Obligatoire |
+|---------|---------|---------|---------|
+| *TranscriptsPathDestination* | chemin d’accès au partage de fichiers externe défini comme « fileshareIP\sharefoldername » | Chaîne | Oui|
+| *Informations d'identification* | informations d’identification pour accéder au partage de fichiers | SecureString |  Oui |
 
-    ![Sortie de l’applet de commande Close-PrivilegedEndpoint qui indique où vous spécifiez le chemin de destination de la transcription](media/azure-stack-privileged-endpoint/closeendpoint.png)
 
 Une fois les fichiers journaux de transcription correctement transférés vers le partage de fichiers, ils sont automatiquement supprimés du point de terminaison privilégié. 
 

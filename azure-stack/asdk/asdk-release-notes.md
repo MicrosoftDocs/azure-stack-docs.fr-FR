@@ -11,22 +11,39 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 06/28/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 2ca85da5d9fde42fb06eef149e7304ab08bc32ee
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.lastreviewed: 06/28/2019
+ms.openlocfilehash: ba3ad4bf5e5d7f76d5d29e7967944be72e989c27
+ms.sourcegitcommit: 068350a79805366e7e6536fb7df85a412bd0be99
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691203"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67511294"
 ---
 # <a name="asdk-release-notes"></a>Notes de publication relatives à l’ASDK
 
 Cet article fournit des informations sur des modifications, des correctifs et des problèmes connus en lien avec le Kit de développement Azure Stack (ASDK). Si vous n’êtes pas sûr de la version que vous exécutez, consultez le [portail pour vérifier](../operator/azure-stack-updates.md#determine-the-current-version).
 
 Tenez-vous informé des nouveautés concernant le kit ASDK en vous abonnant au [flux RSS](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
+
+## <a name="build-11906030"></a>Build 1.1906.0.30
+
+### <a name="new-features"></a>Nouvelles fonctionnalités
+
+- Pour obtenir la liste des nouvelles fonctionnalités dans cette version, consultez [cette section](../operator/azure-stack-release-notes-1906.md#whats-in-this-update) des notes de publication Azure Stack.
+
+### <a name="changes"></a>Changements
+
+- Ajout d’une machine virtuelle de prise en charge **AzS-SRNG01** qui héberge le service de collecte des journaux pour Azure Stack. Pour plus d’informations, consultez [Rôles des machines virtuelles](asdk-architecture.md).
+
+### <a name="fixed-and-known-issues"></a>Problèmes connus et résolus
+
+- Lorsque vous créez des ressources de machine virtuelle à l’aide de certaines images de la place de marché, vous ne pourrez peut-être pas effectuer le déploiement. Pour résoudre ce problème, vous pouvez cliquer sur le lien **Télécharger le modèle et les paramètres** dans la page de **résumé**, puis cliquer sur le bouton **Déployer** dans le panneau **Modèle**. 
+- Pour obtenir la liste des problèmes Azure Stack corrigés dans cette version, consultez [cette section](../operator/azure-stack-release-notes-1906.md#fixes) des notes de publication Azure Stack.
+- Pour obtenir la liste des problèmes connus, consultez [cet article](../operator/azure-stack-release-notes-known-issues-1906.md).
+- Notez que les [correctifs logiciels d’Azure Stack](../operator/azure-stack-release-notes-1906.md#hotfixes) ne sont pas applicables au kit ASDK Azure Stack.
 
 ## <a name="build-11905040"></a>Build 1.1905.0.40
 
@@ -38,15 +55,7 @@ Tenez-vous informé des nouveautés concernant le kit ASDK en vous abonnant au [
 
 ### <a name="fixed-and-known-issues"></a>Problèmes connus et résolus
 
-- En raison d’un délai d’expiration du principal du service lors de l’exécution du script d’inscription, vous devez, pour réussir à [inscrire le kit ASDK](asdk-register.md), modifier le script PowerShell **RegisterWithAzure.psm1**. Effectuez les actions suivantes :
-
-  1. Sur l’ordinateur hôte du kit ASDK, ouvrez le fichier **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** dans un éditeur avec élévation de privilèges.
-  2. À la fin de la ligne 1249, ajoutez un paramètre `-TimeoutInSeconds 1800`. Cet ajout est exigé en raison d’un délai d’expiration du principal du service lors de l’exécution du script d’inscription. La ligne 1249 doit maintenant ressembler à ceci :
-
-     ```powershell
-      $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
-      ```
-
+- Correction d’un problème dans lequel vous devez modifier le script PowerShell **RegisterWithAzure.psm1** pour pouvoir [inscrire le Kit ASDK](asdk-register.md).
 - Pour obtenir la liste des autres problèmes Azure Stack corrigés dans cette version, consultez [cette section](../operator/azure-stack-release-notes-1905.md#fixes) des notes de publication Azure Stack.
 - Pour obtenir la liste des problèmes connus, consultez [cet article](../operator/azure-stack-release-notes-known-issues-1905.md).
 - Notez que les [correctifs logiciels d’Azure Stack](../operator/azure-stack-release-notes-1905.md#hotfixes) ne sont pas applicables au kit ASDK Azure Stack.
@@ -79,23 +88,6 @@ Tenez-vous informé des nouveautés concernant le kit ASDK en vous abonnant au [
 ## <a name="build-1903"></a>Build 1903
 
 La charge utile 1903 n’inclut aucune version ASDK.
-
-## <a name="build-11902069"></a>Build 1.1902.0.69
-
-### <a name="new-features"></a>Nouvelles fonctionnalités
-
-- La build 1902 introduit une nouvelle interface utilisateur sur le portail Administrateur Azure Stack pour la création de plans, d’offres, de quotas et de plans complémentaires. Pour plus d’informations, y compris des captures d’écran, consultez [Créer des plans, des offres et des quotas](../operator/azure-stack-create-plan.md).
-
-- Pour obtenir la liste des autres changements et améliorations dans cette version, consultez [cette section](../operator/azure-stack-update-1902.md#improvements) des notes de publication Azure Stack.
-
-<!-- ### New features
-
-- For a list of new features in this release, see [this section](../operator/azure-stack-update-1902.md#new-features) of the Azure Stack release notes.
-
-### Fixed and known issues
-
-- For a list of issues fixed in this release, see [this section](../operator/azure-stack-update-1902.md#fixed-issues) of the Azure Stack release notes. For a list of known issues, see [this section](../operator/azure-stack-update-1902.md#known-issues-post-installation).
-- Note that [available Azure Stack hotfixes](../operator/azure-stack-update-1902.md#azure-stack-hotfixes) are not applicable to the Azure Stack ASDK. -->
 
 ### <a name="known-issues"></a>Problèmes connus
 

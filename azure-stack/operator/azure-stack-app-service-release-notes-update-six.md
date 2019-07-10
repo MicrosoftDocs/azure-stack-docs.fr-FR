@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: d3464681463cfb66a368210beed79d5ef4c28739
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: db403f68879efa9103e35bb3581801240c0d64d3
+ms.sourcegitcommit: 1545e18a31cd715a12c7ddc3bcb173b41eb41730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828317"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67348735"
 ---
 # <a name="app-service-on-azure-stack-update-6-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 6
 
@@ -112,6 +112,10 @@ Les locataires ne peuvent pas encore utiliser le Centre de déploiement, qui est
 - L’expérience utilisateur (classique) des options de déploiement et les options du portail Informations d’identification du déploiement ne sont pas disponibles
 
 Pour accéder aux expériences utilisateur des options de déploiement et des informations d’identification du déploiement dans le déploiement Azure Stack, les locataires doivent accéder au portail à l’aide d’une URL au format https://portal.&lt ;*region*&gt;.&lt;*FQDN*&gt; /?websitesExtension_oldvsts=true (à savoir [https://portal.local.azurestack.external/?websitesExtension_oldvsts=true](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) pour le Kit ASDK), puis accéder à leurs applications normalement.
+
+- Azure Fonction Monitoring montre en permanence « Chargement en cours » dans le portail
+
+Lorsque vous essayez d’analyser des fonctions individuelles, dans le portail locataire, vous ne verrez pas de journal d’invocation, ni le nombre de réussites ou le nombre d’erreurs.  Pour réactiver cette fonctionnalité, accédez à votre **Function App**, accédez à **Fonctionnalités de la plateforme** et accédez à **Paramètres de l’application**.  Ajouter un paramètre d’application -name **AzureWebJobsDashboard** et définissez la valeur sur la même que celle définie dans AzureWebJobsStorage.  Puis accédez à la vue d’analyse sur votre fonction et vous verrez les informations de surveillance.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

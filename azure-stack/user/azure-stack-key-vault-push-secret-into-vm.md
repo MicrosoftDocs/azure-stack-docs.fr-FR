@@ -3,8 +3,8 @@ title: Déployer une machine virtuelle avec un certificat stocké de façon séc
 description: Découvrez comment déployer une machine virtuelle et y placer un certificat avec un coffre de clés dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: 46590eb1-1746-4ecf-a9e5-41609fde8e89
 ms.service: azure-stack
@@ -12,24 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 12/27/2018
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 06/11/2019
+ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 965b9c0cde96e1e29828f37cdddaa9d30c0503a4
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 9403931d91756e744dcdb6c34adb26e8281f6d28
+ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310907"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67492386"
 ---
-# <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>Créer une machine virtuelle et installer un certificat récupéré auprès d’un coffre de clés Azure Stack
+# <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack"></a>Déployer une machine virtuelle avec un certificat stocké de façon sécurisée sur Azure Stack 
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Découvrez comment créer une machine virtuelle Azure Stack avec un certificat de coffre de clés installé.
+Cet article décrit comment déployer une machine virtuelle Azure Stack avec un certificat de coffre de clés installé.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Les certificats sont utilisés dans de nombreux scénarios, comme l’authentification auprès d’Active Directory ou le chiffrement du trafic web. Vous pouvez stocker de manière sécurisée des certificats en tant que secrets dans un coffre de clés Azure Stack. Les avantages de l’utilisation d’un coffre de clés Azure Stack sont :
 
@@ -37,16 +36,16 @@ Les certificats sont utilisés dans de nombreux scénarios, comme l’authentifi
 * Le processus de gestion des certificats est simple.
 * Vous pouvez contrôler des clés qui accèdent aux certificats.
 
-### <a name="process-description"></a>Description du processus
+## <a name="process-description"></a>Description du processus
 
 Les étapes suivantes décrivent le processus permettant de placer un certificat sur la machine virtuelle :
 
-1. Créer un secret Key Vault.
-2. Mettre à jour le fichier azuredeploy.parameters.json.
+1. Créez un secret Key Vault.
+2. Mettez à jour le fichier **azuredeploy.parameters.json**.
 3. Déployez le modèle.
 
 > [!NOTE]
-> Vous pouvez utiliser ces étapes à partir du Kit de développement Azure Stack, ou à partir d’un client externe si vous êtes connecté via un VPN.
+> Vous pouvez utiliser ces étapes à partir du Kit de développement Azure Stack (ASDK), ou à partir d’un client externe si vous êtes connecté via un VPN.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -73,8 +72,8 @@ $pwd = ConvertTo-SecureString `
   -AsPlainText
 
 Export-PfxCertificate `
-  -cert "cert:\localMachine\my\<Certificate Thumbprint that was created in the previous step>" `
-  -FilePath "<Fully qualified path where the exported certificate can be stored>" `
+  -cert "cert:\localMachine\my\<certificate thumbprint that was created in the previous step>" `
+  -FilePath "<Fully qualified path to where the exported certificate can be stored>" `
   -Password $pwd
 
 # Create a key vault and upload the certificate into the key vault as a secret
@@ -82,7 +81,7 @@ $vaultName = "contosovault"
 $resourceGroup = "contosovaultrg"
 $location = "local"
 $secretName = "servicecert"
-$fileName = "<Fully qualified path where the exported certificate can be stored>"
+$fileName = "<Fully qualified path to where the exported certificate can be stored>"
 $certPassword = "<Password used to export the certificate>"
 
 $fileContentBytes = get-content $fileName `
@@ -120,13 +119,13 @@ Set-AzureKeyVaultSecret `
    -SecretValue $secret
 ```
 
-À l’exécution du script précédent, la sortie inclut l’URI du secret. Notez cet URI. Vous devez le référencer dans le [modèle Placer le certificat dans Windows Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Téléchargez le dossier de modèles [vm-push-certificate-windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) sur votre ordinateur de développement. Ce dossier contient les fichiers `azuredeploy.json` et `azuredeploy.parameters.json` dont vous avez besoin aux étapes suivantes.
+À l’exécution du script, la sortie inclut l’URI du secret. Notez cet URI, car vous devez le référencer dans le [modèle Placer le certificat dans Windows Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Téléchargez le dossier de modèles [vm-push-certificate-windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) sur votre ordinateur de développement. Ce dossier contient les fichiers **azuredeploy.json** et **azuredeploy.parameters.json** dont vous avez besoin dans les étapes suivantes.
 
-Modifiez le fichier `azuredeploy.parameters.json` en fonction des valeurs de votre environnement. Les paramètres les plus intéressants sont le nom du coffre, le groupe de ressources du coffre et l’URI du secret (généré par le script précédent). La section suivante montre un exemple de fichier de paramètres.
+Modifiez le fichier **azuredeploy.parameters.json** conformément aux valeurs de votre environnement. Les paramètres importants sont le nom du coffre, le groupe de ressources du coffre et l’URI du secret (généré par le script précédent). La section suivante montre un exemple de fichier de paramètres.
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Mettre à jour le fichier azuredeploy.parameters.json
 
-Mettez à jour le fichier `azuredeploy.parameters.json` avec `vaultName`, l’URI secret, `VmName` et d’autres valeurs en fonction de votre environnement. Le fichier JSON suivant est un exemple de fichier de paramètres du modèle :
+Mettez à jour le fichier **azuredeploy.parameters.json** avec les paramètres `vaultName`, URI du secret, `VmName` et autres en fonction de votre environnement. Le fichier JSON suivant est un exemple de fichier de paramètres du modèle :
 
 ```json
 {
@@ -181,13 +180,13 @@ Une fois le modèle déployé, la sortie suivante est générée :
 Azure Stack envoie (push) le certificat sur la machine virtuelle lors du déploiement. L’emplacement du certificat dépend du système d’exploitation de la machine virtuelle :
 
 * Sous Windows, le certificat est ajouté à l’emplacement de certificat **LocalMachine**, avec le magasin de certificats fourni par l’utilisateur.
-* Sous Linux, le certificat est placé sous `/var/lib/waagent directory`, avec le nom de fichier &lt;UppercaseThumbprint&gt;.crt pour le fichier de certificat X509 et &lt;UppercaseThumbprint&gt;.prv pour la clé privée.
+* Sous Linux, le certificat est placé dans le répertoire **/var/lib/waagent**, avec le nom de fichier **UppercaseThumbprint.crt** pour le fichier de certificat X509 et **UppercaseThumbprint.prv** pour la clé privée.
 
 ## <a name="retire-certificates"></a>Mettre hors service des certificats
 
-La mise hors service de certificats fait partie du processus de gestion des certificats. Vous ne pouvez pas supprimer l’ancienne version d’un certificat, mais vous pouvez la désactiver en utilisant la cmdlet `Set-AzureKeyVaultSecretAttribute`.
+La mise hors service de certificats fait partie du processus de gestion des certificats. Vous ne pouvez pas supprimer l’ancienne version d’un certificat, mais vous pouvez la désactiver en utilisant l’applet de commande `Set-AzureKeyVaultSecretAttribute`.
 
-L’exemple suivant montre comment désactiver un certificat. Utilisez vos propres valeurs pour les paramètres **VaultName**, **Name** et **Version**.
+L’exemple suivant montre comment désactiver un certificat. Remplacez par vos propres valeurs les paramètres `VaultName`, `Name` et `Version`.
 
 ```powershell
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0

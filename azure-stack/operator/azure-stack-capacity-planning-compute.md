@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/13/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 6afaca6e9bad806f432cf56b79dca5881bb76455
-ms.sourcegitcommit: fbd6a7fed4f064113647540329a768347a6cf261
+ms.lastreviewed: 06/13/2019
+ms.openlocfilehash: 9c263b97deb12a199f2941be7ea4ae05a048837b
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66810227"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131635"
 ---
 # <a name="azure-stack-compute"></a>Calcul Azure Stack
 
@@ -85,19 +85,21 @@ La valeur V, à savoir la taille de la plus grande machine virtuelle dans l’un
 
 ## <a name="frequently-asked-questions"></a>Forum Aux Questions (FAQ)
 
-Q : Mon locataire a déployé une nouvelle machine virtuelle. Combien de temps faut-il pour que la capacité restante soit reflétée dans le graphique de capacité sur le portail administrateur ?
-R : Prenez en compte que le panneau de capacité est actualisé toutes les 15 minutes.
+**Q** : Mon locataire a déployé une nouvelle machine virtuelle. Combien de temps faut-il pour que la capacité restante soit reflétée dans le graphique de capacité sur le portail administrateur ?
 
-Q : Le nombre de machines virtuelles déployées sur mon système Azure Stack n’a pas changé, mais la capacité fluctue. Pourquoi ?
-R : La mémoire disponible pour le placement des machines virtuelles dépend de plusieurs facteurs, dont la réserve du système d’exploitation hôte. Cette valeur dépend de la mémoire utilisée par les différents processus Hyper-V exécutés sur l’hôte, qui n’est pas une valeur constante.
+**R** : Prenez en compte que le panneau de capacité est actualisé toutes les 15 minutes.
 
-Q : Quel état doivent avoir les machines virtuelles locataires pour consommer de la mémoire ?
-R : La mémoire est consommée, non seulement par les machines virtuelles en cours d’exécution, mais aussi par toutes les machines virtuelles qui ont atterri sur la structure fabric. Cela signifie que les machines virtuelles qui ont l’état « Création en cours » ou « Échec » ou bien qui sont arrêtées à partir de l’invité consomment de la mémoire, contrairement aux machines qui sont libérées à l’aide de l’option d’arrêt appropriée à partir du portail, de PowerShell ou de la CLI.
+**Q** : Le nombre de machines virtuelles déployées sur mon système Azure Stack n’a pas changé, mais la capacité fluctue. Pourquoi ?
 
+**R** : La mémoire disponible pour le placement des machines virtuelles dépend de plusieurs facteurs, dont la réserve du système d’exploitation hôte. Cette valeur dépend de la mémoire utilisée par les différents processus Hyper-V exécutés sur l’hôte, qui n’est pas une valeur constante.
 
-Q : J’ai un système Azure Stack avec quatre hôtes. Mon locataire a trois machines virtuelles qui consomment 56 Go de RAM (D5_v2) chacune. L’une de ces machines virtuelles est redimensionnée à 112 Go de RAM (D14_v2), et les rapports sur la mémoire disponibles dans le tableau de bord montrent un pic d’utilisation de 168 Go dans le panneau de capacité. Le redimensionnement ultérieur des deux autres machines virtuelles D5_v2 à D14_v2 a entraîné une augmentation de la RAM de 56 Go uniquement sur chacune. Pourquoi ?
+**Q** : Quel état doivent avoir les machines virtuelles locataires pour consommer de la mémoire ?
 
-R : La mémoire disponible est une fonction de la réserve de résilience gérée par Azure Stack. La réserve de résilience est une fonction de la taille de la plus grande machine virtuelle sur le tampon Azure Stack. Dans un premier temps, la machine virtuelle la plus grande sur le tampon avait une capacité de 56 Go de mémoire. Quand la machine virtuelle a été redimensionnée, la machine virtuelle la plus grande sur le tampon est passée à 112 Go de mémoire, ce qui a non seulement augmenté la mémoire utilisée par cette machine virtuelle locataire, mais également augmenté la réserve de résilience. Cela a entraîné une augmentation de 56 Go (augmentation de la mémoire de 56 Go à 112 Go sur la machine virtuelle locataire) ainsi qu’une augmentation de la mémoire de résilience de réserve qui est passée à 112 Go. Quand les autres machines virtuelles ont ensuite été redimensionnées, la taille de la plus grande machine virtuelle est restée à la taille de la machine virtuelle de 112 Go et par conséquent, il n’y a pas eu d’augmentation de la réserve de résilience. L’augmentation de la consommation de mémoire s’est limitée à l’augmentation de la mémoire de la machine virtuelle (56 Go). 
+v : La mémoire est consommée, non seulement par les machines virtuelles en cours d’exécution, mais aussi par toutes les machines virtuelles qui ont atterri sur la structure fabric. Cela signifie les machines virtuelles qui sont dans l’état « Création », « Échec » ou les machines virtuelles arrêtées à partir de la g
+
+**Q** : J’ai un système Azure Stack avec quatre hôtes. Mon locataire a trois machines virtuelles qui consomment 56 Go de RAM (D5_v2) chacune. L’une de ces machines virtuelles est redimensionnée à 112 Go de RAM (D14_v2), et les rapports sur la mémoire disponibles dans le tableau de bord montrent un pic d’utilisation de 168 Go dans le panneau de capacité. Le redimensionnement ultérieur des deux autres machines virtuelles D5_v2 à D14_v2 a entraîné une augmentation de la RAM de 56 Go uniquement sur chacune. Pourquoi ?
+
+**R** : La mémoire disponible est une fonction de la réserve de résilience gérée par Azure Stack. La réserve de résilience est une fonction de la taille de la plus grande machine virtuelle sur le tampon Azure Stack. Dans un premier temps, la machine virtuelle la plus grande sur le tampon avait une capacité de 56 Go de mémoire. Quand la machine virtuelle a été redimensionnée, la machine virtuelle la plus grande sur le tampon est passée à 112 Go de mémoire, ce qui a non seulement augmenté la mémoire utilisée par cette machine virtuelle locataire, mais également augmenté la réserve de résilience. Cela a entraîné une augmentation de 56 Go (augmentation de la mémoire de 56 Go à 112 Go sur la machine virtuelle locataire) ainsi qu’une augmentation de la mémoire de résilience de réserve qui est passée à 112 Go. Quand les autres machines virtuelles ont ensuite été redimensionnées, la taille de la plus grande machine virtuelle est restée à la taille de la machine virtuelle de 112 Go et par conséquent, il n’y a pas eu d’augmentation de la réserve de résilience. L’augmentation de la consommation de mémoire s’est limitée à l’augmentation de la mémoire de la machine virtuelle (56 Go). 
 
 
 > [!NOTE]

@@ -11,22 +11,22 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
-ms.date: 04/02/2019
+ms.date: 06/18/2019
 ms.reviewer: waltero
-ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 33eed0b574ad28c5fc0d1fb44f1c9b5a1ad37bb7
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 06/18/2019
+ms.openlocfilehash: 89138601d1049f192946473d0a1fdb2c21df3e4c
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269388"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308716"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Résoudre les problèmes de déploiement Kubernetes sur Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!Note]  
-> Kubernetes sur Azure Stack est en préversion. Le scénario Azure Stack déconnecté n'est actuellement pas pris en charge par la préversion.
+> Kubernetes sur Azure Stack est en préversion. Un scénario Azure Stack déconnecté n'est actuellement pas pris en charge par la préversion. Utiliser uniquement l’élément de place de marché pour les scénarios de développement et de test.
 
 Cet article examine comment résoudre les problèmes sur votre cluster Kubernetes. Pour commencer, passez en revue les éléments requis pour le déploiement. Vous devrez peut-être collecter les journaux d’activité de déploiement à partir du système Azure Stack ou des machines virtuelles Linux qui hébergent Kubernetes. Pour récupérer les journaux d’activité à partir d’un point de terminaison d’administration, contactez votre administrateur Azure Stack.
 
@@ -148,7 +148,7 @@ Suivez ces étapes pour collecter et télécharger les journaux de cluster :
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -d, --vmd-host      | Adresse IP publique ou nom de domaine complet (FQDN) de la machine virtuelle de déploiement. Le nom de la machine virtuelle commence par `vmd-`. | Adresse IP : 192.168.102.38<br>DNS : vmd-myk8s.local.cloudapp.azurestack.external |
     | -h, --help  | Utilisation de la commande d’impression. | |
-    | -i, --identity-file | Fichier de clé privée RSA passé à l’élément de la Place de marché lors de la création du cluster Kubernetes. Nécessaire pour la connexion à distance aux nœuds Kubernetes. | C:\data\id_rsa.pem (PuTTY)<br>~/.ssh/id_rsa (SSH)
+    | -i, --identity-file | Chemin du fichier de clé privée RSA passé à l’élément de la Place de marché lors de la création du cluster Kubernetes. Nécessaire pour la connexion à distance aux nœuds Kubernetes. | C:\data\id_rsa.pem (PuTTY)<br>~/.ssh/id_rsa (SSH)
     | -m, --master-host   | Adresse IP publique ou nom de domaine complet (FQDN) d’un nœud maître Kubernetes. Le nom de la machine virtuelle commence par `k8s-master-`. | Adresse IP : 192.168.102.37<br>Nom de domaine complet : k8s-12345.local.cloudapp.azurestack.external      |
     | -u, --user          | Nom d’utilisateur passé à l’élément de la Place de marché lors de la création du cluster Kubernetes. Nécessaire pour la connexion à distance aux nœuds Kubernetes. | azureuser (valeur par défaut) |
 

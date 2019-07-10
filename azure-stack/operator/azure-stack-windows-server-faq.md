@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/22/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: ffb58392075521b81d9b0cd71928ac0db680991f
-ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
+ms.openlocfilehash: 0896ea921408d651a4b8e072c3d66ab4e333ebd6
+ms.sourcegitcommit: fdeb2760845c9760ea7df1414b8e140b0624a823
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66459073"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67334429"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>FAQ relative à Windows Server dans la Place de marché Azure Stack
 
@@ -36,7 +36,7 @@ Ensuite, si des groupes de machines virtuelles identiques font référence à un
 
 ### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack"></a>Quelles sont les options de licence pour les images Place de Marché Windows Server sur Azure Stack ?
 
-Les images Windows Server proposées par Microsoft par le biais de la Place de marché Azure Stack sont disponibles en deux versions :
+Les images Windows Server proposées par Microsoft par le biais de la place de marché Azure Stack sont disponibles en deux versions. Une seule version de cette image peut être utilisée dans un environnement Azure Stack.  
 
 - **Paiement à l’utilisation** : ces images sont associées à des compteurs Windows plein tarif.
    Public visé : clients Contrat Entreprise (EA) utilisant le *modèle de facturation Consommation* et fournisseurs de services cloud ne souhaitant pas utiliser de licence SPLA.
@@ -47,7 +47,9 @@ Azure Hybrid Use Benefit (AHUB) n’est pas pris en charge sur Azure Stack. Les 
 
 ### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>Que faire si je télécharge la mauvaise version et que j’offre celle-ci à mes clients/utilisateurs ?
 
-Commencez par supprimer la version incorrecte à l’aide du panneau Gestion de la Place de marché. Attendez que l’opération se termine entièrement (ce qui est indiqué dans une notification, et non dans le panneau **Gestion de la Place de marché**). Téléchargez ensuite la bonne version.
+Commencez par supprimer la version incorrecte de la place de marché. Attendez que l’opération se termine (ce qui est indiqué dans une notification, et non dans le panneau **Gestion de la Place de marché**). Téléchargez ensuite la bonne version.
+
+Si vous téléchargez les deux versions de l’image, seule la dernière version est visible pour les clients finaux dans la galerie de la place de marché.
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>Que faire si l’un de mes utilisateurs a par erreur coché la case « J’ai une licence » dans les builds Windows précédentes alors qu’il n’a pas de licence ?
 

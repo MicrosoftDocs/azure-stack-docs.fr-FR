@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: ab5b0b5ac0e67a2a625285bd37a04b084fa8da0f
-ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
+ms.openlocfilehash: d6944fefeb55c1b2a109964271c84daafb8b8ff8
+ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65386601"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67397297"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN site à site
 
@@ -30,7 +30,7 @@ Cet article décrit les étapes permettant de configurer une stratégie IPsec/IK
 
 ## <a name="ipsec-and-ike-policy-parameters-for-vpn-gateways"></a>Paramètres de stratégie IPsec et IKE pour les passerelles VPN
 
-La norme de protocole IPsec et IKE prend en charge un large éventail d’algorithmes de chiffrement dans différentes combinaisons. Pour voir quels sont les paramètres pris en charge dans Azure Stack, consultez  [Paramètres IPsec/IKE](azure-stack-vpn-gateway-settings.md#ipsecike-parameters). Ces informations peuvent vous aider à répondre aux exigences de conformité ou de sécurité.
+La norme de protocole IPsec et IKE prend en charge un large éventail d’algorithmes de chiffrement dans différentes combinaisons. Pour voir quels sont les paramètres pris en charge dans Azure Stack, consultez [Paramètres IPsec/IKE](azure-stack-vpn-gateway-settings.md#ipsecike-parameters). Ces informations peuvent vous aider à répondre aux exigences de conformité ou de sécurité.
 
 Cet article fournit des instructions sur la création et la configuration d’une stratégie IPsec/IKE ainsi que sur son application à une connexion nouvelle ou existante.
 
@@ -38,9 +38,9 @@ Cet article fournit des instructions sur la création et la configuration d’un
 
 Notez les points importants suivants concernant l’utilisation de ces stratégies :
 
-- La stratégie IPsec/IKE fonctionne uniquement sur les références SKU de passerelle *Standard* et *HighPerformance* (Basé sur itinéraires).
+- La stratégie IPsec/IKE fonctionne uniquement sur les références SKU de passerelle *Standard* et *HighPerformance* (Basé sur itinéraires).
 
-- Vous ne pouvez spécifier qu’ **une seule**  combinaison de stratégies pour une connexion donnée.
+- Vous pouvez uniquement spécifier **une** combinaison de stratégie pour une connexion donnée.
 
 - Vous devez spécifier tous les algorithmes et paramètres pour IKE (mode principal) et IPsec (mode rapide). Vous n’êtes pas en droit de spécifier de stratégie partielle.
 
@@ -111,7 +111,7 @@ Le tableau suivant répertorie les groupes Diffie-Hellman correspondants pris en
 | 20                   | ECP384    | ECP384        | ECP 384 bits   |
 | 24                   | DHGroup24 | PFS24         | MODP 2 048 bits |
 
-Pour plus d’informations, consultez les [RFC3526](https://tools.ietf.org/html/rfc3526) et [RFC5114](https://tools.ietf.org/html/rfc5114).
+Pour en savoir plus, voir [RFC3526](https://tools.ietf.org/html/rfc3526) et [RFC5114](https://tools.ietf.org/html/rfc5114).
 
 ## <a name="part-3---create-a-new-site-to-site-vpn-connection-with-ipsecike-policy"></a>Partie 3 - Créer une connexion VPN site à site avec une stratégie IPsec/IKE
 
@@ -119,15 +119,15 @@ Cette section vous guide tout au long des étapes de création d’une connexion
 
 ![stratégie site à site](media/azure-stack-vpn-s2s/site-to-site.png)
 
-Pour obtenir des instructions détaillées sur la création d’une connexion VPN site à site, consultez [Créer une connexion VPN site à site](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell).
+Pour obtenir des instructions détaillées sur la création d’une connexion VPN site à site, consultez[Créer une connexion VPN site à site](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell).
 
 ### <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, vérifiez que les prérequis suivants sont remplis :
 
-- Un abonnement Azure. Si vous n’avez pas déjà un abonnement Azure, vous pouvez activer vos  [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire pour obtenir un  [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
+- Un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
-- Applets de commande Azure Resource Manager PowerShell. Consultez  [Installer PowerShell pour Azure Stack](../operator/azure-stack-powershell-install.md) pour plus d’informations sur l’installation des applets de commande PowerShell.
+- Applets de commande Azure Resource Manager PowerShell. Consultez [Installer PowerShell pour Azure Stack](../operator/azure-stack-powershell-install.md) pour plus d’informations sur l’installation des cmdlets PowerShell.
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>Étape 1 : création du réseau virtuel, de la passerelle VPN et de la passerelle de réseau local
 
@@ -161,7 +161,7 @@ $LNGIP6 = "131.107.72.22"
 
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Se connecter à votre abonnement et créer un groupe de ressources
 
-Pour utiliser les applets de commande Resource Manager, passez au mode PowerShell. Pour plus d’informations, consultez  [Se connecter à Azure Stack en tant qu’utilisateur avec PowerShell](azure-stack-powershell-configure-user.md).
+Pour utiliser les applets de commande Resource Manager, passez au mode PowerShell. Pour plus d’informations, consultez [Se connecter à Azure Stack en tant qu’utilisateur avec PowerShell](azure-stack-powershell-configure-user.md).
 
 Ouvrez la console PowerShell et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
 
@@ -239,7 +239,7 @@ La section précédente a expliqué comment gérer la stratégie IPsec/IKE pour 
 3. Supprimer la stratégie IPsec/IKE d’une connexion
 
 > [!NOTE]
-> La stratégie IPsec/IKE est prise en charge uniquement sur les passerelles VPN  *Standard* et *HighPerformance*  (Basé sur itinéraires). Elle ne fonctionne pas sur la référence de passerelle *De base*.
+> Une stratégie IPsec/IKE est prise en charge uniquement sur des passerelles VPN *Standard* et *HighPerformance* basées sur itinéraires. Elle ne fonctionne pas sur la référence de passerelle *De base*.
 
 ### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1. Afficher la stratégie IPsec/IKE d’une connexion
 
@@ -305,7 +305,7 @@ PfsGroup : None
 
 ### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3. Supprimer une stratégie IPsec/IKE d’une connexion
 
-Une fois que vous avez supprimé la stratégie personnalisée d’une connexion, la passerelle VPN Azure rétablit la  [proposition IPsec/IKE par défaut](azure-stack-vpn-gateway-settings.md#ipsecike-parameters), puis renégocie avec votre périphérique VPN local.
+Une fois que vous avez supprimé la stratégie personnalisée d’une connexion, la passerelle VPN Azure rétablit la [proposition IPsec/IKE par défaut](azure-stack-vpn-gateway-settings.md#ipsecike-parameters), puis renégocie avec votre périphérique VPN local.
 
 ```powershell
 $RG1 = "TestPolicyRG1"

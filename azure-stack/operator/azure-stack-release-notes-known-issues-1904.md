@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 9b92e6e2e059f4b57742248672751111b504136c
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: f25bc769e7461c21e40017d6413cfbe35186441b
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469139"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419590"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Problèmes connus dans Azure Stack 1904
 
@@ -43,7 +43,7 @@ Cet article répertorie les problèmes connus dans la version 1904 d’Azure St
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Les deux abonnements d’administration qui ont été introduits avec la version 1804 ne doivent pas être utilisés. Les types d’abonnements sont **Metering (Compteur)** et **Consumption (Consommation)** .
-- Correction : Ces abonnements seront interrompus à partir de la version 1906 et ensuite supprimés. Si vous disposez de ressources s’exécutant sur ces deux abonnements, recréez-les dans des abonnements utilisateur avant la publication de la version 1906.
+- Correction : Si vous disposez de ressources s’exécutant sur ces deux abonnements, recréez-les dans des abonnements utilisateur.
 - Occurrence : Courant
 
 ### <a name="subscription-resources"></a>Ressources d’abonnement
@@ -102,6 +102,13 @@ Cet article répertorie les problèmes connus dans la version 1904 d’Azure St
 - Correction : Chargez le blob à l’aide de l’option SAP.
 - Occurrence : Courant
 
+### <a name="template"></a>Modèle
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, l’interface utilisateur du déploiement de modèle ne remplit pas les paramètres pour les noms de modèle commençant par « _ » (caractère de soulignement).
+- Correction : Supprimez le « _ » (caractère de soulignement) dans le nom du modèle.
+- Occurrence : Courant
+
 ## <a name="networking"></a>Mise en réseau
 
 ### <a name="load-balancer"></a>Équilibrage de charge
@@ -149,7 +156,7 @@ Cette erreur se produit si vous activez les diagnostics de démarrage sur une ma
 #### <a name="centos"></a>CentOS
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Quand vous créez un groupe de machines virtuelles identiques, l’option CentOS 7.2 est proposée pour le déploiement. CentOS 7.2 n’est pas disponible dans Azure Stack.
+- Cause : Quand vous créez un groupe identique de machines virtuelles, l’option CentOS 7.2 est proposée pour le déploiement. CentOS 7.2 n’étant pas disponible sur la Place de marché Azure Stack, cela provoque l’échec du déploiement, avec un message indiquant que l’image est introuvable.
 - Correction : Sélectionnez un autre système d’exploitation pour votre déploiement, ou choisissez un modèle Azure Resource Manager spécifiant une autre image CentOS qui a été téléchargée par l’opérateur avant le déploiement à partir de la Place de marché.
 - Occurrence : Courant
 

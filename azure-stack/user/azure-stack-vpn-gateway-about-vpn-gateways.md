@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: a8fe96d645d9277003e17144089a91e0722d0088
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 0df791c6eb9a898c5263b2c628899b512d49601c
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836839"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198656"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>À propos de la passerelle VPN pour Azure Stack
 
@@ -102,6 +102,14 @@ Prenez en compte les éléments suivants lorsque vous sélectionnez la référen
 * Azure Stack ne prend pas en charge les passerelles basées sur les stratégies.
 * Le protocole de passerelle frontière (BGP) n’est pas pris en charge pour la référence SKU de base.
 * Les configurations de passerelle VPN et ExpressRoute coexistantes ne sont pas prises en charge dans Azure Stack.
+
+## <a name="gateway-availability"></a>Disponibilité de la passerelle
+
+Les scénarios haute disponibilité ne peuvent être configurés que sur la connexion SKU de la **passerelle hautes performances**. Contrairement à Azure, qui offre la disponibilité grâce à des configurations actif/actif et actif/passif, Azure Stack prend uniquement en charge la configuration actif/passif. 
+
+### <a name="failover"></a>Basculement
+
+Azure Stack contient 3 machines virtuelles d’infrastructure de passerelle mutualisée. Deux de ces machines virtuelles sont en mode actif et la troisième est en mode redondant. Les machines virtuelles actives permettent la création de connexions VPN et la machine virtuelle redondante accepte uniquement les connexions VPN en cas de basculement. Si une machine virtuelle de passerelle active n’est plus disponible, la connexion VPN bascule vers la machine virtuelle redondante quelques instants (quelques secondes) après la perte de la connexion.
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a>Débit agrégé estimé par SKU
 
