@@ -14,12 +14,12 @@ ms.date: 05/26/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 4a7e36fda318c1987a39427c5ef1f5e5e307d1b6
-ms.sourcegitcommit: d04a93e913ff069e17f6d56811681804a6422b58
+ms.openlocfilehash: 6759264afaf3f44dd612662d9778d7de65a15924
+ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66373012"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67406957"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Utilisez des profils de version des API avec Go dans Azure Stack
 
@@ -32,7 +32,7 @@ Un profil est une combinaison de différents types de ressources dans différent
 - La stabilité de votre application en verrouillant sur des versions d’API spécifiques.
 - La compatibilité de votre application avec Azure Stack et les centres de données régionaux Azure.
 
-Dans le kit SDK Go, les profils sont disponibles sous le chemin des profils. Leur version est au format **AAAA-MM-JJ**. Pour le moment, la dernière version du profil d’API Azure Stack est la version **2019-03-01**. Pour importer un service donné à partir d’un profil, importez son module correspondant à partir du profil. Par exemple, pour importer le service **Compute** à partir du profil **2019-03-01**, utilisez le code suivant :
+Dans le kit SDK Go, les profils sont disponibles sous le chemin des profils. Leur version est au format **AAAA-MM-JJ**. La dernière version du profil d’API Azure Stack est actuellement la version **2019-03-01** pour les versions portant le tampon 1904 ou ultérieures. Pour importer un service donné à partir d’un profil, importez son module correspondant à partir du profil. Par exemple, pour importer le service **Compute** à partir du profil **2019-03-01**, utilisez le code suivant :
 
 ```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"
@@ -86,7 +86,7 @@ Pour exécuter un exemple de code Go sur Azure Stack, effectuez les étapes suiv
 
 3. Si vous n’en avez pas de disponible, créez un abonnement et enregistrez l’ID d’abonnement pour une utilisation ultérieure. Pour plus d’informations sur la création d’un abonnement, consultez [Créer des abonnements pour des offres dans Azure Stack](../operator/azure-stack-subscribe-plan-provision-vm.md).
 
-4. Créez un principal de service avec l’étendue **Abonnement** et le rôle **Propriétaire**. Enregistrez l’ID et le secret du principal de service. Pour plus d’informations sur la création d’un principal de service pour Azure Stack, consultez [Créer un principal du service](azure-stack-create-service-principals.md). Votre environnement Azure Stack est désormais configuré.
+4. Créez un principal de service utilisant une clé secrète client, avec l’étendue **Abonnement** et le rôle **Propriétaire**. Enregistrez l’ID et le secret du principal de service. Pour plus d’informations sur la création d’un principal de service pour Azure Stack, voir [Utiliser une identité d’application pour accéder aux ressources](../operator/azure-stack-create-service-principals.md). Votre environnement Azure Stack est désormais configuré.
 
 5. Importez un module de service à partir du profil de kit SDK Go dans votre code. La version actuelle du profil Azure Stack est **2019-03-01**. Par exemple, pour importer le module réseau à partir du type de profil **2019-03-01**, utilisez le code suivant :
 
@@ -132,7 +132,7 @@ Pour obtenir la propriété **Authorizer** d’Azure Active Directory à l’aid
 
 L’agent d’autorisation doit être défini comme l’agent d’autorisation pour le client de la ressource. Il existe différentes manières d’obtenir des jetons d’autorisation sur Azure Stack à l’aide des informations d’identification du client :
 
-1. Si un principal de service disposant du rôle de propriétaire sur l’abonnement est disponible, ignorez cette étape. Sinon, créez un [principal de service](azure-stack-create-service-principals.md) et attribuez-lui un rôle « propriétaire » [délimité par votre abonnement](azure-stack-create-service-principals.md#assign-the-service-principal-to-a-role). Enregistrez l’ID d’application du principal du service et le secret.
+1. Si un principal de service disposant du rôle de propriétaire sur l’abonnement est disponible, ignorez cette étape. Sinon, voir [Utiliser une identité d’application pour accéder aux ressources](../operator/azure-stack-create-service-principals.md) afin d’obtenir des instructions sur la création d’un principal de service utilisant une clé secrète client, et l’attribution à celui-ci d’un rôle « propriétaire » étendu à votre abonnement. Veillez à capturer l’ID d’application et le secret du principal de service.
 
 2. Importez le package **adal** à partir de Go-AutoRest dans votre code.
 

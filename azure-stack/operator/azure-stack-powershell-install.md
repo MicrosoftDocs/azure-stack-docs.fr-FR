@@ -15,12 +15,12 @@ ms.date: 05/09/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 9d05a218b9a93b19cdc694c49bde281dab1f91e9
-ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
+ms.openlocfilehash: c0f680aec95c23db2567100b47a341a5d3fb9dad
+ms.sourcegitcommit: 5a720b17bd6a5aab44929c0247db8d512e0669ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66042957"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67197168"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installer PowerShell pour Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "66042957"
 
 Pour utiliser votre cloud, vous devrez installer des modules PowerShell compatibles avec Azure Stack. La compatibilité est activée via une fonctionnalité appelée *profils d’API*.
 
-Les profils API permettent de gérer les différences de version entre Azure et Azure Stack. Un profil de version d’API est un ensemble de modules PowerShell Azure Resource Manager avec des versions d’API spécifiques. Chaque plateforme cloud a un ensemble de profils de version d’API pris en charge. Par exemple, Azure Stack prend en charge une version de profil spécifique telle que **2018-03-01-hybrid**. Quand vous installez un profil, les modules PowerShell Azure Resource Manager qui correspondent au profil spécifié sont installés.
+Les profils API permettent de gérer les différences de version entre Azure et Azure Stack. Un profil de version d’API est un ensemble de modules PowerShell Azure Resource Manager avec des versions d’API spécifiques. Chaque plateforme cloud a un ensemble de profils de version d’API pris en charge. Par exemple, Azure Stack prend en charge une version de profil spécifique telle que **2019-03-01-hybrid**. Quand vous installez un profil, les modules PowerShell Azure Resource Manager qui correspondent au profil spécifié sont installés.
 
 Vous pouvez installer les modules PowerShell compatibles avec Azure Stack dans des scénarios connectés à Internet, partiellement connectés, ou déconnectés. Cet article vous guide dans les instructions détaillées de ces scénarios.
 
@@ -84,13 +84,7 @@ Avant d’installer la version requise, vérifiez que vous avez désinstallé le
 
 ## <a name="4-connected-install-powershell-for-azure-stack-with-internet-connectivity"></a>4. Connecté : installer PowerShell pour Azure Stack avec connectivité Internet
 
-Utilisez AzureRM version 2.4.0 pour Azure Stack version 1901 ou ultérieure. En plus des modules AzureRM, installez les modules PowerShell spécifiques à Azure Stack. Le profil de version d’API et les modules Azure Stack PowerShell dont vous avez besoin varient selon la version d’Azure Stack que vous exécutez.
-
-L’installation comporte trois étapes :
-
-1. Installer Azure Stack PowerShell selon votre version d’Azure Stack
-2. Activer les fonctionnalités de stockage supplémentaire
-3. Confirmer l’installation de PowerShell
+Le profil de version d’API et les modules PowerShell pour Azure Stack dont vous avez besoin varient selon la version d’Azure Stack que vous exécutez.
 
 ### <a name="install-azure-stack-powershell"></a>Installer Azure Stack PowerShell
 
@@ -121,37 +115,6 @@ Exécutez le script PowerShell suivant pour installer ces modules sur votre stat
     > - Le module AzureRM version 2.4.0 est fourni avec un changement cassant pour l’applet de commande Remove-AzureRmStorageAccount. Cette cmdlet s’attend à ce que le paramètre -Force soit spécifié pour la suppression du compte de stockage sans confirmation.
     > - Vous n’avez pas besoin d’installer **AzureRM.BootStrapper** pour installer les modules destinés à Azure Stack version 1901 ou ultérieure.
     > - N’installez pas le profil hybride 2018-03-01 si vous utilisez les modules AzureRM ci-dessus avec Azure Stack version 1901 ou ultérieure.
-
-- Azure Stack version 1811 : installez le profil à l’aide d’**AzureRM.BootStrapper**, en plus des versions indiquées dans les applets de commande :
-
-    ```powershell  
-    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
-    Install-Module -Name AzureRM.BootStrapper
-
-    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-
-    Install-Module -Name AzureStack -RequiredVersion 1.6.0
-    ```
-
-### <a name="enable-additional-storage-features"></a>Activer les fonctionnalités de stockage supplémentaire
-
-Pour profiter des fonctionnalités de stockage supplémentaires (mentionnées dans la section Connecté), téléchargez et installez également les packages suivants.
-
-```powershell
-# Install the Azure.Storage module version 4.5.0
-Install-Module -Name Azure.Storage -RequiredVersion 4.5.0 -Force -AllowClobber
-
-# Install the AzureRM.Storage module version 5.0.4
-Install-Module -Name AzureRM.Storage -RequiredVersion 5.0.4 -Force -AllowClobber
-
-# Remove incompatible storage module installed by AzureRM.Storage
-Uninstall-Module -Name Azure.Storage -RequiredVersion 4.6.1 -Force
-
-# Load the modules explicitly specifying the versions
-Import-Module -Name Azure.Storage -RequiredVersion 4.5.0
-Import-Module -Name AzureRM.Storage -RequiredVersion 5.0.4
-```
 
 ### <a name="confirm-the-installation-of-powershell"></a>Confirmer l’installation de PowerShell
 
@@ -204,43 +167,11 @@ L’installation comporte quatre étapes :
     > [!Note]  
     > La version du module Azure Stack 1.7.1 est un changement cassant. Pour migrer à partir d’Azure Stack 1.6.0, consultez le [guide de migration](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
 
-  - Azure Stack 1811 ou version antérieure.
-
-    ```powershell
-    Import-Module -Name PowerShellGet -ErrorAction Stop
-    Import-Module -Name PackageManagement -ErrorAction Stop
-
-    $Path = "<Path that is used to save the packages>"
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
-    ```
-
-  - Azure Stack 1809 ou version antérieure.
-
-    ```powershell
-    Import-Module -Name PowerShellGet -ErrorAction Stop
-    Import-Module -Name PackageManagement -ErrorAction Stop
-
-    $Path = "<Path that is used to save the packages>"
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
-    ```
-
     > [!NOTE]
     > Sur les ordinateurs sans connexion Internet, nous vous recommandons d’exécuter la cmdlet suivante pour désactiver la collecte des données de télémétrie. Les performances des cmdlets pourraient se dégrader si la collecte des données de télémétrie n’est pas désactivée. Cela s’applique uniquement aux ordinateurs sans connexion Internet
     > ```powershell
     > Disable-AzureRmDataCollection
     > ```
-
-### <a name="enable-additional-storage-features"></a>Activer les fonctionnalités de stockage supplémentaire
-
-Pour profiter des fonctionnalités de stockage supplémentaires (mentionnées dans la section Connecté), téléchargez et installez également les packages suivants.
-
-```powershell
-$Path = "<Path that is used to save the packages>"
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azure.Storage -Path $Path -Force -RequiredVersion 4.5.0
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM.Storage -Path $Path -Force -RequiredVersion 5.0.4
-```
 
 ### <a name="add-your-packages-to-your-workstation"></a>Ajouter vos packages à votre station de travail
 

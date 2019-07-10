@@ -1,5 +1,5 @@
 ---
-title: Stockage d’informations d’identification du principal de service Azure Stack dans Key Vault | Microsoft Docs
+title: Stocker les informations d’identification du principal de service dans Azure Stack Key Vault | Microsoft Docs
 description: Découvrez comment Key Vault stocke les informations d’identification du principal de service sur Azure Stack
 services: azure-stack
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 05/21/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 1a9fc71f6e57621dba4488821ea2ca8b1e119e48
-ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
+ms.openlocfilehash: efa8dda8061ce81d751e9cce47c5e81a3917f2bf
+ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991324"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67138839"
 ---
-# <a name="store-service-principal-credentials-in-key-vault"></a>Stocker les informations d’identification du principal de service dans Key Vault
+# <a name="store-service-principal-credentials-in-azure-stack-key-vault"></a>Stocker les informations d’identification du principal de service dans Azure Stack Key Vault
 
-Le développement d’applications sur Azure Stack nécessite généralement la création d’un principal de service et l’utilisation de ces identifiants pour s’authentifier avant le déploiement. Cependant, les informations d’identification stockées du principal de service sont souvent égarées. Cet article explique comment créer un principal de service et stocker les valeurs dans Azure Key Vault en vue de leur récupération ultérieure.
+Le développement d’applications sur Azure Stack nécessite généralement la création d’un principal de service et l’utilisation de ces identifiants pour s’authentifier avant le déploiement. Toutefois, les informations d’identification stockées pour le principal de service sont parfois égarées. Cet article explique comment créer un principal de service et stocker les valeurs dans Azure Key Vault en vue de leur récupération ultérieure.
 
 Pour plus d’informations sur Key Vault, consultez [cet article](azure-stack-key-vault-intro.md).
 
@@ -64,7 +64,7 @@ Pour créer un coffre de clés, procédez comme suit :
 
 2. Sélectionnez **Azure Active Directory**, puis **Inscription des applications** et **Ajouter**.
 
-3. Fournissez un nom et une URL pour l’application. Sélectionnez **Application Web / API** ou **Native** pour le type d’application que vous souhaitez créer. Après avoir défini les valeurs, sélectionnez **Créer**.
+3. Fournissez un nom et une URL pour l’application. Sélectionnez **Application Web/API** ou **Native** pour le type d’application que vous souhaitez créer. Après avoir défini les valeurs, sélectionnez **Créer**.
 
 4. Sélectionnez **Active Directory**, puis **Inscriptions d’applications** et sélectionnez ensuite votre application.
 
@@ -72,7 +72,7 @@ Pour créer un coffre de clés, procédez comme suit :
 
 6. Pour générer une clé d’authentification, sélectionnez **Clés**.
 
-7. Fournissez une description de la clé et une durée.
+7. Fournissez une description et une durée pour la clé.
 
 8. Sélectionnez **Enregistrer**.
 
@@ -84,7 +84,7 @@ Pour créer un coffre de clés, procédez comme suit :
 
 2. Dans le volet **Secret**, sélectionnez **Générer/importer**.
 
-3. Dans la liste d’options du volet **Créer une clé secrète**, sélectionnez **Manuel**. Si vous avez créé le principal de service à l’aide de certificats, sélectionnez les certificats dans la liste déroulante, puis chargez le fichier.
+3. Dans la liste d’options du volet **Créer un secret**, sélectionnez **Manuel**. Si vous avez créé le principal de service à l’aide de certificats, sélectionnez les certificats dans la liste déroulante, puis chargez le fichier.
 
 4. Entrez **l’ID d’application** copié à partir du principal de service en tant que nom de votre clé. Le nom de la clé ne peut contenir que des caractères alphanumériques et des traits d'union (-).
 
@@ -96,7 +96,7 @@ Pour créer un coffre de clés, procédez comme suit :
 
 8. Sélectionnez **Créer** pour démarrer le déploiement.
 
-Une fois la clé secrète créée avec succès, les informations du principal de service y seront stockées. Vous pouvez le sélectionner à tout moment sous **Secrets**, et afficher ou modifier ses propriétés. La section Propriétés contient l’identificateur de secret, qui est un URI par lequel les applications externes peuvent accéder à cette clé secrète.
+Une fois le secret créé, les informations du principal de service y sont stockées. Vous pouvez le sélectionner à tout moment sous **Secrets**, et afficher ou modifier ses propriétés. La section Propriétés contient l’identificateur de secret, qui est un URI par lequel les applications externes peuvent accéder à ce secret.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

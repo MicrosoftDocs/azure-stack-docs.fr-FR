@@ -1,6 +1,6 @@
 ---
 title: Protéger des machines virtuelles déployées sur Azure Stack | Microsoft Docs
-description: Instructions sur la façon de protéger les machines virtuelles déployées sur Azure Stack.
+description: Découvrez comment créer un plan de récupération pour protéger les machines virtuelles déployées sur Azure Stack contre la perte de données et les temps d’arrêt non planifiés.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,18 +16,19 @@ ms.date: 05/06/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: 73d1408a62feaacbc8f50fb72b1c00edf6e82869
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 9f8fe959ca200b7000df65b6826a103535aac92a
+ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617424"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67492418"
 ---
-# <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Protéger des machines virtuelles déployées sur Azure Stack
+# <a name="protect-vms-deployed-on-azure-stack"></a>Protéger des machines virtuelles déployées sur Azure Stack
 
 Utilisez cet article comme guide pour élaborer un plan de protection des machines virtuelles déployées par vos utilisateurs sur Azure Stack.
 
-Pour assurer une protection contre la perte de données et les temps d’arrêt non planifiés, il vous faut implémenter un plan de sauvegarde et récupération ou de récupération d’urgence pour les applications utilisateur et leurs données. Si ce plan peut être propre à chaque application, il suit un cadre établi par la stratégie globale de continuité d’activité et de récupération d’urgence de votre organisation. [Azure Stack : Considérations relatives à la continuité et la reprise d’activité](https://aka.ms/azurestackbcdrconsiderationswp) est un bon point de départ.
+
+Pour assurer une protection contre la perte de données et les temps d’arrêt non planifiés, vous devez implémenter un plan de sauvegarde et récupération ou de récupération d’urgence pour les applications utilisateur et leurs données. Si ce plan peut être propre à chaque application, il suit un cadre établi par la stratégie globale de continuité d’activité et de récupération d’urgence de votre organisation. [Azure Stack : Considérations relatives à la continuité et la reprise d’activité](https://aka.ms/azurestackbcdrconsiderationswp) est un bon point de départ.
 
 ## <a name="azure-stack-infrastructure-recovery"></a>Récupération de l’infrastructure Azure Stack
 
@@ -37,11 +38,11 @@ Le plan de récupération des services d’infrastructure Azure Stack n’inclut
 
 Au cas où le cloud Azure Stack resterait hors connexion pendant une durée prolongée ou soit définitivement irrécupérable, il vous faut un plan de récupération qui :
 
-* assure un temps d’arrêt minimal ;
-* maintient les machines virtuelles critiques, notamment les serveurs de base de données, en cours d’exécution ;
+* assure un temps d’arrêt minimal ;
+* maintient les machines virtuelles critiques, notamment les serveurs de base de données, en cours d’exécution ;
 * permet aux applications de continuer à répondre aux demandes utilisateur.
 
-L’opérateur du cloud Azure Stack est chargé de créer un plan de récupération pour les services et l’infrastructure Azure Stack sous-jacents. Pour plus d’informations, consultez l’article [Récupérer des données suite à une perte catastrophique](../operator/azure-stack-backup-recover-data.md).
+L’opérateur du cloud Azure Stack est chargé de créer un plan de récupération pour les services et l’infrastructure Azure Stack sous-jacents. Pour en savoir plus, voir [Récupérer des données suites à une perte catastrophique](../operator/azure-stack-backup-recover-data.md).
 
 ## <a name="considerations-for-iaas-vms"></a>Considérations relatives aux machines virtuelles IaaS
 Le système d’exploitation installé dans la machine virtuelle IaaS limitera les produits que vous pouvez utiliser pour protéger les données qu’elle contient. Pour les machines virtuelles IaaS basées sur Windows, vous pouvez utiliser les produits Microsoft et partenaires pour protéger les données. Pour les machines virtuelles IaaS basées sur Linux, la seule option consiste à utiliser les produits partenaires. Reportez-vous à [cette feuille de données pour connaître tous les partenaires de continuité et de reprise d’activité ayant des produits validés pour Azure Stack](https://aka.ms/azurestackbcdrpartners).
@@ -50,7 +51,7 @@ Le système d’exploitation installé dans la machine virtuelle IaaS limitera l
 
 Chaque cloud Azure Stack est déployé dans un centre de données. Un environnement distinct est requis afin que vous puissiez récupérer vos applications. L’environnement de récupération peut être un autre cloud Azure Stack dans un autre centre de données ou sur le cloud public Azure. Vos exigences en matière de confidentialité et de souveraineté des données déterminent l’environnement de récupération pour votre application. Lorsque vous activez la protection pour chaque application, vous avez la possibilité de choisir une option de récupération spécifique pour chacune d’elles. Vous pouvez avoir des applications dans un seul abonnement pour sauvegarder des données dans un autre centre de données. Dans un autre abonnement, vous pouvez répliquer des données dans le cloud public Azure.
 
-Planifiez votre stratégie de récupération d’urgence et de sauvegarde-récupération pour chaque application afin de déterminer la cible pour chaque application. Un plan de récupération permet à l’organisation de dimensionner correctement la capacité de stockage requise localement et de prévoir la consommation dans le cloud public.
+Planifiez votre stratégie de récupération d’urgence et de sauvegarde récupération pour chaque application afin de déterminer la cible pour chaque application. Un plan de récupération permet à l’organisation de dimensionner correctement la capacité de stockage requise localement et de prévoir la consommation dans le cloud public.
 
 |  | Azure global | Azure Stack déployé dans un centre de données de fournisseur de services cloud et géré par un fournisseur de services cloud | Azure Stack déployé dans un centre de données de client et géré par un client |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
@@ -59,14 +60,14 @@ Planifiez votre stratégie de récupération d’urgence et de sauvegarde-récup
 
 ![Combinaisons source/cible](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
-## <a name="application-recovery-objectives"></a>Objectifs de récupération d’application
+## <a name="app-recovery-objectives"></a>Objectifs de récupération d’application
 
-Vous devrez déterminer le temps d’arrêt et la perte de données tolérables par votre organisation pour chaque application. En les quantifiant, vous pourrez créer un plan de récupération qui réduit l’impact d’une panne sur votre organisation. Pour chaque application, prenez en compte ce qui suit :
+Déterminez le temps d’arrêt et la perte de données tolérables par votre organisation pour chaque application. En les quantifiant, vous pourrez créer un plan de récupération qui réduit l’impact d’une panne sur votre organisation. Pour chaque application, tenez compte des éléments suivants :
 
  - **Objectif de délai de récupération (RTO)**  
-Le RTO est la durée maximale acceptable pendant laquelle une application peut être indisponible après un incident. Par exemple, si votre objectif RTO est de 90 minutes, vous devez être en mesure de remettre l’application en état de fonctionnement dans les 90 minutes suivant le début de la panne. Si vous avez un RTO faible, vous pouvez conserver un deuxième déploiement fonctionnant de manière continue en veille, pour vous protéger contre une panne régionale.
+Le RTO est la durée maximale acceptable pendant laquelle une application peut être indisponible après un incident. Par exemple, si votre objectif RTO est de 90 minutes, vous devez être en mesure de remettre l’application en état de fonctionnement dans les 90 minutes suivant le début de la panne. Si vous avez un RTO faible, vous pouvez conserver un deuxième déploiement fonctionnant de manière continue en veille, pour vous protéger contre une panne régionale.
  - **Objectif de point de récupération (RPO)**  
-Le RPO est la durée maximale de perte de données acceptable pendant une panne. Par exemple, si vous stockez des données dans une base de données unique, sans aucune réplication vers d’autres bases de données, et effectuez des sauvegardes toutes les heures, vous risquez de perdre jusqu’à une heure de données.
+Le RPO est la durée maximale de perte de données acceptable pendant une panne. Par exemple, si vous stockez des données dans une base de données unique qui est sauvegardée toutes les heures sans aucune réplication vers d’autres bases de données, vous risquez de perdre jusqu’à une heure de données.
 
 Les objectifs RTO et RPO sont des exigences de l’entreprise. Procédez à une évaluation des risques pour définir les RTO et RPO de l’application.
 
@@ -74,12 +75,12 @@ Il existe une autre métrique, le **temps moyen de récupération** (MTTR), qui 
 
 ### <a name="backup-restore"></a>Sauvegarde-restauration
 
-Le schéma de protection le plus courant pour les applications basées sur une machine virtuelle consiste à utiliser un logiciel de sauvegarde. En général, la sauvegarde d’une machine virtuelle inclut le système d’exploitation, la configuration du système d’exploitation, les fichiers binaires d’application et les données d’application. Les sauvegardes sont créées en prenant un cliché instantané des volumes, des disques ou de la machine virtuelle entière. Avec Azure Stack, vous avez la possibilité de sauvegarder à partir du contexte du système d’exploitation invité ou à partir du stockage Azure Stack et des API de calcul. Azure Stack ne prend pas en charge les sauvegardes prises au niveau de l’hyperviseur.
+Le schéma de protection le plus courant pour les applications basées sur une machine virtuelle consiste à utiliser un logiciel de sauvegarde. En général, la sauvegarde d’une machine virtuelle inclut le système d’exploitation, la configuration du système d’exploitation, les fichiers binaires d’application et les données d’application. Les sauvegardes sont créées en prenant un cliché instantané des volumes, des disques ou de la machine virtuelle entière. Avec Azure Stack, vous avez la possibilité de sauvegarder à partir du contexte du système d’exploitation invité ou à partir du stockage Azure Stack et des API de calcul. Azure Stack ne prend pas en charge les sauvegardes au niveau de l’hyperviseur.
  
 ![Sauvegarde-restauration](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
 
 La récupération de l’application nécessite la restauration d’une ou de plusieurs machines virtuelles dans le même cloud ou un nouveau cloud. Vous pouvez cibler un cloud dans votre centre de données ou le cloud public. Le choix du cloud n’appartient qu’à vous et dépend de vos exigences de souveraineté et de confidentialité des données.
- 
+
  - RTO : temps d’arrêt mesuré en heures
  - RPO : perte de données variable (selon la fréquence de sauvegarde)
  - Topologie du déploiement : actif/passif
@@ -98,13 +99,13 @@ Considérations importantes à prendre en compte pour la sauvegarde de machines 
     - Évaluez les produits de sauvegarde qui peuvent capturer et transmettre des données de sauvegarde de manière efficace pour réduire le contenu de la ressource sur la solution.
     - Évaluez les produits de sauvegarde qui stockent de manière efficace les données de sauvegarde à l’aide de sauvegardes incrémentielles ou différentielles pour réduire le besoin de sauvegardes complètes sur toutes les machines virtuelles de l’environnement.
  - **Restauration**
-    - Les produits de sauvegarde peuvent restaurer des disques virtuels, des données d’application dans une machine virtuelle existante, ou la ressource de machine virtuelle entière et les disques virtuels associés. Le choix du schéma de restauration dépend du type de restauration envisagé pour l’application ; il aura un impact sur le temps de récupération de l’application. Par exemple, il peut être plus facile de redéployer un serveur SQL à partir d’un modèle, puis de restaurer les bases de données au lieu de restaurer la machine virtuelle entière ou un ensemble de machines virtuelles.
+    - Les produits de sauvegarde peuvent restaurer des disques virtuels, des données d’application dans une machine virtuelle existante, ou la ressource de machine virtuelle entière et les disques virtuels associés. Le schéma de restauration dont vous avez besoin dépend de la façon dont vous envisagez de restaurer l’application. Par exemple, il peut être plus facile de redéployer un serveur SQL à partir d’un modèle, puis de restaurer les bases de données au lieu de restaurer la machine virtuelle entière ou un ensemble de machines virtuelles.
 
 ### <a name="replicationmanual-failover"></a>Réplication/basculement manuel
 
-Pour prendre en charge la haute disponibilité, il existe une autre approche qui consiste à répliquer les machines virtuelles de votre application dans un autre cloud et à opter pour un basculement manuel. La réplication du système d’exploitation, des fichiers binaires d’application et des données d’application peut être effectuée au niveau de la machine virtuelle ou du système d’exploitation invité. Le basculement est géré à l’aide de logiciels supplémentaires qui ne font pas partie de l’application.
+Pour prendre en charge la haute disponibilité, il existe une autre approche, qui consiste à répliquer les machines virtuelles de votre application dans un autre cloud et à opter pour un basculement manuel. La réplication du système d’exploitation, des fichiers binaires d’application et des données d’application peut être effectuée au niveau de la machine virtuelle ou du système d’exploitation invité. Le basculement est géré à l’aide de logiciels supplémentaires qui ne font pas partie de l’application.
 
-Avec cette approche, l’application est déployée dans un cloud et sa machine virtuelle dans l’autre. Lorsqu’un basculement est déclenché, les machines virtuelles secondaires doivent être démarrées dans le second cloud. Dans certains cas, le basculement crée les machines virtuelles et y attache des disques. Ce processus peut prendre un certain temps, surtout avec une application à plusieurs niveaux exigeant une séquence de démarrage particulière. Il peut être nécessaire de passer par d’autres étapes pour que l’application soit prête à traiter les requêtes.
+Avec cette approche, l’application est déployée dans un cloud et sa machine virtuelle est répliquée dans l’autre. Lorsqu’un basculement est déclenché, les machines virtuelles secondaires doivent être démarrées dans le second cloud. Dans certains cas, le basculement crée les machines virtuelles et y attache des disques. Ce processus peut prendre un certain temps, surtout avec une application à plusieurs niveaux exigeant une séquence de démarrage particulière. Il peut être nécessaire de passer par d’autres étapes pour que l’application soit prête à traiter les requêtes.
 
 ![Réplication-basculement manuel](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
 
@@ -138,7 +139,7 @@ Gardez à l’esprit que chaque cloud Azure Stack est indépendant des autres ; 
 
 ### <a name="no-recovery"></a>Aucune récupération
 
-Certaines applications de votre environnement peuvent ne pas avoir besoin d’être protégées contre des temps d’arrêt non planifiés ou une perte de données. Par exemple, les machines virtuelles utilisées pour le développement et le test n’ont généralement pas besoin d’être récupérées. C’est à vous de décider si vous souhaitez protéger une application ou une machine virtuelle spécifique. Azure Stack n’offre pas de sauvegarde ou réplication des machines virtuelles à partir de l’infrastructure sous-jacente. Comme dans Azure, vous devez choisir la protection de chaque machine virtuelle dans chacun de vos abonnements.
+Certaines applications de votre environnement peuvent ne pas avoir besoin d’être protégées contre des temps d’arrêt non planifiés ou une perte de données. Par exemple, les machines virtuelles utilisées pour le développement et le test ne doivent généralement pas être récupérées. C’est à vous de décider si vous souhaitez protéger une application ou une machine virtuelle spécifique. Azure Stack n’offre pas de sauvegarde ou réplication des machines virtuelles à partir de l’infrastructure sous-jacente. Comme dans Azure, vous devez choisir la protection de chaque machine virtuelle dans chacun de vos abonnements.
 
  - RTO : irrécupérable
  - RPO : perte complète des données
@@ -155,7 +156,7 @@ Considérations importantes à prendre en compte pour votre déploiement Azure S
 | Répliquer/basculer des machines virtuelles vers une instance Azure Stack distincte | Recommandé | Dans le cas d’un basculement, vous devez avoir un deuxième cloud Azure Stack totalement opérationnel afin d’éviter des temps d’arrêt trop longs. |
 | Répliquer/basculer des machines virtuelles directement vers Azure ou un fournisseur de services fiable | Recommandé | Tant que vous pouvez satisfaire à vos exigences obligatoires et en matière de confidentialité des données, vous pouvez répliquer vos données dans Azure global ou un fournisseur de services fiable. Dans l’idéal, le fournisseur de services exécute également Azure Stack pour que votre expérience opérationnelle soit cohérente après un basculement. |
 | Déployer la cible de sauvegarde sur le même cloud Azure Stack avec vos données d’application | Non recommandé | Évitez de stocker des sauvegardes dans le même cloud Azure Stack. Un temps d’arrêt non planifié du cloud peut vous priver de vos données principales et données de sauvegarde. Si vous choisissez de déployer une cible de sauvegarde en tant qu’appliance virtuelle (à des fins d’optimisation de la sauvegarde et de la restauration), vous devez vous assurer que toutes les données sont copiées en continu dans un emplacement de sauvegarde externe. |
-| Déployer l’appliance de sauvegarde physique dans le même rack que celui où la solution Azure Stack est installée | Non pris en charge | À ce jour, vous ne pouvez pas connecter d’autres appareils à des commutateurs TOR qui ne font pas partie de la solution d’origine. |
+| Déployer l’appliance de sauvegarde physique dans le même rack que celui où la solution Azure Stack est installée | Non pris en charge | Vous ne pouvez actuellement pas connecter d’autres appareils à des commutateurs TOR qui ne font pas partie de la solution d’origine. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -165,4 +166,4 @@ Cet article vous a donné des recommandations générales sur la protection des 
  - [Documentation Sauvegarde Azure](https://docs.microsoft.com/azure/backup/ ) 
  - [Documentation Site Recovery](https://docs.microsoft.com/azure/site-recovery/)  
 
-Pour en savoir plus sur les produits de partenaires qui offrent une protection de machine virtuelle sur Azure Stack, consultez «[Protecting applications and data on Azure Stack](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)» (Protéger des applications et des données sur Azure Stack).
+Pour en savoir plus sur les produits de partenaires qui offrent une protection de machine virtuelle sur Azure Stack, consultez « [Protéger des applications et des données sur Azure Stack](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/) ».

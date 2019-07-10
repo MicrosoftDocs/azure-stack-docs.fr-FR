@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 06/21/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 8e47022d826d5983369fe7849cbde8c00f18838e
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 05a1e106a171df2a8948601376dbc152cb5ca70a
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64306725"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316194"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Utilisation et facturation dans Azure Stack
 
 Cet article décrit la façon dont les utilisateurs d’Azure Stack sont facturés pour l’utilisation des ressources, et explique comment les informations de facturation sont récupérées pour les besoins d’analytique et de rétrofacturation.
 
-Azure Stack collecte et regroupe les données d’utilisation pour les ressources utilisées. Azure Stack transfère ensuite ces données à Azure Commerce. Azure Commerce vous facture l’utilisation d’Azure Stack de la même façon qu’il vous facture l’utilisation d’Azure.
+Azure Stack collecte et regroupe les données d’utilisation des ressources utilisées, puis transfère ces données à Azure Commerce. Azure Commerce vous facture l’utilisation d’Azure Stack de la même façon qu’il vous facture l’utilisation d’Azure.
 
 Vous pouvez également obtenir les données d’utilisation et les exporter vers votre propre système de facturation ou de rétrofacturation à l’aide d’un adaptateur de facturation. Vous pouvez aussi les exporter vers un outil décisionnel comme Microsoft Power BI.
 
@@ -34,7 +34,7 @@ Vous pouvez également obtenir les données d’utilisation et les exporter vers
 
 Chaque fournisseur de ressources dans Azure Stack poste des données d’utilisation par utilisation de ressources. Le service d’utilisation regroupe régulièrement (toutes les heures et quotidiennement) les données d’utilisation et les stocke dans la base de données d’utilisation. Les opérateurs et utilisateurs Azure Stack peuvent accéder aux données d’utilisation stockées par le biais des API d’utilisation des ressources Azure Stack.
 
-Si vous avez [inscrit votre instance Azure Stack auprès d’Azure](azure-stack-registration.md ), Azure Stack est configuré pour envoyer les données d’utilisation à Azure Commerce. Une fois les données chargées dans Azure, vous pouvez y accéder par le biais du portail de facturation ou des API d’utilisation des ressources Azure. Pour plus d’informations sur les données d’utilisation transmises à Azure, consultez [Rapports de données d’utilisation](azure-stack-usage-reporting.md).  
+Si vous avez [inscrit votre instance Azure Stack auprès d’Azure](azure-stack-registration.md), Azure Stack est configuré pour envoyer les données d’utilisation à Azure Commerce. Une fois les données chargées dans Azure, vous pouvez y accéder par le biais du portail de facturation ou des API d’utilisation des ressources Azure. Pour plus d’informations sur les données d’utilisation transmises à Azure, consultez [Rapports de données d’utilisation](azure-stack-usage-reporting.md).  
 
 L’illustration suivante montre les principaux composants du pipeline d’utilisation :
 
@@ -51,7 +51,7 @@ Une fois les données d’utilisation collectées, elles sont [transmises à Azu
 
 Le portail de facturation Azure affiche les données d’utilisation des ressources facturables. Outre les ressources facturables, Azure Stack capture les données d’utilisation pour un ensemble plus large de ressources, auquel vous pouvez accéder dans votre environnement Azure Stack via des API REST ou des cmdlets PowerShell. Les opérateurs Azure Stack peuvent obtenir les données d’utilisation pour tous les abonnements utilisateur. Par contre, chaque utilisateur peut uniquement obtenir des détails sur son utilisation.
 
-## <a name="usage-reporting-for-multitenant-cloud-service-providers"></a>Rapports d’utilisation pour les fournisseurs de services cloud multilocataires
+## <a name="usage-reporting-for-multi-tenant-cloud-service-providers"></a>Rapports d’utilisation pour les fournisseurs de services cloud mutualisés
 
 Un fournisseur de services cloud (CSP) multilocataire ayant de nombreux clients qui utilisent Azure Stack peut avoir besoin de journaliser l’utilisation par chaque client séparément pour pouvoir facturer l’utilisation sur des abonnements Azure différents.
 

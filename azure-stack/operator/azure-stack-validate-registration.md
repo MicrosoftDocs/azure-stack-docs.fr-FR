@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 06/23/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: a777fc1d9052eb58bbebd319fe6cc7f42a09cb9a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: ca2ea89ab73c7a8e056e4b4700e92a872e628f34
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307319"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316172"
 ---
 # <a name="validate-azure-registration"></a>Valider l’inscription auprès d’Azure
 
@@ -40,7 +40,7 @@ Téléchargez la dernière version d’**AzsReadinessChecker** sur le site [Powe
 
 Les prérequis suivants sont obligatoires :
 
-**Ordinateur sur lequel l’outil est exécuté :**
+### <a name="the-computer-on-which-the-tool-runs"></a>Ordinateur sur lequel l’outil est exécuté
 
 - Windows 10 ou Windows Server 2016, avec connectivité à Internet.
 - PowerShell 5.1 ou ultérieur. Pour vérifier votre version, exécutez l’applet de commande PowerShell suivante, puis examinez les versions **Major** et **Minor** :  
@@ -52,7 +52,7 @@ Les prérequis suivants sont obligatoires :
 - [PowerShell configuré pour Azure Stack](azure-stack-powershell-install.md).
 - Dernière version de [Microsoft Azure Stack Readiness Checker](https://aka.ms/AzsReadinessChecker).  
 
-**Environnement Azure Active Directory :** 
+### <a name="azure-active-directory-environment"></a>Environnement Azure Active Directory
 
 - Identifiez le nom d’utilisateur et le mot de passe d’un compte associé à un propriétaire de l’abonnement Azure que vous allez utiliser avec Azure Stack.  
 - Identifiez l’ID d’abonnement pour l’abonnement Azure à utiliser.
@@ -106,7 +106,7 @@ Chaque fois qu’une validation s’exécute, les résultats sont journalisés d
 
 Ces fichiers peuvent vous aider à partager l’état de validation avant de déployer Azure Stack ou à enquêter sur les problèmes de validation. Les deux fichiers conservent les résultats des vérifications de validation postérieures. Le rapport fournit à votre équipe de déploiement la confirmation de la configuration de l’identité. Le fichier journal peut aider l’équipe de déploiement ou de support à enquêter sur les problèmes de validation.
 
-Par défaut, les deux fichiers sont écrits à l’emplacement **C:\Users\<nom_utilisateur>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**.  
+Par défaut, les deux fichiers sont écrits dans **C:\Users\nom_utilisateur\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**.  
 
 - Utilisez le paramètre **-OutputPath** ***&lt;chemin&gt;*** à la fin de la ligne de commande d’exécution pour spécifier un emplacement de rapport différent.
 - Utilisez le paramètre **-CleanReport** à la fin de la commande d’exécution pour effacer les informations sur les exécutions précédentes de l’outil du fichier **AzsReadinessCheckerReport.json**.

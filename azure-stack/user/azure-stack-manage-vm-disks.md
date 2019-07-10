@@ -1,5 +1,5 @@
 ---
-title: Gérer les disques de machine virtuelle dans Azure Stack | Microsoft Docs
+title: Gérer le stockage sur disque pour machines virtuelles dans Azure Stack | Microsoft Docs
 description: Créez des disques pour des machines virtuelles dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 10900095a79da2639212b5fa58becbafb7bee0eb
-ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
+ms.openlocfilehash: 8b4d48b55cfe21cf7de09119b9069ae4056d3efd
+ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65941201"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67492426"
 ---
-# <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Créer un stockage sur disque pour machines virtuelles dans Azure Stack
+# <a name="create-vm-disk-storage-in-azure-stack"></a>Créer du stockage sur disque pour machines virtuelles dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Cet article explique comment créer un stockage sur disque pour machines virtuelles avec le portail Azure Stack ou PowerShell.
+Cet article explique comment créer du stockage sur disque pour machines virtuelles avec le portail Azure Stack ou PowerShell.
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -85,16 +85,16 @@ Chaque disque non managé que vous ajoutez doit être placé dans un conteneur d
 
 5. Dans le panneau **Créer un disque géré** :
    * Entrez le **Nom** du disque.
-   * Créez un **Groupe de ressources** ou sélectionnez-en un.
+   * Sélectionnez un **groupe de ressources** existant ou créez-en un.
    * Sélectionnez un **Emplacement**. Par défaut, l’emplacement est défini sur le conteneur qui renferme le disque du système d’exploitation.
    * Sélectionnez le **Type de compte**.
       ![Exemple : attacher un nouveau disque à la machine virtuelle](media/azure-stack-manage-vm-disks/create-manage-disk.png)
 
       **SSD Premium**  
-      Les disques Premium (SSD) sont associés à des disques SSD afin d’offrir des performances constantes et une faible latence. Ils proposent le meilleur rapport prix/performances et conviennent parfaitement aux applications d’E/S intensives et aux charges de travail de production.
+      Les disques Premium (SSD) sont associés à des disques SSD afin d’offrir des performances constantes et une faible latence. Ils proposent le meilleur rapport prix/performances et conviennent parfaitement aux charges de travail de production et aux applications nécessitant beaucoup d’E/S.
 
       **HDD Standard**  
-      Les disques standard (HDD) sont associés à des lecteurs magnétiques et conviennent davantage aux applications dont les données sont rarement utilisées. Les disques redondants interzones sont associés à un stockage redondant interzone (ZRS) qui réplique vos données sur plusieurs zones, et restent disponibles même si une zone n’est pas disponible.
+      Les disques standard (HDD) sont associés à des lecteurs magnétiques et conviennent davantage aux applications dont les données sont rarement utilisées. Les disques redondants interzones sont associés à un stockage redondant interzone (ZRS) qui réplique vos données sur plusieurs zones, garantissant ainsi leur disponibilité, même si une zone n’est pas disponible.
 
    * Sélectionnez le **Type de source**.
 
@@ -105,7 +105,7 @@ Chaque disque non managé que vous ajoutez doit être placé dans un conteneur d
       **Blob de stockage** :
      * Ajoutez l’URI de l’objet blob de stockage qui contient l’image disque.  
      * Sélectionnez **Parcourir** pour ouvrir le panneau Comptes de stockage. Pour obtenir des instructions, consultez [Ajouter un disque de données à partir d’un compte de stockage](#add-a-data-disk-from-a-storage-account).
-     * Sélectionnez le type du système d’exploitation de l’image : **Windows**, **Linux** ou **Aucun (disque de données)** .
+     * Sélectionnez le type de système d’exploitation de l’image : **Windows**, **Linux** ou **Aucun(e) (disque de données)** .
 
    * Sélectionnez la **Taille (Gio)** .
 
@@ -141,7 +141,7 @@ Pour plus d’informations sur l’utilisation des comptes de stockage dans Azur
 
     ![Exemple : sélectionner une machine virtuelle dans le tableau de bord](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-4. Dans la page correspondant à la machine virtuelle, sélectionnez **Disques**, puis **Attacher un disque existant**.
+4. Sur la page correspondant à la machine virtuelle, sélectionnez **Disques**, puis **Attacher un disque existant**.
 
     ![Exemple : Association d'un disque existant](media/azure-stack-manage-vm-disks/attach-disks2.png)
 
@@ -157,7 +157,7 @@ Pour plus d’informations sur l’utilisation des comptes de stockage dans Azur
 
     ![Exemple : Attacher le fichier VHD](media/azure-stack-manage-vm-disks/attach-vhd.png)
 
-8. Après qu’Azure Stack a créé le disque et l’a attaché à la machine virtuelle, le nouveau disque est répertorié dans les paramètres de disque de la machine virtuelle sous **Disques de données**.
+8. Après qu’Azure Stack a créé le disque et l’a attaché à la machine virtuelle, le nouveau disque est listé dans les paramètres de disque de la machine virtuelle sous **Disques de données**.
 
     ![Exemple : Procéder à l’attachement du disque](media/azure-stack-manage-vm-disks/complete-disk-attach.png)
 
@@ -167,7 +167,7 @@ Vous pouvez utiliser PowerShell pour provisionner une machine virtuelle et ajout
 
 La cmdlet **Add-AzureRmVMDataDisk** ajoute un disque de données à une machine virtuelle. Vous pouvez ajouter un disque de données lorsque vous créez une machine virtuelle. Vous pouvez également ajouter un disque de données à une machine virtuelle existante. Spécifiez le paramètre **VhdUri** pour distribuer les disques vers différents conteneurs.
 
-### <a name="add-data-disks-to-a-new-virtual-machine"></a>Ajouter des disques de données à une nouvelle machine virtuelle
+### <a name="add-data-disks-to-a-new-vm"></a>Ajouter des disques de données à une nouvelle machine virtuelle
 
 Les exemples suivants utilisent des commandes PowerShell pour créer une machine virtuelle comportant trois disques de données, chacun étant placé dans un conteneur différent.
 
@@ -260,9 +260,9 @@ $VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine -Windows -Com
 New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $VirtualMachine
 ```
 
-### <a name="add-data-disks-to-an-existing-virtual-machine"></a>Ajouter des disques de données à une machine virtuelle existante
+### <a name="add-data-disks-to-an-existing-vm"></a>Ajouter des disques de données à une machine virtuelle existante
 
-Les exemples suivants utilisent des commandes PowerShell pour ajouter trois disques de données à une machine virtuelle existante. La première commande récupère la machine virtuelle nommée **VirtualMachine** à l’aide de l’applet de commande **Get-AzureRmVM**. La commande stocke la machine virtuelle dans la variable `$VirtualMachine` :
+Les exemples suivants utilisent des commandes PowerShell pour ajouter trois disques de données à une machine virtuelle existante. La première commande récupère la machine virtuelle nommée **VirtualMachine** à l’aide de la cmdlet **Get-AzureRmVM**. La commande stocke la machine virtuelle dans la variable `$VirtualMachine` :
 
 ```powershell
 $VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" `

@@ -16,12 +16,12 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 625ddb8341b58c98e47b37701547de5d6acea45b
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 3c897300dc2130b2c75449829304d4bd58b21898
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269324"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198661"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Utiliser des profils de version d’API avec Ruby dans Azure Stack
 
@@ -91,7 +91,7 @@ Pour pouvoir utiliser le Kit de développement logiciel (SDK) Azure pour Ruby av
 | ID client | AZURE_CLIENT_ID | L’ID d’application du principal du service enregistré lors de la création du principal de service dans la section précédente de ce document.  |
 | Identifiant d’abonnement | AZURE_SUBSCRIPTION_ID | [L’ID d’abonnement](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) correspond à la façon dont vous accédez à des offres dans Azure Stack. |
 | Clé secrète client | AZURE_CLIENT_SECRET | Le secret d’application du principal de service enregistré lors de la création du principal de service. |
-| Point de terminaison Resource Manager | ARM_ENDPOINT | Consultez [Point de terminaison Azure Stack Resource Manager](#the-azure-stack-resource-manager-endpoint).  |
+| Point de terminaison Resource Manager | ARM_ENDPOINT | Voir [Point de terminaison Azure Stack Resource Manager](#the-azure-stack-resource-manager-endpoint).  |
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Point de terminaison Azure Stack Resource Manager
 
@@ -130,10 +130,10 @@ Pour définir les variables d’environnement dans une invite de commandes Windo
 
 La gemme cumulative Azure_sdk comprend les trois profils suivants :
 
-1. **V2019_03_01_Hybrid** Profil créé pour Azure Stack. Servez-vous de ce profil pour utiliser toutes les dernières versions des services disponibles dans Azure Stack.
-2. **V2017_03_09**  
-  Profil créé pour Azure Stack. Utilisez ce profil pour que les services soient davantage compatibles avec Azure Stack.
-3. **La plus récente**  
+1. **V2019_03_01_Hybrid** Profil créé pour Azure Stack. Servez-vous de ce profil pour utiliser toutes les dernières versions des services disponibles dans la version d’Azure Stack portant le tampon 1904 ou une version ultérieure.
+1. **V2017_03_09**  
+  Profil créé pour Azure Stack. Utilisez ce profil pour que les services offrent une compatibilité optimale avec la version d’Azure Stack portant le tampon 1808 ou une version ultérieure.
+1. **La plus récente**  
   Profil composé des versions les plus récentes de tous les services. Utilisez les dernières versions de tous les services.
 
 Pour plus d’informations sur Azure Stack et les profils d’API, consultez la section [Résumé des profils d’API](azure-stack-version-profiles.md#summary-of-api-profiles).
@@ -240,11 +240,11 @@ Pour exécuter l’exemple, assurez-vous que vous avez installé Ruby. Si vous u
 
    Définissez les variables d’environnement suivantes en utilisant les informations que vous avez récupérées à partir du principal de service que vous avez créé.
 
-   - export AZURE_TENANT_ID={votre id de locataire}
-   - export AZURE_CLIENT_ID={votre id de client}
+   - export AZURE_TENANT_ID={votre ID de locataire}
+   - export AZURE_CLIENT_ID={votre ID de client}
    - export AZURE_CLIENT_SECRET={votre secret de client}
-   - export AZURE_SUBSCRIPTION_ID={votre id d’abonnement}
-   - export ARM_ENDPOINT={votre url Azure Stack Resource Manager}
+   - export AZURE_SUBSCRIPTION_ID={votre ID d’abonnement}
+   - export ARM_ENDPOINT={votre URL Azure Stack Resource Manager}
 
    > [!NOTE]  
    > Sous Windows, utilisez « définition» plutôt que « export »

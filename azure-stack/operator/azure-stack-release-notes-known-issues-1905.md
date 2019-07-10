@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 38c7ec337ba8cdb73925b1c07f77331c05b25d8a
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: 40b2eb51b3e05a25706037f404a53d86fa7cae5a
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836676"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419561"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Problèmes connus dans Azure Stack 1905
 
@@ -47,13 +47,6 @@ Cet article répertorie les problèmes connus dans la version 1905 d’Azure St
 - Occurrence : Courant
 
 ## <a name="portal"></a>Portail
-
-### <a name="administrative-subscriptions"></a>Abonnements d’administration
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Les deux abonnements d’administration qui ont été introduits avec la version 1804 ne doivent pas être utilisés. Les types d’abonnements sont **Metering (Compteur)** et **Consumption (Consommation)** .
-- Correction : Ces abonnements seront interrompus à partir de la version 1906 et ensuite supprimés. Si vous disposez de ressources s’exécutant sur ces deux abonnements, recréez-les dans des abonnements utilisateur avant la publication de la version 1906.
-- Occurrence : Courant
 
 ### <a name="subscription-resources"></a>Ressources d’abonnement
 
@@ -86,8 +79,15 @@ Cet article répertorie les problèmes connus dans la version 1905 d’Azure St
 ### <a name="upload-blob"></a>Charger l’objet blob
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail de l’utilisateur, lorsque vous essayez d’uploader un objet blob à l’aide de l’option **OAuth (préversion)** , la tâche échoue avec un message d’erreur.
+- Cause : Dans le portail de l’utilisateur, lorsque vous essayez de charger un objet blob à l’aide de l’option **OAuth (préversion)** , la tâche échoue avec un message d’erreur.
 - Correction : Chargez le blob à l’aide de l’option SAP.
+- Occurrence : Courant
+
+### <a name="template"></a>Modèle
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, l’interface utilisateur du déploiement de modèle ne remplit pas les paramètres pour les noms de modèle commençant par « _ » (caractère de soulignement).
+- Correction : Supprimez le « _ » (caractère de soulignement) dans le nom du modèle.
 - Occurrence : Courant
 
 ## <a name="networking"></a>Mise en réseau
@@ -132,6 +132,13 @@ Cette erreur se produit si vous activez les diagnostics de démarrage sur une ma
 - Correction : Recréez le compte de stockage avec le même nom que celui utilisé précédemment.
 - Occurrence : Courant
 
+### <a name="vm-resize"></a>Redimensionnement de machine virtuelle
+
+- Champ d’application : Ce problème concerne la version 1905.
+- Cause : Impossible de redimensionner une machine virtuelle avec disque managé. La tentative de redimensionnement de la machine virtuelle génère une erreur avec le « code » : "InternalOperationError", "message" : « Une erreur interne s’est produite dans l’opération. »
+- Correction : Nous nous efforçons de corriger ce problème dans la prochaine version. Actuellement, vous devez recréer la machine virtuelle avec la nouvelle taille de machine virtuelle.
+- Occurrence : Courant
+
 ### <a name="virtual-machine-scale-set"></a>Jeu de mise à l’échelle de machine virtuelle
 
 #### <a name="centos"></a>CentOS
@@ -154,11 +161,11 @@ Cette erreur se produit si vous activez les diagnostics de démarrage sur une ma
 - Cause : La création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur et la création d’une instance de groupe de machines virtuelles identiques échouent avec une erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
 - Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. En revanche, la création d’instances de groupe identique n’est toujours pas disponible pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
 
-#### <a name="vmss-instance-view-blade-doesnt-load"></a>Le panneau de vue des instances de groupe de machines virtuelles identiques
- 
+#### <a name="scale-set-instance-view-blade-doesnt-load"></a>Le panneau de vue des instances de groupe identique ne charge pas
+
 - Champ d’application : Ce problème concerne les versions 1904 et 1905.
-- Cause : Le panneau de vue des instances d’un groupe de machines virtuelles identiques situé dans Portail Azure Stack -> Tableau de bord -> Groupes de machines virtuelles identiques -> AnyScaleSet - Instances -> AnyScaleSetInstance ne parvient pas à se charger avec le cloud en pleurs.
-- Correction : Il n’existe actuellement aucune solution à ce problème sur lequel nous continuons de travailler. En attendant, utilisez l’applet de commande CLI « az vmss get-instance-view » pour obtenir la vue des instances d’un groupe de machines virtuelles identiques
+- Cause : Le panneau de vue des instances d’un groupe de machines virtuelles identiques situé dans Portail Azure Stack -> Tableau de bord -> Groupes de machines virtuelles identiques -> AnyScaleSet - Instances -> AnyScaleSetInstance ne parvient pas à se charger et affiche l’image d’un nuage qui pleure.
+- Correction : Il n’existe actuellement aucune solution à ce problème sur lequel nous continuons de travailler. En attendant, utilisez la commande CLI `az vmss get-instance-view` pour obtenir la vue des instances d’un groupe identique.
 
 ### <a name="ubuntu-ssh-access"></a>Accès SSH Ubuntu
 

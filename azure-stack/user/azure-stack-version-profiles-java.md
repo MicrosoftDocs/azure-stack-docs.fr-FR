@@ -16,18 +16,18 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 44ebb631ca916ed1c5b933517d40a756c987fee0
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: fdab3fd9296388f19687e2d7ce1d4af3584640ef
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269481"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198543"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Utiliser des profils de version d’API avec Java dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Le Kit de développement logiciel (SDK) Java pour Azure Stack Resource Manager fournit des outils conçus pour vous aider à créer et gérer votre infrastructure. Le Kit de développement logiciel (SDK) comporte des fournisseurs de ressources de calcul, de mise en réseau, de stockage, de services d’application et [KeyVault](/azure/key-vault/key-vault-whatis). Le Kit de développement logiciel (SDK) Java incorpore des profils d’API en incluant des dépendances dans le fichier Pom.xml qui charge les modules adéquats dans le fichier .java. Toutefois, vous pouvez ajouter plusieurs profils en tant que dépendances, comme **2018-03-01-hybrid**, ou **latest**, en guise de profil Azure. L’utilisation de ces dépendances charge le module approprié ; ainsi, lorsque vous créez votre type de ressource, vous êtes en mesure de sélectionner la version d’API de ces profils que vous souhaitez utiliser. Cette approche vous permet d’utiliser les dernières versions dans Azure, tout en développant avec les dernières versions d’API pour Azure Stack. Le Kit de développement logiciel (SDK) Java favorise une véritable expérience de développement cloud hybride. Les profils d’API fournis dans le Kit de développement logiciel (SDK) Java autorisent un développement cloud hybride en vous permettant de basculer entre les ressources Azure globales et les ressources d’Azure Stack.
+Le Kit de développement logiciel (SDK) Java pour Azure Stack Resource Manager fournit des outils conçus pour vous aider à créer et gérer votre infrastructure. Le Kit de développement logiciel (SDK) comporte des fournisseurs de ressources de calcul, de mise en réseau, de stockage, de services d’application et [KeyVault](/azure/key-vault/key-vault-whatis). Le Kit de développement logiciel (SDK) Java incorpore des profils d’API en incluant des dépendances dans le fichier Pom.xml qui charge les modules adéquats dans le fichier .java. Toutefois, vous pouvez ajouter plusieurs profils en tant que dépendances, comme **2019-03-01-hybrid**, ou **latest**, en guise de profil Azure. L’utilisation de ces dépendances charge le module approprié ; ainsi, lorsque vous créez votre type de ressource, vous êtes en mesure de sélectionner la version d’API de ces profils que vous souhaitez utiliser. Cette approche vous permet d’utiliser les dernières versions dans Azure, tout en développant avec les dernières versions d’API pour Azure Stack. Le Kit de développement logiciel (SDK) Java favorise une véritable expérience de développement cloud hybride. Les profils d’API fournis dans le Kit de développement logiciel (SDK) Java autorisent un développement cloud hybride en vous permettant de basculer entre les ressources Azure globales et les ressources d’Azure Stack.
 
 ## <a name="java-and-api-version-profiles"></a>Java et les profils de version d’API
 
@@ -37,17 +37,15 @@ Un profil d’API est une combinaison de fournisseurs de ressources et de versio
 
   - Pour l’utilisation du profil latest, la dépendance est **com.microsoft.azure**.
 
-  - Pour utiliser les services compatibles avec Azure Stack, utilisez le profil **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**.
+  - Pour utiliser les services pris en charge les plus récents disponibles dans Azure Stack, utilisez le profil **com.microsoft.azure.profile\_2019\_03\_01\_hybrid**.
 
     - Ce profil doit être spécifié dans le fichier Pom.xml en tant que dépendance, qui charge automatiquement les modules si vous choisissez la classe appropriée dans la liste déroulante tout comme vous le feriez avec .NET.
-
-    - Le début de chaque module apparaît sous la forme suivante :      `Import com.microsoft.azure.management.resources.v2018_03_01.ResourceGroup`
 
   - Les dépendances apparaissent comme suit :
 
      ```xml
      <dependency>
-     <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>
+     <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
      <artifactId>azure</artifactId>
      <version>1.0.0-beta</version>
      </dependency>
@@ -69,7 +67,7 @@ Pour installer le Kit de développement logiciel (SDK) Java, procédez comme sui
 
    ```xml  
    <dependency>
-   <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>
+   <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
    <artifactId>azure</artifactId>
    <version>1.0.0-beta</version>
    </dependency>
@@ -77,7 +75,7 @@ Pour installer le Kit de développement logiciel (SDK) Java, procédez comme sui
 
 4. L’ensemble de packages à installer dépend de la version de profil que vous souhaitez utiliser. Les noms de package pour les versions de profil sont les suivants :
 
-   - **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**
+   - **com.microsoft.azure.profile\_2019\_03\_01\_hybrid**
    - **com.microsoft.azure**
      - **le plus récent**
 
@@ -98,7 +96,7 @@ Pour utiliser le Kit de développement logiciel (SDK) Java Azure avec Azure Stac
 | Identifiant d’abonnement           | AZURE_SUBSCRIPTION_ID      | [L’ID d’abonnement](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) correspond à la façon dont vous accédez à des offres dans Azure Stack.                |
 | Clé secrète client             | AZURE_CLIENT_SECRET        | Le secret d’application du principal de service enregistré lors de la création du principal de service.                                                                                                                                   |
 | Point de terminaison Resource Manager | ARM_ENDPOINT              | Consultez [Point de terminaison Azure Stack Resource Manager](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
-| Lieu                  | RESOURCE_LOCATION    | **Local** pour Azure Stack.                                                                                                                                                                                                |
+| Location                  | RESOURCE_LOCATION    | **Local** pour Azure Stack.                                                                                                                                                                                                |
 
 Pour rechercher l’ID de locataire de votre environnement Azure Stack, suivez les instructions fournies [ici](../operator/azure-stack-csp-ref-operations.md). Pour définir vos variables d’environnement, procédez comme suit :
 
@@ -122,7 +120,7 @@ Export AZURE_TENANT_ID=<Your_Tenant_ID>
 
 Si vous utilisez l’ASDK, vous devez approuver le certificat racine de l’autorité de certification sur votre ordinateur distant. Cette opération n’est pas nécessaire sur les systèmes intégrés.
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 1. Exportez le certificat auto-signé Azure Stack vers votre bureau.
 
@@ -165,7 +163,9 @@ Exemple de fichier JSON :
 
 ## <a name="existing-api-profiles"></a>Profils d’API existants
 
-- **com.microsoft.azure.profile\_2018\_03\_01\_hybrid** : Dernier profil créé pour Azure Stack. Utilisez ce profil pour que les services soient davantage compatibles avec Azure Stack, à condition que vous utilisiez le tampon 1808 ou un tampon ultérieur.
+- **com.microsoft.azure.profile\_2019\_03\_01\_hybrid** : Dernier profil créé pour Azure Stack. Utilisez ce profil pour que les services soient davantage compatibles avec Azure Stack pour autant que vous utilisiez une version portant le tampon 1904 ou une version ultérieure.
+
+- **com.microsoft.azure.profile\_2018\_03\_01\_hybrid** : Profil créé pour Azure Stack. Utilisez ce profil pour que les services soient compatibles avec les versions d’Azure Stack portant le tampon 1808 ou des versions ultérieures.
 
 - **com.microsoft.azure** : profil constitué des dernières versions de l’ensemble des services. Utilisez les dernières versions de tous les services.
 
@@ -190,6 +190,9 @@ Ceci vous permet d’utiliser les dépendances de profil d’API pour déployer 
 Pour inscrire le cloud Azure Stack avec les points de terminaison appropriés, utilisez le code suivant :
 
 ```java
+// Get Azure Stack cloud endpoints
+final HashMap<String, String> settings = getActiveDirectorySettings(armEndpoint);
+
 AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>() {
                 {
                     put("managementEndpointUrl", settings.get("audience"));
@@ -207,26 +210,47 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
 L’appel `getActiveDirectorySettings` dans le code ci-après récupère les points de terminaison à partir des points de terminaison de métadonnées. Il indique les variables d’environnement à partir de l’appel qui est effectué :
 
 ```java
-public static HashMap<String, String>
-getActiveDirectorySettings(String armEndpoint) {
+public static HashMap<String, String> getActiveDirectorySettings(String armEndpoint) {
 
-HashMap<String, String> adSettings = new HashMap<String, String>();
+    HashMap<String, String> adSettings = new HashMap<String, String>();
+    try {
 
-try {
+        // create HTTP Client
+        HttpClient httpClient = HttpClientBuilder.create().build();
 
-// create HTTP Client
-HttpClient httpClient = HttpClientBuilder.create().build();
+        // Create new getRequest with below mentioned URL
+        HttpGet getRequest = new HttpGet(String.format("%s/metadata/endpoints?api-version=1.0",
+                             armEndpoint));
 
-// Create new getRequest with below mentioned URL
-HttpGet getRequest = new
-HttpGet(String.format("%s/metadata/endpoints?api-version=1.0",
-armEndpoint));
+        // Add additional header to getRequest which accepts application/xml data
+        getRequest.addHeader("accept", "application/xml");
 
-// Add additional header to getRequest which accepts application/xml data
-getRequest.addHeader("accept", "application/xml");
+        // Execute request and catch response
+        HttpResponse response = httpClient.execute(getRequest);
+        
+        // Check for HTTP response code: 200 = success
+        if (response.getStatusLine().getStatusCode() != 200) {
+            throw new RuntimeException("Failed : HTTP error code : " + response.getStatusLine().getStatusCode());
+        }
+        
+        String responseStr = EntityUtils.toString(response.getEntity());
+        JSONObject responseJson = new JSONObject(responseStr);
+        adSettings.put("galleryEndpoint", responseJson.getString("galleryEndpoint"));
+        JSONObject authentication = (JSONObject) responseJson.get("authentication");
+        String audience = authentication.get("audiences").toString().split("\"")[1];
+        adSettings.put("login_endpoint", authentication.getString("loginEndpoint"));
+        adSettings.put("audience", audience);
+        adSettings.put("graphEndpoint", responseJson.getString("graphEndpoint"));
 
-// Execute request and catch response
-HttpResponse response = httpClient.execute(getRequest);
+    } catch (ClientProtocolException cpe) {
+        cpe.printStackTrace();
+        throw new RuntimeException(cpe);
+    } catch (IOException ioe) {
+        ioe.printStackTrace();
+        throw new RuntimeException(ioe);
+    }
+    return adSettings;
+}
 ```
 
 ## <a name="samples-using-api-profiles"></a>Exemples à l’aide de profils d’API
@@ -237,7 +261,7 @@ Vous pouvez utiliser les exemples GitHub ci-après en guise de références pour
 
 - [Gérer des comptes de stockage](https://github.com/Azure-Samples/hybrid-storage-java-manage-storage-accounts)
 
-- [Gérer une machine virtuelle](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm)
+- [Gérer une machine virtuelle](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm) (mise à jour avec le profil 2019-03-01-hybrid).
 
 ### <a name="sample-unit-test-project"></a>Exemple de projet de test unitaire
 
@@ -265,35 +289,20 @@ Vous pouvez utiliser les exemples GitHub ci-après en guise de références pour
    - export ARM_ENDPOINT={votre URL Azure Stack Resource Manager}
    - export RESOURCE_LOCATION={emplacement d’Azure Stack}
 
-   Dans Windows, utilisez **set** et non **export**.
+   Sous Windows, utilisez **set** et non **export**.
 
-5. Utilisez le code `getactivedirectorysettings` pour récupérer le point de terminaison de métadonnées ARM et utilisez le client HTTP pour définir les informations de point de terminaison.
+5. Utilisez la fonction `getActiveDirectorySettings` pour récupérer les points de terminaison de métadonnées Azure Resource Manager.
 
-   ```java
-   public static HashMap<String, String> getActiveDirectorySettings(String armEndpoint) {
-   HashMap<String, String> adSettings = new HashMap<String,> String>();
+    ```java
+    // Get Azure Stack cloud endpoints
+    final HashMap<String, String> settings = getActiveDirectorySettings(armEndpoint);
+    ```
 
-   try {
-
-   // create HTTP Client
-   HttpClient httpClient = HttpClientBuilder.create().build();
-
-   // Create new getRequest with below mentioned URL
-   HttpGet getRequest = new
-   HttpGet(String.format("%s/metadata/endpoints?api-version=1.0", armEndpoint));
-
-   // Add additional header to getRequest which accepts application/xml data
-   getRequest.addHeader("accept", "application/xml");
-
-   // Execute request and catch response
-   HttpResponse response = httpClient.execute(getRequest);
-   ```
-
-6. Dans le fichier Pom.xml, ajoutez la dépendance suivante afin d’utiliser le profil **2018-03-01-hybrid** pour Azure Stack. Cette dépendance installe les modules associés à ce profil pour les fournisseurs de ressources Compute, Mise en réseau, Stockage, KeyVault et App Services :
+6. Dans le fichier Pom.xml, ajoutez la dépendance suivante afin d’utiliser le profil **2019-03-01-hybrid** pour Azure Stack. Cette dépendance installe les modules associés à ce profil pour les fournisseurs de ressources Compute, Mise en réseau, Stockage, KeyVault et App Services :
 
    ```xml
    <dependency>
-   <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>
+   <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
    <artifactId>azure</artifactId>
    <vers1s.0.0-beta</version>
    </dependency>

@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 06/18/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 04/19/2019
-ms.openlocfilehash: 689929a6efc2d318fb8c24545636053946457785
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/18/2019
+ms.openlocfilehash: ecd0d3c79edc2359cf82aa9c52fb9021d7fc7a6f
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310835"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308686"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Accéder au tableau de bord Kubernetes dans Azure Stack 
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack* 
 > [!Note]   
-> Kubernetes sur Azure Stack est en préversion. Le scénario Azure Stack déconnecté n'est actuellement pas pris en charge par la préversion. 
+> Kubernetes sur Azure Stack est en préversion. Un scénario Azure Stack déconnecté n'est actuellement pas pris en charge par la préversion. Utiliser uniquement l’élément de la place de marché pour les scénarios de développement et de test.
 
 Kubernetes comprend un tableau de bord web qui peut être utilisé pour les opérations de gestion de base. Ce tableau de bord vous permet d’afficher l’état de santé de base et les métriques concernant vos applications, ainsi que de créer et déployer des services et de modifier les applications existantes. Cet article vous montre comment configurer le tableau de bord Kubernetes sur Azure Stack.
 

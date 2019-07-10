@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 06/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 8f8d7ee82890788f60266f671bcc4041795c075e
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 04c793ceebf167220b74dfc40a7e4fc775723e93
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691638"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316260"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Connexion d’Azure Stack à Azure à l’aide d’Azure ExpressRoute
 
@@ -58,25 +58,21 @@ Pour connecter Azure Stack et Azure à l’aide d’ExpressRoute, vous devez te
 
 ### <a name="expressroute-network-architecture"></a>Architecture réseau ExpressRoute
 
-Le diagramme suivant montre les environnements Azure Stack et Azure une fois que vous avez configuré ExpressRoute à l’aide des exemples de cet article :
-
-*Figure 1 : Réseau ExpressRoute*
+L’illustration suivante montre les environnements Azure Stack et Azure une fois que vous avez configuré ExpressRoute à l’aide des exemples de cet article :
 
 ![Réseau ExpressRoute](media/azure-stack-connect-expressroute/Conceptual.png)
 
-Le schéma d’architecture suivant montre comment plusieurs locataires se connectent à Azure depuis l’infrastructure Azure Stack par le biais du routeur ExpressRoute au niveau de la périphérie Microsoft :
-
-*Figure 2 : Connexions d’architecture mutualisées*
+L’illustration suivante montre comment plusieurs locataires se connectent à Azure depuis l’infrastructure Azure Stack par le biais du routeur ExpressRoute au niveau de la périphérie Microsoft :
 
 ![Connexions d’architecture mutualisées avec ExpressRoute](media/azure-stack-connect-expressroute/Architecture.png)
 
-L’exemple de cet article utilise la même architecture mutualisée illustrée dans la figure 2 pour connecter Azure Stack à Azure à l’aide de l’homologation privée ExpressRoute. La connexion s’effectue grâce à une connexion VPN de site à site établie entre la passerelle de réseau virtuel dans Azure Stack et un routeur ExpressRoute.
+L’exemple de cet article utilise la même architecture mutualisée illustrée dans ce diagramme pour connecter Azure Stack à Azure à l’aide de l’homologation privée ExpressRoute. La connexion s’effectue grâce à une connexion VPN de site à site établie entre la passerelle de réseau virtuel dans Azure Stack et un routeur ExpressRoute.
 
 Les étapes de cet article vous expliquent comment créer une connexion de bout en bout entre deux réseaux virtuels, depuis deux locataires différents dans Azure Stack, et les réseaux virtuels correspondants dans Azure. Le paramétrage de deux locataires est facultatif, vous pouvez également utiliser ces étapes pour un seul locataire.
 
 ## <a name="configure-azure-stack"></a>Configurer Azure Stack
 
-Pour configurer l’environnement Azure Stack pour le premier locataire, utilisez les étapes du diagramme suivant comme guide. Si vous configurez plusieurs locataires, répétez ces étapes :
+Pour configurer l’environnement Azure Stack pour le premier locataire, utilisez les étapes suivantes comme guides. Si vous configurez plusieurs locataires, répétez ces étapes :
 
 >[!NOTE]
 >Ces étapes expliquent comment créer des ressources à l’aide du portail Azure Stack, mais vous pouvez également utiliser PowerShell.
@@ -96,7 +92,7 @@ Suivez les procédures ci-dessous pour créer les ressources réseau nécessaire
 
 #### <a name="create-the-virtual-network-and-vm-subnet"></a>Créer le réseau virtuel et le sous-réseau de machine virtuelle
 
-1. Connectez-vous au portail utilisateur avec un compte d’utilisateur (locataire).
+1. Connectez-vous au portail utilisateur Azure Stack.
 
 2. Dans le portail, sélectionnez **+ Créer une ressource**.
 
@@ -144,14 +140,14 @@ Suivez les procédures ci-dessous pour créer les ressources réseau nécessaire
 
 #### <a name="create-the-local-network-gateway"></a>Créer la passerelle de réseau local
 
-La ressource de passerelle de réseau local identifie la passerelle distante présente à l’autre extrémité de la connexion VPN. Pour cet exemple, l’extrémité distante de la connexion est la sous-interface LAN du routeur ExpressRoute. Pour le locataire 1, illustrée dans la figure 2, l’adresse distante est 10.60.3.255.
+La ressource de passerelle de réseau local identifie la passerelle distante présente à l’autre extrémité de la connexion VPN. Pour cet exemple, l’extrémité distante de la connexion est la sous-interface LAN du routeur ExpressRoute. Pour le locataire 1 du diagramme précédent, l’adresse distante est 10.60.3.255.
 
 1. Connectez-vous au portail utilisateur Azure Stack avec votre compte d’utilisateur, puis sélectionnez **+ Créer une ressource**.
 1. Sous **Place de marché Azure**, sélectionnez **Mise en réseau**.
 1. Sélectionnez **Passerelle de réseau local** dans la liste des ressources.
 1. Dans le champ **Nom**, saisissez **ER-Router-GW**.
-1. Pour le champ **Adresse IP**, reportez-vous à la figure2. L’adresse IP de la sous-interface LAN du routeur ExpressRoute pour le locataire 1 est 10.60.3.255. Pour votre propre environnement, entrez l’adresse IP de l’interface correspondante de votre routeur.
-1. Dans le champ **Espace d’adressage**, entrez l’espace d’adressage des réseaux virtuels auxquels se connecter dans Azure. Les sous-réseaux pour le locataire 1 dans la *Figure 2* sont les suivants :
+1. Pour le champ **Adresse IP**, reportez-vous à la figure précédente. L’adresse IP de la sous-interface LAN du routeur ExpressRoute pour le locataire 1 est 10.60.3.255. Pour votre propre environnement, entrez l’adresse IP de l’interface correspondante de votre routeur.
+1. Dans le champ **Espace d’adressage**, entrez l’espace d’adressage des réseaux virtuels auxquels se connecter dans Azure. Les sous-réseaux pour le locataire 1 sont les suivants :
 
    * 192.168.2.0/24 est le réseau virtuel hub dans Azure.
    * 10.100.0.0/16 est le réseau virtuel Spoke dans Azure.
@@ -295,8 +291,6 @@ Le routeur est une machine virtuelle Windows Server (AzS-BGPNAT01) qui exécute
 
 Après avoir terminé la configuration d’Azure Stack, vous pouvez déployer les ressources Azure. La figure suivante représente un exemple de réseau virtuel locataire dans Azure. Vous pouvez utiliser n’importe quel nom et schéma d’adressage pour désigner votre réseau virtuel dans Azure. Toutefois, les plages d’adresses des réseaux virtuels dans Azure et Azure Stack doivent être uniques et ne doivent pas se chevaucher :
 
-*Figure 3 : Réseaux virtuels Azure*
-
 ![Réseaux virtuels Azure](media/azure-stack-connect-expressroute/AzureArchitecture.png)
 
 Les ressources que vous déployez dans Azure sont semblables aux ressources déployées dans Azure Stack. Vous déployez les composants suivants :
@@ -356,9 +350,7 @@ Répétez ces étapes pour connecter d’autres réseaux virtuels locataires dan
 
 ## <a name="configure-the-router"></a>Configuration du routeur
 
-Vous pouvez utiliser le diagramme suivant de la configuration du routeur ExpressRoute comme guide pour configurer votre routeur ExpressRoute. Ce diagramme représente deux locataires (Tenant 1 et Tenant 2) avec leurs circuits ExpressRoute respectifs. Chaque locataire est connecté à son propre VRF (Virtual Routing and Forwarding) du côté LAN et WAN du routeur ExpressRoute. Cette configuration garantit l’isolation de bout en bout entre les deux clients. Notez les adresses IP utilisées dans les interfaces du routeur pendant que vous suivez l’exemple de configuration.
-
-*Figure 4 : Configuration du routeur ExpressRoute*
+Vous pouvez utiliser le diagramme suivant de la configuration du routeur ExpressRoute comme guide pour configurer votre routeur ExpressRoute. Cette illustration représente deux locataires (Tenant 1 et Tenant 2) avec leurs circuits ExpressRoute respectifs. Chaque locataire est connecté à son propre VRF (Virtual Routing and Forwarding) du côté LAN et WAN du routeur ExpressRoute. Cette configuration garantit l’isolation de bout en bout entre les deux clients. Notez les adresses IP utilisées dans les interfaces du routeur pendant que vous suivez l’exemple de configuration.
 
 ![Configuration du routeur ExpressRoute](media/azure-stack-connect-expressroute/EndToEnd.png)
 
@@ -624,7 +616,7 @@ New-NetFirewallRule `
 
 Si vous souhaitez connaître le volume de trafic qui transite via votre connexion, accédez au portail utilisateur Azure Stack. C’est également un bon moyen de savoir si les données de votre test ping sont passées au travers des connexions VPN et ExpressRoute :
 
-1. Connectez-vous au portail utilisateur Azure Stack avec votre compte locataire et sélectionnez **Toutes les ressources**.
+1. Connectez-vous au portail utilisateur Azure Stack et sélectionnez **Toutes les ressources**.
 1. Accédez au groupe de ressources pour lequel votre passerelle VPN a été créée et sélectionnez le type d’objet **Connexions**.
 1. Sélectionnez la connexion **ConnectToAzure** dans la liste.
 1. Dans **Connexions** > **Vue d’ensemble**, vous pouvez visualiser les statistiques de **données entrantes** et de **données sortantes**. Vous devriez voir des valeurs non nulles.

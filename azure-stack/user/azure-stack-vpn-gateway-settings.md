@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 06/11/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 35f7c5b15e9dce3b27fd01ab262154e139200f92
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 83fa2e96a7cd956c050efa33ab6e9564b1834e93
+ms.sourcegitcommit: 07c51a03f07a6a3ee2721aa942d31a7a4c6a339b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310997"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67028300"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Paramètres de configuration de la passerelle VPN pour Azure Stack
 
@@ -34,9 +34,9 @@ Une connexion de passerelle VPN s’appuie sur la configuration de plusieurs res
 
 ### <a name="gateway-types"></a>Types de passerelle
 
-Chaque réseau virtuel de Azure Stack prend en charge une passerelle de réseau virtuel unique, qui doit être du type **Vpn**.  Cela diffère d’Azure, qui prend également en charge d’autres types.  
+Chaque réseau virtuel de Azure Stack prend en charge une passerelle de réseau virtuel unique, qui doit être du type **Vpn**.  Cela diffère d’Azure, qui prend également en charge d’autres types.
 
-Lorsque vous créez une passerelle de réseau virtuel, vous devez vous assurer que le type de passerelle est adapté à votre configuration. Une passerelle VPN nécessite l’indicateur `-GatewayType Vpn`, par exemple :
+Lorsque vous créez une passerelle de réseau virtuel, vous devez vous assurer que le type de passerelle est adapté à votre configuration. Une passerelle VPN nécessite l’indicateur `-GatewayType Vpn`, par exemple :
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
@@ -50,17 +50,17 @@ Lorsque vous créez une passerelle de réseau virtuel, vous devez spécifier la 
 
 Azure Stack propose les références SKU de passerelle VPN indiquées dans le tableau suivant.
 
-|   | Débit de passerelle VPN |Tunnels IPsec max de passerelle VPN |
+| | Débit de passerelle VPN |Tunnels IPsec max de passerelle VPN |
 |-------|-------|-------|
 |**Référence De base**  | 100 Mbits/s  | 20    |
-|**Référence Standard**           | 100 Mbits/s  | 20    |
-|**Référence Hautes performances** | 200 Mbits/s    | 10    |
+|**Référence Standard**   | 100 Mbits/s  | 20 |
+|**Référence Hautes performances** | 200 Mbits/s | 10 |
 
 ### <a name="resizing-gateway-skus"></a>Redimensionnement des références SKU de passerelle
 
 Azure Stack ne prend pas en charge un redimensionnement des références SKU entre les références SKU héritées prises en charge.
 
-De même, Azure Stack ne gère pas les redimensionnements d’une référence SKU héritée prise en charge (De base, Standard et Hautes performances) vers une référence SKU plus récente prise en charge par Azure (VpnGw1, VpnGw2 et VpnGw3).
+De même, Azure Stack ne gère pas les redimensionnements d’une référence SKU héritée prise en charge (**De base**, **Standard** et **Hautes performances**) vers une référence SKU plus récente prise en charge par Azure (**VpnGw1**, **VpnGw2** et **VpnGw3**).
 
 ### <a name="configure-the-gateway-sku"></a>Configuration de la référence SKU de passerelle
 
@@ -70,7 +70,7 @@ Si vous utilisez le portail Azure Stack pour créer une passerelle de réseau vi
 
 #### <a name="powershell"></a>PowerShell
 
-Dans l’exemple PowerShell ci-après, la référence SKU de passerelle **-GatewaySku** présente la valeur `VpnGw1`:
+L’exemple PowerShell suivant spécifie la `-GatewaySku` en tant que **VpnGw1** :
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
@@ -80,9 +80,9 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 
 ### <a name="connection-types"></a>Types de connexion
 
-Dans le modèle de déploiement de Resource Manager, chaque configuration nécessite un type spécifique de connexion de passerelle de réseau virtuel. Les valeurs PowerShell pour Resource Manager disponibles pour **-ConnectionType** sont les suivantes :
+Dans le modèle de déploiement de Resource Manager, chaque configuration nécessite un type spécifique de connexion de passerelle de réseau virtuel. Les valeurs de PowerShell pour Resource Manager disponibles pour `-ConnectionType` sont :
 
-* IPsec
+* **IPsec**
 
    L’exemple PowerShell ci-après crée une connexion S2S qui nécessite le type de connexion IPsec :
 
@@ -106,9 +106,9 @@ Lorsque vous créez la passerelle de réseau virtuel d’une configuration de pa
   >[!NOTE]
   >Le type **PolicyBased** est pris en charge dans Azure, mais non dans Azure Stack.
 
-* **RouteBased** : les VPN RouteBased basés sur le routage utilisent des itinéraires qui sont configurés dans la table de transfert IP ou de routage pour acheminer les paquets vers leurs interfaces de tunnel correspondantes. Les interfaces de tunnel chiffrent ou déchiffrent ensuite les paquets se trouvant dans et hors des tunnels. La stratégie ou le sélecteur de trafic des VPN **RouteBased** basés sur le routage sont configurés comme universels (ou utilisent des caractères génériques). Par défaut, ils ne sont pas modifiables. Le VPN **RouteBased** a pour valeur **RouteBased**.
+* **RouteBased** : les VPN RouteBased basés sur le routage utilisent des itinéraires qui sont configurés dans la table de transfert IP ou de routage pour acheminer les paquets vers leurs interfaces de tunnel correspondantes. Les interfaces de tunnel chiffrent ou déchiffrent ensuite les paquets se trouvant dans et hors des tunnels. La stratégie, ou sélecteur de trafic, des VPN **RouteBased** est configurée comme universelle (ou utilise des caractères génériques). Par défaut, ils ne sont pas modifiables. Le VPN **RouteBased** a pour valeur **RouteBased**.
 
-Dans l’exemple PowerShell ci-après, le type de VPN **-VpnType** présente la valeur **RouteBased**. Lorsque vous créez une passerelle, vous devez vous assurer que le type **-VpnType** est adapté à votre configuration.
+L’exemple PowerShell suivant spécifie la `-VpnType` en tant que **RouteBased**. Lorsque vous créez une passerelle, vous devez vous assurer que le type `-VpnType` est adapté à votre configuration.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
@@ -123,7 +123,7 @@ Le tableau suivant répertorie la configuration requise pour les passerelles VPN
 | |Passerelle VPN basée sur des stratégies de base | Passerelle VPN basée sur des itinéraires de base | Passerelle VPN basée sur des itinéraires Standard | Passerelle VPN à hautes performances basée sur des itinéraires|
 |--|--|--|--|--|
 | **Connectivité de site à site (connectivité S2S)** | Non pris en charge | Configuration de VPN basé sur les itinéraires | Configuration de VPN basé sur les itinéraires | Configuration de VPN basé sur les itinéraires |
-| **Méthode d’authentification**  | Non pris en charge | Clé prépartagée pour la connectivité S2S  | Clé prépartagée pour la connectivité S2S  | Clé prépartagée pour la connectivité S2S  |   
+| **Méthode d’authentification**  | Non pris en charge | Clé prépartagée pour la connectivité S2S  | Clé prépartagée pour la connectivité S2S  | Clé prépartagée pour la connectivité S2S  |
 | **Nombre maximal de connexions de site à site**  | Non pris en charge | 20 | 20| 10|
 |**Prise en charge de routage actif (BGP)** | Non pris en charge | Non pris en charge | Pris en charge | Pris en charge |
 
@@ -187,10 +187,10 @@ Contrairement à Azure, qui prend en charge plusieurs offres en tant qu’initia
 |Chiffrement et algorithmes de hachage (Authentification) | GCMAES256|
 |Durée de vie de l’AS (durée)  | 27 000 secondes  |
 |Durée de vie de l’AS (kilo-octets) | 33 553 408     |
-|PFS (Perfect Forward Secrecy) |Aucun<sup>Voir remarque 1</sup> |
+|PFS (Perfect Forward Secrecy) |Aucun (e) (voir remarque 1) |
 |Détection d’homologue mort | Pris en charge|  
 
-* *Remarque 1 :*  avant la version 1807, Azure Stack utilise la valeur PFS2048 pour la propriété PFS (Perfect Forward Secrecy).
+* *Remarque 1 :*  Avant la version 1807, Azure Stack utilisait la valeur PFS2048 pour la propriété PFS (Perfect Forward Secrecy).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

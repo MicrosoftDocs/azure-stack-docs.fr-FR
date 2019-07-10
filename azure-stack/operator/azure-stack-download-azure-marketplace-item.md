@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: sethm
-ms.reviewer: unknown
+ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 5b90bc5014d0f8ebfaed8532f62b7c4f3aee8667
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 7cc55659df1da1c51d92f0fc2926cee7255c422e
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691863"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67315971"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack
 
@@ -48,7 +48,7 @@ Votre déploiement Azure Stack doit être connecté à internet et être [inscri
   
 1. Connectez-vous au portail d’administration d’Azure Stack.
 
-2.  Vérifiez l’espace de stockage disponible avant de télécharger des éléments de la Place de marché. Plus tard, lorsque vous sélectionnez des éléments pour le téléchargement, vous pouvez comparer la taille du téléchargement avec votre capacité de stockage disponible. Si la capacité est limitée, envisagez des options pour [gérer l’espace disponible](azure-stack-manage-storage-shares.md#manage-available-space). 
+2. Vérifiez l’espace de stockage disponible avant de télécharger des éléments de la Place de marché. Plus tard, lorsque vous sélectionnez des éléments pour le téléchargement, vous pouvez comparer la taille du téléchargement avec votre capacité de stockage disponible. Si la capacité est limitée, envisagez des options pour [gérer l’espace disponible](azure-stack-manage-storage-shares.md#manage-available-space). 
 
     Pour consulter l’espace disponible, dans **Gestion des régions**, sélectionnez la région que vous souhaitez explorer, puis accédez à **Fournisseurs de ressources** > **Stockage** :
 
@@ -177,7 +177,7 @@ Ce scénario comporte deux parties :
    Le paramètre `-AzsCredential` est facultatif. Il est utilisé pour renouveler le jeton d’accès, s’il a expiré. Si le paramètre `-AzsCredential` n’est pas spécifié et que le jeton expire, vous êtes invité à entrer les informations d’identification de l’opérateur.
 
     > [!Note]  
-    > AD FS prend en charge uniquement l’authentification interactive avec des identités d’utilisateurs. Si un objet d’identification est nécessaire, vous devez utiliser un SPN (nom de principal du service). Pour plus d’informations sur la configuration d’un principal de service avec Azure Stack et AD FS en tant que service de gestion des identités, consultez [Gérer le principal de service pour AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
+    > AD FS prend en charge uniquement l’authentification interactive avec des identités d’utilisateurs. Si un objet d’identification est nécessaire, vous devez utiliser un SPN (nom de principal du service). Pour plus d’informations sur la configuration d’un principal de service avec Azure Stack et AD FS en tant que service de gestion des identités, voir [Gérer un principal de service AD FS](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal).
 
 4. Une fois l’exécution du script terminée correctement, l’élément doit être disponible dans la Place de marché Azure Stack.
 

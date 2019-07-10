@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/27/2019
 ms.author: sethm
-ms.reviewer: ''
-ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 5dcbb331d27bdf07a268ba883c2dfbbfe821105a
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.reviewer: hectorl
+ms.lastreviewed: 06/27/2019
+ms.openlocfilehash: c5108dc8b24fec7569d54964217f146a5cefa5e6
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691591"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419574"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Check-list des activités de mise à jour Azure Stack
 
@@ -31,13 +31,13 @@ Cet article contient une check-list des activités liées aux mises à jour pour
 
 | Activité              | Détails                                                                          |
 |-----------------------|----------------------------------------------------------------------------------|
-| Passer en revue les problèmes connus   | [Liste des problèmes connus](azure-stack-release-notes-known-issues-1905.md).                |
-| Passer en revue les mises à jour de sécurité | [Liste des mises à jour de sécurité](azure-stack-release-notes-security-updates-1905.md).      |
+| Passer en revue les problèmes connus   | [Liste des problèmes connus](azure-stack-release-notes-known-issues-1906.md).                |
+| Passer en revue les mises à jour de sécurité | [Liste des mises à jour de sécurité](azure-stack-release-notes-security-updates-1906.md).      |
 | Exécuter l’applet de commande Test-AzureStack   | Exécutez `Test-AzureStack -Group UpdateReadiness` pour identifier les problèmes fonctionnels.      |
 | Résoudre les problèmes        | Résolvez les problèmes fonctionnels identifiés par **Test-AzureStack**.                |
 | Appliquer les derniers correctifs | Appliquez les derniers correctifs qui s’appliquent à la version actuellement installée.         |
 | Exécuter l’outil de planification des capacités | Veillez à utiliser la dernière version de l’outil [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner)  pour planifier et dimensionner votre charge de travail. La dernière version contient des corrections de bogues et fournit de nouvelles fonctionnalités publiées à chaque mise à jour d’Azure Stack. |
-| Mise à jour disponible       | Dans les scénarios connectés, et uniquement dans ceux-ci, les déploiements Azure Stack consultent régulièrement un point de terminaison sécurisé et vous avertissent automatiquement si une mise à jour est disponible pour votre cloud. Les clients déconnectés peuvent télécharger et importer le nouveau package 1905 en suivant la [procédure décrite ici](azure-stack-apply-updates.md).               |
+| Mise à jour disponible       | Dans les scénarios connectés, et uniquement dans ceux-ci, les déploiements Azure Stack consultent régulièrement un point de terminaison sécurisé et vous avertissent automatiquement si une mise à jour est disponible pour votre cloud. Les clients déconnectés peuvent télécharger et importer le nouveau package 1906 en suivant la [procédure décrite ici](azure-stack-apply-updates.md).               |
 
 ## <a name="during-azure-stack-update"></a>Pendant la mise à jour d’Azure Stack
 
@@ -59,5 +59,5 @@ Cet article contient une check-list des activités liées aux mises à jour pour
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Consulter la liste des problèmes connus](azure-stack-release-notes-known-issues-1905.md)
-- [Consulter la liste des mises à jour de sécurité](azure-stack-release-notes-security-updates-1905.md)
+- [Consulter la liste des problèmes connus](azure-stack-release-notes-known-issues-1906.md)
+- [Consulter la liste des mises à jour de sécurité](azure-stack-release-notes-security-updates-1906.md)
