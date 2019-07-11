@@ -14,12 +14,12 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 25280d1f5465776aedf2e3e0dfd84118e866a944
-ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
+ms.openlocfilehash: f1c846b6d429fa323e1081d96cbca8bd10f877b5
+ms.sourcegitcommit: 1c4eda123857d714109e38bb853eb1ce49af5f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67397285"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67648082"
 ---
 # <a name="validate-azure-stack-system-state"></a>Valider l’état du système Azure Stack
 
@@ -29,7 +29,7 @@ En tant qu’opérateur Azure Stack, il est essentiel que vous puissiez détermi
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Exécution de l’outil de validation et accès aux résultats
 
-Comme indiqué précédemment, l’outil de validation est exécuté par le biais du point de terminaison privilégié. Chaque test retourne un état **PASS/FAIL** dans la fenêtre PowerShell. De plus, un rapport HTML détaillé est créé, auquel vous pouvez accéder ultérieurement pendant la [collecte des journaux](azure-stack-diagnostics.md). Voici une brève présentation du processus de test de validation de bout en bout : 
+Comme indiqué précédemment, l’outil de validation est exécuté par le biais du point de terminaison privilégié. Chaque test retourne un état **PASS/FAIL** dans la fenêtre PowerShell. Voici une brève présentation du processus de test de validation de bout en bout : 
 
 1. Accédez au point de terminaison privilégié. Exécutez les commandes suivantes afin d’établir une session de point de terminaison privilégié :
 
