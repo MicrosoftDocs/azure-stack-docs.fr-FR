@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/10/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 0f6cae1604c6635f7eb401ed4db16a9a967e1ab9
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 20bf709cb3c2026910a1283fb0b39ba80c719390
+ms.sourcegitcommit: 7f441f246242fa42147ab5aa69ddc8766ba293e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985676"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67791352"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Gérer l’accès aux ressources à l’aide du contrôle d’accès en fonction du rôle dans Azure Stack
 
@@ -49,14 +49,14 @@ Dans Azure Stack, la hiérarchie des ressources est la suivante :
 * Chaque groupe de ressources est membre d’un seul abonnement.
 * Chaque ressource est membre d’un seul groupe de ressources.
 
-L’accès que vous accordez dans une étendue parente est hérité dans les étendues enfants. Par exemple : 
+L’accès que vous accordez dans une étendue parente est hérité dans les étendues enfants. Par exemple :
 
 * Vous attribuez le rôle de **lecteur** à un groupe Azure AD dans l’étendue de l’abonnement. Les membres de ce groupe peuvent consulter tous les groupes de ressources et les ressources de l’abonnement.
 * Vous attribuez le rôle de **contributeur** à une application dans l’étendue du groupe de ressources. L’application peut gérer tous les types de ressources dans ce groupe de ressources, mais pas dans les autres groupes de ressources de l’abonnement.
 
 ### <a name="assigning-roles"></a>Attribution de rôles
 
-Vous pouvez attribuer plusieurs rôles à un utilisateur et associer chaque rôle à une étendue différente. Par exemple : 
+Vous pouvez attribuer plusieurs rôles à un utilisateur et associer chaque rôle à une étendue différente. Par exemple :
 
 * Vous attribuez le rôle de lecteur à UtilisateurTest-A sur Abonnement-1.
 * Vous attribuez le rôle de propriétaire à UtilisateurTest-A sur MVTest-1.
@@ -70,7 +70,7 @@ Les étapes suivantes permettent de configurer des autorisations pour un utilisa
 1. Connectez-vous avec un compte disposant des autorisations de propriétaire sur la ressource que vous souhaitez gérer.
 2. Dans le volet de navigation de gauche, sélectionnez **Groupes de ressources**.
 3. Choisissez le nom du groupe de ressources sur lequel vous souhaitez définir des autorisations.
-4. Dans le volet de navigation du groupe de ressources, choisissez **Contrôle d’accès (IAM)**. La vue **Attributions de rôles** liste les éléments qui ont accès au groupe de ressources. Vous pouvez regrouper et filtrer les résultats.
+4. Dans le volet de navigation du groupe de ressources, choisissez **Contrôle d’accès (IAM)** . La vue **Attributions de rôles** liste les éléments qui ont accès au groupe de ressources. Vous pouvez regrouper et filtrer les résultats.
 5. Dans la barre de menus **Contrôle d’accès**, choisissez **Ajouter**.
 6. Sur le volet **Ajouter des autorisations** :
 
@@ -82,4 +82,4 @@ Les étapes suivantes permettent de configurer des autorisations pour un utilisa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créer les principaux du service](azure-stack-create-service-principals.md)
+[Créer les principaux du service](../operator/azure-stack-create-service-principals.md)

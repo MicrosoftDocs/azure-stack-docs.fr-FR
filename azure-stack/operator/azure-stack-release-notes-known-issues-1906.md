@@ -16,12 +16,12 @@ ms.date: 06/28/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: d1d3b3c33652811964b16a35686df3e3a24eb59a
-ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
+ms.openlocfilehash: 96a29ab11ffc15b35c7035576fa68544caef594b
+ms.sourcegitcommit: 1c4eda123857d714109e38bb853eb1ce49af5f5c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67557873"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67648040"
 ---
 # <a name="azure-stack-1906-known-issues"></a>Problèmes connus dans Azure Stack 1906
 
@@ -71,6 +71,13 @@ Cet article répertorie les problèmes connus dans la version 1906 d’Azure St
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Dans le portail de l’utilisateur, lorsque vous essayez de charger un objet blob à l’aide de l’option **OAuth (préversion)** , la tâche échoue avec un message d’erreur.
 - Correction : Chargez le blob à l’aide de l’option SAP.
+- Occurrence : Courant
+
+### <a name="template"></a>Modèle
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, l’interface utilisateur du déploiement de modèle ne remplit pas les paramètres pour les noms de modèle commençant par « _ » (caractère de soulignement).
+- Correction : Supprimez le « _ » (caractère de soulignement) dans le nom du modèle.
 - Occurrence : Courant
 
 ## <a name="networking"></a>Mise en réseau
