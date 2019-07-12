@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 07/09/2019
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: dd6421e915f170ee576d6486362e8b93ac01465f
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.lastreviewed: 07/09/2019
+ms.openlocfilehash: d18775deb6d73117091a3822c5a60a32d94d4d38
+ms.sourcegitcommit: cb77ffe0d5da14696ad0fe7c09ee6b340c7f66e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152579"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67679000"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Éléments de Place de Marché Azure disponibles pour Azure Stack
 
@@ -38,7 +38,7 @@ Chaque fois que des mises à jour sont publiées pour les extensions de machine 
 |![Extension de configuration d’état souhaité PowerShell](media/azure-stack-marketplace-azure-items/dsc.png) | [Extension de configuration d’état souhaité PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| **Téléchargez cette mise à jour de la version d’origine de l’extension de configuration d’état souhaité PowerShell. Mise à jour pour prendre en charge TLS v1.2.** | Microsoft | Windows |
 | ![Extension du logiciel anti-programme malveillant Microsoft](media/azure-stack-marketplace-azure-items/cse.png) | [Extension du logiciel anti-programme malveillant Microsoft](https://docs.microsoft.com/azure/security/azure-security-antimalware)| Microsoft Antimalware pour Azure est une solution d’agent unique pour les applications et les environnements client, conçue pour s’exécuter en arrière-plan sans intervention humaine. **Téléchargez cette mise à jour de la version d’origine de l’extension du logiciel anti-programme malveillant.** | Microsoft | Windows |
 | ![Extension de diagnostic Microsoft Azure](media/azure-stack-marketplace-azure-items/cse.png) | [Extension de diagnostic Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-windows)| Diagnostics Azure est la fonctionnalité Azure qui active la collecte de données de diagnostic dans une application déployée. **Téléchargez cette mise à jour de la version d’origine de l’extension de diagnostic pour Windows.** | Microsoft | Windows |
-| ![Extension de surveillance Microsoft](media/azure-stack-marketplace-azure-items/cse.png) | [Extension Microsoft Monitoring Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)| L’extension Microsoft Monitoring Agent est utilisée avec OMS pour fournir la fonctionnalité de surveillance des machines virtuelles. **Téléchargez cette mise à jour de la version d’origine de l’extension Monitoring Agent pour Windows.** | Microsoft | Windows |
+| ![Élément d’extension Azure Monitor, Update and Configuration Management Extension](media/azure-stack-marketplace-azure-items/cse.png) | [Azure Monitor, Update and Configuration Management Extension](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)| L’extension Azure Monitor, Update and Configuration Management est utilisée avec Log Analytics, Azure Security Center et Azure Sentinel pour fournir la fonctionnalité de surveillance des machines virtuelles. **Téléchargez cette mise à jour de la version d’origine de l’extension Monitoring Agent pour Windows.** | Microsoft | Windows |
 |![Extension de script personnalisé](media/azure-stack-marketplace-azure-items/cse.png) | - [Extension de script personnalisé (version 1, dépréciée)](https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-linuxostc) </b> - [Extension de script personnalisé (version 2)](https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-linux) |**Téléchargez cette mise à jour de la version d’origine de l’extension de script personnalisé pour Linux. Il existe plusieurs versions de cette extension et vous devez télécharger 1.5.2.1 et 2.0.x.** | Microsoft | Linux |
 | ![Accès à la machine virtuelle pour Linux](media/azure-stack-marketplace-azure-items/cse.png) | [Accès à la machine virtuelle pour Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| **Téléchargez cette mise à jour de la version d’origine de l’extension VMAccess pour Linux. Cette mise à jour est importante si vous envisagez d’utiliser des machines virtuelles Debian Linux.** | Microsoft | Linux |
 | ![Extension de la sauvegarde Acronis pour Linux](media/azure-stack-marketplace-azure-items/acronis.png) | [Extension de la sauvegarde Acronis pour Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | L’extension Acronis Backup pour Microsoft Azure fait partie de la famille de produits de protection des données Acronis Backup. | Acronis International GmbH. | Linux |
