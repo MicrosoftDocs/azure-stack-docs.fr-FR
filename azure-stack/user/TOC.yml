@@ -240,6 +240,18 @@
           href: azure-stack-rest-api-use.md
     - name: Activer un fournisseur de service cloud
       href: azure-stack-csp-enable-billing-usage-tracking.md
+- name: Concepts
+  items:
+    - name: Modèles de cloud hybride
+      items:
+        - name: Vue d’ensemble des modèles de cloud hybride
+          href: azure-stack-edge-pattern-overview.md
+        - name: Mise à l’échelle multicloud
+          href: azure-stack-edge-pattern-cross-cloud-scaling.md
+        - name: DevOps (CI/CD hybride)
+          href: azure-stack-edge-pattern-hybrid-ci-cd.md
+        - name: Application géodistribuée
+          href: azure-stack-edge-pattern-geo-distribution.md
 - name: Informations de référence
   items:
     - name: Azure Stack PowerShell
