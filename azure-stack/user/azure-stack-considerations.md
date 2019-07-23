@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 07/17/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 9fcf27c8ebbde86e775b54eda593b25fcd03979c
-ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
+ms.openlocfilehash: a7a61e8eef33ee6a6efb87001504fe5234e3cf16
+ms.sourcegitcommit: 2063332b4d7f98ee944dd1f443847eea70eb5614
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66197285"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68303151"
 ---
 # <a name="differences-between-azure-stack-and-azure-when-using-services-and-building-apps"></a>Différences entre Azure Stack et Azure quand vous utilisez des services et générez des applications
 
@@ -30,9 +30,9 @@ Avant d’utiliser des services ou de générer des applications pour Azure Stac
 
 Azure Stack est une plateforme cloud hybride qui vous permet d’utiliser les services Azure à partir du centre de données de votre entreprise ou de votre fournisseur de services. Vous pouvez créer une application dans Azure Stack et la déployer ensuite dans Azure Stack, Azure ou votre cloud hybride Azure.
 
-Votre opérateur Azure Stack vous indiquera les services que vous pouvez utiliser et comment obtenir un support technique. Il propose ces services par le biais de ses offres et plans personnalisés.
+Votre opérateur Azure Stack vous indique les services disponibles et comment accéder au support. Il propose ces services par le biais de ses offres et plans personnalisés.
 
-Le contenu technique Azure suppose que les applications sont développées pour un service Azure et non Azure Stack. Lorsque vous générez et déployez des applications sur Azure Stack, vous devez comprendre les principales différences, telles que les suivantes :
+Le contenu de la documentation technique Azure part du principe que les applications sont développées pour un service Azure et non Azure Stack. Lorsque vous générez et déployez des applications sur Azure Stack, vous devez comprendre les principales différences, telles que les suivantes :
 
 * Azure Stack fournit un sous-ensemble des services et fonctionnalités qui sont disponibles dans Azure.
 * Votre entreprise ou fournisseur de services peut choisir les services à proposer. Les options disponibles peuvent inclure des applications ou des services personnalisés. Il peut offrir sa propre documentation personnalisée.
@@ -41,14 +41,14 @@ Le contenu technique Azure suppose que les applications sont développées pour 
 
 ## <a name="cheat-sheet-high-level-differences"></a>Aide-mémoire : principales différences
 
-Le tableau suivant décrit les principales différences entre Azure Stack et Azure. Gardez ces différences à l’esprit lorsque vous développez pour Azure Stack ou utilisez des services Azure Stack.
+Le tableau suivant décrit les principales différences entre Azure Stack et Azure. Gardez ces différences à l’esprit quand vous développez pour Azure Stack ou utilisez des services Azure Stack :
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 | Domaine | Azure (global) | Azure Stack |
 | -------- | ------------- | ----------|
 | Qui est en charge de son fonctionnement ? | Microsoft | Votre organisation ou fournisseur de services.|
-| Qui contactez-vous pour obtenir un support ? | Microsoft | Pour un système intégré, contactez votre opérateur Azure Stack (auprès de votre organisation ou fournisseur de services) pour obtenir un support.<br><br>Pour la prise en charge du Kit de développement Azure Stack, visitez les [forums Microsoft](https://social.msdn.microsoft.com/Forums/home?forum=azurestack). Le kit de développement étant un environnement d’évaluation, il n’y a aucune prise en charge officielle de la part des services de support technique Microsoft.
+| Qui contactez-vous pour obtenir un support ? | Microsoft | Pour un système intégré, contactez votre opérateur Azure Stack (auprès de votre organisation ou fournisseur de services) pour obtenir un support.<br><br>Pour plus d’informations sur le support lié au Kit de développement Azure Stack (ASDK), visitez les [forums Microsoft](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack). Le kit de développement étant un environnement d’évaluation, il n’y a aucune prise en charge officielle de la part des services de support technique Microsoft.
 | Services disponibles | Consultez la liste des [produits Azure](https://azure.microsoft.com/services/?b=17.04b). Les services disponibles varient selon la région Azure. | Azure Stack prend en charge une partie des services Azure. Les services réels varient en fonction de ce que votre organisation ou fournisseur de services choisit d’offrir.
 | Point de terminaison Azure Resource Manager* | https://management.azure.com | Pour un système intégré Azure Stack, utilisez le point de terminaison fourni par votre opérateur Azure Stack.<br><br>Pour le kit de développement, utilisez : https://management.local.azurestack.external.
 | URL du portail* | [https://portal.azure.com](https://portal.azure.com) | Pour un système intégré Azure Stack, utilisez l’URL fournie par votre opérateur Azure Stack.<br><br>Pour le kit de développement, utilisez : https://portal.local.azurestack.external.
@@ -67,7 +67,7 @@ Microsoft fournit des outils et des conseils qui vous aident lors du développem
 | -------- | ------------- |
 | Installez les outils appropriés sur votre station de travail du développeur. | - [Installer PowerShell](../operator/azure-stack-powershell-install.md)<br>- [Télécharger des outils](../operator/azure-stack-powershell-download.md)<br>- [Configurer PowerShell](azure-stack-powershell-configure-user.md)<br>- [Installer Visual Studio](azure-stack-install-visual-studio.md) 
 | Passez en revue les informations relatives aux éléments suivants :<br>- Considérations relatives au modèle Azure Resource Manager<br>- Comment trouver les modèles de démarrage rapide<br>- Utiliser un module de stratégie pour vous aider à utiliser Azure pour le développement pour Azure Stack | [Développer pour Azure Stack](azure-stack-developer.md) | 
-| Passez en revue et appliquez les meilleures pratiques relatives aux modèles. | [Modèles de démarrage rapide Resource Manager](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#best-practices)
+| Passez en revue et appliquez les meilleures pratiques relatives aux modèles. | [Modèles de démarrage rapide Resource Manager](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
 | | |
 
 ## <a name="version-requirements"></a>Configuration requise pour la version

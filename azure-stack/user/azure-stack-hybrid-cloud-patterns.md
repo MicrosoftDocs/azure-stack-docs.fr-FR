@@ -1,5 +1,5 @@
 ---
-title: Créer des applications de cloud hybride avec Azure et Azure Stack | Microsoft Docs
+title: Créer des solutions basées sur des modèles de conception de clouds hybrides pour Azure Stack | Microsoft Docs
 description: Découvrez comment créer des applications de cloud hybride avec Azure et Azure Stack
 services: azure-stack
 documentationcenter: ''
@@ -11,24 +11,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 07/16/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 442e12d435102c06a334a8a93271d3d4a27aa578
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: 538a626b2e89d15aa4b816674dbb8c374ec4a262
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308768"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286806"
 ---
-# <a name="create-hybrid-cloud-apps-with-azure-and-azure-stack"></a>Créer des applications de cloud hybride avec Azure et Azure Stack
+#  <a name="build-solutions-hybrid-cloud-design-patterns-for-azure-stack"></a>Créer des solutions basées sur des modèles de conception de clouds hybrides pour Azure Stack
 
 Microsoft Azure Stack est une extension d’Azure. Azure Stack intègre l’agilité du cloud computing à votre environnement local et à la périphérie en activant un cloud hybride. Vous pouvez créer des applications de cloud hybride dans Azure et les déployer dans votre centre de données connecté ou déconnecté, quel que soit l’endroit où celui-ci est situé.
 
 Microsoft Azure est un cloud hybride cohérent. Azure vous permet de réutiliser le code développé dans Azure et de déployer votre application dans les clouds souverains Azure et Azure Stack. Les applications qui s’étendent sur des clouds sont également appelées *applications hybrides*.
 
 Les scénarios hybrides varient considérablement avec les ressources qui sont disponibles pour le développement et englobent des considérations telles que la géographie, la sécurité, l’accès à Internet et bien d’autres. Même si ces scénarios ne peuvent pas répondre à vos besoins spécifiques, ils peuvent fournir des indications clés et des exemples qui vous permettent d’explorer l’implémentation de solutions hybrides.
+
+## <a name="hybrid-cloud-patterns"></a>Modèles de cloud hybride
+
+- [Modèle de mise à l’échelle multicloud](azure-stack-edge-pattern-cross-cloud-scaling.md)
+- [Modèle géodistribué](azure-stack-edge-pattern-geo-distribution.md)
+- [Modèle DevOps](azure-stack-edge-pattern-hybrid-ci-cd.md)
 
 ## <a name="step-by-step-tutorials"></a>Didacticiels pas à pas
 
@@ -46,5 +52,5 @@ Les scénarios hybrides varient considérablement avec les ressources qui sont d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Le livre blanc [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Considérations en matière de conceptions pour les applications hybrides) se penche sur les fondements de la qualité logicielle en matière de conception, de déploiement et d’exploitation des applications hybrides.
+- Lisez les [informations à prendre en considération pour la conception d’applications hybrides](azure-stack-edge-pattern-overview.md) afin de passer en revue les piliers de la qualité logicielle permettant de concevoir, de déployer et d’utiliser des applications hybrides.
 - [Configurez un environnement de développement sur Azure Stack](azure-stack-dev-start.md) et [déployez votre première application](azure-stack-dev-start-deploy-app.md) sur Azure Stack.
