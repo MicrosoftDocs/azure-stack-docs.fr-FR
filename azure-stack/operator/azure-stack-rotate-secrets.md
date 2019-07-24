@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 07/15/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
-ms.lastreviewed: 05/14/2019
-ms.openlocfilehash: 4b758cce6741440f5b6a4c00de045e9a4fc8f530
-ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
+ms.lastreviewed: 07/15/2019
+ms.openlocfilehash: 681daffabda3525effc1815e6aa6657c9c7c526c
+ms.sourcegitcommit: ca7e6b7b9b27d0d93ee4d5d1eeaf3113bbcea4da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65706341"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68229454"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Faire pivoter les clés secrètes dans Azure Stack
 
@@ -66,7 +66,7 @@ Azure Stack prend en charge la rotation des secrets avec des certificats externe
 |De : Autorité de certification de certificats autosignés|Vers : Autorité de certification d’entreprise|Pris en charge|1903 et version ultérieure|
 |De : Autorité de certification de certificats autosignés|Vers : Autorité de certification de certificats autosignés|Non pris en charge||
 |De : Autorité de certification de certificats autosignés|Vers : Autorité de certification publique<sup>*</sup>|Pris en charge|1803 et ultérieure|
-|De : Autorité de certification d’entreprise|Vers : Autorité de certification d’entreprise| Pris en charge. Versions 1803 à 1903 : prise en charge à condition que les clients utilisent la MÊME autorité de certification d’entreprise que celle utilisée au moment du déploiement|1803 et ultérieure|
+|De : Autorité de certification d’entreprise|Vers : Autorité de certification d’entreprise|Pris en charge. Versions 1803 à 1903 : prise en charge à condition que les clients utilisent la MÊME autorité de certification d’entreprise que celle utilisée au moment du déploiement|1803 et ultérieure|
 |De : Autorité de certification d’entreprise|Vers : Autorité de certification de certificats autosignés|Non pris en charge||
 |De : Autorité de certification d’entreprise|Vers : Autorité de certification publique<sup>*</sup>|Pris en charge|1803 et ultérieure|
 |De : Autorité de certification publique<sup>*</sup>|Vers : Autorité de certification d’entreprise|Pris en charge|1903 et version ultérieure|
@@ -135,7 +135,7 @@ Pour remédier à ces alertes, exécutez la rotation des secrets en suivant les 
 > Il est également important que votre structure de dossiers de partage de fichiers commence par le dossier **Certificates**, sans quoi la validation échoue également.
 > Le montage du partage de fichiers doit se présenter sous la forme **\\\\\<IPAddress>\\\<ShareName>\\** et contenir le dossier  **Certificates\AAD** ou **Certificates\ADFS**.
 >
-> Par exemple : 
+> Par exemple :
 > - Fileshare = **\\\\\<IPAddress>\\\<ShareName>\\**
 > - CertFolder = **Certificates\AAD**
 > - FullPath = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
@@ -192,7 +192,7 @@ Pour effectuer une rotation des secrets externes :
     > [!IMPORTANT]  
     > Ne pas entrer dans la session, stockez la session en tant que variable.
 
-3. Exécutez **[invoke-command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)**. Passez la variable de session PowerShell de votre point de terminaison privilégié en tant que paramètre de **Session**.
+3. Exécutez **[invoke-command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)** . Passez la variable de session PowerShell de votre point de terminaison privilégié en tant que paramètre de **Session**.
 
 4. Exécutez **Start-SecretRotation** avec les paramètres suivants :
     - **PfxFilesPath**  
@@ -204,7 +204,7 @@ Pour effectuer une rotation des secrets externes :
 
 5. Patientez pendant la rotation de vos secrets. En général, la rotation des secrets externes prend environ une heure.
 
-    Quand la rotation des secrets a réussi, la console affiche **Overall action status: Success (état global de l’action : réussite).
+    Quand la rotation des secrets a réussi, la console affiche **Overall action status: Success (état global de l’action : réussite).**
 
     > [!Note]
     > En cas d’échec de la rotation des secrets, suivez les instructions figurant dans le message d’erreur, puis réexécutez **start-secretrotation** avec le paramètre **-Rerun**.
@@ -369,9 +369,13 @@ Cette commande effectue la rotation de tous les secrets d’infrastructure expos
 
 Le contrôleur BMC (Baseboard Management Controller) analyse l’état physique de vos serveurs. Les spécifications et les instructions sur la mise à jour des nom et mot de passe du compte d’utilisateur du contrôleur BMC varient en fonction de votre fournisseur de matériel OEM. Il est recommandé de mettre régulièrement à jour les mots de passe des composants Azure Stack.
 
-1. Mettez à jour le contrôleur BMC sur les serveurs physiques Azure Stack en suivant les instructions de votre fabricant OEM. Tous les contrôleurs BMC de votre environnement doivent avoir les mêmes nom et mot de passe d’utilisateur. Notez que les noms d’utilisateur BMC ne peuvent pas dépasser 16 caractères.
+1. Mettez à jour le contrôleur BMC sur les serveurs physiques Azure Stack en suivant les instructions de votre fabricant OEM. Tous les contrôleurs BMC de votre environnement doivent avoir les mêmes nom et mot de passe d’utilisateur. Les noms d’utilisateur BMC ne peuvent pas dépasser 16 caractères.
+
+    > [!Note]  
+    > Commencez par mettre à jour les informations d’identification BMC sur le contrôleur de gestion de carte de base du serveur physique ; sinon, la commande Azure Stack échoue durant la validation.
+
 2. Ouvrez un point de terminaison privilégié dans des sessions Azure Stack. Pour obtenir des instructions, voir [Utilisation du point de terminaison privilégié dans Azure Stack](azure-stack-privileged-endpoint.md).
-3. Une fois que votre invite PowerShell est passé à **[adresse IP ou nom de machine virtuelle ERCS]: PS>** ou à **[azs-ercs01]: PS>**, en fonction de l’environnement, exécutez `Set-BmcCredential` en exécutant `Invoke-Command`. Passez la variable de session de votre point de terminaison privilégié en tant que paramètre. Par exemple : 
+3. Une fois que votre invite PowerShell est passé à **[adresse IP ou nom de machine virtuelle ERCS]: PS>** ou à **[azs-ercs01]: PS>** , en fonction de l’environnement, exécutez `Set-BmcCredential` en exécutant `Invoke-Command`. Passez la variable de session de votre point de terminaison privilégié en tant que paramètre. Par exemple :
 
     ```powershell
     # Interactive Version

@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 7f335a6ad59d6f27c8e402863849d21c87f1cee2
-ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
+ms.openlocfilehash: fa8c8b43b354b3f63dfed87cc45baf39fa18652b
+ms.sourcegitcommit: 90ed5aa051d0756b2432c8aca0e2232c8ec493a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66748892"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68239473"
 ---
 # <a name="azure-stack-1903-update"></a>Mise à jour 1903 d’Azure Stack
 
@@ -150,7 +150,7 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 
   
 <!-- Daniel 3/28 -->
-- Dans le portail de l’utilisateur, lorsque vous essayez d’uploader un objet blob à l’aide de l’option **OAuth (préversion)** , la tâche échoue avec un message d’erreur. Pour contourner ce problème, uploadez l’objet blob à l’aide de l’option **SAS**.
+- Dans le portail de l’utilisateur, lorsque vous essayez de charger un objet blob à l’aide de l’option **OAuth (préversion)** , la tâche échoue avec un message d’erreur. Pour contourner ce problème, uploadez l’objet blob à l’aide de l’option **SAS**.
 
 - Lorsque vous êtes connecté aux portails Azure Stack, vous pouvez consulter les notifications concernant le portail public Azure. Vous pouvez ignorer ces notifications car elles ne s’appliquent pas à Azure Stack (par exemple, « 1 nouvelle mise à jour - Les mises à jour suivantes sont maintenant disponibles : Mise à jour d’avril 2019 du Portail Azure »).
 
@@ -195,6 +195,8 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 - Vous ne pouvez pas supprimer un groupe identique à partir du panneau **Virtual Machine Scale Sets**. Pour résoudre ce problème, sélectionnez le groupe identique que vous souhaitez supprimer, puis cliquez sur le bouton **Supprimer** dans le volet **Vue d’ensemble**.
 
 - La création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur et la création d’une instance de groupe identique de machines virtuelles échouent avec une erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds. Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. En revanche, la création d’instances de groupe identique n’est toujours pas disponible pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
+
+- Quand la création d’une image utilisateur échoue, le service d’image utilisateur se retrouve dans un état incorrect. Les opérations de création et de suppression d’une image utilisateur commencent à échouer. La suppression d’une image utilisateur peut échouer avec l’erreur suivante : « Erreur : Une erreur interne de gestion des disques s’est produite. »
 
 ### <a name="networking"></a>Mise en réseau
 
