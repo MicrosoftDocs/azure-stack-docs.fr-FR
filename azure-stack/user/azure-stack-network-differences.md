@@ -1,24 +1,24 @@
 ---
-title: Différences et considérations concernant la mise en réseau Azure Stack | Microsoft Docs
+title: Différences réseau Azure Stack | Microsoft Docs
 description: Découvrez les différences et les éléments à prendre en compte lors de l’utilisation de la mise en réseau dans Azure Stack.
 services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 06/17/2019
+ms.date: 07/10/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
-ms.reviewer: scottnap
-ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: a59b716df7e8bf7c9a76abbfcdbe6b300c985c9f
-ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
+ms.reviewer: wamota
+ms.lastreviewed: 07/10/2019
+ms.openlocfilehash: 7e0f533c10e8dae0566284ffb09cfa7281213002
+ms.sourcegitcommit: ca7e6b7b9b27d0d93ee4d5d1eeaf3113bbcea4da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67198816"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68229434"
 ---
-# <a name="considerations-for-azure-stack-networking"></a>Considérations relatives à la mise en réseau Azure Stack
+# <a name="differences-and-considerations-for-azure-stack-networking"></a>Différences et considérations relatives aux réseaux Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -49,23 +49,23 @@ Cet article fournit une vue d’ensemble de considérations propres à la gestio
 |  | Groupes de sécurité d’application | Pris en charge | Pas encore pris en charge. |
 | Passerelles de réseau virtuel | Passerelle VPN de point à site | Pris en charge | Pas encore pris en charge. |
 |  | Passerelle de réseau virtuel à réseau virtuel | Pris en charge | Pas encore pris en charge. |
-|  | Type de passerelle de réseau virtuel | Azure prend en charge VPN<br> ExpressRoute <br> Hyper Net | Azure Stack prend uniquement en charge le type VPN pour l’instant. |
+|  | Type de passerelle de réseau virtuel | Azure prend en charge VPN<br> ExpressRoute <br> Hyper Net. | Pour l’instant, Azure Stack prend en charge le type VPN uniquement. |
 |  | SKU de passerelle de réseau virtuel | Prise en charge de Basic, GW1, GW2, GW3, Standard High Performance, Ultra-High Performance. | Prise en charge des SKU Basic, Standard et High-Performance. |
-|  | Type de VPN | Azure prend en charge les types Policy-based (basé sur la stratégie) et Route-based (basé sur l’itinéraire). | Azure Stack prend uniquement en charge Route-based. |
+|  | Type de VPN | Azure prend en charge les VPN basés sur des stratégies et ceux basés sur des routes. | Azure Stack prend uniquement en charge les VPN basés sur des routes. |
 |  | Paramètres BGP | Azure prend en charge la configuration de l’adresse d’homologation BGP et le poids des pairs. | L’adresse d’homologation BGP et le poids des pairs sont configurés automatiquement dans Azure Stack. Il n’existe aucun moyen pour l’utilisateur de configurer ces paramètres avec ses propres valeurs. |
 |  | Site de passerelle par défaut | Azure prend en charge la configuration d’un site par défaut pour le tunneling forcé. | Pas encore pris en charge. |
-|  | Redimensionnement de passerelle | Azure prend en charge le redimensionnement de la passerelle après le déploiement. | Redimensionnement non pris en charge. |
+|  | Redimensionnement de passerelle | Azure prend en charge le redimensionnement de la passerelle après le déploiement. | Le redimensionnement n’est pas pris en charge. |
 |  | Configuration de la disponibilité | actif/actif | Actif/passif |
 |  | UsePolicyBasedTrafficSelectors | Azure prend en charge les sélecteurs de trafic basés sur la stratégie (Policy-based) avec des connexions de passerelle basées sur l’itinéraire (Route-based). | Pas encore pris en charge. |
-| Équilibrage de charge | SKU | Les équilibreurs de charge de base et standard sont pris en charge | Seul l’équilibreur de charge de base est pris en charge.  Cette propriété de référence SKU n'est pas prise en charge. |
+| Équilibrage de charge | SKU | Les équilibreurs de charge de base et standard sont pris en charge | Seul l’équilibreur de charge de base est pris en charge.<br>Cette propriété de référence SKU n'est pas prise en charge.<br>Le chemin de l’équilibreur de charge de la référence SKU De base ne peut pas avoir plus de 5 configurations IP front-end.  |
 |  | Zones | Les zones de disponibilité sont prises en charge. | Pas encore pris en charge |
-|  | Prise en charge des règles NAT pour les points de terminaison de service | Azure prend en charge les points de terminaison de service pour les règles NAT entrantes. | Azure Stack ne prenant pas encore en charge les points de terminaison de service, ces éléments ne peuvent pas être spécifiés. |
+|  | Prise en charge des règles NAT pour les points de terminaison de service | Azure prend en charge les points de terminaison de service pour les règles NAT entrantes. | Azure Stack ne prenant pas encore en charge les points de terminaison de service, vous ne pouvez pas les spécifier. |
 |  | Protocole | Azure prend en charge la spécification GRE ou ESP. | La classe de protocole n’est pas prise en charge dans Azure Stack. |
-| Adresse IP publique | Version de l’adresse IP publique | Azure prend en charge IPv6 et IPv4 | Seul le protocole IPv4 est pris en charge. |
+| Adresse IP publique | Version de l’adresse IP publique | Azure prend en charge IPv6 et IPv4. | Seul le protocole IPv4 est pris en charge. |
 | Interface réseau | Obtenir la table de routage effective | Pris en charge | Pas encore pris en charge. |
 |  | Obtenir les ACL effectives | Pris en charge | Pas encore pris en charge. |
 |  | Activer la mise en réseau accélérée | Pris en charge | Pas encore pris en charge. |
-|  | transfert IP | Désactivé par défaut.  Peut être activé. | La modification de ce paramètre n’est pas prise en charge.  Activé par défaut. |
+|  | transfert IP | Désactivé par défaut.  Peut être activé. | Vous ne pouvez pas activer/désactiver ce paramètre.  Activé par défaut. |
 |  | Groupes de sécurité d’application | Pris en charge | Pas encore pris en charge. |
 |  | Étiquette du nom DNS interne | Pris en charge | Pas encore pris en charge. |
 |  | Version d’adresse IP privée | Les adresses IPv6 et IPv4 sont prises en charge. | Seul le protocole IPv4 est pris en charge. |

@@ -10,25 +10,25 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7eb57c38de01c3ad7de34b96b4c6baf7a4c14ad8
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: e5e76c3edcaa93e412d2715d7dc732731ac3d2ce
+ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782608"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67816145"
 ---
 # <a name="introduction-to-azure-stack-networking"></a>Présentation de la gestion réseau Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Azure Stack fournit un éventail de fonctionnalités de mise en réseau qui peuvent être utilisées ensemble ou séparément, comme indiquées ci-dessous :
+Azure Stack fournit plusieurs types de fonctionnalités de mise en réseau qui peuvent être utilisées ensemble ou séparément :
 
 - **Connectivité entre les ressources Azure Stack**  
     Connectez les ressources Azure ensemble dans un réseau virtuel privé et sécurisé dans le cloud.
 - **Connectivité Internet**  
-    Communiquez vers et à partir de ressources Azure Stack via Internet.
+    Communiquez vers et à partir de ressources Azure Stack sur Internet.
 - **Connectivité locale**  
-    Connectez un réseau local aux ressources Azure Stack via un réseau privé virtuel (VPN) sur Internet ou via une connexion dédiée à Azure Stack.
+    Connectez un réseau local aux ressources Azure Stack par le biais d’un réseau privé virtuel (VPN) sur Internet ou d’une connexion dédiée à Azure Stack.
 - **Équilibrage de charge et direction de trafic**  
     Équilibrez la charge du trafic sur les serveurs dans le même emplacement et dirigez le trafic vers les serveurs dans différents emplacements.
 - **Sécurité**  

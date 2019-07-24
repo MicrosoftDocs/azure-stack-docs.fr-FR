@@ -10,23 +10,23 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: solution
 ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 77d0b7c856e594e7e97ad30085419bfac13bd4f7
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: aa48e3b40afc841a26f15ce06870d002261c5932
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308833"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286852"
 ---
-# <a name="tutorial-deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack"></a>Didacticiel : Déployer une solution MongoDB hautement disponible sur Azure et Azure Stack
+# <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack"></a>Déployer une solution MongoDB hautement disponible sur Azure et Azure Stack
 
 Cet article vous guide dans le processus de déploiement automatisé d’un cluster MongoDB hautement disponible de base avec un site de récupération d’urgence dans deux environnements Azure Stack. Pour en savoir plus sur MongoDB et la haute disponibilité, voir [Membres d’un jeu de réplicas](https://docs.mongodb.com/manual/core/replica-set-members/).
 
-Dans ce didacticiel, vous allez créer un exemple d’environnement pour :
+Dans cette solution, vous allez créer un exemple d’environnement pour :
 
 > [!div class="checklist"]
 > - Orchestrer un déploiement dans deux environnements Azure Stack
@@ -36,9 +36,9 @@ Dans ce didacticiel, vous allez créer un exemple d’environnement pour :
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local, et constitue le seul cloud hybride qui vous permet de créer et déployer des applications hybrides en tout lieu.  
+> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local, en activant le seul cloud hybride qui vous permet de créer et de déployer des applications hybrides en tout lieu.  
 > 
-> Le livre blanc [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Étude des conceptions pour les applications hybrides) se penche sur les fondements de la qualité logicielle (sélection élective, extensibilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception des applications hybrides, en réduisant les risques dans les environnements de production.
+> L’article [Design Considerations for Hybrid Applications](azure-stack-edge-pattern-overview.md) se penche sur les fondements de la qualité logicielle (sélection élective, scalabilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
 
 
 

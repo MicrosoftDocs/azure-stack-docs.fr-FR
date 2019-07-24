@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: sethm
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: 1ae0c24fe5f3a130c7878c8623facada222a0e49
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: fdb17c1f8f7fd183b4542a1a0417b6880a8afe9b
+ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310793"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67816155"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Gérer la stratégie Azure à l’aide du module de stratégie Azure Stack
 
@@ -33,7 +33,7 @@ Le module de stratégie Azure Stack vous permet de configurer un abonnement Azur
 1. Installez la version requise du module AzureRM PowerShell, comme décrit à l’étape 1 de [Installer PowerShell pour Azure Stack](../operator/azure-stack-powershell-install.md).
 2. [Téléchargez les outils Azure Stack à partir de GitHub](../operator/azure-stack-powershell-download.md).
 3. [Configurez PowerShell pour une utilisation avec Azure Stack](azure-stack-powershell-configure-user.md).
-4. Importez le module AzureStack.Policy.psm1 :
+4. Importez le module *AzureStack.Policy.psm1* :
 
 
    ```powershell

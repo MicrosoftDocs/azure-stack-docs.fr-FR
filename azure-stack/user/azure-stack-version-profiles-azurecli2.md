@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 07/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 7dba3d791a2ce19429506699ae538c747ed37dbd
-ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
+ms.openlocfilehash: 788d0fd6479ab054568d549af2f7a4306a963d3b
+ms.sourcegitcommit: 4139b507d6da98a086929da48e3b4661b70bc4f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66821788"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68299457"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Utiliser des profils de version des API avec Azure CLI dans Azure Stack
 
@@ -29,7 +29,7 @@ Vous pouvez suivre les étapes de cet article pour configurer l’interface de l
 
 ## <a name="prepare-for-azure-cli"></a>Préparation pour Azure CLI
 
-Vous aurez besoin du certificat racine pour Azure Stack afin d’utiliser Azure CLI sur votre ordinateur de développement. Vous utilisez le certificat pour gérer des ressources via l’interface CLI.
+Si vous utilisez le Kit de développement Azure Stack, vous aurez besoin du certificat racine pour Azure Stack afin d’utiliser Azure CLI sur votre ordinateur de développement. Vous utilisez le certificat pour gérer des ressources via l’interface CLI.
 
  - **Le certificat racine de l’autorité de certification Azure Stack** est obligatoire si vous utilisez l’interface CLI sur une station de travail qui se trouve en dehors du Kit de développement Azure Stack.  
 

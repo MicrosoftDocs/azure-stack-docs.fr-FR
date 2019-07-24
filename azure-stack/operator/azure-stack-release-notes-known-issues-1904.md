@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: f25bc769e7461c21e40017d6413cfbe35186441b
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 3a92a142181b9e2268948d430b0a62d6ffa189d8
+ms.sourcegitcommit: 90ed5aa051d0756b2432c8aca0e2232c8ec493a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419590"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68239448"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Problèmes connus dans Azure Stack 1904
 
@@ -214,6 +214,11 @@ Cette erreur se produit si vous activez les diagnostics de démarrage sur une ma
 - Champ d’application : Ce problème s’applique aux versions 1904 et 1905.
 - Cause : Le panneau d’affichage des instances de groupe de machines virtuelles identiques situé dans le portail Azure Stack, dans **Tableau de bord** > **Groupes de machines virtuelles identiques** > **AnyScaleSet - Instances** > **AnyScaleSetInstance** ne parvient pas à se charger.
 - Correction : Il n’existe actuellement aucune solution à ce problème sur lequel nous continuons de travailler. En attendant, utilisez l’applet de commande CLI `az vmss get-instance-view` pour obtenir la vue des instances d’un groupe de machines virtuelles identiques.
+
+### <a name="user-image-service"></a>Service d’image utilisateur
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Quand la création d’une image utilisateur échoue, le service d’image utilisateur se retrouve dans un état incorrect. Les opérations de création et de suppression d’une image utilisateur commencent à échouer. La suppression d’une image utilisateur peut échouer avec l’erreur suivante : « Erreur : Une erreur interne de gestion des disques s’est produite. »
+- Correction : Aucune atténuation. Ouvrez un ticket de support auprès de Microsoft.
 
 ## <a name="storage"></a>Stockage
 

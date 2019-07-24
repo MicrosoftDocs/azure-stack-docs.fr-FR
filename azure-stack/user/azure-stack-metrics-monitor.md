@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: a068576cb907dfc2f7fcc79b1beea08899a2cb2c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 0b04a7834218d07706e6314a9c41e0370ff6f6fd
+ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310493"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67816185"
 ---
 # <a name="how-to-consume-monitoring-data-from-azure-stack"></a>Comment consommer des données de surveillance à partir d’Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack*
 
-Tout comme avec Azure Monitor dans Azure global, vous pouvez trouver des données de surveillance dans un emplacement unique avec le pipeline Azure Monitor. Cependant, toutes les données de surveillance trouvées dans Azure global ne sont pas disponibles dans Azure Stack. Cet article synthétise les différentes méthodes que vous pouvez utiliser pour ingérer des données de surveillance à partir du service par programmation.
+Tout comme avec Azure Monitor dans Azure global, les données de supervision se trouvent dans un emplacement unique avec le pipeline Azure Monitor. Cependant, toutes les données de surveillance trouvées dans Azure global ne sont pas disponibles dans Azure Stack. Dans cet article, nous récapitulons les différentes façons d’utiliser les données de supervision dans Azure Stack.
  
 ## <a name="options-for-data-consumption"></a>Options pour la consommation de données
 

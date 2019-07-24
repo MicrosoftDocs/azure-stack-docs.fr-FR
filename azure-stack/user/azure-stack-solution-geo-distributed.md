@@ -10,31 +10,31 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: scenario
 ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a348e4e7eada9537defa292f667cfd3eb1e27438
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 47a0fd72da842cc4d2f73372870c561f2d88e48d
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492459"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286952"
 ---
-# <a name="tutorial-create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack"></a>Didacticiel : Créer une solution d’application géodistribuée pour diriger le trafic avec Azure et Azure Stack
+# <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack"></a>Créer une solution d’application géodistribuée pour diriger le trafic avec Azure et Azure Stack
 
 *S’applique à : Systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Découvrez comment diriger le trafic vers des points de terminaison spécifiques en fonction de différentes mesures à l’aide du modèle d’applications géolocalisées. En créant un profil Traffic Manager avec configuration du routage et du point de terminaison basée sur la géolocalisation, vous êtes certain que les informations sont dirigées vers les points de terminaison en fonction des exigences régionales, des réglementations organisationnelles et internationales et de vos besoins en matière de données.
 
-Dans ce tutoriel, vous créez un exemple d’environnement pour :
+Dans cette solution, vous allez générer un exemple d’environnement pour :
 
 > [!div class="checklist"]
-> - Créer une application géodistribuée.
+> - Créer une application géolocalisée.
 > - Utiliser Traffic Manager pour cibler votre application.
 
-## <a name="use-the-geo-distributed-apps-pattern"></a>Utiliser le modèle d’application géodistribuée.
+## <a name="use-the-geo-distributed-apps-pattern"></a>Utiliser le modèle d’application géolocalisée.
 
 Avec le modèle géodistribué, l’application couvre plusieurs régions. Vous pouvez utiliser le cloud public par défaut, mais certains utilisateurs ont besoin que leurs données restent dans leur région. Dans ce cas, orientez les utilisateurs vers le cloud le plus approprié en fonction de leurs besoins.
 
@@ -42,7 +42,7 @@ Avec le modèle géodistribué, l’application couvre plusieurs régions. Vous 
 
 #### <a name="scalability-considerations"></a>Considérations relatives à l’extensibilité
 
-La solution que vous allez créer avec ce didacticiel n’a pas pour objectif de s’adapter à l’extensibilité. Toutefois, utilisée en combinaison avec d’autres solutions Azure et locales, elle permet de s’adapter à ces exigences d’extensibilité. Pour plus d’informations sur la création d’une solution hybride avec mise à l’échelle automatique via Traffic Manager, consultez [Créer des solutions de mise à l’échelle dans le cloud avec Azure](azure-stack-solution-cloud-burst.md).
+La solution que vous allez créer avec cet article n’a pas pour objectif de s’adapter à la scalabilité. Toutefois, utilisée en combinaison avec d’autres solutions Azure et locales, elle permet de s’adapter à ces exigences d’extensibilité. Pour plus d’informations sur la création d’une solution hybride avec mise à l’échelle automatique via Traffic Manager, consultez [Créer des solutions de mise à l’échelle dans le cloud avec Azure](azure-stack-solution-cloud-burst.md).
 
 #### <a name="availability-considerations"></a>Considérations relatives à la disponibilité
 
@@ -74,7 +74,7 @@ Avant de créer une empreinte d’application distribuée, il est utile de dispo
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local, en activant le seul cloud hybride qui vous permet de créer et de déployer des applications hybrides en tout lieu.  
 > 
-> Le livre blanc [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Étude des conceptions pour les applications hybrides) se penche sur les fondements de la qualité logicielle (sélection élective, extensibilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception des applications hybrides, en réduisant les risques dans les environnements de production.
+> L’article [Design Considerations for Hybrid Applications](azure-stack-edge-pattern-overview.md) se penche sur les fondements de la qualité logicielle (sélection élective, scalabilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
 
 ## <a name="part-1-create-a-geo-distributed-app"></a>Partie 1 : Créer une application géolocalisée
 
@@ -260,9 +260,9 @@ Pour migrer un site actif et son nom de domaine DNS vers App Service, voir [Migr
 
 ### <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce tutoriel :
+Pour effectuer cette solution :
 
--   [Créez une application App Service](https://docs.microsoft.com/azure/app-service/), ou utilisez une application créée pour un autre didacticiel.
+-   [Créez une application App Service](https://docs.microsoft.com/azure/app-service/), ou utilisez une application créée pour une autre solution.
 
 -   Achetez un nom de domaine et fournissez un accès au registre DNS au fournisseur de domaine.
 
@@ -371,7 +371,7 @@ Dans cette partie, nous allons :
 
 ### <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce tutoriel :
+Pour effectuer cette solution :
 
 -   [Créez une application App Service](https://docs.microsoft.com/azure/app-service/).
 -   [Mappez un nom DNS personnalisé à votre application web.](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)

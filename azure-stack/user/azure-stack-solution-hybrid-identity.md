@@ -10,19 +10,19 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: solution
 ms.date: 06/26/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 06/26/2019
-ms.openlocfilehash: 074d971c1f951797b5dc2d53a62eef56d0b7249f
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 3ed0c109e0253fe6d710801dbc30de04c0b5a6e5
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492325"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286824"
 ---
-# <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Didacticiel : Configurer l’identité de cloud hybride pour des applications Azure et Azure Stack
+# <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Configurer l’identité de cloud hybride pour des applications Azure et Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -35,19 +35,19 @@ Il y a deux moyens d’accorder l’accès à vos applications à la fois dans l
 
 Les principaux du service vous permettent d’accorder l’accès à vos applications Azure Stack à des fins de déploiement ou de configuration à l’aide d’Azure Resource Manager dans Azure Stack.
 
-Dans ce tutoriel, vous créez un exemple d’environnement pour :
+Dans cette solution, vous allez générer un exemple d’environnement pour :
 
 > [!div class="checklist"]
 > - établir une identité hybride dans Azure global et Azure Stack ;
 > - récupérer un jeton pour accéder à l’API Azure Stack.
 
-Les étapes de ce didacticiel exigent des autorisations d’opérateur Azure Stack.
+Les étapes de cette solution exigent des autorisations d’opérateur Azure Stack.
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local et active le seul cloud hybride qui vous permet de créer et de déployer des applications hybrides en tout lieu.  
+> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local, en activant le seul cloud hybride qui vous permet de créer et de déployer des applications hybrides en tout lieu.  
 > 
-> Le livre blanc [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Étude des conceptions pour les applications hybrides) se penche sur les fondements de la qualité logicielle (sélection élective, extensibilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception des applications hybrides, en réduisant les risques dans les environnements de production.
+> L’article [Design Considerations for Hybrid Applications](azure-stack-edge-pattern-overview.md) se penche sur les fondements de la qualité logicielle (sélection élective, scalabilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
 
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>Créer un principal du service pour Azure AD sur le portail
@@ -60,7 +60,7 @@ Si vous avez déployé Azure Stack avec AD FS, vous pouvez utiliser PowerShell p
 
 ## <a name="using-the-azure-stack-api"></a>Utiliser l’API Azure Stack
 
-Le didacticiel [API Azure Stack](azure-stack-rest-api-use.md) décrit le processus de récupération d’un jeton permettant d’accéder à l’API Azure Stack.
+La solution [API Azure Stack](azure-stack-rest-api-use.md) décrit le processus de récupération d’un jeton permettant d’accéder à l’API Azure Stack.
 
 ## <a name="connect-to-azure-stack-using-powershell"></a>Se connecter à Azure Stack avec PowerShell
 

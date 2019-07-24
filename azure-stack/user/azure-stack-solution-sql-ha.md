@@ -10,23 +10,23 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: solution
 ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 39b0078345c16b7931f41cd2394476f8258d92dd
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: 4565615caf4e4c13bda84e6596e23d523225d888
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308836"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286896"
 ---
-# <a name="tutorial-deploy-a-sql-server-2016-availability-group-to-azure-and-azure-stack"></a>Didacticiel : Déployer un groupe de disponibilité SQL Server 2016 sur Azure et Azure Stack
+# <a name="deploy-a-sql-server-2016-availability-group-to-azure-and-azure-stack"></a>Déployer un groupe de disponibilité SQL Server 2016 sur Azure et Azure Stack
 
 Cet article vous guide dans le processus de déploiement automatisé d’un cluster SQL Server 2016 Entreprise hautement disponible de base avec un site de récupération d’urgence asynchrone dans deux environnements Azure Stack. Pour en savoir plus sur SQL Server 2016 et la haute disponibilité, voir [Groupes de disponibilité Always On : une solution de haute disponibilité et de récupération d’urgence](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2016).
 
-Dans ce tutoriel, vous créez un exemple d’environnement pour :
+Dans cette solution, vous allez générer un exemple d’environnement pour :
 
 > [!div class="checklist"]
 > - Orchestrer un déploiement dans deux environnements Azure Stack
@@ -35,9 +35,9 @@ Dans ce tutoriel, vous créez un exemple d’environnement pour :
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local, et constitue le seul cloud hybride qui vous permet de créer et déployer des applications hybrides en tout lieu.  
+> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local, en activant le seul cloud hybride qui vous permet de créer et de déployer des applications hybrides en tout lieu.  
 > 
-> Le livre blanc [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Étude des conceptions pour les applications hybrides) se penche sur les fondements de la qualité logicielle (sélection élective, extensibilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception des applications hybrides, en réduisant les risques dans les environnements de production.
+> L’article [Design Considerations for Hybrid Applications](azure-stack-edge-pattern-overview.md) se penche sur les fondements de la qualité logicielle (sélection élective, scalabilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
 
 ## <a name="architecture-for-sql-server-2016"></a>Architecture pour SQL Server 2016
 

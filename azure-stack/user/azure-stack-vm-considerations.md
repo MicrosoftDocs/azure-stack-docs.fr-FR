@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 07/16/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 12/19/2018
-ms.openlocfilehash: 2a9a9a2c402538eee428bad08c9772b288fa1740
-ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
+ms.lastreviewed: 07/16/2019
+ms.openlocfilehash: 09e38de68f740cab50e7a3e0ee8cc7364a9909b9
+ms.sourcegitcommit: 4139b507d6da98a086929da48e3b4661b70bc4f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66197340"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68299433"
 ---
 # <a name="azure-stack-vm-features"></a>Fonctionnalités des machines virtuelles Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Les machines virtuelles Azure Stack fournissent des ressources de calcul scalables et à la demande. Avant de déployer des machines virtuelles, il est important de comprendre les différences entre les fonctionnalités de machine virtuelle disponibles dans Azure Stack et Microsoft Azure. Cet article explique ces différences et identifie les points clés à prendre en compte lors de la planification des déploiements de machines virtuelles. Pour en savoir plus sur les principales différences entre Azure Stack et Azure, consultez l’article [Principales considérations](azure-stack-considerations.md).
+Les machines virtuelles Azure Stack fournissent des ressources de calcul scalables et à la demande. Avant de déployer des machines virtuelles, il est important de connaître les différences entre les fonctionnalités de machine virtuelle disponibles dans Azure Stack et Microsoft Azure. Cet article explique ces différences et identifie les points clés à prendre en compte lors de la planification des déploiements de machines virtuelles. Pour en savoir plus sur les principales différences entre Azure Stack et Azure, consultez l’article [Principales considérations](azure-stack-considerations.md).
 
 ## <a name="vm-differences"></a>Différences entre les machines virtuelles
 
@@ -38,24 +38,25 @@ Les machines virtuelles Azure Stack fournissent des ressources de calcul scalabl
 | Extensions de machine virtuelle |Azure prend en charge de nombreuses extensions de machine virtuelle. Pour connaître les extensions disponibles, consultez l’article [Extensions et fonctionnalités de machine virtuelle](/azure/virtual-machines/windows/extensions-features).| Azure Stack prend en charge certaines des extensions disponibles dans Azure. Notez que chaque extension a des versions spécifiques. L’administrateur du cloud Azure Stack peut choisir les extensions qu’il veut mettre à la disposition des utilisateurs. Pour obtenir la liste des extensions prises en charge, consultez la section [Extensions de machine virtuelle](#vm-extensions) dans cet article. |
 | Réseau de machines virtuelles | Les adresses IP publiques assignées à une machine virtuelle locataire sont accessibles via Internet.<br><br><br>Les machines virtuelles Azure ont un nom DNS fixe. | Les adresses IP publiques assignées à une machine virtuelle locataire sont accessibles uniquement au sein de l’environnement du Kit de développement Azure Stack. Un utilisateur doit pouvoir accéder au Kit de développement Azure Stack par le biais du [RDP](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) ou du [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) pour se connecter à une machine virtuelle créée dans Azure Stack.<br><br>Les machines virtuelles créées dans une instance Azure Stack spécifique ont un nom DNS basé sur la valeur définie par l’administrateur du cloud. |
 | Stockage de machine virtuelle | Prend en charge les [disques managés](/azure/virtual-machines/windows/managed-disks-overview). | Les disques managés sont pris en charge dans Azure Stack avec la version 1808 et les versions ultérieures. |
-| Performances des disques de machines virtuelles | Dépendent de la taille et du type de disque. | Dépendent de la taille de la machine virtuelle à laquelle sont attachés les disques. Pour plus d’informations, consultez l’article [Tailles de machine virtuelle prises en charge dans Azure Stack](azure-stack-vm-sizes.md).
+| Performances des disques de machines virtuelles | Dépendent de la taille et du type de disque. | Dépendent de la taille de la machine virtuelle à laquelle les disques sont attachés. Pour plus d’informations, consultez l’article [Tailles de machine virtuelle prises en charge dans Azure Stack](azure-stack-vm-sizes.md).
 | Versions d’API | Azure utilise toujours les dernières versions d’API pour toutes les fonctionnalités de machine virtuelle. | Azure Stack prend en charge certains services Azure et des versions d’API spécifiques pour ces services. Pour obtenir la liste des versions d’API prises en charge, consultez la section [Versions d’API](#api-versions) dans cet article. |
 | Service de métadonnées d’instance Azure | Le service Azure Instance Metadata Service fournit des informations sur l’exécution d’instances de machine virtuelle qui peuvent être utilisées pour gérer et configurer votre machine virtuelle.  | Le service Azure Instance Metadata Service n’est pas pris en charge sur Azure Stack. |
 | Groupes à haute disponibilité de machines virtuelles|Plusieurs domaines d’erreur (2 ou 3 par région).<br>Plusieurs domaines de mise à jour.|Plusieurs domaines d’erreur (2 ou 3 par région).<br>Plusieurs domaines de mise à jour (jusqu’à 20).|
 | Groupes identiques de machines virtuelles|La mise à l’échelle automatique est prise en charge.|La mise à l’échelle automatique n’est pas prise en charge.<br><br>Pour ajouter d’autres instances à un groupe identique, utilisez le portail, les modèles Resource Manager ou PowerShell. |
-| Diagnostics de machine virtuelle | Les diagnostics de machine virtuelle Linux sont pris en charge. | Les diagnostics de machine virtuelle Linux ne sont pas pris en charge dans Azure Stack. Lorsque vous déployez une machine virtuelle Linux en activant les diagnostics de machine virtuelle, le déploiement échoue. Le déploiement échoue également si vous activez les mesures de base de la machine virtuelle Linux dans les paramètres de diagnostic.
+| Témoin cloud | Sélectionnez les points de terminaison dans les propriétés du compte de stockage disponibles dans Azure Stack. | Le [témoin de cloud](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) est un type de témoin de quorum de cluster de basculement qui utilise Microsoft Azure pour fournir un vote sur le quorum du cluster.<br>Voici à quoi peuvent ressembler les points de terminaison dans Azure global et ceux dans Azure Stack :<br>Azure global :<br>`https://mywitness.blob.core.windows.net/`<br>Azure Stack :<br>`https://mywitness.blob.<region>.<FQDN>/`|
+| Diagnostics de machine virtuelle | Les diagnostics de machine virtuelle Linux sont pris en charge. | Les diagnostics de machine virtuelle Linux ne sont pas pris en charge dans Azure Stack. Lorsque vous déployez une machine virtuelle Linux en activant les diagnostics de machine virtuelle, le déploiement échoue. Le déploiement échoue également si vous activez les mesures de base de la machine virtuelle Linux dans les paramètres de diagnostic. |
 
 ## <a name="vm-sizes"></a>Tailles de machine virtuelle
 
 Azure Stack impose des limites de ressources pour éviter la consommation excessive des ressources (au niveau du service ou du serveur local). Ces limites améliorent les performances du locataire en réduisant l’impact de la consommation des ressources par d’autres locataires.
 
 - Pour la sortie réseau de la machine virtuelle, des limites de bande passante sont en place. Les limites dans Azure Stack sont les mêmes que celles appliquées dans Azure.
-- Pour les ressources de stockage, Azure Stack implémente des limites d’opérations d’entrée/sortie par seconde (IOPS, Input/Output Operations Per Second) pour éviter une consommation excessive de base des ressources par les locataires pour l’accès au stockage.
-- Pour les disques de machine virtuelle, les opérations IOPS du disque sur Azure Stack dépendent de la taille de la machine virtuelle et non du type de disque. Cela signifie que, pour une machine virtuelle Standard_Fs, quel que soit le type de disque choisi (SSD ou HDD), la limite d'IOPS est de 2 300 par disque de données supplémentaire.
+- Pour les ressources de stockage, Azure Stack implémente des limites d’opérations d’entrée/sortie par seconde (IOPS, Input/Output Operations Per Second) pour éviter une consommation excessive de base des ressources par les locataires pour l’utilisation du stockage.
+- Pour les disques de machine virtuelle, les opérations IOPS du disque sur Azure Stack dépendent de la taille de la machine virtuelle et non du type de disque. Cela signifie que, pour une machine virtuelle Standard_Fs, quel que soit le type de disque choisi (SSD ou HDD), la limite d’IOPS est de 2 300 pour un deuxième disque de données.
 
 Le tableau suivant répertorie les machines virtuelles prises en charge sur Azure Stack, ainsi que leur configuration :
 
-| Type           | Taille          | Plage de tailles prises en charge |
+| Type           | Size          | Plage de tailles prises en charge |
 | ---------------| ------------- | ------------------------ |
 |Usage général |De base A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
 |Usage général |Standard A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |

@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 07/16/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: cee1ca68caa6742eb5d965b53b685746d9057691
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: f34ed3459ad8346860872a4b63a25e214501a2dd
+ms.sourcegitcommit: 4139b507d6da98a086929da48e3b4661b70bc4f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985389"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68299465"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Créer une connexion VPN de site à site entre deux réseaux virtuels dans des environnements différents du Kit de développement Azure Stack
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Cet article explique comment créer une connexion VPN de site à site entre deux réseaux virtuels dans deux environnements distincts du Kit de développement Azure Stack (ASDK). Pendant la configuration des connexions, vous allez découvrir le fonctionnement des passerelles VPN dans Azure Stack.
 
@@ -75,7 +75,7 @@ La table ci-après récapitule la configuration réseau des deux environnements 
 ### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>Obtenir l’adresse IP de la carte externe de la machine virtuelle NAT
 
 1. Connectez-vous à la machine physique Azure Stack pour POC1.
-2. Modifiez le code PowerShell ci-dessous pour remplacer votre mot de passe d’administrateur, puis exécutez le code sur l’hôte POC :
+2. Modifiez le code PowerShell ci-dessous pour ajouter votre mot de passe d’administrateur, puis exécutez le code sur l’hôte POC :
 
    ```powershell
    cd \AzureStack-Tools-master\connect
@@ -96,7 +96,7 @@ La table ci-après récapitule la configuration réseau des deux environnements 
 
 Vous pouvez maintenant créer les ressources réseau POC1 dont vous avez besoin pour configurer vos passerelles. Les instructions ci-après expliquent comment créer les ressources à partir du portail de l’utilisateur Azure Stack. Vous pouvez également créer les ressources à l’aide de code PowerShell.
 
-![Workflow utilisé pour créer des ressources](media/azure-stack-create-vpn-connection-one-node-tp2/image2.png)
+![Workflow pour créer des ressources](media/azure-stack-create-vpn-connection-one-node-tp2/image2.png)
 
 ### <a name="sign-in-as-a-tenant"></a>Se connecter en tant que locataire
 
@@ -163,17 +163,17 @@ De façon plus générale, la ressource de passerelle de réseau local représen
 1. Dans le portail utilisateur, sélectionnez **+ Créer une ressource**.
 2. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 3. Dans la liste des ressources, sélectionnez **Connexion**.
-4. Dans le panneau de paramètres **De base**, pour le champ **Type de connexion**, sélectionnez **Site à site (IPSec)**.
+4. Dans le panneau de paramètres **De base**, pour le champ **Type de connexion**, sélectionnez **Site à site (IPSec)** .
 5. Renseignez les champs **Abonnement**, **Groupe de ressources** et **Emplacement**, puis sélectionnez **OK**.
 6. Dans le panneau **Paramètres**, sélectionnez **Passerelle de réseau virtuel**, puis **GW1**.
 7. Sélectionnez **Passerelle de réseau local**, puis **POC2-GW**.
 8. Dans **Nom de la connexion**, entrez **POC1-POC2**.
-9. Dans **Clé partagée (PSK)**, entrez **12345**, puis sélectionnez **OK**.
+9. Dans **Clé partagée (PSK)** , entrez **12345**, puis sélectionnez **OK**.
 10. Dans le panneau **Résumé**, sélectionnez **OK**.
 
 ### <a name="create-a-vm"></a>Créer une machine virtuelle
 
-Pour vous assurer que les données transitent bien par la connexion VPN, vous devez vérifier que les machines virtuelles envoient et reçoivent les données dans chaque Kit de développement Azure Stack. Créez d’abord une machine virtuelle dans POC1, puis ajoutez-la au sous-réseau de machine virtuelle dans votre réseau virtuel.
+Pour vous assurer que les données transitent bien par la connexion VPN, vous devez vérifier que les machines virtuelles envoient et reçoivent les données dans chaque Kit de développement Azure Stack. Créez d’abord une machine virtuelle dans POC1, puis ajoutez-la au sous-réseau de machine virtuelle dans votre réseau virtuel :
 
 1. Dans le Portail Azure, sélectionnez **+ Créer une ressource**.
 2. Accédez à la **Place de marché**, puis sélectionnez **Compute**.
@@ -242,12 +242,12 @@ Un administrateur de services fédérés peut se connecter en tant que locataire
 1. Dans le portail utilisateur, sélectionnez **+ Créer une ressource**.
 2. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 3. Dans la liste des ressources, sélectionnez **Connexion**.
-4. Dans le panneau de paramètres **De base**, pour le champ **Type de connexion**, choisissez **Site à site (IPSec)**.
+4. Dans le panneau de paramètres **De base**, pour le champ **Type de connexion**, choisissez **Site à site (IPSec)** .
 5. Renseignez les champs **Abonnement**, **Groupe de ressources** et **Emplacement**, puis sélectionnez **OK**.
 6. Dans le panneau **Paramètres**, sélectionnez **Passerelle de réseau virtuel**, puis **GW2**.
 7. Sélectionnez **Passerelle de réseau local**, puis **POC1-GW**.
 8. Dans **Nom de la connexion**, entrez **POC2-POC1**.
-9. Dans **Clé partagée (PSK)**, entrez **12345**. Si vous choisissez une autre valeur, n’oubliez pas qu’elle doit correspondre à la valeur de la clé partagée que vous avez créée dans POC1. Sélectionnez **OK**.
+9. Dans **Clé partagée (PSK)** , entrez **12345**. Si vous choisissez une autre valeur, n’oubliez pas qu’elle doit correspondre à la valeur de la clé partagée que vous avez créée dans POC1. Sélectionnez **OK**.
 10. Dans le panneau **Résumé**, vérifiez les paramètres, puis sélectionnez **OK**.
 
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
@@ -274,8 +274,6 @@ Pour configurer la connexion VPN, créez un routage de mappage NAT statique qui 
 
 > [!NOTE]
 > Cette configuration est requise uniquement pour les environnements du Kit de développement Azure Stack.
->
->
 
 ### <a name="configure-the-nat"></a>Configurer NAT
 

@@ -1,5 +1,5 @@
 ---
-title: Tutoriel &#58; Déployer des applications sur Azure et Azure Stack | Microsoft Docs
+title: Déployer des applications sur Azure et Azure Stack | Microsoft Docs
 description: Découvrez comment déployer des applications sur Azure et Azure Stack avec un pipeline CI/CD hybride.
 services: azure-stack
 documentationcenter: ''
@@ -10,25 +10,25 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: solution
 ms.date: 03/11/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 9f0f25e5810fc4c9a27d3607defbaca9dcfc0388
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 9fbadb923452fc2420d1f8626a69d377c4d72e12
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692091"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286969"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutoriel : Déployer des applications sur Azure et Azure Stack
+# <a name="deploy-apps-to-azure-and-azure-stack"></a>Déployer des applications sur Azure et Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Découvrez comment déployer des applications sur Azure et Azure Stack à l’aide d’un pipeline d’intégration continue/de livraison continue (CI/CD) hybride.
 
-Dans ce didacticiel, vous allez créer un exemple d’environnement pour :
+Dans cette solution, vous allez créer un exemple d’environnement pour :
 
 > [!div class="checklist"]
 > * Lancer une nouvelle build basée sur des validations de code dans votre référentiel Azure DevOps Services.
@@ -51,9 +51,9 @@ Pour en savoir plus sur CI et CD, consultez :
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack est une extension d’Azure. Azure Stack intègre l’agilité et l’innovation du cloud computing à votre environnement local. Elle constitue le seul cloud hybride qui vous permet de créer et déployer des applications hybrides en tout lieu.  
+> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local, en activant le seul cloud hybride qui vous permet de créer et de déployer des applications hybrides en tout lieu.  
 > 
-> Le livre blanc [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Étude des conceptions pour les applications hybrides) se penche sur les fondements de la qualité logicielle (sélection élective, extensibilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception des applications hybrides, réduisant ainsi les risques dans les environnements de production.
+> L’article [Design Considerations for Hybrid Applications](azure-stack-edge-pattern-overview.md) se penche sur les fondements de la qualité logicielle (sélection élective, scalabilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -63,9 +63,9 @@ Des composants doivent être en place pour pouvoir créer un pipeline CI/CD hybr
 * Un opérateur Azure Stack doit également effectuer les étapes suivantes : déployer App Service, créer des plans et des offres, créer un abonnement de locataire et ajouter l’image Windows Server 2016.
 
 >[!NOTE]
->Si certains de ces composants sont déjà déployés, vérifiez qu’ils remplissent toutes les exigences avant de commencer ce tutoriel.
+>Si certains de ces composants sont déjà déployés, vérifiez qu’ils remplissent toutes les exigences avant de commencer cette solution.
 
-Ce tutoriel suppose que vous disposez de connaissances de base sur Azure et Azure Stack. Pour en savoir plus avant de commencer le didacticiel, lisez les articles suivants :
+Cette solution suppose que vous disposez de connaissances de base sur Azure et Azure Stack. Pour en savoir plus avant de commencer la solution, lisez les articles suivants :
 
 * [Présentation de Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/)
 * [Concepts clés d’Azure Stack](../operator/azure-stack-overview.md)
@@ -73,12 +73,12 @@ Ce tutoriel suppose que vous disposez de connaissances de base sur Azure et Azur
 ### <a name="azure-requirements"></a>Conditions requises pour Azure
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-* Créez une [application web](https://docs.microsoft.com/azure/app-service/overview) dans Azure. Notez l’URL de l’application web, vous devrez l’utiliser dans le didacticiel.
+* Créez une [application web](https://docs.microsoft.com/azure/app-service/overview) dans Azure. Notez l’URL de l’application web, car vous devrez l’utiliser dans la solution.
 
 ### <a name="azure-stack-requirements"></a>Configuration requise d’Azure Stack
 
 * Utilisez un système intégré Azure Stack ou déployez le Kit de développement Azure Stack (ASDK). Pour déployer l’ASDK :
-  * Le [Tutoriel : Déployer le Kit de développement Azure Stack à l’aide du programme d’installation](../asdk/asdk-install.md) fournit des instructions de déploiement détaillées.
+  * La [solution : Déployer le Kit de développement Azure Stack à l’aide du programme d’installation](../asdk/asdk-install.md) fournit des instructions de déploiement détaillées.
   * Utilisez le script PowerShell [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) pour automatiser les étapes de post-déploiement ASDK.
 
     > [!Note]
@@ -284,7 +284,7 @@ Pour créer une connexion au service avec un principal du service existant, suiv
 | Nom de connexion | Azure Stack Azure AD | Le nom de la connexion. |
 | Environnement | AzureStack | Le nom de votre environnement. |
 | URL d’environnement | `https://management.local.azurestack.external` | Votre point de terminaison de gestion. |
-| Niveau de portée | Abonnement | La portée de la connexion. |
+| Niveau de portée | Subscription | La portée de la connexion. |
 | Identifiant d’abonnement | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID d’abonnement de l’utilisateur d’Azure Stack |
 | Nom d’abonnement | name@contoso.com | Nom d’abonnement de l’utilisateur d’Azure Stack. |
 | ID client du principal du service | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | ID du principal de [cette](azure-stack-solution-pipeline.md#create-a-service-principal) section dans cet article. |
@@ -309,7 +309,7 @@ Vous pouvez créer une connexion de service en utilisant le mappage suivant :
 | Nom de connexion | Azure Stack ADFS | Le nom de la connexion. |
 | Environnement | AzureStack | Le nom de votre environnement. |
 | URL d’environnement | `https://management.local.azurestack.external` | Votre point de terminaison de gestion. |
-| Niveau de portée | Abonnement | La portée de la connexion. |
+| Niveau de portée | Subscription | La portée de la connexion. |
 | Identifiant d’abonnement | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID d’abonnement de l’utilisateur d’Azure Stack |
 | Nom d’abonnement | name@contoso.com | Nom d’abonnement de l’utilisateur d’Azure Stack. |
 | ID client du principal du service | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | L’ID client du principal du service que vous avez créé pour AD FS. |
@@ -324,7 +324,7 @@ Maintenant que le point de terminaison est créé, la connexion d’Azure DevOps
 
 ## <a name="develop-your-application-build"></a>Développer votre build d’application
 
-Dans cette partie du didacticiel, vous allez :
+Dans cette partie de la solution, vous allez :
 
 * Ajouter du code à un projet Azure DevOps Services.
 * Créer un déploiement d’application web autonome.

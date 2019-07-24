@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2019
+ms.date: 07/12/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 96a29ab11ffc15b35c7035576fa68544caef594b
-ms.sourcegitcommit: 1c4eda123857d714109e38bb853eb1ce49af5f5c
+ms.openlocfilehash: ff64a04731f32934c676ece8e29860bbb9acda3f
+ms.sourcegitcommit: 0bb2fdeccda3183d0bf4572819a28af8ca5f244a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67648040"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67863149"
 ---
 # <a name="azure-stack-1906-known-issues"></a>Problèmes connus dans Azure Stack 1906
 
@@ -73,12 +73,12 @@ Cet article répertorie les problèmes connus dans la version 1906 d’Azure St
 - Correction : Chargez le blob à l’aide de l’option SAP.
 - Occurrence : Courant
 
-### <a name="template"></a>Modèle
+### <a name="update"></a>Mettre à jour
 
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, l’interface utilisateur du déploiement de modèle ne remplit pas les paramètres pour les noms de modèle commençant par « _ » (caractère de soulignement).
-- Correction : Supprimez le « _ » (caractère de soulignement) dans le nom du modèle.
-- Occurrence : Courant
+- Champ d’application : Ce problème concerne la version 1906.
+- Cause : Dans le portail de l’opérateur, l’état de mise à jour du correctif logiciel indique un état incorrect pour la mise à jour. L’état initial indique que l’installation de la mise à jour a échoué, même si elle est toujours en cours.
+- Correction : Actualisez le portail pour faire passer l’état à « en cours ».
+- Occurrence : De façon intermittente
 
 ## <a name="networking"></a>Mise en réseau
 

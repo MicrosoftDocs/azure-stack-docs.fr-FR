@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 07/16/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 9c263b97deb12a199f2941be7ea4ae05a048837b
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 224f5832af5d7fdc57f6b5fcb91d6308d479448b
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131635"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286701"
 ---
 # <a name="azure-stack-compute"></a>Calcul Azure Stack
 
@@ -38,9 +38,25 @@ Azure Stack détermine le placement des machines virtuelles selon deux critères
 
 Pour garantir la haute disponibilité d’un système de production à plusieurs machines virtuelles dans Azure Stack, ces machines virtuelles sont placées dans un groupe à haute disponibilité qui les répartit entre plusieurs domaines d’erreur. Un domaine d’erreur au sein d’un groupe à haute disponibilité est défini comme un nœud unique dans l’unité d’échelle. Azure Stack gère les groupes à haute disponibilité comportant trois domaines d’erreur maximum dans un souci de compatibilité avec Azure. Les machines virtuelles placées dans un groupe à haute disponibilité sont physiquement isolées les unes des autres grâce à une répartition aussi équilibrée que possible sur plusieurs domaines d’erreur, autrement dit, hôtes Azure Stack. En cas de défaillance matérielle, les machines virtuelles du domaine d’erreur défaillant sont redémarrées dans d’autres domaines d’erreur, si possible distincts de ceux des autres machines virtuelles du même groupe à haute disponibilité. Une fois l’hôte rétabli, les machines virtuelles sont rééquilibrées de façon à maintenir une haute disponibilité.  
 
-Les groupes de machines virtuelles identiques utilisent des groupes à haute disponibilité sur le back-end et veillent à ce que chacune de leurs instances soient placées dans un domaine d’erreur différent. Cela signifie qu’ils utilisent des nœuds d’infrastructure Azure Stack distincts. Par exemple, dans un système Azure Stack à 4 nœuds, il peut arriver qu’un groupe de machines virtuelles identiques de 3 instances échoue lors de la création en raison de l’absence de la capacité de 4 nœuds pour placer 3 instances du groupe de machines virtuelles identiques sur 3 nœuds Azure Stack distincts. De plus, les nœuds Azure Stack peuvent être remplis à des niveaux différents avant la tentative de placement. 
+Les groupes de machines virtuelles identiques utilisent des groupes à haute disponibilité sur le back-end et veillent à ce que chacune de leurs instances soient placées dans un domaine d’erreur différent. Cela signifie qu’ils utilisent des nœuds d’infrastructure Azure Stack distincts. Par exemple, dans un système Azure Stack à quatre nœuds, il peut arriver qu’un groupe de machines virtuelles identiques de trois instances échoue lors de la création en raison de l’absence de la capacité de quatre nœuds pour placer trois instances du groupe de machines virtuelles identiques sur trois nœuds Azure Stack distincts. De plus, les nœuds Azure Stack peuvent être remplis à des niveaux différents avant la tentative de placement. 
 
-Azure Stack ne surengage pas la mémoire. En revanche, un surengagement du nombre de cœurs physiques est autorisé. Étant donné que les algorithmes de placement ne considèrent pas le ratio de surprovisionnement cœurs virtuels/cœurs physiques comme un facteur déterminant, chaque hôte peut présenter un ratio différent. En tant que Microsoft, nous ne fournissons pas de conseils sur le ratio cœurs physiques/cœurs virtuels à cause des variations entre les charges de travail et les exigences de niveau de service. 
+Azure Stack ne surengage pas la mémoire. En revanche, un surengagement du nombre de cœurs physiques est autorisé. 
+
+Étant donné que les algorithmes de placement ne considèrent pas le ratio de surprovisionnement cœurs virtuels/cœurs physiques comme un facteur déterminant, chaque hôte peut présenter un ratio différent. Microsoft ne fournit pas de conseils sur le ratio cœurs physiques/cœurs virtuels en raison des variations entre les charges de travail et les exigences de niveau de service. 
+
+## <a name="consideration-for-total-number-of-vms"></a>Prise en compte du nombre total de machines virtuelles 
+
+Un nouvel élément doit être pris en compte afin de planifier correctement la capacité Azure Stack. Avec la mise à jour 1901 (et chaque mise à jour ultérieure), le nombre total de machines virtuelles pouvant être créées est limité. Cette limite est destinée à être temporaire et a pour but de garantir la stabilité de la solution. Nous recherchons actuellement la cause du problème de stabilité en présence d’un plus grand nombre de machines virtuelles, mais aucun échéancier n’a encore été déterminé pour y remédier. Il y a désormais une limite de 60 machines virtuelles par serveur, la limite totale pour la solution étant de 700. Par exemple, la limite pour 8 serveurs Azure Stack serait 480 machines virtuelles (8 * 60). Pour une solution Azure Stack de 12 à 16 serveurs, la limite serait 700. Cette limite a été définie en gardant à l’esprit toutes les considérations relatives à la capacité de calcul, telles que la réserve de résilience et le rapport virtuel/physique du processeur qu’un opérateur souhaite conserver. Pour plus d’informations, consultez la nouvelle version de l’outil de planification de la capacité. 
+
+Si la limite de mise à l'échelle de la machine virtuelle a été atteinte, les codes d’erreur suivants sont retournés comme résultat : VMsPerScaleUnitLimitExceeded, VMsPerScaleUnitNodeLimitExceeded.
+
+## <a name="considerations-for-deallocation"></a>Considérations relatives à la désallocation
+
+Quand une machine virtuelle est dans l’état _désalloué_, les ressources mémoire ne sont pas utilisées. Cela permet de placer d’autres machines virtuelles dans le système. 
+
+Si la machine virtuelle désallouée est ensuite redémarrée, l’allocation ou l’utilisation de la mémoire est traitée comme une nouvelle machine virtuelle placée dans le système, et la mémoire disponible est consommée. 
+
+Si aucune mémoire n’est disponible, la machine virtuelle ne démarre pas.
 
 ## <a name="azure-stack-memory"></a>Mémoire Azure Stack 
 
@@ -97,7 +113,7 @@ La valeur V, à savoir la taille de la plus grande machine virtuelle dans l’un
 
 v : La mémoire est consommée, non seulement par les machines virtuelles en cours d’exécution, mais aussi par toutes les machines virtuelles qui ont atterri sur la structure fabric. Cela signifie les machines virtuelles qui sont dans l’état « Création », « Échec » ou les machines virtuelles arrêtées à partir de la g
 
-**Q** : J’ai un système Azure Stack avec quatre hôtes. Mon locataire a trois machines virtuelles qui consomment 56 Go de RAM (D5_v2) chacune. L’une de ces machines virtuelles est redimensionnée à 112 Go de RAM (D14_v2), et les rapports sur la mémoire disponibles dans le tableau de bord montrent un pic d’utilisation de 168 Go dans le panneau de capacité. Le redimensionnement ultérieur des deux autres machines virtuelles D5_v2 à D14_v2 a entraîné une augmentation de la RAM de 56 Go uniquement sur chacune. Pourquoi ?
+**Q** : J’ai un système Azure Stack avec quatre hôtes. Mon locataire a trois machines virtuelles qui consomment 56 Go de RAM (D5_v2) chacune. L’une de ces machines virtuelles est redimensionnée à 112 Go de RAM (D14_v2), et les rapports sur la mémoire disponibles dans le tableau de bord montrent un pic d’utilisation de 168 Go dans le panneau de capacité. Le redimensionnement ultérieur des deux autres machines virtuelles D5_v2 à D14_v2 a entraîné une augmentation de la RAM de 56 Go uniquement sur chacune. Pourquoi ?
 
 **R** : La mémoire disponible est une fonction de la réserve de résilience gérée par Azure Stack. La réserve de résilience est une fonction de la taille de la plus grande machine virtuelle sur le tampon Azure Stack. Dans un premier temps, la machine virtuelle la plus grande sur le tampon avait une capacité de 56 Go de mémoire. Quand la machine virtuelle a été redimensionnée, la machine virtuelle la plus grande sur le tampon est passée à 112 Go de mémoire, ce qui a non seulement augmenté la mémoire utilisée par cette machine virtuelle locataire, mais également augmenté la réserve de résilience. Cela a entraîné une augmentation de 56 Go (augmentation de la mémoire de 56 Go à 112 Go sur la machine virtuelle locataire) ainsi qu’une augmentation de la mémoire de résilience de réserve qui est passée à 112 Go. Quand les autres machines virtuelles ont ensuite été redimensionnées, la taille de la plus grande machine virtuelle est restée à la taille de la machine virtuelle de 112 Go et par conséquent, il n’y a pas eu d’augmentation de la réserve de résilience. L’augmentation de la consommation de mémoire s’est limitée à l’augmentation de la mémoire de la machine virtuelle (56 Go). 
 

@@ -10,19 +10,19 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: scenario
 ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: eb5815a55e5e2c60ce61f9c4af96ee58a1aa684b
-ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
+ms.openlocfilehash: 1bbe22bdc78f28aa172c90770cd5d2857878d2c3
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67138944"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286914"
 ---
-# <a name="tutorial-create-cross-cloud-scaling-app-solutions-with-azure-and-azure-stack"></a>Didacticiel : Créer des solutions d’application de mise à l’échelle inter-cloud avec Azure Stack
+# <a name="create-cross-cloud-scaling-app-solutions-with-azure-and-azure-stack"></a>Créer des solutions d’application de mise à l’échelle inter-cloud avec Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -30,7 +30,7 @@ Découvrez comment créer une solution dans le cloud pour fournir un processus d
 
 Avec ce modèle, il se peut que votre locataire ne soit pas prêt à exécuter votre application dans le cloud public. Toutefois, ceci peut ne pas être économiquement faisable pour que l’entreprise puisse maintenir la capacité nécessaire dans son environnement local afin de gérer les pics de demande de l’application. Votre locataire peut faire usage de l’élasticité du cloud public avec sa solution locale.
 
-Dans ce tutoriel, vous créez un exemple d’environnement pour :
+Dans cette solution, vous allez générer un exemple d’environnement pour :
 
 > [!div class="checklist"]
 > - Créer une application web à plusieurs nœuds.
@@ -43,7 +43,7 @@ Dans ce tutoriel, vous créez un exemple d’environnement pour :
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local, en activant le seul cloud hybride qui vous permet de créer et de déployer des applications hybrides en tout lieu.  
 > 
-> Le livre blanc [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Étude des conceptions pour les applications hybrides) se penche sur les fondements de la qualité logicielle (sélection élective, extensibilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
+> L’article [Design Considerations for Hybrid Applications](azure-stack-edge-pattern-overview.md) se penche sur les fondements de la qualité logicielle (sélection élective, scalabilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
 
 ## <a name="prerequisites"></a>Prérequis
 

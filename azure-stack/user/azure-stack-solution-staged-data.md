@@ -14,18 +14,18 @@ ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 7148e93977f50a7c64d79c422c43c6825b22b4a3
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: ca4c2480fff511ab3bad43ea82fc81522d9afba0
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308979"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286744"
 ---
-# <a name="tutorial-deploy-a-staged-data-analytics-solution-to-azure-stack"></a>Didacticiel : Déployer une solution d’analytique données mises en lots sur Azure Stack
+# <a name="deploy-a-staged-data-analytics-solution-to-azure-stack"></a>Déployer une solution d’analytique données mises en lots sur Azure Stack
 
 Cet article indique la procédure de déploiement d’une solution pour la collecte des données nécessitant une analyse au point de collecte pour permettre une prise de décisions rapide. Cette collecte de données se produit souvent sans accès à Internet. Lorsque la connexion est établie, vous devrez peut-être effectuer une analyse des données gourmande en ressources pour obtenir des informations supplémentaires.
 
-Dans ce didacticiel, vous allez créer un exemple d’environnement pour :
+Dans cette solution, vous allez créer un exemple d’environnement pour :
 
 > [!div class="checklist"]
 > - Créer l’objet blob de stockage des données brutes.
@@ -37,9 +37,9 @@ Dans ce didacticiel, vous allez créer un exemple d’environnement pour :
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local, et constitue le seul cloud hybride qui vous permet de créer et déployer des applications hybrides en tout lieu.  
+> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local, en activant le seul cloud hybride qui vous permet de créer et de déployer des applications hybrides en tout lieu.  
 > 
-> Le livre blanc [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Étude des conceptions pour les applications hybrides) se penche sur les fondements de la qualité logicielle (sélection élective, extensibilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception des applications hybrides, en réduisant les risques dans les environnements de production.
+> L’article [Design Considerations for Hybrid Applications](azure-stack-edge-pattern-overview.md) se penche sur les fondements de la qualité logicielle (sélection élective, scalabilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
 
 ## <a name="architecture-for-staged-data-analytics"></a>Architecture pour l’analytique données mises en lots
 

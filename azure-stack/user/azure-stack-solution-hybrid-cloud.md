@@ -10,23 +10,23 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: scenario
 ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 97869ef7659cb5619ff962fc4b3bc8facbc599ed
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 73fc9559e639973b07c576f8590c756032db0c3e
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492448"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286936"
 ---
-# <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Didacticiel : Déployer une solution de cloud hybride avec Azure et Azure Stack
+# <a name="deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Déployer une solution de cloud hybride avec Azure et Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Ce didacticiel vous montre comment déployer une solution de cloud hybride qui utilise le cloud public Azure et le cloud privé Azure Stack.
+Ce scénario vous montre comment déployer une solution de cloud hybride qui utilise le cloud public Azure et le cloud privé Azure Stack.
 
 En utilisant une solution de cloud hybride, vous pouvez combiner les avantages de la conformité d’un cloud privé avec l’extensibilité du cloud public. En outre, vos développeurs peuvent tirer parti de l’écosystème de développement Microsoft et appliquer leurs compétences aux environnements cloud et locaux.
 
@@ -46,6 +46,12 @@ Ce tutoriel décrit les tâches suivantes :
 > - Configurer la supervision et les alertes Application Insights en cas d’augmentation du trafic.
 > - Configurer la commutation automatique du trafic entre Azure global et Azure Stack.
 
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local, en activant le seul cloud hybride qui vous permet de créer et de déployer des applications hybrides en tout lieu.  
+> 
+> L’article [Design Considerations for Hybrid Applications](azure-stack-edge-pattern-overview.md) se penche sur les fondements de la qualité logicielle (sélection élective, scalabilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
+
 ### <a name="assumptions"></a>Hypothèses
 
 Ce didacticiel suppose que vous disposez de connaissances de base sur Azure global et Azure Stack. Si vous voulez en savoir plus avant de commencer le didacticiel, consultez les articles suivants :
@@ -57,7 +63,7 @@ Ce didacticiel part du principe que vous disposez d’un abonnement Azure. Si vo
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer ce didacticiel, veillez à ce que les conditions suivantes soient réunies :
+Avant de commencer cette solution, vérifiez que les conditions suivantes sont réunies :
 
 - Un Kit de développement Azure Stack (ASDK) ou un abonnement à un système intégré Azure Stack. Pour déployer un Kit de développement Azure Stack, suivez les instructions de [Déployer l’ASDK à l’aide du programme d’installation](../asdk/asdk-install.md).
 - Votre installation Azure Stack doit avoir installé les éléments suivants :
