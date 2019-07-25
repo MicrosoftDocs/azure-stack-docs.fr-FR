@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 440e68b54b99139b85ad53fd67bc43c409d658a8
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 84aa627f6c274d22ebdab411d6abd1064c6ecd6d
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985615"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417472"
 ---
 # <a name="add-a-vm-image-to-offer-in-azure-stack"></a>Ajouter une image de machine virtuelle à proposer dans Azure Stack
 
@@ -46,7 +46,7 @@ Les images doivent pouvoir être référencées par un URI de stockage d’objet
 
    - Quand vous chargez [l’image de machine virtuelle Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), pensez à substituer l’étape **Se connecter à Azure** par l’étape [Configurer l’environnement PowerShell de l’opérateur Azure Stack](azure-stack-powershell-configure-admin.md).  
 
-   - Prenez note de l’URI de stockage d’objets blob dans lequel vous chargez l’image. L’URI de stockage d’objets blob est au format suivant : *&lt;compte_stockage&gt;/&lt;conteneur_objets_blob&gt;/&lt;nom_disque_dur_virtuel_cible&gt;*.vhd.
+   - Prenez note de l’URI de stockage d’objets blob dans lequel vous chargez l’image. L’URI de stockage d’objets blob est au format suivant : *&lt;compte_stockage&gt;/&lt;conteneur_objets_blob&gt;/&lt;nom_disque_dur_virtuel_cible&gt;* .vhd.
 
    - Pour rendre le stockage Blob accessible de manière anonyme, accédez au conteneur d’objets blob du compte de stockage dans lequel l’image de machine virtuelle VHD a été chargée. Sélectionnez **Blob**, puis choisissez **Stratégie d’accès**. Si vous le souhaitez, vous pouvez générer une signature d’accès partagé pour le conteneur et l’inclure dans l’URI de l’objet blob. Cette étape permet de s’assurer que l’objet blob est utilisable pour l’ajouter en tant qu’image. Si l’objet blob n’est pas accessible de manière anonyme, l’image de machine virtuelle sera créée dans un état d’échec.
 
@@ -104,7 +104,7 @@ Les images doivent pouvoir être référencées par un URI de stockage d’objet
      Segment du nom de référence SKU de l’image de machine virtuelle que les utilisateurs indiquent lors du déploiement de l’image. **Datacenter2016** est un exemple. N’incluez aucun espace ou autre caractère spécial dans ce champ.  
    - **version**  
      Par exemple : `1.0.0`  
-     Version de l’image de machine virtuelle que les utilisateurs indiquent lors du déploiement de l’image. La version suit le format *\#.\#.\#*, **1.0.0** est un exemple. N’incluez aucun espace ou autre caractère spécial dans ce champ.  
+     Version de l’image de machine virtuelle que les utilisateurs indiquent lors du déploiement de l’image. La version suit le format *\#.\#.\#* , **1.0.0** est un exemple. N’incluez aucun espace ou autre caractère spécial dans ce champ.  
    - **osType**  
      Par exemple : `Linux`  
      Type d’exploitation de l’image, qui doit être **Windows** ou **Linux**.  
@@ -133,7 +133,7 @@ Les images doivent pouvoir être référencées par un URI de stockage d’objet
       -TenantId $TenantID
    ```
 
-2. Si vous utilisez les **services de fédération Active Directory (AD FS)**, utilisez l’applet de commande suivante :
+2. Si vous utilisez les **services de fédération Active Directory (AD FS)** , utilisez l’applet de commande suivante :
 
    ```powershell
    # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
@@ -204,7 +204,7 @@ Si vous n’avez plus besoin de l’image de machine virtuelle que vous avez cha
      Segment du nom de référence SKU de l’image de machine virtuelle que les utilisateurs indiquent lors du déploiement de l’image. **Datacenter2016** est un exemple. N’incluez aucun espace ou autre caractère spécial dans ce champ.  
    - **version**  
      Par exemple : `1.0.0`  
-     Version de l’image de machine virtuelle que les utilisateurs indiquent lors du déploiement de l’image. La version suit le format *\#.\#.\#*, **1.0.0** est un exemple. N’incluez aucun espace ou autre caractère spécial dans ce champ.  
+     Version de l’image de machine virtuelle que les utilisateurs indiquent lors du déploiement de l’image. La version suit le format *\#.\#.\#* , **1.0.0** est un exemple. N’incluez aucun espace ou autre caractère spécial dans ce champ.  
     
      Pour plus d’informations sur la cmdlet Remove-AzsPlatformImage, consultez la [documentation de l’opérateur sur les modules Azure Stack](https://docs.microsoft.com/powershell/module/) de Microsoft PowerShell.
 

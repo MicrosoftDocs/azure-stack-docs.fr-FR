@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3830dc15cebe24a8fb910b641b7b986437aeec52
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 1ffb66bb1abe9f2ffb64162f834c682df2aaa609
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310313"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418398"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Concepts clés de la Validation en tant que service
 
@@ -37,7 +37,7 @@ Une solution VaaS est une solution Azure Stack associée à une nomenclature mat
 3. Entrez un nom pour la solution. Pour des suggestions de dénomination, consultez [Naming convention for VaaS workflows](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions) (Conventions d’affectation de noms pour les flux de travail VaaS).
 4. Sélectionnez **Enregistrer** pour créer la solution.
 
-## <a name="workflows"></a>Flux de travail
+## <a name="workflows"></a>Workflows
 
 Un flux de travail VaaS intervient dans le contexte d’une solution VaaS. Il représente un ensemble de suites de tests qui testent les fonctionnalités d’un déploiement Azure Stack. Un flux de travail doit être créé pour chaque déploiement ou mise à jour logicielle d’une solution Azure Stack.
 

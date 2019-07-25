@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: fc5466880c7340f5e9a79b7ece79663d12c9a598
-ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
+ms.openlocfilehash: 1e43f5df97ff91e7117759027499ffa6cd0df7c8
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749010"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418250"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Gestion et mise à jour des machines virtuelles avec Azure Stack
 Vous pouvez utiliser les fonctionnalités des solutions Azure Automation suivantes pour gérer les machines virtuelles Windows et Linux déployées avec Azure Stack :
@@ -137,7 +137,3 @@ Si vous avez un grand nombre de machines virtuelles Azure Stack, vous pouvez uti
  
 ## <a name="next-steps"></a>Étapes suivantes
 [Optimiser les performances des machines virtuelles SQL Server](azure-stack-sql-server-vm-considerations.md)
-
-
-
-

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 558853309faecbf2955a08d7a8f629d83a38dbd1
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 6554a18ee881f053eebc2fc3df8d846cd8d9d12e
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617831"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417960"
 ---
 # <a name="update-the-sql-resource-provider"></a>Mettre à jour le fournisseur de ressources SQL
 
@@ -63,8 +63,8 @@ Vous pouvez spécifier les paramètres suivants à partir de la ligne de command
 | **DefaultSSLCertificatePassword** | Mot de passe pour le certificat .pfx. | _Obligatoire_ |
 | **MaxRetryCount** | Nombre de fois où vous souhaitez réessayer chaque opération en cas d’échec.| 2 |
 | **RetryDuration** |Délai d’attente entre les tentatives, en secondes. | 120 |
-| **Désinstaller** | Supprime le fournisseur de ressources et toutes les ressources associées. | Non  |
-| **DebugMode** | Empêche le nettoyage automatique en cas d’échec. | Non  |
+| **Désinstaller** | Supprime le fournisseur de ressources et toutes les ressources associées. | Non |
+| **DebugMode** | Empêche le nettoyage automatique en cas d’échec. | Non |
 
 ## <a name="update-script-powershell-example"></a>Exemple de script de mise à jour PowerShell
 Voici un exemple d’utilisation du script *UpdateSQLProvider.ps1* que vous pouvez exécuter à partir d’une console PowerShell avec privilèges élevés. Veillez à changer les informations des variables et les mots de passe selon vos besoins :  

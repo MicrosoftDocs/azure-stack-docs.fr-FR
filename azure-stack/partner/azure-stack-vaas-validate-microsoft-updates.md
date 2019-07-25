@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 67d17ffc7c2b8fcdb766ccf8a8248da8665a42d8
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 0a507b7488a34715e528b6bbf291fec9832ef027
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "63447609"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418288"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Valider les mises à jour logicielles issues de Microsoft
 

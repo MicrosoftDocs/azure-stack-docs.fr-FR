@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 3ee71fe48b73c6edd2b0fcb8b0dc83cdf5d77910
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: fd9564e25690c2119bfa3d576802858514ef0475
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985070"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417726"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Surveiller les mises à jour dans Azure Stack à l'aide du point de terminaison privilégié
 
@@ -70,7 +70,7 @@ Vous pouvez également déterminer si les applets de commande sont disponibles p
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName 
    ```
-   Par exemple : 
+   Par exemple :
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName
    

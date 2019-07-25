@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 94eb107450271722af773bc96bec7dfeb12ff52e
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 3fd84e5c294c2cdcfa942aeaf9c2daf9f9245891
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836708"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418218"
 ---
 # <a name="register-azure-stack-with-azure"></a>Inscrire Azure Stack auprès d’Azure
 
@@ -470,7 +470,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
     <String>] [<CommonParameters>]
 ```
 
-| Paramètre | Type | Description |
+| Paramètre | type | Description |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | Les informations d’identification qui sont utilisées pour [accéder au point de terminaison privilégié](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Le nom d’utilisateur est au format **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | Chaîne | Une console PowerShell distante préconfigurée qui vous fournit des fonctionnalités telles que la collecte de journaux et d’autres tâches de post-déploiement. Pour en savoir plus, reportez-vous à l’article relatif à l’[utilisation du point de terminaison privilégié](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). |
@@ -492,7 +492,7 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| Paramètre | Type | Description |
+| Paramètre | type | Description |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | Les informations d’identification qui sont utilisées pour [accéder au point de terminaison privilégié](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Le nom d’utilisateur est au format **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | Chaîne |  Une console PowerShell distante préconfigurée qui vous fournit des fonctionnalités telles que la collecte de journaux et d’autres tâches de post-déploiement. Pour en savoir plus, reportez-vous à l’article relatif à l’[utilisation du point de terminaison privilégié](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). |

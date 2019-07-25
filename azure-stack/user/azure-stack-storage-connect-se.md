@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: f7631b049197c0721ffa801c225e1ecdf853524f
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: ebee962bbf53cad48df11bd21653830410f04d9d
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712475"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417553"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Connecter l’Explorateur de stockage à un compte de stockage ou abonnement Azure Stack
 

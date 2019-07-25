@@ -12,21 +12,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 53289e46a2f29a03535958b76743db107f6ecf64
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 07191c95ede4f9a3ce80117bfeca9b5a02cfc0b1
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617782"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417372"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considérations relatives à l’intégration au centre de données pour les systèmes intégrés Azure Stack
+
 Si vous êtes intéressé par un système intégré Azure Stack, vous devez comprendre les principales considérations qui se rapportent à la planification autour du déploiement, et la façon dont le système s’adapte à votre centre de données. Cet article fournit une vue d’ensemble de ces considérations pour vous aider à prendre des décisions d’infrastructure importantes pour votre système Azure Stack à plusieurs nœuds. Comprendre ces considérations est utile pour collaborer avec votre fournisseur de matériel OEM lorsqu’il déploie Azure Stack vers votre centre de données.  
 
-> [!NOTE]
+> [!NOTE]  
 > Les systèmes Azure Stack à plusieurs nœuds ne peuvent être achetés qu’auprès de fournisseurs de matériel autorisés. 
 
 Pour déployer Azure Stack, vous devez remettre ces informations de planification à votre fournisseur de solutions avant le déploiement pour que le processus soit rapide et simple. Les informations nécessaires incluent la mise en réseau, la sécurité et les informations d’identité avec de nombreuses décisions importantes qui peuvent nécessiter des connaissances dans différents domaines et de différents décideurs. Par conséquent, vous devrez peut-être faire appel à des personnes de différentes équipes de votre organisation pour vous assurer que toutes les informations requises sont prêtes avant le début du déploiement. Il peut être utile de communiquer avec votre fournisseur de matériel lors de la collecte de ces informations, car il peut vous fournir des conseils utiles à la prise de décisions.
