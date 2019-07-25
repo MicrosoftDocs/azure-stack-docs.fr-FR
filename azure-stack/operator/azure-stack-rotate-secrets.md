@@ -15,12 +15,12 @@ ms.date: 07/15/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: 681daffabda3525effc1815e6aa6657c9c7c526c
-ms.sourcegitcommit: ca7e6b7b9b27d0d93ee4d5d1eeaf3113bbcea4da
+ms.openlocfilehash: fb49649227cf17356c7d383e6505dd3e1c2c5648
+ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68229454"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380417"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Faire pivoter les clés secrètes dans Azure Stack
 
@@ -254,7 +254,7 @@ Remove-PSSession -Session $PEPSession
 
 Quand la rotation des secrets a réussi, la console affiche **Overall action status: Success (état global de l’action : réussite).**
     > [!Note]
-    > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **-Internal** and **-ReRun** parameters.  
+    > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **-Internal** and **-ReRun** parameters.  
 
 ```powershell
 Start-SecretRotation -Internal -ReRun
@@ -271,13 +271,13 @@ Effectue la rotation des secrets d’un système Azure Stack. Exécutée uniquem
 #### <a name="for-external-secret-rotation"></a>Rotation des secrets externes
 
 ```powershell
-Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential <PSCredential>] [-CertificatePassword <SecureString>]  
+Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential <PSCredential>] [-CertificatePassword <SecureString>]  
 ```
 
 #### <a name="for-internal-secret-rotation"></a>Rotation des secrets internes
 
 ```powershell
-Start-SecretRotation [-Internal]  
+Start-SecretRotation [-Internal]  
 ```
 
 #### <a name="for-external-secret-rotation-rerun"></a>Réexécution de la rotation des secrets externes
@@ -294,17 +294,17 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 ### <a name="description"></a>Description
 
-L’applet de commande **Start-SecretRotation** effectue la rotation des secrets d’infrastructure d’un système Azure Stack. Par défaut, elle effectue uniquement la rotation des certificats de tous les points de terminaison de l’infrastructure réseau externe. Si l’indicateur -Internal est utilisé, les secrets d’infrastructure internes font l’objet d’une rotation. Durant la rotation des points de terminaison de l’infrastructure réseau externe, **Start-SecretRotation** doit être exécuté avec un bloc de script **Invoke-Command**, avec la session du point de terminaison privilégié de l’environnement Azure Stack passée comme paramètre **Session**.
+L’applet de commande **Start-SecretRotation** effectue la rotation des secrets d’infrastructure d’un système Azure Stack. Par défaut, elle effectue uniquement la rotation des certificats de tous les points de terminaison de l’infrastructure réseau externe. Si l’indicateur -Internal est utilisé, les secrets d’infrastructure internes font l’objet d’une rotation. Durant la rotation des points de terminaison de l’infrastructure réseau externe, **Start-SecretRotation** doit être exécuté avec un bloc de script **Invoke-Command**, avec la session du point de terminaison privilégié de l’environnement Azure Stack passée comme paramètre **Session**.
 
 ### <a name="parameters"></a>parameters
 
 | Paramètre | Type | Obligatoire | Position | Default | Description |
 | -- | -- | -- | -- | -- | -- |
-| `PfxFilesPath` | Chaîne  | False  | named  | Aucun  | Le chemin d’accès au partage de fichiers pour le répertoire **\Certificates** contenant tous les certificats de points de terminaison réseau externe. Uniquement requis lors de la rotation de secrets externes. Le répertoire de fin doit être **\Certificates**. |
-| `CertificatePassword` | SecureString | False  | named  | Aucun  | Le mot de passe pour tous les certificats fournis dans le -PfXFilesPath. Valeur requise si PfxFilesPath est fourni lors de la rotation des secrets externes. |
+| `PfxFilesPath` | Chaîne  | False  | named  | Aucun  | Le chemin d’accès au partage de fichiers pour le répertoire **\Certificates** contenant tous les certificats de points de terminaison réseau externe. Uniquement requis lors de la rotation de secrets externes. Le répertoire de fin doit être **\Certificates**. |
+| `CertificatePassword` | SecureString | False  | named  | Aucun  | Le mot de passe pour tous les certificats fournis dans le -PfXFilesPath. Valeur requise si PfxFilesPath est fourni lors de la rotation des secrets externes. |
 | `Internal` | Chaîne | False | named | Aucun | L’indicateur interne doit être utilisé chaque fois qu’un opérateur Azure Stack souhaite effectuer la rotation des secrets d’infrastructure internes. |
-| `PathAccessCredential` | PSCredential | False  | named  | Aucun  | Les informations d’identification PowerShell du partage de fichiers pour le répertoire **\Certificates** contenant tous les certificats de points de terminaison réseau externe. Uniquement requis lors de la rotation de secrets externes.  |
-| `ReRun` | SwitchParameter | False  | named  | Aucun  | ReRun doit être utilisé à chaque nouvelle tentative de rotation des secrets après un échec. |
+| `PathAccessCredential` | PSCredential | False  | named  | Aucun  | Les informations d’identification PowerShell du partage de fichiers pour le répertoire **\Certificates** contenant tous les certificats de points de terminaison réseau externe. Uniquement requis lors de la rotation de secrets externes.  |
+| `ReRun` | SwitchParameter | False  | named  | Aucun  | ReRun doit être utilisé à chaque nouvelle tentative de rotation des secrets après un échec. |
 
 ### <a name="examples"></a>Exemples
 
@@ -313,12 +313,12 @@ L’applet de commande **Start-SecretRotation** effectue la rotation des secrets
 Cette commande doit être exécutée par le biais du [point de terminaison privilégié de votre environnement Azure Stack](azure-stack-privileged-endpoint.md).
 
 ```powershell
-PS C:\> Start-SecretRotation -Internal
+PS C:\> Start-SecretRotation -Internal
 ```
 
 Cette commande effectue la rotation de tous les secrets de l’infrastructure exposés au réseau interne Azure Stack.
 
-#### <a name="rotate-only-external-infrastructure-secrets"></a>Effectuer la rotation des secrets d’infrastructure externes uniquement  
+#### <a name="rotate-only-external-infrastructure-secrets"></a>Effectuer la rotation des secrets d’infrastructure externes uniquement  
 
 ```powershell
 # Create a PEP Session
@@ -363,7 +363,7 @@ Invoke-Command -Session $PEPSession -ScriptBlock {
 Remove-PSSession -Session $PEPSession
 ```
 
-Cette commande effectue la rotation de tous les secrets d’infrastructure exposés au réseau interne Azure Stack et des certificats TLS utilisés pour les points de terminaison de l’infrastructure réseau externe d’Azure Stack. Start-SecretRotation effectue la rotation de tous les secrets générés par la pile, et comme des certificats sont fournis, la rotation des certificats de points de terminaison externes sera également effectuée.  
+Cette commande effectue la rotation de tous les secrets d’infrastructure exposés au réseau interne Azure Stack et des certificats TLS utilisés pour les points de terminaison de l’infrastructure réseau externe d’Azure Stack. Start-SecretRotation effectue la rotation de tous les secrets générés par la pile, et comme des certificats sont fournis, la rotation des certificats de points de terminaison externes sera également effectuée.  
 
 ## <a name="update-the-baseboard-management-controller-bmc-credential"></a>Mettre à jour les informations d’identification du contrôleur BMC (Baseboard Management Controller)
 
