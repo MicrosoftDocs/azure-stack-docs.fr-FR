@@ -1,6 +1,6 @@
 ---
-title: Dans ce didacticiel, vous allez apprendre à vous abonner à une offre Azure Stack | Microsoft Docs
-description: Ce didacticiel explique comment créer un nouvel abonnement dans les services Azure Stack et comment tester l’offre en créant une machine virtuelle de test.
+title: Créer un abonnement avec une offre dans Azure Stack | Microsoft Docs
+description: Apprenez à créer un nouvel abonnement avec une offre dans Azure Stack, puis testez l’offre avec une machine virtuelle de test.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -17,14 +17,14 @@ ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 3f577ebd5a57b271a449b5db262ea70779ebdb3d
-ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
+ms.openlocfilehash: 5b72ccee255aadd5d8f42aefea9e397ba310812c
+ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66506363"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68376811"
 ---
-# <a name="tutorial-create-and-test-a-subscription"></a>Didacticiel : créer et tester un abonnement
+# <a name="tutorial-create-and-test-a-subscription-in-azure-stack"></a>Didacticiel : Créer et tester un abonnement dans Azure Stack
 
 Ce tutoriel montre comment créer un abonnement qui contient une offre et comment la tester. Pour le test, connectez-vous au portail utilisateur Azure Stack en tant qu’administrateur cloud, abonnez-vous à l’offre, puis créez une machine virtuelle.
 
@@ -33,7 +33,7 @@ Ce tutoriel montre comment créer un abonnement qui contient une offre et commen
 
 Dans ce tutoriel, vous allez apprendre à vous abonner à une offre Azure Stack.
 
-Contenu :
+Ce que vous allez apprendre :
 
 > [!div class="checklist"]
 > * S’abonner à une offre 
@@ -52,7 +52,7 @@ Pour vous abonner à une offre en tant qu’utilisateur, connectez-vous au porta
    ![Créer une offre](media/azure-stack-subscribe-services/create-subscription.png)
 
    > [!TIP]
-   > Vous devez maintenant actualiser le portail utilisateur pour commencer à utiliser votre abonnement.
+   > Actualisez le portail utilisateur pour commencer à utiliser votre abonnement.
 
 3. Pour afficher l’abonnement que vous avez créé, sélectionnez **Tous les services**. Ensuite, dans la catégorie **GÉNÉRAL**, sélectionnez **Abonnements**, puis sélectionnez votre nouvel abonnement. Une fois que vous êtes abonné à une offre, actualisez le portail pour voir si les nouveaux services ont été ajoutés à votre nouvel abonnement. Dan cet exemple, **Machines virtuelles** a été ajouté.
 
@@ -60,24 +60,24 @@ Pour vous abonner à une offre en tant qu’utilisateur, connectez-vous au porta
 
 ## <a name="test-the-offer"></a>Tester l’offre
 
-En étant connecté au portail utilisateur, vous pouvez tester l’offre en provisionnant une machine virtuelle à l’aide des fonctionnalités du nouvel abonnement.
+En étant connecté au portail utilisateur, testez l’offre en provisionnant une machine virtuelle à l’aide des fonctionnalités du nouvel abonnement.
 
 > [!NOTE]
-> Ce test nécessite d’avoir ajouté une machine virtuelle Windows Server 2016 Datacenter à la place de marché Azure Stack.
+> Ce test nécessite d’avoir ajouté une machine virtuelle Windows Server 2016 Datacenter à la Place de marché Azure Stack.
 
 1. Connectez-vous au portail utilisateur.
 
-2. Dans le portail utilisateur, sélectionnez **Machines virtuelles**, **Ajouter**, **Windows Server 2016 Datacenter**, puis cliquez sur **Créer**.
+2. Dans le portail utilisateur, sélectionnez **Machines virtuelles**, **Ajouter**, **Windows Server 2016 Datacenter**, puis sélectionnez **Créer**.
 
 3. Dans la section **Bases**, tapez un **Nom**, un **Nom d’utilisateur** et un **Mot de passe**, choisissez un **Abonnement**, créez un **Groupe de ressources** (ou sélectionnez un groupe existant), puis sélectionnez **OK**.
 
-4. Dans la section **Choisir une taille**, sélectionnez **A1 Standard**, puis cliquez sur **Sélectionner**.  
+4. Dans la section **Choisir une taille**, sélectionnez **A1 Standard**, puis choisissez **Sélectionner**.  
 
 5. Dans le panneau **Paramètres**, acceptez les valeurs par défaut et sélectionnez **OK**.
 
-6. Dans la section **Résumé**, cliquez sur **OK** pour créer la machine virtuelle.  
+6. Dans la section **Résumé**, sélectionnez **OK** pour créer la machine virtuelle.  
 
-7. Pour voir votre nouvelle machine virtuelle, sélectionnez **Machines virtuelles**, puis recherchez la nouvelle machine virtuelle et cliquez sur son nom.
+7. Pour afficher votre nouvelle machine virtuelle, sélectionnez **Machines virtuelles**, puis recherchez la nouvelle machine virtuelle et sélectionnez son nom.
 
     ![Toutes les ressources](media/azure-stack-subscribe-services/view-vm.png)
 
@@ -85,12 +85,6 @@ En étant connecté au portail utilisateur, vous pouvez tester l’offre en prov
 > Le déploiement de la machine virtuelle prend quelques minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-Ce que vous avez appris dans ce didacticiel :
-
-> [!div class="checklist"]
-> * S’abonner à une offre 
-> * Tester l’offre
 
 > [!div class="nextstepaction"]
 > [Créer une machine virtuelle à partir d’un modèle de communauté](azure-stack-create-vm-template.md)
