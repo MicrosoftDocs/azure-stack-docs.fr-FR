@@ -15,7 +15,13 @@
         - name: Check-list pour appliquer les mises à jour
           href: azure-stack-release-notes-checklist.md
         - name: Mises à jour de sécurité
-          href: azure-stack-release-notes-security-updates-1906.md
+          href: azure-stack-release-notes-security-updates-1907.md
+        - name: "Mise à jour\_1907"
+          items:
+            - name: Notes de publication
+              href: azure-stack-release-notes-1907.md
+            - name: Problèmes connus
+              href: azure-stack-release-notes-known-issues-1907.md
         - name: "Mise à jour\_1906"
           items:
             - name: Notes de publication
@@ -34,8 +40,6 @@
               href: azure-stack-release-notes-1904.md
             - name: Problèmes connus
               href: azure-stack-release-notes-known-issues-1904.md
-        - name: Mise à jour 1903
-          href: azure-stack-update-1903.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -235,6 +239,8 @@
       items:
         - name: Présentation de la Place de marché
           href: azure-stack-marketplace.md
+        - name: Changements de la Place de marché
+          href: azure-stack-marketplace-changes.md
         - name: Télécharger des éléments du Marketplace
           href: azure-stack-download-azure-marketplace-item.md
         - name: Éléments Place de marché Microsoft Azure pour Azure Stack
@@ -409,16 +415,26 @@
           href: azure-stack-backup-reference.md
     - name: Obtenir de l’aide
       items:
-        - name: Aide et support
-          href: azure-stack-help-and-support-overview.md
-        - name: Résolution des problèmes
+        - name: Portail Aide et support
           items:
-            - name: Problèmes connus
-              href: azure-stack-troubleshooting.md
-            - name: Diagnostics dans Azure Stack
-              href: azure-stack-diagnostics.md
-            - name: "Validation pour Azure\_Stack"
-              href: azure-stack-diagnostic-test.md
+            - name: Vue d'ensemble
+              href: azure-stack-help-and-support-overview.md
+            - name: Collecte des journaux de diagnostic
+              items:
+                - name: Vue d'ensemble
+                  href: azure-stack-diagnostic-log-collection-overview.md
+                - name: Collecte automatique
+                  items:
+                    - name: Configurer une collecte automatique
+                      href: azure-stack-configure-automatic-diagnostic-log-collection.md
+                    - name: Bonnes pratiques
+                      href: azure-stack-best-practices-automatic-diagnostic-log-collection.md
+                - name: Collecte à la demande
+                  href: azure-stack-configure-on-demand-diagnostic-log-collection.md
+        - name: "Validation pour Azure\_Stack"
+          href: azure-stack-diagnostic-test.md
+        - name: Problèmes connus
+          href: azure-stack-troubleshooting.md
 - name: Informations de référence
   items:
     - name: Azure Stack PowerShell
