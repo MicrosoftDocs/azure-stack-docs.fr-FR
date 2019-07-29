@@ -1,6 +1,6 @@
 ---
-title: Gérer les autorisations d’accès aux ressources par utilisateur dans Azure Stack (administrateur de service et locataire) | Microsoft Docs
-description: En tant qu’administrateur de service ou locataire, découvrez comment gérer les autorisations de contrôle d’accès en fonction du rôle (RBAC).
+title: Gérer l’accès aux ressources dans Azure Stack avec le contrôle d’accès en fonction du rôle | Microsoft Docs
+description: Découvrez comment gérer les autorisations de contrôle d’accès en fonction du rôle (RBAC) en tant qu’administrateur ou abonné dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,14 +16,14 @@ ms.date: 07/10/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 20bf709cb3c2026910a1283fb0b39ba80c719390
-ms.sourcegitcommit: 7f441f246242fa42147ab5aa69ddc8766ba293e3
+ms.openlocfilehash: a5034e92e52c6da760389d7addc77c6220d59674
+ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67791352"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68376830"
 ---
-# <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Gérer l’accès aux ressources à l’aide du contrôle d’accès en fonction du rôle dans Azure Stack
+# <a name="manage-access-to-resources-in-azure-stack-with-role-based-access-control"></a>Gérer l’accès aux ressources dans Azure Stack avec le contrôle d’accès en fonction du rôle
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -31,15 +31,15 @@ Azure Stack prend en charge le contrôle d’accès en fonction du rôle (RBAC),
 
 ## <a name="basics-of-access-management"></a>Concepts de base de la gestion des accès
 
-Avec le contrôle d’accès en fonction du rôle, vous pouvez effectuer un contrôle affiné des accès pour sécuriser votre environnement. Pour cela, vous accordez aux utilisateurs les autorisations spécifiques dont ils ont besoin en leur attribuant un rôle RBAC dans une étendue définie. L’étendue du rôle attribué peut être un abonnement, un groupe de ressources ou une ressource unique. Consultez l’article [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) pour obtenir des informations plus détaillées sur la gestion des accès.
+Avec le contrôle d’accès en fonction du rôle, vous pouvez effectuer un contrôle affiné des accès pour sécuriser votre environnement. Vous accordez aux utilisateurs les autorisations spécifiques dont ils ont besoin en leur attribuant un rôle RBAC dans une étendue donnée. L’étendue du rôle attribué peut être un abonnement, un groupe de ressources ou une ressource unique. Consultez l’article [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) pour obtenir des informations plus détaillées sur la gestion des accès.
 
 ### <a name="built-in-roles"></a>Rôles intégrés
 
 Azure Stack fournit trois rôles de base applicables à tous les types de ressources :
 
-* Le **propriétaire** peut tout gérer, y compris l’accès aux ressources.
-* Le **collaborateur** peut tout gérer, sauf l’accès aux ressources.
-* Le **lecteur** peut tout voir, mais ne peut faire aucun changement.
+* Le **propriétaire** : peut tout gérer, y compris l’accès aux ressources.
+* Le **contributeur** : peut tout gérer, sauf l’accès aux ressources.
+* Le **Lecteur** : peut tout afficher, mais ne peut apporter aucune modification.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Hiérarchie des ressources et héritage
 
@@ -52,14 +52,14 @@ Dans Azure Stack, la hiérarchie des ressources est la suivante :
 L’accès que vous accordez dans une étendue parente est hérité dans les étendues enfants. Par exemple :
 
 * Vous attribuez le rôle de **lecteur** à un groupe Azure AD dans l’étendue de l’abonnement. Les membres de ce groupe peuvent consulter tous les groupes de ressources et les ressources de l’abonnement.
-* Vous attribuez le rôle de **contributeur** à une application dans l’étendue du groupe de ressources. L’application peut gérer tous les types de ressources dans ce groupe de ressources, mais pas dans les autres groupes de ressources de l’abonnement.
+* Vous attribuez le rôle de **Contributeur** à une application dans l’étendue du groupe de ressources. L’application peut gérer tous les types de ressources dans ce groupe de ressources, mais pas d’autres groupes de ressources de l’abonnement.
 
 ### <a name="assigning-roles"></a>Attribution de rôles
 
 Vous pouvez attribuer plusieurs rôles à un utilisateur et associer chaque rôle à une étendue différente. Par exemple :
 
-* Vous attribuez le rôle de lecteur à UtilisateurTest-A sur Abonnement-1.
-* Vous attribuez le rôle de propriétaire à UtilisateurTest-A sur MVTest-1.
+* Vous attribuez le rôle **Lecteur** au TestUser-A pour l’Abonnement-1.
+* Vous attribuez le rôle **Propriétaire** au TestUser-A pour TestVM-1.
 
 L’article sur les [attributions de rôles](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) Azure fournit des informations détaillées sur l’affichage, l’attribution et la suppression des rôles.
 
@@ -70,7 +70,7 @@ Les étapes suivantes permettent de configurer des autorisations pour un utilisa
 1. Connectez-vous avec un compte disposant des autorisations de propriétaire sur la ressource que vous souhaitez gérer.
 2. Dans le volet de navigation de gauche, sélectionnez **Groupes de ressources**.
 3. Choisissez le nom du groupe de ressources sur lequel vous souhaitez définir des autorisations.
-4. Dans le volet de navigation du groupe de ressources, choisissez **Contrôle d’accès (IAM)** . La vue **Attributions de rôles** liste les éléments qui ont accès au groupe de ressources. Vous pouvez regrouper et filtrer les résultats.
+4. Dans le volet de navigation du groupe de ressources, choisissez **Contrôle d’accès (IAM)** .<BR> La vue **Attributions de rôles** liste les éléments qui ont accès au groupe de ressources. Vous pouvez regrouper et filtrer les résultats.
 5. Dans la barre de menus **Contrôle d’accès**, choisissez **Ajouter**.
 6. Sur le volet **Ajouter des autorisations** :
 

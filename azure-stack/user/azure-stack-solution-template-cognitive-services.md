@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: c642a3eeb07ef2ce94ca8dc338a781256c5b9f37
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 9098be09e8b5bd20660f12789159a41d5a330408
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691238"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417311"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Déployer Azure Cognitive Services sur Azure Stack
 
@@ -144,7 +144,7 @@ Détails concernant les principaux champs :
 | ImageLocation | Indique l’emplacement de l’image conteneur de service cognitif spécifique dans ACR. Par exemple, le service Visage : `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
 | BillingURL |URL de point de terminaison notée à l’étape [Créer une ressource Azure](#create-azure-resources) |
 | ApiKey | Clé d’abonnement notée à l’étape [Créer une ressource Azure](#create-azure-resources) |
-| SecretName | Nom du secret que vous avez créé à l’étape [Créer un secret Kubernetes(#create-a-kubernetes-secret) |
+| SecretName | Le nom du secret que vous avez créé à l’étape [Créer un secret Kubernetes](#create-a-kubernetes-secret) |
 
 ## <a name="deploy-the-cognitive-service"></a>Déployer le service cognitif
 

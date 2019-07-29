@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/18/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: 78fe71768b83082e152685f7fe4c7cc606ae5b3c
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.lastreviewed: 07/18/2019
+ms.openlocfilehash: 35f350628a5c13e26bf6f3d1c931aa78a05bfb53
+ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469201"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380479"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Remplacer un nœud d’unité d’échelle sur un système intégré Azure Stack
 
@@ -28,11 +28,15 @@ ms.locfileid: "66469201"
 
 Cet article décrit la procédure générale permettant de remplacer un ordinateur physique (également appelé « nœud d’unité d’échelle ») sur un système intégré Azure Stack. Les étapes de remplacement de nœud d’unité d’échelle varient en fonction de votre fournisseur de matériel OEM. Pour obtenir des instructions détaillées propres à votre système, consultez la documentation FRU (Field Replaceable Unit) de votre fournisseur.
 
+> [!CAUTION]  
+> Le nivellement du microprogramme est essentiel pour la réussite de l’opération décrite dans cet article. Le manquement de cette étape peut entraîner une instabilité du système, une baisse des performances, des threads de sécurité ou empêcher Azure Stack Automation de déployer le système d’exploitation. Consultez toujours la documentation de votre partenaire de matériel lors du remplacement du matériel pour vous assurer que le microprogramme appliqué correspond à la version OEM affichée dans le [portail d’administration Azure Stack](azure-stack-updates.md).<br>
+Pour plus d’informations et obtenir des liens vers la documentation du partenaire, reportez-vous à [Remplacer un composant matériel](azure-stack-replace-component.md).
+
 L’organigramme suivant illustre la procédure générale de la FRU pour remplacer un nœud d’unité d’échelle dans son ensemble.
 
 ![Organigramme du processus de remplacement d’un nœud](media/azure-stack-replace-node/replacenodeflow.png)
 
-* Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
+\* Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
 
 > [!Note]  
 > Si l’opération d’arrêt échoue, il est recommandé d’utiliser l’opération de vidage suivie de l’opération d’arrêt. Pour plus d’informations, consultez les opérations de nœud disponibles.  

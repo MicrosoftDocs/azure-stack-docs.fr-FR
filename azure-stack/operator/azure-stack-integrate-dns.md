@@ -11,12 +11,12 @@ ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 05/09/2019
 keywords: ''
-ms.openlocfilehash: bf1aed6c8140f0c0753f49195082dfd71737868a
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 748da2aa4391d7f28e6d4273830d8d024021bb79
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618670"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417488"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Intégration au centre de données Azure Stack - DNS
 
@@ -80,7 +80,7 @@ Azure Stack comprend à la fois des serveurs DNS faisant autorité et des serveu
 
 ## <a name="resolving-external-dns-names-from-azure-stack"></a>Résolution des noms DNS externes à partir d’Azure Stack
 
-Afin de résoudre les noms DNS pour les points de terminaison en dehors d’Azure Stack (par exemple : www.bing.com), vous devez fournir des serveurs DNS qu’Azure Stack peut utiliser pour transférer les requêtes DNS pour lesquelles Azure Stack ne fait pas autorité. Pour le déploiement, les serveurs DNS vers lesquels Azure Stack transfère les requêtes sont requis dans la feuille de calcul de déploiement (dans le champ du redirecteur DNS). Indiquez au moins deux serveurs dans ce champ à des fins de tolérance de panne. En l’absence de ces valeurs, le déploiement d’Azure Stack échoue.
+Afin de résoudre les noms DNS pour les points de terminaison en dehors d’Azure Stack (par exemple : www\.bing.com), vous devez fournir des serveurs DNS qu’Azure Stack peut utiliser pour transférer les requêtes DNS pour lesquelles Azure Stack ne fait pas autorité. Pour le déploiement, les serveurs DNS vers lesquels Azure Stack transfère les requêtes sont requis dans la feuille de calcul de déploiement (dans le champ du redirecteur DNS). Indiquez au moins deux serveurs dans ce champ à des fins de tolérance de panne. En l’absence de ces valeurs, le déploiement d’Azure Stack échoue.
 
 ### <a name="configure-conditional-dns-forwarding"></a>Configurer la redirection DNS conditionnelle
 

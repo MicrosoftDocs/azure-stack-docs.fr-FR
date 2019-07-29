@@ -1,6 +1,6 @@
 ---
-title: Présentation du stockage Azure Stack
-description: En savoir plus sur le stockage Azure Stack
+title: Présentation du stockage Azure Stack | Microsoft Docs
+description: En savoir plus sur les services de stockage Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 9abfeecfba0e159a5e402bb5d49a58e0cd2945e2
-ms.sourcegitcommit: ca46bef5d5f824d22bdbc00605eb881410b1ffd0
+ms.openlocfilehash: c8828076c74e5f12c742206e3c38c8ee44f90b4c
+ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67041987"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68376864"
 ---
 # <a name="introduction-to-azure-stack-storage"></a>Présentation du stockage Azure Stack
 
@@ -27,19 +27,19 @@ ms.locfileid: "67041987"
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Le stockage Azure Stack est un ensemble de services de stockage cloud incluant des objets blob, des tables et des files d’attente qui sont compatibles avec les services Stockage Azure.
+Le stockage Azure Stack est un ensemble de services de stockage cloud cohérents avec les services fournis par le stockage Azure. Ces services incluent des blobs, des tables et des files d’attente.
 
 ## <a name="azure-stack-storage-services"></a>Services de stockage Azure Stack
 
 Le stockage Azure Stack fournit les trois services suivants :
 
-- **Stockage d’objets blob**
+- **Stockage Blob**
 
-    Le stockage Blob stocke les données d’objets non structurées. Un objet blob peut correspondre à n'importe quel type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d'installation d'application.
+    Le stockage Blob stocke les données d’objets non structurées. Un blob peut correspondre à n'importe quel type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d'installation d'applications.
 
-- **Stockage de table**
+- **Stockage Table**
 
-    Le stockage de tables stocke les jeux de données structurés. Le stockage de tables est un magasin de données de clés-attributs NoSQL qui permet le développement rapide et l'accès rapide à de grosses quantités de données.
+    Le stockage de tables stocke les jeux de données structurés. Le stockage Table est un magasin de données de clés-attributs NoSQL qui permet le développement rapide et l'accès rapide à de grosses quantités de données.
 
 - **Stockage de files d’attente**
 
@@ -51,22 +51,22 @@ Un compte de stockage Azure Stack est un compte sécurisé qui vous donne accès
 
 ### <a name="blob-storage"></a>Stockage d'objets blob
 
-Pour les utilisateurs qui doivent stocker de grandes quantités de données d’objets non structurées dans le cloud, le stockage Blob offre une solution efficace et scalable. Vous pouvez utiliser le stockage blob pour stocker les contenus suivants :
+Pour les utilisateurs qui doivent stocker de grandes quantités de données d’objets non structurées dans le cloud, le stockage Blob offre une solution efficace et scalable. Utilisez le stockage blob pour stocker le contenu suivant :
 
 - Documents
 - Données sociales telles que photos, vidéos, musique et blogs
 - Sauvegardes de fichiers, d'ordinateurs, de bases de données et d'appareils
-- Images et textes pour applications Web
+- Images et textes pour applications web
 - Données de configuration pour applications cloud
 - Big Data tels que journaux d’activité et autres jeux de données volumineux
 
-Chaque objet blob est organisé dans un conteneur. Les conteneurs fournissent également un moyen utile d'affecter des stratégies de sécurité à des groupes d'objets. Un compte de stockage peut contenir un nombre quelconque de conteneurs, et un conteneur peut contenir un nombre quelconque d'objets blob, jusqu'à la limite du compte de stockage.
+Chaque objet blob est organisé dans un conteneur. Les conteneurs fournissent également un moyen utile d'affecter des stratégies de sécurité à des groupes d'objets. Un compte de stockage peut contenir un nombre quelconque de conteneurs et un conteneur peut contenir un nombre quelconque de blobs (jusqu'à la limite du compte de stockage).
 
 Le stockage Blob offre trois types d’objets blob :
 
 - **Objets blob de blocs**
 
-    Les objets blob de blocs sont optimisés pour la diffusion en continu et le stockage d’objets cloud. Ils constituent une solution de choix pour stocker des documents, des fichiers multimédias, des sauvegardes, etc.
+    Les objets blob de blocs sont optimisés pour la diffusion en continu et le stockage d’objets cloud. Il s’agit d’un bon choix pour stocker des documents, des fichiers multimédias, des sauvegardes et d’autres fichiers similaires.
 
 - **Objets blob d’ajout**
 
@@ -78,19 +78,19 @@ Le stockage Blob offre trois types d’objets blob :
 
 ### <a name="table-storage"></a>Stockage de tables
 
-Les applications modernes exigent souvent des magasins de données avec plus d'évolutivité et de souplesse que ne l'exigeaient les précédentes générations de logiciels. Le stockage de tables offre un stockage hautement disponible et massivement évolutif, de telle sorte que votre application puisse être mise à l'échelle automatiquement pour répondre à la demande des utilisateurs. Le Stockage Table est le magasin de clés/attributs NoSQL de Microsoft ; il a une conception sans schéma, ce en quoi il diffère des bases de données relationnelles classiques. Avec un magasin de données sans schéma, il est facile d'adapter vos données au fur et à mesure que les besoins de votre application évoluent. Facile à utiliser, le stockage de tables permet aux développeurs de créer rapidement des applications.
+Les applications modernes exigent souvent des magasins de données avec plus d’évolutivité et de souplesse que ne l’exigeaient les précédentes générations de logiciels. Le stockage Table offre un stockage hautement disponible et massivement évolutif, de telle sorte que votre application puisse être mise à l'échelle automatiquement pour répondre à la demande des utilisateurs. Le stockage Table est le magasin de clés/attributs NoSQL de Microsoft ; il a une conception sans schéma, ce en quoi il diffère des bases de données relationnelles classiques. Avec un magasin de données sans schéma, il est facile d'adapter vos données au fur et à mesure que les besoins de votre application évoluent. Facile à utiliser, le stockage Table permet aux développeurs de créer rapidement des applications.
 
-Le stockage de tables est un magasin de clés/attributs, ce qui signifie que chaque valeur figurant dans une table est stockée avec un nom de propriété typé. Le nom de propriété peut être utilisé pour filtrer et spécifier des critères de sélection. Une collection de propriétés et leurs valeurs constituent une entité. Dans la mesure où le stockage de tables est sans schéma, deux entités d’une même table contiennent différentes collections de propriétés, et ces propriétés peuvent être de différents types.
+Le stockage de tables est un magasin de clés/attributs, ce qui signifie que chaque valeur figurant dans une table est stockée avec un nom de propriété typé. Le nom de propriété est utilisé pour filtrer et spécifier des critères de sélection. Une collection de propriétés et leurs valeurs constituent une entité. Dans la mesure où le stockage de tables est sans schéma, deux entités d’une même table contiennent différentes collections de propriétés, et ces propriétés peuvent être de différents types.
 
-Vous pouvez utiliser le stockage de tables pour stocker des jeux de données flexibles, par exemple, des données utilisateur pour des applications Web, des carnets d’adresses, des informations sur les périphériques et tout autre type de métadonnées requis par votre service. Pour les applications Internet actuelles, les bases de données NoSQL telles que le stockage de tables offrent une alternative populaire aux bases de données relationnelles classiques.
+Vous pouvez utiliser le stockage Table pour stocker des jeux de données flexibles, par exemple, des données utilisateur pour des applications web, des carnets d’adresses, des informations sur les périphériques et tout autre type de métadonnées requis par votre service. Pour les applications basées sur internet actuelles, les bases de données NoSQL, telles que le stockage Table, offrent une alternative populaire aux bases de données relationnelles classiques.
 
 Un compte de stockage peut contenir un nombre quelconque de tables, et une table peut contenir un nombre quelconque d’entités, jusqu'à la limite de capacité du compte de stockage.
 
 ### <a name="queue-storage"></a>Stockage de files d'attente
 
-Lors de la conception d'applications pour la mise à l'échelle, des composants d'application sont souvent découplés, de sorte qu'ils peuvent être mis à l'échelle indépendamment. Le stockage de files d’attente offre une solution de messagerie fiable pour la communication asynchrone entre les composants d’application, qu’ils soient exécutés dans le cloud, sur le bureau, sur un serveur local ou sur un appareil mobile. Le Stockage File d'attente prend également en charge la gestion des tâches asynchrones et la création des workflows de processus.
+Lors de la conception d’applications pour la mise à l’échelle, des composants d’application sont souvent découplés, de sorte qu’ils peuvent être mis à l’échelle indépendamment. Le stockage File d’attente offre une solution de messagerie fiable pour la communication asynchrone entre les composants d’application, qu’ils soient exécutés dans le cloud, sur le bureau, sur un serveur local ou sur un appareil mobile. Le Stockage File d'attente prend également en charge la gestion des tâches asynchrones et la création des workflows de processus.
 
-Un compte de stockage peut contenir un nombre quelconque de files d’attente, et une file d’attente peut contenir un nombre quelconque de messages, jusqu'à la limite de capacité du compte de stockage. La taille maximale des messages individuels est de 64 Ko.
+Un compte de stockage peut contenir un nombre quelconque de files d’attente et une file d’attente peut contenir un nombre quelconque de messages (jusqu'à la limite de capacité du compte de stockage). La taille maximale des messages individuels est de 64 Ko.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

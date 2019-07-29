@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 07/18/2019
 ms.author: mabrigg
-ms.reviewer: ppacent
-ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: fa0292419a228fcf9bbfef2bbfc2503f4ba5a702
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.reviewer: thoroet
+ms.lastreviewed: 07/18/2019
+ms.openlocfilehash: 7ac25e86be91cf6a2e8384c88c79fe3022b3f00d
+ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782332"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380474"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Mettre à l’échelle des actions de nœud d’unité dans Azure Stack
 
@@ -62,7 +62,7 @@ Pour afficher l’état d’une unité d’échelle :
 | Arrêté | Le nœud est indisponible. |
 | Ajout | Le nœud est ajouté de façon active à l’unité d’échelle. |
 | Réparation | Le nœud est réparé de façon active. |
-| Maintenance  | Le nœud est suspendu et aucune charge de travail utilisateur active n’est en cours d’exécution. |
+| Maintenance | Le nœud est suspendu et aucune charge de travail utilisateur active n’est en cours d’exécution. |
 | Correction nécessaire | Une erreur nécessitant la réparation du nœud a été détectée. |
 
 ## <a name="scale-unit-node-actions"></a>Actions de nœud d’unité d’échelle
@@ -93,7 +93,7 @@ Dans le cas peu probable où l’action d’arrêt ne fonctionnerait pas, réess
 
 Pour plus d’informations, consultez [Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
 
-## <a name="start"></a>Démarrer
+## <a name="start"></a>Start
 
 L’action de **démarrage** active le nœud. Cela revient à appuyer sur le bouton d’alimentation. 
  
@@ -137,6 +137,20 @@ Pour exécuter l’action de reprise, ouvrez une invite de commandes PowerShell 
 Pour plus d’informations, consultez [Enable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/enable-azsscaleunitnode).
 
 ## <a name="repair"></a>Réparation
+
+> [!CAUTION]  
+> Le nivellement du microprogramme est essentiel pour la réussite de l’opération décrite dans cet article. Le manquement de cette étape peut entraîner une instabilité du système, une baisse des performances, des threads de sécurité ou empêcher Azure Stack Automation de déployer le système d’exploitation. Consultez toujours la documentation de votre partenaire de matériel lors du remplacement du matériel pour vous assurer que le microprogramme appliqué correspond à la version OEM affichée dans le [portail d’administration Azure Stack](azure-stack-updates.md).<br>
+Pour plus d’informations et obtenir des liens vers la documentation du partenaire, reportez-vous à [Remplacer un composant matériel](azure-stack-replace-component.md).
+
+| Partenaire matériel | Région | URL |
+|------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Cisco | Tous | [Guide des opérations Cisco Integrated System pour Microsoft Azure Stack](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Notes de publication pour Cisco Integrated System pour Microsoft Azure Stack](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
+| Dell EMC | Tous | [Cloud pour Microsoft Azure Stack 14G (compte et connexion requis)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pour Microsoft Azure Stack 13G (compte et connexion requis)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Fujitsu | JAPON | [Support technique de service géré Fujitsu (compte et connexion requis)](https://eservice.fujitsu.com/supportdesk-web/) |
+|  | EMEA | [Support des produits et systèmes informatiques Fujitsu](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
+|  |  | [MySupport Fujitsu (compte et connexion requis)](https://support.ts.fujitsu.com/IndexMySupport.asp) |
+| HPE | Tous | [HPE ProLiant pour Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
+| Lenovo | Tous | [Meilleures recettes ThinkAgile SXM](https://datacentersupport.lenovo.com/us/en/solutions/ht505122) |
 
 L’action de **réparation** répare un nœud. À utiliser uniquement pour un des scénarios suivants :
  - Remplacement de nœud complet (avec ou sans nouveaux disques de données)
