@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/30/2019
-ms.openlocfilehash: d3a50288464b81104ddd1dd032f93128fde43eae
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.openlocfilehash: 71ad5812472534ae4a7e3dc34feabf7a1a02faa0
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152518"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494046"
 ---
 # <a name="azure-stack-1904-update"></a>Mise à jour 1904 d’Azure Stack
 
@@ -77,7 +77,7 @@ Le type de build de la mise à jour 1904 d’Azure Stack est **Express**. Pour 
 - Amélioration du volume de messages Syslog en filtrant les événements inutiles et en fournissant un paramètre de configuration pour sélectionner le niveau de gravité souhaité pour les messages transférés. Pour plus d’informations sur la façon de configurer le niveau de gravité, consultez [Intégration au centre de données Azure Stack - transfert syslog](azure-stack-integrate-security.md).
 
 <!--this applied to Bug 1473487 -->
-- Ajout d’une nouvelle fonctionnalité à l’applet de commande **Get-AzureStackLog** en incorporant le paramètre supplémentaire `-OutputSASUri`. Vous pouvez maintenant collecter des journaux Azure Stack à partir de votre environnement et les stocker dans le conteneur d’objets blob Stockage Azure spécifié. Pour plus d’informations, consultez [Diagnostics Azure Stack](azure-stack-diagnostics.md#examples).
+- Ajout d’une nouvelle fonctionnalité à l’applet de commande **Get-AzureStackLog** en incorporant le paramètre supplémentaire `-OutputSASUri`. Vous pouvez maintenant collecter des journaux Azure Stack à partir de votre environnement et les stocker dans le conteneur d’objets blob Stockage Azure spécifié. Pour plus d’informations, consultez [Diagnostics Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#examples).
 
 - Ajout d’un nouveau contrôle de la mémoire dans le groupe **Test-AzureStack** `UpdateReadiness`, qui vérifie si vous avez suffisamment de mémoire disponible sur la pile pour que la mise à jour s’effectue correctement.
 
@@ -94,7 +94,7 @@ Le type de build de la mise à jour 1904 d’Azure Stack est **Express**. Pour 
 - Améliorations de l’idempotence du plan d’action de sauvegarde de l’infrastructure.
 
 <!--Bug/Task 3139609 -->
-- Améliorations apportées à la collecte des journaux Azure Stack. Ces améliorations réduisent le temps nécessaire pour récupérer l’ensemble des journaux. De plus, l’applet de commande [Get-AzureStackLog](azure-stack-diagnostics.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) ne génère plus de journaux par défaut pour le rôle OEM. Vous devez exécuter l’applet de commande [Invoke-AzureStackOnDemandLog](azure-stack-diagnostics.md#invoke-azurestackondemandlog), en spécifiant le rôle pour récupérer les journaux OEM. Pour plus d’informations, consultez [Diagnostics Azure Stack](azure-stack-diagnostics.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+- Améliorations apportées à la collecte des journaux Azure Stack. Ces améliorations réduisent le temps nécessaire pour récupérer l’ensemble des journaux. De plus, l’applet de commande [Get-AzureStackLog](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) ne génère plus de journaux par défaut pour le rôle OEM. Vous devez exécuter l’applet de commande [Invoke-AzureStackOnDemandLog](azure-stack-configure-on-demand-diagnostic-log-collection.md#invoke-azurestackondemandlog), en spécifiant le rôle pour récupérer les journaux OEM. Pour plus d’informations, consultez [Diagnostics Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
 - Azure Stack surveille à présent l’URL de données de fédération fournie pour l’intégration de centre de données avec ADFS. Cela améliore la fiabilité au cours de la rotation des secrets de l’instance ADFS cliente ou de la batterie de serveurs.
 

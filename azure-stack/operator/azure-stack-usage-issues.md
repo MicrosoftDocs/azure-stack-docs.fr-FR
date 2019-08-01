@@ -15,12 +15,12 @@ ms.date: 06/27/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 57c546ec3583c9e04594e4da542a3c2ce3f72c62
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 68bf47ab2a0842b0aeeae07030272e7106a63220
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419914"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494112"
 ---
 # <a name="usage-connectivity-errors"></a>Erreurs de connectivité d’utilisation
 
@@ -55,7 +55,7 @@ Cette section décrit la représentation les codes d’erreur d’utilisation.
 | Non autorisé               | Azure Bridge n’est pas en mesure de transmettre les données au service d’utilisation dans Azure, car le service Azure n’est pas en mesure d’authentifier Azure Stack Bridge. | Vérifiez si la ressource d’inscription a été modifiée et si tel est le cas, réinscrivez Azure Stack. <br><br> Parfois, un problème de synchronisation entre Azure Stack et Azure AD peut provoquer cette défaillance. Dans ce cas, vérifiez que les heures sur les machines virtuelles XRP sur Azure Stack sont synchronisées avec celles d’Azure AD. |
 |                            |                                                                                                                                                   |                                                                                                                                                                                                                                                                                                    |
 
-En outre, vous devrez peut-être fournir les fichiers journaux pour les composants Azure Bridge, WAS et WASPublic en suivant [ces étapes](azure-stack-diagnostics.md#log-collection-tool).
+En outre, vous devrez peut-être fournir les fichiers journaux pour les composants Azure Bridge, WAS et WASPublic en suivant [ces étapes](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

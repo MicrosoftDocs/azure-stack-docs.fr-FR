@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 04/25/2019
+ms.date: 07/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 06c462ab46ce6bbae8d5c3bd6fcb757e14417edf
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 07/30/2019
+ms.openlocfilehash: 404f6b889f921e547f8c44c7b4219b232819c322
+ms.sourcegitcommit: 7961fda0bfcdd3db8cf94a8c405b5c23a23643af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617625"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68616464"
 ---
 # <a name="set-up-a-development-environment-in-azure-stack"></a>Configurer un environnement de développement dans Azure Stack 
 
@@ -60,6 +60,7 @@ Azure Stack utilise une version Azure Stack d’Azure Resource Manager. Nous fou
 - [Go](azure-stack-version-profiles-go.md)
 - [Ruby](azure-stack-version-profiles-ruby.md)
 - [Python](azure-stack-version-profiles-python.md)
+- [Node.JS](azure-stack-version-profile-nodejs.md)
 
 ## <a name="before-you-start"></a>Avant de commencer 
 

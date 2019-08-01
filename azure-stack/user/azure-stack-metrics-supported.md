@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: c099d67c6446fbd77db62f4c496868437d861f85
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: a66b6fce646a591efac17a5b6e4ed804dba211e7
+ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418489"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68692158"
 ---
 # <a name="supported-metrics-for-azure-monitor-on-azure-stack"></a>Métriques prises en charge pour Azure Monitor sur Azure Stack
 
@@ -50,8 +50,7 @@ Les tableaux suivants listent les métriques disponibles avec le pipeline de mé
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
 | Métrique | Nom d’affichage de la métrique | Unité | Type d’agrégation | Description | Dimensions |
-|----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
+|--------|---------------------|------|------------------|-------------|------------|
 | BlobCapacity | Capacité d’objet blob | Octets | Total | Quantité de stockage utilisée par le service BLOB du compte de stockage, en octets. | BlobType |
 | BlobCount | Nombre d’objets blob | Count | Total | Nombre d’objets blob dans le service Blob du compte de stockage. | BlobType |
 | ContainerCount | Nombre de conteneurs d’objets blob | Count | Moyenne | Nombre de conteneurs dans le service Blob du compte de stockage. | Aucune dimension |
