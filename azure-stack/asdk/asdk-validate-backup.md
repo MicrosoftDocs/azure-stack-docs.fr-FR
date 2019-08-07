@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 02/15/2019
-ms.openlocfilehash: 38c4de35b4d2b5eac16b8586aa6933b18c62b14a
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 07/31/2019
+ms.openlocfilehash: 3ab7dfbaef82868f45b181fb81d9b98050147191
+ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267327"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68692120"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Utiliser l’ASDK pour valider une sauvegarde Azure Stack
 Après déploiement d’Azure Stack et approvisionnement de ressources utilisateur telles que des offres, des plans, des quotas et des abonnements, vous devez [activer la sauvegarde d’infrastructure Azure Stack](../operator/azure-stack-backup-enable-backup-console.md). La planification et l’exécution de sauvegardes d’infrastructure régulières garantit que les données de gestion d’infrastructure ne seront pas perdues en cas de défaillance catastrophique du matériel ou du service.
@@ -58,7 +58,7 @@ Avant de commencer un déploiement de récupération cloud de l’ASDK, vérifie
 |ID de la sauvegarde à restaurer|ID de sauvegarde, sous la forme alphanumérique « xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx », identifiant la sauvegarde à restaurer lors de la récupération cloud.|
 |Adresse IP du serveur de temps|Une adresse IP de serveur de temps valide, telle que 132.163.97.2, est requise pour le déploiement d’Azure Stack.|
 |Mot de passe du certificat externe|Mot de passe du certificat externe utilisé par Azure Stack. La sauvegarde de l’autorité de certification contient des certificats externes qui doivent être restaurés avec ce mot de passe.|
-|Clé de chiffrement de la sauvegarde|Obligatoire si vous avez effectué une mise à niveau vers Azure Stack version 1901 ou ultérieure et si les paramètres de sauvegarde sont toujours configurés avec une clé de chiffrement. La clé de chiffrement est dépréciée depuis la version 1901. Le programme d’installation prendra en charge la clé de chiffrement en mode de compatibilité descendante pour au moins 3 publications de version. Dès lors que vous mettez à jour les paramètres de sauvegarde dans l’optique d’utiliser un certificat, consultez le tableau suivant pour en savoir plus sur les informations obligatoires.|
+|Clé de chiffrement de la sauvegarde|Requise si les paramètres de sauvegarde sont configurés avec une clé de chiffrement, ce qui est déconseillé. Le programme d’installation prendra en charge la clé de chiffrement en mode de compatibilité descendante pour au moins 3 publications de version. Dès lors que vous mettez à jour les paramètres de sauvegarde dans l’optique d’utiliser un certificat, consultez le tableau suivant pour en savoir plus sur les informations obligatoires.|
 
 |     |     | 
 
@@ -73,7 +73,7 @@ Avant de commencer un déploiement de récupération cloud de l’ASDK, vérifie
 |Adresse IP du serveur de temps|Une adresse IP de serveur de temps valide, telle que 132.163.97.2, est requise pour le déploiement d’Azure Stack.|
 |Mot de passe du certificat externe|Mot de passe du certificat externe utilisé par Azure Stack. La sauvegarde de l’autorité de certification contient des certificats externes qui doivent être restaurés avec ce mot de passe.|
 |Mot de passe de certification de déchiffrement|facultatif. Obligatoire uniquement si la sauvegarde est chiffrée à l’aide d’un certificat. Le mot de passe est destiné au certificat auto-signé (.pfx) qui contient la clé privée nécessaire au déchiffrement des données de sauvegarde.|
-|Clé de chiffrement de la sauvegarde|facultatif. Obligatoire si vous avez effectué une mise à niveau vers Azure Stack version 1901 ou ultérieure et si les paramètres de sauvegarde sont toujours configurés avec une clé de chiffrement. Le programme d’installation prendra en charge la clé de chiffrement en mode de compatibilité descendante pour au moins 3 publications de version. Dès lors que vous mettez à jour les paramètres de sauvegarde dans l’optique d’utiliser un certificat, vous devez fournir le mot de passe pour le certificat de déchiffrement.|
+|Clé de chiffrement de la sauvegarde|facultatif. Requise si les paramètres de sauvegarde sont toujours configurés avec une clé de chiffrement. Le programme d’installation prendra en charge la clé de chiffrement en mode de compatibilité descendante pour au moins 3 publications de version. Dès lors que vous mettez à jour les paramètres de sauvegarde dans l’optique d’utiliser un certificat, vous devez fournir le mot de passe pour le certificat de déchiffrement.|
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>Préparer l’ordinateur hôte 

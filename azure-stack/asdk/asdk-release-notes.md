@@ -11,22 +11,37 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2019
+ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: ba3ad4bf5e5d7f76d5d29e7967944be72e989c27
-ms.sourcegitcommit: 068350a79805366e7e6536fb7df85a412bd0be99
+ms.lastreviewed: 07/25/2019
+ms.openlocfilehash: a2b000f60c5867e557ef5b0621f994ea7ec23913
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67511294"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68493776"
 ---
 # <a name="asdk-release-notes"></a>Notes de publication relatives à l’ASDK
 
 Cet article fournit des informations sur des modifications, des correctifs et des problèmes connus en lien avec le Kit de développement Azure Stack (ASDK). Si vous n’êtes pas sûr de la version que vous exécutez, consultez le [portail pour vérifier](../operator/azure-stack-updates.md#determine-the-current-version).
 
 Tenez-vous informé des nouveautés concernant le kit ASDK en vous abonnant au [flux RSS](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
+
+## <a name="build-11907020"></a>Build 1.1907.0.20
+
+### <a name="new-features"></a>Nouvelles fonctionnalités
+
+- Pour obtenir la liste des nouvelles fonctionnalités dans cette version, consultez [cette section](../operator/azure-stack-release-notes-1907.md#whats-in-this-update) des notes de publication Azure Stack.
+
+<!-- ### Changes -->
+
+### <a name="fixed-and-known-issues"></a>Problèmes connus et résolus
+
+- Lorsque vous créez des ressources de machine virtuelle à l’aide de certaines images de la place de marché, vous ne pourrez peut-être pas effectuer le déploiement. Pour résoudre ce problème, vous pouvez cliquer sur le lien **Télécharger le modèle et les paramètres** dans la page de **résumé**, puis cliquer sur le bouton **Déployer** dans le panneau **Modèle**.
+- Pour obtenir la liste des problèmes Azure Stack corrigés dans cette version, consultez [cette section](../operator/azure-stack-release-notes-1907.md#fixes) des notes de publication Azure Stack.
+- Pour obtenir la liste des problèmes connus, consultez [cet article](../operator/azure-stack-release-notes-known-issues-1907.md).
+- Notez que les [correctifs logiciels d’Azure Stack](../operator/azure-stack-release-notes-1907.md#hotfixes) ne sont pas applicables au kit ASDK Azure Stack.
 
 ## <a name="build-11906030"></a>Build 1.1906.0.30
 
@@ -40,7 +55,7 @@ Tenez-vous informé des nouveautés concernant le kit ASDK en vous abonnant au [
 
 ### <a name="fixed-and-known-issues"></a>Problèmes connus et résolus
 
-- Lorsque vous créez des ressources de machine virtuelle à l’aide de certaines images de la place de marché, vous ne pourrez peut-être pas effectuer le déploiement. Pour résoudre ce problème, vous pouvez cliquer sur le lien **Télécharger le modèle et les paramètres** dans la page de **résumé**, puis cliquer sur le bouton **Déployer** dans le panneau **Modèle**. 
+- Lorsque vous créez des ressources de machine virtuelle à l’aide de certaines images de la place de marché, vous ne pourrez peut-être pas effectuer le déploiement. Pour résoudre ce problème, vous pouvez cliquer sur le lien **Télécharger le modèle et les paramètres** dans la page de **résumé**, puis cliquer sur le bouton **Déployer** dans le panneau **Modèle**.
 - Pour obtenir la liste des problèmes Azure Stack corrigés dans cette version, consultez [cette section](../operator/azure-stack-release-notes-1906.md#fixes) des notes de publication Azure Stack.
 - Pour obtenir la liste des problèmes connus, consultez [cet article](../operator/azure-stack-release-notes-known-issues-1906.md).
 - Notez que les [correctifs logiciels d’Azure Stack](../operator/azure-stack-release-notes-1906.md#hotfixes) ne sont pas applicables au kit ASDK Azure Stack.
@@ -79,57 +94,9 @@ Tenez-vous informé des nouveautés concernant le kit ASDK en vous abonnant au [
       $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
       ```
 
-- Résolution du problème de connexion VPN identifié [ici, dans la version 1902](#known-issues).
+- Résolution du problème de connexion VPN identifié dans la version 1902.
 
 - Pour obtenir la liste des autres problèmes Azure Stack corrigés dans cette version, consultez [cette section](../operator/azure-stack-release-notes-1904.md#fixes) des notes de publication Azure Stack.
 - Pour obtenir la liste des problèmes connus, consultez [cet article](../operator/azure-stack-release-notes-known-issues-1904.md).
 - Notez que les [correctifs logiciels d’Azure Stack](../operator/azure-stack-release-notes-1904.md#hotfixes) ne sont pas applicables au kit ASDK Azure Stack.
 
-## <a name="build-1903"></a>Build 1903
-
-La charge utile 1903 n’inclut aucune version ASDK.
-
-### <a name="known-issues"></a>Problèmes connus
-
-- Il existe un problème pour établir une connexion VPN depuis un autre hôte vers le kit ASDK, avec la procédure décrite dans [cet article](asdk-connect.md). Lorsque vous tentez de vous connecter, de votre client VPN à l’environnement ASDK, vous voyez une erreur indiquant que **le nom d’utilisateur ou le mot de passe est incorrect**, même si vous êtes sûr d’avoir utilisé le bon compte et d’avoir correctement tapé le mot de passe. Le problème ne vient pas de vos informations d’identification, mais plutôt d’une modification apportée au protocole d’authentification utilisé pour la connexion VPN sur le kit ASDK. Pour contourner ce problème, effectuez les étapes suivantes :
-
-   Tout d’abord, modifiez le protocole d’authentification utilisé côté serveur ASDK :
-
-   1. Protocole RDP (Remote Desktop Protocol) vers l’hôte ASDK.
-   2. Ouvrez une session PowerShell avec élévation de privilèges, connectez-vous en tant que AzureStack\AzureStackAdmin, avec le mot de passe que vous avez fourni au moment du déploiement.
-   3. Exécutez les commandes suivantes :
-
-      ```powershell
-      netsh nps set np name = "Connections to Microsoft Routing and Remote Access server" profileid = "0x100a" profiledata = "1A000000000000000000000000000000" profileid = "0x1009" profiledata = "0x5"
-      restart-service remoteaccess -force
-      ```
-
-   Ensuite, modifiez le script de connexion côté client. Pour ce faire, le plus simple consiste à apporter des modifications directement au module de script C:\AzureStack-Tools-master\connect\azurestack.connect.psm1 :
-
-   1. Modifiez l’applet de commande **Add-AzsVpnConnection** pour remplacer la valeur `MsChapv2` du paramètre `AuthenticationMethod` par `EAP` :
-
-      ```powershell
-      $connection = Add-VpnConnection -Name $ConnectionName -ServerAddress $ServerAddress -TunnelType L2tp -EncryptionLevel Required -AuthenticationMethod Eap -L2tpPsk $PlainPassword -Force -RememberCredential -PassThru -SplitTunneling
-      ```
-
-   2. Modifiez l’applet de commande **Connect-AzsVpn** en remplaçant l’utilisation de `rasdial @ConnectionName $User $PlainPassword` par celle de `rasphone`, car EAP nécessite une connexion interactive :
-
-      ```powershell
-      rasphone $ConnectionName
-      ```
-
-   3. Enregistrez vos modifications, puis réimportez le module **azurestack.connect.psm1**.
-   4. Suivez les instructions de [cet article](asdk-connect.md#set-up-vpn-connectivity).
-   5. Lorsque vous vous connectez au kit ASDK via une connexion VPN, faites-le en passant par Paramètres Windows **Réseau et Internet**, puis **VPN**, plutôt qu’à partir de la barre des tâches, pour garantir la demande des informations d’identification.
-
-- Un problème a été identifié dans lequel les paquets supérieure à 1 450 octets vers un équilibreur de charge interne (ILB) sont ignorés. Le problème est dû au fait que le paramètre MTU sur l’hôte est trop faible pour prendre en charge des paquets VXLAN encapsulés qui passent par le rôle, ce qui, à compter de la version 1901, a été déplacé vers l’hôte. Il existe au moins deux scénarios où ce problème peut se manifester :
-
-  - Requêtes SQL pour SQL Always On qui est derrière un équilibreur de charge interne (ILB) et faisant plus 660 octets.
-  - Les déploiements Kubernetes échouent si vous essayez d’activer plusieurs maîtres.  
-
-  Le problème se produit lorsque vous avez une communication entre une machine virtuelle et un équilibreur de charge interne sur le même réseau virtuel, mais sur des sous-réseaux différents. Vous pouvez contourner ce problème en exécutant les commandes suivantes dans une invite de commandes avec élévation de privilèges sur l’ordinateur hôte ASDK :
-
-  ```shell
-  netsh interface ipv4 set sub "hostnic" mtu=1660
-  netsh interface ipv4 set sub "management" mtu=1660
-  ```

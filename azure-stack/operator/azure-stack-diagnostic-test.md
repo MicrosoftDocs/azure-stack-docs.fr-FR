@@ -14,12 +14,12 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: a582e1d9abbd690a62f27f6bcaee8c2dd2e6be4b
-ms.sourcegitcommit: 90ed5aa051d0756b2432c8aca0e2232c8ec493a4
+ms.openlocfilehash: da89c973637042b18410db9dc3dc618bfbde12d5
+ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68239429"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68685519"
 ---
 # <a name="validate-azure-stack-system-state"></a>Valider l’état du système Azure Stack
 
@@ -48,7 +48,7 @@ Comme indiqué précédemment, l’outil de validation est exécuté par le biai
 
    Pour plus d’informations, consultez les sections [Considérations relatives aux paramètres](azure-stack-diagnostic-test.md#parameter-considerations) et [Exemples d’utilisation](azure-stack-diagnostic-test.md#use-case-examples).
 
-3. Si un test retourne **FAIL**, exécutez `Get-AzureStackLog`. Pour obtenir des instructions sur un système intégré, consultez [Pour exécuter Get-AzureStackLog sur des systèmes intégrés Azure Stack](azure-stack-diagnostics.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems) ou, dans le Kit ASDK, consultez [Pour exécuter Get-AzureStackLog sur un système ASDK (Kit de développement Azure Stack)](azure-stack-diagnostics.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+3. Si un test retourne **FAIL**, exécutez `Get-AzureStackLog`. Pour obtenir des instructions sur un système intégré, consultez [Pour exécuter Get-AzureStackLog sur des systèmes intégrés Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems) ou, dans le Kit ASDK, consultez [Pour exécuter Get-AzureStackLog sur un système ASDK (Kit de développement Azure Stack)](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
    L’applet de commande recueille des journaux d’activité générés par Test-AzureStack. Vous ne devez pas recueillir de journaux d’activité ni contacter les services de support technique si les tests retournent **WARN**.
 
@@ -78,6 +78,7 @@ Ces tests à faible impact sont exécutés au niveau de l’infrastructure et fo
 | Capacité de l’infrastructure Azure Stack                  | AzsInfraCapacity                  |
 | Performances de l’infrastructure Azure Stack               | AzsInfraPerformance               |
 | Résumé des rôles d’infrastructure Azure Stack              | AzsInfraRoleSummary               |
+| Infrastructure réseau Azure Stack                            | AzsNetworkInfra                   |
 | Résumé de l’API et du portail Azure Stack                   | AzsPortalAPISummary               |
 | Événements de machine virtuelle d’unité d’échelle Azure Stack                     | AzsScaleUnitEvents                |
 | Ressources de machine virtuelle d’unité d’échelle Azure Stack                  | AzsScaleUnitResources             |
@@ -227,10 +228,20 @@ Pour tester les nouvelles informations d’identification avec le partage de sau
   Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential "<PSCredential for backup share>"
   ```
 
+### <a name="run-validation-tool-to-test-network-infrastructure"></a>Exécuter l’outil de validation pour tester l’infrastructure réseau 
+
+Ce test vérifie la connectivité de l’infrastructure réseau en contournant le SDN (Software Defined Network) Azure Stack. Il démontre la connectivité d’une adresse IP virtuelle publique aux redirecteurs DNS, serveurs NTP et points de terminaison d’authentification configurés. Cela englobe la connectivité à Azure quand Azure AD est utilisé en tant que fournisseur d’identité ou au serveur fédéré quand ADFS est utilisé en tant que fournisseur d’identité. 
+
+Incluez le paramètre de débogage pour obtenir une sortie détaillée de la commande :
+
+```powershell 
+Test-AzureStack -Include AzsNetworkInfra -Debug
+```
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les outils de diagnostic Azure Stack et l’enregistrement des problèmes, consultez [Outils de diagnostic Azure Stack](azure-stack-diagnostics.md).
+Pour plus d’informations sur les outils de diagnostic Azure Stack et l’enregistrement des problèmes, consultez [Outils de diagnostic Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep).
 
 Pour plus d’informations sur la résolution des problèmes, consultez [Résolution des problèmes de Microsoft Azure Stack](azure-stack-troubleshooting.md).

@@ -1,5 +1,5 @@
 ---
-title: Aide et support de Microsoft Azure Stack | Microsoft Docs
+title: Vue d'ensemble de l'aide et du support de Microsoft Azure Stack | Microsoft Docs
 description: Bénéficiez de support pour Microsoft Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -12,22 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 07/24/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 4649866a020a9ddc3d359dcb69e8d4165a00a88d
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.lastreviewed: 07/24/2019
+ms.openlocfilehash: ff7911f64cf7c1413e623cd84cebe3d26585a3e5
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828395"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68493869"
 ---
 # <a name="microsoft-azure-stack-help-and-support"></a>Aide et support de Microsoft Azure Stack
 
-À compter de la version 1905, les améliorations apportées à la fonctionnalité **Aide et support** du portail Azure Stack permettent aux opérateurs de se renseigner sur leurs options de support, de bénéficier d’une aide spécialisée et d’en savoir plus sur Azure Stack plus facilement. 
+Dans le portail Azure Stack, **Aide et support** propose aux opérateurs des ressources pour en savoir plus sur Azure Stack, vérifier leurs options de support et bénéficier d'une aide spécialisée. À partir de la version 1907, les opérateurs peuvent aussi utiliser Aide et support pour collecter des journaux de diagnostic à des fins de résolution des problèmes.  
 
-## <a name="documentation-billing-and-support"></a>Documentation, facturation et support
+## <a name="help-resources"></a>Ressources d’aide 
+
+Les opérateurs peuvent également utiliser **Aide et support** pour en savoir plus sur Azure Stack, vérifier leurs options de support et bénéficier d'une aide personnalisée. 
+
+### <a name="things-to-try-first"></a>Premières actions à essayer
 
 En haut de **Aide + support** se trouvent des liens vers des actions que vous êtes susceptible d’essayer en premier, comme découvrir un nouveau concept, comprendre le fonctionnement de la facturation ou consulter les options de support disponibles. 
 
@@ -39,7 +43,7 @@ En haut de **Aide + support** se trouvent des liens vers des actions que vous �
 
 - **Options de support**. Les opérateurs Azure Stack ont le choix parmi une gamme d’[options de support Azure](https://aka.ms/azstacksupport) qui peuvent répondre aux besoins de toute entreprise. 
 
-## <a name="get-expert-help"></a>Bénéficier d’une aide spécialisée 
+### <a name="get-expert-help"></a>Bénéficier d’une aide spécialisée 
 
 Pour un système intégré, il existe un processus d’escalade et de résolution coordonné entre Microsoft et nos partenaires fabricants de matériel OEM.
 
@@ -49,7 +53,7 @@ En cas de problème de déploiement, de correctif et de mise à jour, de matéri
 
 ![Bénéficier d’une aide spécialisée pour les systèmes intégrés](media/azure-stack-help-and-support/get-support-integrated.png)
 
-Pour le Kit de développement Azure Stack (ASDK), vous pouvez poser des questions de support technique sur le [Forum MSDN Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+Pour l'ADSK, vous pouvez poser des questions de support technique sur le [Forum MSDN Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 Vous pouvez cliquer sur **Aide** (point d’interrogation) dans le coin supérieur droit du portail d’administration et cliquer ensuite sur **Aide + support** pour ouvrir **Aide + support - Vue d’ensemble**, où vous trouverez un lien vers le forum. Les forums MSDN sont consultés régulièrement.  
 Le Kit de développement étant un environnement d’évaluation, il n’y a aucune prise en charge officielle de la part des services de support technique Microsoft.
@@ -60,12 +64,24 @@ Vous pouvez aussi contacter les forums MSDN pour trouver de l’aide concernant 
 
 ![Bénéficier d’une aide spécialisée](media/azure-stack-help-and-support/get-support-cards.png)
 
-
-## <a name="get-up-to-speed-with-azure-stack"></a>Apprendre tout ce qu’il faut savoir sur Azure Stack
+### <a name="get-up-to-speed-with-azure-stack"></a>Apprendre tout ce qu’il faut savoir sur Azure Stack
 
 Cette série de tutoriels est personnalisée selon que vous exécutez le Kit ASDK ou des systèmes intégrés afin de vous permettre d’être rapidement opérationnel dans votre environnement. 
 
 ![Obtenir des tutoriels de support](media/azure-stack-help-and-support/get-support-tutorials.png)
+
+## <a name="diagnostic-log-collection"></a>Collecte des journaux de diagnostic
+
+À partir de la version 1907, il existe deux nouvelles façons de collecter les journaux dans **Aide et support** :
+
+- **Collecte automatique** : Si cette option est activée, la collecte des journaux est déclenchée par des alertes d’intégrité spécifiques 
+- **Collecter les journaux maintenant** : Vous pouvez choisir une fenêtre de 1 à 4 heures sur les sept derniers jours.
+
+![Capture d’écran des options de collecte des journaux de diagnostic](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
+
+Les systèmes intégrés peuvent partager les journaux de diagnostic avec les services de support technique Microsoft (CSS). Le kit de développement Azure Stack (ASDK) étant un environnement d'évaluation, il n'est pas pris en charge par CSS. Pour plus d'informations, consultez [Vue d’ensemble de la collecte automatique des journaux de diagnostic Azure Stack](azure-stack-diagnostic-log-collection-overview.md).
+
+
 
 ## <a name="help-and-support-for-earlier-releases-azure-stack-pre-1905"></a>Aide et support pour les versions d’Azure Stack antérieures à la version 1905
 
@@ -83,4 +99,5 @@ Pour le Kit de développement, vous pouvez poser des questions de support techni
 Le Kit de développement étant un environnement d’évaluation, il n’y a aucune prise en charge officielle de la part des services de support technique Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - Apprenez-en davantage sur la [résolution des problèmes d’Azure Stack](azure-stack-troubleshooting.md)

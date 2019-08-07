@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2019
+ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 49b4276da5c7e42728cf96261104f59c70355c20
-ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
+ms.lastreviewed: 07/25/2019
+ms.openlocfilehash: 0c7840c723aedd38b51002e4a1f18f5a87d66ec4
+ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380408"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544077"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Check-list des activités de mise à jour Azure Stack
 
@@ -58,8 +58,9 @@ Cet article contient une check-list des activités liées aux mises à jour pour
 |-----------------------|----------------------------------------------------------------------------------|
 | Appliquer les derniers correctifs | Appliquez les derniers correctifs applicables à la version mise à jour.                          |
 | Récupérer les clés de chiffrement | Récupérez les clés de chiffrement de données au repos et stockez-les en toute sécurité hors de votre déploiement Azure Stack. Suivez les [instructions sur la façon de récupérer les clés](azure-stack-security-bitlocker.md). |
+| Réactiver l’architecture mutualisée | Dans une instance Azure Stack mutualisée, [assurez-vous de configurer tous les locataires d'annuaire invités](https://docs.microsoft.com/azure-stack/operator/azure-stack-enable-multitenancy#configure-guest-directory) après une mise à jour réussie. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Consulter la liste des problèmes connus](azure-stack-release-notes-known-issues-1906.md)
-- [Consulter la liste des mises à jour de sécurité](azure-stack-release-notes-security-updates-1906.md)
+- [Consulter la liste des problèmes connus](azure-stack-release-notes-known-issues-1907.md)
+- [Consulter la liste des mises à jour de sécurité](azure-stack-release-notes-security-updates-1907.md)
