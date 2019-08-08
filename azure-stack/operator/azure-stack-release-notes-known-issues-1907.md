@@ -1,6 +1,6 @@
 ---
-title: Problèmes connus dans Azure Stack 1906 | Microsoft Docs
-description: Apprenez-en davantage sur les problèmes connus dans Azure Stack 1906.
+title: Problèmes connus dans Azure Stack 1907 | Microsoft Docs
+description: Apprenez-en davantage sur les problèmes connus dans Azure Stack 1907.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2019
+ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: cb98d587f766a3039887e0ba800ab255686121bc
+ms.lastreviewed: 07/25/2019
+ms.openlocfilehash: cf09162fb29630ed01834aa6b2b508785206a088
 ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 07/31/2019
-ms.locfileid: "68685546"
+ms.locfileid: "68685566"
 ---
-# <a name="azure-stack-1906-known-issues"></a>Problèmes connus dans Azure Stack 1906
+# <a name="azure-stack-1907-known-issues"></a>Problèmes connus dans Azure Stack 1907
 
-Cet article répertorie les problèmes connus dans la version 1906 d’Azure Stack. La liste est mise à jour lorsque de nouveaux problèmes sont identifiés.
+Cet article répertorie les problèmes connus dans la version 1907 d’Azure Stack. La liste est mise à jour lorsque de nouveaux problèmes sont identifiés.
 
 > [!IMPORTANT]  
 > Passez en revue cette section avant d’appliquer la mise à jour.
@@ -33,7 +33,7 @@ Cet article répertorie les problèmes connus dans la version 1906 d’Azure St
 ## <a name="update-process"></a>Processus de mise à jour
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Quand vous tentez d’installer la mise à jour 1906 d’Azure Stack, l’état de la mise à jour peut échouer et passer à **PreparationFailed**. Cela est dû au fait que le fournisseur de ressources de mise à jour est dans l’impossibilité de transférer correctement les fichiers du conteneur de stockage vers un partage d’infrastructure interne à des fins de traitement. 
+- Cause : Quand vous tentez d’installer la mise à jour 1907 d’Azure Stack, l’état de la mise à jour peut échouer et passer à **PreparationFailed**. Cela est dû au fait que le fournisseur de ressources de mise à jour est dans l’impossibilité de transférer correctement les fichiers du conteneur de stockage vers un partage d’infrastructure interne à des fins de traitement.
 - Correction : À compter de la version 1901 (1.1901.0.95), vous pouvez contourner ce problème en cliquant sur **Mettre à jour maintenant** à nouveau (et pas sur **Reprendre**). Le fournisseur de ressources de mise à jour (URP) nettoie les fichiers de la tentative précédente, puis redémarre le téléchargement. Si le problème persiste, nous vous conseillons de charger manuellement le package de mise à jour comme cela est décrit dans la section [Importer et installer des mises à jour](azure-stack-apply-updates.md#import-and-install-updates).
 - Occurrence : Courant
 
@@ -46,11 +46,11 @@ Cet article répertorie les problèmes connus dans la version 1906 d’Azure St
 - Correction : Si vous disposez de ressources s’exécutant sur ces deux abonnements, recréez-les dans des abonnements utilisateur.
 - Occurrence : Courant
 
-### <a name="subscription-resources"></a>Ressources d’abonnement
+### <a name="subscriptions-properties-blade"></a>Panneau Propriétés des abonnements
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : La suppression d’abonnements utilisateur aboutit à des ressources orphelines.
-- Correction : Commencez par supprimer des ressources d’utilisateurs ou la totalité du groupe de ressources, puis supprimez les abonnements utilisateur.
+- Cause : Dans le portail administrateur, le panneau **Propriétés** des abonnements ne se charge pas correctement
+- Correction : Vous pouvez afficher les propriétés de ces abonnements dans le volet **Essentials** du panneau **Vue d’ensemble des abonnements**.
 - Occurrence : Courant
 
 ### <a name="subscription-permissions"></a>Autorisations d’abonnement
@@ -58,12 +58,6 @@ Cet article répertorie les problèmes connus dans la version 1906 d’Azure St
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Vous ne pouvez pas afficher les autorisations définies pour votre abonnement à l’aide des portails Azure Stack.
 - Correction : Utilisez [PowerShell pour vérifier les autorisations](/powershell/module/azurerm.resources/get-azurermroleassignment).
-- Occurrence : Courant
-
-### <a name="subscriptions-properties-blade"></a>Panneau Propriétés des abonnements
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail administrateur, le panneau **Propriétés** des abonnements ne se charge pas correctement
-- Correction : Vous pouvez afficher les propriétés de ces abonnements dans le volet Essentials du panneau Vue d’ensemble des abonnements.
 - Occurrence : Courant
 
 ### <a name="storage-account-settings"></a>Paramètres du compte de stockage
@@ -78,13 +72,6 @@ Cet article répertorie les problèmes connus dans la version 1906 d’Azure St
 - Cause : Dans le portail de l’utilisateur, lorsque vous essayez de charger un objet blob à l’aide de l’option **OAuth (préversion)** , la tâche échoue avec un message d’erreur.
 - Correction : Chargez le blob à l’aide de l’option SAP.
 - Occurrence : Courant
-
-### <a name="update"></a>Mettre à jour
-
-- Champ d’application : Ce problème concerne la version 1906.
-- Cause : Dans le portail de l’opérateur, l’état de mise à jour du correctif logiciel indique un état incorrect pour la mise à jour. L’état initial indique que l’installation de la mise à jour a échoué, même si elle est toujours en cours.
-- Correction : Actualisez le portail pour faire passer l’état à « en cours ».
-- Occurrence : De façon intermittente
 
 ## <a name="networking"></a>Mise en réseau
 
@@ -102,6 +89,13 @@ Cet article répertorie les problèmes connus dans la version 1906 d’Azure St
 - Occurrence : Courant
 
 ### <a name="virtual-network-gateway"></a>Passerelle de réseau virtuel
+
+#### <a name="local-network-gateway-deletion"></a>Suppression du nom de passerelle de réseau local
+
+- Champ d’application : Ce problème concerne la version 1906.
+- Cause : Dans le portail utilisateur, la suppression de la **passerelle réseau local** affiche le message d’erreur suivant : **Impossible de supprimer une passerelle de réseau local avec une connexion active**, même si aucune connexion n’est active.
+- Atténuation : Le correctif pour ce problème sera publié dans la version 1907. Une solution de contournement pour ce problème consiste à créer une passerelle de réseau local avec la même adresse IP, le même espace d’adressage et les mêmes détails de configuration, mais avec un autre nom. L’ancien LNG peut être supprimé une fois que l’environnement a été mis à jour vers la version 1907.
+- Occurrence : Courant
 
 #### <a name="alerts"></a>Alertes
 
@@ -132,22 +126,6 @@ Cet article répertorie les problèmes connus dans la version 1906 d’Azure St
   - [Circuits ExpressRoute](azure-stack-connect-expressroute.md)
   - [Spécifier des stratégies IPsec/IKE personnalisées](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-### <a name="load-balancer"></a>Équilibrage de charge
-
-#### <a name="add-backend-pool"></a>Ajouter le pool principal
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, si vous essayez d’ajouter un **pool back-end** à un **équilibreur de charge**, l’opération échoue avec un message d’erreur indiquant l’**échec de la mise à jour de l’équilibreur de charge**.
-- Correction : Utilisez PowerShell, CLI ou un modèle Resource Manager pour associer le pool principal à une ressource d’équilibreur de charge.
-- Occurrence : Courant
-
-#### <a name="create-inbound-nat"></a>Créer des règles NAT de trafic entrant
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, si vous essayez de créer une **règle NAT de trafic entrant** pour un **équilibreur de charge**, l’opération échoue avec le message d’erreur **Failed to update Load Balancer (Impossible de mettre à jour l’équilibreur de charge)** .
-- Correction : Utilisez PowerShell, CLI ou un modèle Resource Manager pour associer le pool principal à une ressource d’équilibreur de charge.
-- Occurrence : Courant
-
 ## <a name="compute"></a>Calcul
 
 ### <a name="vm-boot-diagnostics"></a>Diagnostics de démarrage de machine virtuelle
@@ -158,7 +136,6 @@ Cet article répertorie les problèmes connus dans la version 1906 d’Azure St
 - Occurrence : Courant
 
 ### <a name="virtual-machine-scale-set"></a>Jeu de mise à l’échelle de machine virtuelle
-
 
 #### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Créer des échecs au cours des correctifs et mises à jour sur des environnements Azure Stack à 4 nœuds
 
@@ -175,21 +152,21 @@ Cet article répertorie les problèmes connus dans la version 1906 d’Azure St
 
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>La réinitialisation du mot de passe d’un groupe de machines virtuelles identiques ne fonctionne pas
 
-- Champ d’application : Ce problème concerne la version 1906.
+- Champ d’application : Ce problème s’applique aux versions 1906 et 1907.
 - Cause : Un nouveau panneau de réinitialisation du mot de passe s’affiche dans l’interface utilisateur de groupe identique, mais Azure Stack ne prend pas encore en charge la réinitialisation de mot de passe sur un groupe identique.
 - Correction : Aucune.
 - Occurrence : Courant
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Nuage qui pleure sur le diagnostic de groupe identique
 
-- Champ d’application : Ce problème concerne la version 1906.
+- Champ d’application : Ce problème s’applique aux versions 1906 et 1907.
 - Cause : La page de la vue d’ensemble du groupe de machines virtuelles identiques contient un graphique vide. En cliquant sur le graphique vide, un panneau avec un nuage qui pleure. C’est le graphique des informations de diagnostic du groupe identique, comme le pourcentage UC, et ce n’est pas une fonctionnalité prise en charge dans la version Azure Stack actuelle.
 - Correction : Aucune.
 - Occurrence : Courant
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Panneau des paramètres de diagnostic de machine virtuelle
 
-- Champ d’application : Ce problème concerne la version 1906.
+- Champ d’application : Ce problème s’applique aux versions 1906 et 1907.    
 - Cause : Le panneau des paramètres de diagnostic de machine virtuelle comporte un onglet **Récepteur**, qui demande un **compte Application Insights**. C’est le résultat d’un nouveau panneau et ce n’est pas encore pris en charge dans Azure Stack.
 - Correction : Aucune.
 - Occurrence : Courant
@@ -204,4 +181,4 @@ Cet article répertorie les problèmes connus dans la version 1906 d’Azure St
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Passer en revue la check-list des activités de mise à jour](azure-stack-release-notes-checklist.md)
-- [Consulter la liste des mises à jour de sécurité](azure-stack-release-notes-security-updates-1906.md)
+- [Consulter la liste des mises à jour de sécurité](azure-stack-release-notes-security-updates-1907.md)

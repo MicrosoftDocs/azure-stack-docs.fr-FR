@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: c9e796a4ece453c3cd74bbf9a2fb6996757a0b4e
-ms.sourcegitcommit: 44f1bf6e0bfa85ee14819cad27c9b1de65d375df
+ms.openlocfilehash: 9d088cb128243b0b178e7a317ba05176a59e83c1
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67596078"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494058"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilisation du point de terminaison privilégié dans Azure Stack
 
@@ -30,7 +30,7 @@ En tant qu’opérateur Azure Stack, vous devez utiliser le portail administrate
 
 Vous pouvez utiliser le point de terminaison privilégié pour effectuer les tâches suivantes :
 
-- Effectuer des tâches de bas niveau, telles que [collecter les journaux de diagnostic](azure-stack-diagnostics.md#log-collection-tool).
+- Effectuer des tâches de bas niveau, telles que [collecter les journaux de diagnostic](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep).
 - Effectuer de nombreuses tâches post-déploiement d’intégration au centre de données pour les systèmes intégrés, telles que l’ajout de redirecteurs DNS (Domain Name System), la configuration de l’intégration de Graph, l’intégration des services de fédération Active Directory (AD FS) ou la permutation des certificats.
 - Collaborer avec l’équipe de support afin d’obtenir un accès global temporaire pour un dépannage approfondi d’un système intégré.
 
@@ -154,9 +154,9 @@ Pour importer la session du point de terminaison privilégié sur votre ordinate
      - **Mot de passe** : entrez le mot de passe du compte d'administrateur de domaine AzureStackAdmin tel qu'il vous a été fourni pendant l'installation.
 
 3. Importer la session du point de terminaison privilégié dans votre ordinateur local
-    ```powershell 
+     ```powershell 
         Import-PSSession $session
-    ```
+   ```
 4. Vous pouvez désormais utiliser la saisie semi-automatique via la touche Tab et écrire des scripts comme de coutume sur votre session locale PowerShell à l’aide de l’ensemble des fonctions et des applets de commande du point de terminaison privilégié, sans réduire l’état de la sécurité d’Azure Stack. Vous n’avez plus qu’à l’utiliser !
 
 
@@ -167,16 +167,16 @@ Pour importer la session du point de terminaison privilégié sur votre ordinate
 Pour fermer la session du point de terminaison :
 
 1. Créez un partage de fichiers externe qui est accessible au point de terminaison privilégié. Dans un environnement avec Kit de développement, vous pouvez simplement créer un partage de fichiers sur l’hôte du Kit de développement.
-2. Exécutez le cmdlet 
-    ```powershell
-    Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
-    ```
-where
+2. Exécutez l’applet de commande suivante : 
+     ```powershell
+     Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
+     ```
+   qui utilise les paramètres du tableau suivant.
 
-| Paramètre | Description | Type | Obligatoire |
-|---------|---------|---------|---------|
-| *TranscriptsPathDestination* | chemin d’accès au partage de fichiers externe défini comme « fileshareIP\sharefoldername » | Chaîne | Oui|
-| *Informations d'identification* | informations d’identification pour accéder au partage de fichiers | SecureString |  Oui |
+   | Paramètre | Description | Type | Obligatoire |
+   |---------|---------|---------|---------|
+   | *TranscriptsPathDestination* | chemin d’accès au partage de fichiers externe défini comme « fileshareIP\sharefoldername » | Chaîne | Oui|
+   | *Informations d'identification* | informations d’identification pour accéder au partage de fichiers | SecureString |   Oui |
 
 
 Une fois les fichiers journaux de transcription correctement transférés vers le partage de fichiers, ils sont automatiquement supprimés du point de terminaison privilégié. 
@@ -187,4 +187,4 @@ Une fois les fichiers journaux de transcription correctement transférés vers l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Outils de diagnostic Azure Stack](azure-stack-diagnostics.md)
+[Outils de diagnostic Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)

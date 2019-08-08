@@ -10,12 +10,12 @@ ms.date: 07/22/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/22/2019
-ms.openlocfilehash: 85022f074dd494978780d67db8cc14e4c243a49c
-ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
+ms.openlocfilehash: 6bf9f9bb66ba7e2c9722f64e7116778f17e0e4e2
+ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380448"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658618"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Intégration au centre de données Azure Stack : publier des points de terminaison
 
@@ -77,10 +77,10 @@ Azure Stack prend en charge uniquement les serveurs proxy transparents. Dans un 
 |Objectif|URL de destination|Protocole|Ports|Réseau source|
 |---------|---------|---------|---------|---------|
 |Identité|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com|HTTP<br>HTTPS|80<br>443|Adresse IP virtuelle publique - /27<br>Réseau d'infrastructure publique|
-|Syndication de Place de marché|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net|HTTPS|443|Adresse IP virtuelle publique - /27|
+|Syndication de Place de marché|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://\*.azureedge.net|HTTPS|443|Adresse IP virtuelle publique - /27|
 |Correctif et mise à jour|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|Adresse IP virtuelle publique - /27|
 |Inscription|https:\//management.azure.com|HTTPS|443|Adresse IP virtuelle publique - /27|
-|Usage|https://*.trafficmanager.net |HTTPS|443|Adresse IP virtuelle publique - /27|
+|Usage|**Microsoft Azure**<br>- https://&#42;.trafficmanager.net<br>**Azure Government**<br>- https://&#42;.usgovtrafficmanager.net<br>**Azure Chine**<br>- https://&#42;.trafficmanager.cn<br> |HTTPS|443|Adresse IP virtuelle publique - /27|
 |Windows Defender|\*.wdcp.microsoft.com<br>\*.wdcpalt.microsoft.com<br>\*.wd.microsoft.com<br>\*.update.microsoft.com<br>\*.download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Adresse IP virtuelle publique - /27<br>Réseau d'infrastructure publique|
 |NTP|(IP du serveur NTP fourni pour le déploiement)|UDP|123|Adresse IP virtuelle publique - /27|
 |DNS|(IP du serveur DNS fourni pour le déploiement)|TCP<br>UDP|53|Adresse IP virtuelle publique - /27|

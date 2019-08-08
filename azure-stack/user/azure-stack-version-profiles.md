@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 07/24/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 9d0597d4e2687c6563c365470be57c1603bbe616
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.lastreviewed: 07/24/2019
+ms.openlocfilehash: 2d57c0ff71cd0aa4280e6a21df4727ee4bbe7fb6
+ms.sourcegitcommit: 7961fda0bfcdd3db8cf94a8c405b5c23a23643af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376750"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68616488"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Gérer les profils de version des API dans Azure Stack
 
@@ -91,6 +91,8 @@ Dans le SDK Go, un profil est une combinaison de différents types de ressources
 Le Kit de développement logiciel (SDK) Ruby pour Azure Stack Resource Manager fournit des outils pour vous aider à créer et gérer votre infrastructure. Les fournisseurs de ressources du SDK incluent le calcul, les réseaux virtuels et le stockage avec le langage Ruby. Pour plus d’informations, consultez [Utiliser des profils de version d’API avec Ruby](azure-stack-version-profiles-ruby.md).
 - **Python**  
 Le Kit de développement logiciel (SDK) Python prend en charge les profils de version d’API pour cibler différentes plateformes de cloud telles qu’Azure Stack et Azure globale. Utilisez des profils d’API pour créer des solutions pour un cloud hybride. Pour plus d’informations, consultez [Utiliser des profils de version d’API avec Python](azure-stack-version-profiles-python.md).
+- **Node.JS**  
+Le Kit de développement logiciel (SDK) Node.js pour Azure Stack Resource Manager fournit des outils pour vous aider à créer et gérer votre infrastructure. Pour plus d’informations, consultez l’article [Utiliser des profils de version d’API avec Node.js](azure-stack-version-profile-nodejs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

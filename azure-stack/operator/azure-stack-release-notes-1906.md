@@ -16,12 +16,12 @@ ms.date: 07/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: 5330136bd1d4950ace26fa3f232be039c90ab144
-ms.sourcegitcommit: 12aef286fc14ab27ed737a17e2761c38f054b9b3
+ms.openlocfilehash: ffd6436b9e7bf27ef069ecdc44ff2d6efadfc795
+ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67885351"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68685553"
 ---
 # <a name="azure-stack-1906-update"></a>Mise à jour 1906 d’Azure Stack
 
@@ -109,6 +109,10 @@ Le type de build de la mise à jour 1906 d’Azure Stack est **Express**. Pour 
 - Dans les portails d’administrateur et d’utilisateur, résolution du problème de la place de marché dans lequel l’extension Docker a été correctement retournée par recherche, mais aucune action supplémentaire n’a pu être prise en compte, car elle n’est pas disponible dans Azure Stack.
 
 - Résolution d’un problème dans l’interface utilisateur de déploiement du modèle qui ne remplit pas les paramètres si le nom du modèle commence par un trait de soulignement « _ ».
+
+- Résolution d’un problème qui survient quand vous créez un groupe identique de machines virtuelles et que l’option CentOS 7.2 est proposée pour le déploiement. CentOS 7.2 n’est pas disponible dans Azure Stack. Nous proposons maintenant CentOS 7.5 comme option de déploiement
+
+- Vous pouvez désormais supprimer un groupe identique à partir du panneau **Groupes de machines virtuelles identiques**.
 
 ## <a name="security-updates"></a>Mises à jour de sécurité
 

@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: d7b38d2eb0e840a35729879211934e470bec6dfe
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: b6b6796f5d47189499e01c94b9c988dbf03091bb
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268961"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68493995"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Récupérer des données suite à une perte catastrophique
 
@@ -37,7 +37,7 @@ Ce scénario couvre la récupération de toute votre installation en cas de déf
 |--------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------|
 | Récupérer suite à une perte catastrophique de données en raison d’un sinistre ou d’un bogue relatif à un produit | Toutes les données relatives à l’infrastructure, à l’utilisateur et aux applications | Les applications et données utilisateur sont protégées séparément des données d’infrastructure |
 
-## <a name="workflows"></a>Flux de travail
+## <a name="workflows"></a>Workflows
 
 La protection Azure Stack commence par la sauvegarde distincte des données relatives à l’infrastructure et de celles des applications/des locataires. Ce document explique comment protéger l’infrastructure. 
 
@@ -63,8 +63,8 @@ En cas de sinistre rendant le matériel inutilisable, le redéploiement est poss
 Azure Stack prend en charge un type de déploiement appelé mode de récupération cloud. Ce mode est utilisé uniquement si vous choisissez de récupérer Azure Stack suite à un sinistre ou au bogue relatif à un produit ayant rendu la solution irrécupérable. Ce mode de déploiement ne récupère pas toutes les données utilisateur stockées dans la solution. L’étendue de ce mode de déploiement se limite à la restauration des données suivantes :
 
  - Les entrées de déploiement
- - les systèmes d’identité internes
- - La configuration des identités fédérées (déploiements déconnectés)
+ - Les données du service d’identité interne (déploiements ADFS)
+ - La configuration des identités fédérées (déploiements ADFS)
  - les certificats racines utilisés par l’autorité de certification interne
  - Les données utilisateur de configuration d’Azure Resource Manager, telles que les abonnements, les forfaits, les offres et les quotas pour les ressources relatives au calcul, au réseau et au stockage
  - Les secrets et les coffres KeyVault

@@ -1,6 +1,6 @@
 ---
-title: À propos de la passerelle VPN pour Azure Stack | Microsoft Docs
-description: En savoir plus et configurer les passerelles VPN que vous utilisez avec Azure Stack.
+title: Créer des passerelles VPN pour Azure Stack | Microsoft Docs
+description: Créer et configurer des passerelles VPN pour Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 0df791c6eb9a898c5263b2c628899b512d49601c
-ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
+ms.openlocfilehash: 980d601dd5830d653787fe4cc31f57be3b3f8d00
+ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67198656"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658671"
 ---
-# <a name="about-vpn-gateway-for-azure-stack"></a>À propos de la passerelle VPN pour Azure Stack
+# <a name="create-vpn-gateways-for-azure-stack"></a>Créer des passerelles VPN pour Azure Stack
 
 *S’applique à : Systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -32,7 +32,7 @@ Une passerelle VPN est un type de passerelle de réseau virtuel qui envoie le tr
 
 Lorsque vous créez une passerelle de réseau virtuel, vous spécifiez le type de passerelle que vous voulez créer. Azure Stack prend en charge un seul type de passerelle de réseau virtuel : le type **Vpn**.
 
-Chaque réseau virtuel peut avoir deux passerelles de réseau virtuel, mais une seule de chaque type. Selon les paramètres que vous choisissez, vous pouvez créer plusieurs connexions à une passerelle VPN unique. La configuration d’une connexion sur plusieurs sites en est un exemple.
+Chaque réseau virtuel peut avoir deux passerelles de réseau virtuel, mais une seule de chaque type. Selon les paramètres que vous choisissez, vous pouvez créer plusieurs connexions à une passerelle VPN unique. Les connexions sur plusieurs sites sont un bon exemple.
 
 Avant de créer et configurer des passerelles VPN pour Azure Stack, passez en revue les [considérations relatives au réseau Azure Stack](azure-stack-network-differences.md) pour savoir dans quelle mesure les configurations pour Azure Stack diffèrent de celles pour Azure.
 
@@ -75,7 +75,7 @@ Les graphiques et les descriptions dans les sections suivantes peuvent vous aide
 
 ### <a name="site-to-site"></a>De site à site
 
-Une connexion par passerelle VPN *site à site* (S2S) est une connexion sur un tunnel VPN IPsec/IKE (IKEv2). Ce type de connexion nécessite un appareil VPN local disposant d’une adresse IP publique. Cet appareil ne peut pas se trouver derrière un traducteur d’adresses réseau. Les connexions S2S peuvent être utilisées pour les configurations hybrides et entre différents locaux.
+Une connexion par passerelle VPN *site à site* (S2S) est une connexion sur un tunnel VPN IPsec/IKE (IKEv2). Ce type de connexion nécessite un appareil VPN local disposant d’une adresse IP publique. L’appareil VPN ne peut pas se trouver derrière un traducteur d'adresses réseau. Les connexions S2S peuvent être utilisées pour les configurations hybrides et entre différents locaux.
 
 ![Exemple de configuration d’une connexion VPN de site à site](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 
@@ -109,7 +109,7 @@ Les scénarios haute disponibilité ne peuvent être configurés que sur la conn
 
 ### <a name="failover"></a>Basculement
 
-Azure Stack contient 3 machines virtuelles d’infrastructure de passerelle mutualisée. Deux de ces machines virtuelles sont en mode actif et la troisième est en mode redondant. Les machines virtuelles actives permettent la création de connexions VPN et la machine virtuelle redondante accepte uniquement les connexions VPN en cas de basculement. Si une machine virtuelle de passerelle active n’est plus disponible, la connexion VPN bascule vers la machine virtuelle redondante quelques instants (quelques secondes) après la perte de la connexion.
+Azure Stack contient trois machines virtuelles d’infrastructure de passerelle mutualisée. Deux de ces machines virtuelles sont en mode actif et la troisième est en mode redondant. Les machines virtuelles actives permettent la création de connexions VPN et la machine virtuelle redondante accepte uniquement les connexions VPN en cas de basculement. Si une machine virtuelle de passerelle active n’est plus disponible, la connexion VPN bascule vers la machine virtuelle redondante quelques instants (quelques secondes) après la perte de la connexion.
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a>Débit agrégé estimé par SKU
 
@@ -123,9 +123,9 @@ Le tableau suivant présente les types de passerelle et le débit total estimé 
 
 **Notes de la table :**
 
-*Remarque (1)* Le débit du VPN n’est pas garanti pour les connexions intersites via Internet. Il s’agit de la mesure du débit maximal possible.  
+*Note (1)* Le débit du VPN n’est pas garanti pour les connexions intersites via Internet. Il s’agit de la mesure du débit maximal possible.  
 *Remarque (2)* Le nombre maximal de tunnels est le total par déploiement Azure Stack pour tous les abonnements.  
-*Remarque (3)* Le routage BGP n’est pas pris en charge pour la référence SKU de base.
+*Note (3)* Le routage BGP n’est pas pris en charge pour la référence SKU de base.
 
 >[!NOTE]
 >Vous ne pouvez créer qu’une seule connexion VPN de site à site entre deux déploiements Azure Stack. En effet, la plateforme n’autorise qu’une seule connexion VPN à la même adresse IP. Dans la mesure où Azure Stack s’appuie sur la passerelle multilocataire qui utilise une seule adresse IP publique pour toutes les passerelles VPN dans le système Azure Stack, il ne peut y avoir qu’une seule connexion VPN entre deux systèmes Azure Stack. Cette limitation s’applique également à la connexion de plusieurs connexions VPN de site à site à une passerelle VPN qui utilise une seule adresse IP. Azure Stack n’autorise pas la création de plusieurs ressources de passerelle de réseau local à l’aide de la même adresse IP.

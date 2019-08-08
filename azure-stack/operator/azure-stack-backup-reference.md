@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 40be490efceb6747bf848518c55cca64784492da
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: d45b11eb70533125ff8136763be24a3333c1f7dc
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268757"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68493947"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Informations de référence sur le service Infrastructure Backup
 
@@ -84,22 +84,37 @@ La configuration requise inclut :
 |-----|---------|
 | SMB | 3.x     |
 
+#### <a name="smb-encryption"></a>Chiffrement SMB
+
+**1907 et au-delà**
+
+Le service de sauvegarde d’infrastructure prend en charge le transfert des données de sauvegarde vers un emplacement de stockage externe avec le chiffrement SMB activé côté serveur. Si le serveur ne prend pas en charge le chiffrement SMB ou si la fonctionnalité n’est pas activée, le service de sauvegarde d’infrastructure revient au transfert de données non chiffré. Les données de sauvegarde placées sur l’emplacement de stockage externe sont toujours chiffrées au repos et ne dépendent pas du chiffrement SMB. 
+
 #### <a name="storage-location-sizing"></a>Dimensionnement de l’emplacement de stockage 
 
-Infrastructure Backup Controller sauvegarde les données à la demande. La recommandation est de sauvegarder au moins deux fois par jour et de conserver au plus sept jours de sauvegarde. 
+La recommandation est de sauvegarder au moins deux fois par jour et de conserver au plus sept jours de sauvegarde. Il s’agit du comportement par défaut lorsque vous activez les sauvegardes d’infrastructure sur Azure Stack. 
 
-**1811 et au-delà**
+**1907 et au-delà**
+
+***Système connecté au fournisseur d’identité Azure AD***
+
+| Échelle de l’environnement | Taille prévue de la sauvegarde | Quantité totale d’espace nécessaire |
+|-------------------|--------------------------|--------------------------------|
+| 4-16 nœuds/ASDK   | 1 Go                     | 20 Go                          |
+
+***Système connecté au fournisseur d’identité Azure AD via ADFS***
 
 | Échelle de l’environnement | Taille prévue de la sauvegarde | Quantité totale d’espace nécessaire |
 |-------------------|--------------------------|--------------------------------|
 | 4-16 nœuds        | 20 Go                    | 280 Go                        |
 | ASDK              | 10 Go                    | 140 Go                        |
 
-**Avant 1811**
+**Avant 1907**
 
 | Échelle de l’environnement | Taille prévue de la sauvegarde | Quantité totale d’espace nécessaire |
 |-------------------|--------------------------|--------------------------------|
-| 4-16 nœuds, ASDK  | 10 Go                     | 140 Go                        |
+| 4-16 nœuds        | 20 Go                    | 280 Go                        |
+| ASDK              | 10 Go                    | 140 Go                        |
 
 ### <a name="network-requirements"></a>Configuration requise pour le réseau
 

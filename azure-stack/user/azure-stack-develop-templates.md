@@ -1,6 +1,6 @@
 ---
 title: Développer des modèles pour Azure Stack | Microsoft Docs
-description: Découvrir les meilleures pratiques en matière de modèles Azure Stack
+description: Découvrez comment développer des modèles Azure Resource Manager pour la portabilité des applications entre Azure et Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,18 +16,18 @@ ms.date: 05/21/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 9967da0434be577e3db8586f28e3078658623e9b
-ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
+ms.openlocfilehash: bedc4c3971c5d4a177f4d8ac804878babebaa9b6
+ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991330"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658645"
 ---
-# <a name="azure-resource-manager-template-considerations"></a>Considérations relatives au modèle Azure Resource Manager
+# <a name="develop-templates-for-azure-stack-with-azure-resource-manager"></a>Développer des modèles pour Azure Stack avec Azure Resource Manager
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Lorsque vous développez votre application, il est important de garantir la portabilité du modèle entre Azure et Azure Stack. Cet article présente certaines considérations relatives au développement de [modèles Azure Resource Manager](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), afin que vous puissiez mettre au point un prototype de votre déploiement d’application et de test dans Azure sans avoir accès à un environnement Azure Stack.
+Lorsque vous développez votre application, il est important de garantir la portabilité du modèle entre Azure et Azure Stack. Cet article fournit des informations sur le développement des [modèles Azure Resource Manager](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf). Avec ces modèles, vous pouvez créer un prototype de votre d’application et en tester le déploiement dans Azure sans environnement Azure Stack.
 
 ## <a name="resource-provider-availability"></a>Disponibilité du fournisseur de ressources
 

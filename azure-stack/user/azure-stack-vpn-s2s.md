@@ -1,6 +1,6 @@
 ---
-title: Configurer des connexions VPN site à site Azure Stack | Microsoft Docs
-description: Découvrir la stratégie IPsec/IKE pour les connexions VPN site à site ou les connexions de réseau virtuel à réseau virtuel dans Azure Stack
+title: Configurer des connexions VPN site à site IPsec/IKE | Microsoft Docs
+description: Découvrir la stratégie et configurer IPsec/IKE pour les connexions VPN site à site ou les connexions de réseau virtuel à réseau virtuel dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: d6944fefeb55c1b2a109964271c84daafb8b8ff8
-ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
+ms.openlocfilehash: 0c9c1af77ecf2bdf1c8da23cc7ab9e8d281067ea
+ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67397297"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658698"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN site à site
 
 Cet article décrit les étapes permettant de configurer une stratégie IPsec/IKE pour les connexions VPN site à site (S2S) dans Azure Stack.
 
 >[!NOTE]
-> Pour pouvoir utiliser cette fonctionnalité, vous devez exécuter Azure Stack **1809** ou version ultérieure.  Si vous utilisez actuellement une version antérieure à la version 1809, procédez à une mise à jour de votre système Azure Stack vers la dernière version avant de tenter d'utiliser cette fonctionnalité ou de suivre les étapes décrites dans cet article.
+> Pour pouvoir utiliser cette fonctionnalité, vous devez exécuter Azure Stack **1809** ou version ultérieure.  Si vous utilisez actuellement une version antérieure à la version 1809, procédez à une mise à jour de votre système Azure Stack vers la dernière version avant de suivre les étapes décrites dans cet article.
 
 ## <a name="ipsec-and-ike-policy-parameters-for-vpn-gateways"></a>Paramètres de stratégie IPsec et IKE pour les passerelles VPN
 
@@ -81,22 +81,22 @@ Le tableau suivant liste les algorithmes de chiffrement pris en charge et les fo
 
 - La configuration de votre périphérique VPN local doit correspondre aux algorithmes et paramètres suivants, spécifiés dans la stratégie IPsec/IKE Azure ou les contenir :
 
-  - Algorithme de chiffrement IKE (Mode principal / Phase 1)
-  - Algorithme d’intégrité IKE (Mode principal / Phase 1)
-  - Groupe DH (Mode principal / Phase 1)
-  - Algorithme de chiffrement IPsec (Mode rapide / Phase 2)
-  - Algorithme d’intégrité IPsec (Mode rapide / Phase 2)
-  - Groupe PFS (Mode rapide / Phase 2)
-  - Les durées de vie de l’AS sont uniquement des spécifications locales, elles n’ont pas besoin de correspondre.
+  - Algorithme de chiffrement IKE (Mode principal/Phase 1).
+  - Algorithme d’intégrité IKE (Mode principal/Phase 1).
+  - Groupe DH (Mode principal/Phase 1).
+  - Algorithme de chiffrement IPsec (Mode rapide/Phase 2).
+  - Algorithme d’intégrité IPsec (Mode rapide/Phase 2).
+  - Groupe PFS (Mode rapide/Phase 2).
+  - Les durées de vie de l’AS sont uniquement des spécifications locales et n’ont pas besoin de correspondre.
 
-- Si GCMAES est utilisé pour l’algorithme de chiffrement IPsec, vous devez sélectionner le même algorithme GCMAES et la même longueur de clé pour l’intégrité IPsec. Par exemple, vous devez utiliser GCMAES128 pour les deux.
+- Si GCMAES est utilisé pour l’algorithme de chiffrement IPsec, vous devez sélectionner le même algorithme GCMAES et la même longueur de clé pour l’intégrité IPsec. Par exemple : utilisation de GCMAES128 pour les deux.
 
 - Dans le tableau précédent :
 
-  - IKEv2 correspond au Mode principal ou à la Phase 1
-  - IPsec correspond au Mode rapide ou à la Phase 2
-  - Groupe DH spécifie le groupe Diffie-Hellmen utilisé dans le Mode principal ou à la Phase 1
-  - Groupe PFS spécifie le groupe Diffie-Hellmen utilisé dans le Mode rapide ou à la Phase 2
+  - IKEv2 correspond au Mode principal ou à la Phase 1.
+  - IPsec correspond au Mode rapide ou à la Phase 2.
+  - Groupe DH spécifie le groupe Diffie-Hellmen utilisé dans le Mode principal ou à la Phase 1.
+  - Groupe PFS spécifie le groupe Diffie-Hellmen utilisé dans le Mode rapide ou à la Phase 2.
 
 - La durée de vie de l’association de sécurité IKEv2 en mode principal est fixée à 28 800 secondes sur les passerelles VPN Azure Stack.
 
@@ -123,7 +123,7 @@ Pour obtenir des instructions détaillées sur la création d’une connexion VP
 
 ### <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, vérifiez que les prérequis suivants sont remplis :
+Avant de commencer, vérifiez que les conditions préalables suivantes sont remplies :
 
 - Un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -234,9 +234,9 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupNam
 
 La section précédente a expliqué comment gérer la stratégie IPsec/IKE pour une connexion site à site existante. La section ci-après décrit les opérations suivantes sur une connexion :
 
-1. Afficher la stratégie IPsec/IKE d’une connexion
-2. Ajouter la stratégie IPsec/IKE à une connexion ou la mettre à jour
-3. Supprimer la stratégie IPsec/IKE d’une connexion
+1. Afficher la stratégie IPsec/IKE d’une connexion.
+2. Ajouter la stratégie IPsec/IKE à une connexion ou la mettre à jour.
+3. Supprimer la stratégie IPsec/IKE d’une connexion.
 
 > [!NOTE]
 > Une stratégie IPsec/IKE est prise en charge uniquement sur des passerelles VPN *Standard* et *HighPerformance* basées sur itinéraires. Elle ne fonctionne pas sur la référence de passerelle *De base*.

@@ -16,12 +16,12 @@ ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 6f178d0208f5111a7ae60d23e1d914fcf8e3aba5
-ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
+ms.openlocfilehash: 68b83ac38da20f341242618a1cfa62a9838a0ada
+ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67397267"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544090"
 ---
 # <a name="azure-stack-1905-update"></a>Mise à jour 1905 d’Azure Stack
 
@@ -54,6 +54,8 @@ Le type de build de la mise à jour 1905 d’Azure Stack est **Complet**. Par c
 - Windows Server 2019 est désormais pris en charge et disponible pour la syndication par le biais de la Place de marché Azure Stack.
 Avec cette mise à jour, Windows Server 2019 peut être activé correctement sur un hôte 2016.
 
+- Avec la nouvelle [extension Azure Account Visual Studio Code](../user/azure-stack-dev-start-vscode-azure.md), les développeurs peuvent cibler Azure Stack en se connectant et accédant aux abonnements, ainsi que divers autres services. L’extension Azure fonctionne aussi bien sur les environnements Azure Active Directory (Azure AD) et AD FS, et ne nécessite qu’une petite modification des paramètres utilisateur de Visual Studio Code. Visual Studio Code exige que le principal de service reçoive une autorisation à s’exécuter sur cet environnement. Pour ce faire, importez le script d’identité et exécutez les cmdlets spécifiées dans [Architecture mutualisée dans Azure Stack](../operator/azure-stack-enable-multitenancy.md). Ceci nécessite une mise à jour du répertoire de base et l’inscription du répertoire du locataire invité pour chaque annuaire. Une alerte s’affiche après la mise à jour vers la version 1905 ou une version ultérieure, pour mettre à jour le locataire du répertoire de base pour lequel le principal de service Visual Studio Code est inclus. 
+
 ### <a name="improvements"></a>Améliorations
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
@@ -69,11 +71,11 @@ Avec cette mise à jour, Windows Server 2019 peut être activé correctement su
 
 - La nouvelle fonctionnalité **Aide et support - Vue d’ensemble** du portail Azure Stack permet aux opérateurs de se renseigner sur leurs options de support, de bénéficier d’une aide spécialisée et d’en savoir plus sur Azure Stack plus facilement. Sur les systèmes intégrés, la création d’une demande de support présélectionne le service Azure Stack. Nous recommandons fortement aux clients d’utiliser ce moyen pour envoyer des tickets de support, plutôt que d’utiliser le portail Azure général. Pour plus d’informations, consultez [Aide et support de Microsoft Azure Stack](azure-stack-help-and-support-overview.md).
 
-- Quand plusieurs annuaires Azure Active Directory sont intégrés (par le biais de [ce processus](azure-stack-enable-multitenancy.md)), il est possible de ne pas réexécuter le script lors de certaines mises à jour, ou lorsque des droits sont insuffisants en raison des modifications apportées à l’autorisation du principal de Service AAD. Ceci peut entraîner divers problèmes, d’un blocage de l’accès à certaines fonctionnalités à des erreurs plus discrètes qui sont difficiles à tracer jusqu’au problème d’origine. Pour éviter ce problème, la version 1905 introduit une nouvelle fonctionnalité qui vérifie les autorisations et déclenche une alerte en présence de certains problèmes de configuration. Cette validation s’exécute toutes les heures et affiche les actions de correction requises pour corriger le problème. L’alerte est fermée quand tous les locataires présentent un état sain.
+- Quand plusieurs annuaires Azure Active Directory sont intégrés (par le biais de [ce processus](azure-stack-enable-multitenancy.md)), il est possible de ne pas réexécuter le script lors de certaines mises à jour, ou lorsque des droits sont insuffisants en raison des modifications apportées à l’autorisation du principal de Service Azure AD. Ceci peut entraîner divers problèmes, d’un blocage de l’accès à certaines fonctionnalités à des erreurs plus discrètes qui sont difficiles à tracer jusqu’au problème d’origine. Pour éviter ce problème, la version 1905 introduit une nouvelle fonctionnalité qui vérifie les autorisations et déclenche une alerte en présence de certains problèmes de configuration. Cette validation s’exécute toutes les heures et affiche les actions de correction requises pour corriger le problème. L’alerte est fermée quand tous les locataires présentent un état sain.
 
 - Plus grande fiabilité des opérations de sauvegarde de l’infrastructure pendant le basculement du service.
 
-- Une nouvelle version du [plug-in Nagios pour Azure Stack](azure-stack-integrate-monitor.md#integrate-with-nagios) est disponible. Elle utilise les [bibliothèques d’authentification Azure Active Directory](/azure/active-directory/develop/active-directory-authentication-libraries) (ADAL) pour l’authentification. Maintenant, le plug-in prend également en charge les déploiements Azure Active Directory (AAD) et Active Directory Federation Services (AD FS) d’Azure Stack. Pour plus d’informations, consultez le site [Nagios Exchange pour les plug-ins](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details).
+- Une nouvelle version du [plug-in Nagios pour Azure Stack](azure-stack-integrate-monitor.md#integrate-with-nagios) est disponible. Elle utilise les [bibliothèques d’authentification Azure Active Directory](/azure/active-directory/develop/active-directory-authentication-libraries) (ADAL) pour l’authentification. Désormais, le plug-in prend également en charge les déploiements Azure AD et Active Directory Federation Services (AD FS) d’Azure Stack. Pour plus d’informations, consultez le site [Nagios Exchange pour les plug-ins](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details).
 
 - Un nouveau profil hybride **2019-03-01-Hybrid** a été publié. Il prend en charge toutes les dernières fonctionnalités disponibles dans Azure Stack. Azure PowerShell et Azure CLI prennent tous les deux en charge le profil **2019-03-01-Hybrid**. Les SDK .NET, Ruby, Node.js, Go et Python ont publié des packages qui prennent en charge le profil **2019-03-01-Hybrid**. La documentation respective et certains exemples ont été mis à jour pour refléter les modifications.
 
@@ -95,8 +97,6 @@ Avec cette mise à jour, Windows Server 2019 peut être activé correctement su
     |12 nœuds|54 processeurs virtuels|60 Go|
     |16 nœuds|70 processeurs virtuels|76 Go|
   
-- Il y a désormais une extension Azure Stack qui fonctionne sur Visual Studio Code. Avec l’extension **Azure Account**, les développeurs peuvent cibler Azure Stack en se connectant et accédant aux abonnements, ainsi que divers autres services. L’extension Azure Account fonctionne sur les environnements AAD et sur les environnements AD FS. Elle nécessite seulement une petite modification dans les paramètres utilisateur de Visual Studio Code, pour entrer les valeurs des métadonnées Azure Stack. Pour plus d’informations, [consultez cette documentation](../user/azure-stack-dev-start-vscode-azure.md).
-
 ### <a name="changes"></a>Changements
 
 - Pour améliorer la fiabilité et la disponibilité durant les scénarios de maintenance planifiée et non planifiée, Azure Stack fournit une instance de rôle d’infrastructure supplémentaire pour les services de domaine.

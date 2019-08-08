@@ -15,12 +15,12 @@ ms.date: 07/16/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/16/2019
-ms.openlocfilehash: 09e38de68f740cab50e7a3e0ee8cc7364a9909b9
-ms.sourcegitcommit: 4139b507d6da98a086929da48e3b4661b70bc4f3
+ms.openlocfilehash: b0ced01686247953e3cb1849305d664d844da949
+ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68299433"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544110"
 ---
 # <a name="azure-stack-vm-features"></a>Fonctionnalités des machines virtuelles Azure Stack
 
@@ -41,7 +41,7 @@ Les machines virtuelles Azure Stack fournissent des ressources de calcul scalabl
 | Performances des disques de machines virtuelles | Dépendent de la taille et du type de disque. | Dépendent de la taille de la machine virtuelle à laquelle les disques sont attachés. Pour plus d’informations, consultez l’article [Tailles de machine virtuelle prises en charge dans Azure Stack](azure-stack-vm-sizes.md).
 | Versions d’API | Azure utilise toujours les dernières versions d’API pour toutes les fonctionnalités de machine virtuelle. | Azure Stack prend en charge certains services Azure et des versions d’API spécifiques pour ces services. Pour obtenir la liste des versions d’API prises en charge, consultez la section [Versions d’API](#api-versions) dans cet article. |
 | Service de métadonnées d’instance Azure | Le service Azure Instance Metadata Service fournit des informations sur l’exécution d’instances de machine virtuelle qui peuvent être utilisées pour gérer et configurer votre machine virtuelle.  | Le service Azure Instance Metadata Service n’est pas pris en charge sur Azure Stack. |
-| Groupes à haute disponibilité de machines virtuelles|Plusieurs domaines d’erreur (2 ou 3 par région).<br>Plusieurs domaines de mise à jour.|Plusieurs domaines d’erreur (2 ou 3 par région).<br>Plusieurs domaines de mise à jour (jusqu’à 20).|
+| Groupes à haute disponibilité de machines virtuelles|Plusieurs domaines d’erreur (2 ou 3 par région).<br>Plusieurs domaines de mise à jour.|Plusieurs domaines d’erreur (2 ou 3 par région).<br>Un seul domaine de mise à jour, avec migration en direct pour protéger les charges de travail pendant la mise à jour. 20 domaines de mise à jour pris en charge pour la compatibilité des modèles|
 | Groupes identiques de machines virtuelles|La mise à l’échelle automatique est prise en charge.|La mise à l’échelle automatique n’est pas prise en charge.<br><br>Pour ajouter d’autres instances à un groupe identique, utilisez le portail, les modèles Resource Manager ou PowerShell. |
 | Témoin cloud | Sélectionnez les points de terminaison dans les propriétés du compte de stockage disponibles dans Azure Stack. | Le [témoin de cloud](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) est un type de témoin de quorum de cluster de basculement qui utilise Microsoft Azure pour fournir un vote sur le quorum du cluster.<br>Voici à quoi peuvent ressembler les points de terminaison dans Azure global et ceux dans Azure Stack :<br>Azure global :<br>`https://mywitness.blob.core.windows.net/`<br>Azure Stack :<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | Diagnostics de machine virtuelle | Les diagnostics de machine virtuelle Linux sont pris en charge. | Les diagnostics de machine virtuelle Linux ne sont pas pris en charge dans Azure Stack. Lorsque vous déployez une machine virtuelle Linux en activant les diagnostics de machine virtuelle, le déploiement échoue. Le déploiement échoue également si vous activez les mesures de base de la machine virtuelle Linux dans les paramètres de diagnostic. |
@@ -56,18 +56,22 @@ Azure Stack impose des limites de ressources pour éviter la consommation excess
 
 Le tableau suivant répertorie les machines virtuelles prises en charge sur Azure Stack, ainsi que leur configuration :
 
-| Type           | Size          | Plage de tailles prises en charge |
-| ---------------| ------------- | ------------------------ |
-|Usage général |De base A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
-|Usage général |Standard A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
-|Usage général |Série D       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
-|Usage général |Série Dv2     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
-|Usage général |Série DS      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
-|Usage général |Séries DSv2    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
-|Mémoire optimisée|Série D       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
-|Mémoire optimisée|Série DS      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
-|Mémoire optimisée|Série Dv2     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
-|Mémoire optimisée|Séries DSv2 -  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
+| Type            | Size          | Plage de tailles prises en charge |
+| ----------------| ------------- | ------------------------ |
+|Usage général  |De base A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
+|Usage général  |Standard A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
+|Usage général  |Série Av2     |[A1_v2 - A8m_v2](azure-stack-vm-sizes.md#av2-series)     |
+|Usage général  |Série D       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
+|Usage général  |Série Dv2     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
+|Usage général  |Série DS      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
+|Usage général  |Séries DSv2    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
+|Mémoire optimisée |Série D       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
+|Mémoire optimisée |Série DS      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
+|Mémoire optimisée |Série Dv2     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|Mémoire optimisée |Séries DSv2    |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
+|Optimisé pour le calcul|Série F       |[F1 - F16](azure-stack-vm-sizes.md#f-series)    |
+|Optimisé pour le calcul|Série Fs      |[F1s - F16s](azure-stack-vm-sizes.md#fs-series)    |
+|Optimisé pour le calcul|Série Fsv2    |[F2s_v2 - F64s_v2](azure-stack-vm-sizes.md#fsv2-series)    |
 
 Les tailles de machine virtuelle et les quantités de ressources associées sont cohérentes entre Azure Stack et Azure. Cette cohérence inclut la quantité de mémoire, le nombre de cœurs et le nombre ou la taille des disques de données qui peuvent être créés. Toutefois, les performances des machines virtuelles de même taille dépendent des caractéristiques sous-jacentes de chaque environnement Azure Stack.
 

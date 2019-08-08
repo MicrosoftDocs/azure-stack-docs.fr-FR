@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 7cc55659df1da1c51d92f0fc2926cee7255c422e
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: c5a53fcd2aa2ec516e5677e85a1516ac10208c3f
+ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67315971"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544128"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack
 
@@ -54,7 +54,7 @@ Votre déploiement Azure Stack doit être connecté à internet et être [inscri
 
     ![Revoir l’espace de stockage](media/azure-stack-download-azure-marketplace-item/storage.png)
 
-3. Ouvrez Azure Stack Marketplace et connectez-vous à Azure. Pour ce faire, sélectionnez **Éléments de la Place de marché**, puis sélectionnez **Ajouter à partir d’Azure** :
+3. Ouvrez Azure Stack Marketplace et connectez-vous à Azure. Pour ce faire, sélectionnez le service **Gestion de la Place de marché**, sélectionnez **Éléments de la place de marché**, puis sélectionnez **Ajouter à partir d’Azure** :
 
     ![Ajout à partir d’Azure](media/azure-stack-download-azure-marketplace-item/marketplace.png)
 

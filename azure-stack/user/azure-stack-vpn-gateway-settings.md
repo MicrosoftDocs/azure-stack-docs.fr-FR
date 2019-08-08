@@ -1,6 +1,6 @@
 ---
-title: Paramètres de passerelle réseau VPN pour Azure Stack | Microsoft Docs
-description: En savoir plus sur les paramètres pour les passerelles VPN que vous utilisez avec Azure Stack.
+title: Configurer les paramètres de passerelle réseau VPN pour Azure Stack | Microsoft Docs
+description: En savoir plus et configurer les paramètres des passerelles VPN que vous utilisez avec Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 83fa2e96a7cd956c050efa33ab6e9564b1834e93
-ms.sourcegitcommit: 07c51a03f07a6a3ee2721aa942d31a7a4c6a339b
+ms.openlocfilehash: 53a423ebc8e9f503934bfd3df2f4962a7b584059
+ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67028300"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658581"
 ---
-# <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Paramètres de configuration de la passerelle VPN pour Azure Stack
+# <a name="configure-vpn-gateway-settings-for-azure-stack"></a>Configurer les paramètres de passerelle réseau VPN pour Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -120,9 +120,9 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 
 Le tableau suivant répertorie la configuration requise pour les passerelles VPN.
 
-| |Passerelle VPN basée sur des stratégies de base | Passerelle VPN basée sur des itinéraires de base | Passerelle VPN basée sur des itinéraires Standard | Passerelle VPN à hautes performances basée sur des itinéraires|
+| |Passerelle VPN basée sur des stratégies de base | Passerelle VPN basée sur des itinéraires de base | Passerelle VPN basée sur des itinéraires standard | Passerelle VPN à hautes performances basée sur des itinéraires|
 |--|--|--|--|--|
-| **Connectivité de site à site (connectivité S2S)** | Non pris en charge | Configuration de VPN basé sur les itinéraires | Configuration de VPN basé sur les itinéraires | Configuration de VPN basé sur les itinéraires |
+| **Connectivité de site à site (connectivité S2S)** | Non pris en charge | Configuration du VPN basé sur les itinéraires | Configuration du VPN basé sur les itinéraires | Configuration du VPN basé sur les itinéraires |
 | **Méthode d’authentification**  | Non pris en charge | Clé prépartagée pour la connectivité S2S  | Clé prépartagée pour la connectivité S2S  | Clé prépartagée pour la connectivité S2S  |
 | **Nombre maximal de connexions de site à site**  | Non pris en charge | 20 | 20| 10|
 |**Prise en charge de routage actif (BGP)** | Non pris en charge | Non pris en charge | Pris en charge | Pris en charge |
@@ -149,7 +149,7 @@ Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.
 
 ### <a name="local-network-gateways"></a>Passerelles de réseau local
 
-Lorsque vous créez une configuration de passerelle VPN dans Azure, la passerelle du réseau local représente souvent votre emplacement local. Dans Azure Stack, elle représente n’importe quel périphérique VPN distant se situant en dehors d’Azure Stack. Il peut s’agir d’un périphérique VPN de votre centre de données (ou d’un centre de données distant) ou bien d’une passerelle VPN dans Azure.
+Lorsque vous créez une configuration de passerelle VPN dans Azure, la passerelle du réseau local représente souvent votre emplacement local. Dans Azure Stack, elle représente n’importe quel périphérique VPN distant se situant en dehors d’Azure Stack. Cet appareil peut être un appareil VPN de votre centre de données (ou d’un centre de données distant) ou bien d’une passerelle VPN dans Azure.
 
 Vous donnez un nom à la passerelle de réseau local (l’adresse IP publique de l’appareil VPN) et vous spécifiez les préfixes d’adresse se trouvant dans l’emplacement local. Azure examine les préfixes d’adresse de destination pour le trafic réseau, consulte la configuration que vous avez spécifiée pour votre passerelle de réseau local, et route les paquets en conséquence.
 
@@ -160,13 +160,13 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
-Parfois, vous devez modifier les paramètres de passerelle de réseau local. C’est le cas, par exemple, lorsque vous ajoutez ou modifiez la plage d’adresses, ou lorsque l’adresse IP du périphérique VPN change. Voir [Modification des paramètres de passerelle de réseau local à l’aide de PowerShell](/azure/vpn-gateway/vpn-gateway-modify-local-network-gateway).
+Parfois, vous devez modifier les paramètres de passerelle de réseau local. C’est le cas, par exemple, lorsque vous ajoutez ou modifiez la plage d’adresses, ou lorsque l’adresse IP du périphérique VPN change. Pour plus d’informations, consultez [Modification des paramètres de passerelle de réseau local à l’aide de PowerShell](/azure/vpn-gateway/vpn-gateway-modify-local-network-gateway).
 
 ## <a name="ipsecike-parameters"></a>Paramètres IPsec/IKE
 
 Lorsque vous configurez une connexion VPN dans Azure Stack, vous devez configurer la connexion à chaque extrémité. Si vous configurez une connexion VPN entre Azure Stack et un périphérique matériel tel qu’un commutateur ou un routeur agissant comme une passerelle VPN, ce périphérique peut demander des paramétrages supplémentaires.
 
-Contrairement à Azure, qui prend en charge plusieurs offres en tant qu’initiateur et répondeur, Azure Stack ne prend en charge qu’une seule offre par défaut.  Si vous devez utiliser différents paramètres IPSec/IKE pour travailler avec votre appareil VPN, d’autres paramètres sont disponibles pour vous permettre de configurer votre connexion manuellement.  Pour plus de détails, consultez [Configurer la stratégie IPsec/IKE pour des connexions VPN site à site](azure-stack-vpn-s2s.md).
+Contrairement à Azure, qui prend en charge plusieurs offres en tant qu’initiateur et répondeur, Azure Stack ne prend en charge qu’une seule offre par défaut.  Si vous devez utiliser différents paramètres IPSec/IKE pour travailler avec votre appareil VPN, d’autres paramètres sont disponibles pour vous permettre de configurer votre connexion manuellement.  Pour plus d’informations, consultez [Configurer la stratégie IPsec/IKE pour des connexions VPN site à site](azure-stack-vpn-s2s.md).
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Paramètres IKE Phase 1 (Mode principal)
 
