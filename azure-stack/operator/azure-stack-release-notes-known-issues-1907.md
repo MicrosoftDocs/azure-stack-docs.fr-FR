@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: cf09162fb29630ed01834aa6b2b508785206a088
-ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
+ms.openlocfilehash: 41d07532960776cd5ed9312007877489e9ebbf20
+ms.sourcegitcommit: 83d9dbecd7334f37862e47ca028a50f8d7dafe2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68685566"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68738322"
 ---
 # <a name="azure-stack-1907-known-issues"></a>Problèmes connus dans Azure Stack 1907
 
@@ -89,13 +89,6 @@ Cet article répertorie les problèmes connus dans la version 1907 d’Azure St
 - Occurrence : Courant
 
 ### <a name="virtual-network-gateway"></a>Passerelle de réseau virtuel
-
-#### <a name="local-network-gateway-deletion"></a>Suppression du nom de passerelle de réseau local
-
-- Champ d’application : Ce problème concerne la version 1906.
-- Cause : Dans le portail utilisateur, la suppression de la **passerelle réseau local** affiche le message d’erreur suivant : **Impossible de supprimer une passerelle de réseau local avec une connexion active**, même si aucune connexion n’est active.
-- Atténuation : Le correctif pour ce problème sera publié dans la version 1907. Une solution de contournement pour ce problème consiste à créer une passerelle de réseau local avec la même adresse IP, le même espace d’adressage et les mêmes détails de configuration, mais avec un autre nom. L’ancien LNG peut être supprimé une fois que l’environnement a été mis à jour vers la version 1907.
-- Occurrence : Courant
 
 #### <a name="alerts"></a>Alertes
 
