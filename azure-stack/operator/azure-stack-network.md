@@ -16,12 +16,12 @@ ms.date: 06/04/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: e9c373ebaa6452c57acad866c66c8b3d5ab0c5ed
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: b2b53edaba6a6cb180ae617740fd4695b1a86187
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469172"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842733"
 ---
 # <a name="network-connectivity"></a>Connectivité réseau
 Cet article fournit des informations sur l’infrastructure réseau d’Azure Stack qui vous aideront à déterminer la meilleure intégration possible d’Azure Stack dans votre environnement réseau existant. 
@@ -77,28 +77,7 @@ Ce réseau /26 est le sous-réseau contenant des sous-réseaux IP point à point
 ### <a name="switch-management-network"></a>Réseau de gestion du commutateur
 Ce réseau /29 (6 adresses IP d’hôte) est dédié à la connexion des ports de gestion des commutateurs. Il autorise un accès hors bande pour le déploiement, la gestion et la résolution des problèmes. Il est calculé à partir du réseau d’infrastructure du commutateur mentionné ci-dessus.
 
-## <a name="publish-azure-stack-services"></a>Publier des services de Azure Stack
-Vous devrez rendre les services de Azure Stack disponibles aux utilisateurs en dehors de Azure Stack. Azure Stack définit différents points de terminaison pour ses rôles d’infrastructure. Ces points de terminaison se voient assigner des adresses IP virtuelles du pool d’adresses IP publiques. Une entrée DNS est créée pour chaque point de terminaison dans la zone DNS externe spécifiée au moment du déploiement. Par exemple, le portail utilisateur se voit attribué l’entrée d’hôte DNS portal. *&lt;region>.&lt;fqdn>* .
 
-### <a name="ports-and-urls"></a>Ports et URL
-Pour rendre les services de Azure Stack (tels que les portails, Azure Resource Manager, DNS, etc.) disponibles pour les réseaux externes, vous devez autoriser le trafic entrant vers ces points de terminaison pour les URL, les ports et les protocoles spécifiques.
- 
-Dans un déploiement où un proxy transparent achemine par liaison montante les données à un serveur proxy traditionnel, vous devez autoriser des URL et des ports spécifiques pour les communications [entrantes](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound) et [sortantes](azure-stack-integrate-endpoints.md#ports-and-urls-outbound). Cela comprend les ports et les URL pour l’identité, la marketplace, les correctifs et les mises à jour, l’inscription ainsi que les données d’utilisation.
-
-### <a name="mac-address-pool"></a>Pool d’adresses MAC
-
-Azure Stack utilise un pool d’adresses MAC statique pour générer et affecter automatiquement une adresse MAC aux machines virtuelles.
-Ce pool d’adresses MAC est généré automatiquement pendant le déploiement et utilise la plage suivante :
-
-- StartMacAddress : 00-1D-D8-B7-00-00
-- EndMacAddress : 00-1D-D8-F4-FF-FF
-
-> [!Note]  
-> Ce pool d’adresses MAC est le même pour chaque système Azure Stack et n’est pas configurable.
-
-Selon la façon dont les réseaux virtuels se connectent aux réseaux d’entreprise existants, vous pouvez vous attendre à obtenir des adresses MAC en double pour les machines virtuelles.
-
-Vous trouverez plus d’informations sur l’utilisation du pool d’adresses MAC à l’aide de la cmdlet [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) dans le module PowerShell Administrateur Azure Stack.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
