@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/02/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: de6d45aa18dab4f6a5e4c7c772732242e296aa3a
-ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
+ms.lastreviewed: 08/02/2019
+ms.openlocfilehash: e868cd1e7d6ec24ddb350305c82cc1d87a334d91
+ms.sourcegitcommit: 56778bf71d5f6bbe2768fbc38c2ed2208114b867
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68692064"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68756654"
 ---
 # <a name="azure-stack-1907-update"></a>Mise à jour 1907 d’Azure Stack
 
@@ -97,6 +97,8 @@ Le type de build de la mise à jour 1907 d’Azure Stack est **Express**. Pour 
 
 - Résolution d’un problème lié au fait que le champ de description n'était pas enregistré lors de la création d’une offre.
 
+- Correction d'un problème dans lequel un utilisateur avec des autorisations **Lecture seule** pouvait créer, modifier et supprimer des ressources. Désormais, l'utilisateur ne peut créer des ressources que lorsque l'autorisation **Contributeur** lui est attribuée. 
+
 <!-- https://icm.ad.msft.net/imp/v3/incidents/details/127772311/home -->
 - Résolution d’un problème lié à l'échec de la mise à jour en raison d'un fichier DLL verrouillé par l’hôte du fournisseur WMI.
 
@@ -146,7 +148,7 @@ La version 1907 d’Azure Stack doit être appliquée à la version 1906 avec 
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez notre [stratégie de maintenance](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- Aucun correctif logiciel n’est disponible pour la version 1907.
+- [Correctif logiciel Azure Stack 1.1907.8.37](https://support.microsoft.com/help/4515650)
 
 ## <a name="automatic-update-notifications"></a>Notifications de mise à jour automatique
 

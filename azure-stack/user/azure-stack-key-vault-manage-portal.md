@@ -1,6 +1,6 @@
 ---
 title: Gérer Key Vault dans Azure Stack en utilisant le portail | Microsoft Docs
-description: Découvrez comment gérer Key Vault dans Azure Stack en utilisant le portail
+description: Découvrez comment gérer Key Vault dans Azure Stack à l’aide du portail Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 06/11/2019
 ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 57a23dc63c72657c19a92fa8f69e029be7f12f60
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 4b6d6e784a640894fb1ef304d4469586e9fc2297
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836847"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842735"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>Gérer Key Vault dans Azure Stack à l’aide du portail
 
-Vous pouvez gérer Key Vault dans Azure Stack à l’aide du portail Azure Stack. Cet article explique comment créer et gérer un coffre de clés dans Azure Stack.
+Cet article explique comment créer et gérer un coffre de clés dans Azure Stack en utilisant le portail Azure Stack.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -46,15 +46,15 @@ Vous devez vous abonner à une offre qui inclut le service Azure Key Vault.
 
 6. Sélectionnez le **Niveau tarifaire**. Dans le Kit de développement Azure Stack, les coffres de clés prennent uniquement en charge les références SKU **Standard**.
 
-7. Choisissez une des **Stratégies d’accès** existantes ou créez-en une. Une stratégie d’accès vous permet d’accorder des autorisations à un utilisateur, à une application ou à un groupe de sécurité pour effectuer des opérations avec ce coffre.
+7. Choisissez une des **Stratégies d’accès** existantes ou créez-en une. Une stratégie d’accès vous permet d’accorder des autorisations à un utilisateur, à une app ou à un groupe de sécurité pour effectuer des opérations avec ce coffre.
 
 8. Choisissez éventuellement une **Stratégie d’accès avancé** pour activer l’accès aux fonctionnalités. Par exemple : machines virtuelles (VM) pour le déploiement, Gestionnaire de ressources pour le déploiement d’un modèle et accès à Azure Disk Encryption pour le chiffrement de volumes.
 
-9. Après avoir configuré les paramètres, sélectionnez **OK**, puis sélectionnez **Créer**. Le déploiement de Key Vault débute.
+9. Après avoir configuré les paramètres, sélectionnez **OK**, puis sélectionnez **Créer**. Cette étape lance le déploiement du coffre de clés.
 
 ## <a name="manage-keys-and-secrets"></a>Gérer les clés et les secrets
 
-Après avoir créé un coffre de clés, procédez comme suit pour y créer et y gérer des clés et des secrets.
+Après avoir créé un coffre de clés, procédez comme suit pour y créer et y gérer des clés et des secrets :
 
 ### <a name="create-a-key"></a>Créer une clé
 
@@ -72,7 +72,7 @@ Après avoir créé un coffre de clés, procédez comme suit pour y créer et y 
 
 7. Sélectionnez **Créer** pour démarrer le déploiement.
 
-Une fois la clé créée, vous pouvez la sélectionner sous **Clés** et afficher ou modifier ses propriétés. La section Propriétés contient l’**identificateur de clé**, qui est un URI (Uniform Resource Identifier) dont se servent les applications externes pour accéder à cette clé. Pour limiter les opérations sur cette clé, configurez les paramètres sous **Opérations autorisées**.
+Une fois la clé créée, vous pouvez la sélectionner sous **Clés** et afficher ou modifier ses propriétés. La section Propriétés contient l’**identificateur de clé**, qui est un URI (Uniform Resource Identifier) dont se servent les apps externes pour accéder à cette clé. Pour limiter les opérations sur cette clé, configurez les paramètres sous **Opérations autorisées**.
 
 ![URI de clé](media/azure-stack-key-vault-manage-portal/image4.png)
 
@@ -92,7 +92,7 @@ Une fois la clé créée, vous pouvez la sélectionner sous **Clés** et affiche
 
 7. Sélectionnez **Créer** pour démarrer le déploiement.
 
-Une fois le secret créé, vous pouvez le sélectionner sous **Secrets**, et afficher ou modifier ses propriétés. **L’identificateur de clé secrète** est une URI que les applications externes peuvent utiliser pour accéder à cette clé secrète.
+Une fois le secret créé, vous pouvez le sélectionner sous **Secrets**, et afficher ou modifier ses propriétés. **L’identificateur de clé secrète** est un URI que les apps externes peuvent utiliser pour accéder à cette clé secrète.
 
 ![URI de secret](media/azure-stack-key-vault-manage-portal/image5.png)
 

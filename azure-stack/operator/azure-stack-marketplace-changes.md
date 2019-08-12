@@ -11,28 +11,50 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/05/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: c70334bea80a84166a4bb614f15852e44f2b99f4
-ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
+ms.openlocfilehash: 3d0aad849395a93b1086daf5cf2c17e198d69ed5
+ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68692133"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68806920"
 ---
 # <a name="azure-stack-marketplace-changes"></a>Changements sur la place de marché Azure Stack
 
-Cet article décrit les ajouts, les nouveautés, les modifications et les suppressions des [éléments de la place de marché Azure Stack](azure-stack-marketplace-azure-items.md). Les informations contenues dans cette section sont fréquemment mises à jour. Consultez-la régulièrement.
+Cet article décrit les ajouts, les nouveautés, les modifications et les suppressions des [éléments de la place de marché Azure Stack](azure-stack-marketplace-azure-items.md) survenus au cours des 3 derniers mois environ. Les informations contenues dans cette section sont fréquemment mises à jour. Consultez-la régulièrement.
 
-Cet article décrit les changements sur la place de marché qui se sont produits au cours des 3 derniers mois environ. L’article [place de marché Azure Stack](azure-stack-marketplace-azure-items.md) reprend la liste la plus récente des éléments de la place de marché Azure Stack disponibles.
+L’article [place de marché Azure Stack](azure-stack-marketplace-azure-items.md) reprend la liste la plus récente des éléments de la place de marché Azure Stack disponibles.
 
 ## <a name="new-marketplace-items"></a>Nouveaux éléments de la place de marché
 
-- Veeam® Backup & Replication™ : aide les entreprises à assurer la protection complète des données pour TOUTES les charges de travail, virtuelles, physiques et cloud. Avec une seule console, vous obtenez une sauvegarde rapide, flexible et fiable, la récupération et la réplication de toutes les applications et données. Ajouté le 14/06/2019.
+- 25/1/2019 : A10 vThunder : L4-L7 Application Delivery Controller, Global Server Load Balancing (GSLB), SSL Insight
 
-- A10 vThunder : L4-L7 Application Delivery Controller, Global Server Load Balancing (GSLB), SSL Insight. Ajouté le 25/01/2019.
+- 14/6/2019 : Veeam® Backup & Replication™
+
+- 05/08/2019 : Drupal
+
+- 06/08/2019 : etcd
+
+- 05/08/2019 : Grafana
+
+- 05/08/2019 : Neo4j
+
+- 05/08/2019 : Parse Server
+
+- 05/08/2019 : WordPress Multisite
+
+- 05/08/2019 : ZooKeeper
+
+- 05/08/2019 : TensorFlow Serving
+
+- 05/08/2019 : NATS
+
+- 05/08/2019 : Review Board
+
+- 05/08/2019 : Composr
 
 ## <a name="deprecated-marketplace-items"></a>Éléments déconseillés sur la place de marché
 

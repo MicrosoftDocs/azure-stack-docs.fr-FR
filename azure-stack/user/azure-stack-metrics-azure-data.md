@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 08/02/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: aafdc25293ea3cc584d24688d071dadb2151ce22
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 329ef95f7902f3fe6dfcdd71b599675fdf7c6286
+ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418539"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68806932"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>Utiliser Azure Monitor sur Azure Stack
 
@@ -121,13 +121,16 @@ Il existe quelques méthodes de visualisation, qui sont les suivantes :
 
 ## <a name="methods-of-accessing-azure-monitor-on-azure-stack"></a>Méthodes d’accès à Azure Monitor sur Azure Stack
 
-En général, vous pouvez manipuler le suivi, le routage et la récupération des données à l’aide de l’une des méthodes suivantes. Toutes les méthodes ne sont pas disponibles pour toutes les actions ou tous les types de données.
+Vous pouvez utiliser le suivi, le routage et la récupération des données à l’aide de l’une des méthodes suivantes. Toutes les méthodes ne sont pas disponibles pour toutes les actions ou tous les types de données. 
 
  - [Portail Azure Stack](azure-stack-use-portal.md)
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
  - [Interface de ligne de commande interplateforme (CLI)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
  - [API REST](https://docs.microsoft.com/rest/api/monitor)
  - [Kit de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
+
+> [!Important]  
+> Si vous rencontrez une erreur de **ressource introuvable** lors de l'affichage du graphique de performances d'une machine virtuelle, vérifiez que vous avez enregistré Microsoft.insights sur l'abonnement associé à la machine virtuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

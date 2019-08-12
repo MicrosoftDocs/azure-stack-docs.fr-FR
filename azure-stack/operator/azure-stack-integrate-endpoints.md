@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 07/30/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 07/22/2019
-ms.openlocfilehash: 6bf9f9bb66ba7e2c9722f64e7116778f17e0e4e2
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.lastreviewed: 07/30/2019
+ms.openlocfilehash: b97d542c5a885078fa80108cdb0c16e6ccb79b98
+ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658618"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68806957"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Intégration au centre de données Azure Stack : publier des points de terminaison
 
@@ -69,19 +69,19 @@ Les adresses IP virtuelles ne sont pas répertoriées car elles ne sont pas requ
 
 ## <a name="ports-and-urls-outbound"></a>Ports et URL (en sortie)
 
-Azure Stack prend en charge uniquement les serveurs proxy transparents. Dans un déploiement où un proxy transparent transfère les données vers un serveur proxy traditionnel, vous devez autoriser les URL et les ports suivants pour les communications sortantes :
+Azure Stack prend en charge uniquement les serveurs proxy transparents. Dans un déploiement où un proxy transparent transfère les données vers un serveur proxy traditionnel, vous devez autoriser les URL et les ports du tableau suivant pour les communications sortantes.
 
 > [!Note]  
 > Azure Stack ne prend pas en charge l’utilisation d’ExpressRoute pour joindre les services Azure répertoriés dans le tableau suivant.
 
 |Objectif|URL de destination|Protocole|Ports|Réseau source|
 |---------|---------|---------|---------|---------|
-|Identité|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com|HTTP<br>HTTPS|80<br>443|Adresse IP virtuelle publique - /27<br>Réseau d'infrastructure publique|
-|Syndication de Place de marché|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://\*.azureedge.net|HTTPS|443|Adresse IP virtuelle publique - /27|
+|Identité|**Microsoft Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>**Azure Government**<br>https:\//login.microsoftonline.us/<br>https:\//graph.windows.net/<br>**Azure China 21Vianet**<br>https:\//login.chinacloudapi.cn/<br>https:\//graph.chinacloudapi.cn/<br>|HTTP<br>HTTPS|80<br>443|Adresse IP virtuelle publique - /27<br>Réseau d'infrastructure publique|
+|Syndication de Place de marché|**Microsoft Azure**<br>https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>https://&#42;.blob.core.usgovcloudapi.net/<br>**Azure China 21Vianet**<br>https:\//management.chinacloudapi.cn/<br>http://&#42;.blob.core.chinacloudapi.cn/|HTTPS|443|Adresse IP virtuelle publique - /27|
 |Correctif et mise à jour|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|Adresse IP virtuelle publique - /27|
-|Inscription|https:\//management.azure.com|HTTPS|443|Adresse IP virtuelle publique - /27|
-|Usage|**Microsoft Azure**<br>- https://&#42;.trafficmanager.net<br>**Azure Government**<br>- https://&#42;.usgovtrafficmanager.net<br>**Azure Chine**<br>- https://&#42;.trafficmanager.cn<br> |HTTPS|443|Adresse IP virtuelle publique - /27|
-|Windows Defender|\*.wdcp.microsoft.com<br>\*.wdcpalt.microsoft.com<br>\*.wd.microsoft.com<br>\*.update.microsoft.com<br>\*.download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Adresse IP virtuelle publique - /27<br>Réseau d'infrastructure publique|
+|Inscription|**Microsoft Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>**Azure China 21Vianet**<br>https:\//management.chinacloudapi.cn/|HTTPS|443|Adresse IP virtuelle publique - /27|
+|Usage|**Microsoft Azure**<br>https://&#42;.trafficmanager.net<br>**Azure Government**<br>https://&#42;.usgovtrafficmanager.net<br>**Azure China 21Vianet**<br>https://&#42;.trafficmanager.cn|HTTPS|443|Adresse IP virtuelle publique - /27|
+|Windows Defender|&#42;.wdcp.microsoft.com<br>&#42;.wdcpalt.microsoft.com<br>&#42;.wd.microsoft.com<br>&#42;.update.microsoft.com<br>&#42;.download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Adresse IP virtuelle publique - /27<br>Réseau d'infrastructure publique|
 |NTP|(IP du serveur NTP fourni pour le déploiement)|UDP|123|Adresse IP virtuelle publique - /27|
 |DNS|(IP du serveur DNS fourni pour le déploiement)|TCP<br>UDP|53|Adresse IP virtuelle publique - /27|
 |CRL|URL (sous Points de distribution CRL sur votre certificat)|HTTP|80|Adresse IP virtuelle publique - /27|

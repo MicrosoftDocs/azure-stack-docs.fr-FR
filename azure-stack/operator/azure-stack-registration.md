@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 08/01/2019
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 3fd84e5c294c2cdcfa942aeaf9c2daf9f9245891
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: d36761cd7480d782ea01bc1b0d3606b5fa244ed3
+ms.sourcegitcommit: 49cfe13427f5255915d5ccbed87b36eec2caf8ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418218"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720024"
 ---
 # <a name="register-azure-stack-with-azure"></a>Inscrire Azure Stack auprès d’Azure
 
@@ -34,13 +34,13 @@ Les informations contenues dans cet article décrivent l’inscription de systè
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez mettre en place les éléments suivants avant l’inscription :
+Vous devez mettre en place les prérequis suivants avant l’inscription :
 
- - Vérifier vos informations d’identification
- - Définir le mode de langage PowerShell
- - Installer PowerShell pour Azure Stack
- - Télécharger les outils Azure Stack
- - Déterminer votre scénario d’inscription
+- Vérifier vos informations d’identification
+- Définir le mode de langage PowerShell
+- Installer PowerShell pour Azure Stack
+- Télécharger les outils Azure Stack
+- Déterminer votre scénario d’inscription
 
 ### <a name="verify-your-credentials"></a>Vérifier vos informations d’identification
 
@@ -92,16 +92,17 @@ Pour garantir que vous utilisez la version la plus récente, vous devez supprime
 
 Votre déploiement Azure Stack peut être *connecté* ou *déconnecté*.
 
- - **Connecté**  
+- **Connecté**  
  Connecté signifie que vous avez déployé Azure Stack afin qu’il puisse se connecter à Internet et à Azure. Vous disposez soit d’Azure Active Directory (Azure AD) ou d’Active Directory Federation Services (AD FS) pour votre magasin d’identités. Avec un déploiement connecté, vous pouvez choisir entre deux modèles de facturation : paiement à l’utilisation ou selon la capacité.
-    - [Inscrire un déploiement Azure Stack connecté auprès d’Azure à l’aide du modèle de facturation de **paiement à l’utilisation**](#register-connected-with-pay-as-you-go-billing)
-    - [Inscrire un déploiement Azure Stack connecté auprès d’Azure à l’aide du modèle de facturation de **capacité**](#register-connected-with-capacity-billing)
+  - [Inscrire un déploiement Azure Stack connecté auprès d’Azure à l’aide du modèle de facturation de **paiement à l’utilisation**](#register-connected-with-pay-as-you-go-billing)
+  - [Inscrire un déploiement Azure Stack connecté auprès d’Azure à l’aide du modèle de facturation de **capacité**](#register-connected-with-capacity-billing)
 
- - **Déconnecté**  
+- **Déconnecté**  
  Avec l’option de déploiement déconnecté de Azure, vous pouvez déployer et utiliser Azure Stack sans connexion à internet. Toutefois, avec un déploiement déconnecté, vous êtes limité à un magasin d’identités AD FS et au modèle de facturation basée sur la capacité.
-    - [Inscrire un déploiement Azure Stack déconnecté à l’aide du modèle de facturation de **capacité**](#register-disconnected-with-capacity-billing)
+  - [Inscrire un déploiement Azure Stack déconnecté à l’aide du modèle de facturation de **capacité**](#register-disconnected-with-capacity-billing)
 
 ### <a name="determine-a-unique-registration-name-to-use"></a>Déterminer le nom d’inscription unique à utiliser 
+
 Quand vous inscrivez Azure Stack sur Azure, vous devez fournir un nom d’inscription unique. Un moyen simple d’associer votre abonnement Azure Stack avec une inscription Azure est d’utiliser votre **ID cloud** Azure Stack. 
 
 > [!NOTE]
@@ -341,17 +342,13 @@ Vous pouvez utiliser la vignette **Gestion des régions** pour vérifier que l�
     - **ID d’abonnement de l’inscription** : ID d’abonnement Azure inscrit et associé à Azure Stack
     - **Groupe de ressources de l’inscription** : Groupe de ressources Azure dans l’abonnement associé contenant les ressources Azure Stack.
 
-4. Utilisez le portail Azure pour voir les inscriptions d’application Azure Stack. Connectez-vous au portail Azure avec un compte associé à l’abonnement que vous avez utilisé pour inscrire Azure Stack. Passez au locataire associé à Azure Stack.
-5. Accédez à **Azure Active Directory > Inscriptions des applications > Afficher toutes les applications**.
-
-    ![Inscriptions des applications](media/azure-stack-registration/app-registrations.png)
-
-    Les inscriptions des applications Azure Stack sont préfixées de **Azure Stack**.
+4. Vous pouvez utiliser le portail Azure pour voir les ressources d'inscription Azure Stack puis vérifier que l'enregistrement a réussi. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte associé à l’abonnement que vous avez utilisé pour inscrire Azure Stack. Cochez **Toutes les ressources**, activez la case **Afficher les types masqués**, puis sélectionnez le nom d’inscription.
+5. Si l'inscription a échoué, vous devez vous réinscrire en suivant [ces étapes](#change-the-subscription-you-use) pour résoudre le problème.  
 
 Vous pouvez également vérifier si votre inscription a réussi à l’aide de la fonctionnalité Gestion de la Place de marché. Si vous voyez une liste d’éléments de la Place de marché dans le panneau Gestion de la Place de marché, votre inscription a réussi. Toutefois, dans les environnements déconnectés, les éléments de la Place de marché n’apparaissent pas dans Gestion de la Place de marché.
 
 > [!NOTE]
-> Une fois l’inscription terminée, l’avertissement relatif à la non-inscription n’apparaît plus. Dans les scénarios déconnectés, vous recevez un message dans Gestion de la Place de marché vous invitant à inscrire et à activer votre instance Azure Stack, même si l’inscription a déjà été effectuée.
+> Une fois l’inscription terminée, l’avertissement relatif à la non-inscription n’apparaît plus. Avec les versions Azure Stack antérieures à 1904, dans les scénarios déconnectés, vous recevez un message dans Gestion de la Place de marché vous invitant à inscrire et à activer votre instance Azure Stack, même si l’inscription a déjà été effectuée. Ce message n'apparaît pas dans la version 1904 et les versions ultérieures.
 
 ## <a name="renew-or-change-registration"></a>Renouveler ou modifier l’inscription
 
@@ -451,15 +448,20 @@ Pour les environnements Azure Stack qui utilisent un modèle de facturation selo
 2. Enregistrez ce jeton d’inscription pour l’utiliser sur la machine connectée à Azure. Vous pouvez copier le fichier ou le texte à partir de $FilePathForRegistrationToken.
 
 ## <a name="move-a-registration-resource"></a>Déplacer une ressource d’inscription
-Le déplacement d’une ressource d’inscription entre des groupes de ressources sous le même abonnement **est** pris en charge pour tous les environnements. Toutefois, le déplacement d’une ressource d’inscription entre abonnements est uniquement pris en charge pour les fournisseurs de services cloud quand les deux abonnements correspondent au même ID partenaire. Pour plus d’informations sur le déplacement de ressources vers un nouveau groupe de ressources, voir [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+
+Le déplacement d’une ressource d’inscription entre des groupes de ressources sous le même abonnement **est** pris en charge pour tous les environnements. Toutefois, le déplacement d’une ressource d’inscription entre abonnements est uniquement pris en charge pour les fournisseurs de services cloud quand les deux abonnements correspondent au même ID partenaire. Pour plus d’informations sur le déplacement de ressources vers un nouveau groupe de ressources, voir [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](/azure/azure-resource-manager/resource-group-move-resources).
+
+> [!IMPORTANT]
+> Pour éviter la suppression accidentelle de ressources d'inscription sur le portail, le script d'inscription ajoute automatiquement un verrou à la ressource. Vous devez retirer ce verrou avant de le déplacer ou de le supprimer. Il est recommandé d'ajouter un verrou à votre ressource d'inscription pour éviter toute suppression accidentelle.
 
 ## <a name="registration-reference"></a>Référence de l’inscription
 
 ### <a name="set-azsregistration"></a>Set-AzsRegistration
 
-Vous pouvez utiliser Set-AzsRegistration pour inscrire Azure Stack auprès d’Azure et activer ou désactiver l’offre d’éléments sur la Place de marché et la création de rapports d’utilisation.
+Vous pouvez utiliser **Set-AzsRegistration** pour inscrire Azure Stack auprès d’Azure et activer ou désactiver l’offre d’éléments sur la Place de marché et la création de rapports d’utilisation.
 
 Pour exécuter l’applet de commande, vous avez besoin des éléments suivants :
+
 - Un abonnement Azure global de n’importe quel type.
 - Vous devez également être connecté à Azure PowerShell avec un compte propriétaire ou collaborateur de cet abonnement.
 

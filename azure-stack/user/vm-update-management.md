@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: cae4c6c5b96dd7bdbd6fcec7859309e0dd995a44
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: 891727c8e80af479e800feef9c292f7355fb208c
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658690"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842695"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack"></a>Automatisation de la gestion et de la mise à jour des machines virtuelles dans Azure Stack
 Utilisez les fonctionnalités des solutions Azure Automation suivantes pour gérer les machines virtuelles Windows et Linux déployées avec Azure Stack :
@@ -131,6 +131,7 @@ L’article [Utiliser la fonctionnalité Map d’Azure Monitor pour machines vir
 
    ![Onglet Map d'Azure Monitor pour machines virtuelles](https://docs.microsoft.com/azure/azure-monitor/insights/media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
+Dans le cas où [Azure Monitor pour machines virtuelles](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) n’affiche aucune donnée de performances, vous devez activer la collecte des données de performances pour Windows et Linux dans les paramètres avancés de votre [espace de travail LogAnalytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters).
 
 ## <a name="enable-update-management-using-a-resource-manager-template"></a>Activer Update Management à l’aide d’un modèle Resource Manager
 Si vous avez un grand nombre de machines virtuelles Azure Stack, vous pouvez utiliser [ce modèle Azure Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) pour déployer plus facilement la solution sur des machines virtuelles. Le modèle déploie l’extension Microsoft Monitoring Agent sur une machine virtuelle Azure Stack existante et l’ajoute à un espace de travail Azure Log Analytics existant.
