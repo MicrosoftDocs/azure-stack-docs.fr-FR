@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 21e1e8df3d5f43f91e391b8c39f3f5aca3aefea8
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 7f86ff3347d5d6f24bcd1fe450156c2557fb41e1
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269580"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959401"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versions des API du fournisseur de ressources prises en charge par des profils dans Azure Stack
 
@@ -33,7 +33,7 @@ Le profil de l’API utilise trois conventions d’affectation de noms :
 
 Pour obtenir une explication des profils d’API et de la cadence de publication de versions pour Azure Stack, consultez [Gérer les profils de version des API dans Azure Stack](azure-stack-version-profiles.md).
 
-> [!Note]
+> [!NOTE]
 > Le **dernier** profil d’API contient la dernière version de l’API de fournisseur de ressources et n’est pas listé dans cet article.
 
 ## <a name="overview-of-the-2019-03-01-hybrid-profile"></a>Vue d’ensemble du profil 2019-03-01-hybrid
@@ -199,5 +199,5 @@ Le fournisseur de ressources de stockage (SRP) vous permet de gérer par program
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Installer PowerShell pour Azure Stack](../operator/azure-stack-powershell-install.md)
-* [Configurez l’environnement PowerShell de l’utilisateur Azure Stack.](azure-stack-powershell-configure-user.md)  
+- [Installer PowerShell pour Azure Stack](../operator/azure-stack-powershell-install.md)
+- [Configurez l’environnement PowerShell de l’utilisateur Azure Stack.](azure-stack-powershell-configure-user.md)  

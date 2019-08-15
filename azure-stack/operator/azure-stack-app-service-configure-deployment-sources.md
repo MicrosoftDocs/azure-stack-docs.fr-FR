@@ -17,10 +17,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2018
 ms.openlocfilehash: 8512568c709770f736d6740d83578dee7391adff
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "66269261"
 ---
 # <a name="configure-deployment-sources"></a>Configurer des sources de déploiement
@@ -38,7 +38,7 @@ En plus du Git local, les fournisseurs de contrôle de code source suivants sont
 
 ## <a name="view-deployment-sources-in-app-service-administration"></a>Afficher les sources de déploiement dans l’administration App Service
 
-1. Connectez-vous au portail d’administration Azure Stack (https://adminportal.local.azurestack.external)) en tant qu’administrateur du service.
+1. Connectez-vous au portail d’administration Azure Stack (https://adminportal.local.azurestack.external) ) en tant qu’administrateur du service.
 2. Accédez à **Tous les Services** et sélectionnez **App Service**.
     ![Administrateur du fournisseur de ressources App Service][1]
 3. Cliquez sur **Source control configuration** (Configuration du contrôle de code source). Vous pouvez voir la liste de toutes les sources de déploiement configurées.

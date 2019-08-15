@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 1f8d7573d9d3da54ddb5fa7aae85ba15d1db4c3c
-ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
+ms.openlocfilehash: 7d0e9c6914ce8748d842c9addf040355e3dc1cb1
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521246"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991702"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Informations de référence sur l’applet de commande Start-AzsReadinessChecker
 
@@ -329,7 +329,7 @@ Spécifie les valeurs valides du système d’identité du déploiement Azure St
 |Tapez :                       |Chaîne        |
 |Position :                   |named         |
 |Valeur par défaut :              |Aucun          |
-|Valeurs valides :                |« AAD », « ADFS »  |
+|Valeurs valides :               |« AAD », « ADFS »  |
 |Accepter l’entrée de pipeline :      |False         |
 |Accepter les caractères génériques : |False         |
 
@@ -417,7 +417,7 @@ Spécifie le type SAN de la demande de certificat. Valeurs valides : **Multiple
 |Tapez :                       |Chaîne   |
 |Position :                   |named    |
 |Valeur par défaut :              |Aucun     |
-|Valeurs valides :                |« MultipleCSR », « SingleCSR » |
+|Valeurs valides :               |« MultipleCSR », « SingleCSR » |
 |Accepter l’entrée de pipeline :      |False    |
 |Accepter les caractères génériques : |False    |
 
@@ -466,7 +466,7 @@ Spécifie l’instance des services Azure contenant les comptes, annuaires et ab
 |Tapez :                       |Chaîne   |
 |Position :                   |named    |
 |Valeur par défaut :              |Aucun     |
-|Valeurs valides :                |« AzureCloud », « AzureChinaCloud », « AzureUSGovernment » |
+|Valeurs valides :               |« AzureCloud », « AzureChinaCloud », « AzureUSGovernment » |
 |Accepter l’entrée de pipeline :      |False    |
 |Accepter les caractères génériques : |False    |
 
@@ -549,7 +549,7 @@ Spécifie d’afficher uniquement le récapitulatif du rapport. Omet les détail
 |Tapez :                       |Chaîne   |
 |Position :                   |named    |
 |Valeur par défaut :              |Tous      |
-|Valeurs valides :                |« Certificat », « AzureRegistration », « AzureIdentity », « Jobs », « All » |
+|Valeurs valides :               |« Certificat », « AzureRegistration », « AzureIdentity », « Jobs », « All » |
 |Accepter l’entrée de pipeline :      |False    |
 |Accepter les caractères génériques : |False    |
 

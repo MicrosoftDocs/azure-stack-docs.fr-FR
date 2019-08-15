@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 792589eabf13b9aca493e230f7e3e93cfab21736
-ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
+ms.openlocfilehash: 51b61eae1f2c00a959eded275c13c5c4b8d06e4c
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65532371"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991791"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack"></a>Créer des abonnements pour des offres dans Azure Stack
 
@@ -45,7 +45,7 @@ Après avoir créé un abonnement pour un utilisateur, ce dernier peut se connec
 2. Sélectionnez **Ajouter**. Sous **Nouvel abonnement utilisateur**, entrez les informations suivantes :  
 
    - **Nom d’affichage** : nom convivial pour identifier l’abonnement qui s’affiche en tant que *Nom d’abonnement utilisateur*.
-   - **Utilisateur** : spécifiez un utilisateur depuis un locataire d’annuaire disponible pour cet abonnement. Le nom d’utilisateur apparaît en tant que *Propriétaire*.  Le format du nom d’utilisateur dépend de votre solution d’identité. Par exemple : 
+   - **Utilisateur** : spécifiez un utilisateur depuis un locataire d’annuaire disponible pour cet abonnement. Le nom d’utilisateur apparaît en tant que *Propriétaire*.  Le format du nom d’utilisateur dépend de votre solution d’identité. Par exemple :
 
      - **Azure AD :** `<user1>@<contoso.onmicrosoft.com>`
 

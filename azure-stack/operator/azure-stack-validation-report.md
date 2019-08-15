@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: d02173731f8cf7834160a0228c589b036aac7fe6
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: c00ce005ac72fcde34b58a1afe7e134c27274247
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984017"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991722"
 ---
 # <a name="azure-stack-validation-report"></a>Rapport de validation Azure Stack
 
@@ -35,7 +35,7 @@ Quand l’outil s’exécute, il journalise les résultats dans **AzsReadinessCh
 
 Les deux fichiers conservent les résultats des vérifications de validation exécutées postérieurement sur le même ordinateur. Par exemple, vous pouvez exécuter l’outil pour valider des certificats, le réexécuter pour valider l’identité Azure, puis l’exécuter une troisième fois pour valider l’inscription. Les résultats des trois validations sont disponibles dans le rapport .json généré.  
 
-Par défaut, les deux fichiers sont écrits à l’emplacement **C:\Users\<nom_utilisateur>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**.  
+Par défaut, les deux fichiers sont écrits dans **C:\Users\nom_utilisateur\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**.  
 
 - Utilisez le paramètre `-OutputPath <path>` situé à la fin de la ligne de commande pour spécifier un emplacement de rapport différent.
 - Utilisez le paramètre `-CleanReport` à la fin de la ligne de commande pour effacer les informations sur les exécutions précédentes de l’outil du fichier **AzsReadinessCheckerReport.json**.
@@ -46,7 +46,7 @@ Pour voir le rapport dans PowerShell, affectez à la valeur de `-ReportPath` le 
 
 Par exemple, pour voir le rapport à partir d’une invite PowerShell ouverte à l’emplacement du rapport, exécutez la commande suivante :
 
-```shell
+```powershell
 Read-AzsReadinessReport -ReportPath .\AzsReadinessReport.json
 ```
 
@@ -96,7 +96,7 @@ PSBoundParameters :
 
 ## <a name="view-the-report-summary"></a>Afficher le récapitulatif du rapport
 
-Pour voir un récapitulatif du rapport, vous pouvez ajouter le paramètre `-summary` à la fin de la commande PowerShell. Par exemple : 
+Pour voir un récapitulatif du rapport, vous pouvez ajouter le paramètre `-summary` à la fin de la commande PowerShell. Par exemple :
 
 ```powershell
 Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary
