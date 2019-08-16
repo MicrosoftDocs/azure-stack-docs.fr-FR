@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 04/24/2019
+ms.date: 08/09/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 14baf5d5ca411e7c32cbfcf4a6138193a2215b0a
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 08/09/2019
+ms.openlocfilehash: beddafb351af39f0a21a1cd0d7a7baa4ccfee28e
+ms.sourcegitcommit: 94669fe8a55fadd3103e80be307e9e8c823bf746
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783080"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68940276"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>Déployer une application web ASP.NET C# sur une machine virtuelle dans Azure Stack
 
@@ -61,19 +61,19 @@ Cet article utilise une application C# 6.0 qui utilise ASP.NET Core 2.2 sur un s
     | 443 | HTTPS | HTTPS (Hypertext Transfer Protocol Secure) est une version sécurisée du protocole HTTP qui nécessite un certificat de sécurité pour la transmission chiffrée des informations.  |
     | 22 | SSH | SSH (Secure Shell) est un protocole réseau chiffré pour les communications sécurisées. Nous utiliserons cette connexion avec un client SSH pour configurer la machine virtuelle et déployer l’application. |
     | 3389 | RDP | facultatif. Le protocole RDP (Remote Desktop Protocol) permet d’utiliser une connexion Bureau à distance avec une interface graphique utilisateur.   |
-    | 8080 | Personnalisée | Le port par défaut du service Apache Tomcat est 8080. Pour un serveur de production, le trafic est acheminé par les ports 80 et 443. |
+    | 8172 | Personnalisée | Port utilisé par WebDeploy. |
 
     Pour chaque port :
 
-    a. Dans **Source**, sélectionnez **Any (Tous)**.
+    a. Dans **Source**, sélectionnez **Any (Tous)** .
 
-    b. Pour **Plage de ports source**, entrez un astérisque (**\***).
+    b. Pour **Plage de ports source**, entrez un astérisque ( **\*** ).
 
-    c. Pour **Destination**, sélectionnez **Any (Tous)**.
+    c. Pour **Destination**, sélectionnez **Any (Tous)** .
 
     d. Pour **Plage de ports de destination**, ajoutez le port que vous souhaitez ouvrir.
 
-    e. Pour **Protocole**, sélectionnez **Any (Tous)**.
+    e. Pour **Protocole**, sélectionnez **Any (Tous)** .
 
     f. Pour **Action**, sélectionnez **Autoriser**.
 
