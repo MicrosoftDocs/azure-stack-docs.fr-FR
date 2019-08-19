@@ -86,6 +86,8 @@
               href: azure-stack-network.md
             - name: Connectivité de la bordure
               href: azure-stack-border-connectivity.md
+            - name: Configuration du commutateur
+              href: azure-stack-customer-defined.md
             - name: Intégration DNS
               href: azure-stack-integrate-dns.md
             - name: Intégration du pare-feu
