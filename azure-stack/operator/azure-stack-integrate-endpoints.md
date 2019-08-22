@@ -9,22 +9,26 @@ ms.topic: article
 ms.date: 07/30/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 07/30/2019
-ms.openlocfilehash: b97d542c5a885078fa80108cdb0c16e6ccb79b98
-ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
+ms.lastreviewed: 08/05/2019
+ms.openlocfilehash: 6ffd13982a4acf90896b152adcee360e34c02b79
+ms.sourcegitcommit: 8de4c18b25bd1047fc270812a795f24e8f1e9244
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68806957"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68865883"
 ---
-# <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Intégration au centre de données Azure Stack : publier des points de terminaison
+# <a name="azure-stack-datacenter-integration---publish-azure-stack-services"></a>Intégration au centre de données Azure Stack : publier les services Azure Stack
 
-Azure Stack configure des adresses IP virtuelles pour ses rôles d’infrastructure. Ces adresses IP virtuelles sont allouées à partir du pool d’adresses IP publiques. Chaque adresse IP virtuelle est sécurisée à l’aide d’une liste de contrôle d’accès (ACL) dans la couche réseau à définition logicielle. Les listes ACL sont également utilisées dans les commutateurs physiques (TOR et BMC) pour renforcer la solution. Une entrée DNS est créée pour chaque point de terminaison dans la zone DNS externe spécifiée au moment du déploiement.
-
+Azure Stack configure des adresses IP virtuelles pour ses rôles d’infrastructure. Ces adresses IP virtuelles sont allouées à partir du pool d’adresses IP publiques. Chaque adresse IP virtuelle est sécurisée à l’aide d’une liste de contrôle d’accès (ACL) dans la couche réseau à définition logicielle. Les listes ACL sont également utilisées dans les commutateurs physiques (TOR et BMC) pour renforcer la solution. Une entrée DNS est créée pour chaque point de terminaison dans la zone DNS externe spécifiée au moment du déploiement. Par exemple, le portail utilisateur se voit attribuer l’entrée d’hôte DNS portal. *&lt;region>.&lt;fqdn>* .
 
 Le diagramme architectural suivant montre les différentes couches réseau et les listes ACL :
 
 ![Image structurelle](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+
+### <a name="ports-and-urls"></a>Ports et URL
+Pour rendre les services de Azure Stack (tels que les portails, Azure Resource Manager, DNS, etc.) disponibles pour les réseaux externes, vous devez autoriser le trafic entrant vers ces points de terminaison pour les URL, les ports et les protocoles spécifiques.
+ 
+Dans un déploiement où un proxy transparent achemine par liaison montante les données à un serveur proxy traditionnel ou un pare-feu protège la solution, vous devez autoriser des URL et des ports spécifiques pour les communications [entrantes](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound) et [sortantes](azure-stack-integrate-endpoints.md#ports-and-urls-outbound). Cela comprend les ports et les URL pour l’identité, la marketplace, les correctifs et les mises à jour, l’inscription ainsi que les données d’utilisation.
 
 ## <a name="ports-and-protocols-inbound"></a>Ports et protocoles (en entrée)
 

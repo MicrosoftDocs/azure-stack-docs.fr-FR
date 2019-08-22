@@ -16,12 +16,12 @@ ms.date: 08/02/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 08/02/2019
-ms.openlocfilehash: e868cd1e7d6ec24ddb350305c82cc1d87a334d91
-ms.sourcegitcommit: 56778bf71d5f6bbe2768fbc38c2ed2208114b867
+ms.openlocfilehash: d13f3a25d0a46f0f29405858efb06e0a4d634da0
+ms.sourcegitcommit: 86e2b776383a9f761072199ec6b6b8a7d2e6b798
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68756654"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69021702"
 ---
 # <a name="azure-stack-1907-update"></a>Mise à jour 1907 d’Azure Stack
 
@@ -76,6 +76,8 @@ Le type de build de la mise à jour 1907 d’Azure Stack est **Express**. Pour 
 - Amélioration du stockage des journaux internes pour les opérations de l’administrateur. Cela permet d’améliorer les performances et la fiabilité lors des opérations de l’administrateur en limitant la consommation de mémoire et de stockage des processus de journalisation interne. Vous remarquerez peut-être une amélioration des délais de chargement des pages du panneau de mise à jour dans le portail administrateur. Dans le cadre de cette amélioration, les journaux des mises à jour datant de plus de 6 mois ne seront plus disponibles dans le système. Si vous avez besoin de ces journaux, veillez à [Télécharger le résumé](azure-stack-apply-updates.md) de toutes les exécutions de mises à jour datant de plus de 6 mois avant d’effectuer la mise à jour 1907.
 
 ### <a name="changes"></a>Changements
+
+- Azure Stack version 1907 contient une alerte d’avertissement qui indique aux opérateurs de bien mettre à jour le package OEM de leur système vers la version 2.1 ou ultérieure **avant** d’effectuer la mise à jour vers la version 1908. Les fournisseurs de matériel publieront le package OEM 2.1 en même temps qu’Azure Stack version 1908. Le package OEM 2.1 ou version ultérieure sera requis pour la version 1908 d’Azure Stack. Pour plus d’informations sur le téléchargement du package OEM 2.1 ou version ultérieure, contactez le fournisseur de matériel de votre système.
 
 - Ajout d’une nouvelle règle de trafic sortant (HTTPS) afin d'activer la communication pour le service de collecte des journaux de diagnostic Azure Stack. Pour plus d’informations, consultez [Intégration au centre de données Azure Stack - Publier des points de terminaison](azure-stack-integrate-endpoints.md#ports-and-urls-outbound).
 

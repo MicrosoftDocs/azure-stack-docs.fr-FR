@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 476ffeaf7712e5cee22befbc822545382f808de5
-ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
+ms.openlocfilehash: b33c96ad10d5e4269f96741a5d4aba10d782896c
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65386619"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959514"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Déléguer des offres dans Azure Stack
 
@@ -28,11 +28,11 @@ ms.locfileid: "65386619"
 
 En tant qu’opérateur Azure Stack, vous pouvez être amené à confier à d’autres personnes la charge d’inscrire des utilisateurs et de créer des abonnements. Par exemple, si vous êtes un fournisseur de services et souhaitez que les revendeurs inscrivent les clients et les gèrent à votre place. Si vous faites partie d’un groupe informatique centralisé d’une entreprise, vous pouvez aussi déléguer l’inscription des utilisateurs à d’autres membres de l’équipe informatique.
 
-La délégation permet d’atteindre et de gérer plus facilement davantage d’utilisateurs que ce que vous pouvez faire par vous-même, comme le montre la figure suivante :
+La délégation permet d’atteindre et de gérer plus facilement davantage d’utilisateurs que ce que vous pouvez faire par vous-même, comme le montre la figure suivante :
 
 ![Niveaux de délégation](media/azure-stack-delegated-provider/image1.png)
 
-Avec la délégation, le fournisseur délégué gère une offre (offre déléguée) et les clients finaux obtiennent des inscriptions sous cette offre, sans intervention de l’administrateur système.
+Avec la délégation, le fournisseur délégué gère une offre (appelée *offre déléguée*) et les clients finaux obtiennent des inscriptions sous cette offre, sans intervention de l’administrateur système.
 
 ## <a name="delegation-roles"></a>Rôles de la délégation
 

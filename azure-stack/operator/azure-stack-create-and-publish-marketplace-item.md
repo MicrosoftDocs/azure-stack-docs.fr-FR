@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 59e86e15289833d63b85314a84d0bb9e60dc5da8
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 24fc0f7993001ce95a21e175c84f37d755a5ce6c
+ms.sourcegitcommit: ec38ec569ad2193369c438f55e5c190aa5f0efd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172567"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68956601"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Créer et publier un article de la Place de marché
 
@@ -47,7 +47,7 @@ ms.locfileid: "65172567"
 
 4. Pour vérifier que le déploiement de la ressource peut réussir, testez le modèle avec les API Microsoft Azure Stack.
 5. Si votre modèle repose sur une image de machine virtuelle, suivez les instructions pour [ajouter une image de machine virtuelle sur Azure Stack](azure-stack-add-vm-image.md).
-6. Enregistrez votre modèle Azure Resource Manager dans le dossier **/Contoso.TodoList/DeploymentTemplates/**.
+6. Enregistrez votre modèle Azure Resource Manager dans le dossier **/Contoso.TodoList/DeploymentTemplates/** .
 7. Choisissez les icônes et le texte de votre article de Marketplace. Ajouter les icônes au dossier **Icônes** et le texte au fichier des **ressources** dans le dossier **Chaînes**. Utilisez la convention de dénomination **Petit**, **Moyen**, **Grand** et **Large** pour vos icônes. Vous trouverez une description détaillée sur la page [Référence : interface utilisateur de l’article de Place de marché](#reference-marketplace-item-ui).
 
    > [!NOTE]
@@ -81,11 +81,11 @@ ms.locfileid: "65172567"
 12. Pour créer un package dans un fichier .azpkg, ouvrez une invite de commandes et exécutez la commande suivante :
 
     ```shell
-    AzureGalleryPackager.exe package -m <path to manifest.json> -o <output location for the package>
+    AzureGalleryPackager.exe package -m <absolute path to manifest.json> -o <output location for the package>
     ```
 
     > [!NOTE]
-    > Le chemin d’accès complet au package de sortie doit exister. Par exemple, si le chemin de sortie est C:\MarketPlaceItem\votrepackage.azpkg, le dossier **C:\MarketPlaceItem doit exister**.
+    > Le chemin d’accès complet au fichier manifest .json, ainsi que le package de sortie, doivent exister. Par exemple, si le chemin de sortie est C:\MarketPlaceItem\votrepackage.azpkg, le dossier **C:\MarketPlaceItem doit exister**.
     >
     >
 
@@ -116,7 +116,7 @@ ms.locfileid: "65172567"
 `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
 `https://systemgallery.blob.[Region].[external FQDN]/dev20161101-microsoft-windowsazure-gallery/[Template Name]/UiDefinition.json`
 
-6. Vous pouvez supprimer un article de Marketplace avec la cmdlet **Remove-AzureRMGalleryItem**. Par exemple : 
+6. Vous pouvez supprimer un article de Marketplace avec la cmdlet **Remove-AzureRMGalleryItem**. Par exemple :
 
    ```powershell
    Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  -Verbose
@@ -158,7 +158,7 @@ La Marketplace utilise les icônes suivantes :
 | grand |115 px |115 px |Toujours obligatoire |
 | Moyenne |90 px |90 px |Toujours obligatoire |
 | Petite |40 px |40 px |Toujours obligatoire |
-| Capture d'écran |533 px |32 px |Facultatif |
+| Capture d'écran |533 px |324 px |Toujours obligatoire |
 
 ### <a name="categories"></a>Catégories
 

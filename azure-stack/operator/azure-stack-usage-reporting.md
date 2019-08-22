@@ -1,6 +1,6 @@
 ---
 title: Signaler les données d’utilisation Azure Stack à Azure | Microsoft Docs
-description: Découvrez comment configurer les la génération de rapports de données d’utilisation dans Azure Stack.
+description: Découvrez comment configurer la génération de rapports de données d’utilisation dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: c744a686be2a00418f48b769a5971997a603693f
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 3aeae5c1a0106a0c13c9b6bbe2eb4ba07de14dd4
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172653"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959442"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Signaler les données d’utilisation Azure Stack à Azure
 
@@ -31,7 +31,7 @@ Les systèmes à plusieurs nœuds Azure Stack qui utilisent un modèle de factur
 > [!IMPORTANT]
 > Toutes les charges de travail [doivent être déployées sous les abonnements du locataire](#are-users-charged-for-the-infrastructure-vms) pour être conformes au contrat de licence d’Azure Stack.
 
-Les rapports d’utilisation des données sont nécessaires pour les utilisateurs des systèmes intégrés Azure Stack qui attribuent des licences sous le modèle de paiement à l’utilisation. Ceci est facultatif pour les clients qui attribuent des licences sous le modèle de capacité (consultez la page [Comment acheter Azure Stack](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)). Pour les utilisateurs du Kit de développement Azure Stack, les opérateurs Azure Stack peuvent communiquer des données d’utilisation et tester la fonctionnalité. Les utilisateurs ne sont cependant pas facturés pour l’utilisation qu’elles impliquent.
+Les rapports d’utilisation des données sont nécessaires pour les utilisateurs des systèmes intégrés Azure Stack qui attribuent des licences sous le modèle de paiement à l’utilisation. Ceci est facultatif pour les clients qui attribuent des licences sous le modèle de capacité (consultez la page [Comment acheter Azure Stack](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)). Pour les utilisateurs du Kit de développement Azure Stack (ASDK), les opérateurs Azure Stack peuvent communiquer des données d’utilisation et tester la fonctionnalité. Les utilisateurs ne sont cependant pas facturés pour l’utilisation qu’elles impliquent.
 
 ![flux de facturation](media/azure-stack-usage-reporting/billing-flow.png)
 
@@ -70,15 +70,15 @@ Si vous avez inscrit votre service Azure Stack en utilisant un autre type d’ab
 
 ![flux de facturation](media/azure-stack-usage-reporting/pricing-details.png)
 
-Pour le Kit de développement Azure Stack, les ressources Azure Stack ne sont pas facturées. Par conséquent, le prix affiché est 0,00 $.
+Pour l’ASDK, les ressources Azure Stack ne sont pas facturées. Par conséquent, le prix affiché est 0,00 $.
 
 ## <a name="which-azure-stack-deployments-are-charged"></a>Quels sont les déploiements Azure Stack facturés ?
 
-L’utilisation des ressources est gratuite pour le Kit de développement Azure Stack. Pour les systèmes à plusieurs nœuds Azure Stack, les machines virtuelles de charge de travail, les services de stockage et App Services sont facturés.
+L’utilisation des ressources est gratuite pour l’ASDK. Pour les systèmes à plusieurs nœuds Azure Stack, les machines virtuelles de charge de travail, les services de stockage et App Services sont facturés.
 
 ## <a name="are-users-charged-for-the-infrastructure-vms"></a>Les utilisateurs sont-ils facturés pour les machines virtuelles d’infrastructure ?
 
- Non. Les données d’utilisation pour certaines machines virtuelles du fournisseur de ressources Azure Stack sont communiquées à Azure, mais rien n’est facturé pour ces machines virtuelles ni pour les machines virtuelles créées lors du déploiement pour activer l’infrastructure Azure Stack.  
+Non. Les données d’utilisation pour certaines machines virtuelles du fournisseur de ressources Azure Stack sont communiquées à Azure, mais rien n’est facturé pour ces machines virtuelles ni pour les machines virtuelles créées lors du déploiement pour activer l’infrastructure Azure Stack.  
 
 Les utilisateurs sont facturés seulement pour les machines virtuelles qui s’exécutent sous les abonnements du locataire. Toutes les charges de travail doivent être déployées sous les abonnements du locataire pour être conformes au contrat de licence d’Azure Stack.
 

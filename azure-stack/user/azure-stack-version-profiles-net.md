@@ -1,6 +1,6 @@
 ---
-title: Utilisation des profils de version d’API avec le Kit de développement logiciel (SDK) .NET dans Azure Stack | Microsoft Docs
-description: Apprenez-en davantage sur l’utilisation des profils de version d’API avec .NET dans Azure Stack.
+title: Utiliser des profils de version des API avec .NET dans Azure Stack | Microsoft Docs
+description: Découvrez comment utiliser des profils de version des API avec le Kit de développement logiciel (SDK) .NET dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,22 +16,22 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 0d0c4af4d3016989440dc6b9760bda0a3fc8d947
-ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
+ms.openlocfilehash: 14f19fa432d782eace721d47b6b578dc73846631
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67198615"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959374"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Utiliser des profils de version d’API avec .NET dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Le Kit de développement logiciel (SDK) .NET pour Azure Stack Resource Manager fournit des outils pour vous aider à créer et gérer votre infrastructure. Le Kit de développement logiciel (SDK) comporte des fournisseurs de ressources de calcul, de réseau, de stockage, de services d’application et [KeyVault](/azure/key-vault/key-vault-whatis). Le SDK .NET inclut 14 packages NuGet. Ces packages doivent être téléchargés dans votre solution de projet chaque fois que les informations de profil sont incorporées. Toutefois, vous pouvez télécharger spécifiquement le fournisseur de ressources que vous utiliserez pour 2019-03-01-hybrid ou 2018-03-01-hybrid afin d’optimiser la mémoire pour votre application. Chaque package se compose d’un fournisseur de ressources, de la version d’API correspondante et du profil d’API auquel il appartient. Les profils d’API dans le Kit de développement logiciel (SDK) .NET permettent le développement du cloud hybride en vous offrant la possibilité de basculer entre les ressources Azure globales et les ressources sur Azure Stack.
+Le Kit de développement logiciel (SDK) .NET pour Azure Stack Resource Manager fournit des outils pour vous aider à créer et gérer votre infrastructure. Le kit de développement logiciel (SDK) comporte des fournisseurs de ressources de calcul, de réseau, de stockage, de services d’application et [KeyVault](/azure/key-vault/key-vault-whatis). Le SDK .NET inclut 14 packages NuGet. Vous devez télécharger ces packages dans votre solution chaque fois que vous compilez votre projet. Toutefois, vous pouvez télécharger spécifiquement le fournisseur de ressources que vous utiliserez pour 2019-03-01-hybrid ou 2018-03-01-hybrid afin d’optimiser la mémoire pour votre application. Chaque package se compose d’un fournisseur de ressources, de la version d’API correspondante et du profil d’API auquel il appartient. Les profils d’API dans le Kit de développement logiciel (SDK) .NET permettent le développement du cloud hybride en vous offrant la possibilité de basculer entre les ressources Azure globales et les ressources sur Azure Stack.
 
 ## <a name="net-and-api-version-profiles"></a>.NET et les profils de version d’API
 
-Un profil d’API est une combinaison de fournisseurs de ressources et de versions d’API. Vous pouvez utiliser un profil d’API pour obtenir la version la plus récente et la plus stable de chaque type de ressource dans un package de fournisseur de ressources.
+Un profil d’API est une combinaison de fournisseurs de ressources et de versions d’API. Utilisez un profil d’API pour obtenir la version la plus récente et la plus stable de chaque type de ressource dans un package de fournisseur de ressources.
 
 -   Pour utiliser les versions les plus récentes de tous les services, utilisez le profil **La plus récente** des packages. Ce profil fait partie du package NuGet **Microsoft.Azure.Management**.
 
@@ -69,16 +69,16 @@ Vous pouvez combiner toutes les options dans la même application.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour utiliser le Kit de développement logiciel (SDK) .NET Azure avec Azure Stack, vous devez fournir les valeurs ci-après, puis définir ces valeurs avec des variables d’environnement. Pour définir les variables d’environnement, consultez les instructions fournies sous le tableau qui correspondent à votre système d’exploitation.
+Pour utiliser le Kit de développement logiciel (SDK) .NET Azure avec Azure Stack, vous devez fournir les valeurs ci-après, puis définir ces valeurs avec des variables d’environnement. Pour définir les variables d’environnement, consultez les instructions fournies sous le tableau qui correspondent à votre système d’exploitation spécifique.
 
 | Valeur                     | Variables d’environnement   | Description                                                                                                             |
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| ID client                 | AZURE_TENANT_ID       | La valeur de votre [*ID de locataire*][] Azure Stack.                                                                          |
-| ID client                 | AZURE_CLIENT_ID       | L’ID d’application du principal de service enregistré lors de la création du principal de service dans la section précédente de cet article. |
-| Identifiant d’abonnement           | AZURE_SUBSCRIPTION_ID | [*L’ID d’abonnement*][] correspond à la façon dont vous accédez à des offres dans Azure Stack.                                                      |
-| Clé secrète client             | AZURE_CLIENT_SECRET   | Le secret d’application du principal de service enregistré lors de la création du principal de service.                                      |
-| Point de terminaison Resource Manager | ARM_ENDPOINT           | Consultez [*Point de terminaison Azure Stack Resource Manager*][].                                                                    |
-| Location                  | RESOURCE_LOCATION     | Emplacement pour Azure Stack.
+| ID client                 | `AZURE_TENANT_ID `      | La valeur de votre [*ID de locataire*][] Azure Stack.                                                                          |
+| ID client                 | `AZURE_CLIENT_ID `      | L’ID d’application du principal de service enregistré lors de la création du principal de service dans la section précédente de cet article. |
+| Identifiant d’abonnement           | `AZURE_SUBSCRIPTION_ID` | [*L’ID d’abonnement*][] correspond à la façon dont vous accédez à des offres dans Azure Stack.                                                      |
+| Clé secrète client             | `AZURE_CLIENT_SECRET`   | Le secret d’application du principal de service enregistré lors de la création du principal de service.                                      |
+| Point de terminaison Resource Manager | `ARM_ENDPOINT`          | Consultez [*Point de terminaison Azure Stack Resource Manager*][].                                                                    |
+| Location                  | `RESOURCE_LOCATION`     | Emplacement pour Azure Stack.
 
 Pour rechercher l’ID de locataire de votre environnement Azure Stack, suivez les instructions fournies [ici](../operator/azure-stack-csp-ref-operations.md). Pour définir vos variables d’environnement, procédez comme suit :
 
@@ -92,7 +92,7 @@ Set Azure_Tenant_ID=Your_Tenant_ID
 
 ### <a name="macos-linux-and-unix-based-systems"></a>Systèmes macOS, Linux et Unix
 
-Dans les systèmes Unix, vous pouvez utiliser la commande suivante :
+Dans les systèmes Unix, utilisez la commande suivante :
 
 ```shell
 Export Azure_Tenant_ID=Your_Tenant_ID
@@ -100,9 +100,9 @@ Export Azure_Tenant_ID=Your_Tenant_ID
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Point de terminaison Azure Stack Resource Manager
 
-Microsoft Azure Resource Manager est une infrastructure de gestion qui permet aux administrateurs de déployer, gérer et superviser les ressources Azure. Azure Resource Manager peut gérer ces tâches en groupe, plutôt qu’individuellement, dans une seule opération.
+Microsoft Azure Resource Manager est un framework de gestion qui permet aux administrateurs de déployer, gérer et superviser les ressources Azure. Azure Resource Manager peut gérer ces tâches en groupe, plutôt qu’individuellement, dans une seule opération.
 
-Vous pouvez obtenir les informations de métadonnées du point de terminaison Resource Manager. Le point de terminaison renvoie un fichier JSON avec les informations requises pour exécuter votre code.
+Vous pouvez obtenir les informations de métadonnées du point de terminaison du Gestionnaire des ressources. Le point de terminaison retourne un fichier JSON avec les informations requises pour exécuter votre code.
 
 Tenez compte des points suivants :
 
@@ -137,7 +137,7 @@ Pour plus d’informations sur les profils d’API et Azure Stack, consultez la 
 
 ## <a name="azure-net-sdk-api-profile-usage"></a>Utilisation du profil d’API du Kit de développement logiciel (SDK) Azure .NET
 
-Le code suivant doit être utilisé pour instancier un client de gestion des ressources. Un code similaire peut être utilisé pour instancier d’autres clients fournisseurs de ressources (par exemple, pour le calcul, le réseau et le stockage). 
+Le code suivant doit être utilisé pour instancier un client de gestion des ressources. Un code similaire peut être utilisé pour instancier d’autres clients fournisseurs de ressources (par exemple, pour le calcul, le réseau et le stockage).
 
 ```csharp
 var client = new ResourceManagementClient(armEndpoint, credentials)
@@ -152,7 +152,7 @@ Le paramètre `credentials` dans le code ci-dessus est obligatoire pour instanci
 var azureStackSettings = getActiveDirectoryServiceSettings(armEndpoint);
 var credentials = ApplicationTokenProvider.LoginSilentAsync(tenantId, servicePrincipalId, servicePrincipalSecret, azureStackSettings).GetAwaiter().GetResult();
 ```
-L’appel `getActiveDirectoryServiceSettings` dans le code récupère les points de terminaison Azure Stack à partir des points de terminaison de métadonnées. Il indique les variables d’environnement à partir de l’appel qui est effectué : 
+L’appel `getActiveDirectoryServiceSettings` dans le code récupère les points de terminaison Azure Stack à partir des points de terminaison de métadonnées. Il indique les variables d’environnement à partir de l’appel qui est effectué :
 
 ```csharp
 public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(string armEndpoint)
@@ -187,18 +187,18 @@ public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(s
 }
 ```
 
-Ceci vous permet d’utiliser les packages NuGet de profils d’API pour déployer correctement votre application sur Azure Stack.
+Ces étapes vous permettent d’utiliser les packages NuGet de profils d’API pour déployer correctement votre application sur Azure Stack.
 
 ## <a name="samples-using-api-profiles"></a>Exemples à l’aide de profils d’API
 
-Les exemples suivants peuvent servir de références pour la création de solutions avec des profils d’API .NET et Azure Stack.
+Utilisez les exemples suivants comme références pour la création de solutions avec des profils d’API .NET et Azure Stack.
 - [Gérer des groupes de ressources](https://github.com/Azure-Samples/hybrid-resources-dotnet-manage-resource-group)
 - [Gérer des comptes de stockage](https://github.com/Azure-Samples/hybird-storage-dotnet-manage-storage-accounts)
 - [Gérer une machine virtuelle](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm) (cet exemple utilise le profil 2019-03-01-hybrid pris en charge par Azure Stack)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les profils d’API, consultez les articles suivants :
+Pour plus d’informations sur les profils d’API, consultez :
 
 - [Gérer les profils de version des API dans Azure Stack](azure-stack-version-profiles.md)
 - [Versions des API du fournisseur de ressources prises en charge par des profils dans Azure Stack](azure-stack-profiles-azure-resource-manager-versions.md)

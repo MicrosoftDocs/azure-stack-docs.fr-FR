@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: 2e0e4ef7abd1885d843832ed7cc9e845003d0ed7
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.openlocfilehash: fca26723c062dd9f5155030fb11c8e1d695bf5f1
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152527"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991803"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>Supprimer des quotas, plans, offres et abonnements
 
@@ -47,7 +47,7 @@ Pour supprimer une offre, dans le portail d’administration, accédez à **Tous
 
 ![delsub1](media/azure-stack-delete-offer/delsub1.png)
 
-Vous pouvez supprimer une offre uniquement s’il n’existe aucun abonnement l’utilisant. L’existence d’abonnements dépendant de l’offre conditionne l’option **Supprimer** qui est alors grisée. Dans ce cas, consultez la section [Supprimer un abonnement](#delete-a-subscription).
+Vous pouvez supprimer une offre uniquement s’il n’existe aucun abonnement l’utilisant. L’existence d’abonnements dépendant de l’offre conditionne l’option **Supprimer** qui est indisponible. Dans ce cas, consultez la section [Supprimer un abonnement](#delete-a-subscription).
 
 ## <a name="delete-a-plan"></a>Supprimer un plan
 
@@ -63,7 +63,7 @@ Par ailleurs, il est impossible de supprimer un plan depuis un abonnement s’il
 
 ## <a name="edit-and-delete-a-quota"></a>Modifier et supprimer un quota
 
-Vous pouvez afficher et modifier les quotas existants par le biais du portail d’administration : sélectionnez **Gestion des régions**, puis le fournisseur de ressources approprié et cliquez sur **Quotas**. Vous pouvez également supprimer des quotas pour certains fournisseurs de ressources.
+Vous pouvez afficher et modifier les quotas existants par le biais du portail d’administration : sélectionnez **Gestion des régions**, puis le fournisseur de ressources approprié et cliquez sur **Quotas**. Vous pouvez également supprimer des quotas pour certains fournisseurs de ressources.
 
 ![delsub3](media/azure-stack-delete-offer/delsub3.png)
 

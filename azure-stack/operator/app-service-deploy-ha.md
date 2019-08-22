@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 2d2aab654f2283cf019e609e9de14790ed44a76a
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 01e359b2fc92abfe2c4903b75fd52687c2246d56
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66837038"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959553"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Déployer App Service dans une configuration hautement disponible
 
@@ -61,11 +61,11 @@ Utilisez les étapes de cette section pour créer un déploiement personnalisé 
    ![Déploiement de modèle personnalisé](media/app-service-deploy-ha/1.png)
 
 
-3. Dans le panneau **Déploiement personnalisé**, sélectionnez **Modifier le modèle** > **Modèle de démarrage rapide**, puis utilisez la liste déroulante des modèles personnalisés disponibles pour sélectionner le modèle **appservice-fileshare-sqlserver-ha**, cliquez sur **OK**, puis sur **Enregistrer**.
+3. Dans le panneau **Déploiement personnalisé**, sélectionnez **Modifier le modèle** > **Modèle de démarrage rapide**, puis utilisez la liste déroulante des modèles personnalisés disponibles pour sélectionner le modèle **appservice-fileshare-sqlserver-ha**. Cliquez sur **OK**, puis sur **Enregistrer**.
 
    ![Sélectionner le modèle de démarrage rapide appservice-fileshare-sqlserver-ha](media/app-service-deploy-ha/2.png)
 
-4. Dans le panneau **Déploiement personnalisé**, sélectionnez **Modifier les paramètres** et faites défiler l’écran vers le bas pour examiner les valeurs du modèle par défaut. Modifiez ces valeurs de façon appropriée pour fournir toutes les informations des paramètres nécessaires, puis cliquez sur **OK**.<br><br> Au minimum, indiquez des mots de passe complexes pour les paramètres ADMINPASSWORD, FILESHAREOWNERPASSWORD, FILESHAREUSERPASSWORD, SQLSERVERSERVICEACCOUNTPASSWORD et SQLLOGINPASSWORD.
+4. Dans le panneau **Déploiement personnalisé**, sélectionnez **Modifier les paramètres** et faites défiler l’écran vers le bas pour examiner les valeurs du modèle par défaut. Modifiez ces valeurs de façon appropriée pour fournir toutes les informations des paramètres nécessaires, puis cliquez sur **OK**.<br><br> Au minimum, fournissez des mots de passe complexes aux paramètres `ADMINPASSWORD`, `FILESHAREOWNERPASSWORD`, `FILESHAREUSERPASSWORD`, `SQLSERVERSERVICEACCOUNTPASSWORD` et `SQLLOGINPASSWORD`.
     
    ![Modifier les paramètres du déploiement personnalisé](media/app-service-deploy-ha/3.png)
 
@@ -82,7 +82,7 @@ Utilisez les étapes de cette section pour créer un déploiement personnalisé 
 
 
 ### <a name="record-template-outputs"></a>Enregistrer les sorties de modèle
-Une fois le déploiement du modèle terminé, enregistrez les sorties de déploiement du modèle. Vous devrez fournir ces informations lors de l’exécution du programme d’installation App Service. 
+Une fois le déploiement du modèle terminé, enregistrez les sorties de déploiement du modèle. Vous avez besoin de ces informations lors de l’exécution du programme d’installation d’App Service.
 
 Vérifiez que vous enregistrez chacune de ces valeurs de sortie :
 - FileSharePath
@@ -101,7 +101,7 @@ Suivez ces étapes pour découvrir les valeurs de sortie de modèle :
 
     ![Déploiement de Microsoft.Template](media/app-service-deploy-ha/6.png)
 
-4. Après avoir sélectionné le déploiement **Microsoft.Template**, sélectionnez **Sorties** et enregistrez la sortie de paramètre de modèle. Ces informations seront requises lors du déploiement d’App Service.
+4. Après avoir sélectionné le déploiement **Microsoft.Template**, sélectionnez **Sorties** et enregistrez la sortie de paramètre de modèle. Ces informations sont requises lors du déploiement d’App Service.
 
     ![Sortie de paramètre](media/app-service-deploy-ha/7.png)
 
@@ -118,15 +118,15 @@ Après avoir installé le fournisseur de ressources App Service, vous pouvez l�
 Avant de pouvoir exécuter le programme d’installation App Service, plusieurs étapes sont nécessaires comme décrit dans l’article [Avant de commencer avec App Service sur Azure Stack](azure-stack-app-service-before-you-get-started.md) :
 
 > [!TIP]
-> Les étapes décrites dans l’article Avant de commencer ne sont pas toutes nécessaires, car le déploiement du modèle configure les machines virtuelles de l’infrastructure pour vous. 
+> Les étapes décrites dans l’article [Avant de commencer à utiliser App Service](azure-stack-app-service-before-you-get-started.md) ne sont pas toutes nécessaires, car le déploiement du modèle configure les machines virtuelles de l’infrastructure pour vous.
 
 - [Téléchargez le programme d’installation App Service et les scripts d’assistance](azure-stack-app-service-before-you-get-started.md#download-the-installer-and-helper-scripts).
 - [Téléchargez la dernière extension de script personnalisé sur la Place de marché Azure Stack](azure-stack-app-service-before-you-get-started.md#syndicate-the-custom-script-extension-from-the-marketplace).
 - [Générez les certificats requis](azure-stack-app-service-before-you-get-started.md#get-certificates).
 - Créez l’ID Application selon le fournisseur d’identité que vous avez choisi pour Azure Stack. Un ID Application peut être généré pour [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-application) ou les [services de fédération Active Directory (AD FS)](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-application), et enregistrer l’ID d’application.
-- Vérifiez que vous avez ajouté l’image Windows Server 2016 Datacenter à la Place de marché Azure Stack. Elle est nécessaire pour l’installation d’App Service.
+- Vérifiez que vous avez ajouté l’image Windows Server 2016 Datacenter à la Place de marché Azure Stack. Cette image est nécessaire pour l’installation d’App Service.
 
-### <a name="deploy-app-service-in-highly-available-configuration"></a>Déployer App Service dans une configuration hautement disponible
+### <a name="steps-for-app-service-deployment"></a>Étapes de déploiement d’App Service
 L’installation du fournisseur de ressources App Service prend au moins une heure. Le temps nécessaire dépend du nombre d’instances de rôle que vous déployez. Lors du déploiement, le programme d’installation exécute les tâches suivantes :
 
 - Crée un conteneur d’objets blob dans le compte de stockage Azure Stack spécifié.
@@ -140,37 +140,37 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 
 2. Sélectionnez **Déployer App Service ou effectuer une mise à niveau vers la dernière version**.
 
-    ![Déployer ou mettre à niveau](media/app-service-deploy-ha/01.png)
+    ![Déployer ou mettre à niveau App Service](media/app-service-deploy-ha/01.png)
 
 3. Acceptez les termes du contrat de licence Microsoft et cliquez sur **Suivant**.
 
-    ![Termes du contrat de licence Microsoft](media/app-service-deploy-ha/02.png)
+    ![Termes du contrat de licence Microsoft sur App Service](media/app-service-deploy-ha/02.png)
 
 4. Acceptez les termes du contrat de licence non-Microsoft et cliquez sur **Suivant**.
 
-    ![Termes du contrat de licence non-Microsoft](media/app-service-deploy-ha/03.png)
+    ![Termes du contrat de licence non Microsoft sur App Service](media/app-service-deploy-ha/03.png)
 
 5. Indiquez la configuration du point de terminaison cloud App Service pour votre environnement Azure Stack.
 
-    ![Configuration du point de terminaison cloud App Service](media/app-service-deploy-ha/04.png)
+    ![Configuration du point de terminaison cloud App Service sur App Service](media/app-service-deploy-ha/04.png)
 
 6. **Connectez-vous** à l’abonnement Azure Stack à utiliser pour l’installation et choisissez l’emplacement. 
 
-    ![Se connecter à l’abonnement Azure Stack](media/app-service-deploy-ha/05.png)
+    ![Se connecter à l’abonnement Azure Stack sur App Service](media/app-service-deploy-ha/05.png)
 
 7. Sélectionnez **Utiliser le réseau virtuel et les sous-réseaux existants** et **Nom du groupe de ressources** pour le groupe de ressources utilisé pour déployer le modèle hautement disponible.<br><br>Ensuite, sélectionnez le réseau virtuel créé dans le cadre du déploiement du modèle, puis les sous-réseaux de rôle appropriés parmi les options de liste déroulante. 
 
-    ![Sélection du réseau virtuel](media/app-service-deploy-ha/06.png)
+    ![Sélection du réseau virtuel sur App Service](media/app-service-deploy-ha/06.png)
 
 8. Indiquez les informations sur les sorties de modèle précédemment enregistrées pour le chemin du partage de fichiers et les paramètres du propriétaire du partage de fichiers. Une fois que vous avez terminé, cliquez sur **Suivant**.
 
-    ![Informations sur les sorties pour le partage de fichiers](media/app-service-deploy-ha/07.png)
+    ![Informations sur les sorties pour le partage de fichiers sur App Service](media/app-service-deploy-ha/07.png)
 
-9. Étant donné que la machine utilisée pour installer App Service ne se trouve pas sur le même réseau virtuel que le serveur de fichiers utilisé pour héberger le partage de fichiers App Service, vous ne serez pas en mesure de résoudre le nom. **Ce comportement est normal**.<br><br>Vérifiez que les informations entrées pour le chemin UNC du partage de fichiers et les informations relatives aux comptes sont correctes, puis appuyez sur **Oui** dans la boîte de dialogue d’alerte pour continuer l’installation d’App Service.
+9. Étant donné que la machine utilisée pour installer App Service ne se trouve pas sur le même réseau virtuel que le serveur de fichiers utilisé pour héberger le partage de fichiers App Service, vous ne pouvez pas résoudre le nom. **Cette erreur est normale**.<br><br>Vérifiez que les informations saisies pour le chemin d'accès UNC du partage de fichiers et les informations du compte sont correctes. Appuyez sur **Oui** sur la boîte de dialogue d’alerte pour poursuivre l’installation d’App Service.
 
-    ![Boîte de dialogue d’erreur attendue](media/app-service-deploy-ha/08.png)
+    ![Boîte de dialogue d’erreur attendue sur App Service](media/app-service-deploy-ha/08.png)
 
-    Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau Worker et le serveur de fichiers. Accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
+    Si vous avez choisi d’effectuer un déploiement sur un réseau virtuel existant en utilisant une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité de trafic sortant. Cette règle active le trafic SMB entre le sous-réseau worker et le serveur de fichiers. Accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
     - Source : Quelconque
     - Plage de ports source : : *
     - Destination : Adresses IP
@@ -185,26 +185,26 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
     - Certificat d’application d’identité (au format **sso.appservice.local.azurestack.external.pfx**)
     - Certificat racine Azure Resource Manager (**AzureStackCertificationAuthority.cer**)
 
-    ![Certificat d’application d’identité et certificat racine](media/app-service-deploy-ha/008.png)
+    ![Certificat d’application d’identité et certificat racine sur App Service](media/app-service-deploy-ha/008.png)
 
-10. Ensuite, fournissez les informations requises restantes pour les certificats suivants et cliquez sur **Suivant** :
+11. Ensuite, fournissez les informations requises restantes pour les certificats suivants et cliquez sur **Suivant** :
     - Certificat SSL Azure Stack par défaut (au format **_.appservice.local.azurestack.external.pfx**)
     - Certificat SSL de l’API (au format **api.appservice.local.azurestack.external.pfx**)
     - Certificat de l’éditeur (au format **ftp.appservice.local.azurestack.external.pfx**) 
 
-    ![Certificats de configuration supplémentaires](media/app-service-deploy-ha/09.png)
+    ![Certificats de configuration supplémentaires sur App Service](media/app-service-deploy-ha/09.png)
 
-11. Fournissez les informations de connexion SQL Server en utilisant les informations de connexion SQL Server des sorties de déploiement du modèle de haute disponibilité :
+12. Fournissez les informations de connexion SQL Server en utilisant les informations de connexion SQL Server des sorties de déploiement du modèle de haute disponibilité :
 
-    ![Informations de connexion SQL Server](media/app-service-deploy-ha/10.png)
+    ![Informations de connexion SQL Server sur App Service](media/app-service-deploy-ha/10.png)
 
-12. Étant donné que la machine utilisée pour installer App Service ne se trouve pas sur le même réseau virtuel que le serveur SQL Server utilisé pour héberger les bases de données App Service, vous ne serez pas en mesure de résoudre le nom.  **Ce comportement est normal**.<br><br>Vérifiez que les informations entrées pour le nom SQL Server et les informations relatives aux comptes sont correctes, puis appuyez sur **Oui** pour continuer l’installation d’App Service. Cliquez sur **Suivant**.
+13. Étant donné que la machine utilisée pour installer App Service ne se trouve pas sur le même réseau virtuel que le serveur SQL utilisé pour héberger les bases de données App Service, vous ne pouvez pas résoudre le nom.  **Ce comportement est normal**.<br><br>Vérifiez que les informations entrées pour le nom SQL Server et les informations relatives aux comptes sont correctes, puis appuyez sur **Oui** pour continuer l’installation d’App Service. Cliquez sur **Suivant**.
 
-    ![Informations de connexion SQL Server](media/app-service-deploy-ha/11.png)
+    ![Informations de connexion SQL Server sur App Service](media/app-service-deploy-ha/11.png)
 
-13. Acceptez les valeurs de configuration de rôle par défaut ou remplacez-les par les valeurs recommandées et cliquez sur **Suivant**.<br><br>Nous recommandons de changer les valeurs par défaut pour les instances de rôle d’infrastructure App Service comme suit pour obtenir des configurations hautement disponibles :
+14. Acceptez les valeurs de configuration de rôle par défaut ou remplacez-les par les valeurs recommandées et cliquez sur **Suivant**.<br><br>Nous recommandons de changer les valeurs par défaut pour les instances de rôle d’infrastructure App Service comme suit pour obtenir des configurations hautement disponibles :
 
-    |Rôle|Default|Configuration hautement disponible|
+    |Role|Default|Configuration hautement disponible|
     |-----|-----|-----|
     |Rôle de contrôleur|2|2|
     |Rôle de gestion|1|3|
@@ -213,33 +213,33 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
     |Rôle de worker partagé|1|10|
     |     |     |     |
 
-    ![Valeurs d’instances de rôle d’infrastructure](media/app-service-deploy-ha/12.png)
+    ![Valeurs d’instances de rôle d’infrastructure sur App Service](media/app-service-deploy-ha/12.png)
 
     > [!NOTE]
     > Le remplacement des valeurs par défaut par celles recommandées dans ce tutoriel augmente la configuration matérielle requise pour l’installation d’App Service. Un total de 26 cœurs et 46 592 Mo de RAM sont nécessaires pour prendre en charge les 21 machines virtuelles recommandées au lieu des 18 cœurs par défaut et 32 256 Mo de RAM pour 15 machines virtuelles.
 
-14. Sélectionnez l’image de plateforme à utiliser pour l’installation des machines virtuelles de l’infrastructure App Service et cliquez sur **Suivant** :
+15. Sélectionnez l’image de plateforme à utiliser pour l’installation des machines virtuelles de l’infrastructure App Service et cliquez sur **Suivant** :
 
-    ![Sélection de l’image de plateforme](media/app-service-deploy-ha/13.png)
+    ![Sélection de l’image de plateforme sur App Service](media/app-service-deploy-ha/13.png)
 
-15. Indiquez les informations d’identification de rôle d’infrastructure App Service à utiliser, puis cliquez sur **Suivant** :
+16. Indiquez les informations d’identification de rôle d’infrastructure App Service à utiliser, puis cliquez sur **Suivant** :
 
-    ![Informations d’identification de rôle d’infrastructure](media/app-service-deploy-ha/14.png)
+    ![Informations d'identification de rôle d’infrastructure sur App Service](media/app-service-deploy-ha/14.png)
 
-16. Passez en revue les informations à utiliser pour déployer App Service et cliquez sur **Suivant** pour commencer le déploiement. 
+17. Passez en revue les informations à utiliser pour déployer App Service et cliquez sur **Suivant** pour commencer le déploiement.
 
-    ![Passer en revue le résumé de l’installation](media/app-service-deploy-ha/15.png)
+    ![Passer en revue le résumé de l’installation sur App Service](media/app-service-deploy-ha/15.png)
 
-17. Examinez la progression du déploiement App Service. Cette opération peut prendre plus d’une heure en fonction de votre configuration de déploiement spécifique et du matériel. Une fois le programme d’installation terminé avec succès, sélectionnez **Quitter**.
+18. Examinez la progression du déploiement App Service. Ce déploiement peut prendre plus d’une heure en fonction de votre configuration de déploiement spécifique et du matériel. Une fois le programme d’installation terminé avec succès, sélectionnez **Quitter**.
 
-    ![Installation terminée](media/app-service-deploy-ha/16.png)
+    ![Installation terminée d’App Service](media/app-service-deploy-ha/16.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Ajouter les bases de données appservice_hosting et appservice_metering à un groupe de disponibilité](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) si vous avez spécifié le fournisseur de ressources App Service avec une instance SQL Always On. Synchroniser les bases de données pour éviter toute perte de service en cas de basculement d’une base de données.
+[Ajouter les bases de données appservice_hosting et appservice_metering à un groupe de disponibilité](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) si vous avez spécifié le fournisseur de ressources App Service avec une instance SQL Always On. Synchroniser les bases de données pour éviter toute perte de service en cas de basculement d’une base de données.
 
 [Effectuer un scale-out d’App Service](azure-stack-app-service-add-worker-roles.md). Vous devrez peut-être ajouter d’autres workers de rôle d’infrastructure App Service pour répondre à la demande d’applications attendue dans votre environnement. Par défaut, App Service sur Azure Stack prend en charge les niveaux Worker gratuits et partagés. Pour ajouter d’autres niveaux Worker, vous devez ajouter davantage de rôles de travail.
 
 [Configurer des sources de déploiement](azure-stack-app-service-configure-deployment-sources.md). Une configuration supplémentaire est requise pour prendre en charge le déploiement à la demande à partir de plusieurs fournisseurs de contrôle de code source comme GitHub, BitBucket, OneDrive et DropBox.
 
-[Sauvegarder App Service](app-service-back-up.md). Après avoir déployé et configuré App Service, vous devez vous assurer que tous les composants nécessaires pour la récupération d’urgence sont sauvegardés, afin d’éviter la perte de données et des temps d’arrêt de service inutiles lors des opérations de récupération.
+[Sauvegarder App Service](app-service-back-up.md). Après avoir déployé et configuré App Service, vous devez vous assurer que tous les composants nécessaires pour la récupération d’urgence sont sauvegardés. La sauvegarde de vos composants nécessaires aide à éviter la perte de données et des temps d’arrêt de service inutiles lors des opérations de récupération.

@@ -1,6 +1,6 @@
 ---
 title: Déployer un modèle à partir de la ligne de commande dans Azure Stack | Microsoft Docs
-description: Découvrez comment utiliser l’interface de ligne de commande (CLI) multiplateforme pour déployer des modèles sur Azure Stack.
+description: Découvrez comment utiliser Azure CLI multiplateforme pour déployer des modèles sur Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 92c9189f8144804f36e551ab89d8b4fc4c1f8598
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: da17e80c802e210d53effbad8f264b1a4019e6e0
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691372"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991844"
 ---
 # <a name="deploy-a-template-with-the-command-line-in-azure-stack"></a>Déployer un modèle à partir de la ligne de commande dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Utilisez l’interface de ligne de commande Azure CLI pour déployer des modèles Azure Resource Manager dans Azure Stack. Les modèles Azure Resource Manager déploient et provisionnent les ressources de l’application en une seule opération coordonnée.
+Vous pouvez utiliser Azure CLI pour déployer des modèles Azure Resource Manager dans Azure Stack. Les modèles Azure Resource Manager déploient et provisionnent les ressources de l’application en une seule opération coordonnée.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -55,4 +55,4 @@ az storage account list
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez-en davantage sur le [déploiement de modèles en utilisant PowerShell](azure-stack-deploy-template-powershell.md).
+Découvrez comment [déployer des modèles à l’aide de PowerShell](azure-stack-deploy-template-powershell.md).

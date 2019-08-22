@@ -1,6 +1,6 @@
 ---
 title: Sauvegarder App Service sur Azure Stack | Microsoft Docs
-description: Instructions détaillées pour sauvegarder App Service sur Azure Stack.
+description: Découvrez comment sauvegarder des App Services sur Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 8e8e866efe8de4d4c5d116339edbe81082c6545e
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: b49390434990ac2efb81692c1177c634aee4bab0
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269269"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959525"
 ---
 # <a name="back-up-app-service-on-azure-stack"></a>Sauvegarder App Service sur Azure Stack
 
@@ -34,12 +34,12 @@ Ce document fournit des instructions sur la sauvegarde d’App Service sur Azure
 
 Quand vous planifiez la reprise d’activité après sinistre, vous devez prendre en compte ces quatre composants principaux d’Azure App Service sur Azure Stack :
 1. L’infrastructure du fournisseur de ressources, les rôles serveur, les niveaux de worker, etc. 
-2. Les secrets App Service
-3. Les bases de données App Service hébergées et de contrôlées par SQL Server
-4. Le contenu de la charge de travail utilisateur d’App Service stocké dans le partage de fichiers App Service   
+2. Les secrets App Service.
+3. Les bases de données App Service hébergées et de mesure contrôlées par SQL Server.
+4. Le contenu de la charge de travail utilisateur d’App Service stocké dans le partage de fichiers App Service.
 
 ## <a name="back-up-app-service-secrets"></a>Sauvegarder les secrets App Service
-Quand vous restaurez App Service à partir d’une sauvegarde, vous devez fournir les clés App Service qui ont été utilisées au moment du déploiement initial. Ces clés doivent être enregistrées dès la fin du déploiement d’App Service et stockées à un emplacement sûr. La configuration de l’infrastructure du fournisseur de ressources est recréée à partir de la sauvegarde quand vous effectuez la récupération d’App Service à l’aide des applets de commande PowerShell prévues à cet effet.
+Quand vous restaurez App Service à partir d’une sauvegarde, vous devez fournir les clés App Service qui ont été utilisées au moment du déploiement initial. Ces clés doivent être enregistrées dès la fin du déploiement d’App Service et stockées à un emplacement sûr. La configuration de l’infrastructure du fournisseur de ressources est recréée à partir de la sauvegarde quand vous effectuez la récupération d’App Service à l’aide des cmdlets PowerShell prévues à cet effet.
 
 À partir du portail d’administration, effectuez les étapes suivantes pour sauvegarder les secrets App Service : 
 
@@ -49,11 +49,11 @@ Quand vous restaurez App Service à partir d’une sauvegarde, vous devez fourni
 
 3. Sélectionnez **Télécharger les secrets**.
 
-   ![Télécharger les secrets](./media/app-service-back-up/download-secrets.png)
+   ![Télécharger les secrets dans le portail d’administration Azure Stack](./media/app-service-back-up/download-secrets.png)
 
 4. Quand les secrets sont prêts à être téléchargés, cliquez sur **Enregistrer** et stockez le fichier des secrets App Service (**SystemSecrets.JSON**) à un emplacement sûr. 
 
-   ![Enregistrer les secrets](./media/app-service-back-up/save-secrets.png)
+   ![Enregistrer les secrets dans le portail d’administration Azure Stack](./media/app-service-back-up/save-secrets.png)
 
 > [!NOTE]
 > Répétez ces étapes à chaque changement des secrets App Service.
@@ -61,7 +61,7 @@ Quand vous restaurez App Service à partir d’une sauvegarde, vous devez fourni
 ## <a name="back-up-the-app-service-databases"></a>Sauvegarder les bases de données App Service
 Pour restaurer App Service, vous avez besoin des sauvegardes des bases de données **Appservice_hosting** et **Appservice_metering**. Nous vous recommandons d’utiliser des plans de maintenance SQL Server ou le serveur de sauvegarde Azure pour vous assurer que ces bases de données sont régulièrement sauvegardées et stockées à un emplacement sûr. Toutefois, vous pouvez utiliser toute autre méthode qui garantit la création régulière et la disponibilité de sauvegardes SQL.
 
-Si vous êtes connecté au serveur SQL Server, vous pouvez sauvegarder manuellement ces bases de données à l’aide des commandes PowerShell suivantes :
+Si vous êtes connecté au serveur SQL Server, vous pouvez sauvegarder manuellement ces bases de données à l’aide des commandes PowerShell suivantes :
 
   ```powershell
   $s = "<SQL Server computer name>"
@@ -77,11 +77,11 @@ Si vous êtes connecté au serveur SQL Server, vous pouvez sauvegarder manuellem
 Une fois que vous avez sauvegardé toutes les bases de données, copiez les fichiers .bak et les secrets App Service à un emplacement sûr.
 
 ## <a name="back-up-the-app-service-file-share"></a>Sauvegarder le partage de fichiers App Service
-App Service stocke les informations d’application du locataire dans le partage de fichiers. Vous devez sauvegarder régulièrement ces informations et les bases de données App Service pour limiter le risque de perte de données en cas de restauration. 
+App Service stocke les informations d’application du locataire dans le partage de fichiers. Le partage de fichiers doit être sauvegardé régulièrement, ainsi que les bases de données App Service pour limiter le risque de perte de données en cas de restauration.
 
-Pour sauvegarder le contenu du partage de fichiers App Service, vous pouvez utiliser le serveur de sauvegarde Azure ou une autre méthode de votre choix permettant de copier régulièrement le contenu du partage de fichiers au même emplacement où vous avez enregistré précédemment toutes les informations de récupération. 
+Pour sauvegarder le contenu du partage de fichiers App Service, utilisez le serveur de sauvegarde Azure ou une autre méthode de votre choix permettant de copier régulièrement le contenu du partage de fichiers au même emplacement où vous avez enregistré précédemment toutes les informations de récupération.
 
-Par exemple, effectuez ces étapes pour utiliser robocopy à partir d’une session de console Windows PowerShell (et non PowerShell ISE) :
+Par exemple, effectuez ces étapes pour utiliser Robocopy à partir d’une session de console Windows PowerShell (et non PowerShell ISE) :
 
 ```powershell
 $source = "<file share location>"

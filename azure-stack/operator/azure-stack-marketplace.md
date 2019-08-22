@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: d00f7f90f05eddaeb52555a1759187b8282aaf1a
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.openlocfilehash: be62ddc3c3e5ea7180164cac95edd125030cbc6a
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152503"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959493"
 ---
 # <a name="azure-stack-marketplace-overview"></a>Vue d’ensemble de la Place de Marché Azure Stack
 
@@ -29,7 +29,7 @@ ms.locfileid: "67152503"
 
 Place de marché Azure Stack est une collection de services, d’applications et de ressources personnalisées pour Azure Stack. Les ressources incluent des réseaux, des machines virtuelles, des stockages et ainsi plus. Utilisez Place de marché pour créer des ressources et déployer de nouvelles applications, ou parcourir et sélectionner les éléments que vous souhaitez utiliser. Pour utiliser un élément de Place de Marché, les utilisateurs doivent s’abonner à une offre qui leur accorde l’accès à l’élément.
 
-En tant qu’opérateur Azure Stack, c’est vous qui décidez des éléments à ajouter (publier) dans Place de Marché. Vous pouvez publier des éléments tels que des bases de données, App Services, et ainsi de suite. La publication les rend visibles par tous les utilisateurs. Vous pouvez publier des éléments personnalisés que vous créez. Vous pouvez également publier des éléments à partir d’une [liste croissante d’éléments de Place de marché Azure](azure-stack-marketplace-azure-items.md). Quand vous publiez un élément sur Place de Marché, les utilisateurs peuvent le voir dans les cinq minutes qui suivent.
+En tant qu’opérateur Azure Stack, c’est vous qui décidez des éléments à ajouter (publier) dans Place de Marché. Vous pouvez publier des éléments tels que des bases de données, App Services, et bien plus. La publication rend ces éléments visibles par tous les utilisateurs. Vous pouvez publier des éléments personnalisés que vous créez. Vous pouvez également publier des éléments à partir d’une [liste croissante d’éléments de Place de marché Azure](azure-stack-marketplace-azure-items.md). Quand vous publiez un élément sur Place de Marché, les utilisateurs peuvent le voir dans les cinq minutes qui suivent.
 
 > [!CAUTION]  
 > Tous les artefacts d’élément, y compris les images et fichiers JSON, sont accessibles sans authentification une fois disponibles sur Place de marché Azure Stack. Pour plus d’informations sur la publication d’éléments de marketplace personnalisés, consultez [Créer et publier un article de la Place de marché](azure-stack-create-and-publish-marketplace-item.md).
@@ -40,7 +40,7 @@ Pour ouvrir Place de marché, dans la console d’administration, sélectionnez 
 
 ## <a name="marketplace-items"></a>Éléments du Marketplace
 
-Un élément Place de Marché Azure Stack est un service, une application ou une ressource que vos utilisateurs peuvent télécharger et utiliser. Tous les éléments Place de Marché Azure Stack sont visibles par tous les utilisateurs, y compris les éléments d’administration comme les plans et les offres. L'affichage de ces éléments ne requièrent pas d'abonnement, mais ils ne fonctionnent pas avec les utilisateurs.
+Un élément Place de Marché Azure Stack est un service, une application ou une ressource que vos utilisateurs peuvent télécharger et utiliser. Tous les éléments Place de Marché Azure Stack sont visibles par tous les utilisateurs, y compris les éléments d’administration comme les plans et les offres. L'affichage de ces éléments d’administration ne nécessite pas d'abonnement, mais ils ne fonctionnent pas avec les utilisateurs.
 
 Chaque élément du Marketplace comporte :
 

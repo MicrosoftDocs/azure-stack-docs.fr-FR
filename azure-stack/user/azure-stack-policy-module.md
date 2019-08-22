@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: fdb17c1f8f7fd183b4542a1a0417b6880a8afe9b
-ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
+ms.openlocfilehash: c0872c598cc621250c3b2c5d39aca0e392f71b29
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67816155"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991612"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Gérer la stratégie Azure à l’aide du module de stratégie Azure Stack
 
@@ -35,14 +35,13 @@ Le module de stratégie Azure Stack vous permet de configurer un abonnement Azur
 3. [Configurez PowerShell pour une utilisation avec Azure Stack](azure-stack-powershell-configure-user.md).
 4. Importez le module *AzureStack.Policy.psm1* :
 
-
    ```powershell
    Import-Module .\Policy\AzureStack.Policy.psm1
    ```
 
 ## <a name="apply-policy-to-azure-subscription"></a>Appliquer la stratégie à l’abonnement Azure
 
-Vous pouvez utiliser la commande suivante pour appliquer une stratégie Azure Stack par défaut à votre abonnement Azure. Avant d’exécuter cette commande, remplacez `Azure subscription name` par le nom de votre abonnement Azure :
+Vous pouvez utiliser les commandes suivantes pour appliquer une stratégie Azure Stack par défaut à votre abonnement Azure. Avant d’exécuter ces commandes, remplacez `Azure subscription name` par le nom de votre abonnement Azure :
 
 ```powershell
 Add-AzureRmAccount
@@ -54,7 +53,7 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 
 ## <a name="apply-policy-to-a-resource-group"></a>Appliquer la stratégie à un groupe de ressources
 
-Vous souhaiterez peut-être appliquer des stratégies plus granulaires. Par exemple, vous pourriez avoir d’autres ressources en cours d’exécution dans le même abonnement. Vous pouvez limiter l’application de la stratégie à un groupe de ressources spécifique, ce qui vous permet de tester vos applications pour Azure Stack à l’aide de ressources Azure. Avant d’exécuter la commande suivante, remplacez `Azure subscription name` par le nom de votre abonnement Azure :
+Vous souhaiterez peut-être appliquer des stratégies plus granulaires. Par exemple, vous pourriez avoir d’autres ressources en cours d’exécution dans le même abonnement. Vous pouvez limiter l’application de la stratégie à un groupe de ressources spécifique, ce qui vous permet de tester vos applications pour Azure Stack à l’aide de ressources Azure. Avant d’exécuter les commandes suivantes, remplacez `Azure subscription name` par le nom de votre abonnement Azure :
 
 ```powershell
 Add-AzureRmAccount

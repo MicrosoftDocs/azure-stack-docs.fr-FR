@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: ca303590d4dc923380e10e50fc9b8b9ce2e5aac6
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: f3f2b715206c834d2c24685b57c068b53cc7020a
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842958"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991690"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Gérer Key Vault dans Azure Stack à l’aide de PowerShell
 
@@ -43,7 +43,7 @@ Cet article explique comment créer et gérer un coffre de clés dans Azure Stac
 
 ## <a name="enable-your-tenant-subscription-for-key-vault-operations"></a>Activer votre abonnement de locataire pour les opérations Key Vault
 
-Avant de pouvoir exécuter des opérations sur un coffre de clés, vous devez vérifier que votre abonnement de locataire est activé pour les opérations de coffre. Pour vérifier que les opérations de coffre sont activées, exécutez la commande suivante :
+Avant de pouvoir exécuter des opérations sur un coffre de clés, vous devez vérifier que votre abonnement de locataire est activé pour les opérations de coffre. Pour vérifier que les opérations de coffre de clés sont activées, exécutez la commande suivante :
 
 ```powershell  
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
@@ -75,7 +75,7 @@ New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
 
 ![Nouveau groupe de ressources généré dans PowerShell](media/azure-stack-key-vault-manage-powershell/image3.png)
 
-Maintenant, utilisez la commande **New-AzureRMKeyVault** pour créer un coffre de clés dans le groupe de ressources que vous venez de créer. Cette commande lit trois paramètres obligatoires : le nom du groupe de ressources, le nom du coffre de clés et l’emplacement géographique.
+Maintenant, utilisez la cmdlet **New-AzureRMKeyVault** pour créer un coffre de clés dans le groupe de ressources que vous avez créé plus tôt. Cette commande lit trois paramètres obligatoires : le nom du groupe de ressources, le nom du coffre de clés et l’emplacement géographique.
 
 Exécutez la commande suivante pour créer un coffre de clés :
 
@@ -154,7 +154,7 @@ Après avoir créé les clés et les secrets, vous pouvez autoriser des apps ext
 
 Utilisez la commande **Set-AzureRmKeyVaultAccessPolicy** pour autoriser une app à accéder à une clé ou à un secret dans le coffre de clés.
 
-Dans l’exemple suivant, le nom du coffre est *ContosoKeyVault* et l’ID client de l’app que vous voulez autoriser est *8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed*. Pour autoriser l’app, exécutez la commande suivante. Vous pouvez également spécifier le paramètre **PermissionsToKeys** pour définir des autorisations pour un utilisateur, une app ou un groupe de sécurité.
+Dans l’exemple suivant, le nom du coffre est **ContosoKeyVault** et l’ID client de l’app que vous voulez autoriser est **8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed**. Pour autoriser l’app, exécutez la commande suivante. Vous pouvez également spécifier le paramètre **PermissionsToKeys** pour définir des autorisations pour un utilisateur, une app ou un groupe de sécurité.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
