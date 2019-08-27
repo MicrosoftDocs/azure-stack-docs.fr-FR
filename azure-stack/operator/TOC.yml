@@ -10,10 +10,6 @@
       href: compare-azure-azure-stack.md
     - name: Notes de publication
       items:
-        - name: Mises à jour et stratégie de maintenance
-          href: azure-stack-servicing-policy.md
-        - name: Check-list pour appliquer les mises à jour
-          href: azure-stack-release-notes-checklist.md
         - name: Mises à jour de sécurité
           href: azure-stack-release-notes-security-updates-1907.md
         - name: "Mise à jour\_1907"
@@ -171,12 +167,22 @@
           items:
             - name: Gérer la vue d’ensemble des mises à jour
               href: azure-stack-updates.md
+            - name: Mises à jour et stratégie de maintenance
+              href: azure-stack-servicing-policy.md
+            - name: Check-list pour appliquer les mises à jour
+              href: azure-stack-release-notes-checklist.md
+            - name: Planifier la mise à jour
+              href: azure-stack-update-plan.md
+            - name: Préparer le package de mise à jour
+              href: azure-stack-update-prepare-package.md
             - name: Appliquer des mises à jour
-              href: azure-stack-apply-updates.md
-            - name: Appliquer les mises à jour OEM
-              href: azure-stack-update-oem.md
+              items:
+                - name: Appliquer des mises à jour
+                  href: azure-stack-apply-updates.md
+                - name: Appliquer les mises à jour OEM
+                  href: azure-stack-update-oem.md
             - name: Surveiller le statut de mise à jour
-              href: azure-stack-monitor-update.md
+              href: azure-stack-update-monitor.md
         - name: Surveiller l’intégrité et les alertes
           href: azure-stack-monitor-health.md
         - name: Gérer des ressources réseau
