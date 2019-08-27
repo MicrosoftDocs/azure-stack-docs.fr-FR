@@ -1,6 +1,6 @@
 ---
-title: Récupérer App Service sur Azure Stack | Microsoft Docs
-description: Instructions détaillées pour la reprise d’activité après sinistre d’App Service sur Azure Stack
+title: Récupération d’App Service sur Azure Stack | Microsoft Docs
+description: En savoir plus sur la récupération d’urgence pour App Service sur Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,23 +16,23 @@ ms.date: 03/21/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: c302ad1188d52c86d2d42734fa9061820268d420
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 82498781e83aedf13a3ba33da24f484bc7e80d4b
+ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269216"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69579029"
 ---
-# <a name="recovery-of-app-service-on-azure-stack"></a>Récupérer App Service sur Azure Stack
+# <a name="app-service-recovery-on-azure-stack"></a>Récupération d’App Service sur Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*  
 
-Ce document fournit des instructions sur les actions à entreprendre pour la reprise d’activité après sinistre d’App Service.
+Cette rubrique fournit des instructions sur les actions à entreprendre pour la reprise d’activité après sinistre d’App Service.
 
 Les actions suivantes sont nécessaires pour récupérer App Service sur Azure Stack à partir d’une sauvegarde :
-1.  Restaurer les bases de données App Service
-2.  Restaurer le contenu du partage de fichiers du serveur
-3.  Restaurer les services et les rôles App Service
+1. Restaurer les bases de données App Service.
+2. Restaurer le contenu du partage du serveur de fichiers.
+3. Restaurer les services et les rôles App Service.
 
 Si le stockage Azure Stack a été utilisé pour le stockage des applications de fonction, vous devez également prendre des mesures pour restaurer ces applications.
 
@@ -50,7 +50,7 @@ Après la [préparation de l’instance SQL Server](azure-stack-app-service-befo
 3. Vérifiez que les deux bases de données App Service ont été correctement restaurées, puis quittez SQL Server Management Studio.
 
 > [!NOTE]
-> Pour effectuer une reprise après l’échec d’une instance du cluster de basculement, consultez [ces instructions](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017). 
+> Pour récupérer après un échec d’instance de cluster de basculement, consultez [Récupérer après un échec d’instance de cluster de basculement](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017). 
 
 ## <a name="restore-the-app-service-file-share-content"></a>Restaurer le contenu du partage de fichiers App Service
 Après la [préparation du serveur de fichiers](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server) devant héberger le partage de fichiers App Service, vous devez restaurer le contenu du partage de fichiers du locataire à partir d’une sauvegarde. Vous pouvez utiliser n’importe quelle méthode disponible pour copier les fichiers à l’emplacement du nouveau partage de fichiers App Service. Cet exemple exécuté sur le serveur de fichiers utilise PowerShell et l’outil robocopy pour établir une connexion à un partage distant et copier les fichiers sur le partage :
@@ -63,15 +63,15 @@ robocopy /E $source $destination
 net use $source /delete
 ```
 
-En plus de copier le contenu du partage de fichiers, vous devez aussi réinitialiser les autorisations sur le partage de fichiers. Pour ce faire, ouvrez une invite de commandes avec des autorisations d’administrateur sur le serveur de fichiers et exécutez le fichier **ReACL.cmd**. Le fichier **ReACL.cmd** se trouve avec les fichiers d’installation d’App Service dans le répertoire **BCDR**.
+En plus de copier le contenu du partage de fichiers, vous devez aussi réinitialiser les autorisations sur le partage de fichiers. Pour réinitialiser les autorisations, ouvrez une invite de commandes avec des autorisations d’administrateur sur le serveur de fichiers et exécutez le fichier **ReACL.cmd**. Le fichier **ReACL.cmd** se trouve avec les fichiers d’installation d’App Service dans le répertoire **BCDR**.
 
 ## <a name="restore-app-service-roles-and-services"></a>Restaurer les services et les rôles App Service
-Une fois que le contenu du partage de fichiers et les bases de données App Service ont été restaurés, vous devez restaurer les rôles et les services App Service à l’aide de PowerShell. Ces étapes restaurent les configurations du service et les secrets App Service.  
+Une fois que le contenu du partage de fichiers et les bases de données App Service sont restaurés, vous devez restaurer les rôles et les services App Service à l’aide de PowerShell. Ces étapes restaurent les configurations du service et les secrets App Service.  
 
 1. Connectez-vous à la machine virtuelle **CN0-VM** du contrôleur App Service en tant que **roleadmin**, en utilisant le même mot de passe que celui fourni lors de l’installation d’App Service. 
     > [!TIP]
     > Vous devez modifier le groupe de sécurité réseau de la machine virtuelle afin d’autoriser les connexions RDP. 
-2. Copiez le fichier **SystemSecrets.JSON** sur la machine virtuelle locale du contrôleur. Vous allez entrer le chemin de ce fichier comme paramètre `$pathToExportedSecretFile` à l’étape suivante. 
+2. Copiez le fichier **SystemSecrets.JSON** sur la machine virtuelle locale du contrôleur. Vous devez entrer le chemin de ce fichier comme paramètre `$pathToExportedSecretFile` à l’étape suivante.
 3. Exécutez les commandes suivantes dans une fenêtre de console PowerShell avec élévation de privilèges pour restaurer les services et les rôles App Service :
 
     ```powershell
@@ -102,10 +102,10 @@ Une fois que le contenu du partage de fichiers et les bases de données App Serv
     ```
 
 > [!TIP]
-> Vous devez fermer cette session PowerShell à la fin de la commande.
+> Il est fortement recommandé de fermer cette session PowerShell à la fin de la commande.
 
 ## <a name="restore-function-apps"></a>Restaurer des applications de fonction 
-App Service pour Azure Stack ne prend pas en charge la restauration des applications utilisateur de locataire ou des données autres que le contenu du partage de fichiers. Par conséquent, ces applications et données doivent être sauvegardées et restaurées en dehors des processus de sauvegarde et de restauration d’App Service. Si le stockage Azure Stack a été utilisé pour le stockage des applications de fonction, vous pouvez restaurer des données perdues en effectuant les étapes suivantes :
+App Service pour Azure Stack ne prend pas en charge la restauration des applications utilisateur de locataire ou des données autres que le contenu du partage de fichiers. Toutes les autres données doivent être sauvegardées et restaurées en dehors des processus de sauvegarde et de restauration d’App Service. Si le stockage Azure Stack a été utilisé pour le stockage des applications de fonction, vous pouvez restaurer des données perdues en effectuant les étapes suivantes :
 
 1. Créez un compte de stockage qui sera utilisé par l’application de fonction. Ce stockage peut être un stockage Azure Stack, un stockage Azure ou tout autre stockage compatible.
 2. Récupérez la chaîne de connexion du stockage.

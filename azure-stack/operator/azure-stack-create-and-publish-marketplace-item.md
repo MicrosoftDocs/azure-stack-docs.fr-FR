@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/20/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 24fc0f7993001ce95a21e175c84f37d755a5ce6c
-ms.sourcegitcommit: ec38ec569ad2193369c438f55e5c190aa5f0efd5
+ms.openlocfilehash: b9e1e9a1cdd0afe18a5395c99fb2eef932791667
+ms.sourcegitcommit: 1a8ebd8103608b5ee9e804d7015eefe05ef55185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68956601"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69643849"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Créer et publier un article de la Place de marché
 
@@ -55,7 +55,7 @@ ms.locfileid: "68956601"
    >
    >
 
-8. Dans le fichier **Manifest.json**, remplacez le **nom** par celui de votre article de Place de marché. Modifiez également **l’éditeur** en indiquant votre nom ou votre société.
+8. Dans le fichier **Manifest.json**, remplacez le **nom** par celui de votre article de Place de marché. Modifiez également **l’éditeur** en indiquant votre nom ou votre société. Avant de publier l’image, mettez à jour le fichier manifest.json et mettez à jour cette ligne : « name » : « xxx ». Veillez à utiliser un nom différent pour chaque version de l’image.
 9. Sous **artefacts**, remplacez le **nom** et le **chemin d’accès** par les informations correctes du modèle Azure Resource Manager que vous avez inclus :
 
    ```json

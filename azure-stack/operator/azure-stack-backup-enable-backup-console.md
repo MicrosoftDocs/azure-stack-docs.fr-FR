@@ -12,16 +12,16 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: eefd393fa12814260711590f028c9a787811d8af
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 08/21/2019
+ms.openlocfilehash: d3ac538109f48e38f6483cd1ecae4896f1d3e635
+ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269027"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896382"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Activer la sauvegarde d’Azure Stack à partir du portail d’administration
 Activez le service Infrastructure Backup sur le portail d’administration afin qu’Azure Stack puisse générer des sauvegardes de l’infrastructure. Le partenaire matériel peut utiliser ces sauvegardes pour restaurer votre environnement par récupération cloud en cas [d’erreur grave](./azure-stack-backup-recover-data.md). L’objectif d’une récupération cloud est de s’assurer que les opérateurs et utilisateurs peuvent se reconnecter au portail une fois la récupération terminée. Les abonnements des utilisateurs sont restaurés : rôles et autorisations d’accès en fonction du rôle, plans et offres d’origine, quotas de calcul, de stockage et de réseau définis précédemment et secrets Key Vault.
@@ -53,7 +53,7 @@ Les administrateurs et utilisateurs sont responsables de la sauvegarde et de la 
     > [!Note]  
     > Si vous souhaitez archiver les sauvegardes antérieures à la période de rétention, veillez à sauvegarder les fichiers avant que le planificateur supprime les sauvegardes. Si vous réduisez la période de rétention de sauvegarde (par exemple, de 7 à 5 jours), le planificateur supprime toutes les sauvegardes antérieures à la nouvelle période de rétention. Confirmez que vous acceptez la suppression des sauvegardes avant de mettre à jour cette valeur. 
 
-9. Dans les paramètres de chiffrement, indiquez un certificat dans la zone de fichier .cer Certificat. Les fichiers de sauvegarde sont chiffrés avec cette clé publique dans le certificat. Le certificat spécifié lors de la configuration des paramètres de sauvegarde ne doit comporter que la partie clé publique. Une fois ce certificat défini pour la première fois ou modifié par la suite, seule son empreinte numérique est visible. Il n’est pas possible de télécharger ou d’afficher le fichier de certificat chargé. Pour créer le fichier de certificat, exécutez la commande PowerShell suivante, qui permet de créer un certificat auto-signé avec les clés publique et privée et d’exporter un certificat ne comportant que la partie clé publique.
+9. Dans les paramètres de chiffrement, indiquez un certificat dans la zone de fichier .cer Certificat. Les fichiers de sauvegarde sont chiffrés avec cette clé publique dans le certificat. Le certificat spécifié lors de la configuration des paramètres de sauvegarde ne doit comporter que la partie clé publique. Une fois ce certificat défini pour la première fois ou modifié par la suite, seule son empreinte numérique est visible. Il n’est pas possible de télécharger ou d’afficher le fichier de certificat chargé. Pour créer le fichier de certificat, exécutez la commande PowerShell suivante, qui permet de créer un certificat auto-signé avec les clés publique et privée et d’exporter un certificat ne comportant que la partie clé publique. Vous pouvez placer le certificat partout où il est accessible à partir du portail administrateur.
 
     ```powershell
 
@@ -118,7 +118,7 @@ Les nouvelles sauvegardes commenceront à utiliser la clé publique dans le nouv
 ![Azure Stack – voir l’empreinte numérique du certificat](media/azure-stack-backup/encryption-settings-thumbprint.png)
 
 ### <a name="backwards-compatibility-mode"></a>Mode de compatibilité descendante
-Si vous avez configuré la sauvegarde avant le passage à la version 1901, les paramètres sont transférés sans aucun changement de comportement. Dans ce cas, la clé de chiffrement est prise en charge par compatibilité descendante. Vous pouvez mettre à jour la clé de chiffrement ou bien utiliser un certificat. Vous aurez au moins trois versions pour poursuivre la mise à jour de la clé de chiffrement. Profitez de ce laps de temps pour passer à un certificat. Pour créer une nouvelle clé de chiffrement, utilisez la [cmdlet New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
+Si vous avez configuré la sauvegarde avant le passage à la version 1901, les paramètres sont transférés sans aucun changement de comportement. Dans ce cas, la clé de chiffrement est prise en charge par compatibilité descendante. Vous pouvez mettre à jour la clé de chiffrement ou le commutateur pour utiliser un certificat. Vous aurez au moins trois versions pour poursuivre la mise à jour de la clé de chiffrement. Profitez de ce laps de temps pour passer à un certificat. Pour créer une clé de chiffrement, utilisez [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
 
 ![Azure Stack – utiliser la clé de chiffrement en mode de compatibilité descendante](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
 

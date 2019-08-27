@@ -1,6 +1,6 @@
 ---
-title: Architecture du Kit de développement Azure Stack | Microsoft Docs
-description: Décrit l’architecture du Kit de développement Azure Stack (ASDK).
+title: Architecture ASDK | Microsoft Docs
+description: En savoir plus sur l’architecture du Kit de développement Azure Stack (ASDK).
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,14 +16,14 @@ ms.date: 06/28/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 4cd20ed4c76b062ea2fcfdf3d314ef2bcdecaff0
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 5a34061b1fa6cd30f3bbf9f9780b13c01f0a4866
+ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492346"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69579088"
 ---
-# <a name="microsoft-azure-stack-development-kit-architecture"></a>Architecture du Kit de développement Microsoft Azure Stack
+# <a name="asdk-architecture"></a>Architecture de l’ASDK
 Le Kit de développement Azure Stack (ASDK) est un déploiement à nœud unique d’Azure Stack qui s'exécute sur un seul ordinateur hôte. Des composants de routage Edge sont installés sur l’ordinateur hôte afin de fournir des fonctionnalités NAT et VPN pour Azure Stack. Les rôles d’infrastructure Azure Stack s’exécutent dans la couche Hyper-V de l’ordinateur hôte physique.
 
 
@@ -41,10 +41,10 @@ L’ASDK propose des services à l’aide des machines virtuelles suivantes qui 
 | **AzS-NC01** | Contrôleur réseau qui gère les services réseau Azure Stack.  |
 | **AzS-SLB01** | Services multiplexeur d’équilibrage de charge dans Azure Stack pour les clients et les services d’infrastructure Azure Stack.  |
 | **AzS-SQL01** | Magasin de données interne pour les rôles d’infrastructure Azure Stack.  |
-| **AzS-WAS01** | Portail d’administration Azure Stack et services Azure Resource Manager.|
+| **AzS-WAS01** | Portail administrateur Azure Stack et services Azure Resource Manager.|
 | **AzS-WASP01**| Portail utilisateur (locataire) Azure Stack et services Azure Resource Manager.|
 | **AzS-XRP01** | Contrôleur de gestion d’infrastructure pour Microsoft Azure Stack, notamment les fournisseurs de ressources Calcul, Réseau et Stockage.|
 | **AzS-SRNG01** | Machine virtuelle de prise en charge qui héberge le service de collecte des journaux pour Azure Stack. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-[En savoir plus sur les tâches d’administration de base de l’ASDK](asdk-admin-basics.md)
+[En savoir plus sur les tâches d’administration de base ASDK](asdk-admin-basics.md)

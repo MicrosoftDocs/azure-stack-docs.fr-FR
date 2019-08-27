@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 41d07532960776cd5ed9312007877489e9ebbf20
-ms.sourcegitcommit: 83d9dbecd7334f37862e47ca028a50f8d7dafe2d
+ms.openlocfilehash: 0b305f07344540555b444017a04c1002bb8a08a8
+ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68738322"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896343"
 ---
 # <a name="azure-stack-1907-known-issues"></a>Problèmes connus dans Azure Stack 1907
 
@@ -107,6 +107,12 @@ Cet article répertorie les problèmes connus dans la version 1907 d’Azure St
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Dans le portail utilisateur, le panneau **Connexions** montre une fonctionnalité appelée **Résolution des problèmes de VPN**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
 - Occurrence : Courant
+
+### <a name="network-connection-type"></a>Type de connexion réseau
+
+- Champ d’application : Ce problème s’applique aux environnements 1906 et 1907. 
+- Cause : Dans le portail administrateur, le panneau **AddConnection** affiche une option permettant d’utiliser **VNet-to-VNet**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack. 
+- Occurrence : Courant 
 
 #### <a name="documentation"></a>Documentation
 

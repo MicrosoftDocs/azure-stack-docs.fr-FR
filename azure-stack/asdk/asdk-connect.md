@@ -1,6 +1,6 @@
 ---
-title: Se connecter à Azure Stack | Microsoft Docs
-description: Découvrez comment vous connecter à ASDK.
+title: Se connecter à ASDK | Microsoft Docs
+description: Découvrez comment se connecter au Kit de développement Azure Stack (ASDK).
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,38 +16,38 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9a16201db137e7f34b42a0b12bbe802d3b10bdff
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 3f1dd0d7efa2aa9549f65ef97ebb7a589949154b
+ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267214"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69579135"
 ---
 # <a name="connect-to-the-asdk"></a>Se connecter à l’ASDK
 
 Pour gérer des ressources, vous devez d’abord vous connecter au Kit de développement Azure Stack (ADSK). Dans cet article, nous décrivons les étapes à suivre pour se connecter à ce Kit de développement en utilisant les options de connexion suivantes :
 
-* [Connexion Bureau à distance (RDP)](#connect-with-rdp). Lorsque vous vous connectez à l’aide de la connexion Bureau à distance, un seul utilisateur peut se connecter rapidement au kit de développement.
-* [Réseau privé virtuel (VPN)](#connect-with-vpn). Lorsque vous vous connectez à l’aide d’un VPN, plusieurs utilisateurs peuvent se connecter simultanément aux portails Azure Stack à partir de clients situés en dehors de l’infrastructure Azure Stack. Une connexion VPN nécessite une configuration.
+* [Connexion Bureau à distance (RDP)](#connect-with-rdp) : lorsque vous vous connectez à l’aide de la connexion Bureau à distance, un seul utilisateur peut se connecter rapidement au Kit de développement Azure Stack (ASDK).
+* [Réseau privé virtuel (VPN)](#connect-with-vpn) : Lorsque vous vous connectez à l’aide d’un VPN, plusieurs utilisateurs peuvent se connecter simultanément aux portails Azure Stack à partir de clients situés en dehors de l’infrastructure Azure Stack. Une connexion VPN nécessite une configuration.
 
 <a name="connect-with-rdp"></a>
 ## <a name="connect-to-azure-stack-using-rdp"></a>Se connecter à Azure Stack avec RDP
 
-Un seul utilisateur simultané peut gérer les ressources dans le portail d’administration Azure Stack ou le portail de l’utilisateur par le biais d’une connexion Bureau à distance directement à partir de l’ordinateur hôte ASDK. 
+Un seul utilisateur simultané peut gérer les ressources dans le portail administrateur Azure Stack ou le portail utilisateur par le biais d’une connexion Bureau à distance directement à partir de l’ordinateur hôte ASDK.
 
 > [!TIP]
-> Cette option vous permet également de réutiliser RDP en étant connecté à l’ordinateur hôte ASDK pour vous connecter aux machines virtuelles créées sur l’ordinateur hôte ASDK. 
+> Cette option vous permet également de réutiliser RDP en étant connecté à l’ordinateur hôte ASDK pour vous connecter aux machines virtuelles créées sur l’ordinateur hôte ASDK.
 
-1. Ouvrez une connexion Bureau à distance (mstc.exe) et connectez-vous à l’adresse IP de l’ordinateur hôte du kit de développement à l’aide d’un compte autorisé à se connecter à distance à l’ordinateur hôte ASDK. Par défaut, **AzureStack\AzureStackAdmin** dispose des autorisations de connexion à distance à l’ordinateur hôte ASDK.  
+1. Ouvrez Connexion Bureau à distance (mstc.exe) et connectez-vous à l’adresse IP de l’ordinateur hôte ASDK. Veillez à utiliser un compte autorisé à se connecter à distance à l’ordinateur hôte ASDK. Par défaut, **AzureStack\AzureStackAdmin** dispose des autorisations de connexion à distance à l’ordinateur hôte ASDK.  
 
-2. Sur l’ordinateur hôte du kit de développement, ouvrez le Gestionnaire de serveur (ServerManager.exe). Sélectionnez **Serveur local**, désactiver **Configuration de sécurité renforcée d’Internet Explorer**, puis fermez le Gestionnaire de serveur.
+2. Sur l’ordinateur hôte ASDK, ouvrez le gestionnaire de serveur (ServerManager.exe). Sélectionnez **Serveur local**, désactiver **Configuration de sécurité renforcée d’Internet Explorer**, puis fermez le Gestionnaire de serveur.
 
-3. Connectez-vous au portail d’administration en tant que **AzureStack\CloudAdmin** ou utilisez d’autres informations d’identification de l’opérateur d’Azure Stack. L’adresse du portail d’administration d’ASDK est [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
+3. Connectez-vous au portail administrateur en tant que **AzureStack\CloudAdmin** ou utilisez d’autres informations d’identification de l’opérateur d’Azure Stack. L’adresse du portail administrateur ASDK est [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
 
 4. Connectez-vous au portail utilisateur en tant que **AzureStack\CloudAdmin** ou utilisez d’autres informations d’identification de l’utilisateur d’Azure Stack. L’adresse du portail utilisateur d’ASDK est [https://portal.local.azurestack.external](https://portal.local.azurestack.external).
 
 > [!NOTE]
-> Pour savoir quand utiliser quel compte, consultez [Informations de base sur l’administration de l’ASDK](asdk-admin-basics.md#what-account-should-i-use).
+> Pour plus d’informations sur quand utiliser quel compte, consultez [Informations de base sur l’administration du kit de développement Azure Stack](asdk-admin-basics.md#what-account-should-i-use).
 
 <a name="connect-with-vpn"></a>
 ## <a name="connect-to-azure-stack-using-vpn"></a>Se connecter à Azure Stack avec un VPN
@@ -60,7 +60,7 @@ La connectivité VPN est prise en charge dans les déploiements Azure AD et Acti
 > Une connexion VPN ne fournit *pas* de connectivité aux machines virtuelles Azure Stack. Vous ne pourrez pas établir de connexion RDP aux machines virtuelles Azure Stack en étant connecté par le biais d’un VPN.
 
 ### <a name="prerequisites"></a>Prérequis
-Avant de configurer une connexion VPN à l’ASDK, vérifiez que les conditions préalables suivantes sont réunies.
+Avant de configurer une connexion VPN à l’ASDK, vérifiez que les conditions préalables suivantes sont réunies :
 
 - Installez [Azure PowerShell pour Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) sur votre ordinateur local.  
 - Téléchargez les [outils nécessaires pour utiliser Azure Stack](asdk-post-deploy.md#download-the-azure-stack-tools).
@@ -81,7 +81,7 @@ Set-ExecutionPolicy RemoteSigned
 # Import the Connect module.
 Import-Module .\Connect\AzureStack.Connect.psm1
 
-# Add the development kit host computer's IP address as the ASDK certificate authority (CA) to the list of trusted hosts. Make sure you update the IP address and password values for your environment.
+# Add the ASDK host computer's IP address as the ASDK certificate authority (CA) to the list of trusted hosts. Make sure you update the IP address and password values for your environment.
 
 $hostIP = "<Azure Stack host IP address>"
 
@@ -101,7 +101,7 @@ Add-AzsVpnConnection `
 
 ```
 
-Si la configuration réussit, **Azure Stack** apparaît dans votre liste des connexions VPN.
+Si la configuration réussit, **Azure Stack** apparaît dans votre liste des connexions VPN :
 
 ![Connexions réseau](media/asdk-connect/vpn.png)  
 
@@ -127,7 +127,7 @@ La première fois que vous vous connectez, vous êtes invité à installer le ce
 
 ### <a name="test-vpn-connectivity"></a>Connectivité VPN de test
 
-Pour tester la connexion au portail, ouvrez un navigateur web, puis accédez au portail utilisateur (https://portal.local.azurestack.external/)) ou au portail d’administration (https://adminportal.local.azurestack.external/)). 
+Pour tester la connexion au portail, ouvrez un navigateur, puis accédez au portail utilisateur (https://portal.local.azurestack.external/) ) ou au portail administrateur (https://adminportal.local.azurestack.external/) ). 
 
 Connectez-vous avec les informations d’identification de l’abonnement approprié pour créer et gérer des ressources.  
 

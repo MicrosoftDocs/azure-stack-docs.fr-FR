@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/21/2019
+ms.date: 08/20/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 3352df80a64bb259320a49729e42c02cb19fca58
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 08/20/2019
+ms.openlocfilehash: 291042e0a7af78ed2431c901901e7e44b1f05de1
+ms.sourcegitcommit: fc7da38321736e952b2cc6d5d07f276d095dc8d1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267602"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69887140"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>Préparer l’ordinateur hôte de l’ASDK
 Avant de pouvoir installer le kit ASDK sur l’ordinateur hôte, vous devez préparer l’hôte ASDK. Une fois préparé, l’ordinateur hôte du kit de développement Azure Stack démarre à partir du disque dur de la machine virtuelle CloudBuilder.vhdx pour commencer le déploiement du kit.
@@ -49,29 +49,38 @@ Avant de pouvoir installer le kit ASDK sur l’ordinateur hôte, vous devez pré
 
 4. Depuis une console PowerShell avec élévation de privilèges, lancez le script **C:\AzureStack_Installer\asdk-installer.ps1**, puis cliquez sur **Préparer l’environnement**.
 
-    ![](media/asdk-prepare-host/1.PNG) 
+    ![Capture d’écran de Préparer l’environnement](media/asdk-prepare-host/1.PNG) 
 
 5. Dans la page **Sélectionner Cloudbuilder.vhdx** du programme d’installation, sélectionnez le fichier **cloudbuilder.vhdx** que vous avez téléchargé et extrait dans les [étapes précédentes](asdk-download.md). Dans cette page, vous pouvez également (si vous le souhaitez) cocher la case **Ajouter des pilotes** si vous avez besoin de pilotes supplémentaires sur l’ordinateur hôte du kit de développement. Cliquez sur **Suivant**.  
 
-    ![](media/asdk-prepare-host/2.PNG)
+    ![Capture d’écran de Select Cloudbuilder.vhdx](media/asdk-prepare-host/2.PNG)
 
 6. Dans la page **Paramètres facultatifs**, entrez les informations d’identification du compte d’administrateur local de l’ordinateur hôte du kit de développement, puis cliquez sur **Suivant**.<br><br>Si vous ne fournissez pas ces informations d’identification, vous aurez besoin d’un accès KVM ou direct à l’hôte après le redémarrage de l’ordinateur, dans le cadre de la procédure de configuration du kit de développement.
 
-   ![](media/asdk-prepare-host/3.PNG)
+   ![Capture d’écran des paramètres facultatifs](media/asdk-prepare-host/3.PNG)
 
     Vous pouvez également fournir des valeurs pour les paramètres facultatifs suivants :
     - **Nom de l'ordinateur** : cette option définit le nom de l'hôte du kit de développement. Le nom doit respecter les spécifications des noms de domaine complets et ne pas dépasser 15 caractères. La valeur par défaut est un nom d’ordinateur aléatoire généré par Windows.
     - **Configuration IP statique** : indique que votre déploiement doit utiliser une adresse IP statique. Dans le cas contraire, quand le programme d’installation redémarre dans cloudbuilder.vhdx, les interfaces réseau sont configurées avec DHCP. Si vous choisissez d’utiliser une configuration IP statique, des options supplémentaires s’affichent, ce qui vous oblige à effectuer les étapes suivantes :
       - Sélectionner une carte réseau. Vérifiez que vous pouvez vous connecter à la carte avant de cliquer sur **Suivant**.
-      - Vérifiez que les valeurs affichées pour **Adresse IP**, **Passerelle** et **DNS** sont correctes, puis cliquez sur **Suivant**.
-13. Cliquez sur **Suivant** pour démarrer le processus de préparation.
-14. Quand la préparation indique **Terminé**, cliquez sur **Suivant**.
 
-    ![](media/asdk-prepare-host/4.PNG)
+        ![Capture d’écran des paramètres de carte réseau](media/asdk-prepare-host/step-four-network-adapter.png)
 
-15. Cliquez sur **Redémarrer maintenant** pour démarrer l’ordinateur hôte du kit de développement dans cloudbuilder.vhdx, puis [continuer le processus de déploiement](asdk-install.md).
+      - Vérifiez que les valeurs affichées pour **Adresse IP**, **Passerelle** et **DNS** sont correctes, fournissez une adresse **IP de serveur de temps** valide, puis cliquez sur **Suivant**.
 
-    ![](media/asdk-prepare-host/5.PNG)
+        >[!TIP]
+        >Pour rechercher l'adresse IP d'un serveur de temps, visitez [ntppool.org](https://www.ntppool.org/) ou effectuez un test ping time.windows.com. 
+
+        ![Capture d’écran des paramètres de configuration IP](media/asdk-prepare-host/step-five-host-ip-config.png)
+
+7. Cliquez sur **Suivant** pour démarrer le processus de préparation.
+8. Quand la préparation indique **Terminé**, cliquez sur **Suivant**.
+
+    ![Capture d’écran de Terminé](media/asdk-prepare-host/4.PNG)
+
+9. Cliquez sur **Redémarrer maintenant** pour démarrer l’ordinateur hôte du kit de développement dans cloudbuilder.vhdx, puis [continuer le processus de déploiement](asdk-install.md).
+
+    ![Capture d’écran de Redémarrer maintenant](media/asdk-prepare-host/5.PNG)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

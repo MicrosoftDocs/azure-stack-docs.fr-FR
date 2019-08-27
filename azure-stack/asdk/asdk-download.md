@@ -1,6 +1,6 @@
 ---
-title: Télécharger et extraire le Kit de développement Azure Stack (ASDK) | Microsoft Docs
-description: Explique comment télécharger et extraire le Kit de développement Azure Stack (ASDK).
+title: Télécharger et extraire le kit ASDK | Microsoft Docs
+description: Découvrez comment télécharger et extraire le Kit de développement Azure Stack (ASDK).
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,24 +16,24 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2018
-ms.openlocfilehash: ebb72826a94a51c54aaa27ae4d85d7a31d76dbb5
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: a4d0258d2a7a5168c94159d9eae13605b1269b86
+ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267002"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69579130"
 ---
-# <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>Télécharger et extraire le Kit de développement Azure Stack (ASDK)
-Après avoir vérifié que l’ordinateur hôte du Kit de développement répond bien aux exigences de base pour l’installation du kit ASDK, vous devez télécharger puis extraire le package de déploiement du Kit de développement Azure Stack afin d’obtenir le fichier Cloudbuilder.vhdx.
+# <a name="download-and-extract-the-asdk"></a>Télécharger et extraire la solution
+Après avoir vérifié que l’ordinateur hôte du Kit de développement répond bien aux exigences de base pour l’installation du Kit de développement Azure Stack (ASDK), vous devez télécharger puis extraire le package de déploiement du Kit de développement Azure Stack afin d’obtenir le fichier Cloudbuilder.vhdx.
 
 ## <a name="download-the-asdk"></a>Télécharger l’ASDK
 1. Avant de commencer le téléchargement, vérifiez que votre ordinateur répond aux prérequis suivants :
 
-   - L’ordinateur doit avoir au moins 60 Go d’espace disque disponible sur quatre disques durs logiques identiques et distincts en plus du disque de système d’exploitation.
+   - Votre ordinateur doit avoir au moins 60 Go d’espace disque disponible sur quatre disques durs logiques identiques et distincts en plus du disque de système d’exploitation.
    - [.NET Framework 4.6 (ou ultérieur)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) doit être installé.
 
-2. [Accédez à la page de démarrage](https://azure.microsoft.com/overview/azure-stack/try/?v=try) sur laquelle vous pouvez télécharger le Kit de développement Azure Stack, renseignez vos informations, puis cliquez sur **Envoyer**.
-3. Téléchargez et exécutez le script de vérification des conditions requises du [vérificateur de déploiement pour le Kit de développement Azure Stack](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409). Ce script autonome passe en revue les vérifications des conditions requises réalisées par la configuration pour le Kit de développement Azure Stack. Il vous permet de vous assurer que vous respectez les exigences matérielles et logicielles avant de télécharger le package plus volumineux du Kit de développement Azure Stack.
+2. [Accédez à la page de démarrage](https://azure.microsoft.com/overview/azure-stack/try/?v=try) sur laquelle vous pouvez télécharger le kit ASDK, renseignez vos informations, puis cliquez sur **Envoyer**.
+3. Téléchargez et exécutez le script de vérification des conditions requises du [vérificateur de déploiement pour ASDK](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409). Ce script autonome passe en revue les vérifications des conditions requises réalisées par la configuration pour ASDK. Il vous permet de vous assurer que vous respectez les exigences matérielles et logicielles avant de télécharger le package plus volumineux d’ASDK.
 4. Sous **Télécharger le logiciel**, cliquez sur **Kit de développement Azure Stack**.
 
    > [!NOTE]
@@ -45,7 +45,7 @@ Après avoir vérifié que l’ordinateur hôte du Kit de développement répond
 3. Passez en revue la déclaration de confidentialité de la page **Avis important** de l’Assistant de l’auto-extracteur, puis cliquez sur **Suivant**.
 4. Sélectionnez l’emplacement où les fichiers de configuration Azure Stack doivent être extraits sur la page **Sélectionner l’emplacement de destination** de l’Assistant de l’auto-extracteur, puis cliquez sur **Suivant**. L’emplacement par défaut est *dossier actuel*\Kit de développement Azure Stack. 
 5. Passez en revue le résumé de l’emplacement de la page **Ready to Extract** (Prêt pour l’extraction) de l’Assistant de l’auto-extracteur, puis cliquez sur **Extraire** pour extraire les fichiers CloudBuilder.vhdx (environ 28 Go) et ThirdPartyLicenses.rtf. Ce processus prend un certain temps.
-6. Copiez ou déplacez le fichier CloudBuilder.vhdx à la racine du lecteur C:\ (C:\CloudBuilder.vhdx) sur l’ordinateur hôte ASDK.
+6. Copiez ou déplacez le fichier CloudBuilder.vhdx à la racine du lecteur C:\ (`C:\CloudBuilder.vhdx`) sur l’ordinateur hôte ASDK.
 
 > [!NOTE]
 > Après avoir extrait les fichiers, vous pouvez supprimer les fichiers .EXE et .BIN pour récupérer de l’espace sur le disque dur. Vous pouvez aussi sauvegarder ces fichiers pour ne pas avoir à les retélécharger en cas de redéploiement du kit ASDK.
