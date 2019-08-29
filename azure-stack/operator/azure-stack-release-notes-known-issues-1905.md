@@ -16,12 +16,12 @@ ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 40b2eb51b3e05a25706037f404a53d86fa7cae5a
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 619bd20b3ed9affb93bceed7b253c15bdb1e3609
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419561"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008739"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Problèmes connus dans Azure Stack 1905
 
@@ -43,7 +43,7 @@ Cet article répertorie les problèmes connus dans la version 1905 d’Azure St
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Quand vous tentez d’installer la mise à jour 1905 d’Azure Stack, l’état de la mise à jour peut échouer et passer à **PreparationFailed**. Cela est dû au fait que le fournisseur de ressources de mise à jour est dans l’impossibilité de transférer correctement les fichiers du conteneur de stockage vers un partage d’infrastructure interne à des fins de traitement. Ce problème est davantage susceptible de se produire, car le package de mise à jour 1905 est plus volumineux que les packages de mise à jour précédents.
-- Correction : À compter de la version 1901 (1.1901.0.95), vous pouvez contourner ce problème en cliquant sur **Mettre à jour maintenant** à nouveau (et pas sur **Reprendre**). Le fournisseur de ressources de mise à jour (URP) nettoie les fichiers de la tentative précédente, puis redémarre le téléchargement. Si le problème persiste, nous vous conseillons de charger manuellement le package de mise à jour comme cela est décrit dans la section [Importer et installer des mises à jour](azure-stack-apply-updates.md#import-and-install-updates).
+- Correction : À compter de la version 1901 (1.1901.0.95), vous pouvez contourner ce problème en cliquant sur **Mettre à jour maintenant** à nouveau (et pas sur **Reprendre**). Le fournisseur de ressources de mise à jour (URP) nettoie les fichiers de la tentative précédente, puis redémarre le téléchargement. Si le problème persiste, nous vous conseillons de charger manuellement le package de mise à jour comme cela est décrit dans la section [Importer et installer des mises à jour](azure-stack-apply-updates.md).
 - Occurrence : Courant
 
 ## <a name="portal"></a>Portail

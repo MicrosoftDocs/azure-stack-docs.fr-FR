@@ -16,12 +16,12 @@ ms.date: 07/12/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: cb98d587f766a3039887e0ba800ab255686121bc
-ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
+ms.openlocfilehash: 9eca3112085d68c6a35378f8309dfd8ac5a1bafc
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68685546"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008631"
 ---
 # <a name="azure-stack-1906-known-issues"></a>Problèmes connus dans Azure Stack 1906
 
@@ -34,7 +34,7 @@ Cet article répertorie les problèmes connus dans la version 1906 d’Azure St
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Quand vous tentez d’installer la mise à jour 1906 d’Azure Stack, l’état de la mise à jour peut échouer et passer à **PreparationFailed**. Cela est dû au fait que le fournisseur de ressources de mise à jour est dans l’impossibilité de transférer correctement les fichiers du conteneur de stockage vers un partage d’infrastructure interne à des fins de traitement. 
-- Correction : À compter de la version 1901 (1.1901.0.95), vous pouvez contourner ce problème en cliquant sur **Mettre à jour maintenant** à nouveau (et pas sur **Reprendre**). Le fournisseur de ressources de mise à jour (URP) nettoie les fichiers de la tentative précédente, puis redémarre le téléchargement. Si le problème persiste, nous vous conseillons de charger manuellement le package de mise à jour comme cela est décrit dans la section [Importer et installer des mises à jour](azure-stack-apply-updates.md#import-and-install-updates).
+- Correction : À compter de la version 1901 (1.1901.0.95), vous pouvez contourner ce problème en cliquant sur **Mettre à jour maintenant** à nouveau (et pas sur **Reprendre**). Le fournisseur de ressources de mise à jour (URP) nettoie les fichiers de la tentative précédente, puis redémarre le téléchargement. Si le problème persiste, nous vous conseillons de charger manuellement le package de mise à jour comme cela est décrit dans la section [Importer et installer des mises à jour](azure-stack-apply-updates.md).
 - Occurrence : Courant
 
 ## <a name="portal"></a>Portail
