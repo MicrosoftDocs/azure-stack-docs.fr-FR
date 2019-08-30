@@ -184,7 +184,7 @@
                   href: azure-stack-metrics-supported.md
                 - name: Consommer des données de surveillance Azure
                   href: azure-stack-metrics-monitor.md
-        - name: Utiliser des modèles de solution
+        - name: Déployer des services add-on
           items:
             - name: Déployer Ethereum
               href: azure-stack-ethereum.md

@@ -356,8 +356,10 @@
               href: azure-stack-app-service-release-notes-update-four.md
             - name: Notes de publication d’App Service sur Azure Stack Update 5
               href: azure-stack-app-service-release-notes-update-five.md
-            - name: Notes de publication d’App Service sur Azure Stack Update 6
+            - name: "Notes de publication d’App\_Service sur Azure Stack Update\_6"
               href: azure-stack-app-service-release-notes-update-six.md
+            - name: "Notes de publication d’App\_Service sur Azure Stack Update\_7"
+              href: azure-stack-app-service-release-notes-update-seven.md
     - name: 'Créer des plans, des offres et des quotas'
       items:
         - name: 'Vue d’ensemble des plans, des offres, des quotas et des abonnements'
