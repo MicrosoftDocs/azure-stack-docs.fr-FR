@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 4c57cad7a5b002e6c73c0555c450a8103eaf8aa4
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: c2a61e165ee64c4b0ee91fbe387973aaa5039f46
+ms.sourcegitcommit: 9cb82df1eccb0486bcabec0bd674162d4820c00c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417999"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060223"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>Gérer l’infrastructure de stockage pour Azure Stack
 
@@ -83,7 +83,7 @@ Les volumes dans les espaces de stockage direct fournissent la résilience pour 
 
 ![Infrastructure de stockage Azure Stack](media/azure-stack-storage-infrastructure-overview/image5.png)
 
-La mise en miroir fournit la tolérance de panne en conservant plusieurs copies de toutes les données. La façon dont les données sont agrégées par bande et placées n’est pas négligeable (consultez ce blog pour en savoir plus), mais il est absolument vrai de dire que toutes les données stockées à l’aide de la mise en miroir sont écrites, dans leur intégralité, plusieurs fois. Chaque copie est écrite sur différents matériels physiques (lecteurs différents sur différents serveurs) qui sont supposés échouer de manière indépendante. La mise en miroir triple peut tolérer en toute sécurité au moins deux problèmes de matériel (lecteur ou serveur) à la fois. Par exemple, si vous redémarrez un serveur et qu’un autre lecteur ou serveur échoue, toutes les données restent protégées et accessibles en continu.
+La mise en miroir fournit la tolérance de panne en conservant plusieurs copies de toutes les données. La façon dont les données sont agrégées par bande et placées n’est pas négligeable, mais il est absolument vrai de dire que toutes les données stockées à l’aide de la mise en miroir sont écrites, dans leur intégralité, plusieurs fois. Chaque copie est écrite sur différents supports physiques (lecteurs différents sur différents serveurs) qui sont supposés échouer de manière indépendante. La mise en miroir triple peut tolérer en toute sécurité au moins deux problèmes de matériel (lecteur ou serveur) à la fois. Par exemple, si vous redémarrez un serveur et qu’un autre lecteur ou serveur échoue, toutes les données restent protégées et accessibles en continu.
 
 ## <a name="volume-states"></a>États de volume
 

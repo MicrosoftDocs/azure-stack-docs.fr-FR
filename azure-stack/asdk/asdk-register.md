@@ -1,6 +1,6 @@
 ---
 title: Inscrire le kit ASDK auprès d’Azure | Microsoft Docs
-description: Explique comment inscrire Azure Stack auprès d’Azure pour activer la syndication de la Place de marché et les rapports d’utilisation.
+description: Découvrez comment inscrire le kit de développement Azure Stack (ASDK) auprès d’Azure pour activer la syndication de la Place de marché et les rapports d’utilisation.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -15,24 +15,24 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: cf25678ad84ac79dd29ddd1684b1ca2f958180ff
-ms.sourcegitcommit: 5a720b17bd6a5aab44929c0247db8d512e0669ef
+ms.openlocfilehash: 886271e99b10d3fec0801f977a693a01e59fc0a5
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67197193"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025859"
 ---
-# <a name="azure-stack-registration"></a>Inscription d’Azure Stack
+# <a name="register-the-asdk-with-azure"></a>Inscrire le kit ASDK auprès d’Azure
 
 Vous pouvez inscrire le Kit de développement Azure Stack auprès d’Azure pour télécharger des éléments de la Place de marché à partir d’Azure et renvoyer des rapports de données commerciales à Microsoft. L’inscription est obligatoire pour prendre en charge les fonctionnalités complètes d’Azure Stack, notamment la syndication de la Place de marché. L'inscription est requise pour vous permettre de tester les fonctionnalités importantes d'Azure Stack, comme la syndication de marketplace et les rapports d'utilisation. Après avoir inscrit Azure Stack, l’utilisation est signalée à Azure Commerce. Vous pouvez la consulter sous l’abonnement utilisé pour l’inscription. Toutefois, l’utilisation du kit de développement Azure Stack n’est pas facturée à ses utilisateurs.
 
-Si vous n’inscrivez pas votre Kit de développement Azure Stack (ASDK), il se peut qu’un message d’avertissement **Activation requise** s’affiche pour vous inviter à l’inscrire. Il s’agit du comportement attendu.
+Si vous n’inscrivez pas votre kit ASDK, il se peut qu’un message d’avertissement **Activation requise** s’affiche pour vous inviter à l’inscrire. Il s’agit du comportement attendu.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de suivre ces instructions pour inscrire le kit ASDK auprès d’Azure, veillez à installer Azure Stack PowerShell et télécharger les outils Azure Stack, comme décrit dans l’article relatif à la [configuration post-déploiement](asdk-post-deploy.md).
 
-De plus, le mode de langage PowerShell doit avoir la valeur **FullLanguage** sur l’ordinateur utilisé pour inscrire le kit ASDK auprès d’Azure. Pour vérifier que le mode de langage actuel est défini sur full, ouvrez une fenêtre PowerShell avec élévation de privilèges et exécutez les commandes PowerShell suivantes :
+Le mode de langage PowerShell doit avoir la valeur **FullLanguage** sur l’ordinateur utilisé pour inscrire le kit ASDK auprès d’Azure. Pour vérifier que le mode de langage actuel est défini sur full, ouvrez une fenêtre PowerShell avec élévation de privilèges et exécutez les commandes PowerShell suivantes :
 
 ```powershell  
 $ExecutionContext.SessionState.LanguageMode
@@ -40,22 +40,22 @@ $ExecutionContext.SessionState.LanguageMode
 
 Vérifiez que la sortie retourne **FullLanguage**. Si tout autre mode de langage est retourné, vous devez exécuter l’inscription sur un autre ordinateur ou définir le mode de langage sur **FullLanguage** avant de continuer.
 
-Le compte Azure AD utilisé pour l'inscription doit avoir accès à l'abonnement Azure et disposer des autorisations nécessaires pour créer des applications avec une identité et des principaux de service dans le répertoire associé à cet abonnement. Nous vous recommandons d'inscrire Azure Stack auprès d'Azure à l'aide de l'administration des privilèges minimum en [créant un compte de service à utiliser pour l'inscription](../operator/azure-stack-registration-role.md) plutôt qu'en utilisant les informations d'identification de l'administrateur général.
+Le compte Azure AD utilisé pour l'inscription doit avoir accès à l'abonnement Azure et disposer des autorisations nécessaires pour créer des applications avec une identité et des principaux de service dans le répertoire associé à cet abonnement. Nous vous recommandons d’inscrire Azure Stack auprès d’Azure en [créant un compte de service à utiliser pour l’inscription](../operator/azure-stack-registration-role.md), au lieu d’utiliser les informations d’identification de l’administrateur général.
 
-## <a name="register-azure-stack-with-azure"></a>Inscrire Azure Stack auprès d’Azure
+## <a name="register-the-asdk"></a>Inscrire l’ASDK
 
 Pour inscrire le kit ASDK auprès d’Azure, procédez aux étapes suivantes.
 
 > [!NOTE]
-> Toutes ces étapes doivent être exécutées à partir d’un ordinateur qui a accès au point de terminaison privilégié. Pour le kit ASDK, il s’agit de l’ordinateur hôte du kit de développement.
+> Toutes ces étapes doivent être exécutées à partir d’un ordinateur qui a accès au point de terminaison privilégié. Pour le kit ASDK, il s’agit de l’ordinateur hôte ASDK.
 
 1. Ouvrez une console PowerShell en tant qu’administrateur.  
 
-2. Exécutez les commandes PowerShell suivantes pour inscrire votre installation ASDK auprès d’Azure. Vous devrez vous connecter à votre ID d'abonnement de facturation Azure et à l’installation ASDK locale. Si vous n’avez toujours pas d’ID d’abonnement de facturation Azure, vous pouvez créer un [compte Azure gratuit ici](https://azure.microsoft.com/free/?b=17.06). L’inscription d’Azure Stack n’entraîne aucun frais sur votre abonnement Azure.<br><br>Définissez un nom unique pour l'inscription au moment de l'exécution de la cmdlet **Set-AzsRegistration**. Par défaut, le paramètre **RegistrationName** a la valeur **AzureStackRegistration**. Cependant, si vous utilisez le même nom dans plusieurs instances Azure Stack, le script échoue.
+2. Exécutez les commandes PowerShell suivantes pour inscrire votre installation ASDK auprès d’Azure. Connectez-vous à votre ID d'abonnement de facturation Azure et à l’installation ASDK locale. Si vous n’avez toujours pas d’ID d’abonnement de facturation Azure, vous pouvez créer un [compte Azure gratuit ici](https://azure.microsoft.com/free/?b=17.06). L’inscription d’Azure Stack n’entraîne aucun frais sur votre abonnement Azure.<br><br>Définissez un nom unique pour l'inscription au moment de l'exécution de la cmdlet **Set-AzsRegistration**. Par défaut, le paramètre **RegistrationName** a la valeur **AzureStackRegistration**. Cependant, si vous utilisez le même nom dans plusieurs instances Azure Stack, le script échoue.
 
     ```powershell  
     # Add the Azure cloud subscription environment name. 
-    # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
+    # Supported environment names are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
     Add-AzureRmAccount -EnvironmentName "<environment name>"
 
     # Register the Azure Stack resource provider in your Azure subscription
@@ -110,7 +110,7 @@ Sur l’ordinateur hôte ASDK, démarrez PowerShell en tant qu’administrateur 
    -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 
-Enregistrez ce jeton d’inscription pour l’utiliser sur l’ordinateur connecté à Internet. Vous pouvez copier le fichier ou le texte à partir du fichier créé par le paramètre $FilePathForRegistrationToken.
+Enregistrez ce jeton d’inscription pour l’utiliser sur l’ordinateur connecté à Internet. Vous pouvez copier le fichier ou le texte à partir du fichier créé par le paramètre `$FilePathForRegistrationToken`.
 
 ### <a name="connect-to-azure-and-register"></a>Se connecter à Azure et s’inscrire
 
@@ -161,10 +161,10 @@ Vous pouvez également utiliser l’applet de commande **Get-Content** pour poin
   -RegistrationName $RegistrationName
   ```
 
-Une fois l’inscription terminée, vous devez voir un message similaire à **Votre environnement Azure Stack est maintenant inscrit auprès d’Azure.**
+Une fois l’inscription terminée, un message semblable à celui-ci doit s’afficher : **Votre environnement Azure Stack est désormais inscrit auprès d’Azure.**
 
 > [!IMPORTANT]
-> Ne fermez pas la fenêtre PowerShell.
+> Ne fermez **pas** la fenêtre PowerShell.
 
 Enregistrez le jeton d’inscription et le nom de la ressource d’inscription pour vous y référer ultérieurement.
 
@@ -172,7 +172,7 @@ Enregistrez le jeton d’inscription et le nom de la ressource d’inscription p
 
 Toujours sur l’ordinateur connecté à Internet, **et dans la même fenêtre de console PowerShell**, récupérez une clé d’activation à partir de la ressource d’inscription créée quand vous vous êtes inscrit auprès d’Azure.
 
-Pour obtenir la clé d’activation, exécutez les commandes PowerShell suivantes, utilisez la même valeur de nom d’inscription unique que celle fournie lors de l’inscription auprès d’Azure à l’étape précédente :  
+Pour obtenir la clé d’activation, exécutez les commandes PowerShell suivantes. Utilisez la même valeur de nom d’inscription unique que celle fournie lors de l’inscription auprès d’Azure à l’étape précédente :  
 
   ```Powershell
   $RegistrationResourceName = "<unique-registration-name>"
@@ -211,17 +211,17 @@ Vous pouvez également utiliser l’applet de commande **Get-Content** pour poin
   -ActivationKey $ActivationKey
   ```
 
-Une fois l’activation terminée, vous devez voir un message similaire à **Votre environnement a terminé le processus d’inscription et d’activation.**
+Une fois l’activation terminée, un message similaire à celui-ci doit s’afficher : **Votre environnement a terminé le processus d’inscription et d’activation.**
 
 ## <a name="verify-the-registration-was-successful"></a>Vérifier que l’inscription a abouti
 
 Vous pouvez utiliser la vignette **Gestion des régions** pour vérifier que l’inscription Azure Stack a réussi. Cette vignette est disponible sur le tableau de bord par défaut du portail d’administration.
 
-1. Connectez-vous au [portail d’administration Azure Stack](https://adminportal.local.azurestack.external).
+1. Aucun accès au [portail administrateur Azure Stack](https://adminportal.local.azurestack.external).
 
 2. Dans le tableau de bord, sélectionnez **Gestion des régions**.
 
-    [![Vignette Gestion des régions](media/asdk-register/admin1sm.png "Vignette Gestion des régions")](media/asdk-register/admin1.png#lightbox)
+    [![Vignette de gestion des régions dans le portail d’administration d’Azure Stack](media/asdk-register/admin1sm.png "Vignette de gestion des régions")](media/asdk-register/admin1.png#lightbox)
 
 3. Sélectionner **Propriétés**. Ce panneau affiche l’état et les détails de votre environnement. L’état peut être **Inscrit** ou **Non inscrit**. S’il est inscrit, il montre également l’ID d’abonnement Azure que vous avez utilisé pour inscrire votre instance Azure Stack ainsi que le groupe de ressources et le nom de l’inscription.
 

@@ -1,6 +1,6 @@
 ---
 title: Ajouter un nouveau compte client Azure Stack dans Azure Active Directory | Microsoft Docs
-description: Après le déploiement du Kit de développement Microsoft Azure Stack, vous devez créer au moins un compte d’utilisateur locataire pour pouvoir explorer le portail locataire.
+description: Découvrez comment créer un compte de locataire dans ASDK afin de pouvoir explorer le portail des locataires.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,18 +16,18 @@ ms.date: 05/20/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 70151d7793ef1f58b544517cecb7aa53bf5b3041
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 5d5292753b6fedfb7468a0bc68dd821a2da4cd54
+ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691402"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118706"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Ajouter un nouveau compte de locataire Azure Stack dans Azure Active Directory
 
-Après le [déploiement du Kit de développement Azure Stack](../asdk/asdk-install.md), vous aurez besoin d’un compte utilisateur client afin de pouvoir explorer le portail client et tester vos offres et vos plans. Vous pouvez créer un compte client [à l’aide du portail Azure](#create-an-azure-stack-tenant-account-using-the-azure-portal) ou à l’aide de PowerShell.
+Après le [déploiement du Kit de développement Azure Stack (ASDK)](../asdk/asdk-install.md), vous aurez besoin d’un compte utilisateur client afin de pouvoir explorer le portail client et tester vos offres et vos plans. Vous pouvez créer un compte client dabs Azure Active Directory (Azure AD) [à l’aide du portail Azure](#create-an-azure-stack-tenant-account-using-the-azure-portal) ou à l’aide de PowerShell.
 
-## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Création d’un compte de locataire Azure Stack à l’aide du portail Azure
+## <a name="create-an-azure-stack-tenant-account-by-using-the-azure-portal"></a>Création d’un compte de locataire Azure Stack à l’aide du portail Azure
 
 Pour utiliser le portail Azure, vous devez disposer d’un abonnement Azure.
 
@@ -41,31 +41,31 @@ Pour utiliser le portail Azure, vous devez disposer d’un abonnement Azure.
 
     ![Ajouter un nouvel utilisateur, page Utilisateur avec les informations sur l’utilisateur](media/azure-stack-add-new-user-aad/new-user-user.png)
 
-   - **Nom (obligatoire).** Prénom et nom du nouvel utilisateur. Par exemple, Mary Parker.
-   - **Nom d’utilisateur (obligatoire).** Nom d’utilisateur du nouvel utilisateur. Par exemple : mary@contoso.com.
-       Le domaine dans le nom d’utilisateur doit correspondre au nom de domaine par défaut initial, <_votrenomdedomaine_>.onmicrosoft.com, ou à un nom de domaine personnalisé, comme contoso.com. Pour plus d’informations sur la création d’un nom de domaine personnalisé, consultez [Ajouter un nom de domaine personnalisé dans Azure Active Directory](/azure/active-directory/fundamentals/add-custom-domain).
-   - **Profil.** Si vous le souhaitez, ajoutez des informations supplémentaires sur l’utilisateur. Vous pouvez également ajouter ces informations ultérieurement. Pour plus d’informations sur l’ajout d’informations sur l’utilisateur, consultez [Ajouter ou modifier des informations de profil utilisateur](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal).
-   - **Rôle d’annuaire.**  Choisissez **Utilisateur**.
+   - **Nom (obligatoire)** : Prénom et nom du nouvel utilisateur. Par exemple, Mary Parker.
+   - **Nom d’utilisateur (obligatoire)** : Nom d’utilisateur du nouvel utilisateur. Par exemple : mary@contoso.com.
+       Le domaine dans le nom d’utilisateur doit correspondre au nom de domaine par défaut initial, <_votrenomdedomaine_>.onmicrosoft.com, ou à un nom de domaine personnalisé, comme contoso.com. Pour plus d’informations sur la création d’un nom de domaine personnalisé, consultez [Ajouter un nom de domaine personnalisé dans Azure AD](/azure/active-directory/fundamentals/add-custom-domain).
+   - **Profil** : Si vous le souhaitez, ajoutez des informations supplémentaires sur l’utilisateur. Vous pouvez également ajouter ces informations ultérieurement. Pour plus d’informations sur l’ajout d’informations sur l’utilisateur, consultez [Ajouter ou modifier des informations de profil utilisateur](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal).
+   - **Rôle d’annuaire** : choisissez **Utilisateur**.
 
 5. Cochez **Afficher le mot de passe** et copiez le mot de passe généré automatiquement dans le champ **Mot de passe**. Vous aurez besoin de ce mot de passe pour vous connecter la première fois.
 
-6. Sélectionnez **Créer**.
+6. Sélectionnez **Create** (Créer).
 
     L’utilisateur est créé et ajouté à votre locataire Azure AD.
 
-7. Connectez-vous au portail Microsoft Azure avec le nouveau compte. Modifiez le mot de passe lorsque vous y êtes invité.
+7. Connectez-vous au portail Azure avec le nouveau compte. Modifiez le mot de passe lorsque vous y êtes invité.
 8. Connectez-vous à `https://portal.local.azurestack.external` avec le nouveau compte pour afficher le portail client.
 
 ## <a name="create-an-azure-stack-user-account-using-powershell"></a>Création d’un compte d’utilisateur Azure Stack à l’aide de PowerShell
 
-Si vous n’avez pas d’abonnement Azure, vous ne pouvez pas utiliser le portail Azure pour ajouter un compte utilisateur client. Dans ce cas, vous pouvez utiliser le module Azure Active Directory pour Windows PowerShell à la place.
+Si vous n’avez pas d’abonnement Azure, vous ne pouvez pas utiliser le portail Azure pour ajouter un compte utilisateur client. Dans ce cas, vous pouvez utiliser le module Azure AD pour Windows PowerShell à la place.
 
 > [!NOTE]
-> Si vous utilisez un compte Microsoft pour déployer le Kit de développement Azure Stack, vous ne pouvez pas utiliser Azure AD PowerShell pour créer le compte locataire. 
+> Si vous utilisez un compte Microsoft pour déployer ASDK, vous ne pouvez pas utiliser Azure AD PowerShell pour créer le compte locataire.
 
 1. Installez la version **64 bits** de l’[Assistant de connexion Microsoft Online Services pour les professionnels de l’informatique RTW](https://go.microsoft.com/fwlink/p/?LinkId=286152).
 
-2. Installez le module Microsoft Azure Active Directory pour Windows PowerShell en effectuant les étapes suivantes :
+2. Installez le module Microsoft Azure AD pour Windows PowerShell en effectuant les étapes suivantes :
 
     - Ouvrez une invite de commandes Windows PowerShell avec élévation de privilèges (exécutez Windows PowerShell en tant qu’administrateur).
     - Exécutez la commande **Install-Module MSOnline**.
@@ -75,7 +75,7 @@ Si vous n’avez pas d’abonnement Azure, vous ne pouvez pas utiliser le portai
 3. Exécutez les applets de commande suivantes :
 
     ```powershell
-    # Provide the AAD credential you use to deploy Azure Stack Development Kit
+    # Provide the Azure AD credential you use to deploy the ASDK.
 
             $msolcred = get-credential
 
@@ -87,7 +87,7 @@ Si vous n’avez pas d’abonnement Azure, vous ne pouvez pas utiliser le portai
 
     ```
 
-1. Connectez-vous à Microsoft Azure avec le nouveau compte. Modifiez le mot de passe lorsque vous y êtes invité.
+1. Connectez-vous à Azure avec le nouveau compte. Modifiez le mot de passe lorsque vous y êtes invité.
 2. Connectez-vous à `https://portal.local.azurestack.external` avec le nouveau compte pour afficher le portail client.
 
 ## <a name="next-steps"></a>Étapes suivantes

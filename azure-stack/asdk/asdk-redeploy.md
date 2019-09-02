@@ -1,6 +1,6 @@
 ---
-title: Redéployer le Kit de développement Azure Stack (ASDK) | Microsoft Docs
-description: Cet article vous montre comment réinstaller l’ASDK.
+title: Redéployer ASDK | Microsoft Docs
+description: En savoir plus sur le redéploiement du Kit de développement Azure Stack (ASDK).
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -17,25 +17,25 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: f61fff0d29b1e0bf847ffc1761ff53c90b703991
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 5ff77bbe915a506803a1c06f68579c199439ea73
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267780"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025891"
 ---
 # <a name="redeploy-the-asdk"></a>Redéployer l’ASDK
-Dans cet article, vous allez découvrir comment redéployer le Kit de développement Azure Stack (ASDK) dans un environnement hors production. La mise à niveau de l’ASDK n’étant pas prise en charge, vous devez le redéployer complètement pour passer à une version plus récente. Vous pouvez également redéployer l’ASDK lorsque vous souhaitez simplement tout reprendre à zéro.
+Dans cet article, vous allez découvrir comment redéployer le Kit de développement Azure Stack (ASDK) dans un environnement hors production. La mise à niveau de l’ASDK n’étant pas prise en charge, vous devez le redéployer complètement pour passer à une version plus récente. Vous pouvez également redéployer les ASDK chaque fois que vous souhaitez commencer de zéro.
 
 > [!IMPORTANT]
-> La mise à niveau de l’ASDK vers une nouvelle version n’est pas prise en charge. Vous devez redéployer l’ASDK sur l’ordinateur hôte du Kit de développement chaque fois que vous souhaitez évaluer une version plus récente d’Azure Stack.
+> La mise à niveau de l’ASDK vers une nouvelle version n’est pas prise en charge. Vous devez redéployer l’ASDK sur l’ordinateur hôte ASDK chaque fois que vous souhaitez évaluer une version plus récente d’Azure Stack.
 
 ## <a name="remove-azure-registration"></a>Supprimer l’inscription auprès d’Azure 
 Si vous avez précédemment inscrit votre installation ASDK auprès d’Azure, vous devez supprimer la ressource d’inscription avant de redéployer l’ASDK. Réinscrivez l’ASDK pour activer la syndication des éléments de marketplace lorsque vous redéployez l’ASDK. Si vous n’avez pas précédemment inscrit l’ASDK auprès de votre abonnement Azure, vous pouvez ignorer cette section.
 
 Pour supprimer la ressource d’inscription, utilisez la cmdlet **Remove-AzsRegistration** pour annuler l’inscription d’Azure Stack. Ensuite, utilisez la cmdlet **Remove-AzureRMResourceGroup** pour supprimer le groupe de ressources Azure Stack de votre abonnement Azure :
 
-1. Ouvrez une console PowerShell en tant qu’administrateur sur un ordinateur qui a accès au point de terminaison privilégié. Pour l’ASDK, il s’agit de l’ordinateur hôte du Kit de développement.
+1. Ouvrez une console PowerShell en tant qu’administrateur sur un ordinateur qui a accès au point de terminaison privilégié. Pour le kit ASDK, il s’agit de l’ordinateur hôte ASDK.
 
 2. Exécutez les commandes PowerShell suivantes pour annuler l’inscription de votre installation ASDK et supprimer le groupe de ressources **azurestack** de votre abonnement Azure :
 
@@ -68,7 +68,7 @@ Pour supprimer la ressource d’inscription, utilisez la cmdlet **Remove-AzsRegi
 
 
 
-Azure Stack doit maintenant avoir été correctement désinscrit de votre abonnement Azure. En outre, le groupe de ressources azurestack créé lorsque vous avez inscrit l’ASDK auprès d’Azure doit également avoir été supprimé.
+Azure Stack doit maintenant avoir été correctement désinscrit de votre abonnement Azure. Le groupe de ressources azurestack doit également être supprimé. Ce groupe de ressources est celui créé lorsque vous avez inscrit ASDK auprès d’Azure pour la première fois.
 
 ## <a name="deploy-the-asdk"></a>Déployer l’ASDK
 Pour redéployer Azure Stack, vous devez recommencer à partir de zéro comme décrit ci-dessous. Les étapes sont diffèrent selon que vous avez utilisé ou non le script du programme d’installation d’Azure Stack (asdk-installer.ps1) pour installer l’ASDK.
@@ -82,18 +82,18 @@ Pour redéployer Azure Stack, vous devez recommencer à partir de zéro comme d�
 
    ![Redémarrer sur le système d’exploitation hôte](media/asdk-redeploy/2.png)
 
-3. Après le redémarrage du Kit de développement dans le système d’exploitation de base, connectez-vous en tant qu’administrateur local. Localisez et supprimez le fichier **C:\CloudBuilder.vhdx** qui a été utilisé lors du déploiement précédent. 
+3. Après le redémarrage du kit ASDK dans le système d’exploitation de base, connectez-vous en tant qu’administrateur local. Localisez et supprimez le fichier **C:\CloudBuilder.vhdx** qui a été utilisé lors du déploiement précédent.
 
 4. Répétez les mêmes étapes que celles que vous avez suivies pour [déployer l’ASDK](asdk-install.md) la première fois.
 
 ### <a name="redeploy-the-asdk-without-using-the-installer"></a>Redéployer le Kit de développement Azure Stack à l’aide du programme d’installation
-Si vous n’avez pas utilisé le script asdk-installer.ps1 pour installer l’ASDK, vous devez reconfigurer manuellement l’ordinateur hôte du Kit de développement avant de redéployer l’ASDK.
+Si vous n’avez pas utilisé le script asdk-installer.ps1 pour installer l’ASDK, vous devez reconfigurer manuellement l’ordinateur hôte de ASDK avant de redéployer l’ASDK.
 
 1. Démarrez l’utilitaire de configuration du système en exécutant **msconfig.exe** sur l’ordinateur ASDK. Dans l’onglet **Démarrage**, sélectionnez le système d’exploitation de l’ordinateur hôte (pas Azure Stack), cliquez sur **Définir par défaut**, puis cliquez sur **OK**. Cliquez sur **Redémarrer** lorsque vous y êtes invité.
 
       ![Définir la configuration de démarrage](media/asdk-redeploy/4.png)
 
-2. Après le redémarrage du Kit de développement dans le système d’exploitation de base, connectez-vous en tant qu’administrateur local de l’ordinateur hôte du Kit de développement. Localisez et supprimez le fichier **C:\CloudBuilder.vhdx** qui a été utilisé lors du déploiement précédent. 
+2. Après le redémarrage du kit ASDK dans le système d’exploitation de base, connectez-vous en tant qu’administrateur local pour l’ordinateur hôte ASDK. Localisez et supprimez le fichier **C:\CloudBuilder.vhdx** qui a été utilisé lors du déploiement précédent.
 
 3. Répétez les mêmes étapes que celles que vous avez suivies pour [déployer l’ASDK avec PowerShell](asdk-deploy-powershell.md) la première fois.
 

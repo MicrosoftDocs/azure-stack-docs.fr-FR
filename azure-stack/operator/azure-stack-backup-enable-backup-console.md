@@ -16,12 +16,12 @@ ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: d3ac538109f48e38f6483cd1ecae4896f1d3e635
-ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
+ms.openlocfilehash: 84dd8fdc91a796a94df71926788e62d98b5ef1ae
+ms.sourcegitcommit: 22814dd79664206a260ba0160ed3ae2612e33495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896382"
+ms.locfileid: "69976172"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Activer la sauvegarde d’Azure Stack à partir du portail d’administration
 Activez le service Infrastructure Backup sur le portail d’administration afin qu’Azure Stack puisse générer des sauvegardes de l’infrastructure. Le partenaire matériel peut utiliser ces sauvegardes pour restaurer votre environnement par récupération cloud en cas [d’erreur grave](./azure-stack-backup-recover-data.md). L’objectif d’une récupération cloud est de s’assurer que les opérateurs et utilisateurs peuvent se reconnecter au portail une fois la récupération terminée. Les abonnements des utilisateurs sont restaurés : rôles et autorisations d’accès en fonction du rôle, plans et offres d’origine, quotas de calcul, de stockage et de réseau définis précédemment et secrets Key Vault.
@@ -53,7 +53,7 @@ Les administrateurs et utilisateurs sont responsables de la sauvegarde et de la 
     > [!Note]  
     > Si vous souhaitez archiver les sauvegardes antérieures à la période de rétention, veillez à sauvegarder les fichiers avant que le planificateur supprime les sauvegardes. Si vous réduisez la période de rétention de sauvegarde (par exemple, de 7 à 5 jours), le planificateur supprime toutes les sauvegardes antérieures à la nouvelle période de rétention. Confirmez que vous acceptez la suppression des sauvegardes avant de mettre à jour cette valeur. 
 
-9. Dans les paramètres de chiffrement, indiquez un certificat dans la zone de fichier .cer Certificat. Les fichiers de sauvegarde sont chiffrés avec cette clé publique dans le certificat. Le certificat spécifié lors de la configuration des paramètres de sauvegarde ne doit comporter que la partie clé publique. Une fois ce certificat défini pour la première fois ou modifié par la suite, seule son empreinte numérique est visible. Il n’est pas possible de télécharger ou d’afficher le fichier de certificat chargé. Pour créer le fichier de certificat, exécutez la commande PowerShell suivante, qui permet de créer un certificat auto-signé avec les clés publique et privée et d’exporter un certificat ne comportant que la partie clé publique. Vous pouvez placer le certificat partout où il est accessible à partir du portail administrateur.
+9. Dans les paramètres de chiffrement, indiquez un certificat dans la zone de fichier .cer Certificat. Les fichiers de sauvegarde sont chiffrés avec cette clé publique dans le certificat. Le certificat spécifié lors de la configuration des paramètres de sauvegarde ne doit comporter que la partie clé publique. Une fois ce certificat défini pour la première fois ou modifié par la suite, seule son empreinte numérique est visible. Il n’est pas possible de télécharger ou d’afficher le fichier de certificat chargé. Pour créer le fichier de certificat, exécutez la commande PowerShell suivante, qui permet de créer un certificat auto-signé avec les clés publique et privée et d’exporter un certificat ne comportant que la partie clé publique. Vous pouvez enregistrer le certificat partout où il est accessible à partir du portail administrateur.
 
     ```powershell
 

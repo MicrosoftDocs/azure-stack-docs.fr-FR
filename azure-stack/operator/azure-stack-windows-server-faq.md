@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2019
+ms.date: 08/23/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 177d18261d8a85807826226b0dcabdfd03e87135
-ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
+ms.openlocfilehash: 21364595b30c62f47c293e38bdcb9c5663c56e90
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68806896"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008322"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>FAQ relative à Windows Server dans la Place de marché Azure Stack
 
@@ -53,11 +53,29 @@ Si vous téléchargez les deux versions de l’image, seule la dernière version
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>Que faire si l’un de mes utilisateurs a par erreur coché la case « J’ai une licence » dans les builds Windows précédentes alors qu’il n’a pas de licence ?
 
-Consultez [Convertir des machines virtuelles BYOL Windows Server en mode paiement à l’utilisation](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#powershell-1).
+Vous pouvez modifier l’attribut de modèle de licence pour passer de la licence BYOL (apportez votre propre licence) au modèle de paiement à l’utilisation (PAYG) en exécutant le script suivant :
+
+```powershell
+vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "Windows_Server"
+Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+```
+
+Vous pouvez vérifier le type de licence de votre machine virtuelle en exécutant les commandes suivantes. Si le modèle de licence indique **Windows_Server**, vous êtes facturé pour la licence Windows, conformément au modèle PAYG :
+
+```powershell
+$vm | ft Name, VmId,LicenseType,ProvisioningState
+```
 
 ### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>Que faire si j’ai une ancienne image et que l’un de mes utilisateurs a oublié de cocher la case « J’ai une licence » ou si j’utilise mes propres images et que je ne dispose pas du droit Contrat Entreprise ?
 
-Consultez [Convertir une machine virtuelle Windows Server existante en BYOL](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server). Notez qu’Azure Hybrid Benefit ne s’applique pas à Azure Stack, mais que l’effet de ce paramètre s’applique.
+Vous pouvez modifier l’attribut de modèle de licence pour passer à la licence BYOL (apportez votre propre licence) les commandes suivantes :
+
+```powershell
+$vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "None"
+Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+```
 
 ### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>Qu’en est-il des autres machines virtuelles qui utilisent Windows Server, par exemple SQL ou Machine Learning Server ?
 

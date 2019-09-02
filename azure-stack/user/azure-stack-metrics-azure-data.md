@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 329ef95f7902f3fe6dfcdd71b599675fdf7c6286
-ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
+ms.openlocfilehash: 88b07c5c3325263e068de49b78df25d17861a37e
+ms.sourcegitcommit: f1a21af6517978ddb62f4cbfa1d1df8c867814d1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68806932"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70064186"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>Utiliser Azure Monitor sur Azure Stack
 
@@ -38,9 +38,9 @@ Azure Monitor est un service de plateforme qui fournit une source unique de supe
 
 ## <a name="prerequisites-for-azure-monitor-on-azure-stack"></a>Prérequis pour Azure Monitor sur Azure Stack
 
-Enregistrer le fournisseur de ressources **Microsoft.insights** dans les paramètres relatifs à l’offre d’abonnement du fournisseurs de ressources. Pour vérifier que le fournisseur de ressources est disponible dans l’offre qui est associée à votre abonnement, procédez comme suit :
+Enregistrer le fournisseur de ressources **Microsoft.insights** dans les paramètres relatifs à l’offre d’abonnement du fournisseur de ressources. Pour vérifier que le fournisseur de ressources est disponible dans l’offre qui est associée à votre abonnement, procédez comme suit :
 
-1. Ouvrez le portail d’administration Azure Stack.
+1. Ouvrez le portail utilisateur Azure Stack.
 2. Sélectionnez **Offres**.
 3. Sélectionnez l’offre associée à l’abonnement.
 4. Sélectionnez **Fournisseurs de ressources** sous **Paramètres**. 
@@ -123,7 +123,7 @@ Il existe quelques méthodes de visualisation, qui sont les suivantes :
 
 Vous pouvez utiliser le suivi, le routage et la récupération des données à l’aide de l’une des méthodes suivantes. Toutes les méthodes ne sont pas disponibles pour toutes les actions ou tous les types de données. 
 
- - [Portail Azure Stack](azure-stack-use-portal.md)
+ - [Portail utilisateur Azure Stack](azure-stack-use-portal.md)
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
  - [Interface de ligne de commande interplateforme (CLI)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
  - [API REST](https://docs.microsoft.com/rest/api/monitor)

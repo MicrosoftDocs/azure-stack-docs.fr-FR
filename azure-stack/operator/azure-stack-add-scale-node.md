@@ -1,6 +1,6 @@
 ---
-title: Ajouter des nœuds d’échelle dans Azure Stack | Microsoft Docs
-description: Ajouter des nœuds pour mettre à l’échelle les unités dans Azure Stack.
+title: Ajouter des nœuds d’unité d’échelle dans Azure Stack | Microsoft Docs
+description: Découvrez comment ajouter des nœuds d’unité d’échelle à des unités d’échelle dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,12 +16,12 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 56dbc301c87e819b241d9dd6e801544df4afa152
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: ab06f5d3674000733227894a5a69778d90c29d48
+ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131194"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118737"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Ajouter de nouveaux nœuds d’unité d’échelle dans Azure Stack
 
@@ -29,9 +29,10 @@ Les opérateurs Azure Stack peuvent augmenter la capacité globale d’une unit�
 
 Pour ajouter un nœud d’unité d’échelle, vous devez intervenir dans Azure Stack et exécuter les outils de votre fabricant OEM. Les outils du fabricant OEM s’exécutent sur l’hôte du cycle de vie matériel (HLH) pour s’assurer que le nouveau calculateur physique correspond au même niveau de microprogramme que les nœuds existants.
 
-Le diagramme de flux suivant montre le processus général pour ajouter un nœud d’unité d’échelle.
+Le diagramme de flux suivant montre le processus général pour ajouter un nœud d’unité d’échelle :
 
-![Flux d’ajout d’unités d’échelle](media/azure-stack-add-scale-node/add-node-flow.png) &#42; *Votre contrat de support indique si votre fournisseur OEM doit choisir l’emplacement physique du rack du serveur et mettre à jour le microprogramme.*
+![Ajouter un flux d’unités d’échelle](media/azure-stack-add-scale-node/add-node-flow.png)
+<br> *Votre contrat de support indique si votre fournisseur OEM doit choisir l’emplacement physique du rack du serveur et mettre à jour le microprogramme.*
 
 L’opération d’ajout de nouveau nœud peut prendre plusieurs heures ou plusieurs jours.
 
@@ -86,7 +87,7 @@ Avant d’utiliser l’un des exemples de scripts PowerShell suivants, remplacez
   ```  
 
 ## <a name="monitor-add-node-operations"></a>Surveiller les opérations Ajouter un nœud 
-Vous pouvez vous servir du portail d’administration ou PowerShell pour connaître l’état de l’opération Ajouter un nœud. Les opérations Ajouter un nœud peuvent prendre de plusieurs heures à plusieurs jours.
+Utilisez le portail d’administration ou PowerShell pour connaître l’état de l’opération Ajouter un nœud. Les opérations Ajouter un nœud peuvent prendre de plusieurs heures à plusieurs jours.
 
 ### <a name="use-the-admin-portal"></a>Utiliser le portail d’administration 
 Pour surveiller l’ajout d’un nouveau nœud, vous pouvez examiner l’unité d’échelle ou les objets de nœud d’unité d’échelle dans le portail d’administration. Pour ce faire, accédez à **Gestion des régions** > **Unités d’échelle**. Ensuite, sélectionnez l’unité d’échelle ou le nœud d’unité d’échelle que vous souhaitez examiner. 

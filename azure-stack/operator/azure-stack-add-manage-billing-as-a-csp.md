@@ -1,6 +1,6 @@
 ---
 title: Gérer l’utilisation et la facturation pour Azure Stack comme fournisseur de services cloud | Microsoft Docs
-description: Procédure pas à pas d’inscription d’Azure Stack comme fournisseur de services cloud et d’ajout de clients pour la facturation.
+description: Découvrez comment inscrire Azure Stack comme fournisseur de services cloud et d’ajout de clients pour la facturation.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,12 +15,12 @@ ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 5f11e9dd4f029228e73e5933cd8362c0b4710178
-ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
+ms.openlocfilehash: a8ae60e9ee19f96196d1c3763a32be0842567c7a
+ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65941163"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118687"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Gérer l’utilisation et la facturation pour Azure Stack comme fournisseur de services cloud
 
@@ -36,7 +36,7 @@ La figure suivante illustre les étapes nécessaires pour choisir votre compte d
 
 ## <a name="create-a-csp-or-apss-subscription"></a>Créer un abonnement CSP ou APSS
 
-### <a name="cloud-service-provider-subscription-types"></a>Types d’abonnements de fournisseur de services cloud
+### <a name="csp-subscription-types"></a>Types d'abonnement CSP
 
 Choisissez le type de compte de services partagés que vous utilisez pour Azure Stack. Les types d’abonnements pouvant être utilisés pour l’inscription d’un système Azure Stack multilocataire sont les suivants :
 
@@ -53,7 +53,7 @@ Pour obtenir une description des abonnements APSS et de leur création, consulte
 
 #### <a name="csp-subscriptions"></a>Abonnements CSP
 
-Les abonnements de fournisseur de services cloud sont le choix privilégié pour l’inscription quand un revendeur CSP ou un client final exploite Azure Stack.
+Les abonnements CSP sont le choix privilégié pour l’inscription quand un revendeur CSP ou un client final exploite Azure Stack.
 
 ## <a name="register-azure-stack"></a>Inscrire Azure Stack
 
@@ -83,4 +83,4 @@ Quand Azure Stack transfère des informations d’utilisation à Azure global, u
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur le programme CSP, consultez [Programme des fournisseurs de solutions cloud](https://partner.microsoft.com/solutions/microsoft-cloud-solutions).
-- Pour en savoir plus sur la récupération d’informations d’utilisation de ressources à partir d’Azure Stack, consultez [Utilisation et facturation dans Azure Stack](azure-stack-billing-and-chargeback.md).
+- Pour en savoir plus sur la récupération d’informations d’utilisation de ressources à partir d’Azure Stack, consultez [Usage and billing in Azure Stack](azure-stack-billing-and-chargeback.md) (Utilisation et facturation dans Azure Stack).

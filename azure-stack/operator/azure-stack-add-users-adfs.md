@@ -1,6 +1,6 @@
 ---
-title: Ajouter des utilisateurs pour Azure Stack ADFS | Microsoft Docs
-description: Découvrez comment ajouter des utilisateurs pour les déploiements ADFS d’Azure Stack
+title: Ajouter des utilisateurs Azure Stack dans AD FS | Microsoft Docs
+description: Découvrez comment ajouter des utilisateurs Azure Stack pour les déploiements des services de fédération Active Directory (AD FS).
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -15,15 +15,15 @@ ms.date: 06/03/2019
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: d50eb52de39c789498928a7b5e2227998872b937
-ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
+ms.openlocfilehash: 4411290b075e105a827de8fb2c8295dfd84e3b50
+ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66458971"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118645"
 ---
 # <a name="add-azure-stack-users-in-ad-fs"></a>Ajouter des utilisateurs Azure Stack dans AD FS
-Vous pouvez utiliser le composant logiciel enfichable **Utilisateurs et ordinateurs Active Directory** pour ajouter des utilisateurs supplémentaires à un environnement Azure Stack en utilisant AD FS comme son fournisseur d’identité.
+Vous pouvez utiliser le composant logiciel enfichable **Utilisateurs et ordinateurs Active Directory** pour ajouter des utilisateurs supplémentaires à un environnement Azure Stack en utilisant Active Directory Federation Services (AD FS) comme son fournisseur d’identité.
 
 ## <a name="add-windows-server-active-directory-users"></a>Ajouter des utilisateurs Windows Server Active Directory
 > [!TIP]
@@ -35,7 +35,7 @@ Vous pouvez utiliser le composant logiciel enfichable **Utilisateurs et ordinate
 4. Sélectionnez **Action** > **Nouveau** > **Utilisateur**.
 5. Dans Nouvel objet - Utilisateur, fournissez les informations utilisateur. Sélectionnez **Suivant**.
 6. Fournissez un mot de passe et confirmez-le.
-7. Sélectionnez **Suivant** pour finaliser les valeurs. Sélectionnez **Terminer** pour créer l’utilisateur.
+7. Sélectionnez **Suivant** pour compléter les valeurs. Sélectionnez **Terminer** pour créer l’utilisateur.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

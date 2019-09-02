@@ -1,27 +1,26 @@
 ---
-title: Stratégie de maintenance Azure Stack | Microsoft Docs
-description: Découvrez la stratégie de maintenance Azure Stack et comment conserver un système intégré dans un état de prise en charge.
+title: Appliquer une mise à jour de fabricant d’ordinateurs (OEM) à Azure Stack | Microsoft Docs
+description: Apprenez à appliquer une mise à jour de fabricant d’ordinateurs (OEM) à Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: caac3d2f-11cc-4ff2-82d6-52b58fee4c39
 ms.service: azure-stack
 ms.workload: na
-pms.tgt_pltfrm: na
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2019
-ms.author: sethm
-ms.reviewer: harik
-ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: c02cc78205b2622b4ef5bdd8b88070912af72b97
+ms.date: 08/15/2019
+ms.author: mabrigg
+ms.lastreviewed: 08/15/2019
+ms.reviewer: ppacent
+ms.openlocfilehash: b8031afd05ba03086cfa748614b58d9b0c5248e9
 ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008597"
+ms.locfileid: "70010304"
 ---
 # <a name="azure-stack-servicing-policy"></a>Stratégie de maintenance Azure Stack
 
@@ -30,6 +29,8 @@ ms.locfileid: "70008597"
 Cet article décrit la stratégie de maintenance pour les systèmes intégrés Azure Stack, la marche à suivre pour conserver votre système dans un état de prise en charge, et comment obtenir du soutien.
 
 ## <a name="keep-your-system-under-support"></a>Conserver votre système dans un état de prise en charge
+
+Pour continuer à bénéficier de la prise en charge, vous devez vous assurer que les mises à jour pour Azure Stack sont actuelles.
 
 Pour que votre instance d’Azure Stack continue d’être prise en charge, vous devez exécuter la version de mise à jour la plus récente ou exécuter les deux versions de mise à jour précédentes.
 
@@ -43,6 +44,6 @@ Les packages de mise à jour logicielle Microsoft ne sont pas cumulatifs et requ
 
 Azure Stack suit le même processus de prise en charge qu’Azure. Les clients d’entreprise peuvent suivre le processus décrit dans [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Si vous êtes client d’un fournisseur de services cloud (CSP), contactez-le pour obtenir de l’aide. Pour plus d’informations, consultez le [Forum Aux Questions sur le support technique Azure](https://azure.microsoft.com/support/faq/).
 
-## <a name="next-steps"></a>Étapes suivantes
+# <a name="next-steps"></a>Étapes suivantes
 
-- [Gérer les mises à jour dans Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
+[Gérer les mises à jour dans Azure Stack](azure-stack-updates.md)

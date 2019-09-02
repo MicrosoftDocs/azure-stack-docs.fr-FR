@@ -1,6 +1,6 @@
 ---
-title: Configurations post-déploiement pour le kit de développement Azure Stack (ASDK) | Microsoft Docs
-description: Décrit les changements de configuration qu’il est recommandé d’effectuer après avoir installé le kit de développement Azure Stack (ASDK).
+title: Configurations post-déploiement pour ASDK | Microsoft Docs
+description: Découvrez les changements de configuration qu’il est recommandé d’effectuer après avoir installé le kit de développement Azure Stack (ASDK).
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,14 +16,14 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: cbf9872fa75013fdb3e933c102b813924d396a83
-ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
+ms.openlocfilehash: 111e8e6cb72baac64229e4808003818efece54cd
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68692095"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025876"
 ---
-# <a name="post-asdk-installation-configuration-tasks"></a>Tâches de configuration après l’installation du kit ASDK
+# <a name="post-deployment-configurations-for-asdk"></a>Configurations post-déploiement pour ASDK
 
 Après avoir installé le [Kit de développement Azure Stack (ASDK)](asdk-install.md), vous devez effectuer certains changements de configuration recommandés pendant que vous êtes connecté en tant que AzureStack\AzureStackAdmin sur l’ordinateur hôte ASDK.
 
@@ -37,14 +37,14 @@ Les commandes PowerShell pour Azure Stack sont installées par le biais de Power
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 
-Vous pouvez utiliser des profils de version d’API pour spécifier les modules AzureRM compatibles avec Azure Stack.  Les profils de version des API permettent de gérer les différences de version entre Azure et Azure Stack. Un profil de version d’API est un ensemble de modules PowerShell AzureRM avec des versions d’API spécifiques. Le module **AzureRM.BootStrapper** qui est disponible par le biais de PowerShell Gallery fournit des applets de commande PowerShell nécessaires pour utiliser des profils de version d’API.
+Utilisez des profils de version d’API pour spécifier les modules AzureRM compatibles avec Azure Stack.  Les profils de version des API permettent de gérer les différences de version entre Azure et Azure Stack. Un profil de version d’API est un ensemble de modules PowerShell AzureRM avec des versions d’API spécifiques. Le module **AzureRM.BootStrapper**, qui est disponible via PowerShell Gallery, fournit les applets de commande PowerShell nécessaires pour utiliser des profils de version d’API.
 
 Vous pouvez installer la dernière version du module Azure Stack PowerShell sur l’ordinateur hôte ASDK avec ou sans connexion Internet :
 
 > [!IMPORTANT]
 > Avant d’installer la version requise, vérifiez que vous avez [désinstallé tous les modules Azure PowerShell existants](../operator/azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules).
 
-- **Avec une connexion Internet** sur l’ordinateur hôte du kit ASDK. Exécutez le script PowerShell suivant pour installer ces modules dans le kit de développement :
+- **Avec une connexion Internet** sur l’ordinateur hôte du kit ASDK : Exécutez le script PowerShell suivant pour installer ces modules dans le kit ASDK :
 
 
   ```powershell  
@@ -61,7 +61,7 @@ Vous pouvez installer la dernière version du module Azure Stack PowerShell sur 
 
   Si l’installation réussit, les modules AzureRM et AzureStack sont affichés dans la sortie.
 
-- **Sans connexion Internet** sur l’ordinateur hôte du kit ASDK. Dans un scénario hors connexion, vous devez d’abord télécharger les modules PowerShell sur un ordinateur qui dispose d’une connexion Internet à l’aide des commandes PowerShell suivantes :
+- **Sans connexion Internet** sur l’ordinateur hôte du kit ASDK : Dans un scénario hors connexion, vous devez d’abord télécharger les modules PowerShell sur un ordinateur qui dispose d’une connexion Internet à l’aide des commandes PowerShell suivantes :
 
   ```powershell
   $Path = "<Path that is used to save the packages>"
@@ -109,7 +109,7 @@ Vous pouvez installer la dernière version du module Azure Stack PowerShell sur 
 
 ## <a name="validate-the-asdk-installation"></a>Valider l’installation du kit ASDK
 
-Pour garantir le succès du déploiement du kit ASDK, vous pouvez utiliser l’applet de commande Test-AzureStack en procédant aux étapes suivantes :
+Pour garantir le succès du déploiement du kit ASDK, utilisez l’applet de commande Test-AzureStack en procédant aux étapes suivantes :
 
 1. Connectez-vous en tant qu’AzureStack\AzureStackAdmin sur l’ordinateur hôte du kit ASDK.
 2. Ouvrez PowerShell en tant qu’administrateur (et non PowerShell ISE).
@@ -118,7 +118,7 @@ Pour garantir le succès du déploiement du kit ASDK, vous pouvez utiliser l’a
 
 L’exécution de ces tests nécessite quelques minutes. Si l’installation a réussi, la sortie ressemble à ceci :
 
-![test-azurestack](media/asdk-post-deploy/test-azurestack.png)
+![Tester Azure Stack - Installation réussie](media/asdk-post-deploy/test-azurestack.png)
 
 En cas d’échec, suivez les étapes de dépannage.
 
@@ -127,7 +127,7 @@ En cas d’échec, suivez les étapes de dépannage.
 Pour les déploiements à l’aide d’Azure AD, vous devez [activer la mutualisation](../operator/azure-stack-enable-multitenancy.md#enable-multi-tenancy) pour votre installation d’ASDK.
 
 > [!NOTE]
-> Lorsque des comptes d’administrateur ou d’utilisateur de domaines autres que celui utilisé pour inscrire Azure Stack sont utilisés pour se connecter à un portail Azure Stack, le nom de domaine utilisé pour inscrire Azure Stack doit être ajouté à l’URL du portail. Par exemple, si Azure Stack a été inscrit avec fabrikam.onmicrosoft.com et que le compte utilisateur est admin@contoso.com, voici l’url à utiliser pour se connecter au portail utilisateur : https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+> Lorsque des comptes d’administrateur ou d’utilisateur de domaines autres que celui utilisé pour inscrire Azure Stack sont utilisés pour se connecter à un portail Azure Stack, le nom de domaine utilisé pour inscrire Azure Stack doit être ajouté à l’URL du portail. Par exemple, si Azure Stack a été inscrit avec fabrikam.onmicrosoft.com et que le compte utilisateur est admin@contoso.com, voici l’URL à utiliser pour se connecter au portail utilisateur : https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

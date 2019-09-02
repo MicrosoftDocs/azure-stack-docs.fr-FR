@@ -1,6 +1,6 @@
 ---
-title: Valider une sauvegarde Azure Stack à l’aide du Kit de développement Azure Stack (ASDK) | Microsoft Docs
-description: Comment valider une sauvegarde de systèmes intégrés Azure Stack à l’aide du Kit de développement Azure Stack (ASDK).
+title: Utiliser l’ASDK pour valider une sauvegarde Azure Stack | Microsoft Docs
+description: Découvrez comment valider une sauvegarde de systèmes intégrés Azure Stack à l’aide du kit ASDK.
 services: azure-stack
 author: justinha
 manager: femila
@@ -11,18 +11,18 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 3ab7dfbaef82868f45b181fb81d9b98050147191
-ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
+ms.openlocfilehash: 8905a376a165776acde2fb792df1e8f35279140e
+ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68692120"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118751"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Utiliser l’ASDK pour valider une sauvegarde Azure Stack
-Après déploiement d’Azure Stack et approvisionnement de ressources utilisateur telles que des offres, des plans, des quotas et des abonnements, vous devez [activer la sauvegarde d’infrastructure Azure Stack](../operator/azure-stack-backup-enable-backup-console.md). La planification et l’exécution de sauvegardes d’infrastructure régulières garantit que les données de gestion d’infrastructure ne seront pas perdues en cas de défaillance catastrophique du matériel ou du service.
+Après déploiement d’Azure Stack et approvisionnement de ressources utilisateur telles que des offres, des plans, des quotas et des abonnements, vous devez [activer la sauvegarde d’infrastructure Azure Stack](../operator/azure-stack-backup-enable-backup-console.md). La planification et l’exécution de sauvegardes d’infrastructure régulières garantissent que les données de gestion d’infrastructure ne seront pas perdues en cas de défaillance catastrophique du matériel ou du service.
 
 > [!TIP]
-> Avant d’entamer cette procédure, nous vous recommandons d’[exécuter une sauvegarde à la demande](../operator/azure-stack-backup-back-up-azure-stack.md) afin de disposer d’une copie des données d’infrastructure les plus récentes. Une fois la sauvegarde terminée avec succès, veillez à capturer l’ID de sauvegarde. Cet ID sera nécessaire lors de la récupération à partir du cloud. 
+> Avant d’entamer cette procédure, nous vous recommandons d’[exécuter une sauvegarde à la demande](../operator/azure-stack-backup-back-up-azure-stack.md) afin de disposer d’une copie des données d’infrastructure les plus récentes. Une fois la sauvegarde terminée avec succès, veillez à capturer l’ID de sauvegarde. Cet ID est nécessaire lors de la récupération à partir du cloud.
 
 Les sauvegardes d’infrastructure Azure Stack contiennent des données importantes sur votre cloud, qui peuvent être restaurées lors du redéploiement d’Azure Stack. L’ASDK permet de valider ces sauvegardes sans que cela ait d’incidence sur votre cloud de production. 
 
@@ -77,7 +77,7 @@ Avant de commencer un déploiement de récupération cloud de l’ASDK, vérifie
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>Préparer l’ordinateur hôte 
-Comme pour un déploiement normal de l’ASDK, l’environnement du système hôte de l’ASDK doit être préparé pour l’installation. Une fois préparé, l’ordinateur hôte du kit de développement Azure Stack démarre à partir du disque dur de la machine virtuelle CloudBuilder.vhdx pour commencer le déploiement du kit.
+Comme pour un déploiement normal de l’ASDK, l’environnement du système hôte de l’ASDK doit être préparé pour l’installation. Une fois préparé, l’ordinateur hôte du kit ASDK démarre à partir du disque dur de la machine virtuelle CloudBuilder.vhdx pour commencer le déploiement du kit.
 
 Sur l’ordinateur hôte de l’ASDK, téléchargez un nouveau fichier cloudbuilder.vhdx de la même version que l’Azure Stack sauvegardé, puis suivez les instructions de [préparation de l’ordinateur hôte de l’ASDK](asdk-prepare-host.md).
 
@@ -104,39 +104,39 @@ Pour finir, copiez le certificat de déchiffrement (.pfx) dans le répertoire du
 Cette section explique étape par étape comment déployer le kit ASDK à l’aide d’une interface graphique utilisateur (GUI) installable en téléchargeant et en exécutant le script PowerShell **asdk-installer.ps1**.
 
 > [!NOTE]
-> L’interface utilisateur du programme d’installation du Kit de développement Azure Stack est un script open source basé sur WCF et PowerShell.
+> L’interface utilisateur du programme d’installation du kit ASDK est un script open source basé sur WCF et PowerShell.
 
 > [!IMPORTANT]
 > L’interface utilisateur du programme d’installation actuel prend uniquement en charge la clé de chiffrement.
 
-1. Une fois que l’ordinateur hôte a correctement démarré dans l’image CloudBuilder.vhdx, connectez-vous avec les informations d’identification d’administration spécifiées lorsque vous avez [préparé l’ordinateur hôte du kit de développement](asdk-prepare-host.md) en vue de l’installation du kit ASDK. Il doit s’agir des mêmes informations d’identification d’administrateur local que celles de l’hôte du Kit de développement.
+1. Une fois que l’ordinateur hôte a correctement démarré dans l’image CloudBuilder.vhdx, connectez-vous avec les informations d’identification d’administration spécifiées lorsque vous avez [préparé l’ordinateur hôte du kit ASDK](asdk-prepare-host.md) en vue de l’installation du kit ASDK. Ces informations d’identification doivent être les mêmes que les informations d’identification de l’administrateur local de l’hôte ASDK.
 2. Ouvrez une console PowerShell avec élévation de privilèges et exécutez le script PowerShell **&lt;lettre de lecteur>\AzureStack_Installer\asdk-installer.ps1**. Le script peut maintenant se trouver sur un lecteur autre que C:\ dans l’image CloudBuilder.vhdx. Cliquez sur **Restaurer**.
 
     ![Script du programme d’installation ASDK](media/asdk-validate-backup/1.PNG) 
 
 3. Entrez les informations relatives à votre annuaire Azure AD (facultatives) et le mot de passe d’administrateur local de l’ordinateur hôte ASDK sur la page du fournisseur d’identité et des informations d’identification. Cliquez sur **Suivant**.
 
-    ![Page Identité et informations d'identification](media/asdk-validate-backup/2.PNG) 
+    ![Page Identité et informations d'identification ASDK](media/asdk-validate-backup/2.PNG) 
 
 4. Sélectionnez la carte réseau que l’ordinateur hôte ASDK utilisera, puis cliquez sur **Suivant**. Toutes les autres interfaces réseau seront désactivées durant l’installation du kit ASDK. 
 
-    ![Interface de la carte réseau](media/asdk-validate-backup/3.PNG) 
+    ![Interface de la carte réseau ASDK](media/asdk-validate-backup/3.PNG) 
 
 5. Sur la page Configuration réseau, indiquez un serveur de temps valide et l’adresse IP des redirecteurs DNS. Cliquez sur **Suivant**.
 
-    ![Page Configuration réseau](media/asdk-validate-backup/4.PNG) 
+    ![Page Configuration réseau ASDK](media/asdk-validate-backup/4.PNG) 
 
 6. Une fois les propriétés de la carte d’interface réseau vérifiées, cliquez sur **Suivant**. 
 
-    ![Vérification des paramètres de la carte réseau](media/asdk-validate-backup/5.PNG) 
+    ![Vérification des paramètres de la carte réseau ASDK](media/asdk-validate-backup/5.PNG) 
 
 7. Indiquez les informations requises, décrites précédemment dans la section [Prérequis](#prereqs), sur la page Paramètres de sauvegarde, ainsi que le nom d’utilisateur et le mot de passe à utiliser pour accéder au partage. Cliquez sur **Suivant** : 
 
-   ![Page Paramètres de sauvegarde](media/asdk-validate-backup/6.PNG) 
+   ![Page Paramètres de sauvegarde de ASDK](media/asdk-validate-backup/6.PNG) 
 
 8. Vérifiez le script de déploiement à utiliser pour déployer le kit ASDK sur la page Résumé. Cliquez sur **Déployer** pour commencer le déploiement. 
 
-    ![Page de résumé](media/asdk-validate-backup/7.PNG) 
+    ![Page « Résumé » de ASDK](media/asdk-validate-backup/7.PNG) 
 
 
 ### <a name="use-powershell-to-deploy-the-asdk-in-recovery-mode"></a>Utiliser PowerShell pour déployer le kit ASDK en mode de récupération
@@ -184,7 +184,7 @@ Après vous être connecté en tant qu’opérateur Azure Stack, [installez Azur
 
 **Mode de récupération avec fichier de certificat**
 
-> [!NOTE] 
+> [!NOTE]
 > Le déploiement d’Azure Stack ne conserve pas le certificat de déchiffrement pour des raisons de sécurité. Vous devrez fournir à nouveau le certificat de déchiffrement et le mot de passe associé.
 
 ```powershell

@@ -1,5 +1,5 @@
 ---
-title: Utiliser le portail Azure Stack | Microsoft Docs
+title: Utiliser le portail utilisateur Azure Stack | Microsoft Docs
 description: Découvrez comment accéder au portail utilisateur et l’utiliser dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 629056556b04a7b5d19c2463b619f3da3a70f7e0
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.openlocfilehash: 9f6282c9b08547c9449dc7f340f06a6280a98589
+ms.sourcegitcommit: f1a21af6517978ddb62f4cbfa1d1df8c867814d1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376898"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70064168"
 ---
-# <a name="use-the-azure-stack-portal"></a>Utiliser le portail Azure Stack
+# <a name="use-the-azure-stack-user-portal"></a>Utiliser le portail utilisateur Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 

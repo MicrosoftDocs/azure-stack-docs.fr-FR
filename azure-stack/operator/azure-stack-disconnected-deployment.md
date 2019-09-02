@@ -16,12 +16,12 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: a3986bcdff911fb70957dcb7529a07f77b586c0a
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 11bf3bd4cc670d45fc4a4c9d1421fc0c25440726
+ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131512"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118679"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Décisions relatives à la planification du déploiement déconnecté de Azure pour les systèmes intégrés Azure Stack
 Une fois que vous avez décidé [comment vous allez intégrer Azure Stack dans votre environnement de cloud hybride](azure-stack-connection-models.md), vous pouvez finaliser vos décisions de déploiement de Azure Stack.
@@ -52,7 +52,7 @@ Azure Stack a été conçu pour fonctionner de façon optimale avec une connexio
 |App Services|Altérée - WebApps peut nécessiter un accès à Internet pour le contenu mis à jour.|
 |Interface de ligne de commande (CLI)|Altérée - L’interface CLI affiche des fonctionnalités réduites en matière d’authentification et de provisionnement pour les principaux de service.|
 |Visual Studio - Cloud Discovery|Altérée - Cloud Discovery détecte des clouds différents ou ne fonctionne pas du tout.|
-|Visual Studio - AD FS|Altérée - Seul Visual Studio Enterprise prend en charge AD FS.
+|Visual Studio - AD FS|Altérée - Seuls Visual Studio Enterprise et Visual Studio Code prennent en charge l’authentification AD FS.
 Télémétrie|Non disponible - Les données de télémétrie pour Azure Stack ainsi que les packages de galerie tiers qui dépendent des données de télémétrie.|
 |Certificats|Non disponible - Une connexion à internet est nécessaire pour les services Liste de révocation de certificats (CRL) et Protocole OSCP (Online Certificate Status Protocol) dans le cadre du protocole HTTPS.|
 |Coffre de clés|Altérée - Un cas d’usage courant de Key Vault est d’avoir une application lisant les secrets lors de l’exécution. Pour cela, l’application a besoin d’un principal de service dans le répertoire. Dans Azure Active Directory, les utilisateurs standard (non-administrateurs) sont autorisés par défaut à ajouter des principaux de service. Dans Active Directory (utilisant ADFS), ils ne peuvent pas. Cela constitue un obstacle à l’expérience de bout en bout, car un utilisateur doit toujours passer par un administrateur de répertoire pour ajouter une application.| 

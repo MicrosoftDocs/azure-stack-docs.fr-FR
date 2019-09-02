@@ -1,6 +1,6 @@
 ---
-title: Gérer les mises à jour dans Azure Stack - Vue d’ensemble | Microsoft Docs
-description: Découvrez la gestion des mises à jour pour les systèmes intégrés Azure Stack.
+title: Gérer les mises à jour dans Azure Stack | Microsoft Docs
+description: Apprendre à gérer les mises à jour dans Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,31 +11,89 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 08/23/2019
 ms.author: mabrigg
-ms.lastreviewed: 04/04/2019
-ms.reviewer: justini
-ms.openlocfilehash: a5fb41e63a8cd9e5f57e4476b1b7c23738f116bb
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.lastreviewed: 08/23/2019
+ms.reviewer: ppacent
+ms.openlocfilehash: 0cd83c7a16ef56e3432de7dcba39cc11ca20a379
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418017"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008468"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gérer les mises à jour dans Azure Stack - Vue d’ensemble
 
 *S’applique à : systèmes intégrés Azure Stack*
 
-Les packages de mise à jour Microsoft pour les systèmes intégrés Azure Stack sont généralement mis en production chaque mois. Consultez votre fabricant de matériel OEM au sujet de son processus de notification pour vous assurer que votre organisation reçoive bien les notifications de mise à jour. Vous pouvez aussi rechercher dans cette bibliothèque de documentation sous **Vue d’ensemble** > **Notes de publication** des informations sur les versions dont le support est actif.
+Vous devez tenir Azure Stack à jour en appliquant les mises à jour Complètes et Express, les correctifs logiciels et les mises à jour du package OEM. Gardez Azure Stack à jour avec les dernières mises à jour pour appliquer les dernières versions des correctifs de sécurité, des mises à jour du produit et des pilotes, ainsi que des mises à jour du microprogramme de votre système. Cet article fournit une vue d’ensemble des différents packages de mise à jour, la cadence de ces packages de version, où trouver des informations sur les versions actuelles et le processus de mise à jour global.
 
-Chaque version des mises à jour logicielles Microsoft est fournie sous forme de package de mise à jour unique. En tant qu’opérateur Azure Stack, vous pouvez importer des packages de mise à jour, les installer et superviser la progression de leur installation à partir du portail d’administration Azure Stack.
+> [!Note]  
+> Vous ne pouvez pas appliquer des packages de mise à jour Azure Stack au Kit de développement Azure Stack (ASDK). Les packages de mise à jour sont conçus pour les systèmes intégrés. Pour plus d’informations, consultez [Redéployer l’ASDK](https://docs.microsoft.com/azure-stack/asdk/asdk-redeploy).
 
-Votre fournisseur OEM publiera également des mises à jour, notamment pour les pilotes et le microprogramme. Même si ces mises à jour sont proposées sous forme de packages distincts par votre fournisseur, certaines sont importées, installées et gérées de la même façon que les packages de mise à jour de Microsoft.
+## <a name="update-package-types"></a>Types de packages de mise à jour
 
-Pour conserver votre système dans un état de prise en charge, vous devez maintenir Azure Stack à jour à un niveau de version spécifique. Pensez à passer en revue la [Stratégie de maintenance d’Azure Stack](azure-stack-servicing-policy.md).
+Il existe trois types de packages de mises à jour pour les systèmes intégrés :
 
-> [!NOTE]
-> Vous ne pouvez pas appliquer des packages de mise à jour Azure Stack au Kit de développement Azure Stack (ASDK). Les packages de mise à jour sont conçues pour les systèmes intégrés. Pour plus d’informations, consultez [Redéployer l’ASDK](../asdk/asdk-redeploy.md).
+-   **Mises à jour de logiciel pour Azure Stack**. Microsoft est responsable du cycle de vie de maintenance de bout en bout pour les packages de mise à jour logicielle Microsoft. Ces packages peuvent inclure les dernières mises à jour de sécurité Windows Server, des mises à jour ne concernant pas la sécurité, et des mises à jour de fonctionnalités Azure Stack. Téléchargez ces packages de mise à jour directement à partir de Microsoft.
+
+    Chaque package de mise à jour a un type correspondant, **Complet** ou **Express**. 
+ 
+    Les packages de mise à jour **Complète** mettent à jour les systèmes d’exploitation hôtes physiques dans l’unité d’échelle et nécessitent une plus grande fenêtre de maintenance. 
+
+    Les packages de mise à jour **Express** ont une étendue limitée et ne mettent pas à jour les systèmes d’exploitation hôtes physiques sous-jacents.
+
+-   **Correctifs logiciels d’Azure Stack**. Microsoft fournit des correctifs logiciels pour Azure Stack qui corrigent un problème précis souvent préventif ou urgent. Chaque correctif est publié en même temps que son article correspondant dans la Base de connaissances Microsoft, où sont détaillés le problème, la cause et la résolution. Les correctifs logiciels sont téléchargés et installés comme les packages de mises à jour complets pour Azure Stack. Les correctifs sont cumulatifs et peuvent être installés en quelques minutes.
+
+-   **Mises à jour fournies par le fabricant de matériel OEM**. Les fabricants de matériel partenaires d’Azure Stack sont responsables du cycle de vie de maintenance de bout en bout (y compris les instructions) pour les mises à jour logicielles des microprogrammes et des pilotes liées au matériel. De plus, ils sont propriétaires et gèrent les instructions pour tous les logiciels et le matériel sur l’hôte du cycle de vie de matériel. Le fabricant de matériel OEM héberge ces packages de mise à jour sur son propre site de téléchargement.
+
+## <a name="when-to-update"></a>Quand mettre à jour
+
+Les trois types de mises à jour sont fournis à la cadence suivante :
+
+-   **Mises à jour de logiciel pour Azure Stack**. Microsoft publie généralement des packages de mises à jour logicielles chaque mois.
+
+-   **Correctifs logiciels d’Azure Stack**. Les correctifs sont des versions urgentes qui peuvent être publiées à tout moment.
+
+-   **Mises à jour fournies par le fabricant de matériel OEM**. Les fabricants de matériel OEM publient leurs mises à jour en fonction des besoins.
+
+Pour continuer à bénéficier de la prise en charge, vous devez conserver votre environnement Azure Stack sur une version logicielle d’Azure Stack prise en charge. Pour plus d’informations, consultez [Stratégie de maintenance Azure Stack](azure-stack-update-servicing-policy.md).
+
+## <a name="where-to-get-notice-of-an-update"></a>Où recevoir une notification de mise à jour
+
+Les mises à jour varient en fonction de plusieurs facteurs, tels que votre connexion à Internet et le type de mise à jour.
+
+- **Mises à jour et correctifs logiciels Microsoft** 
+
+    Une alerte de mise à jour pour les mises à jour et les correctifs logiciels Microsoft s’affiche dans le panneau de mise à jour pour les instances Azure Stack connectées à Internet.
+
+    Si votre instance n’est pas connectée et que vous souhaitez être notifié chaque fois qu’un correctif logiciel est publié, abonnez-vous au flux [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/32d322a8-acae-202d-e9a9-7371dccf381b/rss) ou [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/32d322a8-acae-202d-e9a9-7371dccf381b/atom).
+
+- **Mises à jour fournies par le fabricant de matériel OEM**
+
+    Les mises à jour OEM dépendent du fabricant. Vous devez établir un canal de communication avec votre OEM afin de savoir quand des mises à jour de votre OEM doivent être appliquées. Pour plus d’informations sur les OEM et le processus de mise à jour OEM, consultez [Appliquer des mises à jour de fabricants d’ordinateurs (OEM) à Azure Stack](azure-stack-update-oem.md).
+
+## <a name="update-processes"></a>Processus de mise à jour
+
+Une fois que vous savez que vous disposez d’une mise à jour, appliquez-la en procédant comme suit.
+
+![Processus de mise à jour d'Azure Stack](./media/azure-stack-updates/azure-stack-update-process.png)
+
+1. **Planifiez la mise à jour**.
+
+    Préparez votre Azure Stack pour que le processus de mise à jour se déroule aussi facilement que possible, afin qu’il ait un impact minimal sur vos utilisateurs. Informez vos utilisateurs de toute interruption de service possible, puis suivez les étapes pour préparer votre instance pour la mise à jour. Pour plus d’informations sur la planification de la mise à jour, consultez [Planifier une mise à jour Azure Stack](azure-stack-update-plan.md).
+
+2. **Télécharger et préparer le package de mise à jour**.
+
+    Pour les environnements Azure Stack connectés à Internet, les mises à jour et les correctifs logiciels Azure Stack sont importés automatiquement dans le système et préparés pour la mise à jour.
+
+    Pour les environnements Azure Stack déconnectés d’Internet ou avec une connectivité Internet faible ou intermittente, les packages de mise à jour sont importés dans le stockage Azure Stack via le portail d’administration Azure Stack. Pour plus d’informations sur la façon de télécharger et de préparer le package de mise à jour, consultez [Télécharger et préparer un package de mise à jour Azure Stack](azure-stack-update-prepare-package.md).
+
+    Tous les packages de mise à jour OEM sont importés manuellement dans votre environnement, quelle que soit la connectivité Internet de votre système Azure Stack. Pour plus d’informations sur la façon d’importer et de préparer le package de mise à jour, consultez [Télécharger et préparer un package de mise à jour Azure Stack](azure-stack-update-prepare-package.md).
+
+3. **Appliquez la mise à jour**.
+
+    Appliquez la mise à jour à l’aide du panneau **Mise à jour** de la Azure Stack. Pendant la mise à jour, surveillez la progression de la mise à jour et, si nécessaire, corrigez les problèmes du processus de mise à jour. Pour plus d’informations sur la planification de la mise à jour, consultez [Appliquer une mise à jour Azure Stack](azure-stack-apply-updates.md).
 
 ## <a name="the-update-resource-provider"></a>Le fournisseur de ressources de mise à jour
 
@@ -43,59 +101,8 @@ Azure Stack inclut un fournisseur de ressources de mise à jour qui gère l’ap
 
 Lors de l’installation des mises à jour, vous pouvez afficher l’état général à mesure que le processus de mise à jour cible les différents sous-systèmes dans Azure Stack (par exemple les hôtes physiques et les machines virtuelles d’infrastructure).
 
-## <a name="plan-for-updates"></a>Planifier les mises à jour
-
-Nous vous recommandons vivement d’informer les utilisateurs de toutes les opérations de maintenance, et de planifier dans la mesure du possible les fenêtres de maintenance ordinaire pendant les heures creuses. Les opérations de maintenance peuvent affecter les opérations de portail et les charges de travail de locataire.
-
-Lors de la planification de votre fenêtre de maintenance, il est important d’examiner le type spécifique du package de mise à jour proposé par Microsoft, comme indiqué dans la note de publication correspondante. Hormis le correctif logiciel occasionnel, chaque package de mise à jour aura un type correspondant, **Complète** ou **Express**. Les packages de mise à jour Complète mettent à jour les systèmes d’exploitation hôtes physiques dans l’unité d’échelle et nécessitent une plus grande fenêtre de maintenance. Les packages de mise à jour Express ont une étendue limitée et ne mettent pas à jour les systèmes d’exploitation hôtes physiques sous-jacents.
-
-Avant de démarrer l’installation de cette mise à jour, exécutez [Test-AzureStack](azure-stack-diagnostic-test.md) avec les paramètres suivants pour valider l’état de votre Azure Stack et résoudre les éventuels problèmes opérationnels détectés, y compris tous les avertissements et les échecs. Examinez aussi les alertes actives et résolvez toutes celles qui nécessitent une intervention.  
-
-```powershell
-Test-AzureStack -Group UpdateReadiness
-```
-
-## <a name="using-the-update-tile-to-manage-updates"></a>Utilisation de la vignette Mise à jour pour gérer les mises à jour
-
-Vous gérez les mises à jour à partir du portail administrateur. En tant qu’opérateur Azure Stack, vous pouvez utiliser la vignette **Mise à jour** dans le tableau de bord pour :
-
-- Afficher des informations importantes telles que la version actuelle.
-- Installer des mises à jour et surveiller la progression.
-- Examiner l’historique des mises à jour pour les mises à jour précédemment installées.
-- Voir la version actuelle du package OEM du cloud.
-
-## <a name="determine-the-current-version"></a>Déterminer la version actuelle
-
-Vous pouvez voir la version actuelle d’Azure Stack dans la vignette **Mise à jour**. Pour ouvrir la vignette :
-
-1. Ouvrez le portail administrateur Azure Stack.
-2. Sélectionnez **Tableau de bord**. La version actuelle apparaît dans la vignette **Mise à jour**.
-
-    ![Vignette Mises à jour sur le tableau de bord par défaut](./media/azure-stack-updates/image1.png)
-
-    Par exemple, dans cette image, la version est 1.1903.0.35.
-
-## <a name="install-updates-and-monitor-progress"></a>Installer des mises à jour et surveiller la progression
-
-1. Ouvrez le portail administrateur Azure Stack.
-2. Sélectionnez **Tableau de bord**. Sélectionnez la vignette **Mise à jour**.
-3. Sélectionnez **Mettre à jour maintenant**.
-
-    ![Détails de l’exécution de la mise à jour d'Azure Stack](media/azure-stack-updates/azure-stack-update-button.png)
-
-4. Vous pouvez afficher l’état de haut niveau à mesure que le processus de mise à jour effectue une itération dans les différents sous-systèmes d’Azure Stack. Exemples de sous-systèmes : hôtes physiques, Service Fabric, machines virtuelles d’infrastructure et services fournissant des portails administrateur et utilisateur. Tout au long du processus de mise à jour, le fournisseur de ressources de mise à jour transmet des détails supplémentaires sur la mise à jour, notamment le nombre d’étapes réussies et le nombre d’étapes en cours.
-
-5. Sélectionnez l’option **Télécharger les journaux d’activité complets** dans le panneau des détails de l’exécution de la mise à jour pour télécharger les journaux complets.
-
-    ![Détails de l’exécution de la mise à jour d'Azure Stack](media/azure-stack-updates/update-run-details.png)
-
-6. Une fois l’opération terminée, le fournisseur de ressources de mise à jour vous envoie une confirmation **Succeeded** (Réussite) pour indiquer la fin du processus de mise à jour et sa durée. De là, vous pouvez afficher des informations sur la totalité des mises à jour, les mises à jour disponibles ou les mises à jour installées à l’aide du filtre.
-
-    ![Détails de l’exécution de la mise à jour d'Azure Stack - réussite](media/azure-stack-updates/update-success.png)
-
-   Si la mise à jour échoue, la vignette **Mise à jour** affiche **Doit être surveillé**. Utilisez l’option **Télécharger les journaux d’activité complets** pour obtenir un état général de l’endroit où la mise à jour a échoué. La collecte des journaux Azure Stack facilite les diagnostics et le dépannage.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Stratégie de maintenance d’Azure Stack](azure-stack-servicing-policy.md) 
-- [Gestion des régions dans Azure Stack](azure-stack-region-management.md)
+- Pour commencer le processus de mise à jour, suivez les étapes de la section [Planifier une mise à jour d’Azure Stack](azure-stack-update-plan.md).
+- Pour savoir quelles versions d’Azure Stack sont prises en charge, consultez [Stratégie de maintenance Azure Stack](azure-stack-servicing-policy.md).  
+- Pour en savoir plus sur les mises à jour actuelles et récentes, consultez les [notes de publication d’Azure Stack](azure-stack-release-notes-security-updates-1907.md).

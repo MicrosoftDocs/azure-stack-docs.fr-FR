@@ -1,6 +1,6 @@
 ---
-title: Notes de publication du Kit de développement Microsoft Azure Stack | Microsoft Docs
-description: Améliorations, correctifs et problèmes connus pour le Kit de développement Azure Stack.
+title: Notes de publication de ASDK | Microsoft Docs
+description: Améliorations, correctifs et problèmes connus pour le Kit de développement Azure Stack (ASDK).
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: a2b000f60c5867e557ef5b0621f994ea7ec23913
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 3f11a7b5066d0b50d85a40be1df47dfe1a5ade38
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493776"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025842"
 ---
 # <a name="asdk-release-notes"></a>Notes de publication relatives à l’ASDK
 
-Cet article fournit des informations sur des modifications, des correctifs et des problèmes connus en lien avec le Kit de développement Azure Stack (ASDK). Si vous n’êtes pas sûr de la version que vous exécutez, consultez le [portail pour vérifier](../operator/azure-stack-updates.md#determine-the-current-version).
+Cet article fournit des informations sur des modifications, des correctifs et des problèmes connus en lien avec le Kit de développement Azure Stack (ASDK). Si vous n’êtes pas sûr de la version que vous exécutez, consultez le [portail pour vérifier](../operator/azure-stack-updates.md).
 
 Tenez-vous informé des nouveautés concernant le kit ASDK en vous abonnant au [flux RSS](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
