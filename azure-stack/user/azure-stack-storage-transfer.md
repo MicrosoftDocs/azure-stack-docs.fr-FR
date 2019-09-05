@@ -14,12 +14,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 6b6ab8ac8292f8d548b49331cf5d2e2ae100e68f
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 92e0c1a3bfd055373ffba5091d79922f1203b20b
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418452"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188030"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-storage"></a>Utiliser des outils de transfert de données pour le stockage Azure Stack
 
@@ -57,8 +57,13 @@ AzCopy est un utilitaire de ligne de commande conçu pour copier des données à
 
 ### <a name="download-and-install-azcopy"></a>Téléchargement et installation d’AzCopy
 
+::: moniker range=">=azs-1811"
 * Pour la mise à jour 1811 ou des versions plus récentes, [téléchargez AzCopy V10+](/azure/storage/common/storage-use-azcopy-v10#download-azcopy).
+::: moniker-end
+
+::: moniker range="<azs-1811"
 * Pour des versions antérieures (mises à jour 1802 à 1809), [téléchargez AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
+::: moniker-end
 
 ### <a name="azcopy-101-configuration-and-limits"></a>Configuration et limites d’AzCopy 10.1
 

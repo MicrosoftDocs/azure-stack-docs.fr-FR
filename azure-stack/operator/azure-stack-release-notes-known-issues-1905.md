@@ -16,12 +16,13 @@ ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 619bd20b3ed9affb93bceed7b253c15bdb1e3609
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+monikerRange: azs-1905
+ms.openlocfilehash: f5fdabf85e7fca25fbe341453c37c1072078b6f2
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008739"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188273"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Problèmes connus dans Azure Stack 1905
 
@@ -184,4 +185,4 @@ Cette erreur se produit si vous activez les diagnostics de démarrage sur une ma
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Passer en revue la check-list des activités de mise à jour](azure-stack-release-notes-checklist.md)
-- [Consulter la liste des mises à jour de sécurité](azure-stack-release-notes-security-updates-1905.md)
+- [Consulter la liste des mises à jour de sécurité](azure-stack-release-notes-security-updates.md)

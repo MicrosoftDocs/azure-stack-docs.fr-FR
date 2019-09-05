@@ -16,12 +16,13 @@ ms.date: 07/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: c646ca836728cc1963354afb66ee04ee0accf1b6
-ms.sourcegitcommit: fc7da38321736e952b2cc6d5d07f276d095dc8d1
+monikerRange: azs-1906
+ms.openlocfilehash: bf8e32d6395b3ddfc54fe586568b51b76b71dc63
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69887113"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188309"
 ---
 # <a name="azure-stack-1906-update"></a>Mise à jour 1906 d’Azure Stack
 
@@ -116,14 +117,14 @@ Le type de build de la mise à jour 1906 d’Azure Stack est **Express**. Pour 
 
 ## <a name="security-updates"></a>Mises à jour de sécurité
 
-Pour plus d’informations sur les mises à jour de sécurité dans cette mise à jour d’Azure Stack, consultez [Mises à jour de sécurité Azure Stack](azure-stack-release-notes-security-updates-1906.md).
+Pour plus d’informations sur les mises à jour de sécurité dans cette mise à jour d’Azure Stack, consultez [Mises à jour de sécurité Azure Stack](azure-stack-release-notes-security-updates.md).
 
 ## <a name="update-planning"></a>Planification des mises à jour
 
 Avant d’appliquer la mise à jour, veillez à consulter les informations suivantes :
 
 - [Problèmes connus](azure-stack-release-notes-known-issues-1906.md)
-- [Mises à jour de sécurité](azure-stack-release-notes-security-updates-1906.md)
+- [Mises à jour de sécurité](azure-stack-release-notes-security-updates.md)
 - [Liste de vérification des activités avant et après l’application de la mise à jour](azure-stack-release-notes-checklist.md)
 
 ## <a name="download-the-update"></a>Télécharger la mise à jour

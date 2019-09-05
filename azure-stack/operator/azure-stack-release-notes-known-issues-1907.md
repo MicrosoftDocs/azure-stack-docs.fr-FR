@@ -16,12 +16,13 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 2d87ff424c224f10bede28099435915ab6cd6bce
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+monikerRange: azs-1907
+ms.openlocfilehash: 1ce70e44786d657df93f8feaf8e32bfbb9159386
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008618"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188234"
 ---
 # <a name="azure-stack-1907-known-issues"></a>Problèmes connus dans Azure Stack 1907
 
@@ -180,4 +181,4 @@ Cet article répertorie les problèmes connus dans la version 1907 d’Azure St
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Passer en revue la check-list des activités de mise à jour](azure-stack-release-notes-checklist.md)
-- [Consulter la liste des mises à jour de sécurité](azure-stack-release-notes-security-updates-1907.md)
+- [Consulter la liste des mises à jour de sécurité](azure-stack-release-notes-security-updates.md)

@@ -10,12 +10,12 @@ ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 10bf2bcc13ceab3b28e44759bbacae57d63b9b97
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: c708c7f94f7d7e956b0ca4a6c4c4c2c70b1590fc
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131657"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188103"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Bien démarrer avec les outils de développement du stockage Azure Stack
 
@@ -32,6 +32,7 @@ Utilisez cet article comme un guide de démarrage concernant l’utilisation des
 
 Par conséquent, pour les bibliothèques clientes de stockage, vous devez connaître la version qui est compatible avec l’API REST. Vous devez également préciser le point de terminaison Azure Stack dans votre code.
 
+::: moniker range=">=azs-1811"
 ### <a name="1811-update-or-newer-versions"></a>Mise à jour 1811 ou plus récente
 
 | Bibliothèque cliente | Version prise en charge par Azure Stack | Lien | Spécification du point de terminaison |
@@ -60,7 +61,9 @@ Pour installer via Composer : (prenez l’objet blob en guise d’exemple).
 
 2. Téléchargez [composer.phar](https://getcomposer.org/composer.phar) à la racine du projet.
 3. Exécutez : `php composer.phar install`.
+::: moniker-end
 
+::: moniker range=">=azs-1802 <=azs-1809"
 ### <a name="previous-versions-1802-to-1809-update"></a>Versions précédentes (mises à jour 1802 à 1809)
 
 | Bibliothèque cliente | Version prise en charge par Azure Stack | Lien | Spécification du point de terminaison |
@@ -89,6 +92,7 @@ Pour installer via Composer : (prenez blob pour exemple).
 
 2. Téléchargez [composer.phar](https://getcomposer.org/composer.phar) à la racine du projet.
 3. Exécutez : `php composer.phar install`.
+:::moniker-end
 
 ## <a name="endpoint-declaration"></a>Déclaration de point de terminaison
 

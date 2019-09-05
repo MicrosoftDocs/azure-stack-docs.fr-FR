@@ -16,12 +16,13 @@ ms.date: 07/12/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 9eca3112085d68c6a35378f8309dfd8ac5a1bafc
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+monikerRange: azs-1906
+ms.openlocfilehash: 1dccf043f0cae641eeca286bdbb0c5d8717894eb
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008631"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188249"
 ---
 # <a name="azure-stack-1906-known-issues"></a>Problèmes connus dans Azure Stack 1906
 
@@ -204,4 +205,4 @@ Cet article répertorie les problèmes connus dans la version 1906 d’Azure St
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Passer en revue la check-list des activités de mise à jour](azure-stack-release-notes-checklist.md)
-- [Consulter la liste des mises à jour de sécurité](azure-stack-release-notes-security-updates-1906.md)
+- [Consulter la liste des mises à jour de sécurité](azure-stack-release-notes-security-updates.md)

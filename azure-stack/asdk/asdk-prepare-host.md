@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 08/28/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 23cacc7a9005e1695f7394d1e441298f3f90bca8
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.lastreviewed: 08/28/2019
+ms.openlocfilehash: cf15aebac3ad4d099892270bb2e334d32f82f580
+ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025941"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70144014"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>Préparer l’ordinateur hôte de l’ASDK
 Avant de pouvoir installer le Kit de développement Azure Stack (ASDK) sur l’ordinateur hôte, vous devez préparer l’hôte ASDK. Une fois préparé, l’ordinateur hôte démarre à partir du disque dur de la machine virtuelle CloudBuilder.vhdx pour commencer le déploiement du kit ASDK.
@@ -64,12 +64,17 @@ Avant de pouvoir installer le kit ASDK sur l’ordinateur hôte, vous devez pré
 
     Vous pouvez également fournir des valeurs pour les paramètres facultatifs suivants :
     - **Nom de l'ordinateur** : cette option définit le nom de l'hôte ASDK. Le nom doit respecter les spécifications des noms de domaine complets et ne pas dépasser 15 caractères. La valeur par défaut est un nom d’ordinateur aléatoire généré par Windows.
-    - **Configuration IP statique** : indique que votre déploiement doit utiliser une adresse IP statique. Dans le cas contraire, quand le programme d’installation redémarre dans cloudbuilder.vhdx, les interfaces réseau sont configurées avec DHCP. Si vous choisissez d’utiliser une configuration IP statique, des options supplémentaires s’affichent, ce qui vous oblige à effectuer les étapes suivantes :
-      - Sélectionner une carte réseau. Vérifiez que vous pouvez vous connecter à la carte avant de cliquer sur **Suivant**.
-      - Vérifiez que les valeurs affichées pour **Adresse IP**, **Passerelle** et **DNS** sont correctes, puis cliquez sur **Suivant**.
 
-   > [!TIP]
-   > Pour rechercher l'adresse IP d'un serveur de temps, visitez [ntppool.org](https://www.ntppool.org/) ou effectuez un test ping time.windows.com.
+        - Sélectionner une carte réseau. Vérifiez que vous pouvez vous connecter à la carte avant de cliquer sur **Suivant**.
+
+            ![Capture d’écran des paramètres de carte réseau](media/asdk-prepare-host/step-four-network-adapter.png)
+
+        - Vérifiez que les valeurs affichées pour **Adresse IP**, **Passerelle** et **DNS** sont correctes, fournissez une adresse **IP de serveur de temps** valide, puis cliquez sur **Suivant**.
+
+            >[!TIP]
+            >Pour rechercher l'adresse IP d'un serveur de temps, visitez [ntppool.org](https://www.ntppool.org/) ou effectuez un test ping time.windows.com. 
+
+            ![Capture d’écran des paramètres de configuration IP](media/asdk-prepare-host/step-five-host-ip-config.png)
 
 7. Cliquez sur **Suivant** pour démarrer le processus de préparation.
 8. Quand la préparation indique **Terminé**, cliquez sur **Suivant**.
