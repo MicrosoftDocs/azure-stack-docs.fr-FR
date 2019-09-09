@@ -15,12 +15,12 @@ ms.date: 07/18/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 7ac25e86be91cf6a2e8384c88c79fe3022b3f00d
-ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
+ms.openlocfilehash: b75d9f37e2b2deacb5935bb6cda3c2586afb8baa
+ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380474"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70235019"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Mettre à l’échelle des actions de nœud d’unité dans Azure Stack
 
@@ -169,7 +169,7 @@ Pour exécuter l’action de réparation, ouvrez une invite de commandes PowerSh
 
 ## <a name="shutdown"></a>Shutdown
 
-L’action d’**arrêt** déplace toutes les charges de travail actives vers les nœuds restants de la même unité d’échelle. L’action arrête ensuite de manière appropriée le nœud d’unité d’échelle.
+L’action d’**arrêt** déplace d’abord toutes les charges de travail actives vers les nœuds restants de la même unité d’échelle. L’action arrête ensuite de manière appropriée le nœud d’unité d’échelle.
 
 Après avoir démarré un nœud arrêté, vous devez exécuter l’action de [reprise](#resume). Les charges de travail antérieures en cours d’exécution sur le nœud ne se restaurent pas automatiquement.
 

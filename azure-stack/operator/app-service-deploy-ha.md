@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 01e359b2fc92abfe2c4903b75fd52687c2246d56
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: e09cc9e5c77379441d7757fa1395941712ecc5ff
+ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959553"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70271826"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Déployer App Service dans une configuration hautement disponible
 
@@ -123,7 +123,7 @@ Avant de pouvoir exécuter le programme d’installation App Service, plusieurs 
 - [Téléchargez le programme d’installation App Service et les scripts d’assistance](azure-stack-app-service-before-you-get-started.md#download-the-installer-and-helper-scripts).
 - [Téléchargez la dernière extension de script personnalisé sur la Place de marché Azure Stack](azure-stack-app-service-before-you-get-started.md#syndicate-the-custom-script-extension-from-the-marketplace).
 - [Générez les certificats requis](azure-stack-app-service-before-you-get-started.md#get-certificates).
-- Créez l’ID Application selon le fournisseur d’identité que vous avez choisi pour Azure Stack. Un ID Application peut être généré pour [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-application) ou les [services de fédération Active Directory (AD FS)](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-application), et enregistrer l’ID d’application.
+- Créez l’ID Application selon le fournisseur d’identité que vous avez choisi pour Azure Stack. Un ID Application peut être généré pour [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app) ou les [services de fédération Active Directory (AD FS)](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-app), et enregistrer l’ID d’application.
 - Vérifiez que vous avez ajouté l’image Windows Server 2016 Datacenter à la Place de marché Azure Stack. Cette image est nécessaire pour l’installation d’App Service.
 
 ### <a name="steps-for-app-service-deployment"></a>Étapes de déploiement d’App Service

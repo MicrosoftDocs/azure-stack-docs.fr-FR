@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 08/29/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 10/12/2018
-ms.openlocfilehash: 6f417b8afdf5315f581db52dc4b850f72e02b1f0
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.lastreviewed: 08/29/2019
+ms.openlocfilehash: 72787bda5dd5fad372af33141e276b4852f86c39
+ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991749"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70159527"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Vue d’ensemble des plans, des offres, des quotas et des abonnements
 
@@ -85,7 +85,7 @@ Chaque combinaison entre un utilisateur et une offre correspond à un abonnement
 
 ### <a name="default-provider-subscription"></a>Abonnement au fournisseur par défaut
 
-L’abonnement au fournisseur par défaut est automatiquement créé lors du déploiement du Kit de développement Azure Stack. Il permet de gérer Azure Stack, de déployer des fournisseurs de ressources supplémentaires et de créer des plans et des offres pour les utilisateurs. Pour des raisons de sécurité et de gestion des licences, il ne doit pas être utilisé pour exécuter des applications et des charges de travail de clients.
+L’abonnement au fournisseur par défaut est automatiquement créé lors du déploiement du Kit de développement Azure Stack. Il permet de gérer Azure Stack, de déployer des fournisseurs de ressources supplémentaires et de créer des plans et des offres pour les utilisateurs. Pour des raisons de sécurité et de gestion des licences, il ne doit pas être utilisé pour exécuter des applications et des charges de travail de clients. Le quota de l’abonnement du fournisseur par défaut ne peut pas être modifié.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

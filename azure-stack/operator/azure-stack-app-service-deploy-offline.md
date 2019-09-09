@@ -12,23 +12,23 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: c97598145b0d03f3b25876296cb070b0301a3742
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: a33dc4ee1d9889b1dfa817b18b2c5c97e78c8432
+ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269230"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70159623"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Ajouter un fournisseur de ressources App Service à un environnement Azure Stack déconnecté sécurisé par AD FS
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!IMPORTANT]
-> Appliquez la mise à jour 1904 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service 1.6.
+> Appliquez la mise à jour 1907 à votre système intégré Azure Stack ou déployez le dernier kit de développement Azure Stack avant de déployer Azure App Service 1.7.
 
 En suivant les instructions de cet article, vous pouvez installer le [fournisseur de ressources App Service](azure-stack-app-service-overview.md) dans un environnement Azure Stack qui :
 
@@ -36,7 +36,7 @@ En suivant les instructions de cet article, vous pouvez installer le [fournisseu
 - sécurisé par les services de fédération Active Directory (AD FS).
 
 > [!IMPORTANT]
-> Avant d’exécuter le programme d’installation du fournisseur de ressources, veillez à suivre les recommandations de la section [Avant de commencer](azure-stack-app-service-before-you-get-started.md) et lu les [notes de publication](azure-stack-app-service-release-notes-update-six.md) qui accompagnent la version 6 afin d’en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.
+> Avant d’exécuter le programme d’installation du fournisseur de ressources, assurez-vous d’avoir suivi les recommandations de la section [Avant de démarrer](azure-stack-app-service-before-you-get-started.md) et d’avoir lu les [notes de publication](azure-stack-app-service-release-notes-update-seven.md) qui accompagnent la version 1.7, afin d’en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient impacter votre déploiement.
 
 Pour ajouter le fournisseur de ressources App Service à votre déploiement Azure Stack hors connexion, vous devez effectuer ces tâches de niveau supérieur :
 
@@ -105,7 +105,7 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
 
       ![Programme d’installation App Service][5]
 
-9. Entrez les informations du partage de fichiers, puis cliquez sur **Suivant**. L’adresse du partage de fichiers doit utiliser le nom de domaine complet ou l’adresse IP de votre serveur de fichiers. Par exemple, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.  Si vous utilisez un serveur de fichiers qui est joint à un domaine, vous devez fournir le nom d’utilisateur complet, y compris le domaine, par exemple, myfileserverdomain\FileShareOwner.
+9. Entrez les informations du partage de fichiers, puis cliquez sur **Suivant**. L’adresse du partage de fichiers doit utiliser le nom de domaine complet ou l’adresse IP de votre serveur de fichiers. Par exemple, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.  Si vous utilisez un serveur de fichiers qui est joint à un domaine, vous devez fournir le nom d’utilisateur complet incluant le domaine ; par exemple, myfileserverdomain\FileShareOwner.
 
     > [!NOTE]
     > Le programme d’installation tente de tester la connectivité au partage de fichiers avant de continuer.  Toutefois, si vous avez choisi d’effectuer le déploiement sur un réseau virtuel existant, il est possible que le programme d’installation ne puisse pas se connecter au partage de fichiers et affiche un avertissement vous demandant si vous souhaitez continuer.  Vérifiez les informations du partage de fichiers et continuez si elles sont correctes.
@@ -161,7 +161,7 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
      >
      >
 
-    | Rôle | Nombre minimal d’instances | Nombre minimal de références (SKU) | Notes |
+    | Role | Nombre minimal d’instances | Nombre minimal de références (SKU) | Notes |
     | --- | --- | --- | --- |
     | Controller | 1 | Standard_A2 - (2 processeurs virtuels, 3584 Mo) | Gère et maintient l’intégrité du Cloud App Service. |
     | gestion | 1 | Standard_A2 - (2 processeurs virtuels, 3 584 Mo) | Gère les points de terminaison App Service Azure Resource Manager et d’API, les extensions du portail (admin, locataire, portail Functions) et du service des données. Pour prendre en charge le basculement, augmenter les instances recommandées à 2. |
@@ -219,7 +219,7 @@ Si vous avez choisi de procéder au déploiement dans un réseau virtuel existan
 
 2. Dans la vue d’ensemble, sous les statuts, vérifiez que le **Statut** affiche **Tous les rôles sont prêts**.
 
-    ![Gestion d’App Service](media/azure-stack-app-service-deploy/image12.png)
+    ![Administration d’App Service](media/azure-stack-app-service-deploy/image12.png)
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Tester App Service sur Azure Stack
 
@@ -258,15 +258,10 @@ Après avoir déployé et inscrit le fournisseur de ressources App Service, test
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez également tester d’autres [services PaaS](azure-stack-offer-services-overview.md).
+Anticipez les opérations d’administration supplémentaires pour App Service sur Azure Stack :
 
-- [Fournisseur de ressources SQL Server](azure-stack-sql-resource-provider-deploy.md)
-- [Fournisseur de ressources MySQL](azure-stack-mysql-resource-provider-deploy.md)
-
-<!--Links-->
-[Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531
-[App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
-[AppServiceHelperScripts]: https://go.microsoft.com/fwlink/?LinkId=733525
+- [Planification de la capacité](azure-stack-app-service-capacity-planning.md)
+- [Configurer des sources de déploiement](azure-stack-app-service-configure-deployment-sources.md)
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-advanced-create-package.png

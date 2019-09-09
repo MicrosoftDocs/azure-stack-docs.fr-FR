@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 09/04/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 17f68039382453312114dff8737072d1515a583d
-ms.sourcegitcommit: b752f4e6733d9ebe56dbd171a14528dcb9a693fd
+ms.lastreviewed: 09/04/2019
+ms.openlocfilehash: 338df8d335376ebbaf14230e62d8dee9f813994f
+ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68522010"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70271740"
 ---
 # <a name="overview-of-azure-stack-diagnostic-log-collection"></a>Vue d’ensemble de la collecte automatique des journaux de diagnostic Azure Stack 
 

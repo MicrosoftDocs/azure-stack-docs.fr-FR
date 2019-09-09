@@ -12,18 +12,35 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 08/01/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: c02cc78205b2622b4ef5bdd8b88070912af72b97
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.openlocfilehash: 1022ab056157ea1a9bc925d3992a99bd0b395a35
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008597"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188084"
 ---
-# <a name="azure-stack-servicing-policy"></a>Stratégie de maintenance Azure Stack
+- **Mises à jour fournies par le fabricant de matériel OEM**. Les fabricants de matériel partenaires d’Azure Stack sont responsables du cycle de vie de maintenance de bout en bout (y compris les instructions) pour les mises à jour logicielles des microprogrammes et des pilotes liées au matériel. De plus, ils sont propriétaires et gèrent les instructions pour tous les logiciels et le matériel sur l’hôte du cycle de vie de matériel. Le fabricant de matériel OEM héberge ces packages de mise à jour sur son propre site de téléchargement.
+
+## <a name="update-package-release-cadence"></a>Cadence de publication des packages de mise à jour
+
+Microsoft prévoie de publier des packages de mise à jour logicielle chaque mois. Toutefois, il est possible qu’il y ait plusieurs mises à jour durant un mois donné, ou qu’il n’y en ait aucune. Les fabricants de matériel OEM publient leurs mises à jour en fonction des besoins.
+
+Pour lire la documentation relative à la planification et à la gestion des mises à jour, et pour savoir comment déterminer la version que vous utilisez, consultez [Gérer les mises à jour dans Azure Stack - Vue d’ensemble](azure-stack-updates.md).
+
+Pour en savoir plus sur une mise à jour, notamment comment la télécharger, consultez les notes de publication qui s’y rapportent :
+
+- [Mise à jour 1908 d’Azure Stack](azure-stack-release-notes-1908.md)
+- [Mise à jour 1907 d’Azure Stack](azure-stack-release-notes-1907.md)
+- [Mise à jour 1906 d’Azure Stack](azure-stack-release-notes-1906.md)
+- [Mise à jour 1905 d’Azure Stack](azure-stack-release-notes-1905.md)
+
+## <a name="hotfixes"></a>Correctifs logiciels
+
+Parfois, Microsoft fournit des correctifs logiciels pour Azure Stack qui corrigent un problème précis souvent préventif ou urgent.  Chaque correctif est publié en même temps que son article correspondant dans la Base de connaissances Microsoft, où sont détaillés le problème, la cause et la résolution.
 
 *S’applique à : systèmes intégrés Azure Stack*
 

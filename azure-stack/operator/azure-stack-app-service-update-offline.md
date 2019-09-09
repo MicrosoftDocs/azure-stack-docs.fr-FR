@@ -12,22 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.openlocfilehash: 2bbab1870c06e32889187f676022dab410aaf08c
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 5482d078e4edbda10806220c989909424d9fcd95
+ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269070"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70159587"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Mise à jour hors connexion d’Azure App Service sur Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!IMPORTANT]
-> Appliquez la mise à jour 1904 ou une version ultérieure à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service 1.6.
+> Appliquez la mise à jour 1907 ou une version ultérieure à votre système intégré Azure Stack ou déployez le dernier kit de développement Azure Stack avant de déployer Azure App Service 1.7.
 
 En suivant les instructions de cet article, vous pouvez mettre à niveau le [fournisseur de ressources App Service](azure-stack-app-service-overview.md) déployé dans un environnement Azure Stack qui :
 
@@ -35,13 +35,13 @@ En suivant les instructions de cet article, vous pouvez mettre à niveau le [fou
 * sécurisé par les services de fédération Active Directory (AD FS).
 
 > [!IMPORTANT]
-> Avant d’exécuter la mise à niveau, vérifiez que vous avez déjà effectué le [déploiement du fournisseur de ressources Azure App Service sur Azure Stack](azure-stack-app-service-deploy-offline.md) et que vous avez lu les [notes de publication](azure-stack-app-service-release-notes-update-six.md) qui accompagnent la version 1.6, afin d’en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.
+> Avant d’exécuter la mise à niveau, vérifiez que vous avez déjà effectué le [déploiement du fournisseur de ressources Azure App Service sur Azure Stack](azure-stack-app-service-deploy-offline.md) et que vous avez lu les [notes de publication](azure-stack-app-service-release-notes-update-seven.md) qui accompagnent la version 1.7, afin d’en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient impacter votre déploiement.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Exécuter le programme d’installation du fournisseur de ressources App Service
 
 Pour mettre à niveau le fournisseur de ressources App Service dans un environnement Azure Stack, vous devez effectuer les tâches suivantes :
 
-1. Télécharger le [Programme d’installation App Service](https://aka.ms/appsvcupdate6installer)
+1. Téléchargez le [programme d’installation d’App Service](https://aka.ms/appsvcupdate7installer).
 2. Créer un package de mise à niveau en mode hors connexion
 3. Exécuter le programme d’installation App Service (appservice.exe) et procéder à la mise à niveau
 
@@ -129,7 +129,7 @@ Pour mettre à niveau App Service dans un environnement déconnecté, vous devez
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez également tester d’autres [services PaaS](azure-stack-offer-services-overview.md).
+Anticipez les opérations d’administration supplémentaires pour App Service sur Azure Stack :
 
-* [Fournisseur de ressources SQL Server](azure-stack-sql-resource-provider-deploy.md)
-* [Fournisseur de ressources MySQL](azure-stack-mysql-resource-provider-deploy.md)
+* [Planifier une capacité supplémentaire](azure-stack-app-service-capacity-planning.md)
+* [Ajouter de la capacité supplémentaire](azure-stack-app-service-add-worker-roles.md)

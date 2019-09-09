@@ -3,7 +3,7 @@ title: Préparer un package de mise à jour Azure Stack | Microsoft Docs
 description: Apprenez à préparer un package de mise à jour Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2019
-ms.author: mabrigg
-ms.lastreviewed: 08/15/2019
+ms.date: 09/03/2019
+ms.author: justinha
+ms.lastreviewed: 09/03/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: ab7b764e608ed1fb8008071296d0004f6ef65e7a
-ms.sourcegitcommit: 1c45814696e70ba987dd39ce61d93ea4ef5222ea
+ms.openlocfilehash: 9b58b4911a575ef66c95594b6cb4cd1cc9e27a43
+ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70029476"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70235000"
 ---
 # <a name="prepare-an-azure-stack-update-package"></a>Préparer un package de mise à jour Azure Stack
 
@@ -28,14 +28,14 @@ ms.locfileid: "70029476"
 
 Cet article fournit une vue d’ensemble de la préparation des packages de mise à jour d’Azure Stack afin de pouvoir les utiliser pour mettre à jour votre environnement Azure Stack. Ce processus se décompose ainsi :
 
-- [Télécharger le package de mise à jour](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#download-the-update-package)
-- [Importation du package de mise à jour dans votre environnement Azure Stack via le portail d’administration Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#import-and-install-updates)
+- [Télécharger le package de mise à jour](#download-the-update-package)
+- [Importation du package de mise à jour dans votre environnement Azure Stack via le portail d’administration Azure Stack](#import-and-install-updates)
 
-Ce processus s’effectue automatiquement pour les mises à jour logicielles et les correctifs logiciels d’Azure Stack sur les systèmes avec une connectivité Internet aux [points de terminaison de mise à jour automatique d’Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages).
+Sur les systèmes qui peuvent se connecter aux points de terminaison de mise à jour automatique, les mises à jour logicielles et les correctifs logiciels pour Azure Stack sont automatiquement téléchargés et préparés. Sur les systèmes sans connectivité, mais aussi pour toutes les mises à jour provenant d’un fabricant OEM, le package de mise à jour doit être préparé comme cela est expliqué dans cette rubrique.  
 
-Le tableau ci-dessous indique quand les packages de mise à jour nécessitent une préparation manuelle et lorsqu’ils sont préparés automatiquement :
+Le tableau suivant indique quand les packages de mise à jour nécessitent une préparation manuelle et quand ils sont préparés automatiquement.
 
-| Type de mise à jour | Connectivité de l’environnement Azure Stack aux [points de terminaison de mise à jour automatique Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages) | Action requise |
+| Type de mise à jour | Connectivité | Action requise |
 | --- | --- | --- |
 | Mises à jour logicielles d’Azure Stack | Connecté | La mise à jour est automatiquement téléchargée et préparée lorsque la mise à jour est appliquée. |
 | Correctifs logiciels d’Azure Stack | Connecté | La mise à jour est automatiquement téléchargée et préparée lorsque la mise à jour est appliquée. |
@@ -46,6 +46,9 @@ Le tableau ci-dessous indique quand les packages de mise à jour nécessitent un
 
 ## <a name="download-the-update-package"></a>Télécharger la mise à jour
 Le package de mise à jour pour les mises à jour et les correctifs logiciels Azure Stack est disponible via le panneau de mise à jour pour les systèmes connectés. Vous devez télécharger le package et le déplacer vers un emplacement accessible pour votre instance Azure Stack si vous mettez à jour un package OEM ou si vous prenez en charge un système déconnecté. Vous devrez peut-être également télécharger le package et le transférer vers un emplacement accessible si vous exécutez un système avec une connexion intermittente.
+
+>[!NOTE]
+>Le package de mise à jour et son contenu (comme les fichiers binaires, les scripts PowerShell, etc.) sont signés avec des certificats Microsoft. Toute falsification du package invalide la signature.
 
 Passez en revue le contenu du package. Une mise à jour comprend généralement les fichiers suivants :
 

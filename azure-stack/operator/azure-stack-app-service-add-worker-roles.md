@@ -1,5 +1,5 @@
 ---
-title: Augmenter la taille des instances des rôles de travail dans App Services - Azure Stack  | Microsoft Docs
+title: Ajouter des workers et une infrastructure dans App Service sur Azure Stack | Microsoft Docs
 description: Instructions détaillées pour la mise à l’échelle d’App Services Azure Stack
 services: azure-stack
 documentationcenter: ''
@@ -16,25 +16,25 @@ ms.date: 05/06/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: c7dcb31c74ac08f3045425d246e17376808a5b98
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 43ee38c18e2831d1cb96958501cee6f77292edd0
+ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269305"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70271678"
 ---
-# <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>App Service sur Azure Stack : Ajouter des rôles d'infrastructure ou de travail
+# <a name="add-workers-and-infrastructure-in-app-service-on-azure-stack"></a>Ajouter des workers et une infrastructure dans App Service sur Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*  
 
-Ce document fournit des instructions sur la mise à l’échelle d’App Service sur des rôles d’infrastructure et de travail Azure Stack. Il contient les étapes de création de rôles de travail supplémentaires pour prendre en charge des applications de n’importe quelle taille.
+Ce document fournit des instructions sur la mise à l’échelle des rôles de worker et de l’infrastructure dans App Service sur Azure Stack. Il explique toutes les étapes à effectuer pour créer des rôles de worker supplémentaires en vue de la prise en charge de toutes les applications, quelle que soit leur taille.
 
 > [!NOTE]
 > Si votre environnement Azure Stack n’a pas plus de 96 Go de RAM, l’ajout de capacité supplémentaire peut se révéler difficile.
 
-App Service sur Azure Stack, par défaut, prend en charge les niveaux Worker gratuits et partagés. Pour ajouter d’autres niveaux Worker, vous devez ajouter davantage de rôles de travail.
+App Service sur Azure Stack prend en charge les niveaux de worker gratuits et partagés par défaut. Pour ajouter d’autres niveaux Worker, vous devez ajouter davantage de rôles de travail.
 
-Si vous n’êtes pas sûr de ce qui a été déployé avec l’installation App Service sur Azure Stack par défaut, vous pouvez consulter des informations supplémentaires dans la [vue d’ensemble d’App Service sur Azure Stack](azure-stack-app-service-overview.md).
+Si vous ne savez pas précisément ce qui a été déployé avec l’installation App Service sur Azure Stack par défaut, consultez [Vue d’ensemble d’App Service sur Azure Stack](azure-stack-app-service-overview.md) pour avoir plus d’informations.
 
 Azure App Service sur Azure Stack déploie tous les rôles à l’aide de groupes de machines virtuelles identiques et en tant que tel tire parti des fonctionnalités de mise à l’échelle de cette charge de travail. Par conséquent, toute la mise à l’échelle des niveaux Worker s’effectue via l’administrateur App Service.
 
@@ -73,25 +73,25 @@ Azure App Service sur Azure Stack déploie tous les rôles à l’aide de groupe
    >
    >
 
-3. Surveillez l’état des nouvelles instances de rôle dans l’administration App Service. Pour vérifier l’état d’une instance de rôle individuel, cliquez sur le type de rôle dans la liste.
+3. Surveillez l’état des nouvelles instances de rôle dans le portail d’administration App Service. Pour vérifier l’état d’une instance de rôle, cliquez sur le type de rôle dans la liste.
 
-## <a name="add-additional-workers-using-the-administration-portal"></a>Ajouter des workers supplémentaires à l’aide du portail d’administration
+## <a name="add-additional-workers-using-the-admin-portal"></a>Ajouter des workers supplémentaires à l’aide du portail d’administration
 
 1. Connectez-vous au portail d’administration Azure Stack en tant qu’administrateur du service.
 
 2. Parcourir **App Services**.
 
-    ![](media/azure-stack-app-service-add-worker-roles/image01.png)
+    ![Portail d’administration App Service sur Azure Stack](media/azure-stack-app-service-add-worker-roles/image01.png)
 
 3. Cliquez sur **Rôles**. La répartition de tous les rôles App Service déployés s’affiche ici.
 
 4. Cliquez avec le bouton droit sur la ligne du type que vous voulez mettre à l’échelle, puis cliquez sur **ScaleSet**.
 
-    ![](media/azure-stack-app-service-add-worker-roles/image02.png)
+    ![ScaleSet des rôles App Service dans le portail d’administration Azure Stack](media/azure-stack-app-service-add-worker-roles/image02.png)
 
 5. Cliquez sur **Mise à l’échelle**, sélectionnez le nombre d’instances vers lequel vous voulez faire la mise à l’échelle, puis cliquez sur **Enregistrer**.
 
-    ![](media/azure-stack-app-service-add-worker-roles/image03.png)
+    ![Définir les instances vers lesquelles faire la mise à l’échelle dans les rôles App Service dans le portail d’administration Azure Stack](media/azure-stack-app-service-add-worker-roles/image03.png)
 
 6. App Service sur Azure Stack ajoute ensuite les machines virtuelles supplémentaires, les configure, installe tous les logiciels requis et les marque comme Prêt lorsque ce processus est terminé. Ce processus peut prendre environ 80 minutes.
 
@@ -99,16 +99,12 @@ Azure App Service sur Azure Stack déploie tous les rôles à l’aide de groupe
 
 ## <a name="result"></a>Résultat
 
-Une fois qu’ils sont entièrement déployés et prêts, les utilisateurs peuvent déployer leur charge de travail sur les Workers. Voici un exemple des différents niveaux tarifaires disponibles par défaut. S’il n’existe aucun Worker disponible pour un niveau Worker spécifique, l’option permettant de choisir le niveau tarifaire correspondant est indisponible.
+Une fois que les workers sont entièrement déployés et prêts, les utilisateurs peuvent y déployer leur charge de travail. La capture d’écran suivante montre un exemple des différents niveaux tarifaires disponibles par défaut. S’il n’existe aucun Worker disponible pour un niveau Worker spécifique, l’option permettant de choisir le niveau tarifaire correspondant est indisponible.
 
-![](media/azure-stack-app-service-add-worker-roles/image04.png)
+![Niveaux tarifaires pour le nouveau plan App Service dans le portail d’administration Azure Stack](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> Pour monter en puissance les rôles de gestion, de serveur frontal ou de serveur de publication, vous devez monter en puissance le type de rôle correspondant. 
->
->
-
-Pour la montée en charge des rôles Gestion, Frontal ou Serveur de publication, suivez les mêmes étapes en sélectionnant le type de rôle approprié. Les contrôleurs ne sont pas déployés comme groupes de machines virtuelles identiques : par conséquent, vous devez déployer deux contrôleurs au moment de l’installation pour tous les déploiements de production.
+> Pour la montée en charge des rôles Gestion, Frontal ou Serveur de publication, suivez les mêmes étapes en sélectionnant le type de rôle approprié. Les contrôleurs ne sont pas déployés en tant que groupes identiques. Vous devez donc déployer deux contrôleurs au moment de l’installation pour tous les déploiements de production.
 
 ### <a name="next-steps"></a>Étapes suivantes
 

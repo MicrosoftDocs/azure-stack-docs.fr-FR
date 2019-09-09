@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2019
+ms.date: 08/28/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 73671431c70960fa517ee83c68945f14e2621b46
-ms.sourcegitcommit: 9cb82df1eccb0486bcabec0bd674162d4820c00c
+ms.openlocfilehash: bea83d743e7f43ff25d446a09b0e12d0c0af4232
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060191"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188369"
 ---
 # <a name="apply-azure-stack-original-equipment-manufacturer-oem-updates"></a>Appliquer des mises à jour de fabricants d’ordinateurs (OEM) à Azure Stack
 
@@ -47,8 +47,7 @@ Cette section contient des informations de contact OEM et des liens vers des doc
 | Cisco | Tous | [Prise en charge de Cisco Azure Stack/Mises à jour du microprogramme - Notification automatique (compte/connexion requis)](https://software.cisco.com/download/redirect?i=!y&mdfid=283862063&softwareid=286320368&release=1.0(0)&os=)<br><br>[Notes de publication pour Cisco Integrated System pour Microsoft Azure Stack](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
 | Dell EMC | Tous | [Cloud pour Microsoft Azure Stack 14G (compte et connexion requis)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pour Microsoft Azure Stack 13G (compte et connexion requis)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | JAPON | [Support technique de service géré Fujitsu (compte et connexion requis)](https://eservice.fujitsu.com/supportdesk-web/) |
-|  | EMEA | [Support des produits et systèmes informatiques Fujitsu](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
-|  | EU | [MySupport Fujitsu (compte et connexion requis)](https://support.ts.fujitsu.com/IndexMySupport.asp) |
+|  | EMEA ET ÉTATS-UNIS | [Support des produits et systèmes informatiques Fujitsu](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
 | HPE | Tous | [HPE ProLiant pour Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
 | Lenovo | Tous | [Meilleures recettes ThinkAgile SXM](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
 | Wortmann |  | [Package OEM/microprogramme](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/OEM)<br>[documentation Terra Azure Stack (y compris FRU)](https://drive.terracloud.de/dl/fiWGZwCySZSQyNdykXCFiVCR/TerraAzSDokumentation)

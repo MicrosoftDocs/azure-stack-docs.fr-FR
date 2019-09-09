@@ -16,12 +16,12 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 14f19fa432d782eace721d47b6b578dc73846631
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: af1f1351a5659447fb0f9e7ac9782fb74208e038
+ms.sourcegitcommit: ebb5afb7968d3e6531ecfcde7f4bb5e4420caf02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959374"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70302373"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Utiliser des profils de version d’API avec .NET dans Azure Stack
 
@@ -63,7 +63,7 @@ Vous pouvez combiner toutes les options dans la même application.
 
 5.  Si vous n’en avez pas de disponible, créez un abonnement et enregistrez l’ID d’abonnement pour une utilisation ultérieure. Pour obtenir des instructions pour créer un abonnement, consultez [Créer des abonnements pour des offres dans Azure Stack][].
 
-6.  Créez un principal de service et enregistrez l’ID client, ainsi que la clé secrète client. Pour plus d’informations sur la création d’un principal de service pour Azure Stack, consultez l’article [Fournir l’accès des applications à Azure Stack][]. L’ID client est également connu en tant qu’ID d’application lors de la création d’un principal de service.
+6.  Créez un principal de service et enregistrez l’ID client, ainsi que la clé secrète client. Pour plus d’informations sur la création d’un principal de service pour Azure Stack, consultez [Fournir l’accès des applications à Azure Stack][]. L’ID client est également connu en tant qu’ID d’application lors de la création d’un principal de service.
 
 7.  Vérifiez que votre principal de service bénéficie du rôle contributeur/propriétaire sur votre abonnement. Pour plus d’informations sur l’assignation d’un rôle au principal de service, consultez l’article [Fournir l’accès des applications à Azure Stack][].
 

@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2019
+ms.date: 08/30/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 08/16/2019
-ms.openlocfilehash: 526343889bbd5cc784ebb87c39603e2152a98f3b
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.lastreviewed: 08/30/2019
+monikerRange: azs-1907
+ms.openlocfilehash: 4dc9c69479066aad3f2b4ebd08646e09da89ba3a
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008775"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188115"
 ---
 # <a name="azure-stack-1907-update"></a>Mise à jour 1907 d’Azure Stack
 
@@ -77,7 +78,7 @@ Le type de build de la mise à jour 1907 d’Azure Stack est **Express**. Pour 
 
 ### <a name="changes"></a>Changements
 
-- Azure Stack version 1907 contient une alerte d’avertissement qui indique aux opérateurs de bien mettre à jour le package OEM de leur système vers la version 2.1 ou ultérieure **avant** d’effectuer la mise à jour vers la version 1908. Les fournisseurs de matériel publieront le package OEM 2.1 en même temps qu’Azure Stack version 1908. Le package OEM 2.1 ou version ultérieure sera requis pour la version 1908 d’Azure Stack. Pour plus d’informations sur le téléchargement du package OEM 2.1 ou version ultérieure, contactez le fournisseur de matériel de votre système.
+- Azure Stack version 1907 contient une alerte d’avertissement qui indique aux opérateurs de bien mettre à jour le package OEM de leur système vers la version 2.1 ou ultérieure avant d’effectuer la mise à jour vers la version 1908. Pour plus d’informations sur l’application de mises à jour OEM dans Azure Stack, consultez [Appliquer des mises à jour de fabricants d’ordinateurs à Azure Stack](azure-stack-update-oem.md).
 
 - Ajout d’une nouvelle règle de trafic sortant (HTTPS) afin d'activer la communication pour le service de collecte des journaux de diagnostic Azure Stack. Pour plus d’informations, consultez [Intégration au centre de données Azure Stack - Publier des points de terminaison](azure-stack-integrate-endpoints.md#ports-and-urls-outbound).
 
@@ -118,14 +119,14 @@ Le type de build de la mise à jour 1907 d’Azure Stack est **Express**. Pour 
 
 ## <a name="security-updates"></a>Mises à jour de sécurité
 
-Pour plus d’informations sur les mises à jour de sécurité dans cette mise à jour d’Azure Stack, consultez [Mises à jour de sécurité Azure Stack](azure-stack-release-notes-security-updates-1907.md).
+Pour plus d’informations sur les mises à jour de sécurité dans cette mise à jour d’Azure Stack, consultez [Mises à jour de sécurité Azure Stack](azure-stack-release-notes-security-updates.md).
 
 ## <a name="update-planning"></a>Planification des mises à jour
 
 Avant d’appliquer la mise à jour, veillez à consulter les informations suivantes :
 
 - [Problèmes connus](azure-stack-release-notes-known-issues-1907.md)
-- [Mises à jour de sécurité](azure-stack-release-notes-security-updates-1907.md)
+- [Mises à jour de sécurité](azure-stack-release-notes-security-updates.md)
 - [Liste de vérification des activités avant et après l’application de la mise à jour](azure-stack-release-notes-checklist.md)
 
 ## <a name="download-the-update"></a>Télécharger la mise à jour
