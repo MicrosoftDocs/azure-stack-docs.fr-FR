@@ -143,6 +143,8 @@
       items:
         - name: Informations de base sur l’administration
           href: azure-stack-manage-basics.md
+        - name: Effacer les données utilisateur du portail
+          href: azure-stack-portal-clear.md
         - name: Configurer la collecte de données de télémétrie
           href: azure-stack-telemetry.md
         - name: Inscrire Azure Stack
