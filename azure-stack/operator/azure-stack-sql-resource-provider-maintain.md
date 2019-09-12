@@ -15,16 +15,16 @@ ms.date: 05/06/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 77b341baca92e53448065325118088ff01a59052
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 1fa83cbbdba011646016e1e0b0fd5bef3b8d0baf
+ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617813"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70377275"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Opérations de maintenance du fournisseur de ressources SQL
 
-Le fournisseur de ressources SQL s’exécute sur une machine virtuelle verrouillée. Pour activer les opérations de maintenance, vous devez mettre à jour la sécurité de la machine virtuelle. Pour ce faire, à l’aide du principe des privilèges minimum, vous pouvez utiliser le point de terminaison [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview) *DBAdapterMaintenance*. Le package d’installation du fournisseur de ressources inclut un script pour cette opération.
+Le fournisseur de ressources SQL s’exécute sur une machine virtuelle verrouillée. Pour activer les opérations de maintenance, vous devez mettre à jour la sécurité de la machine virtuelle. Pour ce faire, à l’aide du principe des privilèges minimum, vous pouvez utiliser le point de terminaison [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) *DBAdapterMaintenance*. Le package d’installation du fournisseur de ressources inclut un script pour cette opération.
 
 ## <a name="patching-and-updating"></a>Mise à jour corrective et mise à jour
 

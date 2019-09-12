@@ -16,10 +16,10 @@ ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 08/30/2019
 ms.openlocfilehash: 9d0820634a469f775c1e3b6637c604ae98681be2
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "70188177"
 ---
 # <a name="asdk-release-notes"></a>Notes de publication relatives à l’ASDK
