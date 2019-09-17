@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2019
+ms.date: 09/07/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: e69000eb862411dd0c8b415ab1f0ad7c8573f046
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 9f35a2bef6e5aa3b9ae1866927be007d58532b74
+ms.sourcegitcommit: 5703255b4647ff0ebec23658a3f5c25d67f076a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419548"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70749959"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Ajouter un locataire pour l’utilisation et la facturation sur Azure Stack
 
@@ -58,7 +58,7 @@ Par défaut,en tant que CSP, vous n’avez pas accès à l’abonnement Azure St
 Mettez à jour votre inscription avec l’abonnement de nouveau client. Azure signale l’utilisation du client à l’aide de l’identité du client dans l’Espace partenaires. Cette étape garantit que l’utilisation de chaque client est signalée dans l’abonnement de fournisseur de services cloud individuel de ce client. Cela permet de faciliter le suivi de l’utilisation de l’utilisateur et la facturation.
 
 > [!NOTE]  
-> Pour pouvoir effectuer cette étape, vous devez [avoir inscrit Azure Stack](azure-stack-registration.md).
+> Pour effectuer cette étape, vous devez d’abord [inscrire Azure Stack](azure-stack-registration.md).
 
 1. Ouvrez Windows PowerShell avec une invite élevée et exécutez :  
     `Add-AzureRmAccount`

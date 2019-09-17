@@ -3,7 +3,7 @@ title: Ajouter des adresses IP publiques dans Azure Stack | Microsoft Docs
 description: Apprenez à ajouter des adresses IP publiques dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,21 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
-ms.author: mabrigg
+ms.date: 09/10/2019
+ms.author: justinha
 ms.reviewer: scottnap
-ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 6d99e5b293f86f4bdb62d35fc111054f12d57172
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.lastreviewed: 09/10/2019
+ms.openlocfilehash: 3978ac3339a2bf6a9dd4df770736bca1a21cc5a3
+ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118723"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70902660"
 ---
 # <a name="add-public-ip-addresses"></a>Ajouter des adresses IP publiques
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*  
 
 Dans cet article, nous faisons référence aux adresses externes en tant qu’adresses IP publiques. Dans le contexte d’Azure Stack, une adresse IP publique est une adresse IP accessible à partir de l’extérieur d’Azure Stack. Que ce réseau externe soit routable sur l’Internet public ou sur un intranet, et qu’il utilise un espace d’adressage privée, n’est pas vraiment important dans cet article : les étapes sont les mêmes.
+
+> [!IMPORTANT]
+> Les étapes décrites dans cet article s’appliquent uniquement aux systèmes qui ont été déployés à l’aide de la boîte à outils partenaire version 1809 ou ultérieure. Sur les systèmes qui ont été déployés avant la version 1809, vous devez mettre à jour les listes de contrôle d’accès (ACL) du commutateur ToR de façon à autoriser la nouvelle plage de pools d’adresses IP virtuelles publiques. Si vous exécutez des configurations de commutateur plus anciennes, contactez votre OEM pour qu’il vous aide à ajouter les listes de contrôle d’accès « PERMIT » appropriées au nouveau pool d’adresses IP publiques, ou à reconfigurer votre commutateur à l’aide de la dernière boîte à outils partenaire pour empêcher que les nouvelles adresses IP publiques ne soient bloquées.
 
 ## <a name="add-a-public-ip-address-pool"></a>Ajouter un pool d’adresses IP publiques
 Vous pouvez ajouter des adresses IP publiques à votre système Azure Stack n’importe quand après le déploiement initial dudit système. Découvrez comment [Afficher la consommation d’adresses IP publiques](azure-stack-viewing-public-ip-address-consumption.md) pour voir l’utilisation actuelle et la disponibilité d’adresses IP publiques sur Azure Stack.
@@ -52,7 +55,7 @@ Vous devez en premier lieu obtenir le bloc d’adresses que vous souhaitez ajout
 7. Donnez un nom au pool IP. Le nom que vous choisissez vous aide à identifier facilement le pool d’adresses IP. Il est conseillé de donner le même nom que la plage d’adresses, mais cela n’est pas obligatoire.
 8. Entrez le bloc d’adresses que vous voulez ajouter dans la notation CIDR. Par exemple :  192.168.203.0/24
 9. Lorsque vous fournissez une plage CIDR valide dans le champ Plage d’adresses (bloc CIDR), les champs Adresse IP de début, Adresse IP de fin et Adresses IP disponibles sont automatiquement renseignés. Ils sont en lecture seule et générés automatiquement. Vous ne pouvez donc pas les modifier sans modifier la valeur dans le champ Plage d’adresses.
-10. Après avoir vérifié les informations sur le panneau et confirmé que tout est correct, cliquez sur **OK** pour valider les modifications et ajouter la plage d’adresses à Azure Stack.
+10. Une fois que vous avez vérifié que les informations du panneau sont correctes, sélectionnez **OK** pour valider les modifications et ajouter la plage d’adresses à Azure Stack.
 
 
 ## <a name="next-steps"></a>Étapes suivantes 

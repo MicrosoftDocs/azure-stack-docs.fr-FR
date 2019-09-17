@@ -1,24 +1,24 @@
 ---
 title: Utiliser une identité d’application pour accéder aux ressources
 description: Cet article explique comment gérer un principal de service utilisable avec le contrôle d’accès en fonction du rôle pour se connecter et accéder aux ressources.
-services: azure-resource-manager
+services: azure-stack
 documentationcenter: na
 author: BryanLa
 manager: femila
-ms.service: azure-resource-manager
+ms.service: azure-stack
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/25/2019
+ms.date: 09/09/2019
 ms.author: bryanla
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 8c27948185df5f98926a3500db0981a1ccddc321
-ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
+ms.openlocfilehash: 6855ca4d6453c152bc46584248865bb1934419ca
+ms.sourcegitcommit: 305536bfd49319455ca3ca270fe3644b1796bad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67397307"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70876576"
 ---
 # <a name="use-an-app-identity-to-access-resources"></a>Utiliser une identité d’application pour accéder aux ressources
 
@@ -80,14 +80,14 @@ Les scripts doivent être exécutés dans une console PowerShell avec élévatio
 
 Lors de la création d’un certificat pour des informations de principal de service, les conditions suivantes doivent être remplies :
 
- - Le fournisseur de services de chiffrement (CSP) doit être un fournisseur de clé hérité.
+ - Pour la production, le certificat doit être émis par une autorité de certification interne ou une autorité de certification publique. Si vous utilisez une autorité de certification publique, vous devez l’inclure dans l’image du système d’exploitation de base dans le cadre du projet Microsoft Trusted Root Authority Program. La liste complète est disponible dans l’article [Programme de certification racine approuvé Microsoft : participants](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca). Un exemple de création de certificat de test « auto-signé » s’affichera plus tard pendant la [mise à jour des informations d’identification du certificat du principal de service](#update-a-service-principals-certificate-credential). 
+ - Le fournisseur de services de chiffrement doit être spécifié en tant que fournisseur de clés du fournisseur de services de chiffrement (CSP) hérité Microsoft.
  - Le certificat doit se présenter sous la forme d’un fichier PFX, car la procédure requiert à la fois les clés publiques et privées. Les serveurs Windows utilisent des fichiers .pfx contenant le fichier de clé publique (fichier de certificat SSL) et le fichier de clé privée associé.
- - Pour la production, le certificat doit être émis par une autorité de certification interne ou une autorité de certification publique. Si vous utilisez une autorité de certification publique, vous devez l’inclure dans l’image du système d’exploitation de base dans le cadre du projet Microsoft Trusted Root Authority Program. La liste complète est disponible dans l’article [Programme de certification racine approuvé Microsoft : participants](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
  - Votre infrastructure Azure Stack doit avoir accès au réseau de l’emplacement de la liste de révocation des certificats (CRL) de l’autorité de certification publiée dans le certificat. Cette CRL doit être un point de terminaison HTTP.
 
 Une fois que vous avez un certificat, utilisez le script PowerShell ci-dessous pour inscrire votre application et créer un principal de service. Vous utilisez également le principal de service pour vous connecter à Azure. Substituez vos propres valeurs aux espaces réservés suivants :
 
-| Espace réservé | Description | Exemples |
+| Placeholder | Description | Exemples |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance Azure Stack. | « AzS-ERCS01 » |
 | \<YourCertificateLocation\> | Emplacement de votre certificat X509 dans le magasin de certificats local. | « Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34 » |
@@ -159,7 +159,7 @@ Gardez votre session de console PowerShell ouverte, car vous aller l’utiliser 
 
 Mettre à jour les informations d’identification du certificat à l’aide de PowerShell, en substituant vos propres valeurs aux espaces réservés suivants :
 
-| Espace réservé | Description | Exemples |
+| Placeholder | Description | Exemples |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance Azure Stack. | « AzS-ERCS01 » |
 | \<YourAppName\> | Nom descriptif pour la nouvelle inscription d’application | « Mon outil de gestion » |
@@ -204,7 +204,7 @@ Mettre à jour les informations d’identification du certificat à l’aide de 
 
 À présent, vous créez une autre inscription d’application, mais spécifiez des informations d’identification de clé secrète client. Contrairement aux informations d’identification de certificat, l’annuaire est capable de générer des informations d’identification de clé secrète client. Donc, au lieu de spécifier la clé secrète client, vous utilisez le commutateur `-GenerateClientSecret` pour demander qu’elle soit générée. Substituez vos propres valeurs aux espaces réservés suivants :
 
-| Espace réservé | Description | Exemples |
+| Placeholder | Description | Exemples |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance Azure Stack. | « AzS-ERCS01 » |
 | \<YourAppName\> | Nom descriptif pour la nouvelle inscription d’application | « Mon outil de gestion » |
@@ -262,7 +262,7 @@ Gardez votre session de console PowerShell ouverte, car vous aller l’utiliser 
 
 Mettez à jour les informations d’identification de la clé secrète client dans PowerShell à l’aide du paramètre **ResetClientSecret**, ce qui a pour effet de modifier immédiatement la clé secrète client. Substituez vos propres valeurs aux espaces réservés suivants :
 
-| Espace réservé | Description | Exemples |
+| Placeholder | Description | Exemples |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance Azure Stack. | « AzS-ERCS01 » |
 | \<AppIdentifier\> | Identificateur affecté à l’inscription de l’application | « S-1-5-21-1634563105-1224503876-2692824315-2623 » |
@@ -299,7 +299,7 @@ Nous allons maintenant voir comment retirer/supprimer une inscription d’applic
 
 Substituez vos propres valeurs aux espaces réservés suivants :
 
-| Espace réservé | Description | Exemples |
+| Placeholder | Description | Exemples |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance Azure Stack. | « AzS-ERCS01 » |
 | \<AppIdentifier\> | Identificateur affecté à l’inscription de l’application | « S-1-5-21-1634563105-1224503876-2692824315-2623 » |

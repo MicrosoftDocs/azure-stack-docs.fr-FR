@@ -3,7 +3,7 @@ title: Utilisation du point de terminaison privilégié dans Azure Stack | Micro
 description: Montre comment utiliser le point de terminaison privilégié dans Azure Stack (pour un opérateur Azure Stack).
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
-ms.author: mabrigg
+ms.date: 09/03/2019
+ms.author: justinha
 ms.reviewer: fiseraci
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 9d088cb128243b0b178e7a317ba05176a59e83c1
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.lastreviewed: 09/03/2019
+ms.openlocfilehash: a278a918100619953b2b7eb9b288236625968187
+ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494058"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70902619"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilisation du point de terminaison privilégié dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-En tant qu’opérateur Azure Stack, vous devez utiliser le portail administrateur, PowerShell ou les API Azure Resource Manager pour la plupart des tâches d’administration quotidiennes. Toutefois, pour certaines opérations moins courantes, vous devez utiliser le *point de terminaison privilégié* (PEP). Ce point de terminaison est une console PowerShell distante préconfigurée qui vous fournit suffisamment de fonctionnalités pour vous aider à effectuer une tâche requise. Le point de terminaison s’appuie sur [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview) pour exposer uniquement un ensemble limité d’applets de commande. Pour accéder au point de terminaison privilégié et appeler l’ensemble limité d’applets de commande, un compte à faibles privilèges est utilisé. Aucun compte d’administrateur n’est requis. Pour plus de sécurité, les scripts ne sont pas autorisés.
+En tant qu’opérateur Azure Stack, vous devez utiliser le portail administrateur, PowerShell ou les API Azure Resource Manager pour la plupart des tâches d’administration quotidiennes. Toutefois, pour certaines opérations moins courantes, vous devez utiliser le *point de terminaison privilégié* (PEP). Ce point de terminaison est une console PowerShell distante préconfigurée qui vous fournit suffisamment de fonctionnalités pour vous aider à effectuer une tâche requise. Le point de terminaison s’appuie sur [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) pour exposer uniquement un ensemble limité d’applets de commande. Pour accéder au point de terminaison privilégié et appeler l’ensemble limité d’applets de commande, un compte à faibles privilèges est utilisé. Aucun compte d’administrateur n’est requis. Pour plus de sécurité, les scripts ne sont pas autorisés.
 
 Vous pouvez utiliser le point de terminaison privilégié pour effectuer les tâches suivantes :
 
@@ -68,6 +68,10 @@ Avant de commencer cette procédure pour un système intégré, vérifiez que vo
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ```
      Le paramètre `ComputerName` peut être l’adresse IP ou le nom DNS de l’une des machines virtuelles qui héberge un point de terminaison privilégié. 
+
+     >[!NOTE]
+     >Azure Stack n’effectue pas d’appel à distance lors de la validation des informations d’identification du point de terminaison privilégié. Pour les valider, il s’appuie sur une clé publique RSA stockée localement.
+     
    - Si vous exécutez le kit ADSK :
      
      ```powershell
@@ -82,7 +86,7 @@ Avant de commencer cette procédure pour un système intégré, vérifiez que vo
      - **Mot de passe** : entrez le mot de passe du compte d'administrateur de domaine AzureStackAdmin tel qu'il vous a été fourni pendant l'installation.
 
      > [!NOTE]
-     > Si vous ne parvenez pas à vous connecter au point de terminaison ERCS, essayez à nouveau les étapes 1 et 2 en utilisant l’adresse IP d’une machine virtuelle ERCS à laquelle vous n’avez pas déjà essayé de vous connecter.
+     > Si vous ne parvenez pas à vous connecter au point de terminaison ERCS, effectuez de nouveau les étapes 1 et 2 avec une autre adresse IP de machine virtuelle ERCS.
 
 3. Une fois connecté, l'invite devient **[*adresse IP ou nom de la machine virtuelle ERCS*]: PS>** ou à **[azs-ercs01]: PS>** , en fonction de l'environnement. Depuis cette invite, exécutez `Get-Command` pour afficher la liste des applets de commande disponibles.
 
@@ -109,7 +113,7 @@ Avant de commencer cette procédure pour un système intégré, vérifiez que vo
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>Conseils d’utilisation du point de terminaison privilégié 
 
-Comme mentionné ci-dessus, le point de terminaison privilégié est un point de terminaison [PowerShell JEA](https://docs.microsoft.com/powershell/jea/overview). Tout en procurant une couche de sécurité renforcée, un point de terminaison JEA réduit certaines des fonctionnalités de base de PowerShell, comme l’écriture de scripts ou la saisie semi-automatique via la touche Tab. Toute tentative d’opération de script est vouée à l’échec et se solde par l’erreur **ScriptsNotAllowed**. Ce comportement est normal.
+Comme mentionné ci-dessus, le point de terminaison privilégié est un point de terminaison [PowerShell JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview). Tout en procurant une couche de sécurité renforcée, un point de terminaison JEA réduit certaines des fonctionnalités de base de PowerShell, comme l’écriture de scripts ou la saisie semi-automatique via la touche Tab. Toute tentative d’opération de script est vouée à l’échec et se solde par l’erreur **ScriptsNotAllowed**. Ce comportement est normal.
 
 Ainsi, par exemple, pour obtenir la liste des paramètres d’une applet de commande donnée, exécutez la commande suivante :
 

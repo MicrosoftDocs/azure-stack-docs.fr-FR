@@ -191,16 +191,39 @@
             - name: "Déployer un cluster Service\_Fabric"
               href: azure-stack-solution-template-service-fabric-cluster.md
             - name: "Déployer un cluster\_Kubernetes"
-              href: azure-stack-solution-template-kubernetes-deploy.md
               items:
-                - name: Déployer Kubernetes avec Azure AD
-                  href: azure-stack-solution-template-kubernetes-azuread.md
-                - name: Déployer Kubernetes avec AD FS
-                  href: azure-stack-solution-template-kubernetes-adfs.md
-                - name: Activer le tableau de bord Kubernetes
-                  href: azure-stack-solution-template-kubernetes-dashboard.md
-                - name: Résoudre les problèmes du cluster Kubernetes
-                  href: azure-stack-solution-template-kubernetes-trouble.md
+                - name: Moteur AKS
+                  items:
+                    - name: Moteur AKS sur Azure Stack
+                      href: azure-stack-kubernetes-aks-engine-overview.md
+                    - name: Politique de support
+                      href: azure-stack-kubernetes-ask-engine-support.md
+                    - name: Configurer le moteur AKS
+                      href: azure-stack-kubernetes-aks-engine-set-up.md
+                    - name: Créer un client Linux
+                      href: azure-stack-kubernetes-aks-engine-deploy-linux.md
+                    - name: Créer un client Windows
+                      href: azure-stack-kubernetes-aks-engine-deploy-windows.md
+                    - name: Déployer un cluster
+                      href: azure-stack-kubernetes-aks-engine-deploy-cluster.md
+                    - name: Mettre à l’échelle un cluster
+                      href: azure-stack-kubernetes-aks-engine-scale.md
+                    - name: Mettre à niveau un cluster
+                      href: azure-stack-kubernetes-aks-engine-upgrade.md
+                    - name: Résoudre les problèmes du moteur AKS
+                      href: azure-stack-kubernetes-aks-engine-troubleshoot.md
+                - name: Article de la Place de marché
+                  items:
+                    - name: "Déployer un cluster\_Kubernetes"
+                      href: azure-stack-solution-template-kubernetes-deploy.md
+                    - name: Déployer Kubernetes avec Azure AD
+                      href: azure-stack-solution-template-kubernetes-azuread.md
+                    - name: Déployer Kubernetes avec AD FS
+                      href: azure-stack-solution-template-kubernetes-adfs.md
+                    - name: Activer le tableau de bord Kubernetes
+                      href: azure-stack-solution-template-kubernetes-dashboard.md
+                    - name: Résoudre les problèmes du cluster Kubernetes
+                      href: azure-stack-solution-template-kubernetes-trouble.md
             - name: Déployer Cognitive Services
               href: azure-stack-solution-template-cognitive-services.md
     - name: Déployer des applications

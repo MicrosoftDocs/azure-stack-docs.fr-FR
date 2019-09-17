@@ -16,12 +16,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 111e8e6cb72baac64229e4808003818efece54cd
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: f4fe915d07b81a6f99d9bd5a4b222590d1bb9a30
+ms.sourcegitcommit: 305536bfd49319455ca3ca270fe3644b1796bad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025876"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70876591"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>Configurations post-déploiement pour ASDK
 
@@ -127,7 +127,7 @@ En cas d’échec, suivez les étapes de dépannage.
 Pour les déploiements à l’aide d’Azure AD, vous devez [activer la mutualisation](../operator/azure-stack-enable-multitenancy.md#enable-multi-tenancy) pour votre installation d’ASDK.
 
 > [!NOTE]
-> Lorsque des comptes d’administrateur ou d’utilisateur de domaines autres que celui utilisé pour inscrire Azure Stack sont utilisés pour se connecter à un portail Azure Stack, le nom de domaine utilisé pour inscrire Azure Stack doit être ajouté à l’URL du portail. Par exemple, si Azure Stack a été inscrit avec fabrikam.onmicrosoft.com et que le compte utilisateur est admin@contoso.com, voici l’URL à utiliser pour se connecter au portail utilisateur : https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+> Lorsque des comptes d’administrateur ou d’utilisateur de domaines autres que celui utilisé pour inscrire Azure Stack sont utilisés pour se connecter à un portail Azure Stack, le nom de domaine utilisé pour inscrire Azure Stack doit être ajouté à l’URL du portail. Par exemple, si Azure Stack a été inscrit auprès de fabrikam.onmicrosoft.com et que la connexion du compte d’utilisateur est admin@contoso.com, l’URL à utiliser pour se connecter au portail de l’utilisateur est la suivante : https\://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

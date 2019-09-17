@@ -1,9 +1,9 @@
 ---
-title: Installer des mises à jour OEM dans Azure Stack | Microsoft Docs
-description: Découvrez comment installer les mises à jour OEM dans Azure Stack.
+title: Installer des mises à jour Azure Stack | Microsoft Docs
+description: Découvrez comment installer des mises à jour Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/03/2019
-ms.author: justinha
-ms.lastreviewed: 09/03/2019
+ms.date: 09/10/2019
+ms.author: mabriggs
+ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: a563c3ec43950122e045b0ec3168bcb3ca11fe56
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 2153a91bcf833386ef5884a9fd4e7c0fc759c01b
+ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271791"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70863065"
 ---
-# <a name="install-oem-updates-in-azure-stack"></a>Installer des mises à jour OEM dans Azure Stack
+# <a name="install-azure-stack-updates"></a>Installer des mises à jour Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack*
 
-Vous pouvez installer des mises à jour de fabricants d’ordinateurs (OEM) en utilisant le panneau **Mise à jour** dans Azure Stack. Cet article vous guide tout au long des étapes de mise à jour, de surveillance et de résolution des problèmes liés au processus de mise à jour. Utilisez le panneau Mise à jour pour lire les informations sur les mises à jour, installer des mises à jour, surveiller la progression des mises à jour, vérifier l’historique des mises à jour et connaître la version actuelle du package OEM.
+Vous pouvez installer les packages de mise à jour à l’aide du panneau **Mise à jour** dans Azure Stack. Cet article vous guide tout au long des étapes de mise à jour, de surveillance et de résolution des problèmes liés au processus de mise à jour. Accédez au panneau Mise à jour pour lire les informations sur les mises à jour, installer des mises à jour, superviser la progression des mises à jour, vérifier l’historique des mises à jour et connaître la version actuelle d’Azure Stack et du package OEM.
 
 Vous pouvez gérer les mises à jour à partir du portail administrateur et utiliser la section **Mises à jour** du tableau de bord pour :
 
@@ -39,7 +39,7 @@ Vous pouvez gérer les mises à jour à partir du portail administrateur et util
 
 Vous pouvez voir la version actuelle d’Azure Stack dans le panneau **Mise à jour**. Pour ouvrir :
 
-1.  Ouvrez le portail d’administration Azure Stack.
+1.  Ouvrez le portail administrateur Azure Stack.
 
 2.  Sélectionnez **Tableau de bord**. La version actuelle apparaît dans le panneau **Mise à jour**.
 

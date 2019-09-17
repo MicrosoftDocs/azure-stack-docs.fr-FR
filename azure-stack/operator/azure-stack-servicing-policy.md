@@ -12,17 +12,37 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 09/06/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 1022ab056157ea1a9bc925d3992a99bd0b395a35
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: dbfce7138d76892c7f66e2cf6f33883668e55395
+ms.sourcegitcommit: 5703255b4647ff0ebec23658a3f5c25d67f076a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188084"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70749953"
 ---
+# <a name="azure-stack-servicing-policy"></a>Stratégie de maintenance Azure Stack
+
+Cet article décrit la stratégie de maintenance pour les systèmes intégrés Azure Stack et la marche à suivre pour conserver votre système dans un état de prise en charge.
+
+## <a name="download-update-packages-for-integrated-systems"></a>Télécharger les mises à jour pour les systèmes intégrés
+
+Microsoft publie des mises à jour mensuelles complètes, ainsi que des correctifs logiciels pour résoudre des problèmes spécifiques.
+
+Les mises à jour mensuelles sont hébergées dans un point de terminaison Azure sécurisé. Vous pouvez les télécharger manuellement à l’aide de l’[outil de téléchargement des mises à jour Azure Stack](https://aka.ms/azurestackupdatedownload). Si votre unité d’échelle est connectée, la mise à jour s’affiche automatiquement dans le portail d’administration avec la notification **Mise à jour disponible**. Les mises à jour mensuelles complètes sont bien documentées. Pour plus d’informations, cliquez sur l’une des versions listées dans la section [Cadence de publication des mises à jour](#update-package-release-cadence) de cet article.
+
+Les correctifs logiciels sont hébergés dans le même point de terminaison Azure sécurisé. Vous pouvez les télécharger en cliquant sur les liens incorporés dans chaque article correspondant de la Base de connaissances ; par exemple, [Correctif logiciel Azure Stack 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Comme pour les mises à jour mensuelles complètes, les opérateurs Azure Stack peuvent télécharger les fichiers .xml, .bin et .exe et les importer en suivant la procédure décrite dans [Effectuer des mises à jour dans Azure Stack](azure-stack-apply-updates.md). Pour les opérateurs Azure Stack avec des unités d’échelle connectées, les correctifs logiciels s’affichent automatiquement dans le portail Administrateur avec le message **Mise à jour disponible**.
+
+Si votre unité d’échelle n’est pas connectée et que vous souhaitez être notifié chaque fois qu’un correctif logiciel est publié, abonnez-vous au flux [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) ou [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) noté dans chaque version.
+
+## <a name="update-package-types"></a>Types de packages de mise à jour
+
+Il existe deux types de packages de mises à jour pour les systèmes intégrés :
+
+- **Mises à jour logicielles Microsoft**. Microsoft est responsable du cycle de vie de maintenance de bout en bout pour les packages de mise à jour logicielle Microsoft. Ces packages peuvent inclure les dernières mises à jour de sécurité Windows Server, des mises à jour ne concernant pas la sécurité, et des mises à jour de fonctionnalités Azure Stack. Vous pouvez télécharger ces packages de mise à jour directement à partir de Microsoft.
+
 - **Mises à jour fournies par le fabricant de matériel OEM**. Les fabricants de matériel partenaires d’Azure Stack sont responsables du cycle de vie de maintenance de bout en bout (y compris les instructions) pour les mises à jour logicielles des microprogrammes et des pilotes liées au matériel. De plus, ils sont propriétaires et gèrent les instructions pour tous les logiciels et le matériel sur l’hôte du cycle de vie de matériel. Le fabricant de matériel OEM héberge ces packages de mise à jour sur son propre site de téléchargement.
 
 ## <a name="update-package-release-cadence"></a>Cadence de publication des packages de mise à jour
@@ -40,11 +60,18 @@ Pour en savoir plus sur une mise à jour, notamment comment la télécharger, co
 
 ## <a name="hotfixes"></a>Correctifs logiciels
 
-Parfois, Microsoft fournit des correctifs logiciels pour Azure Stack qui corrigent un problème précis souvent préventif ou urgent.  Chaque correctif est publié en même temps que son article correspondant dans la Base de connaissances Microsoft, où sont détaillés le problème, la cause et la résolution.
-
 *S’applique à : systèmes intégrés Azure Stack*
 
-Cet article décrit la stratégie de maintenance pour les systèmes intégrés Azure Stack, la marche à suivre pour conserver votre système dans un état de prise en charge, et comment obtenir du soutien.
+Parfois, Microsoft fournit des correctifs logiciels pour Azure Stack qui corrigent un problème précis souvent préventif ou urgent.  Chaque correctif est publié en même temps que son article correspondant dans la Base de connaissances Microsoft, où sont détaillés le problème, la cause et la résolution.
+
+Les correctifs logiciels sont téléchargés et installés comme les packages de mises à jour complets pour Azure Stack. Toutefois, contrairement à une mise à jour complète, les correctifs logiciels peuvent s’installer en quelques minutes. Il est recommandé aux opérateurs Azure Stack de définir des fenêtres de maintenance lors de l’installation des correctifs logiciels. Les correctifs mettent à jour la version de votre cloud Azure Stack. Il est donc facile de déterminer si le correctif a été appliqué. Un correctif logiciel distinct est fourni pour chaque version d’Azure Stack prise en charge. Chaque correctif d’une itération est cumulatif et englobe les mises à jour précédentes de la même version. Pour en savoir plus sur la nécessité de l’application d’un correctif logiciel, vous pouvez consulter l’article correspondant dans la Base de connaissances. Consultez les liens des notes de version dans la section précédente.
+
+Pour plus d’informations sur les correctifs logiciels actuellement disponibles, consultez les notes de publication de cette mise à jour :
+
+- [Correctif Azure Stack 1908](azure-stack-release-notes-1908.md#hotfixes)
+- [Correctif Azure Stack 1907](azure-stack-release-notes-1907.md#hotfixes)
+- [Correctif Azure Stack 1906](azure-stack-release-notes-1906.md#hotfixes)
+- [Correctif Azure Stack 1905](azure-stack-release-notes-1905.md#hotfixes)
 
 ## <a name="keep-your-system-under-support"></a>Conserver votre système dans un état de prise en charge
 
@@ -62,4 +89,4 @@ Azure Stack suit le même processus de prise en charge qu’Azure. Les clients d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Gérer les mises à jour dans Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
+- [Gérer les mises à jour dans Azure Stack](azure-stack-updates.md)

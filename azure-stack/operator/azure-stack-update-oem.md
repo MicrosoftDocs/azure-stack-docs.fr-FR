@@ -15,12 +15,12 @@ ms.date: 08/28/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: bea83d743e7f43ff25d446a09b0e12d0c0af4232
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: b218a1b40953d9266ec5a8bcdd49f5d89a421146
+ms.sourcegitcommit: 5703255b4647ff0ebec23658a3f5c25d67f076a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188369"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70749933"
 ---
 # <a name="apply-azure-stack-original-equipment-manufacturer-oem-updates"></a>Appliquer des mises à jour de fabricants d’ordinateurs (OEM) à Azure Stack
 
@@ -59,8 +59,9 @@ Installez les packages OEM en suivant les étapes ci-dessous :
 1. Vous devez contacter votre OEM pour :
       - déterminer la version actuelle de votre package OEM ;  
       - rechercher la meilleure méthode pour télécharger votre package OEM.  
-2. Préparez votre package OEM avec les étapes décrites dans [Télécharger des packages de mise à jour pour les systèmes intégrés](azure-stack-servicing-policy.md).
-3. Appliquez les mises à jour à l’aide des étapes décrites dans [Appliquer des mises à jour dans Azure Stack](azure-stack-apply-updates.md).
+2. Avant d’appliquer une mise à jour de package OEM, vous devez toujours installer la dernière version du correctif Azure Stack sur votre système. Pour plus d’informations sur les correctifs, consultez [Correctifs logiciels d’Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy).
+3. Préparez votre package OEM avec les étapes décrites dans [Télécharger des packages de mise à jour pour les systèmes intégrés](azure-stack-servicing-policy.md).
+4. Appliquez les mises à jour à l’aide des étapes décrites dans [Appliquer des mises à jour dans Azure Stack](azure-stack-apply-updates.md).
 
 ## <a name="configure-hardware-vendor-vm"></a>Configurer la machine virtuelle du fournisseur de matériel
 

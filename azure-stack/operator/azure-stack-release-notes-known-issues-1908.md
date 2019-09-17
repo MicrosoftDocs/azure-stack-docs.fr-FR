@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
 monikerRange: azs-1908
-ms.openlocfilehash: 317f53eb5b50fc415fc7a65e044eca7948a54e58
-ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
+ms.openlocfilehash: 86d8cea0164a9181f444066181945358122c831b
+ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70234954"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70862977"
 ---
 # <a name="azure-stack-1908-known-issues"></a>Problèmes connus dans Azure Stack 1908
 
@@ -34,7 +34,7 @@ Cet article répertorie les problèmes connus dans la version 1908 d’Azure St
 ## <a name="update-process"></a>Processus de mise à jour
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Quand vous tentez d’installer la mise à jour 1907 d’Azure Stack, l’état de la mise à jour peut échouer et passer à **PreparationFailed**. Cela est dû au fait que le fournisseur de ressources de mise à jour est dans l’impossibilité de transférer correctement les fichiers du conteneur de stockage vers un partage d’infrastructure interne à des fins de traitement.
+- Cause : L’installation de la mise à jour d’Azure Stack peut échouer, et son état peut passer à **PreparationFailed**. Cela est dû au fait que le fournisseur de ressources de mise à jour est dans l’impossibilité de transférer correctement les fichiers du conteneur de stockage vers un partage d’infrastructure interne à des fins de traitement.
 - Correction : À compter de la version 1901 (1.1901.0.95), vous pouvez contourner ce problème en cliquant sur **Mettre à jour maintenant** à nouveau (et pas sur **Reprendre**). Le fournisseur de ressources de mise à jour (URP) nettoie les fichiers de la tentative précédente, puis redémarre le téléchargement. Si le problème persiste, nous vous conseillons de charger manuellement le package de mise à jour comme cela est décrit dans la [section Installer des mises à jour](azure-stack-apply-updates.md#install-updates-and-monitor-progress).
 - Occurrence : Courant
 
@@ -99,7 +99,7 @@ Cet article répertorie les problèmes connus dans la version 1908 d’Azure St
 
 #### <a name="local-network-gateway-deletion"></a>Suppression du nom de passerelle de réseau local
 
-- Champ d’application : Ce problème concerne la version 1906.
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Dans le portail utilisateur, la suppression de la **passerelle réseau local** affiche le message d’erreur suivant : **Impossible de supprimer une passerelle de réseau local avec une connexion active**, même si aucune connexion n’est active.
 - Atténuation : Le correctif pour ce problème sera publié dans la version 1907. Une solution de contournement pour ce problème consiste à créer une passerelle de réseau local avec la même adresse IP, le même espace d’adressage et les mêmes détails de configuration, mais avec un autre nom. L’ancien LNG peut être supprimé une fois que l’environnement a été mis à jour vers la version 1907.
 - Occurrence : Courant
@@ -159,21 +159,21 @@ Cet article répertorie les problèmes connus dans la version 1908 d’Azure St
 
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>La réinitialisation du mot de passe d’un groupe de machines virtuelles identiques ne fonctionne pas
 
-- Champ d’application : Ce problème s’applique aux versions 1906 et 1907.
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Un nouveau panneau de réinitialisation du mot de passe s’affiche dans l’interface utilisateur de groupe identique, mais Azure Stack ne prend pas encore en charge la réinitialisation de mot de passe sur un groupe identique.
 - Correction : Aucune.
 - Occurrence : Courant
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Nuage qui pleure sur le diagnostic de groupe identique
 
-- Champ d’application : Ce problème s’applique aux versions 1906 et 1907.
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : La page de la vue d’ensemble du groupe de machines virtuelles identiques contient un graphique vide. En cliquant sur le graphique vide, un panneau avec un nuage qui pleure. C’est le graphique des informations de diagnostic du groupe identique, comme le pourcentage UC, et ce n’est pas une fonctionnalité prise en charge dans la version Azure Stack actuelle.
 - Correction : Aucune.
 - Occurrence : Courant
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Panneau des paramètres de diagnostic de machine virtuelle
 
-- Champ d’application : Ce problème s’applique aux versions 1906 et 1907.    
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.    
 - Cause : Le panneau des paramètres de diagnostic de machine virtuelle comporte un onglet **Récepteur**, qui demande un **compte Application Insights**. C’est le résultat d’un nouveau panneau et ce n’est pas encore pris en charge dans Azure Stack.
 - Correction : Aucune.
 - Occurrence : Courant

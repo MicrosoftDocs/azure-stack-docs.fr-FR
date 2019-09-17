@@ -12,22 +12,86 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 09/04/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: 9b78a7ee9af9dde3cbb40b52268cb4cbfc0a6dcc
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 09/04/2019
+ms.openlocfilehash: a9d62640b2baabfd3283099656719a880dd0a41b
+ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268233"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70377247"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Résolution des problèmes de Microsoft Azure Stack
 
-Ce document fournit des informations de résolution des problèmes courants pour Azure Stack. Les recommandations et les exemples de code sont fournis en l’état et peuvent ne pas toujours résoudre votre problème. 
+Ce document fournit des informations de dépannage pour Azure Stack. 
 
-## <a name="deployment"></a>Déploiement
+
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+
+Ces sections contiennent des liens vers des documents qui abordent les questions les plus fréquemment posées aux services de support technique Microsoft.
+
+### <a name="purchase-considerations"></a>Considérations relatives à l’achat
+
+* [Comment acheter](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)
+* [Vue d’ensemble d’Azure Stack](azure-stack-overview.md)
+
+### <a name="azure-stack-development-kit-asdk"></a>Kit de développement Azure Stack (ASDK)
+
+Pour obtenir de l’aide avec le [kit de développement Azure Stack](../asdk/asdk-what-is.md), contactez les experts du [forum MSDN Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Le kit de développement Azure Stack (ASDK) est proposé en tant qu’environnement d’évaluation, sans prise en charge via CSS. Les cas de support qui ont été ouverts pour l’ASDK sont mentionnés sur le forum MSDN.
+
+### <a name="updates-and-diagnostics"></a>Mises à jour et diagnostics
+
+* [Comment utiliser les outils de diagnostic dans Azure Stack](azure-stack-diagnostics.md)
+* [Comment valider l’état du système Azure Stack](azure-stack-diagnostic-test.md)
+* [Cadence de publication des packages de mises à jour](azure-stack-servicing-policy.md#update-package-release-cadence)
+
+### <a name="supported-operating-systems-and-sizes-for-guest-vms"></a>Systèmes d’exploitation et tailles pris en charge pour les machines virtuelles invitées
+
+* [Systèmes d’exploitation invités pris en charge par Azure Stack](azure-stack-supported-os.md)
+* [Tailles de machine virtuelle prises en charge dans Azure Stack](../user/azure-stack-vm-sizes.md)
+
+### <a name="azure-marketplace"></a>Place de marché Azure
+
+* [Éléments de Place de Marché Microsoft Azure disponibles pour Azure Stack](azure-stack-marketplace-azure-items.md)
+
+### <a name="manage-capacity"></a>Gérer la capacité
+
+#### <a name="memory"></a>Mémoire
+
+Pour augmenter la capacité de mémoire totale disponible pour Azure Stack, vous pouvez ajouter plus de mémoire. Dans Azure Stack, votre serveur physique est également appelé nœud d'unité d'échelle. Tous les nœuds d'unité d'échelle qui sont membres d'une même unité d'échelle doivent avoir [la même quantité de mémoire](azure-stack-manage-storage-physical-memory-capacity.md).
+
+#### <a name="retention-period"></a>Période de rétention
+
+Le paramètre de période de conservation permet à un opérateur cloud de spécifier une période de temps en jours (entre 0 et 9 999 jours) pendant laquelle un compte supprimé peut être récupéré. La période de rétention par défaut est définie sur 0 jour. Pour ce paramètre, la valeur « 0 » signifie qu’un compte supprimé n’est plus conservé et qu’il est marqué comme devant faire l’objet d’un nettoyage périodique de la mémoire.
+
+* [Définir la période de rétention](azure-stack-manage-storage-accounts.md#set-the-retention-period)
+
+### <a name="security-compliance-and-identity"></a>Sécurité, conformité et identité  
+
+#### <a name="manage-rbac"></a>Gérer RBAC
+
+Un utilisateur Azure Stack peut être un lecteur, un propriétaire ou un collaborateur pour chaque instance d’un abonnement, d’un groupe de ressources ou d’un service.
+
+* [Azure Stack - Gérer RBAC](azure-stack-manage-permissions.md)
+
+Si les rôles intégrés des ressources Azure ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Pour ce tutoriel, vous allez créer un rôle personnalisé nommé Reader Support Tickets à l’aide d’Azure PowerShell.
+
+* [Tutoriel : Créer un rôle personnalisé pour les ressources Azure à l'aide d'Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell)
+
+### <a name="manage-usage-and-billing-as-a-csp"></a>Gérer l’utilisation et la facturation en tant que fournisseur de services Cloud
+
+* [Gérer l’utilisation et la facturation en tant que fournisseur de services cloud](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)
+* [Créer un abonnement CSP ou APSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)
+
+Choisissez le type de compte de services partagés que vous utilisez pour Azure Stack. Les types d’abonnements pouvant être utilisés pour l’inscription d’un système Azure Stack multilocataire sont les suivants :
+
+* Fournisseur de services cloud
+* Abonnement Partner Shared Services
+
+
+## <a name="troubleshoot-deployment"></a>Résoudre les problèmes de déploiement 
 ### <a name="general-deployment-failure"></a>Échec général du déploiement
 Si vous rencontrez un problème lors de l’installation, vous pouvez relancer le déploiement à partir de l’étape qui n’a pas abouti en utilisant l’option de réexécution du script de déploiement.  
 
@@ -54,7 +118,7 @@ Pour vérifier qu’il s’agit bien de votre problème, vous pouvez effectuer l
 
 Si cette commande échoue, vérifiez que le commutateur TOR et tout autre périphérique réseau sont configurés pour [autoriser le trafic réseau](azure-stack-network.md).
 
-## <a name="virtual-machines"></a>Machines virtuelles
+## <a name="troubleshoot-virtual-machines"></a>Résoudre les problèmes liés aux machines virtuelles
 ### <a name="default-image-and-gallery-item"></a>Élément de la galerie et image par défaut
 Vous devez ajouter un élément de la galerie et une image Windows Server avant de pouvoir déployer des machines virtuelles dans Azure Stack.
 
@@ -66,7 +130,7 @@ Vous remarquerez peut-être aussi que les machines virtuelles clientes ne démar
 1.  Sur l’hôte du Kit de développement Azure Stack, démarrez **Gestionnaire du cluster de basculement** dans le menu Démarrer.
 2.  Sélectionnez le cluster **S-Cluster.azurestack.local**.
 3.  Sélectionnez **Rôles**.
-4.  Les machines virtuelles clientes apparaissent avec l’état *enregistré*. Lorsque toutes les machines virtuelles d’infrastructure sont en cours d’exécution, cliquez avec le bouton droit sur les machines virtuelles clientes et sélectionnez **Démarrer** pour reprendre la machine virtuelle.
+4.  Les machines virtuelles clientes apparaissent avec l’état *enregistré*. Lorsque toutes les machines virtuelles d’infrastructure sont en cours d’exécution, cliquez avec le bouton droit sur les machines virtuelles locataires, puis sélectionnez **Démarrer** pour les relancer.
 
 ### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>J’ai supprimé des machines virtuelles, mais je vois toujours les fichiers de VHD sur le disque. Ce comportement est-il attendu ?
 Oui. Ce comportement est normal. Il a été conçu ainsi pour les raisons suivantes :
@@ -78,7 +142,7 @@ Si vous voyez des VHD « orphelins », il est important de savoir s’ils font
 
 Pour en savoir plus sur la configuration du seuil de rétention et de la récupération à la demande, consultez la page [Gérer les comptes de stockage](azure-stack-manage-storage-accounts.md).
 
-## <a name="storage"></a>Stockage
+## <a name="troubleshoot-storage"></a>Résoudre les problèmes de stockage
 ### <a name="storage-reclamation"></a>Récupération du stockage
 Il peut s’écouler jusqu’à 14 heures avant que la capacité récupérée ne s’affiche dans le portail. La récupération d’espace dépend de différents facteurs, notamment le pourcentage d’utilisation des fichiers conteneurs internes dans le magasin d’objets blob de blocs. Par conséquent, selon la quantité de données supprimées, il n’y a pas de garantie quant à la quantité d’espace récupérable lors de l’exécution du récupérateur de mémoire.
 

@@ -9,12 +9,12 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: f7867e963551d04336ac4092e8b1b2f033c29e94
-ms.sourcegitcommit: 05a16552569fae342896b6300514c656c1df3c4e
+ms.openlocfilehash: 07b18ea8933afc225f09bfc49a8c60d9d7d43961
+ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65838328"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70808166"
 ---
 # <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack"></a>Déployer une application web Ruby sur une machine virtuelle dans Azure Stack
 
@@ -102,4 +102,4 @@ Cet article utilise Ruby et un framework web Ruby on Rails.
 
 - Découvrez comment [développer pour Azure Stack](azure-stack-dev-start.md).
 - Découvrez les [Déploiements courants pour Azure Stack en IaaS](azure-stack-dev-start-deploy-app.md).
-- Pour apprendre le langage de programmation Ruby et trouver des ressources supplémentaires sur Ruby, voir [Ruby-lang.org](https://www.ruby-lang.org).
+- Pour apprendre le langage de programmation Ruby et trouver des ressources supplémentaires sur Ruby, consultez [Ruby-lang.org](https://www.ruby-lang.org).

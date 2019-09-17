@@ -3,7 +3,7 @@ title: Exigences de certificat pour infrastructure à clé publique Azure Stack 
 description: Décrit les exigences du déploiement de certificat pour infrastructure à clé publique Azure Stack pour des systèmes intégrés Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
-ms.author: mabrigg
+ms.date: 09/10/2019
+ms.author: justinha
 ms.reviewer: ppacent
-ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 3ca7624627ff02cc3ef230a510038f2db5ff5247
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 09/10/2019
+ms.openlocfilehash: 53d8e3daecba269bcdd21fc726e312758f1f6c6f
+ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782311"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70902697"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Exigences de certificat pour infrastructure à clé publique Azure Stack
 
@@ -31,8 +31,8 @@ Azure Stack inclut un réseau d’infrastructure publique utilisant des adresses
 - Le processus d’obtention de certificats correspondants à ces spécifications
 - Comment préparer, valider et utiliser ces certificats pendant le déploiement
 
-> [!Note]  
-> Au cours du déploiement, vous devez copier les certificats dans le dossier de déploiement correspondant au fournisseur d’identité (Azure AD ou AD FS). Si vous utilisez un seul certificat pour tous les points de terminaison, vous devez copier ce fichier de certificat dans chaque dossier de déploiement, comme indiqué dans les tableaux ci-dessous. La structure des dossiers est prédéfinie dans la machine virtuelle de déploiement et se trouve sous : C:\CloudDeployment\Setup\Certificates. 
+> [!NOTE]
+> Par défaut, Azure Stack utilise également des certificats émis par une autorité de certification interne intégrée à Active Directory pour l’authentification entre les nœuds. Pour valider le certificat, toutes les machines d’infrastructure Azure Stack approuvent le certificat racine de l’autorité de certification interne en ajoutant ce certificat à leur magasin de certificats local. Azure Stack ne permet pas d’épingler les certificats ni de les ajouter à une liste verte. Le réseau SAN de chaque certificat de serveur est validé par rapport au nom de domaine complet de la cible. La totalité de la chaîne d’approbation est également validée, ainsi que la date d’expiration du certificat (authentification de serveur TLS standard sans épinglage du certificat).
 
 ## <a name="certificate-requirements"></a>Configuration requise des certificats
 La liste suivante décrit les exigences de certificat nécessaires pour déployer Azure Stack : 
@@ -56,17 +56,20 @@ La liste suivante décrit les exigences de certificat nécessaires pour déploye
 > Les certificats auto-signés ne sont pas pris en charge.
 
 > [!NOTE]  
-> La présence d’autorités de certification intermédiaires dans la chaîne d’approbation d’un certificat est prise en charge. 
+> La présence d’autorités de certification intermédiaires dans la chaîne d’approbation d’un certificat *est* prise en charge. 
 
 ## <a name="mandatory-certificates"></a>Certificats obligatoires
 Le tableau de cette section décrit les certificats pour infrastructure à clé publique de point de terminaison public Azure Stack qui sont requis pour les déploiements Azure AD et AD FS Azure Stack. Les exigences de certificat sont regroupées par zone, ainsi que les espaces de noms utilisés et les certificats requis pour chaque espace de noms. Le tableau décrit également le dossier dans lequel votre fournisseur de solutions copie les différents certificats par point de terminaison public. 
 
-Des certificats avec des noms DNS appropriés pour chaque point de terminaison d’infrastructure publique Azure Stack sont requis. Le nom DNS de chaque point de terminaison est exprimé au format : *&lt;prefix>.&lt;region>.&lt;fqdn>*. 
+Des certificats avec des noms DNS appropriés pour chaque point de terminaison d’infrastructure publique Azure Stack sont requis. Le nom DNS de chaque point de terminaison est exprimé au format : *&lt;prefix>.&lt;region>.&lt;fqdn>* . 
 
 Pour votre déploiement, les valeurs [region] et [externalfqdn] doivent correspondre à la région et aux noms de domaines externes que vous avez choisis pour votre système Azure Stack. Par exemple, si le nom de la région était *Redmond* et le nom de domaine externe *contoso.com*, les noms DNS aurait le format *&lt;prefix>.redmond.contoso.com*. Les valeurs *&lt;prefix>* sont prédéfinies par Microsoft pour décrire le point de terminaison sécurisé par le certificat. Les valeurs *&lt;prefix>* des points de terminaison d’infrastructure externe dépendent également du service Azure Stack qui utilise un point de terminaison spécifique. 
 
-> [!note]  
-> Pour les environnements de production, nous recommandons de générer des certificats individuels pour chaque point de terminaison et de les copier dans le répertoire correspondant. Pour les environnements de développement, les certificats peuvent être fournis sous la forme d’un certificat unique avec caractères génériques couvrant tous les espaces de noms dans les champs Sujet et Autre nom de l’objet (SAN) copiés dans tous les répertoires. Un certificat unique couvrant tous les points de terminaison et services pose des problèmes de sécurité ; cette approche est donc destinée aux équipes de développement uniquement. N’oubliez pas que les deux options requièrent l’utilisation de certificats avec caractères génériques pour les points de terminaison tels que**acs** et le coffre de clés lorsqu’ils sont requis. 
+Pour les environnements de production, nous recommandons de générer des certificats individuels pour chaque point de terminaison et de les copier dans le répertoire correspondant. Pour les environnements de développement, les certificats peuvent être fournis sous la forme d’un certificat unique avec caractères génériques couvrant tous les espaces de noms dans les champs Sujet et Autre nom de l’objet (SAN) copiés dans tous les répertoires. Un certificat unique couvrant tous les points de terminaison et services pose des problèmes de sécurité ; cette approche est donc destinée aux équipes de développement uniquement. N’oubliez pas que les deux options requièrent l’utilisation de certificats avec caractères génériques pour les points de terminaison tels que**acs** et le coffre de clés lorsqu’ils sont requis. 
+
+> [!Note]  
+> Au cours du déploiement, vous devez copier les certificats dans le dossier de déploiement correspondant au fournisseur d’identité (Azure AD ou AD FS). Si vous utilisez un seul certificat pour tous les points de terminaison, vous devez copier ce fichier de certificat dans chaque dossier de déploiement, comme indiqué dans les tableaux ci-dessous. La structure des dossiers est prédéfinie dans la machine virtuelle de déploiement et se trouve sous : C:\CloudDeployment\Setup\Certificates. 
+
 
 | Dossier de déploiement | Objet et autres noms de l’objet (SAN) du certificat requis | Étendue (par région) | Espace de noms de sous-domaine |
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
@@ -86,8 +89,8 @@ Si vous déployez Azure Stack à l’aide du mode de déploiement Azure AD, vous
 
 |Dossier de déploiement|Objet et autres noms de l’objet (SAN) du certificat requis|Étendue (par région)|Espace de noms de sous-domaine|
 |-----|-----|-----|-----|
-|ADFS|adfs.*&lt;region>.&lt;fqdn>*<br>(Certificat SSL)|ADFS|*&lt;region>.&lt;fqdn>*|
-|Graph|graph.*&lt;region>.&lt;fqdn>*<br>(Certificat SSL)|Graph|*&lt;region>.&lt;fqdn>*|
+|ADFS|adfs. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL)|ADFS|*&lt;region>.&lt;fqdn>*|
+|Graph|graph. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL)|Graph|*&lt;region>.&lt;fqdn>*|
 |
 
 > [!IMPORTANT]
@@ -103,15 +106,15 @@ Le tableau suivant décrit les points de terminaison et les certificats requis p
 
 |Étendue (par région)|Certificat|Objet et autres noms de l’objet (SAN) du certificat requis|Espace de noms de sous-domaine|
 |-----|-----|-----|-----|
-|SQL, MySQL|SQL et MySQL|&#42;.dbadapter.*&lt;region>.&lt;fqdn>*<br>(Certificat SSL générique)|dbadapter.*&lt;region>.&lt;fqdn>*|
-|App Service|Certificat SSL par défaut de trafic web|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificat SSL générique à plusieurs domaines<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|App Service|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificat SSL<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|App Service|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificat SSL<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|App Service|Authentification unique|sso.appservice.*&lt;region>.&lt;fqdn>*<br>(Certificat SSL<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|SQL, MySQL|SQL et MySQL|&#42;.dbadapter. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL générique)|dbadapter. *&lt;region>.&lt;fqdn>*|
+|App Service|Certificat SSL par défaut de trafic web|&#42;.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL générique à plusieurs domaines<sup>1</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
+|App Service|API|api.appservice. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
+|App Service|FTP|ftp.appservice. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
+|App Service|Authentification unique|sso.appservice. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 
 <sup>1</sup> Requiert un certificat avec plusieurs autres noms de l’objet génériques. Plusieurs SAN génériques sur un même certificat peuvent ne pas être pris en charge par toutes les autorités de certification publiques 
 
-<sup>2</sup> Un certificat générique &#42;.appservice.*&lt;region>.&lt;fqdn>* ne peut pas être utilisé à la place de ces trois certificats (api.appservice.*&lt;region>.&lt;fqdn>*, ftp.appservice.*&lt;region>.&lt;fqdn>* et sso.appservice.*&lt;region>.&lt;fqdn>*. App Service requiert explicitement l’utilisation de certificats distincts pour ces points de terminaison. 
+<sup>2</sup> Un certificat générique &#42;.appservice. *&lt;region>.&lt;fqdn>* ne peut pas être utilisé à la place de ces trois certificats (api.appservice. *&lt;region>.&lt;fqdn>* , ftp.appservice. *&lt;region>.&lt;fqdn>* et sso.appservice. *&lt;region>.&lt;fqdn>* . App Service requiert explicitement l’utilisation de certificats distincts pour ces points de terminaison. 
 
 ## <a name="learn-more"></a>En savoir plus
 Découvrez comment [générer des certificats d’infrastructure à clé publique pour le déploiement d’Azure Stack](azure-stack-get-pki-certs.md). 

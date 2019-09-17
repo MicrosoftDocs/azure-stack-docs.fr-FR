@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/09/2019
 ms.author: justinha
 ms.reviewer: wamota
-ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: 7b8bae02fdb3f85b856f6ccdb9d90155e6bde768
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.lastreviewed: 09/09/2019
+ms.openlocfilehash: 9333cfde7985977607f7108fd90b62e376fa9462
+ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188352"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70863006"
 ---
 # <a name="azure-stack-datacenter-integration---publish-azure-stack-services"></a>Intégration au centre de données Azure Stack : publier les services Azure Stack
 
@@ -72,7 +72,7 @@ Avec l’ajout de l’[hôte d’extension](azure-stack-extension-host-prepare.m
 Azure Stack prend en charge uniquement les serveurs proxy transparents. Dans un déploiement où un proxy transparent transfère les données vers un serveur proxy traditionnel, vous devez autoriser les URL et les ports du tableau suivant pour les communications sortantes.
 
 > [!Note]  
-> Azure Stack ne prend pas en charge l’utilisation d’ExpressRoute pour joindre les services Azure répertoriés dans le tableau suivant.
+> Azure Stack ne prend pas en charge l’utilisation d’ExpressRoute pour atteindre les services Azure listés dans le tableau suivant, car ExpressRoute risque de ne pas pouvoir router le trafic vers tous les points de terminaison.
 
 |Objectif|URL de destination|Protocole|Ports|Réseau source|
 |---------|---------|---------|---------|---------|
@@ -95,7 +95,7 @@ Azure Stack prend en charge uniquement les serveurs proxy transparents. Dans un 
 
 Les URL sortantes sont équilibrées en charge à l’aide d’Azure Traffic Manager pour offrir la meilleure connectivité possible en fonction de l’emplacement géographique. Avec des URL équilibrées en charge, Microsoft peut mettre à jour et modifier des points de terminaison de backend sans impact sur les clients. Microsoft ne partage pas la liste des adresses IP pour les URL équilibrées en charge. Vous devez utiliser un appareil qui prend en charge le filtrage par URL plutôt que par adresse IP.
 
-Un DNS sortant est toujours nécessaire. Ce qui change, c’est la source qui interroge le DNS externe et le type d’intégration d’identité choisi. S’il s’agit d’un scénario connecté, pendant le déploiement, le DVM qui se trouve sur le réseau BMC a besoin d’un accès sortant, mais après le déploiement, le service DNS est déplacé vers un composant interne qui enverra les requêtes via une adresse IP virtuelle publique. À ce stade, l’accès du DNS sortant par le biais du réseau BMC peut être supprimé, mais l’accès à ce serveur DNS par l’adresse IP virtuelle publique doit être maintenu faute de quoi l’authentification échouera.
+Un DNS sortant est toujours nécessaire. Ce qui change, c’est la source qui interroge le DNS externe et le type d’intégration d’identité choisi. Dans un scénario de déploiement connecté, la machine virtuelle de déploiement (DVM) qui se trouve sur le réseau BMC a besoin d’un accès sortant. Toutefois, après le déploiement, le service DNS passe à un composant interne qui enverra des requêtes via une adresse IP virtuelle publique. À ce stade, l’accès du DNS sortant par le biais du réseau BMC peut être supprimé, mais l’accès à ce serveur DNS par l’adresse IP virtuelle publique doit être maintenu faute de quoi l’authentification échouera.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

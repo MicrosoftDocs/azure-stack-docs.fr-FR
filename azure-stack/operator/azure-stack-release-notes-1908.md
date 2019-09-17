@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/05/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
 monikerRange: azs-1908
-ms.openlocfilehash: fbf4983f6f7d2f88da70552ae182792ee316994a
-ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
+ms.openlocfilehash: ad059e09bbd544e4709a237ee0c51cafc2a734b4
+ms.sourcegitcommit: 9438b559ea314cc8c19fd710e1b2a6ceb15e50c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70234952"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70912645"
 ---
 # <a name="azure-stack-1908-update"></a>Mise à jour 1908 d’Azure Stack
 
@@ -35,7 +35,7 @@ Cet article décrit le contenu du package de mise à jour 1908. La mise à jour
 
 ## <a name="previous-release-notes"></a>Notes de publication précédentes
 
-À compter de la version 1908, les versions précédentes des notes de publication ne sont plus visibles dans la table des matières à gauche. Pour accéder aux versions précédentes des notes de publication, sélectionnez un autre article (par exemple, [Vue d’ensemble d’Azure Stack](azure-stack-overview.md)), puis sélectionnez 1905, 1906, 1907 ou 1908 dans le sélecteur de version en haut de la table des matières à gauche. Pour voir des versions plus anciennes des notes de publication, consultez la section des [notes de publication archivées](#archived-release-notes).
+À compter de la version 1908, les versions précédentes des notes de publication ne sont plus visibles dans la table des matières à gauche. Pour accéder aux versions précédentes des notes de publication, sélectionnez un autre article (par exemple, [Vue d’ensemble d’Azure Stack](azure-stack-overview.md)), puis sélectionnez 1905, 1906, 1907 ou 1908 dans le sélecteur de version en haut de la table des matières située à gauche. Pour voir des versions plus anciennes des notes de publication, consultez la section des [notes de publication archivées](#archived-release-notes).
 
 ## <a name="build-reference"></a>Référence de build
 
@@ -63,7 +63,7 @@ Pour plus d’informations sur les types de build de mise à jour, voir [Gérer 
 
 - Pour la version 1908, le système d’exploitation sous-jacent sur lequel Azure Stack s’exécute a été mis à jour vers Windows Server 2019. Cela apporte des améliorations fondamentales, ainsi que la possibilité d’ajouter des fonctionnalités supplémentaires à Azure Stack dans un avenir proche.
 - Tous les composants de l’infrastructure Azure Stack fonctionnent désormais en mode FIPS 140-2.
-
+- Les opérateurs Azure Stack peuvent désormais supprimer les données utilisateur du portail. Pour plus d’informations, consultez [Effacer les données utilisateur du portail dans Azure Stack](azure-stack-portal-clear.md).
 
 ### <a name="improvements"></a>Améliorations
 
