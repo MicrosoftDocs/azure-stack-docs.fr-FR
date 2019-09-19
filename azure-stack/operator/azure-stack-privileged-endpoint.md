@@ -3,7 +3,7 @@ title: Utilisation du point de terminaison privilégié dans Azure Stack | Micro
 description: Montre comment utiliser le point de terminaison privilégié dans Azure Stack (pour un opérateur Azure Stack).
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/03/2019
-ms.author: justinha
+ms.date: 09/18/2019
+ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.lastreviewed: 09/03/2019
-ms.openlocfilehash: a278a918100619953b2b7eb9b288236625968187
-ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
+ms.lastreviewed: 09/18/2019
+ms.openlocfilehash: cb339e4d6d368481060c673482d80244f63f9cc4
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70902619"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101101"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilisation du point de terminaison privilégié dans Azure Stack
 

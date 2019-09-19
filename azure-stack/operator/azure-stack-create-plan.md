@@ -16,12 +16,12 @@ ms.date: 06/11/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: b120346d489f676919cb05863f81db9bfb102634
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 6e127983afe023448d6caad23cf79e8a3a289c17
+ms.sourcegitcommit: 8ddd70ba5ce05c591d3fa62597981859af107c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836977"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70936165"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Créer un plan dans Azure Stack
 
@@ -29,6 +29,7 @@ ms.locfileid: "66836977"
 
 Les [plans Azure Stack](azure-stack-overview.md) regroupent un ou plusieurs services et leurs quotas. En tant que fournisseur, vous pouvez créer des plans à proposer à vos utilisateurs. En retour, ceux-ci s’abonnent à vos offres pour utiliser les plans, les services et les quotas qu’elles comprennent. Cet exemple montre comment créer un plan comprenant les fournisseurs de ressources de stockage, réseau et de calcul. Ce plan donne aux abonnés la possibilité d’approvisionner des machines virtuelles.
 
+::: moniker range=">=azs-1902"
 ## <a name="create-a-plan-1902-and-later"></a>Créer un plan (1902 et versions ultérieures)
 
 1. Connectez-vous au [portail d’administration Azure Stack](https://adminportal.local.azurestack.external).
@@ -70,7 +71,9 @@ Les [plans Azure Stack](azure-stack-overview.md) regroupent un ou plusieurs serv
 10. Quand vous êtes prêt, sélectionnez **Créer** pour créer le plan.
 
 11. Pour afficher le nouveau plan, sur le côté gauche, cliquez sur **Tous les services**, sélectionnez **Plans**, puis recherchez le plan et sélectionnez son nom. Si votre liste de ressources est longue, utilisez **Rechercher** pour retrouver votre plan par nom.
+::: moniker-end
 
+::: moniker range="<=azs-1901"
 ## <a name="create-a-plan-1901-and-earlier"></a>Créer un plan (1901 et versions antérieures)
 
 1. Connectez-vous au [portail d’administration Azure Stack](https://adminportal.local.azurestack.external).
@@ -114,6 +117,7 @@ Les [plans Azure Stack](azure-stack-overview.md) regroupent un ou plusieurs serv
 10. Pour voir votre nouveau plan, sélectionnez **Toutes les ressources**, puis recherchez le plan et sélectionnez son nom. Si votre liste de ressources est longue, utilisez **Rechercher** pour retrouver votre plan par nom.
 
     ![Vérifier le plan](media/azure-stack-create-plan/plan-overview1901.png)
+::: moniker-end
 
 ## <a name="next-steps"></a>Étapes suivantes
 

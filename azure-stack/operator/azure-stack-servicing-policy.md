@@ -16,12 +16,12 @@ ms.date: 09/06/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: dbfce7138d76892c7f66e2cf6f33883668e55395
-ms.sourcegitcommit: 5703255b4647ff0ebec23658a3f5c25d67f076a2
+ms.openlocfilehash: 9ca13d62c69c84f29e3038899ff224d7d9cdc6d3
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70749953"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101187"
 ---
 # <a name="azure-stack-servicing-policy"></a>Stratégie de maintenance Azure Stack
 
@@ -53,10 +53,10 @@ Pour lire la documentation relative à la planification et à la gestion des mis
 
 Pour en savoir plus sur une mise à jour, notamment comment la télécharger, consultez les notes de publication qui s’y rapportent :
 
-- [Mise à jour 1908 d’Azure Stack](azure-stack-release-notes-1908.md)
-- [Mise à jour 1907 d’Azure Stack](azure-stack-release-notes-1907.md)
-- [Mise à jour 1906 d’Azure Stack](azure-stack-release-notes-1906.md)
-- [Mise à jour 1905 d’Azure Stack](azure-stack-release-notes-1905.md)
+- [Mise à jour 1908 d’Azure Stack](/azure-stack/operator/release-notes?view=azs-1908)
+- [Mise à jour 1907 d’Azure Stack](/azure-stack/operator/release-notes?view=azs-1907)
+- [Mise à jour 1906 d’Azure Stack](/azure-stack/operator/release-notes?view=azs-1906)
+- [Mise à jour 1905 d’Azure Stack](/azure-stack/operator/release-notes?view=azs-1905)
 
 ## <a name="hotfixes"></a>Correctifs logiciels
 
@@ -68,10 +68,10 @@ Les correctifs logiciels sont téléchargés et installés comme les packages de
 
 Pour plus d’informations sur les correctifs logiciels actuellement disponibles, consultez les notes de publication de cette mise à jour :
 
-- [Correctif Azure Stack 1908](azure-stack-release-notes-1908.md#hotfixes)
-- [Correctif Azure Stack 1907](azure-stack-release-notes-1907.md#hotfixes)
-- [Correctif Azure Stack 1906](azure-stack-release-notes-1906.md#hotfixes)
-- [Correctif Azure Stack 1905](azure-stack-release-notes-1905.md#hotfixes)
+- [Correctif Azure Stack 1908](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-1908)
+- [Correctif Azure Stack 1907](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-1907)
+- [Correctif Azure Stack 1906](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-1906)
+- [Correctif Azure Stack 1905](/azure-stack/operator/release-notes?view=azs-1905#hotfixes-1905)
 
 ## <a name="keep-your-system-under-support"></a>Conserver votre système dans un état de prise en charge
 

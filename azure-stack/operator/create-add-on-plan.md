@@ -17,12 +17,12 @@ ms.date: 06/11/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 54c6c44d6ab5d03819ba07ca1d34269e7a87ee77
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 01e5bc6e91311a0c27acffd4079931c3ee000d29
+ms.sourcegitcommit: 8ddd70ba5ce05c591d3fa62597981859af107c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836802"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70936126"
 ---
 # <a name="azure-stack-add-on-plans"></a>Plans de module complémentaire de Azure Stack
 
@@ -39,6 +39,7 @@ Lorsque vous ajoutez un plan d’extension à un abonnement existant à une offr
 
 Les plans d’extension sont créés en modifiant une offre existante.
 
+::: moniker range=">=azs-1902"
 ## <a name="create-an-add-on-plan-1902-and-later"></a>Créer un plan d’extension (versions 1902 et ultérieures)
 
 1. Connectez-vous au portail d’administration Azure Stack en tant qu’administrateur de cloud.
@@ -58,7 +59,9 @@ Les plans d’extension sont créés en modifiant une offre existante.
 6. Passez en revue la liste des plans d’extension inclus dans l’offre pour vérifier que le nouveau y figure.
 
     [![Créer un plan d’extension](media/create-add-on-plan/add-on4.png "Créer un plan d’extension")](media/create-add-on-plan/add-on4lg.png#lightbox)
+::: moniker-end
 
+::: moniker range="<=azs-1901"
 ## <a name="create-an-add-on-plan-1901-and-earlier"></a>Créer un plan d’extension (versions 1901 et antérieures)
 
 1. Connectez-vous au portail d’administration Azure Stack en tant qu’administrateur de cloud.
@@ -78,6 +81,7 @@ Les plans d’extension sont créés en modifiant une offre existante.
 6. Passez en revue la liste des plans d’extension inclus dans l’offre pour vérifier que le nouveau y figure.
 
     ![Créer un plan d’extension](media/create-add-on-plan/4.PNG)
+::: moniker-end
 
 ## <a name="next-steps"></a>Étapes suivantes
 

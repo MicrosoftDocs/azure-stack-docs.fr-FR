@@ -15,17 +15,18 @@ ms.date: 06/11/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: a2bb84cef5c24cd84653092a34dea7f0e20b624e
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 1492c779144eac235e5c32e767e966b3a6cfb9fd
+ms.sourcegitcommit: 8ddd70ba5ce05c591d3fa62597981859af107c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836904"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70936155"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Créer une offre dans Azure Stack
 
 Les [offres](azure-stack-overview.md) sont des groupes d’un ou plusieurs plans que les fournisseurs proposent à l’achat ou à l’abonnement aux utilisateurs. Cet article décrit comment créer une offre comprenant le [plan que vous avez créé](azure-stack-create-plan.md). Cette offre donne aux abonnés la possibilité de configurer des machines virtuelles.
 
+::: moniker range=">=azs-1902"
 ## <a name="create-an-offer-1902-and-later"></a>Créer une offre (1902 et versions ultérieures)
 
 1. Connectez-vous au [portail d’administration Azure Stack](https://adminportal.local.azurestack.external) et sélectionnez **+ Créer une ressource**, puis **Offres + plans** et **Offre**.
@@ -70,7 +71,9 @@ Il existe deux façons de changer l’état d’une offre :
 2. Sélectionnez **Paramètres de l’offre**. Choisissez l’état à utiliser (par exemple, **Public**), puis sélectionnez **Enregistrer**.
 
    ![Sélectionner État de l’accessibilité](media/azure-stack-create-offer/offer-settings.png)
+::: moniker-end
 
+::: moniker range="<=azs-1901"
 ## <a name="create-an-offer-1901-and-earlier"></a>Créer une offre (1901 et versions antérieures)
 
 1. Connectez-vous au [portail d’administration Azure Stack](https://adminportal.local.azurestack.external) et sélectionnez **+ Créer une ressource**, puis **Offres + plans de locataire** et **Offre**.
@@ -104,6 +107,7 @@ Il existe deux façons de changer l’état d’une offre :
 
 > [!NOTE]
 > Vous pouvez également utiliser PowerShell pour créer des offres, des plans et des quotas par défaut. Pour plus d’informations, consultez l’article [Module Azure Stack PowerShell 1.4.0](/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
+::: moniker-end
 
 ## <a name="next-steps"></a>Étapes suivantes
 

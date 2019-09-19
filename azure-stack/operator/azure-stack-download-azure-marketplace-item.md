@@ -3,7 +3,7 @@ title: Télécharger des éléments de la Place de marché à partir d’Azure |
 description: L’opérateur de cloud peut télécharger des éléments de la Place de marché à partir d’Azure dans mon déploiement Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2019
-ms.author: sethm
+ms.author: justinha
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 4c4bac9a083ca35f851acb2f2d8201742be0ed1e
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 99d0c48a5e7f5fd4e58d6fdf13e0a12c4b9dfb1e
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991827"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070271"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack
 
@@ -100,6 +100,8 @@ Ce scénario comporte deux parties :
 1. Sur un ordinateur avec une connexion Internet, ouvrez une console PowerShell en tant qu’administrateur.
 
 2. Ajoutez le compte Azure que vous avez utilisé pour inscrire Azure Stack. Pour ajouter le compte, exécutez `Add-AzureRmAccount` sans aucun paramètre dans PowerShell. Vous êtes invité à entrer vos informations d’identification de compte Azure et vous devrez peut-être utiliser l’authentification à 2 facteurs en fonction de la configuration de votre compte.
+
+   [!include[Remove Account](../../includes/remove-account.md)]
 
 3. Si vous avez plusieurs abonnements, exécutez la commande suivante pour sélectionner celui que vous avez utilisé pour l’inscription :  
 
