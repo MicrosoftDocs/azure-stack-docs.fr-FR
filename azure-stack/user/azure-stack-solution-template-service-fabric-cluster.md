@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/13/2019
+ms.date: 09/17/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: f14face1998b73ed0739db1d9ed0504eaad2799c
-ms.sourcegitcommit: ca46bef5d5f824d22bdbc00605eb881410b1ffd0
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: e672ee6227e00ea6276c92c22d02874f7c8b5529
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67042051"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101254"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Déployer un cluster Service Fabric dans Azure Stack
 
@@ -35,7 +35,7 @@ Le cluster Service Fabric dans Azure Stack n’utilise pas le fournisseur de res
 Le déploiement du cluster Service Fabric requiert les éléments suivants :
 1. **Certificat de cluster**  
    Il s’agit du certificat de serveur X.509 que vous ajoutez au coffre de clés quand vous déployez Service Fabric. 
-   - Le **CN** (nom commun) figurant sur ce certificat doit correspondre au nom de domaine complet (FQDN) du cluster Service Fabric que vous créez. 
+   - Le **CN** (nom commun) figurant sur ce certificat doit correspondre au nom de domaine complet (FQDN) du cluster Service Fabric que vous créez. Pour plus d’informations sur le FQDN, consultez [Certificats requis pour un déploiement de production Azure Stack d’Azure App Service](../operator/azure-stack-app-service-before-you-get-started.md#certificates-required-for-azure-stack-production-deployment-of-azure-app-service).
    - Le certificat doit présenter le format PFX, car la procédure requiert à la fois les clés publiques et privées. 
      Consultez les [exigences](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) relatives à la création de ce certificat côté serveur.
 
@@ -128,28 +128,39 @@ Pour plus d’informations, consultez l’article [Gérer Key Vault dans Azure S
 
    ![Sélection du cluster Service Fabric](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 
-1. Pour chaque page, telle que *De base*, remplissez le formulaire de déploiement. Si vous avez des doutes concernant une valeur, utilisez les valeurs par défaut. Pour passer à la page suivante, sélectionnez **OK** :
+2. Pour chaque page, telle que *De base*, remplissez le formulaire de déploiement. Si vous avez des doutes concernant une valeur, utilisez les valeurs par défaut.
+
+    Pour les déploiements sur une instance Azure Stack déconnectée ou pour déployer une autre version de Service Fabric, téléchargez le package de déploiement Service Fabric et son package d’exécution correspondant et hébergez-les sur un objet blob Azure Stack. Fournissez ces valeurs dans les champs **URL du package de déploiement Service Fabric** et **URL du package d’exécution Service Fabric**.
+    > [!NOTE]  
+    > Il existe des problèmes de compatibilité entre la dernière version de Service Fabric et son kit SDK correspondant. Tant que ce problème n’est pas résolu, fournissez les paramètres suivants à l’URL du package de déploiement et à l’URL du package d’exécution. Sinon, vos déploiements échoueront.
+    > - URL du package de déploiement Service Fabric : <https://download.microsoft.com/download/8/3/6/836E3E99-A300-4714-8278-96BC3E8B5528/6.5.641.9590/Microsoft.Azure.ServiceFabric.WindowsServer.6.5.641.9590.zip>
+    > - URL du package d’exécution Service Fabric : <https://download.microsoft.com/download/B/0/B/B0BCCAC5-65AA-4BE3-AB13-D5FF5890F4B5/6.5.641.9590/MicrosoftAzureServiceFabric.6.5.641.9590.cab>
+    >
+    > Pour les déploiements déconnectés, téléchargez ces packages à partir de l’emplacement spécifié et hébergez-les localement sur un objet blob Azure Stack.
 
    ![Concepts de base](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
-1. Sur la page *Paramètres réseau*, vous pouvez spécifier les ports spécifiques à ouvrir pour vos applications :
+    
+3. Sur la page *Paramètres réseau*, vous pouvez spécifier les ports spécifiques à ouvrir pour vos applications :
 
    ![Paramètres réseau](media/azure-stack-solution-template-service-fabric-cluster/image4.png)
 
-1. Dans la page *Sécurité*, ajoutez les valeurs que vous avez obtenues lors des étapes de [création du coffre de clés Azure Key Vault](#add-a-secret-to-key-vault) et du chargement du secret.
+4. Dans la page *Sécurité*, ajoutez les valeurs que vous avez obtenues lors des étapes de [création du coffre de clés Azure Key Vault](#add-a-secret-to-key-vault) et du chargement du secret.
 
    Pour le champ *Admin Client Certificate Thumbprints* (Empreinte du certificat client d’administration), entrez l’empreinte du *certificat client d’administration*. (Consultez les [prérequis](#prerequisites).)
    
    - Coffre de clés source :  spécifiez la chaîne `keyVault id` complète indiquée dans les résultats du script. 
    - Cluster Certificate URL (URL du certificat de cluster) : spécifiez l’URL complète de l’entrée `Secret Id` indiquée dans les résultats du script. 
    - Cluster Certificate thumbprint (Empreinte numérique du certificat de cluster) : spécifiez la valeur *Cluster Certificate Thumbprint* obtenue dans les résultats du script.
+   - URL du certificat de serveur : Si vous souhaitez utiliser un autre certificat que le certificat de cluster, chargez le certificat dans un coffre de clés et fournissez l’URL complète du secret. 
+   - Empreinte numérique du certificat de serveur : Spécifier l’empreinte numérique du certificat de serveur
    - Admin Client Certificate Thumbprints (Empreinte numérique du certificat client d’administration) : spécifiez la valeur de l’*empreinte numérique du certificat client d’administration* que vous avez créée dans les prérequis. 
 
    ![Sortie du script](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
    ![Sécurité](media/azure-stack-solution-template-service-fabric-cluster/image6.png)
 
-1. Terminez l’Assistant, puis sélectionnez **Créer** pour déployer le cluster Service Fabric.
+5. Terminez l’Assistant, puis sélectionnez **Créer** pour déployer le cluster Service Fabric.
 
 
 
