@@ -251,7 +251,9 @@
           href: azure-stack-linux.md
         - name: "Ajouter une machine virtuelle Red\_Hat"
           href: azure-stack-redhat-create-upload-vhd.md
-        - name: "Offrir un cluster\_Kubernetes"
+        - name: Proposer le moteur AKS
+          href: azure-stack-aks-engine.md
+        - name: Proposer des éléments Kubernetes de la place de marché
           href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: Créer une connexion VPN site à site
           href: azure-stack-create-vpn-connection-one-node.md
