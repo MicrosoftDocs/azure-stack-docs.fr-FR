@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 1955689929ef3277096aab558cca57e719a59a87
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 4adad49b27b1ab1d255ccc566c95b003cfd09b3b
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808192"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974918"
 ---
 # <a name="app-service-on-azure-stack-update-5-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 5
 
@@ -42,7 +42,7 @@ Avant de commencer le déploiement, consultez les [Prérequis pour le déploieme
 
 Avant de commencer la mise à niveau d’Azure App Service sur Azure Stack 1.5 :
 
-- Vérifiez que tous les rôles sont prêts dans l’Administration Azure App Service sur le portail d’administration Azure Stack.
+- Vérifiez que tous les rôles sont prêts dans l’Administration Azure App Service sur le portail administrateur Azure Stack.
 
 - Sauvegardez les bases de données App Service et MASTER :
   - AppService_Hosting
@@ -84,7 +84,7 @@ Azure App Service sur Azure Stack Update 5 inclut les améliorations et corre
 Pour les clients qui cherchent à effectuer une migration vers une base de données autonome pour des déploiements existants d’Azure App Service sur Azure Stack, exécutez les étapes suivantes après avoir mis à jour Azure App Service sur Azure Stack 1.5 :
 
 > [!IMPORTANT]
-> La procédure de migration prend environ 5 à 10 minutes. Elle suppose de forcer l’arrêt des sessions de connexion à la base de données. Planifiez un temps d’arrêt pour la migration et la validation d’Azure App Service sur Azure Stack après la migration. Si vous avez terminé ces étapes après la mise à jour d’Azure App Service sur Azure Stack 1.3, ces étapes ne sont pas nécessaires.
+> La procédure de migration prend environ 5 à 10 minutes. Elle suppose de forcer l’arrêt des sessions de connexion à la base de données. Planifiez un temps d’arrêt pour la migration et la validation d’Azure App Service sur Azure Stack après la migration. Si vous avez exécuté ces étapes après la mise à jour d’Azure App Service sur Azure Stack 1.3, ces étapes ne sont pas nécessaires.
 
 1. Ajoutez les [bases de données App Service (appservice_hosting et appservice_metering) à un groupe de disponibilité](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
 
@@ -185,7 +185,7 @@ Pour les clients qui cherchent à effectuer une migration vers une base de donn�
 
 - Les Workers ne peuvent pas atteindre le serveur de fichiers si App Service est déployé dans un réseau virtuel existant et si le serveur de fichiers est uniquement disponible sur le réseau privé. Ce problème est évoqué dans la documentation de déploiement d’Azure App Service sur Azure Stack.
 
-Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et avec une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau worker et le serveur de fichiers. Accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
+Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et avec une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau worker et le serveur de fichiers. Accédez au WorkersNsg dans le portail administrateur, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
 
  * Source : Quelconque
  * Plage de ports source : : *

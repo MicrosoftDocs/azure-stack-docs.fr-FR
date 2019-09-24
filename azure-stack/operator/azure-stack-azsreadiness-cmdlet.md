@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 7d0e9c6914ce8748d842c9addf040355e3dc1cb1
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 9e92101b6d00da397359ed25e8682f18305f5a83
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991702"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974744"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Informations de référence sur l’applet de commande Start-AzsReadinessChecker
 
@@ -166,7 +166,7 @@ Start-AzsReadinessChecker
 
 ## <a name="description"></a>Description
 
-L’applet de commande **Start-AzsReadinessChecker** valide les certificats, comptes Azure, abonnements Azure et annuaires Azure Active Directory. Exécutez la validation avant de déployer Azure Stack ou avant d’exécuter des actions de maintenance sur Azure Stack, comme la rotation des secrets. L’applet de commande peut également servir à générer des demandes de signature de certificat pour des certificats d’infrastructure et, éventuellement, des certificats PaaS. Enfin, l’applet de commande peut repackager des certificats PFX pour corriger les problèmes de packaging courants.
+L’applet de commande **Start-AzsReadinessChecker** valide les certificats, les comptes Azure, les abonnements Azure et les annuaires Azure Active Directory (AAD). Exécutez la validation avant de déployer Azure Stack ou avant d’exécuter des actions de maintenance sur Azure Stack, comme la rotation des secrets. L’applet de commande peut également servir à générer des demandes de signature de certificat pour des certificats d’infrastructure et, éventuellement, des certificats PaaS. Enfin, l’applet de commande peut repackager des certificats PFX pour corriger les problèmes de packaging courants.
 
 ## <a name="examples"></a>Exemples
 
@@ -197,7 +197,7 @@ $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -DeploymentDataJSONPath .\deploymentdata.json
 ```
 
-Dans cet exemple de déploiement et de support, le mot de passe PFX est demandé à des fins de sécurité, et `Start-AzsReadinessChecker` recherche dans le dossier relatif **Certificats** des certificats valides pour un déploiement dans lequel l’identité, la région et le FQDN externe sont lus à partir du fichier JSON de données de déploiement généré pour le déploiement.
+Dans cet exemple de déploiement et de support, le mot de passe PFX est demandé à des fins de sécurité. `Start-AzsReadinessChecker` recherche dans le dossier **Certificats** des certificats valides pour un déploiement dans lequel l’identité, la région et le nom de domaine complet externe sont lus à partir du fichier JSON de données de déploiement généré pour le déploiement.
 
 ### <a name="example-validate-paas-certificates"></a>Exemple : valider des certificats PaaS
 
@@ -237,7 +237,7 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment "<environment name>" -AzureDirectoryTenantName azurestack.contoso.com
 ```
 
-Dans cet exemple, les informations d’identification du compte Administrateur de service sont demandées à des fins de sécurité, et `Start-AzsReadinessChecker` vérifie que le compte Azure et que l’annuaire Azure Active Directory sont valides pour un déploiement AAD avec  **azurestack.contoso.com** comme nom d’annuaire de locataire.
+Dans cet exemple, les informations d’identification du compte Administrateur de service sont demandées à des fins de sécurité. `Start-AzsReadinessChecker` vérifie que le compte Azure et que l’annuaire AAD sont valides pour un déploiement AAD avec  **azurestack.contoso.com** comme nom d’annuaire de locataire.
 
 ### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>Exemple : valider l’identité Azure avec des données de déploiement (déploiement et support)
 
@@ -246,7 +246,7 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
-Dans cet exemple, les informations d’identification du compte Administrateur de service sont demandées à des fins de sécurité. `Start-AzsReadinessChecker` vérifie ensuite que le compte Azure et que l’annuaire Azure Active Directory sont valides pour un déploiement AAD, où **AzureCloud** et **TenantName** sont lus à partir du fichier JSON de données de déploiement généré pour le déploiement.
+Dans cet exemple, les informations d’identification du compte Administrateur de service sont demandées à des fins de sécurité. `Start-AzsReadinessChecker` vérifie ensuite que le compte Azure et que l’annuaire AAD sont valides pour un déploiement AAD, où **AzureCloud** et **TenantName** sont lus à partir du fichier JSON de données de déploiement généré pour le déploiement.
 
 ### <a name="example-validate-azure-registration"></a>Exemple : valider l’inscription auprès d’Azure
 
@@ -276,7 +276,7 @@ $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
 ```
 
-Dans cet exemple, le mot de passe PFX est requis pour des raisons de sécurité. Le fichier Ssl.pfx est importé dans le magasin de certificats de l’ordinateur local, réexporté avec le même mot de passe, puis enregistré en tant que Ssl_new.pfx. Suivez cette procédure quand la validation de certificat signale que l’attribut **Ordinateur local** n’est pas défini pour une clé privée, quand la chaîne d’approbation est rompue, quand des certificats inadaptés sont présents dans le PFX, ou quand l’ordre de la chaîne d’approbation est incorrect.
+Dans cet exemple, le mot de passe PFX est requis pour des raisons de sécurité. Le fichier Ssl.pfx est importé dans le magasin de certificats de l’ordinateur local, réexporté avec le même mot de passe, puis enregistré en tant que Ssl_new.pfx. Cette procédure est utilisée lorsque la validation de certificat signale que l’attribut **Ordinateur local** n’est pas défini pour une clé privée, quand la chaîne d’approbation est rompue, quand des certificats inadaptés sont présents dans le PFX, ou quand l’ordre de la chaîne d’approbation est incorrect.
 
 ### <a name="example-view-validation-report-deployment-and-support"></a>Exemple : afficher un rapport de validation (déploiement et support)
 
@@ -435,7 +435,7 @@ Spécifie le chemin de destination pour les fichiers de demande de certificat. L
 
 ### <a name="-aadserviceadministrator"></a>-AADServiceAdministrator
 
-Spécifie l’administrateur du service Azure Active Directory à utiliser pour le déploiement d’Azure Stack.
+Spécifie l’administrateur de service AAD à utiliser pour le déploiement d’Azure Stack.
 
 |  |  |
 |----------------------------|---------|
@@ -447,7 +447,7 @@ Spécifie l’administrateur du service Azure Active Directory à utiliser pour 
 
 ### <a name="-aaddirectorytenantname"></a>-AADDirectoryTenantName
 
-Spécifie le nom Azure Active Directory à utiliser pour le déploiement d’Azure Stack.
+Spécifie le nom AAD à utiliser pour le déploiement d’Azure Stack.
 
 |  |  |
 |----------------------------|---------|
@@ -512,13 +512,13 @@ Spécifie le chemin du rapport de préparation. Le répertoire actif et le nom d
 
 Spécifie le chemin sous lequel seuls les dossiers de certificat exigés sont présents.
 
-Les dossiers exigés pour le déploiement d’Azure Stack avec le système d’identité d’Azure Active Directory sont les suivants :
+Les dossiers exigés pour le déploiement d’Azure Stack avec le système d’identité AAD sont les suivants :
 
-ACSBlob, ACSQueue, ACSTable, Admin Portal, ARM Admin, ARM Public, KeyVault, KeyVaultInternal, Public Portal
+- ACSBlob, ACSQueue, ACSTable, Admin Portal, ARM Admin, ARM Public, KeyVault, KeyVaultInternal, Public Portal
 
-Les dossiers exigés pour le déploiement d’Azure Stack avec le système d’identité des services de fédération Active Directory sont les suivants :
+Les dossiers exigés pour le déploiement d’Azure Stack avec le système d’identité des services de fédération Active Directory (AD FS) sont les suivants :
 
-ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM Admin, ARM Public, Graph, KeyVault, KeyVaultInternal, Public Portal
+- ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM Admin, ARM Public, Graph, KeyVault, KeyVaultInternal, Public Portal
 
 |  |  |
 |----------------------------|---------|

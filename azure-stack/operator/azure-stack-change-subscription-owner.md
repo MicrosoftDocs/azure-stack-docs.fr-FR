@@ -1,9 +1,9 @@
 ---
-title: Mettre à jour le propriétaire de l’abonnement utilisateur Azure Stack | Microsoft Docs
-description: Modifiez le propriétaire de facturation pour les abonnements utilisateur Azure Stack.
+title: Changer le propriétaire de facturation d’un abonnement utilisateur Azure Stack | Microsoft Docs
+description: Découvrez comment changer le propriétaire de facturation d’un abonnement utilisateur Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 06/04/2019
-ms.author: sethm
+ms.date: 09/17/2019
+ms.author: justinha
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: 99f995941c4e7b09af70dff9391aeceb9a59844d
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 3c4453974092fd1873e5f77b1074c82851fc1be1
+ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691923"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094362"
 ---
-# <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Modifier le propriétaire d’un abonnement utilisateur Azure Stack
+# <a name="change-the-billing-owner-for-an-azure-stack-user-subscription"></a>Changer le propriétaire de facturation d’un abonnement utilisateur Azure Stack
 
-Les opérateurs Azure Stack peuvent utiliser PowerShell pour modifier le propriétaire de facturation d’un abonnement utilisateur. Vous pouvez par exemple modifier le propriétaire pour remplacer un utilisateur qui quitte votre entreprise.
+Les opérateurs Azure Stack peuvent utiliser PowerShell pour changer le propriétaire de facturation d’un abonnement utilisateur. Vous pouvez par exemple modifier le propriétaire pour remplacer un utilisateur qui quitte votre entreprise.
 
 Il existe deux types de *propriétaires* qui sont affectés à un abonnement :
 
@@ -42,7 +42,7 @@ Il existe deux types de *propriétaires* qui sont affectés à un abonnement :
 Exécutez le script suivant pour modifier le propriétaire de facturation d’un abonnement utilisateur. L’ordinateur que vous utilisez pour exécuter le script doit se connecter à Azure Stack et exécuter le module Azure Stack PowerShell version 1.3.0 ou ultérieure. Pour plus d’informations, consultez l’article [Installer Azure Stack PowerShell](azure-stack-powershell-install.md).
 
 >[!NOTE]
->Dans une instance Azure Stack mutualisée, le nouveau propriétaire doit se trouver dans le même répertoire que le propriétaire existant. Pour pouvoir accorder la propriété de l’abonnement à un utilisateur qui se trouve dans un autre répertoire, vous devez d’abord [inviter cet utilisateur en tant qu’invité dans votre répertoire](/azure/active-directory/b2b/add-users-administrator).
+>Dans une instance Azure Stack mutualisée, le nouveau propriétaire doit se trouver dans le même répertoire que le propriétaire existant. Pour pouvoir accorder la propriété de l’abonnement à un utilisateur qui se trouve dans un autre annuaire, vous devez d’abord [inviter cet utilisateur dans votre annuaire](/azure/active-directory/b2b/add-users-administrator).
 
 Remplacez les valeurs suivantes dans le script avant de l’exécuter :
 
@@ -66,6 +66,8 @@ $subscription = Get-AzsUserSubscription -SubscriptionId $SubscriptionId
 $Subscription.Owner = $OwnerUpn
 Set-AzsUserSubscription -InputObject $subscription
 ```
+
+[!include[Remove Account](../../includes/remove-account.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: d9155edcf23154f70f2a7f8098df55e7acb2b552
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 7be74701b3e25658258abc7102668346e584ab39
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808274"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974821"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 1
 
@@ -146,7 +146,7 @@ L’emplacement d’échange des sites est rompu dans cette mise en production. 
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
 
-2. Accédez à la **CN0-VM** sous Machines virtuelles dans le portail d’administrateur Azure Stack, puis **cliquez sur Se connecter** pour ouvrir une session Bureau à distance avec l’instance de contrôleur. Utilisez les informations d’identification spécifiées pendant le déploiement d’App Service.
+2. Dans le portail d’administration Azure Stack, sous Machines virtuelles, accédez à la machine virtuelle **CN0-VM**, puis cliquez sur **Se connecter** pour ouvrir une session Bureau à distance avec l’instance de contrôleur. Utilisez les informations d’identification spécifiées pendant le déploiement d’App Service.
 3. Démarrez **PowerShell en tant qu’administrateur** et exécutez le script suivant :
 
     ```powershell
@@ -199,7 +199,7 @@ L’emplacement d’échange des sites est rompu dans cette mise en production. 
 
 6. Les Workers ne peuvent pas atteindre le serveur de fichiers si App Service est déployé dans un réseau virtuel existant et si le serveur de fichiers est uniquement disponible sur le réseau privé.
 
-Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et avec une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau Worker et le serveur de fichiers. Accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
+Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et avec une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau worker et le serveur de fichiers. Accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
 
 - Source : Quelconque
 - Plage de ports source : : *

@@ -15,12 +15,12 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 886271e99b10d3fec0801f977a693a01e59fc0a5
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: 2dea14ab5d43aab8deab2632b07277d7094e33c4
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025859"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974618"
 ---
 # <a name="register-the-asdk-with-azure"></a>Inscrire le kit ASDK auprès d’Azure
 
@@ -217,7 +217,7 @@ Une fois l’activation terminée, un message similaire à celui-ci doit s’aff
 
 Vous pouvez utiliser la vignette **Gestion des régions** pour vérifier que l’inscription Azure Stack a réussi. Cette vignette est disponible sur le tableau de bord par défaut du portail d’administration.
 
-1. Aucun accès au [portail administrateur Azure Stack](https://adminportal.local.azurestack.external).
+1. Connectez-vous au [portail d’administration Azure Stack](https://adminportal.local.azurestack.external).
 
 2. Dans le tableau de bord, sélectionnez **Gestion des régions**.
 

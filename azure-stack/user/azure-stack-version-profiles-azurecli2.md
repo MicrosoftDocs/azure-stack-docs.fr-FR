@@ -14,12 +14,12 @@ ms.date: 07/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 430df1c886a869239c040085dcea983d07b3b36d
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: 18644d3d331a5c093d0a78da435d6f79e03cb531
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842933"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974658"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Gérer et déployer des ressources sur Azure Stack avec l’interface CLI Azure
 
@@ -44,7 +44,7 @@ Si vous utilisez un système intégré, vous n'avez pas besoin d'exporter le cer
 Pour exporter le certificat racine ASDK au format PEM :
 
 1. Obtenez le nom de votre certificat racine Azure Stack :
-    - Connectez-vous au locataire Azure Stack ou portail d’administration.
+    - Connectez-vous au portail administrateur ou utilisateur Azure Stack.
     - Cliquez sur **Secure** (Sécurisé) près de la barre d’adresse.
     - Dans la fenêtre indépendante, cliquez sur **Valid** (Valide).
     - Dans la fenêtre Certificat, cliquez sur l’onglet **Chemin d’accès de certification**.

@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 43ee38c18e2831d1cb96958501cee6f77292edd0
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: b01199bfe96c39fe79aac65eca219a065f39375c
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271678"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975004"
 ---
 # <a name="add-workers-and-infrastructure-in-app-service-on-azure-stack"></a>Ajouter des workers et une infrastructure dans App Service sur Azure Stack
 
@@ -75,23 +75,23 @@ Azure App Service sur Azure Stack déploie tous les rôles à l’aide de groupe
 
 3. Surveillez l’état des nouvelles instances de rôle dans le portail d’administration App Service. Pour vérifier l’état d’une instance de rôle, cliquez sur le type de rôle dans la liste.
 
-## <a name="add-additional-workers-using-the-admin-portal"></a>Ajouter des workers supplémentaires à l’aide du portail d’administration
+## <a name="add-additional-workers-using-the-administrator-portal"></a>Ajouter des rôles de travail supplémentaires à l’aide du portail administrateur
 
-1. Connectez-vous au portail d’administration Azure Stack en tant qu’administrateur du service.
+1. Connectez-vous au portail administrateur Azure Stack en tant qu’administrateur du service.
 
 2. Parcourir **App Services**.
 
-    ![Portail d’administration App Service sur Azure Stack](media/azure-stack-app-service-add-worker-roles/image01.png)
+    ![App Service dans le portail administrateur Azure Stack](media/azure-stack-app-service-add-worker-roles/image01.png)
 
 3. Cliquez sur **Rôles**. La répartition de tous les rôles App Service déployés s’affiche ici.
 
 4. Cliquez avec le bouton droit sur la ligne du type que vous voulez mettre à l’échelle, puis cliquez sur **ScaleSet**.
 
-    ![ScaleSet des rôles App Service dans le portail d’administration Azure Stack](media/azure-stack-app-service-add-worker-roles/image02.png)
+    ![Rôles App Service ScaleSet dans le portail administrateur Azure Stack](media/azure-stack-app-service-add-worker-roles/image02.png)
 
 5. Cliquez sur **Mise à l’échelle**, sélectionnez le nombre d’instances vers lequel vous voulez faire la mise à l’échelle, puis cliquez sur **Enregistrer**.
 
-    ![Définir les instances vers lesquelles faire la mise à l’échelle dans les rôles App Service dans le portail d’administration Azure Stack](media/azure-stack-app-service-add-worker-roles/image03.png)
+    ![Définir les instances vers lesquelles faire la mise à l’échelle dans les rôles App Service dans le portail administrateur Azure Stack](media/azure-stack-app-service-add-worker-roles/image03.png)
 
 6. App Service sur Azure Stack ajoute ensuite les machines virtuelles supplémentaires, les configure, installe tous les logiciels requis et les marque comme Prêt lorsque ce processus est terminé. Ce processus peut prendre environ 80 minutes.
 
@@ -101,7 +101,7 @@ Azure App Service sur Azure Stack déploie tous les rôles à l’aide de groupe
 
 Une fois que les workers sont entièrement déployés et prêts, les utilisateurs peuvent y déployer leur charge de travail. La capture d’écran suivante montre un exemple des différents niveaux tarifaires disponibles par défaut. S’il n’existe aucun Worker disponible pour un niveau Worker spécifique, l’option permettant de choisir le niveau tarifaire correspondant est indisponible.
 
-![Niveaux tarifaires pour le nouveau plan App Service dans le portail d’administration Azure Stack](media/azure-stack-app-service-add-worker-roles/image04.png)
+![Niveaux tarifaires pour le nouveau plan App Service dans le portail administrateur Azure Stack](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
 > Pour la montée en charge des rôles Gestion, Frontal ou Serveur de publication, suivez les mêmes étapes en sélectionnant le type de rôle approprié. Les contrôleurs ne sont pas déployés en tant que groupes identiques. Vous devez donc déployer deux contrôleurs au moment de l’installation pour tous les déploiements de production.

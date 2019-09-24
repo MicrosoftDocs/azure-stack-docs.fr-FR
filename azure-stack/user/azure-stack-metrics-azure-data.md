@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 88b07c5c3325263e068de49b78df25d17861a37e
-ms.sourcegitcommit: f1a21af6517978ddb62f4cbfa1d1df8c867814d1
+ms.openlocfilehash: 71855d557f26fc1eb4d86ab0d5a48bf8cf987506
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70064186"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974673"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>Utiliser Azure Monitor sur Azure Stack
 
@@ -31,14 +31,14 @@ Pour obtenir une présentation d’Azure Monitor, consultez l’article Azure gl
 
 ![Panneau Azure Stack Monitor](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
-Azure Monitor est un service de plateforme qui fournit une source unique de supervision des ressources Azure. Azure Monitor permet de visualiser, d’interroger, de router et d’archiver les métriques et journaux provenant de ressources Azure, ainsi que d’entreprendre des actions sur ceux-ci. Vous pouvez utiliser ces données à l’aide du portail d’administration Azure Stack, des cmdlets PowerShell Monitor, de l’interface de ligne de commande multiplateforme ou des API REST Azure Monitor. Pour en savoir plus sur la connectivité spécifique prise en charge par Azure Stack, consultez [Comment consommer des données de supervision à partir d’Azure Stack](azure-stack-metrics-monitor.md).
+Azure Monitor est un service de plateforme qui fournit une source unique de supervision des ressources Azure. Azure Monitor permet de visualiser, d’interroger, de router et d’archiver les métriques et journaux provenant de ressources Azure, ainsi que d’entreprendre des actions sur ceux-ci. Vous pouvez utiliser ces données à l’aide du portail administrateur Azure Stack, des applets de commande PowerShell Monitor, de l’interface de ligne de commande multiplateforme ou des API REST Azure Monitor. Pour en savoir plus sur la connectivité spécifique prise en charge par Azure Stack, consultez [Comment consommer des données de supervision à partir d’Azure Stack](azure-stack-metrics-monitor.md).
 
 > [!Note]
 > Les métriques et les journaux de diagnostic ne sont pas disponibles pour le Kit de développement Azure Stack.
 
 ## <a name="prerequisites-for-azure-monitor-on-azure-stack"></a>Prérequis pour Azure Monitor sur Azure Stack
 
-Enregistrer le fournisseur de ressources **Microsoft.insights** dans les paramètres relatifs à l’offre d’abonnement du fournisseur de ressources. Pour vérifier que le fournisseur de ressources est disponible dans l’offre qui est associée à votre abonnement, procédez comme suit :
+Enregistrer le fournisseur de ressources **Microsoft.insights** dans les paramètres relatifs à l’offre d’abonnement du fournisseurs de ressources. Pour vérifier que le fournisseur de ressources est disponible dans l’offre qui est associée à votre abonnement, procédez comme suit :
 
 1. Ouvrez le portail utilisateur Azure Stack.
 2. Sélectionnez **Offres**.
@@ -115,7 +115,7 @@ Vous pouvez utiliser l’API REST Azure Monitor, les commandes de l’Interface 
 En affichant les données analysées sous forme de graphiques et de diagrammes, vous êtes en mesure d’identifier des tendances plus rapidement qu’en lisant simplement les données brutes vous-même. 
 
 Il existe quelques méthodes de visualisation, qui sont les suivantes :
- - Utilisation du portail de l’administrateur et de l’utilisateur Azure Stack.
+ - Utilisation du portail administrateur et utilisateur Azure Stack.
  - Routage des données vers Microsoft Power BI.
  - Routage de données vers un outil de visualisation tiers par streaming en direct ou par lecture de l’outil à partir d’une archive située dans le stockage Azure.
 

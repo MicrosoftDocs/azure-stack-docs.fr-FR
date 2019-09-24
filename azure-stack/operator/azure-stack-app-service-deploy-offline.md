@@ -16,12 +16,12 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 9190a8cb0b42b10710a4abc2671fe8ead3094d9a
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 0147108a2e4fb45fce98460fcde141b5f2e28df5
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808296"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975054"
 ---
 # <a name="deploy-app-service-in-an-offline-environment-in-azure-stack"></a>Déployer App Service dans un environnement hors connexion au sein d’Azure Stack
 
@@ -216,7 +216,7 @@ Si vous avez choisi de procéder au déploiement dans un réseau virtuel existan
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Valider l’installation App Service sur Azure Stack
 
-1. Dans le portail administrateur d’Azure Stack, allez dans **Administration - App Service**.
+1. Dans le portail administrateur Azure Stack, allez dans **Administration - App Service**.
 
 2. Dans la vue d’ensemble, sous les statuts, vérifiez que le **Statut** affiche **Tous les rôles sont prêts**.
 
@@ -229,7 +229,7 @@ Après avoir déployé et inscrit le fournisseur de ressources App Service, test
 > [!NOTE]
 > Vous devez créer une offre avec l’espace de noms Microsoft.Web dans le plan. Ensuite, vous devez avoir un abonnement locataire qui s’abonne à cette offre. Pour plus d’informations, consultez [Créer une offre](azure-stack-create-offer.md) et [Créer un plan](azure-stack-create-plan.md).
 >
-> Vous *devez* avoir un abonnement locataire pour créer des applications qui utilisent App Service sur Azure Stack. Les seules fonctionnalités qu’un administrateur de service peut effectuer dans le portail d’administration sont liées à l’administration du fournisseur de ressources App Service. Ces fonctionnalités incluent l’ajout de capacité, la configuration de sources de déploiement, l’ajout de niveaux Worker et de références.
+> Vous *devez* avoir un abonnement locataire pour créer des applications qui utilisent App Service sur Azure Stack. Les seules fonctionnalités qu’un administrateur de service peut effectuer dans le portail administrateur sont liées à l’administration du fournisseur de ressources App Service. Ces fonctionnalités incluent l’ajout de capacité, la configuration de sources de déploiement, l’ajout de niveaux Worker et de références.
 >
 > À compter de la troisième préversion technique, vous devez utiliser le portail du locataire et disposer d’un abonnement locataire pour créer des applications web, d’API et Azure Functions.
 

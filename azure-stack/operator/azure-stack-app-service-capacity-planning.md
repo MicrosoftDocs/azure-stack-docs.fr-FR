@@ -16,12 +16,12 @@ ms.date: 03/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: 45fddcb71781f11cdab600200631737d284935d9
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 80dc7bae2371025fba82531b08216606580176e1
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271699"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975200"
 ---
 # <a name="capacity-planning-for-app-service-server-roles-in-azure-stack"></a>Planification de la capacité pour les rôles serveur App Service dans Azure Stack
 
@@ -99,7 +99,7 @@ Pendant la mise à niveau et la maintenance des workers, Azure App Service sur A
 
 Durant la mise à niveau et la maintenance, Azure App Service déplace les charges de travail vers les workers non alloués pour garantir la continuité d’exécution des charges de travail. Toutefois, si aucun worker non alloué n’est disponible pendant la mise à niveau, il y a un risque d’interruption de la charge de travail du locataire. En ce qui concerne les workers partagés, les clients n’ont pas besoin de provisionner des workers supplémentaires, car le service alloue automatiquement les applications de locataire dans les workers disponibles. Pour garantir une haute disponibilité, il faut au minimum deux workers dans ce niveau.
 
-Les administrateurs cloud peuvent superviser l’allocation de leurs niveaux de worker dans la zone d’administration d’App Service du portail administrateur Azure Stack. Accédez à App Service, puis sélectionnez Niveaux de worker dans le volet gauche. Le tableau Niveaux de worker indique le nom du niveau de worker, la taille, l’image utilisée, le nombre de workers disponibles (non alloués), le nombre total de workers dans chaque niveau et l’état global du niveau de worker.
+Les administrateurs cloud peuvent superviser l’allocation de leurs niveaux de worker dans la zone d’administration d’App Service sur le portail administrateur Azure Stack. Accédez à App Service, puis sélectionnez Niveaux de worker dans le volet gauche. Le tableau Niveaux de worker indique le nom du niveau de worker, la taille, l’image utilisée, le nombre de workers disponibles (non alloués), le nombre total de workers dans chaque niveau et l’état global du niveau de worker.
 
 ![Administration App Service - Niveaux de worker][1]
 

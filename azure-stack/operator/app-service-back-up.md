@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: b49390434990ac2efb81692c1177c634aee4bab0
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: a41943a598545b1a4c5dbe6325307a8fa3594cd5
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959525"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975034"
 ---
 # <a name="back-up-app-service-on-azure-stack"></a>Sauvegarder App Service sur Azure Stack
 

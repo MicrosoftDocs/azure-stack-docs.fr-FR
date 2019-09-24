@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 88255a15a204f5dcb18dd83f9763e8297a1af51c
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: c80a6068aa46cd182f8ec928942e7072638b143f
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808245"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974841"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 3
 
@@ -40,7 +40,7 @@ Le numéro de build d’App Service sur Azure Stack Update 3 est **74.0.13698.3
 
 Avant de commencer le déploiement, consultez les [Prérequis pour le déploiement d’App Service sur Azure Stack](azure-stack-app-service-before-you-get-started.md).
 
-Avant de commencer la mise à niveau d’Azure App Service sur Azure Stack 1.3, vérifiez que tous les rôles sont prêts dans l’administration Azure App Service via le portail d’administration Azure Stack.
+Avant de commencer la mise à niveau d’Azure App Service sur Azure Stack vers la version 1.3, vérifiez que tous les rôles sont prêts dans l’administration Azure App Service par le biais du portail administrateur Azure Stack.
 
 ![Statut du rôle App Service](media/azure-stack-app-service-release-notes-update-three/image01.png)
 
@@ -182,9 +182,9 @@ Pour les clients qui cherchent à effectuer une migration vers une base de donn�
 
 ### <a name="known-issues-post-installation"></a>Problèmes connus (après l’installation)
 
-- Les Workers ne peuvent pas atteindre le serveur de fichiers si App Service est déployé dans un réseau virtuel existant et si le serveur de fichiers est uniquement disponible sur le réseau privé. Cela est évoqué dans la documentation de déploiement d’Azure App Service sur Azure Stack.
+- Les Workers ne peuvent pas atteindre le serveur de fichiers si App Service est déployé dans un réseau virtuel existant et si le serveur de fichiers est uniquement disponible sur le réseau privé. Ce problème est évoqué dans la documentation de déploiement d’Azure App Service sur Azure Stack.
 
-Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et avec une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau Worker et le serveur de fichiers. Accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
+Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et avec une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau worker et le serveur de fichiers. Accédez au WorkersNsg dans le portail administrateur, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
 
  * Source : Quelconque
  * Plage de ports source : : *

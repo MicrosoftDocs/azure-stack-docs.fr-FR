@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 994291eb0a990521dc932adc63f0ad52d4430e0d
-ms.sourcegitcommit: e2aec63cacfdc830a20a02ee40e715e3c5dfdf22
+ms.openlocfilehash: 77ec512f5e2996aaec53ef77c000d0334bda456a
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70386243"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975208"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Déployer App Service dans une configuration hautement disponible
 
@@ -170,7 +170,7 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 
     ![Boîte de dialogue d’erreur attendue sur App Service](media/app-service-deploy-ha/08.png)
 
-    Si vous avez choisi d’effectuer un déploiement sur un réseau virtuel existant en utilisant une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité de trafic sortant. Cette règle active le trafic SMB entre le sous-réseau worker et le serveur de fichiers. Accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
+    Si vous avez choisi d’effectuer un déploiement sur un réseau virtuel existant en utilisant une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité de trafic sortant. Cette règle active le trafic SMB entre le sous-réseau worker et le serveur de fichiers. Accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
     - Source : Quelconque
     - Plage de ports source : : *
     - Destination : Adresses IP

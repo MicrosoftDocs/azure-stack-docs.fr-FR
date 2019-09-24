@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 891727c8e80af479e800feef9c292f7355fb208c
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: 3fa6d124722d45d727525820b6a99d408f0d2350
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842695"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975166"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack"></a>Automatisation de la gestion et de la mise à jour des machines virtuelles dans Azure Stack
 Utilisez les fonctionnalités des solutions Azure Automation suivantes pour gérer les machines virtuelles Windows et Linux déployées avec Azure Stack :
@@ -44,7 +44,7 @@ Plusieurs prérequis doivent être satisfaits avant de pouvoir utiliser ces fonc
 Pour utiliser les fonctionnalités Azure Monitor pour machines virtuelles, Inventory, Change Tracking et Update Management d’Azure Automation sur les machines virtuelles Azure Stack, vous devez d’abord activer ces solutions dans Azure.
 
 > [!TIP]
-> Si ces fonctionnalités sont déjà activées pour les machines virtuelles Azure, vous pouvez utiliser vos informations d’identification d’espace de travail Log Analytics préexistantes. Si vous avez déjà une clé primaire et un ID d’espace de travail Log Analytics que vous souhaitez utiliser, passez directement à [la section suivante](./vm-update-management.md#in-the-azure-stack-admin-portal). Sinon, poursuivez dans cette section pour créer un espace de travail Log Analytics et un compte Automation.
+> Si ces fonctionnalités sont déjà activées pour les machines virtuelles Azure, vous pouvez utiliser vos informations d’identification d’espace de travail Log Analytics préexistantes. Si vous avez déjà une clé primaire et un ID d’espace de travail Log Analytics que vous souhaitez utiliser, passez directement à [la section suivante](./vm-update-management.md#in-the-azure-stack-administrator-portal). Sinon, poursuivez dans cette section pour créer un espace de travail Log Analytics et un compte Automation.
 
 La première étape de l’activation de ces solutions consiste à [créer un espace de travail Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) dans votre abonnement Azure. Un espace de travail Log Analytics est un environnement de journalisation Azure Monitor unique qui a un référentiel de données, des sources de données et des solutions qui lui sont propres. Après avoir créé un espace de travail, notez la clé et l’ID. Pour afficher ces informations, accédez au panneau de l’espace de travail, cliquez sur **Paramètres avancés** et passez en revue les valeurs pour **ID de l’espace de travail** et **Clé primaire**. 
 
@@ -76,8 +76,8 @@ La solution Azure Monitor pour machines virtuelles prend en charge le monitoring
 
 Une fois l'espace de travail Log Analytics créé, activez les compteurs de performances de l'espace de travail pour procéder à la collecte sur les machines virtuelles Linux et Windows. Installez et activez ensuite les solutions ServiceMap et InfrastructureInsights dans votre espace de travail. Ce processus est décrit dans le guide [Déployer Azure Monitor pour machines virtuelles](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-onboard#how-to-enable-azure-monitor-for-vms-preview).
 
-### <a name="in-the-azure-stack-admin-portal"></a>Dans le portail d’administration Azure Stack
-Après avoir activé les solutions Azure Automation dans le portail Azure, vous devez vous connecter au portail d’administration Azure Stack en tant qu’administrateur cloud, puis télécharger l’extension **Azure Monitor, Update and Configuration Management** et **Azure Monitor, Update and Configuration Management for Linux** de la Place de marché Azure Stack.
+### <a name="in-the-azure-stack-administrator-portal"></a>Dans le portail administrateur Azure Stack
+Après avoir activé les solutions Azure Automation dans le portail Azure, vous devez vous connecter au portail administrateur Azure Stack en tant qu’administrateur cloud, puis télécharger l’extension **Azure Monitor, Update and Configuration Management** et **Azure Monitor, Update and Configuration Management for Linux** de la Place de marché Azure Stack.
 
    ![Élément d’extension Azure Monitor, Update and Configuration Management de la Place de marché](media/vm-update-management/2.PNG) 
 

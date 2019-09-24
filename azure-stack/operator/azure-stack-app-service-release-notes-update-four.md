@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: b92fcd3f729bf068dd578893f24f1c7fa66bbcff
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 9098fb61c0d4edcb534bd7b9d07b4727c953df8d
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808131"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974885"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 4
 
@@ -42,7 +42,7 @@ Avant de commencer le déploiement, consultez les [Prérequis pour le déploieme
 
 Avant de commencer la mise à niveau d’Azure App Service sur Azure Stack 1.4 :
 
-- Vérifiez que tous les rôles sont prêts dans l’Administration Azure App Service sur le portail d’administration Azure Stack.
+- Vérifiez que tous les rôles sont prêts dans l’Administration Azure App Service sur le portail administrateur Azure Stack.
 
 - Sauvegardez les bases de données App Service et MASTER :
   - AppService_Hosting
@@ -92,7 +92,7 @@ Azure App Service sur Azure Stack Update 4 inclut les améliorations et corre
 
 - Restauration des fonctionnalités dans les paramètres de partage des ressources Cross-Origin (CORS) dans le portail du locataire App Service.
 
-- Le message d’erreur s’affiche désormais dans le portail d’administration d’App Service lorsque le plan de contrôle du fournisseur de ressources ne parvient pas à se connecter à l’instance de SQL Server configurée.
+- Le message d’erreur s’affiche désormais dans le portail administrateur d’App Service lorsque le plan de contrôle du fournisseur de ressources ne parvient pas à se connecter à l’instance de SQL Server configurée.
 
 - Vérification de la spécification du point de terminaison dans la chaîne de connexion du stockage personnalisé en cas de spécification dans la nouvelle application de fonction.
 
@@ -207,7 +207,7 @@ Pour les clients qui cherchent à effectuer une migration vers une base de donn�
 
 - Les Workers ne peuvent pas atteindre le serveur de fichiers si App Service est déployé dans un réseau virtuel existant et si le serveur de fichiers est uniquement disponible sur le réseau privé. Ce problème est évoqué dans la documentation de déploiement d’Azure App Service sur Azure Stack.
 
-Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et avec une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau worker et le serveur de fichiers. Accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
+Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et avec une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau worker et le serveur de fichiers. Accédez au WorkersNsg dans le portail administrateur, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
 
  * Source : Quelconque
  * Plage de ports source : : *

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 09/16/2019
 ms.author: justinha
 ms.reviewer: ppacent
-ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 6b7d7a3e70d78b8ab943224babc515395319914e
-ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
+ms.lastreviewed: 09/16/2019
+ms.openlocfilehash: 38175eee8be9b8f678405e0ad1ec6f01bdba8b77
+ms.sourcegitcommit: ca5025fb04250271fe0b2b2df8ad0b3b9ed3e604
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70902714"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71020845"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Préparer des certificats PKI Azure Stack à utiliser dans le cadre du déploiement ou de la rotation
 
@@ -54,7 +54,7 @@ Effectuez les étapes suivantes pour préparer et valider les certificats PKI A
 1. Cliquez sur Terminer pour effectuer l’importation.
 
 > [!NOTE]
-> Après l’importation d’un certificat pour Azure Stack, la clé privée du certificat est stockée sous la forme d’un fichier PKCS 12 (.pfx) sur l’espace de stockage en cluster.
+> Après l’importation d’un certificat pour Azure Stack, la clé privée du certificat est stockée sous la forme d’un fichier PKCS 12 (PFX) sur l’espace de stockage en cluster.
 
 ### <a name="export-the-certificate"></a>Exportation du certificat
 
@@ -92,7 +92,7 @@ Ouvrez la console MMC du Gestionnaire de certificats et connectez-vous au magasi
 
 1. Sélectionnez **Suivant**.
 
-1. Choisissez un nom de fichier et l’emplacement du fichier pfx à exporter. Sélectionnez **Suivant**.
+1. Choisissez un nom de fichier et l’emplacement du fichier PFX à exporter. Sélectionnez **Suivant**.
 
 1. Sélectionnez **Terminer**.
 

@@ -16,12 +16,12 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: ab06f5d3674000733227894a5a69778d90c29d48
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: 9b28d6b55530de6716fd7781b4c7894cbc859288
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118737"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974995"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Ajouter de nouveaux nœuds d’unité d’échelle dans Azure Stack
 
@@ -53,16 +53,16 @@ Les étapes suivantes présentent de façon générale la procédure à suivre p
 2. Activez les ports du commutateur physique et ajustez les listes de contrôle d’accès (ACL) le cas échéant.
 3. Configurez l’adresse IP appropriée dans le contrôleur de gestion de la carte de base (BMC) et appliquez tous les paramètres du BIOS conformément à la documentation fournie par le fabricant OEM.
 4. Appliquez la ligne de base actuelle du microprogramme à tous les composants en utilisant les outils fournis par le fabricant du matériel fonctionnant sur l’HLH.
-5. Exécutez l’opération Ajouter un nœud dans le portail d’administration Azure Stack.
+5. Exécutez l’opération Ajouter un nœud dans le portail administrateur Azure Stack.
 6. Vérifiez que l’opération d’ajout de nœud a réussi. Pour ce faire, vérifiez l’[ **état** de l’unité d’échelle](#monitor-add-node-operations). 
 
 ## <a name="add-the-node"></a>Ajouter le nœud
 
-Pour ajouter de nouveaux nœuds, vous pouvez vous servir du portail d’administration ou de PowerShell. L’opération Ajouter un nœud commence par ajouter le nouveau nœud d’unité d’échelle en tant que capacité de calcul disponible, puis augmente automatiquement la capacité de stockage. La capacité augmente automatiquement, car Azure Stack est un système hyperconvergé dans lequel le *calcul* et le *stockage* se mettent à l’échelle simultanément.
+Pour ajouter de nouveaux nœuds, vous pouvez vous servir du portail administrateur ou de PowerShell. L’opération Ajouter un nœud commence par ajouter le nouveau nœud d’unité d’échelle en tant que capacité de calcul disponible, puis augmente automatiquement la capacité de stockage. La capacité augmente automatiquement, car Azure Stack est un système hyperconvergé dans lequel le *calcul* et le *stockage* se mettent à l’échelle simultanément.
 
-### <a name="use-the-admin-portal"></a>Utiliser le portail d’administration
+### <a name="use-the-administrator-portal"></a>Utiliser le portail d’administration
 
-1. Connectez-vous au portail d’administration d’Azure Stack en tant qu’opérateur Azure Stack.
+1. Connectez-vous au portail administrateur Azure Stack en tant qu’opérateur Azure Stack.
 2. Accédez à **+ Créer une ressource** > **Capacité** > **Nœud d’unité d’échelle**.
    ![Nœud d’unité d’échelle](media/azure-stack-add-scale-node/select-node1.png)
 3. Dans le volet **Ajouter un nœud**, sélectionnez la *région*, puis l’*unité d’échelle* à laquelle vous souhaitez ajouter le nœud. Spécifiez également l’*adresse BMC* du nœud d’unité d’échelle que vous ajoutez. Vous ne pouvez ajouter qu’un seul nœud à la fois.
@@ -87,10 +87,10 @@ Avant d’utiliser l’un des exemples de scripts PowerShell suivants, remplacez
   ```  
 
 ## <a name="monitor-add-node-operations"></a>Surveiller les opérations Ajouter un nœud 
-Utilisez le portail d’administration ou PowerShell pour connaître l’état de l’opération Ajouter un nœud. Les opérations Ajouter un nœud peuvent prendre de plusieurs heures à plusieurs jours.
+Utilisez le portail administrateur ou PowerShell pour connaître l’état de l’opération Ajouter un nœud. Les opérations Ajouter un nœud peuvent prendre de plusieurs heures à plusieurs jours.
 
-### <a name="use-the-admin-portal"></a>Utiliser le portail d’administration 
-Pour surveiller l’ajout d’un nouveau nœud, vous pouvez examiner l’unité d’échelle ou les objets de nœud d’unité d’échelle dans le portail d’administration. Pour ce faire, accédez à **Gestion des régions** > **Unités d’échelle**. Ensuite, sélectionnez l’unité d’échelle ou le nœud d’unité d’échelle que vous souhaitez examiner. 
+### <a name="use-the-administrator-portal"></a>Utiliser le portail d’administration 
+Pour superviser l’ajout d’un nouveau nœud, vous pouvez examiner l’unité d’échelle ou les objets de nœud d’unité d’échelle dans le portail administrateur. Pour ce faire, accédez à **Gestion des régions** > **Unités d’échelle**. Ensuite, sélectionnez l’unité d’échelle ou le nœud d’unité d’échelle que vous souhaitez examiner. 
 
 ### <a name="use-powershell"></a>Utiliser PowerShell
 L’état de l’unité d’échelle et des nœuds de l’unité d’échelle peut être récupéré à l’aide de PowerShell comme suit :

@@ -3,7 +3,7 @@ title: Gérer l’accès aux ressources dans Azure Stack avec le contrôle d’a
 description: Découvrez comment gérer les autorisations de contrôle d’accès en fonction du rôle (RBAC) en tant qu’administrateur ou abonné dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: PatAltimore
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
@@ -12,26 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2019
-ms.author: patricka
+ms.date: 09/13/2019
+ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: a5034e92e52c6da760389d7addc77c6220d59674
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.openlocfilehash: a784da0d16f6ec92a105d9360430f4e8da2817ef
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376830"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974927"
 ---
 # <a name="manage-access-to-resources-in-azure-stack-with-role-based-access-control"></a>Gérer l’accès aux ressources dans Azure Stack avec le contrôle d’accès en fonction du rôle
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Azure Stack prend en charge le contrôle d’accès en fonction du rôle (RBAC), qui est le même [modèle de sécurité de la gestion des accès](https://docs.microsoft.com/azure/role-based-access-control/overview) que celui utilisé par Microsoft Azure. Le contrôle d’accès en fonction du rôle vous permet de gérer les accès des utilisateurs, groupes et applications aux abonnements, ressources et services.
+Azure Stack prend en charge le contrôle d’accès en fonction du rôle (RBAC), qui est le même [modèle de sécurité de la gestion des accès](/azure/role-based-access-control/overview) que celui utilisé par Microsoft Azure. Le contrôle d’accès en fonction du rôle vous permet de gérer les accès des utilisateurs, groupes et applications aux abonnements, ressources et services.
 
 ## <a name="basics-of-access-management"></a>Concepts de base de la gestion des accès
 
-Avec le contrôle d’accès en fonction du rôle, vous pouvez effectuer un contrôle affiné des accès pour sécuriser votre environnement. Vous accordez aux utilisateurs les autorisations spécifiques dont ils ont besoin en leur attribuant un rôle RBAC dans une étendue donnée. L’étendue du rôle attribué peut être un abonnement, un groupe de ressources ou une ressource unique. Consultez l’article [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) pour obtenir des informations plus détaillées sur la gestion des accès.
+Avec le contrôle d’accès en fonction du rôle (RBAC), vous pouvez effectuer un contrôle affiné des accès pour sécuriser votre environnement. Vous accordez aux utilisateurs les autorisations spécifiques dont ils ont besoin en leur attribuant un rôle RBAC dans une étendue donnée. L’étendue du rôle attribué peut être un abonnement, un groupe de ressources ou une ressource unique. Pour plus d’informations sur la gestion de l’accès, consultez l’article [Contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure](/azure/role-based-access-control/overview).
+
+> [!NOTE]
+> Quand vous déployez Azure Stack à l’aide des services de fédération Active Directory (AD FS) comme fournisseur d’identité, seuls les groupes universels sont pris en charge pour les scénarios RBAC.
 
 ### <a name="built-in-roles"></a>Rôles intégrés
 
@@ -61,7 +64,7 @@ Vous pouvez attribuer plusieurs rôles à un utilisateur et associer chaque rôl
 * Vous attribuez le rôle **Lecteur** au TestUser-A pour l’Abonnement-1.
 * Vous attribuez le rôle **Propriétaire** au TestUser-A pour TestVM-1.
 
-L’article sur les [attributions de rôles](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) Azure fournit des informations détaillées sur l’affichage, l’attribution et la suppression des rôles.
+L’article sur les [attributions de rôles](/azure/role-based-access-control/role-assignments-portal) Azure fournit des informations détaillées sur l’affichage, l’attribution et la suppression des rôles.
 
 ## <a name="set-access-permissions-for-a-user"></a>Définir des autorisations d’accès pour un utilisateur
 

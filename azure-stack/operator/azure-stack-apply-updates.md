@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabriggs
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 2153a91bcf833386ef5884a9fd4e7c0fc759c01b
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: 3d760e981f3dd298284b10ed56c4c6ace683f49b
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70863065"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974795"
 ---
 # <a name="install-azure-stack-updates"></a>Installer des mises à jour Azure Stack
 
@@ -49,7 +49,7 @@ Vous pouvez voir la version actuelle d’Azure Stack dans le panneau **Mise à j
 
 ## <a name="install-updates-and-monitor-progress"></a>Installer des mises à jour et surveiller la progression
 
-1. Ouvrez le portail d’administration Azure Stack.
+1. Ouvrez le portail administrateur Azure Stack.
 
 2. Sélectionnez **Tableau de bord**. Sélectionnez **Update**.
 
@@ -75,7 +75,7 @@ Vous pouvez voir la version actuelle d’Azure Stack dans le panneau **Mise à j
 
 ## <a name="review-update-history"></a>Consulter l'historique des mises à jour
 
-1. Ouvrez le portail administrateur.
+1. Ouvrez le portail d’administration.
 
 2. Sélectionnez **Tableau de bord**. Sélectionnez **Update**.
 

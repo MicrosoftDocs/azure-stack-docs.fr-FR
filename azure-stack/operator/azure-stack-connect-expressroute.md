@@ -1,5 +1,5 @@
 ---
-title: Connexion d’Azure Stack à Azure à l’aide d’ExpressRoute
+title: Connecter Azure Stack à Azure avec ExpressRoute | Microsoft Docs
 description: Découvrez comment connecter des réseaux virtuels dans Azure Stack à des réseaux virtuels dans Azure à l’aide d’ExpressRoute.
 services: azure-stack
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.date: 06/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 2ddc95097539eb1a7b15fdfc1fd2faf2c71f9ced
-ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
+ms.openlocfilehash: d7fa69b632ec6d205eff0ed0c388c1f9ec9b9c41
+ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70377299"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094398"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Connexion d’Azure Stack à Azure à l’aide d’Azure ExpressRoute
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Cet article décrit comment connecter un réseau virtuel Azure Stack à un réseau virtuel Azure à l’aide d’une connexion directe de [Microsoft Azure ExpressRoute](/azure/expressroute/).
+Cet article explique comment connecter un réseau virtuel Azure Stack à un réseau virtuel Azure à l’aide d’une connexion directe [Microsoft Azure ExpressRoute](/azure/expressroute/).
 
 Vous pouvez utiliser cet article sous forme de didacticiel et utiliser les exemples pour configurer le même environnement de test. Ou bien, vous pouvez utiliser l’article comme une procédure pas-à-pas qui vous guide à travers la configuration de votre propre environnement ExpressRoute.
 
@@ -62,7 +62,7 @@ L’illustration suivante montre les environnements Azure Stack et Azure une foi
 
 ![Réseau ExpressRoute](media/azure-stack-connect-expressroute/Conceptual.png)
 
-L’illustration suivante montre comment plusieurs locataires se connectent à Azure depuis l’infrastructure Azure Stack par le biais du routeur ExpressRoute au niveau de la périphérie Microsoft :
+L’illustration suivante montre comment plusieurs locataires se connectent à Azure à partir de l’infrastructure Azure Stack, par le biais du routeur ExpressRoute au niveau de Microsoft Edge :
 
 ![Connexions d’architecture mutualisées avec ExpressRoute](media/azure-stack-connect-expressroute/Architecture.png)
 
@@ -142,7 +142,7 @@ Suivez les procédures ci-dessous pour créer les ressources réseau nécessaire
 
 La ressource de passerelle de réseau local identifie la passerelle distante présente à l’autre extrémité de la connexion VPN. Pour cet exemple, l’extrémité distante de la connexion est la sous-interface LAN du routeur ExpressRoute. Pour le locataire 1 du diagramme précédent, l’adresse distante est 10.60.3.255.
 
-1. Connectez-vous au portail utilisateur Azure Stack avec votre compte d’utilisateur, puis sélectionnez **+ Créer une ressource**.
+1. Connectez-vous au portail utilisateur Azure Stack, puis sélectionnez **+ Créer une ressource**.
 1. Sous **Place de marché Azure**, sélectionnez **Mise en réseau**.
 1. Sélectionnez **Passerelle de réseau local** dans la liste des ressources.
 1. Dans le champ **Nom**, saisissez **ER-Router-GW**.
@@ -153,7 +153,7 @@ La ressource de passerelle de réseau local identifie la passerelle distante pr�
    * 10.100.0.0/16 est le réseau virtuel Spoke dans Azure.
 
    > [!IMPORTANT]
-   > Cet exemple suppose que vous utilisiez des itinéraires statiques pour la connexion VPN de site à site entre la passerelle Azure Stack et le routeur ExpressRoute.
+   > Cet exemple suppose que vous utilisez des routes statiques pour la connexion VPN de site à site entre la passerelle Azure Stack et le routeur ExpressRoute.
 
 1. Vérifiez l’exactitude des valeurs des champs **Abonnement**, **Groupe de ressources** et **Emplacement**. Sélectionnez ensuite **Créer**.
 
@@ -172,28 +172,28 @@ La ressource de passerelle de réseau local identifie la passerelle distante pr�
 
 #### <a name="get-the-virtual-network-gateway-public-ip-address"></a>Obtenir l’adresse IP publique de la passerelle de réseau virtuel
 
-Après avoir créé la passerelle de réseau virtuel, vous pouvez obtenir son adresse IP publique. Prenez note de cette adresse au cas où vous en auriez besoin plus tard pour votre déploiement. Selon votre déploiement, cette adresse est utilisée comme **Adresse IP interne**.
+Après avoir créé la passerelle de réseau virtuel, vous pouvez obtenir son adresse IP publique. Prenez note de cette adresse au cas où vous en auriez besoin plus tard pour votre déploiement. Selon votre déploiement, cette adresse est utilisée comme **Adresse IP interne**.
 
 1. Dans le portail utilisateur Azure Stack, sélectionnez **Toutes les ressources**.
 1. Sous **toutes les ressources**, sélectionnez la passerelle de réseau virtuel, **GW1** dans l’exemple.
 1. Sous **Passerelle de réseau virtuel**, sélectionnez **Vue d’ensemble** dans la liste des ressources. Vous pouvez également sélectionner **Propriétés**.
 1. L’adresse IP que vous souhaitez noter est répertoriée sous **Adresse IP publique**. Pour l’exemple de configuration, cette adresse est 192.68.102.1.
 
-#### <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
+#### <a name="create-a-virtual-machine-vm"></a>Créer une machine virtuelle
 
-Pour tester le trafic de données via la connexion VPN, vous avez besoin de machines virtuelles pour envoyer et recevoir des données dans le réseau virtuel d’Azure Stack. Créez une machine virtuelle et déployez-la vers le sous-réseau de machine virtuelle pour votre réseau virtuel.
+Pour tester le trafic de données via la connexion VPN, vous avez besoin de machines virtuelles pour envoyer et recevoir des données dans le réseau virtuel d’Azure Stack. Créez une machine virtuelle et déployez-la vers le sous-réseau de machine virtuelle de votre réseau virtuel.
 
 1. Dans le portail utilisateur Azure Stack, sélectionnez **+ Créer une ressource**.
 1. Sous **Place de marché Azure**, sélectionnez **Compute**.
-1. Dans la liste des images de machine virtuelle, sélectionnez l’image **Windows Server 2016 Datacenter Evals**.
+1. Dans la liste des images de machine virtuelle, sélectionnez l’image **Windows Server 2016 Datacenter Eval**.
 
    >[!NOTE]
-   >Si l’image utilisée pour cet article n’est pas disponible, demandez à votre opérateur Azure Stack de vous fournir une autre image Windows Server.
+   >Si l’image utilisée pour cet article n’est pas disponible, demandez à votre opérateur Azure Stack pour fournir une autre image de Windows Server.
 
 1. Dans le champ **Créer une machine virtuelle**, sélectionnez **Concepts de base**, puis saisissez **VM01** comme **Nom**.
 1. Entrez un nom d’utilisateur et un mot de passe valides. Vous utiliserez ce compte pour vous connecter à la machine virtuelle une fois celle-ci créée.
 1. Fournissez un **Abonnement**, un **Groupe de ressources** et un **Emplacement**. Sélectionnez **OK**.
-1. Sous **Choisir une taille**, sélectionnez une taille de machine virtuelle pour cette instance, puis choisissez **Sélectionner**.
+1. Sous **Choisir une taille**, sélectionnez une taille de machine virtuelle pour l’instance, puis choisissez **Sélectionner**.
 1. Sous **Paramètres**, vérifiez que :
 
    * Le réseau virtuel est **Tenant1VNet1**.
@@ -212,14 +212,14 @@ Pour ajouter davantage de locataires, répétez les étapes suivies dans les sec
 * [Créer la connexion](#create-the-connection)
 * [Créer une machine virtuelle](#create-a-virtual-machine)
 
-Si vous prévoyez d’utiliser le locataire 2 en exemple, n’oubliez pas de modifier les adresses IP pour éviter les chevauchements.
+Si vous prévoyez d’utiliser le locataire 2 en exemple, n’oubliez pas de changer les adresses IP pour éviter les chevauchements.
 
-### <a name="configure-the-nat-virtual-machine-for-gateway-traversal"></a>Configurer la machine virtuelle NAT pour la traversée de passerelle
+### <a name="configure-the-nat-vm-for-gateway-traversal"></a>Configurer la machine virtuelle NAT pour la traversée de la passerelle
 
 > [!IMPORTANT]
-> Cette section concerne uniquement les déploiements du Kit de développement Azure Stack (ASDK). La traduction d’adresses réseau (NAT) n’est pas nécessaire pour les déploiements à plusieurs nœuds.
+> Cette section concerne uniquement les déploiements ASDK. La traduction d’adresses réseau (NAT) n’est pas nécessaire pour les déploiements à plusieurs nœuds.
 
-Le Kit de développement Azure Stack est autonome et isolé du réseau sur lequel est déployé l’hôte physique. Le réseau VIP auquel les passerelles sont connectées n’est pas externe : il est masqué derrière un routeur qui procède à la traduction d’adresses réseau (NAT).
+Le Kit de développement Azure Stack (ASDK) est autonome et isolé du réseau sur lequel est déployé l’hôte physique. Le réseau VIP auquel les passerelles sont connectées n’est pas externe. Il est masqué derrière un routeur qui procède à la traduction d’adresses réseau (NAT).
 
 Le routeur est l’hôte ASDK qui exécute le rôle Services de routage et d’accès à distance (RRAS). Vous devez configurer la traduction d’adresses réseau sur l’hôte ASDK pour permettre à la connexion VPN de site à site de se connecter aux deux extrémités.
 
@@ -341,7 +341,7 @@ Vous pouvez utiliser le diagramme suivant de la configuration du routeur Express
 
 Vous pouvez utiliser n’importe quel routeur qui prend en charge le VPN IKEv2 et BGP pour mettre fin à la connexion VPN de site à site établie depuis Azure Stack. Le même routeur est utilisé pour se connecter à Azure via un circuit ExpressRoute.
 
-L’exemple de configuration du routeur des services d’agrégation Cisco ASR 1000 ci-après prend en charge l’infrastructure réseau représentée dans le diagramme *Configuration du routeur ExpressRoute*.
+L’exemple de configuration du routeur des services d’agrégation Cisco Site Recovery 1000 Series ci-après prend en charge l’infrastructure réseau représentée dans le diagramme *Configuration du routeur ExpressRoute*.
 
 ```shell
 ip vrf Tenant 1
@@ -566,15 +566,15 @@ Lorsque la connexion de site à site et le circuit ExpressRoute sont établis, t
 
 Effectuez les tests ping suivants :
 
-* Inscrivez-vous à l’une des machines virtuelles dans votre réseau virtuel Azure et effectuez un test ping sur la machine virtuelle créée dans Azure Stack.
-* Inscrivez-vous à l’une des machines virtuelles que vous avez créées dans Azure Stack et effectuez un test ping sur la machine virtuelle créée dans le réseau virtuel Azure.
+* Inscrivez-vous à l’une des machines virtuelles de votre réseau virtuel Azure et effectuez un test ping sur la machine virtuelle créée dans Azure Stack.
+* Inscrivez-vous à l’une des machines virtuelles que vous avez créées dans Azure Stack, puis effectuez un test ping sur la machine virtuelle que vous avez créée dans le réseau virtuel Azure.
 
 >[!NOTE]
 >Pour vérifier que vous envoyez bien le trafic via les connexions site à site et ExpressRoute, vous devez effectuer un test ping aux deux extrémités avec l’adresse IP dédiée de la machine virtuelle, et non avec son adresse IP virtuelle.
 
 ### <a name="allow-icmp-in-through-the-firewall"></a>Autoriser la transmission du protocole ICMP via le pare-feu
 
-Par défaut, Windows Server 2016 n’autorise pas la transmission des paquets ICMP entrants via le pare-feu. Pour chaque machine virtuelle que vous utilisez pour des tests ping, vous devez autoriser les paquets ICMP entrants. Pour créer une règle de pare-feu pour ICMP, exécutez l’applet de commande suivante dans une fenêtre PowerShell avec élévation de privilèges :
+Par défaut, Windows Server 2016 n’autorise pas la transmission des paquets ICMP entrants via le pare-feu. Pour chaque machine virtuelle que vous utilisez dans le cadre de tests ping, vous devez autoriser les paquets ICMP entrants. Pour créer une règle de pare-feu pour ICMP, exécutez l’applet de commande suivante dans une fenêtre PowerShell avec élévation de privilèges :
 
 ```powershell
 # Create ICMP firewall rule.
@@ -583,23 +583,23 @@ New-NetFirewallRule `
   -Protocol ICMPv4
 ```
 
-### <a name="ping-the-azure-stack-virtual-machine"></a>Effectuer un test ping sur la machine virtuelle Azure Stack
+### <a name="ping-the-azure-stack-vm"></a>Effectuer un test ping sur une machine virtuelle Azure Stack
 
-1. Connectez-vous au portail utilisateur Azure Stack avec un compte locataire.
+1. Connectez-vous au portail utilisateur Azure Stack.
 
-1. Trouvez la machine virtuelle créée et sélectionnez-la.
+1. Recherchez la machine virtuelle que vous avez créée, puis sélectionnez-la.
 
 1. Sélectionnez **Connecter**.
 
 1. À partir d’une invite de commandes Windows ou de PowerShell avec élévation de privilèges, entrez **ipconfig/all**. Notez l’adresse IPv4 retournée en sortie.
 
-1. Effectuez un test ping de cette adresse IPv4 à partir de la machine virtuelle dans le réseau virtuel Azure.
+1. Effectuez un test ping sur cette adresse IPv4 à partir de la machine virtuelle située dans le réseau virtuel Azure.
 
    Dans l’environnement représenté en exemple, l’adresse IPv4 provient du sous-réseau 10.1.1.x/24. Dans votre environnement, l’adresse peut être différente. Toutefois, elle doit se trouver dans le sous-réseau que vous avez créé pour le sous-réseau du réseau virtuel locataire.
 
 ### <a name="view-data-transfer-statistics"></a>Afficher les statistiques de transfert de données
 
-Si vous souhaitez connaître le volume de trafic qui transite via votre connexion, accédez au portail utilisateur Azure Stack. C’est également un bon moyen de savoir si les données de votre test ping sont passées au travers des connexions VPN et ExpressRoute :
+Si vous souhaitez connaître le volume de trafic qui transite via votre connexion, accédez au portail utilisateur Azure Stack. Pour savoir si les données de votre test ping sont passées par les connexions VPN et ExpressRoute, vous pouvez également consulter les statistiques de transfert de données :
 
 1. Connectez-vous au portail utilisateur Azure Stack et sélectionnez **Toutes les ressources**.
 1. Accédez au groupe de ressources pour lequel votre passerelle VPN a été créée et sélectionnez le type d’objet **Connexions**.

@@ -1,6 +1,6 @@
 ---
 title: Activer Azure CLI pour les utilisateurs d’Azure Stack | Microsoft Docs
-description: Découvrez comment utiliser l’interface de ligne de commande (CLI) multiplateforme pour gérer et déployer des ressources sur Azure Stack.
+description: Découvrez comment activer l’interface de ligne de commande (CLI) multiplateforme pour gérer et déployer des ressources sur Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/16/2019
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: ace99053d9aac4c525e9481e5430ac1f5648f194
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 6e901b2d806e85f7bc394dc9bee6412270753649
+ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782328"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094313"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Activer Azure CLI pour les utilisateurs d’Azure Stack
 
@@ -27,15 +27,15 @@ ms.locfileid: "65782328"
 
 Vous pouvez fournir le certificat racine de l’autorité de certification aux utilisateurs d’Azure Stack afin qu’ils puissent utiliser Azure CLI sur leurs machines de développement. Vos utilisateurs ont besoin du certificat pour gérer des ressources à l'aide de l'interface CLI.
 
- - **Le certificat racine de l’autorité de certification Azure Stack** est obligatoire si des utilisateurs utilisent l’interface CLI sur une station de travail qui se trouve en dehors du Kit de développement Azure Stack.  
+ - Le **certificat racine de l’autorité de certification Azure Stack** est obligatoire si des utilisateurs utilisent l’interface CLI sur une station de travail qui se trouve en dehors du Kit de développement Azure Stack (ASDK).  
 
- - **Le point de terminaison des alias de machines virtuelles** fournit un alias, comme « UbuntuLTS » ou « Win2012Datacenter », qui référence un éditeur, une offre, une référence (SKU) et une version d’image sous la forme d’un seul paramètre lors du déploiement de machines virtuelles.  
+ - Le **point de terminaison des alias de machines virtuelles** fournit un alias, comme « UbuntuLTS » ou « Win2012Datacenter », qui référence un éditeur, une offre, une référence SKU et une version d’image sous la forme d’un seul paramètre lors du déploiement de machines virtuelles.  
 
 Les sections suivantes expliquent comment obtenir ces valeurs.
 
 ## <a name="export-the-azure-stack-ca-root-certificate"></a>Exporter le certificat racine d’autorité de certification Azure Stack
 
-Si vous utilisez un système intégré, vous n'avez pas besoin d'exporter le certificat racine de l'autorité de certification. Vous devrez exporter le certificat racine de l'autorité de certification sur un Kit de développement Azure Stack (ASDK).
+Si vous utilisez un système intégré, vous n'avez pas besoin d'exporter le certificat racine de l'autorité de certification. Vous devez exporter le certificat racine de l’autorité de certification du Kit de développement Azure Stack (ASDK).
 
 Pour exporter le certificat racine du kit ASDK au format PEM, connectez-vous et exécutez le script suivant :
 
@@ -56,17 +56,17 @@ Write-Host "Converting certificate to PEM format"
 certutil -encode root.cer root.pem
 ```
 
-## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Configurer le point de terminaison des alias de machines virtuelles
+## <a name="set-up-the-vm-aliases-endpoint"></a>Configurer le point de terminaison des alias de machines virtuelles
 
 Nous recommandons aux opérateurs Azure Stack de configurer un point de terminaison accessible publiquement qui héberge un fichier d’alias de machines virtuelles. Le fichier d’alias de machines virtuelles est un fichier JSON qui fournit un nom commun pour une image. Vous utiliserez ce nom lorsque vous déploierez une machine virtuelle en tant que paramètre Azure CLI.  
 
-Avant d'ajouter une entrée à un fichier d'alias, pensez à [télécharger les images à partir de la Place de marché Azure](azure-stack-download-azure-marketplace-item.md) ou à [publier votre propre image personnalisée](azure-stack-add-vm-image.md). Si vous publiez une image personnalisée, prenez note des informations concernant l’éditeur, l’offre, la référence (SKU) et la version que vous avez spécifiées lors de la publication. S'il s'agit d'une image provenant de la Place de marché, vous pouvez afficher les informations en utilisant la cmdlet `Get-AzureVMImage`.  
+Avant d'ajouter une entrée à un fichier d'alias, pensez à [télécharger les images à partir de la Place de marché Azure](azure-stack-download-azure-marketplace-item.md) ou à [publier votre propre image personnalisée](azure-stack-add-vm-image.md). Si vous publiez une image personnalisée, prenez note des informations concernant l’éditeur, l’offre, la référence SKU et la version que vous avez spécifiées lors de la publication. S’il s’agit d’une image provenant de la Place de marché, vous pouvez afficher les informations en utilisant la cmdlet `Get-AzureVMImage`.  
 
 Un [exemple de fichier d’alias](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) contenant de nombreux alias d’images communs est disponible. Vous pouvez l’utiliser comme point de départ. Hébergez ce fichier dans un espace accessible à vos clients utilisant l’interface CLI. Une façon de le faire consiste à héberger le fichier dans un compte Stockage Blob et à partager l’URL avec vos utilisateurs :
 
 1. Téléchargez l’[ exemple de fichier](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) à partir de GitHub.
 2. Créez un compte de stockage dans Azure Stack. Puis créez un conteneur d'objets blob. Définissez la stratégie d’accès sur « publique ».  
-3. Chargez le fichier JSON dans le nouveau conteneur. Au terme de cette opération, vous pouvez afficher l'URL de l'objet blob. Sélectionnez le nom de l'objet blob, puis l'URL dans ses propriétés.
+3. Chargez le fichier JSON dans le nouveau conteneur. Au terme de cette opération, vous pouvez afficher l'URL de l'objet blob. Sélectionnez le nom de l’objet blob, puis sélectionnez l’URL dans les propriétés de l’objet blob.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

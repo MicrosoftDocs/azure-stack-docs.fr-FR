@@ -1,6 +1,6 @@
 ---
 title: Sauvegarde d’Azure Stack | Microsoft Docs
-description: Effectuez une sauvegarde à la demande sur Azure Stack avec la sauvegarde en place.
+description: Découvrez comment effectuer une sauvegarde à la demande sur Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,18 +16,18 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: a572275ff81918d1b8f739a99fbe7a57784d0651
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 01a4ff62b7cc340a0cf0f98298ee28425d6df892
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269018"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974716"
 ---
 # <a name="back-up-azure-stack"></a>Sauvegarde d’Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Effectuez une sauvegarde à la demande sur Azure Stack. Pour obtenir des instructions sur la configuration de l’environnement PowerShell, consultez [Installer PowerShell pour Azure Stack](azure-stack-powershell-install.md). Pour vous connecter à Azure Stack, consultez [Utilisation du portail administrateur dans Azure Stack](azure-stack-manage-portals.md).
+Cet article explique comment effectuer une sauvegarde à la demande sur Azure Stack. Pour obtenir des instructions sur la configuration de l’environnement PowerShell, consultez [Installer PowerShell pour Azure Stack](azure-stack-powershell-install.md). Pour vous connecter à Azure Stack, consultez [Utilisation du portail administrateur dans Azure Stack](azure-stack-manage-portals.md).
 
 ## <a name="start-azure-stack-backup"></a>Démarrer la sauvegarde d’Azure Stack
 
@@ -42,9 +42,9 @@ Utilisez Start-AzSBackup pour démarrer une nouvelle sauvegarde immédiatement s
 Utilisez Start-AzSBackup pour démarrer une nouvelle sauvegarde avec le paramètre **-AsJob** et l’enregistrer comme variable afin de suivre la progression du travail de sauvegarde.
 
 > [!NOTE]
-> Le travail de sauvegarde s’affiche comme correctement effectué dans le portail environ 10 à 15 minutes avant la fin du travail.
+> Le travail de sauvegarde s’affiche comme étant terminé dans le portail environ 10 à 15 minutes avant la fin de son exécution.
 >
-> Il est donc préférable d’observer l’état réel dans le code ci-dessous.
+> Il est préférable d’observer l’état réel dans le code ci-dessous.
 
 > [!IMPORTANT]
 > Le délai initial d’une (1) milliseconde est ajouté, car le code s’exécute trop rapidement pour pouvoir inscrire le travail correctement, et il ne retourne pas de valeur **PSBeginTime** et donc, pas de valeur **État** du travail.
@@ -86,7 +86,7 @@ Utilisez Start-AzSBackup pour démarrer une nouvelle sauvegarde avec le paramèt
 ## <a name="confirm-backup-has-completed"></a>Confirmer la fin de la sauvegarde
 
 ### <a name="confirm-backup-has-completed-using-powershell"></a>Confirmer la fin de la sauvegarde à l’aide de PowerShell
-Utilisez les commandes PowerShell suivantes pour vérifier que la sauvegarde s’est terminée avec succès :
+Utilisez les commandes PowerShell suivantes pour vérifier que la sauvegarde s’est bien terminée :
 
 ```powershell
    Get-AzsBackup
@@ -111,8 +111,8 @@ Le résultat doit ressembler à la sortie suivante :
     Tags              : {}
 ```
 
-### <a name="confirm-backup-has-completed-in-the-administration-portal"></a>Confirmer la sauvegarde dans le portail d’administration
-Utilisez le portail d’administration Azure Stack pour vérifier que la sauvegarde s’est terminée avec succès en suivant ces étapes :
+### <a name="confirm-backup-has-completed-in-the-administrator-portal"></a>Vérifier que la sauvegarde est terminée dans le portail d’administration
+Dans le portail d’administration Azure Stack, vérifiez que la sauvegarde s’est terminée en effectuant les étapes suivantes :
 
 1. Ouvrez le [portail d’administration Azure Stack](azure-stack-manage-portals.md).
 2. Sélectionnez **Tous les services** et, sous la catégorie **ADMINISTRATION**, sélectionnez > **Sauvegarde d’infrastructure**. Choisissez **Configuration** dans le panneau **Sauvegarde d’infrastructure**.

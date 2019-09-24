@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 09/17/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d056cbf73e2417bd826fba7a7de263cc8e015b7d
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: 6abf8480528aad0bff121d553172bdc8d0446e11
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842920"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070197"
 ---
 # <a name="manage-network-resources"></a>Gérer des ressources réseau
 
@@ -61,7 +61,7 @@ Pour afficher le nombre total d’adresses IP publiques qui ont été consommée
 1. Dans le portail d’administration Azure Stack, sélectionnez **Tous les services**. Ensuite, sous la catégorie **ADMINISTRATION**, sélectionnez **Réseau**.
 1. Le volet **Réseau** affiche la vignette **Utilisation des pools d’adresses IP publiques** dans la section **Vue d’ensemble**.
 
-![Volet Fournisseur de ressources réseau](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
+    ![Volet Fournisseur de ressources réseau](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-01.png)
 
 Le nombre**Utilisé** représente le nombre d’adresses IP publiques affectées à partir de pools d’adresses IP publiques. Le nombre sous **Libres** représente le nombre d’adresses IP publiques de pools d’adresses IP publiques qui n’ont pas été affectées et sont encore disponibles. Le nombre sous **% utilisé** représente le nombre d’adresses utilisées ou affectées en pourcentage du nombre d’adresses IP publiques dans tous les pools d’adresses IP publiques de cet emplacement.
 
@@ -69,7 +69,7 @@ Le nombre**Utilisé** représente le nombre d’adresses IP publiques affectées
 
 Sélectionnez **Adresses IP publiques** sous **Ressources de locataire**. Passez en revue la liste d’adresses IP publiques explicitement créées par des abonnements de locataire dans une région donnée.
 
-![Adresses IP publiques de locataire](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
+![Adresses IP publiques de locataire](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-02.png)
 
 Notez que certaines adresses IP publiques qui ont été allouées dynamiquement apparaissent dans la liste. Toutefois, elles n’ont pas encore d’adresse associée. La ressource d’adresse a été créée dans le Fournisseur de ressources réseau, mais pas encore dans le contrôleur de réseau.
 

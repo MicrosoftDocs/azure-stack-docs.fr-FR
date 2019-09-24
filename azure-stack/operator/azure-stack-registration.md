@@ -16,12 +16,12 @@ ms.date: 08/01/2019
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: d36761cd7480d782ea01bc1b0d3606b5fa244ed3
-ms.sourcegitcommit: 49cfe13427f5255915d5ccbed87b36eec2caf8ca
+ms.openlocfilehash: 27dda5b79525c4a5d1c12c998077bb19cbea0079
+ms.sourcegitcommit: 9f4c6e96f60b4c229316e7a4ab6e0e5ef0a9a232
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720024"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71061192"
 ---
 # <a name="register-azure-stack-with-azure"></a>Inscrire Azure Stack auprès d’Azure
 
@@ -135,6 +135,9 @@ Les environnements connectés peuvent accéder à Internet et à Azure. Pour ces
    | Paramètre | Description |  
    |-----|-----|
    | EnvironmentName | Le nom de l’environnement d’abonnement cloud Azure. Les noms d’environnement pris en charge sont **AzureCloud**, **AzureUSGovernment**, ou, si vous utilisez un abonnement Azure en Chine, **AzureChinaCloud**.  |
+
+   >[!Note]
+   > Si votre session expire, si votre mot de passe a changé ou si vous souhaitez simplement changer de compte, exécutez l’applet de commande suivante avant de vous connecter à l’aide de Add-AzureRmAccount : `Remove-AzureRmAccount-Scope Process`
 
 3. Si vous avez plusieurs abonnements, exécutez la commande suivante pour sélectionner celui que vous souhaitez utiliser :  
 

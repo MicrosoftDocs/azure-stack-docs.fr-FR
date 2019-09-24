@@ -3,7 +3,7 @@ title: Ajouter une image de machine virtuelle à Azure Stack | Microsoft Docs
 description: Découvrez comment ajouter ou supprimer une image de machine virtuelle dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: Justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: mabrigg
+ms.date: 09/17/2019
+ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 8fec1b3702aa7c8c55f1a90167b1ac13f0ac8847
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: fef815ec23655638bbe4df1bcdccae42aeee13e2
+ms.sourcegitcommit: 9f4c6e96f60b4c229316e7a4ab6e0e5ef0a9a232
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271756"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71061160"
 ---
 # <a name="add-a-vm-image-to-azure-stack"></a>Ajouter une image de machine virtuelle à Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Dans Azure Stack, vous pouvez ajouter une image de machine virtuelle à la Place de marché afin de la proposer à vos utilisateurs. Les images s’ajoutent à l’aide de modèles Azure Resource Manager pour Azure Stack. Vous pouvez également des images de machine virtuelle à l’interface utilisateur de la Place de marché Azure comme élément de la Place de marché en utilisant le portail administrateur ou Windows PowerShell. Utilisez une image de la Place de marché Azure globale ou ajoutez une image de machine virtuelle personnalisée.
+Dans Azure Stack, vous pouvez ajouter une image de machine virtuelle à la Place de marché afin de la proposer à vos utilisateurs. Les images s’ajoutent à l’aide de modèles Azure Resource Manager pour Azure Stack. Vous pouvez également ajouter des images de machine virtuelle à l’interface utilisateur de la Place de marché Azure comme élément de la Place de marché en utilisant le portail administrateur ou Windows PowerShell. Utilisez une image de la Place de marché Azure globale ou ajoutez une image de machine virtuelle personnalisée.
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Ajouter une image de machine virtuelle par le biais du portail
 
@@ -155,10 +155,13 @@ Les images doivent pouvoir être référencées par un URI de stockage d’objet
 5. Préparez une image de système d’exploitation Windows ou Linux au format VHD (et non VHDX), chargez l’image sur votre compte de stockage et obtenez l’URI où l’image de machine virtuelle peut être récupérée par PowerShell.  
 
    ```powershell
-    Add-AzureRmAccount `
-      -EnvironmentName "AzureStackAdmin" `
-      -TenantId $TenantID
+   Add-AzureRmAccount 
+   -EnvironmentName "AzureStackAdmin" 
+   -TenantId $TenantID
    ```
+  
+   >[!Note]
+   > Si votre session expire, si votre mot de passe a changé ou si vous souhaitez simplement changer de compte, exécutez l’applet de commande suivante avant de vous connecter en utilisant Add-AzureRmAccount : `Remove-AzureRmAccount-Scope Process`
 
 6. (Facultatif) Vous pouvez charger un tableau de disques de données dans le cadre de l’image de machine virtuelle. Créez vos disques de données à l’aide de l’applet de commande New-DataDiskObject. Ouvrez PowerShell à partir d’une invite de commandes avec élévation de privilèges et exécutez :
 

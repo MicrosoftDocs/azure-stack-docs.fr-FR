@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2019
+ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: 9f35a2bef6e5aa3b9ae1866927be007d58532b74
-ms.sourcegitcommit: 5703255b4647ff0ebec23658a3f5c25d67f076a2
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: 97d57605ce093684fcbabe2375deecda5e35cce2
+ms.sourcegitcommit: 9f4c6e96f60b4c229316e7a4ab6e0e5ef0a9a232
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70749959"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71061129"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Ajouter un locataire pour l’utilisation et la facturation sur Azure Stack
 
@@ -55,13 +55,17 @@ Par défaut,en tant que CSP, vous n’avez pas accès à l’abonnement Azure St
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>Mettre à jour l’inscription avec l’abonnement du client final
 
-Mettez à jour votre inscription avec l’abonnement de nouveau client. Azure signale l’utilisation du client à l’aide de l’identité du client dans l’Espace partenaires. Cette étape garantit que l’utilisation de chaque client est signalée dans l’abonnement de fournisseur de services cloud individuel de ce client. Cela permet de faciliter le suivi de l’utilisation de l’utilisateur et la facturation.
-
-> [!NOTE]  
-> Pour effectuer cette étape, vous devez d’abord [inscrire Azure Stack](azure-stack-registration.md).
+Mettez à jour votre inscription avec l’abonnement de nouveau client. Azure signale l’utilisation du client à l’aide de l’identité du client dans l’Espace partenaires. Cette étape garantit que l’utilisation de chaque client est signalée dans l’abonnement de fournisseur de services cloud individuel de ce client. Cela facilite le suivi de l’utilisation et de la facturation. Pour effectuer cette étape, vous devez d’abord [inscrire Azure Stack](azure-stack-registration.md).
 
 1. Ouvrez Windows PowerShell avec une invite élevée et exécutez :  
-    `Add-AzureRmAccount`
+
+   ```powershell
+   Add-AzureRmAccount
+   ```
+
+   >[!Note]
+   > Si votre session expire, si votre mot de passe a changé ou si vous souhaitez simplement changer de compte, exécutez l’applet de commande suivante avant de vous connecter en utilisant Add-AzureRmAccount : `Remove-AzureRmAccount-Scope Process`
+
 2. Entrez vos informations d’identification Azure.
 3. Dans la session PowerShell, exécutez :
 
