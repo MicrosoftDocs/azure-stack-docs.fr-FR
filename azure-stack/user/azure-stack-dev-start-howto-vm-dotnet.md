@@ -9,12 +9,12 @@ ms.date: 08/09/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 08/09/2019
-ms.openlocfilehash: beddafb351af39f0a21a1cd0d7a7baa4ccfee28e
-ms.sourcegitcommit: 94669fe8a55fadd3103e80be307e9e8c823bf746
+ms.openlocfilehash: cd7ca2e1a198cb66c5d7627029215b55af0de975
+ms.sourcegitcommit: ae79b8bea670ea854ed00e9998d45f6b47fc8347
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68940276"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71142579"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>Déployer une application web ASP.NET C# sur une machine virtuelle dans Azure Stack
 
@@ -55,7 +55,7 @@ Cet article utilise une application C# 6.0 qui utilise ASP.NET Core 2.2 sur un s
 
     e. Ajoutez une règle de sécurité de trafic entrant pour les ports suivants :
 
-    | Port | Protocole | Description |
+    | Port | Protocol | Description |
     | --- | --- | --- |
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) est le protocole utilisé pour fournir des pages web à partir des serveurs. Les clients se connectent via HTTP avec une adresse IP ou un nom DNS. |
     | 443 | HTTPS | HTTPS (Hypertext Transfer Protocol Secure) est une version sécurisée du protocole HTTP qui nécessite un certificat de sécurité pour la transmission chiffrée des informations.  |
@@ -111,7 +111,7 @@ Créez une cible de publication sur votre machine virtuelle dans Azure Stack.
     ![Déployer une application web ASP.NET dans Azure Stack – Publier](media/azure-stack-dev-start-howto-vm-dotnet/deploy-app-to-azure-stack.png)
 
 1. Dans la fenêtre **Publier**, sélectionnez **Nouveau profil**.
-1. Sélectionnez **IIS**, **FTP** et ainsi de suite.
+1. Sélectionnez **IIS, FTP, etc**.
 1. Sélectionnez **Publier**.
 1. Pour **Méthode de publication**, sélectionnez **Web Deploy**.
 1. Pour **Serveur**, entrez le nom DNS que vous avez défini tout à l’heure, par exemple *w21902.local.cloudapp.azurestack.external*.
