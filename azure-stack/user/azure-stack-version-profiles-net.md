@@ -75,7 +75,7 @@ Pour utiliser le SDK .NET Azure avec Azure Stack, vous devez fournir les valeurs
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | ID client                 | `AZURE_TENANT_ID `      | La valeur de votre [*ID de locataire*][] Azure Stack.                                                                          |
 | ID client                 | `AZURE_CLIENT_ID `      | L’ID d’application du principal de service enregistré lors de la création du principal de service dans la section précédente de cet article. |
-| Identifiant d’abonnement           | `AZURE_SUBSCRIPTION_ID` | [*L’ID d’abonnement*][] correspond à la façon dont vous accédez à des offres dans Azure Stack.                                                      |
+| Identifiant d’abonnement           | `AZURE_SUBSCRIPTION_ID` | [*ID d’abonnement*][] correspond à la façon dont vous accédez à des offres dans Azure Stack.                                                      |
 | Clé secrète client             | `AZURE_CLIENT_SECRET`   | Le secret d’application du principal de service enregistré lors de la création du principal de service.                                      |
 | Point de terminaison Resource Manager | `ARM_ENDPOINT`          | Consultez [*Point de terminaison Azure Stack Resource Manager*][].                                                                    |
 | Location                  | `RESOURCE_LOCATION`     | Emplacement d’Azure Stack.
