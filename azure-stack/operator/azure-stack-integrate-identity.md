@@ -10,12 +10,12 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: de2c0c2181025b7dbbc01691b72b0756fa201274
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: f51b0bdd4e433dd3083701e8cc967b3105d23ed6
+ms.sourcegitcommit: 820ec8d10ddab1fee136397d3aa609e676f8b39d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419492"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71127514"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Intégration au centre de données Azure Stack - Identité
 
@@ -57,7 +57,7 @@ Les informations suivantes sont requises en tant qu’entrées pour les paramèt
 
 |Paramètre|Paramètre Feuille de calcul de déploiement|Description|Exemples|
 |---------|---------|---------|---------|
-|`CustomADGlobalCatalog`|Nom de domaine complet de la forêt ADFS|Nom de domaine complet de la forêt Active Directory cible<br>que vous souhaitez intégrer dans|Contoso.com|
+|`CustomADGlobalCatalog`|Nom de domaine complet de la forêt AD FS|Nom de domaine complet de la forêt Active Directory cible<br>que vous souhaitez intégrer dans|Contoso.com|
 |`CustomADAdminCredentials`| |Un utilisateur avec autorisation de lecture LDAP|YOURDOMAIN\graphservice|
 
 ### <a name="configure-active-directory-sites"></a>Configurer les sites Active Directory
@@ -116,7 +116,7 @@ Le service Graph d’Azure Stack utilise les protocoles et ports suivants pour c
 
 Le service Graph d’Azure Stack utilise les protocoles et ports suivants pour communiquer avec l’Active Directory cible :
 
-|Type|Port|Protocole|
+|Type|Port|Protocol|
 |---------|---------|---------|
 |LDAP|389|TCP et UDP|
 |LDAP SSL|636|TCP|
@@ -129,8 +129,8 @@ Les informations suivantes sont nécessaires en entrée pour les paramètres Aut
 
 |Paramètre|Paramètre Feuille de calcul de déploiement|Description|Exemples|
 |---------|---------|---------|---------|
-|CustomAdfsName|Nom du fournisseur ADFS|Nom du fournisseur de revendications.<br>Il apparaît ainsi dans la page d’accueil AD FS.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|URL de métadonnées ADFS|Lien Métadonnées de fédération| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
+|CustomAdfsName|Nom du fournisseur AD FS|Nom du fournisseur de revendications.<br>Il apparaît ainsi dans la page d’accueil AD FS.|Contoso|
+|CustomAD<br>FSFederationMetadataEndpointUri|URI de métadonnées AD FS|Lien Métadonnées de fédération| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 |SigningCertificateRevocationCheck|N/D|Paramètre facultatif pour ignorer la vérification CRL|Aucun|
 
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 71855d557f26fc1eb4d86ab0d5a48bf8cf987506
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: e36f7c7f80de3cf0b822c4d145af411584ea38e4
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974673"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71224995"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>Utiliser Azure Monitor sur Azure Stack
 
@@ -41,8 +41,8 @@ Azure Monitor est un service de plateforme qui fournit une source unique de supe
 Enregistrer le fournisseur de ressources **Microsoft.insights** dans les paramètres relatifs à l’offre d’abonnement du fournisseurs de ressources. Pour vérifier que le fournisseur de ressources est disponible dans l’offre qui est associée à votre abonnement, procédez comme suit :
 
 1. Ouvrez le portail utilisateur Azure Stack.
-2. Sélectionnez **Offres**.
-3. Sélectionnez l’offre associée à l’abonnement.
+2. Sélectionnez **Abonnements**.
+3. Sélectionnez l’abonnement que vous souhaitez inscrire.
 4. Sélectionnez **Fournisseurs de ressources** sous **Paramètres**. 
 5. Recherchez **Microsoft.Insights** dans la liste et vérifiez que l’état est **Inscrit**.
 

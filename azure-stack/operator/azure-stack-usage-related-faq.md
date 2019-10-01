@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 6a5ef529d2eabf8039be1da6c53da907c0b7aaaf
-ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
+ms.openlocfilehash: d63d4876674c66fcccab942cd856dce958e62644
+ms.sourcegitcommit: 32609bdb04a07b063c8f20f892c30769ad6903dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66459043"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71269479"
 ---
-# <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Forum aux questions sur l’API d’utilisation d’Azure Stack
+# <a name="frequently-asked-questions-about-azure-stack-usage"></a>Forum aux questions sur l’utilisation d’Azure Stack
 
-Cet article répond à certaines questions fréquentes sur l’API d’utilisation d’Azure Stack.
+Cet article répond à certaines questions fréquentes sur l’utilisation d’Azure Stack et l’API d’utilisation d’Azure Stack.
 
 ## <a name="what-meter-ids-can-i-see"></a>Quels ID de compteur sont visibles ?
 
@@ -418,6 +418,16 @@ Actuellement, vous pouvez interroger uniquement par *Heure du rapport*.
 ## <a name="what-is-the-policy-for-charging-for-vms"></a>Quelle est la stratégie de facturation pour les machines virtuelles ?
 
 Les machines virtuelles en cours d’exécution ou arrêtés génèrent des données d’utilisation. De manière cohérente avec Azure, la désallocation est nécessaire pour arrêter l’émission de données d’utilisation. Si le portail n’est pas disponible, mais que le fournisseur de ressources de calcul est en cours d’exécution, une utilisation est émise.
+
+## <a name="how-do-i-extract-usage-data-from-the-azure-stack-usage-apis"></a>Comment puis-je extraire les données d'utilisation des API d'utilisation d'Azure Stack ?
+
+La façon la plus simple d'extraire les données d'utilisation des API d'utilisation locale d'une pile Azure consiste à utiliser le [script de récapitulatif d'utilisation sur GitHub](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/Usagesummary.ps1). Le script nécessite les dates de début et de fin comme paramètres d’entrée.
+
+Vous pouvez également utiliser les API REST, comme expliqué dans les articles [API Utilisation des ressources de fournisseur](azure-stack-provider-resource-api.md) et [API Utilisation des ressources de client](azure-stack-tenant-resource-usage-api.md).
+
+## <a name="how-can-i-associate-usage-extracted-from-azure-usage-apis-to-a-specific-azure-stack-user-subscription"></a>Comment puis-je associer l'utilisation extraite des API d'utilisation d'Azure à un abonnement utilisateur Azure Stack spécifique ?
+
+Les enregistrements d'utilisation comprennent un jeu de propriétés appelé **additionalinfo**, qui inclut l'identifiant d'abonnement Azure Stack. Il s'agit de l'abonnement utilisateur émettant l'enregistrement d'utilisation correspondant.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: c616736cf9ea8cc350c2c53bb7d6994346dac990
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: deac15b2f1e3ebd86fdd2e171f664bd4b5917e37
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025967"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159441"
 ---
 # <a name="install-the-asdk"></a>Installer l’ASDK
 Après la [préparation de l’ordinateur hôte ASDK](asdk-prepare-host.md), le Kit de développement Azure Stack (ASDK) peut être déployé dans l’image CloudBuilder.vhdx en suivant les étapes de cet article.
@@ -44,7 +44,7 @@ Les étapes de cet article vous montrent comment déployer le kit ASDK à l’ai
   
     Si vous choisissez un fournisseur d'identité d’abonnement Azure, vous avez besoin d’une connexion Internet, du nom complet d’un locataire d’annuaire Azure AD au format *nomdomaine*.onmicrosoft.com ou d’un nom de domaine personnalisé vérifié Azure AD. Vous avez également besoin des informations d’identification de l’administrateur global pour le répertoire spécifié.
 
-    Après le déploiement, l’autorisation d’administrateur général Azure Active Directory (AAD) n’est pas nécessaire. Cependant, certaines opérations peuvent nécessiter les informations d'identification d’administrateur global. Par exemple, un script d’installation d’un fournisseur de ressources ou une nouvelle fonctionnalité peut avoir besoin d’une autorisation spécifique. Vous pouvez temporairement réactiver les autorisations d’administrateur général du compte ou utiliser un compte d’administrateur général distinct qui est propriétaire de *l’abonnement de fournisseur par défaut*.
+    Après le déploiement, l’autorisation d’administrateur général Azure Active Directory (Azure AD) n’est pas nécessaire. Cependant, certaines opérations peuvent nécessiter les informations d'identification d’administrateur global. Par exemple, un script d’installation d’un fournisseur de ressources ou une nouvelle fonctionnalité peut avoir besoin d’une autorisation spécifique. Vous pouvez temporairement réactiver les autorisations d’administrateur général du compte ou utiliser un compte d’administrateur général distinct qui est propriétaire de *l’abonnement de fournisseur par défaut*.
 
     Lors de l’utilisation d’AD FS en tant que fournisseur d’identité, le service d’annuaire de marquage par défaut est sélectionné. Le compte par défaut avec lequel se connecter est azurestackadmin@azurestack.local et le mot de passe à utiliser est celui que vous avez fourni dans le cadre de la configuration.
 

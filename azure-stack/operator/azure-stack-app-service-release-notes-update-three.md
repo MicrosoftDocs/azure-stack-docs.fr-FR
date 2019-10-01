@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: c80a6068aa46cd182f8ec928942e7072638b143f
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: d226be9bad3bd6ddf775d8415329ea1fa8099eb0
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974841"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159557"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 3
 
@@ -50,7 +50,7 @@ Azure App Service sur Azure Stack Update 3 inclut les améliorations et correcti
 
 - Prise en charge de l’utilisation de SQL Server AlwaysOn pour les bases de données de fournisseurs de ressources Azure App Service.
 
-- Ajout du nouveau paramètre d’environnement au script d’assistance Create-AADIdentityApp afin de faciliter le ciblage des différentes régions AAD.
+- Ajout du nouveau paramètre d’environnement au script d’assistance Create-AADIdentityApp afin de faciliter le ciblage des différentes régions Azure AD.
 
 - Mises à jour des **portails Locataire, Administration et Functions d’App Service, ainsi que des outils Kudu**. Cohérentes avec celles de la version du SDK du portail Azure Stack.
 

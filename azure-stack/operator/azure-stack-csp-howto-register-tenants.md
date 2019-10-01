@@ -1,6 +1,6 @@
 ---
 title: Ajouter des locataires pour l’utilisation et la facturation sur Azure Stack | Microsoft Docs
-description: Les étapes requises permettent d’ajouter un utilisateur final à Azure Stack géré par un fournisseur de services cloud.
+description: Découvrez comment ajouter un locataire pour l’utilisation et la facturation sur Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -11,31 +11,33 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 97d57605ce093684fcbabe2375deecda5e35cce2
-ms.sourcegitcommit: 9f4c6e96f60b4c229316e7a4ab6e0e5ef0a9a232
+ms.openlocfilehash: 76b870d795b79cf966dcf6742ad08f739d24a42a
+ms.sourcegitcommit: 32609bdb04a07b063c8f20f892c30769ad6903dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71061129"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71269495"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Ajouter un locataire pour l’utilisation et la facturation sur Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack*
 
-Cet article décrit les étapes requises pour ajouter un utilisateur final à un déploiement Azure Stack géré par un fournisseur de services cloud. Quand le nouveau locataire utilise des ressources, Azure Stack signale l’utilisation à son abonnement de fournisseur de services cloud.
+Cet article vous montre comment ajouter un locataire à un déploiement Azure Stack géré par un fournisseur de solutions cloud (CSP). Quand le nouveau locataire utilise des ressources, Azure Stack signale l’utilisation à son abonnement de fournisseur de services cloud.
 
-Les fournisseurs de services cloud proposent souvent des services à plusieurs clients finaux (locataires) sur leur déploiement Azure Stack. L’ajout de locataires à l’inscription Azure Stack garantit que l’utilisation de chaque locataire sera signalée et facturée sur l’abonnement de fournisseur de services cloud correspondant. Si vous n’effectuez pas les étapes décrites dans cet article, l’utilisation du locataire est facturée pour l’abonnement utilisé dans l’inscription initiale d’Azure Stack. Avant de pouvoir ajouter un client final à Azure Stack pour suivre l’utilisation et gérer son locataire, vous devez configurer Azure Stack en tant que fournisseur de services cloud. Pour les étapes et les ressources, consultez [Gérer l’utilisation et la facturation pour Azure Stack comme fournisseur de services cloud](azure-stack-add-manage-billing-as-a-csp.md).
+Les fournisseurs de services cloud proposent souvent des services à plusieurs clients finaux (locataires) sur leur déploiement Azure Stack. L’ajout de locataires à l’inscription Azure Stack garantit que l’utilisation de chaque locataire sera signalée et facturée sur l’abonnement de fournisseur de services cloud correspondant. Si vous n’effectuez pas les étapes décrites dans cet article, l’utilisation du locataire est facturée pour l’abonnement utilisé dans l’inscription initiale d’Azure Stack. Avant de pouvoir ajouter un client final à Azure Stack pour suivre l’utilisation et gérer son locataire, vous devez configurer Azure Stack en tant que fournisseur de services cloud. Pour les étapes et les ressources, consultez [Gérer l’utilisation et la facturation pour Azure Stack comme fournisseur de solutions cloud](azure-stack-add-manage-billing-as-a-csp.md).
 
-La figure suivante illustre les étapes qu’un fournisseur de services cloud doit suivre pour permettre à un nouveau client d’utiliser Azure Stack et pour configurer le suivi de l’utilisation pour le client. En ajoutant le client final, vous pouvez également gérer les ressources dans Azure Stack. Deux options s’offrent à vous pour gérer ses ressources :
+La figure suivante illustre les étapes qu’un fournisseur de services cloud doit suivre pour permettre à un nouveau client final d’utiliser Azure Stack et pour configurer le suivi de l’utilisation pour le client. En ajoutant le client final, vous pouvez également gérer les ressources dans Azure Stack. Deux options s’offrent à vous pour gérer ses ressources :
 
 - Vous pouvez conserver le client final et fournir les informations d’identification de l’abonnement Azure Stack local au client final.  
-- L’utilisateur final peut travailler avec son abonnement en local et ajouter le fournisseur de services cloud en tant qu’invité avec des autorisations de propriétaire.  
+- L’utilisateur final peut travailler avec son abonnement en local et ajouter le fournisseur de services cloud en tant qu’invité avec des autorisations de propriétaire.
 
 ## <a name="add-an-end-customer"></a>Ajouter un client final
+
+Avant d'ajouter un client final, vous devez activer la facturation multi-locataires sur votre inscription. Pour activer la facturation multi-locataires, envoyez l'ID d'abonnement d'inscription, le nom du groupe de ressources et le nom de l’inscription à `azstcsp@microsoft.com`. Comptez généralement 1 à 2 jours ouvrables pour que l’architecture multilocataire se mette en place.
 
 Procédez comme suit pour ajouter un client final, comme illustré dans la figure suivante :
 
@@ -47,11 +49,11 @@ Dans l’Espace partenaires, créez un abonnement Azure pour le client. Pour obt
 
 ### <a name="create-an-azure-subscription-for-the-end-customer"></a>Créer un abonnement Azure pour le client final
 
-Une fois que vous avez créé un enregistrement de votre client dans l’Espace partenaires, vous pouvez lui vendre des abonnements à des produits figurant dans le catalogue. Pour obtenir des instructions, consultez [Créer un abonnement](/partner-center/create-a-new-subscription).
+Une fois que vous avez créé un enregistrement de votre client dans l’Espace partenaires, vous pouvez lui vendre des abonnements à des produits dans le catalogue. Pour obtenir des instructions, consultez [Créer un abonnement](/partner-center/create-a-new-subscription).
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>Créer un utilisateur invité dans le répertoire de client final
 
-Par défaut,en tant que CSP, vous n’avez pas accès à l’abonnement Azure Stack du client final. Toutefois, si votre client souhaite vous permettre de gérer ses ressources, il peut ajouter votre compte en tant que propriétaire/contributeur à son abonnement Azure Stack. Pour ce faire, il doit ajouter votre compte en tant qu’utilisateur invité à son locataire AAD. Si possible, utilisez un compte différent de votre compte Azure CSP pour gérer l’abonnement Azure Stack de votre client. Cela vous garantit de toujours conserver l’accès à l’abonnement Azure du client.
+Par défaut,en tant que CSP, vous n’avez pas accès à l’abonnement Azure Stack du client final. Toutefois, si votre client souhaite vous permettre de gérer ses ressources, il peut ajouter votre compte en tant que propriétaire/contributeur à son abonnement Azure Stack. Pour ce faire, il doit ajouter votre compte en tant qu’utilisateur invité à son locataire Azure AD. Si possible, utilisez un compte différent de votre compte Azure CSP pour gérer l’abonnement Azure Stack de votre client. Cela vous garantit de toujours conserver l’accès à l’abonnement Azure de votre client.
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>Mettre à jour l’inscription avec l’abonnement du client final
 
@@ -80,7 +82,7 @@ La section suivante décrit les paramètres de la cmdlet **New-AzureRmResource**
 | Paramètre | Description |
 | --- | --- |
 |registrationSubscriptionID | L’abonnement Azure qui était utilisé au moment de l’inscription initiale d’Azure Stack.|
-| customerSubscriptionID | L’abonnement Azure (pas Azure Stack) appartenant au client à inscrire. Doit être créé dans l’offre de fournisseur de services cloud ; dans la pratique, cela signifie via l’Espace partenaires. Si un client dispose de plus d’un locataire Azure Active Directory, cet abonnement doit être créé dans le locataire qui sera utilisé pour se connecter à Azure Stack. L’ID d’abonnement client doit utiliser des lettres minuscules. |
+| customerSubscriptionID | L’abonnement Azure (pas Azure Stack) appartenant au client à inscrire. Doit être créé dans l'offre CSP. En pratique, cela veut dire via l’Espace partenaires. Si un client dispose de plus d’un locataire Azure Active Directory, cet abonnement doit être créé dans le locataire qui sera utilisé pour se connecter à Azure Stack. L’ID d’abonnement client doit utiliser des lettres minuscules. |
 | resourceGroup | Le groupe de ressources Azure dans lequel est stockée votre inscription. |
 | registrationName | Le nom de l’inscription de votre compte Azure Stack. Il s’agit d’un objet stocké dans Azure. |
 | properties | Spécifie les propriétés de la ressource. Utilisez ce paramètre pour spécifier les valeurs des propriétés spécifiques au type de ressource.
@@ -100,4 +102,4 @@ Une fois que vous avez ajouté le nouveau client à Azure Stack, ou que le locat
 
 - Pour consulter les messages d’erreur s’ils sont déclenchés dans votre processus d’inscription, consultez [Code d’erreur d’utilisation et de facturation](azure-stack-registration-errors.md).
 - Pour en savoir plus sur la récupération d’informations d’utilisation de ressources à partir d’Azure Stack, consultez [Usage and billing in Azure Stack](azure-stack-billing-and-chargeback.md) (Utilisation et facturation dans Azure Stack).
-- Pour vérifier comment un client final peut vous ajouter, en tant que fournisseur de services cloud, en tant que responsable pour son locataire Azure Stack, vor [Enable a Cloud Service Provider to manage your Azure Stack subscription](../user/azure-stack-csp-enable-billing-usage-tracking.md) (Autoriser un fournisseur de services cloud pour gérer votre abonnement Azure Stack).
+- Pour vérifier comment un client final peut vous ajouter, en tant que fournisseur de services cloud, en tant que responsable pour son locataire Azure Stack, voir [Enable a Cloud Service Provider to manage your Azure Stack subscription](../user/azure-stack-csp-enable-billing-usage-tracking.md) (Autoriser un fournisseur de services cloud pour gérer votre abonnement Azure Stack).

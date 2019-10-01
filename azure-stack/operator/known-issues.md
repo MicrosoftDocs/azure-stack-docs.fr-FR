@@ -16,16 +16,18 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 09/13/2019
-ms.openlocfilehash: 3179416a7f8dacc5c3282372038c6761009b5b76
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: ba5b8358dced378f499c30f9b8d409497319fc86
+ms.sourcegitcommit: 2c37ac8e88de19430080128bac1b70e33557d354
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71106508"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71164249"
 ---
 # <a name="azure-stack-known-issues"></a>Problèmes connus d’Azure Stack
 
-Cet article liste les problèmes connus dans les versions d’Azure Stack. La liste est mise à jour lorsque de nouveaux problèmes sont identifiés. **Pour accéder aux problèmes connus d’une autre version, utilisez le sélecteur de version en haut à gauche.**
+Cet article liste les problèmes connus dans les versions d’Azure Stack. La liste est mise à jour lorsque de nouveaux problèmes sont identifiés.
+
+Pour accéder aux problèmes connus d'une autre version, utilisez le menu déroulant de sélection de la version, situé au-dessus de la table des matières à gauche.
 
 ::: moniker range=">=azs-1905"
 > [!IMPORTANT]  
@@ -674,7 +676,7 @@ Cette erreur se produit si vous activez les diagnostics de démarrage sur une ma
 ::: moniker range=">=azs-1905"
 ## <a name="archive"></a>Archivage
 
-Pour accéder aux problèmes connus archivés d’une version antérieure, utilisez le sélecteur de version en haut à gauche de la page, puis sélectionnez la version qui vous intéresse. 
+Pour accéder aux problèmes connus archivés d'une ancienne version, utilisez le menu déroulant de sélection de la version, situé au-dessus de la table des matières à gauche, puis sélectionnez la version que vous voulez afficher.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -16,17 +16,17 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: d06dabc32141fcf2f487151e92c5f47aa79b6149
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: fa90091f93556cd313fa8e4e21bfe0fd24011e38
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094315"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159138"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Décisions relatives à la planification du déploiement connecté à Azure des systèmes intégrés Azure Stack
 Une fois que vous avez décidé [comment intégrer Azure Stack dans votre environnement de cloud hybride](azure-stack-connection-models.md), vous pouvez finaliser vos décisions de déploiement Azure Stack.
 
-Un déploiement d’Azure Stack connecté à Azure signifie que vous pouvez sélectionner Azure Active Directory (Azure AD) ou les services de fédération Active Directory (AD FS) comme magasin d’identités. Vous pouvez également choisir entre un modèle de facturation à l’utilisation ou un modèle de facturation selon la capacité. Le déploiement connecté constitue l’option par défaut, car il permet aux clients de tirer le meilleur parti d’Azure Stack, en particulier pour les scénarios de cloud hybride impliquant à la fois Azure et Azure Stack.
+Un déploiement connecté de Azure Stack à Azure signifie que vous pouvez sélectionner Azure Active Directory (Azure AD) ou les services de fédération Active Directory (AD FS) comme magasin d’identités. Vous pouvez également choisir entre un modèle de facturation à l’utilisation ou un modèle de facturation selon la capacité. Le déploiement connecté constitue l’option par défaut, car il permet aux clients de tirer le meilleur parti d’Azure Stack, en particulier pour les scénarios de cloud hybride impliquant à la fois Azure et Azure Stack.
 
 ## <a name="choose-an-identity-store"></a>Choisir un magasin d’identités
 Dans le cas d’un déploiement connecté, vous pouvez choisir Azure AD ou AD FS comme magasin d’identités. Dans le cas d’un déploiement déconnecté, sans connexion Internet, vous ne pouvez utiliser que AD FS.
@@ -38,7 +38,7 @@ Par exemple, vous pourrez toujours déployer des machines virtuelles de locatair
 ### <a name="azure-ad-identity-store"></a>Magasin d’identités Azure AD
 Lorsque vous utilisez Azure AD comme magasin d’identités, vous avez besoin de deux comptes Azure AD : un compte administrateur général et un compte de facturation. Ces comptes peuvent être les mêmes comptes ou des comptes distincts. S’il est plus facile et pratique d’utiliser le même compte d’utilisateur lorsque vous disposez d’un nombre limité de comptes Azure, il sera parfois nécessaire d’utiliser deux comptes pour répondre aux besoins de votre entreprise :
 
-1. **Compte administrateur général** (requis uniquement pour les déploiements connectés). Ce compte Azure est utilisé dans le but de créer des applications et des principaux de service pour les services d’infrastructure Azure Stack dans Azure Active Directory. Ce compte doit disposer d’autorisations d’administrateur pour le répertoire dans lequel vous allez déployer votre système Azure Stack. Il deviendra l’administrateur général de l’opérateur cloud pour l’utilisateur Azure AD et sera utilisé dans le cadre des tâches suivantes :
+1. **Compte administrateur général** (requis uniquement pour les déploiements connectés). Ce compte Azure est utilisé dans le but de créer des applications et des principaux de service pour les services d’infrastructure Azure Stack dans Azure AD. Ce compte doit disposer d’autorisations d’administrateur pour le répertoire dans lequel vous allez déployer votre système Azure Stack. Il deviendra l’administrateur général de l’opérateur cloud pour l’utilisateur Azure AD et sera utilisé dans le cadre des tâches suivantes :
 
     - Provisionner et déléguer des applications et des principaux de service pour tous les services Azure Stack qui interagissent avec Azure AD et l’API Graph.
     - Comme compte de l’administrateur de service. Ce compte est celui du propriétaire de l’abonnement du fournisseur par défaut (vous pouvez modifier ce paramètre ultérieurement). Vous pouvez vous connecter au portail d’administration Azure Stack à l’aide de ce compte et vous pouvez l’utiliser pour créer des offres et des plans, définir des quotas et effectuer d’autres fonctions d’administration dans Azure Stack.

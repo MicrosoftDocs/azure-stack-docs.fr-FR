@@ -16,12 +16,12 @@ ms.date: 06/23/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: ca2ea89ab73c7a8e056e4b4700e92a872e628f34
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: 9c4ddec0606556290e55850a9081c6665f2524d1
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316172"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159586"
 ---
 # <a name="validate-azure-registration"></a>Valider l’inscription auprès d’Azure
 
@@ -73,7 +73,7 @@ Les prérequis suivants sont obligatoires :
    ```
 
    > [!NOTE]
-   > En tant que fournisseur de services cloud, quand vous utilisez un abonnement à des services partagés ou avec des droits d’utilisation interne, vous devez fournir les informations d’identification d’un utilisateur de cette instance AAD. En règle générale, celles-ci sont similaires à `subscriptionowner@iurcontoso.onmicrosoft.com`. Cet utilisateur doit avoir les informations d’identification appropriées, comme décrit dans l’étape précédente.
+   > En tant que fournisseur de services cloud, quand vous utilisez un abonnement à des services partagés ou avec des droits d’utilisation interne, vous devez fournir les informations d’identification d’un utilisateur de cette instance Azure AD. En règle générale, celles-ci sont similaires à `subscriptionowner@iurcontoso.onmicrosoft.com`. Cet utilisateur doit avoir les informations d’identification appropriées, comme décrit dans l’étape précédente.
 
 3. À l’invite PowerShell, exécutez ce qui suit pour définir `$subscriptionID` comme l’abonnement Azure à utiliser. Remplacez `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` par votre propre ID d’abonnement :
 

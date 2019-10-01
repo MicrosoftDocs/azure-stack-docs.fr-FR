@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: efab23f12086fee2e4f5c14a70f95717ac9669b9
-ms.sourcegitcommit: b752f4e6733d9ebe56dbd171a14528dcb9a693fd
+ms.openlocfilehash: 4d6bc431b292fc7a124aa2b8051d0a927d736eee
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68522057"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71224958"
 ---
 # <a name="configure-automatic-azure-stack-diagnostic-log-collection"></a>Configurer la collecte automatique des journaux de diagnostic Azure Stack
 
@@ -44,12 +44,12 @@ Pour connaître les meilleures pratiques en matière de choix des paramètres de
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Cliquez sur **Compte de stockage** > **Ajouter**. 
 1. Créez un conteneur d’objets blob avec les paramètres suivants :
-   - **Abonnement**: Choisissez votre abonnement Azure.
-   - **Groupe de ressources** : spécifiez un groupe de ressources.
-   - **Nom du compte de stockage** : spécifiez un nom de compte de stockage unique.
-   - **Emplacement** : sélectionnez un centre de données conformément à la stratégie de votre entreprise.
-   - **Performances** : sélectionnez Standard.
-   - **Type de compte** Sélectionnez StorageV2 (usage général v2). 
+   - **Abonnement**: Choisir votre abonnement Azure
+   - **Groupe de ressources** : Spécifiez un groupe de ressources
+   - **Nom du compte de stockage** : Spécifiez un nom de compte de stockage unique
+   - **Emplacement** : Sélectionnez un centre de données conformément à la stratégie de votre entreprise
+   - **Performances** : Sélectionnez Standard
+   - **Type de compte** Sélectionnez StorageV2 (usage général v2) 
    - **Réplication** : sélectionnez Stockage localement redondant (LRS)
    - **Niveau d’accès** : sélectionnez Froid.
 
@@ -100,7 +100,6 @@ Pour ajouter l'URL SAP à l’interface utilisateur de collecte des journaux, pr
 >[!NOTE]
 >La collecte automatique des journaux peut être désactivée et réactivée à tout moment. La configuration de l’URL SAP ne change pas. Si la collecte automatique des journaux est réactivée, l’URL SAP entrée précédemment est soumise aux mêmes vérifications de validation et une URL SAP expirée sera rejetée. 
 
-
 ## <a name="view-log-collection"></a>Afficher la collecte des journaux
 
 L’historique des journaux collectés à partir d'Azure Stack s'affiche sur la page **Collecte de journaux** dans Aide et support, avec les dates et heures suivantes :
@@ -116,6 +115,36 @@ Si la collecte des journaux de diagnostic échoue, vérifiez que l’URL SAP est
 Les opérateurs peuvent également vérifier les journaux collectés automatiquement dans le compte de stockage. Par exemple, cette capture d’écran montre les collectes de journaux à l’aide de l’Explorateur Stockage (préversion) dans le portail Azure :
 
 ![Capture d’écran montrant les collectes de journaux](media/azure-stack-automatic-log-collection/check-storage-account.png)
+
+## <a name="automatic-diagnostic-log-collection-alerts"></a>Alertes de collecte automatique des journaux de diagnostic 
+
+Si cette fonction est activée, la collecte automatique des journaux de diagnostic n'a lieu que lorsque cela est nécessaire. Seules les alertes suivantes déclenchent la collecte. 
+
+|Titre de l’alerte  | FaultIdType|    
+|-------------|------------|
+|Impossible de se connecter au service distant |  UsageBridge.NetworkError|
+|Échec de la mise à jour |    Urp.UpdateFailure   |          
+|Infrastructure du fournisseur de ressources de stockage/dépendances non disponibles |  StorageResourceProviderDependencyUnavailable     |     
+|Nœud non connecté au contrôleur|  ServerHostNotConnectedToController   |     
+|Échec de publication de route |    SlbMuxRoutePublicationFailure | 
+|Magasin de données interne du fournisseur de ressources de stockage non disponible |    StorageResourceProvider. DataStoreConnectionFail     |       
+|Défaillance d’unité de stockage | Microsoft.Health.FaultType.VirtualDisks.Detached   |      
+|Le contrôleur d’intégrité ne peut pas accéder au compte de stockage | Microsoft.Health.FaultType.StorageError |    
+|La connectivité à un disque physique a été perdue |    Microsoft.Health.FaultType.PhysicalDisk.LostCommunication    |    
+|Le service Blob n’est pas exécuté sur un nœud | StorageService.The.blob.service.is.not.running.on.a.node-Critical | 
+|Rôle d’infrastructure défectueux |    Microsoft.Health.FaultType.GenericExceptionFault |        
+|Erreurs du service de Table | StorageService.Table.service.errors-Critical |              
+|Un partage de fichiers est utilisé à plus de 80 % |    Microsoft.Health.FaultType.FileShare.Capacity.Warning.Infra |       
+|Nœud d’unité d’échelle hors ligne | FRP.Heartbeat.PhysicalNode |  
+|Instance de rôle d’infrastructure non disponible | FRP.Heartbeat.InfraVM   |    
+|Instance de rôle d’infrastructure non disponible  |    FRP.Heartbeat.NonHaVm     |        
+|Le rôle de l'infrastructure, Gestion de répertoires, a signalé des erreurs de synchronisation temporelle |  DirectoryServiceTimeSynchronizationError |     
+|Pending external certificate expiration (Expiration imminente du certificat externe) |  CertificateExpiration.ExternalCert.Warning |
+|Pending external certificate expiration (Expiration imminente du certificat externe) |  CertificateExpiration.ExternalCert.Critical |
+|Impossible de provisionner des machines virtuelles pour une classe et une taille spécifiques en raison d’une capacité de mémoire insuffisante |  AzureStack.ComputeController.VmCreationFailure.LowMemory |
+|Nœud inaccessible pour la sélection élective d’ordinateur virtuel |  AzureStack.ComputeController.HostUnresponsive | 
+|Échec de la sauvegarde  | AzureStack.BackupController.BackupFailedGeneralFault |    
+|La sauvegarde planifiée a été ignorée en raison d’un conflit avec des opérations qui ont échoué  | AzureStack.BackupController.BackupSkippedWithFailedOperationFault |   
 
 
 ## <a name="see-also"></a>Voir aussi

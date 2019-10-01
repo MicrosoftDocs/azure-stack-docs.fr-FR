@@ -15,12 +15,12 @@ ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 859d80c9782926602769664006375cb131de8637
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: 37ffb494ab6ae124c6a0eb460da4569f660cd283
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602939"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159370"
 ---
 # <a name="deploy-a-staged-data-analytics-solution-to-azure-stack"></a>Déployer une solution d’analytique données mises en lots sur Azure Stack
 
@@ -49,7 +49,7 @@ Dans cette solution, vous allez créer un exemple d’environnement pour :
 ## <a name="prerequisites-for-staged-data-analytics"></a>Conditions préalables à l’analytique données mises en lots
 
   - Un abonnement Azure.
-  - Un principal de service Azure Active Directory (AAD) disposant d’autorisations pour l’abonnement du locataire sur Azure et Azure Stack. Il se peut que vous deviez créer deux principaux de service si Azure Stack utilise un autre locataire AAD que votre abonnement Azure. Pour découvrir comment créer un principal de service pour Azure Stack, voir [Créer des principaux de service pour permettre à des applications d’accéder à des ressources Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals).
+  - Un principal de service Azure Active Directory (Azure AD) disposant d’autorisations pour l’abonnement du locataire sur Azure et Azure Stack. Il se peut que vous deviez créer deux principaux de service si Azure Stack utilise un autre locataire AAD que votre abonnement Azure. Pour découvrir comment créer un principal de service pour Azure Stack, voir [Créer des principaux de service pour permettre à des applications d’accéder à des ressources Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals).
       - **Prenez note de l’ID d’application, du secret client, de l’ID de locataire Azure AD et du nom de locataire de chaque principal de service (xxxxx.onmicrosoft.com).**
   - Vous devez fournir une collection de données pour l’analyse des données. Des exemples de données sont fournis.
   - [Docker pour Windows](https://docs.docker.com/docker-for-windows/) installé sur votre ordinateur local.

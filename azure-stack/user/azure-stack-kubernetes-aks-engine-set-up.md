@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: a65449d39f114bd0ff5eb859bd49ec36d4bb4281
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.openlocfilehash: cc278020bb4d2ba530e20b6f2f56bcb841207bbc
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019401"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159741"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack"></a>Configurer les prérequis pour le moteur AKS sur Azure Stack
 
@@ -29,6 +29,8 @@ ms.locfileid: "71019401"
 Vous pouvez installer le moteur AKS sur une machine virtuelle dans votre environnement ou sur toute machine cliente dotée d’un accès à votre point de terminaison Azure Stack Resource Manager. Vous avez besoin des éléments suivants avant d’exécuter le moteur : un serveur Ubuntu de base AKS et une extension de script personnalisé Linux disponibles dans votre abonnement, une identité de principal du service dotée d’un rôle de contributeur et une paire de clés privée/publique pour l’accès SSH à votre serveur Ubuntu. De plus, si vous utilisez le Kit de développement Azure Stack, votre machine doit approuver les certificats appropriés.
 
 Si vous avez vos prérequis, vous pouvez commencer à [définir votre cluster](azure-stack-kubernetes-aks-engine-deploy-cluster.md).
+
+Si vous êtes l'opérateur du cloud pour Azure Stack et souhaitez proposer le moteur AKS, suivez les instructions de la rubrique [Ajouter le moteur AKS à la Place de marché Azure Stack](../operator/azure-stack-aks-engine.md).
 
 ## <a name="prerequisites-for-the-aks-engine"></a>Prérequis pour le moteur AKS
 

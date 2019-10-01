@@ -17,12 +17,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 5b517eec23950380bf5f0fc8febe717683960b65
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: 0ba8723b9d0f03006b52ecd016c3713280b63dea
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579101"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159295"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>Déployer ASDK à partir de la ligne de commande à l’aide de PowerShell
 
@@ -144,7 +144,7 @@ Si votre environnement n’a pas de DHCP activé, vous devez inclure les paramè
 |Paramètre|Obligatoire ou facultatif|Description|
 |-----|-----|-----|
 |AdminPassword|Obligatoire|Définit le compte d’administrateur local et tous les autres comptes d’utilisateur sur toutes les machines virtuelles créées dans le cadre du déploiement du kit ASDK. Ce mot de passe doit correspondre au mot de passe d’administrateur local actuel sur l’hôte.|
-|InfraAzureDirectoryTenantName|Obligatoire|Définit le répertoire du locataire. Utilisez ce paramètre pour indiquer un répertoire spécifique où le compte AAD dispose des autorisations pour gérer plusieurs répertoires. Nom complet d’un locataire AAD au format .onmicrosoft.com ou d’un nom de domaine personnalisé vérifié Azure AD.|
+|InfraAzureDirectoryTenantName|Obligatoire|Définit le répertoire du locataire. Utilisez ce paramètre pour indiquer un répertoire spécifique où le compte Azure AD dispose des autorisations pour gérer plusieurs répertoires. Nom complet d’un locataire Azure AD au format .onmicrosoft.com ou d’un nom de domaine personnalisé vérifié Azure AD.|
 |TimeServer|Obligatoire|Utilisez ce paramètre pour spécifier un serveur de temps spécifique. Ce paramètre doit être fourni sous la forme d’une adresse IP de serveur temps valide. Les noms des serveurs ne sont pas pris en charge.|
 |InfraAzureDirectoryTenantAdminCredential|Facultatif|Définit le nom d’utilisateur et le mot de passe Azure Active Directory. Ces informations d’identification Azure doivent être un ID org.|
 |InfraAzureEnvironment|Facultatif|Sélectionnez l’environnement Azure avec lequel vous souhaitez enregistrer ce déploiement Azure Stack. Les options incluent Azure mondial, Azure Chine, Azure US Government.|

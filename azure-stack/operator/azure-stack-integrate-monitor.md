@@ -15,12 +15,12 @@ ms.date: 06/05/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 7b5bfb39c3ec14c23b1df54c13f2733724fcfe05
-ms.sourcegitcommit: ddb625bb01de11bfb75d9f7a1cc61d5814b3bc31
+ms.openlocfilehash: 489859720df8a2d0c20bb476b285fe9cb65b797e
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68712920"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159635"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Intégrer une solution de supervision externe à Azure Stack
 
@@ -75,7 +75,7 @@ Un plug-in de supervision Nagios a été développé en même temps que les solu
 
 Le plug-in est écrit dans Python et s’appuie sur l’API REST du fournisseur de ressources d’intégrité. Il offre des fonctionnalités de base pour récupérer et fermer des alertes dans Azure Stack. À l’instar du Pack d’administration de System Center, il vous permet d’ajouter plusieurs déploiements Azure Stack et d’envoyer des notifications.
 
-La version 1.2 du plug-in Nagios pour Azure Stack s’appuie sur la bibliothèque Microsoft ADAL et prend en charge l’authentification basée sur l’utilisation du principal de service avec un secret ou un certificat. Par ailleurs, la configuration a été simplifiée et s’effectue maintenant au moyen d’un seul fichier de configuration avec de nouveaux paramètres. Le plug-in prend désormais en charge les déploiements Azure Stack avec AAD et ADFS comme système d’identité.
+La version 1.2 du plug-in Nagios pour Azure Stack s’appuie sur la bibliothèque Microsoft ADAL et prend en charge l’authentification basée sur l’utilisation du principal de service avec un secret ou un certificat. Par ailleurs, la configuration a été simplifiée et s’effectue maintenant au moyen d’un seul fichier de configuration avec de nouveaux paramètres. Le plug-in prend désormais en charge les déploiements Azure Stack avec Azure AD et AD FS comme système d’identité.
 
 Le plug-in fonctionne avec Nagios 4x et XI. Vous pouvez le télécharger [ici](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details). Le site de téléchargement comporte également des informations sur l’installation et la configuration.
 

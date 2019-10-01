@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 7e2ac217ead86502513b7914a102a029f2472a40
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.openlocfilehash: 9c600451070373d10ee943d8e497693d89708801
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019473"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71224971"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack"></a>Installer le moteur AKS sur Linux dans Azure Stack
 
@@ -43,13 +43,13 @@ Vous pouvez installer la machine virtuelle cliente pour gérer votre cluster Kub
 
 1. Créez une machine virtuelle Linux dans votre infrastructure Azure Stack. Pour obtenir des instructions, consultez [Démarrage rapide : Créer une machine virtuelle serveur Linux sur le portail Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal).
 2. Connectez-vous à votre machine virtuelle.
-3. Recherchez la version du moteur AKS dans le tableau [Versions de Kubernetes prises en charge](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions). Le moteur de base AKS doit être disponible dans votre Place de marché Azure Stack. Lors de l’exécution de la commande, vous devez spécifier la version, par exemple, `--version v0.39.0`. Si vous ne spécifiez pas la version, la commande installe la version la plus récente, qui n’est peut-être pas disponible dans votre place de marché.
+3. Recherchez la version du moteur AKS dans le tableau [Versions de Kubernetes prises en charge](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions). Le moteur de base AKS doit être disponible dans votre Place de marché Azure Stack. Lors de l’exécution de la commande, vous devez spécifier la version `--version v0.41.0`. Si vous ne spécifiez pas la version, la commande installe la version la plus récente, qui nécessite peut-être une image de disque dur virtuel non disponible dans votre place de marché.
 4. Exécutez la commande suivante :
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.XX.X
+        ./get-akse.sh --version v0.41.0
     ```
 
     > [!Note]  

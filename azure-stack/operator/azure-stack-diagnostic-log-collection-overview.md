@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 09/23/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 09/04/2019
-ms.openlocfilehash: 338df8d335376ebbaf14230e62d8dee9f813994f
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.lastreviewed: 09/23/2019
+ms.openlocfilehash: ecaea28d3b753520c53710a4e888cf37bf508fe1
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271740"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71224938"
 ---
 # <a name="overview-of-azure-stack-diagnostic-log-collection"></a>Vue d’ensemble de la collecte automatique des journaux de diagnostic Azure Stack 
 
@@ -34,7 +34,7 @@ Avant la version 1907, l’expérience de diagnostic comprenait l’utilisation
 Depuis la version 1907, la page **Aide et support** simplifie l’utilisation de la **collecte des journaux de diagnostic**. 
 **La collecte des journaux de diagnostic** fait partie d’un investissement continu pour améliorer l’expérience de l’opérateur Azure Stack dans le processus de résolution des problèmes. Grâce à ces améliorations, les opérateurs peuvent rapidement collecter et partager des journaux de diagnostic avec les services de support technique Microsoft (CSS). Les journaux peuvent être stockés dans un conteneur d’objets blob dans Azure, où l’accès peut être personnalisé en fonction des besoins.    
    
-**La collecte des journaux de diagnostic** peut collecter les journaux de diagnostic de deux façons différentes :
+**La collecte des journaux de diagnostic** fonctionne de deux façons différentes :
 
 - **Collecte automatique** : si elle est activée (recommandé), la collecte des journaux est déclenchée automatiquement par certaines alertes d’intégrité et stockée dans votre compte de stockage Azure.
 - **Collecter les journaux maintenant** : il s’agit d’une option à la demande dans laquelle vous pouvez choisir de collecter les journaux dans une fenêtre glissante de 1 à 4 heures au cours des sept derniers jours.
@@ -46,7 +46,7 @@ Si votre stratégie autorise le partage des journaux de diagnostic avec CSS, la 
 
 ## <a name="automatic-diagnostic-log-collection"></a>Collecte automatique des journaux de diagnostic 
 
-La collecte de journaux de diagnostic automatique télécharge de manière proactive les journaux de diagnostic d’Azure Stack vers un objet blob de stockage dans Azure lorsque certaines alertes critiques sont générées, ce qui réduit considérablement le temps nécessaire au partage des journaux de diagnostic avec CSS.
+Lorsqu’une [alerte d’intégrité spécifique](azure-stack-configure-automatic-diagnostic-log-collection.md#automatic-diagnostic-log-collection-alerts) est déclenchée, la collecte de journaux de diagnostic automatique démarre et télécharge de manière proactive les journaux de diagnostic d’Azure Stack vers un objet blob de stockage dans Azure, ce qui réduit considérablement le temps nécessaire au partage des journaux de diagnostic avec CSS. Les journaux de diagnostic ne sont collectés que lorsqu'une alerte est déclenchée.  
 
 Pour plus d’informations sur la collecte automatique des journaux, consultez [Configurer la collecte automatique des journaux de diagnostic Azure Stack](azure-stack-configure-automatic-diagnostic-log-collection.md).
 

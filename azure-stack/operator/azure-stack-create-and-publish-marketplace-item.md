@@ -1,6 +1,6 @@
 ---
 title: Créer et publier un article de Marketplace dans Azure Stack | Microsoft Docs
-description: Créez et publiez un article de Marketplace dans Azure Stack.
+description: Découvrez comment créer et publier un élément de la place de marché Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 08/20/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: b9e1e9a1cdd0afe18a5395c99fb2eef932791667
-ms.sourcegitcommit: 1a8ebd8103608b5ee9e804d7015eefe05ef55185
+ms.openlocfilehash: 668882b1f5e0702ce51798468c8f102efe92edcd
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69643849"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159695"
 ---
-# <a name="create-and-publish-a-marketplace-item"></a>Créer et publier un article de la Place de marché
+# <a name="create-and-publish-a-marketplace-item-in-azure-stack"></a>Créer et publier un article de Marketplace dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -46,7 +46,7 @@ ms.locfileid: "69643849"
     > Ne codez jamais en dur des secrets tels que des clés de produit, des mots de passe ou des informations d’identification de client dans le modèle Azure Resource Manager. Les fichiers modèles JSON sont accessibles sans authentification une fois qu’ils sont publiés dans la galerie. Stockez tous les secrets dans [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) et appelez-les à partir du modèle.
 
 4. Pour vérifier que le déploiement de la ressource peut réussir, testez le modèle avec les API Microsoft Azure Stack.
-5. Si votre modèle repose sur une image de machine virtuelle, suivez les instructions pour [ajouter une image de machine virtuelle sur Azure Stack](azure-stack-add-vm-image.md).
+5. Si votre modèle repose sur une image de machine virtuelle, suivez les instructions pour [ajouter une image de machine virtuelle à Azure Stack](azure-stack-add-vm-image.md).
 6. Enregistrez votre modèle Azure Resource Manager dans le dossier **/Contoso.TodoList/DeploymentTemplates/** .
 7. Choisissez les icônes et le texte de votre article de Marketplace. Ajouter les icônes au dossier **Icônes** et le texte au fichier des **ressources** dans le dossier **Chaînes**. Utilisez la convention de dénomination **Petit**, **Moyen**, **Grand** et **Large** pour vos icônes. Vous trouverez une description détaillée sur la page [Référence : interface utilisateur de l’article de Place de marché](#reference-marketplace-item-ui).
 
@@ -92,8 +92,8 @@ ms.locfileid: "69643849"
 ## <a name="publish-a-marketplace-item"></a>Publier un élément du Marketplace
 
 1. Utilisez PowerShell ou l’Explorateur Stockage Azure pour charger votre article de Marketplace (.azpkg) sur le Stockage Blob Azure. Vous pouvez effectuer le chargement sur le stockage Azure Stack local ou sur le Stockage Azure, qui est un emplacement temporaire pour le package. Assurez-vous que l’objet blob est accessible publiquement.
-2. Sur la machine virtuelle cliente de l’environnement Microsoft Azure Stack, assurez-vous que votre session PowerShell est configurée avec vos informations d’identification d’administrateur de services fédérés. Vous trouverez des instructions sur l’authentification de PowerShell dans Azure Stack sur la page [Déployer un modèle avec PowerShell](../user/azure-stack-deploy-template-powershell.md).
-3. Lorsque vous utilisez [PowerShell 1.3.0](azure-stack-powershell-install.md) ou une version ultérieure, vous pouvez utiliser la cmdlet PowerShell **Add-AzsGalleryItem** pour publier l’élément de Place de marché sur Azure Stack. Avant d’utiliser PowerShell 1.3.0, utilisez la cmdlet **Add-AzureRMGalleryitem** à la place de la cmdlet **Add-AzsGalleryItem**. Par exemple, lorsque vous utilisez PowerShell 1.3.0 ou une version ultérieure :
+2. Sur la machine virtuelle cliente de l’environnement Microsoft Azure Stack, assurez-vous que votre session PowerShell est configurée avec vos informations d’identification d’administrateur de service. Vous trouverez des instructions sur l’authentification de PowerShell dans Azure Stack sur la page [Déployer un modèle avec PowerShell](../user/azure-stack-deploy-template-powershell.md).
+3. Lorsque vous utilisez [PowerShell 1.3.0](azure-stack-powershell-install.md) ou une version ultérieure, vous pouvez utiliser la cmdlet PowerShell **Add-AzsGalleryItem** pour publier l’élément de Place de marché sur Azure Stack. Pour les versions antérieures, utilisez la cmdlet **Add-AzureRMGalleryitem** à la place de la cmdlet **Add-AzsGalleryItem**. Par exemple, lorsque vous utilisez PowerShell 1.3.0 ou une version ultérieure :
 
    ```powershell
    Add-AzsGalleryItem -GalleryItemUri `
@@ -194,11 +194,11 @@ Voici les icônes et le texte des articles de Marketplace qui s’affichent sur 
 
 ### <a name="create-blade"></a>Panneau Créer
 
-![Panneau Créer](media/azure-stack-create-and-publish-marketplace-item/image1.png)
+![Panneau Créer — Éléments de la Place de marché Azure Stack](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### <a name="marketplace-item-details-blade"></a>Panneau Détails de l’élément du Marketplace
 
-![Panneau Détails de l’élément du Marketplace](media/azure-stack-create-and-publish-marketplace-item/image3.png)
+![Panneau des détails de l’élément de la Place de marché Azure Stack](media/azure-stack-create-and-publish-marketplace-item/image3.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

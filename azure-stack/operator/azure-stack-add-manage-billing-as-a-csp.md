@@ -1,6 +1,6 @@
 ---
-title: Gérer l’utilisation et la facturation pour Azure Stack comme fournisseur de services cloud | Microsoft Docs
-description: Découvrez comment inscrire Azure Stack comme fournisseur de services cloud et d’ajout de clients pour la facturation.
+title: Gérer l’utilisation et la facturation pour Azure Stack comme fournisseur de solutions cloud | Microsoft Docs
+description: Découvrez comment inscrire Azure Stack comme fournisseur de solutions cloud et d’ajout de clients pour la facturation.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a8ae60e9ee19f96196d1c3763a32be0842567c7a
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: 82aa27440a496a813e2f1fa99879005503ba8d07
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118687"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159494"
 ---
-# <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Gérer l’utilisation et la facturation pour Azure Stack comme fournisseur de services cloud
+# <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-solution-provider"></a>Gérer l’utilisation et la facturation pour Azure Stack comme fournisseur de solutions cloud
 
 *S’applique à : systèmes intégrés Azure Stack*
 
@@ -32,7 +32,7 @@ En tant que fournisseur de services cloud, vous travaillez avec différents clie
 
 La figure suivante illustre les étapes nécessaires pour choisir votre compte de services partagés et inscrire le compte Azure auprès du compte Azure Stack. Une fois l’inscription effectuée, vous pouvez embarquer vos clients finaux :
 
-[![Processus d’activation de l’utilisation et de la gestion en tant que fournisseur de services cloud](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png "Processus d’activation de l’utilisation et de la gestion en tant que fournisseur de services cloud")](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png#lightbox)
+[![Processus d’activation de l’utilisation et de la gestion en tant que fournisseur de solutions cloud](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png "Processus d’activation de l’utilisation et de la gestion en tant que fournisseur de solutions cloud")](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png#lightbox)
 
 ## <a name="create-a-csp-or-apss-subscription"></a>Créer un abonnement CSP ou APSS
 
@@ -40,7 +40,7 @@ La figure suivante illustre les étapes nécessaires pour choisir votre compte d
 
 Choisissez le type de compte de services partagés que vous utilisez pour Azure Stack. Les types d’abonnements pouvant être utilisés pour l’inscription d’un système Azure Stack multilocataire sont les suivants :
 
-- Fournisseur de services cloud
+- Fournisseur de solutions cloud
 - Abonnement Partner Shared Services
 
 #### <a name="azure-partner-shared-services"></a>Azure Partner Shared Services
