@@ -73,16 +73,19 @@
               href: azure-stack-develop-templates.md
             - name: Développer des modèles dans Azure
               href: azure-stack-developer.md
-            - name: Vérifier des modèles
+            - name: Déployer des modèles
               href: azure-stack-validate-templates.md
-            - name: Déployer avec le portail
-              href: azure-stack-deploy-template-portal.md
-            - name: Déployer avec PowerShell
-              href: azure-stack-deploy-template-powershell.md
-            - name: Déploiement avec la CLI
-              href: azure-stack-deploy-template-command-line.md
-            - name: Déployer avec Visual Studio
-              href: azure-stack-deploy-template-visual-studio.md
+              items:
+                - name: Déployer avec le portail
+                  href: azure-stack-deploy-template-portal.md
+                - name: Déployer avec PowerShell
+                  href: azure-stack-deploy-template-powershell.md
+                - name: Déploiement avec la CLI
+                  href: azure-stack-deploy-template-command-line.md
+                - name: Déployer avec Visual Studio Code
+                  href: azure-stack-resource-manager-deploy-template-vscode.md
+                - name: Déployer avec Visual Studio
+                  href: azure-stack-deploy-template-visual-studio.md
         - name: Utiliser les profils de version d’API
           items:
             - name: Vue d'ensemble
