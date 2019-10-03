@@ -16,12 +16,12 @@ ms.date: 09/23/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: ecaea28d3b753520c53710a4e888cf37bf508fe1
-ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
+ms.openlocfilehash: cd65f51867a4626e8f9b288c5113909bfa32b1c2
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71224938"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829197"
 ---
 # <a name="overview-of-azure-stack-diagnostic-log-collection"></a>Vue d’ensemble de la collecte automatique des journaux de diagnostic Azure Stack 
 
@@ -29,7 +29,7 @@ ms.locfileid: "71224938"
 
 Azure Stack est une grande collection de composants qui fonctionnent ensemble et interagissent. Tous ces composants génèrent leurs propres journaux d’activité. Cela peut compliquer le diagnostic des problèmes, notamment quand les erreurs proviennent de plusieurs composants Azure Stack en interaction. Pour résoudre ce problème, nous avons conçu une expérience de collecte des journaux de diagnostic. 
 
-Avant la version 1907, l’expérience de diagnostic comprenait l’utilisation de [Test-AzureStack](azure-stack-diagnostic-test.md) pour valider l’intégrité du système et l’utilisation du [point de terminaison privilégié (PEP)](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep) pour collecter les journaux pour la résolution des problèmes. 
+Avant la version 1907, l’expérience de diagnostic comprenait l’utilisation de [Test-AzureStack](azure-stack-diagnostic-test.md) pour valider l’intégrité du système et l’utilisation du [point de terminaison privilégié (PEP)](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs) pour collecter les journaux pour la résolution des problèmes. 
 
 Depuis la version 1907, la page **Aide et support** simplifie l’utilisation de la **collecte des journaux de diagnostic**. 
 **La collecte des journaux de diagnostic** fait partie d’un investissement continu pour améliorer l’expérience de l’opérateur Azure Stack dans le processus de résolution des problèmes. Grâce à ces améliorations, les opérateurs peuvent rapidement collecter et partager des journaux de diagnostic avec les services de support technique Microsoft (CSS). Les journaux peuvent être stockés dans un conteneur d’objets blob dans Azure, où l’accès peut être personnalisé en fonction des besoins.    
@@ -42,7 +42,7 @@ Depuis la version 1907, la page **Aide et support** simplifie l’utilisation de
 ![Capture d’écran des options de collecte des journaux de diagnostic](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
 **La collecte des journaux de diagnostic** a une interface utilisateur simple et ne nécessite pas PowerShell. Les journaux sont collectés de façon fiable, même si les services d’infrastructure sont défaillants.
-Si votre stratégie autorise le partage des journaux de diagnostic avec CSS, la **collecte des journaux de diagnostic** est la méthode de collecte recommandée depuis la version 1907. Vous ne devez utiliser [le PEP](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep) pour collecter les journaux que si la **collecte des journaux de diagnostic** dans Aide et support n’est pas disponible.
+Si votre stratégie autorise le partage des journaux de diagnostic avec CSS, la **collecte des journaux de diagnostic** est la méthode de collecte recommandée depuis la version 1907. Vous ne devez utiliser [le PEP](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs) pour collecter les journaux que si la **collecte des journaux de diagnostic** dans Aide et support n’est pas disponible.
 
 ## <a name="automatic-diagnostic-log-collection"></a>Collecte automatique des journaux de diagnostic 
 

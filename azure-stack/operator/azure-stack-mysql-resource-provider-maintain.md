@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: d9d91dce762265da498a0a1232b023c2956edefd
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 6667fd3db21cd6138e756c16eb8e68b8ecd1b3e9
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617849"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829427"
 ---
 # <a name="mysql-resource-provider-maintenance-operations"></a>Opérations de maintenance du fournisseur de ressources MySQL
 
@@ -51,7 +51,7 @@ Pour mettre à jour les définitions Defender, procédez comme suit :
 
 4. Sur la session PowerShell de maintenance, appeler la commande _Update-DBAdapterWindowsDefenderDefinitions_.
 
-5. Après avoir installé les définitions, nous vous recommandons de supprimer le fichier de mise à jour de définitions à l’aide de la commande _Remove-ItemOnUserDrive)_.
+5. Après avoir installé les définitions, nous vous recommandons de supprimer le fichier de mise à jour de définitions à l’aide de la commande _Remove-ItemOnUserDrive)_ .
 
 **Exemple de script PowerShell pour mettre à jour les définitions.**
 

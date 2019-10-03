@@ -3,7 +3,7 @@ title: Créer un plan dans Azure Stack | Microsoft Docs
 description: Découvrez comment créer un plan dans Azure Stack permettant aux abonnés d’approvisionner des machines virtuelles.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.author: sethm
+ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 6cf55f668c36508f59d0d4549c81f3d9056d7749
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: 6982409c30fb614a363642ac1e4048a322fd079c
+ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159771"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71319212"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Créer un plan dans Azure Stack
 

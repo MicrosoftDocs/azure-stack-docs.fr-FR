@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 04/24/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: f37e963ad73a361f9d4cd5a6e68ec4213d5f32fb
-ms.sourcegitcommit: 05a16552569fae342896b6300514c656c1df3c4e
+ms.lastreviewed: 10/02/2019
+ms.openlocfilehash: 9fdb5767e225f9d5d8372058984c9128609339f1
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65838324"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824225"
 ---
 # <a name="deploy-a-python-web-app-to-a-vm-in-azure-stack"></a>Déployer une application web Python sur une machine virtuelle dans Azure Stack
 
@@ -28,7 +28,7 @@ Cet article utilise Python 3.x avec Flask dans un environnement virtuel sur un 
 
 2. Dans le volet du réseau de machines virtuelles, vérifiez que les ports suivants sont accessibles :
 
-    | Port | Protocole | Description |
+    | Port | Protocol | Description |
     | --- | --- | --- |
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) est le protocole utilisé pour fournir des pages web à partir des serveurs. Les clients se connectent via HTTP avec une adresse IP ou un nom DNS. |
     | 443 | HTTPS | HTTPS (Hypertext Transfer Protocol Secure) est une version sécurisée du protocole HTTP qui nécessite un certificat de sécurité pour la transmission chiffrée des informations. |

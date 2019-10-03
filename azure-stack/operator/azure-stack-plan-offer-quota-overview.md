@@ -3,7 +3,7 @@ title: Vue d’ensemble des plans, des offres, des quotas et des abonnements Azu
 description: En tant qu’opérateur cloud, je souhaite comprendre les plans, les offres, les quotas et les abonnements Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.author: sethm
+ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 72787bda5dd5fad372af33141e276b4852f86c39
-ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
+ms.openlocfilehash: 57d2fb7b9fb89858f13b3946be0e36d9529297a8
+ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70159527"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71319105"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Vue d’ensemble des plans, des offres, des quotas et des abonnements
 

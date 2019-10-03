@@ -3,7 +3,7 @@ title: S’abonner à une offre dans Azure Stack | Microsoft Docs
 description: Créer des abonnements pour des offres dans Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: 7f3f8683-ef09-4838-92ed-41f2fddbbbed
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2019
-ms.author: sethm
+ms.author: bryanla
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 51b61eae1f2c00a959eded275c13c5c4b8d06e4c
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: a35f8fe34cedbeb1a2ef068c666bc6a75effe111
+ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991791"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71319149"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack"></a>Créer des abonnements pour des offres dans Azure Stack
 

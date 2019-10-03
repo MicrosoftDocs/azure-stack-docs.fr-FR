@@ -13,22 +13,22 @@ ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2019
+ms.date: 10/01/2019
 ms.author: sethm
-ms.reviewer: unknown
+ms.reviewer: sijuman
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: c84965295abd1218458f46e998dcec8b1b2fdc88
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: c735e2a2d58e31cdd6b9e94c461a101b2b79b914
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658602"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714683"
 ---
 # <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Déploiement de modèles dans Azure Stack à l’aide de Visual Studio
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Visual Studio peut permettre de déployer des modèles Azure Resource Manager dans Azure Stack.
+Vous pouvez utiliser Visual Studio pour déployer des modèles Azure Resource Manager dans Azure Stack.
 
 ## <a name="to-deploy-a-template"></a>Pour déployer un modèle
 

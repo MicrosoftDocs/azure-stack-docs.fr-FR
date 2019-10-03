@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: sethm
-ms.reviewer: unknown
+ms.reviewer: sijuman
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: e6a9c9569f7a2aeff044232d15817313b43ed69f
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: bbbbbc5548397f82752a43c7a1aaca7b62151b75
+ms.sourcegitcommit: e8aa26b078a9bab09c8fafd888a96785cc7abb4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991859"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71708992"
 ---
 # <a name="deploy-a-template-using-the-portal-in-azure-stack"></a>Déployer un modèle à l’aide du portail dans Azure Stack
 
@@ -55,7 +55,7 @@ Vous pouvez utiliser le portail pour déployer des modèles Azure Resource Manag
 
    ![Sélectionner un groupe de ressources dans le portail Azure Stack](media/azure-stack-deploy-template-portal/template-deploy6.png)
 
-1. Sélectionnez **Créer**. Le tableau de bord contient maintenant une nouvelle vignette qui suit la progression du déploiement de votre modèle.
+1. Sélectionnez **Create** (Créer). Le tableau de bord contient maintenant une nouvelle vignette qui suit la progression du déploiement de votre modèle.
 
    ![Créer un modèle dans le portail Azure Stack](media/azure-stack-deploy-template-portal/template-deploy7.png)
 

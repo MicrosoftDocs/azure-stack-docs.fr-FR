@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 04/24/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 28d60e8fc5b575cd2fbefee1298220418e4f59a1
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.lastreviewed: 10/02/2019
+ms.openlocfilehash: 2c9c43439872a19ba590fb22059969f9a7c742f0
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418233"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824460"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack"></a>Déployer une application web Java sur une machine virtuelle dans Azure Stack
 
@@ -26,7 +26,7 @@ Vous pouvez créer une machine virtuelle pour héberger votre application web Py
 
 2. Dans le volet du réseau de machines virtuelles, vérifiez que les ports suivants sont accessibles :
 
-    | Port | Protocole | Description |
+    | Port | Protocol | Description |
     | --- | --- | --- |
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) est le protocole utilisé pour fournir des pages web à partir des serveurs. Les clients se connectent via HTTP avec une adresse IP ou un nom DNS. |
     | 443 | HTTPS | HTTPS (Hypertext Transfer Protocol Secure) est une version sécurisée du protocole HTTP qui nécessite un certificat de sécurité pour la transmission chiffrée des informations. |

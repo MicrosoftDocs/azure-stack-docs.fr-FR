@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 04/24/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 61d9f21f35edf1a0e8ebf61c81580c4d53218970
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 10/02/2019
+ms.openlocfilehash: d1fae6caf6ac37f29382f4d24ce0d8b2299aa1d7
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617677"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824822"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack"></a>Déployer une machine virtuelle Linux pour héberger une application web dans Azure Stack
 
@@ -87,7 +87,7 @@ Pour déployer la machine virtuelle, suivez les instructions indiquées dans les
 
     a. Pour **Haute disponibilité,** sélectionnez un groupe à haute disponibilité. Pour assurer la redondance de votre application, regroupez au moins deux machines virtuelles dans un groupe à haute disponibilité. Cette configuration assure qu’au moins une des machines virtuelles est disponible pendant un événement de maintenance planifié ou non et répond au 99,95 % inscrits dans le contrat SLA Azure. Vous ne pouvez pas modifier le groupe à haute disponibilité d’une machine virtuelle après sa création.
 
-    b. Pour **Stockage**, sélectionnez **Disques Premium (SSD)** ou **Disques Standard (HDD)**. Les disques Premium (SSD) sont associés à des disques SSD afin d’offrir des performances constantes et une faible latence. Ils proposent le meilleur rapport prix/performances et conviennent parfaitement aux charges de travail de production et aux applications nécessitant beaucoup d’E/S. Les disques Standard sont associés à des lecteurs magnétiques et conviennent davantage aux applications dont les données sont rarement utilisées. Les disques redondants interzones sont associés à un stockage redondant interzone (ZRS) qui réplique vos données sur plusieurs zones, et restent disponibles même si une zone n’est pas disponible. 
+    b. Pour **Stockage**, sélectionnez **Disques Premium (SSD)** ou **Disques Standard (HDD)** . Les disques Premium (SSD) sont associés à des disques SSD afin d’offrir des performances constantes et une faible latence. Ils proposent le meilleur rapport prix/performances et conviennent parfaitement aux charges de travail de production et aux applications nécessitant beaucoup d’E/S. Les disques Standard sont associés à des lecteurs magnétiques et conviennent davantage aux applications dont les données sont rarement utilisées. Les disques redondants interzones sont associés à un stockage redondant interzone (ZRS) qui réplique vos données sur plusieurs zones, et restent disponibles même si une zone n’est pas disponible. 
 
     c. Sélectionnez **Utiliser des disques managés**. Lorsque vous activez cette fonctionnalité, Azure gère automatiquement la disponibilité des disques. Vous bénéficiez de la redondance des données et de la tolérance de panne, sans avoir à créer ni à gérer des comptes de stockage vous-même. Les disques managés peuvent ne pas être disponibles dans toutes les régions. Pour plus d’informations, consultez [Présentation des disques managés Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
 
@@ -104,7 +104,7 @@ Pour déployer la machine virtuelle, suivez les instructions indiquées dans les
 
     i. Pour ajouter des extensions à votre machine virtuelle, sélectionnez **Extensions**. Les extensions ajoutent de nouvelles fonctionnalités, par exemple la gestion des configurations ou la protection antivirus, à votre machine virtuelle. 
 
-    j. Activez ou désactivez **Monitoring (Surveillance)**. Pour aider à diagnostiquer les problèmes de démarrage, vous pouvez utiliser la surveillance pour capturer des captures d’écran et la sortie de la console série d’une machine virtuelle qui est en cours d’exécution sur un hôte. 
+    j. Activez ou désactivez **Monitoring (Surveillance)** . Pour aider à diagnostiquer les problèmes de démarrage, vous pouvez utiliser la surveillance pour capturer des captures d’écran et la sortie de la console série d’une machine virtuelle qui est en cours d’exécution sur un hôte. 
 
     k. Pour spécifier le compte de stockage qui contient vos métriques, sélectionnez **Compte de stockage des diagnostics**. Les métriques sont écrites dans un compte de stockage et vous pouvez ensuite les analyser avec vos propres outils. 
 
@@ -131,7 +131,7 @@ Vous pouvez modifier la plage de ports et le protocole de destination pour un se
 
 1. Sélectionnez **Ajouter une règle de port d’entrée** pour ouvrir un port.
 
-1. Pour **Source**, conservez la sélection par défaut **Any (Tous)**.
+1. Pour **Source**, conservez la sélection par défaut **Any (Tous)** .
 
 1. Pour **Plage de ports source**, laissez le caractère générique (*).
 

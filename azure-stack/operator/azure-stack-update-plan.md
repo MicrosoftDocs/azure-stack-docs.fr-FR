@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 9582c47f37bdd6ae4c306593bea094b66652c49e
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 60515f257dc8ab04e351d1353919a749e9cf4224
+ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101168"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687960"
 ---
 # <a name="plan-for-an-azure-stack-update"></a>Planifier une mise à jour d’Azure Stack
 
@@ -36,9 +36,9 @@ Informez les utilisateurs de toutes les opérations de maintenance, et de planif
 
 Vous pouvez vous préparer à la mise à jour en vous assurant que vous avez appliqué tous les correctifs logiciels, les correctifs de sécurité et les mises à jour OEM, validé l’intégrité de votre instance Azure Stack, vérifié la capacité disponible et passé en revue le package de mise à jour.
 
-1. Passer en revue les problèmes connus. Pour obtenir des instructions, consultez [Problèmes connus d’Azure Stack](https://docs.microsoft.com/azure-stack/operator/release-notes.md).
+1. Passer en revue les problèmes connus. Pour obtenir des instructions, consultez [Problèmes connus d’Azure Stack](https://docs.microsoft.com/azure-stack/operator/release-notes).
 
-2. Passer en revue les mises à jour de sécurité. Pour une liste de mises à jour, consultez [Mises à jour de sécurité d’Azure Stack](https://docs.microsoft.com/azure-stack/operator/release-notes-security-updates.md).
+2. Passer en revue les mises à jour de sécurité. Pour une liste de mises à jour, consultez [Mises à jour de sécurité d’Azure Stack](https://docs.microsoft.com/azure-stack/operator/release-notes-security-updates).
 
 3. Avant de démarrer l’installation de cette mise à jour, exécutez [Test-AzureStack](https://docs.microsoft.com/azure-stack/operator/azure-stack-diagnostic-test) pour valider l’état de votre Azure Stack et résoudre les éventuels problèmes opérationnels détectés, y compris tous les avertissements et les échecs. Examinez aussi les alertes actives et résolvez toutes celles qui nécessitent une action.
 

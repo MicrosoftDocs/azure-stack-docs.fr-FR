@@ -7,17 +7,17 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 05/16/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: ce06ffbe48848a30de98025c42711e25ca9a312a
-ms.sourcegitcommit: 2ee75ded704e8cfb900d9ac302d269c54a5dd9a3
+ms.openlocfilehash: 7bfb56ef9fcb2795a579321bfa58ded872ed3485
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66394438"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824372"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-portal"></a>Démarrage rapide : Créer une machine virtuelle serveur Linux sur le portail Azure Stack
 
@@ -82,7 +82,7 @@ L’adresse du portail Azure Stack varie en fonction du produit Azure Stack auqu
    
    ![Sélectionner le serveur Linux](media/azure-stack-quick-linux-portal/select.png)
 
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 1. Tapez les informations de la machine virtuelle. Pour le **Type d’authentification**, sélectionnez **Clé publique SSH**, collez la clé publique SSH que vous avez enregistrée, puis sélectionnez **OK**.
 

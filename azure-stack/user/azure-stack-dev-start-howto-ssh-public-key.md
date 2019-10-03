@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 04/25/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: c0b55579c5103c7bb1073546243dbfcc0b700b4a
-ms.sourcegitcommit: 05a16552569fae342896b6300514c656c1df3c4e
+ms.lastreviewed: 10/02/2019
+ms.openlocfilehash: 3d2854511415421b69a6972cd807132639300f96
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65838390"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824505"
 ---
 # <a name="use-an-ssh-public-key"></a>Utiliser une clé publique SSH
 
@@ -69,7 +69,7 @@ Quand une application demande la clé, vous copiez et collez tout le contenu du 
 Quand vous installez PuTTY, vous avez à la fois le générateur de clé PuTTY et un client SSH. Dans cette section, vous ouvrez le client SSH et PuTTY, et vous configurez vos valeurs de connexion et votre clé SSH. Si vous êtes sur le même réseau que votre instance Azure Stack, vous vous connectez à votre machine virtuelle.
 
 Avant de vous connecter, il vous faut :
-- PuTTY
+- PuTTY ;
 - L’adresse IP et le nom d’utilisateur de la machine Linux dans votre instance Azure Stack qui utilise une clé SSH publique comme type d’authentification.
 - Le port 22 ouvert pour la machine.
 - La clé publique SSH utilisée au moment de la création de la machine.

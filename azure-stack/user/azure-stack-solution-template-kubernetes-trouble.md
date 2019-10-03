@@ -14,12 +14,12 @@ ms.author: mabrigg
 ms.date: 06/18/2019
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 135bffd37c98ce53de4b7ec58ddca1d65f4c9495
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 8d6730135e2a7055fc50f5c69918d1f0b2dbe5af
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493827"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71823871"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Résoudre les problèmes de déploiement Kubernetes sur Azure Stack
 
@@ -94,7 +94,7 @@ Vous pouvez collecter et examiner des journaux d’activité liés au déploieme
 4.  Si la machine virtuelle est **OK**, passez à l’évaluation du DVM. Si le DVM affiche un message d’erreur :
 
     - La clé publique peut être non valide. Examinez la clé que vous avez créée.  
-    - Contactez votre administrateur Azure Stack pour récupérer les journaux d’activité Azure Stack en utilisant les points de terminaison privilégiés. Pour plus d’informations, voir [Outils de diagnostics Azure Stack](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep).
+    - Contactez votre administrateur Azure Stack pour récupérer les journaux d’activité Azure Stack en utilisant les points de terminaison privilégiés. Pour plus d’informations, voir [Outils de diagnostics Azure Stack](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).
 5. Si vous avez une question concernant votre déploiement, vous pouvez la poster ou regarder si quelqu’un y a déjà répondu sur le [Forum Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## <a name="review-deployment-status"></a>Examiner l’état du déploiement
