@@ -12,26 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: bedc4c3971c5d4a177f4d8ac804878babebaa9b6
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: 5cd8e87613d1d4aa4adc8dedac7dcac4fa57eae2
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658645"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714720"
 ---
 # <a name="develop-templates-for-azure-stack-with-azure-resource-manager"></a>Développer des modèles pour Azure Stack avec Azure Resource Manager
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Lorsque vous développez votre application, il est important de garantir la portabilité du modèle entre Azure et Azure Stack. Cet article fournit des informations sur le développement des [modèles Azure Resource Manager](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf). Avec ces modèles, vous pouvez créer un prototype de votre d’application et en tester le déploiement dans Azure sans environnement Azure Stack.
+Quand vous développez votre application, il est important de garantir la portabilité du modèle entre Azure et Azure Stack. Cet article fournit des informations sur le développement des [modèles Azure Resource Manager](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf). Avec ces modèles, vous pouvez créer un prototype de votre d’application et en tester le déploiement dans Azure sans environnement Azure Stack.
 
 ## <a name="resource-provider-availability"></a>Disponibilité du fournisseur de ressources
 
-Le modèle que vous envisagez de déployer ne doit utiliser que les services Microsoft Azure déjà disponibles ou en préversion dans Azure Stack.
+Le modèle que vous envisagez de déployer doit seulement utiliser les services Microsoft Azure déjà disponibles, ou en préversion, dans Azure Stack.
 
 ## <a name="public-namespaces"></a>Espaces de noms publics
 

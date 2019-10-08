@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 64e1bd7934b1b3b8c0bc935a920a2e4e188c4bd9
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: ae603e1914b5a83f190eeafe7fa7d7e94e43a1aa
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101195"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714711"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gérer les mises à jour dans Azure Stack - Vue d’ensemble
 
@@ -49,7 +49,7 @@ Il existe trois types de packages de mises à jour pour les systèmes intégrés
 
 ## <a name="when-to-update"></a>Quand mettre à jour
 
-Les trois types de mises à jour sont fournis à la cadence suivante :
+Les trois types de mises à jour sont publiés à la cadence suivante :
 
 -   **Mises à jour de logiciel pour Azure Stack**. Microsoft publie généralement des packages de mises à jour logicielles chaque mois.
 
@@ -65,7 +65,7 @@ Les mises à jour varient en fonction de plusieurs facteurs, tels que votre conn
 
 - **Mises à jour et correctifs logiciels Microsoft** 
 
-    Une alerte de mise à jour pour les mises à jour et les correctifs logiciels Microsoft s’affiche dans le panneau de mise à jour pour les instances Azure Stack connectées à Internet.
+    Une alerte de mise à jour pour les mises à jour et les correctifs logiciels Microsoft s’affiche dans le panneau de mise à jour pour les instances Azure Stack connectées à Internet. Si le panneau Mettre à jour n’est pas affiché, redémarrez la machine virtuelle du contrôleur de gestion de l’infrastructure.
 
     Si votre instance n’est pas connectée et que vous souhaitez être notifié chaque fois qu’un correctif logiciel est publié, abonnez-vous au flux [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) ou [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom).
 

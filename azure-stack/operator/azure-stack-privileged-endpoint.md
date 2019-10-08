@@ -1,6 +1,6 @@
 ---
 title: Utilisation du point de terminaison privilégié dans Azure Stack | Microsoft Docs
-description: Montre comment utiliser le point de terminaison privilégié dans Azure Stack (pour un opérateur Azure Stack).
+description: Découvrir comment utiliser le point de terminaison privilégié dans Azure Stack en tant qu’opérateur.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,23 +15,23 @@ ms.date: 09/18/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 09/18/2019
-ms.openlocfilehash: cb339e4d6d368481060c673482d80244f63f9cc4
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 3730da9d185f1c38411453a6bef965ab5df7d3ae
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101101"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829366"
 ---
-# <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilisation du point de terminaison privilégié dans Azure Stack
+# <a name="use-the-privileged-endpoint-in-azure-stack"></a>Utiliser le point de terminaison privilégié dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-En tant qu’opérateur Azure Stack, vous devez utiliser le portail administrateur, PowerShell ou les API Azure Resource Manager pour la plupart des tâches d’administration quotidiennes. Toutefois, pour certaines opérations moins courantes, vous devez utiliser le *point de terminaison privilégié* (PEP). Ce point de terminaison est une console PowerShell distante préconfigurée qui vous fournit suffisamment de fonctionnalités pour vous aider à effectuer une tâche requise. Le point de terminaison s’appuie sur [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) pour exposer uniquement un ensemble limité d’applets de commande. Pour accéder au point de terminaison privilégié et appeler l’ensemble limité d’applets de commande, un compte à faibles privilèges est utilisé. Aucun compte d’administrateur n’est requis. Pour plus de sécurité, les scripts ne sont pas autorisés.
+En tant qu’opérateur Azure Stack, vous devez utiliser le portail administrateur, PowerShell ou les API Azure Resource Manager pour la plupart des tâches d’administration quotidiennes. Toutefois, pour certaines opérations moins courantes, vous devez utiliser le *point de terminaison privilégié* (PEP). Ce point de terminaison est une console PowerShell distante préconfigurée qui vous fournit suffisamment de fonctionnalités pour vous aider à effectuer une tâche nécessaire. Le point de terminaison s’appuie sur [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) pour exposer uniquement un ensemble limité d’applets de commande. Pour accéder au point de terminaison privilégié et appeler l’ensemble limité d’applets de commande, un compte à faibles privilèges est utilisé. Aucun compte d’administrateur n’est nécessaire. Pour plus de sécurité, les scripts ne sont pas autorisés.
 
-Vous pouvez utiliser le point de terminaison privilégié pour effectuer les tâches suivantes :
+Vous pouvez utiliser le points de terminaison privilégié pour effectuer les tâches suivantes :
 
-- Effectuer des tâches de bas niveau, telles que [collecter les journaux de diagnostic](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep).
-- Effectuer de nombreuses tâches post-déploiement d’intégration au centre de données pour les systèmes intégrés, telles que l’ajout de redirecteurs DNS (Domain Name System), la configuration de l’intégration de Graph, l’intégration des services de fédération Active Directory (AD FS) ou la permutation des certificats.
+- Des tâches de bas niveau, comme [collecter les journaux de diagnostic](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).
+- De nombreuses tâches post-déploiement d’intégration au centre de données pour les systèmes intégrés, comme l’ajout de redirecteurs DNS (Domain Name System), la configuration de l’intégration de Microsoft Graph, l’intégration des services de fédération Active Directory (AD FS), la permutation des certificats, etc.
 - Collaborer avec l’équipe de support afin d’obtenir un accès global temporaire pour un dépannage approfondi d’un système intégré.
 
 Le point de terminaison privilégié journalise chaque action (et sa sortie correspondante) que vous effectuez pendant la session PowerShell. Transparence totale et audit complet des opérations sont ainsi assurés. Vous pouvez conserver ces fichiers journaux en vue d’opérations d’audit futures.
@@ -41,24 +41,24 @@ Le point de terminaison privilégié journalise chaque action (et sa sortie corr
 
 ## <a name="access-the-privileged-endpoint"></a>Accéder au point de terminaison privilégié
 
-Vous accédez au point de terminaison privilégié via une session PowerShell distante sur la machine virtuelle qui héberge le point de terminaison privilégié. Dans le Kit ASDK, cette machine virtuelle est nommée **AzS-ERCS01**. Si vous utilisez un système intégré, il existe trois instances du point de terminaison privilégié s’exécutant chacune à l’intérieur d’une machine virtuelle (*Préfixe*-ERCS01, *Préfixe*-ERCS02 ou *Préfixe*-ERCS03) sur des hôtes différents à des fins de résilience. 
+Vous accédez au point de terminaison privilégié via une session PowerShell distante sur la machine virtuelle qui héberge le point de terminaison privilégié. Dans ASDK, cette machine virtuelle est nommée **AzS-ERCS01**. Si vous utilisez un système intégré, il existe trois instances du point de terminaison privilégié, chacune s’exécutant à l’intérieur d’une machine virtuelle (*Préfixe*-ERCS01, *Préfixe*-ERCS02 ou *Préfixe*-ERCS03) sur des hôtes différents à des fins de résilience.
 
-Avant de commencer cette procédure pour un système intégré, vérifiez que vous pouvez accéder à un point de terminaison privilégié par adresse IP ou via DNS. Après le déploiement initial d’Azure Stack, vous pouvez accéder au point de terminaison privilégié uniquement par adresse IP, car l’intégration de DNS n’est pas encore configurée. Votre fournisseur de matériel OEM vous fournira un fichier JSON nommé **AzureStackStampDeploymentInfo** qui contient les adresses IP de point de terminaison privilégié.
+Avant de commencer cette procédure pour un système intégré, vérifiez que vous pouvez accéder à un point de terminaison privilégié via une adresse IP ou via DNS. Après le déploiement initial d’Azure Stack, vous pouvez accéder au point de terminaison privilégié seulement via une adresse IP, car l’intégration de DNS n’est pas encore configurée. Votre fournisseur de matériel OEM vous fournira un fichier JSON nommé **AzureStackStampDeploymentInfo** qui contient les adresses IP de point de terminaison privilégié.
 
 
 > [!NOTE]
-> Pour des raisons de sécurité, nous exigeons que vous vous connectiez au point de terminaison privilégié uniquement à partir d’une machine virtuelle renforcée s’exécutant par-dessus l’hôte de cycle de vie du matériel ou d’un ordinateur verrouillé dédié, par exemple une [station de travail à accès privilégié](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). La configuration d’origine de l’hôte de cycle de vie du matériel ne doit pas être modifiée, même lors de l’installation de nouveaux logiciels. Elle ne doit pas non plus être utilisée pour se connecter au point de terminaison privilégié.
+> Pour des raisons de sécurité, vous devez vous connecter au point de terminaison privilégié uniquement à partir d’une machine virtuelle renforcée s’exécutant par-dessus l’hôte de cycle de vie du matériel, ou d’un ordinateur dédié et sécurisé, comme une [station de travail à accès privilégié](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). La configuration d’origine de l’hôte de cycle de vie du matériel ne doit pas être modifiée (même lors de l’installation de nouveaux logiciels), ni utilisée pour se connecter au point de terminaison privilégié.
 
 1. Établir une relation de confiance.
 
-    - Sur un système intégré, exécutez la commande suivante à partir d’une session Windows PowerShell avec élévation de privilèges pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur la machine virtuelle renforcée, en cours d’exécution sur l’hôte de cycle de vie du matériel, ou sur la station de travail d’accès privilégié.
+    - Sur un système intégré, exécutez la commande suivante à partir d’une session Windows PowerShell avec élévation de privilèges pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur la machine virtuelle renforcée, qui s’exécute sur l’hôte de cycle de vie du matériel ou sur la station de travail à accès privilégié.
 
       ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
-    - Si vous exécutez le Kit ASDK, connectez-vous à l’hôte du kit de développement.
+    - Si vous exécutez le kit ASDK, connectez-vous à l’hôte du kit de développement.
 
-2. Sur la machine virtuelle renforcée en cours d’exécution sur l’hôte de cycle de vie du matériel ou sur la station de travail d’accès privilégié, ouvrez une session Windows PowerShell. Exécutez les commandes suivantes pour établir une session distante sur la machine virtuelle qui héberge le point de terminaison privilégié :
+2. Sur la machine virtuelle renforcée s’exécutant sur l’hôte de cycle de vie du matériel ou sur la station de travail à accès privilégié, ouvrez une session Windows PowerShell. Exécutez les commandes suivantes pour établir une session distante sur la machine virtuelle qui héberge le point de terminaison privilégié :
  
    - Sur un système intégré :
      ```powershell
@@ -67,7 +67,7 @@ Avant de commencer cette procédure pour un système intégré, vérifiez que vo
        Enter-PSSession -ComputerName <IP_address_of_ERCS> `
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ```
-     Le paramètre `ComputerName` peut être l’adresse IP ou le nom DNS de l’une des machines virtuelles qui héberge un point de terminaison privilégié. 
+     Le paramètre `ComputerName` peut être l’adresse IP ou le nom DNS de l’une des machines virtuelles qui héberge le point de terminaison privilégié.
 
      >[!NOTE]
      >Azure Stack n’effectue pas d’appel à distance lors de la validation des informations d’identification du point de terminaison privilégié. Pour les valider, il s’appuie sur une clé publique RSA stockée localement.
@@ -86,7 +86,7 @@ Avant de commencer cette procédure pour un système intégré, vérifiez que vo
      - **Mot de passe** : entrez le mot de passe du compte d'administrateur de domaine AzureStackAdmin tel qu'il vous a été fourni pendant l'installation.
 
      > [!NOTE]
-     > Si vous ne parvenez pas à vous connecter au point de terminaison ERCS, effectuez de nouveau les étapes 1 et 2 avec une autre adresse IP de machine virtuelle ERCS.
+     > Si vous ne parvenez pas à vous connecter au point de terminaison ERCS, réessayez les étapes 1 et 2 avec l’adresse IP d’une autre machine virtuelle ERCS.
 
 3. Une fois connecté, l'invite devient **[*adresse IP ou nom de la machine virtuelle ERCS*]: PS>** ou à **[azs-ercs01]: PS>** , en fonction de l'environnement. Depuis cette invite, exécutez `Get-Command` pour afficher la liste des applets de commande disponibles.
 
@@ -113,28 +113,28 @@ Avant de commencer cette procédure pour un système intégré, vérifiez que vo
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>Conseils d’utilisation du point de terminaison privilégié 
 
-Comme mentionné ci-dessus, le point de terminaison privilégié est un point de terminaison [PowerShell JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview). Tout en procurant une couche de sécurité renforcée, un point de terminaison JEA réduit certaines des fonctionnalités de base de PowerShell, comme l’écriture de scripts ou la saisie semi-automatique via la touche Tab. Toute tentative d’opération de script est vouée à l’échec et se solde par l’erreur **ScriptsNotAllowed**. Ce comportement est normal.
+Comme mentionné ci-dessus, le point de terminaison privilégié est un point de terminaison [PowerShell JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview). Tout en procurant une couche de sécurité renforcée, un point de terminaison JEA réduit certaines des fonctionnalités de base de PowerShell, comme l’écriture de scripts ou la saisie semi-automatique via la touche Tab. Toute tentative d’opération de script est vouée à l’échec et se solde par l’erreur **ScriptsNotAllowed**. Cette erreur est normale.
 
-Ainsi, par exemple, pour obtenir la liste des paramètres d’une applet de commande donnée, exécutez la commande suivante :
+Par exemple, pour obtenir la liste des paramètres d’une applet de commande donnée, exécutez la commande suivante :
 
 ```powershell
     Get-Command <cmdlet_name> -Syntax
 ```
 
-Sinon, vous pouvez utiliser l’applet de commande [Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) pour importer l’ensemble des applets de commande de point de terminaison privilégié dans la session actuelle sur votre ordinateur local. En procédant ainsi, l’ensemble des applets de commande et des fonctions du point de terminaison sont désormais disponibles sur votre ordinateur local, avec la saisie semi-automatique via la touche Tab et, plus généralement, l’écriture de scripts. 
+Sinon, vous pouvez utiliser l’applet de commande [Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) pour importer l’ensemble des applets de commande de point de terminaison privilégié dans la session actuelle sur votre ordinateur local. En procédant ainsi, l’ensemble des applets de commande et des fonctions du point de terminaison sont désormais disponibles sur votre ordinateur local, avec la saisie semi-automatique via la touche Tab et, plus généralement, l’écriture de scripts.
 
 Pour importer la session du point de terminaison privilégié sur votre ordinateur local, procédez ainsi :
 
 1. Établir une relation de confiance.
 
-    \- Sur un système intégré, exécutez la commande suivante à partir d’une session Windows PowerShell avec élévation de privilèges pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur la machine virtuelle renforcée en cours d’exécution sur l’hôte de cycle de vie du matériel ou sur la station de travail d’accès privilégié.
+    \- Sur un système intégré, exécutez la commande suivante à partir d’une session Windows PowerShell avec élévation de privilèges pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur la machine virtuelle renforcée, qui s’exécute sur l’hôte de cycle de vie du matériel ou sur la station de travail à accès privilégié.
 
       ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
     - Si vous exécutez le kit ASDK, connectez-vous à l’hôte du kit de développement.
 
-2. Sur la machine virtuelle renforcée en cours d’exécution sur l’hôte de cycle de vie du matériel ou sur la station de travail d’accès privilégié, ouvrez une session Windows PowerShell. Exécutez les commandes suivantes pour établir une session distante sur la machine virtuelle qui héberge le point de terminaison privilégié :
+2. Sur la machine virtuelle renforcée s’exécutant sur l’hôte de cycle de vie du matériel ou sur la station de travail à accès privilégié, ouvrez une session Windows PowerShell. Exécutez les commandes suivantes pour établir une session distante sur la machine virtuelle qui héberge le point de terminaison privilégié :
  
    - Sur un système intégré :
      ```powershell
@@ -143,7 +143,7 @@ Pour importer la session du point de terminaison privilégié sur votre ordinate
        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ```
-     Le paramètre `ComputerName` peut être l’adresse IP ou le nom DNS de l’une des machines virtuelles qui héberge un point de terminaison privilégié. 
+     Le paramètre `ComputerName` peut être l’adresse IP ou le nom DNS de l’une des machines virtuelles qui héberge le point de terminaison privilégié.
    - Si vous exécutez le kit ADSK :
      
      ```powershell
@@ -166,29 +166,29 @@ Pour importer la session du point de terminaison privilégié sur votre ordinate
 
 ## <a name="close-the-privileged-endpoint-session"></a>Fermer la session du point de terminaison privilégié
 
- Comme indiqué plus haut, le point de terminaison privilégié journalise chaque action (et sa sortie correspondante) que vous effectuez pendant la session PowerShell. Vous devez fermer la session à l’aide de la cmdlet `Close-PrivilegedEndpoint`. Cette applet de commande ferme correctement le point de terminaison et transfère les fichiers journaux vers un partage de fichiers externe à des fins de rétention.
+ Comme indiqué plus haut, le point de terminaison privilégié journalise chaque action (et sa sortie correspondante) que vous effectuez dans la session PowerShell. Vous devez fermer la session à l’aide de la cmdlet `Close-PrivilegedEndpoint`. Cette applet de commande ferme correctement le point de terminaison et transfère les fichiers journaux vers un partage de fichiers externe à des fins de rétention.
 
 Pour fermer la session du point de terminaison :
 
 1. Créez un partage de fichiers externe qui est accessible au point de terminaison privilégié. Dans un environnement avec Kit de développement, vous pouvez simplement créer un partage de fichiers sur l’hôte du Kit de développement.
-2. Exécutez l’applet de commande suivante : 
+2. Exécutez l’applet de commande suivante :
      ```powershell
      Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
      ```
-   qui utilise les paramètres du tableau suivant.
+   L’applet de commande utilise les paramètres du tableau suivant :
 
    | Paramètre | Description | Type | Obligatoire |
    |---------|---------|---------|---------|
-   | *TranscriptsPathDestination* | chemin d’accès au partage de fichiers externe défini comme « fileshareIP\sharefoldername » | Chaîne | Oui|
-   | *Informations d'identification* | informations d’identification pour accéder au partage de fichiers | SecureString |   Oui |
+   | *TranscriptsPathDestination* | Chemin du partage de fichiers externe défini comme ceci : « adresse_IP_partage_fichiers\nom_dossier_partage » | Chaîne | OUI|
+   | *Informations d'identification* | Informations d’identification pour accéder au partage de fichiers | SecureString |   OUI |
 
 
 Une fois les fichiers journaux de transcription correctement transférés vers le partage de fichiers, ils sont automatiquement supprimés du point de terminaison privilégié. 
 
 > [!NOTE]
-> Si vous fermez la session du point de terminaison privilégié à l’aide des applets de commande `Exit-PSSession` ou `Exit`, ou que vous fermez simplement la console PowerShell, les journaux d’activité de transcription ne sont pas transférés vers un partage de fichiers. Ils demeurent dans le point de terminaison privilégié. La prochaine fois que vous exécutez `Close-PrivilegedEndpoint` et que vous incluez un partage de fichiers, les journaux d’activité de transcription issus de la (des) session(s) précédente(s) sont également transférés. N’utilisez pas `Exit-PSSession` ou `Exit` pour fermer la session PEP ; utilisez `Close-PrivilegedEndpoint`.
+> Si vous fermez la session du point de terminaison privilégié à l’aide des applets de commande `Exit-PSSession` ou `Exit`, ou que vous fermez simplement la console PowerShell, les journaux d’activité de transcription ne sont pas transférés vers un partage de fichiers. Ils demeurent dans le point de terminaison privilégié. La prochaine fois que vous exécutez `Close-PrivilegedEndpoint` et que vous incluez un partage de fichiers, les journaux d’activité de transcription issus de la (des) session(s) précédente(s) sont également transférés. N’utilisez pas `Exit-PSSession` ou `Exit` pour fermer la session du point de terminaison privilégié ; utilisez `Close-PrivilegedEndpoint`.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Outils de diagnostic Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)
+[Outils de diagnostic Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)

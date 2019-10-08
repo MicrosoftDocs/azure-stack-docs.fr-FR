@@ -12,24 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 09/26/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 7946b8339c9ff1127c0a9d9572c49527208b38f2
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: ab43d94c2e65032e5e525ec000e38cacb01b2980
+ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118655"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71319104"
 ---
 # <a name="troubleshoot-the-asdk"></a>Résoudre les problèmes de ASDK
-Cet article fournit des informations de dépannage courantes pour le Kit de développement Azure Stack (ASDK). Si vous rencontrez un problème qui n’est pas documenté, consultez le [Forum MSDN Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) pour obtenir de l’aide.  
+Cet article fournit des informations de dépannage courantes pour le Kit de développement Azure Stack (ASDK). Pour obtenir de l’aide sur les systèmes intégrés Azure Stack, consultez [Résolution des problèmes de Microsoft Azure Stack](../operator/azure-stack-troubleshooting.md). 
 
-> [!IMPORTANT]
-> Le kit de développement étant un environnement d’évaluation, aucune prise en charge officielle n’est proposée par les services de support technique Microsoft.
+ASDK étant un environnement d’évaluation, les services de support technique Microsoft ne fournissent pas de support. Si vous rencontrez un problème qui n’est pas documenté, vous pouvez obtenir de l’aide auprès d’experts sur le [Forum MSDN Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
-Les recommandations pour la résolution des problèmes qui sont décrites dans cette section proviennent de différentes sources ; elles pourront peut-être résoudre votre problème en particulier. Les exemples de code sont fournis « en l’état » et les résultats attendus ne sont pas garantis. Cette section est susceptible de faire l’objet de modifications et de mises à jour fréquentes au fur et à mesure que des améliorations sont apportées au produit.
 
 ## <a name="deployment"></a>Déploiement
 ### <a name="deployment-failure"></a>Échec du déploiement
@@ -50,15 +48,15 @@ Vous devez ajouter un élément de la galerie et une image Windows Server avant 
 ### <a name="after-restarting-my-azure-stack-host-some-vms-dont-automatically-start"></a>Après le redémarrage de l’hôte Azure Stack, certaines machines virtuelles ne démarrent pas automatiquement.
 Vous remarquerez peut-être que les services Azure Stack ne sont pas immédiatement disponibles après le redémarrage de votre hôte. Ceci est dû au fait que la vérification de la cohérence des points de récupération et des [machines virtuelles d’infrastructure](asdk-architecture.md#virtual-machine-roles) Azure Stack demande un certain temps. Toutefois, ils finiront par démarrer automatiquement.
 
-Vous remarquerez peut-être aussi que les machines virtuelles clientes ne démarrent pas automatiquement après le redémarrage de l’hôte ASDK. Ce problème est connu ; quelques étapes manuelles suffisent pour les mettre en ligne :
+Vous remarquerez peut-être aussi que les machines virtuelles clientes ne démarrent pas automatiquement après le redémarrage de l’hôte ASDK. Vous pouvez les mettre en ligne en quelques étapes manuelles :
 
 1.  Sur l’hôte ASDK, démarrez **Gestionnaire du cluster de basculement** dans le menu Démarrer.
 2.  Sélectionnez le cluster **S-Cluster.azurestack.local**.
 3.  Sélectionnez **Rôles**.
 4.  Les machines virtuelles clientes apparaissent avec l’état *enregistré*. Lorsque toutes les machines virtuelles d’infrastructure sont en cours d’exécution, cliquez avec le bouton droit sur les machines virtuelles clientes et sélectionnez **Démarrer** pour reprendre la machine virtuelle.
 
-### <a name="ive-deleted-some-vms-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>J’ai supprimé des machines virtuelles, mais je vois toujours les fichiers de VHD sur le disque. Ce comportement est-il attendu ?
-Oui. Ce comportement est normal. Il a été conçu ainsi pour les raisons suivantes :
+### <a name="ive-deleted-some-vms-but-still-see-the-vhd-files-on-disk"></a>J’ai supprimé des machines virtuelles, mais je vois toujours les fichiers de VHD sur le disque. 
+Ce comportement est normal :
 
 * La suppression d’une machine virtuelle n’entraîne pas celle des VHD. Les disques sont des ressources distinctes dans le groupe de ressources.
 * Lorsqu’un compte de stockage est supprimé, la suppression est visible immédiatement sur Azure Resource Manager, mais les disques qu’il contient éventuellement restent conservés dans le stockage jusqu’à l’exécution du nettoyage de la mémoire.

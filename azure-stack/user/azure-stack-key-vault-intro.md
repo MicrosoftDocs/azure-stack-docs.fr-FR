@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: fc68f80688f6b8cbe0376d332d706c9dc7b6dd92
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: 2ad70754a63660a2ad374a324e8778c405446d29
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842898"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714673"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>Introduction à Key Vault dans Azure Stack
 
 ## <a name="prerequisites"></a>Prérequis
 
 * S’abonner à une offre qui inclut le service Azure Key Vault.  
-* [PowerShell est configuré pour une utilisation avec Azure Stack](azure-stack-powershell-configure-user.md).
+* PowerShell est installé et [configuré pour l’utiliser avec Azure Stack](azure-stack-powershell-configure-user.md).
 
 ## <a name="key-vault-basics"></a>Principes fondamentaux de Key Vault
 
@@ -72,7 +72,7 @@ Les scénarios suivants expliquent comment Key Vault peut permettre de répondre
 
 **Problème :** Je souhaite m’assurer que mon organisation contrôle le cycle de vie d’une clé et peut surveiller son utilisation.
 
-**Instruction :** Key Vault a été conçu de manière à ce que Microsoft ne puisse pas afficher ni extraire vos clés. Lorsqu’une app doit effectuer des opérations de chiffrement en utilisant des clés de clients, Key Vault effectue cette opération à la place de l’app. L'application ne voit pas les clés du client. Même si nous utilisons plusieurs services et ressources Azure Stack, vous pouvez gérer les clés depuis un seul emplacement dans Azure. Le coffre fournit une interface unique, indépendamment du nombre de coffres dont vous disposez dans Azure Stack, des régions qui sont prises en charge et des apps qui les utilisent.
+**Instruction :** Key Vault a été conçu de manière à ce que Microsoft ne puisse pas afficher ni extraire vos clés. Lorsqu’une app doit effectuer des opérations de chiffrement en utilisant des clés de clients, Key Vault effectue cette opération à la place de l’app. L’application ne voit pas les clés de clients. Même si nous utilisons plusieurs services et ressources Azure Stack, vous pouvez gérer les clés depuis un seul emplacement dans Azure. Le coffre fournit une interface unique, indépendamment du nombre de coffres dont vous disposez dans Azure Stack, des régions qui sont prises en charge et des apps qui les utilisent.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

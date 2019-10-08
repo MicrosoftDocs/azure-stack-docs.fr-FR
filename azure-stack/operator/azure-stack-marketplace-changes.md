@@ -15,12 +15,12 @@ ms.date: 08/09/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 878e4712cf805fec188645e92784beaf6a19d591
-ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
+ms.openlocfilehash: c93b4535189830ee8e84acb882f85a9a51d5f443
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71279116"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342730"
 ---
 # <a name="azure-stack-marketplace-changes"></a>Changements sur la place de marché Azure Stack
 
@@ -29,6 +29,26 @@ Cet article décrit les ajouts, les nouveautés, les modifications et les suppre
 L’article [place de marché Azure Stack](azure-stack-marketplace-azure-items.md) reprend la liste la plus récente des éléments de la place de marché Azure Stack disponibles.
 
 ## <a name="new-marketplace-items"></a>Nouveaux éléments de la place de marché
+
+- 27/06/2019 :   SIOS Datakeeper Cluster Edition
+
+- 27/06/2019 :   Veeam Backup & Replication
+
+- 27/06/2019 : Windows Server 2019 Datacenter Server Core With Containers Pay-as-you-use
+
+- 27/06/2019 : Windows Server 2019 Datacenter Server Core With Containers BYOL
+
+- 27/06/2019 :   Windows Server 2019 Datacenter Pay-as-you-use
+
+- 27/06/2019 :   Windows Server 2019 Datacenter BYOL
+
+- 27/06/2019 : Windows Server 2019 Datacenter Server Core Pay-as-you-use
+
+- 27/06/2019 : Windows Server 2019 Datacenter Server Core BYOL
+
+- 27/06/2019 :   Windows Server 2019 Datacenter With Containers Pay-as-you-use
+
+- 27/06/2019 :   Windows Server 2019 Datacenter With Containers BYOL
 
 - 05/08/2019 : Bitnami Drupal
 
@@ -59,15 +79,26 @@ L’article [place de marché Azure Stack](azure-stack-marketplace-azure-items.m
 
 ## <a name="deprecated-marketplace-items"></a>Éléments déconseillés sur la place de marché
 
-- Codiad
-- X2Engine Sales CRM
-- SugarCRM
-- Cluster haute disponibilité Node.js
+- Bitnami Codiad
+- Bitnami X2Engine Sales CRM
+- Bitnami SugarCRM
+- Bitnami Node.js High-Availability Cluster
 - A10 vThunder : L4-L7 Application Delivery Controller, Global Server Load Balancing (GSLB), SSL Insight
 - Extension de JsonADDomain
 
 ## <a name="updated-marketplace-items"></a>Éléments mis à jour sur la place de marché
 
+- 11/07/2019 :   Thales CipherTrust Cloud Key Manager - version 1.0.7
+- 16/07/2019 :   Windows Server 2016 Datacenter Server Core BYOL - version 2016.127.20190522
+- 16/07/2019 :   Windows Server 2016 Datacenter Server Core Pay-as-you-use - version 2016.127.20190522
+- 16/07/2019 :   Windows Server 2016 Datacenter With Containers BYOL - version 2016.127.20190522
+- 16/07/2019 :   Windows Server 2016 Datacenter With Containers Pay-as-you-use - version 2016.127.20190522
+- 16/07/2019 :   Windows Server 2016 Datacenter BYOL - version 2016.127.20190522
+- 16/07/2019 :   Windows Server 2016 Datacenter Pay-as-you-use - version 2016.127.20190522
+- 16/07/2019 :   Windows Server 2008 R2 BYOL - version 2.127.20190522
+- 16/07/2019 :   Windows Server 2008 R2 Pay-as-you-use - version 2.127.20190522
+- 16/07/2019 :   Windows Server 2012 R2 Datacenter BYOL - version 4.127.20190522
+- 16/07/2019 :   Windows Server 2012 R2 Datacenter Pay-as-you-use - version 4.127.20190522
 - 30/07/2019 : SQL Server 2016 SP1 (éditions Express, Developer, Standard and Enterprise) - version 13.2.20190410
 - 30/07/2019 : SQL Server 2016 SP2 (éditions Express, Developer, Standard and Enterprise) - version 13.2.20190410
 - 30/07/2019 : SQL Server 2017 (éditions Express, Developer, Standard and Enterprise) - version 14.0.20190410

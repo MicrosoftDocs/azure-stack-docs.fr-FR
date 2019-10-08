@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 201af19756ef3958e943549482610ee32e208f01
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: 4bf1334f2b4e83223bb2eb1dfbb187dc860ed360
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603067"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342966"
 ---
 # <a name="deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Déployer une solution de cloud hybride avec Azure et Azure Stack
 
@@ -148,11 +148,11 @@ Le service Azure App Service simplifie l’exécution et la gestion d’une appl
 
 Le service App Service sur Azure Stack doit être routable à partir de l’Internet public pour permettre aux utilisateurs d’accéder à votre application. Si votre Azure Stack est accessible à partir d’Internet, notez l’adresse IP ou l’URL publiques de l’application web Azure Stack.
 
-Si vous utilisez un ASDK, vous pouvez [configurer un mappage NAT statique](../operator/azure-stack-create-vpn-connection-one-node.md#configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal) pour exposer App Service en dehors de l’environnement virtuel.
+Si vous utilisez un ASDK, vous pouvez [configurer un mappage NAT statique](../operator/azure-stack-create-vpn-connection-one-node.md#configure-the-nat-vm-on-each-asdk-for-gateway-traversal) pour exposer App Service en dehors de l’environnement virtuel.
 
 ### <a name="connect-a-web-app-in-azure-to-a-hybrid-network"></a>Connecter une application web présente dans Azure à un réseau hybride
 
-Pour fournir la connectivité entre le web frontal dans Azure et la base de données SQL Server dans Azure Stack, l’application web doit être connectée au réseau hybride entre Azure et Azure Stack. Pour activer la connectivité, vous devrez :
+Pour fournir la connectivité entre le front-end web dans Azure et la base de données SQL Server dans Azure Stack, l’application web doit être connectée au réseau hybride entre Azure et Azure Stack. Pour activer la connectivité, vous devrez :
 
 - Configurer la connectivité point à site.
 - Configurer l’application web.
@@ -395,7 +395,7 @@ Créez un profil Traffic Manager dans Azure, puis configurez les points de termi
    - Sous **Groupe de ressources**, créez un groupe de ressources pour ce profil.
    - Sous **Emplacement du groupe de ressources**, sélectionnez l’emplacement du groupe de ressources. Ce paramètre fait référence à l’emplacement du groupe de ressources et n’a pas d’incidence sur le profil Traffic Manager déployé globalement.
 
-4. Sélectionnez **Créer**.
+4. Sélectionnez **Create** (Créer).
 
     ![Créer un profil Traffic Manager](media/azure-stack-solution-hybrid-cloud/image19.png)
 

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: c0faaa7be69ad8d23dc94eec1107362a7a7eadfa
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: d9ef8ab09031db59311317693f72433b63737c34
+ms.sourcegitcommit: 3d14ae30ce3ee44729e5419728cce14b3000e968
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959343"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71814456"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Utiliser des profils de version d’API avec Ruby dans Azure Stack
 
@@ -46,12 +46,16 @@ Un profil d’API est une combinaison de fournisseurs de ressources et de versio
 - Suivez les instructions officielles pour installer [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 - Suivez les instructions officielles pour installer [Ruby](https://www.ruby-lang.org/en/documentation/installation/).
   - Lors de l’installation, choisissez **Ajouter Ruby à la variable PATH**.
-  - Installez le kit de développement pendant l’installation de Ruby lorsque vous y êtes invité.
-  - Ensuite, installez le programme d’installation à l’aide de la commande suivante :  
-    `Gem install bundler`
-- Si vous n’en avez pas de disponible, créez un abonnement et enregistrez l’ID d’abonnement pour une utilisation ultérieure. Les instructions pour créer un abonnement se trouvent [ici](../operator/azure-stack-subscribe-plan-provision-vm.md).
-- Créez un principal de service et enregistrez son ID et son secret. Les instructions pour créer un principal de service pour Azure Stack se trouvent [ici](../operator/azure-stack-create-service-principals.md).
-- Vérifiez que votre principal de service bénéficie du rôle contributeur/propriétaire attribué sur votre abonnement. Les instructions pour assigner un rôle au principal de service se trouvent [ici](../operator/azure-stack-create-service-principals.md).
+  - Quand vous y êtes invité pendant l’installation de Ruby, installez le kit de développement.
+  - Ensuite, installez le programme d’installation à l’aide de la commande suivante : 
+
+       ```Ruby
+       Gem install bundler
+       ```
+
+- Si vous n’en avez pas de disponible, créez un abonnement et enregistrez l’ID d’abonnement pour une utilisation ultérieure. Des instructions sur la création d’un abonnement sont fournies dans l’article [Créer des abonnements pour des offres dans Azure Stack](../operator/azure-stack-subscribe-plan-provision-vm.md).
+- Créez un principal de service et enregistrez son ID et son secret. Des instructions sur la création d’un principal de service pour Azure Stack sont fournies dans l’article [Utiliser une identité d’application pour accéder aux ressources](../operator/azure-stack-create-service-principals.md).
+- Vérifiez que votre principal de service bénéficie du rôle contributeur/propriétaire attribué sur votre abonnement. Des instructions sur l’attribution d’un rôle à un principal de service sont fournies dans l’article [Utiliser une identité d’application pour accéder aux ressources](../operator/azure-stack-create-service-principals.md).
 
 ## <a name="install-the-rubygem-packages"></a>Installer les packages Rubygem
 
@@ -62,7 +66,11 @@ gem install azure_mgmt_compute
 gem install azure_mgmt_storage
 gem install azure_mgmt_resources
 gem install azure_mgmt_network
-Or use them in your Gemfile.
+```
+
+Sinon, utilisez-les dans votre fichier Gemfile.
+
+```Ruby
 gem 'azure_mgmt_storage'
 gem 'azure_mgmt_compute'
 gem 'azure_mgmt_resources'
@@ -87,9 +95,9 @@ Pour utiliser le Kit de développement logiciel (SDK) Azure pour Ruby avec Azure
 
 | Valeur | Variables d’environnement | Description |
 | --- | --- | --- |
-| ID client | `AZURE_TENANT_ID` | La valeur de votre [ID de locataire](../operator/azure-stack-identity-overview.md) Azure Stack. |
-| ID client | `AZURE_CLIENT_ID` | L’ID d’application du principal du service enregistré lors de la création du principal de service dans la section précédente de ce document.  |
-| Identifiant d’abonnement | `AZURE_SUBSCRIPTION_ID` | [L’ID d’abonnement](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) correspond à la façon dont vous accédez à des offres dans Azure Stack. |
+| ID client | `AZURE_TENANT_ID` | Votre [ID de locataire](../operator/azure-stack-identity-overview.md) Azure Stack. |
+| ID client | `AZURE_CLIENT_ID` | L’ID d’application du principal de service enregistré lors de la création du principal de service dans la section précédente de cet article.  |
+| Identifiant d’abonnement | `AZURE_SUBSCRIPTION_ID` | Vous utilisez l’[ID d’abonnement](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) pour accéder à des offres dans Azure Stack. |
 | Clé secrète client | `AZURE_CLIENT_SECRET` | Le secret d’application du principal de service enregistré lors de la création du principal de service. |
 | Point de terminaison Resource Manager | `ARM_ENDPOINT` | Voir [Point de terminaison Azure Stack Resource Manager](#the-azure-stack-resource-manager-endpoint).  |
 
@@ -117,26 +125,31 @@ Vous pouvez obtenir les informations de métadonnées du point de terminaison du
  }
 ```
 
-### <a name="set-environmental-variables"></a>Définir des variables d’environnement
+### <a name="set-environment-variables"></a>Définition des variables d'environnement
 
-**Microsoft Windows**  
-Pour définir les variables d’environnement, utilisez le format suivant dans une invite de commandes Windows :  
-`set AZURE_TENANT_ID=<YOUR_TENANT_ID>`
+#### <a name="microsoft-windows"></a>Microsoft Windows
 
-**Systèmes Unix, Linux et macOS** <br>
-Dans les systèmes Unix, utilisez la commande suivante :  
-`export AZURE_TENANT_ID=<YOUR_TENANT_ID>`
+Pour définir les variables d’environnement, utilisez le format suivant dans une invite de commandes Windows :
+
+```shell
+set AZURE_TENANT_ID=<YOUR_TENANT_ID>
+```
+
+#### <a name="macos-linux-and-unix-based-systems"></a>Systèmes macOS, Linux et Unix
+
+Dans les systèmes Unix, utilisez la commande suivante :
+
+```bash
+export AZURE_TENANT_ID=<YOUR_TENANT_ID>
+```
 
 ## <a name="existing-api-profiles"></a>Profils d’API existants
 
-La gemme cumulative Azure_sdk comprend les trois profils suivants :
+La gemme cumulative **Azure_sdk** comprend les 3 profils suivants :
 
-1. **V2019_03_01_Hybrid** <br>
-  Profil créé pour Azure Stack. Servez-vous de ce profil pour utiliser toutes les dernières versions des services disponibles dans la version d’Azure Stack portant le tampon 1904 ou une version ultérieure.
-1. **V2017_03_09**  
-  Profil créé pour Azure Stack. Utilisez ce profil pour que les services offrent une compatibilité optimale avec la version d’Azure Stack portant le tampon 1808 ou une version ultérieure.
-1. **La plus récente**  
-  Profil composé des versions les plus récentes de tous les services. Utilisez les dernières versions de tous les services.
+- **V2019_03_01_Hybrid** : Profil créé pour Azure Stack. Utilisez ce profil pour toutes les dernières versions des services disponibles dans Azure Stack version 1904 ou ultérieure.
+- **V2017_03_09** : Profil créé pour Azure Stack. Utilisez ce profil pour que les services offrent une compatibilité optimale avec Azure Stack version 1808 ou antérieure.
+- **Les dernières** : Profil composé des versions les plus récentes de tous les services. Utilisez les dernières versions de tous les services.
 
 Pour plus d’informations sur les profils d’API et Azure Stack, consultez la section [Résumé des profils d’API](azure-stack-version-profiles.md#summary-of-api-profiles).
 
@@ -181,7 +194,7 @@ purchase_plan_obj = Azure::Profiles::V2019_03_01_Hybrid::Compute::Mgmt::Models::
 
 ## <a name="define-azure-stack-environment-setting-functions"></a>Définir des fonctions de définition d’environnement Azure Stack
 
-Pour authentifier le principal de service à l’environnement Azure Stack, définissez les points de terminaison à l’aide de `get_active_directory_settings()`. Cette méthode utilise la variable d’environnement **ARM_Endpoint** que vous définissez lors de l’établissement de vos variables d’environnement :
+Pour authentifier le principal de service à l’environnement Azure Stack, définissez les points de terminaison à l’aide de `get_active_directory_settings()`. Cette méthode utilise la variable d’environnement **ARM_Endpoint** que vous avez définie précédemment :
 
 ```Ruby  
 # Get Authentication endpoints using Arm Metadata Endpoints
@@ -203,7 +216,7 @@ end
 
 ## <a name="samples-using-api-profiles"></a>Exemples à l’aide de profils d’API
 
-Utilisez les exemples trouvés sur GitHub ci-après en guise de références pour la création de solutions avec des profils d’API Ruby et Azure Stack :
+Utilisez les exemples suivants sur GitHub en guise de références pour la création de solutions avec des profils d’API Ruby et Azure Stack :
 
 - [Manage Azure resources and resource groups with Ruby (Gérer des ressources et des groupes de ressources Azure avec Ruby)](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups).
 - [Manage virtual machines using Ruby](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM)(Gérer des machines virtuelles à l’aide de Ruby) (Exemple qui utilise le profil 2019-03-01-hybrid pour cibler les dernières versions d’API prises en charge par Azure Stack).
@@ -214,7 +227,7 @@ Utilisez les exemples trouvés sur GitHub ci-après en guise de références pou
 Pour exécuter l’exemple, assurez-vous que vous avez installé Ruby. Si vous utilisez Visual Studio Code, téléchargez l'extention du Kit de développement logiciel (SDK) Ruby également.
 
 > [!NOTE]  
-> Obtenez le référentiel pour l’exemple sur la page « [Manage Azure resources and resource groups with Ruby](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups) » (Gérer des ressources Azure et des groupes de ressources avec Ruby).
+> Le dépôt de l’exemple est [Hybrid-Resource-Manager-Ruby-Resources-And-Groups](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups).
 
 1. Clonez le référentiel :
 
@@ -234,13 +247,14 @@ Pour exécuter l’exemple, assurez-vous que vous avez installé Ruby. Si vous u
    Pour obtenir des instructions sur la création d’un principal de service, consultez [Fournir l’accès des applications à Azure Stack](../operator/azure-stack-create-service-principals.md).
 
    Les valeurs requises sont :
+
    - ID client
    - ID client
    - Clé secrète client
    - Identifiant d’abonnement
    - Point de terminaison Resource Manager
 
-   Définissez les variables d’environnement suivantes en utilisant les informations que vous avez récupérées à partir du principal de service que vous avez créé.
+   Définissez les variables d’environnement suivantes en utilisant les informations récupérées à partir du principal de service que vous avez créé :
 
    - `export AZURE_TENANT_ID={your tenant ID}`
    - `export AZURE_CLIENT_ID={your client ID}`
@@ -249,17 +263,17 @@ Pour exécuter l’exemple, assurez-vous que vous avez installé Ruby. Si vous u
    - `export ARM_ENDPOINT={your Azure Stack Resource Manager URL}`
 
    > [!NOTE]  
-   > Sous Windows, utilisez « définition» plutôt que « export »
+   > Sur Windows, utilisez `set` au lieu de `export`.
 
 4. Assurez-vous que la variable d’emplacement est définie sur votre emplacement Azure Stack ; par exemple, `LOCAL="local"`.
 
-5. Ajoutez la ligne de code suivante si vous utilisez Azure Stack ou d’autres clouds privés pour cibler les points de terminaison Active Directory appropriés :
+5. Pour cibler les points de terminaison Active Directory appropriés, ajoutez la ligne de code suivante si vous utilisez Azure Stack ou d’autres clouds privés :
 
    ```Ruby  
    active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
    ```
 
-6. Dans la variable d’options, ajoutez les paramètres Active Directory et l’URL de base pour utiliser Azure Stack :
+6. Dans la variable `options`, ajoutez les paramètres Active Directory et l’URL de base pour utiliser Azure Stack :
 
    ```ruby  
    options = {
@@ -276,7 +290,7 @@ Pour exécuter l’exemple, assurez-vous que vous avez installé Ruby. Si vous u
    client = Azure::Resources::Profiles::V2019_03_01_Hybrid::Mgmt::Client.new(options)
    ```
 
-8. Pour authentifier le principal de service avec Azure Stack, les points de terminaison doivent être définis à l’aide de **get_active_directory_settings()** . Cette méthode utilise la variable d’environnement **ARM_Endpoint** que vous définissez lors de l’établissement de vos variables d’environnement :
+8. Pour authentifier le principal de service avec Azure Stack, les points de terminaison doivent être définis à l’aide de **get_active_directory_settings()** . Cette méthode utilise la variable d’environnement **ARM_Endpoint** que vous avez définie précédemment :
 
    ```ruby  
    def get_active_directory_settings(armEndpoint)
@@ -297,7 +311,7 @@ Pour exécuter l’exemple, assurez-vous que vous avez installé Ruby. Si vous u
 
 9. Exécutez l’exemple.
 
-   ```ruby
+   ```Ruby
    bundle exec ruby example.rb
    ```
 

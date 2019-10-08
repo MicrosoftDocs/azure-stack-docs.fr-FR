@@ -1,6 +1,6 @@
 ---
-title: Utiliser l’outil de validation Azure Stack | Microsoft Docs
-description: Comment collecter des fichiers journaux de diagnostics dans Azure Stack
+title: Utiliser l’outil de validation Azure Stack pour valider l’état du système | Microsoft Docs
+description: Découvrez comment utiliser l’outil de validation Azure Stack pour valider l’état du système.
 services: azure-stack
 author: justinha
 manager: femila
@@ -14,22 +14,22 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: da89c973637042b18410db9dc3dc618bfbde12d5
-ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
+ms.openlocfilehash: 194af241480cce42273ff81d91213a63b1b9fd59
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68685519"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829164"
 ---
 # <a name="validate-azure-stack-system-state"></a>Valider l’état du système Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-En tant qu’opérateur Azure Stack, il est essentiel que vous puissiez déterminer l’intégrité et l’état de votre système à la demande. L’outil de validation Azure Stack (**Test-AzureStack**) est une applet de commande PowerShell qui vous permet d’exécuter une série de tests sur votre système pour identifier les éventuelles défaillances. Il vous sera généralement demandé d’exécuter cet outil par le biais du [point de terminaison privilégié (PEP)](azure-stack-privileged-endpoint.md) quand vous contacterez les services de support technique (CSS) Microsoft pour signaler un problème. Avec toutes les informations sur l’état et l’intégrité du système à portée de main, les services CSS peuvent collecter et analyser des journaux d’activité détaillés, se concentrer sur la zone où l’erreur s’est produite et collaborer avec vous afin de résoudre le problème.
+En tant qu’opérateur Azure Stack, il est essentiel de pouvoir déterminer à la demande l’intégrité et l’état de votre système. L’outil de validation Azure Stack (**Test-AzureStack**) est une applet de commande PowerShell qui vous permet d’exécuter une série de tests sur votre système pour identifier les éventuelles défaillances. Il vous est généralement demandé d’exécuter cet outil via le [point de terminaison privilégié (PEP)](azure-stack-privileged-endpoint.md) quand vous contactez les services de support technique Microsoft pour un problème. Avec toutes les informations sur l’état et l’intégrité du système à portée de main, les services de support technique peuvent collecter et analyser des journaux détaillés, se concentrer sur la zone où l’erreur s’est produite et collaborer avec vous afin de résoudre le problème.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Exécution de l’outil de validation et accès aux résultats
 
-Comme indiqué précédemment, l’outil de validation est exécuté par le biais du point de terminaison privilégié. Chaque test retourne un état **PASS/FAIL** dans la fenêtre PowerShell. Voici une brève présentation du processus de test de validation de bout en bout : 
+Comme indiqué précédemment, l’outil de validation est exécuté via le point de terminaison privilégié. Chaque test retourne un état **PASS/FAIL** dans la fenêtre PowerShell. Voici une brève présentation du processus de test de validation de bout en bout :
 
 1. Accédez au point de terminaison privilégié. Exécutez les commandes suivantes afin d’établir une session de point de terminaison privilégié :
 
@@ -38,25 +38,25 @@ Comme indiqué précédemment, l’outil de validation est exécuté par le biai
    ```
 
    > [!TIP]
-   > Pour accéder au point de terminaison privilégié sur un ordinateur hôte du Kit ASDK, utilisez AzS-ERCS01 pour -ComputerName.
+   > Pour accéder au point de terminaison privilégié sur un ordinateur hôte ASDK, utilisez AzS-ERCS01 pour -ComputerName.
 
-2. Une fois que vous êtes dans le point de terminaison privilégié, exécutez : 
+2. Une fois que vous êtes dans le point de terminaison privilégié, exécutez :
 
    ```powershell
    Test-AzureStack
    ```
 
-   Pour plus d’informations, consultez les sections [Considérations relatives aux paramètres](azure-stack-diagnostic-test.md#parameter-considerations) et [Exemples d’utilisation](azure-stack-diagnostic-test.md#use-case-examples).
+   Pour plus d’informations, consultez les sections [Considérations relatives aux paramètres](azure-stack-diagnostic-test.md#parameter-considerations) et [Exemples de cas d’usage](azure-stack-diagnostic-test.md#use-case-examples).
 
-3. Si un test retourne **FAIL**, exécutez `Get-AzureStackLog`. Pour obtenir des instructions sur un système intégré, consultez [Pour exécuter Get-AzureStackLog sur des systèmes intégrés Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems) ou, dans le Kit ASDK, consultez [Pour exécuter Get-AzureStackLog sur un système ASDK (Kit de développement Azure Stack)](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+3. Si un test retourne **FAIL**, exécutez `Get-AzureStackLog`. Pour obtenir des instructions sur un système intégré, consultez [Pour exécuter Get-AzureStackLog sur des systèmes intégrés Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems) ou, sur ASDK, consultez [Exécuter Get-AzureStackLog sur un système ASDK](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
-   L’applet de commande recueille des journaux d’activité générés par Test-AzureStack. Vous ne devez pas recueillir de journaux d’activité ni contacter les services de support technique si les tests retournent **WARN**.
+   L’applet de commande recueille des journaux d’activité générés par Test-AzureStack. Nous vous recommandons de ne pas collecter les journaux et de contacter le service de support technique si des tests indiquent **WARN**.
 
-4. Si les services de support technique vous ont demandé d’exécuter l’outil de validation, le représentant du support technique vous demandera de lui fournir les journaux d’activité que vous avez recueillis afin de poursuivre la résolution de votre problème.
+4. Si les services de support technique vous ont demandé d’exécuter l’outil de validation, le représentant du support technique vous demandera de fournir les journaux que vous avez collectés afin de poursuivre la résolution de votre problème.
 
 ## <a name="tests-available"></a>Tests disponibles
 
-L’outil de validation vous permet d’exécuter une série de tests au niveau du système et des scénarios cloud de base. Avec ces insights sur l’état actuel, vous pouvez identifier les problèmes affectant votre système.
+L’outil de validation vous permet d’exécuter une série de tests au niveau du système et des scénarios cloud de base, qui vous fournissent des insights sur l’état actuel vous permettant de corriger les problèmes affectant votre système.
 
 ### <a name="cloud-infrastructure-tests"></a>Tests d’infrastructure cloud
 
@@ -93,26 +93,26 @@ Ces tests à faible impact sont exécutés au niveau de l’infrastructure et fo
 
 ### <a name="cloud-scenario-tests"></a>Tests de scénarios cloud
 
-En plus des tests d’infrastructure ci-dessus, vous pouvez également exécuter des tests de scénarios cloud pour vérifier les fonctionnalités entre les composants d’infrastructure. Des informations d’identification d’administrateur du cloud sont nécessaires pour exécuter ces tests, car ceux-ci impliquent un déploiement de ressources.
+En plus des tests d’infrastructure ci-dessus, vous pouvez également exécuter des tests de scénarios cloud pour vérifier les fonctionnalités entre les composants de l’infrastructure. Des informations d’identification d’administrateur cloud sont nécessaires pour exécuter ces tests, car ceux-ci impliquent le déploiement de ressources.
 
 > [!NOTE]
-> Actuellement, vous ne pouvez pas exécuter de tests de scénarios cloud avec les informations d’identification des services de fédération Active Directory (AD FS). 
+> Actuellement, vous ne pouvez pas exécuter de tests de scénarios cloud avec les informations d’identification des services AD FS.
 
 Les scénarios cloud suivants sont testés par l’outil de validation :
-- Création de groupe de ressources   
-- Création de plan              
-- Création d’offre            
-- Création de compte de stockage   
-- Création de machine virtuelle 
-- Opération de stockage d’objet blob   
-- Opération de stockage de file d’attente  
-- Opération de stockage de table  
+- Création de groupe de ressources
+- Création de plan
+- Création d’offre
+- Création de compte de stockage
+- Création de machine virtuelle
+- Opération de stockage d’objet blob
+- Opération de stockage de file d’attente
+- Opération de stockage de table
 
 ## <a name="parameter-considerations"></a>Considérations relatives aux paramètres
 
 - Vous pouvez utiliser le paramètre **List** pour afficher toutes les catégories de tests disponibles.
 
-- Vous pouvez utiliser les paramètres **Include** et **Ignore** pour inclure ou exclure des catégories de tests. Pour en savoir plus sur les informations à utiliser avec ces arguments, consultez la section suivante.
+- Vous pouvez utiliser les paramètres **Include** et **Ignore** pour inclure ou exclure des catégories de tests. Pour plus d’informations sur ces arguments, consultez la section suivante.
 
   ```powershell
   Test-AzureStack -Include AzsSFRoleSummary, AzsInfraCapacity
@@ -122,7 +122,7 @@ Les scénarios cloud suivants sont testés par l’outil de validation :
   Test-AzureStack -Ignore AzsInfraPerformance
   ```
 
-- Une machine virtuelle de locataire est déployée dans le cadre de l’un des tests de scénario cloud. Vous pouvez utiliser **DoNotDeployTenantVm** pour désactiver cette option.
+- Une machine virtuelle de locataire est déployée dans le cadre des tests de scénario cloud. Vous pouvez utiliser **DoNotDeployTenantVm** pour désactiver ce déploiement de machine virtuelle.
 
 - Vous devez fournir le paramètre **ServiceAdminCredential** pour exécuter des tests de scénarios cloud, comme décrit dans la section [Exemples d’utilisation](azure-stack-diagnostic-test.md#use-case-examples).
 
@@ -160,14 +160,14 @@ Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName Pri
 Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Include AzsScenarios   
 ```
 
-Vous devez taper le nom d’utilisateur de l’administrateur du cloud au format UPN : serviceadmin@contoso.onmicrosoft.com (Azure AD). Lorsque vous y êtes invité, saisissez le mot de passe du compte d’administrateur de cloud.
+Vous devez taper le nom d’utilisateur de l’administrateur cloud au format UPN : serviceadmin@contoso.onmicrosoft.com (Azure AD). Quand vous y êtes invité, tapez le mot de passe du compte de l’administrateur cloud.
 
 ### <a name="groups"></a>Groupes
 
-Afin d’améliorer l’expérience de l’opérateur, un paramètre **Group** a été activé pour exécuter plusieurs catégories de test en même temps. Actuellement, il existe 3 groupes définis : **Default**, **UpdateReadiness** et **SecretRotationReadiness**.
+Afin d’améliorer l’expérience de l’opérateur, un paramètre **Group** a été activé pour exécuter plusieurs catégories de test en même temps. Actuellement, 3 groupes sont définis : **Default**, **UpdateReadiness** et **SecretRotationReadiness**.
 
 - **Par défaut** : considéré comme une exécution standard de **Test-AzureStack**. Ce groupe est exécuté par défaut si aucun autre groupe n’est sélectionné.
-- **UpdateReadiness** : une vérification pour savoir si le tampon peut être mis à jour. Lorsque le groupe **UpdateReadiness** est exécuté, les avertissements sont affichés sous forme d’erreurs dans la sortie de console ; ils doivent être considérés comme des obstacles à la mise à jour. Les catégories suivantes font partie du groupe **UpdateReadiness** :
+- **UpdateReadiness** : Une vérification pour voir si l’instance Azure Stack peut être mise à jour. Quand le groupe **UpdateReadiness** est exécuté, les avertissements sont affichés sous forme d’erreurs dans la sortie de la console ; ils doivent être considérés comme bloquants pour la mise à jour. Les catégories suivantes font partie du groupe **UpdateReadiness** :
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -178,7 +178,7 @@ Afin d’améliorer l’expérience de l’opérateur, un paramètre **Group** a
   - **AzsSFRoleSummary**
   - **AzsStoreSummary**
 
-- **SecretRotationReadiness** : une vérification pour savoir si le tampon pour telle rotation des secrets peut être exécuté. Lorsque le groupe **SecretRotationReadiness** est exécuté, les avertissements sont affichés sous forme d’erreurs dans la sortie de console ; ils doivent être considérés comme des obstacles à la rotation des secrets. Les catégories suivantes font partie du groupe SecretRotationReadiness :
+- **SecretRotationReadiness** : Une vérification pour voir si l’instance Azure Stack est dans un état où la rotation des secrets peut être effectuée. Quand le groupe **SecretRotationReadiness** est exécuté, les avertissements sont affichés sous forme d’erreurs dans la sortie de la console ; ils doivent être considérés comme bloquants pour la rotation des secrets. Les catégories suivantes font partie du groupe SecretRotationReadiness :
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -192,13 +192,13 @@ Afin d’améliorer l’expérience de l’opérateur, un paramètre **Group** a
 
 #### <a name="group-parameter-example"></a>Exemple de paramètre de groupe
 
-L’exemple suivant exécute **Test-AzureStack** pour tester la disponibilité du système avant d’installer une mise à jour ou un correctif logiciel avec **Group**. Avant de commencer l’installation d’une mise à jour ou d’un correctif, vous devez exécuter **Test-AzureStack** pour vérifier l’état de votre système Azure Stack :
+L’exemple suivant exécute **Test-AzureStack** pour tester la disponibilité du système avant d’installer une mise à jour ou un correctif logiciel avec **Group**. Avant de commencer l’installation d’une mise à jour ou d’un correctif, exécutez **Test-AzureStack** pour vérifier l’état de votre système Azure Stack :
 
 ```powershell
 Test-AzureStack -Group UpdateReadiness
 ```
 
-Toutefois, si votre système Azure Stack exécute une version inférieure à 1811, utilisez les commandes PowerShell suivantes pour exécuter **Test-AzureStack** :
+Si votre système Azure Stack exécute une version antérieure à 1811, utilisez les commandes PowerShell suivantes pour exécuter **Test-AzureStack** :
 
 ```powershell
 New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
@@ -207,7 +207,7 @@ Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSum
 
 ### <a name="run-validation-tool-to-test-infrastructure-backup-settings"></a>Exécuter l’outil de validation pour tester les paramètres de sauvegarde d’infrastructure
 
-*Avant* de configurer la sauvegarde de l’infrastructure, vous pouvez tester le chemin et les informations d’authentification du partage de sauvegarde à l’aide du test **AzsBackupShareAccessibility** : 
+*Avant* de configurer la sauvegarde de l’infrastructure, vous pouvez tester le chemin et les informations d’authentification du partage de sauvegarde à l’aide du test **AzsBackupShareAccessibility** :
 
   ```powershell
   Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
@@ -228,20 +228,18 @@ Pour tester les nouvelles informations d’identification avec le partage de sau
   Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential "<PSCredential for backup share>"
   ```
 
-### <a name="run-validation-tool-to-test-network-infrastructure"></a>Exécuter l’outil de validation pour tester l’infrastructure réseau 
+### <a name="run-validation-tool-to-test-network-infrastructure"></a>Exécuter l’outil de validation pour tester l’infrastructure réseau
 
-Ce test vérifie la connectivité de l’infrastructure réseau en contournant le SDN (Software Defined Network) Azure Stack. Il démontre la connectivité d’une adresse IP virtuelle publique aux redirecteurs DNS, serveurs NTP et points de terminaison d’authentification configurés. Cela englobe la connectivité à Azure quand Azure AD est utilisé en tant que fournisseur d’identité ou au serveur fédéré quand ADFS est utilisé en tant que fournisseur d’identité. 
+Ce test vérifie la connectivité de l’infrastructure réseau en contournant le SDN (Software Defined Network) Azure Stack. Il démontre la connectivité d’une adresse IP virtuelle publique aux redirecteurs DNS, serveurs NTP et points de terminaison d’authentification configurés. Ceci inclut la connectivité à Azure quand Azure AD est utilisé comme fournisseur d’identité ou au serveur fédéré quand AD FS est utilisé comme fournisseur d’identité.
 
 Incluez le paramètre de débogage pour obtenir une sortie détaillée de la commande :
 
-```powershell 
+```powershell
 Test-AzureStack -Include AzsNetworkInfra -Debug
 ```
 
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les outils de diagnostic Azure Stack et l’enregistrement des problèmes, consultez [Outils de diagnostic Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep).
+Pour plus d’informations sur les outils de diagnostic Azure Stack et l’enregistrement des problèmes, consultez [Outils de diagnostic Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).
 
 Pour plus d’informations sur la résolution des problèmes, consultez [Résolution des problèmes de Microsoft Azure Stack](azure-stack-troubleshooting.md).

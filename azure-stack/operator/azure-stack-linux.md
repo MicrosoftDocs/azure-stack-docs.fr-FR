@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 8e9617974984afac55c2b1542065ea0455da0acc
-ms.sourcegitcommit: 5a720b17bd6a5aab44929c0247db8d512e0669ef
+ms.openlocfilehash: 309d3d7185bd225f58691d4996ba649e8df7b97a
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67197144"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714621"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Ajouter des images Linux à Azure Stack
 
@@ -40,7 +40,7 @@ Dans la mesure du possible, téléchargez les images disponibles via la gestion 
 
 ### <a name="azure-linux-agent"></a>Agent Linux Azure
 
-L’Agent Azure Linux (généralement appelé `WALinuxAgent` ou `walinuxagent`) est requis, et toutes les versions de l’agent ne fonctionnent pas sur Azure Stack. Les versions entre 2.2.20 et 2.2.35 ne sont pas prises en charge sur Azure Stack. Pour utiliser les dernières versions de l’agent qui sont postérieures à 2.2.35, appliquez le correctif logiciel 1901/1902, ou mettez à jour votre environnement Azure Stack avec la version 1903 (ou supérieure). Notez que [cloud-init](https://cloud-init.io/) n’est pas pris en charge sur Azure Stack pour l’instant.
+L’Agent Azure Linux (généralement appelé **WALinuxAgent** ou **walinuxagent**) est nécessaire ; certaines versions de l’agent ne fonctionnent pas sur Azure Stack. Les versions entre 2.2.20 et 2.2.35 ne sont pas prises en charge sur Azure Stack. Pour utiliser les dernières versions de l’agent qui sont postérieures à 2.2.35, appliquez le correctif logiciel 1901/1902, ou mettez à jour votre environnement Azure Stack avec la version 1903 (ou supérieure). Notez que [cloud-init](https://cloud-init.io/) n’est pas pris en charge sur Azure Stack pour l’instant.
 
 | Build Azure Stack | Build Agent Linux Azure |
 | ------------- | ------------- |

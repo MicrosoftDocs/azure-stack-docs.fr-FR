@@ -16,12 +16,12 @@ ms.date: 06/25/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: a2809ed8a745f2ec4cdb31d924e964ecc28209b0
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 69f427bd825bdc74501256d47e61bbae95f4d64b
+ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271734"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687994"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Disques managés Azure Stack : différences et considérations
 
@@ -159,7 +159,7 @@ Vous pouvez utiliser le portail, PowerShell ou CLI pour créer l’image managé
 
 Veillez à généraliser correctement votre machine virtuelle avant d’effectuer cette étape. Après la généralisation, vous ne pouvez plus utiliser cette machine virtuelle. La création d’une machine virtuelle mal généralisée entraîne une erreur **VMProvisioningTimeout**.
 
-Suivez les instructions de la section [Créer une image à partir d’un disque dur virtuel dans un compte de stockage](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vhd-in-a-storage-account) pour créer une image managée à partir d’un disque dur virtuel généralisé dans un compte de stockage. Vous pouvez utiliser cette image pour créer ultérieurement des machines virtuelles managées.
+Suivez les instructions de la section [Créer une image à partir d’une machine virtuelle qui utilise un compte de stockage](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vm-that-uses-a-storage-account) pour créer une image managée à partir d’un disque dur virtuel généralisé dans un compte de stockage. Vous pouvez utiliser cette image pour créer ultérieurement des machines virtuelles managées.
 
 #### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>Cas 2 : Créer une machine virtuelle managée à partir d’une image managée à l’aide de Powershell
 

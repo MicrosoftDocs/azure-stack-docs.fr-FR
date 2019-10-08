@@ -1,6 +1,6 @@
 ---
 title: Délégation des offres dans Azure Stack | Microsoft Docs
-description: Découvrez comment placer d’autres personnes en charge de la création d’offres et de l’inscription des utilisateurs.
+description: Découvrez comment déléguer des tâches comme la création d’offres et l’inscription des utilisateurs.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,12 +15,12 @@ ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 97b253e4df3762d4579923124b7768c14f40d3de
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: eee3a928f8f3c6f376e9019af6da71a77ab09450
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159668"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829231"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Déléguer des offres dans Azure Stack
 
@@ -30,7 +30,7 @@ En tant qu’opérateur Azure Stack, vous pouvez être amené à confier à d’
 
 La délégation permet d’atteindre et de gérer plus facilement davantage d’utilisateurs que ce que vous pouvez faire par vous-même, comme le montre la figure suivante :
 
-![Niveaux de délégation](media/azure-stack-delegated-provider/image1.png)
+![Niveaux de délégation dans Azure Stack](media/azure-stack-delegated-provider/image1.png)
 
 Avec la délégation, le fournisseur délégué gère une offre (appelée *offre déléguée*) et les clients finaux obtiennent des inscriptions sous cette offre, sans intervention de l’administrateur système.
 
@@ -54,7 +54,7 @@ Vous configurez une délégation en deux étapes principales :
 
 La figure suivante illustre les étapes de configuration d’une délégation :
 
-![Créer le fournisseur délégué et lui permettre d’inscrire des utilisateurs](media/azure-stack-delegated-provider/image2.png)
+![Étapes permettant de créer le fournisseur délégué et de l’autoriser à inscrire des utilisateurs dans Azure Stack](media/azure-stack-delegated-provider/image2.png)
 
 ### <a name="delegated-provider-requirements"></a>Exigences pour le fournisseur délégué
 
@@ -76,7 +76,7 @@ Pour utiliser cette procédure pas à pas, vous avez besoin de deux comptes Azur
 | Utilisateur |Utilisateur |
 
  > [!NOTE]
- > Dans le cas d’un revendeur CSP, la création de ce fournisseur délégué nécessite que ces utilisateurs se trouvent dans le répertoire du locataire (l’utilisateur d’Azure AD). L’opérateur Azure Stack doit [d’abord intégrer](azure-stack-enable-multitenancy.md) l’instance Azure AD de ce locataire, puis configurer l’utilisation et la facturation en suivant [ces étapes](azure-stack-csp-howto-register-tenants.md).
+ > Dans le cas d’un revendeur CSP, la création de ce fournisseur délégué nécessite que ces utilisateurs se trouvent dans l’annuaire du locataire (l’annuaire Azure AD des utilisateurs). L’opérateur Azure Stack doit [d’abord intégrer](azure-stack-enable-multitenancy.md) l’annuaire Azure AD de ce locataire, puis configurer l’utilisation et la facturation en suivant [ces étapes](azure-stack-csp-howto-register-tenants.md).
 
 ### <a name="identify-the-delegated-provider"></a>Identifier les fournisseurs délégués.
 
@@ -91,14 +91,14 @@ Pour utiliser cette procédure pas à pas, vous avez besoin de deux comptes Azur
 
    c.  Ajoutez le fournisseur délégué comme abonné à cette offre en sélectionnant **Abonnements**, puis **Ajouter** et **Nouvel abonnement de locataire**.
 
-   ![Ajouter le fournisseur délégué en tant qu’abonné](media/azure-stack-delegated-provider/image3.png)
+   ![Ajouter le fournisseur délégué en tant qu’abonné dans le d’administration Azure Stack](media/azure-stack-delegated-provider/image3.png)
 
    > [!NOTE]
    > Comme avec toutes les offres Azure Stack, vous avez la possibilité de rendre l’offre publique et de laisser les utilisateurs y souscrire, ou de conserver l’offre comme privée et demander à l’opérateur Azure Stack de gérer l’inscription. Les fournisseurs délégués appartiennent généralement à un petit groupe. Vous souhaitez contrôler qui y est admis, donc le fait de conserver cette offre privée est logique dans la plupart des cas.
 
 ### <a name="azure-stack-operator-creates-the-delegated-offer"></a>L’opérateur Azure Stack crée l’offre déléguée
 
-L’étape suivante consiste à créer le plan et l’offre que vous allez déléguer, et que vos clients utiliseront. Il est recommandé de définir cette offre exactement comme les utilisateurs doivent la voir, car le fournisseur délégué ne peut changer les plans et les quotas qu’elle inclut.
+L’étape suivante consiste à créer le plan et l’offre que vous allez déléguer, et que vos clients utiliseront. Il est recommandé de définir cette offre comme les utilisateurs doivent la voir, car le fournisseur délégué ne peut pas changer les plans et les quotas qu’elle inclut.
 
 1. Comme opérateur Azure Stack, [créez un plan](azure-stack-create-plan.md) et [une offre](azure-stack-create-offer.md) basée sur le plan. Cet article utilise une offre nommée **DelegatedOffer** comme exemple.
 
@@ -109,7 +109,7 @@ L’étape suivante consiste à créer le plan et l’offre que vous allez dél�
 
 3. Sélectionnez l’abonnement pour le fournisseur délégué dans la liste déroulante, puis cliquez sur **Déléguer**.
 
-   ![Ajouter un fournisseur délégué](media/azure-stack-delegated-provider/image4.png)
+   ![Ajouter un fournisseur délégué dans le portail d’administration Azure Stack](media/azure-stack-delegated-provider/image4.png)
 
 ### <a name="delegated-provider-customizes-the-offer"></a>Le fournisseur délégué personnalise l’offre
 
@@ -117,24 +117,24 @@ Connectez-vous au portail utilisateur en tant que fournisseur délégué et cré
 
 1. Sélectionnez **+ Créer une ressource**, puis **Offres + plans locataire**, puis sélectionnez **Offre**.
 
-    ![Créer une offre](media/azure-stack-delegated-provider/image5.png)
+    ![Créer une offre dans le portail utilisateur Azure Stack](media/azure-stack-delegated-provider/image5.png)
 
 2. Attribuez un nom à l’offre. Cet exemple utilise **ResellerOffer**. Sélectionnez l’offre déléguée sur laquelle baser cette offre, puis cliquez sur **Créer**.
 
-   ![Attribuer un nom](media/azure-stack-delegated-provider/image6.png)
+   ![Affecter un nom dans le portail utilisateur Azure Stack](media/azure-stack-delegated-provider/image6.png)
 
    >[!IMPORTANT]
-   >Il est important de comprendre que les fournisseurs délégués peuvent seulement choisir des offres qui leur ont été déléguées. Les utilisateurs ne peuvent pas modifier ces offres. Seuls les opérateurs Azure Stack peuvent modifier ces offres, par exemple, leurs plans et quotas. Un fournisseur délégué ne construit pas une offre à partir de plans de base et de plans additionnels.
+   >Il est important de comprendre que les fournisseurs délégués peuvent seulement choisir des offres qui leur ont été déléguées. Les utilisateurs ne peuvent pas modifier ces offres. Seul un opérateur Azure Stack peut changer ces offres. Par exemple, seul un opérateur peut changer les plans et les quotas. Un fournisseur délégué ne construit pas une offre à partir de plans de base et de plans additionnels.
 
 3. Le fournisseur délégué peut publier ces offres via l’URL de son propre portail. Pour publier l’offre, sélectionnez **Parcourir**, puis **Offres**. Sélectionnez l’offre, puis **Changer l’état**.
 
 4. Les offres déléguées publiques sont désormais visibles uniquement via le portail délégué. Pour rechercher et modifier cette URL :
 
-    a.  Sélectionnez **Parcourir**, puis **Tous les services**, puis, sous la catégorie **GÉNÉRAL**, sélectionnez **Abonnements**. Sélectionner l’abonnement du fournisseur délégué ; par exemple, **DPSubscription**, puis **Propriétés**.
+    a.  Sélectionnez **Parcourir**, puis **Tous les services**, puis, sous la catégorie **GÉNÉRAL**, sélectionnez **Abonnements**. Sélectionnez l’abonnement du fournisseur délégué (par exemple, **DPSubscription**), puis **Propriétés**.
 
     b.  Copiez l’URL du portail vers un autre emplacement, comme le Bloc-notes.
 
-    ![Sélectionner l’abonnement du fournisseur délégué](media/azure-stack-delegated-provider/dpportaluri.png)  
+    ![Sélectionnez l’abonnement du fournisseur délégué dans le portail utilisateur Azure Stack.](media/azure-stack-delegated-provider/dpportaluri.png)  
 
    Vous avez terminé la création d’une offre déléguée en tant que fournisseur délégué. Déconnectez-vous en tant que fournisseur délégué et fermez la fenêtre du navigateur.
 
@@ -143,22 +143,22 @@ Connectez-vous au portail utilisateur en tant que fournisseur délégué et cré
 1. Dans une nouvelle fenêtre de navigateur, accédez à l’URL du portail délégué que vous avez enregistrée à l’étape précédente. Connectez-vous au portail en tant qu’utilisateur.
 
    >[!NOTE]
-   >Les offres déléguées ne sont pas visibles, à moins d’utiliser le portail délégué.
+   >Les offres déléguées sont visibles seulement si vous utilisez le portail délégué.
 
 1. Dans le tableau de bord, sélectionnez **Prendre un abonnement**. Vous voyez que seules les offres déléguées créées par le fournisseur délégué sont présentées à l’utilisateur.
 
-   ![Afficher et sélectionner des offres](media/azure-stack-delegated-provider/image8.png)
+   ![Consulter et sélectionner des offres dans le portail utilisateur Azure Stack](media/azure-stack-delegated-provider/image8.png)
 
 Le processus de délégation d’une offre est terminé. Un utilisateur peut désormais s’inscrire à cette offre en prenant un abonnement à celle-ci.
 
 ## <a name="move-subscriptions-between-delegated-providers"></a>Déplacer des abonnements entre des fournisseurs délégués
 
-Si nécessaire, un abonnement peut être déplacé entre des abonnements de fournisseurs délégués nouveaux ou existants appartenant au même locataire d’annuaire. Pour ce faire, vous utilisez la cmdlet PowerShell [Move-AzsSubscription](/powershell/module/azs.subscriptions.admin).
+Si nécessaire, un abonnement peut être déplacé entre des abonnements de fournisseurs délégués nouveaux ou existants appartenant au même locataire d’annuaire. Vous pouvez les déplacer en utilisant l’applet de commande PowerShell [Move-AzsSubscription](/powershell/module/azs.subscriptions.admin).
 
-Cela est utile quand :
+Le déplacement des abonnements est utile dans les cas suivants :
 
 * Vous intégrez un nouveau membre de l’équipe qui tiendra le rôle de fournisseur délégué et souhaitez affecter à ce membre des abonnements créés précédemment dans l’abonnement du fournisseur par défaut.
-* Vous avez plusieurs abonnements de fournisseurs délégués dans le même locataire d’annuaire (Azure Active Directory) et devez déplacer des abonnements d’utilisateurs entre eux. Cela peut être le cas lorsqu’un membre de l’équipe se déplace entre les équipes et que son abonnement doit être affecté à la nouvelle équipe.
+* Vous avez plusieurs abonnements de fournisseurs délégués dans le même locataire d’annuaire (Azure AD) et vous devez déplacer des abonnements d’utilisateurs entre eux. Cela peut être le cas lorsqu’un membre de l’équipe se déplace entre les équipes et que son abonnement doit être affecté à la nouvelle équipe.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

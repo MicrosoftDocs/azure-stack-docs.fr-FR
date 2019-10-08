@@ -12,21 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 09/30/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 09/04/2019
-ms.openlocfilehash: a9d62640b2baabfd3283099656719a880dd0a41b
-ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
+ms.lastreviewed: 09/30/2019
+ms.openlocfilehash: 0fb46cd1b92c1b811ba1c72a91188201a7d2af96
+ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70377247"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687967"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Résolution des problèmes de Microsoft Azure Stack
 
-Ce document fournit des informations de dépannage pour Azure Stack. 
-
+Ce document fournit des informations de dépannage pour les environnements intégrés Azure Stack. Pour obtenir de l’aide sur le kit de développement Azure Stack, consultez [Dépannage d’ASDK](../asdk/asdk-troubleshooting.md) ou contactez les experts du [forum MSDN Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
@@ -36,10 +35,6 @@ Ces sections contiennent des liens vers des documents qui abordent les questions
 
 * [Comment acheter](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)
 * [Vue d’ensemble d’Azure Stack](azure-stack-overview.md)
-
-### <a name="azure-stack-development-kit-asdk"></a>Kit de développement Azure Stack (ASDK)
-
-Pour obtenir de l’aide avec le [kit de développement Azure Stack](../asdk/asdk-what-is.md), contactez les experts du [forum MSDN Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Le kit de développement Azure Stack (ASDK) est proposé en tant qu’environnement d’évaluation, sans prise en charge via CSS. Les cas de support qui ont été ouverts pour l’ASDK sont mentionnés sur le forum MSDN.
 
 ### <a name="updates-and-diagnostics"></a>Mises à jour et diagnostics
 
@@ -64,7 +59,7 @@ Pour augmenter la capacité de mémoire totale disponible pour Azure Stack, vous
 
 #### <a name="retention-period"></a>Période de rétention
 
-Le paramètre de période de conservation permet à un opérateur cloud de spécifier une période de temps en jours (entre 0 et 9 999 jours) pendant laquelle un compte supprimé peut être récupéré. La période de rétention par défaut est définie sur 0 jour. Pour ce paramètre, la valeur « 0 » signifie qu’un compte supprimé n’est plus conservé et qu’il est marqué comme devant faire l’objet d’un nettoyage périodique de la mémoire.
+Le paramètre de période de conservation permet à un opérateur cloud de spécifier une période de temps en jours (entre 0 et 9 999 jours) pendant laquelle un compte supprimé peut être récupéré. La période de conservation par défaut est définie sur **0** jour. Pour ce paramètre, la valeur **0** signifie qu’un compte supprimé n’est plus conservé et qu’il est marqué comme devant faire l’objet d’un nettoyage périodique de la mémoire.
 
 * [Définir la période de rétention](azure-stack-manage-storage-accounts.md#set-the-retention-period)
 
@@ -95,8 +90,14 @@ Choisissez le type de compte de services partagés que vous utilisez pour Azure 
 ### <a name="general-deployment-failure"></a>Échec général du déploiement
 Si vous rencontrez un problème lors de l’installation, vous pouvez relancer le déploiement à partir de l’étape qui n’a pas abouti en utilisant l’option de réexécution du script de déploiement.  
 
-### <a name="at-the-end-of-asdk-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>À la fin du déploiement du Kit de développement technique Azure Stack (ASDK), la session PowerShell est toujours ouverte et ne présente aucune sortie.
-Ce comportement est probablement tout simplement le résultat du comportement par défaut d’une fenêtre de commande PowerShell, lorsqu’elle a été sélectionnée. Le déploiement du kit de développement s’est déroulé correctement, mais le script a été interrompu au moment de la sélection de la fenêtre. Vous pouvez vérifier que l’installation est terminée en recherchant le mot « select » dans la barre de titre de la fenêtre de commande. Appuyez sur la touche Échap pour la désélectionner ; le message d’achèvement devrait alors s’afficher.
+### <a name="template-validation-error-parameter-osprofile-is-not-allowed"></a>Le paramètre d’erreur de validation de modèle osProfile n’est pas autorisé
+
+Si vous recevez un message d’erreur pendant la validation du modèle et que le paramètre « osProfile » n’est pas autorisé, veillez à utiliser les versions appropriées des API pour ces composants :
+
+- [Calcul](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftcompute)
+- [Réseau](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
+
+Pour copier un disque dur virtuel d’Azure vers Azure Stack, utilisez [AzCopy 7.3.0](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#download-and-install-azcopy). Collaborez avec votre fournisseur pour résoudre les problèmes liés à l’image elle-même. Pour plus d’informations sur les exigences de WALinuxAgent pour Azure Stack, consultez [Agent Linux Azure](azure-stack-linux.md#azure-linux-agent).
 
 ### <a name="deployment-fails-due-to-lack-of-external-access"></a>Le déploiement échoue en raison d’un manque d’accès externe
 Lorsque le déploiement échoue à des étapes où l’accès externe est nécessaire, une exception telle que l’exemple suivant est retournée :
@@ -106,15 +107,18 @@ An error occurred while trying to test identity provider endpoints: System.Net.W
    at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.GetResponse(WebRequest request)
    at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.ProcessRecord()at, <No file>: line 48 - 8/12/2018 2:40:08 AM
 ```
-Si cette erreur se produit, vérifiez que toutes les exigences réseau minimales ont été satisfaites en consultant la [documentation sur le déploiement du trafic réseau](deployment-networking.md). Un outil de vérification du réseau est également disponible pour les partenaires dans le cadre du Partner Toolkit.
+Si cette erreur se produit, vérifiez que toutes les exigences réseau minimales ont été satisfaites en consultant la [documentation sur le trafic réseau lié au déploiement](deployment-networking.md). Un outil de vérification du réseau est également disponible pour les partenaires dans le cadre du Partner Toolkit.
 
-Les échecs de déploiement, à l’exception du cas ci-dessus, sont généralement dus à des problèmes de connexion aux ressources sur Internet.
+Les autres échecs de déploiement sont généralement dus à des problèmes de connexion aux ressources sur Internet.
 
-Pour vérifier qu’il s’agit bien de votre problème, vous pouvez effectuer les étapes suivantes :
+Pour vérifier la connectivité aux ressources sur Internet, vous pouvez effectuer les étapes suivantes :
 
-1. Ouvrez PowerShell
-2. Entrez -PSSession à la machine virtuelle WAS01 ou à l’une des machines virtuelles de contrôle ERC
-3. Exécutez l’applet de commande : Testez -NetConnection login.windows.net -port 443
+1. Ouvrez PowerShell.
+2. Entrez -PSSession sur la machine virtuelle WAS01 ou sur une des machines virtuelles ERC.
+3. Exécutez l’applet de commande suivante : 
+   ```powershell
+   Test-NetConnection login.windows.net -port 443
+   ```
 
 Si cette commande échoue, vérifiez que le commutateur TOR et tout autre périphérique réseau sont configurés pour [autoriser le trafic réseau](azure-stack-network.md).
 
@@ -122,18 +126,9 @@ Si cette commande échoue, vérifiez que le commutateur TOR et tout autre périp
 ### <a name="default-image-and-gallery-item"></a>Élément de la galerie et image par défaut
 Vous devez ajouter un élément de la galerie et une image Windows Server avant de pouvoir déployer des machines virtuelles dans Azure Stack.
 
-### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Après le redémarrage de l’hôte Azure Stack, certaines machines virtuelles ne démarrent pas automatiquement
-Vous remarquerez peut-être que les services Azure Stack ne sont pas immédiatement disponibles après le redémarrage de votre hôte.  Cela est dû au fait que la vérification de la cohérence des fournisseurs de ressources et des [machines virtuelles d’infrastructure](../asdk/asdk-architecture.md#virtual-machine-roles ) Azure Stack demande un certain temps. Toutefois, ils finissent par démarrer automatiquement.
 
-Vous remarquerez peut-être aussi que les machines virtuelles clientes ne démarrent pas automatiquement après le redémarrage de l’hôte du Kit de développement Azure Stack. Ce problème est connu ; quelques étapes manuelles suffisent pour les mettre en ligne :
-
-1.  Sur l’hôte du Kit de développement Azure Stack, démarrez **Gestionnaire du cluster de basculement** dans le menu Démarrer.
-2.  Sélectionnez le cluster **S-Cluster.azurestack.local**.
-3.  Sélectionnez **Rôles**.
-4.  Les machines virtuelles clientes apparaissent avec l’état *enregistré*. Lorsque toutes les machines virtuelles d’infrastructure sont en cours d’exécution, cliquez avec le bouton droit sur les machines virtuelles locataires, puis sélectionnez **Démarrer** pour les relancer.
-
-### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>J’ai supprimé des machines virtuelles, mais je vois toujours les fichiers de VHD sur le disque. Ce comportement est-il attendu ?
-Oui. Ce comportement est normal. Il a été conçu ainsi pour les raisons suivantes :
+### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk"></a>J’ai supprimé des machines virtuelles, mais je vois toujours les fichiers VHD sur le disque.
+Ce comportement est normal :
 
 * La suppression d’une machine virtuelle n’entraîne pas celle des VHD. Les disques sont des ressources distinctes dans le groupe de ressources.
 * Lorsqu’un compte de stockage est supprimé, la suppression est visible immédiatement sur Azure Resource Manager, mais les disques qu’il contient éventuellement restent conservés dans le stockage jusqu’à l’exécution du nettoyage de la mémoire.
@@ -145,4 +140,9 @@ Pour en savoir plus sur la configuration du seuil de rétention et de la récup�
 ## <a name="troubleshoot-storage"></a>Résoudre les problèmes de stockage
 ### <a name="storage-reclamation"></a>Récupération du stockage
 Il peut s’écouler jusqu’à 14 heures avant que la capacité récupérée ne s’affiche dans le portail. La récupération d’espace dépend de différents facteurs, notamment le pourcentage d’utilisation des fichiers conteneurs internes dans le magasin d’objets blob de blocs. Par conséquent, selon la quantité de données supprimées, il n’y a pas de garantie quant à la quantité d’espace récupérable lors de l’exécution du récupérateur de mémoire.
+
+## <a name="troubleshooting-app-service"></a>Résolution des problèmes d’App Service
+### <a name="create-aadidentityappps1-script-fails"></a>Le script Create-AADIdentityApp.ps1 échoue
+
+Si le script Create-AADIdentityApp.ps1 nécessaire pour App Service échoue, veillez à inclure le paramètre -AzureStackAdminCredential obligatoire lors de l’exécution du script. Pour plus d’informations, consultez [Prérequis pour le déploiement d’App Service sur Azure Stack](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app).
 

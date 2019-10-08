@@ -1,6 +1,6 @@
 ---
-title: Ajouter le moteur Azure Kubernetes Services (AKS) à la Place de marché Azure Stack | Microsoft Docs
-description: Découvrez comment ajouter le moteur AKS à la Place de marché Azure Stack.
+title: Ajouter les prérequis du moteur Azure Kubernetes Services (AKS) à la Place de marché Azure Stack | Microsoft Docs
+description: Découvrez comment ajouter les prérequis du moteur AKS à la Place de marché Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,18 +11,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2019
+ms.date: 09/25/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/18/2019
-ms.openlocfilehash: 948d2a00b021b701990b5d8e3192e053e1277a3e
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.lastreviewed: 09/25/2019
+ms.openlocfilehash: bcb9dab55d00c48e5b77e7184fae0567ff1f620e
+ms.sourcegitcommit: 5e53eb5d43d28ab07b4f84891dd269bbfcf65622
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71160253"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71311284"
 ---
-# <a name="add-the-azure-kubernetes-services-aks-engine-to-the-azure-stack-marketplace"></a>Ajouter le moteur Azure Kubernetes Services (AKS) à la Place de marché Azure Stack
+# <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Ajouter les prérequis du moteur Azure Kubernetes Services (AKS) à la Place de marché Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 

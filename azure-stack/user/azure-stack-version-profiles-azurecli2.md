@@ -3,23 +3,23 @@ title: Gérer Azure Stack avec l’interface CLI Azure | Microsoft Docs
 description: Découvrez comment utiliser l’interface de ligne de commande (CLI) multiplateforme pour gérer et déployer des ressources sur Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/16/2019
-ms.author: sethm
+ms.date: 10/02/2019
+ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 18644d3d331a5c093d0a78da435d6f79e03cb531
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.lastreviewed: 10/02/2019
+ms.openlocfilehash: a0218652e2dace72356a32fe99ac5f6ac450cc94
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974658"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824794"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Gérer et déployer des ressources sur Azure Stack avec l’interface CLI Azure
 
@@ -175,10 +175,10 @@ Pour approuver le certificat racine d’autorité de certification Azure Stack, 
     | Valeur | Exemples | Description |
     | --- | --- | --- |
     | Nom de l’environnement | AzureStackUser | Pour l’environnement utilisateur, utilisez `AzureStackUser`. Si vous êtes un opérateur, spécifiez `AzureStackAdmin`. |
-    | Point de terminaison Resource Manager | https://management.local.azurestack.external | La propriété **ResourceManagerUrl** dans l’ASDK est : `https://management.local.azurestack.external/` **ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<region>.<fqdn>/` Pour récupérer les métadonnées requises : `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Si vous avez une question sur le point de terminaison du système intégré, contactez votre opérateur cloud. |
+    | Point de terminaison Resource Manager | https://management.local.azurestack.external | La propriété **ResourceManagerUrl** dans l’ASDK est : `https://management.local.azurestack.external/` **ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<region>.<fqdn>/` Si vous avez une question sur le point de terminaison du système intégré, contactez votre opérateur cloud. |
     | Point de terminaison de stockage | local.azurestack.external | `local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
     | Suffixe du coffre de clés | .vault.local.azurestack.external | `.vault.local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
-    | Point de terminaison du document d’alias d’image de machine virtuelle- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI du document qui contient les alias d’images de machine virtuelle. Pour plus d’informations, consultez [Configurer le point de terminaison des alias de machines virtuelles](#set-up-the-virtual-machine-aliases-endpoint). |
+    | Point de terminaison du document d’alias d’image de machine virtuelle- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI du document, qui contient les alias d’images de machine virtuelle. Pour plus d’informations, consultez [Configurer le point de terminaison des alias de machines virtuelles](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
@@ -295,10 +295,10 @@ Si vous utilisez l’ASDK, vous devez approuver le certificat racine de l’auto
     | Valeur | Exemples | Description |
     | --- | --- | --- |
     | Nom de l’environnement | AzureStackUser | Pour l’environnement utilisateur, utilisez `AzureStackUser`. Si vous êtes un opérateur, spécifiez `AzureStackAdmin`. |
-    | Point de terminaison Resource Manager | https://management.local.azurestack.external | La propriété **ResourceManagerUrl** dans l’ASDK est : `https://management.local.azurestack.external/` **ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<region>.<fqdn>/` Pour récupérer les métadonnées requises : `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Si vous avez une question sur le point de terminaison du système intégré, contactez votre opérateur cloud. |
+    | Point de terminaison Resource Manager | https://management.local.azurestack.external | La propriété **ResourceManagerUrl** dans l’ASDK est : `https://management.local.azurestack.external/` **ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<region>.<fqdn>/` Si vous avez une question sur le point de terminaison du système intégré, contactez votre opérateur cloud. |
     | Point de terminaison de stockage | local.azurestack.external | `local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
     | Suffixe du coffre de clés | .vault.local.azurestack.external | `.vault.local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
-    | Point de terminaison du document d’alias d’image de machine virtuelle- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI du document qui contient les alias d’images de machine virtuelle. Pour plus d’informations, consultez [Configurer le point de terminaison des alias de machines virtuelles](#set-up-the-virtual-machine-aliases-endpoint). |
+    | Point de terminaison du document d’alias d’image de machine virtuelle- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI du document, qui contient les alias d’images de machine virtuelle. Pour plus d’informations, consultez [Configurer le point de terminaison des alias de machines virtuelles](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
@@ -411,10 +411,10 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
     | Valeur | Exemples | Description |
     | --- | --- | --- |
     | Nom de l’environnement | AzureStackUser | Pour l’environnement utilisateur, utilisez `AzureStackUser`. Si vous êtes un opérateur, spécifiez `AzureStackAdmin`. |
-    | Point de terminaison Resource Manager | https://management.local.azurestack.external | La propriété **ResourceManagerUrl** dans l’ASDK est : `https://management.local.azurestack.external/` **ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<region>.<fqdn>/` Pour récupérer les métadonnées requises : `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Si vous avez une question sur le point de terminaison du système intégré, contactez votre opérateur cloud. |
+    | Point de terminaison Resource Manager | https://management.local.azurestack.external | La propriété **ResourceManagerUrl** dans l’ASDK est : `https://management.local.azurestack.external/` **ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<region>.<fqdn>/` Si vous avez une question sur le point de terminaison du système intégré, contactez votre opérateur cloud. |
     | Point de terminaison de stockage | local.azurestack.external | `local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
     | Suffixe du coffre de clés | .vault.local.azurestack.external | `.vault.local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
-    | Point de terminaison du document d’alias d’image de machine virtuelle- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI du document qui contient les alias d’images de machine virtuelle. Pour plus d’informations, consultez [Configurer le point de terminaison des alias de machines virtuelles](#set-up-the-virtual-machine-aliases-endpoint). |
+    | Point de terminaison du document d’alias d’image de machine virtuelle- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI du document, qui contient les alias d’images de machine virtuelle. Pour plus d’informations, consultez [Configurer le point de terminaison des alias de machines virtuelles](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
@@ -522,10 +522,10 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
     | Valeur | Exemples | Description |
     | --- | --- | --- |
     | Nom de l’environnement | AzureStackUser | Pour l’environnement utilisateur, utilisez `AzureStackUser`. Si vous êtes un opérateur, spécifiez `AzureStackAdmin`. |
-    | Point de terminaison Resource Manager | https://management.local.azurestack.external | La propriété **ResourceManagerUrl** dans l’ASDK est : `https://management.local.azurestack.external/` **ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<region>.<fqdn>/` Pour récupérer les métadonnées requises : `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Si vous avez une question sur le point de terminaison du système intégré, contactez votre opérateur cloud. |
+    | Point de terminaison Resource Manager | https://management.local.azurestack.external | La propriété **ResourceManagerUrl** dans l’ASDK est : `https://management.local.azurestack.external/` **ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<region>.<fqdn>/` Si vous avez une question sur le point de terminaison du système intégré, contactez votre opérateur cloud. |
     | Point de terminaison de stockage | local.azurestack.external | `local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
     | Suffixe du coffre de clés | .vault.local.azurestack.external | `.vault.local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
-    | Point de terminaison du document d’alias d’image de machine virtuelle- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI du document qui contient les alias d’images de machine virtuelle. Pour plus d’informations, consultez [Configurer le point de terminaison des alias de machines virtuelles](#set-up-the-virtual-machine-aliases-endpoint). |
+    | Point de terminaison du document d’alias d’image de machine virtuelle- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI du document, qui contient les alias d’images de machine virtuelle. Pour plus d’informations, consultez [Configurer le point de terminaison des alias de machines virtuelles](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>

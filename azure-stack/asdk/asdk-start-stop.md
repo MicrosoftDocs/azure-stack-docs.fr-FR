@@ -16,12 +16,12 @@ ms.date: 07/18/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 5232b1087414d6e7149157063a253b18a6b6e13a
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: b33ae5ce88cf05fb73e2519f7f697fca90f7f8bc
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025811"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824751"
 ---
 # <a name="start-and-stop-the-asdk"></a>Démarrer et arrêter l’ASDK
 Il n’est pas recommandé de simplement redémarrer l’ordinateur hôte ASDK. Au lieu de cela, suivez les procédures décrites dans cet article pour arrêter et redémarrer correctement les services ASDK.
@@ -66,7 +66,7 @@ Indépendamment de la manière dont les services ASDK ont été arrêtés, vous 
 Pour en savoir plus sur les procédures recommandées d’arrêt et de redémarrage des services Azure Stack, consultez la section [Démarrer et arrêter Azure Stack](../operator/azure-stack-start-and-stop.md).
 
 ## <a name="troubleshoot-startup-and-shutdown"></a>Résoudre les problèmes de démarrage et d’arrêt 
-Exécutez ces étapes si les services Azure Stack ne démarrent pas correctement dans les 2 heures suivant la mise sous tension de votre ordinateur hôte ASDK :
+Suivez ces étapes si les services Azure Stack ne démarrent pas correctement dans les 2 heures suivant la mise sous tension de votre ordinateur hôte ASDK :
 
 1. Connectez-vous en tant qu’AzureStack\AzureStackAdmin sur l’ordinateur hôte du kit ASDK.
 2. Ouvrez PowerShell en tant qu’administrateur (et non PowerShell ISE).
@@ -90,4 +90,4 @@ Exécutez ces étapes si les services Azure Stack ne démarrent pas correctement
 Si l’exécution de l’applet **Start-AzureStack** provoque une défaillance, consultez le [forum du support Azure Stack](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack) afin de bénéficier de recommandations sur la résolution des problèmes liés à votre instance ASDK. 
 
 ## <a name="next-steps"></a>Étapes suivantes 
-Pour plus d’informations sur les outils de diagnostic Azure Stack et sur la journalisation des problèmes, consultez l’article [Outils de diagnostic Azure Stack](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep).
+Pour plus d’informations sur les outils de diagnostic Azure Stack et sur la journalisation des problèmes, consultez l’article [Outils de diagnostic Azure Stack](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).

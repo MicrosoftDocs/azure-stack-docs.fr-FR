@@ -16,12 +16,12 @@ ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d054f4ad45f27994c7ef6fc5e52f07eb1fa7f761
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: eca886314388f404e7a26a22f7a3b03294ff0577
+ms.sourcegitcommit: 5e53eb5d43d28ab07b4f84891dd269bbfcf65622
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974630"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71311308"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>Meilleures pratiques SQL Server pour optimiser les performances dans Azure Stack
 
@@ -98,12 +98,12 @@ Nous vous recommandons de stocker TempDB sur un disque de données, car chaque d
 
 ### <a name="data-disks"></a>Disques de données
 
-- **Utilisation de disques de données pour les fichiers journaux et de données.** Si vous n’utilisez pas l’entrelacement de disques, utilisez deux disques de données à partir d’une machine virtuelle qui prend en charge le stockage Premium, l’un pour contenir les fichiers journaux et l’autre pour contenir les fichiers TempDB et de données. Chaque disque de données fournit un nombre d’IOPS et une bande passante (Mo/s) en fonction de la famille de la machine virtuelle, comme décrit dans [Tailles de machine virtuelle prises en charge dans Azure Stack](azure-stack-vm-sizes.md). Si vous utilisez une technique d’entrelacement de disques, comme des espaces de stockage, placez tous les fichiers journaux et de données sur le même disque (y compris TempDB). Cette configuration vous donne le nombre maximal d’IOPS utilisables par SQL Server, quel que soit le fichier qui en a besoin à un moment donné.
+- **Utilisation de disques de données pour les fichiers journaux et de données.** Si vous n’utilisez pas l’entrelacement de disques, utilisez deux disques de données à partir d’une machine virtuelle qui prend en charge le stockage Premium, l’un pour contenir les fichiers journaux et l’autre pour contenir les fichiers TempDB et de données. Chaque disque de données fournit un nombre d’IOPS (E/S par seconde) en fonction de la famille de la machine virtuelle, comme décrit dans [Tailles de machine virtuelle prises en charge dans Azure Stack](azure-stack-vm-sizes.md). Si vous utilisez une technique d’entrelacement de disques, comme des espaces de stockage, placez tous les fichiers journaux et de données sur le même disque (y compris TempDB). Cette configuration vous donne le nombre maximal d’IOPS utilisables par SQL Server, quel que soit le fichier qui en a besoin à un moment donné.
 
 > [!NOTE]  
 > Lorsque vous configurez une machine virtuelle SQL Server dans le portail, vous avez la possibilité de modifier votre configuration de stockage. Selon votre configuration, Azure Stack configure un ou plusieurs disques. Plusieurs disques sont combinés en un pool de stockage unique. Les fichiers journaux et de données se trouvent dans cette configuration.
 
-- **Entrelacement de disques :** Pour augmenter le débit, vous pouvez ajouter des disques de données et utiliser l’entrelacement de disques. Pour déterminer le nombre de disques de données, vous devez analyser le nombre d’IOPS et la bande passante nécessaires pour vos fichiers journaux, ainsi que pour vos fichiers de données et TempDB. Notez que les limites d’IOPS sont exprimées par disque de données, en fonction de la famille de série de la machine virtuelle et non de la taille de la machine virtuelle. Toutefois, les limites de bande passante réseau sont basées sur la taille de la machine virtuelle. Consultez les tableaux sur les [tailles de machine virtuelle dans Azure Stack](azure-stack-vm-sizes.md) pour plus de détails. Respectez les recommandations suivantes :
+- **Entrelacement de disques :** Pour augmenter le débit, vous pouvez ajouter des disques de données et utiliser l’entrelacement de disques. Pour déterminer le nombre de disques de données dont vous avez besoin, analysez le nombre d’IOPS nécessaires pour vos fichiers journaux, ainsi que pour vos fichiers de données et TempDB. Notez que les limites d’IOPS sont exprimées par disque de données, en fonction de la famille de série de la machine virtuelle et non de la taille de la machine virtuelle. Toutefois, les limites de bande passante réseau sont basées sur la taille de la machine virtuelle. Consultez les tableaux sur les [tailles de machine virtuelle dans Azure Stack](azure-stack-vm-sizes.md) pour plus de détails. Respectez les recommandations suivantes :
 
   - Pour Windows Server 2012 ou version ultérieure, utilisez des [espaces de stockage](https://technet.microsoft.com/library/hh831739.aspx) en respectant les consignes suivantes :
 

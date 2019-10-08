@@ -1,6 +1,6 @@
 ---
-title: Créer une connexion VPN de site à site entre deux réseaux virtuels dans des environnements différents du Kit de développement Azure Stack | Microsoft Docs
-description: Procédure pas à pas à suivre par un administrateur de cloud souhaitant créer une connexion VPN de site à site entre deux environnements du Kit de développement Azure Stack à nœud unique.
+title: Créer une connexion VPN de site à site entre deux réseaux virtuels dans des environnements ASDK différents | Microsoft Docs
+description: Tutoriel pour les opérateurs cloud qui doivent créer une connexion VPN de site à site entre deux environnements ASDK à nœud unique.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -17,14 +17,14 @@ ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: f34ed3459ad8346860872a4b63a25e214501a2dd
-ms.sourcegitcommit: 4139b507d6da98a086929da48e3b4661b70bc4f3
+ms.openlocfilehash: 2ae267d470d9862e262f26ea11d2ba4b07bfb299
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68299465"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342914"
 ---
-# <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Créer une connexion VPN de site à site entre deux réseaux virtuels dans des environnements différents du Kit de développement Azure Stack
+# <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>Créer une connexion VPN de site à site entre deux réseaux virtuels dans des environnements ASDK différents
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -41,7 +41,7 @@ La figure ci-après illustre ce à quoi la configuration d’une connexion doit 
 Avant de commencer la configuration de la connexion, vérifiez que vous disposez des éléments suivants :
 
 * Deux serveurs et d’autres prérequis conformes aux exigences matérielles ASDK, comme décrit dans [Démarrage rapide : Évaluer le Kit de développement Azure Stack](../asdk/asdk-download.md).
-* Le package de déploiement du [Kit de développement Azure Stack](https://azure.microsoft.com/overview/azure-stack/try/).
+* Le package de déploiement [ASDK](https://azure.microsoft.com/overview/azure-stack/try/).
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>Déployer les environnements du Kit de développement Azure Stack
 
@@ -52,11 +52,11 @@ Pour configurer la connexion, vous devez déployer deux environnements ASDK.
 
 ## <a name="prepare-an-offer-on-poc1-and-poc2"></a>Préparer une offre sur POC1 et POC2
 
-Sur POC1 et POC2, préparez une offre à laquelle les utilisateurs peuvent s’abonner pour déployer les machines virtuelles. Pour plus d’informations sur la création d’une offre, consultez [Mettre des machines virtuelles à la disposition de vos utilisateurs Azure Stack](azure-stack-tutorial-tenant-vm.md).
+Sur POC1 et POC2, préparez une offre pour qu’un utilisateur puisse s’y abonner et déployer les machines virtuelles. Pour plus d’informations sur la création d’une offre, consultez [Rendre des machines virtuelles disponibles pour vos utilisateurs Azure Stack](azure-stack-tutorial-tenant-vm.md).
 
 ## <a name="review-and-complete-the-network-configuration-table"></a>Vérifier et compléter la table de configuration réseau
 
-La table ci-après récapitule la configuration réseau des deux environnements ASDK. Suivez la procédure décrite sous la table pour ajouter l’adresse BGPNAT externe qui est propre à votre réseau.
+La table ci-après récapitule la configuration réseau des deux environnements ASDK. Suivez la procédure décrite après le tableau pour ajouter l’adresse BGPNAT externe qui est spécifique à votre réseau.
 
 ### <a name="network-configuration-table"></a>Table de configuration réseau
 
@@ -75,7 +75,7 @@ La table ci-après récapitule la configuration réseau des deux environnements 
 ### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>Obtenir l’adresse IP de la carte externe de la machine virtuelle NAT
 
 1. Connectez-vous à la machine physique Azure Stack pour POC1.
-2. Modifiez le code PowerShell ci-dessous pour ajouter votre mot de passe d’administrateur, puis exécutez le code sur l’hôte POC :
+2. Modifiez le code PowerShell ci-dessous en y ajoutant votre mot de passe administrateur, puis exécutez le code sur l’hôte POC :
 
    ```powershell
    cd \AzureStack-Tools-master\connect
@@ -113,7 +113,7 @@ Un administrateur de services fédérés peut se connecter en tant que locataire
 7. Pour le champ **Groupe de ressources**, créez un groupe de ressources ou, si vous en avez déjà un, sélectionnez **Utiliser l’existant**.
 8. Vérifiez l’emplacement par défaut.
 9. Sélectionnez **Épingler au tableau de bord**.
-10. Sélectionnez **Créer**.
+10. Sélectionnez **Create** (Créer).
 
 ### <a name="create-the-gateway-subnet"></a>Créer le sous-réseau de passerelle
 
@@ -137,15 +137,15 @@ Un administrateur de services fédérés peut se connecter en tant que locataire
 6. Sélectionnez l’élément de menu **Adresse IP publique**. Quand la fenêtre **Choisir une adresse IP publique** s’affiche, sélectionnez **Créer**.
 7. Dans le champ **Nom**, entrez **GW1-PiP**, puis sélectionnez **OK**.
 8. Dans le champ **Type de VPN**, l’élément **Basé sur itinéraires** est sélectionné par défaut. Conservez le type de VPN **Basé sur itinéraires**.
-9. Vérifiez que l’**abonnement** et l’**emplacement** sont corrects. Vous pouvez épingler la ressource au tableau de bord. Sélectionnez **Créer**.
+9. Vérifiez que l’**abonnement** et l’**emplacement** sont corrects. Vous pouvez épingler la ressource au tableau de bord. Sélectionnez **Create** (Créer).
 
 ### <a name="create-the-local-network-gateway"></a>Créer la passerelle de réseau local
 
 L’implémentation d’une *passerelle de réseau local* dans ce déploiement d’évaluation d’Azure Stack est un peu différente dans un déploiement Azure réel.
 
-Dans un déploiement Azure, une passerelle de réseau local représente un appareil physique local (sur le locataire), que vous utilisez pour vous connecter à une passerelle de réseau virtuel dans Azure. Dans ce déploiement d’évaluation d’Azure Stack, les deux extrémités de la connexion sont des passerelles de réseau virtuel.
+Dans un déploiement Azure, une passerelle de réseau local représente un appareil physique local (au locataire), que vous utilisez pour vous connecter à une passerelle de réseau virtuel dans Azure. Dans ce déploiement d’évaluation d’Azure Stack, les deux extrémités de la connexion sont des passerelles de réseau virtuel.
 
-De façon plus générale, la ressource de passerelle de réseau local représente toujours la passerelle distante située à l’autre extrémité de la connexion. Du fait de la conception même du Kit de développement Azure Stack, vous devez spécifier l’adresse IP de la carte réseau externe sur la machine virtuelle NAT de l’autre ASDK comme adresse IP publique de la passerelle de réseau local. Vous devez ensuite créer les mappages NAT appropriés sur la machine virtuelle NAT pour connecter correctement les deux extrémités.
+De façon plus générale, la ressource de passerelle de réseau local représente toujours la passerelle distante située à l’autre extrémité de la connexion. Du fait de la conception même du Kit de développement Azure Stack (ASDK), vous devez spécifier l’adresse IP de la carte réseau externe sur la machine virtuelle NAT de l’autre ASDK comme adresse IP publique de la passerelle de réseau local. Vous devez ensuite créer les mappages NAT appropriés sur la machine virtuelle NAT pour connecter correctement les deux extrémités.
 
 ### <a name="create-the-local-network-gateway-resource"></a>Créer la ressource de passerelle de réseau local
 
@@ -171,17 +171,17 @@ De façon plus générale, la ressource de passerelle de réseau local représen
 9. Dans **Clé partagée (PSK)** , entrez **12345**, puis sélectionnez **OK**.
 10. Dans le panneau **Résumé**, sélectionnez **OK**.
 
-### <a name="create-a-vm"></a>Créer une machine virtuelle
+### <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
-Pour vous assurer que les données transitent bien par la connexion VPN, vous devez vérifier que les machines virtuelles envoient et reçoivent les données dans chaque Kit de développement Azure Stack. Créez d’abord une machine virtuelle dans POC1, puis ajoutez-la au sous-réseau de machine virtuelle dans votre réseau virtuel :
+Pour valider les données transitant via la connexion VPN, les machines virtuelles doivent envoyer et recevoir les données dans chaque ASDK. Créez maintenant une machine virtuelle dans POC1 puis, dans votre réseau virtuel, placez-la sur votre sous-réseau de machine virtuelle :
 
 1. Dans le Portail Azure, sélectionnez **+ Créer une ressource**.
 2. Accédez à la **Place de marché**, puis sélectionnez **Compute**.
-3. Dans la liste des images de machine virtuelle, sélectionnez l’image **Windows Server 2016 Datacenter Evals**.
+3. Dans la liste des images de machine virtuelle, sélectionnez l’image **Windows Server 2016 Datacenter Eval**.
 4. Dans le panneau **Bases**, dans **Nom**, entrez **VM01**.
 5. Entrez un nom d’utilisateur et un mot de passe valides. Vous utiliserez ce compte plus tard pour vous connecter à la machine virtuelle que vous créez actuellement.
 6. Renseignez les champs **Abonnement**, **Groupe de ressources** et **Emplacement**, puis sélectionnez **OK**.
-7. Dans le panneau **Taille**, sélectionnez une taille de machine virtuelle pour cette instance, puis sélectionnez **Sélectionner**.
+7. Dans le volet **Taille**, sélectionnez une taille de machine virtuelle pour cette instance, puis choisissez **Sélectionner**.
 8. Dans le panneau **Paramètres**, acceptez les valeurs par défaut. Vérifiez que le réseau virtuel **VNET-01** est sélectionné. Vérifiez que le sous-réseau est défini sur **10.0.10.0/24**. Sélectionnez ensuite **OK**.
 9. Dans le panneau **Résumé**, vérifiez les paramètres, puis sélectionnez **OK**.
 
@@ -204,7 +204,7 @@ Un administrateur de services fédérés peut se connecter en tant que locataire
 7. Pour le champ **Groupe de ressources**, créez un groupe de ressources ou, si vous en avez déjà un, sélectionnez **Utiliser l’existant**.
 8. Vérifiez l’**emplacement** par défaut.
 9. Sélectionnez **Épingler au tableau de bord**.
-10. Sélectionnez **Créer**.
+10. Sélectionnez **Create** (Créer).
 
 ### <a name="create-gateway-subnet"></a>Créer le sous-réseau de passerelle
 
@@ -224,8 +224,8 @@ Un administrateur de services fédérés peut se connecter en tant que locataire
 5. Pour choisir un réseau virtuel, sélectionnez **Réseau virtuel**. Sélectionnez ensuite **VNET-02** dans la liste.
 6. Sélectionnez **Adresse IP publique**. Quand le panneau **Choisir une adresse IP publique** s’affiche, sélectionnez **Créer**.
 7. Dans le champ **Nom**, entrez **GW2-PiP**, puis sélectionnez **OK**.
-8. Dans le champ **Type de VPN**, l’élément **Basé sur itinéraires** est sélectionné par défaut. Conservez le type de VPN **Basé sur itinéraires**.
-9. Vérifiez que l’**abonnement** et l’**emplacement** sont corrects. Vous pouvez épingler la ressource au tableau de bord. Sélectionnez **Créer**.
+8. L’élément **Basé sur itinéraires** est sélectionné par défaut dans le champ **Type de VPN**. Conservez le type de VPN **Basé sur itinéraires**.
+9. Vérifiez que l’**abonnement** et l’**emplacement** sont corrects. Vous pouvez épingler la ressource au tableau de bord. Sélectionnez **Create** (Créer).
 
 ### <a name="create-local-network-gateway-resource"></a>Créer une ressource de passerelle de réseau local
 
@@ -233,7 +233,7 @@ Un administrateur de services fédérés peut se connecter en tant que locataire
 2. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 3. Dans la liste des ressources, sélectionnez **Passerelle de réseau local**.
 4. Dans le champ **Nom**, entrez **POC1-GW**.
-5. Dans **Adresse IP**, entrez l’adresse BGPNAT externe pour POC1, qui est indiquée précédemment dans la table de configuration réseau.
+5. Dans **Adresse IP**, entrez l’adresse BGPNAT externe pour POC1, qui était indiquée précédemment dans le tableau de configuration réseau.
 6. Dans **Espace d’adressage**, à partir de POC1, entrez l’espace d’adressage **10.0.10.0/23** du réseau virtuel **VNET-01**.
 7. Vérifiez l’exactitude des valeurs des champs **Abonnement**, **Groupe de ressources** et **Emplacement**, puis sélectionnez **Créer**.
 
@@ -252,40 +252,40 @@ Un administrateur de services fédérés peut se connecter en tant que locataire
 
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
-Créez maintenant une machine virtuelle dans POC2, puis ajoutez-la au sous-réseau de machine virtuelle dans votre réseau virtuel :
+À présent, créez une machine virtuelle dans POC2, puis ajoutez-la au sous-réseau de machine virtuelle dans votre réseau virtuel :
 
 1. Dans le Portail Azure, sélectionnez **+ Créer une ressource**.
 2. Accédez à la **Place de marché**, puis sélectionnez **Compute**.
-3. Dans la liste des images de machine virtuelle, sélectionnez l’image **Windows Server 2016 Datacenter Evals**.
+3. Dans la liste des images de machine virtuelle, sélectionnez l’image **Windows Server 2016 Datacenter Eval**.
 4. Dans le panneau **De base**, dans **Nom**, entrez **VM02**.
 5. Entrez un nom d’utilisateur et un mot de passe valides. Vous utiliserez ce compte plus tard pour vous connecter à la machine virtuelle que vous créez actuellement.
 6. Renseignez les champs **Abonnement**, **Groupe de ressources** et **Emplacement**, puis sélectionnez **OK**.
-7. Dans le panneau **Taille**, sélectionnez une taille de machine virtuelle pour cette instance, puis sélectionnez **Sélectionner**.
+7. Dans le volet **Taille**, sélectionnez une taille de machine virtuelle pour cette instance, puis choisissez **Sélectionner**.
 8. Dans le panneau **Paramètres**, acceptez les valeurs par défaut. Vérifiez que le réseau virtuel **VNET-02** est sélectionné et que le sous-réseau est défini sur **10.0.20.0/24**. Sélectionnez **OK**.
 9. Dans le panneau **Résumé**, vérifiez les paramètres, puis sélectionnez **OK**.
 
-## <a name="configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal"></a>Configurer la machine virtuelle NAT sur chaque Kit de développement Azure Stack pour la traversée de passerelle
+## <a name="configure-the-nat-vm-on-each-asdk-for-gateway-traversal"></a>Configurer la machine virtuelle NAT sur chaque ASDK pour la traversée de passerelle
 
-Étant donné que l’ASDK a été conçu pour être autonome et isolé du réseau sur lequel l’hôte physique est déployé, le réseau VIP *externe* auquel les passerelles sont connectées n’est pas réellement externe. En fait, le réseau VIP est masqué derrière un routeur qui effectue la traduction d’adresses réseau (NAT).
+Comme le kit ASDK a été conçu pour être autonome et isolé du réseau sur lequel l’hôte physique est déployé, le réseau VIP *externe* auquel les passerelles sont connectées n’est pas réellement externe. En fait, le réseau VIP est masqué derrière un routeur qui effectue la traduction d’adresses réseau (NAT).
 
-Le routeur est une machine virtuelle Windows Server, appelée **AzS-bgpnat01**, qui a le rôle RRAS (Routing and Remote Access Services) dans l’infrastructure de l’ASDK. Vous devez configurer NAT sur la machine virtuelle AzS-bgpnat01 pour permettre à la connexion VPN de site à site de se connecter aux deux extrémités.
+Le routeur est une machine virtuelle Windows Server, appelée **AzS-bgpnat01**, qui a le rôle RRAS (Routing and Remote Access Services) dans l’infrastructure du kit ASDK. Vous devez configurer la traduction d’adresses réseau (NAT) sur la machine virtuelle AzS-bgpnat01 pour permettre à la connexion VPN de site à site de se connecter aux deux extrémités.
 
-Pour configurer la connexion VPN, créez un routage de mappage NAT statique qui mappe l’interface externe sur la machine virtuelle BGPNAT à l’adresse IP virtuelle du pool de passerelles Edge. Un routage de mappage NAT statique est nécessaire pour chaque port utilisé dans une connexion VPN.
+Pour configurer la connexion VPN, vous devez créer une route de mappage NAT statique qui mappe l’interface externe sur la machine virtuelle BGPNAT à l’adresse IP virtuelle du pool de passerelles de périphérie. Un routage de mappage NAT statique est nécessaire pour chaque port utilisé dans une connexion VPN.
 
 > [!NOTE]
-> Cette configuration est requise uniquement pour les environnements du Kit de développement Azure Stack.
+> Cette configuration est nécessaire seulement pour les environnements ASDK.
 
 ### <a name="configure-the-nat"></a>Configurer NAT
 
 > [!IMPORTANT]
 > Vous devez effectuer cette procédure pour les deux environnements de l’ASDK.
 
-1. Déterminez quelle **adresse IP interne** utiliser dans le script PowerShell suivant. Ouvrez la passerelle de réseau virtuel (GW1 et GW2) et, dans le panneau **Vue d’ensemble**, enregistrez la valeur du champ **Adresse IP publique** pour l’utiliser plus tard.
+1. Déterminez quelle **adresse IP interne** utiliser dans le script PowerShell suivant. Ouvrez la passerelle de réseau virtuel (GW1 et GW2). Dans le panneau **Vue d’ensemble**, enregistrez la valeur de l’**adresse IP publique** pour une utilisation ultérieure.
 
    ![Adresse IP interne](media/azure-stack-create-vpn-connection-one-node-tp2/InternalIP.PNG)
 
 2. Connectez-vous à la machine physique Azure Stack pour POC1.
-3. Copiez et modifiez le script PowerShell suivant. Pour configurer NAT sur chaque Kit de développement Azure Stack, exécutez le script dans une fenêtre Windows PowerShell ISE avec des privilèges élevés. Dans le script, ajoutez les valeurs aux espaces réservés `External BGPNAT address` et `Internal IP address` :
+3. Copiez et modifiez le script PowerShell suivant. Pour configurer la traduction d’adresses réseau sur chaque ASDK, exécutez le script dans une fenêtre Windows PowerShell ISE avec des privilèges élevés. Dans le script, ajoutez les valeurs aux espaces réservés `External BGPNAT address` et `Internal IP address` :
 
    ```powershell
    # Designate the external NAT address for the ports that use the IKE authentication.
@@ -331,9 +331,9 @@ Pour configurer la connexion VPN, créez un routage de mappage NAT statique qui 
 
 ## <a name="test-the-connection"></a>Tester la connexion
 
-Vous avez établi la connexion de site à site. Vous devez maintenant vérifier que le trafic transite bien par cette connexion. Pour valider, connectez-vous à l’une des machines virtuelles que vous avez créées dans un des environnements de l’ASDK. Ensuite, effectuez un test ping sur la machine virtuelle que vous avez créée dans l’autre environnement.
+Vous avez établi la connexion de site à site. Vous devez maintenant vérifier que le trafic transite bien par cette connexion. Pour valider, connectez-vous à une des machines virtuelles que vous avez créées dans un des environnements ASDK. Ensuite, effectuez un test ping sur la machine virtuelle que vous avez créée dans l’autre environnement.
 
-Pour vérifier que le trafic envoyé passe par la connexion de site à site, vous devez effectuer le test ping sur l’adresse IP directe (DIP) de la machine virtuelle du sous-réseau distant, et non sur l’adresse IP virtuelle. Pour cela, recherchez l’adresse DIP à l’autre extrémité de la connexion. Enregistrez l’adresse pour l’utiliser plus tard.
+Pour vérifier que le trafic envoyé passe par la connexion de site à site, vous devez effectuer le test ping sur l’adresse IP directe (DIP) de la machine virtuelle sur le sous-réseau distant, et non pas sur l’adresse IP virtuelle. Pour cela, recherchez l’adresse DIP à l’autre extrémité de la connexion. Enregistrez l’adresse pour l’utiliser plus tard.
 
 ### <a name="sign-in-to-the-tenant-vm-in-poc1"></a>Se connecter à la machine virtuelle locataire dans POC1
 
@@ -360,7 +360,7 @@ Pour vérifier que le trafic envoyé passe par la connexion de site à site, vou
 
 1. Connectez-vous à la machine physique Azure Stack pour POC2, puis connectez-vous au portail utilisateur à l’aide d’un compte de locataire.
 2. Dans la barre de navigation de gauche, cliquez sur **Compute**.
-3. Dans la liste des machines virtuelles, recherchez la machine virtuelle **VM02** que vous avez créée précédemment et sélectionnez-la.
+3. Dans la liste des machines virtuelles, recherchez la machine virtuelle **VM02** que vous avez créée précédemment, puis sélectionnez-la.
 4. Dans le panneau de la machine virtuelle, cliquez sur **Se connecter**.
 5. Connectez-vous avec le compte que vous avez configuré pendant la création de la machine virtuelle.
 6. Ouvrez une fenêtre **Windows PowerShell** avec des privilèges élevés.
@@ -374,16 +374,16 @@ Pour vérifier que le trafic envoyé passe par la connexion de site à site, vou
     -Protocol ICMPv4
    ```
 
-10. À partir de la machine virtuelle dans POC2, effectuez un test ping sur la machine virtuelle dans POC1, par le biais du tunneling. Pour cela, effectuez un test ping sur l’adresse IP directe (DIP) que vous avez enregistrée à partir de VM01. Dans l’exemple d’environnement, l’adresse est **10.0.10.4**, mais vous devez effectuer le test ping sur l’adresse que vous avez notée dans votre lab. Vous devez obtenir un résultat similaire à l’exemple suivant :
+10. À partir de la machine virtuelle sur POC2, effectuez un test ping sur la machine virtuelle sur POC1 via le tunnel. Pour cela, effectuez un test ping sur l’adresse IP directe (DIP) que vous avez enregistrée à partir de VM01. Dans l’exemple d’environnement, l’adresse est **10.0.10.4**, mais vous devez effectuer le test ping sur l’adresse que vous avez notée dans votre lab. Vous devez obtenir un résultat similaire à l’exemple suivant :
 
     ![Test ping réussi](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
-11. La réception d’une réponse de la machine virtuelle distante indique que le test a réussi. Vous pouvez fermer la fenêtre de la machine virtuelle. Pour tester votre connexion, vous pouvez essayer d’autres types de transferts de données, par exemple une copie de fichier.
+11. Une réponse de la machine virtuelle distante indique que le test a réussi. Vous pouvez fermer la fenêtre de la machine virtuelle. Pour tester votre connexion, vous pouvez essayer d’autres types de transferts de données, par exemple une copie de fichier.
 
 ### <a name="viewing-data-transfer-statistics-through-the-gateway-connection"></a>Affichage des statistiques de transfert de données via la connexion de passerelle
 
 Si vous souhaitez connaître la quantité de données qui transite par votre connexion de site à site, consultez cette information dans le panneau **Connexion**. Ce test est également un autre moyen de vérifier que la commande ping que vous venez d’envoyer est bien passée par la connexion VPN.
 
-1. Quand vous êtes connecté à la machine virtuelle locataire dans POC2, utilisez votre compte de locataire pour vous connecter au portail utilisateur.
+1. Quand vous êtes connecté à la machine virtuelle du locataire dans POC2, utilisez votre compte de locataire pour vous connecter au portail utilisateur.
 2. Accédez à **Toutes les ressources**, puis sélectionnez la connexion **POC2-POC1**. Le panneau **Connexion** s’affiche.
 3. La fenêtre **Connexion** affiche les statistiques **Données entrantes** et **Données sortantes**. Dans la capture d’écran suivante, les valeurs élevées sont dues au transfert de fichiers supplémentaires. Normalement, vous ne devez pas voir de valeurs nulles ici.
 

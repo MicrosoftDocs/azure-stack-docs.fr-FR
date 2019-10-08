@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 957ea4bc52e6f629ffd7fbd06a14d8dc2fb85021
-ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
+ms.lastreviewed: 09/27/2019
+ms.openlocfilehash: 0cccd93ca24f2e93717bfbbd6ec05137d91f5bd0
+ms.sourcegitcommit: 036d4b22a8076ca9ba5c667a451c544d88f8bb94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71279176"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71681817"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack
 
@@ -60,9 +60,23 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
     aks-engine get-versions
     ```
 
-4.  Recherchez `portalURL` et fournissez l’URL du portail du locataire. Par exemple : `https://portal.local.azurestack.external`.
+4.  Recherchez `customCloudProfile` et fournissez l’URL du portail du locataire. Par exemple : `https://portal.local.azurestack.external`. 
 
-5.  Dans le tableau `masterProfile`, définissez les champs suivants :
+5. Ajoutez `"identitySystem":"adfs"` si vous utilisez AD FS. Par exemple,
+
+    ```JSON  
+        "customCloudProfile": {
+            "portalURL": "https://portal.local.azurestack.external",
+            "identitySystem": "adfs"
+        },
+    ```
+
+    > [!Note]  
+    > Si vous utilisez Azure AD pour votre système d’identité, vous n’avez pas besoin d’ajouter le champ **identitySystem**.
+
+6. Recherchez `portalURL` et fournissez l’URL du portail du locataire. Par exemple : `https://portal.local.azurestack.external`.
+
+7.  Dans le tableau `masterProfile`, définissez les champs suivants :
 
     | Champ | Description |
     | --- | --- |
@@ -71,7 +85,7 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
     | vmSize |  Entrez [une taille prise en charge par Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), par exemple `Standard_D2_v2`. |
     | distro | Entrez `aks-ubuntu-16.04`. |
 
-6.  Dans le tableau `agentPoolProfiles`, mettez à jour :
+8.  Dans le tableau `agentPoolProfiles`, mettez à jour :
 
     | Champ | Description |
     | --- | --- |
@@ -79,7 +93,7 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
     | vmSize | Entrez [une taille prise en charge par Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), par exemple `Standard_D2_v2`. |
     | distro | Entrez `aks-ubuntu-16.04`. |
 
-7.  Dans le tableau `linuxProfile`, mettez à jour :
+9.  Dans le tableau `linuxProfile`, mettez à jour :
 
     | Champ | Description |
     | --- | --- |

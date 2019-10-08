@@ -1,6 +1,6 @@
 ---
 title: Inscrire des locataires pour un suivi de l’utilisation dans Azure Stack | Microsoft Docs
-description: Informations sur les opérations de gestion des inscriptions des locataires et sur le suivi de l’utilisation des locataires dans Azure Stack.
+description: Découvrez comment inscrire des locataires et comment l’utilisation des locataires est suivie dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 619bfc89e5def3406d719abfb589193c76c3db6b
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: a9e0dd05195d7ece62689aa8b5971cf72a6e3713
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070085"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342824"
 ---
-# <a name="manage-tenant-registration-in-azure-stack"></a>Gérer l’inscription des locataires dans Azure Stack
+# <a name="register-tenants-for-usage-tracking-in-azure-stack"></a>Inscrire des locataires pour un suivi de l’utilisation dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack*
 
@@ -45,12 +45,12 @@ Les applets de commande d’inscription suivantes nécessitent la spécification
 
 Pour plus d’informations sur Azure Stack et les profils d’API, consultez [Gérer les profils de version des API dans Azure Stack](../user/azure-stack-version-profiles.md).
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
 | Paramètre                  | Description |
 |---                         | --- |
 | registrationSubscriptionID | L’abonnement Azure qui était utilisé au moment de l’inscription. |
-| customerSubscriptionID     | L’abonnement Azure (pas Azure Stack) appartenant au client à inscrire. Il doit être créé dans l’offre du fournisseur de services cloud (CSP) via l’Espace partenaires. Si un client dispose de plusieurs locataires, créez un abonnement pour le locataire utilisé pour se connecter à Azure Stack. |
+| customerSubscriptionID     | L’abonnement Azure (pas Azure Stack) appartenant au client à inscrire. Il doit être créé dans l’offre du fournisseur de solution cloud via l’Espace partenaires. Si un client a plusieurs locataires, créez un abonnement pour le locataire pour vous connecter à Azure Stack. |
 | resourceGroup              | Le groupe de ressources Azure dans lequel est stockée votre inscription. |
 | registrationName           | Le nom de l’inscription de votre compte Azure Stack. Il s’agit d’un objet stocké dans Azure. Le nom prend en général la forme **azurestack-CloudID**, où **CloudID** est l’ID du cloud de votre déploiement Azure Stack. |
 
@@ -130,7 +130,7 @@ api-version=2017-06-01 HTTP/1.1`
 
 Vous pouvez supprimer un locataire qui a été ajouté à une inscription. Si ce locataire utilise toujours les ressources sur Azure Stack, son utilisation est facturée sur l’abonnement utilisé lors de l’inscription Azure Stack initiale.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
 | Paramètre                  | Description          |
 |---                         | ---                  |
