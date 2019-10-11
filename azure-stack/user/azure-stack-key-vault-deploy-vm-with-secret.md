@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 11411dbf0f09e68ab122fea87f514495a9e7a6b4
-ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
+ms.openlocfilehash: 2a75ee1794e9ebfeb995ea03137d12c6c50cce4f
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71224979"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909504"
 ---
 # <a name="deploy-an-azure-stack-vm-using-a-password-stored-in-key-vault"></a>Déployer une machine virtuelle Azure Stack en utilisant un mot de passe stocké dans Key Vault
 

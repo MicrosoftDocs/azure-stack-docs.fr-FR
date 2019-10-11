@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: de9051ceee89244182c1d6d9d5724fa80a594ae6
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: 8646e9d1936c865482368d176194c095c9dd0483
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094386"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909414"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Modèles de connexion des systèmes intégrés Azure Stack
 Si vous envisagez d’acheter un système intégré Azure Stack, vous devez prendre en considération [plusieurs points relatifs à l’intégration à un centre de données](azure-stack-datacenter-integration.md) pour le déploiement Azure Stack, afin de déterminer de quelle façon le système sera intégré à votre centre de données. En outre, vous devez définir comment vous allez intégrer Azure Stack à votre environnement cloud hybride. Cet article fournit une vue d’ensemble de ces décisions, y compris celles relatives aux modèles de connexion Azure, aux options du magasin d’identités et aux options du modèle de facturation.

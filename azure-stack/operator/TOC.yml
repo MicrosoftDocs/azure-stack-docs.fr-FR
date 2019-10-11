@@ -123,6 +123,8 @@
       items:
         - name: Informations de base sur l’administration
           href: azure-stack-manage-basics.md
+        - name: Check-list des opérations
+          href: azure-stack-operations-checklist.md
         - name: Effacer les données utilisateur du portail
           href: azure-stack-portal-clear.md
         - name: Configurer la collecte de données de télémétrie

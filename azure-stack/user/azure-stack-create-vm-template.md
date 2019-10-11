@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/04/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: d82cdb1cccd52cc5e4c11571d85914be3f79a74e
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 02300ae5c3a6ef7fd104dfb59e179b557e0c8778
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691581"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961704"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>Didacticiel : Créer une machine virtuelle à l’aide d’un modèle fourni par la communauté
 
@@ -37,9 +37,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="azure-stack-quickstart-templates"></a>Modèles de démarrage rapide Azure Stack
 
-Les modèles de démarrage rapide Azure Stack sont stockés dans le [dépôt de modèles de démarrage rapide Azure Stack global](https://github.com/Azure/AzureStack-QuickStart-Templates) sur GitHub. Ce dépôt contient des modèles de déploiement Azure Resource Manager qui ont été testés avec le Kit de développement Microsoft Azure Stack (ASDK). Vous pouvez les utiliser pour simplifier l’évaluation d’Azure Stack et l’utilisation de l’environnement du kit de développement Azure Stack (ASDK).
+Les modèles de démarrage rapide Azure Stack sont stockés dans le [dépôt de modèles de démarrage rapide Azure Stack global](https://github.com/Azure/AzureStack-QuickStart-Templates) sur GitHub. Ce dépôt contient des modèles de déploiement Azure Resource Manager qui ont été testés avec le kit de développement Microsoft Azure Stack (ASDK). Vous pouvez les utiliser pour simplifier l’évaluation d’Azure Stack et l’utilisation de l’environnement du kit de développement Azure Stack (ASDK).
 
-Avec le temps, de nombreux utilisateurs de GitHub ont contribué au dépôt, offrant ainsi une collection de plus de 400 modèles de déploiement. Ce dépôt constitue un excellent point de départ pour mieux comprendre comment déployer différents types d’environnement dans Azure Stack.
+Avec le temps, de nombreux utilisateurs de GitHub ont contribué au dépôt, offrant ainsi une collection de plus de 400 modèles de déploiement. Ce dépôt constitue un bon point de départ pour comprendre comment déployer différents types d’environnement dans Azure Stack.
 
 >[!IMPORTANT]
 > Certains modèles présents sont créés par des membres de la communauté, et non par Microsoft. Chaque modèle est concédé sous licence sous un contrat de licence par son propriétaire, et non par Microsoft. Microsoft ne peut pas être tenu responsable de ces modèles ni ne vérifie leur sécurité, leur compatibilité ou leurs performances. Les modèles de la communauté ne sont pris en charge par aucun programme ou service de support Microsoft. Ils sont proposés « EN L’ÉTAT » sans garantie d’aucune sorte.
