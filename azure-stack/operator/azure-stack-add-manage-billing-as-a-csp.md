@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 10/02/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 82aa27440a496a813e2f1fa99879005503ba8d07
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: e14c57cb5d0444c68619e6be5db688d7b1542e93
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159494"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961885"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-solution-provider"></a>Gérer l’utilisation et la facturation pour Azure Stack comme fournisseur de solutions cloud
 
 *S’applique à : systèmes intégrés Azure Stack*
 
-Cet article décrit comment inscrire Azure Stack en tant que fournisseur de services cloud (CSP) et comment ajouter des clients.
+Cet article décrit comment inscrire Azure Stack en tant que fournisseur de solutions cloud (CSP) et comment ajouter des clients.
 
 En tant que fournisseur de services cloud, vous travaillez avec différents clients qui utilisent votre infrastructure Azure Stack. Chaque client possède un abonnement de fournisseur de services cloud dans Azure. Vous devez diriger l’utilisation de votre infrastructure Azure Stack pour chaque abonnement d’utilisateur.
 
@@ -61,7 +61,7 @@ Utilisez l’abonnement APSS créé en suivant les informations contenues dans l
 
 ## <a name="add-end-customer"></a>Ajouter un client final
 
-Pour configurer Azure Stack afin que quand un nouveau locataire utilise des ressources, leur utilisation soit signalée à son abonnement CSP, consultez [Ajouter un locataire pour l’utilisation et la facturation à Azure Stack](azure-stack-csp-howto-register-tenants.md).
+Pour configurer Azure Stack afin que l’utilisation des ressources d’un nouveau locataire soit signalée à son abonnement CSP, consultez [Ajouter un locataire pour l’utilisation et la facturation à Azure Stack](azure-stack-csp-howto-register-tenants.md).
 
 ## <a name="charge-the-right-subscriptions"></a>Facturer les abonnements appropriés
 

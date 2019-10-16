@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 8bfe15ad19e4aaec45492aa98cfb2ef02294742a
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: 5600dd6537df35e703e0ac7a08ad4a61f976e489
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658486"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961477"
 ---
 # <a name="use-dns-in-azure-stack"></a>Utilisation de DNS dans Azure Stack
 
@@ -49,7 +49,7 @@ La capture de l’écran suivante montre la boîte de dialogue **Créer une adre
 
 Vous pouvez avoir un équilibreur de charge traitant des requêtes à partir d’une application web. Derrière l’équilibreur de charge se trouve un site web s’exécutant sur une ou plusieurs machines virtuelles. Vous pouvez accéder au site web avec équilibrage de charge à l’aide d’un nom DNS, au lieu d’une adresse IP.
 
-## <a name="create-and-manage-dns-zones-and-records-using-the-api"></a>Créer et gérer des enregistrements et des zones DNS à l’aide de l’API
+## <a name="create-and-manage-dns-zones-and-records-using-the-apis"></a>Créer et gérer des enregistrements et des zones DNS à l’aide des API
 
 Vous pouvez créer et gérer des enregistrements et des zones DNS dans Azure Stack.
 
@@ -63,7 +63,7 @@ Le système DNS dans Azure Stack est semblable au système DNS dans Azure, mais 
 
 * **Il ne prend pas en charge les enregistrements AAAA** : Azure Stack ne prend pas en charge les enregistrements AAAA, car il ne prend pas en charge les adresses IPv6. Il s’agit d’une différence essentielle entre les systèmes DNS Azure et Azure Stack.
 
-* **Il n’est pas multi-locataire** : Le service DNS dans Azure Stack n’est pas multilocataire. Les locataires ne peuvent pas créer la même zone DNS. Seul le premier abonnement qui tente de créer la zone y parvient, et les requêtes suivantes échouent. Il s’agit d’une autre grande différence entre les systèmes DNS Azure et Azure Stack.
+* **Il n’est pas multilocataire** : Le service DNS dans Azure Stack n’est pas multilocataire. Les locataires ne peuvent pas créer la même zone DNS. Seul le premier abonnement qui tente de créer la zone y parvient, et les requêtes suivantes échouent. Il s’agit d’une autre grande différence entre les systèmes DNS Azure et Azure Stack.
 
 * **Balises, métadonnées et ETags** : Il existe des différences mineures dans la façon dont Azure Stack gère les balises, les métadonnées, les ETags et les limites.
 
@@ -81,7 +81,7 @@ Le système DNS Azure Stack prend en charge l’utilisation de balises Azure Res
 
 Supposons que deux personnes ou deux processus tentent de modifier un enregistrement DNS en même temps. Lequel gagne ? Et le gagnant sait-il qu’il a remplacé les modifications créées par quelqu’un d’autre ?
 
-Le système DNS Azure Stack utilise des *ETags* pour gérer les modifications simultanées de la même ressource en toute sécurité. Les ETags sont différents des *Balises* Azure Resource Manager. Chaque ressource DNS (zone ou jeu d’enregistrements) est associée à un Etag. Chaque fois qu’une ressource est récupérée, son ETag l’est également. Lorsque vous mettez à jour une ressource, vous pouvez choisir de retransmettre l’ETag pour que le système DNS Azure Stack vérifie que l’ETag qui se trouve sur le serveur correspond. Étant donné que chaque mise à jour d’une ressource entraîne la régénération de l’Etag, l’absence de concordance entre les Etags indique qu’une modification simultanée a eu lieu. Les Etags sont également utilisés lorsque vous créez une ressource pour vous assurer que cette ressource n’existe pas déjà.
+Le système DNS Azure Stack utilise des *ETags* pour gérer les modifications simultanées de la même ressource en toute sécurité. Les ETags sont différents des *Balises* Azure Resource Manager. Chaque ressource DNS (zone ou jeu d’enregistrements) est associée à un Etag. Chaque fois qu’une ressource est récupérée, son ETag l’est également. Lorsque vous mettez à jour une ressource, vous pouvez choisir de retransmettre l’ETag pour que le système DNS Azure Stack vérifie que l’ETag qui se trouve sur le serveur correspond. Étant donné que chaque mise à jour d’une ressource entraîne la régénération de l’Etag, l’absence de concordance entre les Etags indique qu’une modification simultanée a eu lieu. Les Etags sont également utilisés quand vous créez une ressource pour vous assurer que cette ressource n’existe pas déjà.
 
 Par défaut, les applets de commandes PowerShell dans le système DNS Azure Stack utilisent des ETags pour bloquer les modifications simultanées apportées à des zones et des jeux d’enregistrements. Le commutateur facultatif `-Overwrite` permet de supprimer les vérifications Etag. Sans contrôles Etag, les modifications simultanées qui se sont produites sont remplacées.
 

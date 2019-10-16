@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 9403931d91756e744dcdb6c34adb26e8281f6d28
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 8741d63dbbcefde950fc10c0917d87bc4e9718f7
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492386"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961516"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack"></a>Déployer une machine virtuelle avec un certificat stocké de façon sécurisée sur Azure Stack 
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Cet article décrit comment déployer une machine virtuelle Azure Stack avec un certificat de coffre de clés installé.
+Cet article décrit comment déployer une machine virtuelle Azure Stack avec un certificat Key Vault installé.
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -165,7 +165,7 @@ Mettez à jour le fichier **azuredeploy.parameters.json** avec les paramètres `
 Déployez le modèle avec le script PowerShell suivant :
 
 ```powershell
-# Deploy a Resource Manager template to create a VM and push the secret onto it
+# Deploy a Resource Manager template to create a VM and push the secret to it
 New-AzureRmResourceGroupDeployment `
   -Name KVDeployment `
   -ResourceGroupName $resourceGroup `
@@ -173,7 +173,7 @@ New-AzureRmResourceGroupDeployment `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
 
-Une fois le modèle déployé, la sortie suivante est générée :
+Une fois le modèle déployé, il affiche la sortie suivante :
 
 ![Résultats du déploiement du modèle](media/azure-stack-key-vault-push-secret-into-vm/deployment-output.png)
 

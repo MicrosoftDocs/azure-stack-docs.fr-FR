@@ -7,22 +7,22 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: cd32288f6541dc4ba1ed16a24ff5fa802066af30
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: ed73441f1a8d3c1c722ce35d5deda9ab7387283b
+ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094418"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71974090"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Mettre les groupes de machines virtuelles identiques à disposition dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
   
-Les groupes de machines virtuelles identiques constituent une ressource de calcul Azure Stack. Vous pouvez les utiliser pour déployer et gérer un groupe de machines virtuelles identiques. Étant donné que toutes les machines virtuelles sont configurées de la même façon, il n’est pas nécessaire de préprovisionner les machines virtuelles des groupes identiques. Il est plus simple de créer des services à grande échelle qui ciblent le Big Compute, le Big Data et les charges de travail en conteneurs.
+Les groupes de machines virtuelles identiques constituent une ressource de calcul Azure Stack. Vous pouvez les utiliser pour déployer et gérer un groupe de machines virtuelles identiques. Étant donné que toutes les machines virtuelles sont configurées de la même façon, il n’est pas nécessaire de préprovisionner les machines virtuelles des groupes identiques. Il est plus simple de créer des services à grande échelle qui ciblent le Big Compute, le Big Data et les charges de travail conteneurisées.
 
 Cet article explique le processus de mise à disposition des groupes identiques dans la Place de marché Azure Stack. Lorsque vous aurez suivi cette procédure, vos utilisateurs pourront ajouter des groupes de machines virtuelles identiques à leurs abonnements.
 
@@ -41,7 +41,7 @@ Sur Azure Stack, les groupes de machines virtuelles identiques ne sont pas compa
 ## <a name="use-the-azure-stack-portal"></a>Utiliser le portail Azure Stack
 
 >[!IMPORTANT]  
-> Les informations contenues dans cette section s’appliquent lorsque vous utilisez Azure Stack 1808 ou version ultérieure. Si vous disposez de la version 1807 (ou antérieure), consultez [Ajouter le groupe de machines virtuelles identiques (avant la version 1808)](#add-the-virtual-machine-scale-set-prior-to-version-1808).
+> Les informations contenues dans cette section s’appliquent quand vous utilisez Azure Stack 1808 ou ultérieur. Si vous disposez de la version 1807 (ou antérieure), consultez [Ajouter le groupe de machines virtuelles identiques (avant la version 1808)](#add-the-virtual-machine-scale-set-prior-to-version-1808).
 
 1. Connectez-vous au portail Azure Stack. Ensuite, accédez à **Tous les services**, **Groupes de machines virtuelles identiques**, puis, sous **COMPUTE**, sélectionnez les **groupes de machines virtuelles identiques**.
    ![Sélectionner des groupes de machines virtuelles identiques](media/azure-stack-compute-add-scalesets/all-services.png)

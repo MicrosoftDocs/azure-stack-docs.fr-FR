@@ -1,6 +1,6 @@
 ---
-title: Générer des certificats pour infrastructure à clé publique Azure Stack pour le déploiement de systèmes intégrés Azure Stack | Microsoft Docs
-description: Décrit le processus de déploiement de certificat pour infrastructure à clé publique Azure Stack pour des systèmes intégrés Azure Stack.
+title: Générer des demandes de signature de certificat pour Azure Stack | Microsoft Docs
+description: Découvrez comment générer des demandes de signature de certificat pour des certificats PKI Azure Stack dans les systèmes intégrés Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -14,25 +14,25 @@ ms.date: 09/10/2019
 ms.author: justinha
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: c9f14e643f886fab0fae148c5af8643890866fd6
-ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
+ms.openlocfilehash: 365f727f7e07c697dc2fd3cfe2a5c1bea5b68409
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70902684"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019250"
 ---
-# <a name="azure-stack-certificates-signing-request-generation"></a>Génération de CSR Azure Stack
+# <a name="generate-certificate-signing-requests-for-azure-stack"></a>Générer des demandes de signature de certificat pour Azure Stack
 
 Vous pouvez utiliser l’outil Azure Stack Readiness Checker pour créer des demandes de signature de certificat (CSR) adaptées à un déploiement Azure Stack. Les certificats doivent être demandés, générés et validés avec suffisamment de temps pour les tester avant le déploiement. Vous pouvez obtenir l’outil à partir de [PowerShell Gallery](https://aka.ms/AzsReadinessChecker).
 
 L’outil Azure Stack Readiness Checker (AzsReadinessChecker) permet de demander les certificats suivants :
 
-- **Demandes de certificat standard** conformes à [Générer des certificats d’infrastructure à clé publique pour le déploiement d’Azure Stack](azure-stack-get-pki-certs.md).
+- **Demandes de certificat standard** conformes à [Générer une demande de signature de certificat](azure-stack-get-pki-certs.md#generate-certificate-signing-requests).
 - **Plateforme en tant que service (PaaS)** : Vous pouvez demander des noms PaaS pour les certificats comme spécifié dans [Exigences de certificat pour infrastructure à clé publique Azure Stack - Certificats PaaS facultatifs](azure-stack-pki-certs.md#optional-paas-certificates).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Votre système doit respecter la configuration requise suivante avant de générer les CSR pour les certificats PKI pour un déploiement Azure Stack :
+Votre système doit respecter la configuration requise suivante avant de générer des CSR pour les certificats PKI pour un déploiement Azure Stack :
 
 - Outil Microsoft Azure Stack Readiness Checker
 - Attributs de certificat :
@@ -44,7 +44,7 @@ Votre système doit respecter la configuration requise suivante avant de génér
   > [!NOTE]  
   > Après avoir récupéré vos certificats de sauvegarde auprès de votre autorité de certification, vous devrez procéder aux étapes décrites dans [Préparer des certificats PKI Azure Stack](azure-stack-prepare-pki-certs.md) sur le même système.
 
-## <a name="generate-certificate-signing-requests"></a>Générer la ou les requêtes de signature de certificat
+## <a name="generate-certificate-signing-requests"></a>Générer les demandes de signature de certificat
 
 Suivez ces étapes pour préparer et valider les certificats PKI Azure Stack :
 
@@ -69,15 +69,15 @@ Suivez ces étapes pour préparer et valider les certificats PKI Azure Stack :
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ```
 
-4. Déclarer un système d’identité
+4. Déclarer un système d’identité.
 
-    Azure Active Directory
+    Azure Active Directory (Azure AD) :
 
     ```powershell
     $IdentitySystem = "AAD"
     ```
 
-    Services de fédération Active Directory (AD FS)
+    Services de fédération Active Directory (AD FS) :
 
     ```powershell
     $IdentitySystem = "ADFS"
@@ -99,7 +99,7 @@ Suivez ces étapes pour préparer et valider les certificats PKI Azure Stack :
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
-    Pour inclure des Services PaaS, spécifiez le commutateur ```-IncludePaaS```
+    Pour inclure des Services PaaS, spécifiez le commutateur ```-IncludePaaS```.
 
 7. Pour les environnements Dev/Test, afin de générer une requête de certificat unique avec plusieurs autres noms d’objets, vous pouvez ajouter le paramètre **-RequestType SingleCSR** et la valeur (**non** recommandé pour les environnements de production) :
 
@@ -124,7 +124,7 @@ Suivez ces étapes pour préparer et valider les certificats PKI Azure Stack :
     New-AzsCertificateSigningRequest Completed
     ```
 
-9. Envoyez le fichier **.REQ** généré à votre autorité de certification (interne ou publique).  Le répertoire de sortie de **New-AzsCertificateSigningRequest** contient les CSR nécessaires à envoyer à une autorité de certification.  Ce répertoire contient également pour votre référence un répertoire enfant contenant le ou les fichiers INF utilisés pendant la génération de demande de certificat. Assurez-vous que votre autorité de certification génère des certificats à l’aide de votre requête générée qui est conforme aux [exigences PKI d’Azure Stack](azure-stack-pki-certs.md).
+9. Envoyez le fichier **.REQ** généré à votre autorité de certification (interne ou publique). Le répertoire de sortie de **New-AzsCertificateSigningRequest** contient les CSR nécessaires à envoyer à une autorité de certification. Ce répertoire contient également pour votre référence un répertoire enfant contenant le ou les fichiers INF utilisés pendant la génération de demande de certificat. Assurez-vous que votre autorité de certification génère des certificats à l’aide de votre requête générée qui est conforme aux [exigences PKI d’Azure Stack](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

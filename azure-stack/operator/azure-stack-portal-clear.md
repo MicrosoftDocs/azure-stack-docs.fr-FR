@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
 monikerRange: azs-1802
-ms.openlocfilehash: a341ff38b0a2540fbf8e1070d9c98bdd9ec4df5f
-ms.sourcegitcommit: 305536bfd49319455ca3ca270fe3644b1796bad1
+ms.openlocfilehash: 2dd88656491a474e4082ff4e8321af836776b1f0
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70878781"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019122"
 ---
 # <a name="clear-portal-user-data-from-azure-stack"></a>Effacer les données utilisateur du portail dans Azure Stack
 
@@ -86,7 +86,7 @@ Pour cette procédure, utilisez un ordinateur qui peut communiquer avec le point
 
 ## <a name="clear-portal-user-data-in-guest-directory"></a>Effacer les données utilisateur du portail dans le répertoire invité
 
-Dans ce scénario, l’opérateur Azure Stack n’a pas accès au répertoire invité où réside l’utilisateur. Il s’agit d’un scénario courant pour les fournisseurs de services cloud (CSP).
+Dans ce scénario, l’opérateur Azure Stack n’a pas accès au répertoire invité où réside l’utilisateur. Il s’agit d’un scénario courant pour un fournisseur de solutions cloud (CSP).
 
 Pour qu’un opérateur Azure Stack supprime les données utilisateur du portail, vous devez fournir au moins l’ID d’objet utilisateur.
 

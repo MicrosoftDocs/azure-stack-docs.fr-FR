@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 1a3c59ab7650c9cd2337e8256556f8a449feacec
-ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
+ms.openlocfilehash: c170e450739609e0ef0be353f2354a17e39a28b1
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71342810"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961844"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Infrastructure des rapports d’utilisation pour les fournisseurs de solutions cloud
 
@@ -45,7 +45,7 @@ Les termes et concepts suivants sont utilisés pour l’utilisation et la factur
 
 | Terme | Définition |
 | --- | --- |
-| Partenaire CSP direct | Un partenaire fournisseur de solutions cloud (CSP) direct reçoit une facture directement de Microsoft pour l’utilisation d’Azure et d’Azure Stack et facture directement les clients. |
+| Partenaire CSP direct | Un partenaire CSP direct reçoit une facture directement de Microsoft pour l’utilisation d’Azure et d’Azure Stack et facture directement les clients. |
 | Fournisseur de solutions cloud (CSP) indirect | Les revendeurs indirects travaillent avec un fournisseur indirect (également appelé serveur de distribution). Les revendeurs recrutement des clients finaux. Le fournisseur indirect maintient la relation de facturation avec Microsoft, gère la facturation du client et fournit des services supplémentaires tels que le support technique. |
 | Client final | Les clients finaux sont les entreprises et les organismes publics ayant des applications et d’autres charges de travail qui s’exécutent sur Azure Stack. |
 

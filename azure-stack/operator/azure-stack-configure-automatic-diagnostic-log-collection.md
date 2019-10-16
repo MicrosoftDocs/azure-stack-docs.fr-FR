@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 4d6bc431b292fc7a124aa2b8051d0a927d736eee
-ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
+ms.lastreviewed: 10/08/2019
+ms.openlocfilehash: e9ee5d3b8ad67c7955fa4da7b64d2c0962f21a15
+ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71224958"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173072"
 ---
 # <a name="configure-automatic-azure-stack-diagnostic-log-collection"></a>Configurer la collecte automatique des journaux de diagnostic Azure Stack
 
@@ -118,7 +118,9 @@ Les opérateurs peuvent également vérifier les journaux collectés automatique
 
 ## <a name="automatic-diagnostic-log-collection-alerts"></a>Alertes de collecte automatique des journaux de diagnostic 
 
-Si cette fonction est activée, la collecte automatique des journaux de diagnostic n'a lieu que lorsque cela est nécessaire. Seules les alertes suivantes déclenchent la collecte. 
+Si cette fonction est activée, la collecte automatique des journaux de diagnostic n'a lieu que lorsque cela est nécessaire. Seules les alertes dans le tableau suivant déclenchent la collecte. 
+
+Par exemple, **Échec de la mise à jour** est une alerte qui déclenche la collecte automatique des journaux de diagnostic. Si la collecte automatique est activée, les journaux de diagnostic sont capturés de manière proactive au cours d’un échec de mise à jour pour aider les services de support technique Microsoft (CSS) à résoudre le problème. Les journaux de diagnostic sont collectés uniquement quand l’alerte pour **Échec de la mise à jour** est déclenchée. 
 
 |Titre de l’alerte  | FaultIdType|    
 |-------------|------------|

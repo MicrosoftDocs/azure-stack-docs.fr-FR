@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 9fa12d91e9f2ec738c68f4a04438a93415bd36fb
-ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
+ms.openlocfilehash: 650257a0bfe94741d00345f98b40fddd8d00cb44
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70144031"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961467"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack"></a>Configurer les paramètres de passerelle réseau VPN pour Azure Stack
 
@@ -48,7 +48,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 Lorsque vous créez une passerelle de réseau virtuel, vous devez spécifier la référence SKU de passerelle que vous voulez utiliser. Sélectionnez les références SKU qui répondent à vos besoins en fonction des types de charges de travail, des débits, des fonctionnalités et des contrats de niveau de service.
 
-Azure Stack propose les références SKU de passerelle VPN indiquées dans le tableau suivant.
+Azure Stack propose les références SKU de passerelle VPN indiquées dans le tableau suivant :
 
 | | Débit de passerelle VPN |Tunnels IPsec max de passerelle VPN |
 |-------|-------|-------|
@@ -70,7 +70,7 @@ Si vous utilisez le portail Azure Stack pour créer une passerelle de réseau vi
 
 #### <a name="powershell"></a>PowerShell
 
-L’exemple PowerShell suivant spécifie la référence SKU `-GatewaySku` **Standard** :
+L’exemple PowerShell suivant spécifie le paramètre `-GatewaySku` **Standard** :
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -95,9 +95,9 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 Lorsque vous créez la passerelle de réseau virtuel d’une configuration de passerelle VPN, vous devez spécifier un type de VPN. Le type de VPN que vous choisissez dépend de la topologie de connexion que vous souhaitez créer. Un type VPN peut également dépendre du matériel utilisé. Les configurations S2S nécessitent un périphérique VPN. Certains périphériques VPN seront ne prennent en charge qu’un certain type de VPN.
 
 > [!IMPORTANT]  
-> Pour l’instant, Azure Stack prend uniquement en charge le type de VPN basé sur le routage. Si votre appareil ne gère que les VPN basés sur les stratégies, les connexions à ces appareils à partir d’Azure Stack ne sont pas prises en charge.  
+> Pour l’instant, Azure Stack prend uniquement en charge le type de VPN basé sur le routage. Si votre appareil prend en charge uniquement les VPN basés sur les stratégies, les connexions à ces appareils à partir de Azure Stack ne sont pas prises en charge.  
 >
-> En outre, pour le moment, Azure Stack ne gère pas l’utilisation des sélecteurs de trafic reposant sur les stratégies pour les passerelles basées sur le routage, car les configurations de stratégies IPSec/IKE personnalisées ne sont pas prises en charge.
+> De plus, pour le moment, Azure Stack ne gère pas l’utilisation des sélecteurs de trafic reposant sur les stratégies pour les passerelles basées sur le routage, car les configurations de stratégies IPSec/IKE personnalisées ne sont pas prises en charge.
 
 * **PolicyBased** : les VPN basés sur les stratégies chiffrent et acheminent les paquets par le biais des tunnels IPsec basés sur les stratégies IPsec qui sont configurées avec les combinaisons de préfixes d’adresses entre votre réseau local et le réseau virtuel Azure Stack. La stratégie ou le sélecteur de trafic prennent généralement la forme d’une liste d’accès dans la configuration de périphérique VPN.
 
@@ -134,7 +134,7 @@ Avant de créer votre passerelle VPN, vous devez d’abord créer un sous-résea
 
 Lorsque vous créez le sous-réseau de passerelle, vous spécifiez le nombre d’adresses IP que contient le sous-réseau. Les adresses IP dans le sous-réseau de passerelle sont allouées aux machines virtuelles et aux services de passerelle. Certaines configurations nécessitent plus d’adresses IP que d’autres. Prenez connaissance des instructions relatives à la configuration que vous souhaitez créer et vérifier que le sous-réseau de passerelle que vous souhaitez créer respecte ces instructions.
 
-En outre, vous devez vous assurer que votre sous-réseau de passerelle dispose de suffisamment d’adresses IP pour gérer les futures configurations supplémentaires. Bien qu’il vous soit possible de créer un sous-réseau de passerelle aussi petit que /29, nous vous recommandons de créer un sous-réseau de taille /28 ou supérieure (/28, /27, /26, etc.). Ainsi, si vous ajoutez des fonctionnalités par la suite, vous n’aurez pas à détruire votre passerelle, puis à supprimer et à recréer le sous-réseau de passerelle pour autoriser d’autres adresses IP.
+En outre, vous devez vous assurer que votre sous-réseau de passerelle dispose de suffisamment d’adresses IP pour gérer les futures configurations supplémentaires. Bien qu’il vous soit possible de créer un sous-réseau de passerelle aussi petit que /29, nous vous recommandons de créer un sous-réseau de taille /28 ou supérieure (/28, /27, /26, etc.). Ainsi, si vous ajoutez des fonctionnalités, vous n’avez pas à détruire votre passerelle puis à supprimer et à recréer le sous-réseau de la passerelle pour autoriser plusieurs adresses IP.
 
 L’exemple PowerShell Resource Manager suivant montre un sous-réseau de passerelle nommé **GatewaySubnet**. Vous pouvez voir que la notation CIDR spécifie une taille /27, ce qui permet d’avoir un nombre suffisamment élevé d’adresses IP pour la plupart des configurations actuelles.
 
@@ -151,7 +151,7 @@ Lorsque vous créez une configuration de passerelle VPN dans Azure, la passerell
 
 Vous donnez un nom à la passerelle de réseau local (l’adresse IP publique de l’appareil VPN) et vous spécifiez les préfixes d’adresse se trouvant dans l’emplacement local. Azure examine les préfixes d’adresse de destination pour le trafic réseau, consulte la configuration que vous avez spécifiée pour votre passerelle de réseau local, et route les paquets en conséquence.
 
-L’exemple PowerShell ci-après crée une nouvelle passerelle de réseau local :
+Cet exemple PowerShell crée une passerelle de réseau local :
 
 ```powershell
 New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
@@ -164,7 +164,7 @@ Parfois, vous devez modifier les paramètres de passerelle de réseau local. C�
 
 Lorsque vous configurez une connexion VPN dans Azure Stack, vous devez configurer la connexion à chaque extrémité. Si vous configurez une connexion VPN entre Azure Stack et un périphérique matériel tel qu’un commutateur ou un routeur agissant comme une passerelle VPN, ce périphérique peut demander des paramétrages supplémentaires.
 
-Contrairement à Azure, qui prend en charge plusieurs offres en tant qu’initiateur et répondeur, Azure Stack ne prend en charge qu’une seule offre par défaut.  Si vous devez utiliser différents paramètres IPSec/IKE pour travailler avec votre appareil VPN, d’autres paramètres sont disponibles pour vous permettre de configurer votre connexion manuellement.  Pour plus d’informations, consultez [Configurer la stratégie IPsec/IKE pour des connexions VPN site à site](azure-stack-vpn-s2s.md).
+Contrairement à Azure, qui prend en charge plusieurs offres en tant qu’initiateur et répondeur, Azure Stack ne prend en charge qu’une seule offre par défaut. Si vous devez utiliser différents paramètres IPSec/IKE pour travailler avec votre appareil VPN, d’autres paramètres sont disponibles pour vous permettre de configurer votre connexion manuellement. Pour plus d’informations, consultez [Configurer la stratégie IPsec/IKE pour des connexions VPN site à site](azure-stack-vpn-s2s.md).
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Paramètres IKE Phase 1 (Mode principal)
 
@@ -185,10 +185,10 @@ Contrairement à Azure, qui prend en charge plusieurs offres en tant qu’initia
 |Chiffrement et algorithmes de hachage (Authentification) | GCMAES256|
 |Durée de vie de l’AS (durée)  | 27 000 secondes  |
 |Durée de vie de l’AS (kilo-octets) | 33 553 408     |
-|PFS (Perfect Forward Secrecy) |Aucun (e) (voir remarque 1) |
+|PFS (Perfect Forward Secrecy) |Aucun (e) (voir **remarque 1**) |
 |Détection d’homologue mort | Pris en charge|  
 
-* *Remarque 1 :*  Avant la version 1807, Azure Stack utilisait la valeur PFS2048 pour la propriété PFS (Perfect Forward Secrecy).
+**Remarque 1 :** Avant la version 1807, Azure Stack utilisait la valeur PFS2048 pour la propriété PFS (Perfect Forward Secrecy).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

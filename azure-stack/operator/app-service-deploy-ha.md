@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2019
+ms.date: 10/07/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 77ec512f5e2996aaec53ef77c000d0334bda456a
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 0bf89b0f80557f99c83fb5ad6afd0c4a5dcd3849
+ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975208"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72165019"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Déployer App Service dans une configuration hautement disponible
 
@@ -236,7 +236,7 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Ajouter les bases de données appservice_hosting et appservice_metering à un groupe de disponibilité](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) si vous avez spécifié le fournisseur de ressources App Service avec une instance SQL Always On. Synchroniser les bases de données pour éviter toute perte de service en cas de basculement d’une base de données.
+[Ajouter les bases de données appservice_hosting et appservice_metering à un groupe de disponibilité](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) si vous avez spécifié le fournisseur de ressources App Service avec une instance SQL Always On. Synchroniser les bases de données pour éviter toute perte de service en cas de basculement d’une base de données. Vous pouvez également exécuter un [script](https://blog.sqlauthority.com/2017/11/30/sql-server-alwayson-availability-groups-script-sync-logins-replicas/) pour importer les connexions AppServices à partir du serveur principal d’origine vers un serveur de basculement.
 
 [Effectuer un scale-out d’App Service](azure-stack-app-service-add-worker-roles.md). Vous devrez peut-être ajouter d’autres workers de rôle d’infrastructure App Service pour répondre à la demande d’applications attendue dans votre environnement. Par défaut, App Service sur Azure Stack prend en charge les niveaux Worker gratuits et partagés. Pour ajouter d’autres niveaux Worker, vous devez ajouter davantage de rôles de travail.
 

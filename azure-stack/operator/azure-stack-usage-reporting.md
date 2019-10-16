@@ -1,6 +1,6 @@
 ---
 title: Signaler les données d’utilisation Azure Stack à Azure | Microsoft Docs
-description: Découvrez comment configurer la génération de rapports de données d’utilisation dans Azure Stack.
+description: Découvrez comment configurer les la génération de rapports de données d’utilisation dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,12 +15,12 @@ ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 3aeae5c1a0106a0c13c9b6bbe2eb4ba07de14dd4
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: 5fecdbe7bcc85ea01e1502afcfc1c67d3b830c3e
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959442"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019394"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Signaler les données d’utilisation Azure Stack à Azure
 
@@ -96,7 +96,7 @@ Pour les systèmes à plusieurs nœuds Azure Stack, les abonnements Accord Entre
 
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>La génération de rapports de données d’utilisation fonctionne-t-elle avec les clouds souverains ?
 
-Dans le Kit de développement Azure Stack, la génération de rapports d’utilisation de données exige que les abonnements soient créés dans le système Azure global. Les abonnements créés dans l’un des clouds souverains (clouds Azure Government, Azure Allemagne et Azure Chine) ne peuvent pas être inscrits auprès d’Azure. Ils ne prennent donc pas en charge les rapports de données d’utilisation.
+Dans le Kit de développement Azure Stack, la génération de rapports d’utilisation de données exige que les abonnements soient créés dans le système Azure global. Les abonnements créés dans l’un des clouds souverains (clouds Azure Government, Azure Allemagne et Azure China 21Vianet) ne peuvent pas être inscrits auprès d’Azure. Ils ne prennent donc pas en charge les rapports de données d’utilisation.
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Pourquoi l’utilisation signalée dans Azure Stack ne correspond-elle pas au rapport généré à partir du Centre des comptes Azure ?
 
@@ -107,4 +107,4 @@ Il existe toujours un délai entre le moment où les données d’utilisation so
 - [API d’utilisation du fournisseur](azure-stack-provider-resource-api.md)  
 - [API d’utilisation du locataire](azure-stack-tenant-resource-usage-api.md)
 - [Forum Aux Questions sur l’utilisation](azure-stack-usage-related-faq.md)
-- [Gérer l’utilisation et la facturation en tant que fournisseur de services cloud](azure-stack-add-manage-billing-as-a-csp.md)
+- [Gérer l’utilisation et la facturation en tant que fournisseur de solutions cloud](azure-stack-add-manage-billing-as-a-csp.md)

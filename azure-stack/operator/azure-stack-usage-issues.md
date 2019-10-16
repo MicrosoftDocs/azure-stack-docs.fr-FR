@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 3548574ce8ece470c67101d42b115dbafe2c9a1c
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 265645b69e909c7c9762cd03e4f49035baa2872b
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829212"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019430"
 ---
 # <a name="usage-connectivity-errors"></a>Erreurs de connectivité d’utilisation
 
-Les données d’utilisation Azure Stack sont envoyées à Azure par le composant [*Azure Bridge* ](azure-stack-usage-reporting.md)dans Azure Stack. Si le pont dans Azure Stack ne peut pas se connecter au service d’utilisation d’Azure, vous voyez l’erreur suivante :
+Les données d’utilisation Azure Stack sont envoyées à Azure par le composant [*Azure Bridge* ](azure-stack-usage-reporting.md)dans Azure Stack. Si le pont dans Azure Stack ne peut pas se connecter au service d’utilisation d’Azure, l’erreur suivante apparaît :
 
 ![Erreur d’utilisation du pont](media/azure-stack-usage-issues/usageerror2.png)
 
@@ -51,8 +51,8 @@ Cette section décrit la représentation les codes d’erreur d’utilisation.
 | NetworkError               | Azure Stack Bridge ne peut pas envoyer de requête au point de terminaison du service d’utilisation dans Azure.                                                            | Vérifiez si un proxy bloque ou intercepte l’accès au point de terminaison de service de l’utilisation.                                                                                                                                                                                                             |
 | RequestTimedOut            | La requête a été envoyée depuis Azure Bridge, mais le service d’utilisation dans Azure n’a pas répondu dans le délai imparti.                             | Vérifiez si un proxy bloque ou intercepte l’accès au point de terminaison de service de l’utilisation.                                                                                                                                                                                                                        |
 | LoginError                 | Impossible de s’authentifier auprès de Microsoft Azure Active Directory.                                                                                                             | Vérifiez que le point de terminaison de connexion Azure AD est accessible à partir de toutes les machines virtuelles XRP dans Azure Stack.                                                                                                                                                                                                                     |
-| CertificateValidationError | Azure Bridge n’est pas en mesure d’envoyer la requête parce qu’il ne peut pas s’authentifier auprès du service Azure.                                    | Vérifiez si un proxy intercepte le trafic HTTPS entre la machine Azure Stack XRP et le point de terminaison de la passerelle d’utilisation.                                                                                                                                                                                      |
-| Non autorisé               | Azure Bridge n’est pas en mesure d’envoyer (push) les données au service d’utilisation dans Azure parce que le service Azure ne peut pas authentifier Azure Stack Bridge. | Vérifiez si la ressource d’inscription a été modifiée et si tel est le cas, réinscrivez Azure Stack. <br><br> Parfois, un problème de synchronisation entre Azure Stack et Azure AD peut provoquer cette défaillance. Dans ce cas, vérifiez que les heures sur les machines virtuelles XRP sur Azure Stack sont synchronisées avec celles d’Azure AD. |
+| CertificateValidationError | Azure Bridge n’est pas en mesure d’envoyer la requête, car il n’est pas en mesure de s’authentifier auprès du service Azure.                                    | Vérifiez si un proxy intercepte le trafic HTTPS entre l’ordinateur Azure Stack XRP et le point de terminaison de la passerelle d’utilisation.                                                                                                                                                                                      |
+| Non autorisé               | Azure Bridge n’est pas en mesure de transmettre les données au service d’utilisation dans Azure, car le service Azure n’est pas en mesure d’authentifier Azure Stack Bridge. | Vérifiez si la ressource d’inscription a été modifiée et si tel est le cas, réinscrivez Azure Stack. <br><br> Parfois, un problème de synchronisation entre Azure Stack et Azure AD peut provoquer cette défaillance. Dans ce cas, vérifiez que les heures sur les machines virtuelles XRP sur Azure Stack sont synchronisées avec celles d’Azure AD. |
 |                            |                                                                                                                                                   |                                                                                                                                                                                                                                                                                                    |
 
 En outre, vous devrez peut-être fournir les fichiers journaux pour les composants Azure Bridge, WAS et WASPublic en suivant [ces étapes](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).
@@ -61,4 +61,4 @@ En outre, vous devrez peut-être fournir les fichiers journaux pour les composan
 
 - Découvrez-en plus sur la [communication de données d’utilisation d’Azure Stack à Azure](azure-stack-usage-reporting.md).
 - Pour consulter les messages d’erreur s’ils sont déclenchés dans votre processus d’inscription, consultez [Code d’erreur d’utilisation et de facturation](azure-stack-registration-errors.md).
-- Apprenez-en davantage sur l[Infrastructure de rapports d’utilisation pour les fournisseurs de services cloud](azure-stack-csp-ref-infrastructure.md).
+- Apprenez-en davantage sur l’[Infrastructure de rapports d’utilisation pour les fournisseurs de solutions cloud](azure-stack-csp-ref-infrastructure.md).

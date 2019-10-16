@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: b2b53edaba6a6cb180ae617740fd4695b1a86187
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: dca5d863a046ec225b4d34c8cf5917153a3a5785
+ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842733"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037975"
 ---
 # <a name="network-connectivity"></a>Connectivité réseau
 Cet article fournit des informations sur l’infrastructure réseau d’Azure Stack qui vous aideront à déterminer la meilleure intégration possible d’Azure Stack dans votre environnement réseau existant. 
@@ -55,7 +55,7 @@ L’infrastructure réseau pour Azure Stack se compose de plusieurs réseaux log
 ![Diagramme de réseau logique et connexions de commutateurs](media/azure-stack-network/NetworkDiagram.png)
 
 ### <a name="bmc-network"></a>Réseau BMC
-Ce réseau est conçu pour connecter tous les contrôleurs de gestion de carte de base (également appelés processeurs de service ; par exemple, iDRAC, iLO, iBMC, etc.) au réseau de gestion. S’il est présent, le Hardware Lifecycle Host (HLH) se trouve sur ce réseau et peut fournir des logiciels spécifiques aux OEM pour la maintenance ou l’analyse du matériel. 
+Ce réseau est conçu pour connecter tous les contrôleurs de gestion de carte de base (également appelés processeurs de service ; par exemple, iDRAC, iLO, iBMC, etc.) au réseau de gestion. Un seul compte BMC est utilisé pour communiquer avec n’importe quel nœud BMC. S’il est présent, le Hardware Lifecycle Host (HLH) se trouve sur ce réseau et peut fournir des logiciels spécifiques aux OEM pour la maintenance ou l’analyse du matériel. 
 
 Le HLH héberge également le déploiement de machines virtuelles (DVM). Le DVM est utilisé au cours du déploiement Azure Stack et est supprimé lorsque le déploiement est terminé. Le DVM requiert un accès internet dans des scénarios de déploiement connecté pour tester, valider et accéder à plusieurs composants. Ces composants peuvent être à l’intérieur et en dehors de votre réseau d’entreprise ; par exemple NTP, DNS et Azure. Pour plus d’informations sur les exigences de connectivité, consultez la [section NAT dans l’intégration du pare-feu Azure Stack](azure-stack-firewall.md#network-address-translation). 
 

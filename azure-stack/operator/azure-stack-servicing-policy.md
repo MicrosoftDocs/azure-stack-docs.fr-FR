@@ -16,12 +16,12 @@ ms.date: 09/06/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 9ca13d62c69c84f29e3038899ff224d7d9cdc6d3
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 083d30e07d924e38f682785866b0739e4cdb36e6
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101187"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019470"
 ---
 # <a name="azure-stack-servicing-policy"></a>Stratégie de maintenance Azure Stack
 
@@ -85,7 +85,7 @@ Les packages de mise à jour logicielle Microsoft ne sont pas cumulatifs et requ
 
 ## <a name="get-support"></a>Obtenir de l’aide
 
-Azure Stack suit le même processus de prise en charge qu’Azure. Les clients d’entreprise peuvent suivre le processus décrit dans [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Si vous êtes client d’un fournisseur de services cloud (CSP), contactez-le pour obtenir de l’aide. Pour plus d’informations, consultez le [Forum Aux Questions sur le support technique Azure](https://azure.microsoft.com/support/faq/).
+Azure Stack suit le même processus de prise en charge qu’Azure. Les clients d’entreprise peuvent suivre le processus décrit dans [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Si vous êtes client d’un fournisseur de solutions cloud (CSP), contactez-le pour obtenir de l’aide. Pour plus d’informations, consultez le [Forum Aux Questions sur le support technique Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

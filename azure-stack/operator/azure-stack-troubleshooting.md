@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 0fb46cd1b92c1b811ba1c72a91188201a7d2af96
-ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
+ms.lastreviewed: 10/08/2019
+ms.openlocfilehash: b3540727b1868c700e43e2865848a71635e8003d
+ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687967"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173116"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Résolution des problèmes de Microsoft Azure Stack
 
@@ -82,9 +82,20 @@ Si les rôles intégrés des ressources Azure ne répondent pas aux besoins spé
 
 Choisissez le type de compte de services partagés que vous utilisez pour Azure Stack. Les types d’abonnements pouvant être utilisés pour l’inscription d’un système Azure Stack multilocataire sont les suivants :
 
-* Fournisseur de services cloud
+* Fournisseur de solutions cloud
 * Abonnement Partner Shared Services
 
+## <a name="get-scale-unit-metrics"></a>Récupérer les métriques d’unité d’échelle
+
+Vous pouvez utiliser PowerShell pour obtenir des informations sur l’utilisation des tampons sans l’aide des services de support technique Microsoft. Pour obtenir l’utilisation des tampons : 
+
+1. Créez une session PEP.
+2. Exécutez test-azurestack.
+3. Quittez la session PEP.
+4. Exécutez la commande get-azurestacklog-filterbyrole seedring à l’aide d’un appel invoke-command.
+5. Extrayez le fichier seedring .zip afin d’obtenir le rapport de validation à partir du dossier ERCS dans lequel vous avez exécuté test-azurestack.
+
+Pour plus d’informations, consultez [Diagnostics Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems).
 
 ## <a name="troubleshoot-deployment"></a>Résoudre les problèmes de déploiement 
 ### <a name="general-deployment-failure"></a>Échec général du déploiement

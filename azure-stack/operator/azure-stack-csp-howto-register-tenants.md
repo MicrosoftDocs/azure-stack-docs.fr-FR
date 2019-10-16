@@ -15,12 +15,12 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 76b870d795b79cf966dcf6742ad08f739d24a42a
-ms.sourcegitcommit: 32609bdb04a07b063c8f20f892c30769ad6903dd
+ms.openlocfilehash: 3b728bb08d41c234ccffb94005be740bea0766b6
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269495"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019282"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Ajouter un locataire pour l’utilisation et la facturation sur Azure Stack
 
@@ -41,7 +41,7 @@ Avant d'ajouter un client final, vous devez activer la facturation multi-locatai
 
 Procédez comme suit pour ajouter un client final, comme illustré dans la figure suivante :
 
-![Configurer le fournisseur de services cloud pour le suivi de l’utilisation et pour gérer le compte du client final](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
+![Configurer le fournisseur de solutions cloud pour le suivi de l’utilisation et pour gérer le compte du client final](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
 
 ### <a name="create-a-new-customer-in-partner-center"></a>Créer un client dans l’Espace partenaires
 
@@ -102,4 +102,4 @@ Une fois que vous avez ajouté le nouveau client à Azure Stack, ou que le locat
 
 - Pour consulter les messages d’erreur s’ils sont déclenchés dans votre processus d’inscription, consultez [Code d’erreur d’utilisation et de facturation](azure-stack-registration-errors.md).
 - Pour en savoir plus sur la récupération d’informations d’utilisation de ressources à partir d’Azure Stack, consultez [Usage and billing in Azure Stack](azure-stack-billing-and-chargeback.md) (Utilisation et facturation dans Azure Stack).
-- Pour vérifier comment un client final peut vous ajouter, en tant que fournisseur de services cloud, en tant que responsable pour son locataire Azure Stack, voir [Enable a Cloud Service Provider to manage your Azure Stack subscription](../user/azure-stack-csp-enable-billing-usage-tracking.md) (Autoriser un fournisseur de services cloud pour gérer votre abonnement Azure Stack).
+- Pour vérifier comment un client final peut vous ajouter, en tant que CSP, en tant que responsable pour son locataire Azure Stack, consultez [Autoriser un fournisseur de solutions cloud à gérer votre abonnement Azure Stack](../user/azure-stack-csp-enable-billing-usage-tracking.md).

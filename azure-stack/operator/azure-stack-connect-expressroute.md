@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: d7fa69b632ec6d205eff0ed0c388c1f9ec9b9c41
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: 4d9331f5167a0ce9d305a76225987d8b1d3f3dcc
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094398"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961557"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Connexion d’Azure Stack à Azure à l’aide d’Azure ExpressRoute
 
@@ -62,11 +62,11 @@ L’illustration suivante montre les environnements Azure Stack et Azure une foi
 
 ![Réseau ExpressRoute](media/azure-stack-connect-expressroute/Conceptual.png)
 
-L’illustration suivante montre comment plusieurs locataires se connectent à Azure à partir de l’infrastructure Azure Stack, par le biais du routeur ExpressRoute au niveau de Microsoft Edge :
+L’illustration suivante montre comment plusieurs locataires se connectent à Azure depuis l’infrastructure Azure Stack par le biais du routeur ExpressRoute au niveau de la périphérie Microsoft :
 
 ![Connexions d’architecture mutualisées avec ExpressRoute](media/azure-stack-connect-expressroute/Architecture.png)
 
-L’exemple de cet article utilise la même architecture mutualisée illustrée dans ce diagramme pour connecter Azure Stack à Azure à l’aide de l’homologation privée ExpressRoute. La connexion s’effectue grâce à une connexion VPN de site à site établie entre la passerelle de réseau virtuel dans Azure Stack et un routeur ExpressRoute.
+L’exemple de cet article utilise la même architecture mutualisée illustrée dans ce diagramme pour connecter Azure Stack à Azure à l’aide du peering privé ExpressRoute. La connexion s’effectue grâce à une connexion VPN de site à site établie entre la passerelle de réseau virtuel dans Azure Stack et un routeur ExpressRoute.
 
 Les étapes de cet article vous expliquent comment créer une connexion de bout en bout entre deux réseaux virtuels, depuis deux locataires différents dans Azure Stack, et les réseaux virtuels correspondants dans Azure. Le paramétrage de deux locataires est facultatif, vous pouvez également utiliser ces étapes pour un seul locataire.
 
@@ -153,7 +153,7 @@ La ressource de passerelle de réseau local identifie la passerelle distante pr�
    * 10.100.0.0/16 est le réseau virtuel Spoke dans Azure.
 
    > [!IMPORTANT]
-   > Cet exemple suppose que vous utilisez des routes statiques pour la connexion VPN de site à site entre la passerelle Azure Stack et le routeur ExpressRoute.
+   > Cet exemple suppose que vous utilisiez des itinéraires statiques pour la connexion VPN de site à site entre la passerelle Azure Stack et le routeur ExpressRoute.
 
 1. Vérifiez l’exactitude des valeurs des champs **Abonnement**, **Groupe de ressources** et **Emplacement**. Sélectionnez ensuite **Créer**.
 
@@ -188,7 +188,7 @@ Pour tester le trafic de données via la connexion VPN, vous avez besoin de mac
 1. Dans la liste des images de machine virtuelle, sélectionnez l’image **Windows Server 2016 Datacenter Eval**.
 
    >[!NOTE]
-   >Si l’image utilisée pour cet article n’est pas disponible, demandez à votre opérateur Azure Stack pour fournir une autre image de Windows Server.
+   >Si l’image utilisée pour cet article n’est pas disponible, demandez à votre opérateur Azure Stack de vous fournir une autre image Windows Server.
 
 1. Dans le champ **Créer une machine virtuelle**, sélectionnez **Concepts de base**, puis saisissez **VM01** comme **Nom**.
 1. Entrez un nom d’utilisateur et un mot de passe valides. Vous utiliserez ce compte pour vous connecter à la machine virtuelle une fois celle-ci créée.
@@ -219,7 +219,7 @@ Si vous prévoyez d’utiliser le locataire 2 en exemple, n’oubliez pas de ch
 > [!IMPORTANT]
 > Cette section concerne uniquement les déploiements ASDK. La traduction d’adresses réseau (NAT) n’est pas nécessaire pour les déploiements à plusieurs nœuds.
 
-Le Kit de développement Azure Stack (ASDK) est autonome et isolé du réseau sur lequel est déployé l’hôte physique. Le réseau VIP auquel les passerelles sont connectées n’est pas externe. Il est masqué derrière un routeur qui procède à la traduction d’adresses réseau (NAT).
+Le Kit de développement Azure Stack (ASDK) est autonome et isolé du réseau sur lequel est déployé l’hôte physique. Le réseau VIP auquel les passerelles sont connectées n’est pas externe : il est masqué derrière un routeur qui procède à la traduction d’adresses réseau (NAT).
 
 Le routeur est l’hôte ASDK qui exécute le rôle Services de routage et d’accès à distance (RRAS). Vous devez configurer la traduction d’adresses réseau sur l’hôte ASDK pour permettre à la connexion VPN de site à site de se connecter aux deux extrémités.
 
@@ -290,7 +290,7 @@ L’infrastructure réseau Azure donnée en exemple est configurée de la faço
 
 * Un modèle de réseau virtuel Hub (192.168.2.0/24) et Spoke (10.100.0.0./16) standard. Pour plus d’informations sur une topologie réseau hub-and-spoke, consultez [Implémenter une topologie réseau hub-and-spoke dans Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 * Les charges de travail sont déployées dans le réseau virtuel Spoke et le circuit ExpressRoute est connecté au réseau virtuel Hub.
-* Les deux réseaux virtuels sont connectés à l’aide de l’homologation de réseau virtuel.
+* Les deux réseaux virtuels sont connectés à l’aide du peering de réseau virtuel.
 
 ### <a name="configure-the-azure-vnets"></a>Configurer les réseaux virtuels Azure
 
@@ -310,7 +310,7 @@ Pour en savoir plus sur la création de réseaux virtuels dans Azure, consultez 
    >[!NOTE]
    >Donnez la clé de service pour votre circuit à votre service afin qu’ils puissent configurer votre circuit ExpressRoute à leur extrémité.
 
-1. Suivez les étapes décrites dans la rubrique [Créer et modifier l’homologation pour un circuit ExpressRoute](/azure/expressroute/expressroute-howto-routing-portal-resource-manager) pour configurer l’homologation privée sur le circuit ExpressRoute.
+1. Suivez les étapes décrites dans la rubrique [Créer et modifier le peering pour un circuit ExpressRoute](/azure/expressroute/expressroute-howto-routing-portal-resource-manager) pour configurer le peering privé sur le circuit ExpressRoute.
 
 ### <a name="create-the-virtual-network-gateway"></a>Créer la passerelle de réseau virtuel
 
@@ -322,7 +322,7 @@ Pour connecter le circuit ExpressRoute au réseau virtuel Hub, suivez les étap
 
 ### <a name="peer-the-vnets"></a>Homologuer les réseaux virtuels
 
-Homologuez les réseaux virtuels Hub et Spoke en suivant les étapes décrites dans la rubrique [Créer une homologation de réseaux virtuels - Resource Manager - Même abonnement](/azure/virtual-network/virtual-networks-create-vnetpeering-arm-portal). Lors de la configuration de VNet Peering, assurez-vous d’utiliser les options suivantes :
+Effectuez le peering des réseaux virtuels Hub et Spoke en suivant les étapes décrites dans la rubrique [Créer un peering de réseaux virtuels - Resource Manager - Même abonnement](/azure/virtual-network/virtual-networks-create-vnetpeering-arm-portal). Lors de la configuration de VNet Peering, assurez-vous d’utiliser les options suivantes :
 
 * De Hub à Spoke : **Autoriser le transit par passerelle**.
 * De Spoke à Hub : **Utiliser la passerelle distante par défaut**.
@@ -574,7 +574,7 @@ Effectuez les tests ping suivants :
 
 ### <a name="allow-icmp-in-through-the-firewall"></a>Autoriser la transmission du protocole ICMP via le pare-feu
 
-Par défaut, Windows Server 2016 n’autorise pas la transmission des paquets ICMP entrants via le pare-feu. Pour chaque machine virtuelle que vous utilisez dans le cadre de tests ping, vous devez autoriser les paquets ICMP entrants. Pour créer une règle de pare-feu pour ICMP, exécutez l’applet de commande suivante dans une fenêtre PowerShell avec élévation de privilèges :
+Par défaut, Windows Server 2016 n’autorise pas la transmission des paquets ICMP entrants via le pare-feu. Pour chaque machine virtuelle que vous utilisez dans le cadre de tests ping, vous devez autoriser les paquets ICMP entrants. Pour créer une règle de pare-feu pour ICMP, exécutez l’applet de commande suivante dans une fenêtre PowerShell avec élévation de privilèges :
 
 ```powershell
 # Create ICMP firewall rule.

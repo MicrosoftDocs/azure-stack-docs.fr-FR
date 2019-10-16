@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: bcdf43f7be95c76cfd4fc454d85e08ad197551a6
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: d3eacfa8ab4b071d44ebd3bd2ad52351b72e7f00
+ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094338"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71974043"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Utilisation et facturation dans Azure Stack
 
@@ -44,18 +44,18 @@ L’illustration suivante montre les principaux composants du pipeline d’utili
 
 Les fournisseurs de ressources Azure Stack (comme Calcul, Stockage et Réseau) génèrent des données d’utilisation toutes les heures pour chaque abonnement. Les données d’utilisation contiennent des informations sur la ressource utilisée, comme le nom de la ressource, l’abonnement utilisé et la quantité utilisée. Pour en savoir plus sur les ressources ID de compteurs, consultez [Forum aux questions sur l’API d’utilisation d’Azure Stack](azure-stack-usage-related-faq.md).
 
-Une fois les données d’utilisation collectées, celles-ci sont [transmises à Azure](azure-stack-usage-reporting.md) pour générer une facture, qui peut être consultée dans le portail de facturation Azure.
+Une fois les données d’utilisation collectées, elles sont [transmises à Azure](azure-stack-usage-reporting.md) pour générer une facture, qui peut être affichée via le portail de facturation Azure.
 
 > [!NOTE]  
-> Les rapports des données d’utilisation ne sont pas nécessaires pour le Kit de développement Azure Stack (ASDK) ni pour les utilisateurs de systèmes intégrés Azure Stack qui gèrent leur licence dans le modèle de capacité. Pour en savoir plus sur la gestion des licences dans Azure Stack, consultez la [fiche sur les packages et les prix](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+> Les rapports des données d’utilisation ne sont pas nécessaires pour le Kit de développement Azure Stack ni pour les utilisateurs de systèmes intégrés Azure Stack qui gèrent leur licence dans le modèle de capacité. Pour en savoir plus sur la gestion des licences dans Azure Stack, consultez la [fiche sur les packages et les prix](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
 
 Le portail de facturation Azure affiche les données d’utilisation des ressources facturables. Outre les ressources facturables, Azure Stack capture les données d’utilisation pour un ensemble plus large de ressources, auquel vous pouvez accéder dans votre environnement Azure Stack via des API REST ou des cmdlets PowerShell. Les opérateurs Azure Stack peuvent obtenir les données d’utilisation pour tous les abonnements utilisateur. Par contre, chaque utilisateur peut uniquement obtenir des détails sur son utilisation.
 
-## <a name="usage-reporting-for-multi-tenant-cloud-service-providers"></a>Rapports d’utilisation pour les fournisseurs de services cloud mutualisés
+## <a name="usage-reporting-for-multi-tenant-cloud-solution-providers"></a>Rapports d’utilisation pour les fournisseurs de solutions cloud multilocataires
 
 Un fournisseur de solutions cloud (CSP) multilocataire qui utilise Azure Stack peut avoir besoin de journaliser l’utilisation pour chaque client séparément, afin de pouvoir facturer l’utilisation aux différents abonnements Azure.
 
-Chaque client va avoir son identité représentée par un autre locataire Azure Active Directory (Azure AD). Azure Stack prend en charge l’affectation d’un abonnement CSP à chaque locataire Azure AD. Vous pouvez ajouter des locataires et leurs abonnements à l’inscription Azure Stack de base. L’inscription de base est effectuée pour toutes les instances Azure Stack. Si un abonnement n’est pas inscrit pour un locataire, l’utilisateur peut toujours utiliser Azure Stack, et son utilisation est envoyée à l’abonnement utilisé pour l’inscription de la base.
+Chaque client va avoir son identité représentée par un autre locataire Azure Active Directory (Azure AD). Azure Stack prend en charge l’affectation d’un abonnement CSP à chaque locataire Azure AD. Vous pouvez ajouter des locataires et leurs abonnements à l’inscription Azure Stack de base. L’inscription de base est effectuée pour toutes les instances Azure Stack. Si un abonnement n’est pas inscrit pour un locataire, l’utilisateur peut toujours utiliser Azure Stack, et son utilisation est envoyée à l’abonnement utilisé pour l’inscription de base.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

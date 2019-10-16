@@ -6,16 +6,16 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 10/02/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: f5086dcae534656cea4ef1addacae3f5acdcb2d6
-ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
+ms.openlocfilehash: de96b74351fa3becd0b066da4430e42cb2a9cea7
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66197382"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961676"
 ---
 # <a name="introduction-to-azure-stack-vms"></a>Introduction aux machines virtuelles Azure Stack
 
@@ -23,7 +23,7 @@ ms.locfileid: "66197382"
 
 Azure Stack propose des machines virtuelles en tant que type de ressource informatique scalable à la demande. Une machine virtuelle est mieux adaptée à vos besoins si vous devez surtout améliorer le contrôle de votre environnement informatique. Cet article fournit des informations préalables à la création de votre première machine virtuelle.
 
-Une machine virtuelle Azure Stack vous offre la souplesse de la virtualisation, sans qu’il soit nécessaire de gérer des clusters ou des machines individuelles. Vous devez cependant toujours assurer la maintenance de la machine virtuelle en effectuant des tâches comme la configuration, la mise à jour corrective et l’installation des logiciels qui s’exécutent sur celle-ci.
+Une machine virtuelle Azure Stack vous offre la souplesse de la virtualisation, sans qu’il soit nécessaire de gérer des clusters ou des machines individuelles. Vous devez cependant toujours assurer la maintenance de la machine virtuelle en effectuant des tâches comme la configuration, la mise à jour corrective/mise à jour et l’installation des logiciels qui s’exécutent sur celle-ci.
 
 Vous pouvez utiliser des machines virtuelles Azure Stack de différentes manières. Par exemple :
 
@@ -91,7 +91,7 @@ Les ressources figurant dans le tableau suivant sont utilisées par la machine v
 
 |Ressource|Obligatoire|Description|
 |---------|---------|---------|
-|Groupe de ressources|OUI|La machine virtuelle doit être contenue dans un groupe de ressources.|
+|Resource group|OUI|La machine virtuelle doit être contenue dans un groupe de ressources.|
 |Compte de stockage|Non|La machine virtuelle ne nécessite pas que le compte de stockage stocke ses disques durs virtuels en cas d’utilisation de disques managés. <br>La machine virtuelle exige que le compte de stockage stocke ses disques durs virtuels en cas d’utilisation de disques non managés.|
 |Réseau virtuel|OUI|La machine virtuelle doit faire partie d’un réseau virtuel.|
 |Adresse IP publique|Non|La machine virtuelle peut avoir une adresse IP publique pour être accessible à distance.|

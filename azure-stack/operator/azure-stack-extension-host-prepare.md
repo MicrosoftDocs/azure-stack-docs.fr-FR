@@ -1,30 +1,30 @@
 ---
-title: Préparation de l’hôte d’extension pour Azure Stack | Microsoft Docs
-description: Apprenez à préparer l’hôte d’extension, qui est automatiquement activé avec un nouveau package de mise à jour Azure Stack.
+title: Préparer l’hôte d’extension dans Azure Stack | Microsoft Docs
+description: Découvrez comment préparer l’hôte d’extension dans Azure Stack, qui est automatiquement activé via un package de mise à jour Azure Stack après la version 1808.
 services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: ab508956ddcc57baa04c74710ea485c07cc20416
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 75070550f1863457c3a2aaf9ab5915536372d55b
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131159"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019277"
 ---
-# <a name="prepare-for-extension-host-for-azure-stack"></a>Préparer l’hôte d’extension pour Azure Stack
+# <a name="prepare-for-extension-host-in-azure-stack"></a>Préparer l’hôte d’extension dans Azure Stack
 
 L’hôte d’extension sécurise Azure Stack en réduisant le nombre de ports TCP/IP requis. Cet article passe en revue la préparation d’Azure Stack pour l’hôte d’extension. Ce dernier est automatiquement activé via un package de mise à jour Azure Stack après la mise à jour 1808. Cet article s’applique aux mises à jour 1808, 1809 et 1811 d’Azure Stack.
 
 ## <a name="certificate-requirements"></a>Configuration requise des certificats
 
-L’hôte d’extension implémente deux nouveaux espaces de noms de domaine pour garantir que les entrées d’hôte sont uniques pour chaque extension du portail. Les nouveaux espaces de noms de domaine requièrent deux certificats génériques supplémentaires pour garantir une communication sécurisée.
+L’hôte d’extension implémente deux nouveaux espaces de noms de domaine pour garantir que les entrées d’hôte sont uniques pour chaque extension du portail. Les nouveaux espaces de noms de domaine nécessitent deux certificats génériques supplémentaires pour garantir une communication sécurisée.
 
 Le tableau présente les nouveaux espaces de noms et les certificats associés :
 
@@ -33,11 +33,11 @@ Le tableau présente les nouveaux espaces de noms et les certificats associés 
 | Hôte d'extension d’administration | *.adminhosting.\<region>.\<fqdn> (Certificats SSL génériques) | Hôte d'extension d’administration | adminhosting.\<region>.\<fqdn> |
 | Hôte d'extension public | *.hosting.\<region>.\<fqdn> (Certificats SSL génériques) | Hôte d'extension public | hosting.\<region>.\<fqdn> |
 
-Vous trouverez les conditions requises détaillées dans l’article [Exigences de certificat pour infrastructure à clé publique Azure Stack](azure-stack-pki-certs.md).
+Pour connaître le détail des conditions requises, consultez [Exigences de certificat pour infrastructure à clé publique Azure Stack](azure-stack-pki-certs.md).
 
 ## <a name="create-certificate-signing-request"></a>Créer une demande de signature de certificat
 
-L’outil de vérification de la disponibilité Azure Stack offre la possibilité de créer une demande de signature de certificat pour les deux nouveaux certificats SSL qui sont obligatoires. Pour ce faire, suivez la procédure de l’article [Génération de CSR Azure Stack](azure-stack-get-pki-certs.md).
+L’outil de vérification de la disponibilité Azure Stack vous permet de créer une demande de signature de certificat pour les deux nouveaux certificats SSL obligatoires. Pour ce faire, suivez la procédure de l’article [Génération de CSR Azure Stack](azure-stack-get-pki-certs.md).
 
 > [!Note]  
 > Vous pouvez ignorer cette étape selon la méthode utilisée pour demander vos certificats SSL.
@@ -45,7 +45,7 @@ L’outil de vérification de la disponibilité Azure Stack offre la possibilit�
 ## <a name="validate-new-certificates"></a>Valider les nouveaux certificats
 
 1. Ouvrez PowerShell avec des autorisations élevées sur l’hôte de cycle de vie du matériel ou sur la station de travail de gestion Azure Stack.
-2. Exécutez le cmdlet suivant pour installer l’outil de vérification de la disponibilité Azure Stack.
+2. Exécutez l’applet de commande suivante pour installer l’outil de vérification de la disponibilité Azure Stack :
 
     ```powershell  
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
@@ -64,9 +64,9 @@ L’outil de vérification de la disponibilité Azure Stack offre la possibilit�
     ```
 
     > [!Note]  
-    > Si vous effectuez votre déploiement à l’aide des services de fédération Active Directory (AD FS), les répertoires suivants doivent être ajoutés à **$directories** dans le script : `ADFS`, `Graph`.
+    > Si vous effectuez votre déploiement à l’aide des services de fédération Active Directory (AD FS), les anuaires suivants doivent être ajoutés à **$directories** dans le script : `ADFS`, `Graph`.
 
-4. Placez les certificats existants, que vous utilisez actuellement dans Azure Stack, dans les répertoires appropriés. Par exemple, placez le certificat **Admin ARM** dans le dossier `Arm Admin`. Puis, placez les certificats d’hébergement qui viennent d’être créés les répertoires `Admin extension host` et `Public extension host`.
+4. Placez les certificats existants, que vous utilisez dans Azure Stack, dans les annuaires appropriés. Par exemple, placez le certificat **Admin ARM** dans le dossier `Arm Admin`. Puis, placez les certificats d’hébergement qui viennent d’être créés les annuaires `Admin extension host` et `Public extension host`.
 5. Exécutez la cmdlet suivante pour démarrer la vérification du certificat :
 
     ```powershell  
@@ -75,7 +75,7 @@ L’outil de vérification de la disponibilité Azure Stack offre la possibilit�
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
     ```
 
-6. Vérifiez que la sortie et tous les certificats réussissent tous les tests.
+6. Vérifiez la sortie et que tous les certificats réussissent tous les tests.
 
 
 ## <a name="import-extension-host-certificates"></a>Importer les certificats d’hôte d’extension
@@ -132,7 +132,7 @@ Si les enregistrements d’un hôte A individuel ont été configurés de sorte 
 | \<IP> | *.Adminhosting.\<Region>.\<FQDN> | A |
 | \<IP> | *.Hosting.\<Region>.\<FQDN> | A |
 
-Les adresses IP allouées peuvent être récupérées à l’aide du point de terminaison privilégié en exécutant le cmdlet **Get-AzureStackStampInformation**.
+Les adresses IP allouées peuvent être récupérées à l’aide du point de terminaison privilégié en exécutant l’applet de commande **Get-AzureStackStampInformation**.
 
 ### <a name="ports-and-protocols"></a>Ports et protocoles
 
@@ -148,7 +148,7 @@ winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
 $PEPSession = New-PSSession -ComputerName <IpOfERCSMachine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
 
-# Obtain DNS Servers and Extension Host information from Azure Stack Stamp Information and find the IPs for the Host Extension Endpoints
+# Obtain DNS Servers and extension host information from Azure Stack Stamp Information and find the IPs for the Host Extension Endpoints
 $StampInformation = Invoke-Command $PEPSession {Get-AzureStackStampInformation} | Select-Object -Property ExternalDNSIPAddress01, ExternalDNSIPAddress02, @{n="TenantHosting";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://*.","testdnsentry"-replace "/"}},  @{n="AdminHosting";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://*.","testdnsentry"-replace "/"}},@{n="TenantHostingDNS";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://",""-replace "/"}},  @{n="AdminHostingDNS";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://",""-replace "/"}}
 If (Resolve-DnsName -Server $StampInformation.ExternalDNSIPAddress01 -Name $StampInformation.TenantHosting -ErrorAction SilentlyContinue) {
     Write-Host "Can access AZS DNS" -ForegroundColor Green
@@ -184,7 +184,7 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 > [!Note]  
 > Effectuez cette modification avant d’activer l’hôte d’extension. Ainsi, les portails Azure Stack sont accessibles en continu.
 
-| Point de terminaison (VIP) | Protocole | Ports |
+| Point de terminaison (VIP) | Protocol | Ports |
 |----------------|----------|-------|
 | Hébergement Admin | HTTPS | 443 |
 | Hébergement | HTTPS | 443 |
@@ -192,14 +192,14 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 ### <a name="update-existing-publishing-rules-post-enablement-of-extension-host"></a>Mettre à jour les règles de publication existantes (activation postérieure à l’hôte d’extension)
 
 > [!Note]  
-> Le package de mise à jour 1808 Azure Stack **n’active pas** l’hôte d’extension. Il permet seulement de préparer l’hôte d’extension en important les certificats requis. Ne fermez aucun port avant que l’hôte d’extension ne soit activé automatiquement via un package de mise à jour Azure Stack après la mise à jour 1808.
+> Le package de mise à jour 1808 Azure Stack **n’active pas** l’hôte d’extension. Il vous permet de préparer l’hôte d’extension en important les certificats requis. Ne fermez aucun port avant que l’hôte d’extension ne soit activé automatiquement via un package de mise à jour Azure Stack après la mise à jour 1808.
 
 Les ports de points de terminaison existants suivants doivent être fermés dans vos règles de pare-feu existantes.
 
 > [!Note]  
 > Il est recommandé de fermer ces ports après une validation réussie.
 
-| Point de terminaison (VIP) | Protocole | Ports |
+| Point de terminaison (VIP) | Protocol | Ports |
 |----------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Portail (administrateur) | HTTPS | 12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015 |
 | Portail (utilisateur) | HTTPS | 12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003 |

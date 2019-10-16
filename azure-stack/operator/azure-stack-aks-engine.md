@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: bcb9dab55d00c48e5b77e7184fae0567ff1f620e
-ms.sourcegitcommit: 5e53eb5d43d28ab07b4f84891dd269bbfcf65622
+ms.lastreviewed: 10/09/2019
+ms.openlocfilehash: 6695af1e27a2182321a468b853a4650f42146a15
+ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71311284"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037906"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Ajouter les prérequis du moteur Azure Kubernetes Services (AKS) à la Place de marché Azure Stack
 
@@ -69,10 +69,9 @@ Ajoutez l'élément suivant à la Place de marché :
 1. Sélectionnez la version de l'image correspondant à la version du moteur AKS. Vous trouverez la liste des versions d’image de base AKS et du moteur AKS dans la rubrique [Versions Kubernetes prises en charge](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions). 
 
     Dans la liste, sélectionnez :
-    - **Éditeur** : microsoft-aks
+    - **Éditeur** : Azure Kubernetes Service
     - **Offre** : aks
-    - **Version** : 2019.07.30 (ou version correspondant au moteur AKS)
-    - **Référence SKU** : aks-ubuntu-1604-201907
+    - **Version** : Image de base AKS 16.04-LTS Image Distro, septembre 2019 (2019.09.19 ou version mappée au moteur AKS)
 
 1. Sélectionnez **Télécharger**.
 

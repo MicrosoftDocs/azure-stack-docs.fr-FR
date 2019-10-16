@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 69f427bd825bdc74501256d47e61bbae95f4d64b
-ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
+ms.openlocfilehash: 97684f2a0ef9960854b192ca15f972bc15ff5b62
+ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687994"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71974063"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Disques managés Azure Stack : différences et considérations
 
@@ -30,24 +30,24 @@ Cet article récapitule les différences entre les [disques managés dans Azure 
 Les disques managés simplifient la gestion des disques des machines virtuelles IaaS, en gérant les [comptes de stockage](../operator/azure-stack-manage-storage-accounts.md) associés aux disques de machines virtuelles.
 
 > [!NOTE]  
-> Les disques managés sur Azure Stack sont disponibles à compter de la mise à jour 1808. À compter de la mise à jour 1811, ce service est activé par défaut lors de la création de machines virtuelles par le biais du portail Azure Stack.
+> Les disques managés sur Azure Stack sont disponibles à compter de la mise à jour 1808. À compter de la mise à jour 1811, la fonctionnalité est activée par défaut lors de la création de machines virtuelles par le biais du portail Azure Stack.
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>Aide-mémoire : différences entre les disques managés
 
 | Fonctionnalité | Azure (global) | Azure Stack |
 | --- | --- | --- |
-|Chiffrement des données au repos |Azure Storage Service Encryption (SSE), Azure Disk Encryption (ADE)     |Chiffrement AES 128 bits BitLocker      |
+|Chiffrement des données au repos |Azure Storage Service Encryption (SSE), Azure Disk Encryption (ADE).     |Chiffrement AES 128 bits BitLocker      |
 |Image          | Image personnalisée managée |Pris en charge|
 |Options de sauvegarde | Service Azure Backup |Pas encore pris en charge |
 |Options de récupération d’urgence | Azure Site Recovery |Pas encore pris en charge|
-|Types de disque     |SSD Premium, SSD Standard et HDD Standard |SSD Premium, HDD Standard |
-|Disques Premium  |Entièrement pris en charge |Peut être approvisionné, mais sans limite ni garantie de performances  |
-|IOPS des disques Premium  |Varie selon la taille du disque  |2 300 IOPS par disque |
-|Débit des disques Premium |Varie selon la taille du disque |145 Mo/seconde par disque |
+|Types de disque     |SSD Premium, SSD Standard et HDD Standard. |SSD Premium, HDD Standard |
+|Disques Premium  |Entièrement pris en charge. |Peut être approvisionné, mais sans limite ni garantie de performances  |
+|IOPS des disques Premium  |Varie selon la taille du disque.  |2 300 IOPS par disque |
+|Débit des disques Premium |Varie selon la taille du disque. |145 Mo/seconde par disque |
 |Taille du disque  |Disque Premium Azure : P4 (32 Gio) à P80 (32 Tio)<br>Disque SSD Standard Azure : E10 (128 Gio) à E80 (32 Tio)<br>Disque HDD Standard Azure : S4 (32 Gio) à S80 (32 Tio) |M4 : 32 Gio<br>M6 : 64 Gio<br>M10 : 128 Go<br>M15 : 256 Gio<br>M20 : 512 Go<br>M30 : 1 023 Gio |
-|Copie d’un instantané de disques|Instantané de disques managés Azure attaché à une machine virtuelle en cours d’exécution pris en charge|Pas encore pris en charge |
-|Analyse des performances des disques |Agréger les métriques et les métriques par disque prises en charge |Pas encore pris en charge |
-|Migration      |Fournir l’outil pour migrer à partir de machines virtuelles Azure Resource Manager non managées existantes sans devoir recréer de machine virtuelle  |Pas encore pris en charge |
+|Copie d’un instantané de disques|Instantané de disques managés Azure attaché à une machine virtuelle en cours d’exécution pris en charge.|Pas encore pris en charge |
+|Analyse des performances des disques |Agréger les métriques et les métriques par disque prises en charge. |Pas encore pris en charge |
+|Migration      |Fournir l’outil pour migrer à partir de machines virtuelles Azure Resource Manager non managées existantes sans devoir recréer de machine virtuelle.  |Pas encore pris en charge |
 
 > [!NOTE]  
 > Les IOPS et le débit de disques managés dans Azure Stack sont exprimés en nombre plafond plutôt qu’en nombre provisionné, qui peut être affecté par le matériel et les charges de travail en cours d’exécution dans Azure Stack.
@@ -57,7 +57,7 @@ Les disques managés simplifient la gestion des disques des machines virtuelles 
 Il existe également des différences sur le plan des métriques de stockage :
 
 - Avec Azure Stack, les données de transaction dans les métriques de stockage ne font pas la distinction entre les bandes passantes réseau interne et externe.
-- Les données de transaction d’Azure Stack dans les métriques de stockage n’incluent l’accès des machines virtuelles aux disques montés.
+- Les données de transaction d’Azure Stack dans les métriques de stockage n’incluent pas l’accès des machines virtuelles aux disques montés.
 
 ## <a name="api-versions"></a>Versions d’API
 
@@ -69,7 +69,7 @@ Les disques managés Azure Stack prennent en charge les versions d’API suivant
 ## <a name="convert-to-managed-disks"></a>Convertir en disques managés
 
 > [!NOTE]  
-> L’applet de commande Azure PowerShell **ConvertTo-AzureRmVMManagedDisk** ne peut pas être utilisée pour convertir un disque non managé en disque managé dans Azure Stack. Azure Stack ne prend pas en charge cette applet de commande pour l’instant.
+> La cmdlet Azure PowerShell **ConvertTo-AzureRmVMManagedDisk** ne peut pas être utilisée pour convertir un disque non managé en disque managé dans Azure Stack. Azure Stack ne prend pas en charge cette applet de commande pour l’instant.
 
 Vous pouvez utiliser le script suivant pour convertir une machine virtuelle actuellement provisionnée de disques non managés en disques managés. Remplacez les espaces réservés par vos valeurs :
 
@@ -228,7 +228,7 @@ Après avoir appliqué la mise à jour 1808 ou ultérieure, vous devez applique
 - Si un abonnement a été créé avant la mise à jour 1808, procédez comme suit pour mettre à jour l’abonnement. Sinon, le déploiement de machines virtuelles dans cet abonnement peut échouer avec un message d’erreur « Erreur interne dans le gestionnaire de disque ».
    1. Dans le portail utilisateur Azure Stack, accédez à **Abonnements** et recherchez l’abonnement. Cliquez sur **Fournisseurs de ressources**, sur **Microsoft.Compute**, puis sur **Réinscrire**.
    2. Sous le même abonnement, accédez à **Contrôle d’accès (IAM)** et vérifiez que l’élément **Azure Stack - Disque managé** est listé.
-- Si vous utilisez un environnement mutualisé, demandez à votre opérateur cloud (dans votre organisation ou chez votre fournisseur de services) de reconfigurer chacun de vos annuaires invités conformément aux étapes décrites dans [cet article](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). Sinon, le déploiement de machines virtuelles dans un abonnement associé à cet annuaire invité peut échouer avec un message d’erreur « Erreur interne dans le gestionnaire de disque ».
+- Si vous utilisez un environnement mutualisé, demandez à votre opérateur cloud (dans votre organisation ou chez votre fournisseur de services) de reconfigurer chacun de vos annuaires invités conformément aux étapes décrites dans [cet article](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). Sinon, le déploiement de machines virtuelles dans un abonnement associé à cet annuaire invité peut échouer avec le message d’erreur « Erreur interne dans le gestionnaire de disque ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 

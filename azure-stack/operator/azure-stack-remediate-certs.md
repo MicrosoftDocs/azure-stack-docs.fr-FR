@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2018
-ms.openlocfilehash: ac6e04fbb884b3689cec7e5f435f9265f7e2108e
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.openlocfilehash: 6e8adbc0d84c7816a081e751473764aab79cfcf2
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152416"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961917"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Corriger les problèmes courants liés aux certificats PKI Azure Stack
 
@@ -93,14 +93,14 @@ Les informations contenues dans cet article peuvent vous aider à comprendre et 
 
 ## <a name="fix-common-packaging-issues"></a>Résoudre les problèmes courants de packaging
 
-L’outil **AzsReadinessChecker** inclut une applet de commande d’assistance appelée `Repair-AzsPfxCertificate`, qui vous permet d’importer puis d’exporter un fichier PFX utile pour résoudre les problèmes de packaging courants, comme :
+L’outil **AzsReadinessChecker** inclut une l’applet de commande d’assistance, appelée **Repair-AzsPfxCertificate**, capable d’importer puis exporter un fichier PFX afin de réparer les problèmes de package courants, comme :
 
 - Le **chiffrement PFX** n’est pas TripleDES-SHA1.
 - La **clé privée** n’a pas d’attribut d’ordinateur Local.
 - **Chaîne d’approbation** incomplète ou incorrecte. L’ordinateur local doit contenir la chaîne de certificats si elle n’est pas présente dans le package PFX.
 - **Autres certificats**
 
-`Repair-AzsPfxCertificate` n’est d’aucune utilité si vous devez générer une nouvelle demande signature de certificat et réémettre un certificat.
+**Repair-AzsPfxCertificate** n’est d’aucune utilité si vous devez générer une nouvelle demande signature de certificat et réémettre un certificat.
 
 ### <a name="prerequisites"></a>Prérequis
 
@@ -130,7 +130,7 @@ L’ordinateur sur lequel l’outil s’exécute doit répondre aux prérequis s
    $password = Read-Host -Prompt PFXpassword -AsSecureString
    ```
 
-3. À l’invite PowerShell, exécutez ce qui suit pour exporter un nouveau fichier PFX :
+3. À l’invite PowerShell, exécutez la commande suivante pour exporter un nouveau fichier PFX :
 
    - Pour `-PfxPath`, spécifiez le chemin du fichier PFX que vous utilisez. Dans l’exemple suivant, le chemin est `.\certificates\ssl.pfx`.
    - Pour `-ExportPFXPath`, spécifiez l’emplacement et le nom du fichier PFX à exporter. Dans l’exemple suivant, le chemin est `.\certificates\ssl_new.pfx` :

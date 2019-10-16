@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 9d8510c121c424c3c66fd179639256e8834e932e
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 10/08/2019
+ms.openlocfilehash: fd56e7aa7805614829985a2e083d228d1960b402
+ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829057"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173067"
 ---
 # <a name="collect-azure-stack-diagnostic-logs-on-demand"></a>Collecter les journaux de diagnostic Azure Stack à la demande
 
@@ -29,7 +29,10 @@ ms.locfileid: "71829057"
 
 Dans le cadre de la résolution des problèmes, les services de support technique Microsoft (CSS) peuvent avoir besoin d’analyser les journaux de diagnostic. Depuis la version 1907, les opérateurs Azure Stack peuvent télécharger les journaux de diagnostic à la demande vers un conteneur d’objets blob dans Azure dans **Aide et support.** . Si le portail n’est pas disponible, les opérateurs peuvent collecter les journaux avec Get-AzureStackLog via le point de terminaison privilégié (PEP). Cette rubrique décrit les deux méthodes de collecte des journaux de diagnostic à la demande.
 
-## <a name="use-help-and-support-to-collect-diagnostic-logs"></a>Utiliser Aide et support pour collecter les journaux de diagnostic
+>[!Note]
+>En guise d’alternative à la collecte de journaux à la demande, vous pouvez simplifier le processus de résolution des problèmes en activant la [collecte automatique des journaux de diagnostic](azure-stack-configure-automatic-diagnostic-log-collection.md). Si les conditions d’intégrité du système doivent être examinées, les journaux sont automatiquement chargés à des fins d’analyse par les services CSS. 
+
+## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>Utiliser Aide et support pour collecter les journaux de diagnostic à la demande
 
 Pour résoudre un problème, CSS peut demander à l’opérateur Azure Stack de collecter les journaux de diagnostic à la demande pour une période donnée au cours de la semaine précédente. Dans ce cas, CSS fournira à l’opérateur une URL SAS pour le chargement de la collecte. Procédez comme suit pour configurer la collecte des journaux à la demande à l’aide de l’URL SAS fournie par CSS :
 

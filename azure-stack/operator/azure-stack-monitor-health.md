@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/2/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 00f4a9c0aaaf52ed08706e9024059d7b24268290
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 1747be1c97a706aae5d49889949fd0b0f9a70da3
+ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829473"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72164957"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Surveiller l’intégrité et les alertes dans Azure Stack
 
@@ -67,6 +67,9 @@ La liste des alertes actives pour chaque région Azure Stack est disponible dire
 En sélectionnant la partie supérieure de la vignette **Alertes**, vous accédez à la liste de toutes les alertes actives pour la région. Si vous sélectionnez l’élément de ligne **Critique** ou **Avertissement** dans la vignette, vous accédez à une liste filtrée des alertes (Critique ou Avertissement). 
 
 Le panneau **Alertes** prend en charge la possibilité de filtrer à la fois sur le niveau de gravité (Critique ou Avertissement) et sur l’état (Actif ou Fermé). L’affichage par défaut montre toutes les alertes actives. Toutes les alertes fermées sont supprimées du système après sept jours.
+
+>[!Note]
+>Si une alerte reste active mais n’a pas été mise à jour depuis plus d’une journée, vous pouvez exécuter [Test-AzureStack](azure-stack-diagnostic-test.md) et fermer l’alerte si aucun problème n’est signalé.
 
 ![Volet Filtre pour filtrer par état Critique ou Avertissement](media/azure-stack-monitor-health/alert-view.png)
 

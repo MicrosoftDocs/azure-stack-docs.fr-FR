@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 10/02/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 8b4d48b55cfe21cf7de09119b9069ae4056d3efd
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: af110f6b4140a69e01dadcd38a32843866744abf
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492426"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961592"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack"></a>Créer du stockage sur disque pour machines virtuelles dans Azure Stack
 
@@ -50,7 +50,7 @@ Le tableau suivant est un récapitulatif de la façon d’ajouter des disques av
 
 | Méthode | Options
 |-|-|
-|Portail de l’utilisateur|- Ajouter de nouveaux disques de données à une machine virtuelle existante. Les nouveaux disques sont créés par Azure Stack. </br> </br>- Ajouter un fichier disque (.vhd) existant à une machine virtuelle déjà créée. Pour cela, vous devez d’abord préparer le .vhd, puis charger le fichier sur Azure Stack. |
+|Portail de l’utilisateur|- Ajouter de nouveaux disques de données à une machine virtuelle existante. Les nouveaux disques sont créés par Azure Stack. </br> </br> - Ajouter un fichier disque (.vhd) existant à une machine virtuelle déjà créée. Pour cela, vous devez d’abord préparer le .vhd, puis charger le fichier sur Azure Stack. |
 |[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | - Créez une machine virtuelle en utilisant un disque de système d’exploitation, et ajoutez parallèlement un ou plusieurs disques de données à cette machine virtuelle. |
 
 ## <a name="use-the-portal-to-add-disks-to-a-vm"></a>Utiliser le portail pour ajouter des disques à une machine virtuelle
@@ -111,7 +111,7 @@ Chaque disque non managé que vous ajoutez doit être placé dans un conteneur d
 
      Le coût d’un disque standard augmente avec sa taille. Le coût et les performances d’un disque Premium augmentent avec sa taille. Pour plus d’informations, consultez [Tarification de la fonctionnalité Disques managés](https://go.microsoft.com/fwlink/?linkid=843142).
 
-   * Sélectionnez **Créer**. Azure Stack crée et valide le disque managé.
+   * Sélectionnez **Create** (Créer). Azure Stack crée et valide le disque managé.
 
 6. Après qu’Azure Stack a créé le disque et l’a attaché à la machine virtuelle, le nouveau disque est listé dans les paramètres de disque de machine virtuelle sous **DISQUES DE DONNÉES**.
 
@@ -129,7 +129,7 @@ Pour plus d’informations sur l’utilisation des comptes de stockage dans Azur
 
 ## <a name="attach-an-existing-data-disk-to-a-vm"></a>Ajouter un disque de données existant à une machine virtuelle
 
-1. [Préparez un fichier .vhd](https://docs.microsoft.com/azure/virtual-machines/windows/classic/createupload-vhd) à utiliser comme disque de données pour une machine virtuelle. Chargez ce fichier .vhd sur un compte de stockage que vous utilisez avec la machine virtuelle à laquelle vous souhaitez attacher le fichier .vhd.
+1. [Préparez un fichier .vhd](/azure/virtual-machines/windows/classic/createupload-vhd) à utiliser comme disque de données pour une machine virtuelle. Chargez ce fichier .vhd sur un compte de stockage que vous utilisez avec la machine virtuelle à laquelle vous souhaitez attacher le fichier .vhd.
 
     Pour stocker le fichier .vhd, pensez à utiliser un conteneur autre que le conteneur du disque du système d’exploitation.
     ![Exemple : charger un fichier VHD](media/azure-stack-manage-vm-disks/upload-vhd.png)
@@ -161,9 +161,9 @@ Pour plus d’informations sur l’utilisation des comptes de stockage dans Azur
 
     ![Exemple : Procéder à l’attachement du disque](media/azure-stack-manage-vm-disks/complete-disk-attach.png)
 
-## <a name="use-powershell-to-add-multiple-unmanaged-disks-to-a-vm"></a>Utiliser PowerShell pour ajouter plusieurs disques non gérés à une machine virtuelle
+## <a name="use-powershell-to-add-multiple-unmanaged-disks-to-a-vm"></a>Utiliser PowerShell pour ajouter plusieurs disques non managés à une machine virtuelle
 
-Vous pouvez utiliser PowerShell pour provisionner une machine virtuelle et ajouter un nouveau disque de données, ou attacher un fichier **.vhd** préexistant en tant que disque de données.
+Vous pouvez utiliser PowerShell pour provisionner une machine virtuelle et ajouter un nouveau disque de données, ou attacher un fichier .vhd préexistant en tant que disque de données.
 
 La cmdlet **Add-AzureRmVMDataDisk** ajoute un disque de données à une machine virtuelle. Vous pouvez ajouter un disque de données lorsque vous créez une machine virtuelle. Vous pouvez également ajouter un disque de données à une machine virtuelle existante. Spécifiez le paramètre **VhdUri** pour distribuer les disques vers différents conteneurs.
 
@@ -215,10 +215,10 @@ $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
 Les commandes PowerShell suivantes permettent d’ajouter la configuration du réseau et du disque du système d’exploitation à la machine virtuelle, puis de démarrer la nouvelle machine virtuelle :
 
 ```powershell
-#set variables
+# Set variables
 $rgName = "myResourceGroup"
 $location = "local"
-#Set OS Disk
+# Set OS Disk
 $osDiskUri = "https://contoso.blob.local.azurestack.external/vhds/osDisk.vhd"
 $osDiskName = "osDisk"
 

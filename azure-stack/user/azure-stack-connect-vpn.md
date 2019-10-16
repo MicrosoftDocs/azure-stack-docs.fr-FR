@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: a0e1312beac5f0591658295ac3e48f122aceec4b
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: 844162e4f31a6f543a9fe774aa40bd606dad85b9
+ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316279"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71974105"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Connexion d’Azure Stack à Azure à l’aide d’un VPN
 
@@ -69,7 +69,7 @@ Tout d’abord, créez les ressources réseau pour Azure. Les instructions ci-ap
 6. Pour le champ **Groupe de ressources**, créez un groupe de ressources ou, si vous en avez déjà un, sélectionnez **Utiliser l’existant**.
 7. Sélectionnez l’**emplacement** de votre réseau virtuel.  Si vous utilisez les exemples de valeurs, sélectionnez **USA Est** ou utilisez un autre emplacement.
 8. Sélectionnez **Épingler au tableau de bord**.
-9. Sélectionnez **Créer**.
+9. Sélectionnez **Create** (Créer).
 
 ### <a name="create-the-gateway-subnet"></a>Créer le sous-réseau de passerelle
 
@@ -94,7 +94,7 @@ Tout d’abord, créez les ressources réseau pour Azure. Les instructions ci-ap
 5. Pour choisir un réseau virtuel, sélectionnez **Réseau virtuel**. Sélectionnez ensuite **AzureVnet** dans la liste.
 6. Sélectionnez **Adresse IP publique**. Quand la section **Choisir une adresse IP publique** s’affiche, sélectionnez **Créer**.
 7. Dans le champ **Nom**, tapez **Azure-GW-PiP**, puis sélectionnez **OK**.
-8. Vérifiez que l’**abonnement** et l’**emplacement** sont corrects. Vous pouvez épingler la ressource au tableau de bord. Sélectionnez **Créer**.
+8. Vérifiez que l’**abonnement** et l’**emplacement** sont corrects. Vous pouvez épingler la ressource au tableau de bord. Sélectionnez **Create** (Créer).
 
 ### <a name="create-the-local-network-gateway-resource"></a>Créer la ressource de passerelle de réseau local
 
@@ -166,7 +166,7 @@ Un administrateur de service peut se connecter en tant qu’utilisateur pour tes
 7. Pour le champ **Groupe de ressources**, créez un groupe de ressources ou, si vous en avez déjà un, sélectionnez **Utiliser l’existant**.
 8. Vérifiez l’emplacement par défaut.
 9. Sélectionnez **Épingler au tableau de bord**.
-10. Sélectionnez **Créer**.
+10. Sélectionnez **Create** (Créer).
 
 ### <a name="create-the-gateway-subnet"></a>Créer le sous-réseau de passerelle
 
@@ -191,7 +191,7 @@ Un administrateur de service peut se connecter en tant qu’utilisateur pour tes
 7. Dans le champ **Nom**, saisissez **Azs-GW-PiP**, puis sélectionnez **OK**.
 8. L’élément **Basé sur itinéraires** est sélectionné par défaut dans le champ **Type de VPN**. Conservez le type de VPN **Basé sur itinéraires**.
 
-9. Vérifiez que l’**abonnement** et l’**emplacement** sont corrects. Vous pouvez épingler la ressource au tableau de bord. Sélectionnez **Créer**.
+9. Vérifiez que l’**abonnement** et l’**emplacement** sont corrects. Vous pouvez épingler la ressource au tableau de bord. Sélectionnez **Create** (Créer).
 
 ### <a name="create-the-local-network-gateway"></a>Créer la passerelle de réseau local
 
