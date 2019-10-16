@@ -42,13 +42,15 @@
     - name: Intégration du centre de données
       href: azure-stack-customer-journey.md
       items:
-        - name: Considérations générales relatives à l’intégration de Microsoft Azure Stack
+        - name: Procédure pas à pas
+          href: azure-stack-customer-journey.md
+        - name: Considérations d’ordre général
           href: azure-stack-datacenter-integration.md
-        - name: Modèles de connexion pour le déploiement de Microsoft Azure Stack
+        - name: Modèles de connexion
           href: azure-stack-connection-models.md
-        - name: Remarques relatives au déploiement connecté
+        - name: Déploiement connecté
           href: azure-stack-connected-deployment.md
-        - name: Remarques relatives au déploiement déconnecté
+        - name: Déploiement déconnecté
           href: azure-stack-disconnected-deployment.md
         - name: Intégration du réseau du centre de données
           items:
@@ -119,8 +121,6 @@
       items:
         - name: Informations de base sur l’administration
           href: azure-stack-manage-basics.md
-        - name: Check-list des opérations
-          href: azure-stack-operations-checklist.md
         - name: Effacer les données utilisateur du portail
           href: azure-stack-portal-clear.md
         - name: Configurer la collecte de données de télémétrie
