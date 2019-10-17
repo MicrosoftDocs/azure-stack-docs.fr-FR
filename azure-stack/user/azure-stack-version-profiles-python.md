@@ -15,12 +15,12 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: bf44716c160948f3deafdc8afb87b9b6d49f9eb5
-ms.sourcegitcommit: 3d14ae30ce3ee44729e5419728cce14b3000e968
+ms.openlocfilehash: d0bec72b86fc2cfc729514343a3749a7907ae04c
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71814452"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282822"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Utiliser des profils de version des API avec Python dans Azure Stack
 
@@ -61,7 +61,7 @@ Pour pouvoir utiliser le SDK Azure pour Python avec Azure Stack, vous devez four
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
 | ID client | `AZURE_TENANT_ID` | Votre [ID de locataire](../operator/azure-stack-identity-overview.md) Azure Stack. |
 | ID client | `AZURE_CLIENT_ID` | L’ID d’application du principal de service enregistré lors de la création du principal de service dans la section précédente de cet article. |
-| Identifiant d’abonnement | `AZURE_SUBSCRIPTION_ID` | Vous utilisez l’[ID d’abonnement](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) pour accéder à des offres dans Azure Stack. |
+| Identifiant d’abonnement | `AZURE_SUBSCRIPTION_ID` | Vous utilisez l’[ID d’abonnement](../operator/service-plan-offer-subscription-overview.md#subscriptions) pour accéder à des offres dans Azure Stack. |
 | Clé secrète client | `AZURE_CLIENT_SECRET` | Le secret d’application du principal de service enregistré lors de la création du principal de service. |
 | Point de terminaison Resource Manager | `ARM_ENDPOINT` | Consultez l’article [Point de terminaison Azure Stack Resource Manager](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Emplacement des ressources | `AZURE_RESOURCE_LOCATION` | Emplacement des ressources de votre environnement Azure Stack.

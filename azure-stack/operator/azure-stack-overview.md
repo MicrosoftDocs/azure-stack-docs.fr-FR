@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 05/14/2019
-ms.openlocfilehash: 7c84a9cb841f06887d09a650d277566fb9ff18ed
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: 060258b07e3eef385298600794a6dd8154a461fc
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070175"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283423"
 ---
 # <a name="azure-stack-overview"></a>Vue d’ensemble d’Azure Stack
 
@@ -92,7 +92,7 @@ Vous pouvez gérer Azure Stack à l’aide du portail d’administration, du por
 
 En tant qu’opérateur Azure Stack, vous pouvez fournir un large éventail de services et d’applications, tels que des [machines virtuelles](azure-stack-tutorial-tenant-vm.md), des [applications web](azure-stack-app-service-overview.md) et des bases de données [SQL Server](azure-stack-tutorial-sql.md) et [MySQL Server](azure-stack-tutorial-mysql.md) hautement disponibles. Vous pouvez également utiliser les [modèles Azure Resource Manager fournis dans le guide de démarrage rapide consacré à Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) pour déployer des produits tels que SharePoint ou Exchange. 
 
-À l’aide du portail d’administration, vous pouvez [configurer Azure Stack pour fournir des services](azure-stack-plan-offer-quota-overview.md) aux locataires à l’aide de plans, de quotas, d’offres et d’abonnements. Les locataires peuvent s’abonner à plusieurs offres. Les offres peuvent contenir un ou plusieurs plans, et les plans peuvent contenir un ou plusieurs services. Les opérateurs gèrent aussi la capacité et répondent aux alertes. 
+À l’aide du portail d’administration, vous pouvez [configurer Azure Stack pour fournir des services](service-plan-offer-subscription-overview.md) aux locataires à l’aide de plans, de quotas, d’offres et d’abonnements. Les locataires peuvent s’abonner à plusieurs offres. Les offres peuvent contenir un ou plusieurs plans, et les plans peuvent contenir un ou plusieurs services. Les opérateurs gèrent aussi la capacité et répondent aux alertes. 
 
 Quand Azure Stack est configuré, un **utilisateur Azure Stack** (également appelé locataire) consomme les services offerts par l’opérateur. Les utilisateurs peuvent provisionner, superviser et gérer les services auxquels ils sont abonnés, tels que les applications web, le stockage et les machines virtuelles.
 

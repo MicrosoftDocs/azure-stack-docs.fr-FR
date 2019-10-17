@@ -15,12 +15,12 @@ ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 6695af1e27a2182321a468b853a4650f42146a15
-ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
+ms.openlocfilehash: 1e1e72cea27bf036f662cfaa64a84a57fe9bc964
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037906"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283061"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Ajouter les prérequis du moteur Azure Kubernetes Services (AKS) à la Place de marché Azure Stack
 
@@ -38,7 +38,7 @@ Le moteur AKS utilise une image générée, l’[image de base AKS](https://gith
 
 Vos utilisateurs auront besoin d'un plan, d'une offre et d'un abonnement à Azure Stack avec suffisamment d'espace. Les utilisateurs voudront souvent déployer des clusters comportant jusqu'à six machines virtuelles, composées de trois nœuds principaux et de trois nœuds worker. Vous voudrez vous assurer qu'ils disposent d’un quota suffisamment élevé.
 
-Si vous avez besoin de plus d'informations sur la planification et la mise en place d'une offre de services, voir [Vue d’ensemble de l’offre de services dans Azure Stack](azure-stack-offer-services-overview.md)
+Si vous avez besoin de plus d'informations sur la planification et la mise en place d'une offre de services, voir [Vue d’ensemble de l’offre de services dans Azure Stack](service-plan-offer-subscription-overview.md)
 
 ## <a name="create-a-service-principal-and-credentials"></a>Créer un principal de service et des informations d’identification
 
@@ -101,4 +101,4 @@ Vous pouvez ajouter le script personnalisé à la Place de marché en vous procu
 
 [Qu’est-ce que le moteur AKS sur Azure Stack ?](../user/azure-stack-kubernetes-aks-engine-overview.md)
 
-[Vue d’ensemble de l’offre de services dans Azure Stack](azure-stack-offer-services-overview.md)
+[Vue d’ensemble de l’offre de services dans Azure Stack](service-plan-offer-subscription-overview.md)

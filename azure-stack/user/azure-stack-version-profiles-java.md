@@ -16,12 +16,12 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: f5cbf333494eb8d04ccbc974f95cda8be5d62284
-ms.sourcegitcommit: 3d14ae30ce3ee44729e5419728cce14b3000e968
+ms.openlocfilehash: 7d2a98656671a5e6f59d46054e074e45bb9d3c89
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71814491"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282892"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Utiliser des profils de version d’API avec Java dans Azure Stack
 
@@ -97,7 +97,7 @@ Pour utiliser le Kit de développement logiciel (SDK) Java Azure avec Azure Stac
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ID client                 | `AZURE_TENANT_ID`            | Votre [ID de locataire](../operator/azure-stack-identity-overview.md) Azure Stack.                                                          |
 | ID client                 | `AZURE_CLIENT_ID`             | L’ID d’application du principal de service enregistré lors de la création du principal de service dans la section précédente.                                                                                              |
-| Identifiant d’abonnement           | `AZURE_SUBSCRIPTION_ID`      | Vous utilisez l’[ID d’abonnement](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) pour accéder à des offres dans Azure Stack.                |
+| Identifiant d’abonnement           | `AZURE_SUBSCRIPTION_ID`      | Vous utilisez l’[ID d’abonnement](../operator/service-plan-offer-subscription-overview.md#subscriptions) pour accéder à des offres dans Azure Stack.                |
 | Clé secrète client             | `AZURE_CLIENT_SECRET`        | Le secret d’application du principal de service enregistré lors de la création du principal de service.                                                                                                                                   |
 | Point de terminaison Resource Manager | `ARM_ENDPOINT`              | Consultez l’article [Point de terminaison Azure Stack Resource Manager](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Location                  | `RESOURCE_LOCATION`    | **Local** pour Azure Stack.                                                                                                                                                                                                |

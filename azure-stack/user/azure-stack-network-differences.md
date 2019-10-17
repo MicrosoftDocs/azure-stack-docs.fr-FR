@@ -5,18 +5,18 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 07/10/2019
+ms.date: 10/10/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 7e0f533c10e8dae0566284ffb09cfa7281213002
-ms.sourcegitcommit: ca7e6b7b9b27d0d93ee4d5d1eeaf3113bbcea4da
+ms.openlocfilehash: 79ec0994ecd99a5279fc0b3b032ef6872f921f38
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68229434"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277795"
 ---
 # <a name="differences-and-considerations-for-azure-stack-networking"></a>Différences et considérations relatives aux réseaux Azure Stack
 
@@ -36,7 +36,7 @@ Cet article fournit une vue d’ensemble de considérations propres à la gestio
 |  | Jeux d’enregistrements DNS par zone | 5000 (par défaut)<br>Peut être augmenté à la demande. | 5 000 |
 |  | Serveurs de noms pour la délégation de zone | Azure fournit quatre serveurs de noms pour chaque zone utilisateur (locataire) créée. | Azure Stack fournit deux serveurs de noms pour chaque zone utilisateur (locataire) créée. |
 | Pare-feu Azure | Service de sécurité réseau | Pare-feu Azure est un service de sécurité réseau informatique géré qui protège vos ressources Réseau virtuel Azure. | Pas encore pris en charge. |
-| Réseau virtuel | Homologation de réseaux virtuels | Connecter deux réseaux virtuels situés dans la même région par le biais du réseau principal Azure. | Pas encore pris en charge |
+| Réseau virtuel | Peering de réseau virtuel | Connecter deux réseaux virtuels situés dans la même région par le biais du réseau principal Azure. | Pas encore pris en charge |
 |  | Adresses IPv6 | Vous pouvez affecter une adresse IPv6 dans le cadre de la [Configuration de l’interface réseau](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions). | Seul le protocole IPv4 est pris en charge. |
 |  | Plan de protection DDoS | Pris en charge | Pas encore pris en charge. |
 |  | Mise à l’échelle de configurations d’adresses IP définies | Pris en charge | Pas encore pris en charge. |
@@ -52,7 +52,7 @@ Cet article fournit une vue d’ensemble de considérations propres à la gestio
 |  | Type de passerelle de réseau virtuel | Azure prend en charge VPN<br> ExpressRoute <br> Hyper Net. | Pour l’instant, Azure Stack prend en charge le type VPN uniquement. |
 |  | SKU de passerelle de réseau virtuel | Prise en charge de Basic, GW1, GW2, GW3, Standard High Performance, Ultra-High Performance. | Prise en charge des SKU Basic, Standard et High-Performance. |
 |  | Type de VPN | Azure prend en charge les VPN basés sur des stratégies et ceux basés sur des routes. | Azure Stack prend uniquement en charge les VPN basés sur des routes. |
-|  | Paramètres BGP | Azure prend en charge la configuration de l’adresse d’homologation BGP et le poids des pairs. | L’adresse d’homologation BGP et le poids des pairs sont configurés automatiquement dans Azure Stack. Il n’existe aucun moyen pour l’utilisateur de configurer ces paramètres avec ses propres valeurs. |
+|  | Paramètres BGP | Azure prend en charge la configuration de l’adresse de peering BGP et le poids des pairs. | L’adresse de peering BGP et le poids des pairs sont configurés automatiquement dans Azure Stack. Il n’existe aucun moyen pour l’utilisateur de configurer ces paramètres avec ses propres valeurs. |
 |  | Site de passerelle par défaut | Azure prend en charge la configuration d’un site par défaut pour le tunneling forcé. | Pas encore pris en charge. |
 |  | Redimensionnement de passerelle | Azure prend en charge le redimensionnement de la passerelle après le déploiement. | Le redimensionnement n’est pas pris en charge. |
 |  | Configuration de la disponibilité | actif/actif | Actif/passif |
@@ -60,7 +60,7 @@ Cet article fournit une vue d’ensemble de considérations propres à la gestio
 | Équilibrage de charge | SKU | Les équilibreurs de charge de base et standard sont pris en charge | Seul l’équilibreur de charge de base est pris en charge.<br>Cette propriété de référence SKU n'est pas prise en charge.<br>Le chemin de l’équilibreur de charge de la référence SKU De base ne peut pas avoir plus de 5 configurations IP front-end.  |
 |  | Zones | Les zones de disponibilité sont prises en charge. | Pas encore pris en charge |
 |  | Prise en charge des règles NAT pour les points de terminaison de service | Azure prend en charge les points de terminaison de service pour les règles NAT entrantes. | Azure Stack ne prenant pas encore en charge les points de terminaison de service, vous ne pouvez pas les spécifier. |
-|  | Protocole | Azure prend en charge la spécification GRE ou ESP. | La classe de protocole n’est pas prise en charge dans Azure Stack. |
+|  | Protocol | Azure prend en charge la spécification GRE ou ESP. | La classe de protocole n’est pas prise en charge dans Azure Stack. |
 | Adresse IP publique | Version de l’adresse IP publique | Azure prend en charge IPv6 et IPv4. | Seul le protocole IPv4 est pris en charge. |
 | Interface réseau | Obtenir la table de routage effective | Pris en charge | Pas encore pris en charge. |
 |  | Obtenir les ACL effectives | Pris en charge | Pas encore pris en charge. |

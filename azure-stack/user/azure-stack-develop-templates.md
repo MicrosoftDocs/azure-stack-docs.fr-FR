@@ -3,7 +3,7 @@ title: Développer des modèles pour Azure Stack | Microsoft Docs
 description: Découvrez comment développer des modèles Azure Resource Manager pour la portabilité des applications entre Azure et Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: 8a5bc713-6f51-49c8-aeed-6ced0145e07b
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2019
-ms.author: sethm
+ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 5cd8e87613d1d4aa4adc8dedac7dcac4fa57eae2
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: 96e43607809c192b9498c092b4a2584cec40a515
+ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714720"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72304103"
 ---
 # <a name="develop-templates-for-azure-stack-with-azure-resource-manager"></a>Développer des modèles pour Azure Stack avec Azure Resource Manager
 

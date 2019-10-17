@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 64554d0bd2c9e9d8622b1fd48bb7d086cd0b4b76
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: ca313e2e936f7bb006fdc1c15c49d271b1059a16
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603131"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283301"
 ---
 # <a name="create-cross-cloud-scaling-app-solutions-with-azure-and-azure-stack"></a>Créer des solutions d’application de mise à l’échelle inter-cloud avec Azure Stack
 
@@ -56,7 +56,7 @@ Dans cette solution, vous allez générer un exemple d’environnement pour :
 
 -   Déployez les services PaaS [App Service](../operator/azure-stack-app-service-deploy.md) sur Azure Stack.
 
--   [Créez un plan/des offres](../operator/azure-stack-plan-offer-quota-overview.md) dans l’environnement Azure Stack.
+-   [Créez un plan/des offres](../operator/service-plan-offer-subscription-overview.md) dans l’environnement Azure Stack.
 
 -   [Créez un abonnement client](../operator/azure-stack-subscribe-plan-provision-vm.md) dans l’environnement Azure Stack.
 
@@ -66,7 +66,7 @@ Dans cette solution, vous allez générer un exemple d’environnement pour :
 
 -   Une machine virtuelle Windows Server 2016 avec .NET 3.5 est nécessaire. Cette machine virtuelle est créée dans l’abonnement du locataire sur Azure Stack en tant qu’agent de build privé.
 
--   [Windows Server 2016 avec l’image de machine virtuelle SQL 2017](../operator/azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) est disponible dans la Place de marché Azure Stack. Si cette image n’est pas disponible, utilisez un opérateur Azure Stack pour vous assurer qu’elle est ajoutée à l’environnement.
+-   [Windows Server 2016 avec l’image de machine virtuelle SQL 2017](../operator/azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal) est disponible dans la Place de marché Azure Stack. Si cette image n’est pas disponible, utilisez un opérateur Azure Stack pour vous assurer qu’elle est ajoutée à l’environnement.
 
 ## <a name="issues-and-considerations"></a>Problèmes et considérations
 

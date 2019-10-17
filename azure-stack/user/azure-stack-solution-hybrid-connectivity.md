@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a2311466bc6949bbc1ea372410373654352418fa
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: ae1aaa87ab2817ec696e488372bbc8f2cb6d119b
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603019"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283701"
 ---
 # <a name="configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Configurer une connectivité au cloud hybride avec Azure et Azure Stack
 
@@ -70,7 +70,7 @@ Cette solution suppose que vous disposez de connaissances de base sur Azure et A
    >Le déploiement de l’ASDK peut prendre jusqu’à 7 heures, planifiez donc en conséquence.
 
  - Déployez les services PaaS [App Service](../operator/azure-stack-app-service-deploy.md) sur Azure Stack.
- - [Créez des plans et des offres](../operator/azure-stack-plan-offer-quota-overview.md) dans l’environnement Azure Stack.
+ - [Créez des plans et des offres](../operator/service-plan-offer-subscription-overview.md) dans l’environnement Azure Stack.
  - [Créez un abonnement client](../operator/azure-stack-subscribe-plan-provision-vm.md) dans l’environnement Azure Stack.
 
 ### <a name="before-you-begin"></a>Avant de commencer

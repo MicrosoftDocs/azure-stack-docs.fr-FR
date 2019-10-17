@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 10/14/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: a9e0dd05195d7ece62689aa8b5971cf72a6e3713
-ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
+ms.lastreviewed: 10/14/2019
+ms.openlocfilehash: 72310e813d0dd0a64575f1b2452bf4a5191638ef
+ms.sourcegitcommit: 97d41b3ebed07aa85a50087b6076671fd37e08c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71342824"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72350179"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack"></a>Inscrire des locataires pour un suivi de l’utilisation dans Azure Stack
 
@@ -61,15 +61,14 @@ Pour plus d’informations sur Azure Stack et les profils d’API, consultez [G�
 
 Utilisez l’applet de commande **New-AzureRmResource** pour ajouter un locataire. [Connectez-vous à Azure Stack](azure-stack-powershell-configure-admin.md), puis à partir d'une invite de commandes avec élévation de privilèges , exécutez l’applet de commande suivante :
 
-```powershell
-New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
+```powershell  
+New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
 ```
 
 ### <a name="api-call"></a>Appel d’API
 
 **Opération** : PUT  
-**RequestURI** : `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
-{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
+**RequestURI** : `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Réponse**: 201 Créé  
 **Corps de réponse** : Vide  
 
@@ -101,9 +100,7 @@ Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 Vous pouvez obtenir une liste de tous les mappages de locataires à l’aide de l’opération GET.
 
 **Opération** : GET  
-**RequestURI** : `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
-/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?  
-api-version=2017-06-01 HTTP/1.1`  
+**RequestURI** : `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?api-version=2017-06-01 HTTP/1.1`  
 **Réponse**: 200  
 **Corps de réponse** :
 
@@ -152,9 +149,7 @@ Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/r
 Vous pouvez supprimer des mappages de locataires à l’aide de l’opération DELETE.
 
 **Opération** : SUPPRIMER  
-**RequestURI** : `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
-/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
-{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
+**RequestURI** : `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Réponse**: 204 Pas de contenu  
 **Corps de réponse** : Vide
 
