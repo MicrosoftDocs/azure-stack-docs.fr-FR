@@ -1,33 +1,28 @@
 ---
-title: Offrir des bases de données MySQL à haute disponibilité dans Azure Stack | Microsoft Docs
+title: Offrir des bases de données MySQL à haute disponibilité dans Azure Stack
 description: Découvrez comment créer un ordinateur hôte fournisseur de ressources MySQL Server et des bases de données MySQL à haute disponibilité dans Azure Stack.
 services: azure-stack
-documentationcenter: ''
-author: justinha
+author: BryanLa
 manager: femila
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 02/12/2019
-ms.author: justinha
+ms.topic: article
+ms.date: 10/07/2019
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: e62e78705d6ca1ec8fa7d839b70eda3f147f82ab
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: a03fbf9170e6cc1840bea62efeb33b960a25f99c
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316305"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283409"
 ---
-# <a name="tutorial-offer-highly-available-mysql-databases"></a>Tutoriel : Offrir des bases de données MySQL à haute disponibilité
+# <a name="offer-highly-available-mysql-databases"></a>Offrir des bases de données MySQL à haute disponibilité
 
 En tant qu’opérateur Azure Stack, vous pouvez configurer des machines virtuelles serveurs pour héberger des bases de données MySQL Server. Une fois qu’un cluster MySQL est correctement créé et géré par Azure Stack, les utilisateurs qui se sont abonnés aux services MySQL peuvent facilement créer des bases de données MySQL à haute disponibilité.
 
-Ce tutoriel montre comment utiliser des éléments de la Place de marché Azure Stack pour créer un [cluster MySQL with Replication](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster). Cette solution utilise plusieurs machines virtuelles pour répliquer les bases de données à partir du nœud principal sur un nombre configurable de réplicas. Une fois créé, le cluster peut être ajouté en tant que serveur d’hébergement MySQL Azure Stack, puis les utilisateurs peuvent créer des bases de données MySQL à haute disponibilité.
+Cet article montre comment utiliser des éléments de Place de marché Azure Stack pour créer un [cluster MySQL with Replication](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster). Cette solution utilise plusieurs machines virtuelles pour répliquer les bases de données à partir du nœud principal sur un nombre configurable de réplicas. Une fois créé, le cluster peut être ajouté en tant que serveur d’hébergement MySQL Azure Stack, puis les utilisateurs peuvent créer des bases de données MySQL à haute disponibilité.
 
 > [!IMPORTANT]
 > L’élément de la Place de marché Azure Stack **MySQL with Replication** peut ne pas être disponible pour tous les environnements d’abonnement cloud Azure. Vérifiez que l’élément de la Place de marché est disponible dans votre abonnement avant d’essayer de suivre le reste de ce tutoriel.
@@ -39,9 +34,9 @@ Contenu :
 > * Créer un serveur d’hébergement MySQL Azure Stack
 > * Créer une base de données MySQL à haute disponibilité
 
-Dans ce tutoriel, un cluster MySQL Server de trois machines virtuelles est créé et configuré avec des éléments disponibles sur la Place de marché Azure Stack. 
+Un cluster MySQL Server de trois machines virtuelles est créé et configuré avec des éléments disponibles sur la Place de marché Azure Stack. 
 
-Avant de commencer les étapes décrites dans ce didacticiel, vérifiez que le [fournisseur de ressources MySQL Server](azure-stack-mysql-resource-provider-deploy.md) a été installé avec succès et que les éléments suivants soient disponibles sur le marketplace Azure Stack :
+Avant de commencer, vérifiez que le [fournisseur de ressources MySQL Server](azure-stack-mysql-resource-provider-deploy.md) a été installé correctement et que les éléments suivants sont disponibles dans la Place de marché Azure Stack :
 
 > [!IMPORTANT]
 > Tous les éléments suivants sont nécessaires pour créer le cluster MySQL.
@@ -154,7 +149,7 @@ Veillez à utiliser l’adresse IP publique ou le nom de domaine complet pour l�
 
 À l’aide de l’adresse IP publique du cluster MySQL et des informations de connexion d’authentification MySQL, un opérateur Azure Stack peut maintenant [créer un serveur d’hébergement MySQL avec le nouveau cluster MySQL](azure-stack-mysql-resource-provider-hosting-servers.md#connect-to-a-mysql-hosting-server). 
 
-Vérifiez également que vous avez créé des plans et des offres pour rendre la création de bases de données MySQL disponible pour les utilisateurs. Un opérateur doit ajouter le service **Microsoft.MySqlAdapter** à un plan et créer un quota spécifiquement pour les bases de données à haute disponibilité. Pour plus d’informations sur la création de plans, consultez [Vue d’ensemble des plans, des offres, des quotas et des abonnements](azure-stack-plan-offer-quota-overview.md).
+Vérifiez également que vous avez créé des plans et des offres pour rendre la création de bases de données MySQL disponible pour les utilisateurs. Un opérateur doit ajouter le service **Microsoft.MySqlAdapter** à un plan et créer un quota spécifiquement pour les bases de données à haute disponibilité. Pour plus d’informations sur la création de plans, consultez [Vue d’ensemble des services, des plans, des offres et des abonnements](service-plan-offer-subscription-overview.md).
 
 > [!TIP]
 > Le service **Microsoft.MySqlAdapter** ne peut pas être ajouté à des plans tant que [le fournisseur de ressources MySQL Server n’a pas été déployé](azure-stack-mysql-resource-provider-deploy.md).
@@ -188,13 +183,4 @@ Une fois que le cluster MySQL a été créé, configuré et ajouté en tant que 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
-
-> [!div class="checklist"]
-> * Créer un cluster MySQL Server à partir d’éléments de la Place de marché
-> * Créer un serveur d’hébergement MySQL Azure Stack
-> * Créer une base de données MySQL à haute disponibilité
-
-Passez au didacticiel suivant pour savoir comment :
-> [!div class="nextstepaction"]
-> [Offrir des applications web](azure-stack-tutorial-app-service.md)
+[Mettre à jour le fournisseur de ressources MySQL](azure-stack-mysql-resource-provider-update.md)

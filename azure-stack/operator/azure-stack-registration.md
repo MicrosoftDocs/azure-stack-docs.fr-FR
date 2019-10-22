@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 10/14/2019
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 27dda5b79525c4a5d1c12c998077bb19cbea0079
-ms.sourcegitcommit: 9f4c6e96f60b4c229316e7a4ab6e0e5ef0a9a232
+ms.openlocfilehash: e972c7799b8cac37d1cd75cda9dc4e94a7ae73e2
+ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71061192"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72310553"
 ---
 # <a name="register-azure-stack-with-azure"></a>Inscrire Azure Stack auprès d’Azure
 
@@ -46,7 +46,7 @@ Vous devez mettre en place les prérequis suivants avant l’inscription :
 
 Avant d’inscrire Azure Stack auprès d’Azure, vous devez disposer des éléments suivants :
 
-- L’ID d’abonnement d’un abonnement Azure. L’inscription est prise en charge uniquement pour les abonnements aux services partagés EA, CSP et CSP. Les CSP ont le choix d’[utiliser un abonnement CSP ou APSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>Pour obtenir l’ID, connectez-vous à Azure et cliquez sur **Tous les services**. Ensuite, sous la catégorie **GÉNÉRAL**, sélectionnez **Abonnements** et cliquez sur l’abonnement que vous voulez utiliser. Sous **Éléments principaux**, vous trouverez alors l’ID d’abonnement.
+- L’ID d’abonnement d’un abonnement Azure. L’inscription est prise en charge uniquement pour les abonnements aux services partagés EA, CSP et CSP. Les CSP ont le choix d’[utiliser un abonnement CSP ou APSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>Pour obtenir l’ID, connectez-vous à Azure et cliquez sur **Tous les services**. Ensuite, sous la catégorie **GÉNÉRAL**, sélectionnez **Abonnements** et cliquez sur l’abonnement que vous voulez utiliser. Sous **Éléments principaux**, vous trouverez alors l’ID d’abonnement. Au titre de bonne pratique, utilisez des abonnements distincts pour les environnements de production et pour les environnements de développement ou de test. 
 
   > [!Note]  
   > Les abonnements au cloud en Allemagne ne sont actuellement pas pris en charge.

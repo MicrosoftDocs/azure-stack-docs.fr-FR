@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/16/2019
+ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 07/16/2019
-ms.openlocfilehash: b0ced01686247953e3cb1849305d664d844da949
-ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
+ms.lastreviewed: 10/09/2019
+ms.openlocfilehash: e3601f4489a0a80881cccd2ba64f98b61e14683a
+ms.sourcegitcommit: 70147e858956443bc66b3541ec278c102bb45c07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544110"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72381435"
 ---
 # <a name="azure-stack-vm-features"></a>Fonctionnalités des machines virtuelles Azure Stack
 
@@ -41,7 +41,7 @@ Les machines virtuelles Azure Stack fournissent des ressources de calcul scalabl
 | Performances des disques de machines virtuelles | Dépendent de la taille et du type de disque. | Dépendent de la taille de la machine virtuelle à laquelle les disques sont attachés. Pour plus d’informations, consultez l’article [Tailles de machine virtuelle prises en charge dans Azure Stack](azure-stack-vm-sizes.md).
 | Versions d’API | Azure utilise toujours les dernières versions d’API pour toutes les fonctionnalités de machine virtuelle. | Azure Stack prend en charge certains services Azure et des versions d’API spécifiques pour ces services. Pour obtenir la liste des versions d’API prises en charge, consultez la section [Versions d’API](#api-versions) dans cet article. |
 | Service de métadonnées d’instance Azure | Le service Azure Instance Metadata Service fournit des informations sur l’exécution d’instances de machine virtuelle qui peuvent être utilisées pour gérer et configurer votre machine virtuelle.  | Le service Azure Instance Metadata Service n’est pas pris en charge sur Azure Stack. |
-| Groupes à haute disponibilité de machines virtuelles|Plusieurs domaines d’erreur (2 ou 3 par région).<br>Plusieurs domaines de mise à jour.|Plusieurs domaines d’erreur (2 ou 3 par région).<br>Un seul domaine de mise à jour, avec migration en direct pour protéger les charges de travail pendant la mise à jour. 20 domaines de mise à jour pris en charge pour la compatibilité des modèles|
+| Groupes à haute disponibilité de machines virtuelles|Plusieurs domaines d’erreur (2 ou 3 par région).<br>Plusieurs domaines de mise à jour.|Plusieurs domaines d’erreur (2 ou 3 par région).<br>Un seul domaine de mise à jour, avec migration en direct pour protéger les charges de travail pendant la mise à jour. 20 domaines de mise à jour pris en charge pour la compatibilité des modèles.<br>La machine virtuelle et le groupe à haute disponibilité doivent se trouver dans le même emplacement et le même groupe de ressources.|
 | Groupes identiques de machines virtuelles|La mise à l’échelle automatique est prise en charge.|La mise à l’échelle automatique n’est pas prise en charge.<br><br>Pour ajouter d’autres instances à un groupe identique, utilisez le portail, les modèles Resource Manager ou PowerShell. |
 | Témoin cloud | Sélectionnez les points de terminaison dans les propriétés du compte de stockage disponibles dans Azure Stack. | Le [témoin de cloud](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) est un type de témoin de quorum de cluster de basculement qui utilise Microsoft Azure pour fournir un vote sur le quorum du cluster.<br>Voici à quoi peuvent ressembler les points de terminaison dans Azure global et ceux dans Azure Stack :<br>Azure global :<br>`https://mywitness.blob.core.windows.net/`<br>Azure Stack :<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | Diagnostics de machine virtuelle | Les diagnostics de machine virtuelle Linux sont pris en charge. | Les diagnostics de machine virtuelle Linux ne sont pas pris en charge dans Azure Stack. Lorsque vous déployez une machine virtuelle Linux en activant les diagnostics de machine virtuelle, le déploiement échoue. Le déploiement échoue également si vous activez les mesures de base de la machine virtuelle Linux dans les paramètres de diagnostic. |
@@ -95,7 +95,7 @@ Si l’approvisionnement d’une extension sur un déploiement de machine virtue
 
 Les fonctionnalités de machine virtuelle dans Azure Stack prennent en charge les versions d’API suivantes :
 
-![Types de ressources de machine virtuelle](media/azure-stack-vm-considerations/vm-resoource-types.png)
+« 2017-12-01 », « 2017-03-30 », « 2016-03-30 », « 2015-06-15 »
 
 Utilisez le script PowerShell suivant pour obtenir la liste des versions d’API des fonctionnalités de machine virtuelle qui sont disponibles dans votre environnement Azure Stack :
 

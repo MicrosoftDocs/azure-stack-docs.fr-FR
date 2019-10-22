@@ -3,7 +3,7 @@ title: Déployer un modèle à partir de la ligne de commande dans Azure Stack |
 description: Découvrez comment utiliser Azure CLI multiplateforme pour déployer des modèles sur Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,45 +11,42 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: article
-ms.date: 08/13/2019
-ms.author: sethm
+ms.date: 10/07/2019
+ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: da17e80c802e210d53effbad8f264b1a4019e6e0
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 7b3daaefd8fa7e7bce9c6d5708e664911fc906fe
+ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991844"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72304090"
 ---
 # <a name="deploy-a-template-with-the-command-line-in-azure-stack"></a>Déployer un modèle à partir de la ligne de commande dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Vous pouvez utiliser Azure CLI pour déployer des modèles Azure Resource Manager dans Azure Stack. Les modèles Azure Resource Manager déploient et provisionnent les ressources de l’application en une seule opération coordonnée.
-
-## <a name="before-you-begin"></a>Avant de commencer
-
-- [Procédez à l’installation et à la connexion](azure-stack-version-profiles-azurecli2.md) à Azure Stack avec Azure CLI.
-- Télécharger les fichiers *azuredeploy.json* et *azuredeploy.parameters.json* à partir du [modèle Créer un exemple de compte de stockage](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account).
+Vous pouvez utiliser Azure CLI pour déployer des modèles Azure Resource Manager dans Azure Stack. Les modèles Azure Resource Manager déploient et configurent les ressources de l’application en une seule action coordonnée.
 
 ## <a name="deploy-template"></a>Déployer un modèle
 
-Accédez au dossier dans lequel ces fichiers ont été téléchargés et exécutez la commande suivante pour déployer le modèle :
+1. Accédez au [dépôt AzureStack-QuickStart-Templates](https://aka.ms/AzureStackGitHub) et recherchez le modèle **101-create-storage-account**. Enregistrez le modèle (`azuredeploy.json`) et les fichiers de paramètres `(azuredeploy.parameters.json`) à un emplacement sur votre disque local, par exemple `C:\templates\`
+2. Accédez au dossier dans lequel vous avez téléchargé les fichiers. 
+3. [Procédez à l’installation et à la connexion](azure-stack-version-profiles-azurecli2.md) à Azure Stack avec Azure CLI.
+4. Mettez à jour la région et l’emplacement dans la commande suivante. Utilisez `local` pour le paramètre d’emplacement si vous utilisez le kit ASDK. Pour déployer le modèle, procédez comme suit :
+    ```azurecli
+    az group create --name testDeploy --location local
+    az group deployment create --resource-group testDeploy --template-file ./azuredeploy.json --parameters ./azuredeploy.parameters.json
+    ```
 
-```azurecli
-az group create "cliRG" "local" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
-```
-
-Cette commande déploie le modèle dans le groupe de ressources **cliRG** à l’emplacement par défaut d’Azure Stack POC.
+Cette commande déploie le modèle sur le groupe de ressources **testDeploy** dans votre instance Azure Stack.
 
 ## <a name="validate-template-deployment"></a>Valider le déploiement du modèle
 
-Pour voir ce groupe de ressources et le compte de stockage associé, utilisez les commandes CLI suivantes :
+Pour examiner le groupe de ressources et le compte de stockage, exécutez les commandes CLI suivantes :
 
 ```azurecli
 az group list
-
 az storage account list
 ```
 

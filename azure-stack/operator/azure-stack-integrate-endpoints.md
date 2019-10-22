@@ -1,6 +1,6 @@
 ---
-title: 'Intégration au centre de données Azure Stack : publier des points de terminaison | Microsoft Docs'
-description: Découvrez comment publier des points de terminaison Azure Stack dans votre centre de données
+title: Publier des services Azure Stack dans votre centre de données | Microsoft Docs
+description: Découvrez comment publier des services Azure Stack dans votre centre de données.
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -10,23 +10,23 @@ ms.date: 09/09/2019
 ms.author: justinha
 ms.reviewer: wamota
 ms.lastreviewed: 09/09/2019
-ms.openlocfilehash: 9333cfde7985977607f7108fd90b62e376fa9462
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: cfd9434bc52684f89617eff3b62a7bf51fc68bcd
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70863006"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277426"
 ---
-# <a name="azure-stack-datacenter-integration---publish-azure-stack-services"></a>Intégration au centre de données Azure Stack : publier les services Azure Stack
+# <a name="publish-azure-stack-services-in-your-datacenter"></a>Publier des services Azure Stack dans votre centre de données 
 
 Azure Stack configure des adresses IP virtuelles pour ses rôles d’infrastructure. Ces adresses IP virtuelles sont allouées à partir du pool d’adresses IP publiques. Chaque adresse IP virtuelle est sécurisée à l’aide d’une liste de contrôle d’accès (ACL) dans la couche réseau à définition logicielle. Les listes ACL sont également utilisées dans les commutateurs physiques (TOR et BMC) pour renforcer la solution. Une entrée DNS est créée pour chaque point de terminaison dans la zone DNS externe spécifiée au moment du déploiement. Par exemple, le portail utilisateur se voit attribué l’entrée d’hôte DNS portal. *&lt;region>.&lt;fqdn>* .
 
 Le diagramme architectural suivant montre les différentes couches réseau et les listes ACL :
 
-![Image structurelle](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+![Diagramme montrant différentes couches réseau et listes de contrôle d’accès](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ### <a name="ports-and-urls"></a>Ports et URL
-Pour rendre les services de Azure Stack (tels que les portails, Azure Resource Manager, DNS, etc.) disponibles pour les réseaux externes, vous devez autoriser le trafic entrant vers ces points de terminaison pour les URL, les ports et les protocoles spécifiques.
+Pour rendre des services Azure Stack (comme les portails, Azure Resource Manager, DNS, etc.) disponibles pour des réseaux externes, vous devez autoriser le trafic entrant vers ces points de terminaison pour des URL, des ports et des protocoles spécifiques.
  
 Dans un déploiement où un proxy transparent achemine par liaison montante les données à un serveur proxy traditionnel ou un pare-feu protège la solution, vous devez autoriser des URL et des ports spécifiques pour les communications [entrantes](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound) et [sortantes](azure-stack-integrate-endpoints.md#ports-and-urls-outbound). Cela comprend les ports et les URL pour l’identité, la marketplace, les correctifs et les mises à jour, l’inscription ainsi que les données d’utilisation.
 
@@ -34,14 +34,14 @@ Dans un déploiement où un proxy transparent achemine par liaison montante les 
 
 Un ensemble d’adresses IP virtuelles d’infrastructure est nécessaire pour la publication des points de terminaison Azure Stack sur des réseaux externes. Le tableau *Point de terminaison (VIP)* affiche chaque point de terminaison, le port requis et le protocole. Consultez la documentation de déploiement spécifique au fournisseur de ressources pour les points de terminaison nécessitant des fournisseurs de ressources supplémentaires, comme le fournisseur de ressources SQL.
 
-Les adresses IP virtuelles ne sont pas répertoriées car elles ne sont pas requises pour la publication Azure Stack. Les adresses IP virtuelles de l’utilisateur sont dynamiques, définies par les utilisateurs eux-mêmes, sans contrôle de la part de l’opérateur Azure Stack.
+Les adresses IP virtuelles ne sont pas répertoriées car elles ne sont pas requises pour la publication Azure Stack. Les adresses IP virtuelles d’utilisateur sont dynamiques et définies par les utilisateurs eux-mêmes, sans contrôle de la part de l’opérateur Azure Stack.
 
 > [!Note]  
-> Le VPN IKEv2 est une solution VPN IPsec basée sur des normes qui utilise les ports UDP 500 et 4500 ainsi que le port TCP 50. Les pare-feux n’ouvrent pas toujours ces ports. Un VPN IKEv2 peut donc ne pas être en mesure de parcourir les proxies et pare-feux.
+> Le VPN IKEv2 est une solution VPN IPsec basée sur des normes qui utilise les ports UDP 500 et 4500 ainsi que le port TCP 50. Les pare-feux n’ouvrent pas toujours ces ports : un VPN IKEv2 peut donc ne pas être en mesure de traverser les proxys et les pare-feux.
 
-Avec l’ajout de l’[hôte d’extension](azure-stack-extension-host-prepare.md), les ports de la plage 12495-30015 ne sont pas requis.
+Avec l’ajout de l’[hôte d’extension](azure-stack-extension-host-prepare.md), les ports de la plage 12495-30015 ne sont pas nécessaires.
 
-|Point de terminaison (VIP)|Enregistrement A d’hôte DNS|Protocole|Ports|
+|Point de terminaison (VIP)|Enregistrement A d’hôte DNS|Protocol|Ports|
 |---------|---------|---------|---------|
 |AD FS|Adfs. *&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Portail (administrateur)|Adminportal. *&lt;region>.&lt;fqdn>*|HTTPS|443|
@@ -74,7 +74,7 @@ Azure Stack prend en charge uniquement les serveurs proxy transparents. Dans un 
 > [!Note]  
 > Azure Stack ne prend pas en charge l’utilisation d’ExpressRoute pour atteindre les services Azure listés dans le tableau suivant, car ExpressRoute risque de ne pas pouvoir router le trafic vers tous les points de terminaison.
 
-|Objectif|URL de destination|Protocole|Ports|Réseau source|
+|Objectif|URL de destination|Protocol|Ports|Réseau source|
 |---------|---------|---------|---------|---------|
 |Identité|**Microsoft Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>**Azure Government**<br>https:\//login.microsoftonline.us/<br>https:\//graph.windows.net/<br>**Azure China 21Vianet**<br>https:\//login.chinacloudapi.cn/<br>https:\//graph.chinacloudapi.cn/<br>**Azure Allemagne**<br>https:\//login.microsoftonline.de/<br>https:\//graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|Adresse IP virtuelle publique - /27<br>Réseau d'infrastructure publique|
 |Syndication de Place de marché|**Microsoft Azure**<br>https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>https://&#42;.blob.core.usgovcloudapi.net/<br>**Azure China 21Vianet**<br>https:\//management.chinacloudapi.cn/<br>http://&#42;.blob.core.chinacloudapi.cn|HTTPS|443|Adresse IP virtuelle publique - /27|
@@ -93,9 +93,9 @@ Azure Stack prend en charge uniquement les serveurs proxy transparents. Dans un 
 |Service de collecte des journaux de diagnostic|URL SAS de blob fournie par le stockage Azure|HTTPS|443|Adresse IP virtuelle publique - /27|
 |     |     |     |     |     |
 
-Les URL sortantes sont équilibrées en charge à l’aide d’Azure Traffic Manager pour offrir la meilleure connectivité possible en fonction de l’emplacement géographique. Avec des URL équilibrées en charge, Microsoft peut mettre à jour et modifier des points de terminaison de backend sans impact sur les clients. Microsoft ne partage pas la liste des adresses IP pour les URL équilibrées en charge. Vous devez utiliser un appareil qui prend en charge le filtrage par URL plutôt que par adresse IP.
+Les URL sortantes font l’objet d’un équilibrage de charge avec Azure Traffic Manager pour offrir la meilleure connectivité possible en fonction de l’emplacement géographique. Avec des URL faisant l’objet d’un équilibrage de charge, Microsoft peut mettre à jour et modifier les points de terminaison de back-end sans impact sur les clients. Microsoft ne partage pas la liste des adresses IP pour les URL qui font l’objet d’un équilibrage de charge. Utilisez un appareil qui prend en charge le filtrage par URL plutôt que par adresse IP.
 
-Un DNS sortant est toujours nécessaire. Ce qui change, c’est la source qui interroge le DNS externe et le type d’intégration d’identité choisi. Dans un scénario de déploiement connecté, la machine virtuelle de déploiement (DVM) qui se trouve sur le réseau BMC a besoin d’un accès sortant. Toutefois, après le déploiement, le service DNS passe à un composant interne qui enverra des requêtes via une adresse IP virtuelle publique. À ce stade, l’accès du DNS sortant par le biais du réseau BMC peut être supprimé, mais l’accès à ce serveur DNS par l’adresse IP virtuelle publique doit être maintenu faute de quoi l’authentification échouera.
+Un DNS sortant est toujours nécessaire : ce qui change, c’est la source qui interroge le DNS externe et le type d’intégration d’identité choisi. Dans un scénario de déploiement connecté, la machine virtuelle de déploiement (DVM) qui se trouve sur le réseau BMC a besoin d’un accès sortant. Toutefois, après le déploiement, le service DNS passe à un composant interne qui enverra des requêtes via une adresse IP virtuelle publique. À ce stade, l’accès du DNS sortant par le biais du réseau BMC peut être supprimé, mais l’accès à ce serveur DNS par l’adresse IP virtuelle publique doit être maintenu faute de quoi l’authentification échouera.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

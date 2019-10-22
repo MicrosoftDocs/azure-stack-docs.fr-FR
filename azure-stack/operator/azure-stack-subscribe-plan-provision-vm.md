@@ -1,26 +1,21 @@
 ---
-title: S’abonner à une offre dans Azure Stack | Microsoft Docs
+title: S’abonner à une offre dans Azure Stack
 description: Créer des abonnements pour des offres dans Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: bryanla
 manager: femila
-editor: ''
-ms.assetid: 7f3f8683-ef09-4838-92ed-41f2fddbbbed
 ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 10/05/2019
 ms.author: bryanla
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: a35f8fe34cedbeb1a2ef068c666bc6a75effe111
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: c69c8a4be93cc392ca1eaf4edb70fb7fb4fc8676
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319149"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283368"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack"></a>Créer des abonnements pour des offres dans Azure Stack
 
@@ -88,11 +83,11 @@ En tant qu’utilisateur, vous pouvez vous connecter au portail utilisateur pour
 
 4. Pour voir l’abonnement que vous avez créé, sélectionnez **Tous les services**, puis **Abonnements** sous la catégorie **GÉNÉRAL**. Sélectionnez l’abonnement pour en afficher les détails.  
 
-### <a name="to-subscribe-to-an-add-on-plan"></a>S’abonner à un plan additionnel
+### <a name="to-enable-an-add-on-plan-in-your-subscription"></a>Pour activer un plan additionnel dans votre abonnement
 
-Si une offre possède un plan additionnel, vous pouvez ajouter ce plan à votre abonnement à tout moment.  
+Si l’offre à laquelle vous vous abonnez a un plan additionnel, vous pouvez ajouter ce plan à votre abonnement à tout moment.  
 
-1. Dans le portail utilisateur, sélectionnez **Tous les services**. Ensuite, dans la catégorie **GÉNÉRAL**, sélectionnez **Abonnements**, puis sélectionnez l’abonnement à modifier. Si des plans additionnels sont disponibles, l’option **+Ajouter un plan** est active et il existe une vignette pour **Plans additionnels**.
+1. Dans le portail utilisateur, sélectionnez **Tous les services**. Ensuite, dans la catégorie **GÉNÉRAL**, sélectionnez **Abonnements**, puis sélectionnez l’abonnement à modifier. Si des plans additionnels sont disponibles, l’option **+ Ajouter un plan** est active et montre une vignette pour **Plans additionnels**.
 
    Si l’option **+Ajouter un plan** n’est pas active, cela signifie qu’il n’existe aucun plan additionnel pour l’offre associée à cet abonnement.
 
@@ -100,4 +95,6 @@ Si une offre possède un plan additionnel, vous pouvez ajouter ce plan à votre 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Approvisionner une machine virtuelle](../user/azure-stack-create-vm-template.md)
+Découvrez plus d’informations sur la façon dont un utilisateur peut maintenant déployer des ressources dans son abonnement : 
+  - [Plusieurs guides de démarrage rapide pour l’utilisateur](../user/azure-stack-quick-windows-portal.md) montrent comment provisionner des machines virtuelles Windows et Linux en utilisant PowerShell, Azure CLI et le portail utilisateur. 
+  - [Un tutoriel qui utilise un modèle Azure Resource Manager](../user/azure-stack-create-vm-template.md) montre comment déployer une machine virtuelle Ubuntu 16.04 exécutant Minikube pour gérer un cluster Kubernetes. 

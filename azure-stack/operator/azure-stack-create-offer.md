@@ -15,12 +15,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 14f2300be0309cbd47b1481a4a52b02331f120a4
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: 6ada971c092acbc1ebe8e83a784a5d1e392c4dea
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319199"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283581"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Créer une offre dans Azure Stack
 
@@ -43,7 +43,7 @@ Les [offres](azure-stack-overview.md) sont des groupes d’un ou plusieurs plans
 
    ![Sélectionner le plan à inclure dans votre offre Azure Stack](media/azure-stack-create-offer/select-plan.png)
 
-4. À ce stade, vous pouvez créer un plan complémentaire pour modifier le plan de base, mais cette étape est facultative. Nous créerons un plan complémentaire dans le prochain article, [Plans complémentaires Azure Stack](create-add-on-plan.md).
+4. À ce stade, vous pouvez créer un plan complémentaire pour modifier le plan de base, mais cette étape est facultative. Nous aurons l’occasion de créer un plan additionnel dans l’article suivant, [Plans additionnels Azure Stack](create-add-on-plan.md).
 
 5. Sélectionnez l’onglet **Vérifier + créer**. Passez en revue le résumé de l’offre pour vous assurer que toutes les valeurs sont correctes. L’interface vous permet d’étendre les quotas dans les plans choisis, un à la fois, pour afficher les détails de chaque quota dans un plan. Vous pouvez également revenir en arrière pour effectuer toutes les modifications nécessaires.
 
@@ -111,5 +111,5 @@ Il existe deux façons de changer l’état d’une offre :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Création d’abonnements](azure-stack-subscribe-plan-provision-vm.md)
-- [Approvisionner une machine virtuelle](../user/azure-stack-create-vm-template.md)
+- Pour savoir comment modifier une offre et fournir à vos utilisateurs un plan additionnel, continuez avec [Créer un plan additionnel](create-add-on-plan.md) (facultatif)
+- Sinon, passez à [S’abonner à une offre](azure-stack-subscribe-plan-provision-vm.md)

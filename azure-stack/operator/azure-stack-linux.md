@@ -1,6 +1,6 @@
 ---
-title: Ajouter des images Linux à Azure Stack
-description: Découvrez comment ajouter des images Linux à Azure Stack.
+title: Ajouter des images Linux dans la Place de marché Azure Stack | Microsoft Docs
+description: Découvrez comment ajouter des images Linux dans la Place de marché Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 309d3d7185bd225f58691d4996ba649e8df7b97a
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: d7723dcdd755a926990ee52e96c3b75694651520
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714621"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277210"
 ---
-# <a name="add-linux-images-to-azure-stack"></a>Ajouter des images Linux à Azure Stack
+# <a name="add-linux-images-to-azure-stack-marketplace"></a>Ajouter des images Linux dans la Place de marché Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -30,7 +30,7 @@ Vous pouvez déployer des machines virtuelles Linux sur Azure Stack en ajoutant 
 
 ## <a name="marketplace-management"></a>Gestion de la Place de marché
 
-Pour télécharger des images Linux à partir de la Place de Marché Azure, utilisez l’article [Télécharger des éléments de la Place de Marché à partir d’Azure dans Azure Stack](azure-stack-download-azure-marketplace-item.md). Sélectionnez les images Linux que vous souhaitez proposer aux utilisateurs sur votre système Azure Stack.
+Pour ajouter des images Linux à partir de la Place de marché Azure, consultez [Télécharger des éléments de Place de marché depuis Azure vers Azure Stack](azure-stack-download-azure-marketplace-item.md). Sélectionnez les images Linux que vous souhaitez proposer aux utilisateurs sur votre système Azure Stack.
 
 Il existe des mises à jour fréquentes pour ces images ; aussi reportez-vous régulièrement à la gestion de la Place de marché pour les maintenir à jour.
 
@@ -60,11 +60,11 @@ Vous pouvez préparer votre propre image Linux en appliquant les instructions su
 * [SLES et openSUSE](/azure/virtual-machines/linux/suse-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Serveur Ubuntu](/azure/virtual-machines/linux/create-upload-ubuntu?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="add-your-image-to-the-marketplace"></a>Ajouter l’image à la Place de marché
+## <a name="add-your-image-to-marketplace"></a>Ajouter votre image dans la Place de marché
 
 Suivez [Ajoutez l’image à la Place de Marché](azure-stack-add-vm-image.md). Vérifiez que le paramètre `OSType` a la valeur `Linux`.
 
-Une fois que vous avez ajouté l’image à la Place de marché, un élément de Place de marché est créé et les utilisateurs peuvent déployer une machine virtuelle Linux.
+Une fois que vous avez ajouté l’image dans la Place de marché, un élément de Place de marché est créé et les utilisateurs peuvent déployer une machine virtuelle Linux.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

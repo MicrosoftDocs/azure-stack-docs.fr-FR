@@ -13,20 +13,20 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 06/11/2019
+ms.date: 10/05/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: d34b57a76f654e4d1825124f0f13ca26049332e5
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: 4b3fed8ee02739cf82b1446cc8c0a9b807763d49
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319180"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283276"
 ---
 # <a name="azure-stack-add-on-plans"></a>Plans de module complémentaire de Azure Stack
 
-En tant qu’opérateur Azure Stack, vous créez des plans d’extension pour modifier un [plan de base](azure-stack-create-plan.md) lorsque vous souhaitez proposer des services supplémentaires ou étendre vos quotas en matière d’*ordinateur*, de *stockage* ou de *réseau* au-delà de l’offre initiale des plans de base. Les plans additionnels modifient un plan de base et constituent des extensions facultatives auxquelles les utilisateurs peuvent s’abonner.
+En tant qu’opérateur Azure Stack, vous créez des plans d’extension pour modifier un [plan de base](azure-stack-create-plan.md) lorsque vous souhaitez proposer des services supplémentaires ou étendre vos quotas en matière d’*ordinateur*, de *stockage* ou de *réseau* au-delà de l’offre initiale des plans de base. Les plans additionnels modifient le plan de base et sont des extensions facultatives que les utilisateurs peuvent choisir d’activer dans leur abonnement.
 
 La meilleure solution est parfois de tout regrouper dans un seul plan. Mais vous pouvez aussi parfois préférer disposer d’un plan de base, puis proposer des services supplémentaires à l’aide de plans d’extension. Par exemple, vous pouvez choisir d’offrir des services IaaS dans le cadre d’un plan de base, avec tous les services PaaS traités comme des plans d’extension.
 
@@ -35,9 +35,7 @@ Le fait que les plans d’extension contribuent à surveiller l’utilisation de
 > [!NOTE]
 > Lorsque vous ne souhaitez pas utiliser un plan d’extension pour étendre un quota, vous pouvez également choisir de [modifier la configuration d’origine du quota](azure-stack-quota-types.md#edit-a-quota).
 
-Lorsque vous ajoutez un plan d’extension à un abonnement existant à une offre, les ressources supplémentaires peuvent nécessiter une heure pour s’afficher.
-
-Les plans d’extension sont créés en modifiant une offre existante.
+Les plans additionnels sont [créés de la même façon ](azure-stack-create-plan.md) qu’un plan de base. La différence entre les deux est déterminée quand le plan est ajouté à une offre. Il est conçu comme plan de base ou comme plan additionnel. Quand vous ajoutez un plan additionnel à une offre existante, les ressources supplémentaires peuvent mettre jusqu’à une heure pour apparaître dans l’abonnement.
 
 ::: moniker range=">=azs-1902"
 ## <a name="create-an-add-on-plan-1902-and-later"></a>Créer un plan d’extension (versions 1902 et ultérieures)

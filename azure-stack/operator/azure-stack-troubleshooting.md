@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2019
+ms.date: 10/16/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: b3540727b1868c700e43e2865848a71635e8003d
-ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
+ms.lastreviewed: 10/16/2019
+ms.openlocfilehash: 3c0b1ce32399b4739796b2718e97c69d96291dc6
+ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173116"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72445279"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Résolution des problèmes de Microsoft Azure Stack
 
@@ -85,7 +85,7 @@ Choisissez le type de compte de services partagés que vous utilisez pour Azure 
 * Fournisseur de solutions cloud
 * Abonnement Partner Shared Services
 
-## <a name="get-scale-unit-metrics"></a>Récupérer les métriques d’unité d’échelle
+### <a name="get-scale-unit-metrics"></a>Récupérer les métriques d’unité d’échelle
 
 Vous pouvez utiliser PowerShell pour obtenir des informations sur l’utilisation des tampons sans l’aide des services de support technique Microsoft. Pour obtenir l’utilisation des tampons : 
 
@@ -151,6 +151,11 @@ Pour en savoir plus sur la configuration du seuil de rétention et de la récup�
 ## <a name="troubleshoot-storage"></a>Résoudre les problèmes de stockage
 ### <a name="storage-reclamation"></a>Récupération du stockage
 Il peut s’écouler jusqu’à 14 heures avant que la capacité récupérée ne s’affiche dans le portail. La récupération d’espace dépend de différents facteurs, notamment le pourcentage d’utilisation des fichiers conteneurs internes dans le magasin d’objets blob de blocs. Par conséquent, selon la quantité de données supprimées, il n’y a pas de garantie quant à la quantité d’espace récupérable lors de l’exécution du récupérateur de mémoire.
+
+### <a name="azure-storage-explorer-not-working-with-azure-stack"></a>L’Explorateur Stockage Azure ne fonctionne pas avec Azure Stack 
+ 
+Si vous utilisez un système intégré dans un scénario déconnecté, il est recommandé d’utiliser une autorité de certification d’entreprise. Exportez le certificat racine au format base 64, puis importez-le dans l’Explorateur Stockage Azure. Veillez à supprimer la barre oblique finale (« / ») du point de terminaison ARM. Pour plus d’informations, consultez [Se préparer à la connexion à Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se#prepare-for-connecting-to-azure-stack).
+ 
 
 ## <a name="troubleshooting-app-service"></a>Résolution des problèmes d’App Service
 ### <a name="create-aadidentityappps1-script-fails"></a>Le script Create-AADIdentityApp.ps1 échoue

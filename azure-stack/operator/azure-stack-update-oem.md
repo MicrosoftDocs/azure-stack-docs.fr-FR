@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2019
+ms.date: 10/15/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: b218a1b40953d9266ec5a8bcdd49f5d89a421146
-ms.sourcegitcommit: 5703255b4647ff0ebec23658a3f5c25d67f076a2
+ms.openlocfilehash: efa10feb63f01166cf93b1835d8e38f99b9191db
+ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70749933"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72445167"
 ---
 # <a name="apply-azure-stack-original-equipment-manufacturer-oem-updates"></a>Appliquer des mises à jour de fabricants d’ordinateurs (OEM) à Azure Stack
 
@@ -44,7 +44,7 @@ Cette section contient des informations de contact OEM et des liens vers des doc
 
 | Partenaire matériel | Région | URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | Tous | [Prise en charge de Cisco Azure Stack/Mises à jour du microprogramme - Notification automatique (compte/connexion requis)](https://software.cisco.com/download/redirect?i=!y&mdfid=283862063&softwareid=286320368&release=1.0(0)&os=)<br><br>[Notes de publication pour Cisco Integrated System pour Microsoft Azure Stack](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
+| Cisco | Tous | [Guide des opérations Cisco Integrated System pour Microsoft Azure Stack](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_01000.html)<br><br>[UCS C-Series Rack-Mount UCS-Managed Server Software](https://software.cisco.com/download/home/283862063/type/286320368/release/2.0(0)) |
 | Dell EMC | Tous | [Cloud pour Microsoft Azure Stack 14G (compte et connexion requis)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pour Microsoft Azure Stack 13G (compte et connexion requis)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | JAPON | [Support technique de service géré Fujitsu (compte et connexion requis)](https://eservice.fujitsu.com/supportdesk-web/) |
 |  | EMEA ET ÉTATS-UNIS | [Support des produits et systèmes informatiques Fujitsu](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |

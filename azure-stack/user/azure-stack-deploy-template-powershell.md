@@ -3,7 +3,7 @@ title: Déployer un modèle à l’aide de PowerShell dans Azure Stack | Microso
 description: Déployez un modèle à l’aide de PowerShell dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2019
-ms.author: sethm
+ms.date: 10/07/2019
+ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: af4ac82e03b96b4fc3f6d728cbebf5a6fa9d6388
-ms.sourcegitcommit: e8aa26b078a9bab09c8fafd888a96785cc7abb4d
+ms.openlocfilehash: 38c3c428443afa251c8a6185929bfe0b80680b86
+ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71708960"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72304063"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack"></a>Déployer un modèle à l’aide de PowerShell dans Azure Stack
 
@@ -35,7 +35,7 @@ Cet exemple utilise les applets de commande **AzureRM** PowerShell et un modèle
 >[!NOTE]
 > Avant d’essayer cet exemple, vérifiez que vous avez [configuré PowerShell](azure-stack-powershell-configure-user.md) pour un utilisateur Azure Stack.
 
-1. Accédez au [référentiel AzureStackGitHub](https://aka.ms/AzureStackGitHub) et recherchez le modèle **101-simple-windows-vm**. Enregistrez le modèle à cet emplacement : `C:\templates\azuredeploy-101-simple-windows-vm.json`.
+1. Accédez au [dépôt AzureStack-QuickStart-Templates](https://aka.ms/AzureStackGitHub) et recherchez le modèle **101-simple-windows-vm**. Enregistrez le modèle à cet emplacement : `C:\templates\azuredeploy-101-simple-windows-vm.json`.
 2. Ouvrez une invite de commandes PowerShell avec élévation de privilèges.
 3. Remplacez `username` et `password` dans le script suivant par votre nom d’utilisateur et votre mot de passe, puis exécutez le script :
 

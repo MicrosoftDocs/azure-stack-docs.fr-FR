@@ -16,18 +16,18 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 48ad7808e550fb875c8ee13caa5a429e1d77aa98
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.openlocfilehash: e3e7ae6cc29756486ae5c292de6fea7e5259ecc1
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010785"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283457"
 ---
 # <a name="quota-types-in-azure-stack"></a>Types de quotas dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Les [quotas](azure-stack-plan-offer-quota-overview.md#plans) définissent les limites de ressources qu’un abonnement utilisateur peut approvisionner ou consommer. Par exemple, un quota peut autoriser un utilisateur de créer jusqu’à cinq machines virtuelles. Chaque ressource peut avoir ses propres types de quotas.
+Les [quotas](service-plan-offer-subscription-overview.md#plans) définissent les limites de ressources qu’un abonnement utilisateur peut approvisionner ou consommer. Par exemple, un quota peut autoriser un utilisateur de créer jusqu’à cinq machines virtuelles. Chaque ressource peut avoir ses propres types de quotas.
 
 > [!IMPORTANT]
 > Il peut s’écouler jusqu’à deux heures avant que les nouveaux quotas ne soient disponibles sur le portail de l’utilisateur ou qu’un quota modifié ne soit appliqué.
@@ -117,5 +117,5 @@ Les nouvelles valeurs pour le quota s’appliquent globalement à tous les plans
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Découvrez plus d’informations sur les plans, les offres et les quotas.](azure-stack-plan-offer-quota-overview.md)
+- [Découvrez plus d’informations sur les services, les plans, les offres et les quotas.](service-plan-offer-subscription-overview.md)
 - [Créez des quotas lors de la création d’un plan.](azure-stack-create-plan.md)

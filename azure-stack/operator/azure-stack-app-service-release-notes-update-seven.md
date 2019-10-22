@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 10/11/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: ec07277043068835d1d1d5a41285ee5df5ee7691
-ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
+ms.openlocfilehash: 77fb9772f027d25b0d8c0d8355e3a868c2142d6c
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165358"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282607"
 ---
 # <a name="app-service-on-azure-stack-update-7-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 7
 
@@ -56,6 +56,8 @@ Avant de commencer la mise à niveau d’Azure App Service sur Azure Stack vers
 ### <a name="new-features-and-fixes"></a>Nouvelles fonctionnalités et correctifs
 
 Azure App Service sur Azure Stack Update 7 contient les améliorations et correctifs suivants :
+
+- Résolution pour [CVE-2019-1372](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1372) : Vulnérabilité liée à l’exécution de code à distance
 
 - Mises à jour des **portails Locataire, Administration et Functions d’App Service, ainsi que des outils Kudu**. Cohérentes avec celles de la version du SDK du portail Azure Stack.
 

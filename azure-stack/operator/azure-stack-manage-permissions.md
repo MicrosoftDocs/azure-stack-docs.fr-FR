@@ -1,6 +1,6 @@
 ---
-title: Gérer les autorisations d’accès aux ressources par utilisateur dans Azure Stack (administrateur de service et locataire) | Microsoft Docs
-description: En tant qu’administrateur de service ou locataire, découvrez comment gérer les autorisations de contrôle d’accès en fonction du rôle (RBAC).
+title: Définir des autorisations d’accès en utilisant le contrôle d’accès en fonction du rôle | Microsoft Docs
+description: Découvrez comment définir des autorisations d’accès en utilisant le contrôle d’accès en fonction du rôle (RBAC) dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -15,14 +15,14 @@ ms.date: 05/16/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 9fc4e6bb48c8cdd7508a1a85d193a22761c62e99
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: fa4e836a2c7cd5b59a6234a05efcc1cface12620
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268598"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277053"
 ---
-# <a name="manage-role-based-access-control"></a>Gérer le contrôle d’accès en fonction du rôle
+# <a name="set-access-permissions-using-role-based-access-control"></a>Définir des autorisations d’accès en utilisant le contrôle d’accès en fonction du rôle
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 

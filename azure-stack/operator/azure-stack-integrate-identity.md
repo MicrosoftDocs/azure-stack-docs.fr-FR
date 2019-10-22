@@ -1,6 +1,6 @@
 ---
-title: Intégration au centre de données Azure Stack - Identité
-description: Découvrez comment intégrer les services Azure Stack AD FS aux services AD FS de votre centre de données
+title: Intégrer l’identité AD FS à votre centre de données Azure Stack | Microsoft Docs
+description: Découvrez comment intégrer le fournisseur d’identité AD FS d’Azure Stack à votre centre de données AD FS.
 services: azure-stack
 author: PatAltimore
 manager: femila
@@ -10,16 +10,16 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: f51b0bdd4e433dd3083701e8cc967b3105d23ed6
-ms.sourcegitcommit: 820ec8d10ddab1fee136397d3aa609e676f8b39d
+ms.openlocfilehash: c7d0396f01970366696309445efb911e2e189162
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71127514"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277185"
 ---
-# <a name="azure-stack-datacenter-integration---identity"></a>Intégration au centre de données Azure Stack - Identité
+# <a name="integrate-ad-fs-identity-with-your-azure-stack-datacenter"></a>Intégrer l’identité AD FS à votre centre de données Azure Stack
 
-Vous pouvez déployer Azure Stack en utilisant Azure Active Directory (Azure AD) ou Active Directory Federation Services (AD FS) en tant que fournisseur d’identité. Vous devez faire le choix avant de déployer Azure Stack. Dans un scénario connecté, vous pouvez choisir Azure AD ou AD FS. Pour un scénario déconnecté, seul AD FS est pris en charge.
+Vous pouvez déployer Azure Stack en utilisant Azure Active Directory (Azure AD) ou Active Directory Federation Services (AD FS) en tant que fournisseur d’identité. Vous devez faire le choix avant de déployer Azure Stack. Dans un scénario connecté, vous pouvez choisir Azure AD ou AD FS. Pour un scénario déconnecté, seul AD FS est pris en charge. Cet article montre comment intégrer les services Azure Stack AD FS aux services AD FS de votre centre de données.
 
 > [!IMPORTANT]
 > Vous ne pouvez pas changer de fournisseur d’identité sans redéployer la solution Azure Stack complète.
@@ -34,11 +34,11 @@ L’authentification est un composant d’identité. Pour gérer le contrôle d�
 
 Les services AD FS existants représentent le service d'émission de jeton de sécurité du compte qui envoie des demandes aux services AD FS d’Azure Stack (STS ressource). Dans Azure Stack, l’automation crée l’approbation de fournisseur de revendications avec le point de terminaison de métadonnées pour les services AD FS existants.
 
-Sans les services AD FS existants, une partie de confiance doit être configurée. Cette étape n’est pas effectuée par l’automation et doit être configurée par l’opérateur. Le point de terminaison de l’adresse IP virtuelle Azure Stack pour AD FS peut être créé en utilisant le modèle `https://adfs.<Region>.<ExternalFQDN>/`.
+Sans les services AD FS existants, une partie de confiance doit être configurée. Cette étape n’est pas effectuée par l’automatisation et elle doit être configurée par l’opérateur. Le point de terminaison de l’adresse IP virtuelle Azure Stack pour AD FS peut être créé en utilisant le modèle `https://adfs.<Region>.<ExternalFQDN>/`.
 
 La configuration de la partie de confiance nécessite également la configuration des règles de transformation de revendication fournies par Microsoft.
 
-Pour la configuration Graph, un compte de service doit être fourni, avec un accès en lecture au Active Directory existant. Ce compte est requis en tant qu’entrée pour permettre à l’automation de gérer les scénarios RBAC.
+Pour la configuration de Graph, un compte de service doit être fourni, avec un accès en lecture à l’annuaire Active Directory existant. Ce compte est requis en tant qu’entrée pour permettre à l’automation de gérer les scénarios RBAC.
 
 Pour la dernière étape, un nouveau propriétaire est configuré pour l’abonnement du fournisseur par défaut. Ce compte dispose d’un accès complet à toutes les ressources lorsqu’il est connecté au portail d’administration d’Azure Stack.
 
@@ -57,27 +57,27 @@ Les informations suivantes sont requises en tant qu’entrées pour les paramèt
 
 |Paramètre|Paramètre Feuille de calcul de déploiement|Description|Exemples|
 |---------|---------|---------|---------|
-|`CustomADGlobalCatalog`|Nom de domaine complet de la forêt AD FS|Nom de domaine complet de la forêt Active Directory cible<br>que vous souhaitez intégrer dans|Contoso.com|
+|`CustomADGlobalCatalog`|Nom de domaine complet de la forêt AD FS|Nom de domaine complet de la forêt Active Directory à laquelle s’intégrer|Contoso.com|
 |`CustomADAdminCredentials`| |Un utilisateur avec autorisation de lecture LDAP|YOURDOMAIN\graphservice|
 
 ### <a name="configure-active-directory-sites"></a>Configurer les sites Active Directory
 
 Pour les déploiements d’Active Directory sur plusieurs sites, configurez le site Active Directory le plus proche de votre déploiement Azure Stack. La configuration évite que le service Azure Stack Graph ne résolve les requêtes en utilisant un serveur de catalogue global d’un site distant.
 
-Ajoutez le sous-réseau [Réseau de l’adresse IP virtuelle publique](azure-stack-network.md#public-vip-network) Azure Stack au site Active Directory le plus proche d’Azure Stack. Par exemple, si vous avez deux sites Active Directory, un à Seattle et l’autre à Redmond, et qu’Azure Stack est déployé sur le site de Seattle, vous devez ajouter le sous-réseau du réseau d’adresse IP virtuelle publique Azure Stack au site Active Directory de Seattle.
+Ajoutez le sous-réseau [Réseau de l’adresse IP virtuelle publique](azure-stack-network.md#public-vip-network) Azure Stack au site Active Directory le plus proche d’Azure Stack. Supposons par exemple que votre annuaire Active Directory ait deux sites : Seattle et Redmond. Si Azure Stack est déployé sur le site de Seattle, vous devez ajouter le sous-réseau du réseau d’adresses IP virtuelles publiques Azure Stack au site Active Directory de Seattle.
 
 Pour plus d’informations sur les sites Active Directory, consultez [Conception de la topologie du site](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
 
 > [!Note]  
-> Si vous n’avez qu’un seul site Active Directory, vous pouvez ignorer cette étape. Si vous avez configuré un sous-réseau fourre-tout, assurez-vous qu’il ne contient pas le sous-réseau du réseau d’adresse IP virtuelle publique Azure Stack.
+> Si vous n’avez qu’un seul site Active Directory, vous pouvez ignorer cette étape. Si vous avez configuré un sous-réseau fourre-tout, assurez-vous que le sous-réseau du réseau d’adresses IP virtuelles publiques Azure Stack n’en fait pas partie.
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Créer un compte d’utilisateur dans l’Active Directory existant (facultatif)
 
-Vous pouvez également créer un compte pour le service Graph dans l’Active Directory existant. Effectuez cette étape si vous n’avez pas déjà un compte que vous souhaitez utiliser.
+Vous pouvez également créer un compte pour le service Graph dans l’Active Directory existant. Effectuez cette étape si vous n’avez pas déjà un compte que vous voulez utiliser.
 
 1. Dans l’Active Directory existant, créez le compte d’utilisateur suivant (recommandé) :
    - **Nom d’utilisateur** : graphservice
-   - **Mot de passe** : utilisez un mot de passe fort<br>Configurez le mot de passe pour qu’il n’expire jamais.
+   - **Mot de passe** : Utilisez un mot de passe fort et configurez le mot de passe pour qu’il n’expire jamais.
 
    Aucune autorisation ou appartenance spéciale n’est requise.
 
@@ -103,11 +103,11 @@ Pour cette procédure, utilisez un ordinateur de votre réseau de centre de donn
    > [!IMPORTANT]
    > Attendez que les informations d’identification apparaissent (Get-Credential n’est pas pris en charge dans le point de terminaison privilégié) et entrez les informations d’identification du compte du service Graph.
 
-3. L’applet de commande **Register-DirectoryService** a des paramètres facultatifs que vous pouvez utiliser dans certains scénarios où la validation de l’instance Active Directory existante échoue. Lorsque cette applet de commande est exécutée, elle valide le fait que le domaine fourni est le domaine racine, qu’un serveur de catalogue global peut être atteint et que le compte fourni accorde un accès en lecture.
+3. L’applet de commande **Register-DirectoryService** a des paramètres facultatifs que vous pouvez utiliser dans certains scénarios où la validation de l’instance Active Directory existante échoue. Quand cette applet de commande est exécutée, elle valide le fait que le domaine fourni est le domaine racine, qu’un serveur de catalogue global peut être atteint et que le compte fourni a reçu un droit d’accès en lecture.
 
    |Paramètre|Description|
    |---------|---------|
-   |`-SkipRootDomainValidation`|Spécifie qu’un domaine enfant doit être utilisé, plutôt que le domaine racine recommandé.|
+   |`-SkipRootDomainValidation`|Spécifie qu’un domaine enfant doit être utilisé à la place du domaine racine recommandé.|
    |`-Force`|Ignore tous les contrôles de validation.|
 
 #### <a name="graph-protocols-and-ports"></a>Ports et protocoles Graph
@@ -130,8 +130,8 @@ Les informations suivantes sont nécessaires en entrée pour les paramètres Aut
 |Paramètre|Paramètre Feuille de calcul de déploiement|Description|Exemples|
 |---------|---------|---------|---------|
 |CustomAdfsName|Nom du fournisseur AD FS|Nom du fournisseur de revendications.<br>Il apparaît ainsi dans la page d’accueil AD FS.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|URI de métadonnées AD FS|Lien Métadonnées de fédération| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
-|SigningCertificateRevocationCheck|N/D|Paramètre facultatif pour ignorer la vérification CRL|Aucun|
+|CustomAD<br>FSFederationMetadataEndpointUri|URI de métadonnées AD FS|Lien des métadonnées de fédération.| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
+|SigningCertificateRevocationCheck|N/D|Paramètre facultatif pour ignorer la vérification CRL.|Aucun|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Déclencher l’automation pour configurer un fournisseur de revendications de confiance dans Azure Stack
@@ -170,13 +170,13 @@ Les informations suivantes sont nécessaires en entrée pour les paramètres Aut
 |Paramètre|Description|Exemples|
 |---------|---------|---------|
 |CustomAdfsName|Nom du fournisseur de revendications. Il apparaît ainsi dans la page d’accueil AD FS.|Contoso|
-|CustomADFSFederationMetadataFileContent|Contenu de métadonnées|$using:federationMetadataFileContent|
+|CustomADFSFederationMetadataFileContent|Contenu des métadonnées.|$using:federationMetadataFileContent|
 
 ### <a name="create-federation-metadata-file"></a>Créer un fichier de métadonnées de fédération
 
-Pour la procédure suivante, vous devez utiliser un ordinateur qui dispose d’une connectivité réseau vers le déploiement d’AD FS existant, qui devient le compte STS. En outre, les certificats nécessaires doivent être installés.
+Pour la procédure suivante, vous devez utiliser un ordinateur qui dispose d’une connectivité réseau vers le déploiement d’AD FS existant, qui devient le compte STS. Les certificats nécessaires doivent aussi être installés.
 
-1. Ouvrez une session Windows PowerShell avec élévation de privilèges puis exécutez la commande suivante en utilisant les paramètres correspondant à votre environnement :
+1. Ouvrez une session Windows PowerShell avec élévation de privilèges, puis exécutez la commande suivante en utilisant les paramètres correspondant à votre environnement :
 
    ```powershell  
     $url = "https://win-SQOOJN70SGL.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml"
@@ -206,14 +206,14 @@ Pour cette procédure, utilisez un ordinateur qui peut communiquer avec le point
     Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
     ```
 
-3. Exécutez la commande suivante pour mettre à jour le propriétaire de l’abonnement du fournisseur par défaut, en utilisant les paramètres correspondant à votre environnement :
+3. Exécutez la commande suivante pour mettre à jour le propriétaire de l’abonnement du fournisseur par défaut. Utilisez les paramètres appropriés pour votre environnement.
 
    ```powershell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
    > [!Note]  
-   > Quand vous activez le certificat sur les services AD FS existants (compte STS), vous devez configurer à nouveau l’intégration AD FS. Vous devez configurer l’intégration même si le point de terminaison des métadonnées est accessible ou a été configuré à l’aide du fichier de métadonnées.
+   > Quand vous effectuez la rotation du certificat sur les services AD FS existants (compte STS), vous devez configurer à nouveau l’intégration AD FS. Vous devez configurer l’intégration même si le point de terminaison des métadonnées est accessible ou a été configuré à l’aide du fichier de métadonnées.
 
 ## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>Configurer la partie de confiance sur le déploiement AD FS existant (compte STS)
 
@@ -256,14 +256,14 @@ Si vous décidez d’exécuter manuellement les commandes, procédez comme suit�
    => issue(claim = c);
    ```
 
-2. Vérifiez que cette authentification basée sur Windows Forms pour extranet et intranet est activée. Commencez pas vérifier si elle est déjà activée en exécutant l’applet suivante :
+2. Vérifiez que cette authentification basée sur Windows Forms pour extranet et intranet est activée. Vous pouvez vérifier si elle est déjà activée en exécutant l’applet de commande suivante :
 
    ```powershell  
    Get-AdfsAuthenticationProvider | where-object { $_.name -eq "FormsAuthentication" } | select Name, AllowedForPrimaryExtranet, AllowedForPrimaryIntranet
    ```
 
     > [!Note]  
-    > Les chaînes d’agent utilisateur prises en charge par l’authentification Windows intégrée peuvent être obsolètes pour votre déploiement AD FS et nécessiter une mise à jour pour prendre en charge les clients les plus récents. Pour en avoir plus sur les chaînes d’agent utilisateur prises en charge par l’authentification Windows intégrée, voir [Configuration de l’authentification basée sur des formulaires intranet pour les appareils qui ne prennent pas en charge l’authentification Windows intégrée](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br>Les étapes d’activation de la stratégie d’authentification par formulaire sont documentées dans l’article [Configurer des stratégies d’authentification](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies).
+    > Les chaînes d’agent utilisateur prises en charge par l’authentification Windows intégrée peuvent être obsolètes pour votre déploiement AD FS et nécessiter une mise à jour pour prendre en charge les clients les plus récents. Pour plus d’informations sur les chaînes d’agent utilisateur prises en charge par l’authentification Windows intégrée, consultez [Configuration de l’authentification basée sur des formulaires intranet pour les appareils qui ne prennent pas en charge l’authentification Windows intégrée](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br><br>Pour les étapes d’activation de la stratégie d’authentification par formulaire, consultez [Configurer des stratégies d’authentification](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies).
 
 3. Pour ajouter la partie de confiance, exécutez la commande Windows PowerShell suivante sur votre instance AD FS ou membre de la batterie de serveurs. Veillez à mettre à jour le point de terminaison AD FS et pointez vers le fichier créé à l’étape 1.
 
@@ -285,7 +285,7 @@ Si vous décidez d’exécuter manuellement les commandes, procédez comme suit�
 4. Si vous utilisez Internet Explorer ou Microsoft Edge pour accéder à Azure Stack, vous devez ignorer les liaisons de jeton. Sinon, les tentatives de connexion échouent. Sur votre instance AD FS ou membre de la batterie de serveurs, exécutez la commande suivante :
 
    > [!note]  
-   > Cette étape n’est pas disponible si vous exécutez Windows Server 2012 ou 2012 R2 AD FS. Il est plus sûr d’ignorer cette commande et de poursuivre l’intégration.
+   > Cette étape n’est pas applicable si vous exécutez Windows Server 2012 ou 2012 R2 AD FS. Dans ce cas, vous pouvez ignorer cette commande et poursuivre l’intégration.
 
    ```powershell  
    Set-AdfsProperties -IgnoreTokenBinding $true
@@ -295,16 +295,16 @@ Si vous décidez d’exécuter manuellement les commandes, procédez comme suit�
 
 Il existe plusieurs scénarios qui requièrent l’utilisation d’un nom principal de service (SPN) pour l’authentification. Voici quelques exemples :
 
-- Utilisation de l’interface CLI avec un déploiement AD FS d’Azure Stack
-- Pack d’administration System Center pour Azure Stack lors d’un déploiement avec AD FS
-- Fournisseurs de ressources dans Azure Stack lors d’un déploiement avec AD FS
-- Différentes applications
-- Une connexion non interactive est requise
+- Utilisation de l’interface CLI avec un déploiement AD FS d’Azure Stack.
+- Pack d’administration System Center pour Azure Stack lors d’un déploiement avec AD FS.
+- Fournisseurs de ressources dans Azure Stack lors d’un déploiement avec AD FS.
+- Différentes applications.
+- Vous exigez une connexion non interactive.
 
 > [!Important]  
-> AD FS prend uniquement en charge les sessions ouvertes interactives. Si vous avez besoin d’une ouverture de session non interactive pour un scénario automatisé, vous devez utiliser un nom de principal du service (SPN).
+> AD FS prend en charge seulement les sessions de connexion interactives. Si vous avez besoin d’une connexion non interactive pour un scénario automatisé, vous devez utiliser un nom de principal du service (SPN).
 
-Pour plus d’informations sur la création d’un SPN, consultez [Créer un principal de service pour AD FS](azure-stack-create-service-principals.md).
+Pour plus d’informations sur la création d’un SPN, consultez [Créer un principal de service pour AD FS](azure-stack-create-service-principals.md).
 
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
@@ -329,7 +329,7 @@ Si une erreur se produit et laisse l’environnement dans un état vous empêcha
    Après avoir exécuté l’action de restauration, toutes les modifications de configuration sont restaurées. Seule l’authentification avec l’utilisateur **CloudAdmin** intégré est possible.
 
    > [!IMPORTANT]
-   > Vous devez configurer le propriétaire d’origine de l’abonnement du fournisseur par défaut
+   > Vous devez configurer le propriétaire d’origine de l’abonnement du fournisseur par défaut.
 
    ```powershell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"
@@ -352,5 +352,6 @@ Si une des applets de commande échoue, vous pouvez collecter des journaux d’a
    Get-AzureStackLog -OutputPath \\myworkstation\AzureStackLogs -FilterByRole ECE
    ```
 
+## <a name="next-steps"></a>Étapes suivantes
 
 [Intégrer des solutions de surveillance externes](azure-stack-integrate-monitor.md)

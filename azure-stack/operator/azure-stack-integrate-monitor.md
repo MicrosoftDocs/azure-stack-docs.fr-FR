@@ -15,22 +15,22 @@ ms.date: 06/05/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 489859720df8a2d0c20bb476b285fe9cb65b797e
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: aa9b20b9ee80cfdb17dba3020c03718085d8b625
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159635"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277180"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Intégrer une solution de supervision externe à Azure Stack
 
 Pour une surveillance externe de l’infrastructure Azure Stack, vous devez surveiller logiciels, ordinateurs physiques et commutateurs de réseau physique d’Azure Stack. Chacun de ces composants offre une méthode de récupération des informations d’intégrité et d’alerte  :
 
-- Le logiciel Azure Stack offre une API basée sur REST pour récupérer l’intégrité et les alertes. L’utilisation des technologies à définition logicielle, telles que les espaces de stockage direct, les alertes et l’intégrité du stockage fait partie de la surveillance logicielle.
+- Le logiciel Azure Stack offre une API basée sur REST pour récupérer l’intégrité et les alertes. L’utilisation des technologies définies par logiciel, comme les espaces de stockage direct, les alertes et l’intégrité du stockage fait partie de la supervision logicielle.
 - Les ordinateurs physiques peuvent rendre disponibles des informations relatives à l’intégrité et aux alertes par le biais des contrôleurs de gestion de la carte de base (BMC).
 - Les périphériques réseau physiques peuvent mettre à disposition les informations relatives à l’intégrité et aux alertes par le biais du protocole SNMP.
 
-Chaque solution Azure Stack est fournie avec un hôte de cycle de vie du matériel. Cet hôte exécute le logiciel de supervision du fournisseur de matériel OEM (Original Equipment Manufacturer) pour les serveurs physiques et les appareils réseau. Vérifiez auprès de votre fournisseur OEM si ses solutions de surveillance peuvent intégrer directement les solutions de surveillance existantes dans votre centre de données.
+Chaque solution Azure Stack est fournie avec un hôte de cycle de vie du matériel. Cet hôte exécute le logiciel de supervision du fabricant d’ordinateurs OEM pour les serveurs physiques et les appareils réseau. Vérifiez auprès de votre fabricant OEM si ses solutions de supervision peuvent intégrer les solutions de supervision existantes dans votre centre de données.
 
 > [!IMPORTANT]
 > La solution de supervision externe que vous utilisez doit être sans agent. Vous ne pouvez pas installer d’agents tiers à l’intérieur des composants de Azure Stack.
@@ -40,26 +40,26 @@ Le diagramme suivant montre le flux de trafic entre un système intégré Azure 
 ![Schéma montrant le trafic entre Azure Stack, la surveillance et la solution de création de tickets.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
 
 > [!NOTE]
-> L’intégration de surveillance externe directement à des serveurs physiques est interdite et bloquée activement par des listes de contrôle d’accès (ACL).  L’intégration de surveillance externe directement aux périphériques réseau physiques étant prise en charge, demandez à votre fournisseur OEM comment activer cette fonctionnalité.
+> L’intégration de la supervision externe directement à des serveurs physiques est interdite et elle est bloquée activement par des listes de contrôle d’accès (ACL). L’intégration de la supervision externe directement aux appareils réseau physiques est prise en charge. Vérifiez auprès de votre fournisseur OEM comment activer cette fonctionnalité.
 
 Cet article explique comment intégrer Azure Stack à des solutions de surveillance externes, telles que System Center Operations Manager et Nagios. Il traite également de l’utilisation des alertes par programmation en ayant recours à PowerShell ou à des appels d’API REST.
 
 ## <a name="integrate-with-operations-manager"></a>Intégrer Operations Manager
 
-Vous pouvez utiliser Operations Manager pour une surveillance externe d’Azure Stack. Le Pack d’administration de System Center pour Microsoft Azure Stack vous permet de surveiller plusieurs déploiements Azure Stack avec une seule instance d’Operations Manager. Le Pack d’administration utilise les API REST du fournisseur de ressources d’intégrité et du fournisseur de ressources de mise à jour pour communiquer avec Azure Stack. Si vous envisagez de contourner le logiciel de surveillance OEM qui s’exécute sur l’hôte de cycle de vie du matériel, vous pouvez installer les Packs d’administration du revendeur pour surveiller les serveurs physiques. Vous pouvez également utiliser la détection des périphériques réseau Operations Manager pour surveiller les commutateurs réseau.
+Vous pouvez utiliser Operations Manager pour une surveillance externe d’Azure Stack. Le Pack d’administration de System Center pour Microsoft Azure Stack vous permet de surveiller plusieurs déploiements Azure Stack avec une seule instance d’Operations Manager. Le pack d’administration utilise les API REST du fournisseur de ressources d’intégrité et du fournisseur de ressources de mise à jour pour communiquer avec Azure Stack. Si vous envisagez de contourner le logiciel de surveillance OEM qui s’exécute sur l’hôte de cycle de vie du matériel, vous pouvez installer les Packs d’administration du revendeur pour surveiller les serveurs physiques. Vous pouvez également utiliser la détection des périphériques réseau Operations Manager pour surveiller les commutateurs réseau.
 
 Le pack d’administration pour Azure Stack offre les fonctionnalités suivantes :
 
-- Possibilité de gérer plusieurs déploiements Azure Stack
+- Gestion de plusieurs déploiements Azure Stack possible
 - Support pour Azure Active Directory (Azure AD) ou Active Directory Federation Services (AD FS)
 - Possibilité de récupérer et de fermer des alertes
-- Présence d’un tableau de bord d’intégrité et de capacité
+- Présence d’un tableau de bord d’intégrité et de capacité.
 - Détection du mode de maintenance automatique lorsque les correctifs et mises à jour sont en cours
 - Tâches de mise à jour forcée pour le déploiement et la région
 - Ajout possible d’informations personnalisées à une région
 - Prise en charge de la notification et de la création de rapports
 
-Vous pouvez télécharger le Pack d’administration de System Center pour Microsoft Azure Stack et le [guide de l’utilisateur](https://www.microsoft.com/en-us/download/details.aspx?id=55184) associé ici, ou directement à partir d’Operations Manager.
+Pour télécharger le pack d’administration System Center et le guide de l’utilisateur associé, consultez [Télécharger le pack d’administration System Center pour Microsoft Azure Stack](https://www.microsoft.com/en-us/download/details.aspx?id=55184). Vous pouvez aussi le télécharger directement à partir d’Operations Manager.
 
 Pour une solution de création de tickets, vous pouvez intégrer Operations Manager à System Center Service Manager. Le connecteur du produit intégré assure la communication bidirectionnelle qui vous permet de fermer une alerte dans Azure Stack et Operations Manager après la résolution d’une demande de service dans Service Manager.
 
@@ -71,19 +71,19 @@ Le schéma suivant illustre l’intégration d’Azure Stack à un déploiement 
 
 Vous pouvez définir et configurer le plug-in Nagios pour Microsoft Azure Stack.
 
-Un plug-in de supervision Nagios a été développé en même temps que les solutions Cloudbase partenaires ; il est disponible sous licence de logiciel libre et permissive - MIT (Massachusetts Institute of Technology).
+Un plug-in de supervision Nagios a été développé en même temps que des solutions Cloudbase partenaires ; il est disponible sous licence de logiciel libre et permissive - MIT (Massachusetts Institute of Technology).
 
 Le plug-in est écrit dans Python et s’appuie sur l’API REST du fournisseur de ressources d’intégrité. Il offre des fonctionnalités de base pour récupérer et fermer des alertes dans Azure Stack. À l’instar du Pack d’administration de System Center, il vous permet d’ajouter plusieurs déploiements Azure Stack et d’envoyer des notifications.
 
-La version 1.2 du plug-in Nagios pour Azure Stack s’appuie sur la bibliothèque Microsoft ADAL et prend en charge l’authentification basée sur l’utilisation du principal de service avec un secret ou un certificat. Par ailleurs, la configuration a été simplifiée et s’effectue maintenant au moyen d’un seul fichier de configuration avec de nouveaux paramètres. Le plug-in prend désormais en charge les déploiements Azure Stack avec Azure AD et AD FS comme système d’identité.
+La version 1.2 du plug-in Nagios pour Azure Stack s’appuie sur la bibliothèque Microsoft ADAL, et elle prend en charge l’authentification basée sur l’utilisation du principal de service avec un secret ou un certificat. Par ailleurs, la configuration a été simplifiée et s’effectue maintenant au moyen d’un seul fichier de configuration avec de nouveaux paramètres. Le plug-in prend désormais en charge les déploiements Azure Stack avec Azure AD et AD FS comme système d’identité.
 
-Le plug-in fonctionne avec Nagios 4x et XI. Vous pouvez le télécharger [ici](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details). Le site de téléchargement comporte également des informations sur l’installation et la configuration.
+Le plug-in fonctionne avec Nagios 4x et XI. Pour télécharger le plug-in, consultez [Monitoring Azure Stack Alerts](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details). Le site de téléchargement comporte également des informations sur l’installation et la configuration.
 
 ### <a name="requirements-for-nagios"></a>Configuration requise pour Nagios
 
 1.  Version minimale de Nagios : 4.x
 
-2.  Bibliothèque Microsoft Azure Active Directory pour Python. Elle peut être installée à l’aide du PIP Python.
+2.  Bibliothèque Microsoft Azure Active Directory pour Python. Cette bibliothèque peut être installée avec Python PIP.
 
     ```bash  
     sudo pip install adal pyyaml six
@@ -109,7 +109,7 @@ samples/etc/azurestack_services.cfg
 
 2.  Copiez le gestionnaire `azurestack_handler.sh` dans le répertoire `/usr/local/nagios/libexec/eventhandlers`.
 
-3.  Définissez le fichier de plug-in comme fichier exécutable
+3.  Vérifiez que le fichier du plug-in est défini comme fichier exécutable :
 
     ```bash
     sudo cp azurestack_plugin.py <PLUGINS_DIR>
@@ -120,7 +120,7 @@ samples/etc/azurestack_services.cfg
 
 Vous pouvez configurer les paramètres suivants dans le fichier azurestack.cfg. Les paramètres en gras doivent être configurés indépendamment du modèle d’authentification choisi.
 
-Des informations détaillées sur la création d’un nom de principal de service (SPN) sont disponibles [ici](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals).
+Pour plus d’informations sur la création d’un SPN, consultez [Utiliser une identité d’application pour accéder à des ressources](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals).
 
 | Paramètre | Description | Authentication |
 | --- | --- | --- |
@@ -132,7 +132,7 @@ Des informations détaillées sur la création d’un nom de principal de servic
 | client_cert\*\*: | Chemin du certificat | SPN avec un certificat |
 | client_cert_thumbprint\*\*: | Empreinte du certificat | SPN avec un certificat |
 
-\*L’ID du locataire n’est pas obligatoire dans les déploiements Azure Stack à l’aide d’ADFS.
+\*L’ID du locataire n’est pas obligatoire dans les déploiements Azure Stack avec AD FS.
 
 \*\* Le secret client et le certificat client s’excluent mutuellement.
 
@@ -150,7 +150,7 @@ Les autres fichiers de configuration contiennent des paramètres de configuratio
 
 ### <a name="setup-steps"></a>Étapes de configuration
 
-1.  Modifiez le fichier de configuration
+1.  Modifiez le fichier de configuration.
 
 2.  Copiez les fichiers de configuration modifiés dans le dossier `/usr/local/nagios/etc/objects`.
 
@@ -158,13 +158,13 @@ Les autres fichiers de configuration contiennent des paramètres de configuratio
 
 Vous devez mettre à jour la configuration de Nagios afin de permettre le chargement du plug-in Nagios pour Azure Stack.
 
-1.  Ouvrez le fichier suivant
+1.  Ouvrez le fichier suivant :
 
 ```bash  
 /usr/local/nagios/etc/nagios.cfg
 ```
 
-2.  Ajoutez l’entrée suivante
+2.  Ajoutez l’entrée suivante :
 
 ```bash  
 # Load the Azure Stack Plugin Configuration
@@ -174,7 +174,7 @@ cfg_file=/usr/local/Nagios/etc/objects/azurestack_hosts.cfg
 cfg_file=/usr/local/Nagios/etc/objects/azurestack_services.cfg
 ```
 
-3.  Rechargez Nagios
+3.  Rechargez Nagios.
 
 ```bash  
 sudo service nagios reload

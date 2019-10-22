@@ -10,17 +10,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/23/2019
+ms.date: 10/07/2019
 ms.topic: conceptual
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 5357fcf548971e0962bec41ad9238bf88290531c
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: c821f35928df5da4c34455a0b541699b0a84d490
+ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603103"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72310669"
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>Déployer des applications sur Azure et Azure Stack
 
@@ -97,7 +97,7 @@ La continuité, la sécurité et la fiabilité du déploiement d’applications 
      
   1. Déployez les services PaaS [Azure App Service](../operator/azure-stack-app-service-deploy.md) sur Azure Stack.
      
-  1. Créez un [plan et une offre](../operator/azure-stack-plan-offer-quota-overview.md) dans Azure Stack.
+  1. Créez un [plan et une offre](../operator/service-plan-offer-subscription-overview.md) dans Azure Stack.
      
   1. Créez un [abonnement du locataire](../operator/azure-stack-subscribe-plan-provision-vm.md) pour l’offre dans Azure Stack. 
      
@@ -342,20 +342,62 @@ La CI/CD hybride peut s’appliquer tant au code d’application qu’au code d�
 1. Dans votre navigateur Web, ouvrez votre organisation et votre projet Azure DevOps.
    
 1. Sélectionnez **Pipelines** > **Builds** dans le menu de navigation de gauche, puis sélectionnez **Nouveau pipeline**. 
+
+1. Sélectionnez votre dépôt de code. Azure Pipelines analyse et identifie votre projet comme étant ASP.NET Core et ouvre le modèle de build ASP.NET Core *azure-pipelines.yml* par défaut. 
    
-1. Sous **Sélectionner un modèle**, sélectionnez le modèle **ASP.NET Core**, puis sélectionnez **Appliquer**. 
+   ![Fichier azure-pipelines.yml d’ASP.NET Core](media/azure-stack-solution-pipeline/buildargument.png)
    
-1. Dans la page de configuration, sélectionnez **Publier** dans le volet de gauche.
+1. Vous pouvez modifier directement le code du pipeline ou sélectionner **Afficher l’Assistant** pour ouvrir un volet **Tâches** qui vous permet d’ajouter des tâches et des étapes. 
    
-1. Dans le volet de droite, sous **Arguments**, ajoutez `-r win10-x64` à la configuration. 
+   Si vous sélectionnez **Afficher l’Assistant**, sélectionnez **.NET Core** dans le volet **Tâches**. Dans le formulaire **.NET Core** :
+   - Sous **Commande**, sélectionnez **publish** dans la liste déroulante. 
+   - Sous **Arguments** , entrez *-r win10-x64*.
+   - Vérifiez que **Publier des projets web** est sélectionné.
+   - Sélectionnez **Ajouter**.
    
-   ![Ajouter un argument de pipeline de build](media/azure-stack-solution-pipeline/buildargument.png)
+   Au lieu d’utiliser l’Assistant, vous pouvez modifier et ajouter le code suivant directement au fichier *azure-pipelines.yml* :
    
-1. En haut de la page, sélectionnez **Enregistrer et mettre en file d’attente**.
+   - Sous `pool`, changez `vmImage` de `ubuntu-latest` en `vs2017-win2016`.
+     
+   - Sous `steps`, ajoutez la tâche, la commande et les arguments de [DotNetCoreCLI](/azure/devops/pipelines/tasks/build/dotnet-core-cli) : 
+     
+     ```yaml
+     - task: DotNetCoreCLI@2
+       inputs:
+         command: 'publish'
+         publishWebProjects: true
+         arguments: '-r win10-x64'
+     ```
+   Votre fichier *azure-pipelines.yml* doit maintenant contenir le code suivant : 
    
-1. Dans la boîte de dialogue **Exécuter le pipeline**, sélectionnez **Enregistrer et exécuter**. 
+   ```yaml
+   # ASP.NET Core
+   # Build and test ASP.NET Core projects targeting .NET Core.
+   # Add steps that run tests, create a NuGet package, deploy, and more:
+   # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
    
-Le [build de déploiement autonome](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) publie des artefacts qui peuvent s’exécuter sur Azure et Azure Stack.
+   trigger:
+   - master
+   
+   pool:
+     vmImage: 'vs2017-win2016'
+   
+   variables:
+     buildConfiguration: 'Release'
+
+   steps:
+   - script: dotnet build --configuration $(buildConfiguration)
+     displayName: 'dotnet build $(buildConfiguration)'
+   
+   - task: DotNetCoreCLI@2
+     inputs:
+       command: 'publish'
+       publishWebProjects: true
+       arguments: '-r win10-x64'
+   ```
+1. Sélectionnez **Enregistrer et exécuter**, ajoutez un message de validation et une description facultative, puis resélectionnez **Enregistrer et exécuter**. 
+   
+Le [build de déploiement autonome](/dotnet/core/deploying/#self-contained-deployments-scd) publie des artefacts qui peuvent s’exécuter sur Azure et Azure Stack.
 
 ### <a name="create-a-release-pipeline"></a>Créer un pipeline de mise en production
 
@@ -363,7 +405,7 @@ La création d’un pipeline de mise en production est la dernière étape du pr
 
 1. Dans votre projet Azure DevOps, sélectionnez **Pipelines** > **Mises en production** dans le menu de navigation de gauche, puis sélectionnez **Nouveau pipeline**. 
    
-1. Dans la page **Sélectionner un modèle**, sélectionnez **Déploiement d’Azure App Service**, puis sélectionnez **Appliquer**.
+1. Dans la page **Sélectionner un modèle**, sélectionnez **Déploiement Azure App Service**, puis sélectionnez **Appliquer**.
    
    ![Sélectionner un modèle de mise en production](media/azure-stack-solution-pipeline/releasetemplate.png)
    
@@ -381,25 +423,25 @@ La création d’un pipeline de mise en production est la dernière étape du pr
    
    ![Sélectionner un abonnement et entrer le nom d’App Service](media/azure-stack-solution-pipeline/stage1.png)
    
-1. Dans le volet de gauche, sélectionnez **Exécuter sur l’agent**. Dans le volet de droite, sélectionnez **VS2017 hébergé** dans la liste déroulante **Pool d’agents** s’il n’est pas déjà sélectionné.
+1. Dans le volet de gauche, sélectionnez **Exécuter sur l’agent**. Dans le volet droit, sélectionnez **Azure Pipelines** dans la liste déroulante **Pool d’agents**, puis sélectionnez **vs2017-win2016** dans la liste déroulante **Spécification de l’agent**.
    
    ![Sélectionner un agent hébergé](media/azure-stack-solution-pipeline/agentjob.png)
    
-1. Dans le volet de gauche, sélectionnez **Déployer Azure App Service**, puis dans le volet de droite, accédez au **Package ou dossier** de votre build d’application web Azure.
+1. Dans le volet gauche, sélectionnez **Déployer Azure App Service** . Dans le volet droit, faites défiler la liste vers le bas et sélectionnez les points de suspension **...** en regard de **Package ou dossier**.
    
    ![Sélectionner le package ou dossier](media/azure-stack-solution-pipeline/packageorfolder.png)
    
-1. Dans la boîte de dialogue **Sélectionner un fichier ou un dossier**, sélectionnez **OK**.
+1. Dans la boîte de dialogue **Sélectionner un fichier ou un dossier**, accédez à l’emplacement de la build de votre application web Azure, puis sélectionnez **OK** .
    
-1. Sélectionnez **Enregistrer** dans le coin supérieur droit de la page **Nouveau pipeline de mise en production**.
-   
-   ![Enregistrer les modifications](media/azure-stack-solution-pipeline/save-devops-icon.png)
+1. Dans la page **Nouveau pipeline de mise en production**, sélectionnez **Enregistrer** en haut à droite. 
    
 1. Sous l'onglet **Pipeline**, sélectionnez **Ajouter un artefact**. Sélectionnez votre projet, puis sélectionnez votre build Azure Stack dans le menu déroulant **Source (pipeline de build)** . Sélectionnez **Ajouter**. 
    
-1. Sous l'onglet **Pipeline**, sous **Index**, sélectionnez **Ajouter**.
+1. Sous **Phases**, pointez sur la phase **Azure** jusqu’à ce que le **+** apparaisse, puis sélectionnez **Ajouter**.
    
-1. Dans le nouvel index, sélectionnez le lien hypertexte pour **Afficher les tâches d’index**. Entrez *Azure Stack* comme nom d’index. 
+1. Sous **Modèle**, sélectionnez **Projet vide**. 
+   
+1. Dans la boîte de dialogue **Phase**, entrez *Azure Stack* comme nom de la phase. 
    
    ![Afficher le nouvel index](media/azure-stack-solution-pipeline/newstage.png)
    
@@ -430,7 +472,7 @@ La création d’un pipeline de mise en production est la dernière étape du pr
 
 Maintenant que vous disposez d’un pipeline de mise en production, vous pouvez l’utiliser pour créer une mise en production et déployer votre application. 
 
-Étant donné que le déclencheur de déploiement continu est défini dans votre pipeline de mise en production, la modification du code source démarre un nouveau build et crée automatiquement une nouvelle mise en production. Cependant, vous créez et exécutez manuellement cette nouvelle mise en production.
+Étant donné que le déclencheur de déploiement continu est défini dans votre pipeline de mise en production, la modification du code source démarre un nouveau build et crée automatiquement une nouvelle mise en production. Cette fois cependant, vous créez et vous exécutez manuellement une nouvelle version.
 
 Pour créer et déployer une mise en production :
 

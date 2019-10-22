@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: f633f000968fcf4f373fc502898fa18084f93f80
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: b9a7416bc73c0e36ab9986b1a280597c2d6d93a9
+ms.sourcegitcommit: 0866555e0ed240a65595052899ef1b836dd07fbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824308"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72257768"
 ---
 # <a name="protect-vms-deployed-on-azure-stack"></a>Protéger des machines virtuelles déployées sur Azure Stack
 
@@ -162,8 +162,16 @@ Considérations importantes à prendre en compte pour votre déploiement Azure S
 
 Cet article vous a donné des recommandations générales sur la protection des machines virtuelles utilisateur déployées sur Azure Stack. Pour plus d’informations sur l’utilisation des services Azure pour protéger les machines virtuelles des utilisateurs, voir :
 
+- [Considérations relatives à la continuité d’activité et à la reprise d’activité](http://aka.ms/azurestackbcdrconsiderationswp)
+
+### <a name="azure-backup-server"></a>Azure Backup Server
  - [Utiliser la Sauvegarde Azure pour sauvegarder des fichiers et des applications sur Azure Stack](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
  - [Documentation Sauvegarde Azure](https://docs.microsoft.com/azure/backup/ ) 
+ 
+ ### <a name="azure-site-recovery"></a>Azure Site Recovery
  - [Documentation Site Recovery](https://docs.microsoft.com/azure/site-recovery/)  
+ 
+ ### <a name="partner-products"></a>Produits de partenaires
+ - [Feuille de données de l’écosystème des partenaires d’intégration de centre de données Azure Stack](http://aka.ms/azurestackbcdrpartners)
 
 Pour en savoir plus sur les produits de partenaires qui offrent une protection de machine virtuelle sur Azure Stack, consultez « [Protéger des applications et des données sur Azure Stack](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/) ».
