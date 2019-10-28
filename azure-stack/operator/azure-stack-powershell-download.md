@@ -15,21 +15,21 @@ ms.date: 09/18/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/18/2019
-ms.openlocfilehash: c6939a28b150073d08a4f8c8dbc2d15dfd153957
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 89a31f6d7894ed9af710263298fef03604d1351b
+ms.sourcegitcommit: acebda8a42ac8ecdeba490fc1738e9041479dab0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71100936"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72813983"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Télécharger les outils Azure Stack à partir de GitHub
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-**AzureStack-Tools** est un [référentiel GitHub](https://github.com/Azure/AzureStack-Tools) qui héberge des modules PowerShell permettant de gérer et déployer des ressources sur Azure Stack. Si vous prévoyez d’établir la connectivité VPN, vous pouvez télécharger ces modules PowerShell avec le Kit de développement Azure Stack ou sur un client externe Windows. Pour obtenir ces outils, clonez le référentiel GitHub ou téléchargez le dossier **AzureStack-Tools** en exécutant le script suivant :
+**AzureStack-Tools** est un [référentiel GitHub](https://github.com/Azure/AzureStack-Tools) qui héberge des modules PowerShell permettant de gérer et déployer des ressources sur Azure Stack. Si vous prévoyez d’établir la connectivité VPN, vous pouvez télécharger ces modules PowerShell avec le Kit de développement Azure Stack (ASDK) ou sur un client externe Windows. Pour obtenir ces outils, clonez le référentiel GitHub ou téléchargez le dossier **AzureStack-Tools** en exécutant le script suivant :
 
 ```powershell
-# Change directory to the root directory. 
+# Change directory to the root directory.
 cd \
 
 # Download the tools archive.
@@ -54,16 +54,15 @@ Le dépôt **AzureStack-Tools** contient des modules PowerShell qui prennent en 
 
 | Fonctionnalités | Description | Qui peut utiliser ce module ? |
 | --- | --- | --- |
-| [Fonctionnalités de cloud](../user/azure-stack-validate-templates.md) | Utilisez ce module pour obtenir les fonctionnalités cloud d’un cloud. Par exemple, en utilisant ce module, vous pouvez obtenir les fonctionnalités de cloud telles que la version d’API et les ressources Azure Resource Manager. Vous pouvez également obtenir les extensions de machine virtuelle pour Azure Stack et les clouds Azure à l’aide de ce module. | Les opérateurs et les utilisateurs de cloud |
+| [Fonctionnalités de cloud](../user/azure-stack-validate-templates.md) | Utilisez ce module pour obtenir les fonctionnalités cloud d’un cloud. Par exemple, vous pouvez obtenir les fonctionnalités de cloud telles que la version d’API et les ressources Azure Resource Manager. Vous pouvez également obtenir les extensions de machine virtuelle pour Azure Stack et les clouds Azure. | Les opérateurs et les utilisateurs de cloud |
 | [Stratégie Resource Manager pour Azure Stack](../user/azure-stack-policy-module.md) | Utilisez ce module pour configurer un abonnement Azure ou un groupe de ressources Azure avec la même gestion des versions et la même disponibilité de service qu’Azure Stack. | Les opérateurs et les utilisateurs de cloud |
-| [Inscription auprès d’Azure](azure-stack-registration.md ) | Utilisez ce module pour inscrire votre instance de Kit de développement auprès d’Azure. Une fois l’inscription effectuée, vous pouvez télécharger les éléments de Place de Marché à partir d’Azure et les utiliser dans Azure Stack. | Les opérateurs de cloud |
+| [Inscription auprès d’Azure](azure-stack-registration.md ) | Utilisez ce module pour inscrire votre instance du Kit de développement Azure Stack auprès d’Azure. Une fois l’inscription effectuée, vous pouvez télécharger les éléments de la Place de Marché Azure et les utiliser dans Azure Stack. | Les opérateurs de cloud |
 | [Déploiement Azure Stack](../asdk/asdk-install.md) | Utilisez ce module pour préparer l’ordinateur hôte Azure Stack au déploiement et au redéploiement à l’aide de l’image de disque dur virtuel (VHD) Azure Stack. | Les opérateurs de cloud|
 | [Connexion à Azure Stack](azure-stack-powershell-install.md) | Ce module permet de configurer la connectivité VPN avec Azure Stack. | Les opérateurs et les utilisateurs de cloud |
 | [Validateur de modèle](../user/azure-stack-validate-templates.md) | Utilisez ce module pour vérifier si un modèle existant ou nouveau peut être déployé sur Azure Stack. | Les opérateurs et les utilisateurs de cloud|
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Bien démarrer avec PowerShell sur Azure Stack](../user/azure-stack-powershell-overview.md)
-- [Configurez l’environnement PowerShell de l’utilisateur Azure Stack.](../user/azure-stack-powershell-configure-user.md)   
-- [Se connecter au Kit de développement Azure Stack par le biais d’un réseau privé virtuel](../asdk/asdk-connect.md)  
+- [Bien démarrer avec PowerShell sur Azure Stack](../user/azure-stack-powershell-overview.md).
+- [Configurez l’environnement PowerShell de l’utilisateur Azure Stack](../user/azure-stack-powershell-configure-user.md).
+- [Se connecter au Kit de développement Azure Stack par le biais d’un réseau privé virtuel](../asdk/asdk-connect.md).

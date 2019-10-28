@@ -1,6 +1,6 @@
 ---
-title: Gestion du fournisseur de ressources MySQL sur Azure Stack | Microsoft Docs
-description: Découvrez comment vous pouvez gérer le service de fournisseur de ressources MySQL sur Azure Stack.
+title: Opérations de maintenance sur le fournisseur de ressources MySQL dans Azure Stack | Microsoft Docs
+description: Découvrez comment gérer le service de fournisseur de ressources MySQL dans Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 6667fd3db21cd6138e756c16eb8e68b8ecd1b3e9
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 9dc2de86828e188aa82b44d376e693be887717d8
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829427"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682189"
 ---
-# <a name="mysql-resource-provider-maintenance-operations"></a>Opérations de maintenance du fournisseur de ressources MySQL
+# <a name="mysql-resource-provider-maintenance-operations-in-azure-stack"></a>Opérations de maintenance sur le fournisseur de ressources MySQL dans Azure Stack
 
 Le fournisseur de ressources MySQL s’exécute sur une machine virtuelle verrouillée. Pour activer les opérations de maintenance, vous devez mettre à jour la sécurité de la machine virtuelle. Si vous souhaitez utiliser le principe de séparation des privilèges à cet effet, vous pouvez utiliser le point de terminaison PowerShell Just Enough Administration (JEA) DBAdapterMaintenance. Le package d’installation du fournisseur de ressources inclut un script pour cette opération.
 
-## <a name="update-the-virtual-machine-operating-system"></a>Mettre à jour le système d’exploitation de la machine virtuelle
+## <a name="update-the-vm-operating-system"></a>Mettre à jour le système d’exploitation de la machine virtuelle
 
 Étant donné que le fournisseur de ressources s’exécute sur une machine virtuelle de l’*utilisateur*, vous devez appliquer les correctifs et mises à jour lors de leur publication. Vous pouvez utiliser les mises à jour Windows fournies dans le cadre du cycle de correction et de mise à jour pour appliquer les mises à jour à la machine virtuelle Windows.
 
@@ -35,7 +35,7 @@ Mettez à jour la machine virtuelle du fournisseur à l’aide de l’une des m�
 - Installer le package de fournisseur de ressources le plus récent à l’aide d’une image corrigée de Windows Server 2016 Core.
 - Installer un package Windows Update pendant l’installation ou la mise à jour du fournisseur de ressources.
 
-## <a name="update-the-virtual-machine-windows-defender-definitions"></a>Mettre à jour les définitions Windows Defender de machine virtuelle
+## <a name="update-the-vm-windows-defender-definitions"></a>Mettre à jour les définitions Windows Defender
 
 Pour mettre à jour les définitions Defender, procédez comme suit :
 
@@ -76,7 +76,7 @@ Invoke-WebRequest -Uri 'https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64'
 $session = New-PSSession -ComputerName $databaseRPMachine `
     -Credential $vmLocalAdminCreds -ConfigurationName DBAdapterMaintenance
 
-# Copy the defender update file to the adapter virtual machine.
+# Copy the defender update file to the adapter VM.
 Copy-Item -ToSession $session -Path $localPathToDefenderUpdate `
      -Destination "User:\"
 
@@ -103,7 +103,7 @@ Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèm
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>Exemples PowerShell pour la rotation des secrets
 
-**Changer tous les secrets en même temps.**
+**Changer tous les secrets en même temps :**
 
 ```powershell
 .\SecretRotationMySQLProvider.ps1 `
@@ -117,7 +117,7 @@ Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèm
 
 ```
 
-**Changer le mot de passe utilisateur de diagnostic.**
+**Changer le mot de passe utilisateur de diagnostic :**
 
 ```powershell
 .\SecretRotationMySQLProvider.ps1 `
@@ -128,7 +128,7 @@ Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèm
 
 ```
 
-**Changer le mot de passe de compte administrateur local des machines virtuelles.**
+**Changer le mot de passe de compte administrateur local des machines virtuelles :**
 
 ```powershell
 .\SecretRotationMySQLProvider.ps1 `
@@ -139,7 +139,7 @@ Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèm
 
 ```
 
-**Changer le mot de passe du certificat SSL.**
+**Changer le mot de passe du certificat SSL :**
 
 ```powershell
 .\SecretRotationMySQLProvider.ps1 `
@@ -160,7 +160,7 @@ Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèm
 |PrivilegedEndpoint|Point de terminaison privilégié pour accéder à Get-AzureStackStampInformation.|
 |DiagnosticsUserPassword|Diagnostique le mot de passe de compte d’utilisateur.|
 |VMLocalCredential|Le compte administrateur local de la machine virtuelle MySQLAdapter.|
-|DefaultSSLCertificatePassword|Mot de passe du certificat SSL par défaut (*.pfx)|
+|DefaultSSLCertificatePassword|Mot de passe du certificat SSL par défaut (*.pfx).|
 |DependencyFilesLocalPath|Chemin local des fichiers de dépendances.|
 |     |     |
 
@@ -174,7 +174,7 @@ Utilisez le cmdlet Get-AzsDBAdapterLogs pour collecter tous les journaux d’act
 
 ## <a name="collect-diagnostic-logs"></a>Collecter des journaux de diagnostic
 
-S’il s’avère nécessaire de collecter des journaux d’activité à partir de la machine virtuelle verrouillée, un point de terminaison PowerShell JEA (Just Enough Administration) DBAdapterDiagnostics est fourni à cette fin. Ce point de terminaison propose les commandes suivantes :
+Pour collecter les journaux d’activité de la machine virtuelle verrouillée, utilisez le point de terminaison PowerShell JEA (Just Enough Administration) DBAdapterDiagnostics. Ce point de terminaison propose les commandes suivantes :
 
 - **Get-AzsDBAdapterLog**. Cette commande crée un package zip des journaux de diagnostic du fournisseur de ressources et enregistre le fichier sur le lecteur de l’utilisateur de la session. Vous pouvez exécuter cette commande sans aucun paramètre : les quatre dernières heures de journaux d’activité seront collectées.
 
@@ -194,7 +194,7 @@ Vous définirez l’intervalle de temps pour la collecte de journaux à l’aide
 * FromDate correspond à quatre heures avant l’heure actuelle.
 * ToDate renvoie l’heure en cours.
 
-**Exemple de script PowerShell pour collecter les journaux d’activité.**
+**Exemple de script PowerShell pour collecter les journaux d’activité :**
 
 Le script suivant montre comment collecter les journaux de diagnostic à partir de la machine virtuelle du fournisseur de ressources.
 

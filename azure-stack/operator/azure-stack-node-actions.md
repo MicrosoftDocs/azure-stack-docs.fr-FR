@@ -1,6 +1,6 @@
 ---
 title: Mettre à l’échelle des actions de nœud d’unité dans Azure Stack | Microsoft Docs
-description: Découvrez comment afficher l’état d’un nœud et utiliser les actions de nœud (mise sous tension, mise hors tension, désactivation et reprise) sur un système intégré Azure Stack.
+description: Découvrez les actions de nœud sur une unité d’échelle (mise sous tension, mise hors tension, désactivation et reprise) et la façon d’afficher l’état d’un nœud dans des systèmes intégrés Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,12 +15,12 @@ ms.date: 07/18/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: b75d9f37e2b2deacb5935bb6cda3c2586afb8baa
-ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
+ms.openlocfilehash: 18d76db779db5914663f551154fc8c795753503c
+ms.sourcegitcommit: acebda8a42ac8ecdeba490fc1738e9041479dab0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70235019"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72814041"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Mettre à l’échelle des actions de nœud d’unité dans Azure Stack
 
@@ -44,13 +44,13 @@ Pour afficher l’état d’une unité d’échelle :
 
    Examinez les informations suivantes :
 
-   - Liste des nœuds individuels
-   - État opérationnel (voir la liste ci-dessous)
-   - État d’alimentation (en cours d’exécution ou arrêté)
-   - Modèle de serveur
-   - Adresse IP du contrôleur de gestion de la carte de base (BMC)
-   - Nombre total de cœurs
-   - Quantité totale de mémoire
+   - Liste des nœuds individuels.
+   - État opérationnel (voir la liste ci-dessous).
+   - État d’alimentation (en cours d’exécution ou arrêté).
+   - Modèle de serveur.
+   - Adresse IP du contrôleur de gestion de la carte de base (BMC).
+   - Nombre total de cœurs.
+   - Quantité totale de mémoire.
 
 ![état d’une unité d’échelle](media/azure-stack-node-actions/multinodeactions.png)
 
@@ -68,10 +68,11 @@ Pour afficher l’état d’une unité d’échelle :
 ## <a name="scale-unit-node-actions"></a>Actions de nœud d’unité d’échelle
 
 Lorsque vous affichez des informations relatives à un nœud d’unité d’échelle, vous pouvez également effectuer des actions de nœud telles que :
- - Démarrer et arrêter (en fonction de l’état d’alimentation actuel)
- - Désactiver et reprendre (en fonction de l’état opérationnel)
- - Réparation
- - Shutdown
+
+ - Démarrer et arrêter (en fonction de l’état d’alimentation actuel).
+ - Désactiver et reprendre (en fonction de l’état opérationnel).
+ - Réparer.
+ - Arrêter.
 
 L’état de fonctionnement du nœud détermine les options disponibles.
 
@@ -79,7 +80,7 @@ Vous devez installer les modules Azure Stack PowerShell. Ces applets de commande
 
 ## <a name="stop"></a>Arrêter
 
-L’action **Arrêter** désactive le nœud. Cela revient à appuyer sur le bouton d’alimentation. Aucun signal d’arrêt n’est envoyé au système d’exploitation. Pour les opérations d’arrêt planifiées, commencez toujours par l’opération d’arrêt. 
+L’action **Arrêter** désactive le nœud. Cela revient à appuyer sur le bouton d’alimentation. Aucun signal d’arrêt n’est envoyé au système d’exploitation. Pour les opérations d’arrêt planifiées, commencez toujours par l’opération d’arrêt.
 
 Cette action est généralement utilisée lorsqu’un nœud est dans un état suspendu et ne répond plus aux demandes.
 
@@ -95,15 +96,15 @@ Pour plus d’informations, consultez [Stop-AzsScaleUnitNode](https://docs.micro
 
 ## <a name="start"></a>Start
 
-L’action de **démarrage** active le nœud. Cela revient à appuyer sur le bouton d’alimentation. 
- 
+L’action de **démarrage** active le nœud. Cela revient à appuyer sur le bouton d’alimentation.
+
 Pour exécuter l’action de démarrage, ouvrez une invite de commandes PowerShell avec élévation de privilèges et exécutez l’applet de commande suivante :
 
 ```powershell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
-Dans le cas peu probable où l’action de démarrage ne fonctionnerait pas, réessayez l’opération et, si elle échoue une deuxième fois, utilisez l’interface web BMC à la place.
+Dans le cas peu probable où l’action de démarrage ne fonctionnerait pas, répétez l’opération. Si elle échoue une seconde fois, utilisez l’interface web du BMC.
 
 Pour plus d’informations, consultez [Start-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/start-azsscaleunitnode).
 
@@ -139,8 +140,8 @@ Pour plus d’informations, consultez [Enable-AzsScaleUnitNode](https://docs.mic
 ## <a name="repair"></a>Réparation
 
 > [!CAUTION]  
-> Le nivellement du microprogramme est essentiel pour la réussite de l’opération décrite dans cet article. Le manquement de cette étape peut entraîner une instabilité du système, une baisse des performances, des threads de sécurité ou empêcher Azure Stack Automation de déployer le système d’exploitation. Consultez toujours la documentation de votre partenaire de matériel lors du remplacement du matériel pour vous assurer que le microprogramme appliqué correspond à la version OEM affichée dans le [portail d’administration Azure Stack](azure-stack-updates.md).<br>
-Pour plus d’informations et obtenir des liens vers la documentation du partenaire, reportez-vous à [Remplacer un composant matériel](azure-stack-replace-component.md).
+> Le nivellement du microprogramme est essentiel pour la réussite de l’opération décrite dans cet article. Le manquement de cette étape peut entraîner une instabilité du système, une baisse des performances, des menaces sur la sécurité ou l’échec de l’opération de déploiement du système d’exploitation par Azure Stack Automation. Consultez toujours la documentation de votre partenaire de matériel lors du remplacement du matériel pour vous assurer que le microprogramme appliqué correspond à la version OEM affichée dans le [portail d’administration Azure Stack](azure-stack-updates.md).<br><br>
+Pour en savoir plus et obtenir des liens vers la documentation du partenaire, consultez [Remplacer un composant matériel](azure-stack-replace-component.md).
 
 | Partenaire matériel | Région | URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -153,13 +154,14 @@ Pour plus d’informations et obtenir des liens vers la documentation du partena
 | Lenovo | Tous | [Meilleures recettes ThinkAgile SXM](https://datacentersupport.lenovo.com/us/en/solutions/ht505122) |
 
 L’action de **réparation** répare un nœud. À utiliser uniquement pour un des scénarios suivants :
- - Remplacement de nœud complet (avec ou sans nouveaux disques de données)
- - Après la défaillance et le remplacement d’un composant matériel (Si cela est conseillé dans la documentation sur les unités remplaçables sur site.
+
+- Remplacement de nœud complet (avec ou sans nouveaux disques de données).
+- Après la défaillance et le remplacement d’un composant matériel (si cela est conseillé dans la documentation sur les unités remplaçables sur site).
 
 > [!Important]  
-> Consultez la documentation sur les unités remplaçables sur site de votre fabricant de matériel OEM pour connaître les étapes exactes relatives au remplacement d’un nœuds ou de composants matériels individuels. La documentation sur les unités remplaçables sur site indique s’il faut exécuter l’action de réparation après le remplacement d’un composant matériel. 
+> Consultez la documentation sur les unités remplaçables sur site de votre fabricant de matériel OEM pour connaître les étapes exactes relatives au remplacement d’un nœuds ou de composants matériels individuels. La documentation sur les unités remplaçables sur site indique s’il faut exécuter l’action de réparation après le remplacement d’un composant matériel.
 
-Lorsque vous exécutez l’action de réparation, vous devez spécifier l’adresse IP du BMC. 
+Lorsque vous exécutez l’action de réparation, vous devez spécifier l’adresse IP du BMC.
 
 Pour exécuter l’action de réparation, ouvrez une invite de commandes PowerShell avec élévation de privilèges et exécutez l’applet de commande suivante :
 
@@ -181,8 +183,6 @@ Pour exécuter l’action d’arrêt, ouvrez une invite PowerShell avec élévat
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur le module administrateur Azure Stack Fabric, consultez [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0).
+[Découvrez le module opérateur Azure Stack Fabric](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0).

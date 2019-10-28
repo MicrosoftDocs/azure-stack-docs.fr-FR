@@ -1,6 +1,6 @@
 ---
-title: Utilisation des bases de données fournies par le fournisseur de ressources de l’adaptateur MySQL sur Azure Stack | Microsoft Docs
-description: Guide pratique pour créer et gérer des bases de données MySQL provisionnées avec le fournisseur de ressources de l’adaptateur MySQL
+title: Créer des bases de données MySQL dans Azure Stack | Microsoft Docs
+description: Découvrez comment créer et gérer des bases de données MySQL provisionnées avec le fournisseur de ressources de l’adaptateur MySQL dans Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 594d1f45e19717bdbbc5f9fee56cf253c03b6efb
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 9daaea395ee28da79da1d6fd553d2e0b30e28156
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283471"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682227"
 ---
-# <a name="create-mysql-databases"></a>Créer des bases de données MySQL
+# <a name="create-mysql-databases-in-azure-stack"></a>Créer des bases de données MySQL dans Azure Stack
 Un utilisateur Azure Stack abonné à une offre comprenant le service de base de données MySQL peut créer et gérer des bases de données MySQL libre-service dans le portail de l’utilisateur.
 
 ## <a name="create-a-mysql-database"></a>Créer une base de données MySQL
@@ -66,4 +66,4 @@ Vous pouvez modifier le mot de passe en le changeant sur l’instance du serveur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrir comment [offrir des bases de données MySQL à haute disponibilité](azure-stack-tutorial-mysql.md)
+Découvrez comment [offrir des bases de données MySQL à haute disponibilité](azure-stack-tutorial-mysql.md).

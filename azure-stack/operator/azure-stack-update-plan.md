@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 10/17/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 60515f257dc8ab04e351d1353919a749e9cf4224
-ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
+ms.openlocfilehash: 44eca76e3b9e969681f4540093088785ad06f97c
+ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687960"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72534011"
 ---
 # <a name="plan-for-an-azure-stack-update"></a>Planifier une mise à jour d’Azure Stack
 
@@ -55,6 +55,8 @@ Vous pouvez vous préparer à la mise à jour en vous assurant que vous avez app
 6. Vérifiez que votre package OEM est compatible avec la version d’Azure Stack que vous mettez à jour. Si votre package OEM n’est pas compatible avec la version d’Azure Stack que vous mettez à jour, vous devrez effectuer une mise à jour du package OEM avant d’exécuter une mise à jour Azure Stack. Pour plus d’instructions, consultez « Appliquer des mises à jour de fabricants d’ordinateurs (OEM) à Azure Stack. » Répétez les étapes 3 et 4 après avoir appliqué la mise à jour du package OEM.
 
 7. Exécutez l’outil de planification de la capacité. Pour obtenir une vue d’ensemble et des instructions sur l'utilisation de l’outil, consultez [Vue d’ensemble de la planification de la capacité pour Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-capacity-planning-overview).
+
+8. Vous pouvez éventuellement [activer la collecte automatique de journaux de diagnostic](azure-stack-configure-automatic-diagnostic-log-collection.md) pour collecter les journaux de façon proactive à des fins d’analyse du support client en cas d’alerte telle que **Échec de la mise à jour**. 
 
 8. Vérifiez le package de mise à jour. Lors de la planification de votre fenêtre de maintenance, il est important d’examiner le type spécifique du package de mise à jour proposé par Microsoft, comme indiqué dans la note de publication.
 

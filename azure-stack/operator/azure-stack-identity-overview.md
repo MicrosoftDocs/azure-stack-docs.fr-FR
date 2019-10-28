@@ -16,12 +16,12 @@ ms.date: 06/03/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 8b05b2cc9fdde7987efd78c5beb0123b035e03ea
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: 94a7dc11c4711bcdf39215ccaab69e95ea5c57f3
+ms.sourcegitcommit: b72729305234e13c65de3771cb08678d46ba1348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019358"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72543848"
 ---
 # <a name="overview-of-identity-providers-for-azure-stack"></a>Vue d’ensemble des fournisseurs d’identité pour Azure Stack
 
@@ -175,7 +175,7 @@ Le jeton doit passer dans l’en-tête d’une demande à Azure Resource Manager
 - Vérifie que le JSON Web Token est signé avec un certificat configuré via OpenID et connu d’Azure Resource Manager.
 - Examine les revendications *issued at* (iat) et *expiration* (exp) pour confirmer que le jeton est actif et peut être accepté.
 
-Une fois toutes les validations terminées, Azure Resource Manager utilise les revendications *objected* (oid) et *groups* pour dresser la liste des ressources auxquelles le principal peut accéder.
+Une fois toutes les validations terminées, Azure Resource Manager utilise les revendications *objecte id* (oid) et *groups* pour dresser la liste des ressources auxquelles le principal peut accéder.
 
 ![Diagramme du protocole d’échange de jeton](media/azure-stack-identity-overview/token-exchange.png)
 

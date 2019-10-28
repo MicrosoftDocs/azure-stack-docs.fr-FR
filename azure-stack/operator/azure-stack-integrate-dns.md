@@ -11,12 +11,12 @@ ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
 keywords: ''
-ms.openlocfilehash: 4949ed2533ed550f61efd2cc4e0dfed7de3a1d7e
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: 1f84eeffffae3c103c33b366a5c503a907cf6715
+ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019238"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72780485"
 ---
 # <a name="azure-stack-datacenter-dns-integration"></a>Intégration des services DNS Azure Stack au DNS du centre de données
 
@@ -32,7 +32,7 @@ Vous devez fournir certaines informations importantes relatives à DNS quand vou
 |Région|Emplacement géographique de votre déploiement d’Azure Stack.|`east`|
 |Nom du domaine externe|Nom de la zone à utiliser pour votre déploiement d’Azure Stack.|`cloud.fabrikam.com`|
 |Nom de domaine interne|Nom de la zone interne utilisée pour les services d’infrastructure dans Azure Stack. Elle est intégrée au service d’annuaire et privée (inaccessible en dehors du déploiement d’Azure Stack).|`azurestack.local`|
-|Redirecteurs DNS|Serveurs DNS qui sont utilisés pour transférer les requêtes DNS, les zones DNS et les enregistrements qui sont hébergés en dehors d’Azure Stack (sur l’intranet d’entreprise ou sur l’Internet public). Si vous remplacez un redirecteur DNS, l’adresse IP doit être mise à jour. |`10.57.175.34`<br>`8.8.8.8`|
+|Redirecteurs DNS|Serveurs DNS qui sont utilisés pour transférer les requêtes DNS, les zones DNS et les enregistrements qui sont hébergés en dehors d’Azure Stack (sur l’intranet d’entreprise ou sur l’Internet public). Vous pouvez modifier la valeur de Redirecteur DNS avec la cmdlet [**Set-AzSDnsForwarder** ](#editing-dns-forwarder-ips) après le déploiement. 
 |Préfixe de nommage (facultatif)|Préfixe de nommage dont vous souhaitez doter les noms de machine des instances du rôle d’infrastructure d’Azure Stack.  S’il n’est pas fourni, la valeur par défaut est `azs`.|`azs`|
 
 Le nom de domaine complet (FQDN) de votre déploiement d’Azure Stack et des points de terminaison est la combinaison du paramètre de la région et du paramètre du nom de domaine externe. D’après les valeurs des exemples dans le tableau précédent, le nom de domaine complet pour ce déploiement d’Azure Stack serait le suivant :
@@ -80,7 +80,9 @@ Azure Stack comprend à la fois des serveurs DNS faisant autorité et des serveu
 
 ## <a name="resolving-external-dns-names-from-azure-stack"></a>Résolution des noms DNS externes à partir d’Azure Stack
 
-Afin de résoudre les noms DNS pour les points de terminaison en dehors d’Azure Stack (par exemple : www\.bing.com), vous devez fournir des serveurs DNS qu’Azure Stack peut utiliser pour transférer les requêtes DNS pour lesquelles Azure Stack ne fait pas autorité. Pour le déploiement, les serveurs DNS vers lesquels Azure Stack transfère les requêtes sont requis dans la feuille de calcul de déploiement (dans le champ du redirecteur DNS). Indiquez au moins deux serveurs dans ce champ à des fins de tolérance de panne. En l’absence de ces valeurs, le déploiement d’Azure Stack échoue. Si les redirecteurs DNS sont remplacés, mettez à jour les adresses IP.
+Afin de résoudre les noms DNS pour les points de terminaison en dehors d’Azure Stack (par exemple : www\.bing.com), vous devez fournir des serveurs DNS qu’Azure Stack peut utiliser pour transférer les requêtes DNS pour lesquelles Azure Stack ne fait pas autorité. Pour le déploiement, les serveurs DNS vers lesquels Azure Stack transfère les requêtes sont requis dans la feuille de calcul de déploiement (dans le champ du redirecteur DNS). Indiquez au moins deux serveurs dans ce champ à des fins de tolérance de panne. En l’absence de ces valeurs, le déploiement d’Azure Stack échoue. Vous pouvez modifier les valeurs de Redirecteur DNS avec la cmdlet [**Set-AzSDnsForwarder** ](#editing-dns-forwarder-ips) après le déploiement. 
+
+
 
 ### <a name="configure-conditional-dns-forwarding"></a>Configurer la redirection DNS conditionnelle
 
@@ -145,6 +147,10 @@ Exemple :
 
 - Nom de domaine DNS d’entreprise : `contoso.com`
 - Nom de domaine DNS externe Azure Stack : `azurestack.contoso.com`
+
+## <a name="editing-dns-forwarder-ips"></a>Modifier les adresses IP du redirecteur DNS
+
+Les adresses IP du redirecteur DNS sont définies pendant le déploiement d’Azure Stack. Cependant, si les adresses IP du redirecteur doivent être modifiées pour une quelconque raison, vous pouvez le faire en vous connectant au point de terminaison privilégié et en exécutant les cmdlets PowerShell `Get-AzSDnsForwarder` et `Set-AzSDnsForwarder [[-IPAddress] <IPAddress[]>]`. Pour plus d’informations, voir le [point de terminaison privilégié](azure-stack-privileged-endpoint.md).
 
 ## <a name="delegating-the-external-dns-zone-to-azure-stack"></a>Délégation de la zone DNS externe à Azure Stack
 

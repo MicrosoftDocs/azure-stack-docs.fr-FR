@@ -1,6 +1,6 @@
 ---
 title: Notes de publication de la version 1.1.30.0 du fournisseur de ressources MySQL Azure Stack | Microsoft Docs
-description: Découvrez le contenu de la dernière mise à jour du fournisseur de ressources MySQL Azure Stack, notamment les problèmes connus et l'emplacement de téléchargement.
+description: Consultez les notes de publication pour découvrir les nouveautés incluses dans la mise à jour 1.1.30.0 du fournisseur de ressources MySQL Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,14 +16,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 7679589090022f6f07c5e1fddb9c768716628865
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: fa21bb641589bb6da143696e0c925a0bfe51c1d0
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829443"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682201"
 ---
-# <a name="mysql-resource-provider-11300--release-notes"></a>Notes de publication de la version 1.1.30.0 du fournisseur de ressources MySQL
+# <a name="mysql-resource-provider-11300-release-notes"></a>Notes de publication 1.1.30.0 de fournisseur de ressources MySQL
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -53,13 +53,13 @@ Cette version du fournisseur de ressources MySQL Azure Stack inclut les amélior
 
 - **Panneau de modification du mot de passe de connexion MySQL**. Problème résolu : le mot de passe ne pouvait pas être changé sur le panneau de modification du mot de passe. Liens supprimés des notifications de changement de mot de passe.
 
-## <a name="known-issues"></a>Problèmes connus 
+## <a name="known-issues"></a>Problèmes connus
 
-- **Une heure entière peut être nécessaire avant que les références SKU MySQL n’apparaissent dans le portail**. Il peut se passer une heure avant que les références SKU nouvellement créées soient visibles et utilisables lors de la création de nouvelles bases de données MySQL. 
+- **Une heure entière peut être nécessaire avant que les références SKU MySQL n’apparaissent dans le portail**. Il peut se passer une heure avant que les références SKU nouvellement créées soient visibles et utilisables lors de la création de nouvelles bases de données MySQL.
 
     **Solution de contournement** : Aucune.
 
-- **Connexions MySQL réutilisées**. Toute tentative de création d'une nouvelle connexion MySQL avec le même nom d'utilisateur qu'une connexion existante associée au même abonnement entraînera la réutilisation de la même connexion et du mot de passe existant. 
+- **Connexions MySQL réutilisées**. Toute tentative de création d'une nouvelle connexion MySQL avec le même nom d'utilisateur qu'une connexion existante associée au même abonnement entraînera la réutilisation de la même connexion et du mot de passe existant.
 
     **Solution de contournement** : utilisez des noms d’utilisateurs différents lors de la création de nouvelles connexions associées au même abonnement, ou créez des connexions avec le même nom d’utilisateur mais sous des abonnements différents.
 

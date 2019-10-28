@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 79ec0994ecd99a5279fc0b3b032ef6872f921f38
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 09e75656fc6a00181ffb31087e19e80b92760ed2
+ms.sourcegitcommit: b72729305234e13c65de3771cb08678d46ba1348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277795"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72543682"
 ---
 # <a name="differences-and-considerations-for-azure-stack-networking"></a>Différences et considérations relatives aux réseaux Azure Stack
 
@@ -75,6 +75,23 @@ Cet article fournit une vue d’ensemble de considérations propres à la gestio
 | passerelle d’application | Équilibrage de charge de couche 7 | Pris en charge | Pas encore pris en charge. |
 | Traffic Manager | Routage du trafic entrant pour une fiabilité et des performances d’application optimales. | Pris en charge | Pas encore pris en charge. |
 | ExpressRoute | Configurer une connexion privée rapide aux services cloud Microsoft à partir de votre infrastructure locale ou d’une installation de colocalisation. | Pris en charge | Prise en charge de la connexion d’Azure Stack à un circuit Express Route. |
+
+## <a name="api-versions"></a>Versions d’API 
+
+La Mise en réseau Azure Stack prend en charge les versions d’API suivantes : 
+
+- 2018-11-01
+- 2018-10-01
+- 2018-08-01
+- 01-07-2018
+- 2018-06-01
+- 2018-05-01
+- 2018-04-01
+- 2018-03-01
+- 2018-02-01
+- 2018-01-01
+- 2017-11-01
+- 2017-10-01
 
 ## <a name="next-steps"></a>Étapes suivantes
 

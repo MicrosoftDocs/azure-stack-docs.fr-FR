@@ -1,6 +1,6 @@
 ---
-title: Notes de publication de la version 1.1.30.0 du fournisseur de ressources MySQL Azure Stack | Microsoft Docs
-description: Découvrez le contenu de la dernière mise à jour du fournisseur de ressources MySQL Azure Stack, notamment les problèmes connus et l'emplacement de téléchargement.
+title: Notes de publication de la version 1.1.33.0 du fournisseur de ressources MySQL Azure Stack | Microsoft Docs
+description: Consultez les notes de publication pour découvrir les nouveautés incluses dans la mise à jour 1.1.33.0 du fournisseur de ressources MySQL Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: fdac6c099980a1c2cedb3271123908539d18169d
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 0ff97155d1ad27c36e86e142aa000c4987c5c8fd
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909164"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682152"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>Notes de publication de la version 1.1.33.0 du fournisseur de ressources MySQL
 
@@ -44,21 +44,22 @@ Téléchargez le binaire du fournisseur de ressources MySQL, puis exécutez le f
 Cette version du fournisseur de ressources MySQL Azure Stack inclut les améliorations et correctifs suivants :
 
 ### <a name="fixes"></a>Correctifs
-- **L’extension du portail du fournisseur de ressources MySQL risque de choisir le mauvais abonnement**. Le fournisseur de ressources MySQL utilise des appels Azure Resource Manager pour déterminer le premier abonnement d’administration de service à utiliser, qui risque de ne pas être l’*abonnement de fournisseur par défaut*. Si c’est le cas, le fournisseur de ressources MySQL ne fonctionne pas normalement. 
+
+- **L’extension du portail du fournisseur de ressources MySQL risque de choisir le mauvais abonnement**. Le fournisseur de ressources MySQL utilise des appels Azure Resource Manager pour déterminer le premier abonnement d’administration de service à utiliser, qui risque de ne pas être l’*abonnement de fournisseur par défaut*. Si c’est le cas, le fournisseur de ressources MySQL ne fonctionne pas normalement.
 
 - **Le serveur d’hébergement MySQL ne liste pas les bases de données hébergées.** Les bases de données créées par l’utilisateur risquent de ne pas être listées lors de l’affichage des ressources de locataire des serveurs d’hébergement MySQL.
 
-- **Le déploiement du fournisseur de ressources MySQL précédent (1.1.30.0) peut échouer si TLS 1.2 n’est pas activé**. Nous avons mis à jour le fournisseur de ressources MySQL 1.1.33.0 pour activer TLS 1.2 lors du déploiement du fournisseur de ressources, de la mise à jour du fournisseur de ressources ou de la rotation des secrets. 
+- **Le déploiement du fournisseur de ressources MySQL précédent (1.1.30.0) peut échouer si TLS 1.2 n’est pas activé**. Nous avons mis à jour le fournisseur de ressources MySQL 1.1.33.0 pour activer TLS 1.2 lors du déploiement du fournisseur de ressources, de la mise à jour du fournisseur de ressources ou de la rotation des secrets.
 
-- **La rotation des secrets du fournisseur de ressources MySQL échoue**. Nous avons résolu le problème et le code d’erreur est maintenant le suivant lors de la rotation des secrets : `New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **La rotation des secrets du fournisseur de ressources MySQL échoue**. Nous avons résolu un problème lié à l’apparition du code d’erreur suivant lors de la rotation des secrets : `New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
-## <a name="known-issues"></a>Problèmes connus 
+## <a name="known-issues"></a>Problèmes connus
 
 - **Une heure entière peut être nécessaire avant que les références SKU MySQL n’apparaissent dans le portail**. Il peut se passer une heure avant que les références SKU nouvellement créées soient visibles et utilisables lors de la création de nouvelles bases de données MySQL. 
 
     **Solution de contournement** : Aucune.
 
-- **Connexions MySQL réutilisées**. Toute tentative de création d'une nouvelle connexion MySQL avec le même nom d'utilisateur qu'une connexion existante associée au même abonnement entraînera la réutilisation de la même connexion et du mot de passe existant. 
+- **Connexions MySQL réutilisées**. Toute tentative de création d'une nouvelle connexion MySQL avec le même nom d'utilisateur qu'une connexion existante associée au même abonnement entraînera la réutilisation de la même connexion et du mot de passe existant.
 
     **Solution de contournement** : utilisez des noms d’utilisateurs différents lors de la création de nouvelles connexions associées au même abonnement, ou créez des connexions avec le même nom d’utilisateur mais sous des abonnements différents.
 

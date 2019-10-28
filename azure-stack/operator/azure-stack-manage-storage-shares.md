@@ -1,6 +1,6 @@
 ---
 title: Gérer la capacité de stockage dans Azure Stack | Microsoft Docs
-description: Surveillez et gérez la capacité de stockage Azure Stack et la disponibilité de l’espace de stockage pour Azure Stack.
+description: Découvrez comment surveiller et gérer la capacité de stockage et la disponibilité dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,22 +15,22 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 48452a9a5c02bca8e99b7769e90495544bd95c0e
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 73c4594672dea4a8bb8030a35c79f3d7e7cca04c
+ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829509"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72534178"
 ---
-# <a name="manage-storage-capacity-for-azure-stack"></a>Gérer la capacité de stockage pour Azure Stack 
+# <a name="manage-storage-capacity-for-azure-stack"></a>Gérer la capacité de stockage pour Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Les informations contenues dans cet article aident l’opérateur de cloud d’Azure Stack à surveiller et à gérer la capacité de stockage de son déploiement Azure Stack. L’infrastructure de stockage d’Azure Stack alloue un sous-ensemble de la capacité de stockage totale du déploiement Azure Stack aux **services de stockage**. Les services de stockage stockent les données d’un locataire dans les partages des volumes qui correspondent aux nœuds du déploiement.
 
-En tant qu’opérateur de cloud, vous disposez d’une quantité limitée de stockage à utiliser. La quantité de stockage est définie par la solution que vous implémentez. Votre solution est fournie par votre fournisseur OEM si vous utilisez une solution à plusieurs nœuds ou par le matériel sur lequel vous installez le Kit de développement Azure Stack.
+En tant qu’opérateur de cloud, vous disposez d’une quantité limitée de stockage à utiliser. La quantité de stockage est définie par la solution que vous implémentez. Votre solution est fournie par votre fournisseur OEM si vous utilisez une solution à plusieurs nœuds ou par le matériel sur lequel vous installez le Kit de développement Azure Stack (ASDK).
 
-Comme Azure Stack ne prend pas en charge l’extension de la capacité de stockage, il est important de [surveiller](#monitor-shares) le stockage disponible pour assurer le maintien du bon fonctionnement.  
+Comme Azure Stack ne prend pas en charge l’extension de la capacité de stockage, il est important de [surveiller](#monitor-shares) le stockage disponible pour assurer le maintien du bon fonctionnement.
 
 Lorsque la capacité libre restante d’un partage se restreint, pensez à [gérer l’espace](#manage-available-space) pour empêcher les partages de manquer de capacité.
 
@@ -45,7 +45,7 @@ Quand un partage est utilisé à 100 %, le service de stockage ne fonctionne plu
 Le *service de stockage* partitionne le stockage disponible en volumes distincts et égaux qui sont alloués pour stocker des données de locataire. Le nombre de volumes est égal au nombre de nœuds du déploiement Azure Stack :
 
 - Un déploiement de quatre nœuds comporte quatre volumes. Chaque volume possède un seul partage. Dans un déploiement de plusieurs nœuds, le nombre de partages n’est pas réduit si un nœud est supprimé ou ne fonctionne pas correctement.
-- Le kit de développement Azure Stack ne comporte qu’un seul volume avec un partage unique.
+- Si vous utilisez le Kit de développement Azure Stack, il existe un seul volume avec un seul partage.
 
 Comme les partages de service de stockage sont destinés à l’utilisation exclusive des services de stockage, vous ne devez pas y modifier, ajouter ni supprimer directement des fichiers. Seuls les services de stockage doivent fonctionner sur les fichiers stockés dans ces volumes.
 
@@ -63,22 +63,25 @@ Une fois qu’un objet blob a été placé dans un conteneur, il peut se dévelo
 
 Les conteneurs ne sont pas limités à un seul partage. Lorsque les données d’objets blob combinées dans un conteneur augmentent et utilisent 80 % ou plus de l’espace disponible, le conteneur passe en mode *dépassement de capacité*. En mode dépassement de capacité, les nouveaux objets blob créés dans ce conteneur sont alloués à un autre volume disposant d’un espace suffisant. Au fil du temps, un conteneur en mode dépassement de capacité peut présenter des objets blob répartis sur plusieurs volumes.
 
-Lorsque 80 %, puis 90 % de l’espace disponible d’un volume sont utilisés, le système déclenche des alertes dans le portail d’administration d’Azure Stack. Les opérateurs de cloud doivent vérifier la capacité de stockage disponible et envisagez de rééquilibrer le contenu. Le service de stockage cesse de fonctionner si un disque est utilisé à 100 %, et aucune alerte supplémentaire n’est déclenchée.
+Lorsque 80 % (puis 90 %) de l’espace disponible d’un volume sont utilisés, le système déclenche des alertes dans le portail d’administration d’Azure Stack. Les opérateurs de cloud doivent vérifier la capacité de stockage disponible et envisager de rééquilibrer le contenu. Le service de stockage cesse de fonctionner si un disque est utilisé à 100 % et aucune alerte supplémentaire n’est déclenchée.
 
 ### <a name="disks"></a>Disques
 Les disques de machine virtuelle sont ajoutés aux conteneurs par les locataires, et incluent un disque de système d’exploitation. Les machines virtuelles peuvent également posséder un ou plusieurs disques de données. Les deux types de disque sont stockés en tant qu’objets blob de pages. Il est conseillé aux locataires de placer chaque disque dans un conteneur distinct pour améliorer les performances de la machine virtuelle.
+
 - Chaque conteneur qui contient un disque (objet blob de pages) d’une machine virtuelle est considéré comme un conteneur attaché à la machine virtuelle qui possède le disque.
 - Un conteneur dépourvu de disque d’une machine virtuelle est considéré comme un conteneur libre.
 
 Les options permettant de libérer de l’espace dans un conteneur attaché [sont limitées](#move-vm-disks).
-> [!TIP]  
-> Les opérateurs de cloud ne gèrent pas directement les disques qui sont attachés aux machines virtuelles (VM) que les locataires peuvent ajouter à un conteneur. Toutefois, lors de la planification de la gestion de l’espace des partages de stockage, il peut être utile de comprendre comment les disques sont liés aux conteneurs et aux partages.
+
+>[!TIP]  
+> Les opérateurs de cloud ne gèrent pas directement les disques qui sont attachés aux machines virtuelles que les locataires peuvent ajouter à un conteneur. Toutefois, lors de la planification de la gestion de l’espace des partages de stockage, il peut être utile de comprendre comment les disques sont liés aux conteneurs et aux partages.
 
 ## <a name="monitor-shares"></a>Surveiller les partages
-Utilisez PowerShell ou le portail d’administration pour surveiller les partages afin de pouvoir savoir à quel moment l’espace libre sera limité. Lorsque vous utilisez le portail, vous recevez des alertes sur les partages qui manquent d’espace.    
+Utilisez PowerShell ou le portail d’administration pour surveiller les partages afin de pouvoir savoir à quel moment l’espace libre sera limité. Lorsque vous utilisez le portail, vous recevez des alertes sur les partages qui manquent d’espace.
 
 ### <a name="use-powershell"></a>Utiliser PowerShell
-En tant qu’opérateur de cloud, vous pouvez surveiller la capacité de stockage d’un partage à l’aide de la cmdlet **Get-AzsStorageShare** PowerShell. La cmdlet Get-AzsStorageShare retourne l’espace libre, alloué et total (en octets) de chacun des partages.   
+En tant qu’opérateur de cloud, vous pouvez surveiller la capacité de stockage d’un partage à l’aide de la cmdlet **Get-AzsStorageShare** PowerShell. La cmdlet Get-AzsStorageShare retourne l’espace libre, alloué et total (en octets) de chacun des partages.
+
 ![Exemple : retourner l’espace libre des partages](media/azure-stack-manage-storage-shares/free-space.png)
 
 - La **capacité totale** est l’espace total (en octets) disponible dans le partage. Cet espace est utilisé pour les données et métadonnées gérées par les services de stockage.
@@ -88,9 +91,9 @@ En tant qu’opérateur de cloud, vous pouvez surveiller la capacité de stockag
 En tant qu’opérateur de cloud, vous pouvez utiliser le portail d’administration pour afficher la capacité de stockage de tous les partages.
 
 1. Connectez-vous au [portail d’administration](https://adminportal.local.azurestack.external).
-2. Sélectionnez **Tous les services** > **Stockage** > **Partages de fichiers** pour ouvrir la liste de partages de fichiers où vous pouvez consulter les informations d’utilisation. 
+2. Sélectionnez **Tous les services** > **Stockage** > **Partages de fichiers** pour ouvrir la liste de partages de fichiers où vous pouvez consulter les informations d’utilisation.
 
-    ![Exemple : partages de fichiers du stockage](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+    ![Exemple : Stocker les partages de fichiers dans le portail d’administration Azure Stack](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
    - **TOTAL** représente l’espace total (en octets) disponible dans le partage. Cet espace est utilisé pour les données et métadonnées gérées par les services de stockage.
    - **UTILISÉ** représente la quantité de données (en octets) utilisée par toutes les extensions des fichiers qui stockent les données de locataire et les métadonnées associées.
@@ -101,13 +104,15 @@ Lorsque vous utilisez le portail d’administration, vous recevez des alertes su
 > [!IMPORTANT]
 > En tant qu’opérateur de cloud, empêchez les partages d’être utilisés complètement. Quand un partage est utilisé à 100 %, le service de stockage ne fonctionne plus pour celui-ci. Pour récupérer de l’espace libre et les opérations de restauration dans un partage utilisé à 100 %, vous devez contacter le support Microsoft.
 
-**Avertissement** : quand un partage de fichiers est utilisé à plus de 80 %, vous recevez une alerte de type *Avertissement* dans le portail d’administration : ![Exemple : alerte d’avertissement](media/azure-stack-manage-storage-shares/alert-warning.png)
+**Avertissement** : quand un partage de fichiers est utilisé à plus de 80 %, vous recevez une alerte de type *Avertissement* dans le portail d’administration :
 
+![Exemple : alerte Avertissement dans le portail d’administration Azure Stack](media/azure-stack-manage-storage-shares/alert-warning.png)
 
-**Critique** : quand un partage de fichiers est utilisé à plus de 90 %, vous recevez une alerte de type *Critique* dans le portail d’administration : ![Exemple : alerte critique](media/azure-stack-manage-storage-shares/alert-critical.png)
+**Critique** : quand un partage de fichiers est utilisé à plus de 90 %, vous recevez une alerte de type *Critique* dans le portail d’administration :
 
-**Afficher les détails** : dans le portail d’administration, vous pouvez afficher les détails d’une alerte pour voir les options d’atténuation proposées : ![Exemple : afficher les détails de l’alerte](media/azure-stack-manage-storage-shares/alert-details.png)
+![Exemple : alerte Critique dans le portail d’administration Azure Stack](media/azure-stack-manage-storage-shares/alert-critical.png)
 
+**Afficher les détails** : dans le portail d’administration, vous pouvez afficher les détails d’une alerte pour voir les options d’atténuation proposées : ![Exemple : Afficher les détails de l’alerte dans le portail d’administration Azure Stack](media/azure-stack-manage-storage-shares/alert-details.png)
 
 ## <a name="manage-available-space"></a>Gérer l’espace disponible
 Lorsqu’il est nécessaire de libérer de l’espace dans un partage, utilisez d’abord les méthodes les moins invasives. Par exemple, essayez de récupérer de l’espace avant de migrer un conteneur.  
@@ -120,11 +125,11 @@ Vous pouvez récupérer la capacité utilisée par les comptes locataires qui on
 Pour en avoir plus, voir [Récupérer de la capacité](azure-stack-manage-storage-accounts.md#reclaim) dans l’article Gérer les comptes de stockage dans Azure Stack.
 
 ### <a name="migrate-a-container-between-volumes"></a>Migrer un conteneur entre des volumes
-*Cette option s’applique uniquement aux déploiements de plusieurs nœuds.*
+*Cette option s’applique uniquement aux systèmes intégrés Azure Stack.*
 
 En raison des modèles d’utilisation de locataire, certains partages de locataire utilisent davantage d’espace que d’autres. En conséquence, un partage exécuté peut manquer d’espace avant d’autres partages relativement peu utilisés.
 
-Vous pouvez tenter de libérer de l’espace dans un partage surutilisé en migrant manuellement des conteneurs d’objets blob vers un autre partage. Vous pouvez migrer plusieurs conteneurs plus petits vers un partage unique dont la capacité est suffisante pour les contenir intégralement. Vous pouvez utiliser la migration pour déplacer des conteneurs *libres*. Les conteneurs libres sont des conteneurs dépourvus de disque pour une machine virtuelle.   
+Vous pouvez libérer de l’espace dans un partage surutilisé en migrant manuellement des conteneurs d’objets blob vers un autre partage. Vous pouvez migrer plusieurs conteneurs plus petits vers un partage unique dont la capacité est suffisante pour les contenir intégralement. Utilisez la migration pour déplacer des conteneurs *libres*. Les conteneurs libres sont des conteneurs dépourvus de disque pour une machine virtuelle.
 
 La migration consolide tous les objets blob d’un conteneur du nouveau partage.
 
@@ -202,7 +207,7 @@ La migration consolide tous les objets blob d’un conteneur du nouveau partage.
     ![Exemple : état Annulé](media/azure-stack-manage-storage-shares/cancelled.png)
 
 ### <a name="move-vm-disks"></a>Déplacer des disques de machine virtuelle
-*Cette option s’applique uniquement aux déploiements de plusieurs nœuds.*
+*Cette option s’applique uniquement aux systèmes intégrés Azure Stack.*
 
 La méthode la plus extrême de gestion de l’espace implique le déplacement des disques de machine virtuelle. Comme le déplacement d’un conteneur attaché (contenant un disque de machine virtuelle) est complexe, contactez le support Microsoft pour effectuer cette action.
 
