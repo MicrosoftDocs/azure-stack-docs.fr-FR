@@ -1,6 +1,6 @@
 ---
-title: Considérations relatives à l’intégration au réseau pour les systèmes intégrés Azure Stack | Microsoft Docs
-description: Découvrez ce que vous pouvez faire pour planifier l’intégration d’un système Azure Stack à plusieurs nœuds au réseau du centre de données.
+title: Planification de l’intégration réseau pour Azure Stack | Microsoft Docs
+description: Découvrez comment planifier l’intégration du centre de données avec des systèmes intégrés Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,26 +16,29 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: dca5d863a046ec225b4d34c8cf5917153a3a5785
-ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
+ms.openlocfilehash: 39937882f8bf43b076a231d76440d401495daca1
+ms.sourcegitcommit: acebda8a42ac8ecdeba490fc1738e9041479dab0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037975"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72814086"
 ---
-# <a name="network-connectivity"></a>Connectivité réseau
+# <a name="network-integration-planning-for-azure-stack"></a>Planification de l’intégration réseau pour Azure Stack
+
 Cet article fournit des informations sur l’infrastructure réseau d’Azure Stack qui vous aideront à déterminer la meilleure intégration possible d’Azure Stack dans votre environnement réseau existant. 
 
 > [!NOTE]
 > Pour résoudre les noms DNS externes d’Azure Stack (par exemple, www\.bing.com), vous devez fournir des serveurs DNS pour transférer les requêtes DNS. Pour plus d’informations sur les exigences d’Azure Stack relatives à DNS, consultez [Intégration d’Azure Stack au centre de données - DNS](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Conception du réseau physique
+
 La solution Azure Stack requiert une infrastructure physique robuste et hautement disponible pour prendre en charge ses opérations et services. Les liaisons montantes entre ToR et les commutateurs de bordure sont limitées à un média SFP + ou SFP28 et une vitesse de 1 Go, 10 Go ou 25 Go. Vérifiez la disponibilité auprès de votre fournisseur de matériel OEM. Le diagramme suivant représente notre conception recommandée :
 
 ![Conception de réseau Azure Stack recommandée](media/azure-stack-network/recommended-design.png)
 
 
 ## <a name="logical-networks"></a>Réseaux logiques
+
 Les réseaux logiques représentent une abstraction de l’infrastructure réseau physique sous-jacente. Ils sont utilisés pour organiser et simplifier les affectations réseau pour les hôtes, les machines virtuelles et les services. Lors de la création d’un réseau logique, des sites réseau sont créés pour définir les réseaux locaux virtuels (VLAN), les sous-réseaux IP et les paires sous-réseau IP/VLAN qui sont associés au réseau logique dans chaque emplacement physique.
 
 Le tableau suivant montre les réseaux logiques et les plages de sous-réseau IPv4 associées à prendre en compte dans le cadre de la planification :
@@ -50,35 +53,40 @@ Le tableau suivant montre les réseaux logiques et les plages de sous-réseau IP
 | | | |
 
 ## <a name="network-infrastructure"></a>Infrastructure réseau
-L’infrastructure réseau pour Azure Stack se compose de plusieurs réseaux logiques configurés sur les commutateurs. Le diagramme suivant illustre ces réseaux logiques, et la façon dont ils s’intègrent avec les commutateurs Top-of-Rack (TOR), Baseboard Management Controller (BMC) et de bordure (réseau clients).
+
+L’infrastructure réseau pour Azure Stack se compose de plusieurs réseaux logiques configurés sur les commutateurs. Le diagramme suivant illustre ces réseaux logiques et la façon dont ils s’intègrent avec les commutateurs Top-of-Rack (TOR), Baseboard Management Controller (BMC) et de bordure (réseau clients).
 
 ![Diagramme de réseau logique et connexions de commutateurs](media/azure-stack-network/NetworkDiagram.png)
 
 ### <a name="bmc-network"></a>Réseau BMC
-Ce réseau est conçu pour connecter tous les contrôleurs de gestion de carte de base (également appelés processeurs de service ; par exemple, iDRAC, iLO, iBMC, etc.) au réseau de gestion. Un seul compte BMC est utilisé pour communiquer avec n’importe quel nœud BMC. S’il est présent, le Hardware Lifecycle Host (HLH) se trouve sur ce réseau et peut fournir des logiciels spécifiques aux OEM pour la maintenance ou l’analyse du matériel. 
 
-Le HLH héberge également le déploiement de machines virtuelles (DVM). Le DVM est utilisé au cours du déploiement Azure Stack et est supprimé lorsque le déploiement est terminé. Le DVM requiert un accès internet dans des scénarios de déploiement connecté pour tester, valider et accéder à plusieurs composants. Ces composants peuvent être à l’intérieur et en dehors de votre réseau d’entreprise ; par exemple NTP, DNS et Azure. Pour plus d’informations sur les exigences de connectivité, consultez la [section NAT dans l’intégration du pare-feu Azure Stack](azure-stack-firewall.md#network-address-translation). 
+Ce réseau est conçu pour connecter tous les contrôleurs de gestion de carte de base (également appelés BMC ou processeurs de service) au réseau de gestion, par exemple iDRAC, iLO, iBMC, etc. Un seul compte BMC est utilisé pour communiquer avec n’importe quel nœud BMC. S’il est présent, le Hardware Lifecycle Host (HLH) se trouve sur ce réseau et peut fournir des logiciels spécifiques aux OEM pour la maintenance ou l’analyse du matériel.
+
+Le HLH héberge également le déploiement de machines virtuelles (DVM). Le DVM est utilisé au cours du déploiement Azure Stack et est supprimé lorsque le déploiement est terminé. Le DVM requiert un accès internet dans des scénarios de déploiement connecté pour tester, valider et accéder à plusieurs composants. Ces composants peuvent être à l’intérieur et en dehors de votre réseau d’entreprise ; par exemple : NTP, DNS et Azure). Pour plus d’informations sur les exigences de connectivité, consultez la [section NAT dans l’intégration du pare-feu Azure Stack](azure-stack-firewall.md#network-address-translation).
 
 ### <a name="private-network"></a>Réseau privé
+
 Ce réseau /24 (adresses IP hôte 254) est privé pour la région Azure Stack (ne développez pas au-delà des appareils de commutation limite de la région Azure Stack) et est divisé en deux sous-réseaux :
 
-- **Réseau de stockage**. Réseau /25 (adresse IP hôte 126) utilisé pour prendre en charge l’utilisation du trafic de stockage Spaces Direct et Server Message Block (SMB) et la migration dynamique de machine virtuelle. 
-- **Réseau IP virtuel interne**. Réseau /25 dédié aux adresses IP virtuelles internes uniquement pour l’équilibrage de charge logicielle.
+- **Réseau de stockage** : Réseau /25 (adresse IP hôte 126) utilisé pour prendre en charge l’utilisation du trafic de stockage Spaces Direct et Server Message Block (SMB) et la migration dynamique de machine virtuelle.
+- **Réseau IP virtuel interne** : Réseau /25 dédié aux adresses IP virtuelles internes uniquement pour l’équilibrage de charge logicielle.
 
 ### <a name="azure-stack-infrastructure-network"></a>Réseau d’infrastructure Azure Stack
-Ce réseau /24 est dédié aux composants Azure Stack internes afin qu’ils puissent communiquer et échanger des données entre eux. Ce sous-réseau nécessite des adresses IP routables, mais reste privé pour la solution à l’aide de listes de contrôle d’accès. Il n’est pas censé être acheminé au-delà des commutateurs frontière, à l’exception d’une petite plage équivalant en taille à un réseau /27 utilisé par certains de ces services quand ils nécessitent un accès à des ressources externes et/ou à Internet. 
+
+Ce réseau /24 est dédié aux composants Azure Stack internes afin qu’ils puissent communiquer et échanger des données entre eux. Ce sous-réseau nécessite des adresses IP routables, mais reste privé pour la solution à l’aide de listes de contrôle d’accès. Il n’est pas censé être acheminé au-delà des commutateurs frontière, à l’exception d’une petite plage équivalant en taille à un réseau /27 utilisé par certains de ces services quand ils nécessitent un accès à des ressources externes et/ou à Internet.
 
 ### <a name="public-vip-network"></a>Réseau d’adresse IP virtuelle publique
+
 Le réseau d’adresse IP virtuelle publique est affecté au contrôleur réseau dans Azure Stack. Il ne s’agit pas d’un réseau logique sur le commutateur. Le SLB utilise le pool d’adresses et assigne des réseaux /32 pour les charges de travail clientes. Dans la table de routage du commutateur, ces adresses IP 32 sont publiées en tant qu’itinéraire disponible via BGP. Ce réseau contient les adresses IP accessibles en externe ou publiques. L’infrastructure Azure Stack réserve les 31 premières adresses de ce réseau d’adresse IP virtuelle publique tandis que les autres sont utilisées par les machines virtuelles clientes. La taille réseau sur ce sous-réseau peut aller d’un minimum de /26 (64 hôtes) à un maximum de /22 (1022 hôtes). Nous vous recommandons de prévoir pour un réseau /24.
 
 ### <a name="switch-infrastructure-network"></a>Réseau d’infrastructure du commutateur
-Ce réseau /26 est le sous-réseau contenant des sous-réseaux IP point à point routables /30 (2 adresses IP d’hôte) et les bouclages dédiés aux sous-réseaux /32 pour la gestion du commutateur intrabande et l’ID de routeur BGP. Cette plage d’adresses IP doit être routable en externe de la solution Azure Stack pour votre centre de données. Il peut s’agit d’adresses IP privées ou publiques.
+
+Ce réseau /26 est le sous-réseau contenant des sous-réseaux IP point à point routables /30 (2 adresses IP d’hôte) et les bouclages dédiés aux sous-réseaux /32 pour la gestion du commutateur intrabande et l’ID de routeur BGP. Cette plage d’adresses IP doit être routable en dehors de la solution Azure Stack pour votre centre de données. Il peut s’agit d’adresses IP privées ou publiques.
 
 ### <a name="switch-management-network"></a>Réseau de gestion du commutateur
+
 Ce réseau /29 (6 adresses IP d’hôte) est dédié à la connexion des ports de gestion des commutateurs. Il autorise un accès hors bande pour le déploiement, la gestion et la résolution des problèmes. Il est calculé à partir du réseau d’infrastructure du commutateur mentionné ci-dessus.
 
-
-
-
 ## <a name="next-steps"></a>Étapes suivantes
-[Connectivité de la frontière](azure-stack-border-connectivity.md)
+
+En savoir plus sur la planification du réseau : [Connectivité de la bordure](azure-stack-border-connectivity.md).
