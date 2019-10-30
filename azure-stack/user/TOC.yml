@@ -200,7 +200,7 @@
                     - name: Moteur AKS sur Azure Stack
                       href: azure-stack-kubernetes-aks-engine-overview.md
                     - name: Politique de support
-                      href: azure-stack-kubernetes-ask-engine-support.md
+                      href: azure-stack-kubernetes-aks-engine-support.md
                     - name: Configurer les prérequis
                       href: azure-stack-kubernetes-aks-engine-set-up.md
                     - name: Créer un client Linux
@@ -275,6 +275,8 @@
           href: azure-stack-network-howto-vnet-to-vnet-stacks.md
         - name: Peering de réseaux virtuels
           href: azure-stack-network-howto-vnet-to-vnet.md
+        - name: Se connecter au stockage iSCSI
+          href: azure-stack-network-howto-iscsi-storage.md
 - name: Concepts
   items:
     - name: Modèles de cloud hybride
