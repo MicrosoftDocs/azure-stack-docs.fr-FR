@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 0b1c28369fb1865778c68040894d100af9ea7fd6
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.openlocfilehash: 93a835b6d3eff233ccbd421930f9618325126ea4
+ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019377"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73057771"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack"></a>Qu’est-ce que le moteur AKS sur Azure Stack ?
 
@@ -50,7 +50,7 @@ Les scénarios suivants sont pris en charge par l’équipe du support technique
 2.  Le moteur AKS déploie le cluster sur un réseau virtuel existant. Pour plus d’informations, consultez [Utilisation d’un réseau virtuel personnalisé avec le moteur AKS](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/custom-vnet.md).
 3.  Opérations de [mise à niveau](azure-stack-kubernetes-aks-engine-upgrade.md) et de [mise à l’échelle](azure-stack-kubernetes-aks-engine-scale.md).
 
-Pour plus d’informations sur le moteur AKS et Azure Stack, consultez [Stratégies de support pour le moteur AKS sur Azure Stack](azure-stack-kubernetes-ask-engine-support.md).
+Pour plus d’informations sur le moteur AKS et Azure Stack, consultez [Stratégies de support pour le moteur AKS sur Azure Stack](azure-stack-kubernetes-aks-engine-support.md).
 
 ## <a name="install-the-aks-engine-and-deploy-a-kubernetes-cluster"></a>Installer le moteur AKS avant de déployer un cluster Kubernetes
 

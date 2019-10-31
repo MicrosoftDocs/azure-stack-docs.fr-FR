@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 9c19047629d95ba1ffe7c0fe6ab2da5c745576a0
-ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
+ms.lastreviewed: 10/30/2019
+ms.openlocfilehash: c646f8229b5360aed12c9cd8070a00bf38ca3e01
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037942"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167306"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack"></a>Installer le moteur AKS sur Windows dans Azure Stack
 
@@ -50,7 +50,7 @@ Vous pouvez installer la machine virtuelle cliente pour gérer votre cluster Kub
 5. Exécutez la commande suivante à partir d’une invite avec élévation de privilèges et incluez le numéro de version :
 
     ```PowerShell  
-        choco install aks-engine --version v0.41.2 -y
+        choco install aks-engine --version 0.41.2 -y
     ```
 
 > [!Note]  

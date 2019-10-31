@@ -1,0 +1,117 @@
+---
+title: Stratégies de support pour le moteur AKS sur Azure Stack | Microsoft Docs
+description: Cette rubrique contient les stratégies de support pour le moteur AKS sur Azure Stack.
+services: azure-stack
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
+ms.service: azure-stack
+ms.workload: na
+pms.tgt_pltfrm: na (Kubernetes)
+ms.devlang: nav
+ms.topic: article
+ms.date: 09/14/2019
+ms.author: mabrigg
+ms.reviewer: waltero
+ms.lastreviewed: 09/14/2019
+ms.openlocfilehash: 6a9ce8551975ccc98bb6e47bfa07b703dfdd341c
+ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064948"
+---
+# <a name="support-policies-for-aks-engine-on-azure-stack"></a>Stratégies de support pour le moteur AKS sur Azure Stack
+
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+
+Cet article fournit des informations sur les stratégies de support technique et les limitations pour le moteur AKS sur Azure Stack. L’article décrit également l’élément Kubernetes de la Place de marché, des composants open source tiers et la gestion de la sécurité ou des correctifs. 
+
+> [!IMPORTANT]
+> Le moteur AKS est actuellement en préversion publique.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="self-managed-kubernetes-clusters-on-azure-stack-with-aks-engine"></a>Clusters Kubernetes automanagés sur Azure Stack avec le moteur AKS
+
+Les composants cloud infrastructure as a service (IaaS), tels que les composants réseau ou de calcul, permettent aux utilisateurs d’accéder à des contrôles de niveau inférieur et à des options de personnalisation. Le moteur AKS permet à l’utilisateur d’établir en toute transparence des clusters Kubernetes à l’aide de ces composants IaaS. Il peut alors influer sur tous les aspects de ses déploiements et y accéder.
+
+Lors de la création d’un cluster, le client définit les maîtres et les nœuds Worker Kubernetes créés par le moteur AKS. Les charges de travail du client sont exécutées sur ces nœuds. Les clients possèdent et peuvent voir ou modifier le maître et les nœuds Worker. Apporter des modifications aux nœuds sans faire preuve de prudence peut conduire à la perte de données et de charges de travail, entravant ainsi le bon fonctionnement du cluster. En outre, les opérations du moteur AKS, comme une mise à niveau ou une mise à l’échelle, se substituent à toutes les modifications hors limites. Par exemple, si le cluster contient des pods statiques, ceux-ci ne sont pas conservés après une opération de mise à niveau du moteur AKS.
+
+Étant donné que les nœuds de cluster du client exécutent du code privé et stockent des données sensibles, le Support Microsoft peut y accéder de manière limitée uniquement. Le Support Microsoft ne peut pas se connecter, exécuter des commandes ou afficher les journaux de ces nœuds sans autorisation expresse du client ou de l’assistance.
+
+## <a name="aks-engine-supported-areas"></a>Domaines de prise en charge du moteur AKS
+
+Microsoft fournit un support technique pour les éléments suivants :
+
+-  Problèmes avec les commandes du moteur AKS : déployer, générer, mettre à niveau et mettre à l’échelle. L’outil doit être cohérent avec son comportement sur Azure.
+-  Problèmes avec un cluster Kubernetes déployé en suivant les informations données dans [Vue d’ensemble du moteur AKS](azure-stack-kubernetes-aks-engine-overview.md).
+-  Problèmes de connectivité à d’autres services Azure Stack 
+-  Problèmes de connectivité avec l’API Kubernetes
+-  Problèmes liés à la fonctionnalité du fournisseur Azure Stack Kubernetes et à la connectivité à Azure Resource Manager
+-  Problèmes liés à la configuration générée par le moteur AKS des artefacts natifs Azure Stack comme les équilibreurs de charge, les groupes de sécurité réseau, les réseaux virtuels, les sous-réseaux, les interfaces réseau, la table de routage, les groupes à haute disponibilité, les adresses IP publiques, le compte de stockage et les machines virtuelles 
+-  Problèmes liés aux performances et à la latence du réseau
+-  Problèmes liés à l’image de base AKS utilisée par le moteur AKS dans les déploiements déconnectés 
+
+## <a name="aks-engine-areas-not-supported"></a>Domaines non pris en charge du moteur AKS
+
+Microsoft n’assure pas de support technique pour les éléments suivants :
+
+-  Utilisation du moteur AKS sur Azure.
+-  Élément Kubernetes de la Place de marché Azure Stack.
+-  Utilisation des options et modules complémentaires de définition de cluster du moteur AKS ci-après.
+    -  Modules complémentaires non pris en charge :  
+            -  AAD Pod Identity  
+            -  ACI Connector  
+            -  Blobfuse Flex Volume  
+            -  Cluster Autoscaler  
+            -  Container Monitoring  
+            -  KeyVault Flex Volume  
+            -  NVIDIA Device Plugin  
+            -  Rescheduler  
+            -  SMB Flex Volume  
+        
+    -  Options de définition de cluster non prises en charge :  
+            -  Under KubernetesConfig:  
+                    -  cloudControllerManagerConfig  
+                    -  enableDataEncryptionAtRest  
+                    -  enableEncryptionWithExternalKms  
+                    -  enablePodSecurityPolicy  
+                    -  etcdEncryptionKey  
+                    -  useInstanceMetadata  
+                    -  useManagedIdentity  
+                    -  azureCNIURLLinux  
+                    -  azureCNIURLWindows  
+            -  Under masterProfile:  
+                    -  availabilityZones  
+            -  Under agentPoolProfiles:  
+                    -  availabilityZones  
+                    -  singlePlacementGroup  
+                    -  scaleSetPriority  
+                    -  scaleSetEvictionPolicy  
+                    -  acceleratedNetworkingEnabled  
+                    -  acceleratedNetworkingEnabledWindows
+
+-  Modifications de configuration Kubernetes conservées en dehors du magasin de configuration Kubernetes etcd. Par exemple, les pods statiques s’exécutant dans des nœuds du cluster.
+-  Questions sur l’utilisation de Kubernetes. Par exemple, le Support Microsoft ne fournit pas de conseils sur la façon dont les contrôleurs d’entrée doivent être créés, sur l’utilisation des charges de travail d’application ou sur l’application d’outils ou de packages logiciels open source ou tiers.
+-  Projets open source tiers non fournis dans le cadre du cluster Kubernetes déployé par le moteur AKS. Ces projets peuvent inclure Kubeadm, Kubespray, Native, Istio, Helm, Envoy, etc.
+-  Utilisation du moteur AKS dans des cas d’usage autres que ceux spécifiés dans [Scénarios pris en charge avec le moteur AKS](azure-stack-kubernetes-aks-engine-overview.md#supported-scenarios-with-the-aks-engine).
+-  Logiciels tiers. Ces logiciels peuvent inclure des outils d’analyse de sécurité et des logiciels ou appareils réseau.
+-  Problèmes de solutions multifournisseur ou multicloud. Par exemple, Microsoft n’assure pas le support des problèmes liés à l’exécution d’une solution de fournisseur cloud multipublic fédérée.
+-  Personnalisations du réseau autres que celles listées dans la section [Domaines de prise en charge du moteur AKS](#aks-engine-supported-areas).
+
+##  <a name="security-issues-and-patching"></a>Problèmes de sécurité et application de correctifs
+
+Si un défaut de sécurité se trouve dans un ou plusieurs composants du moteur AKS ou du fournisseur Kubernetes pour Azure Stack, Microsoft met à la disposition de ses clients un correctif qui permet de corriger les clusters affectés afin d’atténuer le problème. L’équipe peut également donner des conseils en matière de mise à niveau aux utilisateurs. Notez que les correctifs peuvent exiger un temps d’arrêt du cluster. Lorsque des redémarrages sont obligatoires, Microsoft en informe les clients. Si les utilisateurs n’appliquent pas les correctifs conformément aux instructions de Microsoft, leur cluster continuera d’être vulnérable au problème de sécurité.
+
+## <a name="kubernetes-marketplace-item"></a>Élément Kubernetes de la Place de marché
+
+Les utilisateurs peuvent télécharger un élément Kubernetes de la Place de marché, qui leur permet de déployer indirectement des clusters Kubernetes à l’aide du moteur AKS par le biais d’un modèle dans le portail de l’utilisateur Azure Stack, ce qui s’avère plus simple que d’utiliser directement le moteur AKS. Cet outil permet de configurer rapidement des clusters à des fins de démonstration, de test et de développement. Il n’est pas destiné à la production et n’est donc pas inclus dans l’ensemble d’éléments pris en charge par Microsoft.
+
+## <a name="preview-features"></a>Fonctionnalités de préversion
+
+Pour les fonctionnalités et fonctions qui exigent des tests étendus et des commentaires des utilisateurs, Microsoft publie de nouvelles fonctionnalités d’évaluation ou des fonctionnalités appartenant à un indicateur de fonctionnalité. Considérez ces fonctionnalités comme des fonctionnalités bêta ou en version préliminaire. Les fonctionnalités d’évaluation ou fonctionnalités avec indicateur de fonctionnalité ne sont pas destinées aux environnements de production. Les modifications continues apportées aux fonctionnalités et aux comportements, corrections de bogues et autres types de modifications peuvent entraîner des temps d’arrêt et un manque de stabilité des clusters. Ces fonctionnalités ne sont pas prises en charge par Microsoft.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- En savoir plus sur le [moteur AKS sur Azure Stack](azure-stack-kubernetes-aks-engine-overview.md)
