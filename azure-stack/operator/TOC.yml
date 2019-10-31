@@ -257,6 +257,8 @@
           href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: Créer une connexion VPN site à site
           href: azure-stack-create-vpn-connection-one-node.md
+        - name: Proposer un élément de la place de marché CommVault
+          href: azure-stack-network-offer-backup-commvault.md
     - name: Proposer des services
       items:
         - name: 'Vue d’ensemble des services, des plans, des offres et des abonnements'
