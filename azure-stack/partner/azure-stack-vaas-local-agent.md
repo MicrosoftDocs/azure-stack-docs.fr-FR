@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b1a658b428d13cdd12c16b767430f87a80e89fdc
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: cc2299f32f02c4a825424309943d3f27d0fab6fb
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418373"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167181"
 ---
 # <a name="deploy-the-local-agent"></a>Déployer l’agent local
 
@@ -33,8 +33,8 @@ Découvrez comment utiliser l’agent local Validation en tant que service (VaaS
 
 Pour déployer l’agent local :
 
-1. Installez l’agent local.
-2. Procédez à des contrôles d’intégrité.
+1. Téléchargez et installez l’agent local.
+2. Effectuez des vérifications de validité avant de commencer les tests.
 3. Exécutez l’agent local.
 
 ## <a name="download-and-start-the-local-agent"></a>Télécharger et démarrer l’agent local
@@ -52,46 +52,53 @@ Vérifiez que votre machine répond aux critères suivants :
 - Espace disque de 200 Go au minimum
 - Connectivité réseau à Internet stable
 
-### <a name="download-and-install-the-agent"></a>Téléchargement et installation de l’agent
+### <a name="download-and-install-the-local-agent"></a>Télécharger et installer l’agent local
 
 1. Ouvrez Windows PowerShell dans une invite de commandes avec élévation de privilèges sur la machine que vous allez utiliser pour exécuter les tests.
-2. Exécutez la commande ci-après pour télécharger l’agent local :
+2. Exécutez la commande suivante pour télécharger et installer les dépendances de l’agent local, puis copiez les images PIR (public image repository) (disque dur virtuel du système d’exploitation) dans votre environnement Azure Stack.
 
     ```powershell
-    Invoke-WebRequest -Uri "https://storage.azurestackvalidation.com/packages/Microsoft.VaaSOnPrem.TaskEngineHost.latest.nupkg" -outfile "OnPremAgent.zip"
-    Expand-Archive -Path ".\OnPremAgent.zip" -DestinationPath VaaSOnPremAgent -Force
-    Set-Location VaaSOnPremAgent\lib\net46
-    ```
+    # Review and update the following five parameters
+    $RootFolder = "c:\VaaS"
+    $CloudAdmindUserName = "<Cloud admin user name>"
+    $CloudAdminPassword = "<Cloud admin password>"
+    $AadServiceAdminUserName = "<AAD service admin user name>"
+    $AadServiceAdminPassword = "<AAD service admin password>"
 
-3. Exécutez la commande ci-après pour installer les dépendances de l’agent local :
+    if (-not(Test-Path($RootFolder))) {
+        mkdir $RootFolder
+    }
+    Set-Location $RootFolder
+    Invoke-WebRequest -Uri "https://storage.azurestackvalidation.com/packages/Microsoft.VaaSOnPrem.TaskEngineHost.latest.nupkg" -outfile "$rootFolder\OnPremAgent.zip"
+    Expand-Archive -Path "$rootFolder\OnPremAgent.zip" -DestinationPath "$rootFolder\VaaSOnPremAgent" -Force
+    Set-Location "$rootFolder\VaaSOnPremAgent\lib\net46"
 
-    ```powershell
-    $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
+    $cloudAdminCredential = New-Object System.Management.Automation.PSCredential($cloudAdmindUserName, (ConvertTo-SecureString $cloudAdminPassword -AsPlainText -Force))
+    $getStampInfoUri = "https://ASAppGateway:4443/ServiceTypeId/4dde37cc-6ee0-4d75-9444-7061e156507f/CloudDefinition/GetStampInformation" 
+    $stampInfo = Invoke-RestMethod -Method Get -Uri $getStampInfoUri -Credential $cloudAdminCredential -ErrorAction Stop
+    $serviceAdminCreds = New-Object System.Management.Automation.PSCredential $aadServiceAdminUserName, (ConvertTo-SecureString $aadServiceAdminPassword -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force
-    Install-VaaSPrerequisites -AadTenantId $AadTenantId `
-                              -ServiceAdminCreds $ServiceAdminCreds `
-                              -ArmEndpoint https://adminmanagement.$ExternalFqdn `
-                              -Region $Region
+    Install-VaaSPrerequisites -AadTenantId $stampInfo.AADTenantID `
+                            -ServiceAdminCreds $serviceAdminCreds `
+                            -ArmEndpoint $stampInfo.AdminExternalEndpoints.AdminResourceManager `
+                            -Region $stampInfo.RegionName
     ```
 
-    **Paramètres**
+> [!Note]  
+> L’applet de commande Install-VaaSPrerequisites télécharge les gros fichiers image de machine virtuelle. Si vous êtes confronté à une vitesse de réseau lente, vous pouvez télécharger des fichiers sur votre serveur de fichiers local et ajouter manuellement des images de machine virtuelle à votre environnement de test. Consultez [Gérer les problèmes de lenteur de connectivité réseau](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity) pour plus d’informations.
 
-    | Paramètre | Description |
-    | --- | --- |
-    | aadServiceAdminUser | Utilisateur administrateur général pour votre locataire Azure AD. Par exemple, il peut s’agir de vaasadmin@contoso.onmicrosoft.com. |
-    | aadServiceAdminPassword | Mot de passe de l’utilisateur administrateur général. |
-    | AadTenantId | ID de locataire Azure AD pour le compte Azure inscrit auprès du service Validation en tant que service. |
-    | ExternalFqdn | Vous pouvez obtenir le nom de domaine complet à partir du fichier de configuration. Pour obtenir les instructions correspondantes, consultez l’article [Paramètres de flux de travail communs dans la validation en tant que service Azure Stack](azure-stack-vaas-parameters.md). |
-    | Région | Région de votre locataire Azure AD. |
+**Paramètres**
 
-La commande télécharge une image (disque dur virtuel de système d’exploitation) du référentiel d’images public et la copie à partir d’un service Stockage Blob Azure dans votre stockage Azure Stack.
+| Paramètre | Description |
+| --- | --- |
+| AadServiceAdminUser | Utilisateur administrateur général pour votre locataire Azure AD. Par exemple, il peut s’agir de vaasadmin@contoso.onmicrosoft.com. |
+| AadServiceAdminPassword | Mot de passe de l’utilisateur administrateur général. |
+| CloudAdminUserName | Utilisateur administrateur cloud qui peut accéder et exécuter des commandes autorisées dans le point de terminaison privilégié. Par exemple, cela peut être AzusreStack\CloudAdmin. Pour plus d’informations, voir [ici](azure-stack-vaas-parameters.md). |
+| CloudAdminPassword | Mot de passe pour le compte d’administrateur cloud.|
 
-![Télécharger les composants requis](media/installingprereqs.png)
+![Télécharger les composants requis](media/installing-prereqs.png)
 
-> [!Note]
-> Si vous rencontrez un problème de lenteur du réseau lorsque vous téléchargez ces images, téléchargez ces dernières séparément dans un partage local et spécifiez le paramètre **-LocalPackagePath** *FileShareOrLocalPath*. Vous trouverez des conseils supplémentaires sur le téléchargement du référentiel d’images public dans la section [Gérer les problèmes de lenteur de la connexion réseau](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity) de l’article [Résoudre les problèmes de validation en tant que service](azure-stack-vaas-troubleshoot.md).
-
-## <a name="checks-before-starting-the-tests"></a>Vérifications avant de commencer les tests
+## <a name="perform-sanity-checks-before-starting-the-tests"></a>Effectuez des vérifications de validité avant de commencer les tests
 
 Les tests exécutent des opérations à distance. La machine qui exécute les tests doit avoir accès aux points de terminaison Azure Stack pour le bon déroulement des tests. Si vous utilisez l’agent VaaS local, utilisez la machine sur laquelle l’agent s’exécutera. Vous pouvez vérifier que votre machine a accès aux points de terminaison Azure Stack en effectuant les vérifications suivantes :
 
@@ -107,20 +114,30 @@ Les tests exécutent des opérations à distance. La machine qui exécute les te
 
 4. Vérifiez l’état d’intégrité du système en exécutant la cmdlet PowerShell **Test-AzureStack** comme décrit dans l’article [Exécuter un test de validation pour Azure Stack](../operator/azure-stack-diagnostic-test.md). Corrigez les problèmes signalés par les avertissements et les erreurs avant de lancer le moindre test.
 
-## <a name="run-the-agent"></a>Exécuter l’agent
+## <a name="run-the-local-agent"></a>Exécutez l’agent local.
 
 1. Ouvrez Windows PowerShell dans une invite de commandes avec élévation des privilèges.
 
 2. Exécutez la commande suivante :
 
     ```powershell
-    .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u <VaaSUserId> -t <VaaSTenantId>
+   # Review and update the following five parameters
+    $RootFolder = "c:\VAAS"
+    $CloudAdmindUserName = "<Cloud admin user name>"
+    $CloudAdminPassword = "<Cloud admin password>"
+    $VaaSUserId = "<VaaS user ID>"
+    $VaaSTenantId = "<VaaS tenant ID>"
+
+    Set-Location "$rootFolder\VaaSOnPremAgent\lib\net46"
+    .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u $VaaSUserId -t $VaaSTenantId -x $CloudAdmindUserName -y $CloudAdminPassword
     ```
 
       **Paramètres**  
 
     | Paramètre | Description |
     | --- | --- |
+    | CloudAdminUserName | Utilisateur administrateur cloud qui peut accéder et exécuter des commandes autorisées dans le point de terminaison privilégié. Par exemple, cela peut être AzusreStack\CloudAdmin. Pour plus d’informations, voir [ici](azure-stack-vaas-parameters.md). |
+    | CloudAdminPassword | Mot de passe pour le compte d’administrateur cloud.|
     | VaaSUserId | Identificateur d’utilisateur permettant de se connecter au portail VaaS (par exemple, nom_utilisateur\@Contoso.com). |
     | VaaSTenantId | ID de locataire Azure AD pour le compte Azure inscrit auprès du service Validation en tant que service. |
 
@@ -129,9 +146,9 @@ Les tests exécutent des opérations à distance. La machine qui exécute les te
 
 Si aucune erreur ne vous est signalée, l’agent local a réussi. L’exemple de texte ci-après s’affiche dans la fenêtre de console.
 
-`Heartbeat Callback at 11/8/2016 4:45:38 PM`
+`Heartbeat was sent successfully.`
 
-![Agent démarré](media/startedagent.png)
+![Agent démarré](media/started-agent.png)
 
 Un agent est identifié de manière unique par son nom. Par défaut, il utilise le nom de domaine complet (FQDN) de la machine sur laquelle il a été démarré. Vous devez réduire la fenêtre pour éviter les sélections accidentelles dans cette dernière, car le basculement vers cette fenêtre interrompt toutes les autres actions.
 

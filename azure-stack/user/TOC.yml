@@ -215,8 +215,6 @@
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
                     - name: Résoudre les problèmes du moteur AKS
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
-                    - name: Déplacer le moteur AKS à partir d’un élément de la place de marché
-                      href: azure-stack-kubernetes-aks-engine-dvm.md
                 - name: Article de la Place de marché
                   items:
                     - name: "Déployer un cluster\_Kubernetes"
@@ -227,6 +225,8 @@
                       href: azure-stack-solution-template-kubernetes-adfs.md
                     - name: Activer le tableau de bord Kubernetes
                       href: azure-stack-solution-template-kubernetes-dashboard.md
+                    - name: Déplacer le moteur AKS à partir d’un élément de la place de marché
+                      href: azure-stack-kubernetes-aks-engine-dvm.md
                     - name: Résoudre les problèmes du cluster Kubernetes
                       href: azure-stack-solution-template-kubernetes-trouble.md
             - name: Déployer Cognitive Services
@@ -271,14 +271,36 @@
           href: azure-stack-solution-sql-ha.md
     - name: Déployer des modèles fondamentaux
       items:
+        - name: Peering de réseaux virtuels
+          items:
+            - name: Peering de réseaux virtuels avec FortiGate
+              href: azure-stack-network-howto-vnet-to-vnet.md
+            - name: Peering de réseaux virtuels avec des machines virtuelles
+              href: azure-stack-network-howto-vnet-peering.md
         - name: Configurer un VPN à local
           href: azure-stack-network-howto-vnet-to-onprem.md
         - name: Connexion de réseau virtuel à réseau virtuel
           href: azure-stack-network-howto-vnet-to-vnet-stacks.md
-        - name: Peering de réseaux virtuels
-          href: azure-stack-network-howto-vnet-to-vnet.md
-        - name: Copier les ressources d’abonnement
-          href: azure-stack-network-howto-backup-replicator.md
+        - name: Étendre le centre de données
+          href: azure-stack-network-howto-extend-datacenter.md
+        - name: Se connecter au stockage iSCSI
+          href: azure-stack-network-howto-iscsi-storage.md
+        - name: Configurer les tunnels
+          items:
+            - name: Configurer un VPN site à site multiple
+              href: network-howto-vpn-tunnel.md
+            - name: Créer un tunnel VPN (GRE)
+              href: network-howto-vpn-tunnel-gre.md
+            - name: Créer un tunnel VPN (IPSEC)
+              href: network-howto-vpn-tunnel-ipsec.md
+        - name: Sauvegarde et récupération
+          items:
+            - name: Sauvegarder votre machine virtuelle sur Azure Stack avec CommVault
+              href: azure-stack-network-howto-backup-commvault.md
+            - name: Sauvegarder vos comptes de stockage sur Azure Stack
+              href: azure-stack-network-howto-backup-storage.md
+            - name: Copier les ressources d’abonnement
+              href: azure-stack-network-howto-backup-replicator.md
 - name: Concepts
   items:
     - name: Modèles de cloud hybride

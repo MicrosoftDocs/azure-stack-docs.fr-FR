@@ -1,5 +1,5 @@
 ---
-title: Créer une machine virtuelle serveur Linux avec Azure Stack | Microsoft Docs
+title: Créer une machine virtuelle Linux avec Azure Stack | Microsoft Docs
 description: Créez une machine virtuelle serveur Linux avec Azure Stack.
 services: azure-stack
 cloud: azure-stack
@@ -12,12 +12,12 @@ ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 7bfb56ef9fcb2795a579321bfa58ded872ed3485
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 5c3b8d85f5dca0eeb439ca475d4396848d316366
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824372"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047262"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-portal"></a>Démarrage rapide : Créer une machine virtuelle serveur Linux sur le portail Azure Stack
 

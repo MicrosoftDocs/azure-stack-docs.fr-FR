@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 69bb9c89793789280debe13a142f4c96470f7c31
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 20d5d2d962fbe85db5d4725c864defe84c2c152c
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418317"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167363"
 ---
 # <a name="validate-oem-packages"></a>Valider les packages OEM
 
@@ -148,24 +148,30 @@ Utilisez cette option s’il est acceptable d’autoriser l’accès des objets 
 
 5. Entrez l’URL de l’objet blob du stockage Azure pour le package OEM signé de test nécessitant une signature de Microsoft. Pour obtenir des instructions, consultez [Générer des URL d’objet blob de package pour VaaS](#generate-package-blob-url-for-vaas).
 
-6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
+6. Copiez le dossier du package de mise à jour AzureStack dans un répertoire local sur la DVM. Entrez le chemin du répertoire parent pour 'AzureStack update package folder path'
 
-7. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
+7. Copiez le dossier du package OEM créé plus haut dans un répertoire local sur la DVM. Entrez le chemin du répertoire parent pour 'OEM update package folder path'
+
+    > [!NOTE]
+    > Copiez la mise à jour AzureStack et la mise à jour OEM dans **2 répertoires parents séparés**.
+
+8. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
     > [!NOTE]
     > Après la création d’un workflow, les paramètres d’environnement ne peuvent plus être modifiés.
 
-8. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+9. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
 
-9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+10. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     Vous allez être redirigé vers la page de résumé de tests.
 
 ## <a name="required-tests"></a>Tests requis
 
-Les tests suivants sont exigés pour la validation de package OEM :
+Les tests suivants doivent être exécutés dans l’ordre spécifié pour la validation de package OEM :
 
-- Vérification des packages d’extensions OEM
-- Cloud Simulation Engine
+- Étape 1 - Vérification de la mise à jour mensuelle Azure Stack
+- Étape 2 - Vérification des packages d’extensions OEM
+- Étape 3 - Cloud Simulation Engine
 
 ## <a name="run-package-validation-tests"></a>Exécution des tests de validations du package
 
@@ -177,40 +183,20 @@ Les tests suivants sont exigés pour la validation de package OEM :
     > La planification d’un test de validation sur une instance existante créera une nouvelle instance à la place de l’ancienne contenue dans le portail. Les journaux d’activité de l’ancienne instance sont conservés, mais ne sont pas accessibles à partir du portail.  
     > Dès lors qu’un test est concluant, l’action de **planification** est désactivée.
 
-2. Sélectionnez l’agent qui exécutera le test. Pour plus d’informations sur l’ajout d’agents d’exécution de test locaux, consultez [Déployer l’agent local](azure-stack-vaas-local-agent.md).
+2. Pour la validation du package, vous allez exécuter les **tests requis** dans l’ordre indiqué.
 
-3. Pour effectuer la vérification des packages d’extensions OEM, sélectionnez **Planifier** dans le menu contextuel pour ouvrir une invite de planification de l’instance de test.
+    > [!CAUTION]
+    > VaaS exécutera les tests dans l’ordre dans lequel ils ont été planifiés. Il est nécessaire de planifier les tests dans l’ordre spécifié.
 
-4. Passez en revue les paramètres de test, puis sélectionnez **Envoyer** pour planifier l’exécution de la vérification des packages d’extensions OEM.
+3. Sélectionnez l’agent qui exécutera le test. Pour plus d’informations sur l’ajout d’agents d’exécution de test locaux, consultez [Déployer l’agent local](azure-stack-vaas-local-agent.md).
 
-    La vérification des packages d’extensions OEM se scinde en deux étapes manuelles : la mise à jour Azure Stack et la mise à jour OEM.
+4. Pour planifier la série de tests, sélectionnez **Planifier** dans le menu contextuel pour ouvrir une invite permettant de planifier l’instance de test.
 
-   1. **Sélectionnez** « Run » (Exécuter) dans l’interface utilisateur pour exécuter le script de vérification préalable. Il s’agit d’un test automatisé qui prend environ 5 minutes et ne nécessite aucune action.
+5. Passez en revue les paramètres de test, puis sélectionnez **Envoyer** pour planifier le test.
 
-   1. Dès le script de vérification préalable terminé, passez à l’étape manuelle : **installez** la dernière mise à jour disponible d’Azure Stack par le biais du portail Azure Stack.
+6. Vous n’avez pas besoin d’attendre la fin du test avant de planifier le test suivant. Planifiez tous les tests **requis** dans l’ordre indiqué ci-dessus.
 
-   1. **Exécutez** Test-AzureStack sur le tampon. Si des échecs se produisent, ne poursuivez pas le test et contactez [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
-
-       Pour plus d’informations sur l’exécution de la commande Test-AzureStack, consultez [Valider l’état du système Azure Stack](../operator/azure-stack-diagnostic-test.md).
-
-   1. **Sélectionnez** « Next » (Suivant) pour exécuter le script de post-vérification. Il s’agit d’un test automatisé qui marque la fin du processus de mise à jour d’Azure Stack.
-
-   1. **Sélectionnez** « Run » (Exécuter) pour exécuter le script de vérification préalable en vue de la mise à jour OEM.
-
-   1. À l’issue de la pré-vérification, passez à l’étape manuelle : **installez** le package d’extension OEM via le portail.
-
-   1. **Exécutez** Test-AzureStack sur le tampon.
-
-      > [!NOTE]
-      > Comme précisé précédemment, ne poursuivez pas le test et contactez [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) si des échecs se produisent. Cette étape est essentielle, car elle vous économise un redéploiement.
-
-   1. **Sélectionnez** « Next » (Suivant) pour exécuter le script de post-vérification. Cette opération marque la fin de la mise à jour OEM.
-
-   1. Répondez aux questions restantes à la fin du test et **sélectionnez** « Submit » (Soumettre).
-
-   1. Cette opération marque la fin du test interactif.
-
-5. Passez en revue le résultat de la vérification des packages d’extensions OEM. Une fois que le test a réussi, planifiez l’exécution de Cloud Simulation Engine.
+7. Passez en revue les résultats des tests **requis**.
 
 Pour soumettre une requête de signature de package, envoyez à [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) le nom de la solution et celui de la validation de package qui sont associés à cette exécution.
 

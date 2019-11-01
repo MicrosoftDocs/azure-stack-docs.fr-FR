@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 10/29/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0a507b7488a34715e528b6bbf291fec9832ef027
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 6fe2f8e7ab435cae3517890f79c26611a80c8a60
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418288"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167152"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Valider les mises à jour logicielles issues de Microsoft
 
@@ -41,20 +41,14 @@ Avant de vous exercer au processus de mise à jour mensuelle dans VaaS, vous dev
 
 Les tests ci-dessous doivent être exécutés dans l’ordre suivant pour la validation de logiciel mensuelle :
 
-1. Vérification de la mise à jour mensuelle Azure Stack
-2. Cloud Simulation Engine
+- Étape 1 - Vérification de la mise à jour mensuelle Azure Stack
+- Étape 2 - Vérification des packages d’extensions OEM
+- Étape 3 - Cloud Simulation Engine
 
 ## <a name="validating-software-updates"></a>Validation des mises à jour logicielles
 
 1. Créez un workflow de **validation de package**.
 1. Pour les tests requis ci-dessus, suivez les instructions dans [Exécution des tests de validations du package](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests). Consultez la section ci-dessous pour obtenir plus d’instructions sur le test **Vérification de la mise à jour mensuelle Azure Stack**.
-
-### <a name="apply-the-monthly-update"></a>Appliquer la mise à jour mensuelle
-
-1. Sélectionnez un agent sur lequel exécuter des tests.
-1. Planifiez la **Vérification de la mise à jour mensuelle Azure Stack**.
-1. Indiquez l’emplacement au package d’extension OEM actuellement déployé sur l’horodatage et l’emplacement au package d’extension OEM qui sera appliqué pendant la mise à jour. Pour configurer les URL pour ces packages, consultez [Gestion des packages pour validation](azure-stack-vaas-validate-oem-package.md#managing-packages-for-validation).
-1. Suivez les étapes de l’interface utilisateur à partir de l’agent sélectionné.
 
 Si vous avez des questions ou rencontrez des problèmes, contactez le [support technique VaaS](mailto:vaashelp@microsoft.com).
 
