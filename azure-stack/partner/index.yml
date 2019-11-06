@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentation sur les partenaires Azure Stack
+title: Documentation pour les partenaires Azure Stack Hub
 metadata:
   document_id: null
-  title: 'Partenaires Azure Stack D\documentation - tutoriels, API R\réference'
-  description: Découvrez comment valider le matériel destiné à héberger Azure Stack. Validation en tant que Service est un service Azure natif conçu pour être utilisé par les partenaires de solutions qui conçoivent conjointement les offres Azure Stack avec Microsoft.
+  title: 'Partenaires Azure Stack Hub D\documentation - tutoriels, R\informations de référence sur les API'
+  description: Découvrez comment valider le matériel destiné à héberger Azure Stack. Validation en tant que Service est un service Azure natif conçu pour être utilisé par les partenaires de solutions qui conçoivent conjointement les offres Azure Stack Hub avec Microsoft.
   services: azure-stack
   author: mattbriggs
   manager: femila
@@ -16,7 +16,7 @@ metadata:
   ms.author: mabrigg
   ms.reviewer: johnhas
 abstract:
-  description: Vous pouvez utiliser la validation en tant que service pour vérifier l’utilisation de votre matériel avec Azure Stack. Ce service Azure natif est conçu pour être utilisé par les partenaires de solutions qui conçoivent conjointement les offres Azure Stack avec Microsoft.
+  description: Vous pouvez utiliser la validation en tant que service pour vérifier l’utilisation de votre matériel avec Azure Stack. Ce service Azure natif est conçu pour être utilisé par les partenaires de solutions qui conçoivent conjointement les offres Azure Stack Hub avec Microsoft.
 sections:
   - title: "Démarrage rapide en\_5\_minutes"
     items:
@@ -32,10 +32,10 @@ sections:
   - title: Didacticiels pas à pas
     items:
       - type: paragraph
-        text: Découvrez comment valider votre matériel Azure Stack.
+        text: Découvrez comment valider votre matériel Azure Stack Hub.
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-solution-new">Valider une nouvelle solution Azure Stack</a>
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-solution-new">Valider une nouvelle solution Azure Stack Hub</a>
           - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-oem-package">Valider les packages OEM</a>
           - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">Valider les mises à jour logicielles issues de Microsoft</a>
