@@ -1,26 +1,26 @@
 ---
 title: Résoudre les problèmes du moteur AKS sur Azure Stack | Microsoft Docs
-description: Cette rubrique contient les étapes de résolution des problèmes pour le moteur AKS sur Azure Stack.
+description: Cet article contient les étapes de résolution des problèmes pour le moteur AKS sur Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
-manager: femila
+manager: femilav
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: eb8a46c5b226d1be40d922a78c6ecdcdda5e45ad
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.lastreviewed: 10/28/2019
+ms.openlocfilehash: 49684cb1821a5014e984a8e177f881be13123829
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019383"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047142"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Résoudre les problème du moteur AKS sur Azure Stack
 
@@ -84,7 +84,7 @@ Pour plus d’informations, consultez l’article sur la [résolution des probl�
 
 ## <a name="collect-aks-engine-logs"></a>Collecter les journaux du moteur AKS
 
-Vous pouvez accéder aux informations de révision créées par le moteur AKS. Le moteur AKS signale l’état et les erreurs pendant l’exécution de l’application. Vous pouvez soit diriger la sortie vers un fichier texte, soit la copier directement à partir de la console de ligne de commande.
+Vous pouvez accéder aux informations de révision créées par le moteur AKS. Le moteur AKS signale l’état et les erreurs pendant l’exécution de l’application. Vous pouvez soit diriger la sortie vers un fichier texte, soit la copier directement à partir de la console de ligne de commande. Reportez-vous à la liste des codes d’erreur déclenchés par le moteur AKS dans [Examiner les codes d’erreur d’extension de script personnalisé](#review-custom-script-extension-error-codes).
 
 1.  Collectez la sortie et l’erreur standard à partir des informations présentées dans l’outil en ligne de commande du moteur AKS.
 
@@ -157,6 +157,18 @@ Requirements:
 ## <a name="review-custom-script-extension-error-codes"></a>Examiner les codes d’erreur d’extension de script personnalisé
 
 Vous pouvez consulter la liste des codes d’erreur créés par l’extension de script personnalisé pendant l’exécution de votre cluster. L’erreur d’extension de script personnalisé peut s’avérer utile pour diagnostiquer la cause racine du problème. L’extension de script personnalisé correspondant au serveur Ubuntu utilisé dans votre cluster Kubernetes prend en charge un grand nombre d’opérations du moteur AKS. Pour plus d’informations sur les codes de sortie de l’extension de script personnalisé, consultez [cse_helpers.sh](https://github.com/Azure/aks-engine/blob/master/parts/k8s/cloud-init/artifacts/cse_helpers.sh).
+
+### <a name="providing-kubernetes-logs-to-a-microsoft-support-engineer"></a>Fournir des journaux Kubernetes à un ingénieur du support Microsoft
+
+Si après avoir collecté et examiné les journaux, vous ne parvenez toujours pas à résoudre le problème, vous avez la possibilité de créer un ticket de support et de fournir les journaux collectés en exécutant `getkuberneteslogs.sh` avec le jeu de paramètres `--upload-logs`. 
+
+Contactez votre opérateur Azure Stack. Votre opérateur utilise les informations issues de vos journaux pour créer le cas de support.
+
+Au cours du processus de résolution des problèmes, un ingénieur du support Microsoft peut demander à ce que votre opérateur Azure Stack collecte les journaux système Azure Stack. Vous serez peut-être amené à fournir à votre opérateur les informations du compte de stockage où vous avez chargé les journaux Kubernetes en exécutant `getkuberneteslogs.sh`.
+
+Votre opérateur peut exécuter la cmdlet PowerShell **Get-AzureStackLog**. Cette commande utilise un paramètre (`-InputSaSUri`) qui spécifie le compte de stockage où vous avez stocké les journaux Kubernetes.
+
+Votre opérateur peut combiner les journaux que vous avez générés avec les autres journaux système requis par le support Microsoft et les mettre à la disposition de Microsoft.
 
 ## <a name="open-github-issues"></a>Ouvrir des problèmes GitHub
 

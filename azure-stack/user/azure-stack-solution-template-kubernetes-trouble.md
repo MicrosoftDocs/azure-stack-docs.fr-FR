@@ -14,19 +14,19 @@ ms.author: mabrigg
 ms.date: 10/10/2019
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 14a32696a3e46782b8990ba57f9510976200f7d3
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 1070608db881426d6cb7ca78d0b19444bdba77ce
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277568"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047214"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Résoudre les problèmes de déploiement Kubernetes sur Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!Note]  
-> Kubernetes sur Azure Stack est en préversion. Un scénario Azure Stack déconnecté n'est actuellement pas pris en charge par la préversion. Utiliser uniquement l’élément de place de marché pour les scénarios de développement et de test.
+> Utilisez uniquement l’élément Kubernetes Azure Stack Marketplace pour déployer des clusters en tant que preuve de concept. Pour les clusters Kubernetes pris en charge sur Azure Stack, utilisez  [le moteur AKS](azure-stack-kubernetes-aks-engine-overview.md).
 
 Cet article examine comment résoudre les problèmes sur votre cluster Kubernetes. Pour commencer, passez en revue les éléments requis pour le déploiement. Vous devrez peut-être collecter les journaux d’activité de déploiement à partir du système Azure Stack ou des machines virtuelles Linux qui hébergent Kubernetes. Pour récupérer les journaux d’activité à partir d’un point de terminaison d’administration, contactez votre administrateur Azure Stack.
 

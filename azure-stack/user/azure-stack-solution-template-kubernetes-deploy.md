@@ -15,19 +15,19 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 74cad0b1f41c5c764bef361f3f521162eec59198
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 0fc45ae0413fb7e269d8d7347e2279895c234950
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277658"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047161"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>Déployer Kubernetes pour utiliser des conteneurs avec Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!Note]  
-> Kubernetes sur Azure Stack est en préversion. Un scénario Azure Stack déconnecté n'est actuellement pas pris en charge par la préversion. Utiliser uniquement l’élément de place de marché pour les scénarios de développement et de test.
+> Utilisez uniquement l’élément Kubernetes de la Place de marché Azure Stack pour déployer des clusters en tant que preuve de concept. Pour les clusters Kubernetes pris en charge sur Azure Stack, utilisez  [le moteur AKS](azure-stack-kubernetes-aks-engine-overview.md).
 
 Vous pouvez suivre les étapes de cet article pour déployer et configurer les ressources pour Kubernetes en une seule opération coordonnée. Les étapes utilisent un modèle Azure Resource Manager. Vous devez collecter les informations nécessaires sur votre installation d’Azure Stack, générer le modèle, puis le déployer sur votre cloud. Le modèle Azure Stack n’utilise pas le service AKS managé qui est offert dans Azure mondial.
 

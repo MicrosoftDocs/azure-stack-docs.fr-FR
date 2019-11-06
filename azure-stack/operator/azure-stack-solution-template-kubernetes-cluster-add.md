@@ -11,23 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 4fcfb0c8ef509ab827c15321cff5fc945230d69e
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.lastreviewed: 10/28/2019
+ms.openlocfilehash: fc83c8c68402622d721864f24a3ef9c5bab10479
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283439"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047180"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Ajouter Kubernetes sur la Place de marché Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!note]  
-> Kubernetes sur Azure Stack est en préversion. Un scénario Azure Stack déconnecté n'est actuellement pas pris en charge par la préversion. Utiliser uniquement l’élément de place de marché pour les scénarios de développement et de test.
+> Utilisez uniquement l’élément de Place de marché Kubernetes Azure Stack pour déployer des clusters en tant que preuve de concept. Pour les clusters Kubernetes pris en charge sur Azure Stack, utilisez [le moteur AKS](azure-stack-aks-engine.md).
+
 Vous pouvez créer une offre Kubernetes et la mettre à disposition des utilisateurs en tant qu’élément de la Place de marché. Vos utilisateurs peuvent alors déployer Kubernetes en une seule opération coordonnée.
 
 L’article suivant décrit comment utiliser un modèle Azure Resource Manager pour déployer et provisionner les ressources d’un cluster Kubernetes autonome. Avant de commencer, vérifiez les paramètres Azure Stack et les paramètres du locataire Azure global. Collectez les informations sur Azure Stack requises. Ajoutez les ressources nécessaires à votre locataire et à la Place de marché Azure Stack. Le cluster dépend d’un serveur Ubuntu, du script personnalisé et un élément Place de marché du cluster Kubernetes à ajouter à la Place de marché.

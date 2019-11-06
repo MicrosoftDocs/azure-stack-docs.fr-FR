@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 39937882f8bf43b076a231d76440d401495daca1
-ms.sourcegitcommit: acebda8a42ac8ecdeba490fc1738e9041479dab0
+ms.openlocfilehash: 4894fb7184944095d968d08e2d668912a78119d4
+ms.sourcegitcommit: ef7efcde76d1d7875ca1c882afebfd6a27f1c686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72814086"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72888050"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Planification de l’intégration réseau pour Azure Stack
 
@@ -72,8 +72,7 @@ Ce réseau /24 (adresses IP hôte 254) est privé pour la région Azure Stack (n
 - **Réseau IP virtuel interne** : Réseau /25 dédié aux adresses IP virtuelles internes uniquement pour l’équilibrage de charge logicielle.
 
 ### <a name="azure-stack-infrastructure-network"></a>Réseau d’infrastructure Azure Stack
-
-Ce réseau /24 est dédié aux composants Azure Stack internes afin qu’ils puissent communiquer et échanger des données entre eux. Ce sous-réseau nécessite des adresses IP routables, mais reste privé pour la solution à l’aide de listes de contrôle d’accès. Il n’est pas censé être acheminé au-delà des commutateurs frontière, à l’exception d’une petite plage équivalant en taille à un réseau /27 utilisé par certains de ces services quand ils nécessitent un accès à des ressources externes et/ou à Internet.
+Ce réseau /24 est dédié aux composants Azure Stack internes afin qu’ils puissent communiquer et échanger des données entre eux. Ce sous-réseau peut être routable à l’extérieur de la solution Azure Stack vers votre centre de données. Nous déconseillons l’utilisation d’adresses IP routables publiques ou Internet sur ce sous-réseau. Ce réseau est publié dans la bordure, mais la plupart de ses adresses IP sont protégées par des listes de contrôle d’accès (ACL). Les adresses IP pour lesquelles l’accès est autorisé se trouvent dans une plage de petite taille équivalente à un réseau/27 et à des services hôtes tels que le [ PEP (Privileged End Point)](azure-stack-privileged-endpoint.md) et le [stockage de sauvegarde Azure Stack](azure-stack-backup-reference.md).
 
 ### <a name="public-vip-network"></a>Réseau d’adresse IP virtuelle publique
 

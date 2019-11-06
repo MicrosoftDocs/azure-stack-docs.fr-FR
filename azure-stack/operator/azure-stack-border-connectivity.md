@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 583b23f8b70856e39f5d6f53204fd3234cb92a4e
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: d6e4aa25b558d12cfb437155c453d3d093ea7e00
+ms.sourcegitcommit: ef7efcde76d1d7875ca1c882afebfd6a27f1c686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829121"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72888058"
 ---
 # <a name="border-connectivity"></a>Connectivité de la bordure 
 La planification de l’intégration au réseau est un prérequis important pour réussir le déploiement, l’exploitation et la gestion de systèmes intégrés Azure Stack. Pour commencer la planification de la connectivité frontalière, vous devez décider si vous voulez utiliser le routage dynamique avec le protocole BGP (Border Gateway Protocol). Pour cela, vous devez soit affecter un numéro de système autonome BGP 16 bits (public ou privé), soit utiliser un routage statique où une route statique par défaut est affectée aux appareils frontière.
@@ -45,9 +45,9 @@ Le routage statique nécessite une configuration supplémentaire pour les appare
 
 Pour intégrer Azure Stack dans votre environnement réseau à l’aide d’un routage statique, les quatre liens physiques entre la bordure et l’appareil TOR doivent être connectés. La haute disponibilité ne peut pas être garantie en raison du mode de fonctionnement du routage statique.
 
-L’appareil situé à la limite doit être configuré avec des itinéraires statiques pointant vers le P2Ps des appareils Tor pour le trafic destiné au réseau *externe*, ou aux adresses IP virtuelles publiques et au réseau de l’*infrastructure*. Elle requiert des itinéraires statiques vers les réseaux *BMC* et *externe* pour le déploiement. Les opérateurs peuvent choisir de laisser des itinéraires statiques à la limite pour accéder à des ressources d’administration qui se trouvent sur le réseau *BMC*. L’ajout de routes statiques aux réseaux de *l’infrastructure des commutateurs* et de la *gestion des commutateurs*  est facultatif.
+L'appareil situé à la frontière doit être configuré avec des itinéraires statiques pointant vers les quatre adresses IP P2P définies entre le TOR et la frontière pour le trafic destiné aux différents réseaux dans Azure Stack, mais seul le réseau *externe* ou le réseau d'adresse IP virtuelle publique est requis pour l'opération. Des itinéraires statiques vers les réseaux *BMC* et *externe* sont requis pour le déploiement initial. Les opérateurs peuvent choisir de laisser des itinéraires statiques à la frontière pour accéder à des ressources d’administration qui se trouvent sur le réseau *BMC* et le réseau de l'*infrastructure*. L’ajout de routes statiques aux réseaux de *l’infrastructure des commutateurs* et de la *gestion des commutateurs*  est facultatif.
 
-Les appareils TOR sont configurés à l’origine avec une route statique par défaut qui envoie tout le trafic aux appareils situés à la frontière. La seule exception à la règle par défaut concerne l’espace privé, qui est bloqué avec une liste ACL appliquée sur la connexion entre le TOR et la frontière.
+Les appareils TOR sont configurés avec un itinéraire statique par défaut qui envoie tout le trafic vers les appareils situés à la frontière. La seule exception à la règle par défaut concerne l’espace privé, qui est bloqué avec une liste ACL appliquée sur la connexion entre le TOR et la frontière.
 
 Le routage statique s’applique seulement aux liaisons montantes entre le TOR et les commutateurs situés à la frontière. Le routage dynamique BGP est utilisé dans le rack, car il s’agit d’un outil essentiel pour l’équilibreur de charge logicielle (SLB) et pour d’autres composants. Il ne peut être ni désactivé ni supprimé.
 
