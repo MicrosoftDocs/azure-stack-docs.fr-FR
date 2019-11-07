@@ -1,0 +1,157 @@
+### YamlMime:Hub
+title: Documentation sur Azure Stack
+summary: Azure Stack est une famille de produits et de solutions qui étendent Azure à votre centre de développement ou à la périphérie. Comprend Azure Stack Hub, Azure Stack HCI et Azure Stack Edge.
+brand: azure
+metadata:
+  title: Documentation sur Azure Stack
+  description: Azure Stack est une famille de produits et de solutions qui étendent Azure à votre centre de développement ou à la périphérie. Comprend Azure Stack Hub, Azure Stack HCI et Azure Stack Edge.
+  ms.service: azure-stack
+  ms.topic: hub-page
+  author: BryanLa
+  ms.author: bryanla
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 96ea6293fb0436f57fc619625222062e0955ef44
+  ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 11/06/2019
+  ms.locfileid: "73636819"
+highlightedContent:
+  items:
+  - title: Annonce de la famille Azure Stack
+    itemType: overview
+    url: http://aka.ms/AzsFamAnnounce
+  - title: Comparaison de la famille de produits et de solutions Azure Stack
+    itemType: overview
+    url: /azure-stack/operator/compare-azure-azure-stack
+productDirectory:
+  items:
+  - title: Azure Stack Hub
+    imageSrc: media/index/azure-stack-hub.svg
+    links:
+    - url: /azure-stack/operator/azure-stack-overview
+      text: Qu’est-ce qu’Azure Stack Hub ?
+  - title: Azure Stack Edge
+    imageSrc: media/index/azure-stack-edge.svg
+    links:
+    - url: /azure/databox-online/data-box-edge-overview
+      text: Qu’est-ce qu’Azure Stack Edge ?
+  - title: Azure Stack HCI
+    imageSrc: media/index/azure-stack-hci.svg
+    links:
+    - url: /azure-stack/operator/azure-stack-hci-overview
+      text: Vue d’ensemble d’Azure Stack HCI
+conceptualContent:
+  title: Modèles hybrides et exemples de solutions
+  summary: Utilisez des modèles et des exemples de solutions pour vous guider dans le développement de solutions hybrides qui englobent Azure et Azure Stack.
+  items:
+  - title: Découvrir l’hybride
+    links:
+    - url: /azure-stack/hybrid/overview-patterns-solution-examples
+      itemType: overview
+      text: Que sont les modèles et les exemples de solutions ?
+    - url: /azure-stack/hybrid/overview-app-design-considerations
+      itemType: concept
+      text: Considérations sur la conception d’applications hybrides
+  - title: Explorer des modèles hybrides
+    links:
+    - url: /azure-stack/hybrid/pattern-cross-cloud-scale
+      itemType: architecture
+      text: Mise à l’échelle multicloud
+    - url: /azure-stack/hybrid/pattern-cicd-pipeline
+      itemType: architecture
+      text: CI/CD hybride DevOps
+    - url: /azure-stack/hybrid/pattern-retail-footfall-detection
+      itemType: architecture
+      text: Détection des pas (magasin)
+    - url: /azure-stack/hybrid/pattern-geo-distributed
+      itemType: architecture
+      text: Application géodistribuée
+  - title: Déployer des exemples de solutions hybrides
+    links:
+    - url: /azure-stack/hybrid/solution-deployment-guide-cross-cloud-scaling
+      itemType: tutorial
+      text: Mise à l’échelle multicloud
+    - url: https://aka.ms/hybriddevopsdeploy
+      itemType: tutorial
+      text: CI/CD hybride DevOps
+    - url: /azure-stack/hybrid/solution-deployment-guide-retail-footfall-detection
+      itemType: tutorial
+      text: Détection des pas (magasin)
+    - url: /azure-stack/hybrid/solution-deployment-guide-geo-distributed
+      itemType: tutorial
+      text: Application géodistribuée
+additionalContent:
+  sections:
+  - title: Azure Stack Hub
+    items:
+    - title: Opérateur
+      links:
+      - url: /azure-stack/operator/azure-stack-manage-portals
+        text: Utiliser le portail des administrateurs
+      - url: /azure-stack/operator/release-notes
+        text: Notes de publication
+      - url: /azure-stack/operator/azure-stack-servicing-policy
+        text: Stratégie de maintenance Azure Stack Hub
+      - url: /azure-stack/operator/azure-stack-create-service-principals
+        text: Utiliser une identité d’application pour accéder aux ressources
+    - title: Utilisateur
+      links:
+      - url: /azure-stack/user/azure-stack-quick-windows-portal
+        text: Déployer une machine virtuelle
+      - url: /azure-stack/user/azure-stack-vm-sizes
+        text: Tailles des machines virtuelles prises en charge
+      - url: /azure-stack/user/azure-stack-considerations
+        text: Considérations clés pour la création d’applications
+      - url: /azure-stack/user/azure-stack-key-vault-manage-portal
+        text: Créer et gérer un coffre de clés
+    - title: Kit de développement Azure Stack Hub (ASDK)
+      links:
+      - url: /azure-stack/asdk/asdk-deploy-considerations
+        text: Conditions requises et éléments à prendre en compte pour ASDK
+      - url: /azure-stack/asdk/asdk-download
+        text: Télécharger et extraire la solution
+      - url: /azure-stack/asdk/asdk-prepare-host
+        text: Préparer l’ordinateur hôte de l’ASDK
+  - title: Azure Stack Edge
+    items:
+    - title: Déployer
+      links:
+      - url: /azure/databox-online/data-box-edge-system-requirements
+        text: Consulter la configuration système requise
+      - url: /azure/databox-online/data-box-edge-limits
+        text: Comprendre les limites
+      - url: /azure/databox-online/data-box-edge-deploy-prep
+        text: Préparer au déploiement
+      - url: /azure/databox-online/data-box-edge-deploy-install
+        text: Installer
+    - title: Développer
+      links:
+      - url: /azure/databox-online/data-box-edge-create-iot-edge-module
+        text: Développer un module IoT Edge (C#)
+      - url: /samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules
+        text: Exemples de module IoT Edge (C#)
+  - title: Azure Stack HCI
+    items:
+    - title: Solutions
+      links:
+      - url: https://azure.microsoft.com/overview/azure-stack/hci/
+        text: Vue d’ensemble des solutions Azure Stack HCI
+      - url: https://www.microsoft.com/cloud-platform/azure-stack-hci-catalog
+        text: Catalogue Azure Stack HCI
+    - title: Gérer
+      links:
+      - url: /windows-server/manage/windows-admin-center/understand/windows-admin-center
+        text: Windows Admin Center
+      - url: /windows-server/manage/windows-admin-center/azure
+        text: Services hybrides Azure
+    - title: Technologies fondamentales
+      links:
+      - url: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
+        text: Hyper-V
+      - url: /windows-server/storage/storage-spaces/storage-spaces-direct-overview
+        text: Espaces de stockage direct
+      - url: /windows-server/networking/sdn
+        text: SDN (Software Defined Network)
+      - url: /windows-server/failover-clustering/failover-clustering-overview
+        text: Clustering de basculement
