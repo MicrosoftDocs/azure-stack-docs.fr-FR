@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 33ead43fd8dbe77feae12db58ca7c689030c6f98
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: e36235af4dea72ae6d8016085ee18aec819ae4dd
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829100"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618241"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Didacticiel : Configurer des ressources pour la validation en tant que service
 
@@ -100,7 +100,7 @@ Le compte de stockage Azure est hébergé dans le cloud public Azure, et non sur
 
 3. Sous **Groupe de ressources**, sélectionnez **Créer**. Entrez le nom de votre nouveau groupe de ressources.
 
-4. Examinez les [conventions de nommage](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#storage) pour les comptes de stockage Azure. Entrez un nom pour votre compte de stockage.
+4. Examinez les [conventions de nommage](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#storage) pour les comptes de stockage Azure. Entrez un nom pour votre compte de stockage.
 
 5. Sélectionnez la région **USA Ouest** pour votre compte de stockage.
 
