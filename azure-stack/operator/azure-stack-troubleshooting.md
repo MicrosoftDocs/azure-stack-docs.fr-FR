@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 3c0b1ce32399b4739796b2718e97c69d96291dc6
-ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: 4c04eafab93da233859b5b67571b70899b081b95
+ms.sourcegitcommit: c583f19d15d81baa25dd49738d53d8fc01463bef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72445279"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73659231"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Résolution des problèmes de Microsoft Azure Stack
 
@@ -96,42 +96,6 @@ Vous pouvez utiliser PowerShell pour obtenir des informations sur l’utilisatio
 5. Extrayez le fichier seedring .zip afin d’obtenir le rapport de validation à partir du dossier ERCS dans lequel vous avez exécuté test-azurestack.
 
 Pour plus d’informations, consultez [Diagnostics Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems).
-
-## <a name="troubleshoot-deployment"></a>Résoudre les problèmes de déploiement 
-### <a name="general-deployment-failure"></a>Échec général du déploiement
-Si vous rencontrez un problème lors de l’installation, vous pouvez relancer le déploiement à partir de l’étape qui n’a pas abouti en utilisant l’option de réexécution du script de déploiement.  
-
-### <a name="template-validation-error-parameter-osprofile-is-not-allowed"></a>Le paramètre d’erreur de validation de modèle osProfile n’est pas autorisé
-
-Si vous recevez un message d’erreur pendant la validation du modèle et que le paramètre « osProfile » n’est pas autorisé, veillez à utiliser les versions appropriées des API pour ces composants :
-
-- [Calcul](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftcompute)
-- [Réseau](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
-
-Pour copier un disque dur virtuel d’Azure vers Azure Stack, utilisez [AzCopy 7.3.0](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#download-and-install-azcopy). Collaborez avec votre fournisseur pour résoudre les problèmes liés à l’image elle-même. Pour plus d’informations sur les exigences de WALinuxAgent pour Azure Stack, consultez [Agent Linux Azure](azure-stack-linux.md#azure-linux-agent).
-
-### <a name="deployment-fails-due-to-lack-of-external-access"></a>Le déploiement échoue en raison d’un manque d’accès externe
-Lorsque le déploiement échoue à des étapes où l’accès externe est nécessaire, une exception telle que l’exemple suivant est retournée :
-
-```
-An error occurred while trying to test identity provider endpoints: System.Net.WebException: The operation has timed out.
-   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.GetResponse(WebRequest request)
-   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.ProcessRecord()at, <No file>: line 48 - 8/12/2018 2:40:08 AM
-```
-Si cette erreur se produit, vérifiez que toutes les exigences réseau minimales ont été satisfaites en consultant la [documentation sur le trafic réseau lié au déploiement](deployment-networking.md). Un outil de vérification du réseau est également disponible pour les partenaires dans le cadre du Partner Toolkit.
-
-Les autres échecs de déploiement sont généralement dus à des problèmes de connexion aux ressources sur Internet.
-
-Pour vérifier la connectivité aux ressources sur Internet, vous pouvez effectuer les étapes suivantes :
-
-1. Ouvrez PowerShell.
-2. Entrez -PSSession sur la machine virtuelle WAS01 ou sur une des machines virtuelles ERC.
-3. Exécutez l’applet de commande suivante : 
-   ```powershell
-   Test-NetConnection login.windows.net -port 443
-   ```
-
-Si cette commande échoue, vérifiez que le commutateur TOR et tout autre périphérique réseau sont configurés pour [autoriser le trafic réseau](azure-stack-network.md).
 
 ## <a name="troubleshoot-virtual-machines"></a>Résoudre les problèmes liés aux machines virtuelles
 ### <a name="default-image-and-gallery-item"></a>Élément de la galerie et image par défaut

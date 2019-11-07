@@ -16,18 +16,18 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: a47bae619b2525534797158cf2660d5bc77192c9
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 2390f2c21325a059ea6f651e7fcd944d890bf307
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282612"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73594765"
 ---
 # <a name="advanced-asdk-evaluation-tasks"></a>Tâches d’évaluation avancées ASDK
 Une fois familiarisé avec les fonctionnalités de base du kit de développement Azure Stack (ASDK), vous pouvez approfondir vos connaissances d’Azure Stack en testant des scénarios plus avancés. Ces tâches d’évaluation plus avancées sont intégralement documentées dans la documentation destinée aux opérateurs Azure Stack.
 
 > [!NOTE]
-> Même si de nombreuses tâches d’opérateur sont prises en charge pour les kits ASDK ainsi que pour les déploiements de production et multinœuds d’Azure Stack, tous les scénarios d’utilisation ne sont pas pris en charge pour les déploiements du kit ASDK. Pour plus d’informations, consultez [Différences entre ASDK et les systèmes Azure Stack à plusieurs nœuds](asdk-what-is.md#asdk-and-multi-node-azure-stack-differences).
+> Même si de nombreuses tâches d’opérateur sont prises en charge pour les kits ASDK ainsi que pour les déploiements de production et multinœuds d’Azure Stack, tous les scénarios d’utilisation ne sont pas pris en charge pour les déploiements du kit ASDK. Pour plus d’informations, consultez [Différences entre ASDK et les systèmes Azure Stack à plusieurs nœuds](asdk-what-is.md#asdk-and-multi-node-azure-stack-hub-differences).
 
 ## <a name="delegate-offers-in-azure-stack"></a>Déléguer des offres dans Azure Stack
 En tant qu’opérateur Azure Stack, vous êtes souvent amené à confier à d’autres personnes la charge de créer des offres et d’inscrire les utilisateurs. Par exemple, si vous êtes un fournisseur de services et souhaitez que les revendeurs inscrivent les clients et les gèrent à votre place. Ou si vous faites partie d’un groupe informatique centralisé d’une entreprise, vous pouvez demander aux départements ou filiales d’inscrire les utilisateurs sans votre intervention.

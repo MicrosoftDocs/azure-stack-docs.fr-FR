@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2019
+ms.date: 11/06/2019
 ms.author: bryanla
-ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: b75c80ca79e2d7c3d2ab4b2003a841882fd20faa
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.lastreviewed: 11/06/2019
+ms.openlocfilehash: 7110febfa58fb1d31cde5f0ae1b4df659f567956
+ms.sourcegitcommit: 8203490cf3ab8a8e6d39b137c8c31e3baec52298
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159710"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73712731"
 ---
 # <a name="use-an-app-identity-to-access-resources"></a>Utiliser une identité d’application pour accéder aux ressources
 
@@ -122,7 +122,6 @@ Une fois que vous avez un certificat, utilisez le script PowerShell ci-dessous p
 
     # Register and set an AzureRM environment that targets your Azure Stack instance
     Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
-    Set-AzureRmEnvironment -Name "AzureStackUser" -GraphAudience $GraphAudience -EnableAdfsAuthentication:$true
 
     # Sign in using the new service principal identity
     $SpSignin = Connect-AzureRmAccount -Environment "AzureStackUser" `
@@ -233,7 +232,6 @@ Mettre à jour les informations d’identification du certificat à l’aide de 
 
      # Register and set an AzureRM environment that targets your Azure Stack instance
      Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
-     Set-AzureRmEnvironment -Name "AzureStackUser" -GraphAudience $GraphAudience -EnableAdfsAuthentication:$true
 
      # Sign in using the new service principal identity
      $securePassword = $SpObject.ClientSecret | ConvertTo-SecureString -AsPlainText -Force
