@@ -118,7 +118,7 @@ Dans ce scénario, vous pouvez déployer et configurer une machine virtuelle Win
 
 21. Une fois la machine virtuelle arrêtée (désallouée), sélectionnez **Réseau**, sélectionnez **Attacher l’interface réseau**, puis **vm001nic2**, puis cliquez sur **OK**. Vous allez ajouter une carte réseau supplémentaire à la machine virtuelle dans quelques instants.
 
-22. Dans le panneau **Mise en réseau **, sélectionnez l’onglet **vm001nic2**, puis sélectionnez **Interface réseau : vm001nic2**.
+22. Dans le panneau **Mise en réseau,** sélectionnez l’onglet **vm001nic2**, puis sélectionnez **Interface réseau : vm001nic2**.
 
 23. Dans le panneau de l’interface vm001nic, sélectionnez **Configurations IP**, puis dans le centre du panneau, sélectionnez **ipconfig1**.
 
@@ -150,7 +150,7 @@ Une fois que vous avez effectué la emis à jour et le redémarrage, vous pouvez
 
 6)  Sélectionnez **Partages**.
 
-7)  Dans la **zone Partages **, sélectionnez le lien **Pour créer un partage de fichiers, démarrez l’Assistant Nouveau partage**.
+7)  Dans la **zone Partages** , sélectionnez le lien **Pour créer un partage de fichiers, démarrez l’Assistant Nouveau partage**.
 
 8)  Dans la zone **Assistant Nouveau partage**, sélectionnez **Partage SMB – Rapide**, puis sélectionnez **Suivant** et passez en revue l’Assistant, en sélectionnant le volume **C:\\\\** .
 
