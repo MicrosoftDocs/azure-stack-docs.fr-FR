@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5d3d32df25aeba90ef065fc4363f0887dcbc36e5
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 87ba89298c0a5a134cb0b3b1a2b7e771151e46d9
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418354"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955904"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Surveiller et gérer les tests dans le portail VaaS
 
@@ -69,7 +69,7 @@ Chaque instance de test planifiée affiche les informations suivantes :
 | Colonne | Description |
 | --- | --- |
 | Nom du test | Le nom et la version du test. |
-| Catégorie | L’objectif du test. |
+| Category | L’objectif du test. |
 | Date de création | L’heure à laquelle le test a été planifié. |
 | Démarré | L’heure à laquelle l’exécution de la tâche a commencé. |
 | Duration | La durée d’exécution du test. |
@@ -92,7 +92,7 @@ Sélectionnez **Afficher les informations** dans le menu contextuel pour affiche
 | Nom du test | Nom du test. |
 | Test version (Version du test) | La version du test. |
 | Publisher | L’éditeur du test. |
-| Catégorie |  L’objectif du test. |
+| Category |  L’objectif du test. |
 | Target services (Services cibles) | Les services Azure Stack en cours de test. |
 | Description | Description du test. |
 | Estimated duration (minutes) (Durée estimée [en minutes]) | Le runtime attendu du test. |
