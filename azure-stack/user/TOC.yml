@@ -261,6 +261,8 @@
           href: azure-stack-network-howto-vnet-to-vnet-stacks.md
         - name: Étendre le centre de données
           href: azure-stack-network-howto-extend-datacenter.md
+        - name: Équilibreur de charge F5
+          href: network-howto-f5.md
         - name: Se connecter au stockage iSCSI
           href: azure-stack-network-howto-iscsi-storage.md
         - name: Configurer les tunnels
