@@ -15,12 +15,12 @@ ms.date: 10/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 3720781dc2545fefaff0b2cd703d7c3880c4b97b
-ms.sourcegitcommit: 83cef2c4ec6e1b2fd3f997c91675c1058a850e2f
+ms.openlocfilehash: 39eebfbc4d60d4cd68bb33d6efcf35cc12ffe313
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "72999898"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73594890"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack"></a>Mettre à niveau un cluster Kubernetes sur Azure Stack
 
@@ -28,9 +28,9 @@ ms.locfileid: "72999898"
 
 ## <a name="upgrade-a-cluster"></a>Mettre à niveau un cluster
 
-Le moteur AKS vous permet de mettre à niveau le cluster qui a été déployé à l’origine à l’aide de l’outil. Vous pouvez entretenir les clusters à l’aide du moteur AKS. Vos tâches de maintenance sont similaires à celles de tout système IaaS. Vous devez prendre connaissance de la disponibilité des nouvelles mises à jour et utiliser le moteur AKS pour les appliquer.
+Le moteur AKS vous permet de mettre à niveau le cluster initialement déployé à l'aide de l'outil. Vous pouvez gérer les clusters à l'aide du moteur AKS. Vos tâches de maintenance sont similaires à celles de tout système IaaS. Vous devez prendre connaissance de la disponibilité des nouvelles mises à jour et utiliser le moteur AKS pour les appliquer.
 
-La commande de mise à niveau met à jour la version de Kubernetes et l’image du système d’exploitation de base. Chaque fois que vous exécutez la commande de mise à niveau, pour chaque nœud du cluster, le moteur AKS crée une machine virtuelle à l’aide de l’image de base AKS associée à la version **aks_engine** utilisée. Vous pouvez utiliser la commande `aks-engine upgrade` pour conserver la devise de chaque nœud principal et nœud d'agent dans votre cluster. 
+La commande de mise à niveau met à jour la version de Kubernetes et l’image du système d’exploitation de base. Chaque fois que vous exécutez la commande de mise à niveau, pour chaque nœud du cluster, le moteur AKS crée une machine virtuelle à l'aide de l'image de base AKS associée à la version de **aks_engine** utilisée. Vous pouvez utiliser la commande `aks-engine upgrade` pour conserver la devise de chaque nœud principal et nœud d'agent dans votre cluster. 
 
 Microsoft ne gère pas votre cluster. Cela étant, Microsoft fournit l’outil et l’image de machine virtuelle que vous pouvez utiliser pour gérer votre cluster. 
 
@@ -43,7 +43,7 @@ Les mises à niveau d’un cluster déployé regroupent :
 Lors de la mise à niveau d’un cluster de production, tenez compte des points suivants :
 
 -   Utilisez-vous la spécification de cluster (`apimodel.json`) et le groupe de ressources adaptés au cluster cible ?
--   Utilisez-vous une machine fiable pour permettre à la machine cliente d’exécuter le moteur AKS et à partir de laquelle effectuer des opérations de mise à niveau ?
+-   Utilisez-vous une machine fiable pour permettre à la machine cliente d'exécuter le moteur AKS et à partir de laquelle effectuer des opérations de mise à niveau ?
 -   Veillez à disposer d’un cluster de sauvegarde et qu’il est opérationnel.
 -   Si possible, exécutez la commande à partir d’une machine virtuelle au sein de l’environnement Azure Stack pour réduire les tronçons réseau et les échecs de connectivité potentiels.
 -   Vérifiez que votre abonnement dispose de suffisamment d’espace pour l’ensemble du processus. De nouvelles machines virtuelles sont allouées pendant le processus.
@@ -110,12 +110,12 @@ Les instructions suivantes utilisent les étapes minimales pour effectuer la mis
     --identity-system adfs # required if using AD FS
     ```
 
-4.  Si, pour une raison ou une autre, l’opération de mise à niveau échoue, vous pouvez réexécuter la commande de mise à niveau après avoir résolu le problème. Le moteur AKS reprend l’opération là où elle a échoué la fois précédente.
+4.  Si, pour une raison ou une autre, l’opération de mise à niveau échoue, vous pouvez réexécuter la commande de mise à niveau après avoir résolu le problème. Le moteur AKS reprendra l'opération là où elle avait précédemment échoué.
 
 ## <a name="steps-to-only-upgrade-the-os-image"></a>Procédure de mise à niveau de l’image du système d’exploitation uniquement
 
 1. Examinez [la table supported-kubernetes-versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) afin de déterminer si vous disposez de la version aks-engine et de l'image de base AKS que vous envisagez pour votre mise à niveau. Pour afficher la version aks-engine, exécutez : `aks-engine version`.
-2. Mettez à niveau votre moteur AKS en conséquence sur la machine où vous avez installé aks-engine, exécutez : `./get-akse.sh --version vx.xx.x` en remplaçant **x.xx.x** par votre version ciblée.
+2. Mettez à niveau votre moteur AKS en conséquence et, sur la machine où vous avez installé aks-engine, exécutez : `./get-akse.sh --version vx.xx.x` en remplaçant **x.xx.x** par votre version ciblée.
 3. Demandez à votre opérateur Azure Stack d’ajouter la version de l’image de base AKS dont vous avez besoin dans la Place de marché Azure Stack que vous envisagez d’utiliser.
 4. Exécutez la commande `aks-engine upgrade` en utilisant la même version de Kubernetes qu'actuellement, mais ajoutez `--force`. Vous pouvez consulter un exemple dans [Forcer une mise à niveau](#forcing-an-upgrade).
 
@@ -141,5 +141,5 @@ Pour obtenir des instructions, consultez [Forcer la mise à niveau](https://gith
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur le [moteur AKS sur Azure Stack](azure-stack-kubernetes-aks-engine-overview.md)
+- En savoir plus sur [Le moteur AKS sur Azure Stack](azure-stack-kubernetes-aks-engine-overview.md)
 - [Mettre à l’échelle un cluster Kubernetes sur Azure Stack](azure-stack-kubernetes-aks-engine-scale.md)

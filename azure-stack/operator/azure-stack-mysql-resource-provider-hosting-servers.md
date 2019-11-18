@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 632528519bbca9286ab72fb806ee756ccdb6a166
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.lastreviewed: 11/06/2019
+ms.openlocfilehash: 509f6509b00a3bccd005fd93b69006ebbfd2f2f0
+ms.sourcegitcommit: 8203490cf3ab8a8e6d39b137c8c31e3baec52298
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682214"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73712720"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack"></a>Ajouter des serveurs d’hébergement MySQL sur Azure Stack
 
@@ -71,7 +71,7 @@ Assurez-vous de détenir les informations d’identification d’un compte dispo
 
 Les informations suivantes s’appliquent au fournisseur de ressources et aux serveurs d’hébergement MySQL :
 
-* Vérifiez que tous les serveurs d’hébergement sont configurés pour la communication à l’aide de TLS 1.2. Consultez [Configuring MySQL to Use Encrypted Connections](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html) (Configuration de MySQL pour utiliser des connexions chiffrées).
+* Vérifiez que tous les serveurs d'hébergement sont configurés pour la communication à l'aide de TLS 1.1. Consultez [Configuring MySQL to Use Encrypted Connections](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html) (Configuration de MySQL pour utiliser des connexions chiffrées).
 * Utilisez [Transparent Data Encryption](https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-data-encryption.html).
 * Le fournisseur de ressources MySQL ne prend pas en charge l’authentification caching_sha2_password.
 

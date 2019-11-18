@@ -1,28 +1,28 @@
 ---
-title: Sauvegarder des ressources à l’aide du réplicateur d'abonnements Azure Stack | Microsoft Docs
-description: Découvrez comment sauvegarder des ressources à l’aide du réplicateur d’abonnements Azure Stack.
+title: Répliquer des ressources sur plusieurs abonnements Azure Stack | Microsoft Docs
+description: Apprenez à répliquer des ressources à l'aide du jeu de scripts du réplicateur d'abonnements Azure Stack.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 10/29/2019
-ms.openlocfilehash: 97d8b417869faa84423df78bde4029b8d18f0741
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.lastreviewed: 10/30/2019
+ms.openlocfilehash: f468d28ae1642235735f4e1472a8aa84859dc6e6
+ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73168222"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73567777"
 ---
-# <a name="how-to-back-up-resources-using-the-azure-stack-subscription-replicator"></a>Sauvegarder des ressources à l’aide du réplicateur d’abonnements Azure Stack
+# <a name="how-to-replicate-resources-using-the-azure-stack-subscription-replicator"></a>Répliquer des ressources à l'aide du réplicateur d'abonnements Azure Stack
 
-Vous pouvez utiliser le script PowerShell du réplicateur d’abonnements Azure Stack pour copier les ressources entre les abonnements Azure Stack. Le script du réplicateur lit et regénère les ressources Azure Resource Manager à partir d’autres abonnements Azure et Azure Stack. Cet article décrit le fonctionnement du script, son utilisation et fournit une référence pour les opérations s'y rapportant.
+Vous pouvez utiliser le script PowerShell du réplicateur d'abonnements Azure Stack pour copier les ressources entre les abonnements Azure Stack, entre les tampons Azure Stack, ou entre Azure Stack et Azure. Le script du réplicateur lit et regénère les ressources Azure Resource Manager à partir d’autres abonnements Azure et Azure Stack. Cet article décrit le fonctionnement et l'utilisation du script, et fournit une référence pour les opérations qui s'y rapportent.
 
 ## <a name="subscription-replicator-overview"></a>Présentation du réplicateur d’abonnements
 
-Le réplicateur d’abonnements Azure (v3) a été conçu pour être modulaire. Cet outil utilise un processeur principal qui orchestre la réplication des ressources. En outre, l’outil prend en charge des processeurs personnalisables qui jouent le rôle de modèles pour la copie de différents types de ressources. 
+Le réplicateur d'abonnements Azure a été conçu pour être modulaire. Cet outil utilise un processeur principal qui orchestre la réplication des ressources. En outre, l’outil prend en charge des processeurs personnalisables qui jouent le rôle de modèles pour la copie de différents types de ressources. 
 
 Le processeur principal est constitué des trois scripts suivants :
 
@@ -56,7 +56,7 @@ La structure de fichiers du réplicateur contient un dossier nommé **Standardiz
 
 Le script **post-Process. ps1** doit nettoyer les fichiers de paramètres et créer les scripts dont l'utilisateur se servira pour déployer les nouvelles ressources. Lors de la phase de nettoyage, le script remplace toutes les références à l’ID d’abonnement source, à l’ID de locataire et à l’emplacement par les valeurs cibles correspondantes. Il génère ensuite le fichier de paramètres dans le dossier **Parameter_Files**. Puis, il détermine si la ressource en cours de traitement utilise un modèle Azure Resource Manager personnalisé et génère le code de déploiement correspondant, qui utilise cmdlet **New-AzureRmResourceGroupDeployment**. Le code de déploiement est ensuite ajouté au fichier nommé **DeployResources. ps1** stocké dans le dossier **Deployment_Files**. Enfin, le script détermine le groupe de ressources auquel appartient la ressource et vérifie le script **DeployResourceGroups. ps1** pour vérifier si le code permettant de déployer ce groupe de ressources existe déjà. Si ce n’est pas le cas, il ajoute le code à ce script pour déployer le groupe de ressources, sinon il ne fait rien.
 
-### <a name="dynamic-api-retrieval"></a>Récupération d’API dynamique
+### <a name="dynamic-api-retrieval"></a>Récupération d'API dynamique
 
 L’outil est doté d'une fonctionnalité de récupération d’API dynamique afin de permettre l'utilisation de la dernière version de l’API du fournisseur de ressources disponible dans l’abonnement source pour déployer les ressources dans l’abonnement cible :
 
@@ -70,18 +70,18 @@ Il est toutefois possible que la version de l’API du fournisseur de ressources
 
 L’outil nécessite un paramètre nommé **parallel**. Ce paramètre utilise une valeur booléenne qui indique si les ressources récupérées doivent être ou non déployées en parallèle. Si cette valeur est définie sur **true**, chaque appel à **New-AzureRmResourceGroupDeployment** porte l'indicateur **-asJob** et des blocs de code visant à attendre la fin des travaux parallèles sont ajoutés entre les déploiements des ensembles de ressources en fonction du type de ces dernières. Ainsi, toutes les ressources d’un type donné sont déployées préalablement au déploiement du type de ressource suivant. Si la valeur du paramètre **parallel** est définie sur **false**, les ressources sont déployées en série.
 
-## <a name="adding-additional-resource-types"></a>Ajout de types de ressources supplémentaires
+## <a name="add-additional-resource-types"></a>Ajout de types de ressources supplémentaires
 
 L’ajout de nouveaux types de ressources est simple. Le développeur doit créer un processeur personnalisé, ainsi qu'un modèle Azure Resource Manager ou un générateur de modèles Azure Resource Manager. Ensuite, le développeur doit ajouter le type de ressource à ValidateSet pour le paramètre **$resourceType** et le groupe **$resourceTypes** dans resource_retriever. ps1. L’ajout du type de ressource au groupe **$resourceTypes** doit se faire dans l'ordre qui convient. L’ordre du groupe détermine l’ordre dans lequel les ressources sont déployées et dès lors, il convient de prendre en compte les dépendances. Enfin, si le processeur personnalisé utilise un générateur de modèles Azure Resource Manager, ils doivent ajouter le nom du type de ressource au groupe **$customTypes** dans **post_process.ps1**.
 
-## <a name="running-azure-subscription-replicator"></a>Exécution du réplicateur d’abonnements Azure
+## <a name="run-azure-subscription-replicator"></a>Exécution du réplicateur d'abonnements Azure
 
 Pour exécuter le réplicateur d'abonnements Azure (v3), vous devez lancer resource_retriever. ps1, en fournissant tous les paramètres. Pour le paramètre **resourceType**, une option permet de choisir **Tous** plutôt qu’un seul type de ressource. Si **Tous** est sélectionné, resource_retriever. ps1 traite toutes les ressources dans un certain ordre afin de faire en sorte qu'une fois le déploiement exécuté, les ressources dépendantes soient déployées en premier. Par exemple, les réseaux virtuels sont déployés avant les machines virtuelles car le déploiement de ces dernières requiert un réseau virtuel.
 
 Une fois l’exécution du script terminée, trois nouveaux dossiers sont créés : **Deployment_Files**, **Parameter_Files** et **Custom_ARM_Templates**.
 
  > [!Note]  
- > Avant d’exécuter l’un des scripts générés, vous devez définir l’environnement qui convient, vous connecter à l’abonnement cible (dans le nouveau Azure Stack, par exemple) et définir le répertoire de travail sur le dossier **Deployment_Files**.
+ > Avant d'exécuter l'un des scripts générés, vous devez définir l'environnement qui convient, vous connecter à l'abonnement cible (dans la nouvelle instance d'Azure Stack, par exemple) et définir le répertoire de travail sur le dossier **Deployment_Files**.
 
 Deployment_Files contient les deux fichiers **DeployResourceGroups.ps1** et **DeployResources.ps1**. L’exécution de DeployResourceGroups. ps1 déploie les groupes de ressources. L’exécution de DeployResources. ps1 déploie toutes les ressources traitées. Si l’outil a été exécuté avec **Tous** ou **Microsoft.Compute/virtualMachines** en tant que type de ressource, DeployResources.ps1 invite l’utilisateur à entrer un mot de passe d’administrateur de machine virtuelle qui sera utilisé pour créer toutes les machines virtuelles.
 
@@ -89,37 +89,20 @@ Deployment_Files contient les deux fichiers **DeployResourceGroups.ps1** et **De
 
 1.  Exécutez le script.
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image2.png)
+    ![Exécutez le script](./media/azure-stack-network-howto-backup-replicator/image2.png)
 
-1.  Attendez que le script s’exécute.
+    > [!Note]  
+    > N'oubliez pas de configurer l'environnement source et le contexte de l'abonnement pour l'instance PS. 
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image3.png)
+2.  Examinez les dossiers nouvellement créés :
 
-1.  Examinez les dossiers nouvellement créés :
+    ![Examinez les dossiers](./media/azure-stack-network-howto-backup-replicator/image4.png)
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image4.png)
+3.  Définissez le contexte sur l'abonnement cible, remplacez le dossier par **Deployment_Files**, déployez les groupes de ressources, puis lancez le déploiement des ressources.
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image5.png)
+    ![Configurez et démarrez le déploiement](./media/azure-stack-network-howto-backup-replicator/image6.png)
 
-1.  Définissez le contexte sur l’abonnement cible.
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image6.png)
-
-1.  Entrez `cd` pour sélectionner le dossier **Deployment_Files**.
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image7.png)
-
-1.  Exécutez `DeployResourceGroups.ps1` pour déployer les groupes de ressources.
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image8.png)
-
-1.  Exécutez `DeployResources.ps1` pour déployer les ressources.
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image9.png)
-
-1.  Exécutez `Get-Job` pour vérifier l'état. Get-Job | Receive-Job renverront les résultats.
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image10.png)
+4.  Exécutez `Get-Job` pour vérifier l'état. Get-Job | Receive-Job renverront les résultats.
 
 ## <a name="clean-up"></a>Nettoyer
 
@@ -187,16 +170,18 @@ Si l'outil est exécuté avec le type de ressource **Tous**, l’ordre ci-dessou
             - Configuration du groupe de sécurité réseau  
             - Configuration du groupe à haute disponibilité  
 
-            > ![Note]  
-            > Only creates managed disks for OS disk and data disks, no support for using storage accounts currently
+> [!Note]  
+> Crée uniquement des disques managés pour le disque du système d'exploitation et les disques de données. L'utilisation de comptes de stockage n'est actuellement pas prise en charge. 
 
 ### <a name="limitations"></a>Limites
 
 L’outil peut répliquer les ressources d’un abonnement à un autre dans la mesure où les fournisseurs de ressources de l’abonnement cible prennent en charge toutes les ressources et options répliquées à partir de l’abonnement source.
 
-Pour garantir la réussite de la réplication, assurez-vous que les versions du fournisseur de ressources de l’abonnement cible correspondent à celles de l’abonnement source.
+Pour garantir la réussite de la réplication, assurez-vous que les versions des fournisseurs de ressources de l'abonnement cible correspondent à celles de l'abonnement source.
 
 En cas de réplication d’une instance Azure commerciale vers une autre instance Azure commerciale ou d’un abonnement d'une instance Azure Stack vers un autre abonnement de la même instance Azure Stack, la réplication des comptes de stockage entraîne des problèmes. En effet, les noms des comptes de stockage doivent être uniques dans toutes les instances Azure commerciales ou dans tous les abonnements d'une région/instance Azure Stack. La réplication de comptes de stockage entre les différentes instances Azure Stack aboutit car elles correspondent à des régions/instances distinctes.
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
