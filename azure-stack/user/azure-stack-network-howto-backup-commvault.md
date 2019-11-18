@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 10/19/2019
+ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 553b6af0e61067b4223baee100bd1a9b3079d1f1
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.lastreviewed: 10/30/2019
+ms.openlocfilehash: 4294f7f1d53f77c55532645de428678cf42be531
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73168528"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618284"
 ---
 # <a name="back-up-your-vm-on-azure-stack-with-commvault"></a>Sauvegarder votre machine virtuelle sur Azure Stack avec CommVault
 
@@ -149,7 +149,7 @@ Vous devez savoir si votre gestionnaire d’identité est Azure AD ou AD DFS. Le
 
 9. Entrez les informations d’accès à votre compte de stockage. Vous trouverez des instructions sur la configuration d’un compte de stockage Azure ici. Informations d’accès :
 
-    -  **Hôte de service** : Récupérez le nom de l’URL à partir des propriétés du conteneur de blobs dans votre ressource. Par exemple, mon URL était https://backuptest.blob.westus.stackpoc.com/mybackups et j’ai utilisé blob.westus.stackpoc.com dans l’hôte Service.
+    -  **Hôte de service** : Récupérez le nom de l’URL à partir des propriétés du conteneur de blobs dans votre ressource. Par exemple, mon URL était https:\//backuptest.blob.westus.stackpoc.com/mybackups et j’ai utilisé blob.westus.stackpoc.com dans l’hôte Service.
     
     -   **Nom du compte** : utilisez le nom du compte de stockage. Vous pouvez le trouver dans le panneau Clés d’accès de la ressource de stockage.
     

@@ -14,12 +14,12 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: cc432538715c1c990a9efe6473b33303deb78734
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: a70eaaf46988524f5323052a3f2ca90f5b7719e1
+ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72280552"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73636812"
 ---
 # <a name="configure-the-time-server-for-azure-stack"></a>Configurer le serveur de temps pour Azure Stack
 
@@ -29,7 +29,10 @@ Vous pouvez utiliser le point de terminaison privilégié pour mettre à jour le
 
 Azure Stack utilise le protocole NTP (Network Time Protocol) pour se connecter aux serveurs de temps sur Internet. Les serveurs NTP fournissent une heure système précise. L’heure est utilisée sur les commutateurs réseau physiques d’Azure Stack, sur l’hôte de cycle de vie du matériel, sur le service d’infrastructure et sur les machines virtuelles. Si l’horloge n’est pas synchronisée, Azure Stack risque de rencontrer des problèmes graves avec le réseau et l’authentification. Des fichiers journaux, des documents et d’autres fichiers peuvent être créés avec des horodatages incorrects.
 
-Au moins un serveur de temps (NTP) est nécessaire pour qu’Azure Stack synchronise l’heure. Quand vous déployez Azure Stack, vous fournissez l’adresse d’un serveur NTP. L’heure est un service d’infrastructure de centre de données critique. Si le service change, vous devez mettre à jour l’heure.
+Au moins un serveur de temps (NTP) est requis pour qu’Azure Stack synchronise l’heure. Quand vous déployez Azure Stack, vous fournissez l’adresse d’un serveur NTP. L’heure est un service d’infrastructure de centre de données critique. Si le service change, vous devez mettre à jour l’heure.
+
+> [!NOTE]
+> Azure Stack prend en charge la synchronisation de l’heure avec un seul serveur de temps (NTP). Vous ne pouvez pas fournir plusieurs serveurs de temps avec lesquels Azure Stack synchronise l’heure.
 
 ## <a name="configure-time"></a>Configurer l’heure
 

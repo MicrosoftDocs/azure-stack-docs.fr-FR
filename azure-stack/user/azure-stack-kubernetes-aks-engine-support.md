@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 6a9ce8551975ccc98bb6e47bfa07b703dfdd341c
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: 8c83e0b006904482634e50bdf217ec5d236e4e5c
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064948"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73594955"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack"></a>Stratégies de support pour le moteur AKS sur Azure Stack
 
@@ -29,7 +29,7 @@ ms.locfileid: "73064948"
 Cet article fournit des informations sur les stratégies de support technique et les limitations pour le moteur AKS sur Azure Stack. L’article décrit également l’élément Kubernetes de la Place de marché, des composants open source tiers et la gestion de la sécurité ou des correctifs. 
 
 > [!IMPORTANT]
-> Le moteur AKS est actuellement en préversion publique.
+> Le moteur AKS est actuellement disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="self-managed-kubernetes-clusters-on-azure-stack-with-aks-engine"></a>Clusters Kubernetes automanagés sur Azure Stack avec le moteur AKS
@@ -94,7 +94,7 @@ Microsoft n’assure pas de support technique pour les éléments suivants :
 
 -  Modifications de configuration Kubernetes conservées en dehors du magasin de configuration Kubernetes etcd. Par exemple, les pods statiques s’exécutant dans des nœuds du cluster.
 -  Questions sur l’utilisation de Kubernetes. Par exemple, le Support Microsoft ne fournit pas de conseils sur la façon dont les contrôleurs d’entrée doivent être créés, sur l’utilisation des charges de travail d’application ou sur l’application d’outils ou de packages logiciels open source ou tiers.
--  Projets open source tiers non fournis dans le cadre du cluster Kubernetes déployé par le moteur AKS. Ces projets peuvent inclure Kubeadm, Kubespray, Native, Istio, Helm, Envoy, etc.
+-  Projets open source tiers non fournis avec le cluster Kubernetes déployé par le moteur AKS. Ces projets peuvent inclure Kubeadm, Kubespray, Native, Istio, Helm, Envoy, etc.
 -  Utilisation du moteur AKS dans des cas d’usage autres que ceux spécifiés dans [Scénarios pris en charge avec le moteur AKS](azure-stack-kubernetes-aks-engine-overview.md#supported-scenarios-with-the-aks-engine).
 -  Logiciels tiers. Ces logiciels peuvent inclure des outils d’analyse de sécurité et des logiciels ou appareils réseau.
 -  Problèmes de solutions multifournisseur ou multicloud. Par exemple, Microsoft n’assure pas le support des problèmes liés à l’exécution d’une solution de fournisseur cloud multipublic fédérée.
@@ -106,7 +106,7 @@ Si un défaut de sécurité se trouve dans un ou plusieurs composants du moteur 
 
 ## <a name="kubernetes-marketplace-item"></a>Élément Kubernetes de la Place de marché
 
-Les utilisateurs peuvent télécharger un élément Kubernetes de la Place de marché, qui leur permet de déployer indirectement des clusters Kubernetes à l’aide du moteur AKS par le biais d’un modèle dans le portail de l’utilisateur Azure Stack, ce qui s’avère plus simple que d’utiliser directement le moteur AKS. Cet outil permet de configurer rapidement des clusters à des fins de démonstration, de test et de développement. Il n’est pas destiné à la production et n’est donc pas inclus dans l’ensemble d’éléments pris en charge par Microsoft.
+Les utilisateurs peuvent télécharger un élément Kubernetes de la Place de marché, qui leur permet de déployer indirectement des clusters Kubernetes à l’aide du moteur AKS par le biais d’un modèle dans le portail utilisateur Azure Stack, ce qui s’avère plus simple que d’utiliser directement le moteur AKS. Cet outil permet de configurer rapidement des clusters à des fins de démonstration, de test et de développement. Il n’est pas destiné à la production et n’est donc pas inclus dans l’ensemble d’éléments pris en charge par Microsoft.
 
 ## <a name="preview-features"></a>Fonctionnalités de préversion
 
@@ -114,4 +114,4 @@ Pour les fonctionnalités et fonctions qui exigent des tests étendus et des com
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur le [moteur AKS sur Azure Stack](azure-stack-kubernetes-aks-engine-overview.md)
+- En savoir plus sur [Le moteur AKS sur Azure Stack](azure-stack-kubernetes-aks-engine-overview.md)

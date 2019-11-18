@@ -14,12 +14,12 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 2fee81a79b58294a9c43f8d550f139157cb64a9b
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: efea925c421a031206ac33b49a13bd486bab1eea
+ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283568"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73636885"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Connexion d’Azure Stack à Azure à l’aide d’Azure ExpressRoute
 
@@ -62,7 +62,7 @@ L’illustration suivante montre les environnements Azure Stack et Azure une foi
 
 ![Réseau ExpressRoute](media/azure-stack-connect-expressroute/Conceptual.png)
 
-L’illustration suivante montre comment plusieurs locataires se connectent à Azure depuis l’infrastructure Azure Stack par le biais du routeur ExpressRoute au niveau de la périphérie Microsoft :
+L’illustration suivante montre comment plusieurs locataires se connectent à Azure à partir de l’infrastructure Azure Stack, par le biais du routeur ExpressRoute :
 
 ![Connexions d’architecture mutualisées avec ExpressRoute](media/azure-stack-connect-expressroute/Architecture.png)
 
@@ -610,4 +610,4 @@ Si vous souhaitez connaître le volume de trafic qui transite via votre connexio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Déployer des applications sur Azure et Azure Stack](../user/azure-stack-solution-pipeline.md )
+[Déployer des applications sur Azure et Azure Stack](../user/azure-stack-solution-pipeline.md)

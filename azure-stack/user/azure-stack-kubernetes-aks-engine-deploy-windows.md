@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: c646f8229b5360aed12c9cd8070a00bf38ca3e01
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: b9dd45b6ea7fdfaab1b1e7418800dcd2031dc151
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167306"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595187"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack"></a>Installer le moteur AKS sur Windows dans Azure Stack
 
@@ -46,11 +46,11 @@ Vous pouvez installer la machine virtuelle cliente pour gérer votre cluster Kub
 3. [Installez Chocolatey en suivant les instructions PowerShell](https://chocolatey.org/install#install-with-powershellexe). 
 
     Selon le site web de Chocolatey : Chocolatey est un gestionnaire de package pour Windows, comme apt-get ou yum mais pour Windows. Il a été conçu pour servir de framework décentralisé afin d’installer rapidement les applications et outils dont vous avez besoin. Il s’appuie sur l’infrastructure NuGet qui utilise actuellement PowerShell en priorité pour remettre les packages des distributions à votre porte, erreur, ordinateur.
-4. Recherchez la version du moteur AKS dans le tableau [Versions de Kubernetes prises en charge](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions). Le moteur de base AKS doit être disponible dans votre Place de marché Azure Stack. Lors de l’exécution de la commande, vous devez spécifier la version `--version v0.41.2`. Si vous ne spécifiez pas la version, la commande installe la version la plus récente, qui nécessite peut-être une image de disque dur virtuel non disponible dans votre place de marché.
+4. Recherchez la version du moteur AKS dans le tableau [Versions de Kubernetes prises en charge](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions). Le moteur de base AKS doit être disponible dans votre Place de marché Azure Stack. Lors de l’exécution de la commande, vous devez spécifier la version `--version v0.43.0`. Si vous ne spécifiez pas la version, la commande installe la version la plus récente, qui nécessite peut-être une image de disque dur virtuel non disponible dans votre place de marché.
 5. Exécutez la commande suivante à partir d’une invite avec élévation de privilèges et incluez le numéro de version :
 
     ```PowerShell  
-        choco install aks-engine --version 0.41.2 -y
+        choco install aks-engine --version 0.43.0 -y
     ```
 
 > [!Note]  
@@ -75,7 +75,7 @@ Vous pouvez installer la machine virtuelle cliente pour gérer votre cluster Kub
 7.  Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges. Incluez le numéro de version approprié :
 
     ```PowerShell  
-        choco install aks-engine --version v0.41.2 -y
+        choco install aks-engine --version 0.43.0 -y
     ```
 
 ## <a name="verify-the-installation"></a>Vérifier l’installation
