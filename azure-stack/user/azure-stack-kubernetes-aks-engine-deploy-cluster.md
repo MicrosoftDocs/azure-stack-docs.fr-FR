@@ -1,6 +1,6 @@
 ---
 title: Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack | Microsoft Docs
-description: Comment déployer un cluster Kubernetes sur Azure Stack à partir d’une machine virtuelle cliente exécutant le moteur AKS.
+description: Découvrez comment déployer un cluster Kubernetes sur Azure Stack à partir d’une machine virtuelle cliente exécutant le moteur AKS.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,12 +15,12 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: 933a2a0bc37be4c5a1b5c92fd334917668761879
-ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
+ms.openlocfilehash: e4f10cb3e5d96942e5fe32b0d8fe3a04cf921521
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72780448"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595201"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack
 
@@ -54,7 +54,7 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
     > [!Note]  
     > Si vous n’avez pas installé nano, vous pouvez le faire sur Ubuntu : `sudo apt-get install nano`.
 
-3.  Dans le fichier kubernetes-azurestack.JSON, recherchez `orchestratorRelease`. Sélectionnez l’une des versions de Kubernetes prises en charge. Exemples : 1.11, 1.12, 1.13, 1.14. Les versions sont souvent des mises à jour. Spécifiez la version sous la forme x.xx plutôt que x.xx.x. Pour obtenir la liste des versions actuelles, consultez [Versions de Kubernetes prises en charge](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions). Vous pouvez déterminer la version prise en charge en exécutant la commande de moteur AKS suivante :
+3.  Dans le fichier kubernetes-azurestack.JSON, recherchez `orchestratorRelease`. Sélectionnez l’une des versions de Kubernetes prises en charge. Exemples : 1.14, 1.15. Les versions sont souvent des mises à jour. Spécifiez la version sous la forme x.xx plutôt que x.xx.x. Pour obtenir la liste des versions actuelles, consultez [Versions de Kubernetes prises en charge](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions). Vous pouvez déterminer la version prise en charge en exécutant la commande de moteur AKS suivante :
 
     ```bash
     aks-engine get-versions
@@ -196,4 +196,4 @@ Vérifiez votre cluster en déployant mysql avec Helm pour contrôler votre clus
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Résoudre les problème du moteur AKS sur Azure Stack](azure-stack-kubernetes-aks-engine-troubleshoot.md)
+> [Résoudre les problèmes du moteur AKS sur Azure Stack](azure-stack-kubernetes-aks-engine-troubleshoot.md)

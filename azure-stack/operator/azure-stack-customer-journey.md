@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: fdb0f9a34fe40b3d3fef6abf96b9e1a6927b04e6
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 6ea5248881e10ca9e96ba423ecb4ea5569f00211
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909304"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618253"
 ---
 # <a name="azure-stack-datacenter-integration-walkthrough"></a>Procédure pas à pas d’intégration d’Azure Stack à un centre de données
 
@@ -29,12 +29,49 @@ Cet article décrit l’expérience utilisateur Azure Stack de bout en bout, de 
 
 En tant que client Azure Stack, vous devez anticiper les phases suivantes :
 
-|     |Phase de planification|Processus de commande|Prédéploiement|Processus en usine|Livraison de matériel|Déploiement local|
-|-----|-----|-----|-----|-----|-----|-----|
-|**Microsoft**|Collaborer avec le partenaire afin de fournir un support prévente.|Préparer les licences de logiciels et les contrats en fonction des besoins.|Fournir les outils requis pour recueillir les exigences d’intégration de centre de données et fournir la documentation au client.|Fournir chaque mois les builds de ligne de base et mises à jour de chaîne d’outils les plus récentes.|N/A|Les ingénieurs du support technique Microsoft fournissent une assistance en cas de problème de déploiement.|
-|**Partenaire**|Recommander des options de solution en fonction des exigences du client.<br><br>Proposer une preuve de concept si nécessaire.<br><br>Établir une relation commerciale.<br><br>Choisir le niveau de support.|Préparer les contrats nécessaires avec le client.<br><br>Créer un bon de commande client.<br><br>Décider de la chronologie de livraison.<br><br>Mettre le client en rapport avec Microsoft si nécessaire.|Fournir au client la formation nécessaire pour garantir une bonne compréhension de toutes les options d’intégration au centre de données et de tous les prérequis du déploiement.<br><br>Aider le client avec la validation des données recueillies afin de garantir leur exhaustivité et leur exactitude.|Appliquer la dernière build de ligne de base validée.<br><br>Appliquer la boîte à outils de déploiement Microsoft nécessaire.|Livrer le matériel au site du client.|Déploiement géré par un ingénieur sur site.<br><br>Montage en rack et empilement.<br><br>Déploiement de l’hôte du cycle de vie du matériel.<br><br>Déploiement d’Azure Stack.<br><br>Remise au client.|
-|**Client**|Décrire les cas d’utilisation prévue et spécifier les exigences.|Déterminer le modèle de facturation à utiliser, passer en revue et approuver les contrats.|Renseigner la [feuille de calcul de déploiement](azure-stack-deployment-worksheet.md) et vérifier que tous les prérequis au déploiement sont satisfaits et prêts pour le déploiement.|N/A|Préparer le centre de données en vérifiant que toutes les spécifications pour l’intégration du centre de données, comme l’alimentation, le refroidissement et la connectivité périphérique, sont en place.|Être disponible pendant le déploiement pour fournir les informations d’identification de l’abonnement et un support en cas de question sur les données fournies.|
-| | | | | | | |
+# <a name="customertabcustomer"></a>[Client](#tab/customer)
+
+1. Décrire les cas d’utilisation prévue et spécifier les exigences.
+2. Déterminer le modèle de facturation à utiliser, passer en revue et approuver les contrats.
+3. Renseigner la [feuille de calcul de déploiement](azure-stack-deployment-worksheet.md) et vérifier que tous les prérequis au déploiement sont satisfaits et prêts pour le déploiement.
+4. Préparer le centre de données en vérifiant que toutes les spécifications pour l’intégration du centre de données, comme l’alimentation, le refroidissement et la connectivité périphérique, sont en place.
+5. Être disponible pendant le déploiement pour fournir les informations d’identification de l’abonnement et un support en cas de question sur les données fournies.
+
+# <a name="partnertabpartner"></a>[Partenaire](#tab/partner)
+
+1. Phase de planification :
+   - Recommander des options de solution en fonction des exigences du client.
+   - Proposer une preuve de concept si nécessaire.
+   - Établir une relation commerciale.
+   - Choisir le niveau de support.
+2. Processus de commande :
+   - Préparer les contrats nécessaires avec le client.
+   - Créer un bon de commande client.
+   - Décider de la chronologie de livraison.
+   - Mettre le client en rapport avec Microsoft si nécessaire.
+3. Prédéploiement
+   - Fournir au client la formation nécessaire pour garantir une bonne compréhension de toutes les options d’intégration au centre de données et de tous les prérequis du déploiement.
+   - Aider le client avec la validation des données recueillies afin de garantir leur exhaustivité et leur exactitude.
+4. Processus en usine
+   - Appliquer la dernière build de ligne de base validée.
+   - Appliquer la boîte à outils de déploiement Microsoft nécessaire.
+5. Livraison de matériel :
+   - Livrer le matériel au site du client.
+6. Déploiement local
+   - Déploiement géré par un ingénieur sur site.
+   - Montage en rack et empilement.
+   - Déploiement de l’hôte du cycle de vie du matériel.
+   - Déploiement d’Azure Stack.
+   - Remise au client.
+
+# <a name="microsofttabmicro"></a>[Microsoft](#tab/micro)
+
+1. Collaborer avec le partenaire afin de fournir un support prévente.
+2. Préparer les licences de logiciels et les contrats en fonction des besoins.
+3. Fournir les outils requis pour recueillir les exigences d’intégration de centre de données et fournir la documentation au client.
+4. Fournir chaque mois les builds de ligne de base et mises à jour de chaîne d’outils les plus récentes.
+5. Les ingénieurs du support technique Microsoft fournissent une assistance en cas de problème de déploiement.
+
 
 
 ## <a name="planning-phase"></a>Phase de planification

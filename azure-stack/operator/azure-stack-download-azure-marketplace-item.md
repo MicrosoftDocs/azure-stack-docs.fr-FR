@@ -16,12 +16,12 @@ ms.date: 10/10/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 91314fcd33d3b4171dc7e9a3e2d78cdf07e2f50e
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 095744322937a34dffd680b886fd4b06ca65d7d6
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283560"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618278"
 ---
 # <a name="download-existing-marketplace-items-from-azure-and-publish-to-azure-stack"></a>Télécharger des éléments existants de la Place de marché Azure et les publier sur Azure Stack
 
@@ -101,7 +101,7 @@ Ce scénario comporte deux parties :
 
 Une fois que vous vous êtes inscrit, vous pouvez ignorer le message suivant qui apparaît dans le panneau Gestion de la Place de marché, car cela n’est pas pertinent pour l’utilisation en mode déconnecté :
 
-[![Message de non-inscription](media/azure-stack-download-azure-marketplace-item/toolsmsgsm.png "Message de non-inscription")](media/azure-stack-download-azure-marketplace-item/toolsmsg.png#lightbox)
+[![Message non inscrit](media/azure-stack-download-azure-marketplace-item/toolsmsgsm.png "Message non inscrit")](media/azure-stack-download-azure-marketplace-item/toolsmsg.png#lightbox)
 
 ### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Utiliser l’outil de syndication Place de marché pour télécharger les éléments de la Place de marché
 
@@ -152,7 +152,7 @@ Une fois que vous vous êtes inscrit, vous pouvez ignorer le message suivant qui
 
    [![Fenêtre contextuelle des éléments de la Place de marché Azure](media/azure-stack-download-azure-marketplace-item/image05.png "Éléments de la Place de marché Azure")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
 
-7. Si vous n’avez pas installé les outils de Stockage Azure, vous recevez le message suivant. Pour pouvoir installer ces outils, veillez à télécharger [AzCopy ](/azure/storage/common/storage-use-azcopy#download-and-install-azcopy-on-windows) :
+7. Si vous n’avez pas installé les outils de Stockage Azure, vous recevez le message suivant. Pour pouvoir installer ces outils, veillez à télécharger [AzCopy ](/azure/storage/common/storage-use-azcopy#download-azcopy) :
 
    ![Outils de stockage](media/azure-stack-download-azure-marketplace-item/vmnew1.png)
 

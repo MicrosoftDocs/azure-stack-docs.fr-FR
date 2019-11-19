@@ -1,6 +1,6 @@
 ---
 title: Résoudre les problèmes du moteur AKS sur Azure Stack | Microsoft Docs
-description: Cet article contient les étapes de résolution des problèmes pour le moteur AKS sur Azure Stack.
+description: Cet article présente les étapes de résolution des problèmes liés au moteur AKS sur Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 49684cb1821a5014e984a8e177f881be13123829
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: 7c2dfd33db3847f386136922716b0ee35c61ce75
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047142"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595286"
 ---
-# <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Résoudre les problème du moteur AKS sur Azure Stack
+# <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Résoudre les problèmes du moteur AKS sur Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -36,7 +36,7 @@ Vous pouvez rencontrer un problème lors du déploiement ou de l’utilisation d
 
 ### <a name="try-gofish"></a>Essayer GoFish
 
-Si la procédure d’installation échoue, tentez une installation à l’aide du gestionnaire de package GoFish. [GoFish](https://gofi.sh) se présente comme un Homebrew multiplateforme.
+En cas d’échec des étapes d'installation précédentes, vous pouvez installer le moteur AKS à l’aide du gestionnaire de package GoFish. [GoFish](https://gofi.sh) se présente comme un Homebrew multiplateforme.
 
 #### <a name="install-the-aks-engine-with-gofish-on-linux"></a>Installer le moteur AKS avec GoFish sur Linux
 
@@ -62,7 +62,7 @@ Installez GoFish à partir de la page [Installation](https://gofi.sh/#install).
 
     ```PowerShell
     Set-ExecutionPolicy Bypass -Scope Process -Force
-iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/fishworks/gofish/master/scripts/install.ps1'))
+    iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/fishworks/gofish/master/scripts/install.ps1'))
     ```
 
 2.  Exécutez la commande suivante dans la même session pour installer le moteur AKS avec GoFish :
@@ -73,7 +73,7 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercon
 
 ### <a name="checklist-for-common-deployment-issues"></a>Liste de contrôle des problèmes de déploiement courants
 
-Quand vous rencontrez des erreurs lors du déploiement d’un cluster Kubernetes à l’aide du moteur AKS, vous pouvez vérifier les points suivants :
+En cas d'erreurs lors du déploiement d’un cluster Kubernetes à l’aide du moteur AKS, vous pouvez vérifier les points suivants :
 
 1.  Utilisez-vous les bonnes informations d’identification du principal du service (SPN) ?
 2.  Le SPN joue-t-il un rôle de contributeur pour l’abonnement Azure Stack ?
@@ -126,8 +126,8 @@ Requirements:
     ```bash  
     mkdir -p $HOME/kuberneteslogs
     cd $HOME/kuberneteslogs
-    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.0/diagnosis.tar.gz
-    tar xvzf diagnosis.tar.gz -C ./
+    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.1/diagnosis-v0.1.1.tar.gz
+    tar xvf diagnosis-v0.1.1.tar.gz -C ./
     ```
 
 2. Recherchez les paramètres exigés par le script `getkuberneteslogs.sh`. Le script utilise les paramètres suivants :
@@ -174,7 +174,7 @@ Votre opérateur peut combiner les journaux que vous avez générés avec les au
 
 Si vous ne parvenez pas à corriger votre erreur de déploiement, vous pouvez ouvrir un problème GitHub. 
 
-1. Ouvrez un [problème GitHub](https://github.com/Azure/aks-engine/issues/new) dans le dépôt du moteur AKS.
+1. Ouvrez un [problème GitHub](https://github.com/Azure/aks-engine/issues/new) dans le référentiel du moteur AKS.
 2. Ajoutez un titre au format suivant : C`SE error: exit code <INSERT_YOUR_EXIT_CODE>`.
 3. Incluez les informations suivantes dans le problème :
 
