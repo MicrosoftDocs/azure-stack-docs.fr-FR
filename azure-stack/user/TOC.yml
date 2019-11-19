@@ -213,6 +213,8 @@
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
                     - name: Résoudre les problèmes du moteur AKS
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
+                    - name: Utiliser Azure Monitor pour conteneurs
+                      href: kubernetes-aks-engine-azure-monitor.md
                 - name: Article de la Place de marché
                   items:
                     - name: "Déployer un cluster\_Kubernetes"
