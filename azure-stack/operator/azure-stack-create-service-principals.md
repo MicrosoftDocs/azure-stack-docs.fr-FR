@@ -1,28 +1,22 @@
 ---
-title: Utiliser une identité d’application pour accéder aux ressources | Microsoft Docs
-description: Découvrez comment gérer un principal de service utilisable avec le contrôle d’accès en fonction du rôle pour se connecter et accéder aux ressources.
-services: azure-stack
-documentationcenter: na
+title: Utiliser une identité d’application pour accéder aux ressources
+description: Découvrez comment gérer un principal de service Azure Stack Hub. Vous pouvez utiliser la fonctionnalité RBAC (contrôle d’accès en fonction du rôle) sur un principal de service pour la connexion et l’accès aux ressources.
 author: BryanLa
-manager: femila
-ms.service: azure-stack
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/06/2019
 ms.author: bryanla
-ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 7110febfa58fb1d31cde5f0ae1b4df659f567956
-ms.sourcegitcommit: 8203490cf3ab8a8e6d39b137c8c31e3baec52298
+ms.service: azure-stack
+ms.topic: how-to
+ms.date: 11/11/2019
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: ff36a5c280df7ecb68d0d181438489ce696ed4fc
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73712731"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955388"
 ---
-# <a name="use-an-app-identity-to-access-resources"></a>Utiliser une identité d’application pour accéder aux ressources
+# <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Utiliser une identité d’application pour accéder aux ressources Azure Stack Hub
 
-*S’applique à : Systèmes intégrés Azure Stack et Kit de développement Azure Stack (ASDK)*
+*S’applique à : Systèmes intégrés Azure Stack Hub et kit SDK de développement Azure Stack Hub (ASDK)*
 
 Une application qui a besoin pour déployer ou configurer des ressources via Azure Resource Manager doit être représentée par un principal de service. Tout comme un utilisateur est représenté par un principal d’utilisateur, un principal de service est un type de principal de sécurité qui représente une application. Le principal de service fournit une identité pour votre application, ce qui vous permet de ne déléguer à ce principal de service que les autorisations nécessaires.  
 
@@ -41,16 +35,16 @@ Il est préférable d’exécuter une application sous l’identité d’un prin
  - Vous pouvez affecter des **autorisations plus restrictives** à un principal de service. En règle générale, ces autorisations sont limitées à ce que l’application doit faire, conformément au *principe de privilège minimum*.
  - Les **informations d’identification et autorisations** du principal de service ne changent pas aussi fréquemment que les informations d’identification de l’utilisateur. Par exemple, lorsque les responsabilités d’un utilisateur changent, les exigences de mot de passe dictent un changement, ou que l’utilisateur quitte l’entreprise.
 
-Vous commencez par créer une inscription d’application dans votre annuaire, ce qui a pour effet de créer un [objet principal de service](/azure/active-directory/develop/developer-glossary#service-principal-object) associé pour représenter l’identité de l’application dans l’annuaire. Ce document décrit le processus de création et gestion d’un principal de service, en fonction de l’annuaire que vous avez choisi pour votre instance Azure Stack :
+Vous commencez par créer une inscription d’application dans votre annuaire, ce qui a pour effet de créer un [objet principal de service](/azure/active-directory/develop/developer-glossary#service-principal-object) associé pour représenter l’identité de l’application dans l’annuaire. Ce document décrit le processus de création et de gestion d’un principal de service, en fonction de l’annuaire que vous avez choisi pour votre instance d’Azure Stack Hub :
 
-- Azure Active Directory (Azure AD). Azure AD est un service cloud et multilocataire de gestion des répertoires et des identités. Vous pouvez utiliser Azure AD avec une instance Azure Stack connectée.
-- Services de fédération Active Directory (AD FS). AD FS simplifie et sécurise la fédération des identités et l’authentification unique (SSO) sur le Web. Vous pouvez utiliser AD FS avec des instances Azure Stack connectées et déconnectées.
+- Azure Active Directory (Azure AD). Azure AD est un service cloud et multilocataire de gestion des répertoires et des identités. Vous pouvez utiliser Azure AD avec une instance d’Azure Stack Hub connectée.
+- Services de fédération Active Directory (AD FS). AD FS simplifie et sécurise la fédération des identités et l’authentification unique (SSO) sur le Web. Vous pouvez utiliser AD FS avec des instances d’Azure Stack Hub connectées et déconnectées.
 
 Vous allez apprendre à gérer un principal de service, puis à affecter le principal de service à un rôle en limitant l’accès de celui-ci aux ressources.
 
 ## <a name="manage-an-azure-ad-service-principal"></a>Gérer un principal de service Azure AD
 
-Si vous avez déployé Azure Stack avec Azure AD comme service de gestion des identités, vous pouvez créer des principaux de service comme vous le feriez pour Azure. Cette rubrique explique comment procéder via le portail Azure. Vérifiez que vous disposez des [autorisations Azure AD requises](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) avant de commencer.
+Si vous avez déployé Azure Stack Hub avec Azure AD en tant que service de gestion des identités, vous pouvez créer des principaux de service, comme vous le faites pour Azure. Cette rubrique explique comment procéder via le portail Azure. Vérifiez que vous disposez des [autorisations Azure AD requises](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) avant de commencer.
 
 ### <a name="create-a-service-principal-that-uses-a-client-secret-credential"></a>Créer un principal de service utilisant une clé secrète client
 
@@ -72,9 +66,9 @@ Dans cette section, vous inscrivez votre application en utilisant le portail Azu
 
 ## <a name="manage-an-ad-fs-service-principal"></a>Gérer un principal de service AD FS
 
-Si vous avez déployé Azure Stack avec AD FS en tant que service de gestion des identités, vous devez utiliser PowerShell pour gérer le principal de service. Des exemples sont fournis ci-dessous pour la gestion des informations d’identification du principal de service, qui montrent un certificat X509 et une clé secrète client.
+Si vous avez déployé Azure Stack Hub avec AD FS en tant que service de gestion des identités, vous devez utiliser PowerShell pour gérer le principal de service. Des exemples sont fournis ci-dessous pour la gestion des informations d’identification du principal de service, qui montrent un certificat X509 et une clé secrète client.
 
-Les scripts doivent être exécutés dans une console PowerShell avec élévation de privilèges (« exécuter en tant qu’administrateur ») de façon à ouvrir une autre session sur une machine virtuelle hébergeant un point de terminaison privilégié pour votre instance Azure Stack. Une fois la session de point de terminaison privilégié établie, des cmdlets supplémentaires exécutent et gèrent le principal de service. Pour plus d’informations sur le point de terminaison privilégié, voir [Utilisation du point de terminaison privilégié dans Azure Stack](azure-stack-privileged-endpoint.md).
+Vous devez exécuter les scripts dans une console PowerShell avec élévation de privilèges (« Exécuter en tant qu’administrateur ») afin d’ouvrir une autre session sur une machine virtuelle qui héberge un point de terminaison privilégié pour votre instance d’Azure Stack Hub. Une fois la session de point de terminaison privilégié établie, des cmdlets supplémentaires exécutent et gèrent le principal de service. Pour plus d’informations sur le point de terminaison privilégié, consultez [Utilisation du point de terminaison privilégié dans Azure Stack Hub](azure-stack-privileged-endpoint.md).
 
 ### <a name="create-a-service-principal-that-uses-a-certificate-credential"></a>Créer un principal de service utilisant des informations d’identification de certificat
 
@@ -83,13 +77,13 @@ Lors de la création d’un certificat pour des informations de principal de ser
  - Pour la production, le certificat doit être émis par une autorité de certification interne ou une autorité de certification publique. Si vous utilisez une autorité de certification publique, vous devez l’inclure dans l’image du système d’exploitation de base dans le cadre du projet Microsoft Trusted Root Authority Program. La liste complète est disponible dans l’article [Programme de certification racine approuvé Microsoft : participants](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca). Un exemple de création de certificat de test « auto-signé » s’affichera plus tard pendant la [mise à jour des informations d’identification du certificat du principal de service](#update-a-service-principals-certificate-credential). 
  - Le fournisseur de services de chiffrement doit être spécifié en tant que fournisseur de clés du fournisseur de services de chiffrement (CSP) hérité Microsoft.
  - Le certificat doit se présenter sous la forme d’un fichier PFX, car la procédure requiert à la fois les clés publiques et privées. Les serveurs Windows utilisent des fichiers .pfx contenant le fichier de clé publique (fichier de certificat SSL) et le fichier de clé privée associé.
- - Votre infrastructure Azure Stack doit avoir accès au réseau de l’emplacement de la liste de révocation des certificats (CRL) de l’autorité de certification publiée dans le certificat. Cette CRL doit être un point de terminaison HTTP.
+ - Votre infrastructure Azure Stack Hub doit avoir accès au réseau de l’emplacement de la liste de révocation de certificats de l’autorité de certification publiée dans le certificat. Cette CRL doit être un point de terminaison HTTP.
 
 Une fois que vous avez un certificat, utilisez le script PowerShell ci-dessous pour inscrire votre application et créer un principal de service. Vous utilisez également le principal de service pour vous connecter à Azure. Substituez vos propres valeurs aux espaces réservés suivants :
 
 | Placeholder | Description | Exemples |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance Azure Stack. | « AzS-ERCS01 » |
+| \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance d’Azure Stack Hub. | « AzS-ERCS01 » |
 | \<YourCertificateLocation\> | Emplacement de votre certificat X509 dans le magasin de certificats local. | « Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34 » |
 | \<YourAppName\> | Nom descriptif pour la nouvelle inscription d’application. | « Mon outil de gestion » |
 
@@ -112,7 +106,7 @@ Une fois que vous avez un certificat, utilisez le script PowerShell ci-dessous p
     $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
     $Session | Remove-PSSession
 
-    # Using the stamp info for your Azure Stack instance, populate the following variables:
+    # Using the stamp info for your Azure Stack Hub instance, populate the following variables:
     # - AzureRM endpoint used for Azure Resource Manager operations 
     # - Audience for acquiring an OAuth token used to access Graph API 
     # - GUID of the directory tenant
@@ -120,7 +114,7 @@ Une fois que vous avez un certificat, utilisez le script PowerShell ci-dessous p
     $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
     $TenantID = $AzureStackInfo.AADTenantID
 
-    # Register and set an AzureRM environment that targets your Azure Stack instance
+    # Register and set an AzureRM environment that targets your Azure Stack Hub instance
     Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
 
     # Sign in using the new service principal identity
@@ -160,7 +154,7 @@ Mettre à jour les informations d’identification du certificat à l’aide de 
 
 | Placeholder | Description | Exemples |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance Azure Stack. | « AzS-ERCS01 » |
+| \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance d’Azure Stack Hub. | « AzS-ERCS01 » |
 | \<YourAppName\> | Nom descriptif pour la nouvelle inscription d’application. | « Mon outil de gestion » |
 | \<YourCertificateLocation\> | Emplacement de votre certificat X509 dans le magasin de certificats local. | « Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34 » |
 | \<AppIdentifier\> | Identificateur affecté à l’inscription de l’application. | « S-1-5-21-1512385356-3796245103-1243299919-1356 » |
@@ -205,7 +199,7 @@ Mettre à jour les informations d’identification du certificat à l’aide de 
 
 | Placeholder | Description | Exemples |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance Azure Stack. | « AzS-ERCS01 » |
+| \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance d’Azure Stack Hub. | « AzS-ERCS01 » |
 | \<YourAppName\> | Nom descriptif pour la nouvelle inscription d’application. | « Mon outil de gestion » |
 
 1. Ouvrez une session Windows PowerShell avec élévation de privilèges et exécutez les applets de commande suivantes :
@@ -222,7 +216,7 @@ Mettre à jour les informations d’identification du certificat à l’aide de 
      $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
      $Session | Remove-PSSession
 
-     # Using the stamp info for your Azure Stack instance, populate the following variables:
+     # Using the stamp info for your Azure Stack Hub instance, populate the following variables:
      # - AzureRM endpoint used for Azure Resource Manager operations 
      # - Audience for acquiring an OAuth token used to access Graph API 
      # - GUID of the directory tenant
@@ -230,7 +224,7 @@ Mettre à jour les informations d’identification du certificat à l’aide de 
      $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
      $TenantID = $AzureStackInfo.AADTenantID
 
-     # Register and set an AzureRM environment that targets your Azure Stack instance
+     # Register and set an AzureRM environment that targets your Azure Stack Hub instance
      Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
 
      # Sign in using the new service principal identity
@@ -262,7 +256,7 @@ Mettez à jour les informations d’identification de la clé secrète client da
 
 | Placeholder | Description | Exemples |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance Azure Stack. | « AzS-ERCS01 » |
+| \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance d’Azure Stack Hub. | « AzS-ERCS01 » |
 | \<AppIdentifier\> | Identificateur affecté à l’inscription de l’application. | « S-1-5-21-1634563105-1224503876-2692824315-2623 » |
 
 1. Ouvrez une session Windows PowerShell avec élévation de privilèges, puis exécutez les cmdlets suivantes :
@@ -299,7 +293,7 @@ Substituez vos propres valeurs aux espaces réservés suivants :
 
 | Placeholder | Description | Exemples |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance Azure Stack. | « AzS-ERCS01 » |
+| \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance d’Azure Stack Hub. | « AzS-ERCS01 » |
 | \<AppIdentifier\> | Identificateur affecté à l’inscription de l’application. | « S-1-5-21-1634563105-1224503876-2692824315-2623 » |
 
 ```powershell  
@@ -331,7 +325,7 @@ Les utilisateurs et applications sont autorisés à accéder aux ressources Azur
 
 Le type de ressource que vous choisissez établit également l’*étendue d’accès* pour le principal de service. Vous pouvez définir l’étendue d’accès au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue (par exemple, l’ajout d’une application au rôle « Lecteur » pour un groupe de ressources signifie qu’elle peut lire le groupe de ressources et toutes les ressources qu’il contient).
 
-1. Connectez-vous au portail approprié en fonction de l’annuaire que vous avez spécifié durant l’installation d’Azure Stack (par exemple, le portail Azure pour Azure AD ou le portail utilisateur d’Azure Stack pour AD FS). Cet exemple présente un utilisateur connecté au portail utilisateur d’Azure Stack.
+1. Connectez-vous au portail approprié, en fonction de l’annuaire que vous avez spécifié durant l’installation d’Azure Stack Hub (par exemple le portail Azure pour Azure AD ou le portail utilisateur Azure Stack Hub pour AD FS). Dans cet exemple, nous montrons un utilisateur connecté au portail utilisateur Azure Stack Hub.
 
    > [!NOTE]
    > Pour pouvoir ajouter des attributions de rôle pour une ressource donnée, votre compte d’utilisateur doit appartenir à un rôle qui déclare l’autorisation `Microsoft.Authorization/roleAssignments/write`. Par exemple, l’un des rôles intégrés [Propriétaire](/azure/role-based-access-control/built-in-roles#owner) ou [Administrateur de l’accès utilisateur](/azure/role-based-access-control/built-in-roles#user-access-administrator).  
@@ -352,7 +346,7 @@ Le type de ressource que vous choisissez établit également l’*étendue d’a
 
      [![Rôle attribué](media/azure-stack-create-service-principal/assigned-role.png)](media/azure-stack-create-service-principal/assigned-role.png#lightbox)
 
-Maintenant que vous avez créé un principal de service et que vous lui avez attribué un rôle, vous pouvez commencer à l’utiliser au sein de votre application pour accéder aux ressources Azure Stack.  
+Une fois que vous avez créé un principal de service et que vous lui avez attribué un rôle, vous pouvez commencer à l’utiliser dans votre application pour accéder aux ressources Azure Stack Hub.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

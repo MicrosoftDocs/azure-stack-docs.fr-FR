@@ -14,18 +14,63 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 0ac21cc388b55be6548f9fdba6c8985dd2316c4e
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: aa85310314a09db47f10424e84fe40e355bacb25
+ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167139"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73846241"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Notes de publication de Validation en tant que service
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Cet article présente les notes de publication d’Azure Stack Validation en tant que service.
+
+## <a name="version-4353"></a>Version 4.3.5.3
+
+7 novembre 2019
+
+- Test des mises à jour de contenu
+  - Vérification de la mise à jour mensuelle Azure Stack (Version 5.1.46.0 -> 5.1.49.0)
+  - Vérification des packages d’extensions OEM (Version 5.1.46.0 -> 5.1.49.0)
+  - Les résultats de la version 5.1.46.0 ont été conservés. Si l’exécution est réussie sur la version 5.1.46.0, adressez une notification à vaashelp@microsoft.com au moment de l’envoi des résultats.
+
+- Résolution des bogues
+  - Correction d’un problème où la vérification de la mise à jour mensuelle Azure Stack ne pouvait pas s’exécuter si le fichier .zip de la mise à jour contenait des caractères spéciaux.
+
+- Problèmes connus
+  - Échec des tests VaaS si mstest.exe est introuvable. Solution de contournement :
+    1. Arrêtez l’agent via Ctrl+C dans la fenêtre PowerShell.
+    1. Tapez mstest.exe pour vérifier que mstest.exe est un programme reconnu.
+    1. Si mstest.exe n’est pas reconnu, fermez la fenêtre PowerShell active.
+    1. Cliquez sur Démarrer (et non sur PowerShell dans la barre des tâches), recherchez PowerShell, puis ouvrez-le en tant qu’administrateur.
+    1. Tapez mstest.exe, et vérifiez qu’il est disponible en tant que commande.
+    1. Redémarrez l’agent, puis réexécutez le test.
+  - Il arrive parfois que Cloud Simulation Engine signale des défaillances durant les tests de \*machines virtuelles. Contactez vaashelp@microsoft.com avant de tenter une nouvelle exécution. 
+
+
+29 octobre 2019
+
+- La documentation en ligne relative au workflow de mise à jour mensuelle Azure Stack et au workflow de validation de package OEM a été mise à jour.
+
+    Consultez la documentation mise à jour ici. Validez les packages OEM ici. Validez les mises à jour logicielles de Microsoft
+- Mise à jour du workflow VaaS : Mise à jour mensuelle Azure Stack (version 5.1.30.0 -> 5.1.46.0) - Le workflow de test de vérification de la mise à jour mensuelle Azure Stack a été mis à jour.
+
+    Le workflow ne nécessite plus d’intervention manuelle et peut être planifié pour une exécution sans interruption.
+- Mise à jour du workflow VaaS : Validation de package OEM (version 5.1.30.0 -> 5.1.46.0) - Le workflow de validation de package OEM a été mis à jour.
+
+    Le workflow ne nécessite plus d’intervention manuelle et peut être planifié pour une exécution sans interruption.
+- Cloud Simulation Engine dans le workflow de validation de package OEM (version 5.1.30.0 -> 5.1.46.0) a été mis à jour pour raccourcir le délai de validation : Durée d’exécution réduite à 1 heure.
+- Dans le workflow de validation de package OEM et le workflow de mise à jour Azure Stack (version 5.1.30.0 -> 5.1.46.0), Cloud Simulation Engine nécessite la présence des mises à jour à valider dans 2 dossiers parents distincts sans aucune autre mise à jour dans les dossiers enfants.
+- Dans le workflow de validation de package OEM et le workflow de mise à jour Azure Stack (version 5.1.30.0 -> 5.1.46.0), Cloud Simulation Engine nécessite une planification des tests dans l’ordre suivant : test de vérification mensuelle de la mise à jour Azure Stack, test de vérification du package d’extension OEM, et enfin Cloud Simulation Engine.
+- Mise à jour de l’agent VaaS : L’agent VaaS mis à jour utilise désormais les informations d’identification d’administrateur du cloud Azure Stack pour demander et obtenir les informations d’horodatage afin de permettre le remplissage automatique des workflows. 
+
+    Cette mise à jour nécessite la mise à jour et le redémarrage de tous les agents. Consultez les instructions suivantes pour savoir comment mettre à jour l’agent VaaS : https://docs.microsoft.com/en-us/azure-stack/partner/azure-stack-vaas-local-agent
+- Mise à jour de l’IU du portail VaaS : Le tableau de sélection d’agents a été déplacé au-dessus du volet de planification des tests pour faciliter les tests.
+
+    Durant la planification d’un travail, il n’est plus nécessaire d’entrer des informations d’horodatage si les agents VaaS ont été correctement mis à jour.
+
 
 ## <a name="version-405"></a>Version 4.0.5
 

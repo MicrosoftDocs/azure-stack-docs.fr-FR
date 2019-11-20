@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 3fa6d124722d45d727525820b6a99d408f0d2350
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 87549d27418f787b0e173cfda1ca835dc1c181e4
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975166"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955944"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack"></a>Automatisation de la gestion et de la mise à jour des machines virtuelles dans Azure Stack
 Utilisez les fonctionnalités des solutions Azure Automation suivantes pour gérer les machines virtuelles Windows et Linux déployées avec Azure Stack :
@@ -60,7 +60,7 @@ Vous devez ensuite [créer un compte Automation](https://docs.microsoft.com/azur
 
 5. Répétez les étapes 2 à 4 pour activer l’ensemble des trois solutions. 
 
-   [![](media/vm-update-management/1-sm.PNG "Activer les fonctionnalités de compte Azure Automation")](media/vm-update-management/1-lg.PNG#lightbox)
+   [![](media/vm-update-management/1-sm.PNG "Enable Azure Automation account features")](media/vm-update-management/1-lg.PNG#lightbox)
 
 ### <a name="enable-azure-monitor-for-vms"></a>Activer Azure Monitor pour machines virtuelles
 
@@ -92,15 +92,15 @@ Effectuez les étapes suivantes pour activer la gestion des mises à jour pour l
 
 2. Dans le portail utilisateur Azure Stack, accédez au panneau Extensions des machines virtuelles pour lesquelles vous voulez activer ces solutions, cliquez sur **+ Ajouter**, sélectionnez l’extension **Azure Update and Configuration Management**, puis cliquez sur **Créer** :
 
-   [![](media/vm-update-management/3-sm.PNG "Panneau Extension de machine virtuelle")](media/vm-update-management/3-lg.PNG#lightbox)
+   [![](media/vm-update-management/3-sm.PNG "VM extension blade")](media/vm-update-management/3-lg.PNG#lightbox)
 
 3. Indiquez la clé primaire et l'ID d’espace de travail précédemment créés pour lier l’agent à l’espace de travail Log Analytics. Cliquez ensuite sur **OK** pour déployer l’extension.
 
-   [![](media/vm-update-management/4-sm.PNG "Indication de la clé et de l’ID d’espace de travail")](media/vm-update-management/4-lg.PNG#lightbox) 
+   [![](media/vm-update-management/4-sm.PNG "Providing the WorkspaceID and Key")](media/vm-update-management/4-lg.PNG#lightbox) 
 
 4. Comme décrit dans la [documentation sur la gestion des mises à jour](https://docs.microsoft.com/azure/automation/automation-update-management), vous devez activer la solution Update Management pour chaque machine virtuelle que vous souhaitez gérer. Pour activer la solution pour toutes les machines virtuelles associées à l’espace de travail, sélectionnez **Gestion des mises à jour**, cliquez sur **Gérer des machines**, puis sélectionnez l’option **Activer sur tous les ordinateurs disponibles et à venir**.
 
-   [![](media/vm-update-management/5-sm.PNG "Activer la solution Update Management sur toutes les machines")](media/vm-update-management/5-lg.PNG#lightbox) 
+   [![](media/vm-update-management/5-sm.PNG "Enable Update Management solution on all machines")](media/vm-update-management/5-lg.PNG#lightbox) 
 
    > [!TIP]
    > Répétez cette étape pour activer chaque solution pour les machines virtuelles Azure Stack qui sont associées à l’espace de travail. 
@@ -109,7 +109,7 @@ Une fois l’extension Azure Update and Configuration Management activée, une a
 
 Une fois les machines virtuelles analysées, elles s’affichent dans le compte Azure Automation de la solution Update Management : 
 
-   [![](media/vm-update-management/6-sm.PNG "Compte Azure Automation dans Update Management")](media/vm-update-management/6-lg.PNG#lightbox) 
+   [![](media/vm-update-management/6-sm.PNG "Azure Automation account in Update Management")](media/vm-update-management/6-lg.PNG#lightbox) 
 
 > [!IMPORTANT]
 > L’affichage sur le tableau de bord des données mises à jour provenant des ordinateurs gérés peut prendre entre 30 minutes et 6 heures.

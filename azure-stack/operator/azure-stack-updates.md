@@ -15,12 +15,12 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 0a784a80931113b7901a021a7c2ff707ce7df355
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 31436cbe92550044efe8b28a5063da61508e7304
+ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283269"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73845778"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gérer les mises à jour dans Azure Stack - Vue d’ensemble
 
@@ -81,7 +81,7 @@ Une fois que vous avez été averti de la disponibilité d’une mise à jour, a
 
 1. **Planifiez la mise à jour**.
 
-    Préparez votre Azure Stack pour que le processus de mise à jour se déroule aussi facilement que possible, afin qu’il ait un impact minimal sur vos utilisateurs. Informez vos utilisateurs de toute interruption de service possible, puis suivez les étapes pour préparer votre instance pour la mise à jour. Pour plus d’informations sur la planification de la mise à jour, consultez [Planifier une mise à jour Azure Stack](azure-stack-update-plan.md).
+    Préparez votre Azure Stack pour que le processus de mise à jour se déroule aussi facilement que possible, afin qu’il ait un impact minimal sur vos utilisateurs. Informez vos utilisateurs de toute interruption de service possible, puis suivez les étapes pour préparer votre instance pour la mise à jour. Pour connaître les étapes de la planification de la mise à jour, consultez la [Check-list des activités de mise à jour Azure Stack](release-notes-checklist.md).
 
 2. **Télécharger et préparer le package de mise à jour**.
 
@@ -103,6 +103,6 @@ Lors de l’installation des mises à jour, vous pouvez afficher l’état gén�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour commencer le processus de mise à jour, suivez les étapes de la section [Planifier une mise à jour d’Azure Stack](azure-stack-update-plan.md).
+- Pour commencer le processus de mise à jour, suivez les étapes décrites dans [Check-list des activités de mise à jour Azure Stack](release-notes-checklist.md).
 - Pour savoir quelles versions d’Azure Stack sont prises en charge, consultez [Stratégie de maintenance Azure Stack](azure-stack-servicing-policy.md).  
 - Pour en savoir plus sur les mises à jour actuelles et récentes, consultez les [notes de publication d’Azure Stack](release-notes.md).

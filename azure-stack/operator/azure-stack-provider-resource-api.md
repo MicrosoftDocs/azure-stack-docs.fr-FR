@@ -1,6 +1,7 @@
 ---
 title: API d’utilisation des ressources de fournisseur | Microsoft Docs
-description: Informations de référence sur l’utilisation de ressources API, lesquelles récupèrent des informations relatives à l’utilisation d’Azure Stack
+titleSuffix: Azure Stack
+description: Informations de référence sur l’API d’utilisation des ressources, qui récupère les informations relatives à l’utilisation d’Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,12 +16,12 @@ ms.date: 07/16/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 631d6764ca7947ddafd70ec57b607df1ea5a4ab5
-ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
+ms.openlocfilehash: 75a4adca6d9265314c74cdebe642d43b8c2f11ef
+ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68286689"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802398"
 ---
 # <a name="provider-resource-usage-api"></a>API Utilisation des ressources de fournisseur
 
@@ -32,7 +33,7 @@ Le terme *fournisseur* s’applique à l’administrateur de services et à tous
 
 ### <a name="request"></a>Requête
 
-La requête obtient les détails de la consommation pour les abonnements demandés et pour la période demandée. Il n’existe aucun corps de demande.
+La requête obtient les détails de la consommation pour les abonnements demandés et pour la période demandée. Il n’existe aucun corps de requête.
 
 Cette API d’utilisation étant une API de fournisseur, un rôle **Propriétaire**, **Collaborateur** ou **Lecteur** doit être affecté à l’appelant dans l’abonnement du fournisseur.
 
@@ -44,14 +45,14 @@ Cette API d’utilisation étant une API de fournisseur, un rôle **Propriétair
 
 | Argument | Description |
 | --- | --- |
-| `armendpoint` |Point de terminaison Azure Resource Manager de votre environnement Azure Stack. La convention Azure Stack est que le nom du point de terminaison Azure Resource Manager soit au format `https://adminmanagement.{domain-name}`. Par exemple, pour le kit de développement, si le nom du domaine est *local.azurestack.external*, le point de terminaison Resource Manager est `https://adminmanagement.local.azurestack.external`. |
+| `armendpoint` |Point de terminaison Azure Resource Manager de votre environnement Azure Stack. La convention Azure Stack est que le nom du point de terminaison Azure Resource Manager soit au format `https://adminmanagement.{domain-name}`. Par exemple, pour le Kit de développement Azure Stack (ASDK), si le nom de domaine est *local.azurestack.external*, le point de terminaison Resource Manager est `https://adminmanagement.local.azurestack.external`. |
 | `subId` |ID d’abonnement de l’utilisateur qui effectue l’appel. |
-| `reportedStartTime` |Heure de début de la requête. La valeur de `DateTime` doit être exprimée en temps universel coordonné (UTC) et indiquer le début de l’heure ; par exemple, 13:00. Pour l’agrégation quotidienne, définissez cette valeur sur minuit au format UTC. Le format est l’ISO 8601 échappé. Par exemple `2015-06-16T18%3a53%3a11%2b00%3a00Z`, où les deux-points sont échappés avec `%3a`, et le signe plus est échappé avec `%2b` afin que l’expression convienne pour les URI. |
-| `reportedEndTime` |Heure de fin de la requête. Les contraintes qui s’appliquent à `reportedStartTime` s’appliquent également à cet argument. La valeur de `reportedEndTime` ne peut pas être la date actuelle ou une date ultérieure. Dans ce cas, le résultat a la valeur « traitement non terminé ». |
+| `reportedStartTime` |Heure de début de la requête. La valeur de `DateTime` doit être exprimée en temps universel coordonné (UTC) et indiquer le début de l’heure ; par exemple, 13:00. Pour l’agrégation quotidienne, définissez cette valeur sur minuit au format UTC. Le format fait l’objet de séquences d’échappement ISO 8601. Par exemple, dans `2015-06-16T18%3a53%3a11%2b00%3a00Z`, le signe deux-points est remplacé par la séquence d’échappement `%3a` et le signe plus est remplacé par la séquence d’échappement `%2b` pour que la chaîne soit compatible avec le format des URI. |
+| `reportedEndTime` |Heure de fin de la requête. Les contraintes qui s’appliquent à `reportedStartTime` s’appliquent également à cet argument. La valeur de `reportedEndTime` ne peut pas être la date actuelle ou une date future. Dans ce cas, le résultat a la valeur « traitement non terminé ». |
 | `aggregationGranularity` |Paramètre facultatif qui peut prendre deux valeurs : **daily** et **hourly**. Comme le suggèrent les valeurs, l’une retourne les données avec une granularité journalière, et l’autre est une résolution horaire. L’option **daily** est la valeur par défaut. |
 | `subscriberId` |l'ID d'abonnement. Pour obtenir des données filtrées, l’ID d’abonnement d’un locataire direct du fournisseur est exigé. Si aucun paramètre d’ID d’abonnement n’est spécifié, l’appel retourne les données d’utilisation pour tous les locataires directs du fournisseur. |
 | `api-version` |Version du protocole utilisé pour effectuer cette requête. Cette valeur est définie sur `2015-06-01-preview`. |
-| `continuationToken` |Jeton récupéré à partir du dernier appel au fournisseur d’API d’utilisation. Ce jeton est nécessaire quand une réponse compte plus de 1 000 lignes. Il agit comme un signet pour indiquer la progression. En l'absence du jeton, les données sont récupérées à partir du début de la journée ou de l’heure, en fonction de la granularité transmise. |
+| `continuationToken` |Jeton récupéré à partir du dernier appel au fournisseur d’API d’utilisation. Ce jeton est nécessaire quand une réponse compte plus de 1 000 lignes. Il agit comme un signet pour indiquer la progression. En l’absence du jeton, les données sont récupérées à partir du début de la journée ou de l’heure, en fonction de la précision passée. |
 
 ### <a name="response"></a>response
 
@@ -104,7 +105,7 @@ meterID1",
 
 ### <a name="powershell"></a>PowerShell
 
-Pour générer les données d’utilisation, vous devez disposer de ressources en cours d’exécution qui utilisent activement le système, comme une machine virtuelle active ou un compte de stockage contenant des données. Si vous ne savez pas si vous avez des ressources en cours d’exécution dans la Place de marché Azure Stack, déployez une machine virtuelle et consultez le panneau de supervision de machine virtuelle pour vous assurer qu’elle est en cours d’exécution. Pour afficher les données d’utilisation, utilisez les cmdlets PowerShell suivantes :
+Pour générer les données d’utilisation, vous devez disposer de ressources en cours d’exécution qui utilisent activement le système, par exemple une machine virtuelle active ou un compte de stockage contenant des données. Si vous ne savez pas si des ressources sont en cours d’exécution dans la Place de marché Azure Stack, déployez une machine virtuelle et consultez son panneau de supervision pour vérifier qu’elle est en cours d’exécution. Pour afficher les données d’utilisation, utilisez les cmdlets PowerShell suivantes :
 
 1. [Installez PowerShell pour Azure Stack](azure-stack-powershell-install.md).
 2. Configurez l’environnement PowerShell [Utilisateur d’Azure Stack](../user/azure-stack-powershell-configure-user.md) ou [Opérateur d’Azure Stack](azure-stack-powershell-configure-admin.md).

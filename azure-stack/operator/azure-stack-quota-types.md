@@ -1,5 +1,6 @@
 ---
 title: Types de quotas dans Azure Stack | Microsoft Docs
+titleSuffix: Azure Stack
 description: Affichez et modifiez les différents types de quotas disponibles pour les services et les ressources dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -16,18 +17,18 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: e3e7ae6cc29756486ae5c292de6fea7e5259ecc1
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 29a154c5c446019e762b1312b9ef2f8a23cc4790
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283457"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955296"
 ---
 # <a name="quota-types-in-azure-stack"></a>Types de quotas dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Les [quotas](service-plan-offer-subscription-overview.md#plans) définissent les limites de ressources qu’un abonnement utilisateur peut approvisionner ou consommer. Par exemple, un quota peut autoriser un utilisateur de créer jusqu’à cinq machines virtuelles. Chaque ressource peut avoir ses propres types de quotas.
+Les [quotas](service-plan-offer-subscription-overview.md#plans) définissent les limites de ressources qu’un abonnement utilisateur peut approvisionner ou consommer. Par exemple, un quota peut autoriser un utilisateur à créer jusqu’à cinq machines virtuelles. Chaque ressource peut avoir ses propres types de quotas.
 
 > [!IMPORTANT]
 > Il peut s’écouler jusqu’à deux heures avant que les nouveaux quotas ne soient disponibles sur le portail de l’utilisateur ou qu’un quota modifié ne soit appliqué.
@@ -39,22 +40,22 @@ Les [quotas](service-plan-offer-subscription-overview.md#plans) définissent les
 | Nombre maximal de machines virtuelles | 50 | Nombre maximal de machines virtuelles qu’un abonnement peut créer à cet emplacement. |
 | Nombre maximal de cœurs de machine virtuelle | 100 | Nombre maximal de cœurs qu’un abonnement peut créer à cet emplacement (par exemple, une machine virtuelle A3 a quatre cœurs). |
 | Nombre maximal de groupes à haute disponibilité | 10 | Nombre maximal de groupes à haute disponibilité qui peuvent être créés à cet emplacement. |
-| Nombre maximal de groupes de machines virtuelles identiques | 100 | Nombre maximal de groupes de machines virtuelles identiques qui peuvent être créés à cet emplacement. |
-| Capacité maximale (en Go) du disque managé standard | 2 048 | Capacité maximale des disques managés standard qui peuvent être créés dans cet emplacement. |
-| Capacité maximale (en Go) du disque managé Premium | 2 048 | Capacité maximale des disques managés Premium qui peuvent être créés dans cet emplacement. |
+| Nombre maximal de groupes de machines virtuelles identiques | 100 | Nombre maximal de groupes identiques pouvant être créés à cet emplacement. |
+| Capacité maximale (en Go) du disque managé standard | 2 048 | Capacité maximale des disques managés standard qui peuvent être créés dans cet emplacement. Cette valeur correspond au total de la taille d’allocation de tous les disques managés Standard et de la taille utilisée par toutes les captures instantanées Standard. |
+| Capacité maximale (en Go) du disque managé Premium | 2 048 | Capacité maximale des disques managés Premium qui peuvent être créés dans cet emplacement. Cette valeur correspond au total de la taille d’allocation de tous les disques managés Premium et de la taille utilisée par toutes les captures instantanées Premium. |
 
-> [!NOTE]  
-> La capacité maximale d’un disque non managé (objets blob par page) est distincte du quota des disques managés. Vous pouvez définir cette valeur dans la section **Quotas de stockage**.
+> [!NOTE]
+> La capacité maximale des disques non managés (objets blob de pages) est distincte du quota des disques managés. Vous pouvez définir cette valeur dans **Capacité maximale (Go)** , dans **Quotas de stockage**.
 
 ## <a name="storage-quota-types"></a>Types de quotas de stockage
 
 | **Item** | **Valeur par défaut** | **Description** |
 | --- | --- | --- |
-| Capacité maximale (Go) |2 048 |Capacité de stockage totale (incluant les objets blob et tous les instantanés, tables et files d’attente associés) qui peut être consommée par un abonnement à cet emplacement. |
+| Capacité maximale (Go) |2 048 |Capacité de stockage totale qui peut être consommée par un abonnement à cet emplacement. Cette valeur correspond au total de la taille utilisée par tous les objets blob (notamment les disques non managés) et par toutes les captures instantanées, tables et files d’attente associées. |
 | Nombre total de comptes de stockage |20 |Nombre maximal de comptes de stockage qu’un abonnement peut créer à cet emplacement. |
 
-> [!NOTE]  
-> La capacité maximale des disques managés est distincte du quota de stockage total. Vous pouvez définir cette valeur dans la section **Quotas de calcul**.
+> [!NOTE]
+> Quand vous avez dépassé la valeur affectée à **Capacité maximale (Go)** dans un abonnement, vous ne pouvez pas y créer de ressources de stockage. Toutefois, vous pouvez continuer à utiliser les disques non managés créés dans cet abonnement au sein des machines virtuelles, ce qui peut entraîner un dépassement de la capacité totale bien au-delà de la limite de quota.<br>La capacité maximale des disques managés est distincte du quota de stockage total. Vous pouvez définir cette valeur dans la section **Quotas de calcul**.
 
 ## <a name="network-quota-types"></a>Types de quotas pour les réseaux
 
@@ -75,15 +76,15 @@ Il existe deux façons d’afficher un quota existant :
 ### <a name="plans"></a>Plans
 
 1. Dans le volet de navigation gauche du portail d’administration, sélectionnez **Plans**.
-2. Sélectionnez le plan pour lequel vous souhaitez afficher les détails, en cliquant sur son nom.
+2. Sélectionnez le plan dont vous souhaitez afficher les détails, en cliquant sur son nom.
 3. Dans le panneau qui s’ouvre, sélectionnez **Services et quotas**.
-4. Sélectionnez le quota que vous aimeriez voir en cliquant dessus dans la colonne **Nom**.
+4. Sélectionnez le quota que vous souhaitez voir en cliquant sur celui-ci dans la colonne **Nom**.
 
-    [![Quotas](media/azure-stack-quota-types/quotas1sm.png "Afficher les quotas")](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Quotas dans le portail administrateur Azure Stack](media/azure-stack-quota-types/quotas1sm.png "Voir les quotas dans le portail administrateur")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### <a name="resource-providers"></a>Fournisseurs de ressources
 
-1. Sur le tableau de bord par défaut du portail administrateur, recherchez la vignette **Fournisseurs de ressources**.
+1. Dans le tableau de bord par défaut du portail d’administration, recherchez la vignette **Fournisseurs de ressources**.
 2. Sélectionnez le service avec le quota que vous voulez afficher, par exemple **Compute**, **Réseau** ou **Stockage**.
 3. Cliquez sur **Quotas**, puis sélectionnez le quota que vous voulez afficher.
 
@@ -94,13 +95,15 @@ Il existe deux façons différentes de modifier un quota :
 ### <a name="edit-a-plan"></a>Modifier un plan
 
 1. Dans le volet de navigation gauche du portail d’administration, sélectionnez **Plans**.
-2. Sélectionnez le plan pour lequel vous souhaitez modifier un quota, en cliquant sur son nom.
+2. Sélectionnez le plan dont vous souhaitez modifier un quota en cliquant sur son nom.
 3. Dans le panneau qui s’ouvre, sélectionnez **Services et quotas**.
-4. Sélectionnez le quota que vous aimeriez modifier en cliquant dessus dans la colonne **Nom**.
-    [![Quotas](media/azure-stack-quota-types/quotas1sm.png "Afficher les quotas")](media/azure-stack-quota-types/quotas1.png#lightbox)
+4. Sélectionnez le quota à modifier en cliquant sur celui-ci dans la colonne **Nom**.
+
+    [![Quotas dans le portail administrateur Azure Stack](media/azure-stack-quota-types/quotas1sm.png "Voir les quotas dans le portail administrateur")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 5. Dans le panneau qui s’ouvre, sélectionnez **Modifier dans Compute**, **Modifier dans Réseau**, ou **Modifier dans Stockage**.
-    ![Quotas](media/azure-stack-quota-types/quotas3.png "Afficher les quotas")
+
+    ![Modifier un plan dans le portail administrateur Azure Stack](media/azure-stack-quota-types/quotas3.png "Modifier un plan dans le portail administrateur Azure Stack")
 
 Vous pouvez également suivre cette procédure pour modifier un quota :
 

@@ -12,97 +12,82 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: asganesh
-ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 6ea5248881e10ca9e96ba423ecb4ea5569f00211
-ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
+ms.lastreviewed: 11/07/2019
+ms.openlocfilehash: 6bcdbcb03cdd4151978e9eeee645a0d4ab488fe3
+ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618253"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73845770"
 ---
 # <a name="azure-stack-datacenter-integration-walkthrough"></a>Procédure pas à pas d’intégration d’Azure Stack à un centre de données
 
-Cet article décrit l’expérience utilisateur Azure Stack de bout en bout, de l’achat d’un système intégré jusqu’au déploiement local par un fournisseur de solutions. Utilisez ces informations pour préparer votre parcours et définir des objectifs pour vous, en tant que client Azure Stack.
-
-En tant que client Azure Stack, vous devez anticiper les phases suivantes :
+Cet article décrit le processus de bout en bout relatif à l’intégration du centre de données Azure Stack, de l’achat au support de postdéploiement. L’intégration est un projet collaboratif entre le client, un fournisseur de solutions et Microsoft. Cliquez sur les onglets suivants pour voir les étapes spécifiques à chaque membre du projet, puis consultez les sections suivantes pour obtenir un récapitulatif des différentes phases de la chronologie du projet. 
 
 # <a name="customertabcustomer"></a>[Client](#tab/customer)
 
-1. Décrire les cas d’utilisation prévue et spécifier les exigences.
-2. Déterminer le modèle de facturation à utiliser, passer en revue et approuver les contrats.
-3. Renseigner la [feuille de calcul de déploiement](azure-stack-deployment-worksheet.md) et vérifier que tous les prérequis au déploiement sont satisfaits et prêts pour le déploiement.
-4. Préparer le centre de données en vérifiant que toutes les spécifications pour l’intégration du centre de données, comme l’alimentation, le refroidissement et la connectivité périphérique, sont en place.
-5. Être disponible pendant le déploiement pour fournir les informations d’identification de l’abonnement et un support en cas de question sur les données fournies.
+1. Décrire les cas d’usage et les exigences
+1. Déterminer le modèle de facturation
+1. Passer en revue les contrats et les approuver
+1. Compléter la [feuille de déploiement](azure-stack-deployment-worksheet.md)
+1. Vérifier le respect des prérequis du déploiement
+1. Préparer le centre de données 
+1. Fournir des informations relatives à l’abonnement durant le déploiement
+1. Résoudre les questions relatives aux données fournies
 
 # <a name="partnertabpartner"></a>[Partenaire](#tab/partner)
 
-1. Phase de planification :
-   - Recommander des options de solution en fonction des exigences du client.
-   - Proposer une preuve de concept si nécessaire.
-   - Établir une relation commerciale.
-   - Choisir le niveau de support.
-2. Processus de commande :
-   - Préparer les contrats nécessaires avec le client.
-   - Créer un bon de commande client.
-   - Décider de la chronologie de livraison.
-   - Mettre le client en rapport avec Microsoft si nécessaire.
-3. Prédéploiement
-   - Fournir au client la formation nécessaire pour garantir une bonne compréhension de toutes les options d’intégration au centre de données et de tous les prérequis du déploiement.
-   - Aider le client avec la validation des données recueillies afin de garantir leur exhaustivité et leur exactitude.
-4. Processus en usine
-   - Appliquer la dernière build de ligne de base validée.
-   - Appliquer la boîte à outils de déploiement Microsoft nécessaire.
-5. Livraison de matériel :
-   - Livrer le matériel au site du client.
-6. Déploiement local
-   - Déploiement géré par un ingénieur sur site.
-   - Montage en rack et empilement.
-   - Déploiement de l’hôte du cycle de vie du matériel.
-   - Déploiement d’Azure Stack.
-   - Remise au client.
+1. Recommander des options de solution en fonction des exigences du client
+1. Proposer un POC (preuve de concept) 
+1. Déterminer le niveau de support
+1. Préparer les contrats avec le client
+1. Créer un bon de commande client
+1. Déterminer le plan de livraison
+1. Mettre le client en rapport avec Microsoft 
+1. Former le client au déploiement 
+1. Aider le client à valider les données collectées
+1. Installer et valider la build de base de référence et le kit de ressources de déploiement Microsoft
+1. Livrer le matériel au site du client
+1. Fournir un ingénieur sur site
+1. Assembler le matériel
+1. Déployer l’hôte HLH (hôte du cycle de vie du matériel) 
+1. Déployer Azure Stack
+1. Effectuer la remise au client
 
 # <a name="microsofttabmicro"></a>[Microsoft](#tab/micro)
 
-1. Collaborer avec le partenaire afin de fournir un support prévente.
-2. Préparer les licences de logiciels et les contrats en fonction des besoins.
-3. Fournir les outils requis pour recueillir les exigences d’intégration de centre de données et fournir la documentation au client.
-4. Fournir chaque mois les builds de ligne de base et mises à jour de chaîne d’outils les plus récentes.
-5. Les ingénieurs du support technique Microsoft fournissent une assistance en cas de problème de déploiement.
+1. Impliquer le partenaire pour le support avant-vente
+2. Préparer la gestion de licences des logiciels et les contrats
+3. Fournir les outils de collecte des exigences d’intégration du centre de données
+4. Fournir les builds de base de référence mensuelles et les mises à jour de chaîne d’outils
+5. Fournir via les ingénieurs du Support Microsoft une assistance en cas de problème de déploiement
 
+---
 
-
-## <a name="planning-phase"></a>Phase de planification
-La phase de planification correspond à la période durant laquelle Microsoft, ou le partenaire de solution Azure Stack, vous aidera à évaluer et à comprendre vos besoins afin de déterminer si Azure Stack est la solution idéale pour vous :
-
-Ils vous aideront à répondre aux questions suivantes :
+## <a name="planning"></a>Planification
+Microsoft ou un partenaire de solution Azure Stack vous aidera à évaluer vos objectifs. Ils vous aideront à répondre aux questions suivantes :
 
 -   Azure Stack est-elle une solution adaptée à votre organisation ?
-
--   Quelle sera la taille de la solution dont vous aurez besoin ?
-
 -   Quel type de modèle de facturation et de gestion des licences conviendra à votre organisation ?
-
+-   Quelle sera la taille de la solution dont vous aurez besoin ?
 -   Quelles sont les exigences en matière d’alimentation et de refroidissement ?
 
-Pour garantir que la solution matérielle correspondra à vos besoins, [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) est utilisé pour vous aider durant la planification préalable à l’achat, afin de déterminer la capacité et la configuration appropriées de votre solution matérielle Azure Stack.
+Utilisez [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) pour rechercher et analyser des informations sur le matériel et la configuration les mieux adaptés à vos besoins. 
 
-La feuille de calcul n’est *pas* censée se substituer à vos propres recherches et analyses des solutions matérielles correspondant à vos besoins. Lors de la planification d’un déploiement Azure Stack, vous devez également consulter les [considérations générales relatives à l’intégration au centre de données](azure-stack-datacenter-integration.md) pour les systèmes intégrés Azure Stack.
+## <a name="ordering"></a>Commande
+Votre organisation s’engage à acheter Azure Stack, à signer des contrats et des bons de commande ainsi qu’à fournir les données relatives aux exigences d’intégration au fournisseur de solutions.
 
-## <a name="order-process-phase"></a>Phase de processus de commande
-À ce stade, vous aurez obtenu une réponse à la plupart de vos questions en matière de faisabilité. Une fois que la décision d’acheter Azure Stack est prise, et après avoir signé tous les contrats et les bons de commande nécessaires, vous devez fournir les données relatives aux spécifications de l’intégration à votre fournisseur de solutions.
-
-## <a name="pre-deployment-phase"></a>Phase de prédéploiement
-Pendant cette phase, vous devez décider comment intégrer Azure Stack dans votre centre de données. Pour faciliter ce processus, Microsoft a mis au point un modèle de spécifications pour vous aider à rassembler les informations nécessaires à la planification d’un déploiement de système intégré dans votre environnement. Ce modèle de spécifications a été créé en collaboration avec les fournisseurs de solutions.
-
+## <a name="pre-deployment"></a>Prédéploiement
+Vous déterminez la façon dont Azure Stack doit être intégré à votre centre de données. Microsoft a collaboré avec les fournisseurs de solutions pour publier une [feuille de déploiement](azure-stack-deployment-worksheet.md) afin de vous aider à rassembler les informations nécessaires.
 L’article [Considérations relatives à l’intégration au centre de données pour les systèmes intégrés Azure Stack](azure-stack-datacenter-integration.md) fournit des informations qui vous aideront à terminer le modèle, appelé Feuille de calcul de déploiement.
 
 > [!IMPORTANT]
-> Durant cette étape, il est important d’examiner et de prendre une décision concernant tous les prérequis avant de commander la solution. Sachez que cette étape prend du temps et nécessite une coordination et une collecte de données à partir de plusieurs disciplines au sein de votre organisation. Des informations incorrectes ou incomplètes peuvent allonger le temps de déploiement. 
+> Tous les prérequis sont examinés avant de commander la solution pour éviter les retards de déploiement. La vérification des prérequis peut prendre du temps. Elle peut nécessiter une coordination et une collecte de données auprès de différents services de votre organisation. 
 
-Durant la phase de prédéploiement, vous devez décider des éléments suivants :
+Vous allez choisir les éléments suivants :
 
 - **Fournisseur d’identité et modèle de connexion Azure Stack**. Vous pouvez choisir de déployer Azure Stack [en le connectant ou non à internet (et à Azure)](azure-stack-connection-models.md). Pour tirer le meilleur parti d’Azure Stack, y compris les scénarios hybrides, il est préférable de le connecter à Azure. Vous devez sélectionner les services de fédération Active Directory (AD FS) ou Azure Active Directory (Azure AD) au moment du déploiement. **Vous ne pouvez pas changer de fournisseur d’identité ultérieurement sans redéployer l’intégralité du système**.
 
@@ -115,12 +100,11 @@ Durant la phase de prédéploiement, vous devez décider des éléments suivants
 
 - **Intégration du pare-feu**. Nous vous recommandons d’[utiliser un pare-feu](azure-stack-firewall.md) pour sécuriser Azure Stack. Les pare-feu peuvent aider à prévenir les attaques DDOS, la détection d’intrusion et l’inspection du contenu. Toutefois, il convient de noter qu’ils peuvent devenir un goulot d’étranglement du débit pour les services de stockage Azure.
 
-
 - **Exigences en matière de certificats**. Il est essentiel que tous les [certificats nécessaires ](azure-stack-pki-certs.md) soient disponibles *avant* qu’un ingénieur sur site accède à votre centre de données pour le déploiement.
 
 Une fois que toutes les informations sur les prérequis ont été recueillies par le biais de la feuille de calcul de déploiement, le fournisseur de solutions lancera le processus en usine en fonction des données collectées, afin de garantir la réussite de l’intégration d’Azure Stack dans votre centre de données.
 
-## <a name="hardware-delivery-phase"></a>Phase de livraison de matériel
+## <a name="hardware-delivery"></a>Livraison de matériel 
 Votre fournisseur de solutions discutera avec vous afin de planifier la livraison de la solution à votre site. Une fois celle-ci reçue et mise en place, vous devrez convenir d’un horaire avec le fournisseur de solutions afin qu’un ingénieur se déplace sur le site pour effectuer le déploiement d’Azure Stack.
 
 Il est **essentiel** que toutes les données prérequises soient verrouillées et disponibles *avant que l’ingénieur arrive pour déployer la solution*.
@@ -134,7 +118,7 @@ Il est **essentiel** que toutes les données prérequises soient verrouillées e
 > [!TIP]
 > Si l’une de ces informations a changé, veillez à communiquer le changement au fournisseur de solutions avant de planifier le déploiement proprement dit.
 
-## <a name="onsite-deployment-phase"></a>Phase de déploiement local
+## <a name="onsite-deployment"></a>Déploiement local 
 Pour déployer Azure Stack, un ingénieur sur site envoyé par votre fournisseur de solutions matérielles devra être présent pour lancer le déploiement. Pour garantir le succès du déploiement, vérifiez qu’aucune des informations fournies via la feuille de calcul de déploiement n’a changé.
 
 L’ingénieur sur site doit normalement vérifier les points suivants durant l’expérience de déploiement :
@@ -148,7 +132,7 @@ L’ingénieur sur site doit normalement vérifier les points suivants durant l�
 > [!NOTE]
 > Une procédure de déploiement par le technicien sur site peut nécessiter environ une semaine de travail.
 
-## <a name="post-deployment-phase"></a>Phase de post-déploiement
+## <a name="post-deployment"></a>Postdéploiement 
 Le partenaire doit effectuer plusieurs étapes avant que la solution soit remise au client durant la phase de post-intégration. Lors de cette phase, la validation est importante afin de s’assurer que le système est déployé et fonctionne correctement. 
 
 Les actions qui doivent être effectuées par le partenaire OEM sont les suivantes :
@@ -180,7 +164,7 @@ Plusieurs étapes peuvent être obligatoires ou facultatives, en fonction du typ
 
   -   [Intégration de Nagios](azure-stack-integrate-monitor.md#integrate-with-nagios)
 
-## <a name="overall-timeline"></a>Chronologie globale
+## <a name="schedule"></a>Planification
 
 ![Chronologie générale du déploiement Azure Stack sur site](./media/azure-stack-datacenter-integration-walkthrough/image1.png)
 
