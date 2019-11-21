@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 10/28/2019
+ms.date: 11/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 7c2dfd33db3847f386136922716b0ee35c61ce75
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/14/2019
+ms.openlocfilehash: a847f04e3766e943aba78b567b0f21a99d0da860
+ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595286"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74162940"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Résoudre les problèmes du moteur AKS sur Azure Stack
 
@@ -184,4 +184,4 @@ Si vous ne parvenez pas à corriger votre erreur de déploiement, vous pouvez ou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur le [moteur AKS sur Azure Stack](azure-stack-kubernetes-aks-engine-overview.md)
+- En savoir plus sur [Le moteur AKS sur Azure Stack](azure-stack-kubernetes-aks-engine-overview.md)
