@@ -16,12 +16,12 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 09/13/2019
-ms.openlocfilehash: ba5b8358dced378f499c30f9b8d409497319fc86
-ms.sourcegitcommit: 2c37ac8e88de19430080128bac1b70e33557d354
+ms.openlocfilehash: 367a2cb5a07c0db2b272b8ffc951f51e5ed9cc0e
+ms.sourcegitcommit: bb2bbfad8061f7677954f6ce5a435b4e6f9299b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71164249"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74100038"
 ---
 # <a name="azure-stack-known-issues"></a>Problèmes connus d’Azure Stack
 
@@ -94,6 +94,11 @@ Pour accéder aux problèmes connus d'une autre version, utilisez le menu dérou
 
 ## <a name="networking"></a>Mise en réseau
 
+### <a name="network-security-groups"></a>Network Security Group
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge. 
+- Cause : Il n’est pas autorisé de créer une règle **DenyAllOutbound** explicite dans un groupe de sécurité réseau. En effet, elle empêcherait toute communication interne avec l’infrastructure, et cette communication est nécessaire au bon déploiement de la machine virtuelle.
+- Occurrence : Courant
+
 ### <a name="service-endpoints"></a>Points de terminaison de service
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
@@ -105,6 +110,10 @@ Pour accéder aux problèmes connus d'une autre version, utilisez le menu dérou
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Une nouvelle interface réseau ne peut pas être ajoutée à une machine virtuelle qui se trouve dans l’état **en cours d’exécution**.
 - Correction : Arrêtez la machine virtuelle avant d’ajouter ou de supprimer une interface réseau.
+- Occurrence : Courant
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : La carte réseau principale d’une machine virtuelle ne peut pas être changée. La suppression/le détachement de la carte réseau principale entraînerait des problèmes de démarrage de la machine virtuelle.
 - Occurrence : Courant
 
 ### <a name="virtual-network-gateway"></a>Passerelle de réseau virtuel

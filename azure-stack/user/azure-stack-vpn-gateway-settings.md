@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 650257a0bfe94741d00345f98b40fddd8d00cb44
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: e6d7f2d46a578bbbc8527a5e69f441ec12f38b01
+ms.sourcegitcommit: ac7d98a2b58442e82798022d69ebfae6616a225f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961467"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74239312"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack"></a>Configurer les paramètres de passerelle réseau VPN pour Azure Stack
 
@@ -171,9 +171,9 @@ Contrairement à Azure, qui prend en charge plusieurs offres en tant qu’initia
 | Propriété              | Valeur|
 |-|-|
 | Version IKE           | IKEv2 |
-|Groupe Diffie-Hellman   | Groupe 2 (1 024 bits) |
+|Groupe Diffie-Hellman   | ECP384 |
 | Méthode d'authentification | Clé prépartagée |
-|Chiffrement et algorithmes de hachage | AES256, SHA256 |
+|Chiffrement et algorithmes de hachage | AES256, SHA384 |
 |Durée de vie de l’AS (durée)     | 28 800 secondes|
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Paramètres IKE Phase 2 (Mode rapide)
@@ -185,10 +185,8 @@ Contrairement à Azure, qui prend en charge plusieurs offres en tant qu’initia
 |Chiffrement et algorithmes de hachage (Authentification) | GCMAES256|
 |Durée de vie de l’AS (durée)  | 27 000 secondes  |
 |Durée de vie de l’AS (kilo-octets) | 33 553 408     |
-|PFS (Perfect Forward Secrecy) |Aucun (e) (voir **remarque 1**) |
+|PFS (Perfect Forward Secrecy) | ECP384 |
 |Détection d’homologue mort | Pris en charge|  
-
-**Remarque 1 :** Avant la version 1807, Azure Stack utilisait la valeur PFS2048 pour la propriété PFS (Perfect Forward Secrecy).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

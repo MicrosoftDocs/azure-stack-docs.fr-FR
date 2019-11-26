@@ -16,12 +16,12 @@ ms.date: 10/17/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/17/2019
-ms.openlocfilehash: dac6b6dad423ab3d18e069a91d8bdd5a09498842
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: 84c5512c26ffe36e9f24811c3fc241675ae22181
+ms.sourcegitcommit: ac7d98a2b58442e82798022d69ebfae6616a225f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534215"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74239364"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Éléments de Place de Marché Azure disponibles pour Azure Stack
 
@@ -33,7 +33,7 @@ Chaque fois que des mises à jour sont publiées pour les extensions de machine 
 
 |  | Nom de l’élément | Description | Publisher | Type de système d’exploitation |
 | --- | --- | --- | --- | --- |
-|![Extension IaaS SQL](media/azure-stack-marketplace-azure-items/cse.png) | [Extension IaaS SQL](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **Téléchargez cette extension pour déployer un serveur SQL sur un élément de la Place de marché Windows ; ceci est obligatoire.** | Microsoft | Windows |
+|![Extension IaaS SQL (SqlIaasExtension)](media/azure-stack-marketplace-azure-items/cse.png) | [Extension IaaS SQL (SqlIaasExtension)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **Téléchargez cette extension pour déployer un serveur SQL sur un élément de la Place de marché Windows ; ceci est obligatoire.** | Microsoft | Windows |
 |![Extension de script personnalisé](media/azure-stack-marketplace-azure-items/cse.png) | [Extension de script personnalisé](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| **Téléchargez cette mise à jour de la version d’origine de l’extension de script personnalisé pour Windows.** | Microsoft | Windows |
 |![Extension de configuration d’état souhaité PowerShell](media/azure-stack-marketplace-azure-items/dsc.png) | [Extension de configuration d’état souhaité PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| **Téléchargez cette mise à jour de la version d’origine de l’extension de configuration d’état souhaité PowerShell. Mise à jour pour prendre en charge TLS v1.2.** | Microsoft | Windows |
 | ![Extension du logiciel anti-programme malveillant Microsoft](media/azure-stack-marketplace-azure-items/cse.png) | [Extension du logiciel anti-programme malveillant Microsoft](https://docs.microsoft.com/azure/security/azure-security-antimalware)| Microsoft Antimalware pour Azure est une solution d’agent unique pour les applications et les environnements client, conçue pour s’exécuter en arrière-plan sans intervention humaine. **Téléchargez cette mise à jour de la version d’origine de l’extension du logiciel anti-programme malveillant.** | Microsoft | Windows |
@@ -85,7 +85,7 @@ Microsoft Azure Stack prend en charge les machines virtuelles et les modèles de
 |  | Nom de l’élément | Description | Publisher |
 | --- | --- | --- | --- |
 | ![Clear Linux OS](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Clear Linux OS](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Une distribution Linux de référence optimisée pour l’architecture Intel. | Projet Clear Linux |
-| ![Conteneur Linux par CoreOS](media/azure-stack-marketplace-azure-items/coreos.png) | [Container Linux de CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Container Linux est une distribution Linux moderne et minime, facilitant l’exécution des conteneurs, la gestion des clusters et la mise à jour homogène de vos serveurs, en fait tous les composants qui rendent possible le calcul à l’échelle de l’entrepôt. | CoreOS |
+| ![CoreOS Linux (Stable)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (Stable)](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | CoreOS est une distribution Linux moderne et minime, facilitant l’exécution des conteneurs, la gestion des clusters et la mise à jour homogène de vos serveurs, en fait tous les composants qui rendent possible le calcul à l’échelle de l’entrepôt. | CoreOS |
 | ![Serveur Ubuntu](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Serveur Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server est le Linux le plus populaire au monde pour les environnements cloud. | Canonical |
 | ![Debian 8 Jessie](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux est l’une des distributions Linux les plus populaires. | credativ |
 | ![Oracle Linux](media/azure-stack-marketplace-azure-items/oracle.png) | [Oracle Linux](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oracle-linux) | Le système d'exploitation Oracle Linux est conçu pour une infrastructure cloud ouverte. Il offre des performances, une évolutivité et une fiabilité de pointe pour les charges de travail SaaS et PaaS d’entreprise, ainsi que pour les applications d’entreprise traditionnelles. | Oracle |

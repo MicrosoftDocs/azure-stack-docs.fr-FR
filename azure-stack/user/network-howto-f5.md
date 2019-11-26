@@ -1,0 +1,198 @@
+---
+title: Guide pratique pour sauvegarder votre machine virtuelle sur Azure Stack Hub avec CommVault | Microsoft Docs
+description: Découvrez comment sauvegarder votre machine virtuelle sur Azure Stack Hub avec CommVault.
+services: azure-stack
+author: mattbriggs
+ms.service: azure-stack
+ms.topic: how-to
+ms.date: 11/06/2019
+ms.author: mabrigg
+ms.reviewer: sijuman
+ms.lastreviewed: 11/06/2019
+ms.openlocfilehash: 64fef6bdcd0315bc9dc289b48f80b406cefba0eb
+ms.sourcegitcommit: bb2bbfad8061f7677954f6ce5a435b4e6f9299b6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74103219"
+---
+# <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>Comment déployer F5 sur deux instances d’Azure Stack Hub
+
+Cet article vous explique comment configurer un équilibreur de charge externe sur deux environnements Azure Stack Hub. Vous pouvez utiliser cette configuration pour gérer différentes charges de travail. Dans le cadre de cet article, vous allez déployer F5 comme solution d’équilibrage de charge globale sur deux instances d’Azure Stack Hub indépendantes. Vous allez également déployer une application web à charge équilibrée s’exécutant sur un serveur NGINX sur les deux instances. Les applications s’exécuteront derrière une paire de basculement haute disponibilité constituée de deux appliances virtuelles F5.
+
+Vous trouverez les modèles Azure Resource Manager dans le dépôt GitHub [f5-azurestack-gslb](https://github.com/Mikej81/f5-azurestack-gslb).
+
+## <a name="overview-of-load-balancing-with-f5"></a>Vue d’ensemble de l’équilibrage de charge avec F5
+
+L’équilibreur de charge, composant matériel de F5, peut se trouver en dehors d’Azure Stack et dans le centre de données qui héberge Azure Stack. Azure Stack n’a pas de fonctionnalité native permettant d’équilibrer les charges de travail entre deux déploiements Azure Stack distincts. F5 BIG-IP Virtual Edition (VE) s’exécute sur les deux plateformes. Cette configuration prend en charge la parité entre les architectures Azure et Azure Stack en s’appuyant sur la réplication des services d’application de prise en charge. Vous pouvez développer une application dans un environnement et la déplacer vers un autre. Vous pouvez également mettre en miroir l’intégralité de l’instance Azure Stack prête pour la production et notamment les mêmes stratégies, services d’application et configurations BIG-IP. Cette approche vous évite de passer de nombreuses heures à refactoriser et tester une application et vous permet de passer à l’écriture du code.
+
+La sécurisation des applications et de leurs données est souvent une préoccupation pour les développeurs qui déplacent des applications vers le cloud public. Pourtant, cette préoccupation n’a pas lieu d’être. Vous pouvez créer une application dans votre environnement Azure Stack, tandis qu’un architecte de sécurité configure les paramètres nécessaires sur le pare-feu d’applications web de F5. La pile entière peut être répliquée dans Azure Stack ; vous savez que l’application sera également protégée par ce pare-feu d’applications web leader sur le marché. Le recours à des stratégies et ensembles de règles identiques élimine le risque de vulnérabilités auquel pourrait vous exposer l’utilisation d’autres pare-feu d’applications web.
+
+La Place de Marché Azure Stack est distincte de celle d’Azure. Seuls certains éléments sont ajoutés. Dans le cas présent, vous souhaitez créer un groupe de ressources sur chacune des instances d’Azure Stack et déployer l’appliance virtuelle F5 déjà disponible. Vous verrez qu’une adresse **IP publique**  sera nécessaire pour autoriser la connectivité réseau entre les deux instances d’Azure Stack. Il s’agit essentiellement de deux îlots, et l’adresse **IP publique** leur permet de communiquer entre les deux sites.
+
+## <a name="prerequisites-for-big-ip-ve"></a>Prérequis pour BIG-IP VE
+
+-  Téléchargez **F5 BIG-IP VE - ALL (BYOL, 2 Boot Locations)** sur chaque Place de Marché Azure Stack. Si elles ne sont pas disponibles dans votre portail, contactez votre opérateur cloud.
+
+-  Vous trouverez le modèle Azure Resource Manager dans le dépôt GitHub suivant : https://github.com/Mikej81/f5-azurestack-gslb.
+
+## <a name="deploy-f5-big-ip-ve-on-each-instance"></a>Déployer F5 BIG-IP VE sur chaque instance
+
+Effectuez le déploiement sur les instances A et B d’Azure Stack.
+
+1. Connectez-vous au portail utilisateur Azure Stack Hub.
+
+2. Sélectionnez **+ Créer une ressource**.
+
+3. Faites une recherche dans la Place de Marché en tapant `F5`.
+
+4. Sélectionnez **F5 BIG-IP VE – ALL (BYOL, 2 Boot Locations)** .
+
+    ![](./media/network-howto-f5/image1.png)
+
+5. En bas de la page suivante, sélectionnez **Créer**.
+
+    ![](./media/network-howto-f5/image2.png)
+
+6. Créez un groupe de ressources nommé **F5-GSLB**.
+
+7. Utilisez les valeurs suivantes comme exemple pour effectuer le déploiement :
+
+    ![](./media/network-howto-f5/image3.png)
+
+8. Vérifiez que le déploiement s’effectue correctement.
+
+    ![](./media/network-howto-f5/image4.png)
+
+    > [!Note]  
+    > Chaque déploiement de BIG-IP doit prendre environ 20 minutes.
+
+## <a name="configure-big-ip-appliances"></a>Configurer les appliances BIG-IP
+
+Effectuez les étapes suivantes pour les instances A et B d’Azure Stack.
+
+1. Connectez-vous au portail utilisateur Azure Stack Hub sur l’instance A pour voir les ressources créées à partir du déploiement du modèle BIG-IP.
+
+    ![](./media/network-howto-f5/image18.png)
+
+2. Suivez les instructions de F5 concernant les [éléments de configuration de BIG-IP](https://clouddocs.f5.com/training/community/dns/html/class1/class1.html). 
+
+3. Configurez la liste d’adresses IP étendues BIG-IP pour l’écoute sur les deux appliances déployées sur les instances A et B d’Azure Stack. Pour obtenir des instructions, consultez [BIG-IP GTM Configuration](https://techdocs.f5.com/kb/en-us/products/big-ip_gtm/manuals/product/gtm-concepts-11-5-0/4.html).
+
+
+4. Vérifiez le basculement des appliances BIG-IP. Sur un système de test, configurez vos serveurs DNS pour qu’ils utilisent les éléments suivants :
+    - Instance A d’Azure Stack = adresse IP publique `f5stack1-ext`
+    - Instance B d’Azure Stack = adresse IP publique `f5stack1-ext`
+
+5. Accédez à `www.contoso.com`. Votre navigateur charge la page NGINX par défaut.
+
+## <a name="create-a-dns-sync-group"></a>Créer un groupe de synchronisation DNS
+
+1. Activez le compte racine pour établir l’approbation. Suivez les instructions de l’article [Changing system maintenance account passwords (11.x - 15.x)](https://support.f5.com/csp/article/K13121). Après avoir défini l’approbation (échange de certificat), désactivez le compte racine.
+
+1. Connectez-vous à l’appliance BIG-IP et créez un groupe de synchronisation DNS. Pour obtenir des instructions, consultez la page [Creating BIG-IP DNS Sync Group](https://f5-dns-automation-demo-12-1-x.readthedocs.io/en/latest/lab2/sync-group.html).
+
+    > [!Note]  
+    > Vous trouverez l’adresse IP locale de l’appliance BIG-IP dans votre groupe de ressources **F5-GSLB**. L’interface réseau est « f5stack1-ext » et vous souhaitez vous connecter à l’adresse IP publique ou privée (en fonction de l’accès).
+
+    ![](./media/network-howto-f5/image5.png)
+          
+    ![](./media/network-howto-f5/image6.png)
+
+1. Sélectionnez le nouveau groupe de ressources **F5-GSLB** et sélectionnez la machine virtuelle **f5stack1**. Sous **Settings**, sélectionnez **Networking**.
+
+## <a name="post-install-configurations"></a>Configurations après installation
+
+Après l’installation, vous devez configurer les groupes de sécurité réseau Azure Stack et verrouiller les adresses IP sources.
+
+1. Désactivez le port 22 après l’établissement de l’approbation.
+
+2. Quand votre système est en ligne, bloquez les groupes de sécurité réseau sources. Le groupe de sécurité réseau de gestion doit être verrouillé sur la source de gestion. Le groupe de sécurité réseau externe (4353/TCP) doit être verrouillé sur l’autre instance pour la synchronisation. Le port 443 doit également être verrouillé jusqu’à ce que des applications avec des serveurs virtuels soient déployées.
+
+3. La règle GTM_DNS est définie pour autoriser le trafic entrant sur le port 53 (DNS), et le programme de résolution BIG-IP commencera à fonctionner une fois les écouteurs créés.
+
+    ![](./media/network-howto-f5/image7.png)
+
+4. Déployez une charge de travail d’application web de base dans votre environnement Azure Stack pour équilibrer les charges derrière BIG-IP. Vous trouverez un exemple d’utilisation du serveur NGINX dans [Deploying NGINX and NGINX Plus on Docker](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/).
+
+    > [!Note]  
+    > Déployez une instance de NGINX sur les instances A et B d’Azure Stack.
+
+5. Une fois NGINX déployé dans un conteneur Docker sur une machine virtuelle Ubuntu au sein de chaque instance d’Azure Stack, vérifiez que vous avez accès à la page web par défaut sur les serveurs.
+
+    ![](./media/network-howto-f5/image8.png)
+
+6. Connectez-vous à l’interface de gestion de l’appliance BIG-IP. Dans cet exemple, utilisez l’adresse IP publique **f5-stack1-ext**.
+
+    ![](./media/network-howto-f5/image9.png)
+
+7. Publiez l’accès à NGINX par le biais de l’appliance BIG-IP.
+    
+    -  La tâche suivante consiste à configurer l’appliance BIG-IP avec un serveur virtuel et un pool pour autoriser l’accès Internet entrant à l’application WordPress. Vous devez d’abord identifier l’adresse IP privée de l’instance NGINX.
+
+8. Connectez-vous au portail utilisateur Azure Stack Hub. 
+
+9. Sélectionnez votre interface réseau NGINX.
+
+    ![](./media/network-howto-f5/image10.png)
+
+10. À partir de la console BIG-IP, accédez à **Local traffic > Pools > Pool List** et sélectionnez **+** . Configurez le pool à l’aide des valeurs présentées dans le tableau. Laissez tous les autres champs sur leurs valeurs par défaut.
+
+    ![](./media/network-howto-f5/image11.png)
+    
+    | Clé | Valeur |
+    | --- | --- |
+    | Nom | NGINX_Pool |
+    | Health Monitor (Moniteur d’intégrité) | HTTPS |
+    | Node Name | NGINX |
+    | Adresse | \<adresse IP privée de votre instance NGINX> |
+    | Service Port | 443 |
+
+11. Sélectionnez **Finished**. Quand la configuration est correcte, l’état du pool est vert.
+
+    ![](./media/network-howto-f5/image12.png)
+
+    Vous devez maintenant configurer le serveur virtuel. Pour cela, vous devez d’abord rechercher l’adresse IP privée de votre appliance F5 BIG-IP.
+
+12. À partir de la console BIG-IP, accédez à **Network > Self IPs** (Adresses Self IP).
+
+    ![](./media/network-howto-f5/image13.png)
+
+13. Créez un serveur virtuel en accédant à **Local Traffic** > **Virtual Servers** > **Virtual Server List** et en sélectionnant **+** . Configurez le pool à l’aide des valeurs présentées dans le tableau. Laissez tous les autres champs sur leurs valeurs par défaut.
+
+    | Clé | Valeur |
+    | --- | --- |
+    |Nom | NGINX |
+    |Destination Address | \<Adresse Self IP de l’appliance BIG-IP> |
+    |Service Port | 443 |
+    |SSL Profile (Client) | clientssl |
+    |Source Address Translation | Auto Map |
+        
+    ![](./media/network-howto-f5/image14.png)
+
+    ![](./media/network-howto-f5/image15.png)
+
+14. Vous avez terminé la configuration BIG-IP pour l’application NGINX. Pour vérifier que tout fonctionne correctement, parcourez le site et consultez les statistiques de F5.
+
+15. Dans un navigateur accédez à `https://<F5-public-VIP-IP>` et assurez-vous que votre page NGINX par défaut s’affiche.
+
+    ![](./media/network-howto-f5/image16.png)
+
+16. À présent, consultez les statistiques de votre serveur virtuel pour vérifier le flux de trafic en accédant à **Statistics > Module Statistics > Local Traffic**.
+
+17. Sous **Statistics Type**, sélectionnez **Virtual Servers**.
+
+    ![](./media/network-howto-f5/image17.png)
+
+
+## <a name="for-more-information"></a>Pour plus d’informations
+
+Les liens ci-après vous permettent d’accéder à des articles de référence sur l’utilisation de F5 :
+
+- [Data Center Availability Services Using BIG-IP DNS](https://clouddocs.f5.com/training/community/dns/html/class3/class3.html)
+- [Deploying the BIG-IP System with HTTP Applications](https://www.f5.com/content/dam/f5/corp/global/pdf/deployment-guides/iapp-http-dg.pdf)
+- [Creating a wide IP for GSLB](https://clouddocs.f5.com/training/community/big-iq-cloud-edition/html/class10/module2/lab1.html)
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[Différences et considérations relatives aux réseaux Azure Stack](azure-stack-network-differences.md) 

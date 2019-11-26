@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/15/2019
 ms.author: justinha
 ms.reviewer: wamota
-ms.lastreviewed: 09/09/2019
-ms.openlocfilehash: cfd9434bc52684f89617eff3b62a7bf51fc68bcd
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.lastreviewed: 11/15/2019
+ms.openlocfilehash: d165b2c2ae2293f8549cf1c0d2f482801f645312
+ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277426"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74162899"
 ---
 # <a name="publish-azure-stack-services-in-your-datacenter"></a>Publier des services Azure Stack dans votre centre de données 
 
@@ -26,9 +26,12 @@ Le diagramme architectural suivant montre les différentes couches réseau et le
 ![Diagramme montrant différentes couches réseau et listes de contrôle d’accès](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ### <a name="ports-and-urls"></a>Ports et URL
+
 Pour rendre des services Azure Stack (comme les portails, Azure Resource Manager, DNS, etc.) disponibles pour des réseaux externes, vous devez autoriser le trafic entrant vers ces points de terminaison pour des URL, des ports et des protocoles spécifiques.
  
 Dans un déploiement où un proxy transparent achemine par liaison montante les données à un serveur proxy traditionnel ou un pare-feu protège la solution, vous devez autoriser des URL et des ports spécifiques pour les communications [entrantes](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound) et [sortantes](azure-stack-integrate-endpoints.md#ports-and-urls-outbound). Cela comprend les ports et les URL pour l’identité, la marketplace, les correctifs et les mises à jour, l’inscription ainsi que les données d’utilisation.
+
+L’interception du trafic SSL n’est [pas prise en charge](azure-stack-firewall.md#ssl-interception) et peut entraîner des échecs de service lors de l’accès aux points de terminaison. 
 
 ## <a name="ports-and-protocols-inbound"></a>Ports et protocoles (en entrée)
 
@@ -70,6 +73,8 @@ Avec l’ajout de l’[hôte d’extension](azure-stack-extension-host-prepare.m
 ## <a name="ports-and-urls-outbound"></a>Ports et URL (en sortie)
 
 Azure Stack prend en charge uniquement les serveurs proxy transparents. Dans un déploiement où un proxy transparent transfère les données vers un serveur proxy traditionnel, vous devez autoriser les URL et les ports du tableau suivant pour les communications sortantes.
+
+L’interception du trafic SSL n’est [pas prise en charge](azure-stack-firewall.md#ssl-interception) et peut entraîner des échecs de service lors de l’accès aux points de terminaison. Le délai d’expiration maximal pris en charge pour communiquer avec les points de terminaison requis pour l’identité est de 60 secondes.
 
 > [!Note]  
 > Azure Stack ne prend pas en charge l’utilisation d’ExpressRoute pour atteindre les services Azure listés dans le tableau suivant, car ExpressRoute risque de ne pas pouvoir router le trafic vers tous les points de terminaison.

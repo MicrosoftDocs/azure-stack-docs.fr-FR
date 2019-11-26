@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 09e75656fc6a00181ffb31087e19e80b92760ed2
-ms.sourcegitcommit: b72729305234e13c65de3771cb08678d46ba1348
+ms.openlocfilehash: 2ba1fc76b8b0ead1da543abb467d7a1613a5304c
+ms.sourcegitcommit: ac7d98a2b58442e82798022d69ebfae6616a225f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72543682"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74239336"
 ---
 # <a name="differences-and-considerations-for-azure-stack-networking"></a>Différences et considérations relatives aux réseaux Azure Stack
 
@@ -28,7 +28,7 @@ Cet article fournit une vue d’ensemble de considérations propres à la gestio
 
 ## <a name="cheat-sheet-networking-differences"></a>Aide-mémoire : Différences de mise en réseau
 
-| de diffusion en continu | Fonctionnalité | Azure (global) | Azure Stack |
+| Service | Fonctionnalité | Azure (global) | Azure Stack |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | DNS | Système DNS multilocataire | Pris en charge | Pas encore pris en charge |
 |  | Enregistrements AAAA DNS | Pris en charge | Non pris en charge |
@@ -62,6 +62,7 @@ Cet article fournit une vue d’ensemble de considérations propres à la gestio
 |  | Prise en charge des règles NAT pour les points de terminaison de service | Azure prend en charge les points de terminaison de service pour les règles NAT entrantes. | Azure Stack ne prenant pas encore en charge les points de terminaison de service, vous ne pouvez pas les spécifier. |
 |  | Protocol | Azure prend en charge la spécification GRE ou ESP. | La classe de protocole n’est pas prise en charge dans Azure Stack. |
 | Adresse IP publique | Version de l’adresse IP publique | Azure prend en charge IPv6 et IPv4. | Seul le protocole IPv4 est pris en charge. |
+| | SKU | Azure prend en charge les références SKU De base et Standard. | Seule la référence SKU De base est prise en charge. |
 | Interface réseau | Obtenir la table de routage effective | Pris en charge | Pas encore pris en charge. |
 |  | Obtenir les ACL effectives | Pris en charge | Pas encore pris en charge. |
 |  | Activer la mise en réseau accélérée | Pris en charge | Pas encore pris en charge. |

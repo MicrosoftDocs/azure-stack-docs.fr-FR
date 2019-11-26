@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 11/15/2019
 ms.author: mabrigg
-ms.reviewer: wfayed
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: e50f2cf722dc4a5b66dbc68c769127e346386134
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.reviewer: thoroet
+ms.lastreviewed: 11/15/2019
+ms.openlocfilehash: c2b6144311ce8f4309fdb968a500f6850080f309
+ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019308"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74162964"
 ---
 # <a name="azure-stack-firewall-integration"></a>Intégration d’Azure Stack à un pare-feu
 Nous vous recommandons d’utiliser un dispositif de pare-feu pour sécuriser Azure Stack. Les pare-feu peuvent contribuer à la défense contre les attaques par déni de service distribué (DDoS), à la détection des intrusions et à l'inspection de contenu. Mais ils peuvent également se transformer en goulot d'étranglement pour les services de stockage Azure (objets blobs, tables, files d'attente, etc.).
@@ -42,8 +42,8 @@ L’utilisation de NAT pour une adresse IP virtuelle publique présente des inco
 - Bien que l’utilisation de NAT limite l’expérience de l’utilisateur, elle donne à l’opérateur un contrôle total sur les demandes de publication.
 - Pour les scénarios de cloud hybride avec Azure, tenez compte du fait qu’Azure ne prend pas en charge la configuration d’un tunnel VPN vers un point de terminaison à l’aide de NAT.
 
-### <a name="ssl-decryption"></a>Déchiffrement SSL
-Il est recommandé de désactiver le déchiffrement de SSL pour tout le trafic Azure Stack. S’il venait à être pris en charge dans les futures mises à jour, nous fournirions des conseils sur la façon d’activer le déchiffrement SSL pour Azure Stack.
+### <a name="ssl-interception"></a>Interception SSL
+Actuellement, il est recommandé de désactiver tout type d’interception SSL (par exemple, pour le déplacement du processus de déchiffrement) sur l’ensemble du trafic Azure Stack. Si l’interception SSL venait à être prise en charge dans les futures mises à jour, nous fournirions des conseils sur la façon de l’activer pour Azure Stack.
 
 ## <a name="edge-firewall-scenario"></a>Scénario de pare-feu de périmètre
 Dans un déploiement de périphérie, Azure Stack est déployé directement derrière le pare-feu ou le routeur de périphérie. Dans ces scénarios, le pare-feu peut se situer au-dessus de la frontière (scénario 1) s’il prend en charge les configurations de pare-feu actif-actif et actif-passif ou en agissant en tant qu’appareil frontière (scénario 2) où il prend uniquement en charge les configurations de pare-feu actif-actif avec prise en charge d’ECMP (Equal Cost Multi Path) avec BGP ou le routage statique pour le basculement.
