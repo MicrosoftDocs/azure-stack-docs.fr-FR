@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 11/22/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: a0218652e2dace72356a32fe99ac5f6ac450cc94
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 11/22/2019
+ms.openlocfilehash: a5a6cf3ef5c2c03992647c207422eb266f171ac4
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824794"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465491"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Gérer et déployer des ressources sur Azure Stack avec l’interface CLI Azure
 
@@ -163,13 +163,6 @@ Pour approuver le certificat racine d’autorité de certification Azure Stack, 
 
 1. Inscrivez votre environnement Azure Stack en exécutant la commande `az cloud register`.
 
-    Dans certains scénarios, la connectivité Internet sortante directe est acheminée par l'intermédiaire d'un proxy ou d'un pare-feu, qui assure l'interception SSL. La commande `az cloud register` peut alors échouer avec une erreur de type « Impossible d'obtenir les points de terminaison du cloud ». Pour contourner cette erreur, définissez les variables d'environnement suivantes :
-
-    ```shell  
-    set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
-    set ADAL_PYTHON_SSL_NO_VERIFY=1
-    ```
-
 2. Inscrivez votre environnement. Utilisez les paramètres suivants lors de l’exécution de `az cloud register` :
 
     | Valeur | Exemples | Description |
@@ -282,13 +275,6 @@ Si vous utilisez l’ASDK, vous devez approuver le certificat racine de l’auto
 ### <a name="connect-to-azure-stack"></a>Se connecter à Azure Stack
 
 1. Inscrivez votre environnement Azure Stack en exécutant la commande `az cloud register`.
-
-    Dans certains scénarios, la connectivité Internet sortante directe est acheminée par l'intermédiaire d'un proxy ou d'un pare-feu, qui assure l'interception SSL. La commande `az cloud register` peut alors échouer avec une erreur de type « Impossible d'obtenir les points de terminaison du cloud ». Pour contourner cette erreur, définissez les variables d'environnement suivantes :
-
-    ```shell  
-    set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
-    set ADAL_PYTHON_SSL_NO_VERIFY=1
-    ```
 
 2. Inscrivez votre environnement. Utilisez les paramètres suivants lors de l’exécution de `az cloud register` :
 

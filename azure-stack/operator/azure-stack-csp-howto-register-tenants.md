@@ -15,12 +15,12 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 3b728bb08d41c234ccffb94005be740bea0766b6
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: a146a99476912e97c72e7a37ffc5224158feaffc
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019282"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310149"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Ajouter un locataire pour l’utilisation et la facturation sur Azure Stack
 
@@ -72,7 +72,7 @@ Mettez à jour votre inscription avec l’abonnement de nouveau client. Azure si
 3. Dans la session PowerShell, exécutez :
 
    ```powershell
-   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties <PSObject>
+   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
    ```
 
 ### <a name="new-azurermresource-powershell-parameters"></a>Paramètres PowerShell New-AzureRmResource
@@ -84,8 +84,7 @@ La section suivante décrit les paramètres de la cmdlet **New-AzureRmResource**
 |registrationSubscriptionID | L’abonnement Azure qui était utilisé au moment de l’inscription initiale d’Azure Stack.|
 | customerSubscriptionID | L’abonnement Azure (pas Azure Stack) appartenant au client à inscrire. Doit être créé dans l'offre CSP. En pratique, cela veut dire via l’Espace partenaires. Si un client dispose de plus d’un locataire Azure Active Directory, cet abonnement doit être créé dans le locataire qui sera utilisé pour se connecter à Azure Stack. L’ID d’abonnement client doit utiliser des lettres minuscules. |
 | resourceGroup | Le groupe de ressources Azure dans lequel est stockée votre inscription. |
-| registrationName | Le nom de l’inscription de votre compte Azure Stack. Il s’agit d’un objet stocké dans Azure. |
-| properties | Spécifie les propriétés de la ressource. Utilisez ce paramètre pour spécifier les valeurs des propriétés spécifiques au type de ressource.
+| registrationName | Le nom de l’inscription de votre compte Azure Stack. Il s’agit d’un objet stocké dans Azure. 
 
 > [!NOTE]  
 > Les locataires doivent être inscrits auprès de chaque Azure Stack qu’ils utilisent. Si vous avez deux déploiements Azure Stack utilisés par un client, vous devez mettre à jour les inscriptions initiales de chaque déploiement avec l’abonnement du locataire.

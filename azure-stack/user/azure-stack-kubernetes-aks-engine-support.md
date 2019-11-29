@@ -11,26 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 8c83e0b006904482634e50bdf217ec5d236e4e5c
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: 1aa8aa65f0b19efcbafc85887e644c1c2b773bde
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73594955"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310163"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack"></a>Stratégies de support pour le moteur AKS sur Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Cet article fournit des informations sur les stratégies de support technique et les limitations pour le moteur AKS sur Azure Stack. L’article décrit également l’élément Kubernetes de la Place de marché, des composants open source tiers et la gestion de la sécurité ou des correctifs. 
-
-> [!IMPORTANT]
-> Le moteur AKS est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="self-managed-kubernetes-clusters-on-azure-stack-with-aks-engine"></a>Clusters Kubernetes automanagés sur Azure Stack avec le moteur AKS
 

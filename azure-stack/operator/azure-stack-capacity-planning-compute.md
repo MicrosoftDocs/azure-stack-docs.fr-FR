@@ -16,12 +16,12 @@ ms.date: 07/16/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 17136cbe86029f0ea776d8dc8860ff96c82c756e
-ms.sourcegitcommit: ae79b8bea670ea854ed00e9998d45f6b47fc8347
+ms.openlocfilehash: dac0360bba7c24c85d1f30efbfb7fad30eb97028
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71142586"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74299149"
 ---
 # <a name="azure-stack-compute"></a>Calcul Azure Stack
 
@@ -111,7 +111,7 @@ La valeur V, à savoir la taille de la plus grande machine virtuelle dans l’un
 
 **Q** : Quel état doivent avoir les machines virtuelles locataires pour consommer de la mémoire ?
 
-v : La mémoire est consommée, non seulement par les machines virtuelles en cours d’exécution, mais aussi par toutes les machines virtuelles qui ont atterri sur la structure fabric. Cela signifie que les machines virtuelles qui ont l’état « Création en cours » ou « Échec » ou bien qui sont arrêtées à partir de l’invité consomment de la mémoire, contrairement aux machines qui sont libérées à l’aide de l’option d’arrêt appropriée à partir du portail, de PowerShell ou de la CLI.
+**R** : La mémoire est consommée, non seulement par les machines virtuelles en cours d’exécution, mais aussi par toutes les machines virtuelles qui ont atterri sur la structure fabric. Cela signifie que les machines virtuelles qui ont l’état « Création en cours » ou « Échec » ou bien qui sont arrêtées à partir de l’invité consomment de la mémoire, contrairement aux machines qui sont libérées à l’aide de l’option d’arrêt appropriée à partir du portail, de PowerShell ou de la CLI.
 
 **Q** : J’ai un système Azure Stack avec quatre hôtes. Mon locataire a trois machines virtuelles qui consomment 56 Go de RAM (D5_v2) chacune. L’une de ces machines virtuelles est redimensionnée à 112 Go de RAM (D14_v2), et les rapports sur la mémoire disponibles dans le tableau de bord montrent un pic d’utilisation de 168 Go dans le panneau de capacité. Le redimensionnement ultérieur des deux autres machines virtuelles D5_v2 à D14_v2 a entraîné une augmentation de la RAM de 56 Go uniquement sur chacune. Pourquoi ?
 

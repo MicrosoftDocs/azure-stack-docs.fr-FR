@@ -11,26 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 22779072b2dfed018a2ff6d5eac5bf2c294ccd31
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: cb531570191216ea13a0b1a7a6d36738c0765cd3
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595127"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310253"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack"></a>Qu'est-ce que le moteur AKS sur Azure Stack ?
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Vous pouvez utiliser l'outil en ligne de commande du moteur AKS pour déployer et gérer un cluster Kubernetes sur Azure et Azure Stack. Utilisez le moteur AKS pour créer, mettre à niveau et mettre à l'échelle des clusters natifs Azure Resource Manager. Vous pouvez utiliser le moteur pour déployer un cluster dans des environnements à la fois connectés et déconnectés. Cet article fournit une vue d'ensemble du moteur AKS, des scénarios pris en charge pour l'utilisation du moteur avec Azure Stack, et une présentation des opérations telles que le déploiement, la mise à niveau et la mise à l'échelle.
-
-> [!IMPORTANT]
-> Le moteur AKS est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="overview-of-the-aks-engine"></a>Vue d'ensemble du moteur AKS
 
