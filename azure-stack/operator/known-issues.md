@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: prchint
-ms.lastreviewed: 09/13/2019
-ms.openlocfilehash: 367a2cb5a07c0db2b272b8ffc951f51e5ed9cc0e
-ms.sourcegitcommit: bb2bbfad8061f7677954f6ce5a435b4e6f9299b6
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: 0621ca19f96e1c33a85ea5308346fafa2e4545f8
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74100038"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465372"
 ---
 # <a name="azure-stack-known-issues"></a>Problèmes connus d’Azure Stack
 
@@ -29,11 +29,11 @@ Cet article liste les problèmes connus dans les versions d’Azure Stack. La li
 
 Pour accéder aux problèmes connus d'une autre version, utilisez le menu déroulant de sélection de la version, situé au-dessus de la table des matières à gauche.
 
-::: moniker range=">=azs-1905"
+::: moniker range=">=azs-1906"
 > [!IMPORTANT]  
 > Passez en revue cette section avant d’appliquer la mise à jour.
 ::: moniker-end
-::: moniker range="<azs-1905"
+::: moniker range="<azs-1906"
 > [!IMPORTANT]  
 > Si votre instance Azure Stack est en retard de plus de deux mises à jour, elle est considérée comme non conforme. Pour bénéficier de la prise en charge, vous devez [mettre à jour avec au moins la version minimale prise en charge](azure-stack-servicing-policy.md#keep-your-system-under-support). 
 ::: moniker-end
@@ -41,6 +41,209 @@ Pour accéder aux problèmes connus d'une autre version, utilisez le menu dérou
 <!---------------------------------------------------------->
 <!------------------- SUPPORTED VERSIONS ------------------->
 <!---------------------------------------------------------->
+
+::: moniker range="azs-1910"
+## <a name="portal"></a>Portail
+
+### <a name="administrative-subscriptions"></a>Abonnements d’administration
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Les deux abonnements d’administration qui ont été introduits avec la version 1804 ne doivent pas être utilisés. Les types d’abonnements sont **Metering (Compteur)** et **Consumption (Consommation)** .
+- Correction : Si vous disposez de ressources s’exécutant sur ces deux abonnements, recréez-les dans des abonnements utilisateur.
+- Occurrence : Courant
+
+### <a name="subscriptions-lock-blade"></a>Panneau de verrouillage des abonnements
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail administrateur, le panneau de **verrouillage** des abonnements utilisateur comporte deux boutons dont l’intitulé est **Abonnement**.
+- Occurrence : Courant
+
+### <a name="subscription-permissions"></a>Autorisations d’abonnement
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Vous ne pouvez pas afficher les autorisations définies pour votre abonnement à l’aide des portails Azure Stack.
+- Correction : Utilisez [PowerShell pour vérifier les autorisations](/powershell/module/azurerm.resources/get-azurermroleassignment).
+- Occurrence : Courant
+
+### <a name="storage-account-settings"></a>Paramètres du compte de stockage
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, le panneau **Configuration** du compte de stockage présente une option permettant de modifier le **type de transfert de sécurité**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Occurrence : Courant
+
+### <a name="upload-blob-with-oauth-error"></a>Erreur de chargement d’objet blob avec OAuth
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail de l’utilisateur, lorsque vous essayez de charger un objet blob à l’aide de l’option **OAuth (préversion)** , la tâche échoue avec un message d’erreur.
+- Correction : Chargez le blob à l’aide de l’option SAP.
+- Occurrence : Courant
+
+### <a name="upload-blob-option-unsupported"></a>Option de chargement d’objet blob non prise en charge
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, lorsque vous essayez de charger un objet blob dans le panneau de chargement, vous pouvez sélectionner **AAD** ou **Key Authentication** (Authentification par clé), mais **AAD** n’est pas pris en charge dans Azure Stack.
+- Occurrence : Courant
+
+### <a name="load-balancer-backend-pool"></a>Pool de back-ends de l’équilibreur de charge
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, lors de l’ajout d’un pool de back-ends d’un **équilibreur de charge**, l’opération génère le message d’erreur **Échec de l’enregistrement du pool principal d’équilibreurs de charge**. Toutefois, l’opération a en fait réussi.
+- Occurrence : Courant
+
+### <a name="incorrect-tooltip-when-creating-vm"></a>Info-bulle incorrecte lors de la création d’une machine virtuelle
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, lorsque vous sélectionnez un disque managé de type SSD Premium, la liste déroulante affiche **Disque du système d’exploitation**. L’info-bulle en regard de cette option indique **Certaines tailles de disque de système d’exploitation peuvent être disponibles gratuitement avec le compte Azure gratuit**. Toutefois, cela n’est pas valide pour Azure Stack. En outre, la liste inclut **Compte gratuit éligible**, ce qui n’est pas valide pour Azure Stack.
+- Occurrence : Courant
+
+### <a name="vpn-troubleshoot-and-metrics"></a>Résolution des problèmes liés au VPN et métriques
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, les fonctionnalités **Résolution des problèmes liés au VPN** et **Métriques** figurent dans une ressource de passerelle VPN, mais elles ne sont pas prises en charge dans Azure Stack.
+- Occurrence : Courant
+
+### <a name="adding-extension-to-vm-scale-set"></a>Ajout d’une extension au groupe de machines virtuelles identiques
+
+- Champ d’application : Ce problème s’applique aux versions 1907 et ultérieures.
+- Cause : Dans le portail utilisateur, une fois qu’un groupe de machines virtuelles identiques est créé, l’interface utilisateur ne permet pas à l’utilisateur d’ajouter une extension.
+- Occurrence : Courant
+
+### <a name="delete-a-storage-container"></a>Supprimer un conteneur de stockage
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, lorsqu’un utilisateur tente de supprimer un conteneur de stockage, l’opération échoue lorsque l’utilisateur ne sélectionne pas **Remplacer les paramètres Azure Policy et de rôle RBAC**.
+- Correction : Assurez-vous que la case est cochée pour **Remplacer les paramètres Azure Policy et de rôle RBAC**.
+- Occurrence : Courant
+
+### <a name="refresh-button-on-virtual-machines-fails"></a>Échec du bouton d’actualisation sur les machines virtuelles
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, lorsque vous accédez à **Machines virtuelles** et tentez d’actualiser à l’aide du bouton situé en haut, les états ne sont pas mis à jour correctement.
+- Correction : L’état est automatiquement mis à jour toutes les 5 minutes, que l’utilisateur ait cliqué ou non sur le bouton d’actualisation. Attendez 5 minutes et vérifiez l’état.
+- Occurrence : Courant
+
+### <a name="virtual-network-gateway"></a>Passerelle de réseau virtuel
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, lorsque vous créez une table de routage, **Passerelle de réseau virtuel** apparaît comme l’une des options de type de tronçon suivant. Toutefois, elle n’est pas prise en charge dans Azure Stack.
+- Occurrence : Courant
+
+### <a name="storage-account-options"></a>Options de compte de stockage
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, le nom des comptes de stockage est affiché en tant que **Compte de stockage – objet blob, fichier, table, file d’attente**, mais l’option **fichier** n’est pas prise en charge dans Azure Stack.
+- Occurrence : Courant
+
+### <a name="storage-account-configuration"></a>Configuration du compte de stockage
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, lorsque vous créez un compte de stockage et que vous affichez sa **configuration**, vous ne pouvez pas enregistrer les modifications de configuration, car cela génère une erreur AJAX.
+- Occurrence : Courant
+
+### <a name="capacity-monitoring-in-sql-resource-provider-keeps-loading"></a>La supervision de la capacité dans le fournisseur de ressources SQL continue à se charger
+
+- Champ d’application : Ce problème s’applique à la mise à jour 1910 ou ultérieure d’Azure Stack, lorsque le fournisseur de ressources SQL version 1.1.33.0 ou antérieure est installé.
+- Cause : La version actuelle du fournisseur de ressources SQL n’est pas compatible avec certaines des modifications de portail les plus récentes, figurant dans la mise à jour 1910.
+- Correction : Suivez le processus de mise à jour du fournisseur de ressources pour appliquer le correctif du fournisseur de ressources SQL 1.1.47.0 après la mise à niveau d’Azure Stack vers la mise à jour 1910 ([SQL RP version 1.1.47.0](https://aka.ms/azurestacksqlrp11470)). Pour le fournisseur de ressources MySQL, il est également recommandé d’appliquer le correctif du fournisseur de ressources SQL 1.1.47.0 après la mise à niveau d’Azure Stack vers la mise à jour 1910 ([MySQL RP version 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)).
+- Occurrence : Courant
+
+## <a name="networking"></a>Mise en réseau
+
+### <a name="load-balancer"></a>Équilibrage de charge
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Lors de l’ajout de machines virtuelles d’un groupe à haute disponibilité au pool de back-ends d’un équilibreur de charge, un message d’erreur s’affiche sur le portail, indiquant **Échec de l’enregistrement du pool principal d’équilibreurs de charge**. Il s’agit d’un problème esthétique sur le portail. Les fonctionnalités sont toujours en place et les machines virtuelles sont correctement ajoutées en interne au pool de back-ends.
+- Occurrence : Courant
+
+### <a name="network-security-groups"></a>Network Security Group
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge. 
+- Cause : Il n’est pas autorisé de créer une règle **DenyAllOutbound** explicite dans un groupe de sécurité réseau. En effet, elle empêcherait toute communication interne avec l’infrastructure, et cette communication est nécessaire au bon déploiement de la machine virtuelle.
+- Occurrence : Courant
+
+### <a name="service-endpoints"></a>Points de terminaison de service
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, le panneau **Réseau virtuel** comporte une option pour utiliser les **points de terminaison du service**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Occurrence : Courant
+
+### <a name="network-interface"></a>interface réseau
+
+#### <a name="addingremoving-network-interface"></a>Ajout / suppression de l’interface réseau
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Une nouvelle interface réseau ne peut pas être ajoutée à une machine virtuelle qui se trouve dans l’état **en cours d’exécution**.
+- Correction : Arrêtez la machine virtuelle avant d’ajouter ou de supprimer une interface réseau.
+- Occurrence : Courant
+
+#### <a name="primary-network-interface"></a>Interface réseau principale
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : La carte réseau principale d’une machine virtuelle ne peut pas être changée. La suppression ou le détachement de la carte réseau principale entraînerait des problèmes de démarrage de la machine virtuelle.
+- Occurrence : Courant
+
+### <a name="virtual-network-gateway"></a>Passerelle de réseau virtuel
+
+#### <a name="alerts"></a>Alertes
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, le panneau **Passerelle de réseau virtuel** comporte une option pour utiliser les **alertes**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Occurrence : Courant
+
+#### <a name="active-active"></a>Actif/actif
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, lors de la création, et dans le menu **Passerelle de réseau virtuel**, vous verrez une option permettant d’activer la configuration **Actif/actif**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Occurrence : Courant
+
+#### <a name="vpn-troubleshooter"></a>Résolution des problèmes de VPN
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, le panneau **Connexions** affiche une fonctionnalité appelée **Résolution des problèmes de VPN**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Occurrence : Courant
+
+#### <a name="documentation"></a>Documentation
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Les liens vers la documentation dans la page de vue d’ensemble de la Passerelle de réseau virtuel renvoient vers la documentation spécifique à Azure au lieu d’Azure Stack. Utilisez les liens suivants pour accéder à la documentation Azure Stack :
+
+  - [SKU de passerelle](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
+  - [Connexions hautement disponibles](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
+  - [Configurer le protocole BGP sur Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [Circuits ExpressRoute](azure-stack-connect-expressroute.md)
+  - [Spécifier des stratégies IPsec/IKE personnalisées](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
+
+## <a name="compute"></a>Calcul
+
+### <a name="vm-boot-diagnostics"></a>Diagnostics de démarrage de machine virtuelle
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Quand vous créez une machine virtuelle Windows, l’erreur suivante peut s’afficher : **Échec du démarrage de la machine virtuelle « vm-name ». Error: Failed to update serial output settings for VM 'vm-name' (Impossible de mettre à jour les paramètres de sortie en série de la machine virtuelle « vm-name »)** . Cette erreur se produit si vous activez les diagnostics de démarrage sur une machine virtuelle alors que vous avez supprimé votre compte de stockage des diagnostics de démarrage.
+- Correction : Recréez le compte de stockage avec le même nom que celui utilisé précédemment.
+- Occurrence : Courant
+
+### <a name="consumed-compute-quota"></a>Quota de calcul consommé
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Lors de la création d’une machine virtuelle, vous pouvez recevoir une erreur telle que **Cet abonnement a atteint sa capacité maximale pour Total des processeurs virtuels régionaux à cet emplacement. Cet abonnement utilise l’ensemble des 50 Total des processeurs virtuels régionaux disponibles.** . Cela indique que le quota pour le nombre total de cœurs à votre disposition a été atteint.
+- Correction : Demandez à votre opérateur un plan additionnel avec un quota supplémentaire. La modification du quota du plan actuel ne fonctionne pas ou ne reflète pas l’augmentation du quota.
+- Occurrence : Rare
+
+### <a name="virtual-machine-scale-set"></a>Jeu de mise à l’échelle de machine virtuelle
+
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Créer des échecs au cours des correctifs et mises à jour sur des environnements Azure Stack à 4 nœuds
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : La création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur et la création d’une instance de groupe de machines virtuelles identiques échouent avec une erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
+- Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. Toutefois, la création d’instances de groupe identique n’est toujours pas disponible pendant le processus de mise à jour sur un déploiement Azure Stack à 4 nœuds.
+
+<!-- ## Storage -->
+<!-- ## SQL and MySQL-->
+<!-- ## App Service -->
+<!-- ## Usage -->
+<!-- ### Identity -->
+<!-- ### Marketplace -->
+::: moniker-end
 
 ::: moniker range="azs-1908"
 ## <a name="1908-update-process"></a>Processus de mise à jour 1908
@@ -69,7 +272,7 @@ Pour accéder aux problèmes connus d'une autre version, utilisez le menu dérou
 ### <a name="subscriptions-lock-blade"></a>Panneau de verrouillage des abonnements
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail administrateur, le panneau de **verrouillage** des abonnements utilisateur comporte deux boutons avec un intitulé **abonnement**.
+- Cause : Dans le portail administrateur, le panneau de **verrouillage** des abonnements utilisateur comporte deux boutons dont l’intitulé est **Abonnement**.
 - Occurrence : Courant
 
 ### <a name="subscription-permissions"></a>Autorisations d’abonnement
@@ -94,7 +297,14 @@ Pour accéder aux problèmes connus d'une autre version, utilisez le menu dérou
 
 ## <a name="networking"></a>Mise en réseau
 
+### <a name="load-balancer"></a>Load Balancer
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge. 
+- Cause : Lors de l’ajout de machines virtuelles d’un groupe à haute disponibilité au pool de back-ends d’un équilibreur de charge, un message d’erreur s’affiche sur le portail, indiquant **Échec de l’enregistrement du pool principal d’équilibreurs de charge**. Il s’agit d’un problème esthétique sur le portail. Les fonctionnalités sont toujours en place et les machines virtuelles sont correctement ajoutées en interne au pool de back-ends. 
+- Occurrence : Courant
+
 ### <a name="network-security-groups"></a>Network Security Group
+
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge. 
 - Cause : Il n’est pas autorisé de créer une règle **DenyAllOutbound** explicite dans un groupe de sécurité réseau. En effet, elle empêcherait toute communication interne avec l’infrastructure, et cette communication est nécessaire au bon déploiement de la machine virtuelle.
 - Occurrence : Courant
@@ -107,23 +317,21 @@ Pour accéder aux problèmes connus d'une autre version, utilisez le menu dérou
 
 ### <a name="network-interface"></a>interface réseau
 
+#### <a name="addingremoving-network-interface"></a>Ajout / suppression de l’interface réseau
+
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Une nouvelle interface réseau ne peut pas être ajoutée à une machine virtuelle qui se trouve dans l’état **en cours d’exécution**.
 - Correction : Arrêtez la machine virtuelle avant d’ajouter ou de supprimer une interface réseau.
 - Occurrence : Courant
 
+#### <a name="primary-network-interface"></a>Interface réseau principale
+
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : La carte réseau principale d’une machine virtuelle ne peut pas être changée. La suppression/le détachement de la carte réseau principale entraînerait des problèmes de démarrage de la machine virtuelle.
+- Cause : Une nouvelle interface réseau ne peut pas être ajoutée à une machine virtuelle qui se trouve dans l’état **en cours d’exécution**.
+- Correction : Arrêtez la machine virtuelle avant d’ajouter ou de supprimer une interface réseau.
 - Occurrence : Courant
 
 ### <a name="virtual-network-gateway"></a>Passerelle de réseau virtuel
-
-#### <a name="local-network-gateway-deletion"></a>Suppression du nom de passerelle de réseau local
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, la suppression de la **passerelle réseau local** affiche le message d’erreur suivant : **Impossible de supprimer une passerelle de réseau local avec une connexion active**, même si aucune connexion n’est active.
-- Atténuation : Le correctif pour ce problème sera publié dans la version 1907. Une solution de contournement pour ce problème consiste à créer une passerelle de réseau local avec la même adresse IP, le même espace d’adressage et les mêmes détails de configuration, mais avec un autre nom. L’ancien LNG peut être supprimé une fois que l’environnement a été mis à jour vers la version 1907.
-- Occurrence : Courant
 
 #### <a name="alerts"></a>Alertes
 
@@ -253,6 +461,18 @@ Pour accéder aux problèmes connus d'une autre version, utilisez le menu dérou
 
 ## <a name="networking"></a>Mise en réseau
 
+### <a name="load-balancer"></a>Load Balancer
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge. 
+- Cause : Lors de l’ajout de machines virtuelles d’un groupe à haute disponibilité au pool de back-ends d’un équilibreur de charge, un message d’erreur s’affiche sur le portail, indiquant **Échec de l’enregistrement du pool principal d’équilibreurs de charge**. Il s’agit d’un problème esthétique sur le portail. Les fonctionnalités sont toujours en place et les machines virtuelles sont correctement ajoutées en interne au pool de back-ends. 
+- Occurrence : Courant
+
+### <a name="network-security-groups"></a>Network Security Group
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge. 
+- Cause : Il n’est pas autorisé de créer une règle **DenyAllOutbound** explicite dans un groupe de sécurité réseau. En effet, elle empêcherait toute communication interne avec l’infrastructure, et cette communication est nécessaire au bon déploiement de la machine virtuelle.
+- Occurrence : Courant
+
 ### <a name="service-endpoints"></a>Points de terminaison de service
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
@@ -260,6 +480,15 @@ Pour accéder aux problèmes connus d'une autre version, utilisez le menu dérou
 - Occurrence : Courant
 
 ### <a name="network-interface"></a>interface réseau
+
+#### <a name="addingremoving-network-interface"></a>Ajout / suppression de l’interface réseau
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Une nouvelle interface réseau ne peut pas être ajoutée à une machine virtuelle qui se trouve dans l’état **en cours d’exécution**.
+- Correction : Arrêtez la machine virtuelle avant d’ajouter ou de supprimer une interface réseau.
+- Occurrence : Courant
+
+#### <a name="primary-network-interface"></a>Interface réseau principale
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Une nouvelle interface réseau ne peut pas être ajoutée à une machine virtuelle qui se trouve dans l’état **en cours d’exécution**.
@@ -529,160 +758,7 @@ Pour accéder aux problèmes connus d'une autre version, utilisez le menu dérou
 <!-- ### Marketplace -->
 ::: moniker-end
 
-::: moniker range="azs-1905"
-## <a name="1905-update-process"></a>Processus de mise à jour 1905
-
-### <a name="host-node-update-prerequisite-failure"></a>Échec lié aux prérequis de mise à jour d’un nœud hôte
-
-- Champ d’application : Ce problème concerne la mise à jour 1905.
-- Cause : Quand vous tentez d’installer la mise à jour 1905 d’Azure Stack, l’état de la mise à jour peut échouer à cause des **prérequis de mise à jour d’un nœud hôte**. Cela est généralement dû au manque d’espace disque disponible sur un nœud hôte.
-- Correction : Contactez le support technique Azure Stack pour savoir comment libérer de l’espace disque sur le nœud hôte.
-- Occurrence : Rare
-
-### <a name="preparation-failed"></a>Échec de la préparation
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Quand vous tentez d’installer la mise à jour 1905 d’Azure Stack, l’état de la mise à jour peut échouer et passer à **PreparationFailed**. Cela est dû au fait que le fournisseur de ressources de mise à jour est dans l’impossibilité de transférer correctement les fichiers du conteneur de stockage vers un partage d’infrastructure interne à des fins de traitement. Ce problème est davantage susceptible de se produire, car le package de mise à jour 1905 est plus volumineux que les packages de mise à jour précédents.
-- Correction : À compter de la version 1901 (1.1901.0.95), vous pouvez contourner ce problème en cliquant sur **Mettre à jour maintenant** à nouveau (et pas sur **Reprendre**). Le fournisseur de ressources de mise à jour (URP) nettoie les fichiers de la tentative précédente, puis redémarre le téléchargement. Si le problème persiste, nous vous conseillons de charger manuellement le package de mise à jour comme cela est décrit dans la section [Importer et installer des mises à jour](azure-stack-apply-updates.md).
-- Occurrence : Courant
-
-## <a name="portal"></a>Portail
-
-### <a name="subscription-resources"></a>Ressources d’abonnement
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : La suppression d’abonnements utilisateur aboutit à des ressources orphelines.
-- Correction : Commencez par supprimer des ressources d’utilisateurs ou la totalité du groupe de ressources, puis supprimez les abonnements utilisateur.
-- Occurrence : Courant
-
-### <a name="subscription-permissions"></a>Autorisations d’abonnement
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Vous ne pouvez pas afficher les autorisations définies pour votre abonnement à l’aide des portails Azure Stack.
-- Correction : Utilisez [PowerShell pour vérifier les autorisations](/powershell/module/azurerm.resources/get-azurermroleassignment).
-- Occurrence : Courant
-
-### <a name="marketplace-management"></a>Gestion de la Place de marché
-
-- Champ d’application : Ce problème concerne les mises à jour 1904 et 1905
-- Cause : L’écran de gestion de la Place de marché n’est pas visible quand vous vous connectez au portail d’administration.
-- Correction : Actualisez le navigateur ou accédez à **Paramètres** et sélectionnez l’option **Rétablir les paramètres par défaut**.
-- Occurrence : De façon intermittente
-
-### <a name="docker-extension"></a>Extension Docker
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans les portails d’administration et utilisateur, si vous recherchez **Docker**, l’élément est incorrectement retourné dans les résultats. Il n’est pas disponible dans Azure Stack. Si vous essayez de le créer, une erreur s’affiche.
-- Correction : Aucune atténuation.
-- Occurrence : Courant
-
-### <a name="upload-blob"></a>Charger l’objet blob
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail de l’utilisateur, lorsque vous essayez de charger un objet blob à l’aide de l’option **OAuth (préversion)** , la tâche échoue avec un message d’erreur.
-- Correction : Chargez le blob à l’aide de l’option SAP.
-- Occurrence : Courant
-
-### <a name="template"></a>Modèle
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, l’interface utilisateur du déploiement de modèle ne remplit pas les paramètres pour les noms de modèle commençant par « _ » (caractère de soulignement).
-- Correction : Supprimez le « _ » (caractère de soulignement) dans le nom du modèle.
-- Occurrence : Courant
-
-## <a name="networking"></a>Mise en réseau
-
-### <a name="load-balancer"></a>Équilibrage de charge
-
-#### <a name="add-backend-pool"></a>Ajouter le pool principal
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, si vous essayez d’ajouter un **pool back-end** à un **équilibreur de charge**, l’opération échoue avec un message d’erreur indiquant l’**échec de la mise à jour de l’équilibreur de charge**.
-- Correction : Utilisez PowerShell, CLI ou un modèle Resource Manager pour associer le pool principal à une ressource d’équilibreur de charge.
-- Occurrence : Courant
-
-#### <a name="create-inbound-nat"></a>Créer des règles NAT de trafic entrant
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, si vous essayez de créer une **règle NAT de trafic entrant** pour un **équilibreur de charge**, l’opération échoue avec le message d’erreur **Failed to update Load Balancer (Impossible de mettre à jour l’équilibreur de charge)** .
-- Correction : Utilisez PowerShell, CLI ou un modèle Resource Manager pour associer le pool principal à une ressource d’équilibreur de charge.
-- Occurrence : Courant
-
-#### <a name="create-load-balancer"></a>Créer un équilibreur de charge
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, la fenêtre **Créer un équilibreur de charge** affiche une option pour créer une référence SKU d’équilibreur de charge **Standard**. Cette option n’est pas prise en charge dans Azure Stack.
-- Correction : Utilisez les options d’équilibreur de charge **De base** à la place.
-- Occurrence : Courant
-
-### <a name="public-ip-address"></a>Adresse IP publique
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, la fenêtre **Créer une adresse IP publique** affiche une option pour créer une référence SKU **Standard**. La référence SKU **Standard** n’est pas prise en charge dans Azure Stack.
-- Correction : Utilisez la référence SKU **De base** pour l’adresse IP publique.
-- Occurrence : Courant
-
-## <a name="compute"></a>Calcul
-
-### <a name="vm-boot-diagnostics"></a>Diagnostics de démarrage de machine virtuelle
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Quand vous créez une machine virtuelle Windows, l’erreur suivante peut s’afficher : **Échec du démarrage de la machine virtuelle « vm-name ». Error: Failed to update serial output settings for VM 'vm-name' (Impossible de mettre à jour les paramètres de sortie en série de la machine virtuelle « vm-name »)** .
-Cette erreur se produit si vous activez les diagnostics de démarrage sur une machine virtuelle alors que vous avez supprimé votre compte de stockage des diagnostics de démarrage.
-- Correction : Recréez le compte de stockage avec le même nom que celui utilisé précédemment.
-- Occurrence : Courant
-
-### <a name="vm-resize"></a>Redimensionnement de machine virtuelle
-
-- Champ d’application : Ce problème concerne la version 1905.
-- Cause : Impossible de redimensionner une machine virtuelle avec disque managé. La tentative de redimensionnement de la machine virtuelle génère une erreur avec le « code » : "InternalOperationError", "message" : « Une erreur interne s’est produite dans l’opération. »
-- Correction : Nous nous efforçons de corriger ce problème dans la prochaine version. Actuellement, vous devez recréer la machine virtuelle avec la nouvelle taille de machine virtuelle.
-- Occurrence : Courant
-
-### <a name="virtual-machine-scale-set"></a>Jeu de mise à l’échelle de machine virtuelle
-
-#### <a name="centos"></a>CentOS
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Quand vous créez un groupe identique de machines virtuelles, l’option CentOS 7.2 est proposée pour le déploiement. CentOS 7.2 n’étant pas disponible sur la Place de marché Azure Stack, cela provoque l’échec du déploiement, avec un message indiquant que l’image est introuvable.
-- Correction : Sélectionnez un autre système d’exploitation pour votre déploiement, ou choisissez un modèle Azure Resource Manager spécifiant une autre image CentOS qui a été téléchargée par l’opérateur avant le déploiement à partir de la Place de marché.
-- Occurrence : Courant
-
-#### <a name="remove-scale-set"></a>Supprimer un groupe identique
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Vous ne pouvez pas supprimer un groupe identique à partir du panneau **Groupes de machines virtuelles identiques**.
-- Correction : Sélectionnez le groupe identique que vous souhaitez supprimer, puis cliquez sur le bouton **Supprimer** dans le volet **Vue d’ensemble**.
-- Occurrence : Courant
-
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Créer des échecs au cours des correctifs et mises à jour sur des environnements Azure Stack à 4 nœuds
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : La création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur et la création d’une instance de groupe de machines virtuelles identiques échouent avec une erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
-- Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. En revanche, la création d’instances de groupe identique n’est toujours pas disponible pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
-
-#### <a name="scale-set-instance-view-blade-doesnt-load"></a>Le panneau de vue des instances de groupe identique ne charge pas
-
-- Champ d’application : Ce problème concerne les versions 1904 et 1905.
-- Cause : Le panneau de vue des instances d’un groupe de machines virtuelles identiques situé dans Portail Azure Stack -> Tableau de bord -> Groupes de machines virtuelles identiques -> AnyScaleSet - Instances -> AnyScaleSetInstance ne parvient pas à se charger et affiche l’image d’un nuage qui pleure.
-- Correction : Il n’existe actuellement aucune solution à ce problème sur lequel nous continuons de travailler. En attendant, utilisez la commande CLI `az vmss get-instance-view` pour obtenir la vue des instances d’un groupe identique.
-
-### <a name="ubuntu-ssh-access"></a>Accès SSH Ubuntu
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Une machine virtuelle Ubuntu 18.04 créée avec une autorisation SSH activée ne vous permet pas d’utiliser les clés SSH pour vous connecter.
-- Correction : Utilisez un accès à la machine virtuelle pour l’extension Linux afin d’implémenter des clés SSH après le provisionnement, ou utilisez une authentification par mot de passe.
-- Occurrence : Courant
-
-<!-- ## Storage -->
-<!-- ## SQL and MySQL-->
-<!-- ## App Service -->
-<!-- ## Usage -->
-<!-- ### Identity -->
-<!-- ### Marketplace -->
-::: moniker-end
-
-::: moniker range=">=azs-1905"
+::: moniker range=">=azs-1906"
 ## <a name="archive"></a>Archivage
 
 Pour accéder aux problèmes connus archivés d'une ancienne version, utilisez le menu déroulant de sélection de la version, situé au-dessus de la table des matières à gauche, puis sélectionnez la version que vous voulez afficher.
@@ -696,6 +772,9 @@ Pour accéder aux problèmes connus archivés d'une ancienne version, utilisez l
 <!------------------------------------------------------------>
 <!------------------- UNSUPPORTED VERSIONS ------------------->
 <!------------------------------------------------------------>
+::: moniker range="azs-1905"
+## <a name="1905-archived-known-issues"></a>Problèmes connus archivés 1905
+::: moniker-end
 ::: moniker range="azs-1904"
 ## <a name="1904-archived-known-issues"></a>Problèmes connus archivés 1904
 ::: moniker-end
@@ -733,6 +812,6 @@ Pour accéder aux problèmes connus archivés d'une ancienne version, utilisez l
 ## <a name="1802-archived-known-issues"></a>Problèmes connus archivés 1802
 ::: moniker-end
 
-::: moniker range="<azs-1905"
+::: moniker range="<azs-1906"
 Vous pouvez accéder aux [versions antérieures des problèmes connus d’Azure Stack dans la galerie TechNet](https://aka.ms/azsarchivedrelnotes). Ces documents archivés sont fournis uniquement à des fins de référence et n’impliquent aucune prise en charge de ces versions. Pour plus d’informations sur le support d’Azure Stack, consultez [Stratégie de maintenance Azure Stack](azure-stack-servicing-policy.md). Pour obtenir de l’aide, contactez les services de support technique Microsoft.
 ::: moniker-end

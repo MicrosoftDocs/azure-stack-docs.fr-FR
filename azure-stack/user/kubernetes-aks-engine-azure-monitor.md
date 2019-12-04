@@ -15,12 +15,12 @@ ms.date: 11/15/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 2d13b5d2296d8dc76a154e1f8edf1a0238d0226b
-ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
+ms.openlocfilehash: a3941a3ada52a8588b504884a2d03cb00dd2c850
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74163716"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310326"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>Utiliser Azure Monitor pour conteneurs sur Azure Stack Hub
 
@@ -29,7 +29,7 @@ ms.locfileid: "74163716"
 Vous pouvez utiliser [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) pour conteneurs afin de superviser les conteneurs d’un cluster Kubernetes déployé avec un moteur AKS dans Azure Stack Hub. 
 
 > [!IMPORTANT]
-> Le moteur AKS est actuellement disponible en préversion publique.
+> Azure Monitor pour conteneurs sur Azure Stack Hub est actuellement en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Vous pouvez examiner les performances d’un conteneur avec Azure Monitor en collectant des métriques sur la mémoire et le processeur à partir des contrôleurs, nœuds et conteneurs disponibles dans Kubernetes par le biais de l’API Metrics. Par ailleurs, le service collecte les journaux de conteneur. Vous pouvez utiliser ces journaux pour diagnostiquer les problèmes relatifs à votre cluster local à partir d’Azure. Une fois la supervision configurée à partir de vos clusters Kubernetes, ces métriques et ces journaux sont automatiquement collectés. Une version conteneurisée de l’agent Azure Monitor Log Analytics pour Linux collecte les journaux. Azure Monitor stocke les métriques et les journaux dans votre espace de travail Log Analytics, accessible dans votre abonnement Azure.
@@ -50,21 +50,21 @@ Vous pouvez spécifier un **module complémentaire** dans le fichier JSON de sp�
 
 Les définitions d’API prises en charge pour le cluster Azure Stack Hub sont fournies dans cet exemple : [kubernetes-container-monitoring_existing_workspace_id_and_key.json](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). Recherchez en particulier la propriété **addons** dans **kubernetesConfig** :
 
-    ```JSON  
-    "orchestratorType": "Kubernetes",
-          "kubernetesConfig": {
-            "addons": [
-              {
-                "name": "container-monitoring",
-                "enabled": true,
-                "config": {
-                  "workspaceGuid": "<Azure Log Analytics Workspace Guid in Base-64 encoded>",
-                  "workspaceKey": "<Azure Log Analytics Workspace Key in Base-64 encoded>"
-                }
-              }
-            ]
-          }
-    ```
+```JSON  
+ "orchestratorType": "Kubernetes",
+       "kubernetesConfig": {
+         "addons": [
+           {
+             "name": "container-monitoring",
+             "enabled": true,
+             "config": {
+               "workspaceGuid": "<Azure Log Analytics Workspace Guid in Base-64 encoded>",
+               "workspaceKey": "<Azure Log Analytics Workspace Key in Base-64 encoded>"
+             }
+           }
+         ]
+       }
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

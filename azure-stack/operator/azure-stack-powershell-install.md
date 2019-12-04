@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 09/18/2019
+ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/18/2019
-ms.openlocfilehash: 53390633cf1abb1508a87a10e8672d7a23772207
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.lastreviewed: 09/19/2019
+ms.openlocfilehash: ce827f900c6522d720f493c60495bd830cf328f4
+ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802356"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540293"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installer PowerShell pour Azure Stack
 
@@ -94,7 +94,18 @@ Le profil de version d’API et les modules PowerShell pour Azure Stack dont vou
 
 Exécutez le script PowerShell suivant pour installer ces modules sur votre station de travail de développement :
 
-- Pour Azure Stack 1904 ou ultérieur :
+- Pour Azure Stack version 1910 ou ultérieure :
+
+    ```powershell  
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRM.BootStrapper
+
+    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.8.0
+    ```
+
+- Pour Azure Stack version 1908 ou ultérieure à 1903 :
 
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
@@ -115,7 +126,8 @@ Exécutez le script PowerShell suivant pour installer ces modules sur votre stat
     ```
 
     > [!Note]  
-    > - La version du module Azure Stack 1.7.1 est un changement cassant. Pour migrer à partir d’Azure Stack 1.6.0, consultez le [guide de migration](https://aka.ms/azspshmigration171).
+    > - La version 1.8.0 du module Azure Stack constitue un changement cassant. Consultez les [notes de publication](release-notes.md#changes) pour plus d’informations.
+    > - La version 1.7.2 du module Azure Stack constitue un changement cassant. Pour migrer à partir d’Azure Stack 1.6.0, consultez le [guide de migration](https://aka.ms/azspshmigration171).
     > - Le module AzureRM version 2.4.0 est fourni avec un changement cassant pour l’applet de commande Remove-AzureRmStorageAccount. Cette cmdlet s’attend à ce que le paramètre `-Force` soit spécifié pour la suppression du compte de stockage sans confirmation.
     > - Vous n’avez pas besoin d’installer **AzureRM.BootStrapper** pour installer les modules destinés à Azure Stack version 1901 ou ultérieure.
     > - N’installez pas le profil hybride 2018-03-01 si vous utilisez les modules AzureRM ci-dessus avec Azure Stack version 1901 ou ultérieure.
@@ -147,7 +159,18 @@ L’installation comporte quatre étapes :
 
 ### <a name="install-azure-stack-powershell"></a>Installer Azure Stack PowerShell
 
-- Azure Stack 1904 ou ultérieur.
+- Azure Stack version 1910 ou ultérieure.
+
+    ```powershell
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+    $Path = "<Path that is used to save the packages>"
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.0
+    ```
+
+- Pour Azure Stack version 1908 ou ultérieure à 1903 :
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -170,6 +193,7 @@ L’installation comporte quatre étapes :
     ```
 
     > [!Note]  
+    > - La version 1.8.0 du module Azure Stack constitue un changement cassant. Consultez les [notes de publication](release-notes.md#changes) pour plus d’informations.
     > La version du module Azure Stack 1.7.1 est un changement cassant. Pour migrer à partir d’Azure Stack 1.6.0, consultez le [guide de migration](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
 
     > [!NOTE]

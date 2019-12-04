@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2019
+ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: e61c3dad2383f1b6471b784b303b9f22a7dfde51
-ms.sourcegitcommit: b28190b4e91cd0c045d019083e7e9203410d7c29
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: f5955751df89262441b7afc2381d34b6cc74691c
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71354557"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74298743"
 ---
 # <a name="asdk-release-notes"></a>Notes de publication relatives à l’ASDK
 
@@ -28,7 +28,28 @@ Cet article fournit des informations sur des modifications, des correctifs et de
 
 Tenez-vous informé des nouveautés concernant le kit ASDK en vous abonnant au [flux RSS](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
+::: moniker range="azs-1910"
+## <a name="build-11910058"></a>Build 1.1910.0.58
+
+### <a name="new-features"></a>Nouvelles fonctionnalités
+
+- Pour obtenir la liste des problèmes résolus, des modifications et des nouvelles fonctionnalités de cette version, consultez les sections correspondantes dans les [notes de publication Azure Stack](../operator/release-notes.md).
+
+### <a name="fixed-and-known-issues"></a>Problèmes connus et résolus
+
+- Résolution d’un problème lié à la collecte des journaux et à leur stockage dans un conteneur d’objets blob de stockage Azure. La syntaxe de cette opération est la suivante :
+
+  ```powershell
+  Get-AzureStackLog -OutputSasUri "<Blob service SAS Uri>"
+  ``` 
+
+- Résolution d’un problème de déploiement selon lequel un service de spouleur à chargement lent empêche la suppression de certaines fonctionnalités Windows et nécessite un redémarrage.
+- Pour obtenir la liste des problèmes connus d’Azure Stack de cette version, consultez l’article sur les [problèmes connus](../operator/known-issues.md).
+- Notez que les correctifs logiciels d’Azure Stack ne sont pas applicables au kit ASDK.
+::: moniker-end
+
 ::: moniker range="azs-1908"
+  
 ## <a name="build-11908020"></a>Build 1.1908.0.20
 
 ### <a name="new-features"></a>Nouvelles fonctionnalités
@@ -78,21 +99,4 @@ Tenez-vous informé des nouveautés concernant le kit ASDK en vous abonnant au [
 - Pour obtenir la liste des problèmes Azure Stack corrigés dans cette version, consultez [cette section](/azure-stack/operator/release-notes?view=azs-1906#fixes-1906) des notes de publication Azure Stack.
 - Pour obtenir la liste des problèmes connus, consultez [cet article](/azure-stack/operator/known-issues?view=azs-1906).
 - Notez que les [correctifs logiciels d’Azure Stack](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-1906) ne sont pas applicables au kit ASDK Azure Stack.
-::: moniker-end
-
-::: moniker range="azs-1905"
-## <a name="build-11905040"></a>Build 1.1905.0.40
-
-<!-- ### Changes -->
-
-### <a name="new-features"></a>Nouvelles fonctionnalités
-
-- Pour obtenir la liste des nouvelles fonctionnalités dans cette version, consultez [cette section](/azure-stack/operator/release-notes?view=azs-1905#whats-in-this-update-1905) des notes de publication Azure Stack.
-
-### <a name="fixed-and-known-issues"></a>Problèmes connus et résolus
-
-- Correction d’un problème dans lequel vous devez modifier le script PowerShell **RegisterWithAzure.psm1** pour pouvoir [inscrire le Kit ASDK](asdk-register.md).
-- Pour obtenir la liste des autres problèmes Azure Stack corrigés dans cette version, consultez [cette section](/azure-stack/operator/release-notes?view=azs-1905#fixes-1905) des notes de publication Azure Stack.
-- Pour obtenir la liste des problèmes connus, consultez [cet article](/azure-stack/operator/known-issues?view=azs-1905).
-- Notez que les [correctifs logiciels d’Azure Stack](/azure-stack/operator/release-notes?view=azs-1905#hotfixes-1905) ne sont pas applicables au kit ASDK Azure Stack.
 ::: moniker-end

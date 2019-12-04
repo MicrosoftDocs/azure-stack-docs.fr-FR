@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
-ms.reviewer: jiahan
+ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: b37e4c9f5e7b1aaa1a476b0665a9558e8e86365f
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 26ce99f87f1b0e1e379bad6276c88a8e6772c035
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955416"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465356"
 ---
 # <a name="update-the-sql-resource-provider"></a>Mettre à jour le fournisseur de ressources SQL
 
@@ -67,10 +67,10 @@ Vous pouvez spécifier les paramètres suivants à partir de la ligne de command
 | **DebugMode** | Empêche le nettoyage automatique en cas d’échec. | Non |
 
 ## <a name="update-script-powershell-example"></a>Exemple de script de mise à jour PowerShell
-Voici un exemple d’utilisation du script *UpdateSQLProvider.ps1* que vous pouvez exécuter à partir d’une console PowerShell avec privilèges élevés. Veillez à changer les informations des variables et les mots de passe selon vos besoins :  
-
 > [!NOTE]
 > Ce processus de mise à jour s’applique uniquement aux systèmes Azure Stack intégrés.
+
+Si vous mettez à jour le fournisseur de ressources SQL vers la version 1.1.33.0 ou une version antérieure, vous devez installer des versions spécifiques des modules Azure Stack et AzureRm.Bootstrapper dans PowerShell. Si vous effectuez une mise à jour vers la version 1.1.47.0 du fournisseur de ressources SQL, cette étape peut être ignorée.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -78,7 +78,11 @@ Voici un exemple d’utilisation du script *UpdateSQLProvider.ps1* que vous pouv
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
+```
 
+Voici un exemple d’utilisation du script *UpdateSQLProvider.ps1* que vous pouvez exécuter à partir d’une console PowerShell avec privilèges élevés. Veillez à changer les informations des variables et les mots de passe selon vos besoins :  
+
+```powershell
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but this might have been changed at installation.
 $domain = "AzureStack"
 

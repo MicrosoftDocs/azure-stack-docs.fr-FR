@@ -17,12 +17,12 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 29a154c5c446019e762b1312b9ef2f8a23cc4790
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 049e4577541dea4f41a8ad18fc7f61875109153e
+ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955296"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74557544"
 ---
 # <a name="quota-types-in-azure-stack"></a>Types de quotas dans Azure Stack
 
@@ -55,7 +55,7 @@ Les [quotas](service-plan-offer-subscription-overview.md#plans) définissent les
 | Nombre total de comptes de stockage |20 |Nombre maximal de comptes de stockage qu’un abonnement peut créer à cet emplacement. |
 
 > [!NOTE]
-> Quand vous avez dépassé la valeur affectée à **Capacité maximale (Go)** dans un abonnement, vous ne pouvez pas y créer de ressources de stockage. Toutefois, vous pouvez continuer à utiliser les disques non managés créés dans cet abonnement au sein des machines virtuelles, ce qui peut entraîner un dépassement de la capacité totale bien au-delà de la limite de quota.<br>La capacité maximale des disques managés est distincte du quota de stockage total. Vous pouvez définir cette valeur dans la section **Quotas de calcul**.
+> Quand vous avez dépassé la valeur affectée à **Capacité maximale (Go)** dans un abonnement, vous ne pouvez pas y créer de ressources de stockage. Toutefois, vous pouvez utiliser continuellement les disques non managés créés dans cet abonnement dans les machines virtuelles, ce qui peut entraîner un dépassement de la capacité totale bien au-delà de la limite de quota.<br>La capacité maximale des disques managés est distincte du quota de stockage total. Vous pouvez définir cette valeur dans la section **Quotas de calcul**.
 
 ## <a name="network-quota-types"></a>Types de quotas pour les réseaux
 

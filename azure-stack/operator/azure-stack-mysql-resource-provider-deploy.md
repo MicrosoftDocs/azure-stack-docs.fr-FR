@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
-ms.reviewer: jiahan
+ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: c3b3c30eb10e767cf20336af67bd094994def2f9
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: aa76766ad6528148cc8662780c4bc4dd593b366a
+ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682115"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74557588"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Déployer un fournisseur de ressources MySQL sur Azure Stack
 
@@ -46,10 +46,14 @@ Plusieurs prérequis doivent être remplis avant de déployer le fournisseur de 
 
   |Version minimale d’Azure Stack|Version du fournisseur de ressources MySQL|
   |-----|-----|
+  |Version 1910 (1.1910.0.58)|[MySQL RP version 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|
   |Version 1808 (1.1808.0.97)|[MySQL RP version 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
   |Version 1808 (1.1808.0.97)|[MySQL RP version 1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
   |Version 1804 (1.0.180513.1)|[Version 1.1.24.0 du fournisseur de ressources MySQL](https://aka.ms/azurestackmysqlrp11240)
   |     |     |
+  
+> [!IMPORTANT]
+> Avant de déployer la version 1.1.47.0 du fournisseur de ressources MySQL, votre système Azure Stack doit être mis à niveau vers la mise à jour 1910 ou une version ultérieure. La version 1.1.47.0 du fournisseur de ressources MySQL sur les versions antérieures Azure Stack non prises en charge ne fonctionne pas.
 
 * Vérifiez que les conditions préalables d’intégration du centre de données sont remplies :
 
@@ -106,7 +110,7 @@ Vous pouvez spécifier ces paramètres à partir de la ligne de commande. Si vou
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>Déployer le fournisseur de ressources MySQL à l’aide d’un script personnalisé
 
-Pour éliminer toute configuration manuelle lors du déploiement du fournisseur de ressources, vous pouvez personnaliser le script suivant. Modifiez les informations de compte et les mots de passe par défaut en fonction des besoins de votre déploiement Azure Stack.
+Si vous déployez la version 1.1.33.0 ou une version antérieure du fournisseur de ressources MySQL, vous devez installer des versions spécifiques des modules Azure Stack et AzureRm.Bootstrapper dans PowerShell. Si vous déployez la version 1.1.47.0 du fournisseur de ressources MySQL, cette étape peut être ignorée.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -114,7 +118,11 @@ Pour éliminer toute configuration manuelle lors du déploiement du fournisseur 
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
+```
 
+Pour éliminer toute configuration manuelle lors du déploiement du fournisseur de ressources, vous pouvez personnaliser le script suivant. Modifiez les informations de compte et les mots de passe par défaut en fonction des besoins de votre déploiement Azure Stack.
+
+```powershell
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"  
 

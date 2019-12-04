@@ -1,5 +1,6 @@
 ---
-title: Faire pivoter les clés secrètes dans Azure Stack | Microsoft Docs
+title: Faire pivoter les clés secrètes
+titleSuffix: Azure Stack
 description: Apprenez à faire pivoter vos clés secrètes dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -11,31 +12,31 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2019
+ms.date: 09/30/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
 ms.lastreviewed: 09/30/2019
-monikerRange: '>=azs-1803'
-ms.openlocfilehash: f32a25997e4336a24dfb9b673202882cff1845e9
-ms.sourcegitcommit: 70147e858956443bc66b3541ec278c102bb45c07
+monikerRange: '>=azs-1802'
+ms.openlocfilehash: d00cbc5eaacd80ba67b339e11562dc516fcd0991
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72381455"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465384"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Faire pivoter les clés secrètes dans Azure Stack
 
-*Ces instructions s’appliquent uniquement aux systèmes intégrés Azure Stack version 1803 et versions ultérieures. N’essayez pas d’effectuer la rotation des secrets sur les versions d’Azure Stack antérieures à la version 1802*
+*Ces instructions s’appliquent uniquement aux systèmes intégrés Azure Stack versions 1803 et ultérieures. N’essayez pas d’effectuer la rotation des secrets sur les versions d’Azure Stack antérieures à la version 1802*
 
 Les secrets vous aident à maintenir une communication sécurisée entre les ressources d’infrastructure Azure Stack et les services.
 
-## <a name="overview-to-rotate-secrets"></a>Vue d’ensemble de la rotation des secrets
+## <a name="rotate-secrets-overview"></a>Présentation de la rotation des secrets
 
-1. Préparez les certificats, qui seront utilisés pour la rotation des secrets.
+1. Préparez les certificats qui seront utilisés pour la rotation des secrets.
 2. Passez en revue les [exigences de certificat pour l’infrastructure à clé publique](https://docs.microsoft.com/azure-stack/operator/azure-stack-pki-certs) d’Azure Stack.
 3. [Utilisez le point de terminaison privilégié](azure-stack-privileged-endpoint.md) et exécutez **Test-azurestack** pour vérifier que tout fonctionne bien.  
-4. Pour plus d’informations, consultez les [étapes préliminaires à la rotation des secrets](#pre-steps-for-secret-rotation).
-5. [Validez des certificats PKI Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-validate-pki-certs). Vérifiez que les mots de passe ne contiennent pas de caractères spéciaux, par exemple `*` ou `)`.
+4. Passez en revue les [étapes préliminaires à la rotation des secrets](#pre-steps-for-secret-rotation).
+5. [Validez des certificats PKI Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-validate-pki-certs). Vérifiez que le mot de passe ne contient pas de caractères spéciaux, tels que `*` ou `)`.
 6. Vérifiez que le chiffrement PFX est **TripleDES-SHA1**. Si vous rencontrez un problème, consultez [Corriger les problèmes courants liés aux certificats PKI Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-remediate-certs#pfx-encryption).
 7. Préparez la structure de dossiers.  Vous trouverez un exemple dans la section [Rotation des secrets externes](https://docs.microsoft.com/azure-stack/operator/azure-stack-rotate-secrets#rotating-external-secrets).
 8. [Démarrez la rotation des secrets](#use-powershell-to-rotate-secrets).
@@ -56,22 +57,22 @@ Azure Stack utilise différents secrets pour assurer une communication sécuris�
     - Portail public
     - Administrateur Azure Resource Manager
     - Global Azure Resource Manager
-    - Keyvault Administrateur
-    - KeyVault
+    - Administrateur Key Vault
+    - Key Vault
     - Hôte d’extension d’administration
     - ACS (y compris stockage objet blob, table et file d’attente)
-    - ADFS *
-    - Graph *
+    - ADFS*
+    - Graph*
     
     \* Applicable uniquement si le fournisseur d’identité de l’environnement est AD FS (services de fédération Active Directory).
 
 > [!Note]
-> Toutes les autres clés et chaînes sécurisées, y compris les mots de passe BMC et switch ainsi que les mots de passe de compte utilisateur et administrateur sont toujours mis à jour manuellement par l’administrateur.
+> Toutes les autres clés et chaînes sécurisées, y compris les mots de passe BMC et switch ainsi que les mots de passe des comptes utilisateur et administrateur, sont toujours mises à jour manuellement par l’administrateur.
 
 > [!Important]
 > À compter de la version 1811 d’Azure Stack, la rotation des secrets est séparée pour les certificats internes et externes.
 
-Afin de maintenir l’intégrité de l’infrastructure Azure Stack, les opérateurs doivent pouvoir effectuer régulièrement la rotation des secrets de leur infrastructure à une fréquence conforme aux exigences de sécurité de leur organisation.
+Pour maintenir l’intégrité de l’infrastructure Azure Stack, les opérateurs doivent pouvoir effectuer régulièrement la rotation des secrets de leur infrastructure, à une fréquence conforme aux exigences de sécurité de leur organisation.
 
 ### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>Rotation des secrets avec des certificats externes obtenus auprès d’une nouvelle autorité de certification
 
@@ -91,31 +92,27 @@ Azure Stack prend en charge la rotation des secrets avec des certificats externe
 
 <sup>*</sup>Indique que les autorités de certification publiques mentionnées ici sont celles qui font partie du programme de certification racine approuvé Windows. La liste complète est disponible dans l’article [Programme de certification racine approuvé Microsoft : Participants (à compter du 27 juin 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 
-## <a name="alert-remediation"></a>Correction des alertes
+## <a name="fixing-alerts"></a>Correction des alertes
 
-Lorsque les secrets arrivent à expiration dans moins de 30 jours, les alertes suivantes sont générées dans le portail d’administration :
+Lorsque les secrets arrivent à moins de 30 jours de leur expiration, les alertes suivantes sont générées dans le portail administrateur :
 
 - Pending service account password expiration (Expiration imminente du mot de passe du compte de service)
 - Pending internal certificate expiration (Expiration imminente du certificat interne)
 - Pending external certificate expiration (Expiration imminente du certificat externe)
 
-Pour remédier à ces alertes, exécutez la rotation des secrets en suivant les instructions ci-dessous.
+Pour corriger ces alertes, exécutez la rotation des secrets en suivant les instructions ci-dessous.
 
 > [!Note]
-> Les environnements Azure Stack sur les versions antérieures à 1811 peuvent afficher des alertes relatives à l’expiration imminente d’un secret ou d’un certificat interne.
-> Ces alertes sont incorrectes. Vous pouvez donc les ignorer sans exécuter la rotation des secrets internes.
-> Les alertes incorrectes relatives à l’expiration des secrets internes sont un problème connu qui est résolu dans la version 1811. Dans cette version, les secrets internes n’arrivent à expiration que si l’environnement est actif pendant deux ans.
+> Les environnements Azure Stack sur les versions antérieures à 1811 peuvent afficher des alertes relatives à l’expiration imminente d’un secret ou d’un certificat interne. Ces alertes sont incorrectes. Vous pouvez donc les ignorer sans exécuter la rotation des secrets internes. Les alertes d’expiration incorrectes des secrets internes sont un problème connu, résolu dans la version 1811. Les secrets internes n’expirent pas tant que l’environnement n’a pas été actif pendant deux ans.
 
 ## <a name="pre-steps-for-secret-rotation"></a>Étapes préliminaires à la rotation des secrets
 
    > [!IMPORTANT]
-   > Si la rotation des secrets a déjà été effectuée sur votre environnement Azure Stack, mettez à jour le système vers la version 1811 ou ultérieure avant de réexécuter la rotation des secrets.
-   > La rotation des secrets doit être exécutée par le biais du [point de terminaison privilégié](azure-stack-privileged-endpoint.md) et nécessite les informations d’identification de l’opérateur Azure Stack.
-   > Si le ou les opérateurs Azure Stack de votre environnement ne savent pas si la rotation des secrets a été exécutée sur votre environnement, effectuez la mise à jour vers la version 1811 avant de réexécuter la rotation des secrets.
+   > Si la rotation des secrets a déjà été effectuée sur votre environnement Azure Stack, mettez à jour le système vers la version 1811 ou ultérieure avant de réexécuter la rotation des secrets. La rotation des secrets doit être exécutée via le [point de terminaison privilégié](azure-stack-privileged-endpoint.md) et nécessite les informations d’identification de l’opérateur Azure Stack. Si le ou les opérateurs Azure Stack de votre environnement ne savent pas si la rotation des secrets a été exécutée sur votre environnement, effectuez la mise à jour vers la version 1811 avant de réexécuter la rotation des secrets.
 
 1. Nous vous recommandons vivement de mettre à jour votre instance Azure Stack vers la version 1811.
 
-    > [!Note] 
+    > [!Note]
     > Pour les versions antérieures à 1811, vous n’avez pas besoin de procéder à la rotation des secrets pour ajouter des certificats d’hôte d’extension. Suivez les instructions de l’article [Préparer l’hôte d’extension pour Azure Stack](azure-stack-extension-host-prepare.md) pour ajouter des certificats d’hôte d’extension.
 
 2. Les opérateurs remarqueront peut-être que des alertes s’ouvrent et se ferment automatiquement pendant la rotation des secrets d’Azure Stack.  Ce comportement est normal et les alertes peuvent être ignorées.  Les opérateurs peuvent vérifier la validité de ces alertes en exécutant **Test-AzureStack**.  Pour les opérateurs utilisant System Center Operations Manager afin de superviser les systèmes Azure Stack, le placement d’un système en mode maintenance empêche ces alertes d’atteindre leur système ITSM, mais il continue d’alerter si le système Azure Stack devient inaccessible.
@@ -125,9 +122,9 @@ Pour remédier à ces alertes, exécutez la rotation des secrets en suivant les 
     > [!Note]
     > Les étapes suivantes s’appliquent uniquement lorsque vous effectuez la rotation des secrets externes Azure Stack.
 
-4. Exécutez **[Test-AzureStack](azure-stack-diagnostic-test.md)** et vérifiez que toutes les sorties de test sont saines avant la rotation des secrets.
+4. Exécutez **[Test-AzureStack](azure-stack-diagnostic-test.md)** et vérifiez que toutes les sorties de test sont saines avant de procéder à la rotation des secrets.
 5. Préparez un nouveau jeu de certificats externes de remplacement. Le nouveau jeu répond aux spécifications de certificat décrites sur la page [Exigences de certificat pour infrastructure à clé publique Azure Stack](azure-stack-pki-certs.md). Vous pouvez générer une demande de signature de certificat (CSR) pour l’achat ou la création de certificats en suivant la procédure décrite dans [Générer des certificats PKI](azure-stack-get-pki-certs.md), puis les préparer en vue d’une utilisation dans votre environnement Azure Stack en suivant la procédure décrite dans [Préparer des certificats PKI Azure Stack](azure-stack-prepare-pki-certs.md). Veillez à valider les certificats que vous préparez en suivant la procédure décrite dans [Valider des certificats PKI](azure-stack-validate-pki-certs.md).
-6. Stockez une sauvegarde des certificats utilisés pour la rotation dans un emplacement de sauvegarde sécurisé. Si votre rotation s’exécute puis échoue, remplacez les certificats dans le partage de fichiers par les copies de sauvegarde avant d’exécuter à nouveau la rotation. Remarque : vous devez conserver des copies de sauvegarde dans l’emplacement de sauvegarde sécurisé.
+6. Stockez une sauvegarde des certificats utilisés pour la rotation dans un emplacement de sauvegarde sécurisé. Si votre rotation s’exécute puis échoue, remplacez les certificats dans le partage de fichiers par les copies de sauvegarde avant d’exécuter à nouveau la rotation. Conservez des copies de sauvegarde dans l’emplacement de sauvegarde sécurisé.
 7. Créez un partage de fichiers auquel vous pouvez accéder depuis les machines virtuelles ERCS. Le partage de fichiers doit être accessible en lecture et en écriture pour l’identité **CloudAdmin**.
 8. Ouvrez une console PowerShell ISE à partir d’un ordinateur sur lequel vous avez accès au partage de fichiers. Accédez à votre partage de fichiers.
 9. Exécutez **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** pour créer les répertoires requis pour vos certificats externes.
@@ -138,6 +135,7 @@ Pour remédier à ces alertes, exécutez la rotation des secrets en suivant les 
 > **.\Certificates\AAD** ou ***.\Certificates\ADFS*** en fonction de votre fournisseur d’identité utilisé pour Azure Stack.
 >
 > Il est d’une importance capitale que votre structure de dossiers se termine par les dossiers **AAD** ou **ADFS** et que tous les sous-répertoires soient au sein de cette structure. Autrement, **Start-SecretRotation** affichera :
+>
 > ```powershell
 > Cannot bind argument to parameter 'Path' because it is null.
 > + CategoryInfo          : InvalidData: (:) [Test-Certificate], ParameterBindingValidationException
@@ -145,10 +143,9 @@ Pour remédier à ces alertes, exécutez la rotation des secrets en suivant les 
 > + PSComputerName        : xxx.xxx.xxx.xxx
 > ```
 >
-> Comme vous pouvez le voir, le message d’erreur indiquerait l’existence d’un problème d’accès à votre partage de fichiers, alors qu’il s’agit en réalité de la structure de dossiers appliquée ici.
-> Pour plus d’informations, voir dans Microsoft.AzureStack.ReadinessChecker le [module PublicCertHelper](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.1811.1101.1/Content/CertificateValidation%5CPublicCertHelper.psm1).
+> Le message d’erreur indique l’existence d’un problème d’accès à votre partage de fichiers, alors qu’il s’agit en réalité de la structure de dossiers appliquée ici. Plus d’informations sont disponibles dans Microsoft.AzureStack.ReadinessChecker – [module PublicCertHelper](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.1811.1101.1/Content/CertificateValidation%5CPublicCertHelper.psm1).
 >
-> Il est également important que votre structure de dossiers de partage de fichiers commence par le dossier **Certificates**, sans quoi la validation échoue également.
+> Il est également important que votre structure de dossiers de partage de fichiers commence par le dossier **Certificates**, sans quoi la validation échouerait également.
 > Le montage du partage de fichiers doit se présenter sous la forme **\\\\\<IPAddress>\\\<ShareName>\\** et contenir le dossier  **Certificates\AAD** ou **Certificates\ADFS**.
 >
 > Par exemple :
@@ -160,7 +157,7 @@ Pour remédier à ces alertes, exécutez la rotation des secrets en suivant les 
 
 Pour effectuer une rotation des secrets externes :
 
-1. Dans le répertoire **\Certificates\\\<IdentityProvider>** créé lors des étapes préliminaires, placez le nouveau jeu de certificats externes de remplacement dans la structure de répertoires en suivant le format décrit dans la section Certificats obligatoires de la page [Exigences de certificat pour infrastructure à clé publique Azure Stack](azure-stack-pki-certs.md#mandatory-certificates).
+1. Dans le répertoire **\Certificates\\\<IdentityProvider>** créé lors des étapes préliminaires, placez le nouveau jeu de certificats externes de remplacement dans la structure de répertoires en suivant le format décrit dans la section **Certificats obligatoires** de la page [Exigences de certificat pour infrastructure à clé publique Azure Stack](azure-stack-pki-certs.md#mandatory-certificates).
 
     Exemple de structure de dossiers pour le fournisseur d’identité Azure AD :
     ```powershell
@@ -206,9 +203,9 @@ Pour effectuer une rotation des secrets externes :
 2. Créez une session PowerShell avec le [point de terminaison privilégié](azure-stack-privileged-endpoint.md) à l’aide du compte **CloudAdmin** et stockez les sessions en tant que variable. Vous allez utiliser cette variable comme paramètre dans l’étape suivante.
 
     > [!IMPORTANT]  
-    > Ne pas entrer dans la session, stockez la session en tant que variable.
+    > N’entrez pas dans la session. Stockez la session en tant que variable.
 
-3. Exécutez **[invoke-command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)** . Passez la variable de session PowerShell de votre point de terminaison privilégié en tant que paramètre de **Session**.
+3. Exécutez **[invoke-command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)** . Passez la variable de session PowerShell de votre point de terminaison privilégié en tant que paramètre **Session**.
 
 4. Exécutez **Start-SecretRotation** avec les paramètres suivants :
     - **PfxFilesPath**  
@@ -218,16 +215,17 @@ Pour effectuer une rotation des secrets externes :
     - **CertificatePassword**  
     Une chaîne sécurisée du mot de passe utilisée pour tous les fichiers de certificat pfx créés.
 
-5. Patientez pendant la rotation de vos secrets. En général, la rotation des secrets externes prend environ une heure.
+5. Patientez pendant la rotation de vos secrets. La rotation des secrets externes prend environ une heure.
 
     Quand la rotation des secrets a réussi, la console affiche **Overall action status: Success (état global de l’action : réussite).**
 
     > [!Note]
-    > En cas d’échec de la rotation des secrets, suivez les instructions figurant dans le message d’erreur, puis réexécutez **start-secretrotation** avec le paramètre **-Rerun**.
+    > En cas d’échec de la rotation des secrets, suivez les instructions figurant dans le message d’erreur, puis réexécutez **Start-SecretRotation** avec le paramètre **-ReRun**.
 
     ```powershell
     Start-SecretRotation -ReRun
     ```
+
     Contactez le support si vous rencontrez des échecs répétés de rotation des secrets.
 
 6. Une fois la rotation des secrets réussie, supprimez vos certificats du partage créé lors de l’étape préliminaire et stockez-les dans leur emplacement de sauvegarde sécurisé.
@@ -255,10 +253,7 @@ Remove-PSSession -Session $PEPSession
 ## <a name="rotating-only-internal-secrets"></a>Rotation des secrets internes uniquement
 
 > [!Note]
-> La rotation des secrets internes doit uniquement être effectuée si vous suspectez qu’un secret interne a été compromis par une entité malveillante ou si vous avez reçu une alerte (à compter de la build 1811) indiquant que des certificats internes arrivent à expiration.
-> Les environnements Azure Stack sur les versions antérieures à 1811 peuvent afficher des alertes relatives à l’expiration imminente d’un secret ou d’un certificat interne.
-> Ces alertes sont incorrectes. Vous pouvez donc les ignorer sans exécuter la rotation des secrets internes.
-> Les alertes incorrectes relatives à l’expiration des secrets internes sont un problème connu qui est résolu dans la version 1811. Dans cette version, les secrets internes n’arrivent à expiration que si l’environnement est actif pendant deux ans.
+> La rotation des secrets internes doit uniquement être effectuée si vous suspectez qu’un secret interne a été compromis par une entité malveillante ou si vous avez reçu une alerte (à compter de la build 1811) indiquant que des certificats internes s’apprêtent à expirer. Les environnements Azure Stack sur les versions antérieures à 1811 peuvent afficher des alertes relatives à l’expiration imminente d’un secret ou d’un certificat interne. Ces alertes sont incorrectes. Vous pouvez donc les ignorer sans exécuter la rotation des secrets internes. Les alertes d’expiration incorrectes des secrets internes sont un problème connu, résolu dans la version 1811. Les secrets internes n’expirent pas tant que l’environnement n’a pas été actif pendant deux ans.
 
 1. Créez une session PowerShell avec le [point de terminaison privilégié](azure-stack-privileged-endpoint.md).
 2. Dans la session de point de terminaison privilégié, exécutez **Start-SecretRotation -Internal**.
@@ -326,7 +321,7 @@ L’applet de commande **Start-SecretRotation** effectue la rotation des secrets
 
 #### <a name="rotate-only-internal-infrastructure-secrets"></a>Effectuer la rotation des secrets d’infrastructure internes uniquement
 
-Cette commande doit être exécutée par le biais du [point de terminaison privilégié de votre environnement Azure Stack](azure-stack-privileged-endpoint.md).
+Cette commande doit être exécutée via le [point de terminaison privilégié de votre environnement](azure-stack-privileged-endpoint.md) Azure Stack.
 
 ```powershell
 PS C:\> Start-SecretRotation -Internal
@@ -360,7 +355,7 @@ Cette commande effectue la rotation des certificats TLS utilisés pour les point
 > [!IMPORTANT]
 > Cette commande s’applique uniquement à Azure Stack **avant la mise à jour 1811** car la rotation a été fractionnée pour les certificats internes et externes.
 >
-> **Depuis la mise à jour *1811*, vous ne pouvez plus faire pivoter des certificats internes et externes.**
+> **Depuis la mise à jour *1811+* , vous ne pouvez plus faire pivoter des certificats internes et externes.**
 
 ```powershell
 # Create a PEP Session
@@ -383,13 +378,17 @@ Cette commande effectue la rotation de tous les secrets d’infrastructure expos
 
 ## <a name="update-the-baseboard-management-controller-bmc-credential"></a>Mettre à jour les informations d’identification du contrôleur BMC (Baseboard Management Controller)
 
-Le contrôleur BMC (Baseboard Management Controller) analyse l’état physique de vos serveurs. Pour des instructions sur la mise à jour du nom et du mot de passe du compte d’utilisateur du contrôleur BMC, contactez le fabricant d’ordinateurs OEM. 
+Le contrôleur BMC (Baseboard Management Controller) analyse l’état physique de vos serveurs. Pour des instructions sur la mise à jour du nom et du mot de passe du compte d’utilisateur du contrôleur BMC, contactez le fabricant d’ordinateurs OEM.
 
 >[!NOTE]
-> Votre OEM peut fournir des applications de gestion supplémentaires. La mise à jour du nom d’utilisateur ou du mot de passe pour d’autres applications de gestion n’a aucun effet sur le nom d’utilisateur ou le mot de passe du contrôleur BMC.   
+> Votre OEM peut fournir des applications de gestion supplémentaires. La mise à jour du nom d’utilisateur ou du mot de passe pour d’autres applications de gestion n’a aucun effet sur le nom d’utilisateur ou le mot de passe du contrôleur BMC.
 
-1. Mettez à jour le contrôleur BMC sur les serveurs physiques Azure Stack en suivant les instructions de votre fabricant OEM. Tous les contrôleurs BMC de votre environnement doivent avoir les mêmes nom et mot de passe d’utilisateur. Les noms d’utilisateur BMC ne peuvent pas dépasser 16 caractères.
+1. **Versions antérieures à 1910** : Mettez à jour le contrôleur BMC sur les serveurs physiques Azure Stack en suivant les instructions de votre fabricant OEM. Tous les contrôleurs BMC de votre environnement doivent avoir les mêmes nom et mot de passe d’utilisateur. Les noms d’utilisateur BMC ne peuvent pas dépasser 16 caractères.
+
+   **Versions 1910 et ultérieures** : Il n’est plus nécessaire de commencer par mettre à jour les informations d’identification BMC sur les serveurs physiques Azure Stack en suivant les instructions de votre fabricant OEM. Tous les contrôleurs BMC de votre environnement doivent avoir les mêmes nom et mot de passe d’utilisateur. Les noms d’utilisateur BMC ne peuvent pas dépasser 16 caractères.
+
 2. Ouvrez un point de terminaison privilégié dans des sessions Azure Stack. Pour obtenir des instructions, voir [Utilisation du point de terminaison privilégié dans Azure Stack](azure-stack-privileged-endpoint.md).
+
 3. Une fois que votre invite PowerShell est passé à **[adresse IP ou nom de machine virtuelle ERCS]: PS>** ou à **[azs-ercs01]: PS>** , en fonction de l’environnement, exécutez `Set-BmcCredential` en exécutant `Invoke-Command`. Passez la variable de session de votre point de terminaison privilégié en tant que paramètre. Par exemple :
 
     ```powershell

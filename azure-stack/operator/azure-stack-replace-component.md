@@ -1,5 +1,6 @@
 ---
-title: Remplacer un composant matériel sur un nœud d’unité d’échelle Azure Stack | Microsoft Docs
+title: Remplacer un composant matériel sur un nœud d’unité d’échelle Azure Stack
+titleSuffix: Azure Stack
 description: Découvrez comment remplacer un composant matériel sur un système intégré Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.topic: article
 ms.date: 07/18/2019
 ms.author: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 4cb8da451743bc6a8e15c57aacf28f0aa83258c9
-ms.sourcegitcommit: 4f3e161e7632c8a6e3d41946b09f22b5bdb08d36
+ms.openlocfilehash: ff78409ecdbdec8b7a6860db18244a4835351ed8
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413152"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465295"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Remplacer un composant matériel sur un nœud d’unité d’échelle Azure Stack
 
@@ -28,20 +29,20 @@ ms.locfileid: "68413152"
 Cet article décrit le processus général de remplacement des composants matériels qui ne sont pas échangeables à chaud. Les étapes de remplacement réelles varient en fonction du revendeur de votre matériel OEM. Pour obtenir des instructions détaillées propres à votre système intégré Azure Stack, consultez la documentation FRU (Field Replaceable Unit) de votre fournisseur.
 
 > [!CAUTION]  
-> Le nivellement du microprogramme est essentiel pour la réussite de l’opération décrite dans cet article. Le manquement de cette étape peut entraîner une instabilité du système, une baisse des performances, des threads de sécurité ou empêcher Azure Stack Automation de déployer le système d’exploitation. Consultez toujours la documentation de votre partenaire de matériel lors du remplacement du matériel pour vous assurer que le microprogramme appliqué correspond à la version OEM affichée dans le [portail d’administration Azure Stack](azure-stack-updates.md).
+> Le nivellement du microprogramme est essentiel pour la réussite de l’opération décrite dans cet article. Le manquement de cette étape peut entraîner une instabilité du système, une baisse des performances, des threads de sécurité ou empêcher l’automatisation Azure Stack de déployer le système d’exploitation. Consultez toujours la documentation de votre partenaire de matériel lors du remplacement du matériel pour vous assurer que le microprogramme appliqué correspond à la version OEM affichée dans le [portail d’administration Azure Stack](azure-stack-updates.md).
 
 | Partenaire matériel | Région | URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Cisco | Tous | [Guide des opérations Cisco Integrated System pour Microsoft Azure Stack](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Notes de publication pour Cisco Integrated System pour Microsoft Azure Stack](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
-| Dell EMC | Tous | [Cloud pour Microsoft Azure Stack 14G (compte et connexion requis)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pour Microsoft Azure Stack 13G (compte et connexion requis)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
-| Fujitsu | JAPON | [Support technique de service géré Fujitsu (compte et connexion requis)](https://eservice.fujitsu.com/supportdesk-web/) |
+| Dell EMC | Tous | [Cloud pour Microsoft Azure Stack 14G (compte et connexion obligatoires)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pour Microsoft Azure Stack 13G (compte et connexion obligatoires)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Fujitsu | JAPON | [Support technique de service managé Fujitsu (compte et connexion obligatoires)](https://eservice.fujitsu.com/supportdesk-web/) |
 |  | EMEA | [Support des produits et systèmes informatiques Fujitsu](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
-|  | EU | [MySupport Fujitsu (compte et connexion requis)](https://support.ts.fujitsu.com/IndexMySupport.asp) |
+|  | EU | [MySupport Fujitsu (compte et connexion obligatoires)](https://support.ts.fujitsu.com/IndexMySupport.asp) |
 | HPE | Tous | [HPE ProLiant pour Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
 | Lenovo | Tous | [Meilleures recettes ThinkAgile SXM](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
 | Wortmann |  | [Package OEM/microprogramme](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/OEM)<br>[documentation Terra Azure Stack (y compris FRU)](https://drive.terracloud.de/dl/fiWGZwCySZSQyNdykXCFiVCR/TerraAzSDokumentation)
 
-Les composants non échangeables à chaud sont les suivants :
+Les composants non échangeables à chaud incluent les éléments suivants :
 
 - UC*
 - Mémoire*
@@ -59,11 +60,11 @@ L’organigramme suivant illustre le processus FRU général de remplacement d�
 
 * Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
 
-** Votre fournisseur de matériel OEM peut ou non échanger le composant et mettre à jour le microprogramme. Cela dépend de votre contrat de support.
+** Votre fournisseur de matériel OEM peut ou non échanger le composant et mettre à jour le microprogramme. Cela dépend de votre contrat de support technique.
 
 ## <a name="review-alert-information"></a>Examiner les informations sur l’alerte
 
-Le système de contrôle de l’intégrité et de surveillance d’Azure Stack surveille l’intégrité des cartes réseau et des lecteurs de données contrôlés par les espaces de stockage direct. Il ne surveille pas d’autres composants matériels. Pour tous les autres composants matériels, des alertes sont générées dans la solution de supervision du matériel spécifique du fournisseur, qui s’exécute sur l’hôte de cycle de vie du matériel.  
+Le système de contrôle d’intégrité et de surveillance d’Azure Stack effectue le suivi de l’intégrité des cartes réseau et des lecteurs de données contrôlés par les espaces de stockage direct. Il n’effectue pas le suivi des autres composants matériels. Pour tous les autres composants matériels, des alertes sont générées dans la solution de supervision du matériel spécifique du fournisseur, qui s’exécute sur l’hôte de cycle de vie du matériel.  
 
 ## <a name="component-replacement-process"></a>Processus de remplacement de composant
 

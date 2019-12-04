@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 73c4594672dea4a8bb8030a35c79f3d7e7cca04c
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: f569d5dbffaec772657a6fc67b82c9be78f35800
+ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534178"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540320"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gérer la capacité de stockage pour Azure Stack
 

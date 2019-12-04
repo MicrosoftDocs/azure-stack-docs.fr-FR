@@ -15,12 +15,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1bd138be243c2803b5a280de2a3a8625e84db998
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 99d52dc7165fdd37a614c1396d7e5c1f0165e235
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955327"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74299129"
 ---
 #  <a name="modify-specific-settings-on-your-azure-stack-switch-configuration"></a>Modifier des paramètres spécifiques dans votre configuration de commutateur Azure Stack
 
@@ -53,7 +53,10 @@ L’opérateur peut configurer RADIUS ou TACACS pour gérer l’authentification
 
 ## <a name="access-control-list-updates"></a>Mises à jour de la liste de contrôle d'accès
 
-L’opérateur peut modifier certaines listes de contrôle d’accès (ACL) pour autoriser l’accès à des interfaces de gestion des périphériques réseau et à l’hôte de cycle de vie du matériel (HLH) à partir d’une plage réseau de centre de données de confiance. L’opérateur peut choisir quel composant sera accessible et à partir d’où. Avec la liste de contrôle d’accès, l’opérateur peut autoriser ses machines virtuelles Jumpbox de gestion au sein d’une plage réseau spécifique à accéder à l’interface de gestion du commutateur, au système d’exploitation HLH et au BMC HLH.
+> [!NOTE]
+> Depuis la version 1910, la feuille de calcul de déploiement a un nouveau champ pour les **réseaux autorisés**, qui remplace les étapes manuelles requises pour autoriser l’accès à des interfaces de gestion des périphériques réseau et à l’hôte HLH (hôte du cycle de vie du matériel) à partir d’une plage réseau de centre de données de confiance. Pour plus d’informations sur cette nouvelle fonctionnalité, consultez [Planification de l’intégration réseau pour Azure Stack](azure-stack-network.md#permitted-networks).
+
+L’opérateur peut modifier certaines listes de contrôle d’accès (ACL) pour autoriser l’accès à des interfaces de gestion des périphériques réseau et à l’hôte de cycle de vie du matériel (HLH) à partir d’une plage réseau de centre de données de confiance. Avec la liste de contrôle d’accès, l’opérateur peut autoriser ses machines virtuelles Jumpbox de gestion dans une plage réseau spécifique à accéder à l’interface de gestion du commutateur, au système d’exploitation HLH et au contrôleur BMC HLH.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

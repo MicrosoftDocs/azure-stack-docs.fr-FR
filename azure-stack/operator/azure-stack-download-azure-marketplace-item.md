@@ -3,7 +3,7 @@ title: Télécharger des éléments de la Place de marché Azure et les publier 
 description: Découvrez comment télécharger des éléments de la Place de marché à partir d’Azure et les publier sur Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.date: 10/10/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 095744322937a34dffd680b886fd4b06ca65d7d6
-ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
+ms.openlocfilehash: bc696d4b14aecd5890893f00b64cf2c4a3804173
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618278"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74299228"
 ---
 # <a name="download-existing-marketplace-items-from-azure-and-publish-to-azure-stack"></a>Télécharger des éléments existants de la Place de marché Azure et les publier sur Azure Stack
 
@@ -58,17 +58,21 @@ Votre déploiement Azure Stack doit être connecté à Internet et être [inscri
 
     ![Ajouter des éléments de la Place de marché à partir d’Azure](media/azure-stack-download-azure-marketplace-item/marketplace.png)
 
-4. Le portail affiche la liste des éléments disponibles en téléchargement à partir de la Place de marché Azure. Vous pouvez filtrer des produits par nom, éditeur et/ou type de produit. Vous pouvez également cliquer sur chaque élément pour voir sa description et d’autres informations, notamment sa taille de téléchargement :
+4. Le portail affiche la liste des éléments disponibles en téléchargement à partir de la Place de marché Azure. Vous pouvez filtrer des produits par nom, éditeur et/ou type de produit. Chaque élément de ligne affiche également la version actuellement disponible. Si plusieurs versions d’un élément de la Place de marché sont disponibles, la colonne **Version** affiche **Multiple**. Vous pouvez cliquer sur chaque élément pour voir sa description et d’autres informations, notamment sa taille de téléchargement :
 
-    ![Liste des éléments de la Place de marché Azure ](media/azure-stack-download-azure-marketplace-item/image03.PNG)
+    [![Liste des éléments de la Place de marché](media/azure-stack-download-azure-marketplace-item/add-from-azure1sm.png "Liste des éléments de la Place de marché")](media/azure-stack-download-azure-marketplace-item/add-from-azure1.png#lightbox)
 
-5. Sélectionnez les éléments que vous souhaitez, puis sélectionnez **Télécharger**. Le temps de téléchargement varie.
+5. Si la version d’un élément est affichée comme **Multiple**, vous pouvez sélectionner cet élément, puis choisir une version spécifique dans la liste déroulante du sélecteur de version qui en résulte :
+
+    [![Sélectionner la version](media/azure-stack-download-azure-marketplace-item/add-from-azure3sm.png "Sélectionner la version")](media/azure-stack-download-azure-marketplace-item/add-from-azure3.png#lightbox)
+
+6. Sélectionnez les éléments que vous souhaitez, puis sélectionnez **Télécharger**. Le temps de téléchargement varie.
 
     ![Téléchargement d’un élément de la Place de marché Azure](media/azure-stack-download-azure-marketplace-item/image04.png)
 
     Une fois le téléchargement terminé, vous pouvez déployer le nouvel élément de la Place de marché en tant qu’opérateur ou utilisateur Azure Stack.
 
-6. Pour déployer l’élément téléchargé, sélectionnez **+ Créer une ressource** puis recherchez le nouvel élément de Place de marché parmi les catégories. Cliquez ensuite sur l’élément pour commencer le processus de déploiement. Le processus varie pour les différents éléments de la Place de marché.
+7. Pour déployer l’élément téléchargé, sélectionnez **+ Créer une ressource** puis recherchez le nouvel élément de Place de marché parmi les catégories. Cliquez ensuite sur l’élément pour commencer le processus de déploiement. Le processus varie pour les différents éléments de la Place de marché.
 
 ## <a name="disconnected-or-a-partially-connected-scenario"></a>Scénario déconnecté ou partiellement connecté
 
@@ -150,7 +154,11 @@ Une fois que vous vous êtes inscrit, vous pouvez ignorer le message suivant qui
 
 6. Quand l’outil s’exécute, vous voyez normalement un écran similaire à l’image suivante, avec la liste des éléments de Place de marché disponibles :
 
-   [![Fenêtre contextuelle des éléments de la Place de marché Azure](media/azure-stack-download-azure-marketplace-item/image05.png "Éléments de la Place de marché Azure")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
+   [![Fenêtre contextuelle des éléments de la Place de marché Azure](media/azure-stack-download-azure-marketplace-item/tool1sm.png "Éléments de la Place de marché Azure")](media/azure-stack-download-azure-marketplace-item/tool1.png#lightbox)
+
+7. Si plusieurs versions d’un élément de la Place de marché sont disponibles, la colonne **Version** affiche **Plusieurs versions**. Si la version d’un élément est affichée comme **Plusieurs versions**, vous pouvez sélectionner cet élément, puis choisir une version spécifique dans la fenêtre du sélecteur de version qui en résulte :
+
+   [![Sélecteur de version](media/azure-stack-download-azure-marketplace-item/tool2sm.png "Sélectionner la version")](media/azure-stack-download-azure-marketplace-item/tool2.png#lightbox)
 
 7. Si vous n’avez pas installé les outils de Stockage Azure, vous recevez le message suivant. Pour pouvoir installer ces outils, veillez à télécharger [AzCopy ](/azure/storage/common/storage-use-azcopy#download-azcopy) :
 

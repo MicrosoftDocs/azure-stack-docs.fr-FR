@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2019
+ms.date: 10/23/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 4894fb7184944095d968d08e2d668912a78119d4
-ms.sourcegitcommit: ef7efcde76d1d7875ca1c882afebfd6a27f1c686
+ms.openlocfilehash: 76bc9b83bf97c7817ff5c9cbf8bc0a3275a04d72
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72888050"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74298857"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Planification de l’intégration réseau pour Azure Stack
 
@@ -48,9 +48,12 @@ Le tableau suivant montre les réseaux logiques et les plages de sous-réseau IP
 | Adresse IP virtuelle publique | Azure Stack utilise un total de 31 adresses de ce réseau. Huit adresses IP publiques sont utilisées pour un petit ensemble de services Azure Stack, et les adresses restantes sont utilisées par les machines virtuelles de locataire. Si vous envisagez d’utiliser App Service et les fournisseurs de ressources SQL, 7 adresses supplémentaires sont utilisées. Les 15 adresses IP restantes sont réservées pour les futurs services Azure. | / 26 (62 hôtes) - /22 (1022 hôtes)<br><br>Recommandé = /24 (254 hôtes) | 
 | Infrastructure du commutateur | Adresses IP de point à point pour le routage, les interfaces de gestion de commutateur dédiées et les adresses de bouclage attribuées au commutateur. | /26 | 
 | Infrastructure | Utilisé pour les composants internes de Azure Stack pour communiquer. | /24 |
-| Privé | Utilisé pour le réseau de stockage et les adresses IP virtuelles privées. | /24 | 
+| Privé | Utilisé pour le réseau de stockage, les adresses IP virtuelles privées, les conteneurs d’infrastructure et d’autres fonctions internes. Depuis la version 1910, la taille de ce sous-réseau passe à /20. Pour plus d’informations, consultez la section [Réseau privé](#private-network) dans cet article. | /20 | 
 | BMC | Utilisé pour communiquer avec les contrôleurs BMC sur les hôtes physiques. | /26 | 
 | | | |
+
+> [!NOTE]
+> Lorsque le système est mis à jour vers la version 1910, une alerte sur le portail rappelle à l’opérateur d’exécuter la nouvelle applet de commande PEP **Set-AzsPrivateNetwork** pour ajouter un nouvel espace IP privé /20. Consultez les [notes de publication de la version 1910](release-notes.md) pour obtenir des instructions sur l’exécution de cette applet de commande. Pour plus d’informations et de conseils sur la sélection de l’espace IP privé /20, consultez la section [Réseau privé](#private-network) de cet article.
 
 ## <a name="network-infrastructure"></a>Infrastructure réseau
 
@@ -66,13 +69,21 @@ Le HLH héberge également le déploiement de machines virtuelles (DVM). Le DVM 
 
 ### <a name="private-network"></a>Réseau privé
 
-Ce réseau /24 (adresses IP hôte 254) est privé pour la région Azure Stack (ne développez pas au-delà des appareils de commutation limite de la région Azure Stack) et est divisé en deux sous-réseaux :
+Ce réseau /20 (4096 adresses IP) est privé pour la région Azure Stack (ne route pas au-delà des appareils de commutation frontière du système Azure Stack) et est divisé en plusieurs sous-réseaux, dont voici quelques exemples :
 
-- **Réseau de stockage** : Réseau /25 (adresse IP hôte 126) utilisé pour prendre en charge l’utilisation du trafic de stockage Spaces Direct et Server Message Block (SMB) et la migration dynamique de machine virtuelle.
+- **Réseau de stockage** : Réseau /25 (128 adresses IP) utilisé pour prendre en charge l’utilisation du trafic de stockage Spaces Direct et Server Message Block (SMB) ainsi que la migration dynamique de machine virtuelle.
 - **Réseau IP virtuel interne** : Réseau /25 dédié aux adresses IP virtuelles internes uniquement pour l’équilibrage de charge logicielle.
+- **Réseau de conteneurs** : Réseau/23 (512 adresses IP) dédié au trafic interne uniquement entre les conteneurs exécutant des services d’infrastructure.
+
+Depuis la version 1910, la taille du réseau privé passe à /20 (4096 adresses IP) d’espace IP privé. Ce réseau sera privé pour le système Azure Stack (ne route pas au-delà des appareils de commutation frontière du système Azure Stack) et peut être réutilisé sur plusieurs systèmes Azure Stack au sein de votre centre de données. Ce réseau est privé pour Azure Stack, mais il ne doit pas empiéter sur d’autres réseaux dans le centre de données. Pour obtenir des conseils sur l’espace IP privé, nous vous recommandons de suivre le document [RFC 1918](https://tools.ietf.org/html/rfc1918).
+
+Cet espace IP privé /20 sera divisé en plusieurs réseaux qui permettront d’exécuter l’infrastructure interne du système Azure Stack sur des conteneurs dans les versions ultérieures. Pour plus d’informations, consultez les [notes de publication de la version 1910](release-notes.md). En outre, ce nouvel espace IP privé favorise les efforts en cours visant à réduire l’espace IP routable requis avant le déploiement.
+
+Pour les systèmes déployés avant la version 1910, ce sous-réseau /20 est un réseau supplémentaire à entrer dans les systèmes après la mise à jour vers 1910. Le réseau supplémentaire doit être fourni au système via l’applet de commande PEP **Set-AzsPrivateNetwork**. Pour obtenir des conseils sur cette applet de commande, consultez les [notes de publication de la version 1910](release-notes.md).
 
 ### <a name="azure-stack-infrastructure-network"></a>Réseau d’infrastructure Azure Stack
-Ce réseau /24 est dédié aux composants Azure Stack internes afin qu’ils puissent communiquer et échanger des données entre eux. Ce sous-réseau peut être routable à l’extérieur de la solution Azure Stack vers votre centre de données. Nous déconseillons l’utilisation d’adresses IP routables publiques ou Internet sur ce sous-réseau. Ce réseau est publié dans la bordure, mais la plupart de ses adresses IP sont protégées par des listes de contrôle d’accès (ACL). Les adresses IP pour lesquelles l’accès est autorisé se trouvent dans une plage de petite taille équivalente à un réseau/27 et à des services hôtes tels que le [ PEP (Privileged End Point)](azure-stack-privileged-endpoint.md) et le [stockage de sauvegarde Azure Stack](azure-stack-backup-reference.md).
+
+Ce réseau /24 est dédié aux composants Azure Stack internes afin qu’ils puissent communiquer et échanger des données entre eux. Ce sous-réseau peut être routable en externe pour la solution Azure Stack vers votre centre de données. Nous vous déconseillons d’utiliser des adresses IP routables publiques ou Internet sur ce sous-réseau. Ce réseau est annoncé jusqu’à la frontière, mais la plupart de ses adresses IP sont protégées par des listes de contrôle d’accès (ACL). Les adresses IP pour lesquelles l’accès est autorisé se trouvent dans une plage de petite taille équivalente à un réseau /27 et hébergent des services tels que le [point de terminaison privilégié (PEP)](azure-stack-privileged-endpoint.md) et la [sauvegarde Azure Stack](azure-stack-backup-reference.md).
 
 ### <a name="public-vip-network"></a>Réseau d’adresse IP virtuelle publique
 
@@ -85,6 +96,10 @@ Ce réseau /26 est le sous-réseau contenant des sous-réseaux IP point à point
 ### <a name="switch-management-network"></a>Réseau de gestion du commutateur
 
 Ce réseau /29 (6 adresses IP d’hôte) est dédié à la connexion des ports de gestion des commutateurs. Il autorise un accès hors bande pour le déploiement, la gestion et la résolution des problèmes. Il est calculé à partir du réseau d’infrastructure du commutateur mentionné ci-dessus.
+
+## <a name="permitted-networks"></a>Réseaux autorisés
+
+Depuis la version 1910, la feuille de calcul de déploiement a un nouveau champ qui permet à l’opérateur de modifier certaines listes de contrôle d’accès (ACL) pour autoriser l’accès à des interfaces de gestion des périphériques réseau et à l’hôte HLH (hôte du cycle de vie du matériel) à partir d’une plage réseau de centre de données de confiance. Avec le changement de liste de contrôle d’accès, l’opérateur peut autoriser ses machines virtuelles Jumpbox de gestion au sein d’une plage réseau spécifique à accéder à l’interface de gestion du commutateur, au système d’exploitation HLH et au contrôleur BMC HLH. L’opérateur peut fournir un ou plusieurs sous-réseaux à cette liste, si elle est laissée vide, elle refuse l’accès par défaut. Cette nouvelle fonctionnalité remplace la nécessité d’une intervention manuelle postérieure au déploiement, telle qu’elle était décrite dans [Modifier des paramètres spécifiques dans votre configuration de commutateur Azure Stack](azure-stack-customer-defined.md#access-control-list-updates).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

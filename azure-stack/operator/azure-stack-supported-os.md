@@ -16,12 +16,12 @@ ms.date: 08/14/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 25a32b1d73818e988a8bdf7fb565d06b06d53d68
-ms.sourcegitcommit: bb2bbfad8061f7677954f6ce5a435b4e6f9299b6
+ms.openlocfilehash: fc3eecb8f4e06ce02737e513c48d946f2a667c21
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74100023"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74298773"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Systèmes d’exploitation invités pris en charge par Azure Stack
 
@@ -54,9 +54,9 @@ Les éditions de centre de données sont disponibles au téléchargement sur la
 Les distributions Linux répertoriées comme disponibles sur la Place de marché incluent l’agent Windows Azure Linux (WALA) nécessaire. Si vous ajoutez votre propre image à Azure Stack, suivez les instructions de l’article [Ajouter des images Linux à Azure Stack](azure-stack-linux.md).
 
 > [!NOTE]
-> Les images personnalisées doivent être générées avec la dernière version publique de WALA (sur la build Azure Stack 1903 et supérieure, ou avec le correctif logiciel 1901/1902) ou la version 2.2.20. Les versions antérieures à la version 2.2.20 et celles comprises entre les versions 2.2.20 et 2.2.35 (exclue) peuvent ne pas fonctionner correctement sur Azure Stack.
+> Les images personnalisées doivent être générées avec la dernière version publique de WALA (sur la build Azure Stack 1903 et supérieure, ou avec le correctif logiciel 1901/1902) ou la version 2.2.20. Les versions antérieures à 2.2.20 et celles comprises entre 2.2.21 et 2.2.34 (incluses) peuvent ne pas fonctionner correctement sur Azure Stack. Sur Azure Stack versions 1910 et ultérieures, toutes les versions de l’agent Azure WALA fonctionneront avec Azure Stack.
 >
-> [init-cloud](https://cloud-init.io/) n’est pas pris en charge sur Azure Stack pour le moment.
+> À ce stade, [cloud-init](https://cloud-init.io/) est pris en charge sur Azure Stack versions 1910 et ultérieures.
 
 | Distribution | Description | Publisher | Marketplace |
 | --- | --- | --- | --- |
