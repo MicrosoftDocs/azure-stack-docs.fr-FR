@@ -71,8 +71,9 @@
               href: azure-stack-develop-templates.md
             - name: Développer des modèles dans Azure
               href: azure-stack-developer.md
-            - name: Déployer des modèles
+            - name: Vérifier des modèles
               href: azure-stack-validate-templates.md
+            - name: Déployer des modèles
               items:
                 - name: Déployer avec le portail
                   href: azure-stack-deploy-template-portal.md
