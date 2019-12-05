@@ -15,12 +15,12 @@ ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 265645b69e909c7c9762cd03e4f49035baa2872b
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: 3c7b3dcd304b684170cec8974910a42f7f86e84f
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019430"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74690079"
 ---
 # <a name="usage-connectivity-errors"></a>Erreurs de connectivité d’utilisation
 
@@ -55,7 +55,7 @@ Cette section décrit la représentation les codes d’erreur d’utilisation.
 | Non autorisé               | Azure Bridge n’est pas en mesure de transmettre les données au service d’utilisation dans Azure, car le service Azure n’est pas en mesure d’authentifier Azure Stack Bridge. | Vérifiez si la ressource d’inscription a été modifiée et si tel est le cas, réinscrivez Azure Stack. <br><br> Parfois, un problème de synchronisation entre Azure Stack et Azure AD peut provoquer cette défaillance. Dans ce cas, vérifiez que les heures sur les machines virtuelles XRP sur Azure Stack sont synchronisées avec celles d’Azure AD. |
 |                            |                                                                                                                                                   |                                                                                                                                                                                                                                                                                                    |
 
-En outre, vous devrez peut-être fournir les fichiers journaux pour les composants Azure Bridge, WAS et WASPublic en suivant [ces étapes](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).
+En outre, vous devrez peut-être fournir les fichiers journaux pour les composants Azure Bridge, WAS et WASPublic en suivant [ces étapes](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

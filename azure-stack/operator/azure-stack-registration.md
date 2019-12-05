@@ -17,12 +17,12 @@ ms.date: 10/14/2019
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: d777827e6c700167dff6f203045277353837beef
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: 1ab0e33d894b1856e1769a0f6780f5d0b9df3474
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465444"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780760"
 ---
 # <a name="register-azure-stack-with-azure"></a>Inscrire Azure Stack auprès d’Azure
 
@@ -272,11 +272,11 @@ Vous avez besoin de votre jeton d’inscription et d’un nom de jeton unique.
 
 2. Exécutez ensuite les applets de commande PowerShell suivantes :  
 
-  ```powershell  
-  $RegistrationToken = "<Your Registration Token>"
-  $RegistrationName = "<unique-registration-name>"
-  Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
-  ```
+    ```powershell  
+    $RegistrationToken = "<Your Registration Token>"
+    $RegistrationName = "<unique-registration-name>"
+    Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
+    ```
 
 Si vous le souhaitez, utilisez l’applet de commande Get-Content pour pointer vers un fichier contenant votre jeton d’inscription.
 
@@ -284,16 +284,16 @@ Vous avez besoin de votre jeton d’inscription et d’un nom de jeton unique.
 
 1. Démarrez PowerShell ISE en tant qu'administrateur et accédez au dossier **Registration** du répertoire **AzureStack-Tools-master** créé lorsque vous avez téléchargé les outils Azure Stack. Importez le module **RegisterWithAzure.psm1** :  
 
-  ```powershell  
-  Import-Module .\RegisterWithAzure.psm1
-  ```
+    ```powershell  
+    Import-Module .\RegisterWithAzure.psm1
+    ```
 
 2. Exécutez ensuite les applets de commande PowerShell suivantes :  
 
-  ```powershell  
-  $RegistrationToken = Get-Content -Path '<Path>\<Registration Token File>'
-  Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
-  ```
+    ```powershell  
+    $RegistrationToken = Get-Content -Path '<Path>\<Registration Token File>'
+    Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
+    ```
 
   > [!Note]  
   > Enregistrez le nom de la ressource d’inscription et le jeton d’inscription pour une référence ultérieure.

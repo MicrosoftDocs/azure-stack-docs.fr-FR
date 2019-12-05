@@ -15,12 +15,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 52f61321980503667119c5cc45863e51fa0639ac
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: f77a497960b49e3a212ea5cc2b63c18d8382a99c
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955258"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689988"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack"></a>Utiliser le point de terminaison privilégié dans Azure Stack
 
@@ -30,7 +30,7 @@ En tant qu’opérateur Azure Stack, vous devez utiliser le portail administrate
 
 Vous pouvez utiliser le points de terminaison privilégié pour effectuer les tâches suivantes :
 
-- Des tâches de bas niveau, comme [collecter les journaux de diagnostic](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).
+- Des tâches de bas niveau, comme [collecter les journaux de diagnostic](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
 - De nombreuses tâches post-déploiement d’intégration au centre de données pour les systèmes intégrés, comme l’ajout de redirecteurs DNS (Domain Name System), la configuration de l’intégration de Microsoft Graph, l’intégration des services de fédération Active Directory (AD FS), la permutation des certificats, etc.
 - Collaborer avec l’équipe de support afin d’obtenir un accès global temporaire pour un dépannage approfondi d’un système intégré.
 
@@ -191,4 +191,4 @@ Une fois les fichiers journaux de transcription correctement transférés vers l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Outils de diagnostic Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)
+[Outils de diagnostic Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)

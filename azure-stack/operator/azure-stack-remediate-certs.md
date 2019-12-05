@@ -17,12 +17,12 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2018
-ms.openlocfilehash: 3cff638fa242e4d70230062e7d54eef0c9c66802
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: 449a734f2b98328d0a5ed046f0c387e6cfdf8a97
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465400"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780862"
 ---
 # <a name="fix-common-issues-with-azure-stack-pki-certificates"></a>Corriger les problèmes courants liés aux certificats PKI Azure Stack
 
@@ -108,7 +108,7 @@ L’outil **AzsReadinessChecker** inclut une l’applet de commande d’assistan
 L’ordinateur sur lequel l’outil s’exécute doit répondre aux prérequis suivants :
 
 - Windows 10 ou Windows Server 2016, avec connectivité à Internet.
-- PowerShell 5.1 ou ultérieur. Pour vérifier votre version, exécutez l’applet de commande PowerShell suivante, puis examinez les versions *Major** et **Minor** :
+- PowerShell 5.1 ou ultérieur. Pour vérifier votre version, exécutez l’applet de commande PowerShell suivante, puis examinez les versions **Major** et **Minor** :
 
    ```powershell
    $PSVersionTable.PSVersion

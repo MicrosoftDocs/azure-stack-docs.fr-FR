@@ -16,12 +16,12 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: chengwei
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 31fa9bcdf60b27b2eb2e8396be1d2a0e89f31b70
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: ff633133b7d0fd0489b3e81295ea53351968ac8f
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829185"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74690192"
 ---
 # <a name="azure-stack-log-and-customer-data-handling"></a>Gestion des données client et des journaux Azure Stack 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*  
@@ -31,7 +31,7 @@ Dans la mesure où Microsoft traite directement ou indirectement des données pe
 - Le « traitement des données personnelles ; RGPD » dans la section « Conditions de la protection des données » des [Conditions des services en ligne](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 - Le Règlement général sur la protection des données (RGPD) de l’Union européenne de la pièce jointe 4 des [conditions des services en ligne](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
-Comme Azure Stack réside dans les centres de données client, Microsoft est le Responsable de fichier uniquement pour les données qui sont partagées avec Microsoft via les [Diagnostics](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs), la [Télémétrie](azure-stack-telemetry.md) et la [Facturation](azure-stack-usage-reporting.md).  
+Comme Azure Stack réside dans les centres de données client, Microsoft est le Responsable de fichier uniquement pour les données qui sont partagées avec Microsoft via les [Diagnostics](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs), la [Télémétrie](azure-stack-telemetry.md) et la [Facturation](azure-stack-usage-reporting.md).  
 
 ## <a name="data-access-controls"></a>Contrôles d’accès aux données 
 Les employés de Microsoft, qui doivent examiner une demande de support spécifique, auront un accès en lecture seule aux données chiffrées. Les employés de Microsoft ont également accès aux outils utilisés pour supprimer les données si nécessaire. Tout accès aux données client est audité et journalisé.  
@@ -51,7 +51,7 @@ Pour l’action de suppression automatique des données (90 jours après la cl�
 Pour l’action de suppression de données à la demande, les ingénieurs du support technique de Microsoft ont accès à l’outil qui leur permet de supprimer des données à la demande. Ils peuvent fournir une confirmation par téléphone au client quand l’opération est terminée.
 
 ## <a name="diagnostic-data"></a>Données de diagnostic
-Dans le cadre du processus de support, les opérateurs Azure Stack peuvent [partager les journaux de diagnostic](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs) avec les équipes de support et d’ingénierie d’Azure Stack pour faciliter la résolution des problèmes.
+Dans le cadre du processus de support, les opérateurs Azure Stack peuvent [partager les journaux de diagnostic](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) avec les équipes de support et d’ingénierie d’Azure Stack pour faciliter la résolution des problèmes.
 
 Microsoft fournit un outil et un script aux clients pour collecter et charger les fichiers journaux de diagnostic demandés. Une fois collectés, les fichiers journaux sont transférés à Microsoft via une connexion HTTPS chiffrée. Comme le protocole HTTPS assure le chiffrement sur le réseau, aucun mot de passe n’est nécessaire pour le chiffrement en transit. Après réception, les journaux sont chiffrés et stockés jusqu’à ce qu’ils soient automatiquement supprimés 90 jours après la clôture de la demande de support.
 
