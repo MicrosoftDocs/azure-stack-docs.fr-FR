@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 11/01/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: f3c16e202b43f9d672d9f3e385c3f14cf30935e7
-ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
+ms.openlocfilehash: 5f9d8de7c08e8cfa0ad2af9bcb8f898fc32848a3
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569312"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74690222"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack"></a>Exécuter une machine virtuelle Windows dans Azure Stack
 
@@ -68,7 +68,14 @@ Tous les groupes de sécurité réseau contiennent un ensemble de [règles par d
 
 **Diagnostics**. Permet la supervision et le diagnostic, avec notamment des indicateurs d’intégrité de base, des journaux d’infrastructure de diagnostic et des [diagnostics de démarrage](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Les diagnostics de démarrage peuvent vous aider à identifier le problème de démarrage si votre machine virtuelle refuse de démarrer. Créez un compte de stockage Azure pour stocker les journaux d’activité. Un compte de stockage localement redondant (LRS) standard suffit pour les journaux de diagnostic. Pour en savoir plus, consultez [Activation de la surveillance et des diagnostics](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data).
 
-**Disponibilité**. Votre machine virtuelle peut faire l’objet d’un redémarrage en raison d’une maintenance planifiée par l’opérateur Azure Stack. Pour bénéficier d’une disponibilité plus élevée, déployez plusieurs machines virtuelles dans un [groupe à haute disponibilité](https://docs.microsoft.com/azure-stack/operator/azure-stack-overview#providing-high-availability).
+**Disponibilité**. Votre machine virtuelle peut faire l’objet d’un redémarrage en raison d’une maintenance planifiée par l’opérateur Azure Stack. Pour garantir la haute disponibilité d’un système de production à plusieurs machines virtuelles dans Azure, ces machines virtuelles sont placées dans un [groupe à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) qui les répartit entre plusieurs domaines d’erreur et de mise à jour. À la plus petite échelle d’Azure Stack Hub, un domaine d’erreur au sein d’un groupe à haute disponibilité est défini comme un nœud unique dans l’unité d’échelle.  
+
+Même si l’infrastructure d’Azure Stack Hub est déjà résiliente aux défaillances, la technologie sous-jacente (clustering de basculement) implique toujours un temps d’arrêt pour les machines virtuelles qui se trouvent sur un serveur physique impacté en cas de défaillance matérielle. Azure Stack Hub prend ne charge les groupes à haute disponibilité avec un maximum de trois domaines d’erreur, pour rester cohérent avec Azure.
+
+|                   |             |
+|-------------------|-------------|
+| **Domaines d'erreur** | Les machines virtuelles placées dans un groupe à haute disponibilité sont physiquement isolées les unes des autres grâce à une répartition aussi équilibrée que possible sur plusieurs domaines d’erreur (nœuds Azure Stack Hub). En cas de défaillance matérielle, les machines virtuelles du domaine défaillant sont redémarrées dans d’autres domaines d’erreur. Elles seront conservées dans des domaines d’erreur distincts des autres machines virtuelles, mais si possible dans le même groupe à haute disponibilité. Une fois le matériel rétabli, les machines virtuelles seront rééquilibrées de façon à maintenir une haute disponibilité. |
+| **Domaines de mise à jour**| Les domaines de mise à jour sont utilisés par Azure pour fournir la haute disponibilité aux groupes à haute disponibilité. Un domaine de mise à jour est un groupe logique de matériel sous-jacent pouvant faire l’objet simultanément d’une opération de maintenance. Les machines virtuelles qui se trouvent dans le même domaine de mise à jour sont redémarrées ensemble lors de la maintenance planifiée. Lorsqu’un client crée des machines virtuelles au sein d’un groupe à haute disponibilité, la plateforme Azure les distribue automatiquement dans ces différents domaines de mise à jour. <br>Dans Azure Stack Hub, les machines virtuelles sont migrées en direct sur les autres hôtes en ligne du cluster avant que leur hôte sous-jacent soit mis à jour. Comme il ne se produit aucun temps d’arrêt du côté du locataire pendant la mise à jour d’un hôte, la fonctionnalité de domaine de mise à jour d’Azure Stack Hub n’existe que pour des raisons de compatibilité des modèles avec Azure. Les machines virtuelles d’un groupe à haute disponibilité affichent 0 comme numéro de domaine de mise à jour sur le portail. |
 
 **Sauvegardes** Pour obtenir des recommandations sur la protection de vos machines virtuelles IaaS Azure Stack, consultez cet article.
 
@@ -91,7 +98,7 @@ Intégrez vos machines virtuelles dans [Azure Security Center](https://docs.micr
 
 **Journaux d’audit**. Utilisez les [journaux d’activité](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data?#activity-log) pour voir les actions de provisionnement et d’autres événements concernant la machine virtuelle.
 
-**Chiffrement des données**. Azure Stack protège les données des utilisateurs et de l’infrastructure au niveau du sous-système de stockage à l’aide du chiffrement au repos. Le sous-système de stockage Azure Stack est chiffré à l’aide de BitLocker avec le chiffrement AES 128 bits. Pour plus d’informations, consultez [cet](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker) article.
+**Chiffrement des données**. Azure Stack utilise le chiffrement AES 128 bits BitLocker pour protéger les données de l’utilisateur et de l’infrastructure au repos dans le sous-système de stockage. Pour plus d’informations, consultez [Chiffrement des données au repos dans Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 12/03/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: b42f21a3225194cfe50b5ae7d39d8d1a7cffb6d0
-ms.sourcegitcommit: e6a738f674634e1d5dd4eb23b6c44b660ea2fe84
+ms.openlocfilehash: 049698c1b4e19dc3567c07bb8a433c0fcf9208d8
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72891260"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780777"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack"></a>Créer du stockage sur disque pour machines virtuelles dans Azure Stack
 
@@ -36,15 +36,17 @@ Les [disques managés](/azure/virtual-machines/windows/managed-disks-overview) s
 
 Les disques non managés nécessitent la création d’un compte de stockage pour stocker les disques. Les disques que vous créez sont appelés « disques de machine virtuelle » et sont stockés dans des conteneurs, dans le compte de stockage.
 
-### <a name="best-practice-guidelines"></a>Conseils de bonnes pratiques
+## <a name="best-practice-guidelines"></a>Conseils de bonnes pratiques
 
-Pour améliorer les performances et réduire les coûts globaux, nous vous recommandons de placer chaque disque de machine virtuelle dans un conteneur distinct. Un conteneur doit contenir un disque du système d’exploitation ou un disque de données, mais pas les deux en même temps. Toutefois, vous pouvez également placer les deux types de disque dans le même conteneur.
+Nous vous recommandons d’utiliser Disques managés pour les machines virtuelles afin de faciliter la gestion et l’équilibrage de la capacité. Il n’est pas nécessaire de préparer un compte de stockage et des conteneurs avant d’utiliser Disques managés. Lors de la création de plusieurs disques managés, ceux-ci sont répartis sur plusieurs volumes, ce qui permet d’équilibrer la capacité des volumes.  
+
+Pour améliorer les performances et réduire les coûts globaux liés aux disques non managés, nous vous recommandons de placer chaque disque non managé dans un conteneur distinct. Même si vous pouvez placer les disques de système d’exploitation et les disques de données dans un même conteneur, il est préférable de les placer chacun dans leur conteneur.
 
 Si vous ajoutez un ou plusieurs disques de données à une machine virtuelle, utilisez des conteneurs supplémentaires comme emplacement de stockage de ces disques. Le disque du système d’exploitation pour des machines virtuelles supplémentaires doit également se trouver dans son propre conteneur distinct.
 
 Quand vous créez des machines virtuelles, vous pouvez réutiliser le même compte de stockage pour chaque nouvelle machine virtuelle. Seuls les conteneurs que vous créez doivent être uniques.
 
-### <a name="adding-new-disks"></a>Ajout de nouveaux disques
+## <a name="adding-new-disks"></a>Ajout de nouveaux disques
 
 Le tableau suivant est un récapitulatif de la façon d’ajouter des disques avec le portail et avec PowerShell :
 

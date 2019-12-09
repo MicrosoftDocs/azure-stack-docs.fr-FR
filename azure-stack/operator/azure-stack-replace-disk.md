@@ -13,22 +13,25 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 12/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 2d4ebaf62a3a2e836df988ec510e21274040e68b
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.lastreviewed: 12/02/2019
+ms.openlocfilehash: 3c7808374621d3b60b1884df8ad44e27c244bfc5
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465472"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780845"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Remplacer un disque physique dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Cet article décrit le processus général de remplacement d’un disque physique dans Azure Stack. En cas de défaillance d’un disque physique, vous devez le remplacer dès que possible.
+
+> [!Note]  
+> Le remplacement d’un lecteur de données physique **n’exige pas** que le nœud d’unité d’échelle soit d’abord mis en mode de maintenance (drainage). De même, une fois le disque physique remplacé, le nœud d’unité d’échelle n’a pas besoin d’être réparé avec le portail d’administration Azure Stack Hub. L’article suivant contient plus d’informations sur la nécessité des réparations : [Remplacer un composant matériel sur un nœud d’unité d’échelle Azure Stack](azure-stack-replace-component.md).
 
 Vous pouvez appliquer cette procédure pour les systèmes intégrés et pour les déploiements de Kit de développement Azure Stack (ASDK) qui ont des disques remplaçables à chaud.
 
@@ -71,20 +74,21 @@ Après avoir remplacé le disque, vous pouvez superviser l’état d’intégrit
 4. Validez l’état du système Azure Stack. Pour obtenir des instructions, consultez [Valider l’état du système Azure Stack](azure-stack-diagnostic-test.md).
 5. Si vous le souhaitez, vous pouvez exécuter la commande suivante pour vérifier l’état du disque physique remplacé.
 
-```powershell  
-$scaleunit=Get-AzsScaleUnit
-$StorageSubSystem=Get-AzsStorageSubSystem -ScaleUnit $scaleunit.Name
+    ```powershell  
+    $scaleunit=Get-AzsScaleUnit
+    $StorageSubSystem=Get-AzsStorageSubSystem -ScaleUnit $scaleunit.Name
 
-Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Sort-Object StorageNode,MediaType,PhysicalLocation | Format-Table Storagenode, Healthstatus, PhysicalLocation, Model, MediaType,  CapacityGB, CanPool, CannotPoolReason
-```
+    Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Sort-Object StorageNode,MediaType,PhysicalLocation | Format-Table Storagenode, Healthstatus, PhysicalLocation, Model, MediaType,  CapacityGB, CanPool, CannotPoolReason
+    ```
 
-![Disques physiques remplacés dans Azure Stack avec PowerShell](media/azure-stack-replace-disk/check-replaced-physical-disks-azure-stack.png)
+    ![Disques physiques remplacés dans Azure Stack avec PowerShell](media/azure-stack-replace-disk/check-replaced-physical-disks-azure-stack.png)
 
 ## <a name="check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint"></a>Vérifier l’état de la réparation de disque virtuel à l’aide du point de terminaison privilégié
 
 Après avoir remplacé le disque, vous pouvez surveiller l’état d’intégrité du disque virtuel et la progression du travail de réparation à l’aide du point de terminaison privilégié. Suivez ces étapes à partir de n’importe quel ordinateur qui dispose d’une connectivité réseau au point de terminaison privilégié.
 
 1. Ouvrez une session Windows PowerShell et connectez-vous au point de terminaison privilégié.
+
     ```powershell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
@@ -92,6 +96,7 @@ Après avoir remplacé le disque, vous pouvez surveiller l’état d’intégrit
     ```
   
 2. Exécutez la commande suivante pour afficher l’intégrité du disque virtuel :
+
     ```powershell
         Get-VirtualDisk -CimSession s-cluster
     ```
@@ -99,16 +104,19 @@ Après avoir remplacé le disque, vous pouvez surveiller l’état d’intégrit
    ![Sortie PowerShell de la commande Get-VirtualDisk](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
 3. Exécutez la commande suivante pour afficher l’état actuel du travail de stockage :
+
     ```powershell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
     ```
-      ![Sortie PowerShell de la commande Get-StorageJob](media/azure-stack-replace-disk/GetStorageJobOutput.png)
+
+    ![Sortie PowerShell de la commande Get-StorageJob](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
 4. Validez l’état du système Azure Stack. Pour obtenir des instructions, consultez [Valider l’état du système Azure Stack](azure-stack-diagnostic-test.md).
 
 ## <a name="troubleshoot-virtual-disk-repair-using-the-privileged-endpoint"></a>Résoudre les problèmes de réparation de disque virtuel à l’aide du point de terminaison privilégié
 
 Si le travail de réparation de disque virtuel semble bloqué, exécutez la commande suivante pour le redémarrer :
-  ```powershell
-        Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
-  ```
+
+```powershell
+Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
+```

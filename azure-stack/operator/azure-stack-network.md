@@ -16,12 +16,12 @@ ms.date: 10/23/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 76bc9b83bf97c7817ff5c9cbf8bc0a3275a04d72
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: 87afcdb3508f66c69477f0109c2c86d03a6b04e0
+ms.sourcegitcommit: 11e0c2d9abbc0a2506f992976b3c9f8ca4e746b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74298857"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74810174"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Planification de l’intégration réseau pour Azure Stack
 
@@ -75,7 +75,7 @@ Ce réseau /20 (4096 adresses IP) est privé pour la région Azure Stack (ne rou
 - **Réseau IP virtuel interne** : Réseau /25 dédié aux adresses IP virtuelles internes uniquement pour l’équilibrage de charge logicielle.
 - **Réseau de conteneurs** : Réseau/23 (512 adresses IP) dédié au trafic interne uniquement entre les conteneurs exécutant des services d’infrastructure.
 
-Depuis la version 1910, la taille du réseau privé passe à /20 (4096 adresses IP) d’espace IP privé. Ce réseau sera privé pour le système Azure Stack (ne route pas au-delà des appareils de commutation frontière du système Azure Stack) et peut être réutilisé sur plusieurs systèmes Azure Stack au sein de votre centre de données. Ce réseau est privé pour Azure Stack, mais il ne doit pas empiéter sur d’autres réseaux dans le centre de données. Pour obtenir des conseils sur l’espace IP privé, nous vous recommandons de suivre le document [RFC 1918](https://tools.ietf.org/html/rfc1918).
+Depuis la version 1910, la taille du réseau privé passe à /20 (4096 adresses IP) d’espace IP privé. Ce réseau sera privé pour le système Azure Stack (ne route pas au-delà des appareils de commutation frontière du système Azure Stack) et peut être réutilisé sur plusieurs systèmes Azure Stack au sein de votre centre de données. Ce réseau est privé pour Azure Stack, mais il ne doit pas empiéter sur d’autres réseaux dans le centre de données. Si vous constatez un chevauchement, il est possible qu’Azure Stack n’achemine pas le trafic réseau de l’entreprise vers l’extérieur. Pour obtenir des conseils sur l’espace IP privé, nous vous recommandons de suivre le document [RFC 1918](https://tools.ietf.org/html/rfc1918).
 
 Cet espace IP privé /20 sera divisé en plusieurs réseaux qui permettront d’exécuter l’infrastructure interne du système Azure Stack sur des conteneurs dans les versions ultérieures. Pour plus d’informations, consultez les [notes de publication de la version 1910](release-notes.md). En outre, ce nouvel espace IP privé favorise les efforts en cours visant à réduire l’espace IP routable requis avant le déploiement.
 

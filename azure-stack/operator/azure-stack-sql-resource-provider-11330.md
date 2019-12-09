@@ -1,6 +1,7 @@
 ---
-title: Notes de publication de la version 1.1.30.0 du fournisseur de ressources SQL Azure Stack | Microsoft Docs
-description: Découvrez le contenu de la dernière mise à jour du fournisseur de ressources SQL Azure Stack, notamment les problèmes connus et l'emplacement de téléchargement.
+title: Notes de publication de la version 1.1.33.0 du fournisseur de ressources SQL Azure Stack
+titleSuffix: Azure Stack
+description: Affichez les notes de publication concernant la mise à jour 1.1.33.0 du fournisseur de ressources SQL Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,12 +17,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 69ea42a9efbf57cfdeb589cc221eae8a9f21913c
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 03a2ec5a0485f184e34c2837d8bc55edaed39f1d
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829321"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780692"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>Notes de publication de la version 1.1.33.0 du fournisseur de ressources SQL
 
@@ -44,21 +45,22 @@ Téléchargez le binaire du fournisseur de ressources SQL, puis exécutez le fic
 Cette version du fournisseur de ressources SQL Azure Stack inclut les améliorations et correctifs suivants :
 
 ### <a name="fixes"></a>Correctifs
-- **L’extension du portail du fournisseur de ressources SQL risque de choisir le mauvais abonnement**. Le fournisseur de ressources SQL utilise des appels Azure Resource Manager pour déterminer le premier abonnement d’administration de service à utiliser, qui risque de ne pas être l’*abonnement de fournisseur par défaut*. Si c’est le cas, le fournisseur de ressources SQL ne fonctionne pas normalement. 
+
+- **L’extension du portail du fournisseur de ressources SQL risque de choisir le mauvais abonnement**. Le fournisseur de ressources SQL utilise des appels Azure Resource Manager pour déterminer le premier abonnement d’administration de service à utiliser, qui risque de ne pas être l’*abonnement de fournisseur par défaut*. Si c’est le cas, le fournisseur de ressources SQL ne fonctionne pas normalement.
 
 - **Le serveur d’hébergement SQL ne liste pas les bases de données hébergées.** Les bases de données créées par l’utilisateur risquent de ne pas être listées lors de l’affichage des ressources de locataire des serveurs d’hébergement SQL.
 
-- **Le déploiement du fournisseur de ressources SQL précédent (1.1.30.0) peut échouer si TLS 1.2 n’est pas activé**. Nous avons mis à jour le fournisseur de ressources SQL 1.1.33.0 pour activer TLS 1.2 lors du déploiement du fournisseur de ressources, de la mise à jour du fournisseur de ressources ou de la rotation des secrets. 
+- **Le déploiement du fournisseur de ressources SQL précédent (1.1.30.0) peut échouer si TLS 1.2 n’est pas activé**. Nous avons mis à jour le fournisseur de ressources SQL 1.1.33.0 pour activer TLS 1.2 lors du déploiement du fournisseur de ressources, de la mise à jour du fournisseur de ressources ou de la rotation des secrets.
 
 - **La rotation des secrets du fournisseur de ressources SQL échoue**. Nous avons résolu le problème et le code d’erreur est maintenant le suivant lors de la rotation des secrets : `New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
-## <a name="known-issues"></a>Problèmes connus 
+## <a name="known-issues"></a>Problèmes connus
 
-- **Une heure entière peut être nécessaire avant que les références SKU SQL n’apparaissent dans le portail**. Il peut se passer une heure avant que les références SKU nouvellement créées soient visibles et utilisables lors de la création de nouvelles bases de données SQL. 
+- **Une heure entière peut être nécessaire avant que les références SKU SQL n’apparaissent dans le portail**. Il peut se passer une heure avant que les références SKU nouvellement créées soient visibles et utilisables lors de la création de nouvelles bases de données SQL.
 
     **Solution de contournement** : Aucune.
 
-- **Connexions SQL réutilisées**. Toute tentative de création d'une nouvelle connexion SQL avec le même nom d'utilisateur qu'une connexion existante associée au même abonnement entraînera la réutilisation de la même connexion et du mot de passe existant. 
+- **Connexions SQL réutilisées**. Toute tentative de création d'une nouvelle connexion SQL avec le même nom d'utilisateur qu'une connexion existante associée au même abonnement entraînera la réutilisation de la même connexion et du mot de passe existant.
 
     **Solution de contournement** : utilisez des noms d’utilisateur différents lors de la création de nouvelles connexions associées au même abonnement, ou créez des connexions avec le même nom d’utilisateur mais sous des abonnements différents.
 
@@ -66,7 +68,7 @@ Cette version du fournisseur de ressources SQL Azure Stack inclut les améliorat
 
     **Solution de contournement** : utilisez toujours des connexions distinctes pour les différentes bases de données associées à un même abonnement.
 
-- **Le fournisseur de ressources SQL ne parvient pas à ajouter l’écouteur SQL Server Always On**. Lorsque vous utilisez l’adresse IP de l’écouteur SQL Server Always On, la machine virtuelle du fournisseur de ressources SQL ne peut pas résoudre le nom d’hôte de l’écouteur.
+- **Le fournisseur de ressources SQL ne parvient pas à ajouter l’écouteur SQL Server Always On**. Lorsque vous utilisez l’adresse IP de l’écouteur SQL Server AlwaysOn, la machine virtuelle du fournisseur de ressources SQL ne peut pas résoudre le nom d’hôte de l’écouteur.
 
     **Solution de contournement** : Vérifiez que DNS fonctionne correctement pour résoudre l’adresse IP de l’écouteur en nom d’hôte de l’écouteur.
 
@@ -78,4 +80,4 @@ Reportez-vous à la documentation des [notes de publication d’Azure Stack](azu
 
 [Préparer le déploiement du fournisseur de ressources SQL](azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
-[Mettre à niveau le fournisseur de ressources SQL à partir d’une version précédente](azure-stack-sql-resource-provider-update.md). 
+[Mettre à niveau le fournisseur de ressources SQL à partir d’une version précédente](azure-stack-sql-resource-provider-update.md).

@@ -1,6 +1,7 @@
 ---
-title: Chiffrement des données au repos dans Azure Stack
-description: Découvrez comment Azure Stack protège vos données avec le chiffrement au repos
+title: Chiffrement des données au repos
+titleSuffix: Azure Stack
+description: Découvrez comment Azure Stack protège vos données avec le chiffrement au repos.
 services: azure-stack
 author: PatAltimore
 ms.service: azure-stack
@@ -10,12 +11,12 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
 keywords: ''
-ms.openlocfilehash: 0e21808ad82a61014b69cb26958a0c13518af13a
-ms.sourcegitcommit: 7fa9b64aeae2b22be7acfb5c4987d233303107c5
+ms.openlocfilehash: 13455668330571e9190d37ea0abb4de2a7b88a5d
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166496"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780709"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack"></a>Chiffrement des données au repos dans Azure Stack
 
@@ -24,7 +25,7 @@ Azure Stack protège les données des utilisateurs et de l’infrastructure au n
 Le chiffrement des données au repos sont une exigence courante pour la plupart des normes de conformité (par exemple, la norme PCI-DSS, FedRAMP, HIPAA). Azure Stack vous permet de respecter ces exigences sans travail ou configuration requise supplémentaire. Pour plus d’informations sur la méthode employée par Azure Stack pour vous aider à respecter les normes de conformité, consultez le [portail Microsoft Service Trust](https://aka.ms/AzureStackCompliance).
 
 > [!NOTE]
-> Le chiffrement des données au repos empêche une personne ayant volé un ou plusieurs de vos disques durs physiques d’accéder aux données qu’ils contiennent. Le chiffrement des données au repos ne protège pas vos données contre les interceptions sur le réseau (lorsqu’elles sont en transit), les interceptions en cours d’utilisation (lorsqu’elles sont utilisées en mémoire) ou, plus généralement, les exfiltrations lorsque que le système est opérationnel et en cours d’exécution.
+> Le chiffrement des données au repos empêche une personne ayant volé un ou plusieurs de vos disques durs physiques d’accéder aux données qu’ils contiennent. Le chiffrement des données au repos ne protège pas vos données contre leur interception sur le réseau (lorsqu’elles sont en transit), contre leur interception pendant leur utilisation (lorsqu’elles sont utilisées en mémoire) ou, plus généralement, contre leur exfiltration quand le système est opérationnel.
 
 ## <a name="retrieving-bitlocker-recovery-keys"></a>Récupération des clés de récupération BitLocker
 
@@ -44,7 +45,7 @@ Paramètres facultatifs pour la cmdlet *Get-AzsRecoveryKeys* :
 
 | Paramètre | Description | Type | Obligatoire |
 |---------|---------|---------|---------|
-|*raw* | retourne les données brutes du mappage entre la clé de récupération, le nom de l’ordinateur et l’ID de mot de passe de chaque volume chiffré  | commutateur | Aucun (conçu pour les scénarios de prise en charge)|
+|*raw* | Retourne les données brutes du mappage entre la clé de récupération, le nom de l’ordinateur et l’ID de mot de passe de chaque volume chiffré.  | Switch | Aucun (conçu pour les scénarios de prise en charge)|
 
 ## <a name="troubleshoot-issues"></a>Problèmes de dépannage
 
@@ -53,9 +54,9 @@ Dans des circonstances extrêmes, une requête de déverrouillage BitLocker peut
 > [!WARNING]
 > Récupérez vos clés de récupération BitLocker et stockez-les dans un emplacement sécurisé en dehors d’Azure Stack. Si vous n’avez pas de clés de récupération durant certains scénarios de prise en charge, vous risquez de perdre des données devoir restaurer votre système à partir d’une image de sauvegarde.
 
-Si vous pensez que votre système rencontre des problèmes avec BitLocker, par exemple, si Azure Stack ne parvient pas à démarrer, contactez le support technique. Les membres du support technique auront besoin de vos clés de récupération BitLocker. La plupart des problèmes liés à BitLocker peuvent être résolus avec une opération FRU pour la machine virtuelle/l’hôte/le volume concerné. Pour les autres cas, une procédure de déverrouillage manuelle à l’aide de clés de récupération BitLocker peut être effectuée. Si les clés de récupération BitLocker ne sont pas disponibles, la seule option est une restauration à partir d’une image de sauvegarde. Vous risquez de perdre des données si votre dernière sauvegarde date n’est pas récente.
+Si vous pensez que votre système rencontre des problèmes avec BitLocker, par exemple, si Azure Stack ne parvient pas à démarrer, contactez le support technique. Les membres du support technique auront besoin de vos clés de récupération BitLocker. La plupart des problèmes liés à BitLocker peuvent être résolus avec une opération FRU pour la machine virtuelle/l’hôte/le volume concerné. Pour les autres cas, une procédure de déverrouillage manuelle à l’aide de clés de récupération BitLocker peut être effectuée. Si les clés de récupération BitLocker ne sont pas disponibles, la seule option est une restauration à partir d’une image de sauvegarde. Vous risquez de perdre des données si votre dernière sauvegarde n’est pas récente.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Apprenez-en davantage sur la sécurité dans Azure Stack](azure-stack-security-foundations.md)
+- [En savoir plus sur la sécurité dans Azure Stack](azure-stack-security-foundations.md)
 - Pour plus d’informations sur la manière dont BitLocker protège les CSV, consultez [protection des volumes partagés de cluster et des réseaux de zone de stockage avec BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/protecting-cluster-shared-volumes-and-storage-area-networks-with-bitlocker).

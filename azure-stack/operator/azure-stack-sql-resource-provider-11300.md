@@ -1,6 +1,7 @@
 ---
-title: Notes de publication de la version 1.1.30.0 du fournisseur de ressources SQL Azure Stack | Microsoft Docs
-description: Découvrez le contenu de la dernière mise à jour du fournisseur de ressources SQL Azure Stack, notamment les problèmes connus et l'emplacement de téléchargement.
+title: Notes de publication de la version 1.1.30.0 du fournisseur de ressources SQL Azure Stack
+titleSuffix: Azure Stack
+description: Consultez les notes de publication concernant la mise à jour 1.1.30.0 du fournisseur de ressources SQL Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,12 +17,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: f17c2ba41097d5b9bda903ae5d95c62e0ac9f53a
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: c1c2b824b8cf44a983c851f20337658d020de4c8
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829352"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780624"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>Notes de publication de la version 1.1.30.0 du fournisseur de ressources SQL
 
@@ -55,13 +56,13 @@ Cette version du fournisseur de ressources SQL Azure Stack inclut les améliorat
 
 - **Mise à jour du panneau des paramètres du serveur d'hébergement SQL**. Problème résolu : le panneau des paramètres était à tort intitulé « Mot de passe ».
 
-## <a name="known-issues"></a>Problèmes connus 
+## <a name="known-issues"></a>Problèmes connus
 
-- **Une heure entière peut être nécessaire avant que les références SKU SQL n’apparaissent dans le portail**. Il peut se passer une heure avant que les références SKU nouvellement créées soient visibles et utilisables lors de la création de nouvelles bases de données SQL. 
+- **Une heure entière peut être nécessaire avant que les références SKU SQL n’apparaissent dans le portail**. Il peut se passer une heure avant que les références SKU nouvellement créées soient visibles et utilisables lors de la création de nouvelles bases de données SQL.
 
     **Solution de contournement** : Aucune.
 
-- **Connexions SQL réutilisées**. Toute tentative de création d'une nouvelle connexion SQL avec le même nom d'utilisateur qu'une connexion existante associée au même abonnement entraînera la réutilisation de la même connexion et du mot de passe existant. 
+- **Connexions SQL réutilisées**. Toute tentative de création d'une nouvelle connexion SQL avec le même nom d'utilisateur qu'une connexion existante associée au même abonnement entraînera la réutilisation de la même connexion et du mot de passe existant.
 
     **Solution de contournement** : utilisez des noms d’utilisateur différents lors de la création de nouvelles connexions associées au même abonnement, ou créez des connexions avec le même nom d’utilisateur mais sous des abonnements différents.
 
@@ -82,10 +83,11 @@ Cette version du fournisseur de ressources SQL Azure Stack inclut les améliorat
     ```powershell
     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
     ```
-- **Le fournisseur de ressources SQL ne parvient pas à ajouter l’écouteur SQL Server Always On**. Lorsque vous utilisez l’adresse IP de l’écouteur SQL Server Always On, la machine virtuelle du fournisseur de ressources SQL ne peut pas résoudre le nom d’hôte de l’écouteur.
+
+- **Le fournisseur de ressources SQL ne parvient pas à ajouter l’écouteur SQL Server Always On**. Lorsque vous utilisez l’adresse IP de l’écouteur SQL Server AlwaysOn, la machine virtuelle du fournisseur de ressources SQL ne peut pas résoudre le nom d’hôte de l’écouteur.
 
     **Solution de contournement** : Vérifiez que DNS fonctionne correctement pour résoudre l’adresse IP de l’écouteur en nom d’hôte de l’écouteur.
-    
+
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Problèmes connus des administrateurs cloud utilisant Azure Stack
 Reportez-vous à la documentation des [notes de publication d’Azure Stack](azure-stack-servicing-policy.md).
 
@@ -94,4 +96,4 @@ Reportez-vous à la documentation des [notes de publication d’Azure Stack](azu
 
 [Préparer le déploiement du fournisseur de ressources SQL](azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
-[Mettre à niveau le fournisseur de ressources SQL à partir d’une version précédente](azure-stack-sql-resource-provider-update.md). 
+[Mettre à niveau le fournisseur de ressources SQL à partir d’une version précédente](azure-stack-sql-resource-provider-update.md).

@@ -16,12 +16,12 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 0621ca19f96e1c33a85ea5308346fafa2e4545f8
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: 4b27d5195159b809c3ad439054c88d675ab99164
+ms.sourcegitcommit: 11e0c2d9abbc0a2506f992976b3c9f8ca4e746b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465372"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74810227"
 ---
 # <a name="azure-stack-known-issues"></a>Problèmes connus d’Azure Stack
 
@@ -146,6 +146,12 @@ Pour accéder aux problèmes connus d'une autre version, utilisez le menu dérou
 - Cause : La version actuelle du fournisseur de ressources SQL n’est pas compatible avec certaines des modifications de portail les plus récentes, figurant dans la mise à jour 1910.
 - Correction : Suivez le processus de mise à jour du fournisseur de ressources pour appliquer le correctif du fournisseur de ressources SQL 1.1.47.0 après la mise à niveau d’Azure Stack vers la mise à jour 1910 ([SQL RP version 1.1.47.0](https://aka.ms/azurestacksqlrp11470)). Pour le fournisseur de ressources MySQL, il est également recommandé d’appliquer le correctif du fournisseur de ressources SQL 1.1.47.0 après la mise à niveau d’Azure Stack vers la mise à jour 1910 ([MySQL RP version 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)).
 - Occurrence : Courant
+
+### <a name="access-control-iam"></a>Contrôle d’accès (IAM)
+
+- Champ d’application : Ce problème s’applique à la version 1903 et aux suivantes.
+- Cause : L’extension IAM est obsolète. Ibiza, qui est fourni avec Azure Stack, propose un nouveau comportement qui provoque l’arrêt de l’extension RBAC si l’utilisateur l’ouvre à partir d’un abonnement qui n’est pas sélectionné dans le sélecteur d’abonnement global.
+- Correction : Vérifiez que l’abonnement est archivé dans le sélecteur d’abonnement global. 
 
 ## <a name="networking"></a>Mise en réseau
 
