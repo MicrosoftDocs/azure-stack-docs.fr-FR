@@ -17,12 +17,12 @@ ms.date: 10/30/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: b874e81afc37684e15dd9cfe79adbf123f126f89
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: c9f9558d1885de28b1bf685d370e67951542a6ac
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780658"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993794"
 ---
 # <a name="azure-stack-servicing-policy"></a>Stratégie de maintenance Azure Stack
 
@@ -70,9 +70,9 @@ Les correctifs logiciels sont téléchargés et installés comme les packages de
 Pour plus d’informations sur les correctifs logiciels actuellement disponibles, consultez les notes de publication de cette mise à jour :
 
 - [Correctif Azure Stack 1910](/azure-stack/operator/release-notes?view=azs-1910#hotfixes)
-- [Correctif Azure Stack 1908](/azure-stack/operator/release-notes?view=azs-1908#hotfixes)
-- [Correctif Azure Stack 1907](/azure-stack/operator/release-notes?view=azs-1907#hotfixes)
-- [Correctif Azure Stack 1906](/azure-stack/operator/release-notes?view=azs-1906#hotfixes)
+- [Correctif Azure Stack 1908](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-1)
+- [Correctif Azure Stack 1907](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-2)
+- [Correctif Azure Stack 1906](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-3)
 
 ## <a name="keep-your-system-under-support"></a>Conserver votre système dans un état de prise en charge
 

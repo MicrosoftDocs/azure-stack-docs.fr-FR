@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 12/10/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: a5a6cf3ef5c2c03992647c207422eb266f171ac4
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.lastreviewed: 12/10/2019
+ms.openlocfilehash: f8acc74aed978b3672dacd65524a8f1dbb5e6909
+ms.sourcegitcommit: 3c40e6df2447531a69e33b2fd0f2365b7dcf8892
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465491"
+ms.lasthandoff: 12/11/2019
+ms.locfileid: "75005374"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Gérer et déployer des ressources sur Azure Stack avec l’interface CLI Azure
 
@@ -362,7 +362,7 @@ Pour approuver le certificat racine d’autorité de certification Azure Stack, 
 1. Trouvez l’emplacement du certificat sur votre machine. L’emplacement peut varier en fonction de l’endroit où vous avez installé Python. Vous devez avoir installé pip et le module certifi. Utilisez la commande Python suivante depuis l’invite de commandes bash :
 
     ```bash  
-    python3 -c "import certifi; print(certifi.where())"
+    az --version
     ```
 
     Notez l’emplacement du certificat. Par exemple : `~/lib/python3.5/site-packages/certifi/cacert.pem`. Votre chemin d’accès spécifique dépend de votre système d’exploitation et de la version de Python que vous avez installée.
@@ -385,12 +385,7 @@ Pour approuver le certificat racine d’autorité de certification Azure Stack, 
 
 Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
 
-1. Inscrivez votre environnement Azure Stack en exécutant la commande `az cloud register`. Dans certains scénarios, la connectivité Internet sortante directe est acheminée par l'intermédiaire d'un proxy ou d'un pare-feu, qui assure l'interception SSL. La commande `az cloud register` peut alors échouer avec une erreur de type « Impossible d'obtenir les points de terminaison du cloud ». Pour contourner cette erreur, définissez les variables d'environnement suivantes :
-
-   ```shell
-   export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
-   export ADAL_PYTHON_SSL_NO_VERIFY=1
-   ```
+1. Inscrivez votre environnement Azure Stack en exécutant la commande `az cloud register`.
 
 2. Inscrivez votre environnement. Utilisez les paramètres suivants lors de l’exécution de `az cloud register` :
 
@@ -473,7 +468,7 @@ Pour approuver le certificat racine d’autorité de certification Azure Stack, 
 1. Trouvez l’emplacement du certificat sur votre machine. L’emplacement peut varier en fonction de l’endroit où vous avez installé Python. Vous devez avoir installé pip et le module certifi. Utilisez la commande Python suivante depuis l’invite de commandes bash :
 
     ```bash  
-    python3 -c "import certifi; print(certifi.where())"
+    az --version 
     ```
 
     Notez l’emplacement du certificat. Par exemple : `~/lib/python3.5/site-packages/certifi/cacert.pem`. Votre chemin d’accès spécifique dépend de votre système d’exploitation et de la version de Python que vous avez installée.
@@ -496,12 +491,7 @@ Pour approuver le certificat racine d’autorité de certification Azure Stack, 
 
 Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
 
-1. Inscrivez votre environnement Azure Stack en exécutant la commande `az cloud register`. Dans certains scénarios, la connectivité Internet sortante directe est acheminée par l'intermédiaire d'un proxy ou d'un pare-feu, qui assure l'interception SSL. La commande `az cloud register` peut alors échouer avec une erreur de type « Impossible d'obtenir les points de terminaison du cloud ». Pour contourner cette erreur, définissez les variables d'environnement suivantes :
-
-   ```shell
-   export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
-   export ADAL_PYTHON_SSL_NO_VERIFY=1
-   ```
+1. Inscrivez votre environnement Azure Stack en exécutant la commande `az cloud register`.
 
 2. Inscrivez votre environnement. Utilisez les paramètres suivants lors de l’exécution de `az cloud register`.
 
