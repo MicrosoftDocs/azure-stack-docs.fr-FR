@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Documentation pour les partenaires Azure Stack Hub
 metadata:
-  document_id: null
   title: 'Partenaires Azure Stack Hub D\documentation - tutoriels, R\informations de référence sur les API'
   description: Découvrez comment valider le matériel destiné à héberger Azure Stack. Validation en tant que Service est un service Azure natif conçu pour être utilisé par les partenaires de solutions qui conçoivent conjointement les offres Azure Stack Hub avec Microsoft.
   services: azure-stack
