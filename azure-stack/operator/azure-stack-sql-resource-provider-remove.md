@@ -1,5 +1,6 @@
 ---
-title: Suppression du fournisseur de ressources SQL sur Azure Stack | Microsoft Docs
+title: Supprimer le fournisseur de ressources SQL
+titleSuffix: Azure Stack
 description: Découvrez comment supprimer le fournisseur de ressources SQL de votre déploiement Azure Stack.
 services: azure-stack
 documentationCenter: ''
@@ -15,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 3a1b3dc51bbbd48ebe27ce9cafd9617ba7a1d07a
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: a172b56c43dafd637a66fa8354c2e06e06a67b98
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909481"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954449"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Supprimer le fournisseur de ressources SQL
 
@@ -29,13 +30,13 @@ Avant de supprimer le fournisseur de ressources SQL, vous devez supprimer toutes
 > [!NOTE]
 > Les liens de téléchargement des programmes d’installation du fournisseur de ressources sont disponibles dans les [Conditions préalables pour le déploiement du fournisseur de ressources](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
-Le fait d’enlever le fournisseur de ressources SQL ne supprime pas les bases de données locataires des serveurs d’hébergement.
+Le fait de supprimer le fournisseur de ressources SQL ne supprime pas les bases de données locataires des serveurs d’hébergement.
 
 ## <a name="dependency-cleanup"></a>Nettoyage de la dépendance
 
 Vous devez effectuer plusieurs tâches de nettoyage avant d’exécuter le script DeploySqlProvider.ps1 pour supprimer le fournisseur de ressources.
 
-L'opérateur d'Azure Stack est responsable des tâches de nettoyage suivantes :
+L’opérateur Azure Stack est responsable des tâches de nettoyage suivantes :
 
 * Supprimer tous les plans qui référencent l’adaptateur SQL.
 * Supprimer tous les quotas associés à l’adaptateur SQL.
@@ -53,11 +54,11 @@ L'opérateur d'Azure Stack est responsable des tâches de nettoyage suivantes :
 
 4. Exécutez le script DeploySqlProvider.ps1 à l’aide des paramètres suivants :
 
-    * **Désinstaller**. Supprime le fournisseur de ressources et toutes les ressources associées.
-    * **PrivilegedEndpoint**. Adresse IP ou nom DNS du point de terminaison privilégié.
-    * **AzureEnvironment**. L’environnement Azure utilisé pour le déploiement d’Azure Stack. Nécessaire uniquement pour les déploiements Azure AD.
-    * **CloudAdminCredential**. Informations d’identification de l’administrateur du cloud, nécessaires pour accéder au point de terminaison privilégié.
-    * **AzCredential**. Informations d’identification du compte d’administration de service Azure Stack. Utilisez les mêmes informations d’identification que celles utilisées pour le déploiement d’Azure Stack.
+    * **Désinstaller** : Supprime le fournisseur de ressources et toutes les ressources associées.
+    * **PrivilegedEndpoint** : Adresse IP ou nom DNS du point de terminaison privilégié.
+    * **AzureEnvironment** : L’environnement Azure utilisé pour le déploiement d’Azure Stack. Nécessaire uniquement pour les déploiements Azure AD.
+    * **CloudAdminCredential** : Informations d’identification de l’administrateur du cloud, nécessaires pour accéder au point de terminaison privilégié.
+    * **AzCredential** : Informations d’identification du compte d’administration de service Azure Stack. Utilisez les mêmes informations d’identification que celles utilisées pour le déploiement d’Azure Stack.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

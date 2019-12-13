@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2019
+ms.date: 12/10/2019
 ms.author: sethm
 ms.reviewer: ppacent
-ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 077d50da935a3ee8de0967c51920ede69125c816
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.lastreviewed: 12/10/2019
+ms.openlocfilehash: a560b37051cf3b8b54e3cfec69dc6a9b28cc1cfb
+ms.sourcegitcommit: d9430072dd96ae305101da6d8a47d6c23a0a64c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74299037"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995567"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Check-list des activités de mise à jour Azure Stack
 
@@ -36,6 +36,7 @@ Consultez cette check-list pour préparer une mise à jour Azure Stack. Cet arti
 | Passer en revue les problèmes connus     | [Liste des problèmes connus](known-issues.md).                |
 | Passer en revue les mises à jour de sécurité | [Liste des mises à jour de sécurité](release-notes-security-updates.md).      |
 | Appliquer le dernier package OEM | Contactez votre OEM pour vous assurer que votre système répond aux exigences requises pour le package OEM pour la version d’Azure Stack sur laquelle votre système est mis à jour. Vérifiez que votre package OEM est compatible avec la version d’Azure Stack que vous mettez à jour. Si votre package OEM n’est pas compatible avec la version d’Azure Stack que vous mettez à jour, vous devrez effectuer une mise à jour du package OEM avant d’exécuter une mise à jour Azure Stack. Pour plus d’instructions, consultez « Appliquer des mises à jour de fabricants d’ordinateurs (OEM) à Azure Stack. » |
+| Facultatif : Configurer la collecte automatique des journaux | Il est recommandé de configurer la collecte automatique des journaux sur votre environnement Azure Stack Hub pour simplifier le processus de collecte des journaux système dans le cas où vous devriez ouvrir un ticket de support. Pour configurer la collecte automatique des journaux, consultez les instructions dans [Configurer la collecte automatique des journaux de diagnostic Azure Stack](azure-stack-configure-automatic-diagnostic-log-collection.md). |
 | Appliquer les derniers correctifs | Appliquez les derniers correctifs qui s’appliquent à la version actuellement installée. Pour obtenir la liste des derniers correctifs, consultez la section Correctifs logiciels des notes de publication. |
 | Exécuter l’outil de planification des capacités | Veillez à utiliser la dernière version de l’outil [Azure Stack Capacity Planner](azure-stack-capacity-planning-overview.md) pour planifier et dimensionner votre charge de travail. La dernière version contient des corrections de bogues et fournit de nouvelles fonctionnalités publiées à chaque mise à jour d’Azure Stack. |
 | Exécuter l’applet de commande Test-AzureStack | Exécutez `Test-AzureStack -Group UpdateReadiness` pour identifier les problèmes fonctionnels. L’applet de commande est accessible via la session PEP (session de point de terminaison privilégié). Pour plus d’informations, consultez [Valider l’état du système Azure Stack](azure-stack-diagnostic-test.md). |

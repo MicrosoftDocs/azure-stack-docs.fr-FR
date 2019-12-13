@@ -1,6 +1,7 @@
 ---
-title: Utilisation de bases de données SQL sur Azure Stack | Microsoft Docs
-description: Découvrez comment déployer des bases de données SQL en tant que service sur Azure Stack et les étapes rapides à suivre pour déployer l’adaptateur de fournisseur de ressources SQL Server.
+title: Déployer un fournisseur de ressources SQL Server
+titleSuffix: Azure Stack
+description: Découvrez comment déployer le fournisseur de ressources SQL Server sur Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,12 +16,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 4eb2936afc271016974440f77690c804f0cbcb09
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: ae2e5ec161be9dace70746c5b5460964d2348272
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465310"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954568"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Déployer le fournisseur de ressources SQL Server sur Azure Stack
 
@@ -34,13 +35,16 @@ Utilisez le fournisseur de ressources SQL Server d’Azure Stack pour exposer de
 Plusieurs prérequis doivent être remplis avant de déployer le fournisseur de ressources SQL d’Azure Stack. Afin de répondre à ces exigences, complétez les étapes suivantes sur un ordinateur ayant accès à la machine virtuelle du point de terminaison privilégié :
 
 - Si vous ne l’avez pas encore fait, vous devez [inscrire Azure Stack](azure-stack-registration.md) auprès d’Azure pour pouvoir ensuite télécharger des éléments de la Place de marché Azure.
-- Vous devez installer les modules PowerShell Azure Stack et Azure sur le système où vous allez exécuter cette installation. Le système doit être une image Windows 10 ou Windows Server 2016 dotée de la dernière version du runtime .NET. Consultez [Installer PowerShell pour Azure Stack](./azure-stack-powershell-install.md).
+
+- Installez les modules PowerShell Azure Stack et Azure sur le système où vous allez exécuter cette installation. Le système doit être une image Windows 10 ou Windows Server 2016 dotée de la dernière version du runtime .NET. Consultez [Installer PowerShell pour Azure Stack](./azure-stack-powershell-install.md).
+
 - Ajoutez la machine virtuelle Windows Server standard sur la Place de marché Azure Stack en téléchargeant l’image de **Windows Server 2016 Datacenter Server Core**.
+
 - Téléchargez le binaire du fournisseur de ressources SQL, puis exécutez le fichier auto-extracteur pour extraire le contenu dans un répertoire temporaire. Le fournisseur de ressources possède une build Azure Stack minimale correspondante.
 
   |Version minimale d’Azure Stack|Version SQL RP|
   |-----|-----|
-  |Version 1910 (1.1910.0.58)|[SQL RP version 1.1.47.0](https://aka.ms/azurestacksqlrp11470)| 
+  |Version 1910 (1.1910.0.58)|[SQL RP version 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
   |Version 1808 (1.1808.0.97)|[SQL RP version 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
   |Version 1808 (1.1808.0.97)|[SQL RP version 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|  
   |Version 1804 (1.0.180513.1)|[SQL RP version 1.1.24.0](https://aka.ms/azurestacksqlrp11240)  
@@ -60,15 +64,15 @@ Plusieurs prérequis doivent être remplis avant de déployer le fournisseur de 
 
 ### <a name="certificates"></a>Certificats
 
-_Pour les installations de systèmes intégrés uniquement_. Vous devez fournir le certificat PKI SQL Paas décrit dans la section sur les certificats PaaS facultatif de [Exigences relatives à l’infrastructure de clé publique pour le déploiement Azure Stack](./azure-stack-pki-certs.md#optional-paas-certificates). Copiez le fichier .pfx à l’emplacement spécifié par le paramètre **DependencyFilesLocalPath**. Ne fournissez pas un certificat pour les systèmes ASDK.
+_Pour les installations de systèmes intégrés uniquement_. Vous devez fournir le certificat PKI SQL Paas décrit dans la section sur les certificats PaaS facultatif de [Exigences relatives à l’infrastructure de clé publique pour le déploiement Azure Stack](./azure-stack-pki-certs.md#optional-paas-certificates). Copiez le fichier .pfx à l’emplacement spécifié par le paramètre **DependencyFilesLocalPath**. Ne fournissez pas de certificat pour les systèmes ASDK.
 
 ## <a name="deploy-the-sql-resource-provider"></a>Déployer le fournisseur de ressources SQL
 
-Une fois tous les composants requis installés, vous pouvez exécuter le script **DeploySqlProvider.ps1** pour déployer le fournisseur de ressources SQL. Le script DeploySqlProvider.ps1 est extrait du binaire du fournisseur de ressources SQL que vous avez téléchargé pour votre version d’Azure Stack.
+Une fois tous les prérequis installés, exécutez le script **DeploySqlProvider.ps1** pour déployer le fournisseur de ressources SQL. Le script DeploySqlProvider.ps1 est extrait du binaire du fournisseur de ressources SQL que vous avez téléchargé pour votre version d’Azure Stack.
 
  > [!IMPORTANT]
  > Avant de déployer le fournisseur de ressources, passez en revue les notes de publication pour en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.
- 
+
 Pour déployer le fournisseur de ressources SQL, ouvrez une **nouvelle** fenêtre PowerShell (pas PowerShell ISE) avec élévation de privilèges et basculez vers le répertoire où vous avez extrait les fichiers binaires du fournisseur de ressources SQL. Nous vous recommandons d’utiliser une nouvelle fenêtre PowerShell pour éviter les problèmes potentiels engendrés par les modules PowerShell qui sont déjà chargés.
 
 Exécutez le script DeploySqlProvider.ps1, qui complète les tâches suivantes :
@@ -106,7 +110,7 @@ Vous pouvez spécifier les paramètres suivants à partir de la ligne de command
 Si vous déployez la version 1.1.33.0 ou une version antérieure du fournisseur de ressources SQL, vous devez installer des versions spécifiques des modules Azure Stack et AzureRm.Bootstrapper dans PowerShell. Si vous déployez la version 1.1.47.0 du fournisseur de ressources SQL, cette étape peut être ignorée.
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
+# Install the AzureRM.Bootstrapper module, set the profile, and install the AzureStack module
 # Note that this might not be the most currently available version of Azure Stack PowerShell
 Install-Module -Name AzureRm.BootStrapper -RequiredVersion 0.5.0 -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
@@ -121,10 +125,10 @@ Modifiez les informations de compte et les mots de passe par défaut en fonction
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
 
-# For integrated systems, use the IP address of one of the ERCS virtual machines
+# For integrated systems, use the IP address of one of the ERCS VMs
 $privilegedEndpoint = "AzS-ERCS01"
 
-# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using. 
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
 $AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.
@@ -135,7 +139,7 @@ $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set credentials for the new resource provider VM local administrator account.
+# Set credentials for the new resource provider VM local admin account.
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
 
@@ -150,7 +154,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 Clear-AzureRMContext -Scope CurrentUser -Force
 Clear-AzureRMContext -Scope Process -Force
 
-# Change to the directory folder where you extracted the installation files. Do not provide a certificate on ASDK!
+# Change to the directory folder where you extracted the installation files. Don't provide a certificate on ASDK!
 . $tempDir\DeploySQLProvider.ps1 `
     -AzCredential $AdminCreds `
     -VMLocalCredential $vmLocalAdminCreds `
@@ -172,8 +176,10 @@ Vous pouvez utiliser les étapes suivantes pour vérifier que le fournisseur de 
 2. Sélectionnez **Groupes de ressources**.
 3. Sélectionnez le groupe de ressources **system.\<location\>.sqladapter**.
 4. La page de la vue d’ensemble du groupe de ressources ne doit pas indiquer que des déploiements ont échoué.
-      ![Vérifier le déploiement du fournisseur de ressources SQL](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
-5. Enfin, sélectionnez **Machines virtuelles** dans le portail d’administration pour vérifier que la machine virtuelle du fournisseur de ressources SQL a été correctement créée et est en cours d’exécution.
+
+    ![Vérifier le déploiement du fournisseur de ressources SQL dans le portail administrateur Azure Stack](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+
+5. Enfin, sélectionnez **Machines virtuelles** dans le portail administrateur pour vérifier que la machine virtuelle du fournisseur de ressources SQL a été correctement créée et est en cours d’exécution.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

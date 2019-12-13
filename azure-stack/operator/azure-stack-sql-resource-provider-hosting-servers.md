@@ -1,6 +1,7 @@
 ---
-title: Serveurs d’hébergement SQL sur Azure Stack | Microsoft Docs
-description: Comment ajouter des instances SQL pour l’approvisionnement via le fournisseur de ressources de l’adaptateur SQL
+title: Ajouter des serveurs d’hébergement pour le fournisseur de ressources SQL
+titleSuffix: Azure Stack
+description: Découvrez comment ajouter des serveurs d’hébergement pour le provisionnement via l’adaptateur du fournisseur de ressources SQL.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 24271bf3f4155433980972df19e541dbb77fa908
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 6684e432180b0daee4cf69d524d3fa9bebe7b26b
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909466"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954517"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Ajouter des serveurs d’hébergement pour le fournisseur de ressources SQL
 
@@ -36,22 +37,22 @@ Avant d’ajouter un serveur d’hébergement SQL, consultez les exigences gén�
 ### <a name="mandatory-requirements"></a>Obligations
 
 * Activez l’authentification SQL sur l’instance SQL Server. Étant donné que la machine virtuelle du fournisseur de ressources SQL n’est pas jointe à un domaine, elle ne peut se connecter à un serveur d’hébergement qu’à l’aide de l’authentification SQL.
-* Configurez les adresses IP pour les instances SQL avec la valeur Public quand elles sont installées sur Azure Stack. Le fournisseur de ressources et les utilisateurs, notamment Web Apps, communiquent sur le réseau de l’utilisateur ; c’est pourquoi une connectivité à l’instance SQL sur ce réseau est nécessaire.
+* Configurez les adresses IP pour les instances SQL avec la valeur Public quand elles sont installées sur Azure Stack. Le fournisseur de ressources et les utilisateurs, notamment les applications web, communiquent sur le réseau de l’utilisateur ; c’est pourquoi une connectivité à l’instance SQL sur ce réseau est nécessaire.
 
 ### <a name="general-requirements"></a>Conditions générales
 
 * Dédiez l’instance SQL à une utilisation par le fournisseur de ressources et les charges de travail utilisateur. Vous ne pouvez pas utiliser d’instance SQL utilisée par un autre consommateur. Cette restriction s’applique également à App Services.
 * Configurez un compte avec les niveaux de privilège appropriés pour le fournisseur de ressources (voir plus bas).
-* Vous êtes chargé de gérer les instances SQL et leurs hôtes.  Par exemple, le fournisseur de ressources n’applique pas les mises à jour, ne gère pas les sauvegardes et ne gère pas non plus la rotation des informations d’identification.
+* Vous êtes chargé de gérer les instances SQL et leurs hôtes. Par exemple, le fournisseur de ressources n’applique pas les mises à jour, ne gère pas les sauvegardes et ne gère pas non plus la rotation des informations d’identification.
 
-### <a name="sql-server-virtual-machine-images"></a>Images de machines virtuelles SQL Server
+### <a name="sql-server-vm-images"></a>Images de la machine virtuelle SQL Server
 
-Des images de machines virtuelles IaaS SQL sont disponibles via la fonctionnalité Gestion de la Place de Marché. Ces images sont les mêmes que les machines virtuelles SQL disponibles dans Azure.
+Des images de machines virtuelles IaaS SQL sont disponibles via la fonctionnalité Gestion de la Place de marché. Ces images sont les mêmes que les machines virtuelles SQL disponibles dans Azure.
 
 Veillez à toujours télécharger la dernière version de **l’extension IaaS SQL** avant de déployer une machine virtuelle SQL à l’aide d’un élément de la Place de marché. L’extension IaaS et les améliorations apportées au portail correspondantes fournissent des fonctionnalités supplémentaires de mise à jour corrective et de sauvegarde automatique. Pour plus d’information sur cette extension, consultez [Automatiser les tâches de gestion sur des machines virtuelles Azure avec l’extension SQL Server Agent](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
 
 > [!NOTE]
-> L’extension SQL IaaS est _requise_ pour toutes les images SQL sur Windows dans la Place de marché. Si vous n’avez pas téléchargé cette extension, la machine virtuelle ne pourra pas être déployée. L’extension n’est pas utilisée avec les images de machine virtuelle SQL sur Linux.
+> L’extension IaaS SQL est _requise_ pour toutes les images SQL sur Windows dans la Place de marché. Si vous n’avez pas téléchargé cette extension, la machine virtuelle ne pourra pas être déployée. Elle n’est pas utilisée avec les images de machine virtuelle SQL basées sur Linux.
 
 Il existe d’autres options pour le déploiement de machines virtuelles SQL, y compris des modèles dans la [Galerie de démarrage rapide Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
@@ -72,8 +73,8 @@ Vous pouvez créer un utilisateur administratif avec des privilèges plus faible
 Les informations suivantes fournissent des conseils de sécurité supplémentaires :
 
 * Tout le stockage Azure Stack étant chiffré à l’aide de BitLocker, toute instance SQL sur Azure Stack utilise le stockage d’objets blob chiffré.
-* Le fournisseur de ressources SQL prend entièrement en charge TLS 1.2. Vérifiez que tout serveur SQL géré par le biais du fournisseur de ressources SQL est configuré pour TLS 1.2 _uniquement_ et que le fournisseur de ressources utilise ce dernier par défaut. Toutes les versions prises en charge de SQL Server prennent en charge TLS 1.2 ; consultez [Prise en charge de TLS 1.2 pour Microsoft SQL Server](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
-* Utilisez le Gestionnaire de configuration SQL Server pour définir l’option **ForceEncryption** afin que toutes les communications vers le serveur SQL soient toujours chiffrées. Consultez [Pour configurer le serveur afin qu’il force les connexions chiffrées](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections).
+* Le fournisseur de ressources SQL prend entièrement en charge TLS 1.2. Vérifiez que tout serveur SQL géré par le biais du fournisseur de ressources SQL est configuré pour TLS 1.2 _uniquement_ et que le fournisseur de ressources utilise ce dernier par défaut. Toutes les versions prises en charge de SQL Server prennent en charge TLS 1.2. Pour plus d’informations, consultez [Prise en charge de TLS 1.2 pour Microsoft SQL Server](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
+* Utilisez le Gestionnaire de configuration SQL Server pour définir l’option **ForceEncryption** afin que toutes les communications vers le serveur SQL soient toujours chiffrées. Pour plus d’informations, consultez [Pour configurer le serveur afin qu’il force les connexions chiffrées](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections).
 * Vérifiez que toute application cliente communique également via une connexion chiffrée.
 * Le fournisseur de ressources est configuré pour approuver les certificats utilisés par les instances de SQL Server.
 
@@ -87,15 +88,15 @@ Pour ajouter un serveur d’hébergement autonome déjà configuré, effectuez l
 
 2. Sélectionnez **Tous les services** &gt; **RESSOURCES ADMINISTRATIVES** &gt; **Serveurs d’hébergement SQL**.
 
-   ![Serveurs d’hébergement SQL](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
+   ![Serveurs d’hébergement SQL dans le portail administrateur Azure Stack](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
    Sous **Serveurs d’hébergement SQL**, vous pouvez connecter le fournisseur de ressources SQL à des instances de SQL Server qui font office de back-end du fournisseur de ressources.
 
-   ![Tableau de bord de l’adaptateur SQL](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
+   ![Tableau de bord de l’adaptateur SQL dans le portail administrateur Azure Stack](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
 
 3. Cliquez sur **Ajouter**, puis fournissez les détails de la connexion pour votre instance SQL Server dans le panneau **Ajouter un serveur d’hébergement SQL**.
 
-   ![Ajouter un serveur d’hébergement SQL](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
+   ![Ajouter un serveur d’hébergement SQL dans le portail administrateur Azure Stack](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
     Vous pouvez également fournir un nom d’instance et spécifier un numéro de port si l’instance n’est pas affectée au port par défaut 1433.
 
@@ -107,7 +108,7 @@ Pour ajouter un serveur d’hébergement autonome déjà configuré, effectuez l
    * Pour utiliser une référence (SKU) existante, choisissez-en une disponible, puis sélectionnez **Créer**.
    * Pour créer une référence (SKU), sélectionnez **+ Créer une référence**. Dans **Créer une référence SKU**, entez les informations obligatoires, puis sélectionnez **OK**.
 
-     ![Créer une référence (SKU)](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+     ![Créer une référence SKU dans le portail administrateur Azure Stack](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>Fournir une haute disponibilité à l’aide de groupes de disponibilité Always On SQL
 
@@ -166,7 +167,7 @@ Utilisez ces commandes pour définir l’option de serveur contained database au
 
 4. Cochez la case Groupe de disponibilité Always On pour activer la prise en charge des instances de groupe de disponibilité Always On SQL.
 
-   ![Activer Always On](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
+   ![Activer un groupe de disponibilité Always On dans le portail administrateur Azure Stack](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
 5. Ajouter l’instance Always On SQL à une référence SKU.
 

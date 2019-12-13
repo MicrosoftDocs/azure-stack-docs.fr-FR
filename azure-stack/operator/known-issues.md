@@ -16,12 +16,12 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 4b27d5195159b809c3ad439054c88d675ab99164
-ms.sourcegitcommit: 11e0c2d9abbc0a2506f992976b3c9f8ca4e746b9
+ms.openlocfilehash: 684f6925c32eabca51fa89776ec95b57a852a987
+ms.sourcegitcommit: d9430072dd96ae305101da6d8a47d6c23a0a64c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74810227"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995584"
 ---
 # <a name="azure-stack-known-issues"></a>Problèmes connus d’Azure Stack
 
@@ -43,6 +43,11 @@ Pour accéder aux problèmes connus d'une autre version, utilisez le menu dérou
 <!---------------------------------------------------------->
 
 ::: moniker range="azs-1910"
+## <a name="update"></a>Mettre à jour
+
+Pour plus d’informations sur les problèmes connus de mise à jour d’Azure Stack Hub, consultez [Dépannage des mises à jour dans Azure Stack Hub](azure-stack-updates-troubleshoot.md).
+
+
 ## <a name="portal"></a>Portail
 
 ### <a name="administrative-subscriptions"></a>Abonnements d’administration

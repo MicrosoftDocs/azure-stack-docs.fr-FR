@@ -1,6 +1,7 @@
 ---
-title: Gestion du fournisseur de ressources SQL sur Azure Stack | Microsoft Docs
-description: Découvrez comment vous pouvez gérer le service de fournisseur de ressources SQL sur Azure Stack.
+title: Opérations de maintenance du fournisseur de ressources SQL
+titleSuffix: Azure Stack
+description: Apprenez-en davantage sur les opérations de maintenance du fournisseur de ressources SQL dans Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,24 +16,24 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: bf5bd23fc9d497034dfb51c76f28e5b17fbd8e33
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 8d8464c35b2aaa48c5611f7eac84ed6f9d80e866
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829305"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954500"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Opérations de maintenance du fournisseur de ressources SQL
 
-Le fournisseur de ressources SQL s’exécute sur une machine virtuelle verrouillée. Pour activer les opérations de maintenance, vous devez mettre à jour la sécurité de la machine virtuelle. Pour ce faire, à l’aide du principe des privilèges minimum, vous pouvez utiliser le point de terminaison [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) *DBAdapterMaintenance*. Le package d’installation du fournisseur de ressources inclut un script pour cette opération.
+Le fournisseur de ressources SQL s’exécute sur une machine virtuelle verrouillée. Pour activer les opérations de maintenance, vous devez mettre à jour la sécurité de la machine virtuelle. Pour effectuer cette opération à l’aide du principe des privilèges minimum, utilisez le point de terminaison [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) *DBAdapterMaintenance*. Le package d’installation du fournisseur de ressources inclut un script pour cette action.
 
 ## <a name="patching-and-updating"></a>Mise à jour corrective et mise à jour
 
 Le fournisseur de ressources SQL n’est pas traité au sein d’Azure Stack, car il s’agit d’un composant additionnel. Microsoft fournit au besoin des mises à jour du fournisseur de ressources SQL. Lorsqu’une mise à jour d’adaptateur SQL est publiée, un script est fourni pour appliquer la mise à jour. Ce script crée une nouvelle machine virtuelle pour le fournisseur de ressources et effectue la migration de l’état de l’ancienne machine virtuelle du fournisseur vers la nouvelle. Pour plus d’informations, consultez [Mettre à jour le fournisseur de ressources SQL](azure-stack-sql-resource-provider-update.md).
 
-### <a name="provider-virtual-machine"></a>Machine virtuelle du fournisseur
+### <a name="provider-vm"></a>Machine virtuelle du fournisseur
 
-Étant donné que le fournisseur de ressources s’exécute sur une machine virtuelle de l’*utilisateur*, vous devez appliquer les correctifs et mises à jour lors de leur publication. Vous pouvez utiliser les mises à jour Windows fournies dans le cadre du cycle de correction et de mise à jour pour appliquer les mises à jour à la machine virtuelle Windows.
+Étant donné que le fournisseur de ressources s’exécute sur une machine virtuelle de l’*utilisateur*, vous devez appliquer les correctifs et mises à jour lors de leur publication. Utilisez les packages de mises à jour Windows fournis dans le cadre du cycle de correction et de mise à jour pour appliquer les mises à jour à la machine virtuelle.
 
 ## <a name="updating-sql-credentials"></a>Mise à jour des informations d’identification SQL
 
@@ -40,7 +41,7 @@ Vous êtes responsable de la création et de la gestion des comptes administrate
 
 Pour modifier les paramètres, cliquez sur **Parcourir** &gt; **RESSOURCES ADMINISTRATIVES** &gt; **Serveurs d’hébergement SQL** &gt; **Connexions SQL** et sélectionnez un nom d’utilisateur. La modification doit d’abord être effectuée sur l’instance SQL (et sur tous les réplicas, si nécessaire). Sous **Paramètres**, sélectionnez **Mot de passe**.
 
-![Mettre à jour le mot de passe de l’administrateur](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
+![Mettre à jour le mot de passe de l’administrateur SQL](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
 ## <a name="secrets-rotation"></a>Rotation des secrets
 
@@ -49,7 +50,7 @@ Pour modifier les paramètres, cliquez sur **Parcourir** &gt; **RESSOURCES ADMIN
 Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèmes intégrés Azure Stack, l’opérateur Azure Stack est chargé de faire pivoter les secrets d’infrastructure de fournisseurs de ressources suivants pour garantir qu’ils n’expirent pas :
 
 - Certificat SSL externe [fourni au cours du déploiement](azure-stack-pki-certs.md).
-- Mot de passe de compte d’administrateur local des machines virtuelles du fournisseur de ressources fourni au moment du déploiement.
+- Mot de passe de compte d’administrateur local des machines virtuelles du fournisseur de ressources fourni au cours du déploiement.
 - Mot de passe (dbadapterdiag) utilisateur de diagnostic du fournisseur de ressources.
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>Exemples PowerShell pour la rotation des secrets
@@ -77,7 +78,7 @@ Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèm
     -DiagnosticsUserPassword  $passwd
 ```
 
-**Changer le mot de passe de compte administrateur local des machines virtuelles.**
+**Changer le mot de passe de compte d’administrateur local des machines virtuelles.**
 
 ```powershell
 .\SecretRotationSQLProvider.ps1 `
@@ -106,45 +107,45 @@ Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèm
 |CloudAdminCredential|Informations d’identification du compte de domaine d’administrateur cloud d’Azure Stack.|
 |PrivilegedEndpoint|Point de terminaison privilégié pour accéder à Get-AzureStackStampInformation.|
 |DiagnosticsUserPassword|Diagnostique le mot de passe de compte d’utilisateur.|
-|VMLocalCredential|Compte administrateur local de la machine virtuelle MySQLAdapter.|
-|DefaultSSLCertificatePassword|Mot de passe du certificat SSL par défaut (*.pfx).|
+|VMLocalCredential|Compte d’administrateur local de la machine virtuelle MySQLAdapter.|
+|DefaultSSLCertificatePassword|Mot de passe du certificat SSL par défaut (*pfx).|
 |DependencyFilesLocalPath|Chemin local des fichiers de dépendances.|
 |     |     |
 
 ### <a name="known-issues"></a>Problèmes connus
 
-**Problème** : Journaux d’activité de rotation des secrets.<br>
-Les journaux d’activité de la rotation des secrets ne sont pas automatiquement collectés en cas d’échec de l’exécution du script personnalisé de la rotation des secrets.
+**Problème** :<br>
+Journaux d’activité de rotation des secrets. Les journaux de la rotation des secrets ne sont pas automatiquement collectés en cas d’échec de l’exécution du script personnalisé de la rotation des secrets.
 
 **Solution de contournement** :<br>
 Utilisez l’applet de commande Get-AzsDBAdapterLogs pour collecter tous les journaux d’activité du fournisseur de ressources, notamment AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log, enregistré sous C:\Logs.
 
-## <a name="update-the-virtual-machine-operating-system"></a>Mettre à jour le système d’exploitation de la machine virtuelle
+## <a name="update-the-vm-operating-system"></a>Mettre à jour le système d’exploitation de la machine virtuelle
 
 Utilisez l’une des méthodes suivantes pour mettre à jour le système d’exploitation de la machine virtuelle.
 
 - Installer le package de fournisseur de ressources le plus récent à l’aide d’une image corrigée de Windows Server 2016 Core.
 - Installer un package Windows Update pendant l’installation ou la mise à jour du fournisseur de ressources.
 
-## <a name="update-the-virtual-machine-windows-defender-definitions"></a>Mettre à jour les définitions Windows Defender de machine virtuelle
+## <a name="update-the-vm-windows-defender-definitions"></a>Mettre à jour les définitions Windows Defender
 
 Pour mettre à jour les définitions Windows Defender :
 
-1. Télécharger la mise à jour des définitions Windows Defender à partir de [Définitions Windows Defender](https://www.microsoft.com/en-us/wdsi/definitions).
+1. Téléchargez la mise à jour des définitions Windows Defender à partir de [Mises à jour du renseignement de sécurité pour Windows Defender](https://www.microsoft.com/wdsi/definitions).
 
-   Sur la page de mise à jour des définitions, accédez à « Télécharger et installer les définitions manuellement ». Téléchargez le fichier « Antivirus Windows Defender pour Windows 10 et Windows 8.1 » 64 bits.
+   Dans la page de mise à jour des définitions, accédez à « Manually download the update » (Téléchargement manuel de la mise à jour). Téléchargez le fichier « Antivirus Windows Defender pour Windows 10 et Windows 8.1 » 64 bits.
 
    Vous pouvez également utiliser [ce lien direct](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64) pour télécharger/exécuter le fichier fpam-fe.exe.
 
-2. Créer une session PowerShell sur le point de terminaison de maintenance de la machine virtuelle de l’adaptateur de fournisseur de ressources SQL.
+2. Créez une session PowerShell sur le point de terminaison de maintenance de la machine virtuelle de l’adaptateur du fournisseur de ressources SQL.
 
-3. Copier le fichier de mise à jour des définitions sur la machine virtuelle à l’aide de la session du point de terminaison de maintenance.
+3. Copiez le fichier de mise à jour des définitions sur la machine virtuelle à l’aide de la session du point de terminaison de maintenance.
 
 4. Sur la session PowerShell de maintenance, appeler la commande *Update-DBAdapterWindowsDefenderDefinitions*.
 
-5. Après avoir installé les définitions, nous vous recommandons de supprimer le fichier de mise à jour de définitions à l’aide de la commande *Remove-ItemOnUserDrive*.
+5. Après avoir installé les définitions, nous vous recommandons de supprimer le fichier de mise à jour des définitions à l’aide de la commande *Remove-ItemOnUserDrive*.
 
-**Exemple de script PowerShell pour mettre à jour les définitions.**
+**Exemple de script PowerShell pour la mise à jour des définitions**
 
 Vous pouvez modifier et exécuter le script suivant pour mettre à jour les définitions Defender. Remplacez les valeurs dans le script avec les valeurs de votre environnement.
 
@@ -159,14 +160,14 @@ $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential `
 $databaseRPMachine  = "<RP VM IP address>"
 $localPathToDefenderUpdate = "C:\DefenderUpdates\mpam-fe.exe"
 
-# Download the Windows Defender update definitions file from https://www.microsoft.com/en-us/wdsi/definitions.
+# Download the Windows Defender update definitions file from https://www.microsoft.com/wdsi/definitions.
 Invoke-WebRequest -Uri 'https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64' `
     -Outfile $localPathToDefenderUpdate
 
 # Create a session to the maintenance endpoint.
 $session = New-PSSession -ComputerName $databaseRPMachine `
     -Credential $vmLocalAdminCreds -ConfigurationName DBAdapterMaintenance
-# Copy the defender update file to the adapter virtual machine.
+# Copy the defender update file to the adapter VM.
 Copy-Item -ToSession $session -Path $localPathToDefenderUpdate `
      -Destination "User:\"
 # Install the update definitions.
@@ -180,7 +181,7 @@ $session | Remove-PSSession
 
 ## <a name="collect-diagnostic-logs"></a>Collecter des journaux de diagnostic
 
-S’il s’avère nécessaire de collecter des journaux d’activité à partir de la machine virtuelle verrouillée, un point de terminaison PowerShell JEA (Just Enough Administration) *DBAdapterDiagnostics* est fourni à cette fin. Ce point de terminaison propose les commandes suivantes :
+Pour collecter les journaux de la machine virtuelle verrouillée, utilisez le point de terminaison PowerShell JEA (Just Enough Administration) *DBAdapterDiagnostics*. Ce point de terminaison propose les commandes suivantes :
 
 - **Get-AzsDBAdapterLog**. Cette commande crée un package zip des journaux de diagnostic du fournisseur de ressources et enregistre le fichier sur le lecteur de l’utilisateur de la session. Vous pouvez exécuter cette commande sans aucun paramètre : les quatre dernières heures de journaux d’activité seront collectées.
 - **Remove-AzsDBAdapterLog**. Cette commande nettoie les packages de journaux existants sur la machine virtuelle du fournisseur de ressources.
@@ -199,7 +200,7 @@ Vous définirez l’intervalle de temps pour la collecte de journaux à l’aide
 - FromDate correspond à quatre heures avant l’heure actuelle.
 - ToDate renvoie l’heure en cours.
 
-**Exemple de script PowerShell pour collecter les journaux d’activité.**
+**Exemple de script PowerShell pour la collecte de journaux**
 
 Le script suivant montre comment collecter les journaux de diagnostic à partir de la machine virtuelle du fournisseur de ressources.
 

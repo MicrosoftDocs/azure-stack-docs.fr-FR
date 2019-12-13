@@ -1,6 +1,7 @@
 ---
-title: Utilisation des bases de données fournies par le fournisseur de ressources de l’adaptateur SQL sur Azure Stack | Microsoft Docs
-description: Procédures de création et de gestion des bases de données SQL approvisionnées à l’aide du fournisseur de ressources de l’adaptateur SQL
+title: Créer des bases de données SQL
+titleSuffix: Azure Stack
+description: Découvrez comment créer et gérer des bases de données SQL provisionnées avec l’adaptateur du fournisseur de ressources SQL.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: ceeca4f42f728bdcd9496b735704bfef6d98f25c
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 97d53772127cbae66e95159617cb9e50e21176ac
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283378"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954534"
 ---
 # <a name="create-sql-databases"></a>Créer des bases de données SQL
 
@@ -39,25 +40,27 @@ Vous pouvez créer et gérer des bases de données libre-service dans le portail
 
 4. Sous **Créer une base de données**, sélectionnez **Référence (SKU)** . Sous **Sélectionner une référence (SKU)** , choisissez la référence SKU de votre base de données.
 
-   ![Créer une base de données](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+   ![Créez une base de données dans le portail utilisateur Azure Stack.](./media/azure-stack-sql-rp-deploy/newsqldb.png)
 
    >[!NOTE]
    >Les serveurs d’hébergement reçoivent une référence (SKU) quand ils sont ajoutés à Azure Stack. Les bases de données sont créées dans le pool de serveurs d’hébergement d’une référence (SKU).
 
 5. Sélectionnez **Connexion**.
+
 6. Sous **Sélectionner une connexion**, choisissez une connexion existante, ou sélectionnez **+ Créer une connexion**.
+
 7. Sous **Nouvelle connexion**, entrez un nom pour **Connexion à la base de données** et un **Mot de passe**.
 
    >[!NOTE]
    >Ces paramètres correspondent aux informations d’identification d’authentification SQL qui sont créées pour votre accès à cette seule base de données. Le nom d’utilisateur de connexion doit être globalement unique. Vous pouvez réutiliser les paramètres de connexion d’autres bases de données qui utilisent la même référence (SKU).
 
-   ![Créer une connexion de base de données](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+   ![Créer une connexion à la base de données dans le portail utilisateur Azure Stack](./media/azure-stack-sql-rp-deploy/create-new-login.png)
 
 8. Sélectionnez **OK** pour achever le déploiement de la base de données.
 
 Sous **Éléments principaux**, qui s’affiche après le déploiement de la base de données, notez la valeur du champ **Chaîne de connexion**. Vous pouvez utiliser cette chaîne dans n’importe quelle application devant accéder à la base de données SQL Server.
 
-![Récupérer la chaîne de connexion](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
+![Récupérer la chaîne de connexion pour la base de données SQL Server](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
 
 ## <a name="sql-always-on-databases"></a>Bases de données SQL AlwaysOn
 
@@ -67,15 +70,15 @@ Du fait de leur conception, les bases de données AlwaysOn ne sont pas gérées 
 
 La capture d’écran ci-après vous indique comment vous pouvez utiliser SQL Server Management Studio pour rechercher l’état d’une base de données dans SQL AlwaysOn.
 
-![État d’une base de données SQL](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+![État d’une base de données AlwaysOn dans SQL Server Management Studio](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
 
-Les bases de données AlwaysOn doivent s’afficher avec l’état Synchronisé et comme étant disponibles sur toutes les instances SQL, et elles doivent apparaître dans les groupes de disponibilité. Dans la capture d’écran précédente, l’exemple de base de données considéré est newdb1 et présente l’état **newdb1 (Synchronized)** .
+Les bases de données AlwaysOn doivent s’afficher avec l’état **Synchronisé** et comme étant disponibles sur toutes les instances SQL, et elles doivent apparaître dans les **groupes de disponibilité**. Dans la capture d’écran précédente, l’exemple de base de données est newdb1 et présente l’état **newdb1 (synchronisé)** .
 
 ### <a name="delete-an-alwayson-database"></a>Supprimer une base de données AlwaysOn
 
-Lorsque vous supprimez une base de données SQL AlwaysOn du fournisseur de ressources, SQL supprime cette base de données du réplica principal et du groupe de disponibilité.
+Lorsque vous supprimez une base de données SQL AlwaysOn du fournisseur de ressources, SQL supprime la base de données du réplica **principal** et du groupe de disponibilité.
 
-Puis SQL place la base de données à l’état Restauration sur les autres réplicas sans la supprimer, sauf sous l’impulsion d’un déclencheur. Si la base de données n’est pas supprimée, les réplicas secondaires passent à l’état Sans synchronisation.
+SQL place ensuite la base de données à l’état **Restauration** sur les autres réplicas sans la supprimer, sauf sous l’impulsion d’un déclencheur. Si la base de données n’est pas supprimée, les réplicas secondaires passent à l’état **Sans synchronisation**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

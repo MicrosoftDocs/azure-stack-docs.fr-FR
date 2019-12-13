@@ -14,16 +14,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 12/11/2019
 ms.author: mabrigg
-ms.reviewer: jeffgo
-ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: d8b986dede7e55cb0418219fce6ac78673eeff60
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.reviewer: kivenkat
+ms.lastreviewed: 12/11/2019
+ms.openlocfilehash: deea66ed257ecab933c294022fbdd07d1ccb137b
+ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802284"
+ms.lasthandoff: 12/12/2019
+ms.locfileid: "75007960"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Préparation d'une machine virtuelle Red Hat pour Azure Stack
 
@@ -44,7 +44,7 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
 * La prise en charge du noyau pour le montage de systèmes de fichiers UDF (Universal Disk Format) est requise. Au premier démarrage, le média au format UDF attaché à l’invité passe la configuration de provisionnement à la machine virtuelle Linux. Azure Linux Agent doit monter le système de fichiers UDF pour lire sa configuration et provisionner la machine virtuelle.
 * Ne configurez pas de partition d’échange sur le disque du système d’exploitation. L'agent Linux est configurable pour créer un fichier d'échange sur le disque de ressources temporaire. Les étapes suivantes fournissent de plus amples informations à ce sujet.
 * Tous les VHD sur Azure doivent avoir une taille virtuelle alignée sur 1 Mo. Avant de convertir un disque brut en VHD, vous devez vous assurer que la taille du disque brut est un multiple de 1 Mo. Vous trouverez de plus amples informations dans les étapes suivantes.
-* Azure Stack ne prend pas en charge cloud-init. Votre machine virtuelle doit être configurée avec une version prise en charge de l’agent Linux Microsoft Azure (WALA).
+* Azure Stack prend en charge cloud-init. [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) est une méthode largement utilisée pour personnaliser une machine virtuelle Linux lors de son premier démarrage. Vous pouvez utiliser cloud-init pour installer des packages et écrire des fichiers, ou encore pour configurer des utilisateurs ou des paramètres de sécurité. cloud-init étant appelé pendant le processus de démarrage initial, aucune autre étape ni aucun agent ne sont nécessaires pour appliquer votre configuration.
 
 ### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>Préparer une machine virtuelle RHEL 7 à partir du Gestionnaire Hyper-V
 

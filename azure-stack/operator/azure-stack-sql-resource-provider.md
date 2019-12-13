@@ -16,22 +16,27 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: d2ce6c0af2912a2658db80301c9a64c8e3d5c066
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 438cf2d8a34046f29d156aadc1cc82571e4b8a12
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780726"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993891"
 ---
 # <a name="use-sql-databases-on-azure-stack"></a>Utiliser des bases de données SQL dans Azure Stack
 
-Utilisez le fournisseur de ressources SQL Server pour offrir des bases de données SQL en tant que service dans [Azure Stack](azure-stack-overview.md). Une fois le fournisseur de ressources installé et connecté à une ou plusieurs instances de SQL Server, vous et vos utilisateurs pouvez créer :
+Utilisez le fournisseur de ressources SQL pour offrir des bases de données SQL en tant que service dans [Azure Stack](azure-stack-overview.md). Une fois le fournisseur de ressources installé et connecté à une ou plusieurs instances de SQL Server, vous et vos utilisateurs pouvez créer :
 
 - des bases de données pour les applications cloud natives ;
 - des sites Web qui utilisent SQL ;
 - des charges de travail qui utilisent SQL.
 
-Le fournisseur de ressources ne fournit pas toutes les fonctionnalités de gestion de base de données d’[Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Par exemple, les pools élastiques qui allouent automatiquement des ressources ne sont pas pris en charge. Toutefois, le fournisseur de ressources prend en charge des opérations CRUD (créer, lire, mettre à jour et supprimer) similaires sur une base de données SQL Server.
+Il existe plusieurs limitations à prendre en compte avant d’installer le fournisseur de ressources MySQL :
+
+- Les utilisateurs peuvent uniquement créer et gérer des bases de données individuelles. L’instance de serveur de base de données n’est pas accessible aux utilisateurs finaux. Cela peut limiter la compatibilité avec les applications de base de données locales qui doivent accéder à la base de données master, temporaire, ou aux bases de données gérées de manière dynamique.
+- Votre opérateur Azure Stack est responsable du déploiement, de la mise à jour, de la sécurisation, de la configuration et de la maintenance des serveurs et hôtes de base de données SQL. Le service RP ne fournit aucune fonctionnalité de gestion des instances de serveur de base de données ni d’hôte. 
+- Les bases de données de différents utilisateurs dans divers abonnements peuvent se trouver sur la même instance de serveur de base de données. Le RP ne fournit aucun mécanisme pour isoler les bases de données sur des hôtes ou des instances de serveur de base de données différents.
+- Le RP ne fournit pas de rapports sur l’utilisation des bases de données par les locataires.
 
 ## <a name="sql-resource-provider-adapter-architecture"></a>Architecture de l’adaptateur de fournisseur de ressources SQL
 
