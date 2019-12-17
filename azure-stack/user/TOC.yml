@@ -37,6 +37,8 @@
           items:
             - name: Configurer un environnement de développement
               href: azure-stack-dev-start.md
+            - name: Obtenir des informations d’autorisation
+              href: authenticate-azure-stack-hub.md
             - name: Utiliser PowerShell avec Azure Stack Hub
               items:
                 - name: Vue d’ensemble d’Azure Stack Hub PowerShell
