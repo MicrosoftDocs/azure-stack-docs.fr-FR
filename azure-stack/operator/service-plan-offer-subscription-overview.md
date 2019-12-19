@@ -8,16 +8,16 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 2242da61eaa457a8cc234fb3310787eb26b9148e
-ms.sourcegitcommit: acebda8a42ac8ecdeba490fc1738e9041479dab0
+ms.openlocfilehash: a228e20de1786529374e5e2431ca7bb79a9c14bf
+ms.sourcegitcommit: f3d40c9fe73cf0a32fc643832085de887edf7cf3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72814062"
+ms.lasthandoff: 12/18/2019
+ms.locfileid: "75187271"
 ---
 # <a name="azure-stack-services-plans-offers-subscriptions-overview"></a>Présentation des services, plans, offres et abonnements Azure Stack
 
