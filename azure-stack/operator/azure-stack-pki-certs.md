@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 12/16/2019
 ms.author: justinha
 ms.reviewer: ppacent
-ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: f306391451c4d04af3b5a37645f145fb732714f0
-ms.sourcegitcommit: acebda8a42ac8ecdeba490fc1738e9041479dab0
+ms.lastreviewed: 12/16/2019
+ms.openlocfilehash: e9276d67c767ec6a08549be830c52bbbe03230ec
+ms.sourcegitcommit: 50b7974454e008724817cbb4416ce40368b31ef4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72813994"
+ms.lasthandoff: 12/16/2019
+ms.locfileid: "75035504"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Exigences de certificat pour infrastructure à clé publique Azure Stack
 
@@ -56,7 +56,8 @@ La liste suivante décrit les exigences de certificat nécessaires pour déploye
 - Vérifiez que les noms de l’objet et les autres noms de l’objet dans l’extension des autres noms de l’objet (x509v3_config) correspondent. Le champ de l’autre nom de l’objet vous permet de spécifier des noms d’hôtes supplémentaires (sites web, adresses IP, noms communs) en vue de les protéger au moyen d’un seul certificat SSL.
 
 > [!NOTE]  
-> Les certificats auto-signés ne sont pas pris en charge.
+> Les certificats auto-signés ne sont pas pris en charge.  
+> Lors du déploiement d’Azure Stack Hub en mode déconnecté, il est recommandé d’utiliser des certificats émis par une autorité de certification d’entreprise. Ceci est important, car les clients accédant à des points de terminaison Azure Stack doivent être en mesure de contacter la liste de révocation des certificats.
 
 > [!NOTE]  
 > La présence d’autorités de certification intermédiaires dans la chaîne d’approbation d’un certificat *est* prise en charge.

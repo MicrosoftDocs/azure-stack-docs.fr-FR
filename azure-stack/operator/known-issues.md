@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 12/13/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 684f6925c32eabca51fa89776ec95b57a852a987
-ms.sourcegitcommit: d9430072dd96ae305101da6d8a47d6c23a0a64c2
+ms.openlocfilehash: 755bd556d9e4643ff5e17d900cdf7e5245f1894e
+ms.sourcegitcommit: 7dd9d7bc2b86cca3be5118da149c1d422b2fb09d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995584"
+ms.lasthandoff: 12/16/2019
+ms.locfileid: "75033943"
 ---
 # <a name="azure-stack-known-issues"></a>Problèmes connus d’Azure Stack
 
@@ -46,7 +46,6 @@ Pour accéder aux problèmes connus d'une autre version, utilisez le menu dérou
 ## <a name="update"></a>Mettre à jour
 
 Pour plus d’informations sur les problèmes connus de mise à jour d’Azure Stack Hub, consultez [Dépannage des mises à jour dans Azure Stack Hub](azure-stack-updates-troubleshoot.md).
-
 
 ## <a name="portal"></a>Portail
 
@@ -154,9 +153,9 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 ### <a name="access-control-iam"></a>Contrôle d’accès (IAM)
 
-- Champ d’application : Ce problème s’applique à la version 1903 et aux suivantes.
-- Cause : L’extension IAM est obsolète. Ibiza, qui est fourni avec Azure Stack, propose un nouveau comportement qui provoque l’arrêt de l’extension RBAC si l’utilisateur l’ouvre à partir d’un abonnement qui n’est pas sélectionné dans le sélecteur d’abonnement global.
-- Correction : Vérifiez que l’abonnement est archivé dans le sélecteur d’abonnement global. 
+- Champ d’application : Ce problème s’applique aux horodatages qui ont été déployés avec une image de base 1903 ou antérieure.
+- Cause : L’extension IAM est obsolète. Le portail Ibiza fourni avec Azure Stack introduit un nouveau comportement qui provoque l’échec de l’extension RBAC si l’utilisateur ouvre le panneau **Contrôle d’accès (IAM)** pour un abonnement qui n’est pas sélectionné dans le sélecteur d’abonnement global (**Répertoire + abonnement** dans le portail utilisateur). Le panneau affiche **Chargement** en boucle, et l’utilisateur ne peut pas ajouter de nouveaux rôles à l’abonnement. Le panneau **Ajouter** affiche également **Chargement** en boucle.
+- Correction : Vérifiez que l’abonnement est coché dans le menu **Répertoire + abonnement**. Le menu est accessible dans le haut du portail, près du bouton **Notifications**, ou via le raccourci du panneau **Toutes les ressources** qui affiche **Vous ne voyez pas d’abonnement ? Ouvrir les paramètres de répertoire et d’abonnement**. L’abonnement doit être sélectionné dans ce menu.
 
 ## <a name="networking"></a>Mise en réseau
 
@@ -236,8 +235,15 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="consumed-compute-quota"></a>Quota de calcul consommé
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Lors de la création d’une machine virtuelle, vous pouvez recevoir une erreur telle que **Cet abonnement a atteint sa capacité maximale pour Total des processeurs virtuels régionaux à cet emplacement. Cet abonnement utilise l’ensemble des 50 Total des processeurs virtuels régionaux disponibles.** . Cela indique que le quota pour le nombre total de cœurs à votre disposition a été atteint.
+- Cause : Lors de la création d’une machine virtuelle, vous pouvez recevoir une erreur telle que **Cet abonnement a atteint sa capacité maximale pour Total des processeurs virtuels régionaux à cet emplacement. Cet abonnement utilise l’ensemble des 50 Total des processeurs virtuels régionaux disponibles.** . Cela indique que le quota pour le nombre total de cœurs à votre disposition a été atteint.
 - Correction : Demandez à votre opérateur un plan additionnel avec un quota supplémentaire. La modification du quota du plan actuel ne fonctionne pas ou ne reflète pas l’augmentation du quota.
+- Occurrence : Rare
+
+### <a name="privileged-endpoint"></a>Point de terminaison privilégié
+
+- Champ d’application : Ce problème concerne les versions 1910 et antérieures.
+- Cause : Impossible de se connecter au point de terminaison privilégié (machines virtuelles ERC) à partir d’un ordinateur exécutant une version non anglaise de Windows.
+- Correction : Il s’agit d’un problème connu qui a été résolu dans les versions postérieures à 1910. En guise de solution de contournement, vous pouvez exécuter les applets de commande **New-PSSession** et **Enter-PSSession** en utilisant la culture **en-US**. Par exemple, définissez la culture avec ce script : https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1.
 - Occurrence : Rare
 
 ### <a name="virtual-machine-scale-set"></a>Jeu de mise à l’échelle de machine virtuelle

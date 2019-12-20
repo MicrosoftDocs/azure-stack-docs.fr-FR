@@ -8,12 +8,12 @@ ms.date: 10/31/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 10/31/2019
-ms.openlocfilehash: a7a7563db3c315c4913287e8f286f07abd633602
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: d165381b6f8f3138d434b8d62376feb8879a21b3
+ms.sourcegitcommit: f3d40c9fe73cf0a32fc643832085de887edf7cf3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73639998"
+ms.lasthandoff: 12/18/2019
+ms.locfileid: "75187284"
 ---
 # <a name="footfall-detection-pattern"></a>Modèle de détection des pas
 
@@ -37,8 +37,8 @@ Voici un résumé du fonctionnement de la solution :
 2. Si le modèle détecte une personne, il prend une photo et la charge sur le stockage Blob Azure Stack Hub. 
 3. Le service Blob déclenche une fonction Azure sur Azure Stack Hub. 
 4. La fonction Azure appelle un conteneur avec l'API Visage pour obtenir des données démographiques et émotionnelles de l'image.
-5. Les données sont anonymisées et envoyées à un hub d’événements Azure.
-6. Le hub d’événements transmet les données à Stream Analytics.
+5. Les données sont anonymisées et envoyées à un cluster Azure Event Hubs.
+6. Le cluster Event Hubs transmet les données à Stream Analytics.
 7. Stream Analytics agrège les données et les transmet à Power BI.
 
 ## <a name="components"></a>Composants
@@ -55,11 +55,11 @@ Cette solution utilise les composants suivants :
 | | Cluster du moteur Azure Kubernetes Service [(AKS)](https://github.com/Azure/aks-engine) | Le fournisseur de ressources AKS avec le cluster du moteur AKS déployé dans Azure Stack Hub fournit un moteur résilient et scalable pour exécuter le conteneur de l’API Visage. |
 | | Azure Cognitive Services [Conteneurs de l’API Visage](/azure/cognitive-services/face/face-how-to-install-containers)| Le fournisseur de ressources Azure Cognitive Services avec les conteneurs de l’API Visage offre une détection démographique, émotionnelle et unique des visiteurs sur le réseau privé de Contoso. |
 | | Stockage Blob | Les images capturées à partir du kit de développement d’intelligence artificielle sont chargées sur le stockage Blob Azure Stack Hub. |
-| | Azure Functions | Une fonction Azure s’exécutant sur Azure Stack Hub reçoit les données du stockage Blob et gère les interactions avec l’API Visage. Elle transmet des données anonymisées vers un hub d’événements situé dans Azure.<br><br>|
+| | Azure Functions | Une fonction Azure s’exécutant sur Azure Stack Hub reçoit les données du stockage Blob et gère les interactions avec l’API Visage. Elle transmet des données anonymisées vers un cluster Event Hubs qui se trouve dans Azure.<br><br>|
 
 ## <a name="issues-and-considerations"></a>Problèmes et considérations
 
-Tenez compte des points suivants lors du choix de l’implémentation de cette solution :
+Prenez en compte des points suivants lors du choix de l'implémentation de cette solution :
 
 ### <a name="scalability"></a>Extensibilité 
 
@@ -67,7 +67,7 @@ Pour permettre à cette solution de s'adapter à plusieurs caméras et emplaceme
 
 - Augmenter le nombre d'unités de diffusion en continu Stream Analytics
 - Étendre le déploiement de l'API Visage
-- Augmenter le débit des hubs d'événements
+- Augmenter le débit du cluster Event Hubs
 - Dans les cas extrêmes, il peut être nécessaire de migrer des fonctions Azure vers une machine virtuelle.
 
 ### <a name="availability"></a>Disponibilité

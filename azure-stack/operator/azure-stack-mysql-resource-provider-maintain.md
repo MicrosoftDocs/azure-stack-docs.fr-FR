@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 9dc2de86828e188aa82b44d376e693be887717d8
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: 75135801bf5762f597ae70d980588dedadf31b36
+ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682189"
+ms.lasthandoff: 12/17/2019
+ms.locfileid: "75183435"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack"></a>Opérations de maintenance sur le fournisseur de ressources MySQL dans Azure Stack
 
@@ -225,6 +225,32 @@ $cleanup = Invoke-Command -Session $session -ScriptBlock {Remove-AzsDBAdapterLog
 $session | Remove-PSSession
 
 ```
+
+## <a name="configure-azure-diagnostics-extension-for-mysql-resource-provider"></a>Configurer l’extension Azure Diagnostics pour le fournisseur de ressources MySQL
+
+L’extension Azure Diagnostics est installée sur la machine virtuelle de l’adaptateur du fournisseur de ressources MySQL par défaut. Les étapes suivantes montrent comment personnaliser l’extension pour la collecte des journaux des événements opérationnels du fournisseur de ressources MySQL et des journaux IIS pour le dépannage et l’audit.
+
+1. Connectez-vous au portail d’administration Azure Stack Hub.
+
+2. Sélectionnez **Machines virtuelles** dans le volet à gauche, recherchez la machine virtuelle de l’adaptateur du fournisseur de ressources MySQL et sélectionnez cette machine virtuelle.
+
+3. Dans les **Paramètres de diagnostic** de la machine virtuelle, accédez à l’onglet **Journaux** et choisissez **Personnalisé** pour personnaliser les journaux des événements à collecter.
+   
+   ![Accéder aux paramètres de diagnostic](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
+
+4. Ajoutez **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** pour collecter les journaux des événements opérationnels du fournisseur de ressources MySQL.
+
+   ![Ajouter des journaux des événements](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
+
+5. Pour activer la collecte des journaux IIS, cochez **Journaux IIS** et **Journaux des requêtes ayant échoué**.
+
+   ![Ajouter des journaux IIS](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-iis-logs.png)
+
+6. Enfin, sélectionnez **Enregistrer** pour enregistrer tous les paramètres de diagnostic.
+
+Une fois que les journaux des événements et la collecte des journaux IIS sont configurés pour le fournisseur de ressources MySQL, vous trouvez les journaux dans un compte de stockage système nommé **mysqladapterdiagaccount**.
+
+Pour découvrir plus d’informations sur l’extension Azure Diagnostics, consultez [Présentation de l’extension Azure Diagnostics](/azure-monitor/platform/diagnostics-extension-overview).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
