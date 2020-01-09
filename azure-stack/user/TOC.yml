@@ -1,6 +1,6 @@
 - name: Documentation pour les utilisateurs Azure Stack Hub
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Considérations relatives aux clés
       href: azure-stack-considerations.md
@@ -89,7 +89,7 @@
                   href: azure-stack-deploy-template-visual-studio.md
         - name: Utiliser les profils de version d’API
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: azure-stack-version-profiles.md
             - name: .NET
               href: azure-stack-version-profiles-net.md

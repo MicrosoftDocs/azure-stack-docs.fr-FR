@@ -1,6 +1,6 @@
 - name: Documentation pour les opérateurs Azure Stack Hub
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure Stack Hub\_?"
       href: azure-stack-overview.md
@@ -31,7 +31,7 @@
   items:
     - name: Planification de la capacité
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: azure-stack-capacity-planning-overview.md
         - name: Calcul
           href: azure-stack-capacity-planning-compute.md
@@ -280,11 +280,11 @@
           href: azure-stack-quota-types.md
     - name: Proposer des solutions réseau
       href: azure-stack-network-solutions-enable.md
-    - name: Gérer les fournisseurs de ressources de service complémentaire
+    - name: Gérer les fournisseurs de ressources à valeur ajoutée
       items:
         - name: App Service sur Azure Stack
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: azure-stack-app-service-overview.md
             - name: Planification de la capacité App Service
               href: azure-stack-app-service-capacity-planning.md
@@ -328,7 +328,7 @@
                   href: azure-stack-app-service-release-notes-update-seven.md
         - name: MySQL sur Azure Stack
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: azure-stack-mysql-resource-provider.md
             - name: Déployer le fournisseur de ressources MySQL Server
               href: azure-stack-mysql-resource-provider-deploy.md
@@ -354,7 +354,7 @@
                   href: azure-stack-mysql-resource-provider-11300.md
         - name: SQL sur Azure Stack
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: azure-stack-sql-resource-provider.md
             - name: "Déployer le fournisseur de ressources SQL\_Server"
               href: azure-stack-sql-resource-provider-deploy.md
@@ -430,23 +430,23 @@
       items:
         - name: Portail Aide et support
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: azure-stack-help-and-support-overview.md
             - name: Collecte des journaux de diagnostic
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: azure-stack-diagnostic-log-collection-overview.md
                 - name: Collecte automatique
                   items:
                     - name: Configurer une collecte automatique
                       href: azure-stack-configure-automatic-diagnostic-log-collection.md
-                    - name: Bonnes pratiques
+                    - name: Meilleures pratiques
                       href: azure-stack-best-practices-automatic-diagnostic-log-collection.md
                 - name: Collecte à la demande
                   href: azure-stack-configure-on-demand-diagnostic-log-collection.md
         - name: "Validation pour Azure\_Stack"
           href: azure-stack-diagnostic-test.md
-        - name: Résolution de problèmes
+        - name: Dépannage
           href: azure-stack-troubleshooting.md
 - name: Informations de référence
   items:
