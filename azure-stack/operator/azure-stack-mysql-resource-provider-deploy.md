@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: aa76766ad6528148cc8662780c4bc4dd593b366a
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: 4b2cbde2222e13b148072149d461ff4636b77d59
+ms.sourcegitcommit: 4cd33bcb1bb761a424afd51f511b093543786d76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557588"
+ms.lasthandoff: 12/21/2019
+ms.locfileid: "75325108"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Déployer un fournisseur de ressources MySQL sur Azure Stack
 
@@ -29,7 +29,7 @@ Utilisez le fournisseur de ressources MySQL Server pour exposer des bases de don
 > [!IMPORTANT]
 > Seul le fournisseur de ressources est pris en charge pour créer des éléments sur des serveurs qui hébergent SQL ou MySQL. Les éléments créés sur un serveur hôte qui ne sont pas créés par le fournisseur de ressources peuvent entraîner un état qui ne correspond pas.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Plusieurs prérequis doivent être remplis avant de déployer le fournisseur de ressources MySQL d’Azure Stack. Afin de répondre à ces exigences, complétez les étapes de cet article sur un ordinateur ayant accès à la machine virtuelle du point de terminaison privilégié.
 
@@ -47,7 +47,7 @@ Plusieurs prérequis doivent être remplis avant de déployer le fournisseur de 
   |Version minimale d’Azure Stack|Version du fournisseur de ressources MySQL|
   |-----|-----|
   |Version 1910 (1.1910.0.58)|[MySQL RP version 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|
-  |Version 1808 (1.1808.0.97)|[MySQL RP version 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
+  |Version 1808 (1.1808.0.97)|[MySQL RP version 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
   |Version 1808 (1.1808.0.97)|[MySQL RP version 1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
   |Version 1804 (1.0.180513.1)|[Version 1.1.24.0 du fournisseur de ressources MySQL](https://aka.ms/azurestackmysqlrp11240)
   |     |     |
@@ -147,10 +147,6 @@ $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysq
 # And the cloudadmin credential required for privileged endpoint access.
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
-
-# Clear the existing login information from the Azure PowerShell context.
-Clear-AzureRMContext -Scope CurrentUser -Force
-Clear-AzureRMContext -Scope Process -Force
 
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force

@@ -16,12 +16,12 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: dcc473d270d0a72b2ebf5f31c67fffa6827c9ecc
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: 9945113e778f69000a720d5f5045f691f439d076
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828423"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718536"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack"></a>Valider l’intégration d’AD FS pour Azure Stack
 
@@ -39,7 +39,7 @@ Pour plus d’informations sur l’intégration des centres de données Azure St
 
 Téléchargez la dernière version de l’outil Azure Stack Readiness Checker (AzsReadinessChecker) sur le site [PowerShell Gallery](https://aka.ms/AzsReadinessChecker).  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vérifiez les prérequis suivants.
 
@@ -54,7 +54,7 @@ Vérifiez les prérequis suivants.
 
 Vous avez besoin au minimum d’une des formes de métadonnées suivantes :
 
-* L’URL des métadonnées de fédération AD FS. Par exemple `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`.
+* L’URL des métadonnées de fédération AD FS. par exemple `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`.
 * Le fichier XML des métadonnées de fédération. Par exemple, FederationMetadata.xml.
 
 ## <a name="validate-ad-fs-integration"></a>Valider l’intégration d’AD FS
@@ -81,7 +81,7 @@ Vous avez besoin au minimum d’une des formes de métadonnées suivantes :
             Test Certificate Expiry:               OK
 
     Details:
-    [-] In standalone mode, some tests should not be considered fully indicative of connectivity or readiness the Azure Stack Stamp requires prior to Data Center Integration.
+    [-] In standalone mode, some tests should not be considered fully indicative of connectivity or readiness the Azure Stack Stamp requires prior to Datacenter Integration.
     Additional help URL: https://aka.ms/AzsADFSIntegration
 
     Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log

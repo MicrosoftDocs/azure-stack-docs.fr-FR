@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 75135801bf5762f597ae70d980588dedadf31b36
-ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
+ms.openlocfilehash: fea4d8abcb0b8bb4f541105d782d2adbdc1f0f4c
+ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2019
-ms.locfileid: "75183435"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75756863"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack"></a>Opérations de maintenance sur le fournisseur de ressources MySQL dans Azure Stack
 
@@ -166,7 +166,7 @@ Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèm
 
 ### <a name="known-issues"></a>Problèmes connus
 
-**Problème :**<br>
+**Problème :**<br>
 Les journaux d’activité de la rotation des secrets ne sont pas automatiquement collectés en cas d’échec de l’exécution du script de la rotation des secrets.
 
 **Solution de contournement :**<br>
@@ -250,7 +250,7 @@ L’extension Azure Diagnostics est installée sur la machine virtuelle de l’a
 
 Une fois que les journaux des événements et la collecte des journaux IIS sont configurés pour le fournisseur de ressources MySQL, vous trouvez les journaux dans un compte de stockage système nommé **mysqladapterdiagaccount**.
 
-Pour découvrir plus d’informations sur l’extension Azure Diagnostics, consultez [Présentation de l’extension Azure Diagnostics](/azure-monitor/platform/diagnostics-extension-overview).
+Pour découvrir plus d’informations sur l’extension Azure Diagnostics, consultez [Présentation de l’extension Azure Diagnostics](/azure/azure-monitor/platform/diagnostics-extension-overview).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

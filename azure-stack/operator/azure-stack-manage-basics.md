@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: justinha
 ms.lastreviewed: 05/29/2019
-ms.openlocfilehash: f9b9d6d1474c22c8e31d24ae08faf1aac6d5e9c1
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 32f82a832b150c4512c854d2ddbfc24941bf7228
+ms.sourcegitcommit: 7626143e5d2a5e32a43162692f59306182fec854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283486"
+ms.lasthandoff: 12/24/2019
+ms.locfileid: "75333039"
 ---
 # <a name="azure-stack-administration-basics"></a>Principes de bases de l’administration d’Azure Stack
 
@@ -68,8 +68,8 @@ Ces services nécessitent une configuration supplémentaire avant de pouvoir êt
 Azure Stack continuera à prendre en charge de nouveaux services Azure. Pour obtenir la feuille de route prévue, consultez le livre blanc [Azure Stack : An extension of Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409). Vous pouvez également consulter les nouvelles annonces dans les [billets de blog Azure Stack](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview).
 
 ## <a name="what-account-should-i-use"></a>Quel compte dois-je utiliser ?
-Il faut prendre en compte certains points liés aux comptes pour gérer Azure Stack, en particulier en ce qui concerne les déploiements utilisant les services de fédération Active Directory (AD FS) Windows Server plutôt qu’Azure Active Directory (Azure AD) comme fournisseur d’identité. Les considérations suivantes au sujet des comptes s’appliquent à la fois aux systèmes intégrés Azure Stack et aux déploiements ASDK :
 
+Il faut prendre en compte certains points liés aux comptes pour gérer Azure Stack, en particulier en ce qui concerne les déploiements utilisant les services de fédération Active Directory (AD FS) Windows Server plutôt qu’Azure Active Directory (Azure AD) comme fournisseur d’identité. Les considérations suivantes au sujet des comptes s’appliquent à la fois aux systèmes intégrés Azure Stack et aux déploiements ASDK :
 
 |Compte|Azure AD|AD FS|
 |-----|-----|-----|
@@ -104,7 +104,7 @@ En plus de fournir des services, vous devez effectuer toutes les tâches standar
 
 ## <a name="what-to-tell-your-users"></a>Ce que vous devez dire à vos utilisateurs
 
-Vous devez dire à vos utilisateurs comment travailler avec les services dans Azure Stack, comment se connecter à l’environnement et comment s’abonner aux offres. Outre la documentation personnalisée que vous voudrez peut-être fournir à vos utilisateurs, vous pouvez les diriger vers la [Documentation utilisateur sur Azure Stack](https://docs.microsoft.com/en-us/azure-stack/user/).
+Vous devez dire à vos utilisateurs comment travailler avec les services dans Azure Stack, comment se connecter à l’environnement et comment s’abonner aux offres. Outre la documentation personnalisée que vous voudrez peut-être fournir à vos utilisateurs, vous pouvez les diriger vers la [Documentation utilisateur sur Azure Stack](/azure-stack/user/).
 
 **Utiliser des services dans Azure Stack**
 

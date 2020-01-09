@@ -8,16 +8,16 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 54d79742ab39a2732a774401a1765b7a264e1fab
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: d6adbc374cbd2472ceed1895fe7efb34ab5b9d64
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640052"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75654914"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Déployer une application qui effectue une mise à l’échelle multicloud à l’aide d’Azure et d’Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack Hub et Kit de développement Azure Stack Hub*
+*S’applique à : Systèmes intégrés Azure Stack Hub et kit SDK de développement Azure Stack Hub*
 
 Découvrez comment créer une solution multicloud pour fournir un processus déclenché manuellement permettant de passer d’une application web hébergée sur Azure Stack Hub à une application web hébergée sur Azure avec mise à l’échelle automatique via Traffic Manager. Ce processus garantit la disponibilité d’un utilitaire cloud flexible et évolutif sous charge.
 
@@ -38,7 +38,7 @@ Dans cette solution, vous allez générer un exemple d’environnement pour :
 > 
 > L’article [Design Considerations for Hybrid Applications](overview-app-design-considerations.md) se penche sur les fondements de la qualité logicielle (sélection élective, scalabilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 -   Abonnement Azure. Si nécessaire, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -51,7 +51,7 @@ Dans cette solution, vous allez générer un exemple d’environnement pour :
 
 -   [Créez un plan/des offres](../operator/service-plan-offer-subscription-overview.md) dans l’environnement Azure Stack Hub.
 
--   [Créez un abonnement de locataire](../operator/azure-stack-subscribe-plan-provision-vm.md) dans l’environnement Azure Stack Hub.
+-   [Créez un abonnement de locataire](../operator/azure-stack-subscribe-plan-provision-vm.md) dans l'environnement Azure Stack Hub.
 
 -   Créez une application web dans l’abonnement du locataire. Notez l’URL de la nouvelle application web. Vous en aurez besoin plus tard.
 
@@ -59,7 +59,7 @@ Dans cette solution, vous allez générer un exemple d’environnement pour :
 
 -   Une machine virtuelle Windows Server 2016 avec .NET 3.5 est nécessaire. Cette machine virtuelle est créée dans l’abonnement du locataire sur Azure Stack Hub en tant qu’agent de build privé.
 
--   [Windows Server 2016 avec l’image de machine virtuelle SQL 2017](../operator/azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal) est disponible dans la Place de marché Azure Stack Hub. Si cette image n’est pas disponible, utilisez un opérateur Azure Stack Hub pour vous assurer qu’elle est ajoutée à l’environnement.
+-   [Windows Server 2016 avec l’image de machine virtuelle SQL 2017](../operator/azure-stack-add-vm-image.md) est disponible dans la Place de marché Azure Stack Hub. Si cette image n’est pas disponible, utilisez un opérateur Azure Stack Hub pour vous assurer qu’elle est ajoutée à l’environnement.
 
 ## <a name="issues-and-considerations"></a>Problèmes et considérations
 
@@ -71,11 +71,11 @@ Le principal composant de la mise à l’échelle inter-cloud est la capacité �
 
 Vérifiez que les applications déployées en local sont configurées pour la haute disponibilité via la configuration matérielle locale et le déploiement de logiciels.
 
-### <a name="manageability"></a>Facilité de gestion
+### <a name="manageability"></a>Simplicité de gestion
 
 La solution dans le cloud garantit une gestion transparente et une interface familière entre les environnements. PowerShell est recommandé pour une gestion multiplateforme.
 
-## <a name="cross-cloud-scaling"></a>Mise à l’échelle dans le cloud
+## <a name="cross-cloud-scaling"></a>Mise à l’échelle multicloud
 
 ### <a name="obtain-a-custom-domain-and-configure-dns"></a>Obtenir un domaine personnalisé et configurer DNS
 

@@ -9,12 +9,12 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: ced042ac48017a8191d02e48de12e107677051fc
-ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
+ms.openlocfilehash: 65ec9942b765eddcfda42056b47da60481d38ff4
+ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569300"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75756982"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-with-sql-server"></a>Application multiniveau Windows sur Azure Stack avec SQL Server
 
@@ -26,7 +26,7 @@ L’architecture possède les composants suivants :
 
 ![](./media/iaas-architecture-windows-sql-n-tier/image1.png)
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 -   **Groupe de ressources**. Les [groupes de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) permettent de regrouper des ressources Azure afin de pouvoir les gérer selon leur durée de vie, leur propriétaire ou d'autres critères.
 
@@ -36,11 +36,11 @@ L’architecture possède les composants suivants :
 
 -   **Réseau virtuel et sous-réseaux**. Chaque machine virtuelle Azure est déployée dans un réseau virtuel qui peut être segmenté en sous-réseaux. Créez un sous-réseau distinct pour chaque niveau.
 
--   **Équilibreur de charge de couche 7.** Application Gateway n'étant pas encore disponible sur Azure Stack, des alternatives sont disponibles sur la [Place de marché Azure Stack ](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1908), par exemple : [Commutateur de contenu ADC Load Balancer KEMP LoadMaster](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [f5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) ou [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
+-   **Équilibreur de charge de couche 7.** Application Gateway n'étant pas encore disponible sur Azure Stack, des alternatives sont proposées sur la [Place de marché Azure Stack ](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1908), par exemple : [Commutateur de contenu ADC Load Balancer KEMP LoadMaster](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [f5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) ou [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
 
 -   **Équilibreurs de charge** : Utilisez [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) pour répartir le trafic réseau de la couche Web vers la couche Entreprise, et de la couche Entreprise vers SQL Server.
 
--   **Groupes de sécurité réseau** (NSG). Utilisez des groupes de sécurité réseau pour limiter le trafic réseau au sein du réseau virtuel. Par exemple, dans l’architecture à trois niveaux illustrée ici, le niveau base de données n’accepte pas le trafic en provenance du serveur web frontal, mais uniquement du niveau Business et du sous-réseau de gestion.
+-   **Groupes de sécurité réseau (NSG) :** Utilisez des groupes de sécurité réseau pour limiter le trafic réseau au sein du réseau virtuel. Par exemple, dans l’architecture à trois niveaux illustrée ici, le niveau base de données n’accepte pas le trafic en provenance du serveur web frontal, mais uniquement du niveau Business et du sous-réseau de gestion.
 
 -   **DNS (Domain Name System)** . Azure Stack ne dispose pas de son propre service d'hébergement DNS. Veuillez donc utiliser le serveur DNS de votre service AD DS.
 
@@ -60,7 +60,7 @@ Il peut se présenter comme suit :
 - Azure Stack :  
   `https://mywitness.blob.<region>.<FQDN>`
 
--   **Jumpbox**. Également appelée [hôte bastion](https://en.wikipedia.org/wiki/Bastion_host). Machine virtuelle sécurisée sur le réseau, utilisée par les administrateurs pour se connecter aux autres machines virtuelles. Le serveur de rebond a un groupe de sécurité réseau qui autorise le trafic distant provenant uniquement d’adresses IP publiques figurant sur une liste verte. Le groupe de sécurité réseau doit autoriser le trafic RDP (Bureau à distance).
+-   **Jumpbox**. Également appelée [hôte bastion](https://en.wikipedia.org/wiki/Bastion_host). Machine virtuelle sécurisée sur le réseau, utilisée par les administrateurs pour se connecter aux autres machines virtuelles. La jumpbox a un groupe de sécurité réseau qui autorise le trafic distant provenant uniquement d’adresses IP publiques figurant sur une liste verte. Le groupe de sécurité réseau doit autoriser le trafic RDP (Bureau à distance).
 
 ## <a name="recommendations"></a>Recommandations
 
@@ -82,7 +82,7 @@ Concevez les sous-réseaux en tenant compte des exigences en matière de sécuri
 
 N’exposez pas les machines virtuelles directement à Internet. Attribuez plutôt à chaque machine virtuelle une adresse IP privée. Les clients se connectent à l'aide de l'adresse IP publique associée à l'équilibreur de charge de couche 7.
 
-Définissez des règles d’équilibreur de charge pour diriger le trafic réseau vers les machines virtuelles. Par exemple, pour activer le trafic HTTP, mappez le port 80 de la configuration du serveur frontal au port 80 dans le pool d’adresses principales. Lorsqu'un client envoie une requête HTTP au port 80, l'équilibreur de charge sélectionne une adresse IP principale à l'aide d'un [algorithme de hachage](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#fundamental-load-balancer-features) qui inclue l'adresse IP source. Les requêtes des clients sont réparties entre toutes les machines virtuelles dans le pool d’adresses principales.
+Définissez des règles d’équilibreur de charge pour diriger le trafic réseau vers les machines virtuelles. Par exemple, pour activer le trafic HTTP, mappez le port 80 de la configuration du serveur frontal au port 80 dans le pool d’adresses principales. Lorsqu'un client envoie une requête HTTP au port 80, l'équilibreur de charge sélectionne une adresse IP principale à l'aide d'un [algorithme de hachage](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#load-balancer-concepts) qui inclue l'adresse IP source. Les requêtes des clients sont réparties entre toutes les machines virtuelles dans le pool d’adresses principales.
 
 ### <a name="network-security-groups"></a>Groupes de sécurité réseau
 

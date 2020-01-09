@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 01/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: c7db293cb1a24079f66dcf0b047cf66218857003
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.lastreviewed: 01/02/2020
+ms.openlocfilehash: fb51e49f449896fde6262790972c958b230d3175
+ms.sourcegitcommit: a37d3d78ed683e783681c567c989cb2b9ad0de0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310137"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75605872"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack"></a>Mettre à niveau un cluster Kubernetes sur Azure Stack
 
@@ -36,7 +36,7 @@ Microsoft ne gère pas votre cluster. Cela étant, Microsoft fournit l’outil e
 
 Les mises à niveau d’un cluster déployé regroupent :
 
--   kubernetes
+-   Kubernetes
 -   Fournisseur Kubernetes Azure Stack
 -   Système d’exploitation de base
 
@@ -84,7 +84,7 @@ Les instructions suivantes utilisent les étapes minimales pour effectuer la mis
 
 2. Collectez les informations nécessaires à l’exécution de la commande `upgrade`. La mise à niveau utilise les paramètres suivants :
 
-    | Paramètre | Exemples | Description |
+    | Paramètre | Exemple | Description |
     | --- | --- | --- |
     | azure-env | AzureStackCloud | Pour indiquer au moteur AKS que votre plateforme cible est Azure Stack, utilisez `AzureStackCloud`. |
     | location | local | Nom de la région de votre Azure Stack. Pour le kit de développement Azure Stack (ASDK), la région est définie sur `local`. |
@@ -99,7 +99,7 @@ Les instructions suivantes utilisent les étapes minimales pour effectuer la mis
 
     ```bash  
     aks-engine upgrade \
-    --azure-env AzureStackCloud   
+    --azure-env AzureStackCloud \
     --location <for an ASDK is local> \
     --resource-group kube-rg \
     --subscription-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \

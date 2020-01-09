@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: fa5a602fbdca32aed635f587fef248bcff0dae06
-ms.sourcegitcommit: 2063332b4d7f98ee944dd1f443847eea70eb5614
+ms.openlocfilehash: 97299ec47908325f7d3eddb7cf57ca891e145a8d
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68303167"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718485"
 ---
 # <a name="allow-apps-to-access-azure-stack-key-vault-secrets"></a>Autoriser les applications à accéder aux secrets d’un coffre de clés dans Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "68303167"
 
 Suivez les étapes de cet article pour exécuter l’exemple d’application **HelloKeyVault** qui récupère les clés et les secrets d’un coffre de clés dans Azure Stack.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous pouvez installer les prérequis suivants à partir du [Kit de développement Azure Stack](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) ou à partir d’un client externe Windows si vous êtes [connecté via un VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) :
 
@@ -159,7 +159,7 @@ Dans Visual Studio :
 
 3. Régénérez la solution.
 
-## <a name="run-the-app"></a>Exécution de l'application
+## <a name="run-the-app"></a>Exécuter l’application
 
 Quand vous exécutez **HelloKeyVault**, l’application se connecte à Azure AD, puis utilise le jeton `AuthClientSecret` pour s’authentifier auprès du coffre de clés dans Azure Stack.
 
