@@ -16,7 +16,7 @@ metadata:
   ms.date: 07/09/2019
   ms.author: justinha
 abstract:
-  description: 'Microsoft Azure Stack Hub est une plateforme cloud hybride permettant de fournir des services Azure à partir de votre centre de données. Découvrez comment gérer l’infrastructure des systèmes intégrés Azure Stack Hub et offrir des services avec nos guides de démarrage rapide et tutoriels.<br/><br/>Si vous êtes un utilisateur Azure Stack Hub employant des services ou créant des applications pour Azure Stack Hub, consultez notre <a href="/azure-stack/user">documentation pour les utilisateurs</a>.<br/><br/>Si vous êtes un opérateur Azure Stack Hub intéressé par le Kit de développement Azure Stack Hub (ASDK), un déploiement mononœud d’Azure Stack Hub que vous pouvez télécharger et utiliser gratuitement, consultez notre <a href="/azure-stack/asdk">Documentation ASDK</a>.'
+  description: 'Microsoft Azure Stack Hub est une plateforme cloud hybride permettant de fournir des services Azure à partir de votre centre de données. Découvrez comment gérer l’infrastructure des systèmes intégrés Azure Stack Hub et offrir des services avec nos guides de démarrage rapide et tutoriels.<br/><br/>Si vous êtes un utilisateur Azure Stack Hub employant des services ou créant des applications pour Azure Stack Hub, consultez notre <a href="/azure-stack/user">documentation pour les utilisateurs</a>.<br/><br/>Si vous êtes un opérateur Azure Stack Hub intéressé par le Kit de développement Azure Stack (ASDK), un déploiement mononœud d’Azure Stack Hub que vous pouvez télécharger et utiliser gratuitement, consultez notre <a href="/azure-stack/asdk">Documentation ASDK</a>.'
 sections:
   - title: Bien démarrer avec Azure Stack Hub
     items:
@@ -32,7 +32,7 @@ sections:
           - html: |-
               <a href="/azure-stack/operator/azure-stack-powershell-install">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_powershell.svg" alt="">
-              <br><b>Azure Stack PowerShell</b></a>
+              <br><b>Azure Stack Hub PowerShell</b></a>
               <p>Gérez facilement vos ressources Azure Stack Hub dans PowerShell.</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-capacity-planning-overview">
