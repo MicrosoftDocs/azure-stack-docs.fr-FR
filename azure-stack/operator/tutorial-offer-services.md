@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 87542483f2a35fba315258e9ba66b1792739033b
-ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
+ms.openlocfilehash: 03be52d653fe6340a88a9c466fef8c9b1ccc9256
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72445341"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727426"
 ---
-# <a name="tutorial-offer-a-service-to-users"></a>Didacticiel : Offrir un service aux utilisateurs
+# <a name="tutorial-offer-a-service-to-users"></a>Tutoriel : Offrir un service aux utilisateurs
 
 Ce didacticiel a pour but de montrer à un opérateur comment créer une offre. Une offre met les services à la disposition des utilisateurs dans le cadre d’un abonnement. Une fois abonné, un utilisateur est autorisé à créer et à déployer des ressources dans les services spécifiés par l’offre.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une offre
@@ -27,7 +27,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Affecter des services et des quotas à un plan
 > * Affecter un plan à une offre
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Une offre est constituée d’un ou de plusieurs plans. Une offre donne accès à un ou plusieurs services, en spécifiant le fournisseur de ressources correspondant à chaque service ainsi qu’un quota. Les plans peuvent être ajoutés à une offre en tant que plan de base ou étendre l’offre en tant que plan complémentaire. Pour plus d’informations, consultez [Vue d’ensemble des services, des plans, des offres et des abonnements](service-plan-offer-subscription-overview.md).
 
@@ -37,7 +37,7 @@ Une offre est constituée d’un ou de plusieurs plans. Une offre donne accès �
 
 Un fournisseur de ressources prend en charge la création, le déploiement et la gestion de ses ressources en tant que services. Parmi les exemples courants, on peut citer le fournisseur de ressources Microsoft.Compute qui offre la possibilité de créer et de déployer des machines virtuelles. Consultez [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) pour une présentation du modèle de gestion des ressources Azure.
 
-Dans Azure Stack, il existe deux catégories générales de fournisseurs de ressources : celles qui déploient des ressources en tant que services fondamentaux, et celles qui déploient des services complémentaires.
+Dans Azure Stack, il existe deux catégories générales de fournisseurs de ressources : celles qui déploient des ressources en tant que services fondamentaux, et celles qui déploient des services à valeur ajoutée.
 
 ### <a name="foundational-services"></a>Services fondamentaux
 
@@ -53,12 +53,12 @@ Les services fondamentaux sont pris en charge par les fournisseurs de ressources
 | Microsoft.Network | Réseaux virtuels, adresses IP publiques, équilibreurs de charge |
 | Microsoft.Storage | Comptes de stockage, objets BLOB, files d’attente, tables |
 
-### <a name="add-on-services"></a>Services de modules complémentaires
+### <a name="value-add-services"></a>Services à valeur ajoutée
 
 >[!NOTE]
-> Afin d’offrir un service complémentaire, le fournisseur de ressources correspondant doit d'abord être installé dans la Place de marché Azure Stack. Une fois installées, ses ressources sont proposées aux utilisateurs de la même façon que les services de base. Reportez-vous à la section **Guides pratiques** de la table des matières pour la liste des fournisseurs de ressources acceptant des offres de services complémentaires.
+> Afin d’offrir un service à valeur ajoutée, le fournisseur de ressources correspondant doit d'abord être installé dans la Place de marché Azure Stack. Une fois installées, ses ressources sont proposées aux utilisateurs de la même façon que les services de base. Reportez-vous à la section **Guides pratiques** de la table des matières pour la liste des fournisseurs de ressources acceptant des offres de services à valeur ajoutée.
 
-Les services de module complémentaire sont pris en charge par les fournisseurs de ressources installés après le déploiement d’Azure Stack. Voici quelques exemples :
+Les services à valeur ajoutée sont pris en charge par les fournisseurs de ressources installés après le déploiement d’Azure Stack. Voici quelques exemples :
 
 | Fournisseur de ressources | Exemples de ressources |
 | ----------------- | ------------------------- |
@@ -69,7 +69,7 @@ Les services de module complémentaire sont pris en charge par les fournisseurs 
 ::: moniker range=">=azs-1902"
 ## <a name="create-an-offer"></a>Créer une offre
 
-Pendant le processus de création de l’offre, vous créez à la fois une offre et un abonnement. Le plan est utilisé comme plan de base de l’offre. Pendant la création du plan, vous spécifiez les services mis à disposition dans ce cadre et leurs quotas respectifs.
+Pendant le processus de création de l’offre, vous créez à la fois une offre et un plan. Le plan est utilisé comme plan de base de l’offre. Pendant la création du plan, vous spécifiez les services mis à disposition dans ce cadre et leurs quotas respectifs.
 
 1. Connectez-vous au portail administrateur avec un compte administrateur cloud.
 

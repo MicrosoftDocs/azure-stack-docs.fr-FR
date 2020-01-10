@@ -12,27 +12,27 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/17/2019
+ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: fc04032f7741c61a9b2b86e23a9173ca268a1e11
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.openlocfilehash: e6f20c1562606a6048bac63a943002b9aa73c1cc
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008339"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718502"
 ---
 # <a name="differences-between-azure-stack-and-azure-when-using-services-and-building-apps"></a>Différences entre Azure Stack et Azure quand vous utilisez des services et générez des applications
 
 Avant d’utiliser des services ou de générer des applications pour Azure Stack, il est important de comprendre les différences entre Azure Stack et Azure. Cet article présente les différentes fonctionnalités et les points importants à prendre en compte quand vous utilisez Azure Stack comme environnement de développement cloud hybride.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Azure Stack est une plateforme cloud hybride qui vous permet d’utiliser les services Azure à partir du centre de données de votre entreprise ou de votre fournisseur de services. Vous pouvez créer une application dans Azure Stack et la déployer ensuite dans Azure Stack, Azure ou votre cloud hybride Azure.
 
 Votre opérateur Azure Stack vous indique les services disponibles et comment accéder au support. Il propose ces services par le biais de ses offres et plans personnalisés.
 
-Le contenu de la documentation technique Azure part du principe que les applications sont développées pour un service Azure et non Azure Stack. Lorsque vous générez et déployez des applications sur Azure Stack, vous devez comprendre les principales différences, telles que les suivantes :
+Le [contenu de la documentation technique Azure](/azure) part du principe que les applications sont développées pour un service Azure et non pour Azure Stack. Lorsque vous générez et déployez des applications sur Azure Stack, vous devez comprendre les principales différences, telles que les suivantes :
 
 * Azure Stack fournit un sous-ensemble des services et fonctionnalités qui sont disponibles dans Azure.
 * Votre entreprise ou fournisseur de services peut choisir les services à proposer. Les options disponibles peuvent inclure des applications ou des services personnalisés. Il peut offrir sa propre documentation personnalisée.
@@ -52,7 +52,7 @@ Le tableau suivant décrit les principales différences entre Azure Stack et Azu
 | Services disponibles | Consultez la liste des [produits Azure](https://azure.microsoft.com/services/?b=17.04b). Les services disponibles varient selon la région Azure. | Azure Stack prend en charge une partie des services Azure. Les services réels varient en fonction de ce que votre organisation ou fournisseur de services choisit d’offrir.
 | Point de terminaison Azure Resource Manager* | https://management.azure.com | Pour un système intégré Azure Stack, utilisez le point de terminaison fourni par votre opérateur Azure Stack.<br><br>Pour le kit de développement, utilisez : https://management.local.azurestack.external.
 | URL du portail* | [https://portal.azure.com](https://portal.azure.com) | Pour un système intégré Azure Stack, utilisez l’URL fournie par votre opérateur Azure Stack.<br><br>Pour le kit de développement, utilisez : https://portal.local.azurestack.external.
-| Région | Vous pouvez sélectionner la région où effectuer le déploiement. | Pour un système intégré Azure Stack, utilisez la région disponible sur votre système.<br><br>Pour le kit de développement, la région est toujours définie sur **local**.
+| Région | Vous pouvez sélectionner la région où effectuer le déploiement. | Pour un système intégré Azure Stack, utilisez la région disponible sur votre système.<br><br>Pour le Kit de développement Azure Stack (ASDK), la région est toujours définie sur **local**.
 | Groupes de ressources | Un groupe de ressources peut s’étendre sur plusieurs régions. | Pour les systèmes intégrés et le kit de développement, il n’existe qu’une seule région.
 |Espaces de noms, types de ressources et versions d’API pris en charge | La dernière version (ou les versions antérieures qui ne sont pas encore dépréciées). | Azure Stack prend en charge des versions spécifiques. Consultez la section [Configuration requise pour la version](#version-requirements) de cet article.
 | | |
@@ -63,10 +63,10 @@ Le tableau suivant décrit les principales différences entre Azure Stack et Azu
 
 Microsoft fournit des outils et des conseils qui vous aident lors du développement pour Azure Stack.
 
-| Recommandation | Références |
+| Recommandation | References |
 | -------- | ------------- |
-| Installez les outils appropriés sur votre station de travail du développeur. | - [Installer PowerShell](../operator/azure-stack-powershell-install.md)<br>- [Télécharger des outils](../operator/azure-stack-powershell-download.md)<br>- [Configurer PowerShell](azure-stack-powershell-configure-user.md)<br>- [Installer Visual Studio](azure-stack-install-visual-studio.md) 
-| Passez en revue les informations relatives aux éléments suivants :<br>- Considérations relatives au modèle Azure Resource Manager<br>- Comment trouver les modèles de démarrage rapide<br>- Utiliser un module de stratégie pour vous aider à utiliser Azure pour le développement pour Azure Stack | [Développer pour Azure Stack](azure-stack-developer.md) | 
+| Installez les outils appropriés sur votre station de travail du développeur. | - [Installer PowerShell](../operator/azure-stack-powershell-install.md)<br>- [Télécharger des outils](../operator/azure-stack-powershell-download.md)<br>- [Configurer PowerShell](azure-stack-powershell-configure-user.md)<br>- [Installer Visual Studio](azure-stack-install-visual-studio.md)
+| Passez en revue les informations relatives aux éléments suivants :<br>- Considérations sur les modèles Azure Resource Manager.<br>- Comment trouver les modèles de démarrage rapide.<br>- Utiliser un module de stratégie pour vous permettre d’utiliser Azure pour le développement pour Azure Stack. | [Développer pour Azure Stack](azure-stack-developer.md) |
 | Passez en revue et appliquez les meilleures pratiques relatives aux modèles. | [Modèles de démarrage rapide Resource Manager](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
 | | |
 

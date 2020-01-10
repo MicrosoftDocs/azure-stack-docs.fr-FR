@@ -8,24 +8,24 @@ ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: 63c8e37c19b46f5cabe197dd55875e9bcbd5cb12
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 9e41cae53612cdf412840eb63d648a9c73260fa6
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286823"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727460"
 ---
-# <a name="tutorial-test-a-service-offering"></a>Didacticiel : Tester une offre de service
+# <a name="tutorial-test-a-service-offering"></a>Tutoriel : Tester une offre de service
 
 Dans le didacticiel précédent, vous avez créé une offre pour les utilisateurs. Ce didacticiel vous montre comment tester cette offre, en l’utilisant pour créer un abonnement. Vous créez et déployez ensuite des ressources sur les services de base qui sont autorisés par l’abonnement.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Création d’un abonnement
 > * Création et déploiement de ressources
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce didacticiel, vous devez remplir les conditions préalables suivantes :
 
@@ -139,7 +139,7 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 > * Création d’un abonnement
 > * Création et déploiement de ressources 
 
-Découvrez ensuite comment déployer des fournisseurs de ressources pour les services complémentaires. Ils vous permettent d’offrir encore plus de services aux utilisateurs de vos offres :
+Découvrez ensuite comment déployer des fournisseurs de ressources pour les services à valeur ajoutée. Ils vous permettent d’offrir encore plus de services aux utilisateurs de vos offres :
 
 - [Offre SQL sur Azure Stack](azure-stack-sql-resource-provider.md)
 - [Offre MySQL sur Azure Stack](azure-stack-mysql-resource-provider.md)

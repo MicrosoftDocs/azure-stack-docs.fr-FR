@@ -16,12 +16,12 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 0b30f95b1158df7a20d4c03f26ce0b9ce034f6d6
-ms.sourcegitcommit: e509ae283c6c3c6a83143dbdc63d0b5556daf54a
+ms.openlocfilehash: e31edd266c16fa51855efa3259c86ecf9b53660b
+ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2019
-ms.locfileid: "75031788"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75677686"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack"></a>Démarrage rapide : Créer une machine virtuelle Windows Server à l’aide de PowerShell dans Azure Stack
 
@@ -31,7 +31,7 @@ Il est possible de créer une machine virtuelle Windows Server 2016 avec Azure S
 
 * Se connecter à la machine virtuelle avec un client distant.
 * Installer le serveur web IIS et afficher la page d’accueil par défaut.
-* Nettoyer vos ressources.
+* Nettoyer des ressources.
 
 > [!NOTE]
 >  Vous pouvez exécuter les étapes décrites dans cet article à partir du Kit de développement Azure Stack ou à partir d’un client externe Windows si vous êtes connecté par le biais d’un VPN.
@@ -63,7 +63,7 @@ New-AzureRmResourceGroup `
 
 ## <a name="create-storage-resources"></a>Créer des ressources de stockage
 
-Créez un compte de stockage ainsi qu’un conteneur de stockage pour stocker l’image Windows Server 2016.
+Créez un compte de stockage pour stocker la sortie des diagnostics de démarrage.
 
 ```powershell
 # Create variables to store the storage account name and the storage account SKU information
