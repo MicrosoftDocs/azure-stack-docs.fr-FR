@@ -304,6 +304,8 @@
               href: azure-stack-app-service-add-worker-roles.md
             - name: Configurer des sources de déploiement
               href: azure-stack-app-service-configure-deployment-sources.md
+            - name: Effectuer une rotation des secrets et des certificats App Service
+              href: app-service-rotate-certificates.md
             - name: "Sauvegarder App\_Service"
               href: app-service-back-up.md
             - name: "Récupérer App\_Service"
