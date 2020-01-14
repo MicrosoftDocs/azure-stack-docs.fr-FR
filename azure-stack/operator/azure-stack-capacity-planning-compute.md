@@ -16,12 +16,12 @@ ms.date: 07/16/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: dac0360bba7c24c85d1f30efbfb7fad30eb97028
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: 02cd98891f825714e63b29502f46e9847548d3a3
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74299149"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727392"
 ---
 # <a name="azure-stack-compute"></a>Calcul Azure Stack
 
@@ -74,7 +74,7 @@ La mémoire utilisée inclut plusieurs composants. Les composants suivants conso
  - Services d’infrastructure : il s’agit des machines virtuelles d’infrastructure qui composent Azure Stack. À compter de la version 1904 d’Azure Stack, cela implique environ 31 machines virtuelles qui occupent 242 Go + (4 Go x nombre de nœuds) de mémoire. L’utilisation de la mémoire du composant Services d’infrastructure pourra varier, car nous essayons de rendre nos services d’infrastructure plus évolutifs et résilients.
  - Réserve de résilience : Azure Stack réserve une partie de la mémoire aux locataires lors d’une défaillance d’un seul hôte, ainsi que pendant l’application de correctifs ou de mises à jour pour garantir la réussite des migrations dynamiques des machines virtuelles.
  - Machines virtuelles de locataire : il s’agit des machines virtuelles de locataire créées par les utilisateurs Azure Stack. La mémoire est consommée, non seulement par les machines virtuelles en cours d’exécution, mais aussi par toutes les machines virtuelles qui ont atterri sur la structure fabric. Cela signifie que les machines virtuelles qui ont l’état « Création en cours » ou « Échec » ou bien qui sont arrêtées à partir de l’invité consomment de la mémoire. En revanche, les machines virtuelles libérées à l’aide de l’option d’arrêt appropriée à partir du portail, de PowerShell ou de la CLI ne consomment pas de mémoire d’Azure Stack.
- - Modules complémentaires RP : machines virtuelles déployées pour des modules complémentaires RP comme SQL, MySQL, App Service, etc.
+ - Fournisseurs de ressources à valeur ajoutée : machines virtuelles déployées pour des fournisseurs de ressources à valeur ajoutée tels que SQL, MySQL, App Service, etc.
 
 
 La meilleure façon de comprendre la consommation de mémoire sur le portail consiste à utiliser [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) pour voir l’impact des différentes charges de travail. Le calcul suivant est identique à celui utilisé par le planificateur.

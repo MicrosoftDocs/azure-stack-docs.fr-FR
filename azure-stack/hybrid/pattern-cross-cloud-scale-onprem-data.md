@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 75a72deac409013b3fcd77693c3a7ceb2d2497cc
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: fbf25d49539ebe244b44681ca3207badf744b99b
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640178"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718281"
 ---
 # <a name="cross-cloud-scaling-on-premises-data-pattern"></a>Modèle de mise à l’échelle multicloud (données locales)
 
@@ -31,7 +31,7 @@ Le guide de déploiement de la solution vous permet de déployer une application
 
 [![Modèle de mise à l’échelle multicloud (données locales)](media/pattern-cross-cloud-scale-onprem-data/solution-architecture.png)](media/pattern-cross-cloud-scale-onprem-data/solution-architecture.png)
 
-## <a name="components"></a>Composants
+## <a name="components"></a>Components
 
 Cette solution utilise les composants suivants :
 
@@ -52,7 +52,7 @@ Cette solution utilise les composants suivants :
 
 ## <a name="issues-and-considerations"></a>Problèmes et considérations
 
-Tenez compte des points suivants lors du choix de l’implémentation de cette solution :
+Prenez en compte des points suivants lors du choix de l'implémentation de cette solution :
 
 ### <a name="scalability"></a>Extensibilité 
 
@@ -82,7 +82,7 @@ La mise à l’échelle multicloud peut être utilisée pour soutenir la charge 
 
 Le déploiement à l’échelle mondiale a ses propres défis, tels que la connectivité variable et les réglementations gouvernementales différentes par région. Les développeurs peuvent développer une seule application et la déployer pour différentes raisons avec des exigences différentes.  Déployez votre application dans le cloud public Azure, puis déployez des instances ou des composants supplémentaires localement. Vous pouvez gérer le trafic entre toutes les instances à l’aide d’Azure.
 
-### <a name="manageability"></a>Facilité de gestion
+### <a name="manageability"></a>Simplicité de gestion
 
 **Une approche de développement unique et cohérente**
 
@@ -101,7 +101,7 @@ Azure Stack Hub fonctionne avec Azure Active Directory et Services ADFS (ADFS). 
 
 **Garantir la conformité et la souveraineté des données**
 
-Azure Stack Hub vous permet d’exécuter le même service dans plusieurs pays, comme avec un cloud public. Le déploiement de la même application dans les centres de données de chaque pays permet la satisfaction des exigences relatives à la souveraineté des données. Cette fonctionnalité garantit que les données personnelles sont conservées dans les limites de chaque pays.
+Azure Stack Hub vous permet d’exécuter le même service dans plusieurs pays, comme avec un cloud public. Le déploiement de la même application dans les centres de données de chaque pays permet de répondre aux exigences relatives à la souveraineté des données. Cette fonctionnalité garantit que les données personnelles sont conservées dans les limites de chaque pays.
 
 **Azure Stack Hub - Posture de sécurité**
 
@@ -133,8 +133,8 @@ Pour plus d’informations sur la création d’un principal de service et l’u
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur les sujets abordés dans cet article :
-- Pour une présentation de l’utilisation de ce modèle, consultez [Mettre à l’échelle dynamiquement des applications entre les centres de données et le cloud public](https://www.youtube.com/watch?v=2lw8zOpJTn0).
-- Consultez [Considérations relatives à la conception des applications hybrides](overview-app-design-considerations.md) pour en savoir plus sur les meilleures pratiques, et pour obtenir les réponses à d’autres questions.
-- Ce modèle utilise la famille de produits Azure Stack, notamment Azure Stack Hub. Pour plus d’informations sur l’ensemble du portefeuille de produits et de solutions, consultez [Famille de produits et de solutions d’Azure Stack ](/azure-stack).
+- Pour obtenir une vue d’ensemble de la façon dont ce modèle est utilisé, regardez [Mettre à l’échelle dynamiquement des applications entre les centres de données et le cloud public](https://www.youtube.com/watch?v=2lw8zOpJTn0).
+- Consultez [Considérations relatives à la conception des applications hybrides](overview-app-design-considerations.md) pour en savoir plus sur les meilleures pratiques et obtenir des réponses à d'autres questions.
+- Ce modèle utilise la famille de produits Azure Stack, notamment Azure Stack Hub. Consultez [Famille de produits et de solutions Azure Stack](/azure-stack) pour en savoir plus sur l'ensemble du portefeuille de produits et de solutions.
 
 Lorsque vous êtes prêt à tester l’exemple de solution, poursuivez avec le [Guide de déploiement de la solution de mise à l’échelle multicloud (données locales)](solution-deployment-guide-cross-cloud-scaling-onprem-data.md). Ce guide de déploiement fournit des instructions pas à pas sur le déploiement et sur le test de ses composants.

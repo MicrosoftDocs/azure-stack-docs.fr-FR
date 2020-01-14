@@ -11,12 +11,12 @@ ms.date: 12/04/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: 97a9fe73eb83df07a9b24dc130c8295218cda7ad
-ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
+ms.openlocfilehash: fb6271114f27b16b9cb7a660deb7d6bcee197ca2
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74831007"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718128"
 ---
 # <a name="update-windows-defender-antivirus-on-azure-stack-hub"></a>Mettre à jour l’antivirus Windows Defender sur Azure Stack Hub
 
@@ -30,7 +30,7 @@ Pour les déploiements Azure Stack Hub qui sont connectés à l’Internet publi
 
 ## <a name="disconnected-scenario"></a>Scénario déconnecté
 
-Pour les déploiements Azure Stack Hub qui ne sont pas connectés à l’Internet public (par exemple, les centres de données protégés par un « air gap »), à partir de la version 1910, les clients ont la possibilité d’appliquer les définitions de logiciel anti-programme malveillant et les mises à jour du moteur lors de leur publication. 
+Pour les déploiements Azure Stack Hub qui ne sont pas connectés à l’Internet public (par exemple les centres de données protégés par un « air gap »), à partir de la version 1910, les clients peuvent appliquer les définitions de logiciel anti-programme malveillant et les mises à jour du moteur au moment de leur publication. 
 
 Pour appliquer les mises à jour à votre solution Azure Stack Hub, commencez par les télécharger à partir du site Microsoft (liens ci-dessous), puis importez-les dans un conteneur d’objets blob de stockage sous votre compte *updateadminaccount*. Une tâche planifiée analyse le conteneur d’objets blob toutes les 30 minutes et, si de nouvelles définitions Defender et mises à jour du moteur sont détectées, celles-ci sont appliquées à l’infrastructure Azure Stack Hub. 
 

@@ -1,7 +1,6 @@
 ---
-title: Types de quotas dans Azure Stack | Microsoft Docs
-titleSuffix: Azure Stack
-description: Affichez et modifiez les différents types de quotas disponibles pour les services et les ressources dans Azure Stack.
+title: Types de quota dans Azure Stack Hub | Microsoft Docs
+description: Visualisez et modifiez les différents types de quota disponibles pour les services et les ressources dans Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -13,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 049e4577541dea4f41a8ad18fc7f61875109153e
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: d6068ef98d4fe2d575f5501ad6760d4b408385cd
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557544"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718094"
 ---
-# <a name="quota-types-in-azure-stack"></a>Types de quotas dans Azure Stack
+# <a name="quota-types-in-azure-stack-hub"></a>Types de quota dans Azure Stack Hub
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -80,7 +79,7 @@ Il existe deux façons d’afficher un quota existant :
 3. Dans le panneau qui s’ouvre, sélectionnez **Services et quotas**.
 4. Sélectionnez le quota que vous souhaitez voir en cliquant sur celui-ci dans la colonne **Nom**.
 
-    [![Quotas dans le portail administrateur Azure Stack](media/azure-stack-quota-types/quotas1sm.png "Voir les quotas dans le portail administrateur")](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Quotas dans le portail administrateur Azure Stack Hub](media/azure-stack-quota-types/quotas1sm.png "Voir les quotas dans le portail administrateur")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### <a name="resource-providers"></a>Fournisseurs de ressources
 
@@ -99,11 +98,11 @@ Il existe deux façons différentes de modifier un quota :
 3. Dans le panneau qui s’ouvre, sélectionnez **Services et quotas**.
 4. Sélectionnez le quota à modifier en cliquant sur celui-ci dans la colonne **Nom**.
 
-    [![Quotas dans le portail administrateur Azure Stack](media/azure-stack-quota-types/quotas1sm.png "Voir les quotas dans le portail administrateur")](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Quotas dans le portail administrateur Azure Stack Hub](media/azure-stack-quota-types/quotas1sm.png "Voir les quotas dans le portail administrateur")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 5. Dans le panneau qui s’ouvre, sélectionnez **Modifier dans Compute**, **Modifier dans Réseau**, ou **Modifier dans Stockage**.
 
-    ![Modifier un plan dans le portail administrateur Azure Stack](media/azure-stack-quota-types/quotas3.png "Modifier un plan dans le portail administrateur Azure Stack")
+    ![Modifier un plan dans le portail administrateur Azure Stack Hub](media/azure-stack-quota-types/quotas3.png "Modifier un plan dans le portail administrateur Azure Stack Hub")
 
 Vous pouvez également suivre cette procédure pour modifier un quota :
 

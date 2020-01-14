@@ -4,7 +4,7 @@ titleSuffix: Azure Stack
 description: Découvrez les contrôles et la posture de sécurité appliqués à Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: PatAltimore
+author: JustinHall
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2019
-ms.author: patricka
+ms.author: justinha
 ms.reviewer: fiseraci
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 4050a33be2436b919ffe4b4668b38a595523bd0d
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.lastreviewed: 12/29/2019
+ms.openlocfilehash: f7fafa465971fcdd7670c8cc5ec046321c60d9bc
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780794"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718077"
 ---
 # <a name="azure-stack-infrastructure-security-controls"></a>Contrôles de sécurité de l’infrastructure Azure Stack
 
@@ -54,6 +54,7 @@ Les composants de l’infrastructure Azure Stack communiquent à l’aide de can
 Tous les points de terminaison externes de l’infrastructure, tels que les points de terminaison REST ou le portail Azure Stack, prennent en charge TLS 1.2 pour sécuriser les communications. Des certificats de chiffrement, issus d’un tiers ou de l’autorité de certification de votre entreprise, doivent être fournis pour ces points de terminaison.
 
 Même si vous pouvez utiliser des certificats auto-signés pour ces points de terminaison externes, Microsoft vous le déconseille fortement.
+Pour plus d’informations sur la façon d’appliquer TLS 1.2 aux points de terminaison externes d’Azure Stack Hub, consultez [Configurer les contrôles de sécurité d’Azure Stack](azure-stack-security-configuration.md).
 
 ## <a name="secret-management"></a>Gestion des secrets
 
@@ -61,23 +62,30 @@ L’infrastructure Azure Stack utilise une multitude de secrets, tels que des mo
 
 Les autres secrets qui ne sont pas des comptes gMSA peuvent être permutés manuellement avec un script dans le point de terminaison privilégié.
 
-## <a name="code-integrity"></a>Intégrité du code
+L’infrastructure Azure Stack Hub utilise des clés RSA 4 096 bits pour tous ses certificats internes. Vous pouvez utiliser les mêmes certificats de longueur de clé pour les points de terminaison externes. Pour plus d’informations sur la rotation des secrets et des certificats, consultez [Effectuer une rotation des secrets dans Azure Stack](azure-stack-rotate-secrets.md).
 
-Azure Stack se sert des fonctionnalités de sécurité de Windows Server 2016 les plus récentes. L’une d’elles est Windows Defender Device Guard, qui prend en charge l’approbation des applications et garantit que seul du code autorisé peut s’exécuter dans l’infrastructure Azure Stack.
+## <a name="windows-defender-application-control"></a>Windows Defender Application Control
 
-Le code autorisé est signé par Microsoft ou le partenaire OEM. Le code autorisé signé est inclus dans la liste des logiciels autorisés, spécifiée dans une stratégie définie par Microsoft. En d’autres termes, seuls les logiciels qui ont été approuvés pour s’exécuter dans l’infrastructure Azure Stack peuvent être exécutés. Toute tentative d’exécution d’un code non autorisé est bloquée et donne lieu à un audit.
+Azure Stack se sert des dernières fonctionnalités de sécurité de Windows Server. L’une d’elles se nomme WDAC (Windows Defender Application Control, anciennement appelée Code Integrity). Elle fournit une liste verte des exécutables et garantit que seul du code autorisé peut s’exécuter dans l’infrastructure Azure Stack.
 
-De plus, la stratégie Device Guard empêche les agents tiers ou les logiciels de s’exécuter dans l’infrastructure Azure Stack.
+Le code autorisé est signé par Microsoft ou le partenaire OEM. Le code autorisé signé est inclus dans la liste des logiciels autorisés, spécifiée dans une stratégie définie par Microsoft. En d’autres termes, seuls les logiciels approuvés pour s’exécuter dans l’infrastructure Azure Stack Hub peuvent être exécutés. Toute tentative d’exécution de code non autorisé est bloquée, et une alerte est générée. Azure Stack Hub applique à la fois l’intégrité du code du mode utilisateur (UMCI) et l’intégrité du code de l’hyperviseur (HVCI).
+
+La stratégie WDAC empêche également les agents ou logiciels tiers de s’exécuter dans l’infrastructure Azure Stack.
+Pour plus d’informations sur WDAC, consultez [Windows Defender Application Control et protection de l’intégrité du code basée sur la virtualisation](https://docs.microsoft.com/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control).
 
 ## <a name="credential-guard"></a>Credential Guard
 
-Une autre fonctionnalité de sécurité de Windows Server 2016 dans Azure Stack est Windows Defender Credential Guard, qui est utilisé pour protéger les informations d’identification de l’infrastructure Azure Stack contre les attaques pass-the-hash et pass-the-ticket.
+Il existe une autre fonctionnalité de sécurité de Windows Server dans Azure Stack, il s’agit de Windows Defender Credential Guard, qui permet de protéger les informations d’identification de l’infrastructure Azure Stack contre les attaques Pass-the-Hash et Pass-the-Ticket.
 
 ## <a name="antimalware"></a>Logiciel anti-programme malveillant
 
 Tous les composants Azure Stack (les hôtes et les machines virtuelles Hyper-V) sont protégés par l’antivirus Windows Defender.
 
-Dans les scénarios connectés, les mises à jour du moteur et des définitions de l’antivirus sont appliquées plusieurs fois par jour. Dans les scénarios déconnectés, les mises à jour du logiciel anti-programme malveillant sont appliquées dans le cadre des mises à jour mensuelles de Azure Stack. Pour plus d’informations, voir [Mettre à jour l’antivirus Windows Defender sur Azure Stack](azure-stack-security-av.md).
+Dans les scénarios connectés, les mises à jour du moteur et des définitions de l’antivirus sont appliquées plusieurs fois par jour. Dans les scénarios déconnectés, les mises à jour du logiciel anti-programme malveillant sont appliquées dans le cadre des mises à jour mensuelles de Azure Stack. Si une mise à jour plus fréquente des définitions Windows Defender est nécessaire dans les scénarios déconnectés, Azure Stack Hub prend également en charge l’importation des mises à jour Windows Defender. Pour plus d’informations, voir [Mettre à jour l’antivirus Windows Defender sur Azure Stack](azure-stack-security-av.md).
+
+## <a name="secure-boot"></a>Démarrage sécurisé
+
+Azure Stack Hub applique le démarrage sécurisé sur tous les hôtes Hyper-V et toutes les machines virtuelles de l’infrastructure. 
 
 ## <a name="constrained-administration-model"></a>Modèle d’administration avec contraintes
 

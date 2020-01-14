@@ -1,6 +1,6 @@
 ---
 title: Informations de référence sur l’applet de commande Start-AzsReadinessChecker | Microsoft Docs
-description: Aide sur l’applet de commande PowerShell pour le module Azure Stack Readiness Checker.
+description: Aide sur l’applet de commande PowerShell pour le module Azure Stack Hub Readiness Checker.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: f60ee96673b5574f0cd0393dc6a53a2d7937c04f
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: d6b7525657696792bd72d968e8888bd8f7bc62fb
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159160"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727443"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Informations de référence sur l’applet de commande Start-AzsReadinessChecker
 
 Module : **Microsoft.AzureStack.ReadinessChecker**
 
-Ce module contient une seule applet de commande. L’applet de commande effectue une ou plusieurs fonctions préalables au déploiement ou à la maintenance d’Azure Stack.
+Ce module contient une seule applet de commande. L’applet de commande effectue une ou plusieurs fonctions préalables au déploiement ou à la maintenance d’Azure Stack Hub.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -166,7 +166,7 @@ Start-AzsReadinessChecker
 
 ## <a name="description"></a>Description
 
-L’applet de commande **Start-AzsReadinessChecker** valide les certificats, les comptes Azure, les abonnements Azure et les annuaires Azure Active Directory (Azure AD). Exécutez la validation avant de déployer Azure Stack ou avant d’exécuter des actions de maintenance sur Azure Stack, comme la rotation des secrets. L’applet de commande peut également servir à générer des demandes de signature de certificat pour des certificats d’infrastructure et, éventuellement, des certificats PaaS. Enfin, l’applet de commande peut repackager des certificats PFX pour corriger les problèmes de packaging courants.
+L’applet de commande **Start-AzsReadinessChecker** valide les certificats, les comptes Azure, les abonnements Azure et les annuaires Azure Active Directory (Azure AD). Exécutez la validation avant de déployer Azure Stack Hub, ou avant d’effectuer les actions de maintenance Azure Stack Hub telles que la rotation des secrets. L’applet de commande peut également servir à générer des demandes de signature de certificat pour des certificats d’infrastructure et, éventuellement, des certificats PaaS. Enfin, l’applet de commande peut repackager des certificats PFX pour corriger les problèmes de packaging courants.
 
 ## <a name="examples"></a>Exemples
 
@@ -179,7 +179,7 @@ $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="
 Start-AzsReadinessChecker -regionName $regionName -externalFQDN $externalFQDN -subject $subjectHash -IdentitySystem ADFS -requestType MultipleCSR
 ```
 
-Dans cet exemple, `Start-AzsReadinessChecker` génère plusieurs demandes de signature de certificat pour des certificats adaptés à un déploiement AD FS d’Azure Stack, avec **east** comme nom de région et **azurestack.contoso.com** comme FQDN externe.
+Dans cet exemple, `Start-AzsReadinessChecker` génère plusieurs demandes de signature de certificat pour des certificats adaptés à un déploiement AD FS d’Azure Stack Hub, avec **east** (est) comme nom de région et **azurestack.contoso.com** comme FQDN externe.
 
 ### <a name="example-validate-certificates"></a>Exemple : valider des certificats
 
@@ -257,7 +257,7 @@ $subscriptionID = "<subscription ID"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -AzureEnvironment "<environment name>"
 ```
 
-Dans cet exemple, les informations d’identification du propriétaire de l’abonnement sont demandées à des fins de sécurité. `Start-AzsReadinessChecker` valide ensuite le compte et l’abonnement donnés pour vérifier qu’ils peuvent être utilisés pour l’inscription d’Azure Stack.
+Dans cet exemple, les informations d’identification du propriétaire de l’abonnement sont demandées à des fins de sécurité. `Start-AzsReadinessChecker` valide ensuite le compte et l’abonnement donnés afin de vérifier s’ils peuvent être utilisés pour l’inscription d’Azure Stack Hub.
 
 ### <a name="example-validate-azure-registration-with-deployment-data-deployment-team"></a>Exemple : valider l’inscription auprès d’Azure avec des données de déploiement (équipe de déploiement)
 
@@ -267,7 +267,7 @@ $subscriptionID = "<subscription ID>"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
-Dans cet exemple, les informations d’identification du propriétaire de l’abonnement sont demandées à des fins de sécurité. `Start-AzsReadinessChecker` valide ensuite le compte et l’abonnement donnés pour vérifier qu’ils peuvent être utilisés pour l’inscription d’Azure Stack, où des détails supplémentaires sont lus à partir du fichier JSON de données de déploiement généré pour le déploiement.
+Dans cet exemple, les informations d’identification du propriétaire de l’abonnement sont demandées à des fins de sécurité. `Start-AzsReadinessChecker` valide ensuite le compte et l’abonnement donnés pour vérifier qu’ils peuvent être utilisés pour l’inscription d’Azure Stack Hub, où des détails supplémentaires sont lus à partir du fichier JSON de données de déploiement généré pour le déploiement.
 
 ### <a name="example-importexport-pfx-package"></a>Exemple : importer/exporter un package PFX
 
@@ -298,23 +298,23 @@ Dans cet exemple, l’équipe de déploiement ou de support reçoit le rapport d
 
 ### <a name="-regionname"></a>-RegionName
 
-Spécifie le nom de la région du déploiement Azure Stack.
+Spécifie le nom de la région du déploiement Azure Stack Hub.
 
 |  |  |
 |----------------------------|--------------|
-|Tapez :                       |Chaîne        |
+|Tapez :                       |String        |
 |Position :                   |named         |
-|Valeur par défaut :              |Aucun          |
+|Valeur par défaut :              |None          |
 |Accepter l’entrée de pipeline :      |False         |
 |Accepter les caractères génériques : |False         |
 
 ### <a name="-fqdn"></a>-FQDN
 
-Spécifie le FQDN externe du déploiement Azure Stack (alias : **ExternalFQDN** et **ExternalDomainName**).
+Spécifie le FQDN externe du déploiement Azure Stack Hub (alias : **ExternalFQDN** et **ExternalDomainName**).
 
 |  |  |
 |----------------------------|--------------|
-|Tapez :                       |Chaîne        |
+|Tapez :                       |String        |
 |Position :                   |named         |
 |Valeur par défaut :              |ExternalFQDN, ExternalDomainName |
 |Accepter l’entrée de pipeline :      |False         |
@@ -322,13 +322,13 @@ Spécifie le FQDN externe du déploiement Azure Stack (alias : **ExternalFQDN** 
 
 ### <a name="-identitysystem"></a>-IdentitySystem
 
-Spécifie les valeurs valides du système d’identité du déploiement Azure Stack : AAD (Azure Active Directory) et ADFS (services de fédération Active Directory).
+Spécifie les valeurs valides du système d’identité du déploiement Azure Stack Hub, AAD (Azure Active Directory) ou ADFS (Active Directory Federated Services).
 
 |  |  |
 |----------------------------|--------------|
-|Tapez :                       |Chaîne        |
+|Tapez :                       |String        |
 |Position :                   |named         |
-|Valeur par défaut :              |Aucun          |
+|Valeur par défaut :              |None          |
 |Valeurs valides :               |« AAD », « ADFS »  |
 |Accepter l’entrée de pipeline :      |False         |
 |Accepter les caractères génériques : |False         |
@@ -341,7 +341,7 @@ Spécifie le mot de passe associé aux fichiers de certificat PFX.
 |----------------------------|---------|
 |Tapez :                       |SecureString |
 |Position :                   |named    |
-|Valeur par défaut :              |Aucun     |
+|Valeur par défaut :              |None     |
 |Accepter l’entrée de pipeline :      |False    |
 |Accepter les caractères génériques : |False    |
 
@@ -353,19 +353,19 @@ Spécifie la table de hachage contenant les chemins et mots de passe des certifi
 |----------------------------|---------|
 |Tapez :                       |Hashtable |
 |Position :                   |named    |
-|Valeur par défaut :              |Aucun     |
+|Valeur par défaut :              |None     |
 |Accepter l’entrée de pipeline :      |False    |
 |Accepter les caractères génériques : |False    |
 
 ### <a name="-deploymentdatajsonpath"></a>-DeploymentDataJSONPath
 
-Spécifie le fichier de configuration JSON des données de déploiement Azure Stack. Ce fichier est généré pour le déploiement.
+Spécifie le fichier config JSON des données de déploiement Azure Stack Hub. Ce fichier est généré pour le déploiement.
 
 |  |  |
 |----------------------------|---------|
-|Tapez :                       |Chaîne   |
+|Tapez :                       |String   |
 |Position :                   |named    |
-|Valeur par défaut :              |Aucun     |
+|Valeur par défaut :              |None     |
 |Accepter l’entrée de pipeline :      |False    |
 |Accepter les caractères génériques : |False    |
 
@@ -375,9 +375,9 @@ Spécifie le chemin à un certificat problématique dont la correction nécessit
 
 |  |  |
 |----------------------------|---------|
-|Tapez :                       |Chaîne   |
+|Tapez :                       |String   |
 |Position :                   |named    |
-|Valeur par défaut :              |Aucun     |
+|Valeur par défaut :              |None     |
 |Accepter l’entrée de pipeline :      |False    |
 |Accepter les caractères génériques : |False    |
 
@@ -387,9 +387,9 @@ Spécifie le chemin de destination du fichier PFX résultant de la routine d’i
 
 |  |  |
 |----------------------------|---------|
-|Tapez :                       |Chaîne   |
+|Tapez :                       |String   |
 |Position :                   |named    |
-|Valeur par défaut :              |Aucun     |
+|Valeur par défaut :              |None     |
 |Accepter l’entrée de pipeline :      |False    |
 |Accepter les caractères génériques : |False    |
 
@@ -401,7 +401,7 @@ Spécifie un dictionnaire ordonné de l’objet pour la génération de demande 
 |----------------------------|---------|
 |Tapez :                       |OrderedDictionary   |
 |Position :                   |named    |
-|Valeur par défaut :              |Aucun     |
+|Valeur par défaut :              |None     |
 |Accepter l’entrée de pipeline :      |False    |
 |Accepter les caractères génériques : |False    |
 
@@ -414,9 +414,9 @@ Spécifie le type SAN de la demande de certificat. Valeurs valides : **Multiple
 
 |  |  |
 |----------------------------|---------|
-|Tapez :                       |Chaîne   |
+|Tapez :                       |String   |
 |Position :                   |named    |
-|Valeur par défaut :              |Aucun     |
+|Valeur par défaut :              |None     |
 |Valeurs valides :               |« MultipleCSR », « SingleCSR » |
 |Accepter l’entrée de pipeline :      |False    |
 |Accepter les caractères génériques : |False    |
@@ -427,70 +427,70 @@ Spécifie le chemin de destination pour les fichiers de demande de certificat. L
 
 |  |  |
 |----------------------------|---------|
-|Tapez :                       |Chaîne   |
+|Tapez :                       |String   |
 |Position :                   |named    |
-|Valeur par défaut :              |Aucun     |
+|Valeur par défaut :              |None     |
 |Accepter l’entrée de pipeline :      |False    |
 |Accepter les caractères génériques : |False    |
 
 ### <a name="-aadserviceadministrator"></a>-AADServiceAdministrator
 
-Spécifie l’administrateur de service Azure AD à utiliser pour le déploiement d’Azure Stack.
+Spécifie l’administrateur de service Azure AD à utiliser pour le déploiement d’Azure Stack Hub.
 
 |  |  |
 |----------------------------|---------|
 |Tapez :                       |PSCredential   |
 |Position :                   |named    |
-|Valeur par défaut :              |Aucun     |
+|Valeur par défaut :              |None     |
 |Accepter l’entrée de pipeline :      |False    |
 |Accepter les caractères génériques : |False    |
 
 ### <a name="-aaddirectorytenantname"></a>-AADDirectoryTenantName
 
-Spécifie le nom Azure AD à utiliser pour le déploiement d’Azure Stack.
+Spécifie le nom Azure AD à utiliser pour le déploiement d’Azure Stack Hub.
 
 |  |  |
 |----------------------------|---------|
-|Tapez :                       |Chaîne   |
+|Tapez :                       |String   |
 |Position :                   |named    |
-|Valeur par défaut :              |Aucun     |
+|Valeur par défaut :              |None     |
 |Accepter l’entrée de pipeline :      |False    |
 |Accepter les caractères génériques : |False    |
 
 ### <a name="-azureenvironment"></a>-AzureEnvironment
 
-Spécifie l’instance des services Azure contenant les comptes, annuaires et abonnements à utiliser pour l’inscription et le déploiement d’Azure Stack.
+Spécifie l’instance des services Azure contenant les comptes, annuaires et les abonnements à utiliser pour le déploiement et l’inscription d’Azure Stack Hub.
 
 |  |  |
 |----------------------------|---------|
-|Tapez :                       |Chaîne   |
+|Tapez :                       |String   |
 |Position :                   |named    |
-|Valeur par défaut :              |Aucun     |
+|Valeur par défaut :              |None     |
 |Valeurs valides :               |« AzureCloud », « AzureChinaCloud », « AzureUSGovernment » |
 |Accepter l’entrée de pipeline :      |False    |
 |Accepter les caractères génériques : |False    |
 
 ### <a name="-registrationaccount"></a>-RegistrationAccount
 
-Spécifie le compte d’inscription à utiliser pour l’inscription d’Azure Stack.
+Spécifie le compte d’inscription à utiliser pour l’inscription d’Azure Stack Hub.
 
 |  |  |
 |----------------------------|---------|
-|Tapez :                       |Chaîne   |
+|Tapez :                       |String   |
 |Position :                   |named    |
-|Valeur par défaut :              |Aucun     |
+|Valeur par défaut :              |None     |
 |Accepter l’entrée de pipeline :      |False    |
 |Accepter les caractères génériques : |False    |
 
 ### <a name="-registrationsubscriptionid"></a>-RegistrationSubscriptionID
 
-Spécifie l’ID d’abonnement d’inscription à utiliser pour l’inscription d’Azure Stack.
+Spécifie l’ID d’abonnement d’inscription à utiliser pour l’inscription d’Azure Stack Hub.
 
 |  |  |
 |----------------------------|---------|
 |Tapez :                       |Guid     |
 |Position :                   |named    |
-|Valeur par défaut :              |Aucun     |
+|Valeur par défaut :              |None     |
 |Accepter l’entrée de pipeline :      |False    |
 |Accepter les caractères génériques : |False    |
 
@@ -500,7 +500,7 @@ Spécifie le chemin du rapport de préparation. Le répertoire actif et le nom d
 
 |  |  |
 |----------------------------|---------|
-|Tapez :                       |Chaîne   |
+|Tapez :                       |String   |
 |Position :                   |named    |
 |Valeur par défaut :              |Tous      |
 |Accepter l’entrée de pipeline :      |False    |
@@ -512,17 +512,17 @@ Spécifie le chemin du rapport de préparation. Le répertoire actif et le nom d
 
 Spécifie le chemin sous lequel seuls les dossiers de certificat exigés sont présents.
 
-Les dossiers exigés pour le déploiement d’Azure Stack avec le système d’identité Azure AD sont les suivants :
+Les dossiers nécessaires pour le déploiement d’Azure Stack Hub avec le système d’identité Azure AD sont les suivants :
 
 - ACSBlob, ACSQueue, ACSTable, Admin Portal, ARM Admin, ARM Public, KeyVault, KeyVaultInternal, Public Portal
 
-Les dossiers exigés pour le déploiement d’Azure Stack avec le système d’identité des services de fédération Active Directory (AD FS) sont les suivants :
+Les dossiers nécessaires pour le déploiement d’Azure Stack Hub avec le système d’identité des services de fédération Active Directory (AD FS) sont les suivants :
 
 - ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM Admin, ARM Public, Graph, KeyVault, KeyVaultInternal, Public Portal
 
 |  |  |
 |----------------------------|---------|
-|Tapez :                       |Chaîne   |
+|Tapez :                       |String   |
 |Position :                   |named    |
 |Valeur par défaut :              |.\Certificates |
 |Accepter l’entrée de pipeline :      |False    |
@@ -546,7 +546,7 @@ Spécifie d’afficher uniquement le récapitulatif du rapport. Omet les détail
 
 |  |  |
 |----------------------------|---------|
-|Tapez :                       |Chaîne   |
+|Tapez :                       |String   |
 |Position :                   |named    |
 |Valeur par défaut :              |Tous      |
 |Valeurs valides :               |« Certificat », « AzureRegistration », « AzureIdentity », « Jobs », « All » |
@@ -584,7 +584,7 @@ Spécifie un chemin personnalisé pour enregistrer le rapport JSON de préparati
 
 |  |  |
 |----------------------------|------------------|
-|Tapez :                       |Chaîne            |
+|Tapez :                       |String            |
 |Position :                   |named             |
 |Valeur par défaut :              |$ENV:TEMP\AzsReadinessChecker  |
 |Accepter l’entrée de pipeline :      |False             |

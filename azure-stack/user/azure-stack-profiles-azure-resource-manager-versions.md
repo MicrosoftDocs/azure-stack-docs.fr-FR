@@ -1,6 +1,6 @@
 ---
-title: Versions des API du fournisseur de ressources prises en charge par des profils dans Azure Stack | Microsoft Docs
-description: Découvrez les versions des API d’Azure Resource Manager prises en charge par des profils dans Azure Stack.
+title: Versions des API du fournisseur de ressources prises en charge par les profils dans Azure Stack Hub | Microsoft Docs
+description: Découvrez les versions des API Azure Resource Manager prises en charge par les profils dans Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -10,20 +10,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: f7d32fde9cba051297165e2e491f5c92115a8a0d
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: ca8b1dc5fd3b8f7f029498145a692b7a8414c053
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579036"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727494"
 ---
-# <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versions des API du fournisseur de ressources prises en charge par des profils dans Azure Stack
+# <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Versions des API du fournisseur de ressources prises en charge par les profils dans Azure Stack Hub
 
-Vous pouvez trouver le fournisseur de ressources et les numéros de version pour chaque profil d’API utilisé par Azure Stack dans cet article. Les tableaux de cet article répertorient les versions prises en charge pour chaque fournisseur de ressources et les versions API des profils. Chaque fournisseur de ressources contient un ensemble de types de ressources et de numéros de version spécifiques.
+Vous pouvez trouver le fournisseur de ressources et les numéros de version pour chaque profil d’API utilisé par Azure Stack Hub dans cet article. Les tableaux de cet article répertorient les versions prises en charge pour chaque fournisseur de ressources et les versions API des profils. Chaque fournisseur de ressources contient un ensemble de types de ressources et de numéros de version spécifiques.
 
 Le profil de l’API utilise trois conventions d’affectation de noms :
 
@@ -31,7 +31,7 @@ Le profil de l’API utilise trois conventions d’affectation de noms :
 - **yyyy-mm-dd-hybrid**
 - **yyyy-mm-dd-profile**
 
-Pour obtenir une explication des profils d’API et de la cadence de publication de versions pour Azure Stack, consultez [Gérer les profils de version des API dans Azure Stack](azure-stack-version-profiles.md).
+Pour obtenir une explication des profils d’API et de la cadence de publication des versions d’Azure Stack Hub, consultez [Gérer les profils de version des API dans Azure Stack Hub](azure-stack-version-profiles.md).
 
 > [!NOTE]
 > Le **dernier** profil d’API contient la dernière version de l’API de fournisseur de ressources et n’est pas listé dans cet article.
@@ -143,7 +143,7 @@ Le résultat de l’appel des opérations est une représentation sous forme de 
 
 | Types de ressources | Versions des API |
 |---------------------------|--------------|
-| connexions | 2017-10-01 |
+| Connexions | 2017-10-01 |
 | Zones DNS | 2016-04-01 |
 | Équilibreurs de charge | 2017-10-01 |
 | Passerelle de réseau local | 2017-10-01 |
@@ -199,5 +199,5 @@ Le fournisseur de ressources de stockage (SRP) vous permet de gérer par program
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Installer PowerShell pour Azure Stack](../operator/azure-stack-powershell-install.md)
-- [Configurez l’environnement PowerShell de l’utilisateur Azure Stack.](azure-stack-powershell-configure-user.md)  
+- [Installer PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md)
+- [Configurer l’environnement Azure Stack Hub PowerShell](azure-stack-powershell-configure-user.md)  

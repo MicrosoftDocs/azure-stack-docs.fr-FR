@@ -9,12 +9,12 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: c1166b1755b33687757b4587942c5472413e2b3e
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 60e6330aa492539a3b4e89a390ddcad5650cac92
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780879"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718417"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>Comment déployer F5 sur deux instances d’Azure Stack Hub
 
@@ -142,7 +142,7 @@ Après l’installation, vous devez configurer les groupes de sécurité réseau
     
     | Clé | Valeur |
     | --- | --- |
-    | Nom | NGINX_Pool |
+    | Name | NGINX_Pool |
     | Health Monitor (Moniteur d’intégrité) | HTTPS |
     | Node Name | NGINX |
     | Adresse | \<adresse IP privée de votre instance NGINX> |
@@ -162,7 +162,7 @@ Après l’installation, vous devez configurer les groupes de sécurité réseau
 
     | Clé | Valeur |
     | --- | --- |
-    |Nom | NGINX |
+    |Name | NGINX |
     |Destination Address | \<Adresse Self IP de l’appliance BIG-IP> |
     |Service Port | 443 |
     |SSL Profile (Client) | clientssl |
@@ -185,11 +185,11 @@ Après l’installation, vous devez configurer les groupes de sécurité réseau
     ![](./media/network-howto-f5/image17.png)
 
 
-## <a name="for-more-information"></a>Pour plus d’informations
+## <a name="for-more-information"></a>Informations supplémentaires
 
 Les liens ci-après vous permettent d’accéder à des articles de référence sur l’utilisation de F5 :
 
-- [Data Center Availability Services Using BIG-IP DNS](https://clouddocs.f5.com/training/community/dns/html/class3/class3.html)
+- [Datacenter Availability Services Using BIG-IP DNS](https://clouddocs.f5.com/training/community/dns/html/class3/class3.html)
 - [Deploying the BIG-IP System with HTTP Applications](https://www.f5.com/content/dam/f5/corp/global/pdf/deployment-guides/iapp-http-dg.pdf)
 - [Creating a wide IP for GSLB](https://clouddocs.f5.com/training/community/big-iq-cloud-edition/html/class10/module2/lab1.html)
 

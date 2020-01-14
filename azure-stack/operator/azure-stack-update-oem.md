@@ -15,24 +15,24 @@ ms.date: 10/15/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: efa10feb63f01166cf93b1835d8e38f99b9191db
-ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
+ms.openlocfilehash: 7c2ddd8c692efa423083b95eb7fb107dd763bab6
+ms.sourcegitcommit: 1cb84d8417367b553194614d53a477a94a8e9be9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72445167"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75755158"
 ---
-# <a name="apply-azure-stack-original-equipment-manufacturer-oem-updates"></a>Appliquer des mises à jour de fabricants d’ordinateurs (OEM) à Azure Stack
+# <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Appliquer des mises à jour de fabricants d’ordinateurs (OEM) à Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack*
+*S’applique à : Systèmes intégrés Azure Stack Hub*
 
-Vous pouvez appliquer des mises à jour de fabricant d’ordinateur (OEM) à vos composants matériels Azure Stack pour bénéficier d’améliorations de pilotes et de microprogrammes ainsi que de correctifs de sécurité tout en réduisant l’impact sur vos utilisateurs. Dans cet article, vous pouvez en savoir plus sur les mises à jour OEM, les informations de contact OEM et l’application d’une mise à jour OEM.
+Vous pouvez appliquer des mises à jour de fabricant d’ordinateur (OEM) à vos composants matériels Azure Stack Hub pour bénéficier des améliorations apportées aux pilotes et aux microprogrammes ainsi que des correctifs logiciels de sécurité, tout en réduisant l’impact sur vos utilisateurs. Dans cet article, vous pouvez en savoir plus sur les mises à jour OEM, les informations de contact OEM et l’application d’une mise à jour OEM.
 
 ## <a name="overview-of-oem-updates"></a>Vue d’ensemble des mises à jour OEM
 
 Outre les mises à jour Microsoft Azure Stack, de nombreux OEM publient également des mises à jour régulières pour votre matériel Azure Stack, telles que des mises à jour de pilotes et de microprogrammes. Elles sont appelées **Mises à jour de packages OEM**. Pour savoir si votre OEM publie des mises à jour de packages OEM, consultez la [documentation Azure Stack de votre OEM](#oem-contact-information).
 
-Ces mises à jour de packages OEM sont téléchargées dans le compte de stockage**updateadminaccount** et appliquées via le portail d’administration Azure Stack. Pour plus d’informations, consultez [Application de mises à jour OEM](#apply-oem-updates).
+Ces mises à jour de package OEM sont chargées dans le compte de stockage **updateadminaccount** et appliquées via le portail administrateur Azure Stack Hub. Pour plus d’informations, consultez [Application de mises à jour OEM](#apply-oem-updates).
 
 Consultez votre fabricant de matériel OEM au sujet de son processus de notification pour vous assurer que votre organisation reçoit bien les notifications de mise à jour du package OEM.
 
@@ -59,9 +59,9 @@ Installez les packages OEM en suivant les étapes ci-dessous :
 1. Vous devez contacter votre OEM pour :
       - déterminer la version actuelle de votre package OEM ;  
       - rechercher la meilleure méthode pour télécharger votre package OEM.  
-2. Avant d’appliquer une mise à jour de package OEM, vous devez toujours installer la dernière version du correctif Azure Stack sur votre système. Pour plus d’informations sur les correctifs, consultez [Correctifs logiciels d’Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy).
+2. Avant d’appliquer une mise à jour de package OEM, vous devez toujours appliquer le dernier correctif logiciel Azure Stack disponible à la version actuelle d’Azure Stack Hub sur votre système. Pour plus d’informations sur les correctifs logiciels, consultez [Correctifs logiciels Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy).
 3. Préparez votre package OEM avec les étapes décrites dans [Télécharger des packages de mise à jour pour les systèmes intégrés](azure-stack-servicing-policy.md).
-4. Appliquez les mises à jour à l’aide des étapes décrites dans [Appliquer des mises à jour dans Azure Stack](azure-stack-apply-updates.md).
+4. Appliquez les mises à jour en suivant les étapes décrites dans [Appliquer les mises à jour dans Azure Stack Hub](azure-stack-apply-updates.md).
 
 ## <a name="configure-hardware-vendor-vm"></a>Configurer la machine virtuelle du fournisseur de matériel
 
@@ -77,7 +77,7 @@ Pour plus d’informations sur le point de terminaison privilégié sur Azure St
     -ConfigurationName PrivilegedEndpoint -Credential $cred
     ```
 
-2. Configurez la machine virtuelle du fournisseur de matériel avec l’applet de commande **Set-OEMExternalVM**. L’applet de commande valide l’adresse IP et les informations d’identification pour **-VMType** `ProxyVM`. Pour **-VMType** `HardwareManager`, l’applet de commande ne valide pas l’entrée . Le paramètre **-Credential** fourni à **Set-OEMExternalVM** est un paramètre qui sera clairement documenté par la documentation du fournisseur de matériel.  Il ne s’agit pas des informations d’identification CloudAdmin utilisées avec le point de terminaison privilégié ou d’autres informations d’identification Azure Stack existantes.
+2. Configurez la machine virtuelle du fournisseur de matériel avec l’applet de commande **Set-OEMExternalVM**. L’applet de commande valide l’adresse IP et les informations d’identification pour **-VMType**`ProxyVM`. Pour **-VMType**`HardwareManager`, l’applet de commande ne valide pas l’entrée. Le paramètre **-Credential** fourni à **Set-OEMExternalVM** est un paramètre qui sera clairement documenté par la documentation du fournisseur de matériel.  Il ne s’agit pas des informations d’identification CloudAdmin utilisées avec le point de terminaison privilégié ou d’autres informations d’identification Azure Stack existantes.
 
     ```powershell  
     $VmCred = Get-Credential
@@ -90,4 +90,4 @@ Pour plus d’informations sur le point de terminaison privilégié sur Azure St
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Mises à jour d’Azure Stack](azure-stack-updates.md)
+[Mises à jour Azure Stack Hub](azure-stack-updates.md)

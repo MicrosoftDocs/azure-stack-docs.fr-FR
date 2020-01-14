@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 438cf2d8a34046f29d156aadc1cc82571e4b8a12
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: 9e7800c018816155205569397520271fb86c4c12
+ms.sourcegitcommit: dc3d0b77ee77742525fa0cd72d8547d25393022f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993891"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75492760"
 ---
 # <a name="use-sql-databases-on-azure-stack"></a>Utiliser des bases de données SQL dans Azure Stack
 
@@ -31,7 +31,7 @@ Utilisez le fournisseur de ressources SQL pour offrir des bases de données SQL 
 - des sites Web qui utilisent SQL ;
 - des charges de travail qui utilisent SQL.
 
-Il existe plusieurs limitations à prendre en compte avant d’installer le fournisseur de ressources MySQL :
+Il existe plusieurs limitations à prendre en compte avant d’installer le fournisseur de ressources SQL :
 
 - Les utilisateurs peuvent uniquement créer et gérer des bases de données individuelles. L’instance de serveur de base de données n’est pas accessible aux utilisateurs finaux. Cela peut limiter la compatibilité avec les applications de base de données locales qui doivent accéder à la base de données master, temporaire, ou aux bases de données gérées de manière dynamique.
 - Votre opérateur Azure Stack est responsable du déploiement, de la mise à jour, de la sécurisation, de la configuration et de la maintenance des serveurs et hôtes de base de données SQL. Le service RP ne fournit aucune fonctionnalité de gestion des instances de serveur de base de données ni d’hôte. 

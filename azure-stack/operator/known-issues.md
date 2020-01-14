@@ -1,6 +1,6 @@
 ---
-title: Problèmes connus d’Azure Stack
-description: Apprenez-en davantage sur les problèmes connus dans les différentes versions d’Azure Stack.
+title: Problèmes connus d’Azure Stack Hub
+description: Découvrez les problèmes connus des versions d’Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2019
+ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 755bd556d9e4643ff5e17d900cdf7e5245f1894e
-ms.sourcegitcommit: 7dd9d7bc2b86cca3be5118da149c1d422b2fb09d
+ms.openlocfilehash: 11dcd7288f629282c1f69d12c33e9bd1a8e440b6
+ms.sourcegitcommit: df8de80b8c295495edc091e0a12012ccc7a96594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2019
-ms.locfileid: "75033943"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75503621"
 ---
-# <a name="azure-stack-known-issues"></a>Problèmes connus d’Azure Stack
+# <a name="azure-stack-hub-known-issues"></a>Problèmes connus d’Azure Stack Hub
 
-Cet article liste les problèmes connus dans les versions d’Azure Stack. La liste est mise à jour lorsque de nouveaux problèmes sont identifiés.
+Cet article liste les problèmes connus des versions d’Azure Stack Hub. La liste est mise à jour lorsque de nouveaux problèmes sont identifiés.
 
 Pour accéder aux problèmes connus d'une autre version, utilisez le menu déroulant de sélection de la version, situé au-dessus de la table des matières à gauche.
 
@@ -35,7 +35,7 @@ Pour accéder aux problèmes connus d'une autre version, utilisez le menu dérou
 ::: moniker-end
 ::: moniker range="<azs-1906"
 > [!IMPORTANT]  
-> Si votre instance Azure Stack est en retard de plus de deux mises à jour, elle est considérée comme non conforme. Pour bénéficier de la prise en charge, vous devez [mettre à jour avec au moins la version minimale prise en charge](azure-stack-servicing-policy.md#keep-your-system-under-support). 
+> Si votre instance d’Azure Stack Hub a plus de deux mises à jour de retard, elle est considérée comme non conforme. Pour bénéficier de la prise en charge, vous devez [mettre à jour avec au moins la version minimale prise en charge](azure-stack-servicing-policy.md#keep-your-system-under-support). 
 ::: moniker-end
 
 <!---------------------------------------------------------->
@@ -43,7 +43,7 @@ Pour accéder aux problèmes connus d'une autre version, utilisez le menu dérou
 <!---------------------------------------------------------->
 
 ::: moniker range="azs-1910"
-## <a name="update"></a>Mettre à jour
+## <a name="update"></a>Update
 
 Pour plus d’informations sur les problèmes connus de mise à jour d’Azure Stack Hub, consultez [Dépannage des mises à jour dans Azure Stack Hub](azure-stack-updates-troubleshoot.md).
 
@@ -65,14 +65,14 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="subscription-permissions"></a>Autorisations d’abonnement
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Vous ne pouvez pas afficher les autorisations définies pour votre abonnement à l’aide des portails Azure Stack.
+- Cause : Vous ne pouvez pas voir les autorisations définies pour votre abonnement à l’aide des portails Azure Stack Hub.
 - Correction : Utilisez [PowerShell pour vérifier les autorisations](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Occurrence : Courant
 
 ### <a name="storage-account-settings"></a>Paramètres du compte de stockage
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, le panneau **Configuration** du compte de stockage présente une option permettant de modifier le **type de transfert de sécurité**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, le panneau **Configuration** du compte de stockage présente une option permettant de modifier le **type de transfert de sécurité**. La fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 ### <a name="upload-blob-with-oauth-error"></a>Erreur de chargement d’objet blob avec OAuth
@@ -85,7 +85,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="upload-blob-option-unsupported"></a>Option de chargement d’objet blob non prise en charge
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, lorsque vous essayez de charger un objet blob dans le panneau de chargement, vous pouvez sélectionner **AAD** ou **Key Authentication** (Authentification par clé), mais **AAD** n’est pas pris en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, quand vous essayez de charger un objet blob dans le panneau de chargement, vous pouvez sélectionner **AAD** ou **Key Authentication** (Authentification par clé), mais **AAD** n’est pas pris en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 ### <a name="load-balancer-backend-pool"></a>Pool de back-ends de l’équilibreur de charge
@@ -94,16 +94,22 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Cause : Dans le portail utilisateur, lors de l’ajout d’un pool de back-ends d’un **équilibreur de charge**, l’opération génère le message d’erreur **Échec de l’enregistrement du pool principal d’équilibreurs de charge**. Toutefois, l’opération a en fait réussi.
 - Occurrence : Courant
 
+### <a name="alert-for-network-interface-disconnected"></a>Alerte relative à l’interface réseau déconnectée
+
+- Champ d’application : Ce problème s’applique aux versions 1908 et 1910.
+- Cause : Quand un câble est déconnecté d’une carte réseau, aucune alerte ne s’affiche dans le portail administrateur. Ce problème est dû au fait que cette erreur est désactivée par défaut dans Windows Server 2019.
+- Occurrence : Courant
+
 ### <a name="incorrect-tooltip-when-creating-vm"></a>Info-bulle incorrecte lors de la création d’une machine virtuelle
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, lorsque vous sélectionnez un disque managé de type SSD Premium, la liste déroulante affiche **Disque du système d’exploitation**. L’info-bulle en regard de cette option indique **Certaines tailles de disque de système d’exploitation peuvent être disponibles gratuitement avec le compte Azure gratuit**. Toutefois, cela n’est pas valide pour Azure Stack. En outre, la liste inclut **Compte gratuit éligible**, ce qui n’est pas valide pour Azure Stack.
+- Cause : Dans le portail utilisateur, lorsque vous sélectionnez un disque managé de type SSD Premium, la liste déroulante affiche **Disque du système d’exploitation**. L’info-bulle en regard de cette option indique **Certaines tailles de disque de système d’exploitation peuvent être disponibles gratuitement avec le compte Azure gratuit**. Toutefois, cela est non valide pour Azure Stack Hub. De plus, la liste inclut **Compte gratuit éligible**, ce qui est également non valide pour Azure Stack Hub.
 - Occurrence : Courant
 
 ### <a name="vpn-troubleshoot-and-metrics"></a>Résolution des problèmes liés au VPN et métriques
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, les fonctionnalités **Résolution des problèmes liés au VPN** et **Métriques** figurent dans une ressource de passerelle VPN, mais elles ne sont pas prises en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, les fonctionnalités **Résolution des problèmes liés au VPN** et **Métriques** figurent dans une ressource de passerelle VPN, mais cela n’est pas pris en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 ### <a name="adding-extension-to-vm-scale-set"></a>Ajout d’une extension au groupe de machines virtuelles identiques
@@ -129,13 +135,13 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="virtual-network-gateway"></a>Passerelle de réseau virtuel
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, lorsque vous créez une table de routage, **Passerelle de réseau virtuel** apparaît comme l’une des options de type de tronçon suivant. Toutefois, elle n’est pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, quand vous créez une table de routage, **Passerelle de réseau virtuel** apparaît comme l’une des options de type de tronçon suivant. Toutefois, cela n’est pas pris en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 ### <a name="storage-account-options"></a>Options de compte de stockage
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, le nom des comptes de stockage est affiché en tant que **Compte de stockage – objet blob, fichier, table, file d’attente**, mais l’option **fichier** n’est pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, le nom des comptes de stockage est affiché en tant que **Compte de stockage - objet blob, fichier, table, file d’attente**. Toutefois, **fichier** n’est pas pris en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 ### <a name="storage-account-configuration"></a>Configuration du compte de stockage
@@ -146,16 +152,22 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 ### <a name="capacity-monitoring-in-sql-resource-provider-keeps-loading"></a>La supervision de la capacité dans le fournisseur de ressources SQL continue à se charger
 
-- Champ d’application : Ce problème s’applique à la mise à jour 1910 ou ultérieure d’Azure Stack, lorsque le fournisseur de ressources SQL version 1.1.33.0 ou antérieure est installé.
+- Champ d’application : Ce problème s’applique à la mise à jour 1910 ou ultérieure d’Azure Stack Hub, quand le fournisseur de ressources SQL version 1.1.33.0 ou antérieure est installé.
 - Cause : La version actuelle du fournisseur de ressources SQL n’est pas compatible avec certaines des modifications de portail les plus récentes, figurant dans la mise à jour 1910.
-- Correction : Suivez le processus de mise à jour du fournisseur de ressources pour appliquer le correctif du fournisseur de ressources SQL 1.1.47.0 après la mise à niveau d’Azure Stack vers la mise à jour 1910 ([SQL RP version 1.1.47.0](https://aka.ms/azurestacksqlrp11470)). Pour le fournisseur de ressources MySQL, il est également recommandé d’appliquer le correctif du fournisseur de ressources SQL 1.1.47.0 après la mise à niveau d’Azure Stack vers la mise à jour 1910 ([MySQL RP version 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)).
+- Correction : Suivez le processus de mise à jour du fournisseur de ressources pour appliquer le correctif logiciel du fournisseur de ressources SQL 1.1.47.0 après la mise à niveau d’Azure Stack Hub vers la mise à jour 1910 ([SQL RP version 1.1.47.0](https://aka.ms/azurestacksqlrp11470)). Pour le fournisseur de ressources MySQL, il est également recommandé d’appliquer le correctif logiciel du fournisseur de ressources MySQL 1.1.47.0 après la mise à niveau d’Azure Stack Hub vers la mise à jour 1910 ([MySQL RP version 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)).
 - Occurrence : Courant
 
 ### <a name="access-control-iam"></a>Contrôle d’accès (IAM)
 
-- Champ d’application : Ce problème s’applique aux horodatages qui ont été déployés avec une image de base 1903 ou antérieure.
-- Cause : L’extension IAM est obsolète. Le portail Ibiza fourni avec Azure Stack introduit un nouveau comportement qui provoque l’échec de l’extension RBAC si l’utilisateur ouvre le panneau **Contrôle d’accès (IAM)** pour un abonnement qui n’est pas sélectionné dans le sélecteur d’abonnement global (**Répertoire + abonnement** dans le portail utilisateur). Le panneau affiche **Chargement** en boucle, et l’utilisateur ne peut pas ajouter de nouveaux rôles à l’abonnement. Le panneau **Ajouter** affiche également **Chargement** en boucle.
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : L’extension IAM est obsolète. Le portail Ibiza fourni avec Azure Stack Hub introduit un nouveau comportement qui entraîne l’échec de l’extension RBAC si l’utilisateur ouvre le panneau **Contrôle d’accès (IAM)** pour un abonnement qui n’est pas sélectionné dans le sélecteur d’abonnement global (**Annuaire + abonnement** dans le portail utilisateur). Le panneau affiche **Chargement** en boucle, et l’utilisateur ne peut pas ajouter de nouveaux rôles à l’abonnement. Le panneau **Ajouter** affiche également **Chargement** en boucle.
 - Correction : Vérifiez que l’abonnement est coché dans le menu **Répertoire + abonnement**. Le menu est accessible dans le haut du portail, près du bouton **Notifications**, ou via le raccourci du panneau **Toutes les ressources** qui affiche **Vous ne voyez pas d’abonnement ? Ouvrir les paramètres de répertoire et d’abonnement**. L’abonnement doit être sélectionné dans ce menu.
+
+### <a name="sql-resource-provider"></a>Fournisseur de ressources SQL
+
+- Champ d’application : Ce problème s’applique aux empreintes qui exécutent la version 1908 ou une version antérieure.
+- Cause : Au moment du déploiement de la version 1.1.47.0 du fournisseur de ressources (RP) SQL, le portail n’affiche aucune autre ressource que celles associées à SQL RP.
+- Correction : Supprimez le fournisseur de ressources, mettez à niveau l’empreinte et redéployez le fournisseur de ressources SQL.
 
 ## <a name="networking"></a>Mise en réseau
 
@@ -174,7 +186,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="service-endpoints"></a>Points de terminaison de service
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, le panneau **Réseau virtuel** comporte une option pour utiliser les **points de terminaison du service**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, le panneau **Réseau virtuel** comporte une option pour utiliser les **points de terminaison du service**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 ### <a name="network-interface"></a>interface réseau
@@ -197,29 +209,29 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 #### <a name="alerts"></a>Alertes
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, le panneau **Passerelle de réseau virtuel** comporte une option pour utiliser les **alertes**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, le panneau **Passerelle de réseau virtuel** comporte une option pour utiliser les **alertes**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 #### <a name="active-active"></a>Actif/actif
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, lors de la création, et dans le menu **Passerelle de réseau virtuel**, vous verrez une option permettant d’activer la configuration **Actif/actif**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, lors de la création, et dans le menu **Passerelle de réseau virtuel**, vous verrez une option permettant d’activer la configuration **Actif/actif**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 #### <a name="vpn-troubleshooter"></a>Résolution des problèmes de VPN
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, le panneau **Connexions** affiche une fonctionnalité appelée **Résolution des problèmes de VPN**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, le panneau **Connexions** affiche une fonctionnalité appelée **Résolution des problèmes de VPN**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 #### <a name="documentation"></a>Documentation
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Les liens vers la documentation dans la page de vue d’ensemble de la Passerelle de réseau virtuel renvoient vers la documentation spécifique à Azure au lieu d’Azure Stack. Utilisez les liens suivants pour accéder à la documentation Azure Stack :
+- Cause : Les liens vers la documentation dans la page de vue d’ensemble de la passerelle de réseau virtuel pointent vers la documentation spécifique à Azure au lieu d’Azure Stack Hub. Utilisez les liens suivants pour accéder à la documentation d’Azure Stack Hub :
 
   - [SKU de passerelle](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [Connexions hautement disponibles](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [Configurer le protocole BGP sur Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [Configurer le protocole BGP sur Azure Stack Hub](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [Circuits ExpressRoute](azure-stack-connect-expressroute.md)
   - [Spécifier des stratégies IPsec/IKE personnalisées](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
@@ -228,7 +240,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="vm-boot-diagnostics"></a>Diagnostics de démarrage de machine virtuelle
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Quand vous créez une machine virtuelle Windows, l’erreur suivante peut s’afficher : **Échec du démarrage de la machine virtuelle « vm-name ». Error: Failed to update serial output settings for VM 'vm-name' (Impossible de mettre à jour les paramètres de sortie en série de la machine virtuelle « vm-name »)** . Cette erreur se produit si vous activez les diagnostics de démarrage sur une machine virtuelle alors que vous avez supprimé votre compte de stockage des diagnostics de démarrage.
+- Cause : Quand vous créez une machine virtuelle Windows, l’erreur suivante peut s’afficher : **Échec du démarrage de la machine virtuelle « vm-name ». Erreur : Failed to update serial output settings for VM 'vm-name' (Impossible de mettre à jour les paramètres de sortie en série de la machine virtuelle « vm-name »)** . Cette erreur se produit si vous activez les diagnostics de démarrage sur une machine virtuelle alors que vous avez supprimé votre compte de stockage des diagnostics de démarrage.
 - Correction : Recréez le compte de stockage avec le même nom que celui utilisé précédemment.
 - Occurrence : Courant
 
@@ -248,11 +260,11 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 ### <a name="virtual-machine-scale-set"></a>Jeu de mise à l’échelle de machine virtuelle
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Créer des échecs au cours des correctifs et mises à jour sur des environnements Azure Stack à 4 nœuds
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>Créer des échecs durant l’application des correctifs logiciels et des mises à jour dans les environnements Azure Stack Hub à 4 nœuds
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : La création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur et la création d’une instance de groupe de machines virtuelles identiques échouent avec une erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
-- Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. Toutefois, la création d’instances de groupe identique n’est toujours pas disponible pendant le processus de mise à jour sur un déploiement Azure Stack à 4 nœuds.
+- Cause : Échec de la création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur, et échec de la création d’une instance de groupe de machines virtuelles identiques avec l’erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack Hub à 4 nœuds.
+- Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. Toutefois, la création d’instances de groupes identiques n’est toujours pas disponible pendant le processus de mise à jour sur un déploiement Azure Stack Hub à 4 nœuds.
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
@@ -310,6 +322,12 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Dans le portail de l’utilisateur, lorsque vous essayez de charger un objet blob à l’aide de l’option **OAuth (préversion)** , la tâche échoue avec un message d’erreur.
 - Correction : Chargez le blob à l’aide de l’option SAP.
+- Occurrence : Courant
+
+### <a name="alert-for-network-interface-disconnected"></a>Alerte relative à l’interface réseau déconnectée
+
+- Champ d’application : Ce problème s’applique à la version 1908.
+- Cause : Quand un câble est déconnecté d’une carte réseau, aucune alerte ne s’affiche dans le portail administrateur. Ce problème est dû au fait que cette erreur est désactivée par défaut dans Windows Server 2019.
 - Occurrence : Courant
 
 ## <a name="networking"></a>Mise en réseau
@@ -384,7 +402,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="vm-boot-diagnostics"></a>Diagnostics de démarrage de machine virtuelle
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Quand vous créez une machine virtuelle Windows, l’erreur suivante peut s’afficher : **Échec du démarrage de la machine virtuelle « vm-name ». Error: Failed to update serial output settings for VM 'vm-name' (Impossible de mettre à jour les paramètres de sortie en série de la machine virtuelle « vm-name »)** . Cette erreur se produit si vous activez les diagnostics de démarrage sur une machine virtuelle alors que vous avez supprimé votre compte de stockage des diagnostics de démarrage.
+- Cause : Quand vous créez une machine virtuelle Windows, l’erreur suivante peut s’afficher : **Échec du démarrage de la machine virtuelle « vm-name ». Erreur : Failed to update serial output settings for VM 'vm-name' (Impossible de mettre à jour les paramètres de sortie en série de la machine virtuelle « vm-name »)** . Cette erreur se produit si vous activez les diagnostics de démarrage sur une machine virtuelle alors que vous avez supprimé votre compte de stockage des diagnostics de démarrage.
 - Correction : Recréez le compte de stockage avec le même nom que celui utilisé précédemment.
 - Occurrence : Courant
 
@@ -393,8 +411,8 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 #### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Créer des échecs au cours des correctifs et mises à jour sur des environnements Azure Stack à 4 nœuds
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : La création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur et la création d’une instance de groupe de machines virtuelles identiques échouent avec une erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
-- Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. En revanche, la création d’instances n’est toujours pas disponible pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
+- Cause : La création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur et la création d’une instance de groupe identique de machines virtuelles échouent avec une erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
+- Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. En revanche, la création d’instances de groupe identique n’est toujours pas disponible pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
 
 ### <a name="ubuntu-ssh-access"></a>Accès SSH Ubuntu
 
@@ -407,21 +425,21 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Un nouveau panneau de réinitialisation du mot de passe s’affiche dans l’interface utilisateur de groupe identique, mais Azure Stack ne prend pas encore en charge la réinitialisation de mot de passe sur un groupe identique.
-- Correction : Aucune.
+- Correction : Aucun.
 - Occurrence : Courant
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Nuage qui pleure sur le diagnostic de groupe identique
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : La page de la vue d’ensemble du groupe de machines virtuelles identiques contient un graphique vide. En cliquant sur le graphique vide, un panneau avec un nuage qui pleure. C’est le graphique des informations de diagnostic du groupe identique, comme le pourcentage UC, et ce n’est pas une fonctionnalité prise en charge dans la version Azure Stack actuelle.
-- Correction : Aucune.
+- Correction : Aucun.
 - Occurrence : Courant
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Panneau des paramètres de diagnostic de machine virtuelle
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.    
 - Cause : Le panneau des paramètres de diagnostic de machine virtuelle comporte un onglet **Récepteur**, qui demande un **compte Application Insights**. C’est le résultat d’un nouveau panneau et ce n’est pas encore pris en charge dans Azure Stack.
-- Correction : Aucune.
+- Correction : Aucun.
 - Occurrence : Courant
 
 <!-- ## Storage -->
@@ -554,7 +572,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="vm-boot-diagnostics"></a>Diagnostics de démarrage de machine virtuelle
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Quand vous créez une machine virtuelle Windows, l’erreur suivante peut s’afficher : **Échec du démarrage de la machine virtuelle « vm-name ». Error: Failed to update serial output settings for VM 'vm-name' (Impossible de mettre à jour les paramètres de sortie en série de la machine virtuelle « vm-name »)** . Cette erreur se produit si vous activez les diagnostics de démarrage sur une machine virtuelle alors que vous avez supprimé votre compte de stockage des diagnostics de démarrage.
+- Cause : Quand vous créez une machine virtuelle Windows, l’erreur suivante peut s’afficher : **Échec du démarrage de la machine virtuelle « vm-name ». Erreur : Failed to update serial output settings for VM 'vm-name' (Impossible de mettre à jour les paramètres de sortie en série de la machine virtuelle « vm-name »)** . Cette erreur se produit si vous activez les diagnostics de démarrage sur une machine virtuelle alors que vous avez supprimé votre compte de stockage des diagnostics de démarrage.
 - Correction : Recréez le compte de stockage avec le même nom que celui utilisé précédemment.
 - Occurrence : Courant
 
@@ -563,8 +581,8 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 #### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Créer des échecs au cours des correctifs et mises à jour sur des environnements Azure Stack à 4 nœuds
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : La création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur et la création d’une instance de groupe de machines virtuelles identiques échouent avec une erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
-- Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. En revanche, la création d’instances n’est toujours pas disponible pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
+- Cause : La création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur et la création d’une instance de groupe identique de machines virtuelles échouent avec une erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
+- Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. En revanche, la création d’instances de groupe identique n’est toujours pas disponible pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
 
 ### <a name="ubuntu-ssh-access"></a>Accès SSH Ubuntu
 
@@ -577,21 +595,21 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 - Champ d’application : Ce problème s’applique aux versions 1906 et 1907.
 - Cause : Un nouveau panneau de réinitialisation du mot de passe s’affiche dans l’interface utilisateur de groupe identique, mais Azure Stack ne prend pas encore en charge la réinitialisation de mot de passe sur un groupe identique.
-- Correction : Aucune.
+- Correction : Aucun.
 - Occurrence : Courant
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Nuage qui pleure sur le diagnostic de groupe identique
 
 - Champ d’application : Ce problème s’applique aux versions 1906 et 1907.
 - Cause : La page de la vue d’ensemble du groupe de machines virtuelles identiques contient un graphique vide. En cliquant sur le graphique vide, un panneau avec un nuage qui pleure. C’est le graphique des informations de diagnostic du groupe identique, comme le pourcentage UC, et ce n’est pas une fonctionnalité prise en charge dans la version Azure Stack actuelle.
-- Correction : Aucune.
+- Correction : Aucun.
 - Occurrence : Courant
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Panneau des paramètres de diagnostic de machine virtuelle
 
 - Champ d’application : Ce problème s’applique aux versions 1906 et 1907.    
 - Cause : Le panneau des paramètres de diagnostic de machine virtuelle comporte un onglet **Récepteur**, qui demande un **compte Application Insights**. C’est le résultat d’un nouveau panneau et ce n’est pas encore pris en charge dans Azure Stack.
-- Correction : Aucune.
+- Correction : Aucun.
 - Occurrence : Courant
 
 <!-- ## Storage -->
@@ -652,7 +670,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Correction : Chargez le blob à l’aide de l’option SAP.
 - Occurrence : Courant
 
-### <a name="update"></a>Mettre à jour
+### <a name="update"></a>Update
 
 - Champ d’application : Ce problème concerne la version 1906.
 - Cause : Dans le portail de l’opérateur, l’état de mise à jour du correctif logiciel indique un état incorrect pour la mise à jour. L’état initial indique que l’installation de la mise à jour a échoué, même si elle est toujours en cours.
@@ -726,7 +744,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="vm-boot-diagnostics"></a>Diagnostics de démarrage de machine virtuelle
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Quand vous créez une machine virtuelle Windows, l’erreur suivante peut s’afficher : **Échec du démarrage de la machine virtuelle « vm-name ». Error: Failed to update serial output settings for VM 'vm-name' (Impossible de mettre à jour les paramètres de sortie en série de la machine virtuelle « vm-name »)** . Cette erreur se produit si vous activez les diagnostics de démarrage sur une machine virtuelle alors que vous avez supprimé votre compte de stockage des diagnostics de démarrage.
+- Cause : Quand vous créez une machine virtuelle Windows, l’erreur suivante peut s’afficher : **Échec du démarrage de la machine virtuelle « vm-name ». Erreur : Failed to update serial output settings for VM 'vm-name' (Impossible de mettre à jour les paramètres de sortie en série de la machine virtuelle « vm-name »)** . Cette erreur se produit si vous activez les diagnostics de démarrage sur une machine virtuelle alors que vous avez supprimé votre compte de stockage des diagnostics de démarrage.
 - Correction : Recréez le compte de stockage avec le même nom que celui utilisé précédemment.
 - Occurrence : Courant
 
@@ -736,8 +754,8 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 #### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Créer des échecs au cours des correctifs et mises à jour sur des environnements Azure Stack à 4 nœuds
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : La création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur et la création d’une instance de groupe de machines virtuelles identiques échouent avec une erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
-- Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. En revanche, la création d’instances n’est toujours pas disponible pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
+- Cause : La création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur et la création d’une instance de groupe identique de machines virtuelles échouent avec une erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
+- Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. En revanche, la création d’instances de groupe identique n’est toujours pas disponible pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
 
 ### <a name="ubuntu-ssh-access"></a>Accès SSH Ubuntu
 
@@ -750,21 +768,21 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 - Champ d’application : Ce problème concerne la version 1906.
 - Cause : Un nouveau panneau de réinitialisation du mot de passe s’affiche dans l’interface utilisateur de groupe identique, mais Azure Stack ne prend pas encore en charge la réinitialisation de mot de passe sur un groupe identique.
-- Correction : Aucune.
+- Correction : Aucun.
 - Occurrence : Courant
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Nuage qui pleure sur le diagnostic de groupe identique
 
 - Champ d’application : Ce problème concerne la version 1906.
 - Cause : La page de la vue d’ensemble du groupe de machines virtuelles identiques contient un graphique vide. En cliquant sur le graphique vide, un panneau avec un nuage qui pleure. C’est le graphique des informations de diagnostic du groupe identique, comme le pourcentage UC, et ce n’est pas une fonctionnalité prise en charge dans la version Azure Stack actuelle.
-- Correction : Aucune.
+- Correction : Aucun.
 - Occurrence : Courant
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Panneau des paramètres de diagnostic de machine virtuelle
 
 - Champ d’application : Ce problème concerne la version 1906.
 - Cause : Le panneau des paramètres de diagnostic de machine virtuelle comporte un onglet **Récepteur**, qui demande un **compte Application Insights**. C’est le résultat d’un nouveau panneau et ce n’est pas encore pris en charge dans Azure Stack.
-- Correction : Aucune.
+- Correction : Aucun.
 - Occurrence : Courant
 
 <!-- ## Storage -->
@@ -830,5 +848,5 @@ Pour accéder aux problèmes connus archivés d'une ancienne version, utilisez l
 ::: moniker-end
 
 ::: moniker range="<azs-1906"
-Vous pouvez accéder aux [versions antérieures des problèmes connus d’Azure Stack dans la galerie TechNet](https://aka.ms/azsarchivedrelnotes). Ces documents archivés sont fournis uniquement à des fins de référence et n’impliquent aucune prise en charge de ces versions. Pour plus d’informations sur le support d’Azure Stack, consultez [Stratégie de maintenance Azure Stack](azure-stack-servicing-policy.md). Pour obtenir de l’aide, contactez les services de support technique Microsoft.
+Vous pouvez accéder aux [versions antérieures des problèmes connus d’Azure Stack dans la galerie TechNet](https://aka.ms/azsarchivedrelnotes). Ces documents archivés sont fournis uniquement pour référence et n’impliquent aucune prise en charge de ces versions. Pour plus d’informations sur le support d’Azure Stack, consultez [Stratégie de maintenance Azure Stack](azure-stack-servicing-policy.md). Pour obtenir de l’aide, contactez les services de support technique Microsoft.
 ::: moniker-end

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: b71065d4a5af880fe5fb9a48d78a0e2821822b56
-ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
+ms.openlocfilehash: 8110f48ef9e42ef2ee89b4766164b5005c7d51fa
+ms.sourcegitcommit: df8de80b8c295495edc091e0a12012ccc7a96594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143982"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75503604"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>FAQ relative à Windows Server dans la Place de marché Azure Stack
 
@@ -32,7 +32,7 @@ Cet article répond à certaines questions fréquentes sur les images Windows Se
 
 Déterminez d’abord si des modèles Azure Resource Manager font référence à des versions spécifiques. Si tel est le cas, mettez à jour ces modèles ou conservez les anciennes versions de l’image. Il est préférable d’utiliser **version: latest**.
 
-Ensuite, si des groupes de machines virtuelles identiques font référence à une version spécifique, déterminez s’ils seront mis à l’échelle par la suite et décidez s’il faut conserver les anciennes versions. Si aucune de ces conditions ne s’applique, supprimez les anciennes images de la Place de marché avant de télécharger les plus récentes. Utilisez pour cela le panneau Gestion de la Place de marché si la version d’origine a été téléchargée de cette façon. Téléchargez ensuite la version plus récente.
+Ensuite, si des groupes de machines virtuelles identiques font référence à une version spécifique, déterminez s’ils vont être mis à l’échelle plus tard, et décidez si les anciennes versions doivent être conservées ou non. Si aucune de ces conditions ne s’applique, supprimez les anciennes images de la Place de marché avant de télécharger les plus récentes. Utilisez pour cela le panneau Gestion de la Place de marché si la version d’origine a été téléchargée de cette façon. Téléchargez ensuite la version plus récente.
 
 ### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack"></a>Quelles sont les options de licence pour les images Place de Marché Windows Server sur Azure Stack ?
 
@@ -56,7 +56,7 @@ Si vous téléchargez les deux versions de l’image, seule la dernière version
 Vous pouvez modifier l’attribut de modèle de licence pour passer de la licence BYOL (apportez votre propre licence) au modèle de paiement à l’utilisation (PAYG) en exécutant le script suivant :
 
 ```powershell
-vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "None"
 Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 ```
@@ -81,6 +81,8 @@ Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 
 Ces images appliquent le paramètre **licenseType**, donc elles sont basées sur le paiement à l’utilisation. Vous pouvez définir ce paramètre (voir la réponse précédente). Ceci ne s’applique qu’aux logiciels Windows Server. Les produits en couche comme SQL, qui vous obligent à apporter votre propre licence, ne sont pas concernés. Les licences avec paiement à l’utilisation ne s’appliquent pas aux produits logiciels en couche.
 
+Notez que vous pouvez uniquement changer la propriété **licenseType** pour les images SQL Server de la Place de marché si la version est XX.X.20190410 ou une version ultérieure. Si vous exécutez une version antérieure des images SQL Server de la Place de marché, vous ne pouvez pas changer l’attribut **licenseType**. Vous devez effectuer un redéploiement à l’aide des dernières images SQL Server de la Place de marché.
+
 ### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>J’ai un Contrat Entreprise (EA) et je vais utiliser ma licence Windows Server EA. Comment m’assurer que les images sont facturées correctement ?
 
 Vous pouvez ajouter **licenseType : Windows_Server** dans un modèle Azure Resource Manager. Ce paramètre doit être ajouté à chaque bloc de ressource de machine virtuelle.
@@ -100,7 +102,7 @@ Exécutez la commande suivante à partir d’une invite de commandes avec élév
 slmgr /dlv
 ```
 
-Si la machine virtuelle est correctement activée, c’est clairement indiqué et le nom d’hôte apparaît dans la sortie `slmgr`. Ne vous fiez pas aux filigranes à l’écran car ils peuvent soit ne pas être à jour, soit provenir d’une autre machine virtuelle derrière la vôtre.
+Si la machine virtuelle est correctement activée, c’est clairement indiqué et le nom d’hôte apparaît dans la sortie `slmgr`. Ne vous fiez pas aux filigranes à l’écran, car ils peuvent soit ne pas être à jour, soit provenir d’une autre machine virtuelle derrière la vôtre.
 
 ### <a name="my-vm-is-not-set-up-to-use-avma-how-can-i-fix-it"></a>Comment réparer ma machine virtuelle si elle n’est pas configurée pour utiliser AVMA ?
 

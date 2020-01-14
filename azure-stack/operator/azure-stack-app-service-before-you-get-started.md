@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 0fbb57771976b896f8f6b37b62780e34d6635d78
-ms.sourcegitcommit: e2aec63cacfdc830a20a02ee40e715e3c5dfdf22
+ms.lastreviewed: 01/08/2020
+ms.openlocfilehash: 759e25155abcc65bd2d671b310d6b93900b832db
+ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70386236"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75756965"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack"></a>Prérequis pour le déploiement d’App Service sur Azure Stack
 
@@ -115,7 +115,7 @@ Le certificat de domaine par défaut est placé sur le rôle front-end. Les appl
 
 Le certificat doit être un certificat générique à trois sujets au format .pfx. Cette exigence permet à un seul certificat de couvrir à la fois au domaine par défaut et au point de terminaison SCM pour les opérations de contrôle de code source.
 
-| Format | Exemples |
+| Format | Exemple |
 | --- | --- |
 | `*.appservice.<region>.<DomainName>.<extension>` | `*.appservice.redmond.azurestack.external` |
 | `*.scm.appservice.<region>.<DomainName>.<extension>` | `*.scm.appservice.redmond.azurestack.external` |
@@ -125,7 +125,7 @@ Le certificat doit être un certificat générique à trois sujets au format .pf
 
 Le certificat de l’API est placé sur le rôle de gestion. Le fournisseur de ressources l’utilise pour aider à sécuriser les appels d’API. Le certificat de publication doit contenir un objet qui correspond à l’entrée DNS de l’API.
 
-| Format | Exemples |
+| Format | Exemple |
 | --- | --- |
 | api.appservice.\<région\>.\<nom_domaine\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
@@ -133,7 +133,7 @@ Le certificat de l’API est placé sur le rôle de gestion. Le fournisseur de r
 
 Le certificat du rôle de serveur de publication sécurise le trafic FTPS quand les propriétaires d’applications chargent du contenu. Le certificat de publication doit contenir un objet qui correspond à l’entrée DNS FTPS.
 
-| Format | Exemples |
+| Format | Exemple |
 | --- | --- |
 | ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | ftp.appservice.redmond.azurestack.external |
 
@@ -146,13 +146,13 @@ Le certificat de l’application d’identité permet :
 
 Le certificat d’identité doit contenir un objet qui correspond au format suivant.
 
-| Format | Exemples |
+| Format | Exemple |
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
 ### <a name="validate-certificates"></a>Valider les certificats
 
-Avant de déployer le fournisseur de ressources App Service, vous devez [valider les certificats à utiliser](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) à l’aide de l’outil Azure Stack Readiness Checker disponible dans la [PowerShell Gallery](https://aka.ms/AzsReadinessChecker). L’outil Azure Stack Readiness Checker vérifie que les certificats PKI générés conviennent pour le déploiement d’App Service.
+Avant de déployer le fournisseur de ressources App Service, vous devez [valider les certificats à utiliser](azure-stack-validate-pki-certs.md#using-validated-certificates) à l’aide de l’outil Azure Stack Readiness Checker disponible dans la [PowerShell Gallery](https://aka.ms/AzsReadinessChecker). L’outil Azure Stack Readiness Checker vérifie que les certificats PKI générés conviennent pour le déploiement d’App Service.
 
 En guise de bonne pratique, quand vous utilisez un ou plusieurs des [certificats PKI Azure Stack](azure-stack-pki-certs.md) nécessaires, prévoyez suffisamment de temps pour tester et réémettre les certificats au besoin.
 
@@ -333,7 +333,7 @@ GO
 
 ## <a name="create-an-azure-active-directory-app"></a>Créer une application Azure Active Directory
 
-Configurer un principal du service Azure AD pour prendre en charge les opérations suivantes :
+Configurez un principal de service Azure AD pour prendre en charge les opérations suivantes :
 
 - Intégration d’un groupe de machines virtuelles identiques sur les niveaux de travail.
 - Authentification unique pour le portail Azure Functions et les outils de développement avancés.
@@ -345,7 +345,7 @@ Les administrateurs doivent configurer l’authentification unique pour :
 - Activer les outils de développement avancés dans App Service (Kudu).
 - Activer l’utilisation de l’expérience du portail Azure Functions.
 
-Procédez comme suit :
+Suivez ces étapes pour créer le principal de service dans votre locataire Azure AD :
 
 1. Ouvrez une instance PowerShell en tant que azurestack\Azurestackadmin.
 2. Accédez à l’emplacement où les scripts ont été téléchargés et extraits dans [l’étape des prérequis](azure-stack-app-service-before-you-get-started.md).
@@ -353,14 +353,14 @@ Procédez comme suit :
 4. Exécutez le script **Create-AADIdentityApp.ps1**. Lorsque vous y êtes invité, entrez l’ID de locataire Azure AD que vous utilisez pour votre déploiement Azure Stack. Par exemple, entrez **myazurestack.onmicrosoft.com**.
 5. Dans la fenêtre **Informations d’identification**, entrez votre compte administrateur et votre mot de passe pour le service Azure AD. Sélectionnez **OK**.
 6. Entrez le chemin d’accès au fichier du certificat et le mot de passe du certificat pour le [certificat créé précédemment](azure-stack-app-service-before-you-get-started.md). Le certificat par défaut créé pour cette étape est **sso.appservice.local.azurestack.external.pfx**.
-7. Le script crée une application dans l’instance de locataire Azure AD. Notez l’ID d’application qui est retourné dans la sortie PowerShell. Vous avez besoin de ces informations lors de l’installation.
+7. Notez l’ID d’application qui est retourné dans la sortie PowerShell. Vous utilisez l’ID au cours des étapes suivantes pour donner votre consentement aux demandes d’autorisation de l’application, et pendant l’installation. 
 8. Ouvrez une nouvelle fenêtre de navigateur et connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur du service Azure Active Directory.
-9. Ouvrez le fournisseur de ressources Azure AD.
-10. Sélectionner **Inscriptions des applications**.
-11. Recherchez l’ID d’application retourné à l’étape 7. Une application App Service est répertoriée.
-12. Sélectionnez **Application** dans la liste.
-13. Sélectionnez **Paramètres**.
-14. Sélectionnez **Autorisations requises** > **Accorder des autorisations** > **Oui**.
+9. Ouvrez le service Azure Active Directory.
+10. Dans le volet gauche, sélectionnez **Inscriptions d’applications**.
+11. Recherchez l’ID d’application que vous avez noté à l’étape 7. 
+12. Sélectionnez l’inscription d’application App Service dans la liste.
+13. Dans le volet gauche, sélectionnez **Autorisations d’API**.
+14. Sélectionnez **Accorder un consentement d’administrateur pour \<locataire\>** , où \<locataire\> représente le nom de votre locataire Azure AD. Confirmez l’octroi du consentement en sélectionnant **Oui**.
 
 ```powershell
     Create-AADIdentityApp.ps1

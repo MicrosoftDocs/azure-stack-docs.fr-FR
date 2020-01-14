@@ -9,12 +9,12 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: bed928bdd8ed7c521bd95ec005baafd42eb93047
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: 0fe542cf17ce5b47436c8838c8d7c61b22e2fda8
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064972"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718451"
 ---
 # <a name="how-to-connect-to-iscsi-storage-with-azure-stack"></a>Guide pratique pour se connecter au stockage iSCSI avec Azure Stack
 
@@ -24,13 +24,13 @@ Vous pouvez utiliser le modèle de cet article pour connecter une machine virtue
 
 Le modèle est disponible dans la branche **lucidqdreams** du dépôt [Azure Intelligent Edge Patterns GitHub](https://github.com/lucidqdreams/azure-intelligent-edge-patterns). Le modèle se trouve dans le dossier **storage-iSCSI**. Le modèle a été conçu pour configurer l’infrastructure nécessaire côté Azure Stack pour se connecter à une cible iSCSI. Il s’agit d’une machine virtuelle qui agit en tant qu’initiateur iSCSI avec le réseau virtuel, le groupe de sécurité réseau, l’adresse IP privée et le stockage associés. Une fois que le modèle a été déployé, deux scripts PowerShell doivent être exécutés pour terminer la configuration. Un script est exécuté sur la machine virtuelle locale (cible) et l’autre est exécuté sur la machine virtuelle Azure Stack (initiateur). L’objectif de l’exécution de ces scripts est d’ajouter un stockage local à votre machine virtuelle Azure Stack. 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Le schéma montre une machine virtuelle hébergée sur Azure Stack avec un disque monté en iSCSI à partir d’un ordinateur Windows local (physique ou virtuel), ce qui permet au stockage externe à Azure Stack de monter à l’intérieur de votre machine virtuelle hébergée sur Azure Stack via le protocole iSCSI.
 
 ![texte de remplacement](./media/azure-stack-network-howto-iscsi-storage/overview.png)
 
-### <a name="requirements"></a>Configuration requise
+### <a name="requirements"></a>Spécifications
 
 - Un ordinateur local (physique ou virtuel) exécutant Windows Server 2016 Datacenter ou Windows Server 2019 Datacenter.
 - Éléments de la Place de marché Azure Stack requis :

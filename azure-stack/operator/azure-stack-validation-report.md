@@ -1,5 +1,5 @@
 ---
-title: Rapport de validation pour Azure Stack | Microsoft Docs
+title: Rapport de validation pour Azure Stack Hub | Microsoft Docs
 description: Utilisez le rapport de l’outil Azure Stack Readiness Checker pour passer en revue les résultats de la validation.
 services: azure-stack
 documentationcenter: ''
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: c00ce005ac72fcde34b58a1afe7e134c27274247
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: e699ab75225e0590d287ddadd8b35b67bfac8479
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991722"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718383"
 ---
-# <a name="azure-stack-validation-report"></a>Rapport de validation Azure Stack
+# <a name="azure-stack-hub-validation-report"></a>Rapport de validation Azure Stack Hub
 
-Utilisez l’outil *Azure Stack Readiness Checker* pour exécuter des validations prenant en charge le déploiement et la maintenance d’un environnement Azure Stack. L’outil écrit les résultats dans un fichier de rapport .json. Le rapport affiche des données résumées et détaillées sur l’état des prérequis en vue du déploiement d’Azure Stack. Le rapport affiche également des informations sur la Rotation des secrets des déploiements Azure Stack existants.  
+Utilisez l’outil *Azure Stack Hub Readiness Checker* pour exécuter des validations qui prennent en charge le déploiement et la maintenance d’un environnement Azure Stack Hub. L’outil écrit les résultats dans un fichier de rapport .json. Le rapport affiche des données détaillées et synthétisées sur l’état des prérequis pour le déploiement d’Azure Stack Hub. Le rapport affiche également des informations sur la rotation des secrets pour les déploiements Azure Stack Hub existants.  
 
 ## <a name="where-to-find-the-report"></a>Emplacement du rapport
 
@@ -137,7 +137,7 @@ Pour afficher un rapport filtré sur un seul type de validation, utilisez le par
 - AzureIdentity
 - Graph
 - ADFS
-- Tâches
+- travaux
 - Tous  
 
 Par exemple, pour afficher le récapitulatif du rapport pour les certificats uniquement, utilisez la ligne de commande PowerShell suivante :

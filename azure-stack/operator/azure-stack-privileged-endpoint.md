@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: f77a497960b49e3a212ea5cc2b63c18d8382a99c
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.lastreviewed: 1/8/2020
+ms.openlocfilehash: 19783172dd402d7ea80dcbfc226aefb44846182f
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689988"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727086"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack"></a>Utiliser le point de terminaison privilégié dans Azure Stack
 
@@ -45,48 +45,56 @@ Vous accédez au point de terminaison privilégié via une session PowerShell di
 
 Avant de commencer cette procédure pour un système intégré, vérifiez que vous pouvez accéder à un point de terminaison privilégié via une adresse IP ou via DNS. Après le déploiement initial d’Azure Stack, vous pouvez accéder au point de terminaison privilégié seulement via une adresse IP, car l’intégration de DNS n’est pas encore configurée. Votre fournisseur de matériel OEM vous fournira un fichier JSON nommé **AzureStackStampDeploymentInfo** qui contient les adresses IP de point de terminaison privilégié.
 
+Vous pouvez également trouver l’adresse IP dans le portail administrateur Azure Stack Hub. Ouvrez le portail, par exemple, `https://adminportal.local.azurestack.external`. Sélectionnez **Gestion des régions** > **Propriétés**.
+
+Vous devez affecter la valeur `en-US` à votre paramètre de culture actuel au moment de l’exécution du point de terminaison privilégié. Sinon, les applets de commande telles que Test-AzureStack ou Get-AzureStackLog ne vont pas fonctionner comme prévu.
 
 > [!NOTE]
 > Pour des raisons de sécurité, vous devez vous connecter au point de terminaison privilégié uniquement à partir d’une machine virtuelle renforcée s’exécutant par-dessus l’hôte de cycle de vie du matériel, ou d’un ordinateur dédié et sécurisé, comme une [station de travail à accès privilégié](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). La configuration d’origine de l’hôte de cycle de vie du matériel ne doit pas être modifiée (même lors de l’installation de nouveaux logiciels), ni utilisée pour se connecter au point de terminaison privilégié.
 
 1. Établir une relation de confiance.
 
-    - Sur un système intégré, exécutez la commande suivante à partir d’une session Windows PowerShell avec élévation de privilèges pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur la machine virtuelle renforcée, qui s’exécute sur l’hôte de cycle de vie du matériel ou sur la station de travail à accès privilégié.
+      - Sur un système intégré, exécutez la commande suivante à partir d’une session Windows PowerShell avec élévation de privilèges pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur la machine virtuelle renforcée, qui s’exécute sur l’hôte de cycle de vie du matériel ou sur la station de travail à accès privilégié.
 
-      ```powershell
+      ```powershell  
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
-    - Si vous exécutez le kit ASDK, connectez-vous à l’hôte du kit de développement.
+
+      - Si vous exécutez le kit ASDK, connectez-vous à l’hôte du kit de développement.
 
 2. Sur la machine virtuelle renforcée s’exécutant sur l’hôte de cycle de vie du matériel ou sur la station de travail à accès privilégié, ouvrez une session Windows PowerShell. Exécutez les commandes suivantes pour établir une session distante sur la machine virtuelle qui héberge le point de terminaison privilégié :
  
-   - Sur un système intégré :
-     ```powershell
-       $cred = Get-Credential
+  - Sur un système intégré :
 
-       Enter-PSSession -ComputerName <IP_address_of_ERCS> `
-         -ConfigurationName PrivilegedEndpoint -Credential $cred
-     ```
-     Le paramètre `ComputerName` peut être l’adresse IP ou le nom DNS de l’une des machines virtuelles qui héberge le point de terminaison privilégié.
+    ```powershell  
+    $cred = Get-Credential
 
-     >[!NOTE]
-     >Azure Stack n’effectue pas d’appel à distance lors de la validation des informations d’identification du point de terminaison privilégié. Pour les valider, il s’appuie sur une clé publique RSA stockée localement.
-     
+    $pep = New-PSSession -ComputerName <IP_address_of_ERCS> -ConfigurationName PrivilegedEndpoint -Credential $cred -SessionOption (New-PSSessionOption -Culture en-US -UICulture en-US)
+    Enter-PSSession $pep
+    ```
+    
+    Le paramètre `ComputerName` peut être l’adresse IP ou le nom DNS de l’une des machines virtuelles qui héberge le point de terminaison privilégié.
+
+    > [!NOTE]  
+    >Azure Stack n’effectue pas d’appel à distance lors de la validation des informations d’identification du point de terminaison privilégié. Pour les valider, il s’appuie sur une clé publique RSA stockée localement.
+
    - Si vous exécutez le kit ADSK :
-     
-     ```powershell
-       $cred = Get-Credential
 
-       Enter-PSSession -ComputerName azs-ercs01 `
-         -ConfigurationName PrivilegedEndpoint -Credential $cred
-     ``` 
-     Quand vous y êtes invité, utilisez les informations d’identification suivantes :
+     ```powershell  
+      $cred = Get-Credential
+    
+      $pep = New-PSSession -ComputerName azs-ercs01 -ConfigurationName PrivilegedEndpoint -Credential $cred -SessionOption (New-PSSessionOption -Culture en-US -UICulture en-US)
+      Enter-PSSession $pep
+     ```
+    
+   - Quand vous y êtes invité, utilisez les informations d’identification suivantes :
+   
+       - **Nom d’utilisateur** : spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack*&gt;\cloudadmin**. (Pour le Kit ASDK, le nom d’utilisateur est **azurestack\cloudadmin**.)
+  
+        - **Mot de passe** : entrez le mot de passe du compte d'administrateur de domaine AzureStackAdmin tel qu'il vous a été fourni pendant l'installation.
 
-     - **Nom d’utilisateur :** spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack*&gt;\cloudadmin**. (Pour le Kit ASDK, le nom d’utilisateur est **azurestack\cloudadmin**.)
-     - **Mot de passe** : entrez le mot de passe du compte d'administrateur de domaine AzureStackAdmin tel qu'il vous a été fourni pendant l'installation.
-
-     > [!NOTE]
-     > Si vous ne parvenez pas à vous connecter au point de terminaison ERCS, réessayez les étapes 1 et 2 avec l’adresse IP d’une autre machine virtuelle ERCS.
+      > [!NOTE]
+      > Si vous ne parvenez pas à vous connecter au point de terminaison ERCS, réessayez les étapes 1 et 2 avec l’adresse IP d’une autre machine virtuelle ERCS.
 
 3. Une fois connecté, l'invite devient **[*adresse IP ou nom de la machine virtuelle ERCS*]: PS>** ou à **[azs-ercs01]: PS>** , en fonction de l'environnement. Depuis cette invite, exécutez `Get-Command` pour afficher la liste des applets de commande disponibles.
 
@@ -127,42 +135,48 @@ Pour importer la session du point de terminaison privilégié sur votre ordinate
 
 1. Établir une relation de confiance.
 
-    \- Sur un système intégré, exécutez la commande suivante à partir d’une session Windows PowerShell avec élévation de privilèges pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur la machine virtuelle renforcée, qui s’exécute sur l’hôte de cycle de vie du matériel ou sur la station de travail à accès privilégié.
+    - Sur un système intégré, exécutez la commande suivante à partir d’une session Windows PowerShell avec élévation de privilèges pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur la machine virtuelle renforcée, qui s’exécute sur l’hôte de cycle de vie du matériel ou sur la station de travail à accès privilégié.
 
-      ```powershell
-        winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
-      ```
+    ```powershell
+    winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
+    ```
+
     - Si vous exécutez le kit ASDK, connectez-vous à l’hôte du kit de développement.
 
 2. Sur la machine virtuelle renforcée s’exécutant sur l’hôte de cycle de vie du matériel ou sur la station de travail à accès privilégié, ouvrez une session Windows PowerShell. Exécutez les commandes suivantes pour établir une session distante sur la machine virtuelle qui héberge le point de terminaison privilégié :
- 
-   - Sur un système intégré :
-     ```powershell
-       $cred = Get-Credential
 
-       $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
-         -ConfigurationName PrivilegedEndpoint -Credential $cred
-     ```
-     Le paramètre `ComputerName` peut être l’adresse IP ou le nom DNS de l’une des machines virtuelles qui héberge le point de terminaison privilégié.
-   - Si vous exécutez le kit ADSK :
+    - Sur un système intégré :
+    
+      ```powershell  
+        $cred = Get-Credential
+      
+        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
+          -ConfigurationName PrivilegedEndpoint -Credential $cred
+      ```
+    
+      Le paramètre `ComputerName` peut être l’adresse IP ou le nom DNS de l’une des machines virtuelles qui héberge le point de terminaison privilégié.
+
+    - Si vous exécutez le kit ADSK :
      
-     ```powershell
-      $cred = Get-Credential
+        ```powershell  
+          $cred = Get-Credential
+    
+          $session = New-PSSession -ComputerName azs-ercs01 `
+             -ConfigurationName PrivilegedEndpoint -Credential $cred
+        ```
 
-      $session = New-PSSession -ComputerName azs-ercs01 `
-         -ConfigurationName PrivilegedEndpoint -Credential $cred
-     ``` 
      Quand vous y êtes invité, utilisez les informations d’identification suivantes :
 
-     - **Nom d’utilisateur :** spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack*&gt;\cloudadmin**. (Pour le Kit ASDK, le nom d’utilisateur est **azurestack\cloudadmin**.)
+     - **Nom d’utilisateur** : spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack*&gt;\cloudadmin**. (Pour le Kit ASDK, le nom d’utilisateur est **azurestack\cloudadmin**.)
      - **Mot de passe** : entrez le mot de passe du compte d'administrateur de domaine AzureStackAdmin tel qu'il vous a été fourni pendant l'installation.
 
-3. Importer la session du point de terminaison privilégié dans votre ordinateur local
-     ```powershell 
-        Import-PSSession $session
-   ```
-4. Vous pouvez désormais utiliser la saisie semi-automatique via la touche Tab et écrire des scripts comme de coutume sur votre session locale PowerShell à l’aide de l’ensemble des fonctions et des applets de commande du point de terminaison privilégié, sans réduire l’état de la sécurité d’Azure Stack. Vous n’avez plus qu’à l’utiliser !
+3. Importer la session du point de terminaison privilégié dans votre machine locale :
 
+    ```powershell 
+      Import-PSSession $session
+    ```
+
+4. Vous pouvez désormais utiliser la saisie semi-automatique via la touche Tab et écrire des scripts comme de coutume sur votre session locale PowerShell à l’aide de l’ensemble des fonctions et des applets de commande du point de terminaison privilégié, sans réduire l’état de la sécurité d’Azure Stack. Vous n’avez plus qu’à l’utiliser !
 
 ## <a name="close-the-privileged-endpoint-session"></a>Fermer la session du point de terminaison privilégié
 
@@ -172,15 +186,17 @@ Pour fermer la session du point de terminaison :
 
 1. Créez un partage de fichiers externe qui est accessible au point de terminaison privilégié. Dans un environnement avec Kit de développement, vous pouvez simplement créer un partage de fichiers sur l’hôte du Kit de développement.
 2. Exécutez l’applet de commande suivante :
-     ```powershell
+
+  ```powershell  
      Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
-     ```
+  ```
+
    L’applet de commande utilise les paramètres du tableau suivant :
 
    | Paramètre | Description | Type | Obligatoire |
    |---------|---------|---------|---------|
-   | *TranscriptsPathDestination* | Chemin du partage de fichiers externe défini comme ceci : « adresse_IP_partage_fichiers\nom_dossier_partage » | Chaîne | OUI|
-   | *Informations d'identification* | Informations d’identification pour accéder au partage de fichiers | SecureString |   OUI |
+   | *TranscriptsPathDestination* | Chemin du partage de fichiers externe défini comme ceci : « adresse_IP_partage_fichiers\nom_dossier_partage » | String | Oui|
+   | *Informations d'identification* | Informations d’identification pour accéder au partage de fichiers | SecureString |   Oui |
 
 
 Une fois les fichiers journaux de transcription correctement transférés vers le partage de fichiers, ils sont automatiquement supprimés du point de terminaison privilégié. 

@@ -16,16 +16,16 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 5841509f9c5c9aef20dd2687adb0e54856fa5d3e
-ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
+ms.openlocfilehash: d5467974a6b9164d92a2281fd94973835bc21993
+ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2019
-ms.locfileid: "75183545"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75756880"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Opérations de maintenance du fournisseur de ressources SQL
 
-Le fournisseur de ressources SQL s’exécute sur une machine virtuelle verrouillée. Pour activer les opérations de maintenance, vous devez mettre à jour la sécurité de la machine virtuelle. Pour effectuer cette opération à l’aide du principe des privilèges minimum, utilisez le point de terminaison [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) *DBAdapterMaintenance*. Le package d’installation du fournisseur de ressources inclut un script pour cette action.
+Le fournisseur de ressources SQL s’exécute sur une machine virtuelle verrouillée. Pour activer les opérations de maintenance, vous devez mettre à jour la sécurité de la machine virtuelle. Pour effectuer cette opération à l’aide du principe des privilèges minimum, utilisez le point de terminaison [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview)*DBAdapterMaintenance*. Le package d’installation du fournisseur de ressources inclut un script pour cette action.
 
 ## <a name="patching-and-updating"></a>Mise à jour corrective et mise à jour
 
@@ -39,7 +39,7 @@ Le fournisseur de ressources SQL n’est pas traité au sein d’Azure Stack, ca
 
 Vous êtes responsable de la création et de la gestion des comptes administrateur système sur vos serveurs SQL. Le fournisseur de ressources a besoin d’un compte disposant de ces privilèges pour gérer les bases de données pour le compte d’utilisateurs, mais il n’a pas besoin d’accéder aux données utilisateur. Pour mettre à jour les mots de passe d’administrateur système sur vos serveurs SQL, vous pouvez utiliser l’interface d’administration du fournisseur de ressources afin de modifier le mot de passe stocké utilisé par ce dernier. Ces mots de passe sont stockés dans un coffre de clés sur votre instance Azure Stack.
 
-Pour modifier les paramètres, cliquez sur **Parcourir** &gt; **RESSOURCES ADMINISTRATIVES** &gt; **Serveurs d’hébergement SQL** &gt; **Connexions SQL** et sélectionnez un nom d’utilisateur. La modification doit d’abord être effectuée sur l’instance SQL (et sur tous les réplicas, si nécessaire). Sous **Paramètres**, sélectionnez **Mot de passe**.
+Pour modifier les paramètres, cliquez sur **Parcourir** &gt; **RESSOURCES ADMINISTRATIVES** &gt; **Serveurs d’hébergement SQL** &gt; **Connexions SQL**, puis sélectionnez un nom d’utilisateur. La modification doit d’abord être effectuée sur l’instance SQL (et sur tous les réplicas, si nécessaire). Sous **Paramètres**, sélectionnez **Mot de passe**.
 
 ![Mettre à jour le mot de passe de l’administrateur SQL](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
@@ -251,7 +251,7 @@ L’extension Azure Diagnostics est installée sur la machine virtuelle de l’a
 
 Une fois que les journaux des événements et la collecte des journaux IIS sont configurés pour le fournisseur de ressources SQL, vous trouvez les journaux dans un compte de stockage système nommé **mysqladapterdiagaccount**.
 
-Pour découvrir plus d’informations sur l’extension Azure Diagnostics, consultez [Présentation de l’extension Azure Diagnostics](/azure-monitor/platform/diagnostics-extension-overview).
+Pour découvrir plus d’informations sur l’extension Azure Diagnostics, consultez [Présentation de l’extension Azure Diagnostics](/azure/azure-monitor/platform/diagnostics-extension-overview).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

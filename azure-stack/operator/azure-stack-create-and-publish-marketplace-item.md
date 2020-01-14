@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2019
+ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: d03049fd6dea5f5d7a10a61a25639cb1de3d67ad
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: 5740ff6bc550aa27f15761e6be2c69247eecaf03
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73057779"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75654880"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-marketplace-item"></a>Créer et publier un élément personnalisé de Place de marché Azure Stack
 
@@ -35,11 +35,11 @@ Les exemples de cet article montrent comment créer une offre de la Place de mar
 ## <a name="create-a-marketplace-item"></a>Créer un élément de Marketplace
 
 > [!IMPORTANT]
-> Avant de créer l’élément de Place de marché de machines virtuelles, chargez l’image de machine virtuelle personnalisée sur le portail Azure Stack, en suivant les instructions de [Ajouter une image de machine virtuelle à Azure Stack](azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal). Ensuite, suivez les instructions de cet article pour empaqueter l’image (créer un fichier .azpkg) et la charger sur la Place de marché Azure Stack.
+> Avant de créer l’élément de Place de marché de machines virtuelles, chargez l’image de machine virtuelle personnalisée sur le portail Azure Stack, en suivant les instructions de [Ajouter une image de machine virtuelle à Azure Stack](azure-stack-add-vm-image.md). Ensuite, suivez les instructions de cet article pour empaqueter l’image (créer un fichier .azpkg) et la charger sur la Place de marché Azure Stack.
 
 Pour créer un élément de Place de marché personnalisé, procédez comme suit :
 
-1. Téléchargez l’[outil Azure Gallery Packager](https://aka.ms/azsmarketplaceitem) et l’exemple de package de galerie Azure Stack. Ce téléchargement comprend des modèles de machine virtuelle personnalisés. Extrayez le fichier .zip et renommez le dossier **SimpleVMTemplate**  en utilisant le nom de l’élément que vous allez montrer sur votre portail Azure Stack.
+1. Téléchargez l’[outil Azure Gallery Packager](https://aka.ms/azsmarketplaceitem) et l’exemple de package de galerie Azure Stack. Ce téléchargement comprend des modèles de machine virtuelle personnalisés. Extrayez le fichier .zip, puis sous le dossier **Custom VMs** (Machines virtuelles personnalisées), utilisez les modèles Linux ou Windows disponibles. Vous pouvez décider de réutiliser les modèles prédéfinis et de modifier les paramètres respectifs en fonction des détails de produit de l’élément à afficher sur votre portail Azure Stack. Sinon, vous pouvez simplement réutiliser le fichier .azpkg disponible et ignorer les étapes suivantes pour personnaliser votre propre package de galerie.
 
 2. Créez un modèle Azure Resource Manager ou utilisez nos exemples de modèles pour Windows/Linux. Ces exemples de modèles sont fournis dans le fichier .zip de l’outil Packager que vous avez téléchargé à l’étape 1. Vous pouvez utiliser le modèle et modifier les champs de texte, ou vous pouvez télécharger un modèle préconfiguré à partir de GitHub. Pour plus d’informations sur les modèles Azure Resource Manager, consultez [Modèles Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates).
 
@@ -51,7 +51,7 @@ Pour créer un élément de Place de marché personnalisé, procédez comme suit
 
    ![Capture d’écran de la structure des modèles de déploiement](media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png)
 
-4. Remplacez les valeurs en surbrillance suivantes (celles avec des numéros) dans le modèle Manifest.json par la valeur que vous avez fournie lors du [chargement de votre image personnalisée](azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal).
+4. Remplacez les valeurs en surbrillance suivantes (celles avec des numéros) dans le modèle Manifest.json par la valeur que vous avez fournie lors du [chargement de votre image personnalisée](azure-stack-add-vm-image.md).
 
    > [!NOTE]  
    > Ne codez jamais en dur des secrets tels que des clés de produit, des mots de passe ou des informations d’identification de client dans le modèle Azure Resource Manager. Les fichiers modèles JSON sont accessibles sans authentification une fois qu’ils sont publiés dans la galerie. Stockez tous les secrets dans [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) et appelez-les à partir du modèle.
@@ -141,7 +141,7 @@ Pour créer un élément de Place de marché personnalisé, procédez comme suit
     }
     ```
 
-    ![Affichage du package](media/azure-stack-create-and-publish-marketplace-item/pkg1.png) ![Affichage du package](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
+    ![Affichage du package](media/azure-stack-create-and-publish-marketplace-item/pkg1.png)![Affichage du package](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
 
 6. Pour garantir la réussite du déploiement de la ressource, testez le modèle avec les [API Azure Stack](../user/azure-stack-profiles-azure-resource-manager-versions.md).
 
@@ -216,28 +216,28 @@ Pour créer un élément de Place de marché personnalisé, procédez comme suit
 
 ### <a name="identity-information"></a>Informations d’identité
 
-| Nom | Obligatoire | Type | Contraintes | Description |
+| Name | Obligatoire | Type | Contraintes | Description |
 | --- | --- | --- | --- | --- |
-| Nom |X |Chaîne |[A-Za-z0-9]+ | |
-| Publisher |X |Chaîne |[A-Za-z0-9]+ | |
-| Version |X |Chaîne |[SemVer v2](https://semver.org/) | |
+| Name |X |String |[A-Za-z0-9]+ | |
+| Serveur de publication |X |String |[A-Za-z0-9]+ | |
+| Version |X |String |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Métadonnées
 
-| Nom | Obligatoire | Type | Contraintes | Description |
+| Name | Obligatoire | Type | Contraintes | Description |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Chaîne |Recommandation : 80 caractères |Le portail risque de ne pas afficher correctement le nom de votre élément s’il comporte plus de 80 caractères. |
-| PublisherDisplayName |X |Chaîne |Recommandation : 30 caractères |Le portail risque de ne pas afficher correctement le nom de votre éditeur s’il comporte plus de 30 caractères. |
-| PublisherLegalName |X |Chaîne |256 caractères maximum | |
-| Résumé |X |Chaîne |60 à 100 caractères | |
-| LongSummary |X |Chaîne |140 à 256 caractères |Non encore applicable dans Azure Stack |
+| DisplayName |X |String |Recommandation : 80 caractères |Le portail risque de ne pas afficher correctement le nom de votre élément s’il comporte plus de 80 caractères. |
+| PublisherDisplayName |X |String |Recommandation : 30 caractères |Le portail risque de ne pas afficher correctement le nom de votre éditeur s’il comporte plus de 30 caractères. |
+| PublisherLegalName |X |String |256 caractères maximum | |
+| Résumé |X |String |60 à 100 caractères | |
+| LongSummary |X |String |140 à 256 caractères |Non encore applicable dans Azure Stack |
 | Description |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |Entre 500 et 5 000 caractères | |
 
 ### <a name="images"></a>Images
 
 La Marketplace utilise les icônes suivantes :
 
-| Nom | Largeur | Hauteur | Notes |
+| Name | Largeur | Hauteur | Notes |
 | --- | --- | --- | --- |
 | Large |255 px |115 px |Toujours obligatoire |
 | grand |115 px |115 px |Toujours obligatoire |
@@ -253,19 +253,19 @@ Chaque article de Marketplace doit être étiqueté avec une catégorie qui iden
 
 Chaque article de Marketplace peut comporter différents liens vers du contenu supplémentaire. Les liens sont spécifiés comme une liste de noms et d’URI :
 
-| Nom | Obligatoire | Type | Contraintes | Description |
+| Name | Obligatoire | Type | Contraintes | Description |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Chaîne |64 caractères maximum. | |
+| DisplayName |X |String |64 caractères maximum. | |
 | Uri |X |URI | | |
 
 ### <a name="additional-properties"></a>Propriétés supplémentaires
 
 En plus des métadonnées précédentes, les auteurs de la Marketplace peuvent fournir des données de paire clé-valeur personnalisées sous la forme suivante :
 
-| Nom | Obligatoire | Type | Contraintes | Description |
+| Name | Obligatoire | Type | Contraintes | Description |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Chaîne |25 caractères maximum. | |
-| Valeur |X |Chaîne |30 caractères maximum. | |
+| DisplayName |X |String |25 caractères maximum. | |
+| Valeur |X |String |30 caractères maximum. | |
 
 ### <a name="html-sanitization"></a>Nettoyage du HTML
 

@@ -14,12 +14,12 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 963944f2ade4db168c1b7f9070e72fe503bdfcf9
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: eb676d914a345c5fe36e063ee08ea226cd1e3209
+ms.sourcegitcommit: 1cb84d8417367b553194614d53a477a94a8e9be9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954466"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75755178"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Notes de publication de Validation en tant que service
 
@@ -28,6 +28,17 @@ ms.locfileid: "74954466"
 Cet article présente les notes de publication d’Azure Stack Validation en tant que service.
 
 ## <a name="version-4421"></a>Version 4.4.2.1
+
+9 janvier 2020
+
+- Test des mises à jour de contenu
+  - Workflow de validation OEM (version 5.1.52.0 -> 5.1.53.0) : Réduction du nombre de paramètres obligatoires dans le volet de planification des tests. 
+  - Résolution de bogues pour le test de Compute - TestVMOperations
+    
+- Problèmes connus
+  - Contactez vaashelp@microsoft.com si les cas de test suivants ne s’exécutent pas pendant le workflow de validation OEM :
+    - Test101LinuxEmptyAttachedDiskManagedDisk
+    - Test101WindowsEmptyAttachedDiskManagedDisk
 
 3 décembre 2019
 

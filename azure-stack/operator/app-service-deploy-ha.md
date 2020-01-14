@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2019
+ms.date: 01/02/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 0bf89b0f80557f99c83fb5ad6afd0c4a5dcd3849
-ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
+ms.lastreviewed: 01/02/2020
+ms.openlocfilehash: 9e5b99a5787e6472b2e9d25a509f615a1b02a732
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72165019"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75655056"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Déployer App Service dans une configuration hautement disponible
 
@@ -78,7 +78,7 @@ Utilisez les étapes de cette section pour créer un déploiement personnalisé 
    > [!NOTE]
    > Le déploiement du modèle dure environ une heure.
 
-   [![](media/app-service-deploy-ha/5-sm.png "Examiner l’état du déploiement du modèle")](media/app-service-deploy-ha/5-lg.png#lightbox)
+   [![](media/app-service-deploy-ha/5-sm.png "Review template deployment status")](media/app-service-deploy-ha/5-lg.png#lightbox)
 
 
 ### <a name="record-template-outputs"></a>Enregistrer les sorties de modèle
@@ -114,7 +114,7 @@ Après avoir installé le fournisseur de ressources App Service, vous pouvez l�
 > [!IMPORTANT]
 > Avant d’exécuter le programme d’installation du fournisseur de ressources, vérifiez que vous avez lu les notes de publication qui accompagnent chaque version d’App Service afin d’en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 Avant de pouvoir exécuter le programme d’installation App Service, plusieurs étapes sont nécessaires comme décrit dans l’article [Avant de commencer avec App Service sur Azure Stack](azure-stack-app-service-before-you-get-started.md) :
 
 > [!TIP]
@@ -170,15 +170,15 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 
     ![Boîte de dialogue d’erreur attendue sur App Service](media/app-service-deploy-ha/08.png)
 
-    Si vous avez choisi d’effectuer un déploiement sur un réseau virtuel existant en utilisant une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité de trafic sortant. Cette règle active le trafic SMB entre le sous-réseau worker et le serveur de fichiers. Accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
+    Si vous avez choisi d’effectuer un déploiement sur un réseau virtuel existant en utilisant une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité de trafic sortant. Cette règle active le trafic SMB entre le sous-réseau worker et le serveur de fichiers. Accédez au WorkersNsg dans le portail administrateur, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
     - Source : Quelconque
     - Plage de ports source : : *
     - Destination : Adresses IP
     - Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
     - Plage de ports de destination : 445
-    - Protocole : TCP
-    - Action : AUTORISER
-    - Priorité : 700
+    - Protocole : TCP
+    - Action : Allow
+    - Priorité : 700
     - Nom : Outbound_Allow_SMB445
 
 10. Fournissez l’ID d’application d’identité, le chemin et les mots de passe pour les certificats d’identité, puis cliquez sur **Suivant** :
@@ -210,13 +210,13 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
     |Rôle de gestion|1|3|
     |Rôle d’éditeur|1|3|
     |Rôle FrontEnd|1|3|
-    |Rôle de worker partagé|1|10|
+    |Rôle de worker partagé|1|2|
     |     |     |     |
 
     ![Valeurs d’instances de rôle d’infrastructure sur App Service](media/app-service-deploy-ha/12.png)
 
     > [!NOTE]
-    > Le remplacement des valeurs par défaut par celles recommandées dans ce tutoriel augmente la configuration matérielle requise pour l’installation d’App Service. Un total de 26 cœurs et 46 592 Mo de RAM sont nécessaires pour prendre en charge les 21 machines virtuelles recommandées au lieu des 18 cœurs par défaut et 32 256 Mo de RAM pour 15 machines virtuelles.
+    > Le remplacement des valeurs par défaut par celles recommandées dans ce tutoriel augmente la configuration matérielle requise pour l’installation d’App Service. Un total de 18 cœurs et 32 256 Mo de RAM sont nécessaires pour prendre en charge les 13 machines virtuelles recommandées au lieu des 9 cœurs par défaut et 16 128 Mo de RAM pour 6 machines virtuelles.
 
 15. Sélectionnez l’image de plateforme à utiliser pour l’installation des machines virtuelles de l’infrastructure App Service et cliquez sur **Suivant** :
 

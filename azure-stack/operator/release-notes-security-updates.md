@@ -1,6 +1,6 @@
 ---
-title: Notes de publication Azure Stack – Mises à jour de sécurité pour 1910 | Microsoft Docs
-description: Découvrez les mises à jour de sécurité 1909 pour Azure Stack.
+title: Notes de publication d’Azure Stack Hub - Mises à jour de sécurité 1910 | Microsoft Docs
+description: Découvrez les mises à jour de sécurité 1910 pour Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,21 +16,21 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 9294e0fad863345758527fb622fd5f3e753a29d1
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: 9766c1fb0c5186f33038716f0d56d1ccac9d90cb
+ms.sourcegitcommit: c3be6b2e962c5905eb3c54f9555e13095f6b4d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74299089"
+ms.lasthandoff: 12/20/2019
+ms.locfileid: "75303674"
 ---
-# <a name="azure-stack-security-updates"></a>Mises à jour de sécurité Azure Stack
+# <a name="azure-stack-hub-security-updates"></a>Mises à jour de sécurité Azure Stack Hub
 
-Cet article liste toutes les mises à jour de sécurité contenues dans les quatre dernières mises à jour d’Azure Stack. Ces informations sont fournies à titre de référence uniquement.
+Cet article liste toutes les mises à jour de sécurité contenues dans les quatre dernières mises à jour d’Azure Stack Hub. Ces informations sont fournies à titre de référence uniquement.
 
 ::: moniker range="azs-1910"
 ## <a name="1910-update"></a>Mise à jour 1910
 
-Cette mise à jour d’Azure Stack n’inclut pas les mises à jour de sécurité pour le système d’exploitation sous-jacent qui héberge Azure Stack. Cette mise à jour contient une mise à jour de sécurité pour un composant de l’infrastructure Azure Stack :
+Cette mise à jour d’Azure Stack Hub n’inclut pas les mises à jour de sécurité du système d’exploitation sous-jacent qui héberge Azure Stack Hub. Cette mise à jour contient une mise à jour de sécurité pour un composant de l’infrastructure Azure Stack Hub :
 
 - [CVE-2019-1234](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1234)
 

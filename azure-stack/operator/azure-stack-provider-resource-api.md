@@ -1,7 +1,6 @@
 ---
-title: API d’utilisation des ressources de fournisseur | Microsoft Docs
-titleSuffix: Azure Stack
-description: Informations de référence sur l’API d’utilisation des ressources, qui récupère les informations relatives à l’utilisation d’Azure Stack.
+title: API d’utilisation des ressources de fournisseur Azure Stack Hub | Microsoft Docs
+description: Informations de référence sur l’API d’utilisation des ressources, qui récupère les informations relatives à l’utilisation d’Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/16/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 75a4adca6d9265314c74cdebe642d43b8c2f11ef
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.openlocfilehash: 914f363efa5800c331239a547ee3edd577806188
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802398"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718111"
 ---
 # <a name="provider-resource-usage-api"></a>API Utilisation des ressources de fournisseur
 
-Le terme *fournisseur* s’applique à l’administrateur de services et à tous les fournisseurs délégués. Les opérateurs et fournisseurs délégués Azure Stack peuvent utiliser l’API d’utilisation du fournisseur pour consulter l’utilisation de leurs locataires directs. Par exemple, comme indiqué dans le diagramme, P0 peut appeler l’API du fournisseur pour obtenir des informations d’utilisation directes sur P1 et P2, et P1 peut demander des informations d’utilisation sur P3 et P4.
+Le terme *fournisseur* s’applique à l’administrateur de services et à tous les fournisseurs délégués. Les opérateurs et fournisseurs délégués Azure Stack Hub peuvent se servir de l’API d’utilisation du fournisseur pour voir l’utilisation de leurs locataires directs. Par exemple, comme indiqué dans le diagramme, P0 peut appeler l’API du fournisseur pour obtenir des informations d’utilisation directes sur P1 et P2, et P1 peut demander des informations d’utilisation sur P3 et P4.
 
 ![Modèle conceptuel de la hiérarchie des fournisseurs](media/azure-stack-provider-resource-api/image1.png)
 
@@ -45,7 +44,7 @@ Cette API d’utilisation étant une API de fournisseur, un rôle **Propriétair
 
 | Argument | Description |
 | --- | --- |
-| `armendpoint` |Point de terminaison Azure Resource Manager de votre environnement Azure Stack. La convention Azure Stack est que le nom du point de terminaison Azure Resource Manager soit au format `https://adminmanagement.{domain-name}`. Par exemple, pour le Kit de développement Azure Stack (ASDK), si le nom de domaine est *local.azurestack.external*, le point de terminaison Resource Manager est `https://adminmanagement.local.azurestack.external`. |
+| `armendpoint` |Point de terminaison Azure Resource Manager de votre environnement Azure Stack. Par convention, dans l’infrastructure Azure Stack Hub, le nom du point de terminaison Azure Resource Manager est au format `https://adminmanagement.{domain-name}`. Par exemple, pour le Kit de développement Azure Stack (ASDK), si le nom de domaine est *local.azurestack.external*, le point de terminaison Resource Manager est `https://adminmanagement.local.azurestack.external`. |
 | `subId` |ID d’abonnement de l’utilisateur qui effectue l’appel. |
 | `reportedStartTime` |Heure de début de la requête. La valeur de `DateTime` doit être exprimée en temps universel coordonné (UTC) et indiquer le début de l’heure ; par exemple, 13:00. Pour l’agrégation quotidienne, définissez cette valeur sur minuit au format UTC. Le format fait l’objet de séquences d’échappement ISO 8601. Par exemple, dans `2015-06-16T18%3a53%3a11%2b00%3a00Z`, le signe deux-points est remplacé par la séquence d’échappement `%3a` et le signe plus est remplacé par la séquence d’échappement `%2b` pour que la chaîne soit compatible avec le format des URI. |
 | `reportedEndTime` |Heure de fin de la requête. Les contraintes qui s’appliquent à `reportedStartTime` s’appliquent également à cet argument. La valeur de `reportedEndTime` ne peut pas être la date actuelle ou une date future. Dans ce cas, le résultat a la valeur « traitement non terminé ». |
@@ -94,7 +93,7 @@ meterID1",
 |`id` |ID unique de l’agrégat d’utilisation. |
 |`name` |Nom de l’agrégat d’utilisation. |
 |`type` |Définition de la ressource. |
-|`subscriptionId` |Identificateur d’abonnement de l’utilisateur Azure Stack. |
+|`subscriptionId` |Identificateur d’abonnement de l’utilisateur Azure Stack Hub. |
 |`usageStartTime`|Heure de début, au format UTC, du compartiment d’utilisation auquel appartient cet agrégat d’utilisation.|
 |`usageEndTime`|Heure de fin, au format UTC, du compartiment d’utilisation auquel appartient cet agrégat d’utilisation. |
 |`instanceData` |Paires clé-valeur des détails de l’instance (dans un nouveau format) :<br> `resourceUri`: ID de ressource complet, qui inclut les groupes de ressources et le nom de l'instance. <br> `location`: région dans laquelle ce service a été exécuté. <br> `tags`: balises de ressources spécifiées par l'utilisateur. <br> `additionalInfo`: informations supplémentaires sur la ressource consommée, par exemple, la version du système d’exploitation ou le type d’image. |
@@ -105,10 +104,10 @@ meterID1",
 
 ### <a name="powershell"></a>PowerShell
 
-Pour générer les données d’utilisation, vous devez disposer de ressources en cours d’exécution qui utilisent activement le système, par exemple une machine virtuelle active ou un compte de stockage contenant des données. Si vous ne savez pas si des ressources sont en cours d’exécution dans la Place de marché Azure Stack, déployez une machine virtuelle et consultez son panneau de supervision pour vérifier qu’elle est en cours d’exécution. Pour afficher les données d’utilisation, utilisez les cmdlets PowerShell suivantes :
+Pour générer les données d’utilisation, vous devez disposer de ressources en cours d’exécution qui utilisent activement le système, par exemple une machine virtuelle active ou un compte de stockage contenant des données. Si vous ne savez pas si des ressources sont en cours d’exécution dans la Place de marché Azure Stack Hub, déployez une machine virtuelle, puis consultez son panneau de supervision pour vérifier qu’elle est en cours d’exécution. Pour afficher les données d’utilisation, utilisez les cmdlets PowerShell suivantes :
 
-1. [Installez PowerShell pour Azure Stack](azure-stack-powershell-install.md).
-2. Configurez l’environnement PowerShell [Utilisateur d’Azure Stack](../user/azure-stack-powershell-configure-user.md) ou [Opérateur d’Azure Stack](azure-stack-powershell-configure-admin.md).
+1. [Installez PowerShell pour Azure Stack Hub](azure-stack-powershell-install.md).
+2. Configurez l’environnement PowerShell [Utilisateur d’Azure Stack Hub](../user/azure-stack-powershell-configure-user.md) ou [Opérateur d’Azure Stack Hub](azure-stack-powershell-configure-admin.md).
 3. Pour récupérer les données d’utilisation, appelez l’applet de commande PowerShell [Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) :
 
    ```powershell
@@ -117,7 +116,7 @@ Pour générer les données d’utilisation, vous devez disposer de ressources e
 
 ### <a name="rest-api"></a>API REST
 
-Vous pouvez collecter des informations d’utilisation pour les abonnements supprimés en appelant le service Microsoft.Commerce.Admin.
+Vous pouvez collecter des informations sur l’utilisation des abonnements supprimés en appelant le service **Microsoft.Commerce.Admin**.
 
 #### <a name="return-all-tenant-usage-for-deleted-for-active-users"></a>Retourner toute l’utilisation du locataire pour les utilisateurs actifs
 

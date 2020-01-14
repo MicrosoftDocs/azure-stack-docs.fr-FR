@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 3823aa73d58af48c662690aa0d8e8a21180b4ed6
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 61e79fb581b18825d2bde1e2838d8b653ad00da6
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283234"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727528"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Valider des certificats PKI Azure Stack
 
@@ -28,8 +28,10 @@ L’outil Azure Stack Readiness Checker décrit dans cet article est disponible 
 
 L’outil Readiness Checker effectue les validations de certificat suivantes :
 
-- **Lecture PFX**  
-    Vérifie la validité du fichier PFX, l’exactitude du mot de passe et si les informations publiques ne sont pas protégées par le mot de passe. 
+- **Analyser PFX**  
+    Vérifie si le fichier PFX est valide, si le mot de passe est correct et si les informations publiques sont protégées par le mot de passe. 
+- **Date d’expiration**  
+    Vérifie la validité minimale de 7 jours. 
 - **Algorithme de signature**  
     Vérifie que l’algorithme de signature n’est pas SHA1 (Secure Hash Algorithm 1).
 - **Clé privée**  
@@ -46,13 +48,11 @@ L’outil Readiness Checker effectue les validations de certificat suivantes :
     Vérifie l’ordre des autres certificats afin de garantir que l’ordre est correct.
 - **Autres certificats**  
     Assurez-vous qu’aucun autre certificat n’a été packagé dans le PFX, à part le certificat feuille pertinent et sa chaîne.
-- **Aucun profil**  
-    Vérifie qu’un nouvel utilisateur peut charger les données PFX sans profil utilisateur chargé, en simulant le comportement des comptes de service administré de groupe pendant la maintenance du certificat.
 
 > [!IMPORTANT]  
 > Le certificat PKI est un fichier PFX et le mot de passe doit être considéré comme une information sensible.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Votre système doit respecter la configuration requise ci-après afin de permettre la validation des certificats PKI pour un déploiement Azure Stack :
 
@@ -71,13 +71,13 @@ Pour préparer et valider les certificats PKI Azure Stack en vue du déploiement
         Install-Module Microsoft.AzureStack.ReadinessChecker -force 
     ```
 
-2. Créez la structure de répertoires de certificat. Dans l’exemple ci-après, vous pouvez remplacer `<c:\certificates>` par un nouveau chemin d’accès de répertoire de votre choix.
+2. Créez la structure de répertoires de certificat. Dans l’exemple ci-après, vous pouvez remplacer `<C:\Certificates\Deployment>` par un nouveau chemin d’accès de répertoire de votre choix.
     ```powershell  
-    New-Item C:\Certificates -ItemType Directory
+    New-Item C:\Certificates\Deployment -ItemType Directory
     
     $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'Admin Extension Host', 'Admin Portal', 'ARM Admin', 'ARM Public', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal'
     
-    $destination = 'c:\certificates'
+    $destination = 'C:\Certificates\Deployment'
     
     $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}
     ```
@@ -90,64 +90,124 @@ Pour préparer et valider les certificats PKI Azure Stack en vue du déploiement
     > ```
     
      - Placez vos certificats dans les répertoires appropriés créés à l’étape précédente. Par exemple :  
-        - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
-        - `c:\certificates\Admin Portal\CustomerCertificate.pfx`
-        - `c:\certificates\ARM Admin\CustomerCertificate.pfx`
+        - `C:\Certificates\Deployment\ACSBlob\CustomerCertificate.pfx`
+        - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
+        - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
 
 3. Dans la fenêtre PowerShell, changez les valeurs de **RegionName** et **FQDN** en fonction de l’environnement Azure Stack et exécutez la commande suivante :
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
-
-    Invoke-AzsCertificateValidation -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
+    Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
 4. Vérifiez que la sortie et tous les certificats réussissent tous les tests. Par exemple :
 
-```powershell
-Invoke-AzsCertificateValidation v1.1809.1005.1 started.
-Testing: ARM Public\ssl.pfx
-Thumbprint: 7F6B27****************************E9C35A
-    PFX Encryption: OK
-    Signature Algorithm: OK
-    DNS Names: OK
-    Key Usage: OK
-    Key Size: OK
-    Parse PFX: OK
-    Private Key: OK
-    Cert Chain: OK
-    Chain Order: OK
-    Other Certificates: OK
-Testing: Admin Extension Host\ssl.pfx
-Thumbprint: A631A5****************************35390A
-    PFX Encryption: OK
-    Signature Algorithm: OK
-    DNS Names: OK
-    Key Usage: OK
-    Key Size: OK
-    Parse PFX: OK
-    Private Key: OK
-    Cert Chain: OK
-    Chain Order: OK
-    Other Certificates: OK
-Testing: Public Extension Host\ssl.pfx
-Thumbprint: 4DBEB2****************************C5E7E6
-    PFX Encryption: OK
-    Signature Algorithm: OK
-    DNS Names: OK
-    Key Usage: OK
-    Key Size: OK
-    Parse PFX: OK
-    Private Key: OK
-    Cert Chain: OK
-    Chain Order: OK
-    Other Certificates: OK
+    ```powershell
+    Invoke-AzsCertificateValidation v1.1912.1082.37 started.
+    Testing: KeyVaultInternal\adminvault.pfx
+    Thumbprint: B1CB76****************************565B99
+            Expiry Date: OK
+            Signature Algorithm: OK
+            DNS Names: OK
+            Key Usage: OK
+            Key Length: OK
+            Parse PFX: OK
+            Private Key: OK
+            Cert Chain: OK
+            Chain Order: OK
+            Other Certificates: OK
+    Testing: ARM Public\management.pfx
+    Thumbprint: 44A35E****************************36052A
+            Expiry Date: OK
+            Signature Algorithm: OK
+            DNS Names: OK
+            Key Usage: OK
+            Key Length: OK
+            Parse PFX: OK
+            Private Key: OK
+            Cert Chain: OK
+            Chain Order: OK
+            Other Certificates: OK
+    Testing: Admin Portal\adminportal.pfx
+    Thumbprint: 3F5E81****************************9EBF9A
+            Expiry Date: OK
+            Signature Algorithm: OK
+            DNS Names: OK
+            Key Usage: OK
+            Key Length: OK
+            Parse PFX: OK
+            Private Key: OK
+            Cert Chain: OK
+            Chain Order: OK
+            Other Certificates: OK
+    Testing: Public Portal\portal.pfx
 
-Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
-Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
-Invoke-AzsCertificateValidation Completed
-```
+    Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+    Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+    Invoke-AzsCertificateValidation Completed
+    ```
 
+    Pour valider les certificats d’autres services Azure Stack, changez la valeur de ```-CertificateType```. Par exemple :
+
+    ```powershell  
+    # App Services
+    Invoke-AzsCertificateValidation -CertificateType AppServices -CertificatePath C:\Certificates\AppServices -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com
+
+    # DBAdapter
+    Invoke-AzsCertificateValidation -CertificateType DBAdapter -CertificatePath C:\Certificates\DBAdapter -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com
+
+    # EventHub
+    Invoke-AzsCertificateValidation -CertificateType EventHubs -CertificatePath C:\Certificates\EventHub -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com
+
+    # IoTHub
+    Invoke-AzsCertificateValidation -CertificateType IoTHub -CertificatePath C:\Certificates\IoTHub -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com
+    ```
+Chaque dossier doit contenir un seul fichier PFX pour le type de certificat. Si un type de certificat a des exigences multicertificats, des dossiers imbriqués sont attendus pour chaque certificat avec un nom approprié.  Le code suivant montre un exemple de structure de dossier/certificat pour tous les types de certificat ainsi que la valeur appropriée pour ```-CertificateType``` et ```-CertificatePath```.
+    
+    ```powershell  
+    C:\>tree c:\SecretStore /A /F
+        Folder PATH listing
+        Volume serial number is 85AE-DF2E
+        C:\SECRETSTORE
+        \---AzureStack
+            +---CertificateRequests
+            \---Certificates
+                +---AppServices         # Invoke-AzsCertificateValidation `
+                |   +---API             #     -CertificateType AppServices `
+                |   |       api.pfx     #     -CertificatePath C:\Certificates\AppServices
+                |   |
+                |   +---DefaultDomain
+                |   |       wappsvc.pfx
+                |   |
+                |   +---Identity
+                |   |       sso.pfx
+                |   |
+                |   \---Publishing
+                |           ftp.pfx
+                |
+                +---DBAdapter           # Invoke-AzsCertificateValidation `
+                |       dbadapter.pfx   #   -CertificateType DBAdapter `
+                |                       #   -CertificatePath C:\Certificates\DBAdapter
+                |
+                +---Deployment          # Invoke-AzsCertificateValidation `
+                |   +---ACSBlob         #   -CertificateType Deployment `
+                |   |       acsblob.pfx #   -CertificatePath C:\Certificates\Deployment
+                |   |
+                |   +---ACSQueue
+                |   |       acsqueue.pfx
+               ./. ./. ./. ./. ./. ./. ./.    <- Deployment certificate tree trimmed.
+                |   \---Public Portal
+                |           portal.pfx
+                |
+                +---EventHub            # Invoke-AzsCertificateValidation `
+                |       eventhub.pfx    #   -CertificateType EventHub `
+                |                       #   -CertificatePath C:\Certificates\EventHub
+                |
+                \---IoTHub              # Invoke-AzsCertificateValidation `
+                        iothub.pfx      #   -CertificateType IoTHub `
+                                        #   -CertificatePath C:\Certificates\IoTHub
+    ```
 ### <a name="known-issues"></a>Problèmes connus
 
 **Symptôme** : les tests sont ignorés.
@@ -178,77 +238,6 @@ Invoke-AzsCertificateValidation Completed
     ```
 
 **Résolution** : suivez les instructions de l’outil dans la section des détails sous chaque ensemble de tests de chacun des certificats.
-
-## <a name="perform-platform-as-a-service-certificate-validation"></a>Effectuer une validation de certificats Platform as a service
-
-Utilisez ces étapes pour préparer et valider les certificats PKI Azure Stack pour les certificats PaaS (Platform as a service), si des déploiements SQL/MySQL ou App Services sont planifiés.
-
-1.  Installez **AzsReadinessChecker** à partir d’une invite PowerShell (5.1 ou version ultérieure) en exécutant l’applet de commande suivante :
-
-    ```powershell  
-      Install-Module Microsoft.AzureStack.ReadinessChecker -force
-    ```
-
-2.  Créez une table de hachage imbriquée qui contient les chemins et mot de passe de chaque certificat PaaS à valider. Dans la fenêtre PowerShell, exécutez les commandes suivantes :
-
-    ```powershell  
-        $PaaSCertificates = @{
-        'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
-        'PaaSDefaultCert' = @{'pfxPath' = '<Path to Default PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
-        'PaaSAPICert' = @{'pfxPath' = '<Path to API PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
-        'PaaSFTPCert' = @{'pfxPath' = '<Path to FTP PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
-        'PaaSSSOCert' = @{'pfxPath' = '<Path to SSO PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
-        }
-    ```
-
-3.  Changez les valeurs de **RegionName** et **FQDN** en fonction de votre environnement Azure Stack pour démarrer la validation. Exécutez ensuite la commande suivante :
-
-    ```powershell  
-    Invoke-AzsCertificateValidation -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
-    ```
-4.  Vérifiez que la sortie et tous les certificats réussissent tous les tests.
-
-    ```powershell
-    Invoke-AzsCertificateValidation v1.0 started.
-    Thumbprint: 95A50B****************************FA6DDA
-        Signature Algorithm: OK
-        Parse PFX: OK
-        Private Key: OK
-        Cert Chain: OK
-        DNS Names: OK
-        Key Usage: OK
-        Key Size: OK
-        Chain Order: OK
-        Other Certificates: OK
-    Thumbprint: EBB011****************************59BE9A
-        Signature Algorithm: OK
-        Parse PFX: OK
-        Private Key: OK
-        Cert Chain: OK
-        DNS Names: OK
-        Key Usage: OK
-        Key Size: OK
-        Chain Order: OK
-        Other Certificates: OK
-    Thumbprint: 76AEBA****************************C1265E
-        Signature Algorithm: OK
-        Parse PFX: OK
-        Private Key: OK
-        Cert Chain: OK
-        DNS Names: OK
-        Key Usage: OK
-        Key Size: OK
-        Chain Order: OK
-        Other Certificates: OK
-    Thumbprint: 8D6CCD****************************DB6AE9
-        Signature Algorithm: OK
-        Parse PFX: OK
-        Private Key: OK
-        Cert Chain: OK
-        DNS Names: OK
-        Key Usage: OK
-        Key Size: OK
-    ```
 
 ## <a name="certificates"></a>Certificats
 

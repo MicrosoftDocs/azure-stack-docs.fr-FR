@@ -1,6 +1,6 @@
 ---
-title: Installer Visual Studio et se connecter à Azure Stack | Microsoft Docs
-description: Découvrez comment installer Visual Studio et se connecter à Azure Stack.
+title: Installer Visual Studio et se connecter à Azure Stack Hub | Microsoft Docs
+description: Découvrez comment installer Visual Studio et se connecter à Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,22 +12,22 @@ ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 19d532cd85244f69d1a969e92ca302822abf0133
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: e7254f5fb6a44a268c73ea988d2ba9ecd236d7f0
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991675"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727579"
 ---
-# <a name="install-visual-studio-and-connect-to-azure-stack"></a>Installer Visual Studio et se connecter à Azure Stack
+# <a name="install-visual-studio-and-connect-to-azure-stack-hub"></a>Installer Visual Studio et se connecter à Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : Systèmes intégrés Azure Stack Hub et Kit de développement Azure Stack*
 
-Vous pouvez utiliser Visual Studio pour écrire et déployer des [modèles](azure-stack-arm-templates.md) Azure Resource Manager dans Azure Stack. Les étapes décrites dans cet article expliquent comment installer Visual Studio sur [Azure Stack](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp), ou sur un ordinateur externe si vous envisagez d’utiliser Azure Stack par [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn).
+Vous pouvez utiliser Visual Studio pour écrire et déployer des [modèles](azure-stack-arm-templates.md) Azure Resource Manager sur Azure Stack Hub. Les étapes de cet article décrivent l’installation de Visual Studio sur [Azure Stack Hub](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) ou sur un ordinateur externe si vous prévoyez d’utiliser Azure Stack Hub par [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn).
 
 ## <a name="install-visual-studio"></a>Installation de Visual Studio
 
@@ -41,11 +41,11 @@ Vous pouvez utiliser Visual Studio pour écrire et déployer des [modèles](azur
 
     ![Capture d’écran des étapes d’installation de WebPI](./media/azure-stack-install-visual-studio/image1.png)
 
-5. [Installez PowerShell pour Azure Stack](../operator/azure-stack-powershell-install.md).
+5. [Installez PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md).
 
 6. Redémarrez le système d’exploitation après l’installation.
 
-## <a name="connect-to-azure-stack-with-azure-ad"></a>Se connecter à Azure Stack avec Azure AD
+## <a name="connect-to-azure-stack-hub-with-azure-ad"></a>Se connecter à Azure Stack Hub avec Azure AD
 
 1. Lancez Visual Studio.
 
@@ -53,11 +53,11 @@ Vous pouvez utiliser Visual Studio pour écrire et déployer des [modèles](azur
 
 3. Dans le nouveau volet, sélectionnez **Ajouter un compte** et connectez-vous avec vos informations d’identification Azure Active Directory (Azure AD).  
 
-    ![Capture d’écran de Cloud Explorer une fois connecté et connecté à Azure Stack](./media/azure-stack-install-visual-studio/image2.png)
+    ![Capture d’écran de Cloud Explorer, une fois connecté à Azure Stack Hub](./media/azure-stack-install-visual-studio/image2.png)
 
 Une fois connecté, vous pouvez [déployer des modèles](azure-stack-deploy-template-visual-studio.md) ou parcourir les types de ressources et les groupes de ressources disponibles pour créer vos propres modèles.  
 
-## <a name="connect-to-azure-stack-with-ad-fs"></a>Se connecter à Azure Stack avec AD FS
+## <a name="connect-to-azure-stack-hub-with-ad-fs"></a>Se connecter à Azure Stack Hub avec AD FS
 
 1. Lancez Visual Studio.
 
@@ -65,7 +65,7 @@ Une fois connecté, vous pouvez [déployer des modèles](azure-stack-deploy-temp
 
 3. Développez **Environnement** dans le **volet de navigation** et sélectionnez **Comptes**.
 
-4. Sélectionnez **Ajouter**, puis entrez le point de terminaison Azure Resource Manager utilisateur. Pour le kit de développement Azure Stack (ASDK), l’URL est : `https://management.local.azurestack/external`.  Pour les systèmes intégrés Azure Stack, l’URL est : `https://management.[Region}.[External FQDN]`.
+4. Sélectionnez **Ajouter**, puis entrez le point de terminaison Azure Resource Manager utilisateur. Pour le kit de développement Azure Stack (ASDK), l’URL est : `https://management.local.azurestack/external`.  Pour les systèmes intégrés Azure Stack Hub, l’URL est : `https://management.[Region}.[External FQDN]`.
 
     ![Ajouter un nouveau point de terminaison de découverte Cloud Azure](./media/azure-stack-install-visual-studio/image5.png)
 
@@ -73,7 +73,7 @@ Une fois connecté, vous pouvez [déployer des modèles](azure-stack-deploy-temp
 
     Visual Studio appelle Azure Resource Manager et découvre les points de terminaison, notamment le point de terminaison d’authentification pour les services AD FS (Active Directory Federated Services).
 
-    ![Capture d’écran de Cloud Explorer une fois connecté et connecté à Azure Stack](./media/azure-stack-install-visual-studio/image6.png)
+    ![Capture d’écran de Cloud Explorer, une fois connecté à Azure Stack Hub](./media/azure-stack-install-visual-studio/image6.png)
 
 6. Dans le menu **Affichage**, sélectionnez **Cloud Explorer**.
 
@@ -90,4 +90,4 @@ Une fois connecté, vous pouvez [déployer des modèles](azure-stack-deploy-temp
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur l’[installation côte à côte](/visualstudio/install/install-visual-studio-versions-side-by-side) avec d’autres versions de Visual Studio.
-- [Développer des modèles pour Azure Stack](azure-stack-develop-templates.md).
+- [Développer des modèles pour Azure Stack Hub](azure-stack-develop-templates.md).

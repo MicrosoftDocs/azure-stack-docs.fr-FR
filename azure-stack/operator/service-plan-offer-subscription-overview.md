@@ -12,12 +12,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: a228e20de1786529374e5e2431ca7bb79a9c14bf
-ms.sourcegitcommit: f3d40c9fe73cf0a32fc643832085de887edf7cf3
+ms.openlocfilehash: c1311836487dc11e1e95307181cb02fafa511a6b
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2019
-ms.locfileid: "75187271"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727409"
 ---
 # <a name="azure-stack-services-plans-offers-subscriptions-overview"></a>Présentation des services, plans, offres et abonnements Azure Stack
 
@@ -25,7 +25,7 @@ ms.locfileid: "75187271"
 
 [Microsoft Azure Stack](azure-stack-overview.md) est une plateforme cloud hybride qui vous permet de fournir des services à partir de votre centre de données. Les services incluent notamment les machines virtuelles, les bases de données SQL Server, SharePoint, Exchange et même des [éléments de Place de marché Azure](azure-stack-marketplace-azure-items.md). En tant que fournisseur de services, vous pouvez proposer des services à vos locataires. Au sein d’une entreprise ou d’une agence gouvernementale, vous pouvez proposer des services locaux à vos employés.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 En tant qu’opérateur Azure Stack, vous configurez et vous fournissez des services en utilisant des offres, des plans et des abonnements. Les offres contiennent un ou plusieurs plans, et chaque plan inclut un ou plusieurs services, chacun configuré avec des quotas. En créant des plans et en les associant en différentes offres, les utilisateurs peuvent s’abonner à vos offres et déployer des ressources. Cette structure vous permet de gérer :
 
@@ -38,7 +38,7 @@ Pour fournir un service, suivez les grandes étapes suivantes :
 1. Planifiez votre offre de services en utilisant :
 
    - Des services fondamentaux, comme le calcul, le stockage, le réseau ou Key Vault.
-   - Des services complémentaires, comme App Service, SQL Server ou MySQL Server.
+   - Services à valeur ajoutée, par exemple App Service, SQL Server ou MySQL Server.
 
 2. Créez un plan qui est constitué d’un ou plusieurs services. Ce faisant, vous sélectionnez ou créez des quotas qui définissent les limites de ressources de chacun des services du plan.
 3. Créez une offre qui comporte un ou plusieurs plans. L’offre peut inclure des plans de base et des plans d’extension facultatifs.

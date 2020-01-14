@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: e1afb19c1ff7c32bbc15e40ce4fbe898be01ca0e
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 46044559e400e77098bdae038c87df88f1866127
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640136"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75717992"
 ---
 # <a name="geo-distributed-pattern"></a>Modèle géodistribué
 
@@ -29,10 +29,10 @@ Le modèle de routage de trafic géographique Azure Stack Hub (ou applications g
 
 ![Modèle géodistribué](media/pattern-geo-distributed/geo-distribution.png)
 
-## <a name="components"></a>Composants
+## <a name="components"></a>Components
 
 **Traffic Manager**  
-Dans le schéma, Traffic Manager se situe en dehors du cloud public, mais il doit pouvoir coordonner le trafic dans le centre de données local et dans le cloud public. L’équilibreur route le trafic vers des emplacements géographiques.
+Dans le diagramme, Traffic Manager se situe en dehors du cloud public, mais il doit pouvoir coordonner le trafic dans le centre de données local et dans le cloud public. L’équilibreur route le trafic vers des emplacements géographiques.
 
 **DNS (Domain Name System)**  
 Le DNS (Domain Name System) se charge de traduire (ou résoudre) un nom de site web ou de service en une adresse IP.
@@ -59,7 +59,7 @@ Le modèle gère le routage du trafic géographique plutôt que la mise à l’�
 
 Vérifiez que les applications déployées en local sont configurées pour la haute disponibilité via la configuration matérielle locale et le déploiement de logiciels.
 
-### <a name="manageability"></a>Facilité de gestion
+### <a name="manageability"></a>Simplicité de gestion
 
 Le modèle garantit une gestion transparente et l’accès à une interface familière entre les environnements.
 
@@ -74,7 +74,7 @@ Le modèle garantit une gestion transparente et l’accès à une interface fami
 
 Pour en savoir plus sur les sujets abordés dans cet article :
 - Pour en savoir plus sur le fonctionnement de cet équilibreur de charge du trafic basé sur DNS, consultez la [présentation d’Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview).
-- Consultez [Considérations relatives à la conception des applications hybrides](overview-app-design-considerations.md) pour en savoir plus sur les meilleures pratiques, et pour obtenir les réponses à d’autres questions.
-- Pour plus d’informations sur l’ensemble du portefeuille de produits et de solutions, consultez [Famille de produits et de solutions d’Azure Stack ](/azure-stack).
+- Consultez [Considérations relatives à la conception des applications hybrides](overview-app-design-considerations.md) pour en savoir plus sur les meilleures pratiques et obtenir des réponses à d'autres questions.
+- Consultez [Famille de produits et de solutions Azure Stack](/azure-stack) pour en savoir plus sur l'ensemble du portefeuille de produits et de solutions.
 
 Lorsque vous êtes prêt à tester l’exemple de solution, poursuivez avec le [Guide de déploiement d’une solution d’application géodistribuée](solution-deployment-guide-geo-distributed.md). Ce guide de déploiement fournit des instructions pas à pas sur le déploiement et sur le test de ses composants. Découvrez comment diriger le trafic vers des points de terminaison spécifiques en fonction de différentes métriques à l’aide du modèle d’application géodistribuée. En créant un profil Traffic Manager avec configuration du routage et du point de terminaison basée sur la géolocalisation, vous êtes certain que les informations sont dirigées vers les points de terminaison en fonction des exigences régionales, des réglementations organisationnelles et internationales et de vos besoins en matière de données.

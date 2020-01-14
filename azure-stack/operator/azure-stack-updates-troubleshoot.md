@@ -15,20 +15,30 @@ ms.date: 09/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: d5606e7904fe311a54d792a18e5d4029c709b33c
-ms.sourcegitcommit: 0866555e0ed240a65595052899ef1b836dd07fbc
+ms.openlocfilehash: b9e8012e71e5211921a35792cb3e2e1039e5d9e1
+ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72257748"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75756802"
 ---
-# <a name="troubleshooting-patch-and-update-issues-for-azure-stack"></a>Dépannage des correctifs et des mises à jour pour Azure Stack
+# <a name="best-practices-for-troubleshooting-azure-stack-hub-patch-and-update-issues"></a>Bonnes pratiques pour résoudre les problèmes liés aux correctifs logiciels et aux mises à jour Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack*
+Cet article fournit une vue d’ensemble des bonnes pratiques pour la résolution des problèmes liés aux mises à jour et aux correctifs logiciels Azure Stack Hub. Il fournit également les corrections relatives aux problèmes usuels des mises à jour et des correctifs logiciels.
 
-Vous pouvez utiliser les conseils de cet article pour résoudre les problèmes que vous rencontrez lorsque vous mettez à jour Azure Stack.
 
-## <a name="preparationfailed"></a>PreparationFailed
+Le processus relatif aux mises à jour et aux correctifs logiciels Azure Stack Hub est conçu pour permettre aux opérateurs d’appliquer les mises à jour de manière cohérente et rationalisée. Bien que cela soit rare, certains problèmes peuvent se produire pendant l’application des correctifs logiciels et des mises à jour. Les étapes suivantes sont recommandées si vous rencontrez un problème pendant le processus d’application des correctifs logiciels et des mises à jour :
+
+0. **Prérequis** : Veillez à suivre la [liste de contrôle des activités de mise à jour](release-notes-checklist.md) et à [configurer la collecte automatique des journaux](azure-stack-configure-automatic-diagnostic-log-collection.md).
+1. Suivez les étapes de correction indiquées dans l’alerte d’échec créée au moment de l’échec de votre mise à jour.
+2. Passez en revue les [problèmes usuels liés aux correctifs logiciels et mises à jour Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates-troubleshoot#common-azure-stack-hub-patch-and-update-issues), puis effectuez les actions recommandées si votre problème est listé.
+3. Si vous n’êtes pas parvenu à résoudre votre problème à l’aide des étapes ci-dessus, créez un [ticket de support Azure Stack](azure-stack-help-and-support-overview.md). Vérifiez que vous disposez des [journaux collectés](https://docs.microsoft.com/azure-stack/operator/azure-stack-configure-on-demand-diagnostic-log-collection) pour la période pendant laquelle le problème s’est produit.
+
+## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Problèmes usuels liés aux correctifs logiciels et mises à jour Azure Stack Hub
+
+*S’applique à : Systèmes intégrés Azure Stack Hub*
+
+### <a name="preparationfailed"></a>PreparationFailed
 
 **Champ d’application** : Ce problème s’applique à toutes les versions prises en charge.
 
@@ -40,5 +50,5 @@ Vous pouvez utiliser les conseils de cet article pour résoudre les problèmes q
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Mettre à jour Azure Stack](azure-stack-updates.md)  
-- [Aide et support de Microsoft Azure Stack](azure-stack-help-and-support-overview.md)
+- [Mettre à jour Azure Stack Hub](azure-stack-updates.md)  
+- [Aide et support de Microsoft Azure Stack Hub](azure-stack-help-and-support-overview.md)

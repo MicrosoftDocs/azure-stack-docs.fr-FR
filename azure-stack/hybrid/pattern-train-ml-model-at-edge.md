@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: f845aee01e4c87bc877eb77fb793b32472f9f222
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 3f16b543751ac4bee94cc05045c03de7230f9a3c
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640466"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75717975"
 ---
 # <a name="train-machine-learning-ml-model-at-the-edge-pattern"></a>Effectuer l'apprentissage d'un modèle Machine Learning (ML) en périphérie
 
@@ -21,7 +21,7 @@ Générez des modèles ML portables à partir de données uniquement disponibles
 
 ## <a name="context-and-problem"></a>Contexte et problème
 
-De nombreuses organisations aimeraient pouvoir extraire des insights de leurs données locales ou héritées à l'aide d'outils que leurs équipes de scientifiques des données comprennent. [Azure Machine Learning service](/azure/machine-learning/) fournit des outils natifs du cloud pour effectuer l'apprentissage des modèles ML et Deep Learning, puis les ajuster et les déployer.  
+De nombreuses organisations aimeraient pouvoir extraire des insights de leurs données locales ou héritées à l'aide d'outils que leurs équipes de scientifiques des données comprennent. [Azure Machine Learning](/azure/machine-learning/) fournit des outils cloud natifs pour entraîner, régler et déployer des modèles ML et Deep Learning.  
 
 Cependant, certaines données sont trop volumineuses pour être envoyées dans le cloud, ou ne peuvent l'être pour des raisons réglementaires. Grâce à ce modèle, les scientifiques des données peuvent utiliser Azure Machine Learning pour effectuer l'apprentissage de modèles à l'aide de données et de calculs locaux. 
 
@@ -40,7 +40,7 @@ Le fonctionnement de la solution est le suivant :
 3. Au terme de son apprentissage, le modèle est enregistré et conteneurisé.
 4. Le modèle peut maintenant être déployé localement ou dans le cloud.
 
-## <a name="components"></a>Composants
+## <a name="components"></a>Components
 
 Cette solution utilise les composants suivants :
 
@@ -54,7 +54,7 @@ Cette solution utilise les composants suivants :
 
 ## <a name="issues-and-considerations"></a>Problèmes et considérations
 
-Tenez compte des points suivants lors du choix de l'implémentation de cette solution :
+Prenez en compte des points suivants lors du choix de l'implémentation de cette solution :
 
 ### <a name="scalability"></a>Extensibilité 
 
@@ -64,7 +64,7 @@ Pour la mise à l'échelle de cette solution en vue de l'apprentissage, vous dev
 
 Assurez-vous que les scripts d'apprentissage et les machines virtuelles Azure Stack Hub ont accès aux données locales utilisées pour l'apprentissage.
 
-### <a name="manageability"></a>Facilité de gestion
+### <a name="manageability"></a>Simplicité de gestion
 
 Assurez-vous que les modèles et les expériences sont correctement enregistrés, versionnés et étiquetés afin d'éviter toute confusion lors du déploiement du modèle. 
 
@@ -78,7 +78,7 @@ Pour en savoir plus sur les sujets abordés dans cet article :
 - Consultez la [documentation Azure Machine Learning](/azure/machine-learning) pour bénéficier d'une vue d'ensemble sur le Machine Learning et les sujets connexes.
 - Consultez [Azure Container Registry](/azure/container-registry/) pour apprendre à créer, stocker et gérer des images pour les déploiements de conteneurs.
 - Consultez [App Service sur Azure Stack Hub](/azure-stack/operator/azure-stack-app-service-overview) pour en savoir plus sur le fournisseur de ressources et son déploiement.
-- Consultez [Considérations relatives à la conception des applications hybrides](overview-app-design-considerations.md) pour en savoir plus sur les meilleures pratiques, et pour obtenir les réponses à d'autres questions.
+- Consultez [Considérations relatives à la conception des applications hybrides](overview-app-design-considerations.md) pour en savoir plus sur les meilleures pratiques et obtenir des réponses à d'autres questions.
 - Consultez [Famille de produits et de solutions Azure Stack](/azure-stack) pour en savoir plus sur l'ensemble du portefeuille de produits et de solutions.
 
 Lorsque vous êtes prêt à tester l'exemple de solution, poursuivez avec le [Guide de déploiement consacré à l'apprentissage d'un modèle ML en périphérie](https://aka.ms/edgetrainingdeploy). Ce guide de déploiement fournit des instructions pas à pas sur le déploiement et sur le test de ses composants.

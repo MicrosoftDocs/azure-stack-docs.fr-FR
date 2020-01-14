@@ -1,6 +1,6 @@
 ---
 title: Configurer des connexions VPN site à site IPsec/IKE | Microsoft Docs
-description: Découvrir la stratégie et configurer IPsec/IKE pour les connexions VPN site à site ou les connexions de réseau virtuel à réseau virtuel dans Azure Stack.
+description: Découvrez et configurez la stratégie IPsec/IKE pour les connexions VPN site à site ou les connexions de réseau virtuel à réseau virtuel dans Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -11,26 +11,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 9c8911452dc77f77156c1256e42c4624b08b5648
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: b4d99d44fa1cd5b2c6232bf0d2938f37a4bf662c
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959306"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727545"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN site à site
 
-Cet article décrit les étapes permettant de configurer une stratégie IPsec/IKE pour les connexions VPN site à site (S2S) dans Azure Stack.
+Cet article décrit les étapes de configuration d’une stratégie IPsec/IKE pour les connexions VPN site à site (S2S) dans Azure Stack Hub.
 
 >[!NOTE]
-> Pour pouvoir utiliser cette fonctionnalité, vous devez exécuter Azure Stack **1809** ou version ultérieure.  Si vous utilisez actuellement une version antérieure à la version 1809, procédez à une mise à jour de votre système Azure Stack vers la dernière version avant de suivre les étapes décrites dans cet article.
+> Pour pouvoir utiliser cette fonctionnalité, vous devez exécuter Azure Stack Hub build **1809** ou une version ultérieure.  Si vous exécutez une build antérieure à la 1809, mettez à jour votre système Azure Stack Hub vers la dernière build avant de continuer à suivre les étapes de cet article.
 
 ## <a name="ipsec-and-ike-policy-parameters-for-vpn-gateways"></a>Paramètres de stratégie IPsec et IKE pour les passerelles VPN
 
-La norme de protocole IPsec et IKE prend en charge un large éventail d’algorithmes de chiffrement dans différentes combinaisons. Pour voir quels sont les paramètres pris en charge dans Azure Stack, consultez [Paramètres IPsec/IKE](azure-stack-vpn-gateway-settings.md#ipsecike-parameters). Ces informations peuvent vous aider à répondre aux exigences de conformité ou de sécurité.
+La norme de protocole IPsec et IKE prend en charge un large éventail d’algorithmes de chiffrement dans différentes combinaisons. Pour voir quels sont les paramètres pris en charge dans Azure Stack Hub afin de répondre aux exigences de conformité ou de sécurité, consultez [Paramètres IPsec/IKE](azure-stack-vpn-gateway-settings.md#ipsecike-parameters).
 
 Cet article fournit des instructions sur la création et la configuration d’une stratégie IPsec/IKE ainsi que sur son application à une connexion nouvelle ou existante.
 
@@ -40,7 +40,7 @@ Notez les points importants suivants concernant l’utilisation de ces stratégi
 
 - La stratégie IPsec/IKE fonctionne uniquement sur les références SKU de passerelle *Standard* et *HighPerformance* (Basé sur itinéraires).
 
-- Vous pouvez uniquement spécifier **une** combinaison de stratégie pour une connexion donnée.
+- Vous ne pouvez spécifier qu’une seule combinaison de stratégies pour une connexion donnée.
 
 - Vous devez spécifier tous les algorithmes et paramètres pour IKE (mode principal) et IPsec (mode rapide). Vous n’êtes pas en droit de spécifier de stratégie partielle.
 
@@ -66,7 +66,7 @@ Les instructions de cet article vous aident à préparer et configurer les strat
 
 ## <a name="part-2---supported-cryptographic-algorithms-and-key-strengths"></a>Partie 2 - Algorithmes de chiffrement pris en charge et forces des clés
 
-Le tableau suivant liste les algorithmes de chiffrement pris en charge et les forces de clés configurables par les clients Azure Stack :
+Le tableau suivant liste les algorithmes de chiffrement pris en charge et les forces de clés configurables par les clients Azure Stack Hub :
 
 | IPsec/IKEv2                                          | Options                                                                  |
 |------------------------------------------------------|--------------------------------------------------------------------------|
@@ -77,7 +77,7 @@ Le tableau suivant liste les algorithmes de chiffrement pris en charge et les fo
 | Intégrité IPsec                                      | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                       |
 | Groupe PFS                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Aucun                         |
 | Durée de vie de l’AS en mode rapide                                       | (Facultatif : les valeurs par défaut sont utilisées si rien n’est spécifié)<br />                         Secondes (entier ; min. 300 / 27 000 secondes par défaut)<br />                         Ko (entier ; min. 1 024 / 102 400 000 Ko par défaut) |
-| Sélecteur de trafic                                     | Les sélecteurs de trafic basés sur des stratégies ne sont pas pris en charge dans Azure Stack.         |
+| Sélecteur de trafic                                     | Les sélecteurs de trafic basés sur des stratégies ne sont pas pris en charge dans Azure Stack Hub.         |
 
 - La configuration de votre périphérique VPN local doit correspondre aux algorithmes et paramètres suivants, spécifiés dans la stratégie IPsec/IKE Azure ou les contenir :
 
@@ -98,7 +98,7 @@ Le tableau suivant liste les algorithmes de chiffrement pris en charge et les fo
   - Groupe DH spécifie le groupe Diffie-Hellmen utilisé dans le Mode principal ou à la Phase 1.
   - Groupe PFS spécifie le groupe Diffie-Hellmen utilisé dans le Mode rapide ou à la Phase 2.
 
-- La durée de vie de l’association de sécurité IKEv2 en mode principal est fixée à 28 800 secondes sur les passerelles VPN Azure Stack.
+- La durée de vie de l’association de sécurité IKEv2 en mode principal est fixée à 28 800 secondes sur les passerelles VPN Azure Stack Hub.
 
 Le tableau suivant répertorie les groupes Diffie-Hellman correspondants pris en charge par la stratégie personnalisée :
 
@@ -121,13 +121,13 @@ Cette section vous guide tout au long des étapes de création d’une connexion
 
 Pour obtenir des instructions détaillées sur la création d’une connexion VPN site à site, consultez[Créer une connexion VPN site à site](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell).
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vérifiez que les conditions préalables suivantes sont remplies :
 
 - Un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
-- Applets de commande Azure Resource Manager PowerShell. Consultez [Installer PowerShell pour Azure Stack](../operator/azure-stack-powershell-install.md) pour plus d’informations sur l’installation des cmdlets PowerShell.
+- Applets de commande Azure Resource Manager PowerShell. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installer PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md).
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>Étape 1 : création du réseau virtuel, de la passerelle VPN et de la passerelle de réseau local
 
@@ -161,9 +161,9 @@ $LNGIP6 = "131.107.72.22"
 
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Se connecter à votre abonnement et créer un groupe de ressources
 
-Pour utiliser les applets de commande Resource Manager, passez au mode PowerShell. Pour plus d’informations, consultez [Se connecter à Azure Stack en tant qu’utilisateur avec PowerShell](azure-stack-powershell-configure-user.md).
+Pour utiliser les applets de commande Resource Manager, passez au mode PowerShell. Pour plus d’informations, consultez [Se connecter à Azure Stack Hub en tant qu’utilisateur avec PowerShell](azure-stack-powershell-configure-user.md).
 
-Ouvrez la console PowerShell et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
+Ouvrez votre console PowerShell, puis connectez-vous à votre compte. Exemple :
 
 ```powershell
 Connect-AzureRmAccount
@@ -173,7 +173,7 @@ New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 
 #### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. Créer le réseau virtuel, la passerelle VPN et la passerelle de réseau local
 
-L’exemple suivant crée le réseau virtuel **TestVNet1** avec trois sous-réseaux et la passerelle VPN. Quand vous substituez des valeurs, pensez toujours à nommer votre sous-réseau de passerelle de manière spécifique **GatewaySubnet**. Si vous le nommez autrement, la création de votre passerelle échoue.
+L’exemple suivant crée le réseau virtuel **TestVNet1** avec trois sous-réseaux et la passerelle VPN. Quand vous substituez des valeurs, pensez toujours à nommer de manière spécifique votre sous-réseau de passerelle **GatewaySubnet**. Si vous le nommez autrement, la création de votre passerelle échoue.
 
 ```powershell
 $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -218,7 +218,7 @@ Si vous utilisez des algorithmes GCMAES pour IPsec, vous devez utiliser les mêm
 
 #### <a name="2-create-the-site-to-site-vpn-connection-with-the-ipsecike-policy"></a>2. Créer la connexion VPN site à site avec la stratégie IPsec/IKE
 
-Créez une connexion VPN site à site et appliquez la stratégie IPsec/IKE que vous avez créée auparavant.
+Créez une connexion VPN site à site et appliquez la stratégie IPsec/IKE que vous avez créée :
 
 ```powershell
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
@@ -228,11 +228,11 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupNam
 ```
 
 > [!IMPORTANT]
-> Une fois qu’une stratégie IPsec/IKE est spécifiée sur une connexion, la passerelle VPN Azure ne fait qu’envoyer ou accepter la proposition IPsec/IKE avec les algorithmes de chiffrement et puissances de clé spécifiés sur cette connexion particulière. Vérifiez que votre périphérique VPN local pour la connexion utilise ou accepte la combinaison de stratégies appropriée, sinon le tunnel VPN site à site ne sera pas établi.
+> Une fois qu’une stratégie IPsec/IKE est spécifiée sur une connexion, la passerelle VPN Azure envoie ou accepte uniquement la proposition IPsec/IKE avec les algorithmes de chiffrement et forces de clés spécifiés sur cette connexion. Vérifiez que votre périphérique VPN local pour la connexion utilise ou accepte la combinaison de stratégies appropriée, sinon le tunnel VPN site à site ne pourra pas être établi.
 
 ## <a name="part-4---update-ipsecike-policy-for-a-connection"></a>Partie 4 - Mise à jour de la stratégie IPsec/IKE pour une connexion
 
-La section précédente a expliqué comment gérer la stratégie IPsec/IKE pour une connexion site à site existante. La section ci-après décrit les opérations suivantes sur une connexion :
+La section précédente a expliqué comment gérer la stratégie IPsec/IKE pour une connexion site à site existante. Cette section décrit les opérations suivantes sur une connexion :
 
 1. Afficher la stratégie IPsec/IKE d’une connexion.
 2. Ajouter la stratégie IPsec/IKE à une connexion ou la mettre à jour.
@@ -269,7 +269,7 @@ Si aucune stratégie IPsec/IKE n’est configurée, la commande `$connection6.po
 
 ### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. Ajouter ou mettre à jour une stratégie IPsec/IKE pour une connexion
 
-Les étapes permettant d’ajouter une nouvelle stratégie ou de mettre à jour une stratégie existante sur une connexion sont les mêmes : créez une stratégie, puis appliquez-la à la connexion.
+Les étapes qui permettent d’ajouter une nouvelle stratégie ou de mettre à jour une stratégie existante sur une connexion sont les mêmes. Créez une stratégie, puis appliquez-la à la connexion :
 
 ```powershell
 $RG1 = "TestPolicyRG1"
@@ -322,4 +322,4 @@ Vous pouvez utiliser ce script pour vérifier si la stratégie a été supprimé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Paramètres de configuration de la passerelle VPN pour Azure Stack](azure-stack-vpn-gateway-settings.md)
+- [Paramètres de configuration de la passerelle VPN pour Azure Stack Hub](azure-stack-vpn-gateway-settings.md)

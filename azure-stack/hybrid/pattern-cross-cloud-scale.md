@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ddc8218aadbf3940ea18ce80012441c5e43c7472
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 3bd29e8625fac818d05954720d84d572b684c92e
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640238"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718009"
 ---
 # <a name="cross-cloud-scaling-pattern"></a>Modèle de mise à l’échelle multicloud
 
@@ -36,13 +36,13 @@ Le modèle de mise à l’échelle multicloud étend une application située dan
 > [!NOTE]
 > Ce modèle s’applique uniquement aux applications sans état de votre application.
 
-## <a name="components"></a>Composants
+## <a name="components"></a>Components
 
 Le modèle de mise à l’échelle multicloud inclut les composants suivants.
 
 **Traffic Manager**  
 
-Dans le schéma, il se situe en dehors du groupe de clouds publics, mais il doit pouvoir coordonner le trafic dans le centre de données local et dans le cloud public. L’équilibreur offre une haute disponibilité pour l’application en supervisant les points de terminaison et en assurant la redistribution du basculement en cas de besoin.
+Dans le diagramme, il se situe en dehors du groupe de clouds publics, mais il doit pouvoir coordonner le trafic dans le centre de données local et dans le cloud public. L’équilibreur offre une haute disponibilité pour l’application en supervisant les points de terminaison et en assurant la redistribution du basculement en cas de besoin.
 
 **DNS (Domain Name System)**  
 
@@ -88,7 +88,7 @@ Le composant clé de la mise à l’échelle multicloud est la possibilité de f
 
 Vérifiez que les applications déployées en local sont configurées pour la haute disponibilité via la configuration matérielle locale et le déploiement de logiciels.
 
-### <a name="manageability"></a>Facilité de gestion
+### <a name="manageability"></a>Simplicité de gestion
 
 Le modèle multicloud garantit une gestion fluide et l’accès à une interface familière entre les environnements.
 
@@ -110,7 +110,7 @@ Ce modèle n’est pas recommandé quand :
 
 Pour en savoir plus sur les sujets abordés dans cet article :
 - Pour en savoir plus sur le fonctionnement de cet équilibreur de charge du trafic basé sur DNS, consultez la [présentation d’Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview).
-- Consultez [Considérations relatives à la conception des applications hybrides](overview-app-design-considerations.md) pour en savoir plus sur les meilleures pratiques, et pour obtenir les réponses à d’autres questions.
-- Pour plus d’informations sur l’ensemble du portefeuille de produits et de solutions, consultez [Famille de produits et de solutions d’Azure Stack ](/azure-stack).
+- Consultez [Considérations relatives à la conception des applications hybrides](overview-app-design-considerations.md) pour en savoir plus sur les meilleures pratiques et obtenir des réponses à d'autres questions.
+- Consultez [Famille de produits et de solutions Azure Stack](/azure-stack) pour en savoir plus sur l'ensemble du portefeuille de produits et de solutions.
 
 Lorsque vous êtes prêt à tester l’exemple de solution, poursuivez avec le [Guide de déploiement de la solution de mise à l’échelle multicloud](solution-deployment-guide-cross-cloud-scaling.md). Ce guide de déploiement fournit des instructions pas à pas sur le déploiement et sur le test de ses composants. Découvrez comment créer une solution multicloud pour fournir un processus déclenché manuellement permettant de passer d’une application web hébergée sur Azure Stack Hub à une application web hébergée sur Azure. Découvrez également comment utiliser la mise à l’échelle automatique via Traffic Manager, en garantissant un utilitaire cloud flexible et scalable en cas de charge.

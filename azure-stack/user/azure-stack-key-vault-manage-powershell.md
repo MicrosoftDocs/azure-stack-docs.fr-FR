@@ -1,32 +1,31 @@
 ---
-title: Gérer Key Vault dans Azure Stack à l’aide de PowerShell | Microsoft Docs
-description: Découvrez comment gérer Key Vault dans Azure Stack avec PowerShell.
+title: Gérer Key Vault dans Azure Stack Hub à l’aide de PowerShell | Microsoft Docs
+description: Découvrez comment gérer Key Vault dans Azure Stack Hub à l’aide de PowerShell.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 manager: femila
 editor: ''
-ms.assetid: 22B62A3B-B5A9-4B8C-81C9-DA461838FAE5
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: f3f2b715206c834d2c24685b57c068b53cc7020a
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 4762cb77583d0a8e026528c47ffce6bc93c7b005
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991690"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727596"
 ---
-# <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Gérer Key Vault dans Azure Stack à l’aide de PowerShell
+# <a name="manage-key-vault-in-azure-stack-hub-using-powershell"></a>Gérer Key Vault dans Azure Stack Hub à l’aide de PowerShell
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : Systèmes intégrés Azure Stack Hub et Kit de développement Azure Stack*
 
-Cet article explique comment créer et gérer un coffre de clés dans Azure Stack avec PowerShell. Vous apprendrez à utiliser les applets de commande PowerShell Key Vault pour :
+Cet article explique comment créer et gérer un coffre de clés dans Azure Stack Hub à l’aide de PowerShell. Vous apprendrez à utiliser les applets de commande PowerShell Key Vault pour :
 
 * Création d’un coffre de clés
 * Stocker et gérer des clés de chiffrement et des secrets.
@@ -35,11 +34,11 @@ Cet article explique comment créer et gérer un coffre de clés dans Azure Stac
 >[!NOTE]
 >Les applets de commande PowerShell Key Vault décrites dans cet article sont fournies dans le SDK Azure PowerShell.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Vous devez vous abonner à une offre qui inclut le service Azure Key Vault.
-* [Installez PowerShell pour Azure Stack](../operator/azure-stack-powershell-install.md).
-* [Configurez l’environnement PowerShell de l’utilisateur Azure Stack](azure-stack-powershell-configure-user.md).
+* [Installez PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md).
+* [Configurez l’environnement Azure Stack Hub PowerShell](azure-stack-powershell-configure-user.md).
 
 ## <a name="enable-your-tenant-subscription-for-key-vault-operations"></a>Activer votre abonnement de locataire pour les opérations Key Vault
 
@@ -89,7 +88,7 @@ La sortie de cette commande affiche les propriétés du coffre de clés que vous
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Déploiement Active Directory Federation Services (AD FS)
 
-Dans un déploiement AD FS, vous risquez d’obtenir cet avertissement : « La stratégie d’accès n’est pas définie. Aucun utilisateur ou application n’est autorisé à utiliser ce coffre ». Pour résoudre ce problème, définissez une stratégie d’accès pour le coffre à l’aide de la commande [Set-AzureRmKeyVaultAccessPolicy](#authorize-an-app-to-use-a-key-or-secret) :
+Dans un déploiement AD FS, vous risquez d’obtenir cet avertissement : « La stratégie d’accès n’est pas définie. Aucun utilisateur ou application n’est autorisé à utiliser ce coffre ». Pour résoudre ce problème, définissez une stratégie d’accès au coffre à l’aide de la commande [**Set-AzureRmKeyVaultAccessPolicy**](#authorize-an-app-to-use-a-key-or-secret) :
 
 ```powershell
 # Obtain the security identifier(SID) of the active directory user
@@ -106,13 +105,13 @@ Une fois que vous avez créé un coffre, effectuez les étapes suivantes pour cr
 
 ### <a name="create-a-key"></a>Créer une clé
 
-Utilisez la commande **Add-AzureKeyVaultKey** pour créer ou importer une clé protégée par logiciel dans un coffre de clés :
+Utilisez l’applet de commande **Add-AzureKeyVaultKey** pour créer ou importer une clé protégée par logiciel dans un coffre de clés :
 
 ```powershell
 Add-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01" -verbose -Destination Software
 ```
 
-Le paramètre **Destination** permet de spécifier que la clé est protégée par un logiciel. Une fois l’opération terminée, la commande affiche les détails de la clé créée.
+Le paramètre `-Destination` permet de spécifier que la clé est protégée par un logiciel. Une fois l’opération terminée, la commande affiche les détails de la clé créée.
 
 ![Nouvelle clé de coffre de clés générée dans PowerShell](media/azure-stack-key-vault-manage-powershell/image5.png)
 
@@ -123,7 +122,7 @@ Vous pouvez maintenant référencer la clé créée à l’aide de son URI. Si v
 
 ### <a name="get-a-key"></a>Obtenir une clé
 
-Utilisez la commande **Get-AzureKeyVaultKey** pour lire une clé et ses détails :
+Utilisez l’applet de commande **Get-AzureKeyVaultKey** pour lire une clé et ses détails :
 
 ```powershell
 Get-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01"
@@ -131,7 +130,7 @@ Get-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01"
 
 ### <a name="create-a-secret"></a>Créer un secret
 
-Utilisez la commande **Set-AzureKeyVaultSecret** pour créer ou mettre à jour un secret dans un coffre. Un secret est créé s’il n’en existe pas un déjà. Une nouvelle version du secret est créée s’il existe déjà :
+Utilisez la cmdlet **Set-AzureKeyVaultSecret** pour créer ou mettre à jour un secret dans un coffre. Un secret est créé s’il n’existe pas encore. Une nouvelle version du secret est créée s’il existe déjà :
 
 ```powershell
 $secretvalue = ConvertTo-SecureString "User@123" -AsPlainText -Force
@@ -142,7 +141,7 @@ Set-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01" -SecretValue $secr
 
 ### <a name="get-a-secret"></a>Obtenir un secret
 
-Utilisez la commande **Get-AzureKeyVaultSecret** pour lire un secret dans un coffre de clés. Cette commande peut retourner toutes les versions ou des versions spécifiques d’un secret :
+Utilisez la cmdlet **Get-AzureKeyVaultSecret** pour lire un secret dans un coffre de clés. Cette commande peut retourner toutes les versions ou des versions spécifiques d’un secret :
 
 ```powershell
 Get-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01"
@@ -152,9 +151,9 @@ Après avoir créé les clés et les secrets, vous pouvez autoriser des apps ext
 
 ## <a name="authorize-an-app-to-use-a-key-or-secret"></a>Autoriser une app à utiliser une clé ou un secret
 
-Utilisez la commande **Set-AzureRmKeyVaultAccessPolicy** pour autoriser une app à accéder à une clé ou à un secret dans le coffre de clés.
+Utilisez l’applet de commande **Set-AzureRmKeyVaultAccessPolicy** pour autoriser une application à accéder à une clé ou un secret dans le coffre de clés.
 
-Dans l’exemple suivant, le nom du coffre est **ContosoKeyVault** et l’ID client de l’app que vous voulez autoriser est **8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed**. Pour autoriser l’app, exécutez la commande suivante. Vous pouvez également spécifier le paramètre **PermissionsToKeys** pour définir des autorisations pour un utilisateur, une app ou un groupe de sécurité.
+Dans l’exemple suivant, le nom du coffre est **ContosoKeyVault** et l’ID client de l’application que vous souhaitez autoriser est **8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed**. Pour autoriser l’app, exécutez la commande suivante. Vous pouvez également spécifier le paramètre **PermissionsToKeys** pour définir des autorisations pour un utilisateur, une app ou un groupe de sécurité.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign

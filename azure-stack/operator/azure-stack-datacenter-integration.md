@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: f3bd1fc6d1f53ee56a8b1ff1741861a7f505b5b6
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 4ad58f0cce253aebb7e506f3bf0907b0bc170055
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909368"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718400"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-integrated-systems"></a>Considérations relatives à la planification de l’intégration du centre de données pour les systèmes intégrés Azure Stack
 
@@ -85,7 +85,7 @@ Vous devez réfléchir à la façon dont vous souhaitez planifier votre espace d
 
 Le tableau suivant récapitule ces décisions d’attribution de noms de domaine.
 
-| Nom | Description | 
+| Name | Description | 
 | -------- | ------------- | 
 |Nom de la région | Le nom de votre première région Azure Stack. Ce nom est utilisé comme partie du nom de domaine complet pour les adresses IP virtuelles publiques (VIP) gérées par Azure Stack. En règle générale, le nom de la région est un identificateur d’emplacement physique tel qu’un emplacement de centre de données.<br><br>Le nom de région doit uniquement comporter des lettres et des nombres compris entre 0 et 9. Les caractères spéciaux (comme `-`, `#`, etc.) ne sont pas autorisés.| 
 | Nom de domaine externe | Le nom de la zone Domain Name System (DNS) pour les points de terminaison avec des adresses IP virtuelles externes. Utilisé dans le nom de domaine complet pour ces adresses IP virtuelles publiques. | 
@@ -197,7 +197,7 @@ En cas de perte catastrophique de données, vous pouvez utiliser la sauvegarde d
 
 Azure Stack ne sauvegarde pas les applications et les données des locataires. Vous devez planifier la sauvegarde et la protection de récupération d’urgence vers une cible externe au Azure Stack. La protection du client est une activité qu’il conduit lui-même. Pour les machines virtuelles IaaS, les locataires peuvent utiliser les technologies intégrées pour protéger les dossiers de fichiers, les données des applications et l’état du système. Toutefois, en tant qu’entreprise ou fournisseur de service, vous voudrez peut-être offrir une solution de sauvegarde et de restauration dans le même centre de données ou à l’extérieur, dans un cloud.
 
-Pour sauvegarder des machines virtuelles IaaS Windows ou Linux, vous devez utiliser des produits de sauvegarde avec un accès au système d’exploitation invité pour protéger les fichiers, les dossiers, l’état du système d’exploitation et les données des applications. Vous pouvez utiliser Azure Backup, System Center Data Protection Center Manager, ou les produits tiers pris en charge.
+Pour sauvegarder des machines virtuelles IaaS Windows ou Linux, vous devez utiliser des produits de sauvegarde avec un accès au système d’exploitation invité pour protéger les fichiers, les dossiers, l’état du système d’exploitation et les données des applications. Vous pouvez utiliser Sauvegarde Azure, System Center Data Protection Manager ou des produits tiers pris en charge.
 
 Pour répliquer des données vers un emplacement secondaire et orchestrer le basculement d’application si un incident se produit, vous pouvez utiliser Azure Site Recovery ou des produits tiers pris en charge. En outre, les applications qui prennent en charge la réplication native, comme Microsoft SQL Server, peuvent répliquer des données vers un autre emplacement où l’application est en cours d’exécution.
 

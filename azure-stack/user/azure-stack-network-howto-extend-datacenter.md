@@ -9,18 +9,18 @@ ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 949736f091b02ce3118725b9fd3cf6f34c1fc402
-ms.sourcegitcommit: 708c2eb0af3779517cebe8e3b1dc533c5d26561a
+ms.openlocfilehash: b0c676033a5690025fb2d8f5c3aa203766ae67fd
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2019
-ms.locfileid: "75184211"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718468"
 ---
 # <a name="extending-storage-to-azure-stack"></a>Extension du stockage sur Azure Stack
 
 *S’applique à : Systèmes intégrés Azure Stack Hub et kit SDK de développement Azure Stack Hub*
 
-Cet article fournit des informations sur l’infrastructure de stockage Azure Stack Hub, ce qui vous aidera à déterminer comment intégrer Azure Stack dans votre environnement réseau existant. L’article offre un point de vue général sur l’extension de votre centre de données, puis présente deux scénarios différents. Vous pouvez vous connecter à un serveur de stockage de fichiers Windows. Vous pouvez également vous connecter à un serveur ISCSI Windows.
+Cet article fournit des informations sur l’infrastructure de stockage Azure Stack Hub, ce qui vous aidera à déterminer comment intégrer Azure Stack dans votre environnement réseau existant. Après avoir décrit de manière générale l’extension de votre centre de données, l’article présente deux scénarios différents. Vous pouvez vous connecter à un serveur de stockage de fichiers Windows. Vous pouvez également vous connecter à un serveur ISCSI Windows.
 
 ## <a name="overview-of-extending-storage-to-azure-stack-hub"></a>Présentation de l’extension du stockage sur Azure Stack Hub
 
@@ -60,7 +60,7 @@ Dans ce scénario, nous allons déployer et configurer une machine virtuelle Win
 
 5.  Dans le panneau **De base**, renseignez les informations comme suit :
 
-    a.  **Nom** : VM001
+    a.  **Name** : VM001
 
     b.  **Nom d’utilisateur** : localadmin
 
@@ -100,9 +100,9 @@ Dans ce scénario, nous allons déployer et configurer une machine virtuelle Win
 
     b.  **Plage d’adresses (bloc CIDR)** : 10.10.11.0/24
 
-    c.  **Groupe de sécurité réseau** : Aucun
+    c.  **Groupe de sécurité réseau** : None
 
-    d.  **Table de routage** : Aucun
+    d.  **Table de routage** : None
 
 16. Une fois que c’est enregistré, sélectionnez **VM001**.
 
