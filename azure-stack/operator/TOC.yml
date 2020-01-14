@@ -328,6 +328,8 @@
                   href: azure-stack-app-service-release-notes-update-six.md
                 - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_7"
                   href: azure-stack-app-service-release-notes-update-seven.md
+                - name: "Notes de publication d’App\_Service sur Azure Stack Update\_8"
+                  href: azure-stack-app-service-release-notes-update-eight.md
         - name: MySQL sur Azure Stack Hub
           items:
             - name: Vue d’ensemble
