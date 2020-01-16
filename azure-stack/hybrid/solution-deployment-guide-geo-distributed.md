@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 11da2f86bcfce1473e5fabe3712281fa3e9e68b2
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: c18e510d32773905b59cd756ed49daf59a0d03e9
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640424"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881856"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>Créer une solution d’application géodistribuée pour diriger le trafic avec Azure et Azure Stack Hub
-
-*S’applique à : systèmes intégrés Azure Stack Hub et Kit de développement Azure Stack Hub*
 
 Découvrez comment diriger le trafic vers des points de terminaison spécifiques en fonction de différentes mesures à l’aide du modèle d’applications géolocalisées. En créant un profil Traffic Manager avec configuration du routage et du point de terminaison basée sur la géolocalisation, vous êtes certain que les informations sont dirigées vers les points de terminaison en fonction des exigences régionales, des réglementations organisationnelles et internationales et de vos besoins en matière de données.
 
@@ -69,7 +67,7 @@ Avant de créer une empreinte d’application distribuée, il est utile de dispo
 > 
 > L’article [Design Considerations for Hybrid Applications](overview-app-design-considerations.md) se penche sur les fondements de la qualité logicielle (sélection élective, scalabilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
 
-## <a name="part-1-create-a-geo-distributed-app"></a>Partie 1 : Créer une application géolocalisée
+## <a name="part-1-create-a-geo-distributed-app"></a>Première partie : Créer une application géolocalisée
 
 Dans cette partie, vous allez créer une application web.
 
@@ -79,7 +77,7 @@ Dans cette partie, vous allez créer une application web.
 > - Pointez la génération de l’application sur plusieurs cibles du cloud.
 > - Gérer et configurer le processus CD.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Un abonnement Azure et l’installation d’Azure Stack Hub sont requis.
 
@@ -234,7 +232,7 @@ Azure DevOps Services fournit un pipeline hautement configurable et gérable pou
 > [!Note]  
 > Certains paramètres des tâches peuvent avoir été automatiquement définis en tant que [variables d’environnement](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) lors de la création d’une définition de mise en production à partir d’un modèle. Ces paramètres ne peuvent pas être modifiés dans les paramètres de la tâche. Au lieu de cela, l’élément d’environnement parent doit être sélectionné pour modifier ces paramètres.
 
-## <a name="part-2-update-web-app-options"></a>Partie 2 : Mettre à jour les options de l’application web
+## <a name="part-2-update-web-app-options"></a>Deuxième partie : Mettre à jour les options de l’application web
 
 [Azure App Service](https://docs.microsoft.com/azure/app-service/overview) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. 
 
@@ -251,7 +249,7 @@ Azure DevOps Services fournit un pipeline hautement configurable et gérable pou
 
 Pour migrer un site actif et son nom de domaine DNS vers App Service, voir [Migrer un nom DNS actif vers Azure App Service](https://docs.microsoft.com/azure/app-service/manage-custom-dns-migrate-domain).
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer cette solution :
 
@@ -350,7 +348,7 @@ Après avoir ajouté l’enregistrement CNAME, la page d’enregistrements DNS r
 
 Parcourez les noms DNS configurés précédemment (par exemple, `northwindcloud.com` ou www.northwindcloud.com).
 
-## <a name="part-3-bind-a-custom-ssl-cert"></a>Partie 3 : Lier un certificat SSL personnalisé
+## <a name="part-3-bind-a-custom-ssl-cert"></a>Troisième partie : Lier un certificat SSL personnalisé
 
 Dans cette partie, nous allons :
 
@@ -362,7 +360,7 @@ Dans cette partie, nous allons :
 > [!Note]  
 > Si nécessaire, obtenez un certificat SSL dans le portail Azure et liez-le à l’application web. Pour plus d’informations, voir le [didacticiel sur App Service Certificates](https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site).
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer cette solution :
 

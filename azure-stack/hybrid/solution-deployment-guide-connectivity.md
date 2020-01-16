@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 88355951ea5cffc147ef9644a6e35b78bb80a02c
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 26895aeaf55c466d5800e52c7c482d4516f3f244
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640046"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881635"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>Configurer une connectivité cloud hybride à l'aide d'Azure et d'Azure Stack Hub
-
-*S’applique à : systèmes intégrés Azure Stack Hub et Kit de développement Azure Stack Hub*
 
 Vous pouvez accéder aux ressources en toute sécurité dans Azure global et Azure Stack Hub à l'aide du modèle de connectivité hybride.
 
@@ -29,12 +27,12 @@ Dans cette solution, vous allez générer un exemple d’environnement pour :
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> Microsoft Azure Stack Hub est une extension d'Azure. Azure Stack Hub offre à votre environnement local l'agilité et l'innovation du cloud computing grâce au seul cloud hybride qui vous permette de créer et de déployer des applications hybrides en tout lieu.  
+> Microsoft Azure Stack Hub est une extension d’Azure. Azure Stack Hub offre à votre environnement local l’agilité et l’innovation du cloud computing grâce au seul cloud hybride qui vous permette de créer et de déployer des applications hybrides en tout lieu.  
 > 
 > L’article [Design Considerations for Hybrid Applications](overview-app-design-considerations.md) se penche sur les fondements de la qualité logicielle (sélection élective, scalabilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Certains composants sont nécessaires pour créer un déploiement de connectivité hybride. La préparation de certains de ces composants pouvant prendre du temps, vous devez planifier en conséquence.
 
@@ -90,7 +88,7 @@ Spécifications de la connexion :
 
 Adresses IP réseau et sous-réseau :
 
-| Connexion Azure/Azure Stack Hub | Nom | Subnet | Adresse IP |
+| Connexion Azure/Azure Stack Hub | Name | Subnet | Adresse IP |
 |-------------------------------------|---------------------------------------------|---------------------------------------|-----------------------------|
 | Réseau virtuel Azure | ApplicationvNet<br>10.100.102.9/23 | ApplicationSubnet<br>10.100.102.0/24 |  |
 |  |  | Sous-réseau de passerelle<br>10.100.103.0/24 |  |

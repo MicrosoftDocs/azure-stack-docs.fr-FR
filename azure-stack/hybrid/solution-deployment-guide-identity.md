@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: a38a7541d4184e89cb0a821db04a2fcb8c267a31
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 813dbe66b2b2c1850430dbe167f0a14227856aee
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73639968"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881482"
 ---
 # <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-hub-applications"></a>Configurer une identité cloud hybride pour les applications Azure et Azure Stack Hub
-
-*S’applique à : systèmes intégrés Azure Stack Hub et Kit de développement Azure Stack Hub*
 
 Apprenez à configurer une identité cloud hybride pour vos applications Azure et Azure Stack Hub.
 
@@ -38,7 +36,7 @@ Pour suivre les étapes de cette solution, vous devez disposer d'autorisations d
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> Microsoft Azure Stack Hub est une extension d'Azure. Azure Stack Hub offre à votre environnement local l'agilité et l'innovation du cloud computing grâce au seul cloud hybride qui vous permette de créer et de déployer des applications hybrides en tout lieu.  
+> Microsoft Azure Stack Hub est une extension d’Azure. Azure Stack Hub offre à votre environnement local l’agilité et l’innovation du cloud computing grâce au seul cloud hybride qui vous permette de créer et de déployer des applications hybrides en tout lieu.  
 > 
 > L’article [Design Considerations for Hybrid Applications](overview-app-design-considerations.md) se penche sur les fondements de la qualité logicielle (sélection élective, scalabilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
 
@@ -59,7 +57,7 @@ La solution [API Azure Stack Hub](../user/azure-stack-rest-api-use.md) décrit l
 
 Le guide de démarrage rapide à suivre pour [devenir rapidement opérationnel avec PowerShell dans Azure Stack Hub](../operator/azure-stack-powershell-install.md) vous explique comment installer Azure PowerShell et vous connecter à votre installation Azure Stack Hub.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Vous devez disposer d'une installation Azure Stack Hub connectée à Azure Active Directory, avec un abonnement auquel vous pouvez accéder. Si Azure Stack Hub n'est pas installé, vous pouvez suivre ces instructions pour configurer un [Kit de développement Azure Stack Hub](../asdk/asdk-install.md).
 

@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: e0fe07495017d6bd56beab78a37f5e0708197087
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 7c530d537bb5c102091a9f4c68b35dd5a0a91275
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640340"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881414"
 ---
 # <a name="deploy-a-sql-server-2016-availability-group-to-azure-and-azure-stack-hub"></a>Déployer un groupe de disponibilité SQL Server 2016 sur Azure et Azure Stack Hub
-
-*S’applique à : systèmes intégrés Azure Stack Hub*
 
 Cet article vous guidera tout au long du processus de déploiement automatisé d'un cluster de base SQL Server 2016 Entreprise haute disponibilité (HA) avec un site de récupération d'urgence asynchrone dans deux environnements Azure Stack Hub. Pour en savoir plus sur SQL Server 2016 et la haute disponibilité, voir [Groupes de disponibilité Always On : une solution de haute disponibilité et de récupération d’urgence](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2016).
 
@@ -30,7 +28,7 @@ Dans cette solution, vous allez générer un exemple d’environnement pour :
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> Microsoft Azure Stack Hub est une extension d'Azure. Azure Stack Hub offre à votre environnement local l'agilité et l'innovation du cloud computing grâce au seul cloud hybride qui vous permette de créer et de déployer des applications hybrides en tout lieu.  
+> Microsoft Azure Stack Hub est une extension d’Azure. Azure Stack Hub offre à votre environnement local l’agilité et l’innovation du cloud computing grâce au seul cloud hybride qui vous permette de créer et de déployer des applications hybrides en tout lieu.  
 > 
 > L’article [Design Considerations for Hybrid Applications](overview-app-design-considerations.md) se penche sur les fondements de la qualité logicielle (sélection élective, scalabilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
 
@@ -42,10 +40,10 @@ Dans cette solution, vous allez générer un exemple d’environnement pour :
 
   - Deux systèmes intégrés Azure Stack Hub (Azure Stack Hub) connectés ; ce déploiement ne fonctionne pas sur les Kits de développement Azure Stack Hub (ASDK). Pour en savoir plus sur Azure Stack Hub, consultez [Qu'est-ce qu'Azure Stack Hub ?](https://azure.microsoft.com/overview/azure-stack/).
   - Un abonnement de locataire sur chaque infrastructure Azure Stack Hub.    
-      - **Prenez note de chaque ID d'abonnement et du point de terminaison Azure Resource Manager de chaque infrastructure Azure Stack Hub.**
-  - Un principal de service Azure Active Directory (Azure AD) disposant d'autorisations pour l'abonnement du locataire sur chaque infrastructure Azure Stack Hub. Il se peut que vous deviez créer deux principaux de service si les infrastructures Azure Stack Hub sont déployées auprès de différents locataires Azure AD. Pour en savoir plus sur la création d'un principal de service pour Azure Stack Hub, consultez [Créer des principaux de service pour permettre à des applications d'accéder à des ressources Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals).
+      - **Prenez note de chaque ID d’abonnement et du point de terminaison Azure Resource Manager de chaque infrastructure Azure Stack Hub.**
+  - Un principal de service Azure Active Directory (Azure AD) disposant d’autorisations pour l’abonnement du locataire sur chaque infrastructure Azure Stack Hub. Vous devrez peut-être créer deux principaux de service si les infrastructures Azure Stack Hub sont déployées auprès de différents locataires Azure AD. Pour en savoir plus sur la création d’un principal de service pour Azure Stack Hub, consultez [Créer des principaux de service pour permettre à des applications d’accéder à des ressources Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals).
       - **Prenez note de l’ID d’application, de la clé secrète client et du nom de locataire de chaque principal de service (xxxxx.onmicrosoft.com).**
-  - SQL Server 2016 Entreprise syndiqué sur la Place de marché de chaque infrastructure Azure Stack Hub. Pour en savoir plus sur la syndication de place de marché, consultez [Télécharger des éléments de la Place de marché vers Azure Stack Hub à partir d'Azure](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item).
+  - SQL Server 2016 Entreprise syndiqué sur la Place de marché de chaque infrastructure Azure Stack Hub. Pour en savoir plus sur la syndication de place de marché, consultez [Télécharger des éléments de la Place de marché vers Azure Stack Hub à partir d’Azure](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item).
     **Assurez-vous que votre organisation dispose des licences SQL appropriées.**
   - [Docker pour Windows](https://docs.docker.com/docker-for-windows/) installé sur votre ordinateur local.
 

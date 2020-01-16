@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 627e6a6092a93161b2d6b216178b84ce056e36e4
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: e850cde0196d496d6d854822ee0cd1a679bccca0
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640406"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881499"
 ---
 # <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack-hub"></a>Déployer une solution MongoDB hautement disponible sur Azure et Azure Stack Hub
-
-*S’applique à : Systèmes intégrés Azure Stack Hub*
 
 Cet article vous guide dans le processus de déploiement automatisé d’un cluster MongoDB hautement disponible de base avec un site de récupération d’urgence dans deux environnements Azure Stack Hub. Pour en savoir plus sur MongoDB et la haute disponibilité, voir [Membres d’un jeu de réplicas](https://docs.mongodb.com/manual/core/replica-set-members/).
 
@@ -74,7 +72,7 @@ docker pull intelligentedge/mongodb-hadr:1.0.0
     cd .\MongoHADRDemo\
     ```
 
-3.  Exécutez le déploiement. Fournissez les informations d’identification et les noms de ressources si nécessaire. HA fait référence à l’infrastructure Azure Stack Hub où le cluster hautement disponible sera déployé, et DR, à l’infrastructure Azure Stack Hub où le cluster de récupération d’urgence sera déployé.
+3.  Exécutez le déploiement. Fournissez les informations d’identification et les noms de ressources si nécessaire. HA fait référence à l'infrastructure Azure Stack Hub où le cluster haute disponibilité sera déployé, et DR, à l'infrastructure Azure Stack Hub où le cluster de récupération d'urgence sera déployé.
 
     ```powershell
     .\Deploy-AzureResourceGroup.ps1 `

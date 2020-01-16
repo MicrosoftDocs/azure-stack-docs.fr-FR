@@ -7,22 +7,20 @@ ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ff36a5c280df7ecb68d0d181438489ce696ed4fc
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 73eec3724aa37976809af6d1a4aa1b4b4c7baef5
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955388"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883097"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Utiliser une identité d’application pour accéder aux ressources Azure Stack Hub
-
-*S’applique à : Systèmes intégrés Azure Stack Hub et kit SDK de développement Azure Stack Hub (ASDK)*
 
 Une application qui a besoin pour déployer ou configurer des ressources via Azure Resource Manager doit être représentée par un principal de service. Tout comme un utilisateur est représenté par un principal d’utilisateur, un principal de service est un type de principal de sécurité qui représente une application. Le principal de service fournit une identité pour votre application, ce qui vous permet de ne déléguer à ce principal de service que les autorisations nécessaires.  
 
 Par exemple, vous avez peut-être une application de gestion de la configuration qui utilise Azure Resource Manager pour inventorier les ressources Azure. Dans ce scénario, vous pouvez créer un principal de service, lui accorder le rôle de lecteur et limiter l’application de gestion de la configuration à un accès en lecture seule.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 À l’instar d’un principal d’utilisateur, un principal de service doit présenter des informations d'identification lors de l’authentification. Cette authentification se compose de deux éléments :
 
@@ -81,7 +79,7 @@ Lors de la création d’un certificat pour des informations de principal de ser
 
 Une fois que vous avez un certificat, utilisez le script PowerShell ci-dessous pour inscrire votre application et créer un principal de service. Vous utilisez également le principal de service pour vous connecter à Azure. Substituez vos propres valeurs aux espaces réservés suivants :
 
-| Placeholder | Description | Exemples |
+| Espace réservé | Description | Exemple |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance d’Azure Stack Hub. | « AzS-ERCS01 » |
 | \<YourCertificateLocation\> | Emplacement de votre certificat X509 dans le magasin de certificats local. | « Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34 » |
@@ -152,7 +150,7 @@ Gardez votre session de console PowerShell ouverte, car vous aller l’utiliser 
 
 Mettre à jour les informations d’identification du certificat à l’aide de PowerShell, en substituant vos propres valeurs aux espaces réservés suivants :
 
-| Placeholder | Description | Exemples |
+| Espace réservé | Description | Exemple |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance d’Azure Stack Hub. | « AzS-ERCS01 » |
 | \<YourAppName\> | Nom descriptif pour la nouvelle inscription d’application. | « Mon outil de gestion » |
@@ -197,7 +195,7 @@ Mettre à jour les informations d’identification du certificat à l’aide de 
 
 À présent, vous créez une autre inscription d’application, mais spécifiez des informations d’identification de clé secrète client. Contrairement aux informations d’identification de certificat, l’annuaire est capable de générer des informations d’identification de clé secrète client. Au lieu de spécifier la clé secrète client, vous utilisez le commutateur `-GenerateClientSecret` pour demander qu’elle soit générée. Substituez vos propres valeurs aux espaces réservés suivants :
 
-| Placeholder | Description | Exemples |
+| Espace réservé | Description | Exemple |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance d’Azure Stack Hub. | « AzS-ERCS01 » |
 | \<YourAppName\> | Nom descriptif pour la nouvelle inscription d’application. | « Mon outil de gestion » |
@@ -254,7 +252,7 @@ Gardez votre session de console PowerShell ouverte, car vous aller l’utiliser 
 
 Mettez à jour les informations d’identification de la clé secrète client dans PowerShell à l’aide du paramètre **ResetClientSecret**, ce qui a pour effet de modifier immédiatement la clé secrète client. Substituez vos propres valeurs aux espaces réservés suivants :
 
-| Placeholder | Description | Exemples |
+| Espace réservé | Description | Exemple |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance d’Azure Stack Hub. | « AzS-ERCS01 » |
 | \<AppIdentifier\> | Identificateur affecté à l’inscription de l’application. | « S-1-5-21-1634563105-1224503876-2692824315-2623 » |
@@ -291,7 +289,7 @@ Nous allons maintenant voir comment retirer/supprimer une inscription d’applic
 
 Substituez vos propres valeurs aux espaces réservés suivants :
 
-| Placeholder | Description | Exemples |
+| Espace réservé | Description | Exemple |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance d’Azure Stack Hub. | « AzS-ERCS01 » |
 | \<AppIdentifier\> | Identificateur affecté à l’inscription de l’application. | « S-1-5-21-1634563105-1224503876-2692824315-2623 » |

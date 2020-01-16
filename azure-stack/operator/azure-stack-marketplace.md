@@ -16,16 +16,14 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 7dcec5a0c7de0c81ec796142026df5b61698654f
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: aea624bc47dec82133e3a438c21f984509492ceb
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727562"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882281"
 ---
 # <a name="azure-stack-hub-marketplace-overview"></a>Vue d’ensemble de la Place de marché Azure Stack Hub
-
-*S’applique à : Systèmes intégrés Azure Stack Hub et Kit de développement Azure Stack*
 
 La Place de marché Azure Stack Hub est un regroupement de services, d’applications et de ressources personnalisés pour Azure Stack Hub. Les ressources incluent des réseaux, des machines virtuelles, des stockages, etc. Utilisez la Place de marché Azure Stack Hub pour créer des ressources et déployer de nouvelles applications, ou parcourez et choisissez les éléments à utiliser. Pour utiliser un élément de Place de Marché, les utilisateurs doivent s’abonner à une offre qui leur accorde l’accès à l’élément.
 

@@ -16,16 +16,15 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: d6068ef98d4fe2d575f5501ad6760d4b408385cd
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 5f4d29a95ab56ee4728109f5b74494c39d8b1c98
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718094"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882060"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Types de quota dans Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Les [quotas](service-plan-offer-subscription-overview.md#plans) définissent les limites de ressources qu’un abonnement utilisateur peut approvisionner ou consommer. Par exemple, un quota peut autoriser un utilisateur à créer jusqu’à cinq machines virtuelles. Chaque ressource peut avoir ses propres types de quotas.
 
