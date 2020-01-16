@@ -24,7 +24,7 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure-stack/asdk/asdk-install">Déployer l’ASDK</a>
-          - html: <a href="/azure-stack/operator/azure-stack-create-and-publish-marketplace-item">Ajouter un élément marketplace Azure Stack</a>
+          - html: <a href="/azure-stack/operator/azure-stack-create-and-publish-marketplace-item">Ajouter un élément de la Place de marché Azure Stack Hub</a>
           - html: <a href="/azure-stack/operator/azure-stack-tutorial-tenant-vm">Proposer des services IaaS</a>
           - html: <a href="/azure-stack/user/azure-stack-subscribe-services">S’abonner à une offre</a>
           - html: <a href="/azure-stack/operator/create-add-on-plan">Offres et plans de mise à jour</a>
