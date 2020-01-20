@@ -1,6 +1,6 @@
 ---
-title: Déployer une application dans Azure Stack | Microsoft Docs
-description: Déployez une application dans Azure Stack.
+title: Déployer une application dans Azure Stack Hub | Microsoft Docs
+description: Déployez une application dans Azure Stack Hub.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,24 +9,24 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 4d8dbc22a69c204b8d6a755d2a8402ba7185d03e
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 5f29fd7a0d2ab8df9d713927b7e9bada38d0e249
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824740"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820676"
 ---
-# <a name="common-deployments-for-azure-stack"></a>Déploiements courants pour Azure Stack
+# <a name="common-deployments-for-azure-stack-hub"></a>Déploiements courants pour Azure Stack Hub
 
-Azure Stack prend en charge les infrastructures IaaS et PaaS. Cet article répertorie les ressources pour la configuration d’une machine virtuelle et le déploiement de celle-ci sur Azure Stack.
+Azure Stack Hub prend en charge les infrastructures IaaS et PaaS. Cet article répertorie les ressources pour la configuration d’une machine virtuelle et le déploiement de celle-ci sur Azure Stack Hub.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Avant de commencer à déployer une application dans Azure Stack, configurez votre ordinateur de développement. Pour savoir comment se préparer à travailler avec Azure Stack en tant que développeur, consultez [Configurer un environnement de développement dans Azure Stack](azure-stack-dev-start.md).
+Avant de commencer à déployer une application dans Azure Stack Hub, configurez votre machine de développement. Pour savoir comment se préparer à travailler avec Azure Stack Hub en tant que développeur, consultez [Configurer un environnement de développement dans Azure Stack Hub](azure-stack-dev-start.md).
 
 ## <a name="deploy-an-app-to-a-vm"></a>Déployer une application sur une machine virtuelle
 
-Dans les articles pratiques suivants, vous allez configurer une machine virtuelle dans Azure Stack puis déployer votre application à partir de votre station de travail de développement sur Azure Stack.
+Dans les articles de guide pratique suivants, vous allez configurer une machine virtuelle dans Azure Stack Hub, puis déployer votre application à partir de votre station de travail de développement sur Azure Stack Hub.
 
 - [.NET Core (C#)](azure-stack-dev-start-howto-vm-dotnet.md)
 - [Java](azure-stack-dev-start-howto-vm-java.md)
@@ -37,5 +37,5 @@ Dans les articles pratiques suivants, vous allez configurer une machine virtuell
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Configurez un [environnement de développement dans Azure Stack](azure-stack-dev-start.md).
-- Configurez un [pipeline d’intégration continu/livraison continue (CI/CD) dans Azure Stack](azure-stack-solution-pipeline.md).
+- Configurez un [environnement de développement dans Azure Stack Hub](azure-stack-dev-start.md).
+- Configurez un [pipeline d’intégration continu/livraison continue (CI/CD) dans Azure Stack Hub](azure-stack-solution-pipeline.md).

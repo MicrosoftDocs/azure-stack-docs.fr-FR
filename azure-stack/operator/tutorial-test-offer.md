@@ -1,5 +1,5 @@
 ---
-title: Testez une offre de services Azure Stack.
+title: Testez une offre de services Azure Stack Hub.
 description: Découvrez comment tester une offre de service en créant un abonnement et en déployant des ressources.
 author: BryanLa
 ms.author: bryanla
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: 9e41cae53612cdf412840eb63d648a9c73260fa6
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: fd14a6099c9906a0b37c8227164b213235dcfee3
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727460"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820931"
 ---
 # <a name="tutorial-test-a-service-offering"></a>Tutoriel : Tester une offre de service
 
@@ -31,7 +31,7 @@ Avant de commencer ce didacticiel, vous devez remplir les conditions préalables
 
 - Suivez le didacticiel [Offrir un service aux utilisateurs](tutorial-offer-services.md). Dans ce didacticiel, vous allez apprendre à créer l’offre utilisée à titre d’exemple.
 
-- L’offre à laquelle vous êtes abonné dans ce didacticiel permet le déploiement d’une ressource de machine virtuelle. Pour tester le déploiement de machine virtuelle, vous devez publier une image de machine virtuelle sur la Place de marché Azure Stack, en la téléchargeant depuis la Place de marché Azure. Pour plus de détails, consultez [Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack](azure-stack-download-azure-marketplace-item.md). 
+- L’offre à laquelle vous êtes abonné dans ce didacticiel permet le déploiement d’une ressource de machine virtuelle. Pour tester le déploiement de machine virtuelle, vous devez publier une image de machine virtuelle sur la Place de marché Azure Stack Hub, en la téléchargeant depuis la Place de marché Azure. Pour plus de détails, consultez [Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack Hub](azure-stack-download-azure-marketplace-item.md). 
 
 ## <a name="subscribe-to-the-offer"></a>S’abonner à l’offre
 
@@ -141,6 +141,6 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 
 Découvrez ensuite comment déployer des fournisseurs de ressources pour les services à valeur ajoutée. Ils vous permettent d’offrir encore plus de services aux utilisateurs de vos offres :
 
-- [Offre SQL sur Azure Stack](azure-stack-sql-resource-provider.md)
-- [Offre MySQL sur Azure Stack](azure-stack-mysql-resource-provider.md)
-- [Offre App Service sur Azure Stack](azure-stack-app-service-overview.md)
+- [Offre SQL sur Azure Stack Hub](azure-stack-sql-resource-provider.md)
+- [Offre MySQL sur Azure Stack Hub](azure-stack-mysql-resource-provider.md)
+- [Offre App Service sur Azure Stack Hub](azure-stack-app-service-overview.md)

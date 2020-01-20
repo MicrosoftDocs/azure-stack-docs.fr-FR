@@ -1,6 +1,6 @@
 ---
-title: Déployer une application Node.js sur une machine virtuelle dans Azure Stack | Microsoft Docs
-description: Déployez une application Node.js dans Azure Stack.
+title: Déployer une application Node.js sur une machine virtuelle dans Azure Stack Hub | Microsoft Docs
+description: Déployez une application Node.js dans Azure Stack Hub.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,20 +9,20 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 0b145ab315e855ee08b25ea4980bdde40d0bfc1c
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: b848678eab2b913331208e13882c3b8b125c51a8
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824194"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820591"
 ---
-# <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack"></a>Déployer une application web Node.js sur une machine virtuelle dans Azure Stack
+# <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack-hub"></a>Déployer une application web Node.js sur une machine virtuelle dans Azure Stack Hub
 
-Vous pouvez créer une machine virtuelle pour héberger une application web Node.js dans Azure Stack. Dans cet article, vous installez un serveur et vous le configurez pour qu’il héberge votre application web Node.js, puis vous déployez l’application sur Azure Stack.
+Vous pouvez créer une machine virtuelle pour héberger une application web Node.js dans Azure Stack Hub. Dans cet article, vous installez un serveur et vous le configurez pour qu’il héberge votre application web Node.js, puis vous déployez l’application sur Azure Stack Hub.
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
-1. Configurez votre machine virtuelle dans Azure Stack en suivant les instructions fournies dans [Déployer une machine virtuelle Linux pour héberger une application web dans Azure Stack](azure-stack-dev-start-howto-deploy-linux.md).
+1. Configurez votre machine virtuelle dans Azure Stack Hub en suivant les instructions fournies dans [Déployer une machine virtuelle Linux pour héberger une application web dans Azure Stack Hub](azure-stack-dev-start-howto-deploy-linux.md).
 
 2. Dans le volet du réseau de machines virtuelles, vérifiez que les ports suivants sont accessibles :
 
@@ -32,7 +32,7 @@ Vous pouvez créer une machine virtuelle pour héberger une application web Node
     | 443 | HTTPS | HTTPS (Hypertext Transfer Protocol Secure) est une version sécurisée du protocole HTTP qui nécessite un certificat de sécurité pour la transmission chiffrée des informations. |
     | 22 | SSH | SSH (Secure Shell) est un protocole réseau chiffré pour les communications sécurisées. Vous utilisez cette connexion avec un client SSH pour configurer la machine virtuelle et déployer l’application. |
     | 3389 | RDP | facultatif. Le protocole RDP (Remote Desktop Protocol) permet d’utiliser une connexion Bureau à distance avec une interface graphique utilisateur sur votre machine.   |
-    | 1337 | Personnalisée | Port utilisé par Node.js. Pour un serveur de production, vous routez le trafic par les ports 80 et 443. |
+    | 1337 | Custom | Port utilisé par Node.js. Pour un serveur de production, vous routez le trafic par les ports 80 et 443. |
 
 ## <a name="install-node"></a>Installer Node
 
@@ -87,6 +87,6 @@ Vous pouvez créer une machine virtuelle pour héberger une application web Node
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [développer pour Azure Stack](azure-stack-dev-start.md).
-- Découvrez les [Déploiements courants pour Azure Stack en IaaS](azure-stack-dev-start-deploy-app.md).
+- Découvrez comment [développer pour Azure Stack Hub](azure-stack-dev-start.md).
+- Découvrez les [déploiements courants pour Azure Stack Hub en IaaS](azure-stack-dev-start-deploy-app.md).
 - Pour apprendre le langage de programmation Node et trouver des ressources supplémentaires sur Node, voir [Nodejs.org](https://nodejs.org).

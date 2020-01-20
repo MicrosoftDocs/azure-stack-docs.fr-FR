@@ -1,72 +1,72 @@
 ---
-title: Créer une machine virtuelle Windows avec le portail Azure Stack | Microsoft Docs
-description: Découvrez comment créer une machine virtuelle Windows Server 2016 avec le portail Azure Stack.
+title: Créer une machine virtuelle Windows avec le portail Azure Stack Hub | Microsoft Docs
+description: Découvrez comment créer une machine virtuelle Windows Server 2016 avec le portail Azure Stack Hub.
 services: azure-stack
 author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 10/02/2019
+ms.date: 1/10/2020
 ms.author: mabrigg
-ms.custom: mvc
 ms.reviewer: kivenkat
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 95fef782ca7efe09f7c93fbf0e28e81ed34d8166
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 1/10/2020
+ms.openlocfilehash: 1b7ea35da7234fde1517b59101205a92075b9016
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71823927"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914890"
 ---
-# <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-portal"></a>Démarrage rapide : Créer une machine virtuelle Windows Server avec le portail Azure Stack
+# <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>Démarrage rapide : Créer une machine virtuelle Windows Server avec le portail Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
-
-Découvrez comment créer une machine virtuelle Windows Server 2016 à l’aide du portail Azure Stack.
+Découvrez comment créer une machine virtuelle Windows Server 2016 avec le portail Azure Stack Hub.
 
 > [!NOTE]  
-> Les captures d’écran de cet article ont été mises à jour pour correspondre à l’interface utilisateur introduite avec Azure Stack version 1808. Cette version ajoute la prise en charge de l’utilisation de *disques managés* à celle des disques non managés. Si vous utilisez une version antérieure, certaines images, par exemple la sélection des disques, sont différentes de celles qui sont affichées dans cet article.  
+> Les captures d’écran de cet article ont été mises à jour pour correspondre à l’interface utilisateur introduite avec Azure Stack Hub version 1808. Cette version ajoute la prise en charge de l’utilisation de *disques managés* à celle des disques non managés. Si vous utilisez une version antérieure, certaines images, par exemple la sélection des disques, sont différentes de celles qui sont affichées dans cet article.  
 
 
-## <a name="sign-in-to-the-azure-stack-portal"></a>Se connecter au portail Azure Stack
+## <a name="sign-in-to-the-azure-stack-hub-portal"></a>Se connecter au portail Azure Stack Hub
 
-Connectez-vous au portail Azure Stack. L’adresse du portail Azure Stack varie en fonction du produit Azure Stack auquel vous vous connectez :
+Connectez-vous au portail Azure Stack Hub. L’adresse du portail Azure Stack Hub varie en fonction du produit Azure Stack Hub auquel vous vous connectez :
 
 * Pour le Kit de développement Azure Stack (ASDK), accédez à : https://portal.local.azurestack.external.
-* Pour un système intégré Azure Stack, accédez à l’URL fournie par votre opérateur Azure Stack.
+* Pour un système intégré Azure Stack Hub, accédez à l’URL fournie par votre opérateur Azure Stack Hub.
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
-1. Cliquez sur **+ Créer une ressource** > **Calcul** > **Windows Server 2016 Datacenter – Paiement à l’utilisation** > **Créer**. <br> Si vous ne voyez pas l’entrée **Windows Server 2016 Datacenter - Paiement à l’utilisation**, contactez votre opérateur Azure Stack et demandez-lui de l’ajouter à la place de marché, comme expliqué dans l’article [Ajouter l’image de machine virtuelle Windows Server 2016 sur la Place de marché Azure Stack](../operator/azure-stack-create-and-publish-marketplace-item.md).
+1. Sélectionnez **Créer une ressource** > **Calcul**. Recherchez ` Windows Server 2016 Datacenter – Pay as you use`.
+    Si l’entrée **Windows Server 2016 Datacenter – Paiement à l’utilisation** n’apparaît pas, contactez votre opérateur cloud Azure Stack Hub et demandez-lui d’ajouter l’image à la Place de marché Azure Stack Hub. Pour obtenir des instructions, votre opérateur cloud peut se référer à [Créer et publier un élément personnalisé de Place de marché Azure Stack Hub](../operator/azure-stack-create-and-publish-marketplace-item.md).
 
-    ![Étapes de création d’une machine virtuelle Windows dans le portail](media/azure-stack-quick-windows-portal/image01.png)
+    ![Windows Server 2016 Datacenter – Paiement à l’utilisation](./media/azure-stack-quick-windows-portal/image1.png)
 
-2. Sous **De base**, tapez un **Nom**, un **Nom d’utilisateur** et un **Mot de passe**. Choisissez un **Abonnement**. Créez un **Groupe de ressources** ou sélectionnez un groupe existant, sélectionnez un **Emplacement**, puis cliquez sur **OK**.
+1. Sélectionnez **Create** (Créer).
 
-    ![Configurer les paramètres de base](media/azure-stack-quick-windows-portal/image02.png)
+    ![Créer une ressource](./media/azure-stack-quick-windows-portal/image2.png)
 
-3. Sous **Taille**, sélectionnez **D1 Standard**, puis cliquez sur **Sélectionner**.  
+1. Tapez un **Nom**, un **Type de disque**, un **Nom d’utilisateur** et un **Mot de passe** sous **Paramètres de base**. Choisissez un **Abonnement**. Créez un **Groupe de ressources** ou sélectionnez un groupe existant, sélectionnez un **Emplacement**, puis sélectionnez **OK**.
 
-    ![Choisir la taille de la machine virtuelle](media/azure-stack-quick-windows-portal/image03.png)
+    ![Créer une machine virtuelle – Paramètres de base](./media/azure-stack-quick-windows-portal/image3.png)
 
-4. Dans la page **Paramètres**, apportez les modifications souhaitées aux valeurs par défaut.
-   - À compter de la version 1808 d’Azure Stack, vous pouvez désormais choisir d’utiliser des *disques managés* lorsque vous configurez le **Stockage**. Avant la version 1808, seuls les disques non managés pouvaient être utilisés.  
+1. Sélectionnez **D1_v2** sous **Taille**, puis choisissez **Sélectionner**.
 
-   ![Configurer les paramètres de la machine virtuelle](media/azure-stack-quick-windows-portal/image04.png)  
+    ![Créer une machine virtuelle – Taille](./media/azure-stack-quick-windows-portal/image4.png)
 
-   Lorsque vos configurations sont prêtes, sélectionnez **OK** pour continuer.
+1. Dans la page **Paramètres**, apportez les modifications souhaitées aux valeurs par défaut. Vous devez configurer les ports entrants publics souhaités à partir de la liste déroulante associée. Quand vous avez terminé, cliquez sur **OK**.
 
-5. Sous **Résumé**, cliquez sur **OK** pour créer la machine virtuelle.
-    ![Afficher le récapitulatif et créer la machine virtuelle](media/azure-stack-quick-windows-portal/image05.png)
+    ![Créer une machine virtuelle – Paramètres](./media/azure-stack-quick-windows-portal/image5.png)
 
-6. Pour voir votre nouvelle machine virtuelle, cliquez sur **Toutes les ressources**, recherchez le nom de la machine virtuelle, puis sélectionnez-le dans les résultats de la recherche.
+1. Sélectionnez **OK** sous **Résumé** pour créer la machine virtuelle.
 
-    ![Voir la machine virtuelle](media/azure-stack-quick-windows-portal/image06.png)
+    ![Créer une machine virtuelle – Résumé](./media/azure-stack-quick-windows-portal/image6.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+1. Sélectionnez **Machines virtuelles** pour passer en revue votre nouvelle machine virtuelle. Recherchez le nom de la machine virtuelle, puis sélectionnez la machine virtuelle dans les résultats de la recherche.
 
-Une fois que vous avez fini d’utiliser la machine virtuelle, supprimez-la ainsi que ses ressources. Pour ce faire, sélectionnez le groupe de ressources dans la page de la machine virtuelle, puis cliquez sur **Supprimer**.
+![Créer une machine virtuelle – Rechercher une machine virtuelle](./media/azure-stack-quick-windows-portal/image7.png)
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Une fois que vous avez fini d’utiliser la machine virtuelle, supprimez-la ainsi que ses ressources. Pour ce faire, sélectionnez le groupe de ressources dans la page de la machine virtuelle, puis sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez déployé une machine virtuelle Windows Server de base. Pour en savoir plus sur les machines virtuelles Azure Stack, continuez avec [Considérations relatives aux machines virtuelles dans Azure Stack](azure-stack-vm-considerations.md).
+Dans ce guide de démarrage rapide, vous avez déployé une machine virtuelle Windows Server de base. Pour en savoir plus sur les machines virtuelles Azure Stack Hub, continuez avec [Considérations relatives aux machines virtuelles dans Azure Stack Hub](azure-stack-vm-considerations.md).

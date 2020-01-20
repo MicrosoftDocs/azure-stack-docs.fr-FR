@@ -1,6 +1,6 @@
 ---
-title: Créer un abonnement avec une offre dans Azure Stack | Microsoft Docs
-description: Apprenez à créer un nouvel abonnement avec une offre dans Azure Stack, puis testez l’offre avec une machine virtuelle de test.
+title: Créer un abonnement avec une offre dans Azure Stack Hub | Microsoft Docs
+description: Apprenez à créer un nouvel abonnement avec une offre dans Azure Stack Hub, puis testez l’offre avec une machine virtuelle de test.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -17,21 +17,21 @@ ms.date: 06/04/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: e6e09dffa6682a615c01e6fee841a5d736054546
-ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
+ms.openlocfilehash: 216fe342bcda090d69452e8623f34f6c43cf70b9
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72165000"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023189"
 ---
-# <a name="tutorial-create-and-test-a-subscription-in-azure-stack"></a>Didacticiel : Créer et tester un abonnement dans Azure Stack
+# <a name="tutorial-create-and-test-a-subscription-in-azure-stack-hub"></a>Tutoriel : Créer et tester un abonnement dans Azure Stack Hub
 
-Ce tutoriel montre comment créer un abonnement qui contient une offre et comment la tester. Pour le test, connectez-vous au portail utilisateur Azure Stack en tant qu’administrateur cloud, abonnez-vous à l’offre, puis créez une machine virtuelle.
+Ce tutoriel montre comment créer un abonnement qui contient une offre et comment la tester. Pour le test, connectez-vous au portail utilisateur Azure Stack Hub en tant qu’administrateur cloud, abonnez-vous à l’offre, puis créez une machine virtuelle.
 
 > [!TIP]
 > Pour une expérience d’évaluation plus avancée, vous pouvez [créer un abonnement pour un utilisateur particulier](../operator/azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator), puis vous connecter en tant que cet utilisateur dans le portail utilisateur.
 
-Dans ce tutoriel, vous allez apprendre à vous abonner à une offre Azure Stack.
+Dans ce tutoriel, vous allez apprendre à vous abonner à une offre Azure Stack Hub.
 
 Ce que vous allez apprendre :
 
@@ -41,7 +41,7 @@ Ce que vous allez apprendre :
 
 ## <a name="subscribe-to-an-offer"></a>S’abonner à une offre
 
-Pour vous abonner à une offre en tant qu’utilisateur, connectez-vous au portail utilisateur Azure Stack afin de découvrir les services offerts par l’opérateur Azure Stack.
+Pour vous abonner à une offre en tant qu’utilisateur, connectez-vous au portail utilisateur Azure Stack Hub afin de découvrir les services offerts par l’opérateur Azure Stack Hub.
 
 1. Connectez-vous au portail utilisateur et sélectionnez **Obtenir un abonnement**.
 
@@ -63,7 +63,7 @@ Pour vous abonner à une offre en tant qu’utilisateur, connectez-vous au porta
 En étant connecté au portail utilisateur, testez l’offre en provisionnant une machine virtuelle à l’aide des fonctionnalités du nouvel abonnement.
 
 > [!NOTE]
-> Ce test nécessite d’avoir ajouté une machine virtuelle Windows Server 2016 Datacenter à la Place de marché Azure Stack.
+> Ce test nécessite d’avoir ajouté préalablement une machine virtuelle Windows Server 2016 Datacenter à la Place de marché Azure Stack Hub.
 
 1. Connectez-vous au portail utilisateur.
 

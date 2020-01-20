@@ -1,6 +1,6 @@
 ---
-title: Déployer un cluster Service Fabric sécurisé dans Azure Stack | Microsoft Docs
-description: Découvrez comment déployer un cluster Service Fabric sécurisé dans Azure Stack
+title: Déployer un cluster Service Fabric sécurisé dans Azure Stack Hub | Microsoft Docs
+description: Découvrez comment déployer un cluster Service Fabric sécurisé dans Azure Stack Hub
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,22 +15,22 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: e8b7809908bf09cdc60017c8944e26461aa6f07d
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: bb0e9fdb3e1ce1c3778d1167ca76cddae3d67aa7
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993846"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819197"
 ---
-# <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Déployer un cluster Service Fabric dans Azure Stack
+# <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Déployer un cluster Service Fabric dans Azure Stack Hub
 
-Pour déployer un cluster Service Fabric sécurisé dans Azure Stack, utilisez l’élément **Cluster Service Fabric** de la Place de marché Azure. 
+Pour déployer un cluster Service Fabric sécurisé dans Azure Stack Hub, utilisez l’élément **Cluster Service Fabric** de la Place de marché Azure. 
 
 Pour plus d’informations sur l’utilisation de Service Fabric, consultez les articles [Vue d’ensemble d’Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) et [Scénarios de sécurité d’un cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) dans la documentation Azure.
 
-Le cluster Service Fabric dans Azure Stack n’utilise pas le fournisseur de ressources Microsoft.ServiceFabric. Au lieu de cela, dans Azure Stack, le cluster Service Fabric est un groupe de machines virtuelles identiques avec des logiciels préinstallés à l’aide de [DSC (Desired State Configuration)](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview).
+Le cluster Service Fabric dans Azure Stack Hub n’utilise pas le fournisseur de ressources Microsoft.ServiceFabric. Au lieu de cela, dans Azure Stack Hub, le cluster Service Fabric est un groupe de machines virtuelles identiques avec des logiciels préinstallés à l’aide de [DSC (Desired State Configuration)](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Le déploiement du cluster Service Fabric requiert les éléments suivants :
 1. **Certificat de cluster**  
@@ -45,7 +45,7 @@ Le déploiement du cluster Service Fabric requiert les éléments suivants :
 1. **Certificat client d’administration**  
    Il s’agit du certificat, éventuellement auto-signé, que le client utilise pour s’authentifier auprès du cluster Service Fabric. Consultez les [exigences](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) relatives à la création de ce certificat client.
 
-1. **Les éléments ci-après doivent être disponibles dans la Place de marché Azure Stack :**
+1. **Les éléments suivants doivent être disponibles dans la Place de marché Azure Stack Hub :**
     - **Windows Server 2016** : le modèle utilise l’image Windows Server 2016 pour créer le cluster.  
     - **Extension de script personnalisé** - Extension de machine virtuelle de Microsoft.  
     - **PowerShell Desired Stage Configuration** : extension de machine virtuelle de Microsoft.
@@ -120,7 +120,7 @@ Utilisez le script ci-après pour créer le coffre de clés et lui ajouter le *c
    ``` 
 
 
-Pour plus d’informations, consultez l’article [Gérer Key Vault dans Azure Stack avec PowerShell](azure-stack-key-vault-manage-powershell.md).
+Pour plus d’informations, consultez l’article [Gérer Key Vault dans Azure Stack Hub avec PowerShell](azure-stack-key-vault-manage-powershell.md).
 
 ## <a name="deploy-the-marketplace-item"></a>Déployer l’élément Place de marché
 
@@ -130,13 +130,13 @@ Pour plus d’informations, consultez l’article [Gérer Key Vault dans Azure S
 
 2. Pour chaque page, telle que *De base*, remplissez le formulaire de déploiement. Si vous avez des doutes concernant une valeur, utilisez les valeurs par défaut.
 
-    Pour les déploiements sur une instance Azure Stack déconnectée ou pour déployer une autre version de Service Fabric, téléchargez le package de déploiement Service Fabric et son package d’exécution correspondant et hébergez-les sur un objet blob Azure Stack. Fournissez ces valeurs dans les champs **URL du package de déploiement Service Fabric** et **URL du package d’exécution Service Fabric**.
+    Pour les déploiements sur une instance Azure Stack Hub déconnectée ou pour déployer une autre version de Service Fabric, téléchargez le package de déploiement Service Fabric et son package d’exécution correspondant et hébergez-les sur un objet blob Azure Stack Hub. Fournissez ces valeurs dans les champs **URL du package de déploiement Service Fabric** et **URL du package d’exécution Service Fabric**.
     > [!NOTE]  
     > Il existe des problèmes de compatibilité entre la dernière version de Service Fabric et son kit SDK correspondant. Tant que ce problème n’est pas résolu, fournissez les paramètres suivants à l’URL du package de déploiement et à l’URL du package d’exécution. Sinon, vos déploiements échoueront.
     > - URL du package de déploiement Service Fabric : <https://download.microsoft.com/download/8/3/6/836E3E99-A300-4714-8278-96BC3E8B5528/6.5.641.9590/Microsoft.Azure.ServiceFabric.WindowsServer.6.5.641.9590.zip>
     > - URL du package d’exécution Service Fabric : <https://download.microsoft.com/download/B/0/B/B0BCCAC5-65AA-4BE3-AB13-D5FF5890F4B5/6.5.641.9590/MicrosoftAzureServiceFabric.6.5.641.9590.cab>
     >
-    > Pour les déploiements déconnectés, téléchargez ces packages à partir de l’emplacement spécifié et hébergez-les localement sur un objet blob Azure Stack.
+    > Pour les déploiements déconnectés, téléchargez ces packages à partir de l’emplacement spécifié et hébergez-les localement sur un objet blob Azure Stack Hub.
 
    ![Concepts de base](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
@@ -201,7 +201,7 @@ Vous pouvez accéder au cluster Service Fabric en utilisant l’outil Service Fa
 
 1. Pour vous authentifier auprès du site, vous devez sélectionner un certificat à utiliser. Sélectionnez **Autres choix**, sélectionnez le certificat approprié, puis cliquez sur **OK** pour vous connecter à Service Fabric Explorer. 
 
-   ![Authentifier](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
+   ![Authenticate](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 
 
 
@@ -241,4 +241,4 @@ Vous pouvez accéder au cluster Service Fabric en utilisant l’outil Service Fa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Déployer Kubernetes sur Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)
+[Déployer Kubernetes sur Azure Stack Hub](azure-stack-solution-template-kubernetes-deploy.md)

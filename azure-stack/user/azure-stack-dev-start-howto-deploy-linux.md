@@ -1,6 +1,6 @@
 ---
-title: Déployer une machine virtuelle Linux dans Azure Stack | Microsoft Docs
-description: Déployez une application dans Azure Stack.
+title: Déployer une machine virtuelle Linux dans Azure Stack Hub | Microsoft Docs
+description: Déployez une application dans Azure Stack Hub.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,14 +9,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: d1fae6caf6ac37f29382f4d24ce0d8b2299aa1d7
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: f87c25cd1955f3d0122ea716b2a7a1084af443c7
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824822"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023289"
 ---
-# <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack"></a>Déployer une machine virtuelle Linux pour héberger une application web dans Azure Stack
+# <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Déployer une machine virtuelle Linux pour héberger une application web dans Azure Stack Hub
 
 Vous pouvez créer et déployer une machine virtuelle Linux de base avec l’image Ubuntu de la Place de marché Azure pour héberger l’application web que vous avez créée avec une infrastructure web. 
 
@@ -27,17 +27,17 @@ Cette machine virtuelle peut héberger des applications web avec :
 - **Ruby** : Configurez une infrastructure Ruby on Rails de façon à distribuer des applications web Ruby. 
 - **Java** : Utilisez Java pour développer des applications web que vous publiez sur un serveur Apache Tomcat. Vous pouvez installer Tomcat sur Linux, puis déployer directement vos fichiers WAR Java sur le serveur. 
 
-Les instructions de cet article permettent de se familiariser avec tous types d’applications web, d’infrastructures et de technologies back-end qui utilisent le système d’exploitation Linux. Vous pouvez ensuite utiliser Azure Stack pour gérer votre infrastructure, ainsi que les outils de gestion au sein de votre technologie pour mener à bien les tâches de maintenance de votre application.
+Les instructions de cet article permettent de se familiariser avec tous types d’applications web, d’infrastructures et de technologies back-end qui utilisent le système d’exploitation Linux. Vous pouvez ensuite utiliser Azure Stack Hub pour gérer votre infrastructure, ainsi que les outils de gestion au sein de votre technologie pour mener à bien les tâches de maintenance de votre application.
 
 ## <a name="deploy-a-linux-vm-for-a-web-app"></a>Déployer une machine virtuelle Linux pour une application web
 
-Dans ce processus, créez une clé secrète, utilisez l’image de base de la machine virtuelle Linux, spécifiez ses attributs particuliers, puis créez la machine virtuelle. Une fois que vous avez créé la machine virtuelle, ouvrez les ports qui sont nécessaires pour travailler avec elle et pour que la machine virtuelle héberge votre application. Créez ensuite le nom DNS. Enfin, connectez-vous à la machine virtuelle et mettez-la à jour avec l’utilitaire apt-get. Une fois que vous avez effectué le processus, vous disposez d’une machine virtuelle dans votre instance Azure Stack qui est prête à héberger votre application web.
+Dans ce processus, créez une clé secrète, utilisez l’image de base de la machine virtuelle Linux, spécifiez ses attributs particuliers, puis créez la machine virtuelle. Une fois que vous avez créé la machine virtuelle, ouvrez les ports qui sont nécessaires pour travailler avec elle et pour que la machine virtuelle héberge votre application. Créez ensuite le nom DNS. Enfin, connectez-vous à la machine virtuelle et mettez-la à jour avec l’utilitaire apt-get. Une fois que vous avez effectué le processus, vous disposez d’une machine virtuelle dans votre instance Azure Stack Hub qui est prête à héberger votre application web.
 
 Avant de commencer, vérifiez que tout ce dont vous avez besoin est en place.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-- Un abonnement Azure Stack, avec accès à l’image Ubuntu Server 16.04 LTS. Il est possible d’utiliser une version ultérieure de l’image, mais ces instructions sont écrites spécifiquement pour 16.04 LTS. Si vous n’avez pas cette image, contactez votre opérateur cloud pour l’obtenir dans la Place de marché Azure Stack.
+- Un abonnement Azure Stack Hub, avec accès à l’image Ubuntu Server 16.04 LTS. Il est possible d’utiliser une version ultérieure de l’image, mais ces instructions sont écrites spécifiquement pour 16.04 LTS. Si vous n’avez pas cette image, contactez votre opérateur cloud pour l’obtenir dans la Place de marché Azure Stack Hub.
 
 ## <a name="deploy-the-vm-by-using-the-portal"></a>Déployer la machine virtuelle en utilisant le portail
 
@@ -46,9 +46,9 @@ Pour déployer la machine virtuelle, suivez les instructions indiquées dans les
 ### <a name="create-your-vm"></a>Créer votre machine virtuelle
 
 1. Créez une clé publique SSH (Secure Shell) pour votre serveur. Pour plus d’informations, voir [Guide pratique pour utiliser une clé publique SSH](azure-stack-dev-start-howto-ssh-public-key.md).
-1. Dans le portail Azure Stack, sélectionnez **Créer une ressource** > **Calcul** > **Ubuntu Server 16.04 LTS**.
+1. Dans le portail Azure Stack Hub, sélectionnez **Créer une ressource** > **Calcul** > **Ubuntu Server 16.04 LTS**.
 
-    ![Déployer une application web sur une machine virtuelle Azure Stack](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
+    ![Déployer une application web sur une machine virtuelle Azure Stack Hub](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
 
 4. Dans le volet **Créer une machine virtuelle**, pour **1. Configurer les paramètres de base** :
 
@@ -69,13 +69,13 @@ Pour déployer la machine virtuelle, suivez les instructions indiquées dans les
     ---- END SSH2 PUBLIC KEY ----
     ```
 
-    f. Sélectionnez l’abonnement pour votre instance Azure Stack.
+    f. Sélectionnez l’abonnement pour votre instance Azure Stack Hub.
 
     g. Créez un groupe de ressources ou utilisez-en un existant, en fonction de la façon dont vous souhaitez organiser les ressources pour votre application.
 
-    h. Sélectionnez votre emplacement. Le Kit de développement Azure Stack (ASDK) est généralement situé dans une région *locale*. L’emplacement dépend de votre instance Azure Stack.
+    h. Sélectionnez votre emplacement. Le Kit de développement Azure Stack (ASDK) est généralement situé dans une région *locale*. L’emplacement dépend de votre instance Azure Stack Hub.
 1. Pour **2. Taille**, entrez :
-    - Sélectionnez la taille de données et de RAM pour votre machine virtuelle qui est disponible dans votre instance Azure Stack.
+    - Sélectionnez la taille de données et de RAM pour votre machine virtuelle qui est disponible dans votre instance Azure Stack Hub.
     - Vous pouvez parcourir la liste ou définir un filtre pour la taille de votre machine virtuelle par **type de calcul**, **processeur** et **espace de stockage**.
     
     > [!NOTE]
@@ -123,7 +123,7 @@ Pour que votre application web soit accessible aux utilisateurs sur votre résea
 
 Vous pouvez modifier la plage de ports et le protocole de destination pour un service prédéfini, comme RDP ou SSH, ou fournir une plage de ports personnalisée. Par exemple, vous pouvez utiliser la plage de ports de votre infrastructure web. GO, par exemple, communique sur le port 3000.
 
-1. Ouvrez le portail Azure Stack de votre locataire.
+1. Ouvrez le portail Azure Stack Hub de votre locataire.
 
 1. Recherchez votre machine virtuelle. Vous l’avez peut-être épinglée sur votre tableau de bord ; sinon, vous pouvez la rechercher dans la zone **Rechercher des ressources**.
 
@@ -151,7 +151,7 @@ Vous pouvez modifier la plage de ports et le protocole de destination pour un se
 
 En outre, vous pouvez créer un nom DNS pour votre serveur, afin que les utilisateurs puissent se connecter à votre site web à l’aide d’une URL.
 
-1. Ouvrez le portail Azure Stack de votre locataire.
+1. Ouvrez le portail Azure Stack Hub de votre locataire.
 
 1. Recherchez votre machine virtuelle. Vous l’avez peut-être épinglée sur votre tableau de bord ; sinon, vous pouvez la rechercher dans la zone **Rechercher des ressources**.
 
@@ -165,7 +165,7 @@ En outre, vous pouvez créer un nom DNS pour votre serveur, afin que les utilisa
 
 ### <a name="connect-via-ssh-to-update-your-vm"></a>Se connecter via le protocole SSH pour mettre à jour votre machine virtuelle
 
-1. Sur le même réseau que votre instance Azure Stack, ouvrez votre client SSH. Pour plus d’informations, consultez [Utiliser une clé publique SSH](azure-stack-dev-start-howto-ssh-public-key.md).
+1. Sur le même réseau que votre instance Azure Stack Hub, ouvrez votre client SSH. Pour plus d’informations, consultez [Utiliser une clé publique SSH](azure-stack-dev-start-howto-ssh-public-key.md).
 
 1. Entrez les commandes suivantes :
 
@@ -176,4 +176,4 @@ En outre, vous pouvez créer un nom DNS pour votre serveur, afin que les utilisa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [configurer un environnement de développement dans Azure Stack](azure-stack-dev-start.md).
+Découvrez comment [configurer un environnement de développement dans Azure Stack Hub](azure-stack-dev-start.md).

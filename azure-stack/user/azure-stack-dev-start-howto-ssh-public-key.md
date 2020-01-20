@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour utiliser une clé publique SSH avec Azure Stack | Microsoft Docs
+title: Guide pratique pour utiliser une clé publique SSH avec Azure Stack Hub | Microsoft Docs
 description: Guide pratique pour utiliser une clé publique SSH
 services: azure-stack
 author: mattbriggs
@@ -9,22 +9,22 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 3d2854511415421b69a6972cd807132639300f96
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: b40fb92eefa696369ed57aabefb4e8298dad3eea
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824505"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820693"
 ---
 # <a name="use-an-ssh-public-key"></a>Utiliser une clé publique SSH
 
-Pour utiliser une connexion SSH ouverte entre la machine de développement et la machine virtuelle serveur dans votre instance Azure Stack qui héberge votre application web, il est parfois nécessaire de créer une paire clé privée-clé publique SSH (Secure Shell). 
+Pour utiliser une connexion SSH ouverte entre la machine de développement et la machine virtuelle serveur dans votre instance Azure Stack Hub qui héberge votre application web, il est parfois nécessaire de créer une paire clé privée-clé publique SSH (Secure Shell). 
 
 Dans cet article, vous créez des clés et les utilisez ensuite pour vous connecter au serveur. Vous pouvez utiliser un client SSH pour obtenir une invite Bash sur le serveur Linux ou utiliser un client SFTP (Secure FTP) pour déplacer des fichiers de et vers le serveur.
 
 ## <a name="create-an-ssh-public-key-on-windows"></a>Créer une clé publique SSH sur Windows
 
-Dans cette section, vous utilisez le générateur de clé PuTTY pour créer une paire clé privée-clé publique SSH qui servira à créer une connexion sécurisée aux machines Linux dans votre instance Azure Stack. PuTTY est un émulateur de terminal gratuit avec lequel vous pouvez vous connecter à un serveur via SSH et Telnet.
+Dans cette section, vous utilisez le générateur de clé PuTTY pour créer une paire clé privée-clé publique SSH qui servira à créer une connexion sécurisée aux machines Linux dans votre instance Azure Stack Hub. PuTTY est un émulateur de terminal gratuit avec lequel vous pouvez vous connecter à un serveur via SSH et Telnet.
 
 1. [Téléchargez et installez PuTTY pour votre ordinateur.](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 
@@ -66,14 +66,14 @@ Quand une application demande la clé, vous copiez et collez tout le contenu du 
 
 ## <a name="connect-with-ssh-by-using-putty"></a>Se connecter par SSH avec PuTTY
 
-Quand vous installez PuTTY, vous avez à la fois le générateur de clé PuTTY et un client SSH. Dans cette section, vous ouvrez le client SSH et PuTTY, et vous configurez vos valeurs de connexion et votre clé SSH. Si vous êtes sur le même réseau que votre instance Azure Stack, vous vous connectez à votre machine virtuelle.
+Quand vous installez PuTTY, vous avez à la fois le générateur de clé PuTTY et un client SSH. Dans cette section, vous ouvrez le client SSH et PuTTY, et vous configurez vos valeurs de connexion et votre clé SSH. Si vous êtes sur le même réseau que votre instance Azure Stack Hub, vous vous connectez à votre machine virtuelle.
 
 Avant de vous connecter, il vous faut :
 - PuTTY ;
-- L’adresse IP et le nom d’utilisateur de la machine Linux dans votre instance Azure Stack qui utilise une clé SSH publique comme type d’authentification.
+- L’adresse IP et le nom d’utilisateur de la machine Linux dans votre instance Azure Stack Hub qui utilise une clé SSH publique comme type d’authentification.
 - Le port 22 ouvert pour la machine.
 - La clé publique SSH utilisée au moment de la création de la machine.
-- La machine cliente qui exécute PuTTY, sur le même réseau que votre instance Azure Stack.
+- La machine cliente qui exécute PuTTY, sur le même réseau que votre instance Azure Stack Hub.
 
 1. Ouvrez PuTTY.
 
@@ -127,4 +127,4 @@ Pour déplacer des fichiers de et vers votre machine Linux, vous pouvez utiliser
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [configurer un environnement de développement dans Azure Stack](azure-stack-dev-start.md).
+Découvrez comment [configurer un environnement de développement dans Azure Stack Hub](azure-stack-dev-start.md).

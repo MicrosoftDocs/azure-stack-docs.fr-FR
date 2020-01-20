@@ -1,6 +1,6 @@
 ---
-title: Déployer un fichier WAR Java sur une machine virtuelle dans Azure Stack | Microsoft Docs
-description: Déployez un fichier WAR Java sur une machine virtuelle dans Azure Stack.
+title: Déployer un fichier WAR Java sur une machine virtuelle dans Azure Stack Hub | Microsoft Docs
+description: Déployez un fichier WAR Java sur une machine virtuelle dans Azure Stack Hub.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,20 +9,20 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 2c9c43439872a19ba590fb22059969f9a7c742f0
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 75633b7e695db3c6b1e48b7e5f98e9145b6b1fc9
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824460"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820625"
 ---
-# <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack"></a>Déployer une application web Java sur une machine virtuelle dans Azure Stack
+# <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Déployer une application web Java sur une machine virtuelle dans Azure Stack Hub
 
-Vous pouvez créer une machine virtuelle pour héberger votre application web Python dans Azure Stack. Dans cet article, vous installez et configurez un serveur Apache Tomcat sur une machine virtuelle Linux dans Azure Stack. Vous chargez ensuite un fichier WAR Java sur le serveur. Un fichier WAR permet de distribuer une collection de fichiers d’archive Java (JAR), qui sont des fichiers compressés contenant des ressources Java comme les classes, le texte, les images, le code XML, le code HTML et les autres ressources nécessaires pour fournir une application web.
+Vous pouvez créer une machine virtuelle pour héberger votre application web Python dans Azure Stack Hub. Dans cet article, vous installez et configurez un serveur Apache Tomcat sur une machine virtuelle Linux dans Azure Stack Hub. Vous chargez ensuite un fichier WAR Java sur le serveur. Un fichier WAR permet de distribuer une collection de fichiers d’archive Java (JAR), qui sont des fichiers compressés contenant des ressources Java comme les classes, le texte, les images, le code XML, le code HTML et les autres ressources nécessaires pour fournir une application web.
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
-1. Configurez votre machine virtuelle dans Azure Stack en suivant les instructions fournies dans [Déployer une machine virtuelle Linux pour héberger une application web dans Azure Stack](azure-stack-dev-start-howto-deploy-linux.md).
+1. Configurez votre machine virtuelle dans Azure Stack Hub en suivant les instructions fournies dans [Déployer une machine virtuelle Linux pour héberger une application web dans Azure Stack Hub](azure-stack-dev-start-howto-deploy-linux.md).
 
 2. Dans le volet du réseau de machines virtuelles, vérifiez que les ports suivants sont accessibles :
 
@@ -32,7 +32,7 @@ Vous pouvez créer une machine virtuelle pour héberger votre application web Py
     | 443 | HTTPS | HTTPS (Hypertext Transfer Protocol Secure) est une version sécurisée du protocole HTTP qui nécessite un certificat de sécurité pour la transmission chiffrée des informations. |
     | 22 | SSH | SSH (Secure Shell) est un protocole réseau chiffré pour les communications sécurisées. Vous utilisez cette connexion avec un client SSH pour configurer la machine virtuelle et déployer l’application. |
     | 3389 | RDP | facultatif. Le protocole RDP (Remote Desktop Protocol) permet d’utiliser une connexion Bureau à distance avec une interface graphique utilisateur sur votre machine.   |
-    | 8080 | Personnalisée | Port par défaut du service Apache Tomcat. Pour un serveur de production, vous routez le trafic par les ports 80 et 443. |
+    | 8080 | Custom | Port par défaut du service Apache Tomcat. Pour un serveur de production, vous routez le trafic par les ports 80 et 443. |
 
 ## <a name="install-java"></a>Installer Java
 
@@ -174,11 +174,11 @@ Vous pouvez créer une machine virtuelle pour héberger votre application web Py
         sudo ufw allow 8080
     ```
 
-    Si vous n’avez pas ajouté les *règles de port d’entrée* de votre machine virtuelle Azure Stack, faites-le maintenant. Pour plus d’informations, voir [Créer une machine virtuelle](#create-a-vm).
+    Si vous n’avez pas ajouté les *règles de port d’entrée* de votre machine virtuelle Azure Stack Hub, faites-le maintenant. Pour plus d’informations, voir [Créer une machine virtuelle](#create-a-vm).
 
-1. Ouvrez un navigateur dans le même réseau que votre système Azure Stack, puis ouvrez votre serveur, *votremachine.local.cloudapp.azurestack.external:8080*.
+1. Ouvrez un navigateur dans le même réseau que votre système Azure Stack Hub, puis ouvrez votre serveur, *yourmachine.local.cloudapp.azurestack.external:8080*.
 
-    ![Apache Tomcat sur une machine virtuelle Azure Stack](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
+    ![Apache Tomcat sur une machine virtuelle Azure Stack Hub](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
 
     La page Apache Tomcat se charge sur votre serveur. Vous configurez maintenant le serveur de façon à pouvoir accéder à Server Status, à l’application Manager et à Host Manager.
 
@@ -217,7 +217,7 @@ Vous pouvez créer une machine virtuelle pour héberger votre application web Py
 
     c. Enregistrez et fermez le fichier.
 
-1. Tomcat restreint l’accès aux applications *Manager* et *Host Manager* aux connexions provenant du serveur. Comme vous installez Tomcat sur une machine virtuelle dans Azure Stack, vous devez enlever cette restriction. Changez les restrictions d’adresses IP sur ces applications, en modifiant les fichiers *context.xml* correspondants.
+1. Tomcat restreint l’accès aux applications *Manager* et *Host Manager* aux connexions provenant du serveur. Comme vous installez Tomcat sur une machine virtuelle dans Azure Stack Hub, vous devez enlever cette restriction. Changez les restrictions d’adresses IP sur ces applications, en modifiant les fichiers *context.xml* correspondants.
 
     a. Mettez à jour *context.xml* dans l’application Manager :
 
@@ -250,13 +250,13 @@ Vous pouvez créer une machine virtuelle pour héberger votre application web Py
         sudo systemctl restart tomcat
     ```
 
-1. Ouvrez un navigateur dans le même réseau que votre système Azure Stack, puis ouvrez votre serveur, *votremachine.local.cloudapp.azurestack.external:8080*.
+1. Ouvrez un navigateur dans le même réseau que votre système Azure Stack Hub, puis ouvrez votre serveur : *yourmachine.local.cloudapp.azurestack.external:8080*.
 
     a. Pour voir l’état du serveur Tomcat et vérifier que vous y avez accès, sélectionnez **Server Status**.
 
     b. Connectez-vous avec vos informations d’identification Tomcat.
 
-    ![Apache Tomcat sur une machine virtuelle Azure Stack](media/azure-stack-dev-start-howto-vm-java/apache-tomcat-management-app.png)
+    ![Apache Tomcat sur une machine virtuelle Azure Stack Hub](media/azure-stack-dev-start-howto-vm-java/apache-tomcat-management-app.png)
 
 ## <a name="create-an-app"></a>Créer une application
 
@@ -274,7 +274,7 @@ Pour obtenir des conseils sur le développement d’applications Java dans Azure
         sudo systemctl stop tomcat
     ```
 
-1. Pour pouvoir écrire dans le dossier webapps, ajoutez l’utilisateur FTP au groupe Tomcat. Cet utilisateur est celui que vous avez défini quand vous avez créé votre machine virtuelle dans Azure Stack.
+1. Pour pouvoir écrire dans le dossier webapps, ajoutez l’utilisateur FTP au groupe Tomcat. Cet utilisateur est celui que vous avez défini quand vous avez créé votre machine virtuelle dans Azure Stack Hub.
 
     ```bash  
         sudo usermod -a -G tomcat <VM-user>
@@ -294,6 +294,6 @@ Pour obtenir des conseils sur le développement d’applications Java dans Azure
     
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [développer pour Azure Stack](azure-stack-dev-start.md).
-- Découvrez les [Déploiements courants pour Azure Stack en IaaS](azure-stack-dev-start-deploy-app.md).
+- Découvrez comment [développer pour Azure Stack Hub](azure-stack-dev-start.md).
+- Découvrez les [déploiements courants pour Azure Stack Hub en IaaS](azure-stack-dev-start-deploy-app.md).
 - Pour apprendre le langage de programmation Java et trouver des ressources supplémentaires sur Java, voir [Java.com](https://www.java.com).

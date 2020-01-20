@@ -1,6 +1,6 @@
 ---
-title: Différences entre Azure Stack et Azure quand vous utilisez des services et générez des applications | Microsoft Docs
-description: Comprendre les différences entre Azure et Azure Stack quand vous utilisez des services et générez des applications.
+title: Différences entre Azure Stack Hub et Azure quand vous utilisez des services et créez des applications | Microsoft Docs
+description: Comprendre les différences entre Azure et Azure Stack Hub quand vous utilisez des services et créez des applications.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,71 +15,69 @@ ms.topic: overview
 ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: e6f20c1562606a6048bac63a943002b9aa73c1cc
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 82b1826831ffd9c5d28f56dab25c6f02b49edca8
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718502"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924023"
 ---
-# <a name="differences-between-azure-stack-and-azure-when-using-services-and-building-apps"></a>Différences entre Azure Stack et Azure quand vous utilisez des services et générez des applications
+# <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Différences entre Azure Stack Hub et Azure quand vous utilisez des services et créez des applications
 
-Avant d’utiliser des services ou de générer des applications pour Azure Stack, il est important de comprendre les différences entre Azure Stack et Azure. Cet article présente les différentes fonctionnalités et les points importants à prendre en compte quand vous utilisez Azure Stack comme environnement de développement cloud hybride.
+Avant d’utiliser des services ou de créer des applications pour Azure Stack Hub, il est important de comprendre les différences existant entre Azure Stack Hub et Azure. Cet article présente les différentes fonctionnalités et les points importants à prendre en compte quand vous utilisez Azure Stack Hub comme environnement de développement cloud hybride.
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Azure Stack est une plateforme cloud hybride qui vous permet d’utiliser les services Azure à partir du centre de données de votre entreprise ou de votre fournisseur de services. Vous pouvez créer une application dans Azure Stack et la déployer ensuite dans Azure Stack, Azure ou votre cloud hybride Azure.
+Azure Stack Hub est une plateforme cloud hybride qui vous permet d’utiliser les services Azure à partir du centre de données de votre entreprise ou de votre fournisseur de services. Vous pouvez créer une application dans Azure Stack Hub et la déployer ensuite dans Azure Stack Hub, Azure ou votre cloud hybride Azure.
 
-Votre opérateur Azure Stack vous indique les services disponibles et comment accéder au support. Il propose ces services par le biais de ses offres et plans personnalisés.
+Votre opérateur Azure Stack Hub vous indique les services disponibles et comment accéder au support. Il propose ces services par le biais de ses offres et plans personnalisés.
 
-Le [contenu de la documentation technique Azure](/azure) part du principe que les applications sont développées pour un service Azure et non pour Azure Stack. Lorsque vous générez et déployez des applications sur Azure Stack, vous devez comprendre les principales différences, telles que les suivantes :
+Le [contenu de la documentation technique Azure](/azure) part du principe que les applications sont développées pour un service Azure et non pour Azure Stack Hub. Lorsque vous générez et déployez des applications sur Azure Stack Hub, vous devez comprendre les principales différences, telles que les suivantes :
 
-* Azure Stack fournit un sous-ensemble des services et fonctionnalités qui sont disponibles dans Azure.
+* Azure Stack Hub fournit une partie des services et fonctionnalités qui sont disponibles dans Azure.
 * Votre entreprise ou fournisseur de services peut choisir les services à proposer. Les options disponibles peuvent inclure des applications ou des services personnalisés. Il peut offrir sa propre documentation personnalisée.
-* Vous devez utiliser les points de terminaison corrects spécifiques à Azure Stack (par exemple, les URL de l’adresse du portail et le point de terminaison Azure Resource Manager).
-* Vous devez utiliser des versions de PowerShell et d’API qui sont prises en charge par Azure Stack. Utiliser des versions prises en charge permet de s’assurer que vos applications fonctionnent dans Azure Stack et Azure.
+* Vous devez utiliser les points de terminaison corrects spécifiques à Azure Stack Hub (par exemple, les URL de l’adresse du portail et le point de terminaison Azure Resource Manager).
+* Vous devez utiliser des versions de PowerShell et d’API qui sont prises en charge par Azure Stack Hub. Utiliser des versions prises en charge permet de s’assurer que vos applications fonctionnent dans Azure Stack Hub et Azure.
 
 ## <a name="cheat-sheet-high-level-differences"></a>Aide-mémoire : principales différences
 
-Le tableau suivant décrit les principales différences entre Azure Stack et Azure. Gardez ces différences à l’esprit quand vous développez pour Azure Stack ou utilisez des services Azure Stack :
+Le tableau suivant décrit les principales différences entre Azure Stack Hub et Azure. Gardez ces différences à l’esprit quand vous développez pour Azure Stack Hub ou utilisez des services Azure Stack Hub :
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
-
-| Domaine | Azure (global) | Azure Stack |
+| Domaine | Azure (global) | Azure Stack Hub |
 | -------- | ------------- | ----------|
 | Qui est en charge de son fonctionnement ? | Microsoft | Votre organisation ou fournisseur de services.|
-| Qui contactez-vous pour obtenir un support ? | Microsoft | Pour un système intégré, contactez votre opérateur Azure Stack (auprès de votre organisation ou fournisseur de services) pour obtenir un support.<br><br>Pour plus d’informations sur le support lié au Kit de développement Azure Stack (ASDK), visitez les [forums Microsoft](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack). Le kit de développement étant un environnement d’évaluation, il n’y a aucune prise en charge officielle de la part des services de support technique Microsoft.
-| Services disponibles | Consultez la liste des [produits Azure](https://azure.microsoft.com/services/?b=17.04b). Les services disponibles varient selon la région Azure. | Azure Stack prend en charge une partie des services Azure. Les services réels varient en fonction de ce que votre organisation ou fournisseur de services choisit d’offrir.
-| Point de terminaison Azure Resource Manager* | https://management.azure.com | Pour un système intégré Azure Stack, utilisez le point de terminaison fourni par votre opérateur Azure Stack.<br><br>Pour le kit de développement, utilisez : https://management.local.azurestack.external.
-| URL du portail* | [https://portal.azure.com](https://portal.azure.com) | Pour un système intégré Azure Stack, utilisez l’URL fournie par votre opérateur Azure Stack.<br><br>Pour le kit de développement, utilisez : https://portal.local.azurestack.external.
-| Région | Vous pouvez sélectionner la région où effectuer le déploiement. | Pour un système intégré Azure Stack, utilisez la région disponible sur votre système.<br><br>Pour le Kit de développement Azure Stack (ASDK), la région est toujours définie sur **local**.
+| Qui contactez-vous pour obtenir un support ? | Microsoft | Pour un système intégré, contactez votre opérateur Azure Stack Hub (auprès de votre organisation ou fournisseur de services) pour obtenir un support.<br><br>Pour plus d’informations sur le support lié au Kit de développement Azure Stack (ASDK), visitez les [forums Microsoft](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack). Le kit de développement étant un environnement d’évaluation, il n’y a aucune prise en charge officielle de la part des services de support technique Microsoft.
+| Services disponibles | Consultez la liste des [produits Azure](https://azure.microsoft.com/services/?b=17.04b). Les services disponibles varient selon la région Azure. | Azure Stack Hub prend en charge une partie des services Azure. Les services réels varient en fonction de ce que votre organisation ou fournisseur de services choisit d’offrir.
+| Point de terminaison Azure Resource Manager* | https://management.azure.com | Pour un système intégré Azure Stack Hub, utilisez le point de terminaison fourni par votre opérateur Azure Stack Hub.<br><br>Pour le kit de développement, utilisez : https://management.local.azurestack.external.
+| URL du portail* | [https://portal.azure.com](https://portal.azure.com) | Pour un système intégré Azure Stack Hub, utilisez l’URL fournie par votre opérateur Azure Stack Hub.<br><br>Pour le kit de développement, utilisez : https://portal.local.azurestack.external.
+| Région | Vous pouvez sélectionner la région où effectuer le déploiement. | Pour un système intégré Azure Stack Hub, utilisez la région disponible sur votre système.<br><br>Pour le Kit de développement Azure Stack (ASDK), la région est toujours définie sur **local**.
 | Groupes de ressources | Un groupe de ressources peut s’étendre sur plusieurs régions. | Pour les systèmes intégrés et le kit de développement, il n’existe qu’une seule région.
-|Espaces de noms, types de ressources et versions d’API pris en charge | La dernière version (ou les versions antérieures qui ne sont pas encore dépréciées). | Azure Stack prend en charge des versions spécifiques. Consultez la section [Configuration requise pour la version](#version-requirements) de cet article.
+|Espaces de noms, types de ressources et versions d’API pris en charge | La dernière version (ou les versions antérieures qui ne sont pas encore dépréciées). | Azure Stack Hub prend en charge des versions spécifiques. Consultez la section [Configuration requise pour la version](#version-requirements) de cet article.
 | | |
 
-*Si vous êtes opérateur Azure Stack, consultez [Utilisation du portail administrateur](../operator/azure-stack-manage-portals.md) et [Principes de bases de l’administration](../operator/azure-stack-manage-basics.md) pour plus d’informations.
+*Si vous êtes opérateur Azure Stack Hub, consultez [Utilisation du portail administrateur](../operator/azure-stack-manage-portals.md) et [Principes de bases de l’administration](../operator/azure-stack-manage-basics.md) pour plus d’informations.
 
 ## <a name="helpful-tools-and-best-practices"></a>Outils utiles et meilleures pratiques
 
-Microsoft fournit des outils et des conseils qui vous aident lors du développement pour Azure Stack.
+Microsoft fournit des outils et des conseils qui vous aident dans votre développement pour Azure Stack Hub.
 
 | Recommandation | References |
 | -------- | ------------- |
 | Installez les outils appropriés sur votre station de travail du développeur. | - [Installer PowerShell](../operator/azure-stack-powershell-install.md)<br>- [Télécharger des outils](../operator/azure-stack-powershell-download.md)<br>- [Configurer PowerShell](azure-stack-powershell-configure-user.md)<br>- [Installer Visual Studio](azure-stack-install-visual-studio.md)
-| Passez en revue les informations relatives aux éléments suivants :<br>- Considérations sur les modèles Azure Resource Manager.<br>- Comment trouver les modèles de démarrage rapide.<br>- Utiliser un module de stratégie pour vous permettre d’utiliser Azure pour le développement pour Azure Stack. | [Développer pour Azure Stack](azure-stack-developer.md) |
-| Passez en revue et appliquez les meilleures pratiques relatives aux modèles. | [Modèles de démarrage rapide Resource Manager](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
+| Passez en revue les informations relatives aux éléments suivants :<br>- Considérations sur les modèles Azure Resource Manager.<br>- Comment trouver les modèles de démarrage rapide.<br>- Se servir d’un module de stratégie afin d’utiliser Azure et développer pour Azure Stack Hub. | [Développer pour Azure Stack Hub](azure-stack-developer.md) |
+| Passez en revue et appliquez les meilleures pratiques relatives aux modèles. | [Modèles de démarrage rapide Resource Manager](https://aka.ms/aa6yz42)
 | | |
 
 ## <a name="version-requirements"></a>Configuration requise pour la version
 
-Azure Stack prend en charge des versions spécifiques d’Azure PowerShell et des API de service Azure. Utilisez les versions prises en charge pour vous assurer que votre application peut être déployée dans Azure Stack et Azure.
+Azure Stack Hub prend en charge des versions spécifiques d’Azure PowerShell et des API de service Azure. Utilisez les versions prises en charge pour vous assurer que votre application peut être déployée dans Azure Stack Hub et Azure.
 
-Pour vous assurer que vous utilisez une version appropriée d’Azure PowerShell, utilisez les [profils de version d’API](azure-stack-version-profiles.md). Pour connaître le profil de version d’API le plus récent que vous pouvez utiliser, vous devez savoir quelle version d’Azure Stack vous utilisez. Contactez votre administrateur Azure Stack pour obtenir ces informations.
+Pour vous assurer que vous utilisez une version appropriée d’Azure PowerShell, utilisez les [profils de version d’API](azure-stack-version-profiles.md). Pour connaître le profil de version d’API le plus récent que vous pouvez adopter, déterminez quelle build d’Azure Stack Hub vous utilisez. Contactez votre administrateur Azure Stack Hub pour obtenir ces informations.
 
 > [!NOTE]
-> Si vous utilisez le Kit de développement Azure Stack, et que vous disposez d’un accès administratif, consultez la section [Déterminer la version actuelle](../operator/azure-stack-updates.md) pour connaître le build Azure Stack.
+> Si vous utilisez le Kit de développement Azure Stack, et que vous disposez d’un accès administratif, consultez la section [Déterminer la version actuelle](../operator/azure-stack-updates.md) pour connaître la build Azure Stack Hub.
 
-Pour les autres API, exécutez la commande PowerShell suivante pour afficher les espaces de noms, les types de ressources et les versions d’API qui sont pris en charge dans votre abonnement Azure Stack (des différences peuvent subsister au niveau des propriétés). Pour que cette commande fonctionne, vous devez avoir déjà [installé](../operator/azure-stack-powershell-install.md) et [configuré](azure-stack-powershell-configure-user.md) PowerShell pour un environnement Azure Stack. Vous devez également disposer d’un abonnement à une offre Azure Stack.
+Pour les autres API, exécutez la commande PowerShell suivante pour afficher les espaces de noms, les types de ressources et les versions d’API qui sont pris en charge dans votre abonnement Azure Stack Hub (des différences peuvent subsister au niveau des propriétés). Pour que cette commande fonctionne, vous devez avoir déjà [installé](../operator/azure-stack-powershell-install.md) et [configuré](azure-stack-powershell-configure-user.md) PowerShell pour un environnement Azure Stack Hub. Vous devez également disposer d’un abonnement à une offre Azure Stack Hub.
 
 ```powershell
 Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
@@ -92,6 +90,6 @@ Exemple de sortie (tronquée) : ![Exemple de sortie de la commande Get-AzureRmRe
 
 Pour plus d’informations sur les différences au niveau du service, consultez :
 
-* [Considérations relatives aux machines virtuelles dans Azure Stack](azure-stack-vm-considerations.md)
-* [Considérations relatives au stockage dans Azure Stack](azure-stack-acs-differences.md)
-* [Considérations relatives à la mise en réseau Azure Stack](azure-stack-network-differences.md)
+* [Considérations relatives aux machines virtuelles dans Azure Stack Hub](azure-stack-vm-considerations.md)
+* [Considérations relatives au stockage dans Azure Stack Hub](azure-stack-acs-differences.md)
+* [Considérations relatives aux réseaux Azure Stack Hub](azure-stack-network-differences.md)

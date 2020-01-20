@@ -1,5 +1,5 @@
 ---
-title: Offrez des services Azure Stack dans le cadre de l’abonnement.
+title: Offrez des services Azure Stack Hub dans le cadre de l’abonnement.
 description: Découvrez comment créer une offre de services en utilisant des offres, des plans et des services.
 author: BryanLa
 ms.author: bryanla
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 03be52d653fe6340a88a9c466fef8c9b1ccc9256
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 331d76a61ec67165473702d47f35c02533dcd0b8
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727426"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816562"
 ---
 # <a name="tutorial-offer-a-service-to-users"></a>Tutoriel : Offrir un service aux utilisateurs
 
@@ -37,14 +37,14 @@ Une offre est constituée d’un ou de plusieurs plans. Une offre donne accès �
 
 Un fournisseur de ressources prend en charge la création, le déploiement et la gestion de ses ressources en tant que services. Parmi les exemples courants, on peut citer le fournisseur de ressources Microsoft.Compute qui offre la possibilité de créer et de déployer des machines virtuelles. Consultez [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) pour une présentation du modèle de gestion des ressources Azure.
 
-Dans Azure Stack, il existe deux catégories générales de fournisseurs de ressources : celles qui déploient des ressources en tant que services fondamentaux, et celles qui déploient des services à valeur ajoutée.
+Dans Azure Stack Hub, il existe deux catégories générales de fournisseurs de ressources : celles qui déploient des ressources en tant que services fondamentaux, et celles qui déploient des services à valeur ajoutée.
 
 ### <a name="foundational-services"></a>Services fondamentaux
 
 >[!NOTE]
 > Dans ce didacticiel, vous allez apprendre à créer une offre basée sur des services fondamentaux. 
 
-Les services fondamentaux sont pris en charge par les fournisseurs de ressources suivants, qui sont disponibles de façon native avec chaque installation d’Azure Stack :
+Les services fondamentaux sont pris en charge par les fournisseurs de ressources suivants, qui sont disponibles en mode natif avec chaque installation d’Azure Stack Hub :
 
 | Fournisseur de ressources | Exemples de ressources |
 | ----------------- | ------------------|
@@ -56,9 +56,9 @@ Les services fondamentaux sont pris en charge par les fournisseurs de ressources
 ### <a name="value-add-services"></a>Services à valeur ajoutée
 
 >[!NOTE]
-> Afin d’offrir un service à valeur ajoutée, le fournisseur de ressources correspondant doit d'abord être installé dans la Place de marché Azure Stack. Une fois installées, ses ressources sont proposées aux utilisateurs de la même façon que les services de base. Reportez-vous à la section **Guides pratiques** de la table des matières pour la liste des fournisseurs de ressources acceptant des offres de services à valeur ajoutée.
+> Afin d’offrir un service à valeur ajoutée, le fournisseur de ressources correspondant doit d’abord être installé dans la Place de marché Azure Stack Hub. Une fois installées, ses ressources sont proposées aux utilisateurs de la même façon que les services de base. Reportez-vous à la section **Guides pratiques** de la table des matières pour la liste des fournisseurs de ressources acceptant des offres de services à valeur ajoutée.
 
-Les services à valeur ajoutée sont pris en charge par les fournisseurs de ressources installés après le déploiement d’Azure Stack. Voici quelques exemples :
+Les services à valeur ajoutée sont pris en charge par les fournisseurs de ressources installés après le déploiement d’Azure Stack Hub. Voici quelques exemples :
 
 | Fournisseur de ressources | Exemples de ressources |
 | ----------------- | ------------------------- |

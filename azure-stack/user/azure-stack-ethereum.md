@@ -1,6 +1,6 @@
 ---
-title: Déployer un réseau de blockchain Ethereum sur Azure Stack | Microsoft Docs
-description: Tutoriel utilisant des modèles de solution personnalisés pour déployer et configurer un réseau blockchain Ethereum de consortium sur Azure Stack.
+title: Déployer un réseau blockchain Ethereum sur Azure Stack Hub | Microsoft Docs
+description: Tutoriel utilisant des modèles de solution personnalisés pour déployer et configurer un réseau blockchain Ethereum de consortium sur Azure Stack Hub.
 services: azure-stack
 keywords: ''
 author: PatAltimore
@@ -12,18 +12,18 @@ ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: b68a6df35b5345d3e1f00be126cdae24e87d3d0b
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: 86e9f6fb78275678f8072573f83696d3ea79184f
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842972"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924145"
 ---
-# <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Déployer un réseau de blockchain Ethereum sur Azure Stack
+# <a name="deploy-an-ethereum-blockchain-network-on-azure-stack-hub"></a>Déployer un réseau blockchain Ethereum sur Azure Stack Hub
 
 Le modèle de solution Ethereum est conçu pour faciliter et accélérer le déploiement et la configuration d’un réseau blockchain Ethereum de consortium de plusieurs membres avec des connaissances minimales au sujet d’Azure et d’Ethereum.
 
-En quelques entrées d’utilisateur et avec un déploiement par simple clic via le portail client Azure Stack, chaque membre peut fournir son empreinte réseau. L’empreinte réseau de chaque membre se compose de trois éléments :
+En quelques entrées d’utilisateur et avec un déploiement par clic simple via le portail locataire Azure Stack Hub, chaque membre peut fournir son empreinte réseau. L’empreinte réseau de chaque membre se compose de trois éléments :
 
 1. Un ensemble de nœuds de transaction à charge équilibrée avec lequel une application ou un utilisateur peut interagir pour envoyer des transactions.
 2. Un ensemble de nœuds d’exploration de données pour enregistrer des transactions.
@@ -36,7 +36,7 @@ Pour configurer :
 - Choisir une architecture de déploiement.
 - Déployer un réseau autonome, de leader de consortium ou de membre de consortium.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Téléchargez les derniers articles [sur la Place de marché](../operator/azure-stack-download-azure-marketplace-item.md) :
 
@@ -55,15 +55,15 @@ Ce modèle de solution peut déployer un réseau de consortium Ethereum à un ou
 
 Le modèle peut déployer le consortium Ethereum pour les leaders et les membres de plusieurs façons. Voici celles que nous avons testées :
 
-- Sur une instance Azure Stack à plusieurs nœuds, avec Azure AD ou AD FS, déployez le leader ou le membre à l’aide du même abonnement ou d’abonnements différents.
-- Sur une instance Azure Stack à nœud unique (avec Azure AD), déployez le leader et le membre à l’aide du même abonnement.
+- Sur une instance Azure Stack Hub à plusieurs nœuds, avec Azure AD ou AD FS, déployez le leader ou le membre à l’aide du même abonnement ou d’abonnements différents.
+- Sur une instance Azure Stack Hub à nœud unique (avec Azure AD), déployez le leader et le membre à l’aide du même abonnement.
 
 ### <a name="standalone-and-consortium-leader-deployment"></a>Déploiement des leaders autonomes et de consortium
 
 Le modèle de leader de consortium configure l’empreinte du premier membre dans le réseau. 
 
-1. Téléchargez le [modèle de leader à partir de GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json).
-2. Dans le portail du locataire Azure Stack, sélectionnez **+ Créer une ressource > Déploiement de modèle** pour effectuer un déploiement à partir d’un modèle personnalisé.
+1. Téléchargez le [modèle de leader à partir de GitHub](https://aka.ms/aa6z619).
+2. Dans le portail du locataire Azure Stack Hub, sélectionnez **+ Créer une ressource > Template deployment** pour effectuer un déploiement à partir d’un modèle personnalisé.
 3. Sélectionnez **Modifier un modèle** pour modifier le nouveau modèle personnalisé.
 4. Dans le volet d’édition sur la droite, copiez et collez le JSON du modèle de leader que vous avez précédemment téléchargé.
     
@@ -105,7 +105,7 @@ Le modèle de leader de consortium configure l’empreinte du premier membre dan
     Groupe de ressources | Groupe de ressources sur lequel déployez le réseau de consortium. | | EthereumResources
     Location | Région Azure du groupe de ressources. | | local
 
-8. Sélectionnez **Créer**.
+8. Sélectionnez **Create** (Créer).
 
 Le déploiement peut prendre 20 minutes ou plus.
 
@@ -117,8 +117,8 @@ Pour vérifier le déploiement du leader, accédez au site admin du leader. Vous
 
 ### <a name="joining-consortium-member-deployment"></a>Déploiement de la jointure d’un membre de consortium
 
-1. Téléchargez le [modèle de membre consortium à partir de GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json).
-2. Dans le portail du locataire Azure Stack, sélectionnez **+ Créer une ressource > Déploiement de modèle** pour effectuer un déploiement à partir d’un modèle personnalisé.
+1. Téléchargez le [modèle de membre consortium à partir de GitHub](https://aka.ms/aa6zkua).
+2. Dans le portail du locataire Azure Stack Hub, sélectionnez **+ Créer une ressource > Template deployment** pour effectuer un déploiement à partir d’un modèle personnalisé.
 3. Sélectionnez **Modifier un modèle** pour modifier le nouveau modèle personnalisé.
 4. Dans le volet d’édition sur la droite, copiez et collez le JSON du modèle de leader que vous avez précédemment téléchargé.
 5. Sélectionnez **Enregistrer**.
@@ -153,7 +153,7 @@ Pour vérifier le déploiement du leader, accédez au site admin du leader. Vous
     Groupe de ressources | Groupe de ressources sur lequel déployez le réseau de consortium. | | MemberResources
     Location | Région Azure du groupe de ressources. | | local
 
-8. Sélectionnez **Créer**.
+8. Sélectionnez **Create** (Créer).
 
 Le déploiement peut prendre 20 minutes ou plus.
 
@@ -169,8 +169,8 @@ Comme on le voit dans l’image, le statut des nœuds du membre est **Non en cou
 
 Ce modèle crée une connexion du leader à un membre à distance. 
 
-1. Téléchargez le [modèle de connexion de membre et de leader à partir de GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json).
-2. Dans le portail du locataire Azure Stack, sélectionnez **+ Créer une ressource > Déploiement de modèle** pour effectuer un déploiement à partir d’un modèle personnalisé.
+1. Téléchargez le [modèle de connexion de membre et de leader à partir de GitHub](https://aka.ms/aa6zdyt).
+2. Dans le portail du locataire Azure Stack Hub, sélectionnez **+ Créer une ressource > Template deployment** pour effectuer un déploiement à partir d’un modèle personnalisé.
 3. Sélectionnez **Modifier un modèle** pour modifier le nouveau modèle personnalisé.
 4. Dans le volet d’édition sur la droite, copiez et collez le JSON du modèle de leader que vous avez précédemment téléchargé.
     
@@ -189,7 +189,7 @@ Ce modèle crée une connexion du leader à un membre à distance.
     CONNECTIONSHAREDKEY | Clé secrète préétablie entre les membres du réseau de consortium qui établissent une connexion.  | |
     REMOTEMEMBERNVAPUBLICIP | Adresse IP de la NVA du membre. Vous trouverez cette valeur dans la sortie du déploiement du membre. | |
     MEMBERNVAPRIVATEIP | Adresse IP NVA privée du leader. Vous trouverez cette valeur dans la sortie du déploiement du leader. | |
-    LOCATION | Emplacement de votre environnement Azure Stack. | | local
+    LOCATION | Emplacement de votre environnement Azure Stack Hub. | | local
     BASEURL | URL de base pour le modèle. | Utilisez la valeur par défaut, sauf si vous souhaitez personnaliser les modèles de déploiement. | 
 
 7. Sélectionnez **OK**.
@@ -203,7 +203,7 @@ Ce modèle crée une connexion du leader à un membre à distance.
     Groupe de ressources | Groupe de ressources du leader. | | EthereumResources
     Location | Région Azure du groupe de ressources. | | local
 
-8. Sélectionnez **Créer**.
+8. Sélectionnez **Create** (Créer).
 
 Une fois le déploiement terminé, l’établissement de la communication entre leader et le membre prend quelques minutes. Pour vérifier le déploiement, actualisez le site d’administration du membre. Le statut des nœuds du membre doit être En cours d’exécution.
 

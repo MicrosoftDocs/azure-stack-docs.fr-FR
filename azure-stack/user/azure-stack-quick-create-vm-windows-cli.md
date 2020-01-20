@@ -1,6 +1,6 @@
 ---
-title: Créer une machine virtuelle Windows sur Azure Stack avec Azure CLI | Microsoft Docs
-description: Créer une machine virtuelle Windows sur Azure Stack avec Azure CLI
+title: Créer une machine virtuelle Windows sur Azure Stack Hub avec Azure CLI | Microsoft Docs
+description: Créer une machine virtuelle Windows sur Azure Stack Hub avec Azure CLI
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b88d65806abfe83dfff59307d3bdcd4e99adf96d
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 6a5a389082fa89162023205a2784457b15ccca6b
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824267"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023091"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack"></a>Démarrage rapide : Créer une machine virtuelle Windows Server à l’aide d’Azure CLI dans Azure Stack
-
-‎*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+# <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack-hub"></a>Démarrage rapide : Créer une machine virtuelle Windows Server à l’aide d’Azure CLI dans Azure Stack Hub
 
 Vous pouvez créer une machine virtuelle Windows Server 2016 par le biais d’Azure CLI. Suivez les étapes décrites dans cet article pour créer et utiliser une machine virtuelle. Cet article vous présente également les étapes suivantes :
 
@@ -32,15 +30,15 @@ Vous pouvez créer une machine virtuelle Windows Server 2016 par le biais d’Az
 * Installer le serveur web IIS et afficher la page d’accueil par défaut.
 * Nettoyer des ressources.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-* Vérifiez que votre opérateur Azure Stack a ajouté l’image **Windows Server 2016**  à la Place de Marché Azure Stack.
+* Vérifiez que votre opérateur Azure Stack Hub a ajouté l’image **Windows Server 2016**  à la Place de marché Azure Stack Hub.
 
-* Azure Stack nécessite une version spécifique d’Azure CLI pour créer et gérer les ressources. Si Azure CLI n’est pas configuré pour Azure Stack, suivez les étapes permettant [d’installer et de configurer Azure CLI](azure-stack-version-profiles-azurecli2.md).
+* Azure Stack Hub nécessite une version spécifique d’Azure CLI pour créer et gérer les ressources. Si Azure CLI n’est pas configuré pour Azure Stack Hub, suivez les étapes permettant [d’installer et de configurer Azure CLI](azure-stack-version-profiles-azurecli2.md).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources est un conteneur logique dans lequel vous pouvez déployer et gérer des ressources Azure Stack. À partir de votre environnement Azure Stack, exécutez la commande [az group create](/cli/azure/group#az-group-create) pour créer un groupe de ressources.
+Un groupe de ressources est un conteneur logique dans lequel vous pouvez déployer et gérer des ressources Azure Stack Hub. À partir de votre environnement Azure Stack Hub, exécutez la commande [az group create](/cli/azure/group#az-group-create) pour créer un groupe de ressources.
 
 > [!NOTE]
 >  Des valeurs sont attribuées pour toutes les variables dans les exemples de code. Toutefois, vous pouvez attribuer de nouvelles valeurs si vous le souhaitez.
@@ -99,7 +97,7 @@ Vous pouvez utiliser un navigateur de votre choix pour afficher la page d’accu
 
 ![Site IIS par défaut](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Nettoyez les ressources dont vous n’avez plus besoin. Vous pouvez utiliser la commande [az group delete](/cli/azure/group#az-group-delete) pour supprimer le groupe de ressources, la machine virtuelle, ainsi que toutes les ressources associées.
 
@@ -109,4 +107,4 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez déployé une machine virtuelle Windows Server de base. Pour en savoir plus sur les machines virtuelles Azure Stack, continuez avec [Considérations relatives aux machines virtuelles dans Azure Stack](azure-stack-vm-considerations.md).
+Dans ce guide de démarrage rapide, vous avez déployé une machine virtuelle Windows Server de base. Pour en savoir plus sur les machines virtuelles Azure Stack Hub, continuez avec [Considérations relatives aux machines virtuelles dans Azure Stack Hub](azure-stack-vm-considerations.md).

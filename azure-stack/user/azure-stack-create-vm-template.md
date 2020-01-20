@@ -17,38 +17,38 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 02300ae5c3a6ef7fd104dfb59e179b557e0c8778
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: b709d51a430530c50cf9a6e06896d405c435383e
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961704"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023247"
 ---
-# <a name="tutorial-create-a-vm-using-a-community-template"></a>Didacticiel : Créer une machine virtuelle à l’aide d’un modèle fourni par la communauté
+# <a name="tutorial-create-a-vm-using-a-community-template"></a>Tutoriel : Créer une machine virtuelle à l’aide d’un modèle fourni par la communauté
 
-En tant qu’opérateur ou utilisateur Azure Stack, vous pouvez créer une machine virtuelle à l’aide de [modèles de démarrage rapide GitHub personnalisés](https://github.com/Azure/AzureStack-QuickStart-Templates) plutôt que de déployer un modèle manuellement depuis la Place de marché Azure Stack.
+En tant qu’opérateur ou utilisateur Azure Stack Hub, vous pouvez créer une machine virtuelle à l’aide de [modèles de démarrage rapide GitHub personnalisés](https://github.com/Azure/AzureStack-QuickStart-Templates) plutôt que de déployer un modèle manuellement depuis la Place de marché Azure Stack Hub.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Utiliser des modèles de démarrage rapide Azure Stack
+> * Utiliser des modèles de démarrage rapide Azure Stack Hub
 > * Créer une machine virtuelle à l’aide d’un modèle GitHub personnalisé
 > * Démarrer Minikube et installer une application
 
-## <a name="azure-stack-quickstart-templates"></a>Modèles de démarrage rapide Azure Stack
+## <a name="azure-stack-hub-quickstart-templates"></a>Modèles de démarrage rapide Azure Stack Hub
 
-Les modèles de démarrage rapide Azure Stack sont stockés dans le [dépôt de modèles de démarrage rapide Azure Stack global](https://github.com/Azure/AzureStack-QuickStart-Templates) sur GitHub. Ce dépôt contient des modèles de déploiement Azure Resource Manager qui ont été testés avec le kit de développement Microsoft Azure Stack (ASDK). Vous pouvez les utiliser pour simplifier l’évaluation d’Azure Stack et l’utilisation de l’environnement du kit de développement Azure Stack (ASDK).
+Les modèles de démarrage rapide Azure Stack Hub sont stockés dans le [dépôt de modèles de démarrage rapide Azure Stack Hub global](https://github.com/Azure/AzureStack-QuickStart-Templates) sur GitHub. Ce dépôt contient des modèles de déploiement Azure Resource Manager qui ont été testés avec le kit de développement Microsoft Azure Stack (ASDK). Vous pouvez les utiliser pour simplifier l’évaluation d’Azure Stack Hub et l’utilisation de l’environnement du Kit ASDK.
 
-Avec le temps, de nombreux utilisateurs de GitHub ont contribué au dépôt, offrant ainsi une collection de plus de 400 modèles de déploiement. Ce dépôt constitue un bon point de départ pour comprendre comment déployer différents types d’environnement dans Azure Stack.
+Avec le temps, de nombreux utilisateurs de GitHub ont contribué au dépôt, offrant ainsi une collection de plus de 400 modèles de déploiement. Ce dépôt constitue un bon point de départ pour comprendre comment déployer différents types d’environnement dans Azure Stack Hub.
 
 >[!IMPORTANT]
 > Certains modèles présents sont créés par des membres de la communauté, et non par Microsoft. Chaque modèle est concédé sous licence sous un contrat de licence par son propriétaire, et non par Microsoft. Microsoft ne peut pas être tenu responsable de ces modèles ni ne vérifie leur sécurité, leur compatibilité ou leurs performances. Les modèles de la communauté ne sont pris en charge par aucun programme ou service de support Microsoft. Ils sont proposés « EN L’ÉTAT » sans garantie d’aucune sorte.
 
-Si vous souhaitez proposer des modèles Azure Resource Manager sur GitHub, faites-le dans le dépôt [AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStart-Templates). Pour en savoir plus sur ce dépôt et sur la façon d’y contribuer, consultez le [fichier Lisez-moi](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md).
+Si vous souhaitez proposer des modèles Azure Resource Manager sur GitHub, faites-le dans le dépôt [AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStart-Templates). Pour en savoir plus sur ce dépôt et sur la façon d’y contribuer, consultez le [fichier Lisez-moi](https://aka.ms/aa6zktg).
 
 ## <a name="create-a-vm-using-a-custom-github-template"></a>Créer une machine virtuelle à l’aide d’un modèle GitHub personnalisé
 
-Dans l’exemple de ce tutoriel, le modèle de démarrage rapide Azure Stack [101-vm-linux-minikube](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-linux-minikube) est utilisé pour déployer une machine virtuelle Ubuntu 16.04 sur Azure Stack qui exécute Minikube pour gérer un cluster Kubernetes.
+Dans l’exemple de ce tutoriel, le modèle de démarrage rapide Azure Stack Hub [101-vm-linux-minikube](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-linux-minikube) est utilisé pour déployer une machine virtuelle Ubuntu 16.04 sur Azure Stack Hub qui exécute Minikube pour gérer un cluster Kubernetes.
 
 Minikube est un outil qui simplifie l’exécution de Kubernetes en local. Minikube exécute un cluster Kubernetes à un seul nœud dans une machine virtuelle, qui vous permet d’essayer Kubernetes ou de développer avec au quotidien. Il prend en charge un simple cluster Kubernetes à un seul nœud qui s’exécute sur une machine virtuelle Linux. Minikube est le moyen le plus rapide et le plus direct pour exécuter un cluster Kubernetes entièrement opérationnel. Les développeurs peuvent ainsi développer et tester leurs déploiements d’applications basées sur Kubernetes sur leurs machines locales. Concernant l’architecture, une machine virtuelle Minikube exécute localement les composants du nœud principal et du nœud d’agent :
 
@@ -65,7 +65,7 @@ Ce modèle installe les composants suivants :
 * xRDP
 
 > [!IMPORTANT]
-> L’image de machine virtuelle Ubuntu (Ubuntu Server 16.04 LTS dans cet exemple) doit avoir été ajoutée à la Place de marché Azure Stack avant le démarrage de cette procédure.
+> L’image de machine virtuelle Ubuntu (Ubuntu Server 16.04 LTS dans cet exemple) doit avoir été ajoutée à la Place de marché Azure Stack Hub avant le démarrage de cette procédure.
 
 1. Sélectionnez **+ Créer une ressource**, **Personnalisé**, puis **Déploiement de modèle**.
 
@@ -89,7 +89,7 @@ Ce modèle installe les composants suivants :
 
 6. Sélectionnez **Paramètres**, renseignez ou modifiez les champs disponibles si nécessaire, puis cliquez sur **OK**.
 
-    ![parameters](media/azure-stack-create-vm-template/6.PNG)
+    ![Paramètres](media/azure-stack-create-vm-template/6.PNG)
 
 7. Sélectionnez l’abonnement à utiliser, puis créez ou choisissez un nom de groupe de ressources existant. Ensuite, sélectionnez **Créer** pour commencer le déploiement du modèle.
 
@@ -108,11 +108,11 @@ Maintenant que la machine virtuelle Linux est créée, vous pouvez vous connecte
 
 1. Une fois le déploiement terminé, sélectionnez **Connexion** pour afficher l’adresse IP publique qui sera utilisée pour se connecter à la machine virtuelle Linux.
 
-    ![Connecter](media/azure-stack-create-vm-template/9.PNG)
+    ![Se connecter](media/azure-stack-create-vm-template/9.PNG)
 
 2. À partir d’une invite de commandes avec élévation de privilèges, exécutez la commande **mstsc.exe** pour ouvrir la connexion Bureau à distance et vous connecter à l’adresse IP publique de la machine virtuelle Linux obtenue à l’étape précédente. Lorsque vous êtes invité à vous connecter à xRDP, utilisez les informations d’identification que vous avez spécifiées lors de la création de la machine virtuelle.
 
-    ![À distance](media/azure-stack-create-vm-template/10.PNG)
+    ![Remote](media/azure-stack-create-vm-template/10.PNG)
 
 3. Ouvrez l’émulateur de terminal et entrez les commandes suivantes pour démarrer Minikube :
 
@@ -132,9 +132,9 @@ Maintenant que la machine virtuelle Linux est créée, vous pouvez vous connecte
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
-> * En savoir plus sur les modèles de démarrage rapide Azure Stack
+> * En savoir plus sur les modèles de démarrage rapide Azure Stack Hub
 > * Créer une machine virtuelle à l’aide d’un modèle GitHub personnalisé
 > * Démarrer minikube et installer une application
