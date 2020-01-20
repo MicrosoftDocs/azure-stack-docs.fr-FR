@@ -161,7 +161,11 @@
                 - name: Appliquer les mises à jour OEM
                   href: azure-stack-update-oem.md
             - name: Surveiller le statut de mise à jour
-              href: azure-stack-update-monitor.md
+              items:
+                - name: Utiliser PowerShell
+                  href: azure-stack-update-monitor.md
+                - name: Utiliser un point de terminaison privilégié
+                  href: azure-stack-monitor-update.md
             - name: Résoudre les problèmes de mise à jour
               href: azure-stack-updates-troubleshoot.md
         - name: Surveiller l’intégrité et les alertes
