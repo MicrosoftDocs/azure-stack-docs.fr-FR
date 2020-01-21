@@ -1,6 +1,6 @@
 ---
-title: Feuille de déploiement pour les systèmes intégrés Azure Stack | Microsoft Docs
-description: Découvrez comment installer et utiliser l’outil de feuille de calcul de déploiement pour déployer Azure Stack.
+title: Feuille de déploiement pour les systèmes intégrés Azure Stack Hub | Microsoft Docs
+description: Découvrez comment installer et utiliser l’outil de feuille de calcul de déploiement pour déployer Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: wamota
@@ -15,23 +15,23 @@ ms.date: 04/19/2019
 ms.author: wamota
 ms.reviewer: wamota
 ms.lastreviewed: 04/19/2019
-ms.openlocfilehash: d75915f110b6316f4621f66b1f91b010f735d165
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 0ec6f85e0df5bcc818f57410a442d532d024fc02
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172663"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75804899"
 ---
-# <a name="deployment-worksheet-for-azure-stack-integrated-systems"></a>Feuille de déploiement pour les systèmes intégrés Azure Stack
+# <a name="deployment-worksheet-for-azure-stack-hub-integrated-systems"></a>Feuille de déploiement pour les systèmes intégrés Azure Stack Hub
 
-La feuille de calcul de déploiement Azure Stack est une application Windows Forms qui rassemble toutes les informations de déploiement nécessaires et les décisions au même endroit. Vous pouvez remplir la feuille de calcul de déploiement pendant le processus de planification et l’examiner avant le début du déploiement.
+La feuille de calcul de déploiement Azure Stack Hub est une application Windows Forms qui rassemble toutes les informations de déploiement nécessaires et les décisions au même endroit. Vous pouvez remplir la feuille de calcul de déploiement pendant le processus de planification et l’examiner avant le début du déploiement.
 
 Les informations requises par la feuille de calcul contiennent des informations sur la mise en réseau, la sécurité et l’identité. Cela nécessite des décisions importantes qui peuvent nécessiter des connaissances dans de nombreux domaines différents. Par conséquent, nous vous recommandons de consulter les équipes possédant des compétences dans ces domaines pour qu’elles vous aident à remplir la feuille de calcul.
 
-Lors du remplissage de la feuille de calcul, vous devrez peut-être apporter des modifications de configuration pré-déploiement à votre environnement réseau. Ceci peut inclure la réservation d’espaces d’adressage IP pour la solution Azure Stack ainsi que la configuration de routeurs, commutateurs et pare-feu afin de préparer la connectivité à la nouvelle solution Azure Stack.
+Lors du remplissage de la feuille de calcul, vous devrez peut-être apporter des modifications de configuration pré-déploiement à votre environnement réseau. Ceci peut inclure la réservation d’espaces d’adressage IP pour la solution Azure Stack Hub ainsi que la configuration de routeurs, commutateurs et pare-feu afin de préparer la connectivité à la nouvelle solution Azure Stack Hub.
 
 > [!NOTE]
-> Pour plus d’informations sur le remplissage de la feuille de calcul de déploiement, consultez [cet article dans la documentation Azure Stack](azure-stack-datacenter-integration.md).
+> Pour plus d’informations sur le remplissage de la feuille de calcul de déploiement, consultez [cet article dans la documentation Azure Stack Hub](azure-stack-datacenter-integration.md).
 
 [![Feuille de calcul de déploiement](media/azure-stack-deployment-worksheet/depworksheet.png "Feuille de calcul de déploiement")](media/azure-stack-deployment-worksheet/depworksheet.png)
 
@@ -70,13 +70,13 @@ Pour lancer et utiliser la feuille de calcul de déploiement sur un ordinateur s
    Start-DeploymentWorksheet
    ```
 
-La feuille de calcul de déploiement se compose d’onglets distincts pour la collecte des paramètres d’environnement, tels que **Customer Settings (Paramètres client)**, **Network Settings (Paramètres réseau)** et **Scale Unit # (Nombre d’unités d’échelle)**. Vous devez fournir toutes les valeurs (à l’exception de celles qui sont marquées comme **facultatives**) sous tous les onglets avant que des configurations de fichiers de données puissent être générées. Une fois que toutes les valeurs requises ont été entrées dans l’outil, vous pouvez utiliser le menu **Action** pour **importer**, **exporter** et **générer**. Les fichiers JSON suivants sont requis pour le déploiement :
+La feuille de calcul de déploiement se compose d’onglets distincts pour la collecte des paramètres d’environnement, tels que **Customer Settings (Paramètres client)** , **Network Settings (Paramètres réseau)** et **Scale Unit # (Nombre d’unités d’échelle)** . Vous devez fournir toutes les valeurs (à l’exception de celles qui sont marquées comme **facultatives**) sous tous les onglets avant que des configurations de fichiers de données puissent être générées. Une fois que toutes les valeurs requises ont été entrées dans l’outil, vous pouvez utiliser le menu **Action** pour **importer**, **exporter** et **générer**. Les fichiers JSON suivants sont requis pour le déploiement :
 
-**Importer** : Vous permet d’importer un fichier de données de configuration Azure Stack (ConfigurationData.json) généré par cet outil, ou un de ceux créés par les versions précédentes de la feuille de calcul de déploiement. Le fait d’effectuer une importation réinitialise les formulaires et supprime tous les paramètres entrés précédemment ou toutes les données déjà générées.
+**Importer** : Vous permet d’importer un fichier de données de configuration Azure Stack Hub (ConfigurationData.json) généré par cet outil, ou un de ceux créés par les versions précédentes de la feuille de calcul de déploiement. Le fait d’effectuer une importation réinitialise les formulaires et supprime tous les paramètres entrés précédemment ou toutes les données déjà générées.
 
-**Exporter** : Valide les données entrées actuellement dans les formulaires, génère les sous-réseaux IP et les affectations, puis enregistre le contenu en tant que fichiers de configuration au format JSON. Vous pouvez ensuite utiliser ces fichiers pour générer la configuration du réseau et installer Azure Stack.
+**Exporter** : Valide les données entrées actuellement dans les formulaires, génère les sous-réseaux IP et les affectations, puis enregistre le contenu en tant que fichiers de configuration au format JSON. Vous pouvez ensuite utiliser ces fichiers pour générer la configuration du réseau et installer Azure Stack Hub.
 
-**Générer** : Valide les données entrées actuellement et génère la carte réseau sans exporter les fichiers JSON de déploiement. Deux nouveaux onglets sont créés si la fonction **Générer** réussit : **Subnet Summary (Résumé de sous-réseau)** et **IP Assignments (Affectations d’adresses IP)**. Vous pouvez analyser les données de ces onglets pour vérifier que les affectations de réseau sont telles que prévues.
+**Générer** : Valide les données entrées actuellement et génère la carte réseau sans exporter les fichiers JSON de déploiement. Deux nouveaux onglets sont créés si la fonction **Générer** réussit : **Subnet Summary (Résumé de sous-réseau)** et **IP Assignments (Affectations d’adresses IP)** . Vous pouvez analyser les données de ces onglets pour vérifier que les affectations de réseau sont telles que prévues.
 
 **Effacer tout** : Efface toutes les données entrées actuellement dans les formulaires et réinitialise les valeurs par défaut.
 
@@ -94,4 +94,4 @@ Le journal enregistré est disponible dans le répertoire **Temp** de l’utilis
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Modèles de connexion pour le déploiement d’Azure Stack](azure-stack-connection-models.md)
+* [Modèles de connexion pour le déploiement de Microsoft Azure Stack Hub](azure-stack-connection-models.md)

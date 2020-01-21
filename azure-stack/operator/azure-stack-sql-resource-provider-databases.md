@@ -1,6 +1,6 @@
 ---
 title: Créer des bases de données SQL
-titleSuffix: Azure Stack
+titleSuffix: Azure Stack Hub
 description: Découvrez comment créer et gérer des bases de données SQL provisionnées avec l’adaptateur du fournisseur de ressources SQL.
 services: azure-stack
 documentationCenter: ''
@@ -16,18 +16,18 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 97d53772127cbae66e95159617cb9e50e21176ac
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: f6c030767ba64aa3c8acd47d5b358a4b385785ac
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954534"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814539"
 ---
 # <a name="create-sql-databases"></a>Créer des bases de données SQL
 
-Vous pouvez créer et gérer des bases de données libre-service dans le portail utilisateur. Un utilisateur Azure Stack doit disposer d'un abonnement avec une offre incluant le service SQL Database.
+Vous pouvez créer et gérer des bases de données libre-service dans le portail utilisateur. Un utilisateur Azure Stack Hub doit disposer d’un abonnement avec une offre incluant le service SQL Database.
 
-1. Connectez-vous au portail utilisateur [Azure Stack](azure-stack-overview.md).
+1. Connectez-vous au portail utilisateur [Azure Stack Hub](azure-stack-overview.md).
 
 2. Sélectionnez **+ Nouveau** &gt;**Données + stockage** &gt; **Base de données SQL Server** &gt; **Ajouter**.
 
@@ -40,10 +40,10 @@ Vous pouvez créer et gérer des bases de données libre-service dans le portail
 
 4. Sous **Créer une base de données**, sélectionnez **Référence (SKU)** . Sous **Sélectionner une référence (SKU)** , choisissez la référence SKU de votre base de données.
 
-   ![Créez une base de données dans le portail utilisateur Azure Stack.](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+   ![Créez une base de données dans le portail utilisateur Azure Stack Hub.](./media/azure-stack-sql-rp-deploy/newsqldb.png)
 
    >[!NOTE]
-   >Les serveurs d’hébergement reçoivent une référence (SKU) quand ils sont ajoutés à Azure Stack. Les bases de données sont créées dans le pool de serveurs d’hébergement d’une référence (SKU).
+   >Les serveurs d’hébergement reçoivent une référence (SKU) quand ils sont ajoutés à Azure Stack Hub. Les bases de données sont créées dans le pool de serveurs d’hébergement d’une référence (SKU).
 
 5. Sélectionnez **Connexion**.
 
@@ -54,7 +54,7 @@ Vous pouvez créer et gérer des bases de données libre-service dans le portail
    >[!NOTE]
    >Ces paramètres correspondent aux informations d’identification d’authentification SQL qui sont créées pour votre accès à cette seule base de données. Le nom d’utilisateur de connexion doit être globalement unique. Vous pouvez réutiliser les paramètres de connexion d’autres bases de données qui utilisent la même référence (SKU).
 
-   ![Créer une connexion à la base de données dans le portail utilisateur Azure Stack](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+   ![Créer une connexion à la base de données dans le portail utilisateur Azure Stack Hub](./media/azure-stack-sql-rp-deploy/create-new-login.png)
 
 8. Sélectionnez **OK** pour achever le déploiement de la base de données.
 

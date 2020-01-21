@@ -1,6 +1,6 @@
 ---
-title: Envoi de demandes API à Azure Stack | Microsoft Docs
-description: Découvrez comment récupérer une authentification d’Azure pour effectuer des requêtes d’API auprès d’Azure Stack.
+title: Envoi de demandes API à Azure Stack Hub | Microsoft Docs
+description: Découvrez comment récupérer une authentification d’Azure pour effectuer des requêtes d’API auprès d’Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,26 +14,24 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 822d05c53db2d55b3cddac44fa919c72e9af2efe
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: 3defbf731a2b4b89fce8f9815513456104f80ea6
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714654"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883267"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
-# <a name="make-api-requests-to-azure-stack"></a>Envoi de demandes API à Azure Stack
+# <a name="make-api-requests-to-azure-stack-hub"></a>Envoi de demandes API à Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+Vous pouvez utiliser les API REST Azure Stack Hub pour automatiser des opérations comme l’ajout d’une machine virtuelle à votre cloud Azure Stack Hub.
 
-Vous pouvez utiliser les API REST Azure Stack pour automatiser des opérations comme l’ajout d’une machine virtuelle à votre cloud Azure Stack.
+Les API demandent à votre client de s’authentifier auprès du point de terminaison de connexion Microsoft Azure. Le point de terminaison retourne un jeton à utiliser dans l’en-tête de chaque requête envoyée aux API Azure Stack Hub. Microsoft Azure utilise Oauth 2.0.
 
-Les API demandent à votre client de s’authentifier auprès du point de terminaison de connexion Microsoft Azure. Le point de terminaison retourne un jeton à utiliser dans l’en-tête de chaque requête envoyée aux API Azure Stack. Microsoft Azure utilise Oauth 2.0.
+Cet article fournit des exemples qui utilisent l’utilitaire **cURL** pour créer des requêtes Azure Stack Hub. cURL est un outil en ligne de commande disposant d’une bibliothèque pour le transfert de données. Ces exemples détaillent étape par étape le processus de récupération d’un jeton pour accéder aux API Azure Stack Hub. La plupart des langages de programmation proposent des bibliothèques Oauth 2.0, qui prennent en charge de lourdes tâches de gestion des jetons et de manipulation des tâches, comme l’actualisation des jetons.
 
-Cet article fournit des exemples qui utilisent l’utilitaire **cURL** pour créer des requêtes Azure Stack. cURL est un outil en ligne de commande disposant d’une bibliothèque pour le transfert de données. Ces exemples détaillent étape par étape le processus de récupération d’un jeton pour accéder aux API Azure Stack. La plupart des langages de programmation proposent des bibliothèques Oauth 2.0, qui prennent en charge de lourdes tâches de gestion des jetons et de manipulation des tâches, comme l’actualisation des jetons.
-
-Examinez l’ensemble du processus d’utilisation des API REST Azure Stack avec un client REST générique, comme **cURL**, pour mieux comprendre les requêtes sous-jacentes et voir ce que vous pouvez attendre du contenu reçu dans une réponse.
+Examinez l’ensemble du processus d’utilisation des API REST Azure Stack Hub avec un client REST générique, comme **cURL**, pour mieux comprendre les requêtes sous-jacentes et voir ce que vous pouvez attendre du contenu reçu dans une réponse.
 
 Cet article ne traite pas de l’ensemble des options disponibles pour la récupération des jetons, comme la connexion interactive ou la création d’ID d’application dédiés. Pour obtenir des informations sur ces sujets, consultez la [Informations de référence sur les API REST Azure](/rest/api/).
 
@@ -70,16 +68,16 @@ Pour chaque valeur :
    Type de schéma d’authentification que vous utiliserez. Dans cet exemple, la valeur est `password`.
 
 - **resource** :  
-   La ressource à laquelle le jeton accède. Pour rechercher la ressource, interrogez le point de terminaison des métadonnées d’administration Azure Stack. Examinez la section **audiences**.
+   La ressource à laquelle le jeton accède. Pour rechercher la ressource, interrogez le point de terminaison des métadonnées d’administration Azure Stack Hub. Examinez la section **audiences**.
 
-- **Point de terminaison d’administration Azure Stack** :
+- **Point de terminaison d’administration Azure Stack Hub** :
 
    ```bash
-   https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
+   https://management.{region}.{Azure Stack Hub domain}/metadata/endpoints?api-version=2015-01-01
    ```
 
   > [!NOTE]  
-  > Si vous êtes administrateur et que vous essayez d’accéder à l’API locataire, veillez à utiliser le point de terminaison de locataire ; par exemple, `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`.
+  > Si vous êtes administrateur et que vous essayez d’accéder à l’API locataire, veillez à utiliser le point de terminaison de locataire ; par exemple, `https://adminmanagement.{region}.{Azure Stack Hub domain}/metadata/endpoints?api-version=2015-01-011`.
 
   Par exemple, avec le Kit de développement Azure Stack comme point de terminaison :
 
@@ -101,7 +99,7 @@ Pour chaque valeur :
   }
   ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
   ```bash
   https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155
@@ -125,9 +123,9 @@ Pour chaque valeur :
   | VisualStudio | 872cd9fa-d31f-45e0-9eab-6e460a02d1f1 |
   | AzureCLI | 04b07795-8ddb-461a-bbee-02f9e1bf7b46 |
 
-- **nom d’utilisateur**
+- **username**
 
-  Par exemple, le compte Azure Stack Azure AD :
+  Par exemple, le compte Azure Stack Hub Azure AD :
 
   ```bash
   azurestackadmin@fabrikam.onmicrosoft.com
@@ -135,9 +133,9 @@ Pour chaque valeur :
 
 - **mot de passe**
 
-  Le mot de passe administrateur Azure Stack Azure AD.
+  Le mot de passe administrateur Azure Stack Hub Azure AD.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Demande :
 
@@ -201,7 +199,7 @@ Le chemin d’accès spécifie la ressource ou la collection de ressources, et p
 - **Chaîne de requête** :  
 La chaîne fournit des paramètres simples supplémentaires, comme la version d’API ou les critères de sélection des ressources.
 
-## <a name="azure-stack-request-uri-construct"></a>Construction de l’URI de requête Azure Stack
+## <a name="azure-stack-hub-request-uri-construct"></a>Construction de l’URI de requête Azure Stack Hub
 
 ```bash
 {URI-scheme} :// {URI-host} / {subscription id} / {resource group} / {provider} / {resource-path} ? {OPTIONAL: filter-expression} {MANDATORY: api-version}
