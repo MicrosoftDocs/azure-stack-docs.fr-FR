@@ -12,37 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2019
+ms.date: 01/14/2020
 ms.author: sethm
 ms.reviewer: ppacent
-ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: a626b50a742d3219d7934e4cc3f77cd890ea1b93
-ms.sourcegitcommit: c3be6b2e962c5905eb3c54f9555e13095f6b4d40
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: 1cd38ece03a83fa029944ed5457f721c57aae444
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2019
-ms.locfileid: "75303720"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023214"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Liste de contrôle des activités de mise à jour Azure Stack Hub
-
-*S’applique à : Systèmes intégrés Azure Stack Hub*
 
 Passez en revue cette liste de contrôle pour préparer une mise à jour Azure Stack Hub. Cet article contient une liste de contrôle des activités liées aux mises à jour pour les opérateurs Azure Stack Hub.
 
 ## <a name="prepare-for-azure-stack-hub-update"></a>Préparer la mise à jour Azure Stack Hub
 
-| Activité                     | Détails                                                   |
+| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Activité &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;                   | Détails                                                   |
 |------------------------------|-----------------------------------------------------------|
 | Passer en revue les problèmes connus     | [Liste des problèmes connus](known-issues.md).                |
 | Passer en revue les mises à jour de sécurité | [Liste des mises à jour de sécurité](release-notes-security-updates.md).      |
 | Appliquer le dernier package OEM | Contactez votre OEM afin de vérifier que votre système répond aux exigences minimales du package OEM pour la version Azure Stack Hub vers laquelle votre système est mis à jour. Vérifiez que votre package OEM est compatible avec la version d’Azure Stack Hub vers laquelle vous effectuez la mise à jour. Si votre package OEM n’est pas compatible avec la version d’Azure Stack Hub vers laquelle vous effectuez la mise à jour, vous devez effectuer une mise à jour du package OEM avant d’exécuter une mise à jour Azure Stack Hub. Pour obtenir des instructions, consultez « Appliquer des mises à jour de fabricants d’ordinateurs (OEM) à Azure Stack Hub ». |
 | Facultatif : Configurer la collecte automatique des journaux | Il est recommandé de configurer la collecte automatique des journaux sur votre environnement Azure Stack Hub pour simplifier le processus de collecte des journaux système dans le cas où vous devriez ouvrir un ticket de support. Pour configurer la collecte automatique des journaux, consultez les instructions figurant dans [Configurer la collecte automatique des journaux de diagnostic Azure Stack Hub](azure-stack-configure-automatic-diagnostic-log-collection.md). |
-| Appliquer les derniers correctifs | Appliquez les derniers correctifs qui s’appliquent à la version actuellement installée. Pour obtenir la liste des derniers correctifs, consultez la section Correctifs logiciels des notes de publication. |
+| Appliquer les derniers correctifs | Appliquez les derniers correctifs qui s’appliquent à la version actuellement installée. Pour obtenir la liste des derniers correctifs, consultez la section [Correctifs logiciels des notes de publication](release-notes.md#hotfixes). |
 | Exécuter l’outil de planification des capacités | Veillez à utiliser la dernière version de l’[outil Azure Stack Hub Capacity Planner](azure-stack-capacity-planning-overview.md) pour effectuer la planification et le dimensionnement de votre charge de travail. La dernière version contient des résolutions de bogues et fournit de nouvelles fonctionnalités publiées avec chaque mise à jour Azure Stack Hub. |
-| Exécuter l’applet de commande Test-AzureStack | Exécutez `Test-AzureStack -Group UpdateReadiness` pour identifier les problèmes fonctionnels. L’applet de commande est accessible via la session PEP (session de point de terminaison privilégié). Pour plus d’informations, consultez [Valider l’état du système Azure Stack Hub](azure-stack-diagnostic-test.md). |
+| Exécuter **Test-AzureStack** | Exécutez `Test-AzureStack -Group UpdateReadiness` pour identifier les problèmes fonctionnels. L’applet de commande est accessible via la session PEP (session de point de terminaison privilégié). Pour plus d’informations, consultez [Valider l’état du système Azure Stack Hub](azure-stack-diagnostic-test.md). |
 | Résoudre les problèmes | Résolvez les problèmes fonctionnels identifiés par `Test-AzureStack`. |
 | Mise à jour disponible | Dans les scénarios connectés uniquement, les déploiements Azure Stack Hub vérifient périodiquement un point de terminaison sécurisé et vous notifient automatiquement l’existence d’une mise à jour pour votre cloud. Les clients déconnectés peuvent télécharger et importer de nouveaux packages en suivant la [procédure décrite ici](azure-stack-apply-updates.md). |
-| Notifier vos utilisateurs | Informez les utilisateurs de toutes les opérations de maintenance, et de planifier dans la mesure du possible les fenêtres de maintenance ordinaire pendant les heures creuses. Les opérations de maintenance peuvent affecter les opérations de portail et les charges de travail de locataire. |
+| Planifier une fenêtre de maintenance et informer vos utilisateurs | Informez les utilisateurs de toutes les opérations de maintenance et planifiez dans la mesure du possible les fenêtres de maintenance ordinaire pendant les heures creuses. Les opérations de maintenance peuvent affecter les charges de travail de locataires existantes et provoquer l’échec des nouvelles opérations de locataires (par exemple, la création, la reconfiguration ou la suppression de machines virtuelles), si l’opération est lancée à partir du portail ou par programme à partir de l’API Azure Resource Manager. Pour les mises à jour express et complètes d’Azure Stack Hub, vous pouvez consulter les [notes de publication](release-notes.md) afin d’avoir une estimation du délai d’attente pour recevoir la mise à jour de la version que vous appliquez. |
 
 ## <a name="during-azure-stack-hub-update"></a>Durant l’application de la mise à jour Azure Stack Hub
 

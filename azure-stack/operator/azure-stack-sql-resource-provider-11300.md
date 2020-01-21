@@ -1,7 +1,7 @@
 ---
-title: Notes de publication de la version 1.1.30.0 du fournisseur de ressources SQL Azure Stack
-titleSuffix: Azure Stack
-description: Consultez les notes de publication concernant la mise à jour 1.1.30.0 du fournisseur de ressources SQL Azure Stack.
+title: Notes de publication de la version 1.1.30.0 du fournisseur de ressources SQL Azure Stack Hub
+titleSuffix: Azure Stack Hub
+description: Consultez les notes de publication concernant la mise à jour 1.1.30.0 du fournisseur de ressources SQL Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -17,40 +17,38 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: c1c2b824b8cf44a983c851f20337658d020de4c8
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 5f629db0c6de0622edf8242a51b29856634c76bf
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780624"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881907"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>Notes de publication de la version 1.1.30.0 du fournisseur de ressources SQL
-
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Ces notes de publication décrivent les améliorations et les problèmes connus liés à la version 1.1.30.0 du fournisseur de ressources SQL.
 
 ## <a name="build-reference"></a>Référence de build
-Téléchargez le binaire du fournisseur de ressources SQL, puis exécutez le fichier auto-extracteur pour extraire le contenu dans un répertoire temporaire. Le fournisseur de ressources possède une build Azure Stack minimale correspondante. La version minimale d'Azure Stack requise pour installer cette version du fournisseur de ressources SQL est mentionnée ci-dessous :
+Téléchargez le binaire du fournisseur de ressources SQL, puis exécutez le fichier auto-extracteur pour extraire le contenu dans un répertoire temporaire. Le fournisseur de ressources possède une build Azure Stack Hub minimale correspondante. La version minimale d’Azure Stack Hub requise pour installer cette version du fournisseur de ressources SQL est mentionnée ci-dessous :
 
-> |Version minimale d’Azure Stack|Version du fournisseur de ressources SQL|
+> |Version minimale d’Azure Stack Hub|Version du fournisseur de ressources SQL|
 > |-----|-----|
-> |Version 1808 (1.1808.0.97)|[1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
+> |Version 1808 (1.1808.0.97)|[1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
 > |     |     |
 
 > [!IMPORTANT]
-> Appliquez la mise à jour minimale prise en charge d'Azure Stack sur votre système intégré Azure Stack ou déployez le Kit de développement Azure Stack (ASDK) le plus récent avant de déployer la dernière version du fournisseur de ressources SQL.
+> Appliquez la mise à jour minimale prise en charge d’Azure Stack Hub sur votre système intégré Azure Stack Hub avant de déployer la dernière version du fournisseur de ressources SQL.
 
 ## <a name="new-features-and-fixes"></a>Nouvelles fonctionnalités et correctifs
-Cette version du fournisseur de ressources SQL Azure Stack inclut les améliorations et correctifs suivants :
+Cette version du fournisseur de ressources SQL Azure Stack Hub inclut les améliorations et correctifs suivants :
 
 - **Données de télémétrie activées pour les déploiements du fournisseur de ressources SQL**. La collecte des données de télémétrie a été activée pour les déploiements du fournisseur de ressources SQL. Les données de télémétrie collectées englobent les données de déploiement du fournisseur de ressources, les heures de début et de fin, l'état de sortie, les messages de sortie et les détails des erreurs (le cas échéant).
 
-- **Mise à jour du chiffrement TLS 1.2**. Activation de la prise en charge de TLS 1.2 uniquement pour la communication du fournisseur de ressources avec les composants Azure Stack internes. 
+- **Mise à jour du chiffrement TLS 1.2**. Activation de la prise en charge de TLS 1.2 uniquement pour la communication du fournisseur de ressources avec les composants Azure Stack Hub internes. 
 
 ### <a name="fixes"></a>Correctifs
 
-- **Compatibilité Azure Stack PowerShell du fournisseur de ressources SQL**. Le fournisseur de ressources SQL a été mis à jour pour fonctionner avec le profil Azure Stack 2018-03-01-hybrid PowerShell et pour assurer la compatibilité avec AzureRM 1.3.0 et versions ultérieures.
+- **Compatibilité avec Azure Stack Hub PowerShell du fournisseur de ressources SQL**. Le fournisseur de ressources SQL a été mis à jour pour fonctionner avec le profil Azure Stack Hub 2018-03-01-hybrid PowerShell et pour assurer la compatibilité avec AzureRM 1.3.0 et versions ultérieures.
 
 - **Panneau de modification du mot de passe de connexion SQL**. Problème résolu : le mot de passe ne pouvait pas être changé sur le panneau de modification du mot de passe. Liens supprimés des notifications de changement de mot de passe.
 
@@ -60,11 +58,11 @@ Cette version du fournisseur de ressources SQL Azure Stack inclut les améliorat
 
 - **Une heure entière peut être nécessaire avant que les références SKU SQL n’apparaissent dans le portail**. Il peut se passer une heure avant que les références SKU nouvellement créées soient visibles et utilisables lors de la création de nouvelles bases de données SQL.
 
-    **Solution de contournement** : Aucune.
+    **Solution de contournement** : Aucun.
 
 - **Connexions SQL réutilisées**. Toute tentative de création d'une nouvelle connexion SQL avec le même nom d'utilisateur qu'une connexion existante associée au même abonnement entraînera la réutilisation de la même connexion et du mot de passe existant.
 
-    **Solution de contournement** : utilisez des noms d’utilisateur différents lors de la création de nouvelles connexions associées au même abonnement, ou créez des connexions avec le même nom d’utilisateur mais sous des abonnements différents.
+    **Solution de contournement** : utilisez des noms d’utilisateurs différents lors de la création de nouvelles connexions associées au même abonnement, ou créez des connexions avec le même nom d’utilisateur mais sous des abonnements différents.
 
 - **Les connexions SQL partagées provoquent une incohérence au niveau des données**. Si une connexion SQL est partagée avec plusieurs bases de données SQL associées au même abonnement, la modification du mot de passe de connexion entraînera une incohérence au niveau des données.
 
@@ -88,8 +86,8 @@ Cette version du fournisseur de ressources SQL Azure Stack inclut les améliorat
 
     **Solution de contournement** : Vérifiez que DNS fonctionne correctement pour résoudre l’adresse IP de l’écouteur en nom d’hôte de l’écouteur.
 
-### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Problèmes connus des administrateurs cloud utilisant Azure Stack
-Reportez-vous à la documentation des [notes de publication d’Azure Stack](azure-stack-servicing-policy.md).
+### <a name="known-issues-for-cloud-admins-operating-azure-stack-hub"></a>Problèmes connus des administrateurs cloud utilisant Azure Stack Hub
+Reportez-vous à la documentation des [notes de publication d’Azure Stack Hub](azure-stack-servicing-policy.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur le déploiement d'un fournisseur de ressources SQL](azure-stack-sql-resource-provider.md).

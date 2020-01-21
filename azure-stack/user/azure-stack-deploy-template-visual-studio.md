@@ -1,6 +1,6 @@
 ---
-title: Déployer des modèles avec Visual Studio dans Azure Stack | Microsoft Docs
-description: Découvrez comment déployer des modèles avec Visual Studio dans Azure Stack.
+title: Déployer des modèles avec Visual Studio dans Azure Stack Hub | Microsoft Docs
+description: Découvrez comment déployer des modèles avec Visual Studio dans Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -17,30 +17,28 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 7b9e9a62b269b5c5b01db6d8859ad50bbf998939
-ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
+ms.openlocfilehash: 2aa7d6be221ad9c877290dc87d98ceec5483c6a9
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72304040"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883709"
 ---
-# <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Déploiement de modèles dans Azure Stack à l’aide de Visual Studio
+# <a name="deploy-templates-in-azure-stack-hub-using-visual-studio"></a>Déploiement de modèles dans Azure Stack Hub à l’aide de Visual Studio
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
-
-Vous pouvez utiliser Visual Studio pour déployer des modèles Azure Resource Manager dans Azure Stack.
+Vous pouvez utiliser Visual Studio pour déployer des modèles Azure Resource Manager dans Azure Stack Hub.
 
 ## <a name="to-deploy-a-template"></a>Pour déployer un modèle
 
-1. [Procédez à l’installation et à la connexion](azure-stack-install-visual-studio.md) d’Azure Stack avec Visual Studio.
+1. [Procédez à l’installation et à la connexion](azure-stack-install-visual-studio.md) d’Azure Stack Hub avec Visual Studio.
 2. Ouvrez Visual Studio.
 3. Sélectionnez **Fichier**, puis **Nouveau**. Dans **Nouveau projet**, sélectionnez **Groupe de ressources Azure**.
 4. Entrez le **Nom** du nouveau projet, puis sélectionnez **OK**.
-5. Dans **Sélectionner un modèle Azure**, choisissez **Démarrage rapide Azure Stack** dans la liste déroulante.
+5. Dans **Sélectionner un modèle Azure**, choisissez **Démarrage rapide Azure Stack Hub** dans la liste déroulante.
 6. Sélectionnez **101-create-storage-account**, puis **OK**.
 7. Dans votre nouveau projet, développez le nœud **Modèles** dans **l’Explorateur de solutions** pour voir les modèles disponibles.
 8. Dans **l’Explorateur de solutions**, choisissez le nom de votre projet, puis sélectionnez **Déployer**. Sélectionnez **Nouveau déploiement**.
-9. Dans **Déployer vers le groupe de ressources**, utilisez la liste déroulante **Abonnement** pour sélectionner votre abonnement Microsoft Azure Stack.
+9. Dans **Déployer vers le groupe de ressources**, utilisez la liste déroulante **Abonnement** pour sélectionner votre abonnement Microsoft Azure Stack Hub.
 10. Dans la liste **Groupe de ressources**, choisissez un groupe de ressources existant ou créez-en un.
 11. Dans la liste **Emplacement du groupe de ressources**, choisissez un emplacement, puis sélectionnez **Déployer**.
 12. Dans **Modifier les paramètres**, fournissez des valeurs pour les paramètres (qui varient selon le modèle), puis sélectionnez **Enregistrer**.
@@ -48,4 +46,4 @@ Vous pouvez utiliser Visual Studio pour déployer des modèles Azure Resource Ma
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Déployer des modèles avec la ligne de commande](azure-stack-deploy-template-command-line.md)
-* [Développer des modèles pour Azure Stack](azure-stack-develop-templates.md)
+* [Développer des modèles pour Azure Stack Hub](azure-stack-develop-templates.md)

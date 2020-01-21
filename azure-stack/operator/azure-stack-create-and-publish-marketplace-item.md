@@ -1,6 +1,6 @@
 ---
-title: Créer et publier un article de Marketplace dans Azure Stack | Microsoft Docs
-description: Découvrez comment créer et publier un élément de la place de marché Azure Stack.
+title: Créer et publier un élément de la Place de marché dans Azure Stack Hub | Microsoft Docs
+description: Découvrez comment créer et publier un élément de la Place de marché Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,18 +15,16 @@ ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 5740ff6bc550aa27f15761e6be2c69247eecaf03
-ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
+ms.openlocfilehash: aa308690caa875d2ab22ca0b987634c2d29795fa
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75654880"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882757"
 ---
-# <a name="create-and-publish-a-custom-azure-stack-marketplace-item"></a>Créer et publier un élément personnalisé de Place de marché Azure Stack
+# <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Créer et publier un élément personnalisé de Place de marché Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
-
-Chaque élément publié sur la Place de marché Azure Stack utilise le format Azure Gallery Package (.azpkg). L’outil *Azure Gallery Packager* vous permet de créer un package de galerie Azure personnalisé que vous pouvez charger sur la Place de marché Azure Stack, et qui peut ensuite être téléchargé par les utilisateurs. Le processus de déploiement utilise un modèle Azure Resource Manager.
+Chaque élément publié sur la Place de marché Azure Stack Hub utilise le format Azure Gallery Package (.azpkg). L’outil *Azure Gallery Packager* vous permet de créer un package de galerie Azure personnalisé que vous pouvez charger sur la Place de marché Azure Stack Hub, et qui peut ensuite être téléchargé par les utilisateurs. Le processus de déploiement utilise un modèle Azure Resource Manager.
 
 ## <a name="marketplace-items"></a>Éléments du Marketplace
 
@@ -35,11 +33,11 @@ Les exemples de cet article montrent comment créer une offre de la Place de mar
 ## <a name="create-a-marketplace-item"></a>Créer un élément de Marketplace
 
 > [!IMPORTANT]
-> Avant de créer l’élément de Place de marché de machines virtuelles, chargez l’image de machine virtuelle personnalisée sur le portail Azure Stack, en suivant les instructions de [Ajouter une image de machine virtuelle à Azure Stack](azure-stack-add-vm-image.md). Ensuite, suivez les instructions de cet article pour empaqueter l’image (créer un fichier .azpkg) et la charger sur la Place de marché Azure Stack.
+> Avant de créer l’élément de Place de marché de machines virtuelles, chargez l’image de machine virtuelle personnalisée sur le portail Azure Stack Hub, en suivant les instructions de [Ajouter une image de machine virtuelle à Azure Stack Hub](azure-stack-add-vm-image.md). Ensuite, suivez les instructions de cet article pour empaqueter l’image (créer un fichier .azpkg) et la charger sur la Place de marché Azure Stack Hub.
 
 Pour créer un élément de Place de marché personnalisé, procédez comme suit :
 
-1. Téléchargez l’[outil Azure Gallery Packager](https://aka.ms/azsmarketplaceitem) et l’exemple de package de galerie Azure Stack. Ce téléchargement comprend des modèles de machine virtuelle personnalisés. Extrayez le fichier .zip, puis sous le dossier **Custom VMs** (Machines virtuelles personnalisées), utilisez les modèles Linux ou Windows disponibles. Vous pouvez décider de réutiliser les modèles prédéfinis et de modifier les paramètres respectifs en fonction des détails de produit de l’élément à afficher sur votre portail Azure Stack. Sinon, vous pouvez simplement réutiliser le fichier .azpkg disponible et ignorer les étapes suivantes pour personnaliser votre propre package de galerie.
+1. Téléchargez l’[outil Azure Gallery Packager](https://aka.ms/azsmarketplaceitem) et l’exemple de package de galerie Azure Stack Hub. Ce téléchargement comprend des modèles de machine virtuelle personnalisés. Extrayez le fichier .zip, puis sous le dossier **Custom VMs** (Machines virtuelles personnalisées), utilisez les modèles Linux ou Windows disponibles. Vous pouvez décider de réutiliser les modèles prédéfinis et de modifier les paramètres respectifs en fonction des détails de produit de l’élément à afficher sur votre portail Azure Stack Hub. Sinon, vous pouvez simplement réutiliser le fichier .azpkg disponible et ignorer les étapes suivantes pour personnaliser votre propre package de galerie.
 
 2. Créez un modèle Azure Resource Manager ou utilisez nos exemples de modèles pour Windows/Linux. Ces exemples de modèles sont fournis dans le fichier .zip de l’outil Packager que vous avez téléchargé à l’étape 1. Vous pouvez utiliser le modèle et modifier les champs de texte, ou vous pouvez télécharger un modèle préconfiguré à partir de GitHub. Pour plus d’informations sur les modèles Azure Resource Manager, consultez [Modèles Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates).
 
@@ -143,9 +141,9 @@ Pour créer un élément de Place de marché personnalisé, procédez comme suit
 
     ![Affichage du package](media/azure-stack-create-and-publish-marketplace-item/pkg1.png)![Affichage du package](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
 
-6. Pour garantir la réussite du déploiement de la ressource, testez le modèle avec les [API Azure Stack](../user/azure-stack-profiles-azure-resource-manager-versions.md).
+6. Pour garantir la réussite du déploiement de la ressource, testez le modèle avec les [API Azure Stack Hub](../user/azure-stack-profiles-azure-resource-manager-versions.md).
 
-7. Si votre modèle repose sur une image de machine virtuelle, suivez les instructions pour [ajouter une image de machine virtuelle à Azure Stack](azure-stack-add-vm-image.md).
+7. Si votre modèle repose sur une image de machine virtuelle, suivez les instructions pour [ajouter une image de machine virtuelle à Azure Stack Hub](azure-stack-add-vm-image.md).
 
 8. Enregistrez votre modèle Azure Resource Manager dans le dossier **/Contoso.TodoList/DeploymentTemplates/** .
 
@@ -169,9 +167,9 @@ Pour créer un élément de Place de marché personnalisé, procédez comme suit
 
 ## <a name="publish-a-marketplace-item"></a>Publier un élément du Marketplace
 
-1. Utilisez PowerShell ou l’Explorateur Stockage Azure pour charger votre article de Marketplace (.azpkg) sur le Stockage Blob Azure. Vous pouvez effectuer le chargement sur le stockage Azure Stack local ou sur le Stockage Azure, qui est un emplacement temporaire pour le package. Assurez-vous que l’objet blob est accessible publiquement.
+1. Utilisez PowerShell ou l’Explorateur Stockage Azure pour charger votre article de Marketplace (.azpkg) sur le Stockage Blob Azure. Vous pouvez effectuer le chargement sur le stockage Azure Stack Hub local ou sur le Stockage Azure, qui est un emplacement temporaire pour le package. Assurez-vous que l’objet blob est accessible publiquement.
 
-2. Pour importer le package de galerie dans Azure Stack, la première étape consiste à se connecter à distance à la machine virtuelle cliente, afin de copier le fichier que vous venez de créer dans votre cloud Azure Stack.
+2. Pour importer le package de galerie dans Azure Stack Hub, la première étape consiste à vous connecter à distance à la machine virtuelle cliente, afin de copier le fichier que vous venez de créer dans votre cloud Azure Stack Hub.
 
 3. Ajoutez un contexte :
 
@@ -188,7 +186,7 @@ Pour créer un élément de Place de marché personnalisé, procédez comme suit
     https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg –Verbose
     ```
 
-5. Veillez à disposer d’un compte de stockage valide disponible pour stocker votre élément. Vous pouvez obtenir la valeur de `GalleryItemURI` auprès du portail d’administration Azure Stack. Sélectionnez **Compte de stockage > Propriétés de l’objet blob -> URL**, avec l’extension .azpkg. Le compte de stockage est utilisé seulement de façon temporaire pour publier sur la Place de marché.
+5. Veillez à disposer d’un compte de stockage valide disponible pour stocker votre élément. Vous pouvez obtenir la valeur de `GalleryItemURI` auprès du portail d’administration Azure Stack Hub. Sélectionnez **Compte de stockage > Propriétés de l’objet blob -> URL**, avec l’extension .azpkg. Le compte de stockage est utilisé seulement de façon temporaire pour publier sur la Place de marché.
 
    Une fois que vous avez terminé votre package de galerie et que vous l’avez chargé avec **Add-AzsGalleryItem**, votre machine virtuelle personnalisée doit maintenant apparaître dans la Place de marché ainsi que dans la vue **Créer une ressource**. Notez que le package de galerie personnalisé n’est pas visible dans **Gestion de la Place de marché**.
 
@@ -230,7 +228,7 @@ Pour créer un élément de Place de marché personnalisé, procédez comme suit
 | PublisherDisplayName |X |String |Recommandation : 30 caractères |Le portail risque de ne pas afficher correctement le nom de votre éditeur s’il comporte plus de 30 caractères. |
 | PublisherLegalName |X |String |256 caractères maximum | |
 | Résumé |X |String |60 à 100 caractères | |
-| LongSummary |X |String |140 à 256 caractères |Non encore applicable dans Azure Stack |
+| LongSummary |X |String |140 à 256 caractères |Non encore applicable dans Azure Stack Hub. |
 | Description |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |Entre 500 et 5 000 caractères | |
 
 ### <a name="images"></a>Images
@@ -247,7 +245,7 @@ La Marketplace utilise les icônes suivantes :
 
 ### <a name="categories"></a>Catégories
 
-Chaque article de Marketplace doit être étiqueté avec une catégorie qui identifie l’endroit où il apparaît sur l’interface utilisateur du portail. Vous pouvez choisir l’une des catégories existantes d’Azure Stack (**Calcul**, **Données + stockage**, etc.) ou une nouvelle.
+Chaque article de Marketplace doit être étiqueté avec une catégorie qui identifie l’endroit où il apparaît sur l’interface utilisateur du portail. Vous pouvez choisir l’une des catégories existantes d’Azure Stack Hub (**Calcul**, **Données + stockage**, etc.) ou une nouvelle.
 
 ### <a name="links"></a>Liens
 
@@ -275,18 +273,18 @@ Pour tout champ autorisant le HTML, les [éléments et attributs suivants sont a
 
 ## <a name="reference-marketplace-item-ui"></a>Référence : IU d'article de Place de marché
 
-Voici les icônes et le texte des articles de Marketplace qui s’affichent sur le portail Azure Stack.
+Voici les icônes et le texte des éléments de Place de marché qui s’affichent sur le portail Azure Stack Hub.
 
 ### <a name="create-blade"></a>Panneau Créer
 
-![Panneau Créer — Éléments de la Place de marché Azure Stack](media/azure-stack-create-and-publish-marketplace-item/image1.png)
+![Panneau Créer — Éléments de la Place de marché Azure Stack Hub](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### <a name="marketplace-item-details-blade"></a>Panneau Détails de l’élément du Marketplace
 
-![Panneau des détails de l’élément de la Place de marché Azure Stack](media/azure-stack-create-and-publish-marketplace-item/image3.png)
+![Panneau des détails de l’élément de la Place de marché Azure Stack Hub](media/azure-stack-create-and-publish-marketplace-item/image3.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Vue d’ensemble de la Place de Marché Azure Stack](azure-stack-marketplace.md)
+- [Vue d’ensemble de la Place de marché Azure Stack Hub](azure-stack-marketplace.md)
 - [Télécharger des éléments de la Place de marché](azure-stack-download-azure-marketplace-item.md)
 - [Format et structure des modèles Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates)

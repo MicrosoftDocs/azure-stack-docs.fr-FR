@@ -1,6 +1,6 @@
 ---
-title: Prérequis pour le déploiement d’App Service sur Azure Stack | Microsoft Docs
-description: Découvrez les étapes de vérification des prérequis à effectuer avant de déployer App Service sur Azure Stack.
+title: Prérequis pour le déploiement d’Azure App Service sur Azure Stack Hub | Microsoft Docs
+description: Découvrez les étapes de vérification des prérequis à effectuer avant de déployer Azure App Service sur Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -12,30 +12,30 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/08/2020
-ms.openlocfilehash: 759e25155abcc65bd2d671b310d6b93900b832db
-ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
+ms.lastreviewed: 01/13/2020
+ms.openlocfilehash: e5dffbfd82ab8c23aa3862763f02ae759cf4de08
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75756965"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924228"
 ---
-# <a name="prerequisites-for-deploying-app-service-on-azure-stack"></a>Prérequis pour le déploiement d’App Service sur Azure Stack
+# <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Prérequis pour le déploiement d’App Service sur Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : Systèmes intégrés Azure Stack Hub et kit SDK de développement Azure Stack Hub*
 
-Avant de déployer Azure App Service sur Azure Stack, vous devez effectuer les étapes de prérequis décrites dans cet article.
+Avant de déployer Azure App Service sur Azure Stack Hub, vous devez effectuer les étapes de prérequis décrites dans cet article.
 
 > [!IMPORTANT]
-> Appliquez la mise à jour 1904 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack (ASDK) avant de déployer Azure App Service 1.6.
+> Appliquez la mise à jour 1910 à votre système intégré Azure Stack Hub ou déployez le dernier kit de développement Azure Stack Hub (ASDK) avant de déployer Azure App Service 1.8.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Téléchargez le programme d’installation et les scripts d’assistance
 
-1. Téléchargez les [scripts d’assistance au déploiement App Service sur Azure Stack](https://aka.ms/appsvconmashelpers).
-2. Téléchargez le [programme d’installation d’App Service sur Azure Stack](https://aka.ms/appsvconmasinstaller).
+1. Téléchargez les [scripts d’assistance au déploiement App Service sur Azure Stack Hub](https://aka.ms/appsvconmashelpers).
+2. Téléchargez le [programme d’installation d’App Service sur Azure Stack Hub](https://aka.ms/appsvconmasinstaller).
 3. Extrayez les fichiers à partir du fichier zip des scripts d’assistance. Les fichiers et dossiers suivants sont extraits :
 
    - Common.ps1
@@ -49,16 +49,16 @@ Avant de déployer Azure App Service sur Azure Stack, vous devez effectuer les �
 
 ## <a name="download-items-from-the-azure-marketplace"></a>Télécharger des éléments à partir de la Place de marché Azure
 
-Azure App Service sur Azure Stack nécessite que les éléments soient [téléchargés à partir de la Place de marché Azure](azure-stack-download-azure-marketplace-item.md) afin de les rendre disponibles dans la Place de marché Azure Stack. Vous devez télécharger les éléments suivants avant de commencer le déploiement ou la mise à niveau d’Azure App Service sur Azure Stack :
+Azure App Service sur Azure Stack Hub nécessite que les éléments soient [téléchargés à partir de la Place de marché Azure](azure-stack-download-azure-marketplace-item.md) afin de les rendre disponibles dans la Place de marché Azure Stack Hub. Vous devez télécharger les éléments suivants avant de commencer le déploiement ou la mise à niveau d’Azure App Service sur Azure Stack Hub :
 
 1. La dernière version de l’image de machine virtuelle Windows Server 2016 Datacenter.
 2. L’extension de script personnalisé v1.9.1 (ou version ultérieure). Il s’agit d’une extension de machine virtuelle.
 
 ## <a name="get-certificates"></a>Obtenir des certificats
 
-### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Certificat racine Azure Resource Manager pour Azure Stack
+### <a name="azure-resource-manager-root-certificate-for-azure-stack-hub"></a>Certificat racine Azure Resource Manager pour Azure Stack Hub
 
-Ouvrez une session PowerShell avec élévation de privilèges sur un ordinateur qui peut atteindre le point de terminaison privilégié sur le système intégré Azure Stack ou l’hôte ASDK.
+Ouvrez une session PowerShell avec élévation de privilèges sur un ordinateur qui peut atteindre le point de terminaison privilégié sur le système intégré Azure Stack Hub ou l’hôte ASDK.
 
 Exécutez le script *Get-AzureStackRootCert.ps1* à partir du dossier où vous avez extrait les scripts d’assistance. Le script crée un certificat racine dans le même dossier que le script dont App Service a besoin pour créer des certificats.
 
@@ -73,11 +73,11 @@ Lorsque vous exécutez la commande PowerShell suivante, vous devez fournir le po
 | Paramètre | Obligatoire ou facultatif | Valeur par défaut | Description |
 | --- | --- | --- | --- |
 | PrivilegedEndpoint | Obligatoire | AzS-ERCS01 | Point de terminaison privilégié |
-| CloudAdminCredential | Obligatoire | AzureStack\CloudAdmin | Informations d’identification du compte de domaine pour les administrateurs cloud d’Azure Stack |
+| CloudAdminCredential | Obligatoire | AzureStack\CloudAdmin | Informations d’identification du compte de domaine pour les administrateurs cloud d’Azure Stack Hub |
 
 ### <a name="certificates-required-for-asdk-deployment-of-azure-app-service"></a>Certificats requis pour le déploiement ASDK d’Azure App Service
 
-Le script *Create-AppServiceCerts.ps1* fonctionne avec l’autorité de certification Azure Stack pour créer les quatre certificats dont App Service a besoin.
+Le script *Create-AppServiceCerts.ps1* fonctionne avec l’autorité de certification Azure Stack Hub pour créer les quatre certificats dont App Service a besoin.
 
 | Nom de fichier | Utilisation |
 | --- | --- |
@@ -91,16 +91,16 @@ Pour créer les certificats, suivez les étapes ci-dessous :
 1. Connectez-vous à l’hôte ASDK en utilisant le compte AzureStack\AzureStackAdmin.
 2. Ouvrez une session PowerShell avec élévation de privilèges.
 3. Exécutez le script *Create-AppServiceCerts.ps1* à partir du dossier où vous avez extrait les scripts d’assistance. Ce script crée quatre certificats dans le même dossier que le script dont App Service a besoin pour créer des certificats.
-4. Entrez un mot de passe pour sécuriser les fichiers .pfx et prenez-en note. Vous devez l’entrer dans le programme d’installation d’App Service sur Azure Stack.
+4. Entrez un mot de passe pour sécuriser les fichiers .pfx et prenez-en note. Vous devez l’entrer dans le programme d’installation d’App Service sur Azure Stack Hub.
 
 #### <a name="create-appservicecertsps1-script-parameters"></a>Paramètres du script Create-AppServiceCerts.ps1
 
 | Paramètre | Obligatoire ou facultatif | Valeur par défaut | Description |
 | --- | --- | --- | --- |
 | pfxPassword | Obligatoire | Null | Mot de passe pour aider à protéger la clé privée du certificat |
-| DomainName | Obligatoire | local.azurestack.external | Suffixe de la région et du domaine Azure Stack |
+| DomainName | Obligatoire | local.azurestack.external | Suffixe de la région et du domaine Azure Stack Hub |
 
-### <a name="certificates-required-for-azure-stack-production-deployment-of-azure-app-service"></a>Certificats requis pour un déploiement de production Azure Stack d’Azure App Service
+### <a name="certificates-required-for-azure-stack-hub-production-deployment-of-azure-app-service"></a>Certificats requis pour un déploiement de production Azure Stack Hub d’Azure App Service
 
 Pour exécuter le fournisseur de ressources en production, vous devez fournir les certificats suivants :
 
@@ -141,8 +141,8 @@ Le certificat du rôle de serveur de publication sécurise le trafic FTPS quand 
 
 Le certificat de l’application d’identité permet :
 
-- l’intégration entre le répertoire Azure Active Directory (Azure AD) ou les services de fédération Active Directory (AD FS), Azure Stack et App Service pour prendre en charge l’intégration avec le fournisseur de ressources de calcul.
-- Des scénarios d’authentification unique pour les outils de développement avancés dans Azure App Service sur Azure Stack.
+- l’intégration entre le répertoire Azure Active Directory (Azure AD) ou les services de fédération Active Directory (AD FS), Azure Stack Hub et App Service pour prendre en charge l’intégration avec le fournisseur de ressources de calcul.
+- Des scénarios d’authentification unique pour les outils de développement avancés dans Azure App Service sur Azure Stack Hub.
 
 Le certificat d’identité doit contenir un objet qui correspond au format suivant.
 
@@ -152,16 +152,16 @@ Le certificat d’identité doit contenir un objet qui correspond au format suiv
 
 ### <a name="validate-certificates"></a>Valider les certificats
 
-Avant de déployer le fournisseur de ressources App Service, vous devez [valider les certificats à utiliser](azure-stack-validate-pki-certs.md#using-validated-certificates) à l’aide de l’outil Azure Stack Readiness Checker disponible dans la [PowerShell Gallery](https://aka.ms/AzsReadinessChecker). L’outil Azure Stack Readiness Checker vérifie que les certificats PKI générés conviennent pour le déploiement d’App Service.
+Avant de déployer le fournisseur de ressources App Service, vous devez [valider les certificats à utiliser](azure-stack-validate-pki-certs.md) à l’aide de l’outil Azure Stack Hub Readiness Checker disponible dans la [PowerShell Gallery](https://aka.ms/AzsReadinessChecker). L’outil Azure Stack Hub Readiness Checker vérifie que les certificats PKI générés conviennent pour le déploiement d’App Service.
 
-En guise de bonne pratique, quand vous utilisez un ou plusieurs des [certificats PKI Azure Stack](azure-stack-pki-certs.md) nécessaires, prévoyez suffisamment de temps pour tester et réémettre les certificats au besoin.
+En guise de bonne pratique, quand vous utilisez un ou plusieurs des [certificats PKI Azure Stack Hub](azure-stack-pki-certs.md) nécessaires, prévoyez suffisamment de temps pour tester et réémettre les certificats au besoin.
 
 ## <a name="virtual-network"></a>Réseau virtuel
 
 > [!NOTE]
-> La création préalable d’un réseau virtuel personnalisé est optionnelle, car le service Azure App Service sur Azure Stack peut créer le réseau virtuel requis, mais il devra ensuite communiquer avec SQL et File Server via des adresses IP publiques.
+> La création préalable d’un réseau virtuel personnalisé est optionnelle, car le service Azure App Service sur Azure Stack Hub peut créer le réseau virtuel requis, mais il devra ensuite communiquer avec SQL et File Server via des adresses IP publiques.
 
-Azure App Service sur Azure Stack permet de déployer le fournisseur de ressources sur un réseau virtuel existant ou de créer un réseau virtuel dans le cadre du déploiement. Si vous avez un réseau virtuel existant, vous pouvez utiliser des adresses IP internes pour vous connecter au serveur de fichiers et à SQL Server requis par Azure App Service sur Azure Stack. Vous devrez configurer le réseau virtuel avec la plage d’adresses et les sous-réseaux suivants avant d’installer Azure App Service sur Azure Stack :
+Azure App Service sur Azure Stack Hub permet de déployer le fournisseur de ressources sur un réseau virtuel existant ou de créer un réseau virtuel dans le cadre du déploiement. Si vous avez un réseau virtuel existant, vous pouvez utiliser des adresses IP internes pour vous connecter au serveur de fichiers et à SQL Server requis par Azure App Service sur Azure Stack Hub. Vous devez configurer le réseau virtuel avec la plage d’adresses et les sous-réseaux suivants avant d’installer Azure App Service sur Azure Stack Hub :
 
 Réseau virtuel - /16
 
@@ -175,12 +175,12 @@ Sous-réseaux
 
 ## <a name="licensing-concerns-for-required-file-server-and-sql-server"></a>Problèmes de licences pour le serveur de fichiers requis et SQL Server
 
-Azure App Service sur Azure Stack nécessite un serveur de fichiers et SQL Server pour fonctionner.  Vous êtes libre d’utiliser des ressources préexistantes situées en dehors de votre déploiement Azure Stack ou de déployer des ressources au sein de leur abonnement fournisseur par défaut Azure Stack.
+Azure App Service sur Azure Stack Hub nécessite un serveur de fichiers et SQL Server pour fonctionner.  Vous êtes libre d’utiliser des ressources préexistantes situées en dehors de votre déploiement Azure Stack Hub ou de déployer des ressources au sein de leur abonnement fournisseur par défaut Azure Stack Hub.
 
-Si vous choisissez de déployer les ressources au sein de votre Abonnement fournisseur par défaut Azure Stack, les licences pour ces ressources (licences Windows Server et licences SQL Server) sont incluses dans le coût d’Azure App Service sur Azure Stack et soumises aux contraintes suivantes :
+Si vous choisissez de déployer les ressources au sein de votre Abonnement fournisseur par défaut Azure Stack Hub, les licences pour ces ressources (licences Windows Server et licences SQL Server) sont incluses dans le coût d’Azure App Service sur Azure Stack Hub et soumises aux contraintes suivantes :
 
 - l’infrastructure est déployée dans **l’abonnement fournisseur par défaut** ;
-- l’infrastructure est utilisée exclusivement par Azure App Service sur le fournisseur de ressources Azure Stack.  Les autres charges de travail, d’administration (autres fournisseurs de ressources, par exemple : SQL-RP) ou de locataire (par exemple, applications de locataire, qui nécessitent une base de données) ne sont pas autorisées à utiliser cette infrastructure.
+- l’infrastructure est utilisée exclusivement par Azure App Service sur le fournisseur de ressources Azure Stack Hub.  Les autres charges de travail, d’administration (autres fournisseurs de ressources, par exemple : SQL-RP) ou de locataire (par exemple, applications de locataire, qui nécessitent une base de données) ne sont pas autorisées à utiliser cette infrastructure.
 
 ## <a name="prepare-the-file-server"></a>Préparer le serveur de fichiers
 
@@ -192,7 +192,7 @@ Pour les déploiements d’ASDK uniquement, vous pouvez utiliser cet [exemple de
 
 ### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>Modèle de démarrage rapide pour un serveur de fichiers et SQL Server à haute disponibilité
 
-Un [modèle de démarrage rapide d’une architecture de référence](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) est maintenant disponible pour déployer un serveur de fichiers et SQL Server. Ce modèle prend en charge l’infrastructure Active Directory dans un réseau virtuel qui est configuré pour prendre en charge un déploiement à haut niveau de disponibilité d’Azure App Service sur Azure Stack.
+Un [modèle de démarrage rapide d’une architecture de référence](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) est maintenant disponible pour déployer un serveur de fichiers et SQL Server. Ce modèle prend en charge l’infrastructure Active Directory dans un réseau virtuel qui est configuré pour prendre en charge un déploiement à haut niveau de disponibilité d’Azure App Service sur Azure Stack Hub.
 
 ### <a name="steps-to-deploy-a-custom-file-server"></a>Étapes pour déployer un serveur de fichiers personnalisé
 
@@ -305,13 +305,13 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 >[!NOTE]
 > Si vous avez choisi de déployer le modèle de démarrage rapide pour un serveur de fichiers et SQL Server à haute disponibilité, vous pouvez ignorer cette section, car le modèle déploie et configure SQL Server dans une configuration haute disponibilité (HA).
 
-Pour qu’Azure App Service sur Azure Stack héberge et contrôle les bases de données, vous devez préparer une instance SQL Server pour stocker les bases de données d’App Service.
+Pour qu’Azure App Service sur Azure Stack Hub héberge et contrôle les bases de données, vous devez préparer une instance SQL Server pour stocker les bases de données d’App Service.
 
-Pour les déploiements d’ASDK, vous pouvez utiliser SQL Server Express 2014 SP2 ou une version ultérieure. SQL Server doit être configuré pour prendre en charge l’authentification en **mode mixte**, car App service sur Azure Stack ne prend **PAS** en charge l’authentification Windows.
+Pour les déploiements d’ASDK, vous pouvez utiliser SQL Server Express 2014 SP2 ou une version ultérieure. SQL Server doit être configuré pour prendre en charge l’authentification en **mode mixte**, car App service sur Azure Stack Hub ne prend **PAS** en charge l’authentification Windows.
 
 Pour des raisons de production et de haute disponibilité, vous devez utiliser une version complète de SQL Server 2014 SP2 ou une version ultérieure, activer l’authentification en mode mixte et déployer une [configuration hautement disponible](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
-L’instance SQL Server pour Azure App Service sur Azure Stack doit être accessible depuis tous les rôles App Service. SQL Server peut être déployé au sein d’un abonnement de fournisseur par défaut dans Azure Stack. Vous pouvez aussi vous servir d’une infrastructure existante au sein de votre organisation (sous réserve d’une connectivité avec Azure Stack). Si vous utilisez une image de Place de marché Azure, pensez à configurer le pare-feu en conséquence.
+L’instance SQL Server pour Azure App Service sur Azure Stack Hub doit être accessible depuis tous les rôles App Service. SQL Server peut être déployé au sein d’un abonnement de fournisseur par défaut dans Azure Stack Hub. Vous pouvez aussi vous servir d’une infrastructure existante au sein de votre organisation (sous réserve d’une connectivité avec Azure Stack Hub). Si vous utilisez une image de Place de marché Azure, pensez à configurer le pare-feu en conséquence.
 
 > [!NOTE]
 > Un certain nombre d’images de machines virtuelles IaaS SQL sont disponibles via la fonctionnalité Gestion de la Place de Marché. Assurez-vous de toujours télécharger la dernière version de l’extension Iaas SQL avant de déployer une machine virtuelle à l’aide d’un élément de la Place de marché. Les images SQL sont les mêmes que les machines virtuelles SQL sont disponibles dans Azure. Pour les machines virtuelles SQL créées à partir de ces images, l’extension IaaS et les améliorations apportées au portail correspondantes fournissent des fonctionnalités de mise à jour corrective et de sauvegarde automatique.
@@ -338,7 +338,7 @@ Configurez un principal de service Azure AD pour prendre en charge les opérati
 - Intégration d’un groupe de machines virtuelles identiques sur les niveaux de travail.
 - Authentification unique pour le portail Azure Functions et les outils de développement avancés.
 
-Ces étapes s’appliquent uniquement aux environnements Azure Stack sécurisés avec Azure AD.
+Ces étapes s’appliquent uniquement aux environnements Azure Stack Hub sécurisés avec Azure AD.
 
 Les administrateurs doivent configurer l’authentification unique pour :
 
@@ -349,8 +349,8 @@ Suivez ces étapes pour créer le principal de service dans votre locataire Azur
 
 1. Ouvrez une instance PowerShell en tant que azurestack\Azurestackadmin.
 2. Accédez à l’emplacement où les scripts ont été téléchargés et extraits dans [l’étape des prérequis](azure-stack-app-service-before-you-get-started.md).
-3. [Installez PowerShell pour Azure Stack](azure-stack-powershell-install.md).
-4. Exécutez le script **Create-AADIdentityApp.ps1**. Lorsque vous y êtes invité, entrez l’ID de locataire Azure AD que vous utilisez pour votre déploiement Azure Stack. Par exemple, entrez **myazurestack.onmicrosoft.com**.
+3. [Installez PowerShell pour Azure Stack Hub](azure-stack-powershell-install.md).
+4. Exécutez le script **Create-AADIdentityApp.ps1**. Lorsque vous y êtes invité, entrez l’ID de locataire Azure AD que vous utilisez pour votre déploiement Azure Stack Hub. Par exemple, entrez **myazurestack.onmicrosoft.com**.
 5. Dans la fenêtre **Informations d’identification**, entrez votre compte administrateur et votre mot de passe pour le service Azure AD. Sélectionnez **OK**.
 6. Entrez le chemin d’accès au fichier du certificat et le mot de passe du certificat pour le [certificat créé précédemment](azure-stack-app-service-before-you-get-started.md). Le certificat par défaut créé pour cette étape est **sso.appservice.local.azurestack.external.pfx**.
 7. Notez l’ID d’application qui est retourné dans la sortie PowerShell. Vous utilisez l’ID au cours des étapes suivantes pour donner votre consentement aux demandes d’autorisation de l’application, et pendant l’installation. 
@@ -378,7 +378,7 @@ Suivez ces étapes pour créer le principal de service dans votre locataire Azur
 
 ## <a name="create-an-active-directory-federation-services-app"></a>Créer une application AD FS (Active Directory Federation Services)
 
-Pour les environnements Azure Stack sécurisés par AD FS, vous devez configurer un principal du service AD FS pour prendre en charge les opérations suivantes :
+Pour les environnements Azure Stack Hub sécurisés par AD FS, vous devez configurer un principal du service AD FS pour prendre en charge les opérations suivantes :
 
 - Intégration d’un groupe de machines virtuelles identiques sur les niveaux de travail.
 - Authentification unique pour le portail Azure Functions et les outils de développement avancés.
@@ -393,7 +393,7 @@ Procédez comme suit :
 
 1. Ouvrez une instance PowerShell en tant que azurestack\Azurestackadmin.
 2. Accédez à l’emplacement où les scripts ont été téléchargés et extraits dans [l’étape des prérequis](azure-stack-app-service-before-you-get-started.md).
-3. [Installez PowerShell pour Azure Stack](azure-stack-powershell-install.md).
+3. [Installez PowerShell pour Azure Stack Hub](azure-stack-powershell-install.md).
 4. Exécutez le script **Create-ADFSIdentityApp.ps1**.
 5. Dans la fenêtre **Informations d’identification**, entrez votre compte administrateur et votre mot de passe pour le cloud AD FS. Sélectionnez **OK**.
 6. Entrez le chemin d’accès au fichier du certificat et le mot de passe du certificat pour le [certificat créé précédemment](azure-stack-app-service-before-you-get-started.md). Le certificat par défaut créé pour cette étape est **sso.appservice.local.azurestack.external.pfx**.
@@ -406,7 +406,7 @@ Procédez comme suit :
 | --- | --- | --- | --- |
 | AdminArmEndpoint | Obligatoire | Null | Point de terminaison Azure Resource Manager d’administrateur. Par exemple : adminmanagement.local.azurestack.external. |
 | PrivilegedEndpoint | Obligatoire | Null | Point de terminaison privilégié. Par exemple : AzS-ERCS01. |
-| CloudAdminCredential | Obligatoire | Null | Informations d’identification du compte de domaine pour les administrateurs cloud d’Azure Stack. Par exemple : Azurestack\CloudAdmin. |
+| CloudAdminCredential | Obligatoire | Null | Informations d’identification du compte de domaine pour les administrateurs cloud d’Azure Stack Hub. Par exemple : Azurestack\CloudAdmin. |
 | CertificateFilePath | Obligatoire | Null | **Chemin complet** du fichier PFX du certificat d’application d’identité. |
 | CertificatePassword | Obligatoire | Null | Mot de passe pour aider à protéger la clé privée du certificat. |
 

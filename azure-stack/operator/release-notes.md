@@ -16,16 +16,14 @@ ms.date: 12/18/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: fab9904ca598ff1306d4ad0277aabcf0ab073845
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: da89dbe1cfb03e7e1970852b5742c4d9290ba93c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727477"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879969"
 ---
 # <a name="azure-stack-hub-updates-release-notes"></a>Mises à jour d’Azure Stack Hub : notes de publication
-
-*S’applique à : Systèmes intégrés Azure Stack Hub*
 
 Cet article décrit le contenu des mises à jour d’Azure Stack Hub. La mise à jour inclut les nouveautés, les améliorations et les correctifs logiciels de cette version d’Azure Stack Hub.
 
@@ -76,7 +74,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 
 <!-- What's new, also net new experiences and features. -->
 
-- Le portail administrateur montre désormais les adresses IP des points de terminaison privilégiés dans le menu des propriétés de région pour faciliter leur découverte. Il montre aussi le serveur de temps et les redirecteurs DNS actuellement configurés. Pour plus d’informations, consultez [Utiliser le point de terminaison privilégié dans Azure Stack](azure-stack-privileged-endpoint.md).
+- Le portail administrateur montre désormais les adresses IP des points de terminaison privilégiés dans le menu des propriétés de région pour faciliter leur découverte. Il montre aussi le serveur de temps et les redirecteurs DNS actuellement configurés. Pour plus d’informations, consultez [Utiliser le point de terminaison privilégié dans Azure Stack Hub](azure-stack-privileged-endpoint.md).
 
 - Le système de contrôle d’intégrité et de supervision d’Azure Stack Hub peut désormais déclencher des alertes pour divers composants matériels en cas d’erreur. Cela demande une configuration supplémentaire. Pour plus d’informations, consultez [Superviser les composants matériels d’Azure Stack Hub](azure-stack-hardware-monitoring.md).
 
@@ -96,7 +94,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 
 - Ajout de la prise en charge de la gestion des **clusters Kubernetes** à l’aide du [moteur AKS](../user/azure-stack-kubernetes-aks-engine-overview.md). À partir de cette mise à jour, les clients peuvent déployer des clusters Kubernetes de production. Le moteur AKS permet aux utilisateurs d’effectuer les opérations suivantes :
   - Gérer le cycle de vie de leurs clusters Kubernetes. Ils peuvent créer, mettre à jour et mettre à l’échelle des clusters.
-  - Gérer leurs clusters à l’aide d’images managées produites par AKS et les équipes Azure Stack.
+  - Gérer leurs clusters à l’aide d’images managées produites par AKS et les équipes Azure Stack Hub.
   - Tirer parti d’un fournisseur de cloud Kubernetes intégré à Azure Resource Manager, qui crée des clusters à l’aide de ressources Azure natives.
   - Déployer et gérer leurs clusters dans des empreintes Azure Stack Hub connectées ou déconnectées.
   - Utiliser les fonctionnalités hybrides Azure :
@@ -117,7 +115,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 
 - Ajout d’une règle d’audit pour signaler le moment où un périphérique externe (par exemple une clé USB) est monté sur un nœud de l’infrastructure Azure Stack Hub. Le journal d’audit est émis via syslog et s’affiche sous la forme **Microsoft-Windows-Security-Auditing : 6416|Événements Plug-and-Play**. Pour plus d’informations sur la façon de configurer le client syslog, consultez [Transfert Syslog](azure-stack-integrate-security.md).
 
-- Azure Stack hub passe aux clés RSA 4 096 bits pour les certificats internes. La rotation des secrets internes remplace les anciens certificats 2 048 bits par des certificats d’une longueur de 4 096 bits. Pour plus d’informations sur la rotation des secrets dans Azure Stack Hub, consultez [Effectuer une rotation des secrets dans Azure Stack Hub](azure-stack-rotate-secrets.md).
+- Azure Stack Hub passe aux clés RSA 4 096 bits pour les certificats internes. La rotation des secrets internes remplace les anciens certificats 2 048 bits par des certificats d’une longueur de 4 096 bits. Pour plus d’informations sur la rotation des secrets dans Azure Stack Hub, consultez [Effectuer une rotation des secrets dans Azure Stack Hub](azure-stack-rotate-secrets.md).
 
 - Mises à niveau vers la complexité des algorithmes de chiffrement et la robustesse des clés pour plusieurs composants internes afin de se conformer à la stratégie CNSSP-15 (Committee on National Security Systems - Policy 15), qui fournit les bonnes pratiques d’utilisation des normes publiques pour assurer la sécurité du partage des informations. Parmi les améliorations, citons AES256 pour l’authentification Kerberos et SHA384 pour le chiffrement VPN. Pour plus d’informations sur la stratégie CNSSP-15, reportez-vous à la [page Policies du Committee on National Security Systems](http://www.cnss.gov/CNSS/issuances/Policies.cfm).
 
@@ -163,7 +161,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 
 - Le service Infrastructure Backup ajoute le service d’identité à la charge utile de sauvegarde pour les déploiements AAD.  
 
-- Le module PowerShell Azure Stack a été mis à jour vers la version 1.8.0 pour la version 1910.<br>Les changements sont notamment :
+- Le module PowerShell Azure Stack Hub a été mis à jour vers la version 1.8.0 pour la version 1910.<br>Les changements sont notamment :
    - **Nouveau module d’administration DRP** : Le DRP (fournisseur de ressources de déploiement) permet des déploiements orchestrés de fournisseurs de ressources sur Azure Stack Hub. Ces commandes interagissent avec la couche Azure Resource Manager pour interagir avec le fournisseur DRP.
    - **BRP** : <br />
            - Prise en charge de la restauration de rôle unique pour la sauvegarde d’infrastructure Azure Stack. <br />
@@ -224,19 +222,19 @@ Après l’installation de cette mise à jour, installez les correctifs logiciel
 ::: moniker range="azs-1908"
 ## <a name="1908-build-reference"></a>Référence de build 1908
 
-Le numéro de build de la mise à jour 1908 d’Azure Stack est **1.1908.4.33**.
+Le numéro de build de la mise à jour 1908 d’Azure Stack Hub est **1.1908.4.33**.
 
 ### <a name="update-type"></a>Type de mise à jour
 
-Pour la version 1908, le système d’exploitation sous-jacent sur lequel Azure Stack s’exécute a été mis à jour vers Windows Server 2019. Cela apporte des améliorations fondamentales, ainsi que la possibilité d’ajouter des fonctionnalités supplémentaires à Azure Stack dans un avenir proche.
+Pour la version 1908, le système d’exploitation sous-jacent sur lequel Azure Stack Hub s’exécute a été mis à jour vers Windows Server 2019. Cela permettra l’obtention d’améliorations fondamentales ainsi que l’ajout de fonctionnalités supplémentaires dans Azure Stack Hub très prochainement.
 
-Le type de build de la mise à jour 1908 d’Azure Stack est **Complète**. Par conséquent, la mise à jour 1908 prend plus de temps que les mises à jour Express telles que 1906 et 1907. Les runtimes exacts des mises à jour complètes dépendent généralement du nombre de nœuds que votre instance Azure Stack contient, de la capacité utilisée sur votre système par les charges de travail clientes, de la connectivité réseau de votre système (s’il est connecté à Internet) et de la configuration de votre matériel système. La mise à jour 1908 a présenté les durées d’exécution attendues suivantes dans nos tests internes : 4 nœuds - 42 heures, 8 nœuds - 50 heures, 12 nœuds - 60 heures, 16 nœuds - 70 heures. Il n’est pas rare de constater des durées d’exécution des mises à jour plus longues que ces durées prévues, mais cela ne nécessite aucune action de la part des opérateurs Azure Stack, sauf si la mise à jour échoue.
+Le type de build de la mise à jour 1908 d’Azure Stack Hub est **Complète**. Par conséquent, la mise à jour 1908 prend plus de temps que les mises à jour Express telles que 1906 et 1907. Les runtimes exacts des mises à jour complètes dépendent généralement du nombre de nœuds que votre instance Azure Stack Hub contient, de la capacité utilisée sur votre système par les charges de travail clientes, de la connectivité réseau de votre système (s’il est connecté à Internet) et de la configuration de votre matériel système. La mise à jour 1908 a présenté les durées d’exécution attendues suivantes dans nos tests internes : 4 nœuds - 42 heures, 8 nœuds - 50 heures, 12 nœuds - 60 heures, 16 nœuds - 70 heures. Il n’est pas rare de constater des durées d’exécution des mises à jour plus longues que ces durées prévues, mais cela ne nécessite aucune action de la part des opérateurs Azure Stack Hub, sauf si la mise à jour échoue.
 
-Pour plus d’informations sur les types de build de mise à jour, voir [Gérer les mises à jour dans Azure Stack](azure-stack-updates.md).
+Pour plus d’informations sur les types de build de mise à jour, consultez [Gérer les mises à jour dans Azure Stack Hub](azure-stack-updates.md).
 
 - La durée d’exécution exacte des mises à jour dépend généralement de la capacité utilisée sur votre système par les charges de travail client, de la connectivité réseau de votre système (s’il est connecté à Internet) et de la configuration de votre matériel système.
-- Les durées d’exécution plus longues que prévu ne sont pas rares et ne nécessitent aucune action de la part des opérateurs Azure Stack, sauf si la mise à jour échoue.
-- Cette approximation d’exécution est propre à la mise à jour 1908 et n’est pas comparable aux autres mises à jour d’Azure Stack.
+- Les durées d’exécution plus longues que prévu ne sont pas rares et ne nécessitent aucune action de la part des opérateurs Azure Stack Hub, sauf si la mise à jour échoue.
+- Cette approximation d’exécution est propre à la mise à jour 1908. Elle ne doit pas être comparée aux autres mises à jour d’Azure Stack Hub.
 
 <!-- ## What's in this update -->
 
@@ -246,22 +244,22 @@ Pour plus d’informations sur les types de build de mise à jour, voir [Gérer 
 
 <!-- What's new, also net new experiences and features. -->
 
-- Pour la version 1908, le système d’exploitation sous-jacent sur lequel Azure Stack s’exécute a été mis à jour vers Windows Server 2019. Cela apporte des améliorations fondamentales, ainsi que la possibilité d’ajouter des fonctionnalités supplémentaires à Azure Stack dans un avenir proche.
-- Tous les composants de l’infrastructure Azure Stack fonctionnent désormais en mode FIPS 140-2.
-- Les opérateurs Azure Stack peuvent désormais supprimer les données utilisateur du portail. Pour plus d’informations, consultez [Effacer les données utilisateur du portail dans Azure Stack](azure-stack-portal-clear.md).
+- Pour la version 1908, le système d’exploitation sous-jacent sur lequel Azure Stack Hub s’exécute a été mis à jour vers Windows Server 2019. Cela permettra l’obtention d’améliorations fondamentales ainsi que l’ajout de fonctionnalités supplémentaires dans Azure Stack Hub très prochainement.
+- Tous les composants de l’infrastructure Azure Stack Hub fonctionnent à présent en mode FIPS 140-2.
+- Les opérateurs Azure Stack Hub peuvent à présent supprimer les données utilisateur du portail. Pour plus d’informations, consultez [Effacer les données utilisateur du portail dans Azure Stack Hub](azure-stack-portal-clear.md).
 
 ### <a name="improvements"></a>Améliorations
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
-- Le chiffrement des données au repos dans Azure Stack a été amélioré afin de rendre les secrets persistants dans le module matériel TPM des nœuds physiques.
+- Le chiffrement des données au repos dans Azure Stack Hub a été amélioré afin de rendre les secrets persistants dans le module matériel TPM des nœuds physiques.
 
 ### <a name="changes"></a>Modifications
 
-- Les fournisseurs de matériel publieront le package d’extension OEM version 2.1 ou ultérieure en même temps qu’Azure Stack version 1908. Le package d’extension OEM version 2.1 ou ultérieure est requis pour la version 1908 d’Azure Stack. Pour plus d’informations sur le téléchargement du package d’extension OEM version 2.1 ou ultérieure, contactez le fournisseur de matériel pour votre système, et consultez l’article sur les [mises à jour OEM](azure-stack-update-oem.md#oem-contact-information).  
+- Les fournisseurs de matériel publieront le package d’extension OEM version 2.1 ou ultérieure en même temps qu’Azure Stack Hub version 1908. Le package d’extension OEM version 2.1 ou ultérieure est requis pour la version 1908 d’Azure Stack Hub. Pour plus d’informations sur le téléchargement du package d’extension OEM version 2.1 ou ultérieure, contactez le fournisseur de matériel pour votre système, et consultez l’article sur les [mises à jour OEM](azure-stack-update-oem.md#oem-contact-information).  
 
 ### <a name="fixes"></a>Correctifs
 
-- Résolution d’un problème de compatibilité avec les futures mises à jour OEM d’Azure Stack et d’un problème de déploiement de machine virtuelle à l’aide d’images utilisateur client. Ce problème a été détecté dans la version 1907 et résolu avec le correctif logiciel [KB4517473](https://support.microsoft.com/en-us/help/4517473/azure-stack-hotfix-1-1907-12-44)  
+- Résolution d’un problème de compatibilité avec les futures mises à jour OEM d’Azure Stack Hub et d’un problème de déploiement de machine virtuelle à l’aide d’images utilisateur client. Ce problème a été détecté dans la version 1907 et résolu avec le correctif logiciel [KB4517473](https://support.microsoft.com/en-us/help/4517473/azure-stack-hotfix-1-1907-12-44)  
 - Résolution d’un problème avec la mise à jour des microprogrammes OEM et correction du diagnostic incorrect dans Test-AzureStack pour Fabric Ring Health. Ce problème a été détecté dans la version 1907 et résolu avec le correctif logiciel [KB4515310](https://support.microsoft.com/en-us/help/4515310/azure-stack-hotfix-1-1907-7-35)
 - Correction d’un problème avec le processus de mise à jour des microprogrammes OEM. Ce problème a été détecté dans la version 1907 et résolu avec le correctif logiciel [KB4515650](https://support.microsoft.com/en-us/help/4515650/azure-stack-hotfix-1-1907-8-37)
 
@@ -269,47 +267,47 @@ Pour plus d’informations sur les types de build de mise à jour, voir [Gérer 
 
 ## <a name="security-updates"></a>Mises à jour de sécurité
 
-Pour plus d’informations sur les mises à jour de sécurité dans cette mise à jour d’Azure Stack, consultez [Mises à jour de sécurité Azure Stack](release-notes-security-updates.md).
+Pour plus d’informations sur les mises à jour de sécurité dans cette mise à jour d’Azure Stack Hub, consultez [Mises à jour de sécurité Azure Stack Hub](release-notes-security-updates.md).
 
 ## <a name="download-the-update-1908"></a>Télécharger la mise à jour
 
-Vous pouvez télécharger la mise à jour 1908 d’Azure Stack sur la [page de téléchargement d’Azure Stack](https://aka.ms/azurestackupdatedownload).
+Vous pouvez télécharger la mise à jour 1908 d’Azure Stack Hub à partir de la [page de téléchargement d’Azure Stack Hub](https://aka.ms/azurestackupdatedownload).
 
 ## <a name="hotfixes"></a>Correctifs logiciels
 
-Azure Stack publie des correctifs logiciels à intervalles réguliers. Avant d’installer la mise à jour 1908 d’Azure Stack, veillez à installer le dernier correctif logiciel d’Azure Stack pour la build 1907.
+Azure Stack Hub publie régulièrement des correctifs logiciels. Veillez à installer le dernier correctif logiciel Azure Stack Hub pour la version 1907 avant de mettre à jour Azure Stack Hub vers la version 1908.
 
-Les correctifs logiciels Azure Stack sont uniquement applicables aux systèmes intégrés Azure Stack. N’essayez pas d’installer des correctifs logiciels sur l’ASDK.
+Les correctifs logiciels Azure Stack Hub s’appliquent uniquement aux systèmes intégrés Azure Stack Hub. N’essayez pas d’installer des correctifs logiciels sur l’ASDK.
 
 ### <a name="prerequisites-before-applying-the-1908-update"></a>Configuration requise : Avant d’appliquer la mise à jour 1908
 
-La version 1908 d’Azure Stack doit être appliquée sur la version 1907 avec les correctifs logiciels suivants :
+La version 1908 d’Azure Stack Hub doit être appliquée sur la version 1907 avec les correctifs logiciels suivants :
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack 1.1907.18.56](https://support.microsoft.com/help/4528552)
+- [Correctif logiciel Azure Stack Hub 1.1907.18.56](https://support.microsoft.com/help/4528552)
 
-La mise à jour 1908 d’Azure Stack nécessite la **version 2.1 ou ultérieure d’OEM pour Azure Stack** du fournisseur de matériel de votre système. Les mises à jour OEM appliquent les mises à jour des pilotes et des microprogrammes aux composants matériels de votre système Azure Stack. Pour plus d’informations sur l’application des mises à jour OEM, consultez [Appliquer des mises à jour de fabricants d’ordinateurs à Azure Stack](azure-stack-update-oem.md)
+La mise à jour 1908 d’Azure Stack Hub nécessite la **version 2.1 ou ultérieure d’OEM pour Azure Stack Hub** du fournisseur de matériel de votre système. Les mises à jour OEM appliquent les mises à jour des pilotes et des microprogrammes aux composants matériels de votre système Azure Stack Hub. Pour plus d’informations sur l’application des mises à jour OEM, consultez [Appliquer des mises à jour de fabricants d’ordinateurs à Azure Stack Hub](azure-stack-update-oem.md)
 
 ### <a name="after-successfully-applying-the-1908-update"></a>Après l’application de la mise à jour 1908
 
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez notre [stratégie de maintenance](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack 1.1908.11.47](https://support.microsoft.com/help/4535000)
+- [Correctif logiciel Azure Stack Hub 1.1908.11.47](https://support.microsoft.com/help/4535000)
 ::: moniker-end
 
 ::: moniker range="azs-1907"
 ## <a name="1907-build-reference"></a>Référence de build 1907
 
-Le numéro de build de la mise à jour 1907 d’Azure Stack est **1.1907.0.20**.
+Le numéro de build de la mise à jour 1907 d’Azure Stack Hub est **1.1907.0.20**.
 
 ### <a name="update-type"></a>Type de mise à jour
 
-Le type de build de la mise à jour 1907 d’Azure Stack est **Express**. Pour plus d’informations sur les types de build de mise à jour, consultez l’article [Gérer les mises à jour dans Azure Stack](azure-stack-updates.md). D'après des tests internes, la mise à jour 1907 prend environ 13 heures.
+Le type de build de la mise à jour 1907 d’Azure Stack Hub est **Express**. Pour plus d’informations sur les types de build de mise à jour, consultez l’article [Gérer les mises à jour dans Azure Stack Hub](azure-stack-updates.md). D'après des tests internes, la mise à jour 1907 prend environ 13 heures.
 
 - La durée d’exécution exacte des mises à jour dépend généralement de la capacité utilisée sur votre système par les charges de travail client, de la connectivité réseau de votre système (s’il est connecté à Internet) et de la configuration de votre matériel système.
-- Les durées d’exécution plus longues que prévu ne sont pas rares et ne nécessitent aucune action de la part des opérateurs Azure Stack, sauf si la mise à jour échoue.
-- Cette approximation d’exécution est propre à la mise à jour 1907 et n’est pas comparable aux autres mises à jour d’Azure Stack.
+- Les durées d’exécution plus longues que prévu ne sont pas rares et ne nécessitent aucune action de la part des opérateurs Azure Stack Hub, sauf si la mise à jour échoue.
+- Cette approximation d’exécution est propre à la mise à jour 1907. Elle ne doit pas être comparée aux autres mises à jour d’Azure Stack Hub.
 
 ## <a name="whats-in-this-update"></a>Éléments de cette mise à jour
 
@@ -319,9 +317,9 @@ Le type de build de la mise à jour 1907 d’Azure Stack est **Express**. Pour 
 
 <!-- What's new, also net new experiences and features. -->
 
-- Mise à la disposition générale du service de collecte des journaux de diagnostic Azure Stack pour faciliter et améliorer la collecte des journaux de diagnostic. Le service de collecte des journaux de diagnostic Azure Stack propose un moyen simplifié de collecter et de partager des journaux de diagnostic avec les services de support technique Microsoft. Ce service de collecte des journaux de diagnostic offre une nouvelle expérience utilisateur dans le portail d’administration Azure Stack, qui permet aux opérateurs de configurer le chargement automatique des journaux de diagnostic sur un objet blob de stockage lorsque certaines alertes critiques sont générées, ou d’effectuer la même opération à la demande. Pour plus d’informations, consultez l'article [Collecte des journaux de diagnostic](azure-stack-diagnostic-log-collection-overview.md).
+- Mise à la disposition générale du service de collecte des journaux de diagnostic Azure Stack Hub pour faciliter et améliorer la collecte des journaux de diagnostic. Le service de collecte des journaux de diagnostic Azure Stack Hub propose un moyen simplifié de collecter et de partager des journaux de diagnostic avec les services de support technique Microsoft. Ce service de collecte des journaux de diagnostic offre une nouvelle expérience utilisateur dans le portail d’administration Azure Stack Hub, qui permet aux opérateurs de configurer le chargement automatique des journaux de diagnostic sur un objet blob de stockage lorsque certaines alertes critiques sont générées, ou d’effectuer la même opération à la demande. Pour plus d’informations, consultez l'article [Collecte des journaux de diagnostic](azure-stack-diagnostic-log-collection-overview.md).
 
-- Mise à la disposition générale de la validation de l’infrastructure réseau Azure Stack dans le cadre de l'outil de validation Azure Stack **Test-AzureStack**. L'infrastructure réseau Azure Stack fera partie de **Test-AzureStack** pour identifier toute défaillance sur l'infrastructure. Le test vérifie la connectivité de l’infrastructure réseau en contournant le réseau à définition logicielle Azure Stack. Il démontre la connectivité d’une adresse IP virtuelle publique aux redirecteurs DNS, serveurs NTP et points de terminaison d'identité configurés. En outre, il vérifie la connectivité à Azure quand Azure AD est utilisé en tant que fournisseur d’identité ou au serveur fédéré quand ADFS est utilisé. Pour plus d’informations, consultez l'article [Outil de validation Azure Stack](azure-stack-diagnostic-test.md).
+- Mise à la disposition générale de la validation de l’infrastructure réseau Azure Stack Hub dans le cadre de l’outil de validation Azure Stack Hub **Test-AzureStack**. L’infrastructure réseau Azure Stack Hub fera partie de **Test-AzureStack** pour identifier toute défaillance sur l’infrastructure d’Azure Stack Hub. Le test vérifie la connectivité de l’infrastructure réseau en contournant le réseau à définition logicielle Azure Stack Hub. Il démontre la connectivité d’une adresse IP virtuelle publique aux redirecteurs DNS, serveurs NTP et points de terminaison d'identité configurés. En outre, il vérifie la connectivité à Azure quand Azure AD est utilisé en tant que fournisseur d’identité ou au serveur fédéré quand ADFS est utilisé. Pour plus d’informations, consultez l’article [Outil de validation Azure Stack Hub](azure-stack-diagnostic-test.md).
 
 - Ajout d’une procédure de rotation des secrets internes pour faire tourner les certificats TLS SQL internes en fonction des besoins pendant une mise à jour du système.
 
@@ -329,9 +327,9 @@ Le type de build de la mise à jour 1907 d’Azure Stack est **Express**. Pour 
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
-- Le panneau de mise à jour Azure Stack affiche désormais une heure **Dernière étape terminée** pour les mises à jour actives. Pour la consulter, accédez au panneau de mise à jour et cliquez sur une mise à jour en cours d’exécution. **Dernière étape terminée** est ensuite disponible dans la section **Détails de l'exécution de la mise à jour**.
+- Le panneau de mise à jour Azure Stack Hub affiche à présent une heure **Dernière étape terminée** pour les mises à jour actives. Pour la consulter, accédez au panneau de mise à jour et cliquez sur une mise à jour en cours d’exécution. **Dernière étape terminée** est ensuite disponible dans la section **Détails de l'exécution de la mise à jour**.
 
-- Améliorations apportées aux actions de l’opérateur **Start-AzureStack** et **Stop-AzureStack**. Le temps de démarrage d'Azure Stack a été réduit d'environ 50 %. Le temps d’arrêt d'Azure Stack a été réduit d'environ 30 %. Les temps de démarrage et d’arrêt moyens sont les mêmes lorsque le nombre de nœuds augmente dans une unité d’échelle.
+- Améliorations apportées aux actions de l’opérateur **Start-AzureStack** et **Stop-AzureStack**. Le temps de démarrage d’Azure Stack Hub a été réduit d’environ 50 %. Le temps d’arrêt d’Azure Stack Hub a été réduit d’environ 30 %. Les temps de démarrage et d’arrêt moyens sont les mêmes lorsque le nombre de nœuds augmente dans une unité d’échelle.
 
 - Amélioration de la gestion des erreurs pour l’outil Place de marché déconnecté. Si un téléchargement échoue ou réussit partiellement lors de l'utilisation de **Export-AzSOfflineMarketplaceItem**, un message s'affiche avec plus de détails sur l'erreur et la procédure d’atténuation, le cas échéant.
 
@@ -344,9 +342,9 @@ Le type de build de la mise à jour 1907 d’Azure Stack est **Express**. Pour 
 
 ### <a name="changes"></a>Modifications
 
-- Azure Stack version 1907 contient une alerte d’avertissement qui indique aux opérateurs de bien mettre à jour le package OEM de leur système vers la version 2.1 ou ultérieure avant d’effectuer la mise à jour vers la version 1908. Pour plus d’informations sur l’application de mises à jour OEM dans Azure Stack, consultez [Appliquer des mises à jour de fabricants d’ordinateurs à Azure Stack](azure-stack-update-oem.md).
+- Azure Stack Hub version 1907 contient une alerte d’avertissement qui indique aux opérateurs de bien mettre à jour le package OEM de leur système vers la version 2.1 ou ultérieure avant d’effectuer la mise à jour vers la version 1908. Pour plus d’informations sur l’application de mises à jour OEM dans Azure Stack Hub, consultez [Appliquer des mises à jour de fabricants d’ordinateurs à Azure Stack Hub](azure-stack-update-oem.md).
 
-- Ajout d’une nouvelle règle de trafic sortant (HTTPS) afin d'activer la communication pour le service de collecte des journaux de diagnostic Azure Stack. Pour plus d’informations, consultez [Intégration au centre de données Azure Stack - Publier des points de terminaison](azure-stack-integrate-endpoints.md#ports-and-urls-outbound).
+- Ajout d’une nouvelle règle de trafic sortant (HTTPS) afin d’activer la communication pour le service de collecte des journaux de diagnostic Azure Stack Hub. Pour plus d’informations, consultez [Intégration au centre de données Azure Stack Hub - Publier des points de terminaison](azure-stack-integrate-endpoints.md#ports-and-urls-outbound).
 
 - Désormais, le service de sauvegarde d’infrastructure supprime partiellement les sauvegardes téléchargées si la capacité de l’emplacement de stockage externe est insuffisante.
 
@@ -387,7 +385,7 @@ Le type de build de la mise à jour 1907 d’Azure Stack est **Express**. Pour 
 
 ## <a name="security-updates"></a>Mises à jour de sécurité
 
-Pour plus d’informations sur les mises à jour de sécurité dans cette mise à jour d’Azure Stack, consultez [Mises à jour de sécurité Azure Stack](release-notes-security-updates.md).
+Pour plus d’informations sur les mises à jour de sécurité dans cette mise à jour d’Azure Stack Hub, consultez [Mises à jour de sécurité Azure Stack Hub](release-notes-security-updates.md).
 
 ## <a name="update-planning"></a>Planification des mises à jour
 
@@ -399,37 +397,37 @@ Avant d’appliquer la mise à jour, veillez à consulter les informations suiva
 
 ## <a name="download-the-update"></a>Télécharger la mise à jour
 
-Vous pouvez télécharger la mise à jour 1907 d’Azure Stack sur la [page de téléchargement d’Azure Stack](https://aka.ms/azurestackupdatedownload).
+Vous pouvez télécharger la mise à jour 1907 d’Azure Stack Hub à partir de la [page de téléchargement d’Azure Stack Hub](https://aka.ms/azurestackupdatedownload).
 
 ## <a name="hotfixes"></a>Correctifs logiciels
 
-Azure Stack publie des correctifs logiciels à intervalles réguliers. Avant d’installer la mise à jour 1907 d’Azure Stack, veillez à installer le dernier correctif logiciel d’Azure Stack pour la build 1906.
+Azure Stack Hub publie régulièrement des correctifs logiciels. Veillez à installer le dernier correctif logiciel Azure Stack Hub pour la version 1906 avant de mettre à jour Azure Stack Hub vers la version 1907.
 
-Les correctifs logiciels Azure Stack sont uniquement applicables aux systèmes intégrés Azure Stack. N’essayez pas d’installer des correctifs logiciels sur l’ASDK.
+Les correctifs logiciels Azure Stack Hub s’appliquent uniquement aux systèmes intégrés Azure Stack Hub. N’essayez pas d’installer des correctifs logiciels sur l’ASDK.
 
 ### <a name="before-applying-the-1907-update"></a>Avant d’appliquer la mise à jour 1907
 
-La version 1907 d’Azure Stack doit être appliquée à la version 1906 avec les correctifs logiciels suivants :
+La version 1907 d’Azure Stack Hub doit être appliquée sur la version 1906 avec les correctifs logiciels suivants :
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack 1.1906.15.60](https://support.microsoft.com/help/4524559)
+- [Correctif logiciel Azure Stack Hub 1.1906.15.60](https://support.microsoft.com/help/4524559)
 
 ### <a name="after-successfully-applying-the-1907-update"></a>Une fois la mise à jour 1907 correctement appliquée
 
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez notre [stratégie de maintenance](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack 1.1907.18.56](https://support.microsoft.com/help/4528552)
+- [Correctif logiciel Azure Stack Hub 1.1907.18.56](https://support.microsoft.com/help/4528552)
 ::: moniker-end
 
 ::: moniker range="azs-1906"
 ## <a name="1906-build-reference"></a>Référence de build 1906
 
-Le numéro de build de la mise à jour 1906 d’Azure Stack est **1.1906.0.30**.
+Le numéro de build de la mise à jour 1906 d’Azure Stack Hub est **1.1906.0.30**.
 
 ### <a name="update-type"></a>Type de mise à jour
 
-Le type de build de la mise à jour 1906 d’Azure Stack est **Express**. Pour plus d’informations sur les types de build de mise à jour, consultez l’article [Gérer les mises à jour dans Azure Stack](azure-stack-updates.md). La durée nécessaire pour effectuer la mise à jour 1906 terminer est estimée à environ 10 heures, quel que soit le nombre de nœuds physiques dans votre environnement Azure Stack. La durée d’exécution exacte des mises à jour dépend généralement de la capacité utilisée sur votre système par les charges de travail client, de la connectivité réseau de votre système (s’il est connecté à Internet) et les caractéristiques de votre matériel système. Les durées d’exécution plus longues que les valeurs attendues ne sont pas rares et ne nécessitent aucune action de la part des opérateurs Azure Stack, sauf si la mise à jour échoue. Cette approximation d’exécution est propre à la mise à jour 1906 et n’est pas comparable aux autres mises à jour d’Azure Stack.
+Le type de build de la mise à jour 1906 d’Azure Stack Hub est **Express**. Pour plus d’informations sur les types de build de mise à jour, consultez l’article [Gérer les mises à jour dans Azure Stack Hub](azure-stack-updates.md). Le temps prévu pour effectuer la mise à jour 1906 est d’environ 10 heures, quel que soit le nombre de nœuds physiques dans votre environnement Azure Stack Hub. La durée d’exécution exacte des mises à jour dépend généralement de la capacité utilisée sur votre système par les charges de travail client, de la connectivité réseau de votre système (s’il est connecté à Internet) et les caractéristiques de votre matériel système. Les durées d’exécution plus longues que la valeur attendue ne sont pas rares et ne nécessitent aucune action de la part des opérateurs Azure Stack Hub, sauf en cas d’échec de la mise à jour. Cette durée d’exécution approximative est propre à la mise à jour 1906. Elle ne doit pas être comparée aux autres mises à jour d’Azure Stack Hub.
 
 ## <a name="whats-in-this-update"></a>Éléments de cette mise à jour
 
@@ -437,21 +435,21 @@ Le type de build de la mise à jour 1906 d’Azure Stack est **Express**. Pour 
 
 <!-- What's new, also net new experiences and features. -->
 
-- Ajouter un cmdlet **Set-TLSPolicy** dans le point de terminaison privilégié (PEP) pour forcer le TLS 1.2 sur tous les points de terminaison. Pour plus d’informations, consultez [Contrôles de sécurité Azure Stack](azure-stack-security-configuration.md).
+- Ajouter un cmdlet **Set-TLSPolicy** dans le point de terminaison privilégié (PEP) pour forcer le TLS 1.2 sur tous les points de terminaison. Pour plus d’informations, consultez [Contrôles de sécurité Azure Stack Hub](azure-stack-security-configuration.md).
 
-- Ajout d’un cmdlet **Get-TLSPolicy** dans le point de terminaison privilégié (PEP) pour récupérer la stratégie TLS appliquée. Pour plus d’informations, consultez [Contrôles de sécurité Azure Stack](azure-stack-security-configuration.md).
+- Ajout d’un cmdlet **Get-TLSPolicy** dans le point de terminaison privilégié (PEP) pour récupérer la stratégie TLS appliquée. Pour plus d’informations, consultez [Contrôles de sécurité Azure Stack Hub](azure-stack-security-configuration.md).
 
 - Ajout d’une procédure de rotation des secrets internes pour faire tourner les certificats TLS internes en fonction des besoins pendant une mise à jour du système.
 
-- Ajout d’un dispositif de protection pour empêcher l’expiration des secrets internes en forçant la rotation des secrets internes au cas où une alerte critique sur les secrets arrivant à expiration est ignorée. Ceci ne doit pas être considéré comme une procédure de fonctionnement normale. La rotation des secrets doit être planifiée pour se produire pendant une fenêtre de maintenance. Pour plus d’informations, consultez [Rotation des secrets Azure Stack](azure-stack-rotate-secrets.md).
+- Ajout d’un dispositif de protection pour empêcher l’expiration des secrets internes en forçant la rotation des secrets internes au cas où une alerte critique sur les secrets arrivant à expiration est ignorée. Ceci ne doit pas être considéré comme une procédure de fonctionnement normale. La rotation des secrets doit être planifiée pour se produire pendant une fenêtre de maintenance. Pour plus d’informations, consultez [Rotation des secrets Azure Stack Hub](azure-stack-rotate-secrets.md).
 
-- Visual Studio Code est désormais pris en charge avec le déploiement Azure Stack avec AD FS.
+- Visual Studio Code est à présent pris en charge avec le déploiement Azure Stack Hub avec AD FS.
 
 ### <a name="improvements"></a>Améliorations
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
-- Le cmdlet **Get-GraphApplication** dans le point de terminaison privilégié affiche désormais l’empreinte du certificat actuellement utilisé. Ceci améliore la gestion des certificats pour les principaux de service quand Azure Stack est déployé avec AD FS.
+- Le cmdlet **Get-GraphApplication** dans le point de terminaison privilégié affiche désormais l’empreinte du certificat actuellement utilisé. Ceci améliore la gestion des certificats pour les principaux de service quand Azure Stack Hub est déployé avec AD FS.
 
 - De nouvelles règles de surveillance d’intégrité ont été ajoutées pour valider la disponibilité d’AD Graph et AD FS, y compris la possibilité de déclencher les alertes.
 
@@ -497,17 +495,17 @@ Le type de build de la mise à jour 1906 d’Azure Stack est **Express**. Pour 
 
 - Le panneau **Mise à jour** comprend une option de **reprise** pour les mises à jour ayant échoué.
 
-- Dans les portails d’administrateur et d’utilisateur, résolution du problème de la place de marché dans lequel l’extension Docker a été correctement retournée par recherche, mais aucune action supplémentaire n’a pu être prise en compte, car elle n’est pas disponible dans Azure Stack.
+- Dans les portails d’administrateur et d’utilisateur, résolution du problème de la place de marché dans lequel l’extension Docker a été correctement retournée par recherche, mais aucune action supplémentaire n’a pu être prise en compte, car elle n’est pas disponible dans Azure Stack Hub.
 
 - Résolution d’un problème dans l’interface utilisateur de déploiement du modèle qui ne remplit pas les paramètres si le nom du modèle commence par un trait de soulignement « _ ».
 
-- Résolution d’un problème qui survient quand vous créez un groupe identique de machines virtuelles et que l’option CentOS 7.2 est proposée pour le déploiement. CentOS 7.2 n’est pas disponible dans Azure Stack. Nous proposons maintenant CentOS 7.5 comme option de déploiement
+- Résolution d’un problème qui survient quand vous créez un groupe identique de machines virtuelles et que l’option CentOS 7.2 est proposée pour le déploiement. CentOS 7.2 n’est pas disponible dans Azure Stack Hub. Nous proposons maintenant CentOS 7.5 comme option de déploiement
 
 - Vous pouvez désormais supprimer un groupe identique à partir du panneau **Groupes de machines virtuelles identiques**.
 
 ## <a name="security-updates"></a>Mises à jour de sécurité
 
-Pour plus d’informations sur les mises à jour de sécurité dans cette mise à jour d’Azure Stack, consultez [Mises à jour de sécurité Azure Stack](release-notes-security-updates.md).
+Pour plus d’informations sur les mises à jour de sécurité dans cette mise à jour d’Azure Stack Hub, consultez [Mises à jour de sécurité Azure Stack Hub](release-notes-security-updates.md).
 
 ## <a name="update-planning"></a>Planification des mises à jour
 
@@ -519,27 +517,27 @@ Avant d’appliquer la mise à jour, veillez à consulter les informations suiva
 
 ## <a name="download-the-update"></a>Télécharger la mise à jour
 
-Vous pouvez télécharger la mise à jour 1906 d’Azure Stack sur la [page de téléchargement d’Azure Stack](https://aka.ms/azurestackupdatedownload).
+Vous pouvez télécharger la mise à jour 1906 d’Azure Stack Hub à partir de la [page de téléchargement d’Azure Stack Hub](https://aka.ms/azurestackupdatedownload).
 
 ## <a name="hotfixes"></a>Correctifs logiciels
 
-Azure Stack publie des correctifs logiciels à intervalles réguliers. Avant d’installer la mise à jour 1906 d’Azure Stack, veillez à installer le dernier correctif logiciel d’Azure Stack pour la build 1905. Après la mise à jour, installez tous les [correctifs logiciels disponibles pour 1906](#after-successfully-applying-the-1906-update).
+Azure Stack Hub publie régulièrement des correctifs logiciels. Veillez à installer le dernier correctif logiciel Azure Stack Hub pour la version 1905 avant de mettre à jour Azure Stack Hub vers la version 1906. Après la mise à jour, installez tous les [correctifs logiciels disponibles pour 1906](#after-successfully-applying-the-1906-update).
 
-Les correctifs logiciels Azure Stack sont uniquement applicables aux systèmes intégrés Azure Stack. N’essayez pas d’installer des correctifs logiciels sur l’ASDK.
+Les correctifs logiciels Azure Stack Hub s’appliquent uniquement aux systèmes intégrés Azure Stack Hub. N’essayez pas d’installer des correctifs logiciels sur l’ASDK.
 
 ### <a name="before-applying-the-1906-update"></a>Avant d’appliquer la mise à jour 1906
 
-La version 1906 d’Azure Stack doit être appliquée à la version 1905 avec les correctifs logiciels suivants :
+La version 1906 d’Azure Stack Hub doit être appliquée sur la version 1905 avec les correctifs logiciels suivants :
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hotfix 1.1905.3.48](https://support.microsoft.com/help/4510078)
+- [Correctif logiciel Azure Stack Hub 1.1905.3.48](https://support.microsoft.com/help/4510078)
 
 ### <a name="after-successfully-applying-the-1906-update"></a>Une fois la mise à jour 1906 correctement appliquée
 
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez notre [stratégie de maintenance](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack 1.1906.15.60](https://support.microsoft.com/help/4524559)
+- [Correctif logiciel Azure Stack Hub 1.1906.15.60](https://support.microsoft.com/help/4524559)
 ::: moniker-end
 
 ::: moniker range=">=azs-1906"
@@ -548,7 +546,7 @@ Après l’installation de cette mise à jour, installez les correctifs logiciel
 Les systèmes qui peuvent accéder à Internet à partir du réseau d’infrastructure voient le message **Mise à jour disponible** dans le portail opérateur. Les systèmes sans accès à Internet peuvent télécharger et importer le fichier .zip avec le fichier .xml correspondant.
 
 > [!TIP]  
-> Pour rester informé des publications des correctifs logiciels d’Azure Stack, abonnez-vous aux flux *RSS* ou *Atom* suivants :
+> Pour rester informé des publications des correctifs logiciels d’Azure Stack Hub, abonnez-vous aux flux *RSS* ou *Atom* suivants :
 >
 > - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
 > - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
@@ -559,10 +557,10 @@ Pour accéder aux notes de publication archivées d'une ancienne version, utilis
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour obtenir une vue d’ensemble de la gestion des mises à jour dans Azure Stack, consultez [Gérer les mises à jour dans Azure Stack - Vue d’ensemble](azure-stack-updates.md).  
-- Pour plus d’informations sur la façon d’appliquer des mises à jour avec Azure Stack, consultez [Effectuer des mises à jour dans Azure Stack](azure-stack-apply-updates.md).
-- Pour passer en revue la stratégie de maintenance pour les systèmes intégrés Azure Stack et pour connaître la marche à suivre afin de conserver votre système dans un état de prise en charge, consultez [Stratégie de maintenance Azure Stack](azure-stack-servicing-policy.md).  
-- Pour utiliser le Point de terminaison privilégié (PEP) afin de surveiller et de reprendre les mises à jour, consultez [Surveiller les mises à jour dans Azure Stack à l’aide du point de terminaison privilégié](azure-stack-monitor-update.md).
+- Pour obtenir une vue d’ensemble de la gestion des mises à jour dans Azure Stack Hub, consultez [Gérer les mises à jour dans Azure Stack Hub - Vue d’ensemble](azure-stack-updates.md).  
+- Pour plus d’informations sur la façon d’appliquer des mises à jour avec Azure Stack Hub, consultez [Effectuer des mises à jour dans Azure Stack Hub](azure-stack-apply-updates.md).
+- Pour passer en revue la stratégie de maintenance pour les systèmes intégrés Azure Stack Hub et pour connaître la marche à suivre afin de conserver votre système dans un état de prise en charge, consultez [Stratégie de maintenance Azure Stack Hub](azure-stack-servicing-policy.md).  
+- Pour utiliser le Point de terminaison privilégié (PEP) afin de surveiller et de reprendre les mises à jour, consultez [Surveiller les mises à jour dans Azure Stack Hub à l’aide du point de terminaison privilégié](azure-stack-monitor-update.md).
 ::: moniker-end
 
 <!------------------------------------------------------------>
@@ -609,7 +607,7 @@ Pour accéder aux notes de publication archivées d'une ancienne version, utilis
 ::: moniker-end
 
 ::: moniker range="<azs-1906"
-Vous pouvez accéder aux [versions antérieures des notes de publication d’Azure Stack dans la galerie TechNet](https://aka.ms/azsarchivedrelnotes). Ces documents archivés sont fournis uniquement pour référence et n’impliquent aucune prise en charge de ces versions. Pour plus d’informations sur le support d’Azure Stack, consultez [Stratégie de maintenance Azure Stack](azure-stack-servicing-policy.md). Pour obtenir de l’aide, contactez les services de support technique Microsoft.
+Vous pouvez accéder aux [versions antérieures des notes de publication d’Azure Stack Hub dans la galerie TechNet](https://aka.ms/azsarchivedrelnotes). Ces documents archivés sont fournis uniquement pour référence et n’impliquent aucune prise en charge de ces versions. Pour plus d’informations sur le support d’Azure Stack Hub, consultez [Stratégie de maintenance Azure Stack Hub](azure-stack-servicing-policy.md). Pour obtenir de l’aide, contactez les services de support technique Microsoft.
 ::: moniker-end
 
 

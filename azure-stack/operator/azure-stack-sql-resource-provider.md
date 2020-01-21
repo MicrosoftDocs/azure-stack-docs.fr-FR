@@ -1,7 +1,7 @@
 ---
 title: Utiliser des bases de données SQL
-titleSuffix: Azure Stack
-description: Découvrez comment utiliser le fournisseur de ressources SQL Server pour offrir des bases de données SQL en tant que service dans Azure Stack.
+titleSuffix: Azure Stack Hub
+description: Découvrez comment utiliser le fournisseur de ressources SQL Server pour offrir des bases de données SQL en tant que service dans Azure Stack Hub.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -16,16 +16,16 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9e7800c018816155205569397520271fb86c4c12
-ms.sourcegitcommit: dc3d0b77ee77742525fa0cd72d8547d25393022f
+ms.openlocfilehash: 58aa2bc05625c031fe78c3b4e5aeeec8d6001c8a
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75492760"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881771"
 ---
-# <a name="use-sql-databases-on-azure-stack"></a>Utiliser des bases de données SQL dans Azure Stack
+# <a name="use-sql-databases-on-azure-stack-hub"></a>Utiliser des bases de données SQL dans Azure Stack Hub
 
-Utilisez le fournisseur de ressources SQL pour offrir des bases de données SQL en tant que service dans [Azure Stack](azure-stack-overview.md). Une fois le fournisseur de ressources installé et connecté à une ou plusieurs instances de SQL Server, vous et vos utilisateurs pouvez créer :
+Utilisez le fournisseur de ressources SQL pour offrir des bases de données SQL en tant que service dans [Azure Stack Hub](azure-stack-overview.md). Une fois le fournisseur de ressources installé et connecté à une ou plusieurs instances de SQL Server, vous et vos utilisateurs pouvez créer :
 
 - des bases de données pour les applications cloud natives ;
 - des sites Web qui utilisent SQL ;
@@ -34,7 +34,7 @@ Utilisez le fournisseur de ressources SQL pour offrir des bases de données SQL 
 Il existe plusieurs limitations à prendre en compte avant d’installer le fournisseur de ressources SQL :
 
 - Les utilisateurs peuvent uniquement créer et gérer des bases de données individuelles. L’instance de serveur de base de données n’est pas accessible aux utilisateurs finaux. Cela peut limiter la compatibilité avec les applications de base de données locales qui doivent accéder à la base de données master, temporaire, ou aux bases de données gérées de manière dynamique.
-- Votre opérateur Azure Stack est responsable du déploiement, de la mise à jour, de la sécurisation, de la configuration et de la maintenance des serveurs et hôtes de base de données SQL. Le service RP ne fournit aucune fonctionnalité de gestion des instances de serveur de base de données ni d’hôte. 
+- Votre opérateur Azure Stack Hub est responsable du déploiement, de la mise à jour, de la sécurisation, de la configuration et de la maintenance des serveurs et hôtes de base de données SQL. Le service RP ne fournit aucune fonctionnalité de gestion des instances de serveur de base de données ni d’hôte. 
 - Les bases de données de différents utilisateurs dans divers abonnements peuvent se trouver sur la même instance de serveur de base de données. Le RP ne fournit aucun mécanisme pour isoler les bases de données sur des hôtes ou des instances de serveur de base de données différents.
 - Le RP ne fournit pas de rapports sur l’utilisation des bases de données par les locataires.
 
@@ -49,7 +49,7 @@ Le fournisseur de ressources est constitué des composants suivants :
 Vous devez créer au moins une instance de SQL Server ou fournir un accès aux instances SQL Server externes.
 
 > [!NOTE]
-> Les serveurs d’hébergement installés sur des systèmes intégrés Azure Stack doivent être créés à partir d’un abonnement de locataire. Ils ne peuvent pas être créés à partir de l’abonnement du fournisseur par défaut. Ils doivent être créés à partir du portail du locataire, ou en utilisant PowerShell avec le nom de connexion approprié. Tous les serveurs d’hébergement sont des machines virtuelles facturables et doivent être sous licence. L’administrateur de service peut être le propriétaire de l’abonnement locataire.
+> Les serveurs d’hébergement installés sur des systèmes intégrés Azure Stack Hub doivent être créés à partir d’un abonnement de locataire. Ils ne peuvent pas être créés à partir de l’abonnement du fournisseur par défaut. Ils doivent être créés à partir du portail utilisateur, ou en utilisant PowerShell avec le nom de connexion approprié. Tous les serveurs d’hébergement sont des machines virtuelles facturables et doivent être sous licence. L’administrateur de service peut être le propriétaire de l’abonnement locataire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

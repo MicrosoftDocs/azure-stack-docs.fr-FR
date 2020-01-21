@@ -1,7 +1,7 @@
 ---
 title: Mettre à jour l’antivirus Windows Defender
-titleSuffix: Azure Stack
-description: Découvrez comment mettre à jour l’antivirus Windows Defender sur Azure Stack
+titleSuffix: Azure Stack Hub
+description: Découvrez comment mettre à jour l’antivirus Windows Defender sur Azure Stack Hub
 services: azure-stack
 author: justinha
 manager: femila
@@ -11,22 +11,22 @@ ms.date: 12/04/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: fb6271114f27b16b9cb7a660deb7d6bcee197ca2
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: a631d700bc83e4fabeca4472f5d2a81c411ddc9b
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718128"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75821084"
 ---
 # <a name="update-windows-defender-antivirus-on-azure-stack-hub"></a>Mettre à jour l’antivirus Windows Defender sur Azure Stack Hub
 
-[L’antivirus Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) est une solution anti-programme malveillant qui sécurise votre infrastructure et la protège contre les virus. Chaque composant de l’infrastructure Azure Stack (hôtes Hyper-V et machines virtuelles) est protégé par l’antivirus Windows Defender. Pour garantir une protection constante, les définitions, le moteur et la plateforme de l’antivirus Windows Defender doivent être régulièrement mis à jour. Le mode d’application des mises à jour dépend de votre configuration.
+[L’antivirus Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) est une solution anti-programme malveillant qui sécurise votre infrastructure et la protège contre les virus. Chaque composant de l’infrastructure Azure Stack Hub (hôtes Hyper-V et machines virtuelles) est protégé par l’antivirus Windows Defender. Pour garantir une protection constante, les définitions, le moteur et la plateforme de l’antivirus Windows Defender doivent être régulièrement mis à jour. Le mode d’application des mises à jour dépend de votre configuration.
 
 ## <a name="connected-scenario"></a>Scénario connecté
 
-Le [fournisseur de ressources de mise à jour](azure-stack-updates.md#the-update-resource-provider) Azure Stack Hub télécharge les mises à jour du moteur et les définitions du logiciel anti-programme malveillant plusieurs fois par jour. Chaque composant de l’infrastructure Azure Stack récupère ensuite la mise à jour du fournisseur de ressources de mise à jour et l’applique automatiquement.
+Le [fournisseur de ressources de mise à jour](azure-stack-updates.md#the-update-resource-provider) Azure Stack Hub télécharge les mises à jour du moteur et les définitions du logiciel anti-programme malveillant plusieurs fois par jour. Chaque composant de l’infrastructure Azure Stack Hub récupère ensuite la mise à jour du fournisseur de ressources de mise à jour et l’applique automatiquement.
 
-Pour les déploiements Azure Stack Hub qui sont connectés à l’Internet public, appliquez la [mise à jour mensuelle Azure Stack](azure-stack-apply-updates.md). La mise à jour mensuelle Azure Stack Hub inclut les mises à jour de la plateforme de l’antivirus Windows Defender publiées au cours du mois.
+Pour les déploiements Azure Stack Hub qui sont connectés à l’Internet public, appliquez la [mise à jour mensuelle Azure Stack Hub](azure-stack-apply-updates.md). La mise à jour mensuelle Azure Stack Hub inclut les mises à jour de la plateforme de l’antivirus Windows Defender publiées au cours du mois.
 
 ## <a name="disconnected-scenario"></a>Scénario déconnecté
 

@@ -1,6 +1,6 @@
 ---
-title: Exécuter une machine virtuelle Linux sur Azure Stack | Microsoft Docs
-description: Découvrez comment exécuter une machine virtuelle Linux sur Azure Stack.
+title: Exécuter une machine virtuelle Linux sur Azure Stack Hub | Microsoft Docs
+description: Découvrez comment exécuter une machine virtuelle Linux sur Azure Stack Hub.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,40 +9,40 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 6797f95b672b12bfe08fd4070bef2501367fc389
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: 8667274e6684af407ca503c25b2e2348a7649134
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993816"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023156"
 ---
-# <a name="run-a-linux-virtual-machine-on-azure-stack"></a>Exécuter une machine virtuelle Linux dans Azure Stack
+# <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Exécuter une machine virtuelle Linux dans Azure Stack Hub
 
-Le provisionnement d’une machine virtuelle dans Azure Stack, comme Azure, nécessite des composants supplémentaires en plus de la machine virtuelle elle-même, notamment des ressources réseau et de stockage. Cet article décrit les bonnes pratiques pour l’exécution d’une machine virtuelle Linux sur Azure Stack.
+Le provisionnement d’une machine virtuelle dans Azure Stack Hub, comme Azure, nécessite des composants supplémentaires en plus de la machine virtuelle elle-même, notamment des ressources réseau et de stockage. Cet article décrit les bonnes pratiques pour l’exécution d’une machine virtuelle Linux sur Azure Stack Hub.
 
-![Architecture pour une machine virtuelle Linux sur Azure Stack](./media/iaas-architecture-vm-linux/image1.png)
+![Architecture pour une machine virtuelle Linux sur Azure Stack Hub](./media/iaas-architecture-vm-linux/image1.png)
 
 ## <a name="resource-group"></a>Resource group
 
-Un [groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) est un conteneur logique qui héberge les ressources Azure Stack associées. En règle générale, regroupez les ressources en fonction de leur durée de vie et de qui va les gérer.
+Un [groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) est un conteneur logique qui héberge les ressources Azure Stack Hub associées. En règle générale, regroupez les ressources en fonction de leur durée de vie et de qui va les gérer.
 
 Placez les ressources étroitement associées qui partagent le même cycle de vie dans un même [groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Les groupes de ressources vous permettent de déployer et de surveiller les ressources en tant que groupe et de suivre les coûts de facturation par groupe de ressources. Vous pouvez également supprimer des ressources comme un tout, ce qui est pratique pour les déploiements de test. Affectez des noms de ressource explicites pour simplifier la recherche d’une ressource spécifique et comprendre son rôle. Pour plus d’informations, consultez [Conventions d’affectation de noms recommandées pour les ressources Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
 ## <a name="virtual-machine"></a>Machine virtuelle
 
-Vous pouvez provisionner une machine virtuelle issue d’une liste d’images publiées, d’une image managée personnalisée ou d’un fichier de disque dur virtuel (VHD) chargé(e) dans le Stockage Blob Azure Stack. Azure Stack prend en charge l’exécution de plusieurs distributions Linux populaires, notamment CentOS, Debian, Red Hat Enterprise, Ubuntu et SUSE. Pour plus d’informations, consultez [Linux sur Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-linux). Vous pouvez également choisir de syndiquer l’une des images Linux publiées disponibles sur la place de marché Azure Stack.
+Vous pouvez provisionner une machine virtuelle issue d’une liste d’images publiées, d’une image managée personnalisée ou d’un fichier de disque dur virtuel (VHD) chargé(e) dans le Stockage Blob Azure Stack Hub. Azure Stack Hub prend en charge l’exécution de plusieurs distributions Linux populaires, notamment CentOS, Debian, Red Hat Enterprise, Ubuntu et SUSE. Pour plus d’informations, consultez [Linux sur Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-linux). Vous pouvez également choisir de syndiquer l’une des images Linux publiées disponibles sur la Place de marché Azure Stack Hub.
 
-Azure Stack propose de nombreuses tailles de machines virtuelles Azure. Pour plus d’informations, consultez [Tailles des machines virtuelles sur Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes). Si vous déplacez une charge de travail vers Azure Stack, commencez par choisir la taille de machine virtuelle qui correspond le mieux à vos serveurs locaux/Azure. Mesurez ensuite les performances de votre charge de travail réelle en termes de processeur, de mémoire et d’opérations d’entrée/sortie par seconde du disque, puis ajustez la taille selon vos besoins.
+Azure Stack Hub propose de nombreuses tailles de machines virtuelles Azure. Pour plus d’informations, consultez [Tailles des machines virtuelles sur Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes). Si vous déplacez une charge de travail vers Azure Stack Hub, commencez par choisir la taille de machine virtuelle qui correspond le mieux à vos serveurs locaux/Azure. Mesurez ensuite les performances de votre charge de travail réelle en termes de processeur, de mémoire et d’opérations d’entrée/sortie par seconde du disque, puis ajustez la taille selon vos besoins.
 
 ## <a name="disks"></a>Disques
 
 Le coût est basé sur la capacité du disque approvisionné. Le nombre d’E/S par seconde et le débit (c’est-à-dire le taux de transfert des données) dépendent de la taille de la machine virtuelle. Lorsque vous provisionnez un disque, vous devez donc tenir compte des trois facteurs : capacité, E/S par seconde et débit.
 
-Sur Azure Stack, les IOPS disque (opérations d’entrée/sortie par seconde) dépendent de la [taille de la machine virtuelle](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) et non du type de disque. Cela signifie que, pour une machine virtuelle Standard_Fs, quel que soit le type de disque choisi (SSD ou HDD), la limite d'IOPS est de 2 300 par disque de données supplémentaire. La limite d’IOPS imposée est un plafond (maximum possible) pour éviter les voisins bruyants. Elle ne garantit pas les IOPS obtenues avec une taille de machine virtuelle spécifique.
+Sur Azure Stack Hub, les IOPS disque (opérations d’entrée/sortie par seconde) dépendent de la [taille de la machine virtuelle](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) et non du type de disque. Cela signifie que, pour une machine virtuelle Standard_Fs, quel que soit le type de disque choisi (SSD ou HDD), la limite d'IOPS est de 2 300 par disque de données supplémentaire. La limite d’IOPS imposée est un plafond (maximum possible) pour éviter les voisins bruyants. Elle ne garantit pas les IOPS obtenues avec une taille de machine virtuelle spécifique.
 
 Nous vous recommandons également d’utiliser la fonctionnalité [Disques managés](https://docs.microsoft.com/azure-stack/user/azure-stack-managed-disk-considerations). Les disques managés simplifient la gestion des disques en gérant le stockage pour vous. Les disques managés ne nécessitent pas de compte de stockage. Il vous suffit de spécifier leur taille et leur type, puis de les déployer en tant que ressource hautement disponible.
 
-Le disque de système d’exploitation est un disque dur virtuel stocké dans [Stockage Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-overview), donc il persiste même lorsque l’ordinateur hôte est arrêté. Pour les machines virtuelles Linux, le disque du système d’exploitation est /dev/sda1. Nous vous recommandons également de créer un ou plusieurs [disques de données](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-disks), qui sont des disques durs virtuels persistants utilisés pour les données d’application.
+Le disque de système d’exploitation est un disque dur virtuel stocké dans [Stockage Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-overview), donc il persiste même lorsque l’ordinateur hôte est arrêté. Pour les machines virtuelles Linux, le disque du système d’exploitation est /dev/sda1. Nous vous recommandons également de créer un ou plusieurs [disques de données](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-disks), qui sont des disques durs virtuels persistants utilisés pour les données d’application.
 
 Lorsque vous créez un disque dur virtuel, il n’est pas formaté. Connectez-vous à la machine virtuelle pour formater le disque. Dans l’interpréteur de commandes Linux, les disques de données sont affichés en tant que /dev/sdc, /dev/sdd et ainsi de suite. Vous pouvez exécuter lsblk pour répertorier les appareils de bloc, notamment les disques. Pour utiliser un disque de données, créez une partition et un système de fichiers, puis montez le disque. Par exemple :
 
@@ -60,7 +60,7 @@ sudo mount /dev/sdc1 /data1
 
 Lorsque vous ajoutez un disque de données, un numéro d’unité logique (LUN) lui est attribué. Vous pouvez également spécifier l’ID LUN, par exemple si vous remplacez un disque et souhaitez conserver le même ID LUN, ou si votre application nécessite un ID LUN spécifique. Toutefois, n’oubliez pas que les ID LUN doivent être uniques pour chaque disque.
 
-La machine virtuelle est créée avec un disque temporaire. Ce disque est stocké sur un volume temporaire de l’infrastructure de stockage Azure Stack. Il peut être supprimé lors des redémarrages ou d’autres événements de cycle de vie de la machine virtuelle. N’utilisez ce disque que pour des données temporaires, telles que des fichiers de pagination ou d’échange. Pour les machines virtuelles Linux, le disque temporaire est /dev/sdb1 et il est monté sur /mnt/resource ou /mnt.
+La machine virtuelle est créée avec un disque temporaire. Ce disque est stocké sur un volume temporaire de l’infrastructure de stockage Azure Stack Hub. Il peut être supprimé lors des redémarrages ou d’autres événements de cycle de vie de la machine virtuelle. N’utilisez ce disque que pour des données temporaires, telles que des fichiers de pagination ou d’échange. Pour les machines virtuelles Linux, le disque temporaire est /dev/sdb1 et il est monté sur /mnt/resource ou /mnt.
 
 ## <a name="network"></a>Réseau
 
@@ -70,7 +70,7 @@ Les composants réseau incluent les ressources suivantes :
 
 -   **Interfaces réseau (NIC)** . La carte d’interface réseau permet à la machine virtuelle de communiquer avec le réseau virtuel. Si vous avez besoin de plusieurs cartes réseau (NIC) pour votre machine virtuelle, notez que le nombre maximal de cartes réseau est défini pour chaque [taille de machine virtuelle](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes).
 
--   **Adresse IP publique/Adresse IP virtuelle** Une adresse IP publique est nécessaire pour communiquer avec la machine virtuelle, par exemple via le protocole RDP. Cette adresse IP publique peut être dynamique ou statique. Par défaut, elle est dynamique. Si vous avez besoin de plusieurs cartes réseau (NIC) pour votre machine virtuelle, notez que le nombre maximal de cartes réseau est défini pour chaque [taille de machine virtuelle](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes).
+-   **Adresse IP publique/Adresse IP virtuelle**. Une adresse IP publique est nécessaire pour communiquer avec la machine virtuelle, par exemple via le protocole RDP. Cette adresse IP publique peut être dynamique ou statique. Par défaut, elle est dynamique. Si vous avez besoin de plusieurs cartes réseau (NIC) pour votre machine virtuelle, notez que le nombre maximal de cartes réseau est défini pour chaque [taille de machine virtuelle](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes).
 
 -   Vous pouvez également créer un nom de domaine complet (FQDN) pour l’adresse IP. Vous pouvez inscrire un [enregistrement CNAME](https://en.wikipedia.org/wiki/CNAME_record) dans le DNS qui pointe vers le nom de domaine complet (FQDN). Pour en savoir plus, consultez [Créer un nom de domaine complet dans le Portail Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-portal-create-fqdn).
 
@@ -84,11 +84,11 @@ Tous les groupes de sécurité réseau contiennent un ensemble de [règles par d
 
 **Diagnostics**. Permet la supervision et le diagnostic, avec notamment des indicateurs d’intégrité de base, des journaux d’activité d’infrastructure de diagnostic et des [diagnostics de démarrage](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Les diagnostics de démarrage peuvent vous aider à identifier le problème de démarrage si votre machine virtuelle refuse de démarrer. Créez un compte de stockage Azure pour stocker les journaux d’activité. Un compte de stockage localement redondant (LRS) standard suffit pour les journaux de diagnostic. Pour en savoir plus, consultez [Activation de la surveillance et des diagnostics](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data).
 
-**Disponibilité**. Votre machine virtuelle peut faire l’objet d’un redémarrage en raison d’une maintenance planifiée par l’opérateur Azure Stack. Pour bénéficier d’une disponibilité plus élevée, déployez plusieurs machines virtuelles dans un [groupe à haute disponibilité](https://docs.microsoft.com/azure-stack/operator/app-service-deploy-ha).
+**Disponibilité**. Votre machine virtuelle peut faire l’objet d’un redémarrage en raison d’une maintenance planifiée par l’opérateur Azure Stack Hub. Pour bénéficier d’une disponibilité plus élevée, déployez plusieurs machines virtuelles dans un [groupe à haute disponibilité](https://docs.microsoft.com/azure-stack/operator/app-service-deploy-ha).
 
-**Sauvegardes** Pour obtenir des recommandations sur la protection de vos machines virtuelles IaaS Azure Stack, consultez [cet](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-protect) article.
+**Sauvegardes** Pour obtenir des recommandations sur la protection de vos machines virtuelles IaaS Azure Stack Hub, consultez [cet](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-protect) article.
 
-**Arrêt d’une machine virtuelle**. Azure établit une distinction entre les états « arrêté » et « désalloué ». Vous payez lorsque l’état de la machine virtuelle est « arrêté », mais pas lorsque la machine virtuelle est désallouée. Le bouton **Arrêter** du portail Azure Stack désalloue la machine virtuelle. Si vous arrêtez la machine virtuelle par le biais du système d’exploitation pendant que vous êtes connecté, la machine virtuelle est arrêtée mais **non** désallouée. Vous serez donc toujours facturé.
+**Arrêt d’une machine virtuelle**. Azure établit une distinction entre les états « arrêté » et « désalloué ». Vous payez lorsque l’état de la machine virtuelle est « arrêté », mais pas lorsque la machine virtuelle est désallouée. Le bouton **Arrêter** du portail Azure Stack Hub désalloue la machine virtuelle. Si vous arrêtez la machine virtuelle par le biais du système d’exploitation pendant que vous êtes connecté, la machine virtuelle est arrêtée mais **non** désallouée. Vous serez donc toujours facturé.
 
 **Suppression d’une machine virtuelle**. La suppression d’une machine virtuelle n’entraîne pas celle des disques associés. Vous pouvez donc supprimer la machine virtuelle, sans risque de perdre des données. Toutefois, vous serez toujours facturé pour le stockage. Pour supprimer le disque de machine virtuelle, supprimez l’objet disque managé. Pour éviter toute suppression accidentelle, utilisez un [verrou de ressource](https://docs.microsoft.com/azure/resource-group-lock-resources) pour verrouiller tout le groupe de ressources ou des ressources individuelles, par exemple une machine virtuelle.
 
@@ -107,9 +107,9 @@ Intégrez vos machines virtuelles dans [Azure Security Center](https://docs.micr
 
 **Journaux d’audit**. Utilisez les [journaux d’activité](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data?#activity-log) pour voir les actions de provisionnement et d’autres événements concernant la machine virtuelle.
 
-**Chiffrement des données**. Azure Stack protège les données des utilisateurs et de l’infrastructure au niveau du sous-système de stockage à l’aide du chiffrement au repos. Le sous-système de stockage Azure Stack est chiffré à l’aide de BitLocker avec le chiffrement AES 128 bits. Pour plus d’informations, consultez [cet](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker) article.
+**Chiffrement des données**. Azure Stack Hub protège les données des utilisateurs et de l’infrastructure au niveau du sous-système de stockage à l’aide du chiffrement au repos. Le sous-système de stockage Azure Stack Hub est chiffré à l’aide de BitLocker avec le chiffrement AES 128 bits. Pour plus d’informations, consultez [cet](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker) article.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur les machines virtuelles Azure Stack, passez en revue les [fonctionnalités des machines virtuelles Azure Stack](azure-stack-vm-considerations.md).  
+- Pour en savoir plus sur les machines virtuelles Azure Stack Hub, consultez [Fonctionnalités des machines virtuelles Azure Stack Hub](azure-stack-vm-considerations.md).  
 - Pour plus d’informations sur les modèles Azure Cloud, consultez [Modèles de conception cloud](https://docs.microsoft.com/azure/architecture/patterns).

@@ -1,37 +1,34 @@
 ---
-title: Ajouter des utilisateurs Azure Stack dans AD FS | Microsoft Docs
-description: Découvrez comment ajouter des utilisateurs Azure Stack pour les déploiements des services de fédération Active Directory (AD FS).
-services: azure-stack
-documentationcenter: ''
+title: Ajouter des utilisateurs Azure Stack Hub dans AD FS
+description: Découvrez comment ajouter des utilisateurs Azure Stack Hub pour les déploiements des services de fédération Active Directory (AD FS).
 author: PatAltimore
 manager: femila
-editor: ''
 ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: 4411290b075e105a827de8fb2c8295dfd84e3b50
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: 2c81d8ccceb4fa2f1e05b006232e3b6513ace469
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118645"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880955"
 ---
-# <a name="add-azure-stack-users-in-ad-fs"></a>Ajouter des utilisateurs Azure Stack dans AD FS
-Vous pouvez utiliser le composant logiciel enfichable **Utilisateurs et ordinateurs Active Directory** pour ajouter des utilisateurs supplémentaires à un environnement Azure Stack en utilisant Active Directory Federation Services (AD FS) comme son fournisseur d’identité.
+# <a name="add-a-new-azure-stack-hub-user-account-in-active-directory-federation-services-ad-fs"></a>Ajouter un compte d’utilisateur Azure Stack Hub dans les services de fédération Active Directory (AD FS).
+
+Vous pouvez utiliser le composant logiciel enfichable **Utilisateurs et ordinateurs Active Directory** pour ajouter des utilisateurs supplémentaires à un environnement Azure Stack Hub en utilisant AD FS comme son fournisseur d’identité.
 
 ## <a name="add-windows-server-active-directory-users"></a>Ajouter des utilisateurs Windows Server Active Directory
-> [!TIP]
-> Cet exemple utilise le répertoire actif ASDK azurestack.local par défaut. 
 
 1. Connectez-vous à un ordinateur avec un compte fournissant un accès aux outils d’administration Windows, puis ouvrez une nouvelle console MMC (Microsoft Management Console).
 2. Sélectionnez **Fichier > Ajouter ou supprimer un composant logiciel enfichable**.
-3. Sélectionnez **Utilisateurs et ordinateurs Active Directory** > **AzureStack.local** > **Utilisateurs**.
+
+   > [!TIP]
+   > Remplacez *directory-domain* par le domaine qui correspond à votre répertoire. 
+
+3. Sélectionnez **Utilisateurs et ordinateurs Active Directory** > *directory-domain* > **Utilisateurs**.
 4. Sélectionnez **Action** > **Nouveau** > **Utilisateur**.
 5. Dans Nouvel objet - Utilisateur, fournissez les informations utilisateur. Sélectionnez **Suivant**.
 6. Fournissez un mot de passe et confirmez-le.
@@ -39,4 +36,5 @@ Vous pouvez utiliser le composant logiciel enfichable **Utilisateurs et ordinate
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créer les principaux du service](azure-stack-create-service-principals.md)
+
+[Créer une identité d’application pour accéder aux ressources Azure Stack Hub](azure-stack-create-service-principals.md)

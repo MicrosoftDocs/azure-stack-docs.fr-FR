@@ -17,18 +17,18 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 0ba8723b9d0f03006b52ecd016c3713280b63dea
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: 0bced4d75b70b05eea42de763066f1d5b05e1976
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159295"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76022917"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>Déployer ASDK à partir de la ligne de commande à l’aide de PowerShell
 
 Le Kit de développement Azure Stack (ASDK) est un environnement de développement et de test que vous pouvez déployer pour évaluer et présenter les fonctionnalités et services Azure Stack. Pour l’installer et le rendre opérationnel, vous devez préparer l’environnement matériel nécessaire et exécuter plusieurs scripts. L’exécution des scripts prend plusieurs heures. Une fois que vous aurez effectué ces étapes préalables, vous pourrez vous connecter aux portails de l’administrateur et de l’utilisateur pour commencer à utiliser Azure Stack.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Préparer l’ordinateur hôte du kit ASDK. Planifiez votre matériel, vos logiciels et votre réseau. Vérifiez que l’ordinateur prévu pour héberger le kit ASDK a la configuration matérielle, logicielle et réseau requise. Choisissez si vous allez utiliser Azure Active Directory (Azure AD) ou les services de fédération Active Directory (AD FS). Veillez à respecter ces prérequis avant de démarrer votre déploiement, assurez-vous que tous ces prérequis sont remplis pour que le processus d’installation s’exécute correctement.
 
@@ -70,7 +70,7 @@ Pour configurer l’ordinateur hôte ASDK pour qu’il démarre à partir de Clo
 Une fois que l’ordinateur hôte ASDK démarre dans l’image CloudBuilder.vhdx, connectez-vous avec les mêmes informations d'identification locales que celles utilisées pour se connecter à l’ordinateur hôte ASDK. Il s’agit également des mêmes informations d’identification que celles que vous avez fournies dans le cadre de la procédure d’installation de Windows Server lorsque l’ordinateur hôte a démarré à partir du disque dur virtuel.
 
 > [!NOTE]
-> Si vous voulez, vous pouvez aussi configurer les [Paramètres de télémétries Azure Stack](asdk-telemetry.md#set-telemetry-level-in-the-windows-registry) *avant* l’installation du Kit de développement Azure Stack.
+> Si vous voulez, vous pouvez aussi configurer les [Paramètres de télémétries Azure Stack](asdk-telemetry.md#set-telemetry-level-in-the-windows-registry)*avant* l’installation du Kit de développement Azure Stack.
 
 Ouvrez une console PowerShell avec élévation de privilèges et exécutez les commandes de cette section pour déployer l’ASDK sur l’hôte d’ASDK.
 
@@ -158,12 +158,12 @@ Après avoir installé le Kit de développement Azure Stack, nous vous recommand
 Nous vous recommandons de réinitialiser la stratégie d’expiration du mot de passe pour faire en sorte que le mot de passe de l’hôte du kit ASDK n’expire pas avant la fin de la période d’expiration.
 
 > [!NOTE]
-> Si vous voulez, vous pouvez aussi configurer les [Paramètres de télémétries Azure Stack](asdk-telemetry.md#enable-or-disable-telemetry-after-deployment) *après* avoir installé le Kit de développement Azure Stack.
+> Si vous voulez, vous pouvez aussi configurer les [Paramètres de télémétries Azure Stack](asdk-telemetry.md#enable-or-disable-telemetry-after-deployment)*après* l’installation du Kit de développement Azure Stack.
 
 **[Tâches post-déploiement du Kit de développement Azure Stack](asdk-post-deploy.md)**
 
 ## <a name="register-with-azure"></a>Inscription auprès d’Azure
-Vous devez inscrire Azure Stack auprès d’Azure pour pouvoir ensuite [télécharger des éléments marketplace Azure](../operator/azure-stack-create-and-publish-marketplace-item.md) dans Azure Stack.
+Vous devez inscrire Azure Stack auprès d’Azure pour pouvoir ensuite [télécharger des éléments de la Place de marché Azure](../operator/azure-stack-create-and-publish-marketplace-item.md) dans Azure Stack.
 
 **[Inscrire Azure Stack auprès d’Azure](asdk-register.md)**
 

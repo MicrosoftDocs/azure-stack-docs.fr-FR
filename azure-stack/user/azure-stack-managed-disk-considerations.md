@@ -1,6 +1,6 @@
 ---
-title: Différences et considérations relatives aux disques managés dans Azure Stack | Microsoft Docs
-description: Découvrez les différences et considérations à prendre en compte lors de l’utilisation de disques et d’images managés dans Azure Stack.
+title: Différences et considérations relatives aux disques managés dans Azure Stack Hub | Microsoft Docs
+description: Découvrez les différences et considérations à prendre en compte lors de l’utilisation de disques et d’images managés dans Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,28 +16,28 @@ ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 97684f2a0ef9960854b192ca15f972bc15ff5b62
-ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
+ms.openlocfilehash: 2e09f10fc61454cf1b32797e75b5a57fc3f90f8f
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71974063"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819877"
 ---
-# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Disques managés Azure Stack : différences et considérations
+# <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Disques managés Azure Stack Hub : différences et considérations
 
-Cet article récapitule les différences entre les [disques managés dans Azure Stack](azure-stack-manage-vm-disks.md) et les [disques managés dans Azure](/azure/virtual-machines/windows/managed-disks-overview). Pour en savoir plus sur les principales différences entre Azure Stack et Azure, consultez l’article [Principales considérations](azure-stack-considerations.md).
+Cet article récapitule les différences entre les [disques managés dans Azure Stack Hub](azure-stack-manage-vm-disks.md) et les [disques managés dans Azure](/azure/virtual-machines/windows/managed-disks-overview). Pour en savoir plus sur les principales différences entre Azure Stack Hub et Azure, consultez l’article [Principales considérations](azure-stack-considerations.md).
 
 Les disques managés simplifient la gestion des disques des machines virtuelles IaaS, en gérant les [comptes de stockage](../operator/azure-stack-manage-storage-accounts.md) associés aux disques de machines virtuelles.
 
 > [!NOTE]  
-> Les disques managés sur Azure Stack sont disponibles à compter de la mise à jour 1808. À compter de la mise à jour 1811, la fonctionnalité est activée par défaut lors de la création de machines virtuelles par le biais du portail Azure Stack.
+> Les disques managés sur Azure Stack Hub sont disponibles à compter de la mise à jour 1808. À compter de la mise à jour 1811, la fonctionnalité est activée par défaut lors de la création de machines virtuelles par le biais du portail Azure Stack Hub.
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>Aide-mémoire : différences entre les disques managés
 
-| Fonctionnalité | Azure (global) | Azure Stack |
+| Fonctionnalité | Azure (global) | Azure Stack Hub |
 | --- | --- | --- |
 |Chiffrement des données au repos |Azure Storage Service Encryption (SSE), Azure Disk Encryption (ADE).     |Chiffrement AES 128 bits BitLocker      |
-|Image          | Image personnalisée managée |Pris en charge|
+|Image          | Image personnalisée managée |Prise en charge|
 |Options de sauvegarde | Service Azure Backup |Pas encore pris en charge |
 |Options de récupération d’urgence | Azure Site Recovery |Pas encore pris en charge|
 |Types de disque     |SSD Premium, SSD Standard et HDD Standard. |SSD Premium, HDD Standard |
@@ -50,18 +50,18 @@ Les disques managés simplifient la gestion des disques des machines virtuelles 
 |Migration      |Fournir l’outil pour migrer à partir de machines virtuelles Azure Resource Manager non managées existantes sans devoir recréer de machine virtuelle.  |Pas encore pris en charge |
 
 > [!NOTE]  
-> Les IOPS et le débit de disques managés dans Azure Stack sont exprimés en nombre plafond plutôt qu’en nombre provisionné, qui peut être affecté par le matériel et les charges de travail en cours d’exécution dans Azure Stack.
+> Les IOPS et le débit de disques managés dans Azure Stack Hub sont exprimés en nombre plafond plutôt qu’en nombre provisionné, qui peut être affecté par le matériel et les charges de travail en cours d’exécution dans Azure Stack Hub.
 
 ## <a name="metrics"></a>Mesures
 
 Il existe également des différences sur le plan des métriques de stockage :
 
-- Avec Azure Stack, les données de transaction dans les métriques de stockage ne font pas la distinction entre les bandes passantes réseau interne et externe.
-- Les données de transaction d’Azure Stack dans les métriques de stockage n’incluent pas l’accès des machines virtuelles aux disques montés.
+- Avec Azure Stack Hub, les données de transaction dans les métriques de stockage ne font pas la distinction entre les bandes passantes réseau interne et externe.
+- Les données de transaction d’Azure Stack Hub dans les métriques de stockage n’incluent pas l’accès des machines virtuelles aux disques montés.
 
 ## <a name="api-versions"></a>Versions d’API
 
-Les disques managés Azure Stack prennent en charge les versions d’API suivantes :
+Les disques managés Azure Stack Hub prennent en charge les versions d’API suivantes :
 
 - 2017-03-30
 - 2017-12-01
@@ -69,7 +69,7 @@ Les disques managés Azure Stack prennent en charge les versions d’API suivant
 ## <a name="convert-to-managed-disks"></a>Convertir en disques managés
 
 > [!NOTE]  
-> La cmdlet Azure PowerShell **ConvertTo-AzureRmVMManagedDisk** ne peut pas être utilisée pour convertir un disque non managé en disque managé dans Azure Stack. Azure Stack ne prend pas en charge cette applet de commande pour l’instant.
+> La cmdlet Azure PowerShell **ConvertTo-AzureRmVMManagedDisk** ne peut pas être utilisée pour convertir un disque non managé en disque managé dans Azure Stack Hub. Azure Stack Hub ne prend pas en charge cette cmdlet pour l’instant.
 
 Vous pouvez utiliser le script suivant pour convertir une machine virtuelle actuellement provisionnée de disques non managés en disques managés. Remplacez les espaces réservés par vos valeurs :
 
@@ -92,7 +92,7 @@ $VhdUri = "https://rgmgddisks347.blob.local.azurestack.external/vhds/unmngdvm201
 # The storage type for the managed disk: PremiumLRS or StandardLRS.
 $AccountType = "StandardLRS"
 
-# The Azure Stack location where the managed disk will be located.
+# The Azure Stack Hub location where the managed disk will be located.
 # The location should be the same as the location of the storage account in which VHD file is stored.
 # Configure the new managed VM point to the old unmanaged VM configuration (network config, VM name, location).
 $Location = "local"
@@ -137,37 +137,37 @@ New-AzureRmVM -VM $VirtualMachine -ResourceGroupName $ResourceGroupName -Locatio
 
 ## <a name="managed-images"></a>Images managées
 
-Azure Stack prend en charge les *images managées* qui vous permettent de créer un objet d’image managée sur une machine virtuelle généralisée (à la fois managée et non managée) qui ne pourra ensuite créer que des machines virtuelles à disque managé. Les images managées activent les deux scénarios suivants :
+Azure Stack Hub prend en charge les *images managées* qui vous permettent de créer un objet d’image managée sur une machine virtuelle généralisée (à la fois managée et non managée) qui ne pourra ensuite créer que des machines virtuelles à disque managé. Les images managées activent les deux scénarios suivants :
 
 - Vous avez généralisé les machines virtuelles non managées et souhaitez utiliser des disques managés à l’avenir.
 - Vous possédez une machine virtuelle managée généralisée et souhaitez créer plusieurs machines virtuelles managées similaires.
 
-### <a name="step-1-generalize-the-vm"></a>Étape 1 : Généraliser la machine virtuelle
+### <a name="step-1-generalize-the-vm"></a>Étape 1 : Généraliser la machine virtuelle
 
 Pour Windows, consultez la section [Généraliser la machine virtuelle de Windows à l’aide de Sysprep](/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep). Pour Linux, suivez l’étape 1 [ici](/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm).
 
 > [!NOTE]
 > Veillez à généraliser votre machine virtuelle. La création d’une machine virtuelle mal généralisée entraîne une erreur **VMProvisioningTimeout**.
 
-### <a name="step-2-create-the-managed-image"></a>Étape 2 : Créer l'image managée
+### <a name="step-2-create-the-managed-image"></a>Étape 2 : Créer l'image managée
 
 Vous pouvez utiliser le portail, PowerShell ou CLI pour créer l’image managée. Suivez les étapes de [Créer une image managée](/azure/virtual-machines/windows/capture-image-resource).
 
 ### <a name="step-3-choose-the-use-case"></a>Étape 3 : Choisir le cas d’usage
 
-#### <a name="case-1-migrate-unmanaged-vms-to-managed-disks"></a>Cas 1 : Migrer des machines virtuelles non managées vers des disques managés
+#### <a name="case-1-migrate-unmanaged-vms-to-managed-disks"></a>Cas n° 1 : Migrer des machines virtuelles non managées vers des disques managés
 
 Veillez à généraliser correctement votre machine virtuelle avant d’effectuer cette étape. Après la généralisation, vous ne pouvez plus utiliser cette machine virtuelle. La création d’une machine virtuelle mal généralisée entraîne une erreur **VMProvisioningTimeout**.
 
 Suivez les instructions de la section [Créer une image à partir d’une machine virtuelle qui utilise un compte de stockage](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vm-that-uses-a-storage-account) pour créer une image managée à partir d’un disque dur virtuel généralisé dans un compte de stockage. Vous pouvez utiliser cette image pour créer ultérieurement des machines virtuelles managées.
 
-#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>Cas 2 : Créer une machine virtuelle managée à partir d’une image managée à l’aide de Powershell
+#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>Cas n° 2 : Créer une machine virtuelle managée à partir d’une image managée à l’aide de Powershell
 
 Après avoir créé une image à partir d’une machine virtuelle de disque managé avec le script dans [Créer une image à partir d’un disque managé à l’aide de PowerShell](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-managed-disk-using-powershell), utilisez l’exemple de script suivant pour créer une machine virtuelle Linux similaire à partir d’un objet image existant.
 
-Module Azure Stack PowerShell 1.7.0 ou ultérieur : suivez les instructions de la section [Créer une machine virtuelle à partir d’une image managée](/azure/virtual-machines/windows/create-vm-generalized-managed).
+Module Azure Stack Hub PowerShell 1.7.0 ou ultérieur : suivez les instructions de la section [Créer une machine virtuelle à partir d’une image managée](/azure/virtual-machines/windows/create-vm-generalized-managed).
 
-Module Azure Stack PowerShell 1.6.0 ou version antérieure :
+Module Azure Stack Hub PowerShell 1.6.0 ou antérieur :
 
 ```powershell
 # Variables for common values
@@ -226,10 +226,10 @@ Vous pouvez également utiliser le portail pour créer une machine virtuelle à 
 Après avoir appliqué la mise à jour 1808 ou ultérieure, vous devez appliquer le changement de configuration suivant avant d’utiliser des disques managés :
 
 - Si un abonnement a été créé avant la mise à jour 1808, procédez comme suit pour mettre à jour l’abonnement. Sinon, le déploiement de machines virtuelles dans cet abonnement peut échouer avec un message d’erreur « Erreur interne dans le gestionnaire de disque ».
-   1. Dans le portail utilisateur Azure Stack, accédez à **Abonnements** et recherchez l’abonnement. Cliquez sur **Fournisseurs de ressources**, sur **Microsoft.Compute**, puis sur **Réinscrire**.
-   2. Sous le même abonnement, accédez à **Contrôle d’accès (IAM)** et vérifiez que l’élément **Azure Stack - Disque managé** est listé.
-- Si vous utilisez un environnement mutualisé, demandez à votre opérateur cloud (dans votre organisation ou chez votre fournisseur de services) de reconfigurer chacun de vos annuaires invités conformément aux étapes décrites dans [cet article](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). Sinon, le déploiement de machines virtuelles dans un abonnement associé à cet annuaire invité peut échouer avec le message d’erreur « Erreur interne dans le gestionnaire de disque ».
+   1. Dans le portail utilisateur Azure Stack Hub, accédez à **Abonnements** et recherchez l’abonnement. Cliquez sur **Fournisseurs de ressources**, sur **Microsoft.Compute**, puis sur **Réinscrire**.
+   2. Sous le même abonnement, accédez à **Contrôle d’accès (IAM)** et vérifiez que l’élément **Azure Stack Hub – Disques managés** est répertorié.
+- Si vous utilisez un environnement mutualisé, demandez à votre opérateur cloud (dans votre organisation ou chez votre fournisseur de services) de reconfigurer chacun de vos annuaires invités conformément aux étapes décrites dans [cet article](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-hub-with-the-guest-directory). Sinon, le déploiement de machines virtuelles dans un abonnement associé à cet annuaire invité peut échouer avec le message d’erreur « Erreur interne dans le gestionnaire de disque ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [En savoir plus sur les machines virtuelles Azure Stack](azure-stack-compute-overview.md)
+- [En savoir plus sur les machines virtuelles Azure Stack Hub](azure-stack-compute-overview.md)

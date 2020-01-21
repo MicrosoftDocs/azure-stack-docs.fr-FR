@@ -1,6 +1,6 @@
 ---
 title: Supprimer des quotas, plans, offres et abonnements | Microsoft Docs
-description: Découvrez comment supprimer des quotas, plans, offres et abonnements Azure Stack.
+description: Découvrez comment supprimer des quotas, plans, offres et abonnements Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -15,16 +15,14 @@ ms.date: 08/13/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: e89fcb3c218ab8b7228b63211b9f94c7e03d9865
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: 7184972e6b486ee696b4edb621046d1b41f677a9
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319126"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882536"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>Supprimer des quotas, plans, offres et abonnements
-
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Cet article explique comment supprimer des quotas, des plans, des offres et des abonnements dont vous n’avez plus besoin. En règle générale, vous pouvez supprimer uniquement ce qui n’est pas en cours d’utilisation. Par exemple, la suppression d’une offre n’est possible que s’il n’existe aucun abonnement appartenant à cette offre.
 

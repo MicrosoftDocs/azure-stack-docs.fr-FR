@@ -1,6 +1,6 @@
 ---
-title: Présentation du stockage Azure Stack | Microsoft Docs
-description: En savoir plus sur les services de stockage Azure Stack.
+title: Présentation du stockage Azure Stack Hub | Microsoft Docs
+description: En savoir plus sur les services de stockage Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,24 +14,22 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: dfa9666387093f60dfd41e371707dff23119dc9a
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 50ca47c66e31417378e5088bf6c0c9f7cb406cc1
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909585"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878321"
 ---
-# <a name="introduction-to-azure-stack-storage"></a>Présentation du stockage Azure Stack
+# <a name="introduction-to-azure-stack-hub-storage"></a>Présentation du stockage Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+## <a name="overview"></a>Vue d’ensemble
 
-## <a name="overview"></a>Vue d'ensemble
+Le stockage Azure Stack Hub est un ensemble de services de stockage cloud cohérents avec les services fournis par le stockage Azure. Ces services incluent des blobs, des tables et des files d’attente.
 
-Le stockage Azure Stack est un ensemble de services de stockage cloud cohérents avec les services fournis par le stockage Azure. Ces services incluent des blobs, des tables et des files d’attente.
+## <a name="azure-stack-hub-storage-services"></a>Services de stockage Azure Stack Hub
 
-## <a name="azure-stack-storage-services"></a>Services de stockage Azure Stack
-
-Le stockage Azure Stack fournit les trois services suivants :
+Le stockage Azure Stack Hub fournit les trois services suivants :
 
 - **Stockage Blob**
 
@@ -45,9 +43,9 @@ Le stockage Azure Stack fournit les trois services suivants :
 
     Le stockage de files d’attente fournit une messagerie fiable pour le traitement du workflow et pour la communication entre les composants des services cloud.
 
-Un compte de stockage Azure Stack est un compte sécurisé qui vous donne accès à des services dans le stockage Azure Stack. Votre compte de stockage fournit les espaces de noms uniques pour vos ressources de stockage. Le diagramme suivant montre les relations entre les ressources de stockage Azure Stack dans un compte de stockage :
+Un compte de stockage Azure Stack Hub est un compte sécurisé qui vous donne accès à des services dans le stockage Azure Stack Hub. Votre compte de stockage fournit les espaces de noms uniques pour vos ressources de stockage. Le schéma suivant montre les relations entre les ressources de stockage Azure Stack Hub dans un compte de stockage :
 
-![Vue d’ensemble du stockage Azure Stack](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
+![Vue d’ensemble du stockage Azure Stack Hub](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
 
 ### <a name="blob-storage"></a>Stockage d'objets blob
 
@@ -74,7 +72,7 @@ Le stockage Blob offre trois types d’objets blob :
 
 - **Objets blob de pages**
 
-    Les objets blob de pages sont optimisés pour la représentation des disques IaaS et la prise en charge des écritures aléatoires dont la taille peut atteindre jusqu’à 1 To. Un disque IaaS attaché à une machine virtuelle Azure Stack est un disque dur virtuel stocké comme un objet blob de pages.
+    Les objets blob de pages sont optimisés pour la représentation des disques IaaS et la prise en charge des écritures aléatoires dont la taille peut atteindre jusqu’à 1 To. Un disque IaaS attaché à une machine virtuelle Azure Stack Hub est un disque dur virtuel stocké comme un objet blob de pages.
 
 ### <a name="table-storage"></a>Stockage de tables
 

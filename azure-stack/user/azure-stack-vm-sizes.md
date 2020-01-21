@@ -1,6 +1,6 @@
 ---
-title: Tailles de machine virtuelle prises en charge dans Azure Stack | Microsoft Docs
-description: Référence pour les tailles de machine virtuelle prises en charge dans Azure Stack.
+title: Tailles de machine virtuelle prises en charge dans Azure Stack Hub | Microsoft Docs
+description: Référence pour les tailles de machine virtuelle prises en charge dans Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,20 +14,18 @@ ms.date: 12/3/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/3/2019
-ms.openlocfilehash: d38168fee437b27dfde8d5381c960b8e2a237487
-ms.sourcegitcommit: 757f612663059f1af8c535d8b37f63a8cf4a5e7d
+ms.openlocfilehash: c7f09296b68df31892952675bac8086c8b483f6d
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784078"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883148"
 ---
-# <a name="vm-sizes-supported-in-azure-stack"></a>Tailles de machine virtuelle prises en charge dans Azure Stack
+# <a name="vm-sizes-supported-in-azure-stack-hub"></a>Tailles de machine virtuelle prises en charge dans Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+Cet article répertorie les tailles de machine virtuelle disponibles dans Azure Stack Hub. Cet article peut vous aider à choisir une machine virtuelle pour la prise en charge de votre solution Azure Stack Hub.
 
-Cet article répertorie les tailles de machine virtuelle disponibles dans Azure Stack. Cet article peut vous aider à choisir une machine virtuelle pour la prise en charge de votre solution Azure Stack.
-
-Sur Azure Stack, les IOPS disque (opérations d'entrée/sortie par seconde) dépendent de la taille de la machine virtuelle et non du type de disque. Cela signifie que, pour une machine virtuelle Standard_Fs, quel que soit le type de disque choisi (SSD ou HDD), la limite d'IOPS est de 2 300 par disque de données supplémentaire. La limite d'IOPS imposée est un plafond (maximum possible) pour éviter les voisins bruyants. Elle ne garantit pas les IOPS obtenues avec une taille de machine virtuelle spécifique.
+Sur Azure Stack Hub, les IOPS disque (opérations d’entrée/sortie par seconde) dépendent de la taille de la machine virtuelle et non du type de disque. Cela signifie que, pour une machine virtuelle Standard_Fs, quel que soit le type de disque choisi (SSD ou HDD), la limite d'IOPS est de 2 300 par disque de données supplémentaire. La limite d'IOPS imposée est un plafond (maximum possible) pour éviter les voisins bruyants. Elle ne garantit pas les IOPS obtenues avec une taille de machine virtuelle spécifique.
 
 ## <a name="vm-general-purpose"></a>Usage général d’une machine virtuelle
 
@@ -40,14 +38,14 @@ Les tailles de machine virtuelle à usage général ont un ratio processeur/mém
 
 |Taille - Taille\Nom |Processeurs virtuels     |Mémoire | Taille max. du disque temporaire | Débit de disque du système d’exploitation max : (IOPS) | Débit de stockage temporaire max. (E/S par seconde) | Débit de disque de données max. (E/S par seconde) | Nombre max de cartes réseau |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
-|**A0\Basic_A0**  |1    |768 Mo   | 20 Go   |300  | 300  |1 / 1x300  |2   |
+|**A0\Basic_A0**  |1    |768 Mo   | 20 Go   |300  | 300  |1 / 1x300  |2   |
 |**A1\Basic_A1**  |1    |1,75 Go  | 40 Go   |300  | 300  |2 / 2x300  |2   |
 |**A2\Basic_A2**  |2    |3,5 Go   | 60 Go   |300  | 300  |4 / 4x300  |2   |
 |**A3\Basic_A3**  |4    |7 Go     | 120 Go  |300  | 300  |8 / 8x300  |2   |
 |**A4\Basic_A4**  |8    |14 Go    | 240 Go  |300  | 300  |16 / 16X300 |2   |
 
 ### <a name="standard-a"></a>Standard A 
-|Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |    
+|Size     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |    
 |----------------|--|------|----|----|----|-------|---------|
 |**Standard_A0** |1 |0,768 |20  |500 |500 |1 x 500  |2 |
 |**Standard_A1** |1 |1,75  |70  |500 |500 |2 x 500  |2 |
@@ -59,7 +57,7 @@ Les tailles de machine virtuelle à usage général ont un ratio processeur/mém
 |**Standard_A7** |8 |56    |605 |500 |500 |16 x 500 |4 |
 
 ### <a name="av2-series"></a>Série Av2
-*Nécessite Azure Stack version 1804 ou ultérieure*
+*Nécessite Azure Stack Hub version 1804 ou ultérieure*
 
 |Size     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
 |-----------------|----|----|-----|-----|------|--------------|---------|
@@ -72,7 +70,7 @@ Les tailles de machine virtuelle à usage général ont un ratio processeur/mém
 |**Standard_A8m_v2** |8   |64  |80   |500 |8000  |16 / 16 x 500 |8 |
 
 ### <a name="d-series"></a>Série D
-|Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
+|Size     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
 |----------------|----|----|-----|----|------|------------|---------|
 |**Standard_D1** |1   |3,5 |50   |500 |3000  |4 / 4 x 500   |2 |
 |**Standard_D2** |2   |7   |100  |500 |6000  |8 / 8 x 500   |2 |
@@ -81,7 +79,7 @@ Les tailles de machine virtuelle à usage général ont un ratio processeur/mém
 
 
 ### <a name="ds-series"></a>Série DS
-|Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
+|Size     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
 |-----------------|----|----|-----|-----|------|-------------|---------|
 |**Standard_DS1** |1   |3,5 |7    |1 000 |4000  |4 / 4x2 300   |2 |
 |**Standard_DS2** |2   |7   |14   |1 000 |8000  |8 / 8x2 300   |2 |
@@ -89,7 +87,7 @@ Les tailles de machine virtuelle à usage général ont un ratio processeur/mém
 |**Standard_DS4** |8   |28  |56   |1 000 |32000 |32 / 32x2 300 |8 |
 
 ### <a name="dv2-series"></a>Série Dv2
-|Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
+|Size     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
 |-------------------|----|----|-----|----|------|------------|---------|
 |**Standard_D1_v2** |1   |3,5 |50   |500 |3000  |4 / 4 x 500   |2 |
 |**Standard_D2_v2** |2   |7   |100  |500 |6000  |8 / 8 x 500   |2 |
@@ -98,7 +96,7 @@ Les tailles de machine virtuelle à usage général ont un ratio processeur/mém
 |**Standard_D5_v2** |16  |56  |800  |500 |48 000 |64 / 64 x 500 |8 |
 
 ### <a name="dsv2-series"></a>Séries DSv2
-|Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
+|Size     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
 |--------------------|----|----|----|-----|------|-------------|---------|
 |**Standard_DS1_v2** |1   |3,5 |7   |1 000 |4000  |4 / 4x2 300   |2 |
 |**Standard_DS2_v2** |2   |7   |14  |1 000 |8000  |8 / 8x2 300   |2 |
@@ -109,7 +107,7 @@ Les tailles de machine virtuelle à usage général ont un ratio processeur/mém
 
 ## <a name="compute-optimized"></a>Optimisé pour le calcul
 ### <a name="f-series"></a>Série F
-*Nécessite Azure Stack version 1804 ou ultérieure*
+*Nécessite Azure Stack Hub version 1804 ou ultérieure*
 
 |Size     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
 |-----------------|----|----|-----|----|------|------------|---------|
@@ -121,7 +119,7 @@ Les tailles de machine virtuelle à usage général ont un ratio processeur/mém
 
 
 ### <a name="fs-series"></a>Série Fs
-*Nécessite Azure Stack version 1804 ou ultérieure*  
+*Nécessite Azure Stack Hub version 1804 ou ultérieure*  
 
 |Size     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
 |------------------|----|----|----|-----|------|-------------|---------|
@@ -133,7 +131,7 @@ Les tailles de machine virtuelle à usage général ont un ratio processeur/mém
 
 
 ### <a name="fsv2-series"></a>Série Fsv2
-*Nécessite Azure Stack version 1804 ou ultérieure* 
+*Nécessite Azure Stack Hub version 1804 ou ultérieure* 
 
 |Size     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
@@ -150,7 +148,7 @@ Les tailles de machine virtuelle à usage général ont un ratio processeur/mém
 Les tailles de machine virtuelle à mémoire optimisée offrent un ratio mémoire/processeur supérieur pour les serveurs de base de données relationnelle, les caches moyens à grands et l’analytique en mémoire.
 
 ### <a name="mo-d"></a>Série D
-|Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
+|Size     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
 |------------------|---|----|----|--------|------|------------|---------|
 |**Standard_D11**  |2  |14  |100 |500     |6000  |8 / 8 x 500   |2 |
 |**Standard_D12**  |4  |28  |200 |500     |12 000 |16 / 16 x 500 |4 |
@@ -158,7 +156,7 @@ Les tailles de machine virtuelle à mémoire optimisée offrent un ratio mémoir
 |**Standard_D14**  |16 |112 |800 |500     |48 000 |64 / 64 x 500 |8 |
 
 ### <a name="mo-ds"></a>Série DS
-|Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
+|Size     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
 |-------------------|---|----|----|--------|------|-------------|---------|
 |**Standard_DS11**  |2  |14  |28  |1 000    |8000  |8 / 8x2 300   |2 |
 |**Standard_DS12**  |4  |28  |56  |1 000    |12 000 |16 / 16x2 300 |4 |
@@ -166,7 +164,7 @@ Les tailles de machine virtuelle à mémoire optimisée offrent un ratio mémoir
 |**Standard_DS14**  |16 |112 |224 |1 000    |64 000 |64 / 64x2 300 |8 |
 
 ### <a name="mo-dv2"></a>Série Dv2
-|Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
+|Size     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
 |--------------------|----|----|-----|----|-------|-------------|---------|
 |**Standard_D11_v2** |2   |14  |100  |500 |6000   |8 / 8 x 500    |2 |
 |**Standard_D12_v2** |4   |28  |200  |500 |12 000  |16 / 16 x 500  |4 |
@@ -175,7 +173,7 @@ Les tailles de machine virtuelle à mémoire optimisée offrent un ratio mémoir
 
 
 ### <a name="mo-dsv2"></a>Série DSv2
-|Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
+|Size     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
 |**Standard_DS11_v2** |2   |14  |28   |1 000 |8000   |4 / 4x2 300    |2 |
 |**Standard_DS12_v2** |4   |28  |56   |1 000 |16000  |8 / 8x2 300    |4 |
@@ -185,4 +183,4 @@ Les tailles de machine virtuelle à mémoire optimisée offrent un ratio mémoir
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Fonctionnalités des machines virtuelles Azure Stack](azure-stack-vm-considerations.md)
+[Fonctionnalités des machines virtuelles Azure Stack Hub](azure-stack-vm-considerations.md)

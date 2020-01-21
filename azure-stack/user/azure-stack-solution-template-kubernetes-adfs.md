@@ -1,6 +1,6 @@
 ---
-title: Déployer Kubernetes sur Azure Stack à l’aide d’Active Directory Federation Services (AD FS) | Microsoft Docs
-description: Découvrez comment déployer Kubernetes sur Azure Stack à l’aide d’Active Directory Federation Services (AD FS).
+title: Déployer Kubernetes sur Azure Stack Hub à l’aide d’Active Directory Federation Services (AD FS) | Microsoft Docs
+description: Découvrez comment déployer Kubernetes sur Azure Stack Hub à l’aide d’Active Directory Federation Services (AD FS).
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,41 +15,39 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: a57d1d1520eb09e52e651d65c92314723c3aee4f
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: 5bef03b0cb89a44cf6453bea9dbe4deeeb771430
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047238"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883301"
 ---
-# <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Déployer Kubernetes sur Azure Stack à l’aide d’Active Directory Federation Services
-
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+# <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Déployer Kubernetes sur Azure Stack Hub à l’aide d’Active Directory Federation Services
 
 > [!Note]  
-> Utilisez uniquement l’élément Kubernetes Azure Stack Marketplace pour déployer des clusters en tant que preuve de concept. Pour les clusters Kubernetes pris en charge sur Azure Stack, utilisez  [le moteur AKS](azure-stack-kubernetes-aks-engine-overview.md).
+> Utilisez uniquement l’élément Kubernetes de la Place de marché Azure Stack pour déployer des clusters en tant que preuve de concept. Pour les clusters Kubernetes pris en charge sur Azure Stack, utilisez  [le moteur AKS](azure-stack-kubernetes-aks-engine-overview.md).
 
 Vous pouvez suivre les étapes de cet article pour déployer et configurer les ressources pour Kubernetes. Utilisez ces étapes quand Active Directory Federation Services (AD FS) est votre service de gestion des identités.
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 
-Pour commencer, assurez-vous que vous disposez des autorisations appropriées et que votre Azure Stack est prêt.
+Pour commencer, assurez-vous que vous disposez des autorisations appropriées et que votre Azure Stack Hub est prêt.
 
-1. Générez une paire de clés publique et privée SSH pour vous connecter à la machine virtuelle Linux sur Azure Stack. Vous avec besoin de la clé publique lors de la création du cluster.
+1. Générez une paire de clés publique et privée SSH pour vous connecter à la machine virtuelle Linux sur Azure Stack Hub. Vous avec besoin de la clé publique lors de la création du cluster.
 
     Pour obtenir des instructions sur la génération d’une clé, voir [Génération d’une clé SSH](azure-stack-dev-start-howto-ssh-public-key.md).
 
-1. Vérifiez que vous avez un abonnement valide dans votre portail de client Azure Stack et que vous disposez d’un nombre suffisant d’adresses IP publiques pour ajouter de nouvelles applications.
+1. Vérifiez que vous avez un abonnement valide dans votre portail de locataire Azure Stack Hub et que vous disposez d’un nombre suffisant d’adresses IP publiques pour ajouter de nouvelles applications.
 
-    Vous ne pouvez pas déployer le cluster sur un abonnement **Administrateur** Azure Stack. Vous devez utiliser un abonnement **Utilisateur**. 
+    Vous ne pouvez pas déployer le cluster sur un abonnement **Administrateur** Azure Stack Hub. Vous devez utiliser un abonnement **Utilisateur**. 
 
-1. Si Cluster Kubernetes ne figure pas dans votre Place de marché, contactez votre administrateur Azure Stack.
+1. Si Cluster Kubernetes ne figure pas dans votre Place de marché, contactez votre administrateur Azure Stack Hub.
 
 ## <a name="create-a-service-principal"></a>Créer un principal du service
 
-Vous devez travailler avec votre administrateur Azure Stack pour configurer votre principal du service si vous utilisez AD FS comme solution de gestion des identités. Le principal du service permet à votre application d’accéder aux ressources Azure Stack.
+Vous devez travailler avec votre administrateur Azure Stack Hub pour configurer votre principal du service si vous utilisez AD FS comme solution de gestion des identités. Le principal du service permet à votre application d’accéder aux ressources Azure Stack Hub.
 
-1. Votre administrateur Azure Stack vous fournit les informations relatives au principal du service. Les informations du principal de service doivent se présenter comme suit :
+1. Votre administrateur Azure Stack Hub vous fournit les informations relatives au principal du service. Les informations du principal de service doivent se présenter comme suit :
 
      ```Text  
        ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -65,7 +63,7 @@ Vous devez travailler avec votre administrateur Azure Stack pour configurer votr
 
 ## <a name="deploy-kubernetes"></a>Déployer Kubernetes
 
-1. Ouvrez le [portail Azure Stack](https://portal.local.azurestack.external).
+1. Ouvrez le [portail Azure Stack Hub](https://portal.local.azurestack.external).
 
 1. Sélectionnez **Créer une ressource** > **Calcul** > **Cluster Kubernetes**. Sélectionnez **Create** (Créer).
 
@@ -81,7 +79,7 @@ Vous devez travailler avec votre administrateur Azure Stack pour configurer votr
 
 1. Entrez le nom d’un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant. Le nom de la ressource doit être alphanumérique et en minuscules.
 
-1. Sélectionnez **l’emplacement** du groupe de ressources. Il s’agit de la région que vous avez choisie pour votre installation Azure Stack.
+1. Sélectionnez **l’emplacement** du groupe de ressources. Il s’agit de la région que vous avez choisie pour votre installation Azure Stack Hub.
 
 ### <a name="2-kubernetes-cluster-settings"></a>2. Paramètres de cluster Kubernetes
 
@@ -106,13 +104,13 @@ Vous devez travailler avec votre administrateur Azure Stack pour configurer votr
 
 1. Sélectionnez la valeur du champ **Taille des machines virtuelles nœud Kubernetes**. Cette opération spécifie la taille des machines virtuelles de nœud Kubernetes. 
 
-1. Sélectionnez **ADFS** comme **système d’identité Azure Stack** pour votre installation Azure Stack.
+1. Sélectionnez **ADFS** comme **système d’identité Azure Stack Hub** pour votre installation Azure Stack Hub.
 
-1. Entrez **l’ID client du principal de service**. Celui-ci est utilisé par le fournisseur cloud d’Azure Kubernetes. ID de client identifié comme ID d’application quand votre administrateur Azure Stack a créé le principal du service.
+1. Entrez **l’ID client du principal de service**. Celui-ci est utilisé par le fournisseur cloud d’Azure Kubernetes. ID de client identifié comme ID d’application quand votre administrateur Azure Stack Hub a créé le principal du service.
 
-1. Entrez la **clé secrète client du principal du service**. Il s’agit de la clé secrète client fournie pour votre principal du service AD FS par votre administrateur Azure Stack.
+1. Entrez la **clé secrète client du principal du service**. Il s’agit de la clé secrète client fournie pour votre principal du service AD FS par votre administrateur Azure Stack Hub.
 
-1. Entrez la **version de Kubernetes**. Il s’agit de la version du fournisseur d’Azure Kubernetes. Azure Stack publie une build Kubernetes personnalisée pour chaque version d’Azure Stack.
+1. Entrez la **version de Kubernetes**. Il s’agit de la version du fournisseur d’Azure Kubernetes. Azure Stack Hub publie une build Kubernetes personnalisée pour chaque version d’Azure Stack Hub.
 
 ### <a name="3-summary"></a>3. Résumé
 
@@ -125,7 +123,7 @@ Vous devez travailler avec votre administrateur Azure Stack pour configurer votr
 3. Sélectionnez **OK** pour déployer votre cluster.
 
 > [!TIP]  
->  Si vous avez des questions concernant votre déploiement, vous pouvez poster votre question ou lire la réponse si quelqu’un y a déjà répondu sur le [Forum Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+>  Si vous avez des questions concernant votre déploiement, vous pouvez poster votre question ou lire la réponse si quelqu’un y a déjà répondu sur le [Forum Azure Stack Hub](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
