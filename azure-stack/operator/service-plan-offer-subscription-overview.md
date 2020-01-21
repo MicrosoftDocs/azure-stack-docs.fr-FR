@@ -1,6 +1,6 @@
 ---
-title: Présentation des services, plans, offres et abonnements Azure Stack | Microsoft Docs
-description: Présentation des services, plans, offres et abonnements Azure Stack.
+title: Présentation des services, plans, offres et abonnements Azure Stack Hub | Microsoft Docs
+description: Présentation des services, plans, offres et abonnements Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -12,22 +12,20 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: c1311836487dc11e1e95307181cb02fafa511a6b
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 4f7cb6bf451ad04a8c6365e5c39a714902f3d0b4
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727409"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880003"
 ---
-# <a name="azure-stack-services-plans-offers-subscriptions-overview"></a>Présentation des services, plans, offres et abonnements Azure Stack
+# <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Présentation des services, plans, offres et abonnements Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
-
-[Microsoft Azure Stack](azure-stack-overview.md) est une plateforme cloud hybride qui vous permet de fournir des services à partir de votre centre de données. Les services incluent notamment les machines virtuelles, les bases de données SQL Server, SharePoint, Exchange et même des [éléments de Place de marché Azure](azure-stack-marketplace-azure-items.md). En tant que fournisseur de services, vous pouvez proposer des services à vos locataires. Au sein d’une entreprise ou d’une agence gouvernementale, vous pouvez proposer des services locaux à vos employés.
+[Microsoft Azure Stack Hub](azure-stack-overview.md) est une plateforme cloud hybride qui vous permet de fournir des services à partir de votre centre de données. Les services incluent notamment les machines virtuelles, les bases de données SQL Server, SharePoint, Exchange et même des [éléments de Place de marché Azure](azure-stack-marketplace-azure-items.md). En tant que fournisseur de services, vous pouvez proposer des services à vos locataires. Au sein d’une entreprise ou d’une agence gouvernementale, vous pouvez proposer des services locaux à vos employés.
 
 ## <a name="overview"></a>Vue d’ensemble
 
-En tant qu’opérateur Azure Stack, vous configurez et vous fournissez des services en utilisant des offres, des plans et des abonnements. Les offres contiennent un ou plusieurs plans, et chaque plan inclut un ou plusieurs services, chacun configuré avec des quotas. En créant des plans et en les associant en différentes offres, les utilisateurs peuvent s’abonner à vos offres et déployer des ressources. Cette structure vous permet de gérer :
+En tant qu’opérateur Azure Stack Hub, vous configurez et vous fournissez des services en utilisant des offres, des plans et des abonnements. Les offres contiennent un ou plusieurs plans, et chaque plan inclut un ou plusieurs services, chacun configuré avec des quotas. En créant des plans et en les associant en différentes offres, les utilisateurs peuvent s’abonner à vos offres et déployer des ressources. Cette structure vous permet de gérer :
 
 - les services et ressources auxquels vos utilisateurs ont accès ;
 - la quantité de ressources que les utilisateurs peuvent consommer ;
@@ -49,9 +47,9 @@ Une fois l’offre créée, vos utilisateurs peuvent s’y abonner pour accéder
 
 ## <a name="services"></a>Services
 
-Vous pouvez proposer des services [Infrastructure as a service](https://azure.microsoft.com/overview/what-is-iaas/) (IaaS) qui autorisent vos utilisateurs à créer une infrastructure informatique à la demande, laquelle est configurée et gérée à partir du portail d’utilisateur Azure Stack.
+Vous pouvez proposer des services [Infrastructure as a service](https://azure.microsoft.com/overview/what-is-iaas/) (IaaS) qui autorisent vos utilisateurs à créer une infrastructure informatique à la demande, laquelle est configurée et gérée à partir du portail d’utilisateur Azure Stack Hub.
 
-Vous pouvez également déployer des services [Platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) pour Azure Stack, provenant de Microsoft ou d’autres fournisseurs tiers. Vous pouvez proposer entre autres les services PaaS suivants :
+Vous pouvez également déployer des services [Platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) pour Azure Stack, Hub provenant de Microsoft ou d’autres fournisseurs tiers. Vous pouvez proposer entre autres les services PaaS suivants :
 
 - [App Service](azure-stack-app-service-overview.md)
 - [SQL Server](azure-stack-sql-resource-provider-deploy.md)
@@ -71,11 +69,11 @@ Vous pouvez définir les quotas par région. Par exemple, un plan fournissant de
 >[!NOTE]
 >Dans le Kit de développement Azure Stack, une seule région (nommée *local*) est disponible.
 
-Apprenez-en plus sur les [types de quotas dans Azure Stack](azure-stack-quota-types.md).
+Apprenez-en plus sur les [types de quotas dans Azure Stack Hub](azure-stack-quota-types.md).
 
 ## <a name="plans"></a>Plans
 
-Les plans regroupent un ou plusieurs services. En tant qu’opérateur Azure Stack, vous [créez des plans](azure-stack-create-plan.md) à proposer à vos utilisateurs. En retour, ceux-ci s’abonnent à vos offres pour utiliser les plans et les services qu’elles comprennent. Lors de la création des plans, veillez à définir vos quotas et vos plans de base et à envisager d’inclure des plans d’extension facultatifs.
+Les plans regroupent un ou plusieurs services. En tant qu’opérateur Azure Stack Hub, vous [créez des plans](azure-stack-create-plan.md) à proposer à vos utilisateurs. En retour, ceux-ci s’abonnent à vos offres pour utiliser les plans et les services qu’elles comprennent. Lors de la création des plans, veillez à définir vos quotas et vos plans de base et à envisager d’inclure des plans d’extension facultatifs.
 
 ### <a name="base-plan"></a>Plan de base
 
@@ -101,13 +99,13 @@ Quand vous planifiez vos offres, gardez à l’esprit les points suivants :
 
 ## <a name="subscriptions"></a>Abonnements
 
-Les abonnements permettent aux utilisateurs d’accéder à vos offres. Si vous êtes un opérateur Azure Stack chez un fournisseur de services, vos utilisateurs (locataires) achètent vos services en s’abonnant à vos offres. Si vous êtes un opérateur Azure Stack au sein d’une organisation, vos utilisateurs (employés) peuvent s’abonner gratuitement aux services que vous proposez.
+Les abonnements permettent aux utilisateurs d’accéder à vos offres. Si vous êtes un opérateur Azure Stack Hub chez un fournisseur de services, vos utilisateurs (locataires) achètent vos services en s’abonnant à vos offres. Si vous êtes un opérateur Azure Stack Hub au sein d’une organisation, vos utilisateurs (employés) peuvent s’abonner gratuitement aux services que vous proposez.
 
-Les utilisateurs créent des abonnements et obtiennent l’accès aux abonnements existants en se connectant à Azure Stack. Chaque abonnement représente une association avec une seule offre. L’offre (ainsi que ses plans et quotas) affectée à un abonnement ne peut pas être partagée avec d’autres abonnements. Chaque ressource créée par un utilisateur est associée à un seul abonnement.
+Les utilisateurs créent des abonnements et obtiennent l’accès aux abonnements existants en se connectant à Azure Stack Hub. Chaque abonnement représente une association avec une seule offre. L’offre (ainsi que ses plans et quotas) affectée à un abonnement ne peut pas être partagée avec d’autres abonnements. Chaque ressource créée par un utilisateur est associée à un seul abonnement.
 
 ### <a name="default-provider-subscription"></a>Abonnement au fournisseur par défaut
 
-L’abonnement au fournisseur par défaut est automatiquement créé lors du déploiement du Kit de développement Azure Stack. Il permet de gérer Azure Stack, de déployer des fournisseurs de ressources supplémentaires et de créer des plans et des offres pour les utilisateurs. Pour des raisons de sécurité et de gestion des licences, il ne doit pas être utilisé pour exécuter des applications et des charges de travail de clients. Le quota de l’abonnement du fournisseur par défaut ne peut pas être modifié.
+L’abonnement au fournisseur par défaut est automatiquement créé lors du déploiement du Kit de développement Azure Stack. Il permet de gérer Azure Stack Hub, de déployer des fournisseurs de ressources supplémentaires et de créer des plans et des offres pour les utilisateurs. Pour des raisons de sécurité et de gestion des licences, il ne doit pas être utilisé pour exécuter des applications et des charges de travail de clients. Le quota de l’abonnement du fournisseur par défaut ne peut pas être modifié.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

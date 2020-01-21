@@ -16,12 +16,12 @@ ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 11dcd7288f629282c1f69d12c33e9bd1a8e440b6
-ms.sourcegitcommit: df8de80b8c295495edc091e0a12012ccc7a96594
+ms.openlocfilehash: 0b150f97adf3e456b41dc3af9ac92e0a281b793a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75503621"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812397"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Problèmes connus d’Azure Stack Hub
 
@@ -278,7 +278,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ## <a name="1908-update-process"></a>Processus de mise à jour 1908
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : L’installation de la mise à jour d’Azure Stack peut échouer, et son état peut passer à **PreparationFailed**. Cela est dû au fait que le fournisseur de ressources de mise à jour est dans l’impossibilité de transférer correctement les fichiers du conteneur de stockage vers un partage d’infrastructure interne à des fins de traitement.
+- Cause : L’installation de la mise à jour d’Azure Stack Hub peut échouer, et son état peut passer à **PreparationFailed**. Cela est dû au fait que le fournisseur de ressources de mise à jour est dans l’impossibilité de transférer correctement les fichiers du conteneur de stockage vers un partage d’infrastructure interne à des fins de traitement.
 - Correction : À compter de la version 1901 (1.1901.0.95), vous pouvez contourner ce problème en cliquant sur **Mettre à jour maintenant** à nouveau (et pas sur **Reprendre**). Le fournisseur de ressources de mise à jour (URP) nettoie les fichiers de la tentative précédente, puis redémarre le téléchargement. Si le problème persiste, nous vous conseillons de charger manuellement le package de mise à jour comme cela est décrit dans la [section Installer des mises à jour](azure-stack-apply-updates.md#install-updates-and-monitor-progress).
 - Occurrence : Courant
 
@@ -307,14 +307,14 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="subscription-permissions"></a>Autorisations d’abonnement
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Vous ne pouvez pas afficher les autorisations définies pour votre abonnement à l’aide des portails Azure Stack.
+- Cause : Vous ne pouvez pas voir les autorisations définies pour votre abonnement à l’aide des portails Azure Stack Hub.
 - Correction : Utilisez [PowerShell pour vérifier les autorisations](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Occurrence : Courant
 
 ### <a name="storage-account-settings"></a>Paramètres du compte de stockage
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, le panneau **Configuration** du compte de stockage présente une option permettant de modifier le **type de transfert de sécurité**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, le panneau **Configuration** du compte de stockage présente une option permettant de modifier le **type de transfert de sécurité**. La fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 ### <a name="upload-blob"></a>Charger l’objet blob
@@ -347,7 +347,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="service-endpoints"></a>Points de terminaison de service
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, le panneau **Réseau virtuel** comporte une option pour utiliser les **points de terminaison du service**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, le panneau **Réseau virtuel** comporte une option pour utiliser les **points de terminaison du service**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 ### <a name="network-interface"></a>interface réseau
@@ -371,29 +371,29 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 #### <a name="alerts"></a>Alertes
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, le panneau **Passerelle de réseau virtuel** comporte une option pour utiliser les **alertes**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, le panneau **Passerelle de réseau virtuel** comporte une option pour utiliser les **alertes**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 #### <a name="active-active"></a>Actif/actif
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, lors de la création, et dans le menu **Passerelle de réseau virtuel**, vous verrez une option permettant d’activer la configuration **Actif/actif**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, lors de la création, et dans le menu **Passerelle de réseau virtuel**, vous verrez une option permettant d’activer la configuration **Actif/actif**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 #### <a name="vpn-troubleshooter"></a>Résolution des problèmes de VPN
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, le panneau **Connexions** montre une fonctionnalité appelée **Résolution des problèmes de VPN**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, le panneau **Connexions** montre une fonctionnalité appelée **Résolution des problèmes de VPN**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 #### <a name="documentation"></a>Documentation
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Les liens vers la documentation dans la page de vue d’ensemble de la Passerelle de réseau virtuel renvoient vers la documentation spécifique à Azure au lieu d’Azure Stack. Utilisez les liens suivants pour accéder à la documentation Azure Stack :
+- Cause : Les liens vers la documentation dans la page de vue d’ensemble de la passerelle de réseau virtuel pointent vers la documentation spécifique à Azure au lieu d’Azure Stack Hub. Utilisez les liens suivants pour accéder à la documentation d’Azure Stack Hub :
 
   - [SKU de passerelle](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [Connexions hautement disponibles](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [Configurer le protocole BGP sur Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [Configurer le protocole BGP sur Azure Stack Hub](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [Circuits ExpressRoute](azure-stack-connect-expressroute.md)
   - [Spécifier des stratégies IPsec/IKE personnalisées](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
@@ -408,11 +408,11 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 ### <a name="virtual-machine-scale-set"></a>Jeu de mise à l’échelle de machine virtuelle
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Créer des échecs au cours des correctifs et mises à jour sur des environnements Azure Stack à 4 nœuds
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>Créer des échecs durant l’application des correctifs logiciels et des mises à jour dans les environnements Azure Stack Hub à 4 nœuds
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : La création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur et la création d’une instance de groupe identique de machines virtuelles échouent avec une erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
-- Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. En revanche, la création d’instances de groupe identique n’est toujours pas disponible pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
+- Cause : Échec de la création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur, et échec de la création d’une instance de groupe de machines virtuelles identiques avec l’erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack Hub à 4 nœuds.
+- Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. En revanche, la création d’instances de groupe identique n’est toujours pas disponible pendant le processus de mise à jour sur un environnement Azure Stack Hub à 4 nœuds.
 
 ### <a name="ubuntu-ssh-access"></a>Accès SSH Ubuntu
 
@@ -424,21 +424,21 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>La réinitialisation du mot de passe d’un groupe de machines virtuelles identiques ne fonctionne pas
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Un nouveau panneau de réinitialisation du mot de passe s’affiche dans l’interface utilisateur de groupe identique, mais Azure Stack ne prend pas encore en charge la réinitialisation de mot de passe sur un groupe identique.
+- Cause : Un nouveau panneau de réinitialisation du mot de passe s’affiche dans l’interface utilisateur de groupe identique, mais Azure Stack Hub ne prend pas encore en charge la réinitialisation de mot de passe sur un groupe identique.
 - Correction : Aucun.
 - Occurrence : Courant
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Nuage qui pleure sur le diagnostic de groupe identique
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : La page de la vue d’ensemble du groupe de machines virtuelles identiques contient un graphique vide. En cliquant sur le graphique vide, un panneau avec un nuage qui pleure. C’est le graphique des informations de diagnostic du groupe identique, comme le pourcentage UC, et ce n’est pas une fonctionnalité prise en charge dans la version Azure Stack actuelle.
+- Cause : La page de la vue d’ensemble du groupe de machines virtuelles identiques contient un graphique vide. En cliquant sur le graphique vide, un panneau avec un nuage qui pleure. C’est le graphique des informations de diagnostic du groupe identique, comme le pourcentage UC, et ce n’est pas une fonctionnalité prise en charge dans la version Azure Stack Hub actuelle.
 - Correction : Aucun.
 - Occurrence : Courant
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Panneau des paramètres de diagnostic de machine virtuelle
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.    
-- Cause : Le panneau des paramètres de diagnostic de machine virtuelle comporte un onglet **Récepteur**, qui demande un **compte Application Insights**. C’est le résultat d’un nouveau panneau et ce n’est pas encore pris en charge dans Azure Stack.
+- Cause : Le panneau des paramètres de diagnostic de machine virtuelle comporte un onglet **Récepteur**, qui demande un **compte Application Insights**. C’est le résultat d’un nouveau panneau et ce n’est pas encore pris en charge dans Azure Stack Hub.
 - Correction : Aucun.
 - Occurrence : Courant
 
@@ -454,7 +454,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ## <a name="1907-update-process"></a>Processus de mise à jour 1907
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Quand vous tentez d’installer la mise à jour 1907 d’Azure Stack, l’état de la mise à jour peut échouer et passer à **PreparationFailed**. Cela est dû au fait que le fournisseur de ressources de mise à jour est dans l’impossibilité de transférer correctement les fichiers du conteneur de stockage vers un partage d’infrastructure interne à des fins de traitement.
+- Cause : Quand vous tentez d’installer la mise à jour 1907 d’Azure Stack Hub, l’état de la mise à jour peut échouer et passer à **PreparationFailed**. Cela est dû au fait que le fournisseur de ressources de mise à jour est dans l’impossibilité de transférer correctement les fichiers du conteneur de stockage vers un partage d’infrastructure interne à des fins de traitement.
 - Correction : À compter de la version 1901 (1.1901.0.95), vous pouvez contourner ce problème en cliquant sur **Mettre à jour maintenant** à nouveau (et pas sur **Reprendre**). Le fournisseur de ressources de mise à jour (URP) nettoie les fichiers de la tentative précédente, puis redémarre le téléchargement. Si le problème persiste, nous vous conseillons de charger manuellement le package de mise à jour comme cela est décrit dans la section [Importer et installer des mises à jour](azure-stack-apply-updates.md).
 - Occurrence : Courant
 
@@ -477,14 +477,14 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="subscription-permissions"></a>Autorisations d’abonnement
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Vous ne pouvez pas afficher les autorisations définies pour votre abonnement à l’aide des portails Azure Stack.
+- Cause : Vous ne pouvez pas voir les autorisations définies pour votre abonnement à l’aide des portails Azure Stack Hub.
 - Correction : Utilisez [PowerShell pour vérifier les autorisations](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Occurrence : Courant
 
 ### <a name="storage-account-settings"></a>Paramètres du compte de stockage
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, le panneau **Configuration** du compte de stockage présente une option permettant de modifier le **type de transfert de sécurité**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, le panneau **Configuration** du compte de stockage présente une option permettant de modifier le **type de transfert de sécurité**. La fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 ### <a name="upload-blob"></a>Charger l’objet blob
@@ -511,7 +511,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="service-endpoints"></a>Points de terminaison de service
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, le panneau **Réseau virtuel** comporte une option pour utiliser les **points de terminaison du service**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, le panneau **Réseau virtuel** comporte une option pour utiliser les **points de terminaison du service**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 ### <a name="network-interface"></a>interface réseau
@@ -535,35 +535,35 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 #### <a name="alerts"></a>Alertes
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, le panneau **Passerelle de réseau virtuel** comporte une option pour utiliser les **alertes**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, le panneau **Passerelle de réseau virtuel** comporte une option pour utiliser les **alertes**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 #### <a name="active-active"></a>Actif/actif
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, lors de la création, et dans le menu **Passerelle de réseau virtuel**, vous verrez une option permettant d’activer la configuration **Actif/actif**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, lors de la création, et dans le menu **Passerelle de réseau virtuel**, vous verrez une option permettant d’activer la configuration **Actif/actif**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 #### <a name="vpn-troubleshooter"></a>Résolution des problèmes de VPN
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, le panneau **Connexions** montre une fonctionnalité appelée **Résolution des problèmes de VPN**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, le panneau **Connexions** montre une fonctionnalité appelée **Résolution des problèmes de VPN**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 ### <a name="network-connection-type"></a>Type de connexion réseau
 
 - Champ d’application : Ce problème s’applique aux environnements 1906 et 1907. 
-- Cause : Dans le portail administrateur, le panneau **AddConnection** affiche une option permettant d’utiliser **VNet-to-VNet**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack. 
+- Cause : Dans le portail administrateur, le panneau **AddConnection** affiche une option permettant d’utiliser **VNet-to-VNet**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub. 
 - Occurrence : Courant 
 
 #### <a name="documentation"></a>Documentation
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Les liens vers la documentation dans la page de vue d’ensemble de la Passerelle de réseau virtuel renvoient vers la documentation spécifique à Azure au lieu d’Azure Stack. Utilisez les liens suivants pour accéder à la documentation Azure Stack :
+- Cause : Les liens vers la documentation dans la page de vue d’ensemble de la passerelle de réseau virtuel pointent vers la documentation spécifique à Azure au lieu d’Azure Stack Hub. Utilisez les liens suivants pour accéder à la documentation d’Azure Stack Hub :
 
   - [SKU de passerelle](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [Connexions hautement disponibles](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [Configurer le protocole BGP sur Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [Configurer le protocole BGP sur Azure Stack Hub](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [Circuits ExpressRoute](azure-stack-connect-expressroute.md)
   - [Spécifier des stratégies IPsec/IKE personnalisées](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
@@ -578,11 +578,11 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 ### <a name="virtual-machine-scale-set"></a>Jeu de mise à l’échelle de machine virtuelle
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Créer des échecs au cours des correctifs et mises à jour sur des environnements Azure Stack à 4 nœuds
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>Créer des échecs durant l’application des correctifs logiciels et des mises à jour dans les environnements Azure Stack Hub à 4 nœuds
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : La création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur et la création d’une instance de groupe identique de machines virtuelles échouent avec une erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
-- Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. En revanche, la création d’instances de groupe identique n’est toujours pas disponible pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
+- Cause : Échec de la création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur, et échec de la création d’une instance de groupe de machines virtuelles identiques avec l’erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack Hub à 4 nœuds.
+- Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. En revanche, la création d’instances de groupe identique n’est toujours pas disponible pendant le processus de mise à jour sur un environnement Azure Stack Hub à 4 nœuds.
 
 ### <a name="ubuntu-ssh-access"></a>Accès SSH Ubuntu
 
@@ -594,21 +594,21 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>La réinitialisation du mot de passe d’un groupe de machines virtuelles identiques ne fonctionne pas
 
 - Champ d’application : Ce problème s’applique aux versions 1906 et 1907.
-- Cause : Un nouveau panneau de réinitialisation du mot de passe s’affiche dans l’interface utilisateur de groupe identique, mais Azure Stack ne prend pas encore en charge la réinitialisation de mot de passe sur un groupe identique.
+- Cause : Un nouveau panneau de réinitialisation du mot de passe s’affiche dans l’interface utilisateur de groupe identique, mais Azure Stack Hub ne prend pas encore en charge la réinitialisation de mot de passe sur un groupe identique.
 - Correction : Aucun.
 - Occurrence : Courant
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Nuage qui pleure sur le diagnostic de groupe identique
 
 - Champ d’application : Ce problème s’applique aux versions 1906 et 1907.
-- Cause : La page de la vue d’ensemble du groupe de machines virtuelles identiques contient un graphique vide. En cliquant sur le graphique vide, un panneau avec un nuage qui pleure. C’est le graphique des informations de diagnostic du groupe identique, comme le pourcentage UC, et ce n’est pas une fonctionnalité prise en charge dans la version Azure Stack actuelle.
+- Cause : La page de la vue d’ensemble du groupe de machines virtuelles identiques contient un graphique vide. En cliquant sur le graphique vide, un panneau avec un nuage qui pleure. C’est le graphique des informations de diagnostic du groupe identique, comme le pourcentage UC, et ce n’est pas une fonctionnalité prise en charge dans la version Azure Stack Hub actuelle.
 - Correction : Aucun.
 - Occurrence : Courant
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Panneau des paramètres de diagnostic de machine virtuelle
 
 - Champ d’application : Ce problème s’applique aux versions 1906 et 1907.    
-- Cause : Le panneau des paramètres de diagnostic de machine virtuelle comporte un onglet **Récepteur**, qui demande un **compte Application Insights**. C’est le résultat d’un nouveau panneau et ce n’est pas encore pris en charge dans Azure Stack.
+- Cause : Le panneau des paramètres de diagnostic de machine virtuelle comporte un onglet **Récepteur**, qui demande un **compte Application Insights**. C’est le résultat d’un nouveau panneau et ce n’est pas encore pris en charge dans Azure Stack Hub.
 - Correction : Aucun.
 - Occurrence : Courant
 
@@ -624,7 +624,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ## <a name="1906-update-process"></a>Processus de mise à jour 1906
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Quand vous tentez d’installer la mise à jour 1906 d’Azure Stack, l’état de la mise à jour peut échouer et passer à **PreparationFailed**. Cela est dû au fait que le fournisseur de ressources de mise à jour est dans l’impossibilité de transférer correctement les fichiers du conteneur de stockage vers un partage d’infrastructure interne à des fins de traitement. 
+- Cause : Quand vous tentez d’installer la mise à jour 1906 d’Azure Stack Hub, l’état de la mise à jour peut échouer et passer à **PreparationFailed**. Cela est dû au fait que le fournisseur de ressources de mise à jour est dans l’impossibilité de transférer correctement les fichiers du conteneur de stockage vers un partage d’infrastructure interne à des fins de traitement. 
 - Correction : À compter de la version 1901 (1.1901.0.95), vous pouvez contourner ce problème en cliquant sur **Mettre à jour maintenant** à nouveau (et pas sur **Reprendre**). Le fournisseur de ressources de mise à jour (URP) nettoie les fichiers de la tentative précédente, puis redémarre le téléchargement. Si le problème persiste, nous vous conseillons de charger manuellement le package de mise à jour comme cela est décrit dans la section [Importer et installer des mises à jour](azure-stack-apply-updates.md).
 - Occurrence : Courant
 
@@ -647,7 +647,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="subscription-permissions"></a>Autorisations d’abonnement
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Vous ne pouvez pas afficher les autorisations définies pour votre abonnement à l’aide des portails Azure Stack.
+- Cause : Vous ne pouvez pas voir les autorisations définies pour votre abonnement à l’aide des portails Azure Stack Hub.
 - Correction : Utilisez [PowerShell pour vérifier les autorisations](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Occurrence : Courant
 
@@ -660,7 +660,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="storage-account-settings"></a>Paramètres du compte de stockage
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, le panneau **Configuration** du compte de stockage présente une option permettant de modifier le **type de transfert de sécurité**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, le panneau **Configuration** du compte de stockage présente une option permettant de modifier le **type de transfert de sécurité**. La fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 ### <a name="upload-blob"></a>Charger l’objet blob
@@ -682,7 +682,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="service-endpoints"></a>Points de terminaison de service
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, le panneau **Réseau virtuel** comporte une option pour utiliser les **points de terminaison du service**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, le panneau **Réseau virtuel** comporte une option pour utiliser les **points de terminaison du service**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 ### <a name="network-interface"></a>interface réseau
@@ -697,29 +697,29 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 #### <a name="alerts"></a>Alertes
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, le panneau **Passerelle de réseau virtuel** comporte une option pour utiliser les **alertes**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, le panneau **Passerelle de réseau virtuel** comporte une option pour utiliser les **alertes**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 #### <a name="active-active"></a>Actif/actif
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, lors de la création, et dans le menu **Passerelle de réseau virtuel**, vous verrez une option permettant d’activer la configuration **Actif/actif**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, lors de la création, et dans le menu **Passerelle de réseau virtuel**, vous verrez une option permettant d’activer la configuration **Actif/actif**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 #### <a name="vpn-troubleshooter"></a>Résolution des problèmes de VPN
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, le panneau **Connexions** montre une fonctionnalité appelée **Résolution des problèmes de VPN**. Cette fonctionnalité n’est actuellement pas prise en charge dans Azure Stack.
+- Cause : Dans le portail utilisateur, le panneau **Connexions** montre une fonctionnalité appelée **Résolution des problèmes de VPN**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 #### <a name="documentation"></a>Documentation
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Les liens vers la documentation dans la page de vue d’ensemble de la Passerelle de réseau virtuel renvoient vers la documentation spécifique à Azure au lieu d’Azure Stack. Utilisez les liens suivants pour accéder à la documentation Azure Stack :
+- Cause : Les liens vers la documentation dans la page de vue d’ensemble de la passerelle de réseau virtuel pointent vers la documentation spécifique à Azure au lieu d’Azure Stack Hub. Utilisez les liens suivants pour accéder à la documentation d’Azure Stack Hub :
 
   - [SKU de passerelle](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [Connexions hautement disponibles](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [Configurer le protocole BGP sur Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [Configurer le protocole BGP sur Azure Stack Hub](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [Circuits ExpressRoute](azure-stack-connect-expressroute.md)
   - [Spécifier des stratégies IPsec/IKE personnalisées](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
@@ -751,11 +751,11 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="virtual-machine-scale-set"></a>Jeu de mise à l’échelle de machine virtuelle
 
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Créer des échecs au cours des correctifs et mises à jour sur des environnements Azure Stack à 4 nœuds
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>Créer des échecs durant l’application des correctifs logiciels et des mises à jour dans les environnements Azure Stack Hub à 4 nœuds
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : La création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur et la création d’une instance de groupe identique de machines virtuelles échouent avec une erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
-- Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. En revanche, la création d’instances de groupe identique n’est toujours pas disponible pendant le processus de mise à jour sur un environnement Azure Stack à 4 nœuds.
+- Cause : Échec de la création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur, et échec de la création d’une instance de groupe de machines virtuelles identiques avec l’erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack Hub à 4 nœuds.
+- Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. En revanche, la création d’instances de groupe identique n’est toujours pas disponible pendant le processus de mise à jour sur un environnement Azure Stack Hub à 4 nœuds.
 
 ### <a name="ubuntu-ssh-access"></a>Accès SSH Ubuntu
 
@@ -767,21 +767,21 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>La réinitialisation du mot de passe d’un groupe de machines virtuelles identiques ne fonctionne pas
 
 - Champ d’application : Ce problème concerne la version 1906.
-- Cause : Un nouveau panneau de réinitialisation du mot de passe s’affiche dans l’interface utilisateur de groupe identique, mais Azure Stack ne prend pas encore en charge la réinitialisation de mot de passe sur un groupe identique.
+- Cause : Un nouveau panneau de réinitialisation du mot de passe s’affiche dans l’interface utilisateur de groupe identique, mais Azure Stack Hub ne prend pas encore en charge la réinitialisation de mot de passe sur un groupe identique.
 - Correction : Aucun.
 - Occurrence : Courant
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Nuage qui pleure sur le diagnostic de groupe identique
 
 - Champ d’application : Ce problème concerne la version 1906.
-- Cause : La page de la vue d’ensemble du groupe de machines virtuelles identiques contient un graphique vide. En cliquant sur le graphique vide, un panneau avec un nuage qui pleure. C’est le graphique des informations de diagnostic du groupe identique, comme le pourcentage UC, et ce n’est pas une fonctionnalité prise en charge dans la version Azure Stack actuelle.
+- Cause : La page de la vue d’ensemble du groupe de machines virtuelles identiques contient un graphique vide. En cliquant sur le graphique vide, un panneau avec un nuage qui pleure. C’est le graphique des informations de diagnostic du groupe identique, comme le pourcentage UC, et ce n’est pas une fonctionnalité prise en charge dans la version Azure Stack Hub actuelle.
 - Correction : Aucun.
 - Occurrence : Courant
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Panneau des paramètres de diagnostic de machine virtuelle
 
 - Champ d’application : Ce problème concerne la version 1906.
-- Cause : Le panneau des paramètres de diagnostic de machine virtuelle comporte un onglet **Récepteur**, qui demande un **compte Application Insights**. C’est le résultat d’un nouveau panneau et ce n’est pas encore pris en charge dans Azure Stack.
+- Cause : Le panneau des paramètres de diagnostic de machine virtuelle comporte un onglet **Récepteur**, qui demande un **compte Application Insights**. C’est le résultat d’un nouveau panneau et ce n’est pas encore pris en charge dans Azure Stack Hub.
 - Correction : Aucun.
 - Occurrence : Courant
 
@@ -848,5 +848,5 @@ Pour accéder aux problèmes connus archivés d'une ancienne version, utilisez l
 ::: moniker-end
 
 ::: moniker range="<azs-1906"
-Vous pouvez accéder aux [versions antérieures des problèmes connus d’Azure Stack dans la galerie TechNet](https://aka.ms/azsarchivedrelnotes). Ces documents archivés sont fournis uniquement pour référence et n’impliquent aucune prise en charge de ces versions. Pour plus d’informations sur le support d’Azure Stack, consultez [Stratégie de maintenance Azure Stack](azure-stack-servicing-policy.md). Pour obtenir de l’aide, contactez les services de support technique Microsoft.
+Vous pouvez accéder aux [versions antérieures des problèmes connus d’Azure Stack Hub dans la galerie TechNet](https://aka.ms/azsarchivedrelnotes). Ces documents archivés sont fournis uniquement pour référence et n’impliquent aucune prise en charge de ces versions. Pour plus d’informations sur le support d’Azure Stack Hub, consultez [Stratégie de maintenance Azure Stack Hub](azure-stack-servicing-policy.md). Pour obtenir de l’aide, contactez les services de support technique Microsoft.
 ::: moniker-end

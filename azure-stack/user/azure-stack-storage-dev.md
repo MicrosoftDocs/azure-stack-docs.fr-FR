@@ -1,6 +1,6 @@
 ---
-title: Bien démarrer avec les outils de développement du stockage Azure Stack | Microsoft Docs
-description: Guide de démarrage pour l’utilisation des outils de développement du stockage Azure Stack
+title: Bien démarrer avec les outils de développement du stockage Azure Stack Hub | Microsoft Docs
+description: Guide de démarrage pour l’utilisation des outils de développement du stockage Azure Stack Hub
 services: azure-stack
 author: mattbriggs
 ms.author: mabrigg
@@ -10,32 +10,30 @@ ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 407d8167fcc359531496397dda00e51d59f49d7c
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 80dbb848eb764f2c0c71e3987c291f9eb505cf91
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909609"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883318"
 ---
-# <a name="get-started-with-azure-stack-storage-development-tools"></a>Bien démarrer avec les outils de développement du stockage Azure Stack
+# <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Bien démarrer avec les outils de développement du stockage Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et au Kit de développement Azure Stack*
+L’infrastructure Microsoft Azure Stack Hub fournit un ensemble de services de stockage incluant le stockage d’objets blob, de tables et de files d’attente.
 
-L’infrastructure Microsoft Azure Stack fournit un ensemble de services de stockage incluant le stockage d’objets blob, de tables et de files d’attente.
-
-Utilisez cet article comme un guide de démarrage concernant l’utilisation des outils de développement du stockage Azure Stack. Des informations plus détaillées et des exemples de code sont disponibles dans les didacticiels correspondants du Stockage Azure.
+Utilisez cet article comme un guide de démarrage concernant l’utilisation des outils de développement du stockage Azure Stack Hub. Des informations plus détaillées et des exemples de code sont disponibles dans les didacticiels correspondants du Stockage Azure.
 
 > [!NOTE]  
-> Le stockage Azure Stack et le stockage Azure présentent quelques différences, notamment certaines exigences propres à chaque plateforme. Par exemple, Azure Stack a des bibliothèques clientes spécifiques, de même que des exigences en matière de suffixe de point de terminaison. Pour plus d’informations, consultez [Stockage Azure Stack : Différences et considérations](azure-stack-acs-differences.md).
+> Le stockage Azure Stack Hub et le stockage Azure présentent quelques différences, notamment certaines exigences propres à chaque plateforme. Par exemple, Azure Stack Hub a des bibliothèques clientes spécifiques, de même que des exigences en matière de suffixe de point de terminaison. Pour plus d’informations, consultez [Stockage Azure Stack Hub : différences et considérations](azure-stack-acs-differences.md).
 
 ## <a name="azure-client-libraries"></a>Bibliothèques clientes Azure
 
-Par conséquent, pour les bibliothèques clientes de stockage, vous devez connaître la version qui est compatible avec l’API REST. Vous devez également préciser le point de terminaison Azure Stack dans votre code.
+Par conséquent, pour les bibliothèques clientes de stockage, vous devez connaître la version qui est compatible avec l’API REST. Vous devez également préciser le point de terminaison Azure Stack Hub dans votre code.
 
 ::: moniker range=">=azs-1811"
 ### <a name="1811-update-or-newer-versions"></a>Mise à jour 1811 ou plus récente
 
-| Bibliothèque cliente | Version prise en charge par Azure Stack | Lien | Spécification du point de terminaison |
+| Bibliothèque cliente | Version prise en charge par Azure Stack Hub | Lien | Spécification du point de terminaison |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET | 9.2.0 | Package NuGet :<br><https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0><br> <br>Version de GitHub :<br><https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0> | Fichier app.config |
 | Java | 7.0.0 | Package Maven :<br><https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/7.0.0><br> <br>Version de GitHub :<br><https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0> | Configuration de la chaîne de connexion |
@@ -66,7 +64,7 @@ Pour installer via Composer : (prenez l’objet blob en guise d’exemple).
 ::: moniker range=">=azs-1802 <=azs-1809"
 ### <a name="previous-versions-1802-to-1809-update"></a>Versions précédentes (mises à jour 1802 à 1809)
 
-| Bibliothèque cliente | Version prise en charge par Azure Stack | Lien | Spécification du point de terminaison |
+| Bibliothèque cliente | Version prise en charge par Azure Stack Hub | Lien | Spécification du point de terminaison |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET | 8.7.0 | Package NuGet :<br><https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0><br> <br>Version de GitHub :<br><https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0> | Fichier app.config |
 | Java | 6.1.0 | Package Maven :<br><https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0><br> <br>Version de GitHub :<br><https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0> | Configuration de la chaîne de connexion |
@@ -96,7 +94,7 @@ Pour installer via Composer : (prenez blob pour exemple).
 
 ## <a name="endpoint-declaration"></a>Déclaration de point de terminaison
 
-Un point de terminaison Azure Stack comprend deux parties : le nom d’une région et le domaine Azure Stack.
+Un point de terminaison Azure Stack Hub comprend deux parties : le nom d’une région et le domaine Azure Stack Hub.
 Dans le Kit de développement Azure Stack, le point de terminaison par défaut est **local.azurestack.external**.
 Contactez votre administrateur cloud si vous ne connaissez pas votre point de terminaison.
 
@@ -104,7 +102,7 @@ Contactez votre administrateur cloud si vous ne connaissez pas votre point de te
 
 ### <a name="net"></a>.NET
 
-Pour Azure Stack, le suffixe de point de terminaison est spécifié dans le fichier app.config :
+Pour Azure Stack Hub, le suffixe de point de terminaison est spécifié dans le fichier app.config :
 
 ```xml
 <add key="StorageConnectionString"
@@ -114,7 +112,7 @@ EndpointSuffix=local.azurestack.external;" />
 
 ### <a name="java"></a>Java
 
-Pour Azure Stack, le suffixe de point de terminaison est spécifié dans la configuration de la chaîne de connexion :
+Pour Azure Stack Hub, le suffixe de point de terminaison est spécifié dans la configuration de la chaîne de connexion :
 
 ```java
 public static final String storageConnectionString =
@@ -126,7 +124,7 @@ public static final String storageConnectionString =
 
 ### <a name="nodejs"></a>Node.js
 
-Pour Azure Stack, le suffixe de point de terminaison est spécifié dans l’instance de déclaration :
+Pour Azure Stack Hub, le suffixe de point de terminaison est spécifié dans l’instance de déclaration :
 
 ```nodejs
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
@@ -135,7 +133,7 @@ var blobSvc = azure.createBlobService('myaccount', 'mykey',
 
 ### <a name="c"></a>C++
 
-Pour Azure Stack, le suffixe de point de terminaison est spécifié dans la configuration de la chaîne de connexion :
+Pour Azure Stack Hub, le suffixe de point de terminaison est spécifié dans la configuration de la chaîne de connexion :
 
 ```cpp
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;
@@ -146,7 +144,7 @@ EndpointSuffix=local.azurestack.external"));
 
 ### <a name="php"></a>PHP
 
-Pour Azure Stack, le suffixe de point de terminaison est spécifié dans la configuration de la chaîne de connexion :
+Pour Azure Stack Hub, le suffixe de point de terminaison est spécifié dans la configuration de la chaîne de connexion :
 
 ```php
 $connectionString = 'BlobEndpoint=https://<storage account name>.blob.local.azurestack.external/;
@@ -157,7 +155,7 @@ AccountName=<storage account name>;AccountKey=<storage account key>'
 
 ### <a name="python"></a>Python
 
-Pour Azure Stack, le suffixe de point de terminaison est spécifié dans l’instance de déclaration :
+Pour Azure Stack Hub, le suffixe de point de terminaison est spécifié dans l’instance de déclaration :
 
 ```python
 block_blob_service = BlockBlobService(account_name='myaccount',
@@ -167,7 +165,7 @@ endpoint_suffix='local.azurestack.external')
 
 ### <a name="ruby"></a>Ruby
 
-Pour Azure Stack, le suffixe de point de terminaison est spécifié dans la configuration de la chaîne de connexion :
+Pour Azure Stack Hub, le suffixe de point de terminaison est spécifié dans la configuration de la chaîne de connexion :
 
 ```ruby
 set
@@ -179,7 +177,7 @@ EndpointSuffix=local.azurestack.external
 
 ## <a name="blob-storage"></a>Stockage d'objets blob
 
-Les didacticiels du stockage Blob Azure suivants sont applicables à Azure Stack. Notez l’exigence particulière d’un suffixe de point de terminaison pour Azure Stack, décrit dans la précédente section [Exemples](#examples).
+Les didacticiels du stockage Blob Azure suivants sont applicables à Azure Stack Hub. Notez l’exigence particulière d’un suffixe de point de terminaison pour Azure Stack Hub, décrit dans la précédente section [Exemples](#examples).
 
 * [Prise en main d’Azure Blob Storage à l’aide de .NET](/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
 * [Utilisation du stockage d'objets blob à partir de Java](/azure/storage/blobs/storage-java-how-to-use-blob-storage)
@@ -191,7 +189,7 @@ Les didacticiels du stockage Blob Azure suivants sont applicables à Azure Stack
 
 ## <a name="queue-storage"></a>Stockage de files d'attente
 
-Les didacticiels du stockage File d’attente Azure suivants sont applicables à Azure Stack. Notez l’exigence particulière d’un suffixe de point de terminaison pour Azure Stack, décrit dans la précédente section [Exemples](#examples).
+Les didacticiels du stockage File d’attente Azure suivants sont applicables à Azure Stack Hub. Notez l’exigence particulière d’un suffixe de point de terminaison pour Azure Stack Hub, décrit dans la précédente section [Exemples](#examples).
 
 * [Prise en main du stockage de files d’attente Azure à l’aide de .NET](/azure/storage/queues/storage-dotnet-how-to-use-queues)
 * [Utilisation du stockage de files d'attente à partir de Java](/azure/storage/queues/storage-java-how-to-use-queue-storage)
@@ -203,7 +201,7 @@ Les didacticiels du stockage File d’attente Azure suivants sont applicables à
 
 ## <a name="table-storage"></a>Stockage de tables
 
-Les didacticiels du stockage Table Azure suivants sont applicables à Azure Stack. Notez l’exigence particulière d’un suffixe de point de terminaison pour Azure Stack, décrit dans la précédente section [Exemples](#examples).
+Les didacticiels du stockage Table Azure suivants sont applicables à Azure Stack Hub. Notez l’exigence particulière d’un suffixe de point de terminaison pour Azure Stack Hub, décrit dans la précédente section [Exemples](#examples).
 
 * [Prise en main d’Azure Table Storage à l’aide de .NET](/azure/cosmos-db/table-storage-how-to-use-dotnet)
 * [Utilisation du stockage de tables à partir de Java](/azure/cosmos-db/table-storage-how-to-use-java)

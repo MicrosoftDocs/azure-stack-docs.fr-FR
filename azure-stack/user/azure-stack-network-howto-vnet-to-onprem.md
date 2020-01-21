@@ -1,6 +1,6 @@
 ---
-title: Configurer une passerelle VPN pour Azure Stack | Microsoft Docs
-description: Découvrez comment configurer une passerelle VPN pour Azure Stack.
+title: Configurer une passerelle VPN pour Azure Stack Hub | Microsoft Docs
+description: Découvrez comment configurer une passerelle VPN pour Azure Stack Hub.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,36 +9,34 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 340f9d868c854560019899f9a4d38a484c973f7f
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: e970dc46a4afdcc67e16c0239dc712da111c47a6
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167292"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879119"
 ---
-# <a name="setup-vpn-gateway-for-azure-stack-using-fortigate-nva"></a>Configurer une passerelle VPN pour Azure Stack à l’aide de l’appliance virtuelle réseau FortiGate
+# <a name="setup-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Configurer une passerelle VPN pour Azure Stack Hub à l’aide de l’appliance virtuelle réseau FortiGate
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+Cet article explique comment créer une connexion VPN avec votre environnement Azure Stack Hub. Une passerelle VPN est un type de passerelle de réseau virtuel qui achemine le trafic chiffré entre votre réseau virtuel dans Azure Stack Hub et une passerelle VPN distante. La procédure suivante déploie un réseau virtuel avec une appliance virtuelle réseau FortiGate au sein d’un groupe de ressources. Elle indique également les étapes permettant de configurer un VPN IPSec sur l’appliance virtuelle réseau FortiGate.
 
-Cet article explique comment créer une connexion VPN avec votre environnement Azure Stack. Une passerelle VPN est un type de passerelle de réseau virtuel qui envoie le trafic chiffré entre votre réseau virtuel dans Azure Stack et une passerelle VPN distante. La procédure suivante déploie un réseau virtuel avec une appliance virtuelle réseau FortiGate au sein d’un groupe de ressources. Elle indique également les étapes permettant de configurer un VPN IPSec sur l’appliance virtuelle réseau FortiGate.
+## <a name="prerequisites"></a>Conditions préalables requises
 
-## <a name="prerequisites"></a>Prérequis
-
--  Accès à un système intégré Azure Stack permettant de mettre en œuvre les exigences de calcul, de réseau et de ressources nécessaires pour cette solution. 
+-  Accès à un système intégré Azure Stack Hub permettant de mettre en œuvre les exigences de calcul, de réseau et de ressources nécessaires pour cette solution. 
 
     > [!Note]  
     > Ces instructions **ne fonctionnent pas** avec un Kit de développement Azure Stack (ASDK) en raison des limitations réseau dans le kit ASDK. Pour plus d’informations, consultez [Exigences et éléments à prendre en compte pour ASDK](https://docs.microsoft.com/azure-stack/asdk/asdk-deploy-considerations).
 
--  Accès à un périphérique VPN dans le réseau local qui héberge le système intégré Azure Stack. Le périphérique doit créer un tunnel IPSec, qui répond aux paramètres décrits dans les [paramètres de déploiement](#deployment-parameters).
+-  Accès à un périphérique VPN dans le réseau local qui héberge le système intégré Azure Stack Hub. Le périphérique doit créer un tunnel IPSec, qui répond aux paramètres décrits dans les [paramètres de déploiement](#deployment-parameters).
 
--  Une solution d’appliance virtuelle réseau disponible dans votre Place de marché Azure Stack. Une appliance virtuelle réseau contrôle le flux du trafic réseau depuis un réseau de périmètre vers d’autres réseaux ou sous-réseaux. Cette procédure utilise la [solution de machine virtuelle unique Pare-feu Fortigate de nouvelle génération](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm).
+-  Une solution d’appliance virtuelle réseau disponible dans votre Place de marché Azure Stack Hub. Une appliance virtuelle réseau contrôle le flux du trafic réseau depuis un réseau de périmètre vers d’autres réseaux ou sous-réseaux. Cette procédure utilise la [solution de machine virtuelle unique Pare-feu Fortigate de nouvelle génération](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm).
 
     > [!Note]  
-    > Si vous ne disposez pas des licences **Fortinet FortiGate-VM For Azure BYOL** et **FortiGate NGFW - Single VM Deployment (BYOL)** dans votre Place de marché Azure Stack, contactez votre opérateur cloud.
+    > Si vous ne disposez pas des licences **Fortinet FortiGate-VM For Azure BYOL** et **FortiGate NGFW - Single VM Deployment (BYOL)** dans votre Place de marché Azure Stack Hub, contactez votre opérateur cloud.
 
 -  Pour activer l’appliance virtuelle réseau FortiGate, vous devez disposer d’au moins un fichier de licence FortiGate. Pour plus d’informations sur la façon d’acquérir ces licences, consultez l’article de la bibliothèque de documents Fortinet intitulé [Registering and downloading your license](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license).
 
-    Cette procédure utilise le [déploiement Single FortiGate-VM](ttps://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/632940/single-FortiGate-vm-deployment). Vous trouverez des instructions sur la façon de connecter l’appliance virtuelle réseau FortiGate au réseau virtuel Azure Stack dans votre réseau local.
+    Cette procédure utilise le [déploiement Single FortiGate-VM](ttps://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/632940/single-FortiGate-vm-deployment). Vous trouverez des instructions sur la façon de connecter l’appliance virtuelle réseau FortiGate au réseau virtuel Azure Stack Hub dans votre réseau local.
 
     Pour plus d’informations sur le déploiement de la solution FortiGate dans une configuration active-passive (HA), consultez l’article de la bibliothèque de documents Fortinet intitulé [HA for FortiGate-VM on Azure](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/983245/ha-for-FortiGate-vm-on-azure).
 
@@ -63,11 +61,11 @@ Le tableau suivant récapitule les paramètres utilisés dans ces déploiements 
 | Type d’adresse IP publique | statique |
 
 > [!Note]
-> \* Choisissez un autre ensemble d’espaces d’adressage et de préfixes de sous-réseau si `172.16.0.0/16` chevauche le réseau local ou le pool d’adresses IP virtuelles Azure Stack.
+> \* Choisissez un autre ensemble d’espaces d’adressage et de préfixes de sous-réseau si `172.16.0.0/16` chevauche le réseau local ou le pool d’adresses IP virtuelles Azure Stack Hub.
 
 ## <a name="deploy-the-fortigate-ngfw-marketplace-items"></a>Déployer les éléments de la Place de marché concernant le Pare-feu Fortigate de nouvelle génération
 
-1. Ouvrez le portail utilisateur Azure Stack.
+1. Connectez-vous au portail utilisateur Azure Stack Hub.
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
 
@@ -102,7 +100,7 @@ Le tableau suivant récapitule les paramètres utilisés dans ces déploiements 
 
 ## <a name="configure-routes-udr-for-the-vnet"></a>Configurer des routes (UDR) pour le réseau virtuel
 
-1. Ouvrez le portail utilisateur Azure Stack.
+1. Connectez-vous au portail utilisateur Azure Stack Hub.
 
 2. Sélectionnez Groupes de ressources. Tapez `forti1-rg1` dans le filtre, puis double-cliquez sur le groupe de ressources forti1-rg1.
 
@@ -140,7 +138,7 @@ Pour activer chaque appliance virtuelle réseau FortiGate, vous aurez besoin d�
 
 Une fois que vous avez activé les appliances virtuelles réseau, créez un tunnel VPN IPSec sur celles-ci.
 
-1. Ouvrez le portail utilisateur Azure Stack.
+1. Connectez-vous au portail utilisateur Azure Stack Hub.
 
 2. Sélectionnez Groupes de ressources. Entrez `forti1` dans le filtre, puis double-cliquez sur le groupe de ressources forti1.
 
@@ -245,19 +243,19 @@ Vous pouvez effectuer un routage entre le réseau virtuel et le réseau local vi
 
 Pour valider la connexion :
 
-1. Créez une machine virtuelle dans les réseaux virtuels Azure Stack et un système sur le réseau local. Pour créer une machine virtuelle, vous pouvez suivre les instructions du [Guide de démarrage rapide : Créer une machine virtuelle Windows Server avec le portail Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal).
+1. Créez une machine virtuelle dans les réseaux virtuels Azure Stack Hub et un système sur le réseau local. Pour créer une machine virtuelle, vous pouvez suivre les instructions du [Guide de démarrage rapide : Créez une machine virtuelle Windows Server avec le portail Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal).
 
-2. Quand vous créez la machine virtuelle Azure Stack et que vous préparez le système local, vérifiez les points suivants :
+2. Quand vous créez la machine virtuelle Azure Stack Hub et que vous préparez le système local, vérifiez les points suivants :
 
--  La machine virtuelle Azure Stack est placée sur le **sous-réseau interne** du réseau virtuel.
+-  La machine virtuelle Azure Stack Hub est placée sur le **sous-réseau interne** du réseau virtuel.
 
--  Le système local est placé sur le réseau local au sein de la plage d’adresses IP définie, tel que défini dans la configuration IPSec. Vérifiez également que l’adresse IP de l’interface locale du périphérique VPN local est fournie au système local en tant que route qui peut atteindre le réseau virtuel Azure Stack, par exemple, `172.16.0.0/16`.
+-  Le système local est placé sur le réseau local au sein de la plage d’adresses IP définie, tel que défini dans la configuration IPSec. Vérifiez également que l’adresse IP de l’interface locale du périphérique VPN local est fournie au système local en tant que route qui peut atteindre le réseau virtuel Azure Stack Hub, par exemple, `172.16.0.0/16`.
 
--  **N’appliquez pas** de groupe de sécurité réseau à la machine virtuelle Azure Stack lors de la création. Vous devrez peut-être supprimer le NSG qui est ajouté par défaut si vous créez la machine virtuelle à partir du portail.
+-  **N’appliquez pas** de groupe de sécurité réseau à la machine virtuelle Azure Stack Hub lors de la création. Vous devrez peut-être supprimer le NSG qui est ajouté par défaut si vous créez la machine virtuelle à partir du portail.
 
--  Assurez-vous que le système d’exploitation du système local et le système d’exploitation de la machine virtuelle Azure Stack n’ont pas de règles de pare-feu qui interdisent la communication que vous allez utiliser pour tester la connectivité. À des fins de test, il est recommandé de désactiver complètement le pare-feu dans le système d’exploitation des deux systèmes.
+-  Assurez-vous que le système d’exploitation du système local et le système d’exploitation de la machine virtuelle Azure Stack Hub n’ont pas de règles de pare-feu qui interdisent la communication que vous allez utiliser pour tester la connectivité. À des fins de test, il est recommandé de désactiver complètement le pare-feu dans le système d’exploitation des deux systèmes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Différences et considérations relatives aux réseaux Azure Stack](azure-stack-network-differences.md)  
-[Proposer une solution réseau dans Azure Stack avec Fortinet FortiGate](../operator/azure-stack-network-solutions-enable.md)  
+[Différences et considérations relatives aux réseaux Azure Stack Hub](azure-stack-network-differences.md)  
+[Proposer une solution réseau dans Azure Stack Hub avec Fortinet FortiGate](../operator/azure-stack-network-solutions-enable.md)  
