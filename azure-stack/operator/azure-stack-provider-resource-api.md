@@ -15,12 +15,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 914f363efa5800c331239a547ee3edd577806188
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: e1d2e350079ab3d58802c8490da30a4c9555885d
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718111"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023260"
 ---
 # <a name="provider-resource-usage-api"></a>API Utilisation des ressources de fournisseur
 
@@ -44,7 +44,7 @@ Cette API d’utilisation étant une API de fournisseur, un rôle **Propriétair
 
 | Argument | Description |
 | --- | --- |
-| `armendpoint` |Point de terminaison Azure Resource Manager de votre environnement Azure Stack. Par convention, dans l’infrastructure Azure Stack Hub, le nom du point de terminaison Azure Resource Manager est au format `https://adminmanagement.{domain-name}`. Par exemple, pour le Kit de développement Azure Stack (ASDK), si le nom de domaine est *local.azurestack.external*, le point de terminaison Resource Manager est `https://adminmanagement.local.azurestack.external`. |
+| `armendpoint` |Point de terminaison Azure Resource Manager de votre environnement Azure Stack Hub. Par convention, dans l’infrastructure Azure Stack Hub, le nom du point de terminaison Azure Resource Manager est au format `https://adminmanagement.{domain-name}`. Par exemple, pour le Kit de développement Azure Stack (ASDK), si le nom de domaine est *local.azurestack.external*, le point de terminaison Resource Manager est `https://adminmanagement.local.azurestack.external`. |
 | `subId` |ID d’abonnement de l’utilisateur qui effectue l’appel. |
 | `reportedStartTime` |Heure de début de la requête. La valeur de `DateTime` doit être exprimée en temps universel coordonné (UTC) et indiquer le début de l’heure ; par exemple, 13:00. Pour l’agrégation quotidienne, définissez cette valeur sur minuit au format UTC. Le format fait l’objet de séquences d’échappement ISO 8601. Par exemple, dans `2015-06-16T18%3a53%3a11%2b00%3a00Z`, le signe deux-points est remplacé par la séquence d’échappement `%3a` et le signe plus est remplacé par la séquence d’échappement `%2b` pour que la chaîne soit compatible avec le format des URI. |
 | `reportedEndTime` |Heure de fin de la requête. Les contraintes qui s’appliquent à `reportedStartTime` s’appliquent également à cet argument. La valeur de `reportedEndTime` ne peut pas être la date actuelle ou une date future. Dans ce cas, le résultat a la valeur « traitement non terminé ». |
@@ -104,7 +104,7 @@ meterID1",
 
 ### <a name="powershell"></a>PowerShell
 
-Pour générer les données d’utilisation, vous devez disposer de ressources en cours d’exécution qui utilisent activement le système, par exemple une machine virtuelle active ou un compte de stockage contenant des données. Si vous ne savez pas si des ressources sont en cours d’exécution dans la Place de marché Azure Stack Hub, déployez une machine virtuelle, puis consultez son panneau de supervision pour vérifier qu’elle est en cours d’exécution. Pour afficher les données d’utilisation, utilisez les cmdlets PowerShell suivantes :
+Pour générer les données d’utilisation, vous devez disposer de ressources en cours d’exécution qui utilisent activement le système, par exemple une machine virtuelle active ou un compte de stockage contenant des données. Si vous n’êtes pas certain de disposer de ressources en cours d’exécution sur la Place de marché Azure Stack Hub, déployez une machine virtuelle, puis consultez son panneau de supervision pour vérifier qu’elle est en cours d’exécution. Pour afficher les données d’utilisation, utilisez les cmdlets PowerShell suivantes :
 
 1. [Installez PowerShell pour Azure Stack Hub](azure-stack-powershell-install.md).
 2. Configurez l’environnement PowerShell [Utilisateur d’Azure Stack Hub](../user/azure-stack-powershell-configure-user.md) ou [Opérateur d’Azure Stack Hub](azure-stack-powershell-configure-admin.md).

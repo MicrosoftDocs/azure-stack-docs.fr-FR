@@ -1,6 +1,6 @@
 ---
-title: Répliquer des ressources sur plusieurs abonnements Azure Stack | Microsoft Docs
-description: Apprenez à répliquer des ressources à l'aide du jeu de scripts du réplicateur d'abonnements Azure Stack.
+title: Répliquer des ressources sur plusieurs abonnements Azure Stack Hub | Microsoft Docs
+description: Apprenez à répliquer des ressources à l’aide du jeu de scripts du réplicateur d’abonnements Azure Stack Hub.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,16 +9,16 @@ ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 03388b08e6cc258437656f2e580b75de14b8cee5
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: ef492c0e5bf63e73e3b8f59befa642d6d6b854bf
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557682"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816120"
 ---
-# <a name="how-to-replicate-resources-using-the-azure-stack-subscription-replicator"></a>Répliquer des ressources à l'aide du réplicateur d'abonnements Azure Stack
+# <a name="how-to-replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Répliquer des ressources à l’aide du réplicateur d’abonnements Azure Stack Hub
 
-Vous pouvez utiliser le script PowerShell du réplicateur d'abonnements Azure Stack pour copier les ressources entre les abonnements Azure Stack, entre les tampons Azure Stack, ou entre Azure Stack et Azure. Le script du réplicateur lit et regénère les ressources Azure Resource Manager à partir d’autres abonnements Azure et Azure Stack. Cet article décrit le fonctionnement et l'utilisation du script, et fournit une référence pour les opérations qui s'y rapportent.
+Vous pouvez utiliser le script PowerShell du réplicateur d’abonnements Azure Stack Hub pour copier les ressources entre des abonnements Azure Stack Hub, entre des tampons Azure Stack Hub, ou entre Azure Stack Hub et Azure. Le script du réplicateur lit et regénère les ressources Azure Resource Manager de différents abonnements Azure et Azure Stack Hub. Cet article décrit le fonctionnement et l'utilisation du script, et fournit une référence pour les opérations qui s'y rapportent.
 
 Vous trouverez les scripts utilisés dans cet article dans le dépôt GitHub [Azure Intelligent Edge Patterns](https://github.com/Azure-Samples/azure-intelligent-edge-patterns). Les scripts sont situés dans le dossier [subscription replicator](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/subscription%20replicator).
 
@@ -83,15 +83,15 @@ Pour exécuter le réplicateur d'abonnements Azure (v3), vous devez lancer resou
 Une fois l’exécution du script terminée, trois nouveaux dossiers sont créés : **Deployment_Files**, **Parameter_Files** et **Custom_ARM_Templates**.
 
  > [!Note]  
- > Avant d'exécuter l'un des scripts générés, vous devez définir l'environnement qui convient, vous connecter à l'abonnement cible (dans la nouvelle instance d'Azure Stack, par exemple) et définir le répertoire de travail sur le dossier **Deployment_Files**.
+ > Avant d’exécuter l’un des scripts générés, vous devez définir l’environnement qui convient, vous connecter à l’abonnement cible (par exemple, dans la nouvelle instance Azure Stack Hub) et définir le répertoire de travail sur le dossier **Deployment_Files**.
 
 Deployment_Files contient les deux fichiers **DeployResourceGroups.ps1** et **DeployResources.ps1**. L’exécution de DeployResourceGroups. ps1 déploie les groupes de ressources. L’exécution de DeployResources. ps1 déploie toutes les ressources traitées. Si l’outil a été exécuté avec **Tous** ou **Microsoft.Compute/virtualMachines** en tant que type de ressource, DeployResources.ps1 invite l’utilisateur à entrer un mot de passe d’administrateur de machine virtuelle qui sera utilisé pour créer toutes les machines virtuelles.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 1.  Exécutez le script.
 
-    ![Exécutez le script](./media/azure-stack-network-howto-backup-replicator/image2.png)
+    ![Exécuter le script](./media/azure-stack-network-howto-backup-replicator/image2.png)
 
     > [!Note]  
     > N'oubliez pas de configurer l'environnement source et le contexte de l'abonnement pour l'instance PS. 
@@ -181,10 +181,10 @@ L’outil peut répliquer les ressources d’un abonnement à un autre dans la m
 
 Pour garantir la réussite de la réplication, assurez-vous que les versions des fournisseurs de ressources de l'abonnement cible correspondent à celles de l'abonnement source.
 
-En cas de réplication d’une instance Azure commerciale vers une autre instance Azure commerciale ou d’un abonnement d'une instance Azure Stack vers un autre abonnement de la même instance Azure Stack, la réplication des comptes de stockage entraîne des problèmes. En effet, les noms des comptes de stockage doivent être uniques dans toutes les instances Azure commerciales ou dans tous les abonnements d'une région/instance Azure Stack. La réplication de comptes de stockage entre les différentes instances Azure Stack aboutit car elles correspondent à des régions/instances distinctes.
+En cas de réplication d’une instance Azure commerciale vers une autre instance Azure commerciale, ou d’un abonnement à l’intérieur d’une instance Azure Stack Hub vers un autre abonnement dans la même instance Azure Stack Hub, la réplication des comptes de stockage entraîne des problèmes. En effet, les noms des comptes de stockage doivent être uniques dans toutes les instances Azure commerciales ou dans tous les abonnements d’une région/instance Azure Stack Hub. La réplication de comptes de stockage entre différentes instances Azure Stack Hub aboutit, car celles-ci correspondent à des régions/instances distinctes.
 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Différences et considérations relatives aux réseaux Azure Stack](azure-stack-network-differences.md)  
+[Différences et considérations relatives aux réseaux Azure Stack Hub](azure-stack-network-differences.md)  

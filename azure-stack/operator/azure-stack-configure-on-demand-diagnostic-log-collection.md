@@ -1,6 +1,6 @@
 ---
-title: Collecter les journaux de diagnostic Azure Stack à la demande | Microsoft Docs
-description: Découvrez comment collecter les journaux de diagnostic à la demande dans Azure Stack en utilisant Aide et support, ou le point de terminaison privilégié.
+title: Collecter les journaux de diagnostic Azure Stack Hub à la demande | Microsoft Docs
+description: Découvrez comment collecter les journaux de diagnostic à la demande dans Azure Stack Hub en utilisant Aide et support ou un point de terminaison privilégié.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,25 +16,23 @@ ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: ccc552e6daee4f1492d1070a08f5be19e41217dd
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: f30791ec7514a68a6137d2b5d2db3441cf217f58
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690013"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883080"
 ---
-# <a name="collect-azure-stack-diagnostic-logs-on-demand"></a>Collecter les journaux de diagnostic Azure Stack à la demande
+# <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>Collecter les journaux de diagnostic Azure Stack Hub à la demande
 
-*S’applique à : systèmes intégrés Azure Stack*
-
-Dans le cadre de la résolution des problèmes, les services de support technique Microsoft (CSS) peuvent avoir besoin d’analyser les journaux de diagnostic. Depuis la version 1907, les opérateurs Azure Stack peuvent charger les journaux de diagnostic dans un conteneur d’objets blob Azure avec l’option **Aide et support**. L’utilisation de l’option **Aide et support** est préférable à celle de la méthode PowerShell précédente, car elle est plus simple. Si le portail n’est pas disponible, les opérateurs peuvent continuer de collecter les journaux avec **Get-AzureStackLog** via le point de terminaison privilégié, comme dans les versions précédentes. Cette rubrique décrit les deux méthodes de collecte des journaux de diagnostic à la demande.
+Dans le cadre de la résolution des problèmes, les services de support technique Microsoft (CSS) peuvent avoir besoin d’analyser les journaux de diagnostic. Depuis la version 1907, les opérateurs Azure Stack Hub peuvent charger des journaux de diagnostic sur un conteneur d’objets blob dans Azure avec l’option **Aide et support**. L’utilisation de l’option **Aide et support** est préférable à celle de la méthode PowerShell précédente, car elle est plus simple. Si le portail n’est pas disponible, les opérateurs peuvent continuer de collecter les journaux avec **Get-AzureStackLog** via le point de terminaison privilégié, comme dans les versions précédentes. Cette rubrique décrit les deux méthodes de collecte des journaux de diagnostic à la demande.
 
 >[!Note]
 >En guise d’alternative à la collecte de journaux à la demande, vous pouvez simplifier le processus de résolution des problèmes en activant la [collecte automatique des journaux de diagnostic](azure-stack-configure-automatic-diagnostic-log-collection.md). Si les conditions d’intégrité du système doivent être examinées, les journaux sont automatiquement chargés à des fins d’analyse par les services CSS. 
 
 ## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>Utiliser Aide et support pour collecter les journaux de diagnostic à la demande
 
-Pour résoudre un problème, CSS peut demander à l’opérateur Azure Stack de collecter les journaux de diagnostic à la demande pour une période donnée au cours de la semaine précédente. Dans ce cas, CSS fournira à l’opérateur une URL SAS pour le chargement de la collecte. Procédez comme suit pour configurer la collecte des journaux à la demande à l’aide de l’URL SAS fournie par CSS :
+Pour résoudre un problème, CSS peut demander à l’opérateur Azure Stack Hub de collecter les journaux de diagnostic à la demande pour une période donnée au cours de la semaine précédente. Dans ce cas, CSS fournira à l’opérateur une URL SAS pour le chargement de la collecte. Procédez comme suit pour configurer la collecte des journaux à la demande à l’aide de l’URL SAS fournie par CSS :
 
 1. Ouvrez **Aide et support - Vue d’ensemble**, puis cliquez sur **Collecter les journaux maintenant**. 
 1. Choisissez une fenêtre de 1à 4 heures sur les sept derniers jours. 
@@ -52,7 +50,7 @@ Pour résoudre un problème, CSS peut demander à l’opérateur Azure Stack de 
 
 
 
-### <a name="run-get-azurestacklog-on-azure-stack-integrated-systems"></a>Exécuter Get-AzureStackLog sur des systèmes intégrés Azure Stack
+### <a name="run-get-azurestacklog-on-azure-stack-hub-integrated-systems"></a>Exécuter Get-AzureStackLog sur des systèmes intégrés Azure Stack Hub
 
 Pour exécuter Get-AzureStackLog sur un système intégré, vous devez avoir accès au point de terminaison privilégié (PEP). Voici un exemple de script que vous pouvez exécuter en utilisant le point de terminaison privilégié pour collecter des journaux sur un système intégré :
 
@@ -110,7 +108,7 @@ Suivez ces étapes pour exécuter `Get-AzureStackLog` sur un ordinateur hôte AS
   Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-* Collectez les journaux des déploiements de locataires qui exécutent Azure Kubernetes Services (AKS) sur Azure Stack auto-gérés. Les journaux AKS doivent être stockés dans un compte de stockage de locataire dans un format qui permettra de leur appliquer l’intervalle de temps de la collection. 
+* Collectez les journaux des déploiements de locataires qui exécutent Azure Kubernetes Services (AKS) en mode auto-géré sur Azure Stack Hub. Les journaux AKS doivent être stockés dans un compte de stockage de locataire dans un format qui permettra de leur appliquer l’intervalle de temps de la collection. 
 
   ```powershell
   Get-AzureStackLog -OutputPath <Path> -InputSasUri "<Blob Service Sas URI>" -FromDate "<Beginning of the time range>" -ToDate "<End of the time range>"
@@ -135,7 +133,7 @@ Suivez ces étapes pour exécuter `Get-AzureStackLog` sur un ordinateur hôte AS
   ```
 
   > [!NOTE]
-  > Cette procédure est utile pour le chargement des journaux. Même si vous n’avez pas de partage SMB accessible ou d’accès à Internet, vous pouvez créer un compte de stockage Blob sur votre système Azure Stack pour y transférer les journaux, puis utiliser votre client pour récupérer ces journaux.  
+  > Cette procédure est utile pour le chargement des journaux. Même si vous n’avez pas de partage SMB accessible ou d’accès à Internet, vous pouvez créer un compte de stockage d’objets blob sur votre système Azure Stack Hub pour y transférer les journaux, puis utiliser votre client pour récupérer ces journaux.  
 
   Pour générer le jeton SAS du compte de stockage, les autorisations suivantes sont nécessaires :
 
@@ -202,7 +200,7 @@ Suivez ces étapes pour exécuter `Get-AzureStackLog` sur un ordinateur hôte AS
 
 ### <a name="additional-considerations-on-diagnostic-logs"></a>Considérations supplémentaires sur les journaux de diagnostic
 
-* L’exécution de cette commande peut prendre un certain temps, en fonction des données du ou des rôles collectées par les journaux d’activité. Les facteurs qui entrent en compte sont la durée spécifiée pour la collecte de journaux et le nombre de nœuds de l’environnement Azure Stack.
+* L’exécution de cette commande peut prendre un certain temps, en fonction des données du ou des rôles collectées par les journaux d’activité. Des facteurs déterminants sont aussi la durée spécifiée pour la collecte de journaux et le nombre de nœuds de l’environnement Azure Stack Hub.
 * Une fois la collecte de journaux en cours, vérifiez le dossier créé dans le paramètre **OutputSharePath** spécifié dans la commande.
 * Les journaux d’activité de chaque rôle se trouvent à l’intérieur de fichiers zip individuels. Selon leur taille, les journaux d’activité d’un rôle qui sont collectés peuvent être divisés en plusieurs fichiers zip. Pour ce type de rôle, si vous voulez disposer de tous les fichiers journaux décompressés dans un même dossier, utilisez un outil qui peut effectuer cette opération en bloc. Sélectionnez tous les fichiers compressés du rôle, puis sélectionnez **Extraire ici**. Tous les fichiers journaux de ce rôle sont décompressés dans un même dossier fusionné.
 * Un fichier nommé **Get-AzureStackLog_Output.log** est également créé dans le dossier qui contient les fichiers journaux compressés. Ce fichier est un journal de la sortie de la commande, qui peut être utilisé pour résoudre des problèmes lors de la collection de journaux. Parfois, le fichier journal inclut des entrées `PS>TerminatingError` qui peuvent être ignorées, sauf si des fichiers journaux attendus sont manquants après l’exécution de la collecte des journaux.
@@ -254,25 +252,25 @@ if ($session) {
 
 ### <a name="how-diagnostic-log-collection-using-the-pep-works"></a>Fonctionnement de la collecte des journaux de diagnostic à l’aide du point de terminaison privilégié
 
-Les outils de diagnostic Azure Stack aident à garantir la simplicité et l’efficacité de la collecte des journaux. Le diagramme suivant illustre le fonctionnement des outils de diagnostic :
+Les outils de diagnostic Azure Stack Hub aident à garantir la simplicité et l’efficacité de la collecte des journaux. Le diagramme suivant illustre le fonctionnement des outils de diagnostic :
 
-![Diagramme du workflow des outils de diagnostic Azure Stack](media/azure-stack-diagnostics/get-azslogs.png)
+![Diagramme du workflow des outils de diagnostic Azure Stack Hub](media/azure-stack-diagnostics/get-azslogs.png)
 
 
 #### <a name="trace-collector"></a>Collecteur de traces
 
-Le collecteur de traces est activé par défaut et s’exécute en continu en arrière-plan pour collecter tous les journaux d’activité de suivi d’événements pour Windows (ETW) à partir des services composants d’Azure Stack. Les journaux de suivi d’événements Windows sont stockés dans un partage local commun, avec une limite de conservation de cinq jours. Une fois cette limite atteinte, les fichiers les plus anciens sont supprimés à mesure que de nouveaux sont créés. Par défaut, la taille maximale autorisée pour chaque fichier est de 200 Mo. Une vérification de la taille se produit toutes les deux minutes ; si le fichier actuel a une taille supérieure ou égale à 200 Mo, il est enregistré et un nouveau fichier est généré. Il existe également une limite de 8 Go portant sur la taille totale des fichiers générés par session d’événements.
+Le collecteur de traces est activé par défaut et s’exécute en continu en arrière-plan pour collecter tous les journaux d’activité de suivi d’événements pour Windows (ETW) à partir des services composants d’Azure Stack Hub. Les journaux de suivi d’événements Windows sont stockés dans un partage local commun, avec une limite de conservation de cinq jours. Une fois cette limite atteinte, les fichiers les plus anciens sont supprimés à mesure que de nouveaux sont créés. Par défaut, la taille maximale autorisée pour chaque fichier est de 200 Mo. Une vérification de la taille se produit toutes les deux minutes ; si le fichier actuel a une taille supérieure ou égale à 200 Mo, il est enregistré et un nouveau fichier est généré. Il existe également une limite de 8 Go portant sur la taille totale des fichiers générés par session d’événements.
 
 #### <a name="get-azurestacklog"></a>Get-AzureStackLog
 
-Vous pouvez utiliser la cmdlet PowerShell Get-AzureStackLog pour collecter des journaux d’activité à partir de tous les composants dans un environnement Azure Stack. Elle les enregistre dans des fichiers zip à un emplacement défini par l’utilisateur. Si l’équipe de support technique Azure Stack a besoin de vos journaux d’activité pour résoudre un problème, elle peut vous demander Get-AzureStackLog.
+Vous pouvez utiliser la cmdlet PowerShell Get-AzureStackLog pour collecter des journaux d’activité à partir de tous les composants dans un environnement Azure Stack Hub. Elle les enregistre dans des fichiers zip à un emplacement défini par l’utilisateur. Si l’équipe de support technique Azure Stack Hub a besoin de vos journaux d’activité pour résoudre un problème, elle peut vous demander d’exécuter l’applet de commande Get-AzureStackLog.
 
 > [!CAUTION]
 > Ces fichiers journaux peuvent contenir des informations d’identification personnelle. Pensez-y avant de publier des fichiers journaux publiquement.
 
 Voici quelques exemples de types de journaux collectés :
 
-* **Journaux d’activité de déploiement Azure Stack**
+* **Journaux d’activité de déploiement d’Azure Stack Hub**
 * **Journaux des événements Windows**
 * **Journaux d’activité Panther**
 * **Journaux d’activité de cluster**

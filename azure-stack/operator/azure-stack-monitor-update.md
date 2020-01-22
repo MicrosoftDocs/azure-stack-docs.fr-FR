@@ -1,6 +1,6 @@
 ---
-title: Surveiller les mises à jour dans Azure Stack à l'aide du point de terminaison privilégié | Microsoft Docs
-description: Découvrez comment utiliser le point de terminaison privilégié pour surveiller l’état des mises à jour pour les systèmes intégrés Azure Stack.
+title: Superviser les mises à jour dans Azure Stack Hub à l’aide du point de terminaison privilégié | Microsoft Docs
+description: Découvrez comment utiliser le point de terminaison privilégié pour surveiller l’état des mises à jour pour les systèmes intégrés Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,20 +14,18 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: d99a49676f9ab684c5b83e8e68cf58f86efc948f
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: b2faf490b54fc7096c43b58864009bdee6117fe6
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534065"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882264"
 ---
-# <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Surveiller les mises à jour dans Azure Stack à l'aide du point de terminaison privilégié
+# <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Superviser les mises à jour dans Azure Stack Hub à l’aide du point de terminaison privilégié
 
-*S’applique à : systèmes intégrés Azure Stack*
+Vous pouvez utiliser le [point de terminaison privilégié](azure-stack-privileged-endpoint.md) pour surveiller la progression de l’exécution d’une mise à jour d’Azure Stack Hub. Le point de terminaison privilégié vous permet également de reprendre l’exécution d’une mise à jour ayant échoué à partir de la dernière étape réussie, dans le cas où vous n’avez plus accès au portail Azure Stack Hub. L’utilisation du portail Azure Stack Hub est la méthode recommandée pour gérer les mises à jour dans Azure Stack Hub.
 
-Vous pouvez utiliser le [point de terminaison privilégié](azure-stack-privileged-endpoint.md) pour surveiller la progression de l’exécution d’une mise à jour Azure Stack. Le point de terminaison privilégié vous permet également de reprendre l’exécution d’une mise à jour ayant échoué à partir de la dernière étape réussie, dans le cas où vous n’avez plus accès au portail Azure Stack. Utiliser le portail de Azure Stack est la méthode recommandée pour gérer les mises à jour dans Azure Stack.
-
-Les nouvelles applets de commande PowerShell suivantes pour la gestion des mises à jour sont incluses dans la mise à jour 1710 des systèmes intégrés Azure Stack.
+Les nouvelles applets de commande PowerShell suivantes pour la gestion des mises à jour sont incluses dans la mise à jour 1710 des systèmes intégrés Azure Stack Hub.
 
 | Applet de commande  | Description  |
 |---------|---------|
@@ -36,18 +34,18 @@ Les nouvelles applets de commande PowerShell suivantes pour la gestion des mises
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>Vérifier que les applets de commande sont disponibles
-Comme les applets de commande sont nouvelles dans le package de mise à jour 1710 d’Azure Stack, le processus de mise à jour 1710 a besoin d'atteindre un certain point avant que la fonctionnalité de surveillance soit disponible. En règle générale, les applets de commande sont disponibles si l’état dans le portail d’administration indique que la mise à jour 1710 se trouve à l'étape **Redémarrer les hôtes de stockage**. Pour être plus précis, la mise à jour de la cmdlet intervient au cours de l'**Étape : Exécution de l'étape 2.6 - Mise à jour de la liste verte PrivilegedEndpoint** .
+Les applets de commande étant nouvelles dans le package de mise à jour 1710 d’Azure Stack Hub, le processus de mise à jour 1710 doit atteindre un certain point avant que la fonctionnalité de surveillance soit disponible. En règle générale, les applets de commande sont disponibles si l’état dans le portail d’administration indique que la mise à jour 1710 se trouve à l'étape **Redémarrer les hôtes de stockage**. Pour être plus précis, la mise à jour de la cmdlet intervient au cours de l'**Étape : Exécution de l'étape 2.6 - Mise à jour de la liste verte PrivilegedEndpoint** .
 
 Vous pouvez également déterminer si les applets de commande sont disponibles par programmation en interrogeant la liste des commandes à partir du point de terminaison privilégié. Pour exécuter cette requête, exécutez les commandes suivantes à partir de l’hôte de cycle de vie du matériel ou d’une station de travail avec accès privilégié. Assurez-vous également que le point de terminaison privilégié est un hôte approuvé. Pour plus d’informations, consultez l’étape 1 [Accéder au point de terminaison privilégié](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint).
 
-1. Créez une session PowerShell sur une des machines virtuelles ERCS de votre environnement Azure Stack (*Prefix*-ERCS01, *Prefix*-ERCS02 ou *Prefix*-ERCS03). Remplacez *Prefix* par la chaîne de préfixe de la machine virtuelle spécifique à votre environnement.
+1. Créez une session PowerShell sur une des machines virtuelles ERCS de votre environnement Azure Stack Hub (*Prefix*-ERCS01, *Prefix*-ERCS02 ou *Prefix*-ERCS03). Remplacez *Prefix* par la chaîne de préfixe de la machine virtuelle spécifique à votre environnement.
 
    ```powershell
    $cred = Get-Credential
 
    $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
    ```
-   Lorsque vous êtes invité à saisir vos informations d’identification, utilisez le &lt;*domaine Azure Stack*&gt;\compte cloudadmin, ou un compte qui est membre du groupe CloudAdmins. Pour le compte CloudAdmin, entrez le mot de passe fourni pendant l’installation pour le compte d’administrateur de domaine AzureStackAdmin.
+   Lorsque vous êtes invité à saisir vos informations d’identification, utilisez le &lt;*domaine Azure Stack Hub*&gt;\compte cloudadmin, ou un compte membre du groupe CloudAdmins. Pour le compte CloudAdmin, entrez le mot de passe fourni pendant l’installation pour le compte d’administrateur de domaine AzureStackAdmin.
 
 2. Obtenez la liste complète des commandes disponibles dans le point de terminaison privilégié.
 
@@ -87,14 +85,14 @@ Vous pouvez également déterminer si les applets de commande sont disponibles p
 
 ### <a name="connect-to-the-privileged-endpoint-and-assign-session-variable"></a>Se connecter au point de terminaison privilégié et attribuer une variable de session
 
-Exécutez les commandes suivantes pour créer une session PowerShell sur une des machines virtuelles ERCS de votre environnement Azure Stack (*Prefix*-ERCS01, *Prefix*-ERCS02 ou *Prefix*-ERCS03), et pour attribuer une variable de session.
+Exécutez les commandes suivantes pour créer une session PowerShell sur une des machines virtuelles ERCS de votre environnement Azure Stack Hub (*Prefix*-ERCS01, *Prefix*-ERCS02 ou *Prefix*-ERCS03), et pour attribuer une variable de session.
 
 ```powershell
 $cred = Get-Credential
 
 $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
 ```
- Lorsque vous êtes invité à saisir vos informations d’identification, utilisez le &lt;*domaine Azure Stack*&gt;\compte cloudadmin, ou un compte qui est membre du groupe CloudAdmins. Pour le compte CloudAdmin, entrez le mot de passe fourni pendant l’installation pour le compte d’administrateur de domaine AzureStackAdmin.
+ Lorsque vous êtes invité à saisir vos informations d’identification, utilisez le &lt;*domaine Azure Stack Hub*&gt;\compte cloudadmin, ou un compte membre du groupe CloudAdmins. Pour le compte CloudAdmin, entrez le mot de passe fourni pendant l’installation pour le compte d’administrateur de domaine AzureStackAdmin.
 
 ### <a name="get-high-level-status-of-the-current-update-run"></a>Obtenir l’état de haut niveau de l’exécution de la mise à jour actuelle
 
@@ -108,10 +106,10 @@ $statusString.Value
 
 Les valeurs possibles incluent :
 
-- Exécution
+- Exécution en cours
 - Completed
 - Échec 
-- Canceled
+- Opération annulée
 
 Vous pouvez exécuter ces commandes à plusieurs reprises pour afficher l’état le plus récent. Vous n’êtes pas obligé de rétablir la connexion à chaque fois.
 
@@ -166,12 +164,12 @@ Si la mise à jour échoue, vous pouvez la reprendre là où elle s’est arrêt
 Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate } 
 ```
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshoot"></a>Dépanner
 
-Le point de terminaison privilégié est disponible sur toutes les machines virtuelles ERCS dans l’environnement Azure Stack. Comme la connexion n’est pas établie vers un point de terminaison hautement disponible, vous risquez de rencontrer des interruptions occasionnelles, des avertissements ou des messages d’erreur. Ces messages peuvent indiquer que la session a été déconnectée ou qu’une erreur de communication avec le service ECE s'est produite. Il s’agit du comportement attendu. Vous pouvez réessayer l’opération dans quelques minutes ou créer une session de point de terminaison privilégié sur l’une des autres machines virtuelles ERCS.
+Le point de terminaison privilégié est disponible sur toutes les machines virtuelles ERCS dans l’environnement Azure Stack Hub. Comme la connexion n’est pas établie vers un point de terminaison hautement disponible, vous risquez de rencontrer des interruptions occasionnelles, des avertissements ou des messages d’erreur. Ces messages peuvent indiquer que la session a été déconnectée ou qu’une erreur de communication avec le service ECE s'est produite. Il s’agit du comportement attendu. Vous pouvez réessayer l’opération dans quelques minutes ou créer une session de point de terminaison privilégié sur l’une des autres machines virtuelles ERCS.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Gestion des mises à jour dans Azure Stack](azure-stack-updates.md)
+- [Gestion des mises à jour dans Azure Stack Hub](azure-stack-updates.md)
 
 

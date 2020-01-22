@@ -1,6 +1,6 @@
 ---
-title: Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack | Microsoft Docs
-description: Découvrez comment déployer un cluster Kubernetes sur Azure Stack à partir d’une machine virtuelle cliente exécutant le moteur AKS.
+title: Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub | Microsoft Docs
+description: Découvrez comment déployer un cluster Kubernetes sur Azure Stack Hub à partir d’une machine virtuelle cliente exécutant le moteur AKS.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,22 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 8018b4637dadfbca948b2caa0528b113755dc6dd
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: 34fc30c13cf365560fbd30234a60af4cc4f9a594
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310300"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883562"
 ---
-# <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack
+# <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
-
-Vous pouvez déployer un cluster Kubernetes sur Azure Stack à partir d’une machine virtuelle cliente exécutant le moteur AKS. Dans cet article, nous nous intéressons à l’écriture d’une spécification de cluster, au déploiement d’un cluster avec le fichier `apimodel.json` et à la vérification du cluster en déployant MySQL avec Helm.
+Vous pouvez déployer un cluster Kubernetes sur Azure Stack Hub à partir d’une machine virtuelle cliente exécutant le moteur AKS. Dans cet article, nous nous intéressons à l’écriture d’une spécification de cluster, au déploiement d’un cluster avec le fichier `apimodel.json` et à la vérification du cluster en déployant MySQL avec Helm.
 
 ## <a name="define-a-cluster-specification"></a>Définir une spécification de cluster
 
@@ -36,7 +34,7 @@ Vous pouvez préciser une spécification de cluster dans un fichier de document 
 
 Cette section présente la création d’un modèle d’API pour votre cluster.
 
-1.  Commencez avec un [exemple](https://github.com/Azure/aks-engine/tree/master/examples/azure-stack) de fichier de modèle d’API Azure Stack et faites-en une copie locale pour votre déploiement. À partir de la machine sur laquelle vous avez installé le moteur AKS, exécutez :
+1.  Commencez par utiliser un [exemple](https://github.com/Azure/aks-engine/tree/master/examples/azure-stack) de fichier de modèle d’API Azure Stack Hub et en faire une copie locale pour votre déploiement. À partir de la machine sur laquelle vous avez installé le moteur AKS, exécutez :
 
     ```bash
     curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json
@@ -82,7 +80,7 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
     | --- | --- |
     | dnsPrefix | Entrez une chaîne unique qui servira à identifier le nom d’hôte des machines virtuelles. Par exemple, un nom basé sur le nom du groupe de ressources. |
     | count |  Entrez le nombre de maîtres que vous souhaitez pour votre déploiement. Le minimum pour un déploiement HA s’élève à 3, mais 1 seul maître est autorisé pour les déploiements non-HA. |
-    | vmSize |  Entrez [une taille prise en charge par Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), par exemple `Standard_D2_v2`. |
+    | vmSize |  Entrez [une taille prise en charge par Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), par exemple `Standard_D2_v2`. |
     | distro | Entrez `aks-ubuntu-16.04`. |
 
 8.  Dans le tableau `agentPoolProfiles`, mettez à jour :
@@ -90,7 +88,7 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
     | Champ | Description |
     | --- | --- |
     | count | Entrez le nombre d’agents que vous souhaitez pour votre déploiement. |
-    | vmSize | Entrez [une taille prise en charge par Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), par exemple `Standard_D2_v2`. |
+    | vmSize | Entrez [une taille prise en charge par Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), par exemple `Standard_D2_v2`. |
     | distro | Entrez `aks-ubuntu-16.04`. |
 
 9.  Dans le tableau `linuxProfile`, mettez à jour :
@@ -98,36 +96,38 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
     | Champ | Description |
     | --- | --- |
     | adminUsername | Entrez le nom d’utilisateur administrateur de la machine virtuelle. |
-    | ssh | Entrez la clé publique qui sera utilisée pour l’authentification SSH auprès des machines virtuelles. |
+    | ssh | Entrez la clé publique qui sera utilisée pour l’authentification SSH auprès des machines virtuelles. Si vous utilisez PuTTY, ouvrez le générateur de clé PuTTY pour charger la clé privée PuTTY et la clé publique qui commence par ssh-rsa, comme dans l’exemple suivant. Vous pouvez utiliser la clé générée lors de la création du client Linux mais **vous devez copier la clé publique pour qu’il s’agisse d’un texte d’une ligne, comme indiqué dans l’exemple**.|
+
+    ![Générateur de clé PuTTY](media/azure-stack-kubernetes-aks-engine-deploy-cluster/putty-key-generator.png)
 
 ### <a name="more-information-about-the-api-model"></a>Plus d’informations sur le modèle d’API
 
 - Pour obtenir des informations de référence complètes sur toutes les options disponibles dans le modèle d’API, reportez-vous aux [définitions de cluster](https://github.com/Azure/aks-engine/blob/master/docs/topics/clusterdefinitions.md).  
-- Pour obtenir des précisions sur des options spécifiques pour Azure Stack , reportez-vous aux [spécificités des définitions de cluster Azure Stack](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cluster-definition-aka-api-model).  
+- Pour obtenir des informations clés sur des options spécifiques pour Azure Stack Hub , voir [Spécificités des définitions de cluster Azure Stack Hub](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cluster-definition-aka-api-model).  
 
 ## <a name="deploy-a-kubernetes-cluster"></a>Déployer un cluster Kubernetes
 
 Une fois que vous avez collecté toutes les valeurs requises dans votre modèle d’API, vous pouvez créer votre cluster. À ce stade, vous devez :
 
-Demander à votre opérateur Azure Stack de :
+Demander à votre opérateur Azure Stack Hub d’effectuer les opérations suivantes :
 
 - Vérifier l’intégrité du système, en lui suggérant d’exécuter `Test-AzureStack` et l’outil de supervision de matériel de votre fournisseur OEM.
-- Vérifiez la capacité système, notamment les ressources comme la mémoire, le stockage et les adresses IP publiques.
+- Vérifier la capacité système, notamment les ressources comme la mémoire, le stockage et les adresses IP publiques.
 - Fournir les détails du quota associé à votre abonnement afin de vous permettre de vérifier que l’espace est toujours suffisant pour le nombre de machines virtuelles que vous envisagez d’utiliser.
 
 Procéder au déploiement d’un cluster :
 
-1.  Passez en revue les paramètres disponibles pour les [indicateurs CLI](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags) du moteur AKS sur Azure Stack.
+1.  Passez en revue les paramètres disponibles pour les [indicateurs CLI](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags) du moteur AKS sur Azure Stack Hub.
 
-    | Paramètre | Exemples | Description |
+    | Paramètre | Exemple | Description |
     | --- | --- | --- |
-    | azure-env | AzureStackCloud | Pour indiquer au moteur AKS que votre plateforme cible est Azure Stack, utilisez `AzureStackCloud`. |
+    | azure-env | AzureStackCloud | Pour indiquer au moteur AKS que votre plateforme cible est Azure Stack Hub, utilisez `AzureStackCloud`. |
     | identity-system | adfs | facultatif. Spécifiez votre solution de gestion des identités si vous utilisez Active Directory Federated Services (AD FS). |
-    | location | local | Nom de la région de votre Azure Stack. Pour le Kit de développement Azure Stack (ASDK), la région a la valeur `local`. |
+    | location | local | Nom de la région de votre Azure Stack Hub. Pour le Kit de développement Azure Stack (ASDK), la région a la valeur `local`. |
     | resource-group | kube-rg | Entrez le nom d’un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant. Le nom de la ressource doit être alphanumérique et en minuscules. |
     | api-model | ./kubernetes-azurestack.json | Chemin du fichier de configuration du cluster ou modèle d’API. |
     | output-directory | kube-rg | Entrez le nom du répertoire contenant le fichier de sortie `apimodel.json`, ainsi que d’autres fichiers générés. |
-    | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Entrez le GUID du principal du service. ID de client identifié comme ID d’application quand votre administrateur Azure Stack a créé le principal du service. |
+    | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Entrez le GUID du principal du service. ID de client identifié comme ID d’application quand votre administrateur Azure Stack Hub a créé le principal du service. |
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Entrez le secret du principal du service. Il s’agit de la clé secrète client que vous définissez lors de la création de votre service. |
     | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Entrez votre ID d’abonnement. Pour plus d’informations, consultez [S’abonner à une offre](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer). |
 
@@ -160,9 +160,9 @@ Procéder au déploiement d’un cluster :
 
 Vérifiez votre cluster en déployant mysql avec Helm pour contrôler votre cluster.
 
-1. Obtenez l’adresse IP publique de l’un de vos nœuds principaux à l’aide du portail Azure Stack.
+1. Obtenez l’adresse IP publique de l’un de vos nœuds principaux à l’aide du portail Azure Stack Hub.
 
-2. À partir d’une machine disposant d’un accès à votre instance Azure Stack, connectez-vous par le biais de SSH au nouveau nœud principal à l’aide d’un client comme PuTTy ou MobaXterm. 
+2. À partir d’une machine ayant accès à votre instance Azure Stack Hub, connectez-vous en utilisant le protocole SSH au nouveau nœud principal à l’aide d’un client tel que PuTTY ou MobaXterm. 
 
 3. Pour le nom d’utilisateur SSH, vous utilisez « azureuser » et le fichier de clé privée de la paire de clés que vous avez fournie pour le déploiement du cluster.
 
@@ -196,4 +196,4 @@ Vérifiez votre cluster en déployant mysql avec Helm pour contrôler votre clus
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Résoudre les problèmes du moteur AKS sur Azure Stack](azure-stack-kubernetes-aks-engine-troubleshoot.md)
+> [Résoudre des problèmes du moteur AKS sur Azure Stack Hub](azure-stack-kubernetes-aks-engine-troubleshoot.md)

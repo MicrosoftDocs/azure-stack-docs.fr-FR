@@ -1,6 +1,6 @@
 ---
 title: Utiliser le module de stratégie Azure Stack Hub | Microsoft Docs
-description: Découvrez comment contraindre un abonnement Azure à se comporter comme un abonnement Azure Stack.
+description: Apprenez à contraindre un abonnement Azure à se comporter comme un abonnement Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: 1df2cf3eb403aabf320a226b5c184654b0b6169a
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: aedc2915f3e2be473b74766c4274197112ecf6fe
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718434"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878745"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-hub-policy-module"></a>Gérer la stratégie Azure à l’aide du module de stratégie Azure Stack Hub
-
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Le module de stratégie Azure Stack Hub vous permet de configurer un abonnement Azure avec la même gestion de versions et la même disponibilité de service qu’Azure Stack Hub. Le module utilise l’applet de commande PowerShell [**New-AzureRmPolicyDefinition**](/powershell/module/azurerm.resources/new-azurermpolicydefinition) pour créer une stratégie Azure, ce qui limite les types de ressource et les services disponibles dans un abonnement. Vous créez ensuite une affectation de stratégie dans l’étendue appropriée à l’aide de l’applet de commande [**New-AzureRmPolicyAssignment**](/powershell/module/azurerm.resources/new-azurermpolicyassignment). Après avoir configuré la stratégie, vous pouvez utiliser votre abonnement Azure pour développer des applications ciblées pour Azure Stack Hub.
 

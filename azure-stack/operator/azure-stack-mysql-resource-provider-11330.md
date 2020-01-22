@@ -1,6 +1,6 @@
 ---
-title: Notes de publication de la version 1.1.33.0 du fournisseur de ressources MySQL Azure Stack | Microsoft Docs
-description: Consultez les notes de publication pour découvrir les nouveautés incluses dans la mise à jour 1.1.33.0 du fournisseur de ressources MySQL Azure Stack.
+title: Notes de publication de la version 1.1.33.0 du fournisseur de ressources MySQL Azure Stack Hub | Microsoft Docs
+description: Consultez les notes de publication pour découvrir les nouveautés incluses dans la mise à jour 1.1.33.0 du fournisseur de ressources MySQL Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,32 +16,30 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 0ff97155d1ad27c36e86e142aa000c4987c5c8fd
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: 4067068090a4ae243b40af4f382a80c8bfc14455
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682152"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882230"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>Notes de publication de la version 1.1.33.0 du fournisseur de ressources MySQL
-
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Ces notes de publication décrivent les améliorations et les problèmes connus liés à la version 1.1.33.0 du fournisseur de ressources MySQL.
 
 ## <a name="build-reference"></a>Référence de build
-Téléchargez le binaire du fournisseur de ressources MySQL, puis exécutez le fichier auto-extracteur pour extraire le contenu dans un répertoire temporaire. Le fournisseur de ressources possède une build Azure Stack minimale correspondante. La version minimale d'Azure Stack requise pour installer cette version du fournisseur de ressources MySQL est mentionnée ci-dessous :
+Téléchargez le binaire du fournisseur de ressources MySQL, puis exécutez le fichier auto-extracteur pour extraire le contenu dans un répertoire temporaire. Le fournisseur de ressources possède une build Azure Stack Hub minimale correspondante. La version minimale d’Azure Stack Hub requise pour installer cette version du fournisseur de ressources MySQL est mentionnée ci-dessous :
 
-> |Version minimale d’Azure Stack|Version du fournisseur de ressources MySQL|
+> |Version minimale d’Azure Stack Hub|Version du fournisseur de ressources MySQL|
 > |-----|-----|
 > |Version 1808 (1.1808.0.97)|[MySQL RP version 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
 > |     |     |
 
 > [!IMPORTANT]
-> Appliquez la mise à jour minimale prise en charge d'Azure Stack sur votre système intégré Azure Stack ou déployez le Kit de développement Azure Stack (ASDK) le plus récent avant de déployer la dernière version du fournisseur de ressources MySQL.
+> Appliquez la mise à jour minimale prise en charge d’Azure Stack Hub à votre système intégré Azure Stack Hub, ou déployez le Kit de développement Azure Stack Hub (ASDK) le plus récent avant de déployer la dernière version du fournisseur de ressources MySQL.
 
 ## <a name="new-features-and-fixes"></a>Nouvelles fonctionnalités et correctifs
-Cette version du fournisseur de ressources MySQL Azure Stack inclut les améliorations et correctifs suivants :
+Cette version du fournisseur de ressources MySQL Azure Stack Hub inclut les améliorations et correctifs suivants :
 
 ### <a name="fixes"></a>Correctifs
 
@@ -57,7 +55,7 @@ Cette version du fournisseur de ressources MySQL Azure Stack inclut les amélior
 
 - **Une heure entière peut être nécessaire avant que les références SKU MySQL n’apparaissent dans le portail**. Il peut se passer une heure avant que les références SKU nouvellement créées soient visibles et utilisables lors de la création de nouvelles bases de données MySQL. 
 
-    **Solution de contournement** : Aucune.
+    **Solution de contournement** : Aucun.
 
 - **Connexions MySQL réutilisées**. Toute tentative de création d'une nouvelle connexion MySQL avec le même nom d'utilisateur qu'une connexion existante associée au même abonnement entraînera la réutilisation de la même connexion et du mot de passe existant.
 
@@ -68,8 +66,8 @@ Cette version du fournisseur de ressources MySQL Azure Stack inclut les amélior
     **Solution de contournement** : utilisez toujours des connexions distinctes pour les différentes bases de données associées à un même abonnement.
 
 
-### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Problèmes connus des administrateurs cloud utilisant Azure Stack
-Reportez-vous à la documentation des [notes de publication d’Azure Stack](azure-stack-servicing-policy.md).
+### <a name="known-issues-for-cloud-admins-operating-azure-stack-hub"></a>Problèmes connus pour les administrateurs de cloud utilisant Azure Stack Hub
+Voir la documentation dans les [notes de publication d’Azure Stack Hub](azure-stack-servicing-policy.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur le déploiement d'un fournisseur de ressources MySQL](azure-stack-mysql-resource-provider.md).

@@ -1,6 +1,6 @@
 ---
-title: Publier des services Azure Stack dans votre centre de données | Microsoft Docs
-description: Découvrez comment publier des services Azure Stack dans votre centre de données.
+title: Publier des services Azure Stack Hub dans votre centre de données | Microsoft Docs
+description: Découvrez comment publier des services Azure Stack Hub dans votre centre de données.
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -10,16 +10,16 @@ ms.date: 12/11/2019
 ms.author: justinha
 ms.reviewer: wamota
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 2da6bb4fb70a3d8e816870c8569f8f3e3aa7d678
-ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
+ms.openlocfilehash: 5ed74e225df2e2667acc536e0b8dbd901a086b9a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2019
-ms.locfileid: "75007994"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818007"
 ---
-# <a name="publish-azure-stack-services-in-your-datacenter"></a>Publier des services Azure Stack dans votre centre de données 
+# <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Publier des services Azure Stack Hub dans votre centre de données 
 
-Azure Stack configure des adresses IP virtuelles pour ses rôles d’infrastructure. Ces adresses IP virtuelles sont allouées à partir du pool d’adresses IP publiques. Chaque adresse IP virtuelle est sécurisée à l’aide d’une liste de contrôle d’accès (ACL) dans la couche réseau à définition logicielle. Les listes ACL sont également utilisées dans les commutateurs physiques (TOR et BMC) pour renforcer la solution. Une entrée DNS est créée pour chaque point de terminaison dans la zone DNS externe spécifiée au moment du déploiement. Par exemple, le portail utilisateur se voit attribué l’entrée d’hôte DNS portal. *&lt;region>.&lt;fqdn>* .
+Azure Stack Hub configure des adresses IP virtuelles pour ses rôles d’infrastructure. Ces adresses IP virtuelles sont allouées à partir du pool d’adresses IP publiques. Chaque adresse IP virtuelle est sécurisée à l’aide d’une liste de contrôle d’accès (ACL) dans la couche réseau à définition logicielle. Les listes ACL sont également utilisées dans les commutateurs physiques (TOR et BMC) pour renforcer la solution. Une entrée DNS est créée pour chaque point de terminaison dans la zone DNS externe spécifiée au moment du déploiement. Par exemple, le portail utilisateur se voit attribué l’entrée d’hôte DNS portal. *&lt;region>.&lt;fqdn>* .
 
 Le diagramme architectural suivant montre les différentes couches réseau et les listes ACL :
 
@@ -27,7 +27,7 @@ Le diagramme architectural suivant montre les différentes couches réseau et le
 
 ### <a name="ports-and-urls"></a>Ports et URL
 
-Pour rendre des services Azure Stack (comme les portails, Azure Resource Manager, DNS, etc.) disponibles pour des réseaux externes, vous devez autoriser le trafic entrant vers ces points de terminaison pour des URL, des ports et des protocoles spécifiques.
+Pour rendre des services Azure Stack Hub (tels que les portails, Azure Resource Manager, DNS, etc.) disponibles pour des réseaux externes, vous devez autoriser le trafic entrant vers ces points de terminaison pour des URL, des ports et des protocoles spécifiques.
  
 Dans un déploiement où un proxy transparent achemine par liaison montante les données à un serveur proxy traditionnel ou un pare-feu protège la solution, vous devez autoriser des URL et des ports spécifiques pour les communications [entrantes](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound) et [sortantes](azure-stack-integrate-endpoints.md#ports-and-urls-outbound). Cela comprend les ports et les URL pour l’identité, la marketplace, les correctifs et les mises à jour, l’inscription ainsi que les données d’utilisation.
 
@@ -35,9 +35,9 @@ L’interception du trafic SSL n’est [pas prise en charge](azure-stack-firewal
 
 ## <a name="ports-and-protocols-inbound"></a>Ports et protocoles (en entrée)
 
-Un ensemble d’adresses IP virtuelles d’infrastructure est nécessaire pour la publication des points de terminaison Azure Stack sur des réseaux externes. Le tableau *Point de terminaison (VIP)* affiche chaque point de terminaison, le port requis et le protocole. Consultez la documentation de déploiement spécifique au fournisseur de ressources pour les points de terminaison nécessitant des fournisseurs de ressources supplémentaires, comme le fournisseur de ressources SQL.
+Un ensemble d’adresses IP virtuelles d’infrastructure est nécessaire pour la publication des points de terminaison Azure Stack Hub sur des réseaux externes. Le tableau *Point de terminaison (VIP)* affiche chaque point de terminaison, le port requis et le protocole. Consultez la documentation de déploiement spécifique au fournisseur de ressources pour les points de terminaison nécessitant des fournisseurs de ressources supplémentaires, comme le fournisseur de ressources SQL.
 
-Les adresses IP virtuelles ne sont pas répertoriées car elles ne sont pas requises pour la publication Azure Stack. Les adresses IP virtuelles d’utilisateur sont dynamiques et définies par les utilisateurs eux-mêmes, sans contrôle de la part de l’opérateur Azure Stack.
+Les adresses IP virtuelles de l’infrastructure interne ne sont pas répertoriées car elles ne sont pas requises pour la publication d’Azure Stack Hub. Les adresses IP virtuelles d’utilisateur sont dynamiques et définies par les utilisateurs eux-mêmes, sans contrôle de la part de l’opérateur Azure Stack Hub.
 
 > [!Note]  
 > Le VPN IKEv2 est une solution VPN IPsec basée sur des normes qui utilise les ports UDP 500 et 4500 ainsi que le port TCP 50. Les pare-feux n’ouvrent pas toujours ces ports : un VPN IKEv2 peut donc ne pas être en mesure de traverser les proxys et les pare-feux.
@@ -72,12 +72,12 @@ Avec l’ajout de l’[hôte d’extension](azure-stack-extension-host-prepare.m
 
 ## <a name="ports-and-urls-outbound"></a>Ports et URL (en sortie)
 
-Azure Stack prend en charge uniquement les serveurs proxy transparents. Dans un déploiement où un proxy transparent transfère les données vers un serveur proxy traditionnel, vous devez autoriser les URL et les ports du tableau suivant pour les communications sortantes.
+Azure Stack Hub prend en charge uniquement les serveurs proxy transparents. Dans un déploiement où un proxy transparent transfère les données vers un serveur proxy traditionnel, vous devez autoriser les URL et les ports du tableau suivant pour les communications sortantes.
 
 L’interception du trafic SSL n’est [pas prise en charge](azure-stack-firewall.md#ssl-interception) et peut entraîner des échecs de service lors de l’accès aux points de terminaison. Le délai d’expiration maximal pris en charge pour communiquer avec les points de terminaison requis pour l’identité est de 60 secondes.
 
 > [!Note]  
-> Azure Stack ne prend pas en charge l’utilisation d’ExpressRoute pour atteindre les services Azure listés dans le tableau suivant, car ExpressRoute risque de ne pas pouvoir router le trafic vers tous les points de terminaison.
+> Azure Stack Hub ne prend pas en charge l’utilisation d’ExpressRoute pour atteindre les services Azure répertoriés dans le tableau suivant, car ExpressRoute risque de ne pas pouvoir router le trafic vers tous les points de terminaison.
 
 |Objectif|URL de destination|Protocol|Ports|Réseau source|
 |---------|---------|---------|---------|---------|
@@ -104,4 +104,4 @@ Un DNS sortant est toujours nécessaire : ce qui change, c’est la source qui 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Exigences relatives à l’infrastructure à clé publique d’Azure Stack](azure-stack-pki-certs.md)
+[Exigences relatives à l’infrastructure à clé publique d’Azure Stack Hub](azure-stack-pki-certs.md)

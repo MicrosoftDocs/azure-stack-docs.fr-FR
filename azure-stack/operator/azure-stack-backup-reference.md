@@ -1,6 +1,6 @@
 ---
 title: Informations de référence sur le service Infrastructure Backup | Microsoft Docs
-description: Documentation de référence sur le service Infrastructure Backup dans Azure Stack.
+description: Documentation de référence sur le service Infrastructure Backup dans Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,20 +16,18 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 282d6f3a501550e49424c257b928e708f63ccadc
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 8e54ae96cec4fff9a50c541bab4ea8e60323ca22
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974867"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882927"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Informations de référence sur le service Infrastructure Backup
 
 ## <a name="azure-backup-infrastructure"></a>Infrastructure de sauvegarde Azure
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
-
-Azure Stack se compose de plusieurs services comprenant le portail (Azure Resource Manager) et l’ensemble de la gestion de l’infrastructure. La gestion d’Azure Stack est similaire à celle d’une appliance et a pour but de faciliter la tâche de l’opérateur de la solution.
+Azure Stack Hub se compose de plusieurs services comprenant le portail (Azure Resource Manager) et l’interface de gestion de l’infrastructure. L’interface de gestion de type application d’Azure Stack Hub vise à simplifier la tâche de l’opérateur de la solution.
 
 Le service Infrastructure Backup est conçu pour absorber la complexité de la sauvegarde et de la restauration des données des services d’infrastructure, et permettre ainsi aux opérateurs de se concentrer sur la gestion de la solution et des contrats SLA des utilisateurs.
 
@@ -40,17 +38,17 @@ L’exportation des données de sauvegarde vers un partage externe est nécessai
 Le service Infrastructure Backup comprend les composants suivants :
 
  - **Contrôleur Infrastructure Backup**  
- Le contrôleur Infrastructure Backup est instancié avec et se trouve dans chaque cloud Azure Stack.
+ Le contrôleur Infrastructure Backup est instancié avec chaque cloud Azure Stack Hub et y réside.
  - **Fournisseur de ressources de sauvegarde**  
- Le fournisseur de ressources de sauvegarde se compose de l’interface utilisateur et des API qui comprennent les fonctionnalités de sauvegarde de base pour l’infrastructure Azure Stack.
+ Le fournisseur de ressources de sauvegarde se compose de l’interface utilisateur et des API exposant les fonctionnalités de sauvegarde de base pour l’infrastructure Azure Stack Hub.
 
-#### <a name="infrastructure-backup-controller"></a>Infrastructure Backup Controller
+#### <a name="infrastructure-backup-controller"></a>Contrôleur Infrastructure Backup
 
-Infrastructure Backup Controller est un service de Service Fabric qui est instancié pour un cloud Azure Stack. Les ressources de sauvegarde sont créées à un niveau régional et capturent les données des services propres à une région provenant de AD, CA, Azure Resource Manager, CRP, SRP, NRP, Key Vault et RBAC.
+Le contrôleur Infrastructure Backup est un service de Service Fabric qui est instancié pour un cloud Azure Stack Hub. Les ressources de sauvegarde sont créées à un niveau régional et capturent les données des services propres à une région provenant de AD, CA, Azure Resource Manager, CRP, SRP, NRP, Key Vault et RBAC.
 
 ### <a name="backup-resource-provider"></a>Fournisseur de ressources de sauvegarde
 
-Le fournisseur de ressources de sauvegarde fournit une interface utilisateur dans le portail Azure Stack, et donne accès à la configuration de base ainsi qu’à la liste des ressources de sauvegarde. Les opérateurs peuvent effectuer les actions suivantes dans l’interface utilisateur :
+Le fournisseur de ressources de sauvegarde fournit une interface utilisateur dans le portail Azure Stack Hub, et donne accès à la configuration de base ainsi qu’à la liste des ressources de sauvegarde. Les opérateurs peuvent effectuer les actions suivantes dans l’interface utilisateur :
 
  - Activer la sauvegarde pour la première fois en fournissant l’emplacement de stockage externe, les informations d’identification et la clé de chiffrement
  - Consulter les ressources de sauvegarde déjà créées et l’état des ressources en cours de création
@@ -61,7 +59,7 @@ Le fournisseur de ressources de sauvegarde fournit une interface utilisateur dan
 
 ## <a name="backup-controller-requirements"></a>Configuration requise pour Backup Controller
 
-Cette section décrit les éléments importants de la configuration requise du service Infrastructure Backup. Nous vous recommandons de lire attentivement les informations suivantes avant d’activer la sauvegarde pour votre instance Azure Stack, puis d’y revenir si nécessaire pendant le déploiement et les opérations suivantes.
+Cette section décrit les éléments importants de la configuration requise du service Infrastructure Backup. Nous vous recommandons de lire attentivement les informations suivantes avant d’activer la sauvegarde pour votre instance Azure Stack Hub, puis d’y revenir si nécessaire pendant le déploiement et les opérations suivantes.
 
 La configuration requise inclut :
 
@@ -74,9 +72,9 @@ La configuration requise inclut :
 
 | Emplacement de stockage                                                                 | Détails                                                                                                                                                  |
 |----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Partage de fichiers SMB hébergé sur un dispositif de stockage dans l’environnement réseau approuvé | Partage SMB dans le même centre de données que celui où Azure Stack est déployé ou dans un autre centre de données. Plusieurs instances Azure Stack peuvent utiliser le même partage de fichiers. |
-| Partage de fichiers SMB sur Azure                                                          | Non pris en charge pour le moment.                                                                                                                                 |
-| Stockage d’objets blob sur Azure                                                            | Non pris en charge pour le moment.                                                                                                                                 |
+| Partage de fichiers SMB hébergé sur un dispositif de stockage dans l’environnement réseau approuvé | Partage SMB dans le centre de données dans lequel Azure Stack Hub est déployé ou dans un autre. Plusieurs instances Azure Stack Hub peuvent utiliser le même partage de fichiers. |
+| Partage de fichiers SMB sur Azure                                                          | Non pris en charge actuellement.                                                                                                                                 |
+| Stockage d’objets blob sur Azure                                                            | Non pris en charge actuellement.                                                                                                                                 |
 
 #### <a name="supported-smb-versions"></a>Versions de SMB prises en charge
 
@@ -92,7 +90,7 @@ Le service Infrastructure Backup prend en charge le transfert des données de sa
 
 #### <a name="storage-location-sizing"></a>Dimensionnement de l’emplacement de stockage
 
-Il est recommandé de sauvegarder au moins deux fois par jour et de conserver sept jours de sauvegarde au maximum. Il s’agit du comportement par défaut lorsque vous activez les sauvegardes d’infrastructure sur Azure Stack.
+Il est recommandé de sauvegarder au moins deux fois par jour et de conserver sept jours de sauvegarde au maximum. Il s’agit du comportement par défaut lorsque vous activez les sauvegardes d’infrastructure sur Azure Stack Hub.
 
 **1907 et au-delà**
 
@@ -100,27 +98,27 @@ Il est recommandé de sauvegarder au moins deux fois par jour et de conserver s
 
 | Échelle de l’environnement | Taille prévue de la sauvegarde | Quantité totale d’espace nécessaire |
 |-------------------|--------------------------|--------------------------------|
-| 4-16 nœuds/ASDK   | 1 Go                     | 20 Go                          |
+| 4-16 nœuds/ASDK   | 1 Go                     | 20 Go                          |
 
 ***Système connecté au fournisseur d’identité Azure AD via ADFS***
 
 | Échelle de l’environnement | Taille prévue de la sauvegarde | Quantité totale d’espace nécessaire |
 |-------------------|--------------------------|--------------------------------|
-| 4-16 nœuds        | 20 Go                    | 280 Go                        |
+| 4-16 nœuds        | 20 Go                    | 280 Go                        |
 | ASDK              | 10 Go                    | 140 Go                        |
 
 **Avant 1907**
 
 | Échelle de l’environnement | Taille prévue de la sauvegarde | Quantité totale d’espace nécessaire |
 |-------------------|--------------------------|--------------------------------|
-| 4-16 nœuds        | 20 Go                    | 280 Go                        |
+| 4-16 nœuds        | 20 Go                    | 280 Go                        |
 | ASDK              | 10 Go                    | 140 Go                        |
 
 ### <a name="network-requirements"></a>Configuration requise pour le réseau
 
 | Emplacement de stockage                                                                 | Détails                                                                                                                                                                                 |
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Partage de fichiers SMB hébergé sur un dispositif de stockage dans l’environnement réseau approuvé | Le port 445 est obligatoire si l’instance Azure Stack se trouve dans un environnement de pare-feu. Infrastructure Backup Controller se connecte au serveur de fichiers SMB sur le port 445. |
+| Partage de fichiers SMB hébergé sur un dispositif de stockage dans l’environnement réseau approuvé | Le port 445 est obligatoire si l’instance Azure Stack Hub réside dans un environnement protégé par un pare-feu. Infrastructure Backup Controller se connecte au serveur de fichiers SMB sur le port 445. |
 | Pour être utilisé, le nom de domaine complet du serveur de fichiers doit pouvoir être résolu à partir du PEP.             |                                                                                                                                                                                         |
 
 > [!Note]  
@@ -130,7 +128,7 @@ Il est recommandé de sauvegarder au moins deux fois par jour et de conserver s
 
 À partir de la version 1901, le service Infrastructure Backup utilise un certificat avec une clé publique (.CER) pour chiffrer les données de sauvegarde, et un certificat avec une clé privée (.PFX) pour déchiffrer les données de sauvegarde lors de la récupération cloud.
 
- - Le certificat est utilisé pour le transport des clés, et non pour établir une communication sécurisée authentifiée. Pour cette raison, le certificat peut être auto-signé. Azure Stack n’ayant pas besoin de vérifier la racine ou l’approbation de ce certificat, il n’est pas nécessaire d’avoir un accès Internet externe.
+ - Le certificat est utilisé pour le transport des clés, et non pour établir une communication sécurisée authentifiée. Pour cette raison, le certificat peut être auto-signé. Azure Stack Hub n’ayant pas besoin de vérifier la racine ou l’approbation de ce certificat, aucun accès Internet externe n’est requis.
 
 Le certificat auto-signé comprend deux parties, l’une avec la clé publique et l’autre avec la clé privée :
 
@@ -141,16 +139,16 @@ Le certificat avec la clé publique (.CER) n’est pas géré par la rotation de
  
  - Toutes les sauvegardes existantes restent chiffrées à l’aide de la clé publique précédente. Les nouvelles sauvegardes utilisent la nouvelle clé publique.
  
-Le certificat utilisé lors de la récupération du cloud avec la clé privée (. PFX) n’est pas conservé par Azure Stack pour des raisons de sécurité. Ce fichier devra être fourni explicitement lors de la récupération du cloud.  
+Pour des raisons de sécurité, Azure Stack Hub ne conserve pas le certificat utilisé lors de la récupération du cloud avec la clé privée (.PFX). Ce fichier devra être fourni explicitement lors de la récupération du cloud.  
 
-**Mode de compatibilité descendante** À partir de la version 1901, le prise en charge de clés de chiffrement est déconseillée et sera supprimée dans la version ultérieure. Si vous avez activé depuis la version 1811 avec la sauvegarde déjà activée à l’aide d’une clé de chiffrement, Azure Stack continuera à utiliser la clé de chiffrement. Le mode de compatibilité descendante est pris en charge pour au moins trois versions. Un certificat sera ensuite requis.
+**Mode de compatibilité descendante** À partir de la version 1901, le prise en charge de clés de chiffrement est déconseillée et sera supprimée dans la version ultérieure. Si vous avez effectué une mise à jour de la version 1811 avec la sauvegarde déjà activée à l’aide d’une clé de chiffrement, Azure Stack Hub continue à utiliser la clé de chiffrement. Le mode de compatibilité descendante est pris en charge pour au moins trois versions. Un certificat sera ensuite requis.
 
  * La mise à jour de la clé de chiffrement au certificat est une opération unidirectionnelle.  
  * Toutes les sauvegardes existantes restent chiffrées avec la clé de chiffrement. Les nouvelles sauvegardes utiliseront la nouvelle clé publique. 
 
 ## <a name="infrastructure-backup-limits"></a>Limites d’Infrastructure Backup
 
-Tenez compte de ces limites quand vous planifiez, déployez et utilisez vos instances Microsoft Azure Stack. Le tableau suivant décrit ces limites.
+Tenez compte de ces limites quand vous planifiez, déployez et utilisez vos instances Microsoft Azure Stack Hub. Le tableau suivant décrit ces limites.
 
 ### <a name="infrastructure-backup-limits"></a>Limites d’Infrastructure Backup
 
@@ -159,12 +157,12 @@ Tenez compte de ces limites quand vous planifiez, déployez et utilisez vos inst
 | Type de sauvegarde                                                      | Complète uniquement    | Infrastructure Backup Controller prend en charge seulement les sauvegardes complètes. Les sauvegardes incrémentielles ne sont pas prises en charge.                                          |
 | Sauvegardes planifiées                                                | Planifiées et manuelles  | Le contrôleur de sauvegarde prend en charge les sauvegardes planifiées et à la demande.                                                                                 |
 | Nombre maximal de tâches de sauvegarde simultanées                                   | 1            | Une seule tâche de sauvegarde active par instance de Backup Controller est prise en charge.                                                                  |
-| Configuration du commutateur réseau                                     | Non compris | L’administrateur doit sauvegarder la configuration du commutateur réseau à l’aide des outils OEM. Reportez-vous à la documentation pour Azure Stack de chaque fournisseur OEM. |
-| Hardware Lifecycle Host (HLH)                                          | Non compris | L’administrateur doit sauvegarder le HLH à l’aide des outils OEM. Reportez-vous à la documentation pour Azure Stack de chaque fournisseur OEM.      |
+| Configuration du commutateur réseau                                     | Non compris | L’administrateur doit sauvegarder la configuration du commutateur réseau à l’aide des outils OEM. Reportez-vous à la documentation de chaque fournisseur OEM pour Azure Stack Hub. |
+| Hardware Lifecycle Host (HLH)                                          | Non compris | L’administrateur doit sauvegarder le HLH à l’aide des outils OEM. Reportez-vous à la documentation de chaque fournisseur OEM pour Azure Stack Hub.      |
 | Nombre maximal de partages de fichiers                                    | 1            | Vous ne pouvez utiliser qu’un seul partage de fichiers pour stocker les données de sauvegarde.                                                                                        |
 | Sauvegarde des données du fournisseur de ressources App Services, Function, SQL, MySql | Non compris | Reportez-vous à l’aide publiée pour le déploiement et la gestion des fournisseurs de ressources à valeur ajoutée créés par Microsoft.                                                  |
 | Fournisseurs de ressources de sauvegarde tiers                              | Non compris | Reportez-vous à l’aide publiée pour le déploiement et la gestion des fournisseurs de ressources à valeur ajoutée créés par des fournisseurs tiers.                                          |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
- - Pour plus d’informations sur le service Infrastructure Backup, consultez [Sauvegarde et récupération de données pour Azure Stack avec le service Infrastructure Backup](azure-stack-backup-infrastructure-backup.md).
+ - Pour plus d’informations sur le service Infrastructure Backup, voir [Sauvegarde et récupération de données pour Azure Stack Hub avec le service Infrastructure Backup](azure-stack-backup-infrastructure-backup.md).

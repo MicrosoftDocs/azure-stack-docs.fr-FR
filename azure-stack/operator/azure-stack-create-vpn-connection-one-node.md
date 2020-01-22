@@ -17,18 +17,18 @@ ms.author: justinha
 ms.reviewer: tbd
 ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: ef0fd3aef095dc0ee2865e7f1fb2a8821d378e70
-ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
+ms.openlocfilehash: 81e6e51c602909421e40b4c1e1d5e6ec796f7839
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72780522"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817905"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>Créer une connexion VPN de site à site entre deux réseaux virtuels dans des environnements ASDK différents
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
-Cet article explique comment créer une connexion VPN de site à site entre deux réseaux virtuels dans deux environnements distincts du Kit de développement Azure Stack (ASDK). Pendant la configuration des connexions, vous allez découvrir le fonctionnement des passerelles VPN dans Azure Stack.
+Cet article explique comment créer une connexion VPN de site à site entre deux réseaux virtuels dans deux environnements distincts du Kit de développement Azure Stack (ASDK). Pendant la configuration des connexions, vous allez découvrir le fonctionnement des passerelles VPN dans Azure Stack Hub.
 
 ### <a name="connection"></a>Connexion
 
@@ -52,7 +52,7 @@ Pour configurer la connexion, vous devez déployer deux environnements ASDK.
 
 ## <a name="prepare-an-offer-on-poc1-and-poc2"></a>Préparer une offre sur POC1 et POC2
 
-Sur POC1 et POC2, préparez une offre pour qu’un utilisateur puisse s’y abonner et déployer les machines virtuelles. Pour plus d’informations sur la création d’une offre, consultez [Rendre des machines virtuelles disponibles pour vos utilisateurs Azure Stack](azure-stack-tutorial-tenant-vm.md).
+Sur POC1 et POC2, préparez une offre pour qu’un utilisateur puisse s’y abonner et déployer les machines virtuelles. Pour plus d’informations sur la création d’une offre, voir [Rendre des machines virtuelles disponibles pour vos utilisateurs Azure Stack Hub](azure-stack-tutorial-tenant-vm.md).
 
 ## <a name="review-and-complete-the-network-configuration-table"></a>Vérifier et compléter la table de configuration réseau
 
@@ -74,7 +74,7 @@ La table ci-après récapitule la configuration réseau des deux environnements 
 
 ### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>Obtenir l’adresse IP de la carte externe de la machine virtuelle NAT
 
-1. Connectez-vous à la machine physique Azure Stack pour POC1.
+1. Connectez-vous à la machine physique Azure Stack Hub pour POC1.
 2. Modifiez le code PowerShell ci-dessous en y ajoutant votre mot de passe administrateur, puis exécutez le code sur l’hôte POC :
 
    ```powershell
@@ -94,7 +94,7 @@ La table ci-après récapitule la configuration réseau des deux environnements 
 
 ## <a name="create-the-network-resources-in-poc1"></a>Créer les ressources réseau dans POC1
 
-Vous pouvez maintenant créer les ressources réseau POC1 dont vous avez besoin pour configurer vos passerelles. Les instructions ci-après expliquent comment créer les ressources à partir du portail de l’utilisateur Azure Stack. Vous pouvez également créer les ressources à l’aide de code PowerShell.
+Vous pouvez maintenant créer les ressources réseau POC1 dont vous avez besoin pour configurer vos passerelles. Les instructions ci-après expliquent comment créer les ressources via le portail utilisateur Azure Stack Hub. Vous pouvez également créer les ressources à l’aide de code PowerShell.
 
 ![Workflow pour créer des ressources](media/azure-stack-create-vpn-connection-one-node-tp2/image2.png)
 
@@ -141,15 +141,15 @@ Un administrateur de services fédérés peut se connecter en tant que locataire
 
 ### <a name="create-the-local-network-gateway"></a>Créer la passerelle de réseau local
 
-L’implémentation d’une *passerelle de réseau local* dans ce déploiement d’évaluation d’Azure Stack est un peu différente dans un déploiement Azure réel.
+L’implémentation d’une *passerelle de réseau local* dans ce déploiement d’évaluation d’Azure Stack Hub est un peu différente dans un déploiement Azure réel.
 
-Dans un déploiement Azure, une passerelle de réseau local représente un appareil physique local (au locataire), que vous utilisez pour vous connecter à une passerelle de réseau virtuel dans Azure. Dans ce déploiement d’évaluation d’Azure Stack, les deux extrémités de la connexion sont des passerelles de réseau virtuel.
+Dans un déploiement Azure, une passerelle de réseau local représente un appareil physique local (au locataire), que vous utilisez pour vous connecter à une passerelle de réseau virtuel dans Azure. Dans ce déploiement d’évaluation d’Azure Stack Hub, les deux extrémités de la connexion sont des passerelles de réseau virtuel.
 
 De façon plus générale, la ressource de passerelle de réseau local représente toujours la passerelle distante située à l’autre extrémité de la connexion. Du fait de la conception même du Kit de développement Azure Stack (ASDK), vous devez spécifier l’adresse IP de la carte réseau externe sur la machine virtuelle NAT de l’autre ASDK comme adresse IP publique de la passerelle de réseau local. Vous devez ensuite créer les mappages NAT appropriés sur la machine virtuelle NAT pour connecter correctement les deux extrémités.
 
 ### <a name="create-the-local-network-gateway-resource"></a>Créer la ressource de passerelle de réseau local
 
-1. Connectez-vous à la machine physique Azure Stack pour POC1.
+1. Connectez-vous à la machine physique Azure Stack Hub pour POC1.
 2. Dans le portail utilisateur, sélectionnez **+ Créer une ressource**.
 3. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 4. Dans la liste des ressources, sélectionnez **Passerelle de réseau local**.
@@ -284,7 +284,7 @@ Pour configurer la connexion VPN, vous devez créer une route de mappage NAT sta
 
    ![Adresse IP interne](media/azure-stack-create-vpn-connection-one-node-tp2/InternalIP.PNG)
 
-2. Connectez-vous à la machine physique Azure Stack pour POC1.
+2. Connectez-vous à la machine physique Azure Stack Hub pour POC1.
 3. Copiez et modifiez le script PowerShell suivant. Pour configurer la traduction d’adresses réseau sur chaque ASDK, exécutez le script dans une fenêtre Windows PowerShell ISE avec des privilèges élevés. Dans le script, ajoutez les valeurs aux espaces réservés `External BGPNAT address` et `Internal IP address` :
 
    ```powershell
@@ -337,7 +337,7 @@ Pour vérifier que le trafic envoyé passe par la connexion de site à site, vou
 
 ### <a name="sign-in-to-the-tenant-vm-in-poc1"></a>Se connecter à la machine virtuelle locataire dans POC1
 
-1. Connectez-vous à la machine physique Azure Stack pour POC1, puis connectez-vous au portail utilisateur à l’aide d’un compte de locataire.
+1. Connectez-vous à la machine physique Azure Stack Hub pour POC1, puis connectez-vous au portail utilisateur à l’aide d’un compte locataire.
 2. Dans la barre de navigation de gauche, sélectionnez **Compute**.
 3. Dans la liste des machines virtuelles, recherchez la machine virtuelle **VM01** que vous avez créée précédemment et sélectionnez-la.
 4. Dans le panneau de la machine virtuelle, cliquez sur **Se connecter**, puis ouvrez le fichier VM01.rdp.
@@ -358,7 +358,7 @@ Pour vérifier que le trafic envoyé passe par la connexion de site à site, vou
 
 ### <a name="sign-in-to-the-tenant-vm-in-poc2"></a>Se connecter à la machine virtuelle locataire dans POC2
 
-1. Connectez-vous à la machine physique Azure Stack pour POC2, puis connectez-vous au portail utilisateur à l’aide d’un compte de locataire.
+1. Connectez-vous à la machine physique Azure Stack Hub pour POC2, puis connectez-vous au portail utilisateur à l’aide d’un compte locataire.
 2. Dans la barre de navigation de gauche, cliquez sur **Compute**.
 3. Dans la liste des machines virtuelles, recherchez la machine virtuelle **VM02** que vous avez créée précédemment, puis sélectionnez-la.
 4. Dans le panneau de la machine virtuelle, cliquez sur **Se connecter**.

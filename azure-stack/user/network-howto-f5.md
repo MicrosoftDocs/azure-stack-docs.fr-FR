@@ -9,12 +9,12 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 60e6330aa492539a3b4e89a390ddcad5650cac92
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: eb20f61cfa42af41431169f46f822001c0471659
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718417"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023132"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>Comment déployer F5 sur deux instances d’Azure Stack Hub
 
@@ -24,21 +24,21 @@ Vous trouverez les modèles Azure Resource Manager dans le dépôt GitHub [f5-az
 
 ## <a name="overview-of-load-balancing-with-f5"></a>Vue d’ensemble de l’équilibrage de charge avec F5
 
-L’équilibreur de charge, composant matériel de F5, peut se trouver en dehors d’Azure Stack et dans le centre de données qui héberge Azure Stack. Azure Stack n’a pas de fonctionnalité native permettant d’équilibrer les charges de travail entre deux déploiements Azure Stack distincts. F5 BIG-IP Virtual Edition (VE) s’exécute sur les deux plateformes. Cette configuration prend en charge la parité entre les architectures Azure et Azure Stack en s’appuyant sur la réplication des services d’application de prise en charge. Vous pouvez développer une application dans un environnement et la déplacer vers un autre. Vous pouvez également mettre en miroir l’intégralité de l’instance Azure Stack prête pour la production et notamment les mêmes stratégies, services d’application et configurations BIG-IP. Cette approche vous évite de passer de nombreuses heures à refactoriser et tester une application et vous permet de passer à l’écriture du code.
+L'équilibreur de charge, composant matériel de F5, peut se trouver en dehors d'Azure Stack Hub et dans le centre de données qui héberge Azure Stack Hub. Azure Stack Hub ne dispose d'aucune fonctionnalité native permettant d'équilibrer les charges de travail entre deux déploiements distincts d'Azure Stack Hub. F5 BIG-IP Virtual Edition (VE) s’exécute sur les deux plateformes. Cette configuration prend en charge la parité entre les architectures Azure et Azure Stack Hub en s'appuyant sur la réplication des services d'application de prise en charge. Vous pouvez développer une application dans un environnement et la déplacer vers un autre. Vous pouvez également mettre en miroir l'intégralité de l'instance Azure Stack Hub prête pour la production, y compris les mêmes stratégies, services d'application et configurations BIG-IP. Cette approche vous évite de passer de nombreuses heures à refactoriser et tester une application et vous permet de passer à l’écriture du code.
 
-La sécurisation des applications et de leurs données est souvent une préoccupation pour les développeurs qui déplacent des applications vers le cloud public. Pourtant, cette préoccupation n’a pas lieu d’être. Vous pouvez créer une application dans votre environnement Azure Stack, tandis qu’un architecte de sécurité configure les paramètres nécessaires sur le pare-feu d’applications web de F5. La pile entière peut être répliquée dans Azure Stack ; vous savez que l’application sera également protégée par ce pare-feu d’applications web leader sur le marché. Le recours à des stratégies et ensembles de règles identiques élimine le risque de vulnérabilités auquel pourrait vous exposer l’utilisation d’autres pare-feu d’applications web.
+La sécurisation des applications et de leurs données est souvent une préoccupation pour les développeurs qui déplacent des applications vers le cloud public. Pourtant, cette préoccupation n’a pas lieu d’être. Vous pouvez créer une application dans votre environnement Azure Stack Hub, tandis qu'un architecte de sécurité configure les paramètres nécessaires sur le pare-feu d'applications web de F5. La pile entière peut être répliquée dans Azure Stack Hub, en sachant que l'application sera protégée par ce pare-feu d'applications web leader sur le marché. Le recours à des stratégies et ensembles de règles identiques élimine le risque de vulnérabilités auquel pourrait vous exposer l’utilisation d’autres pare-feu d’applications web.
 
-La Place de Marché Azure Stack est distincte de celle d’Azure. Seuls certains éléments sont ajoutés. Dans le cas présent, vous souhaitez créer un groupe de ressources sur chacune des instances d’Azure Stack et déployer l’appliance virtuelle F5 déjà disponible. Vous verrez qu’une adresse **IP publique**  sera nécessaire pour autoriser la connectivité réseau entre les deux instances d’Azure Stack. Il s’agit essentiellement de deux îlots, et l’adresse **IP publique** leur permet de communiquer entre les deux sites.
+La Place de Marché Azure Stack Hub est distincte de celle d'Azure. Seuls certains éléments sont ajoutés. Dans le cas présent, vous souhaitez créer un groupe de ressources sur chacune des instances d'Azure Stack Hub et déployer l'appliance virtuelle F5 déjà disponible. Vous verrez qu'une adresse **IP publique**  sera nécessaire pour autoriser la connectivité réseau entre les deux instances d'Azure Stack Hub. Il s’agit essentiellement de deux îlots, et l’adresse **IP publique** leur permet de communiquer entre les deux sites.
 
 ## <a name="prerequisites-for-big-ip-ve"></a>Prérequis pour BIG-IP VE
 
--  Téléchargez **F5 BIG-IP VE - ALL (BYOL, 2 Boot Locations)** sur chaque Place de Marché Azure Stack. Si elles ne sont pas disponibles dans votre portail, contactez votre opérateur cloud.
+-  Téléchargez **F5 BIG-IP VE - ALL (BYOL, 2 Boot Locations)** sur chaque Place de Marché Azure Stack Hub. Si elles ne sont pas disponibles dans votre portail, contactez votre opérateur cloud.
 
 -  Vous trouverez le modèle Azure Resource Manager dans le dépôt GitHub suivant : https://github.com/Mikej81/f5-azurestack-gslb.
 
 ## <a name="deploy-f5-big-ip-ve-on-each-instance"></a>Déployer F5 BIG-IP VE sur chaque instance
 
-Effectuez le déploiement sur les instances A et B d’Azure Stack.
+Procédez au déploiement sur les instances A et B d'Azure Stack Hub.
 
 1. Connectez-vous au portail utilisateur Azure Stack Hub.
 
@@ -69,20 +69,20 @@ Effectuez le déploiement sur les instances A et B d’Azure Stack.
 
 ## <a name="configure-big-ip-appliances"></a>Configurer les appliances BIG-IP
 
-Effectuez les étapes suivantes pour les instances A et B d’Azure Stack.
+Suivez les étapes ci-dessous pour les instances A et B d'Azure Stack Hub.
 
-1. Connectez-vous au portail utilisateur Azure Stack Hub sur l’instance A pour voir les ressources créées à partir du déploiement du modèle BIG-IP.
+1. Connectez-vous au portail utilisateur Azure Stack Hub sur l'instance A pour voir les ressources créées à partir du déploiement du modèle BIG-IP.
 
     ![](./media/network-howto-f5/image18.png)
 
 2. Suivez les instructions de F5 concernant les [éléments de configuration de BIG-IP](https://clouddocs.f5.com/training/community/dns/html/class1/class1.html). 
 
-3. Configurez la liste d’adresses IP étendues BIG-IP pour l’écoute sur les deux appliances déployées sur les instances A et B d’Azure Stack. Pour obtenir des instructions, consultez [BIG-IP GTM Configuration](https://techdocs.f5.com/kb/en-us/products/big-ip_gtm/manuals/product/gtm-concepts-11-5-0/4.html).
+3. Configurez la liste d'adresses IP étendues BIG-IP pour l'écoute sur les deux appliances déployées sur les instances A et B d'Azure Stack Hub. Pour obtenir des instructions, consultez [Configuration BIG-IP GTM](https://techdocs.f5.com/kb/en-us/products/big-ip_gtm/manuals/product/gtm-concepts-11-5-0/4.html).
 
 
 4. Vérifiez le basculement des appliances BIG-IP. Sur un système de test, configurez vos serveurs DNS pour qu’ils utilisent les éléments suivants :
-    - Instance A d’Azure Stack = adresse IP publique `f5stack1-ext`
-    - Instance B d’Azure Stack = adresse IP publique `f5stack1-ext`
+    - Instance A d'Azure Stack Hub = adresse IP publique `f5stack1-ext`
+    - Instance B d'Azure Stack Hub = adresse IP publique `f5stack1-ext`
 
 5. Accédez à `www.contoso.com`. Votre navigateur charge la page NGINX par défaut.
 
@@ -103,7 +103,7 @@ Effectuez les étapes suivantes pour les instances A et B d’Azure Stack.
 
 ## <a name="post-install-configurations"></a>Configurations après installation
 
-Après l’installation, vous devez configurer les groupes de sécurité réseau Azure Stack et verrouiller les adresses IP sources.
+Au terme de l'installation, vous devez configurer les groupes de sécurité réseau Azure Stack Hub et verrouiller les adresses IP sources.
 
 1. Désactivez le port 22 après l’établissement de l’approbation.
 
@@ -113,12 +113,12 @@ Après l’installation, vous devez configurer les groupes de sécurité réseau
 
     ![](./media/network-howto-f5/image7.png)
 
-4. Déployez une charge de travail d’application web de base dans votre environnement Azure Stack pour équilibrer les charges derrière BIG-IP. Vous trouverez un exemple d’utilisation du serveur NGINX dans [Deploying NGINX and NGINX Plus on Docker](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/).
+4. Déployez une charge de travail d'application web de base dans votre environnement Azure Stack Hub pour équilibrer les charges derrière BIG-IP. Vous trouverez un exemple d’utilisation du serveur NGINX dans [Deploying NGINX and NGINX Plus on Docker](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/).
 
     > [!Note]  
-    > Déployez une instance de NGINX sur les instances A et B d’Azure Stack.
+    > Déployez une instance de NGINX sur les instances A et B d'Azure Stack Hub.
 
-5. Une fois NGINX déployé dans un conteneur Docker sur une machine virtuelle Ubuntu au sein de chaque instance d’Azure Stack, vérifiez que vous avez accès à la page web par défaut sur les serveurs.
+5. Une fois NGINX déployé dans un conteneur Docker sur une machine virtuelle Ubuntu au sein de chaque instance d'Azure Stack Hub, vérifiez que vous avez accès à la page web par défaut sur les serveurs.
 
     ![](./media/network-howto-f5/image8.png)
 
@@ -195,4 +195,4 @@ Les liens ci-après vous permettent d’accéder à des articles de référence 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Différences et considérations relatives aux réseaux Azure Stack](azure-stack-network-differences.md) 
+[Différences et considérations relatives aux réseaux Azure Stack Hub](azure-stack-network-differences.md) 

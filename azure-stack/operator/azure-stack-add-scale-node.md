@@ -1,6 +1,6 @@
 ---
-title: Ajouter des nœuds d’unité d’échelle dans Azure Stack | Microsoft Docs
-description: Découvrez comment ajouter des nœuds d’unité d’échelle à des unités d’échelle dans Azure Stack.
+title: Ajouter des nœuds d’unité d’échelle dans Azure Stack Hub | Microsoft Docs
+description: Découvrez comment ajouter des nœuds d’unité d’échelle à des unités d’échelle dans Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,18 +16,18 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 140f184b2ea6af010879d9c42803c6c0acd35b65
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 7f9ab8b1ee8988689d2ac52dc355b85bfe9bfae6
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824813"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75805062"
 ---
-# <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Ajouter de nouveaux nœuds d’unité d’échelle dans Azure Stack
+# <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Ajouter des nœuds d’unité d’échelle dans Azure Stack Hub
 
-Les opérateurs Azure Stack peuvent augmenter la capacité globale d’une unité d’échelle existante en ajoutant un nouveau calculateur physique. Le calculateur physique s’appelle aussi un nœud d’unité d’échelle. Chaque nouveau nœud d’unité d’échelle que vous ajoutez doit être homogène en termes de type de CPU, de mémoire, de numéro de disque et de taille avec les nœuds déjà présents dans l’unité d’échelle.
+Les opérateurs Azure Stack Hub peuvent augmenter la capacité globale d’une unité d’échelle existante en ajoutant un calculateur physique. Le calculateur physique s’appelle aussi un nœud d’unité d’échelle. Chaque nouveau nœud d’unité d’échelle que vous ajoutez doit être homogène en termes de type de CPU, de mémoire, de numéro de disque et de taille avec les nœuds déjà présents dans l’unité d’échelle.
 
-Pour ajouter un nœud d’unité d’échelle, vous devez intervenir dans Azure Stack et exécuter les outils de votre fabricant OEM. Les outils du fabricant OEM s’exécutent sur l’hôte du cycle de vie matériel (HLH) pour s’assurer que le nouveau calculateur physique correspond au même niveau de microprogramme que les nœuds existants.
+Pour ajouter un nœud d’unité d’échelle, vous devez intervenir dans Azure Stack Hub et exécuter les outils de votre fabricant de matériel (OEM). Les outils du fabricant OEM s’exécutent sur l’hôte du cycle de vie matériel (HLH) pour s’assurer que le nouveau calculateur physique correspond au même niveau de microprogramme que les nœuds existants.
 
 Le diagramme de flux suivant montre le processus général pour ajouter un nœud d’unité d’échelle :
 
@@ -39,9 +39,9 @@ L’opération d’ajout de nouveau nœud peut prendre plusieurs heures ou plusi
 > [!Note]  
 > N’essayez aucune des opérations suivantes si une opération d’ajout de nœud d’unité d’échelle est déjà en cours :
 >
->  - Mettre à jour Azure Stack
+>  - Mettre à jour Azure Stack Hub
 >  - Effectuer une rotation des certificats
->  - Arrêter Azure Stack
+>  - Arrêter Azure Stack Hub
 >  - Réparer un nœud d’unité d’échelle
 
 
@@ -53,16 +53,16 @@ Les étapes suivantes présentent de façon générale la procédure à suivre p
 2. Activez les ports du commutateur physique et ajustez les listes de contrôle d’accès (ACL) le cas échéant.
 3. Configurez l’adresse IP appropriée dans le contrôleur de gestion de la carte de base (BMC) et appliquez tous les paramètres du BIOS conformément à la documentation fournie par le fabricant OEM.
 4. Appliquez la ligne de base actuelle du microprogramme à tous les composants en utilisant les outils fournis par le fabricant du matériel fonctionnant sur l’HLH.
-5. Exécutez l’opération Ajouter un nœud dans le portail administrateur Azure Stack.
-6. Vérifiez que l’opération d’ajout de nœud a réussi. Pour ce faire, vérifiez l’[ **état** de l’unité d’échelle](#monitor-add-node-operations). 
+5. Exécutez l’opération d’ajout de nœud dans le portail administrateur Azure Stack Hub.
+6. Vérifiez que l’opération d’ajout de nœud a réussi. Pour ce faire, vérifiez l’[**état** de l’unité d’échelle](#monitor-add-node-operations). 
 
 ## <a name="add-the-node"></a>Ajouter le nœud
 
-Pour ajouter de nouveaux nœuds, vous pouvez vous servir du portail administrateur ou de PowerShell. L’opération Ajouter un nœud commence par ajouter le nouveau nœud d’unité d’échelle en tant que capacité de calcul disponible, puis augmente automatiquement la capacité de stockage. La capacité augmente automatiquement, car Azure Stack est un système hyperconvergé dans lequel le *calcul* et le *stockage* se mettent à l’échelle simultanément.
+Pour ajouter de nouveaux nœuds, vous pouvez vous servir du portail administrateur ou de PowerShell. L’opération Ajouter un nœud commence par ajouter le nouveau nœud d’unité d’échelle en tant que capacité de calcul disponible, puis augmente automatiquement la capacité de stockage. La capacité augmente automatiquement parce que Azure Stack Hub est un système hyperconvergé dans lequel le *calcul* et le *stockage* se mettent à l’échelle simultanément.
 
 ### <a name="use-the-administrator-portal"></a>Utiliser le portail d’administration
 
-1. Connectez-vous au portail administrateur Azure Stack en tant qu’opérateur Azure Stack.
+1. Connectez-vous au portail administrateur Azure Stack Hub en tant qu’opérateur Azure Stack Hub.
 2. Accédez à **+ Créer une ressource** > **Capacité** > **Nœud d’unité d’échelle**.
    ![Nœud d’unité d’échelle](media/azure-stack-add-scale-node/select-node1.png)
 3. Dans le volet **Ajouter un nœud**, sélectionnez la *région*, puis l’*unité d’échelle* à laquelle vous souhaitez ajouter le nœud. Spécifiez également l’*adresse BMC* du nœud d’unité d’échelle que vous ajoutez. Vous ne pouvez ajouter qu’un seul nœud à la fois.
@@ -73,7 +73,7 @@ Pour ajouter de nouveaux nœuds, vous pouvez vous servir du portail administrate
 
 Utilisez l’applet de commande **New-AzsScaleUnitNodeObject** pour ajouter un nœud.  
 
-Avant d’utiliser l’un des exemples de scripts PowerShell suivants, remplacez les valeurs *node names* et *IP addresses* par les valeurs de votre environnement Azure Stack.
+Avant d’utiliser l’un des exemples de scripts PowerShell suivants, remplacez les valeurs de *noms de nœuds* et d’*adresses IP* par des valeurs de votre environnement Azure Stack Hub.
 
   > [!Note]  
   > Lorsque vous nommez un nœud, vous devez spécifier un nom comportant moins de 15 caractères. Vous ne pouvez pas utiliser un nom qui contient un espace ou les caractères suivants : `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
@@ -107,7 +107,7 @@ L’état de l’unité d’échelle et des nœuds de l’unité d’échelle pe
 
 |Statut               |Description  |
 |---------------------|---------|
-|Exécution              |Tous les nœuds participent de façon active à l’unité d’échelle.|
+|Exécution en cours              |Tous les nœuds participent de façon active à l’unité d’échelle.|
 |Arrêté              |Le nœud de l’unité d’échelle est désactivé ou inaccessible.|
 |Extension            |Un ou plusieurs nœuds d’unité d’échelle sont actuellement ajoutés en tant que capacité de calcul.|
 |Configuration du stockage  |La capacité de calcul a été augmentée et la configuration du stockage est en cours d’exécution.|
@@ -118,7 +118,7 @@ L’état de l’unité d’échelle et des nœuds de l’unité d’échelle pe
 
 |Statut                |Description  |
 |----------------------|---------|
-|Exécution               |Le nœud participe de façon active à l’unité d’échelle.|
+|Exécution en cours               |Le nœud participe de façon active à l’unité d’échelle.|
 |Arrêté               |Le nœud est indisponible.|
 |Ajout                |Le nœud est ajouté de façon active à l’unité d’échelle.|
 |Réparation             |Le nœud est réparé de façon active.|
@@ -126,7 +126,7 @@ L’état de l’unité d’échelle et des nœuds de l’unité d’échelle pe
 |Correction nécessaire  |Une erreur nécessitant la réparation du nœud a été détectée.|
 
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 Voici les problèmes couramment rencontrés lors de l’ajout d’un nœud. 
 
 **Scénario 1 :**  L'opération d'ajout de nœud d'unité d'échelle échoue, mais un ou plusieurs nœuds sont répertoriés avec l'état Arrêté.  

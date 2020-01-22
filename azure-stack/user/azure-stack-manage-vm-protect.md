@@ -1,6 +1,6 @@
 ---
-title: Protéger des machines virtuelles déployées sur Azure Stack | Microsoft Docs
-description: Découvrez comment créer un plan de récupération pour protéger les machines virtuelles déployées sur Azure Stack contre la perte de données et les temps d’arrêt non planifiés.
+title: Protéger des machines virtuelles déployées sur Azure Stack Hub | Microsoft Docs
+description: Découvrez comment créer un plan de récupération pour protéger des machines virtuelles déployées sur Azure Stack Hub contre la perte de données et les temps d’arrêt non planifiés.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,47 +16,47 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: cb08b9c2480ab3858147669a1208ca54bc43343f
-ms.sourcegitcommit: 4789cd5d6f1e35774a17a1ddfcdf3f548b18965c
+ms.openlocfilehash: 88562c93344f139f3f167da0ddb3e072fde231fa
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2019
-ms.locfileid: "75329906"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819928"
 ---
-# <a name="protect-vms-deployed-on-azure-stack"></a>Protéger des machines virtuelles déployées sur Azure Stack
+# <a name="protect-vms-deployed-on-azure-stack-hub"></a>Protéger des machines virtuelles déployées sur Azure Stack Hub
 
-Utilisez cet article comme guide pour élaborer un plan de protection des machines virtuelles déployées par vos utilisateurs sur Azure Stack.
+Utilisez cet article comme guide pour élaborer un plan de protection des machines virtuelles que vos utilisateurs déploient sur Azure Stack Hub.
 
 
-Pour assurer une protection contre la perte de données et les temps d’arrêt non planifiés, vous devez implémenter un plan de sauvegarde et récupération ou de récupération d’urgence pour les applications utilisateur et leurs données. Si ce plan peut être propre à chaque application, il suit un cadre établi par la stratégie globale de continuité d’activité et de récupération d’urgence de votre organisation. [Azure Stack : Considérations relatives à la continuité et la reprise d’activité](https://aka.ms/azurestackbcdrconsiderationswp) est un bon point de départ.
+Pour assurer une protection contre la perte de données et les temps d’arrêt non planifiés, vous devez implémenter un plan de sauvegarde et récupération ou de récupération d’urgence pour les applications utilisateur et leurs données. Si ce plan peut être propre à chaque application, il suit un cadre établi par la stratégie globale de continuité d’activité et de récupération d’urgence de votre organisation. [Azure Stack Hub : Considérations relatives à la continuité et la reprise d’activité](https://aka.ms/azurestackbcdrconsiderationswp) est un bon point de départ.
 
-## <a name="azure-stack-infrastructure-recovery"></a>Récupération de l’infrastructure Azure Stack
+## <a name="azure-stack-hub-infrastructure-recovery"></a>Récupération d’infrastructure Azure Stack Hub
 
-Les utilisateurs sont responsables de la protection de leurs machines virtuelles, de manière distincte des services d’infrastructure d’Azure Stack.
+Les utilisateurs sont responsables de la protection de leurs machines virtuelles, de manière distincte des services d’infrastructure Azure Stack Hub.
 
-Le plan de récupération des services d’infrastructure Azure Stack n’inclut **pas** la récupération des machines virtuelles utilisateur, des comptes de stockage ou des bases de données. En tant que propriétaire de l’application, vous êtes responsable de l’implémentation d’un plan de récupération pour vos applications et données.
+Le plan de récupération des services d’infrastructure Azure Stack Hub n’inclut **pas** la récupération des machines virtuelles utilisateur, des comptes de stockage ou des bases de données. En tant que propriétaire de l’application, vous êtes responsable de l’implémentation d’un plan de récupération pour vos applications et données.
 
-Au cas où le cloud Azure Stack resterait hors connexion pendant une durée prolongée ou soit définitivement irrécupérable, il vous faut un plan de récupération qui :
+Au cas où le cloud Azure Stack Hub resterait hors connexion pendant une durée prolongée ou serait définitivement irrécupérable, vous devez disposer d’un plan de récupération qui :
 
 * assure un temps d’arrêt minimal ;
 * maintient les machines virtuelles critiques, notamment les serveurs de base de données, en cours d’exécution ;
 * permet aux applications de continuer à répondre aux demandes utilisateur.
 
-L’opérateur du cloud Azure Stack est chargé de créer un plan de récupération pour les services et l’infrastructure Azure Stack sous-jacents. Pour en savoir plus, voir [Récupérer des données suites à une perte catastrophique](../operator/azure-stack-backup-recover-data.md).
+L’opérateur du cloud Azure Stack Hub est chargé de créer un plan de récupération pour les services et l’infrastructure Azure Stack Hub sous-jacents. Pour en savoir plus, voir [Récupérer des données suites à une perte catastrophique](../operator/azure-stack-backup-recover-data.md).
 
 ## <a name="considerations-for-iaas-vms"></a>Considérations relatives aux machines virtuelles IaaS
-Le système d’exploitation installé dans la machine virtuelle IaaS limitera les produits que vous pouvez utiliser pour protéger les données qu’elle contient. Pour les machines virtuelles IaaS basées sur Windows, vous pouvez utiliser les produits Microsoft et partenaires pour protéger les données. Pour les machines virtuelles IaaS basées sur Linux, la seule option consiste à utiliser les produits partenaires. Reportez-vous à [cette feuille de données pour connaître tous les partenaires de continuité et de reprise d’activité ayant des produits validés pour Azure Stack](https://aka.ms/azurestackbcdrpartners).
+Le système d’exploitation installé dans la machine virtuelle IaaS limitera les produits que vous pouvez utiliser pour protéger les données qu’elle contient. Pour les machines virtuelles IaaS basées sur Windows, vous pouvez utiliser les produits Microsoft et partenaires pour protéger les données. Pour les machines virtuelles IaaS basées sur Linux, la seule option consiste à utiliser les produits partenaires. Reportez-vous à [cette feuille de données pour connaître tous les partenaires de continuité d’activité et de récupération d’urgence proposant des produits validés pour Azure Stack Hub](https://aka.ms/azurestackbcdrpartners).
 
 ## <a name="sourcetarget-combinations"></a>Combinaisons source/cible
 
-Chaque cloud Azure Stack est déployé dans un centre de données. Un environnement distinct est requis afin que vous puissiez récupérer vos applications. L’environnement de récupération peut être un autre cloud Azure Stack dans un autre centre de données ou sur le cloud public Azure. Vos exigences en matière de confidentialité et de souveraineté des données déterminent l’environnement de récupération pour votre application. Lorsque vous activez la protection pour chaque application, vous avez la possibilité de choisir une option de récupération spécifique pour chacune d’elles. Vous pouvez avoir des applications dans un seul abonnement pour sauvegarder des données dans un autre centre de données. Dans un autre abonnement, vous pouvez répliquer des données dans le cloud public Azure.
+Chaque cloud Azure Stack Hub est déployé dans un seul centre de données. Un environnement distinct est requis afin que vous puissiez récupérer vos applications. L’environnement de récupération peut être un autre cloud Azure Stack Hub dans un autre centre de données ou sur le cloud public Azure. Vos exigences en matière de confidentialité et de souveraineté des données déterminent l’environnement de récupération pour votre application. Lorsque vous activez la protection pour chaque application, vous avez la possibilité de choisir une option de récupération spécifique pour chacune d’elles. Vous pouvez avoir des applications dans un seul abonnement pour sauvegarder des données dans un autre centre de données. Dans un autre abonnement, vous pouvez répliquer des données dans le cloud public Azure.
 
 Planifiez votre stratégie de récupération d’urgence et de sauvegarde récupération pour chaque application afin de déterminer la cible pour chaque application. Un plan de récupération permet à l’organisation de dimensionner correctement la capacité de stockage requise localement et de prévoir la consommation dans le cloud public.
 
-|  | Azure global | Azure Stack déployé dans un centre de données de fournisseur de services cloud et géré par un fournisseur de services cloud | Azure Stack déployé dans un centre de données de client et géré par un client |
+|  | Azure global | Azure Stack Hub déployé dans un centre de données de fournisseur de services cloud et géré par un fournisseur de services cloud | Azure Stack Hub déployé dans un centre de données de client et géré par un client |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| **Azure Stack déployé dans un centre de données de fournisseur de services cloud et géré par un fournisseur de services cloud** | Les machines virtuelles utilisateur sont déployées sur le compte Azure Stack géré par le fournisseur de services cloud.<br><br>Les machines virtuelles utilisateur sont restaurées à partir de la sauvegarde ou basculées directement sur Azure. | Le fournisseur de services cloud gère les instances principales et secondaires d’Azure Stack dans ses propres centres de données.<br><br>Les machines virtuelles utilisateur sont restaurées ou basculées entre les deux instances Azure Stack. | Le fournisseur de services cloud gère Azure Stack dans le site principal.<br><br>Le centre de données du client est la cible de la restauration ou du basculement. |
-| **Azure Stack déployé dans un centre de données de client et géré par un client** | Les machines virtuelles utilisateur sont déployées sur le compte Azure Stack géré par le client.<br><br>Les machines virtuelles utilisateur sont restaurées à partir de la sauvegarde ou basculées directement sur Azure. | Le client gère Azure Stack dans le site principal.<br><br>Le centre de données du fournisseur de services cloud est la cible de la restauration ou du basculement. | Le client gère les instances principales et secondaires d’Azure Stack dans ses propres centres de données.<br><br>Les machines virtuelles utilisateur sont restaurées ou basculées entre les deux instances Azure Stack. |
+| **Azure Stack Hub déployé dans un centre de données de fournisseur de services cloud et géré par un fournisseur de services cloud** | Les machines virtuelles utilisateur sont déployées sur le compte Azure Stack Hub géré par le fournisseur de services cloud.<br><br>Les machines virtuelles utilisateur sont restaurées à partir de la sauvegarde ou basculées directement sur Azure. | Le fournisseur de services cloud gère les instances principales et secondaires d’Azure Stack Hub dans ses propres centres de données.<br><br>Les machines virtuelles utilisateur sont restaurées ou basculées entre les deux instances Azure Stack Hub. | Le fournisseur de services cloud gère Azure Stack Hub dans le site principal.<br><br>Le centre de données du client est la cible de la restauration ou du basculement. |
+| **Azure Stack Hub déployé dans un centre de données de client et géré par un client** | Les machines virtuelles utilisateur sont déployées sur le compte Azure Stack Hub géré par le client.<br><br>Les machines virtuelles utilisateur sont restaurées à partir de la sauvegarde ou basculées directement sur Azure. | Le client gère Azure Stack Hub dans le site principal.<br><br>Le centre de données du fournisseur de services cloud est la cible de la restauration ou du basculement. | Le client gère les instances principales et secondaires d’Azure Stack Hub dans ses propres centres de données.<br><br>Les machines virtuelles utilisateur sont restaurées ou basculées entre les deux instances Azure Stack Hub. |
 
 ![Combinaisons source/cible](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
@@ -75,7 +75,7 @@ Il existe une autre métrique, le **temps moyen de récupération** (MTTR), qui 
 
 ### <a name="backup-restore"></a>Sauvegarde-restauration
 
-Le schéma de protection le plus courant pour les applications basées sur une machine virtuelle consiste à utiliser un logiciel de sauvegarde. En général, la sauvegarde d’une machine virtuelle inclut le système d’exploitation, la configuration du système d’exploitation, les fichiers binaires d’application et les données d’application. Les sauvegardes sont créées en prenant un cliché instantané des volumes, des disques ou de la machine virtuelle entière. Avec Azure Stack, vous avez la possibilité de sauvegarder à partir du contexte du système d’exploitation invité ou à partir du stockage Azure Stack et des API de calcul. Azure Stack ne prend pas en charge les sauvegardes au niveau de l’hyperviseur.
+Le schéma de protection le plus courant pour les applications basées sur une machine virtuelle consiste à utiliser un logiciel de sauvegarde. En général, la sauvegarde d’une machine virtuelle inclut le système d’exploitation, la configuration du système d’exploitation, les fichiers binaires d’application et les données d’application. Les sauvegardes sont créées en prenant un cliché instantané des volumes, des disques ou de la machine virtuelle entière. Avec Azure Stack Hub, vous avez la possibilité de sauvegarder à partir du contexte du système d’exploitation invité ou à partir du stockage Azure Stack Hub et des API de calcul. Azure Stack Hub ne prend pas en charge les sauvegardes au niveau de l’hyperviseur.
  
 ![Sauvegarde-restauration](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
 
@@ -87,9 +87,9 @@ La récupération de l’application nécessite la restauration d’une ou de pl
 
 #### <a name="planning-your-backup-strategy"></a>Planification de votre stratégie de sauvegarde
 
-La planification de votre stratégie de sauvegarde et la définition des exigences de mise à l’échelle commencent avec la quantification du nombre d’instances de machine virtuelle qui doivent être protégées. La stratégie qui consiste à sauvegarder toutes les machines virtuelles sur tous les serveurs de l’environnement est très courante. Toutefois, avec Azure Stack, certaines machines virtuelles doivent être sauvegardées. Par exemple, les machines virtuelles dans un groupe identique sont considérées comme des ressources éphémères qui peuvent apparaître et disparaître, sans que vous soyez prévenu. Toutes les données durables qui doivent être protégées sont stockées dans un référentiel distinct, comme une base de données ou un magasin d’objets.
+La planification de votre stratégie de sauvegarde et la définition des exigences de mise à l’échelle commencent avec la quantification du nombre d’instances de machine virtuelle qui doivent être protégées. La stratégie qui consiste à sauvegarder toutes les machines virtuelles sur tous les serveurs de l’environnement est très courante. Toutefois, avec Azure Stack Hub, certaines machines virtuelles doivent être sauvegardées. Par exemple, les machines virtuelles dans un groupe identique sont considérées comme des ressources éphémères qui peuvent apparaître et disparaître, sans que vous soyez prévenu. Toutes les données durables qui doivent être protégées sont stockées dans un référentiel distinct, comme une base de données ou un magasin d’objets.
 
-Considérations importantes à prendre en compte pour la sauvegarde de machines virtuelles sur Azure Stack :
+Considérations importantes pour la sauvegarde de machines virtuelles sur Azure Stack Hub :
 
  - **Regroupement en catégories**
     - Imaginez un modèle où les utilisateurs choisissent la sauvegarde de machine virtuelle.
@@ -115,7 +115,7 @@ Avec cette approche, l’application est déployée dans un cloud et sa machine 
  
 ### <a name="high-availabilityautomatic-failover"></a>Haute disponibilité/basculement automatique
 
-Pour les applications pour lesquelles votre activité peut tolérer quelques secondes ou minutes de temps d’arrêt et une perte de données minimale, vous devez envisager une configuration de haute disponibilité. Les applications de haute disponibilité sont conçues pour récupérer rapidement et automatiquement après les pannes. Pour les pannes matérielles locales, l’infrastructure Azure Stack implémente la haute disponibilité dans le réseau physique à l’aide de deux commutateurs TOR (Top of Rack). Pour les pannes au niveau du calcul, Azure Stack utilise plusieurs nœuds dans une unité d’échelle. Au niveau de la machine virtuelle, vous pouvez utiliser des groupes identiques en combinaison avec des domaines d’erreur pour vous assurer que les pannes de nœud n’interrompent pas votre application.
+Pour les applications pour lesquelles votre activité peut tolérer quelques secondes ou minutes de temps d’arrêt et une perte de données minimale, vous devez envisager une configuration de haute disponibilité. Les applications de haute disponibilité sont conçues pour récupérer rapidement et automatiquement après les pannes. Pour les pannes matérielles locales, l’infrastructure Azure Stack Hub implémente la haute disponibilité dans le réseau physique à l’aide de deux commutateurs TOR (Top of Rack). Pour les pannes au niveau du calcul, Azure Stack Hub utilise plusieurs nœuds dans une unité d’échelle. Au niveau de la machine virtuelle, vous pouvez utiliser des groupes identiques en combinaison avec des domaines d’erreur pour vous assurer que les pannes de nœud n’interrompent pas votre application.
 
 En combinaison avec des groupes identiques, votre application doit prendre en charge la haute disponibilité en mode natif ou l’utilisation du logiciel de clustering. Par exemple, Microsoft SQL Server prend en charge la haute disponibilité en mode natif pour les bases de données à l’aide du mode de validation synchrone. Toutefois, si vous pouvez uniquement prendre en charge la réplication asynchrone, quelques données seront perdues. Les applications peuvent également être déployées dans un cluster de basculement où le logiciel de clustering gère le basculement automatique de l’application.
 
@@ -127,11 +127,11 @@ Avec cette approche, l’application n’est active que dans un cloud, mais le l
 
 ### <a name="fault-tolerance"></a>Tolérance de panne
 
-La disponibilité du service d’infrastructure et la redondance physique d’Azure Stack protègent uniquement contre les pannes/défaillances matérielles, liées par exemple à un disque, à l’alimentation, à un port réseau ou à un nœud. Toutefois, si votre application doit rester toujours disponible et sans jamais perdre de données, il vous faudra implémenter la tolérance de panne en natif dans votre application ou utiliser des logiciels supplémentaires pour activer la tolérance de panne.
+La disponibilité du service d’infrastructure et la redondance physique d’Azure Stack Hub protègent uniquement contre les pannes/défaillances matérielles liées, par exemple, à un disque, à l’alimentation, à un port réseau ou à un nœud. Toutefois, si votre application doit rester toujours disponible et sans jamais perdre de données, il vous faudra implémenter la tolérance de panne en natif dans votre application ou utiliser des logiciels supplémentaires pour activer la tolérance de panne.
 
 Tout d’abord, vous devez vous assurer que les machines virtuelles de l’application sont déployées à l’aide de groupes identiques pour les protéger des pannes au niveau du nœud. Pour vous protéger contre la mise hors connexion du cloud, la même application doit déjà être déployée dans un autre cloud, afin qu’elle puisse continuer à traiter les requêtes sans interruption. Ce modèle est généralement appelé déploiement actif-actif.
 
-Gardez à l’esprit que chaque cloud Azure Stack est indépendant des autres ; les clouds sont donc toujours considérés comme actifs du point de vue de l’infrastructure. Dans ce cas, plusieurs instances actives de l’application sont déployées dans un ou plusieurs clouds actifs.
+Gardez à l’esprit que chaque cloud Azure Stack Hub est indépendant des autres ; les clouds sont donc toujours considérés comme actifs du point de vue de l’infrastructure. Dans ce cas, plusieurs instances actives de l’application sont déployées dans un ou plusieurs clouds actifs.
 
  - RTO : aucun temps d’arrêt
  - RPO : Aucune perte de données
@@ -139,39 +139,39 @@ Gardez à l’esprit que chaque cloud Azure Stack est indépendant des autres ; 
 
 ### <a name="no-recovery"></a>Aucune récupération
 
-Certaines applications de votre environnement peuvent ne pas avoir besoin d’être protégées contre des temps d’arrêt non planifiés ou une perte de données. Par exemple, les machines virtuelles utilisées pour le développement et le test ne doivent généralement pas être récupérées. C’est à vous de décider si vous souhaitez protéger une application ou une machine virtuelle spécifique. Azure Stack n’offre pas de sauvegarde ou réplication des machines virtuelles à partir de l’infrastructure sous-jacente. Comme dans Azure, vous devez choisir la protection de chaque machine virtuelle dans chacun de vos abonnements.
+Certaines applications de votre environnement peuvent ne pas avoir besoin d’être protégées contre des temps d’arrêt non planifiés ou une perte de données. Par exemple, les machines virtuelles utilisées pour le développement et le test ne doivent généralement pas être récupérées. C’est à vous de décider si vous souhaitez protéger une application ou une machine virtuelle spécifique. Azure Stack Hub n’offre pas de sauvegarde ou réplication des machines virtuelles à partir de l’infrastructure sous-jacente. Comme dans Azure, vous devez choisir la protection de chaque machine virtuelle dans chacun de vos abonnements.
 
  - RTO : irrécupérable
  - RPO : perte complète des données
 
 ## <a name="recommended-topologies"></a>Topologies recommandées
 
-Considérations importantes à prendre en compte pour votre déploiement Azure Stack :
+Considérations importantes pour votre déploiement Azure Stack Hub :
 
 |     | Recommandation | Commentaires |
 |-------------------------------------------------------------------------------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Sauvegarder/restaurer des machines virtuelles vers une cible de sauvegarde externe déjà déployée dans votre centre de données | Recommandé | Tirez parti de l’infrastructure de sauvegarde existante et des capacités opérationnelles. Veillez à dimensionner l’infrastructure de sauvegarde pour qu’elle soit prête à protéger les instances de machine virtuelle supplémentaires. Assurez-vous que l’infrastructure de sauvegarde ne se trouve pas juste à côté de votre source. Vous pouvez restaurer des machines virtuelles du compte Azure Stack source dans une instance secondaire Azure Stack ou Azure. |
-| Sauvegarder/restaurer des machines virtuelles vers une cible de sauvegarde externe dédiée à Azure Stack | Recommandé | Vous pouvez acheter une nouvelle infrastructure de sauvegarde ou une infrastructure de sauvegarde dédiée à l’approvisionnement pour Azure Stack. Assurez-vous que l’infrastructure de sauvegarde ne se trouve pas juste à côté de votre source. Vous pouvez restaurer des machines virtuelles du compte Azure Stack source dans une instance secondaire Azure Stack ou Azure. |
-| Sauvegarder/restaurer des machines virtuelles directement vers Azure global ou un fournisseur de services fiable | Recommandé | Tant que vous pouvez satisfaire à vos exigences en matière de réglementation et de confidentialité des données, vous pouvez stocker vos sauvegardes dans Azure global ou un fournisseur de services fiable. Dans l’idéal, le fournisseur de services exécute également Azure Stack pour que votre expérience opérationnelle soit cohérente lorsque vous effectuez une restauration. |
-| Répliquer/basculer des machines virtuelles vers une instance Azure Stack distincte | Recommandé | Dans le cas d’un basculement, vous devez avoir un deuxième cloud Azure Stack totalement opérationnel afin d’éviter des temps d’arrêt trop longs. |
-| Répliquer/basculer des machines virtuelles directement vers Azure ou un fournisseur de services fiable | Recommandé | Tant que vous pouvez satisfaire à vos exigences obligatoires et en matière de confidentialité des données, vous pouvez répliquer vos données dans Azure global ou un fournisseur de services fiable. Dans l’idéal, le fournisseur de services exécute également Azure Stack pour que votre expérience opérationnelle soit cohérente après un basculement. |
-| Déployer la cible de sauvegarde sur le même cloud Azure Stack avec vos données d’application | Non recommandé | Évitez de stocker des sauvegardes dans le même cloud Azure Stack. Un temps d’arrêt non planifié du cloud peut vous priver de vos données principales et données de sauvegarde. Si vous choisissez de déployer une cible de sauvegarde en tant qu’appliance virtuelle (à des fins d’optimisation de la sauvegarde et de la restauration), vous devez vous assurer que toutes les données sont copiées en continu dans un emplacement de sauvegarde externe. |
-| Déployer l’appliance de sauvegarde physique dans le même rack que celui où la solution Azure Stack est installée | Non pris en charge | Vous ne pouvez actuellement pas connecter d’autres appareils à des commutateurs TOR qui ne font pas partie de la solution d’origine. |
+| Sauvegarder/restaurer des machines virtuelles vers une cible de sauvegarde externe déjà déployée dans votre centre de données | Recommandé | Tirez parti de l’infrastructure de sauvegarde existante et des capacités opérationnelles. Veillez à dimensionner l’infrastructure de sauvegarde pour qu’elle soit prête à protéger les instances de machine virtuelle supplémentaires. Assurez-vous que l’infrastructure de sauvegarde ne se trouve pas juste à côté de votre source. Vous pouvez restaurer des machines virtuelles du compte Azure Stack Hub source dans une instance secondaire Azure Stack Hub ou Azure. |
+| Sauvegarder/restaurer des machines virtuelles vers une cible de sauvegarde externe dédiée à Azure Stack Hub | Recommandé | Vous pouvez acheter une nouvelle infrastructure de sauvegarde ou une infrastructure de sauvegarde dédiée à l’approvisionnement pour Azure Stack Hub. Assurez-vous que l’infrastructure de sauvegarde ne se trouve pas juste à côté de votre source. Vous pouvez restaurer des machines virtuelles du compte Azure Stack Hub source dans une instance secondaire Azure Stack Hub ou Azure. |
+| Sauvegarder/restaurer des machines virtuelles directement vers Azure global ou un fournisseur de services fiable | Recommandé | Tant que vous pouvez satisfaire à vos exigences en matière de réglementation et de confidentialité des données, vous pouvez stocker vos sauvegardes dans Azure global ou un fournisseur de services fiable. Dans l’idéal, le fournisseur de services exécute également Azure Stack Hub pour que votre expérience opérationnelle soit cohérente lorsque vous effectuez une restauration. |
+| Répliquer/basculer des machines virtuelles vers une instance Azure Stack Hub distincte | Recommandé | Dans le cas d’un basculement, vous devez avoir un deuxième cloud Azure Stack Hub totalement opérationnel afin d’éviter des temps d’arrêt prolongés. |
+| Répliquer/basculer des machines virtuelles directement vers Azure ou un fournisseur de services fiable | Recommandé | Tant que vous pouvez satisfaire à vos exigences obligatoires et en matière de confidentialité des données, vous pouvez répliquer vos données dans Azure global ou un fournisseur de services fiable. Dans l’idéal, le fournisseur de services exécute également Azure Stack Hub pour que votre expérience opérationnelle soit cohérente après un basculement. |
+| Déployer la cible de sauvegarde sur le même cloud Azure Stack Hub avec vos données d’application | Non recommandé | Évitez de stocker des sauvegardes dans le même cloud Azure Stack Hub. Un temps d’arrêt non planifié du cloud peut vous priver de vos données principales et données de sauvegarde. Si vous choisissez de déployer une cible de sauvegarde en tant qu’appliance virtuelle (à des fins d’optimisation de la sauvegarde et de la restauration), vous devez vous assurer que toutes les données sont copiées en continu dans un emplacement de sauvegarde externe. |
+| Déployer l’appliance de sauvegarde physique dans le même rack que celui où la solution Azure Stack Hub est installée | Non pris en charge | Vous ne pouvez actuellement pas connecter d’autres appareils à des commutateurs TOR qui ne font pas partie de la solution d’origine. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article vous a donné des recommandations générales sur la protection des machines virtuelles utilisateur déployées sur Azure Stack. Pour plus d’informations sur l’utilisation des services Azure pour protéger les machines virtuelles des utilisateurs, voir :
+Cet article vous a fourni des recommandations générales sur la protection des machines virtuelles utilisateur déployées sur Azure Stack Hub. Pour plus d’informations sur l’utilisation des services Azure pour protéger les machines virtuelles des utilisateurs, voir :
 
 - [Considérations relatives à la continuité d’activité et à la reprise d’activité](https://aka.ms/azurestackbcdrconsiderationswp)
 
 ### <a name="azure-backup-server"></a>Azure Backup Server
- - [Utiliser la Sauvegarde Azure pour sauvegarder des fichiers et des applications sur Azure Stack](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
- - [Documentation Sauvegarde Azure](https://docs.microsoft.com/azure/backup/ ) 
+ - [Utiliser le service Sauvegarde Azure pour sauvegarder des fichiers et applications sur Azure Stack Hub](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
+ - [Prise en charge du serveur de sauvegarde Azure pour Azure Stack Hub](https://docs.microsoft.com/azure/backup/ ) 
  
  ### <a name="azure-site-recovery"></a>Azure Site Recovery
- - [Documentation Site Recovery](https://docs.microsoft.com/azure/site-recovery/)  
+ - [Prise en charge d’Azure Site Recovery pour Azure Stack Hub](https://docs.microsoft.com/azure/site-recovery/)  
  
  ### <a name="partner-products"></a>Produits de partenaires
- - [Feuille de données de l’écosystème des partenaires d’intégration de centre de données Azure Stack](https://aka.ms/azurestackbcdrpartners)
+ - [Feuille de données de l’écosystème des partenaires d’intégration de centre de données Azure Stack Hub](https://aka.ms/azurestackbcdrpartners)
 
-Pour en savoir plus sur les produits de partenaires qui offrent une protection de machine virtuelle sur Azure Stack, consultez « [Protéger des applications et des données sur Azure Stack](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/) ».
+Pour en savoir plus sur les produits de partenaires qui offrent une protection de machine virtuelle sur Azure Stack Hub, voir [Protéger d’applications et de données sur Azure Stack Hub](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/).

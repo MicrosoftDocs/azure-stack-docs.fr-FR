@@ -1,6 +1,6 @@
 ---
-title: Exécuter une application multiniveau dans plusieurs régions Azure Stack à des fins de haute disponibilité | Microsoft Docs
-description: Découvrez comment exécuter une application multiniveau dans plusieurs régions Azure Stack pour une haute disponibilité.
+title: Exécuter une application multiniveau dans plusieurs régions Azure Stack Hub à des fins de haute disponibilité | Microsoft Docs
+description: Découvrez comment exécuter une application multiniveau dans plusieurs régions Azure Stack Hub pour une haute disponibilité.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,16 +9,16 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: acfeebe626d7745fe200724c8c53c632bada1466
-ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
+ms.openlocfilehash: fc3b9d3e620bfd017f7d5870a8e334c1d9ace579
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569324"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818500"
 ---
-# <a name="run-an-n-tier-application-in-multiple-azure-stack-regions-for-high-availability"></a>Exécuter une application multiniveau dans plusieurs régions Azure Stack pour une haute disponibilité
+# <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>Exécuter une application multiniveau dans plusieurs régions Azure Stack Hub pour une haute disponibilité
 
-Cette architecture de référence présente un ensemble de pratiques éprouvées pour l’exécution d’une application multiniveau dans plusieurs régions Azure Stack, afin de bénéficier d’une haute disponibilité et d’une infrastructure de récupération d’urgence fiable. Dans ce document, Traffic Manager est utilisé pour obtenir une haute disponibilité. Toutefois, si Traffic Manager n’est pas un choix préféré dans votre environnement, une paire d’équilibreurs de charge hautement disponibles peut également le remplacer.
+Cette architecture de référence présente un ensemble de pratiques éprouvées pour l’exécution d’une application multiniveau dans plusieurs régions Azure Stack Hub, afin de bénéficier d’une haute disponibilité et d’une infrastructure de récupération d’urgence fiable. Dans ce document, Traffic Manager est utilisé pour obtenir une haute disponibilité. Toutefois, si Traffic Manager n’est pas un choix préféré dans votre environnement, une paire d’équilibreurs de charge hautement disponibles peut également le remplacer.
 
 > [!Note]  
 > Notez que l’instance Traffic Manager utilisée dans l’architecture ci-dessous doit être configurée dans Azure et que les points de terminaison utilisés pour configurer le profil Traffic Manager doivent être des adresses IP routables publiquement.
@@ -39,7 +39,7 @@ Cette architecture repose sur celle décrite dans l’article [Application multi
 
 -   **Groupe de disponibilité SQL Server Always On**. Si vous utilisez SQL Server, nous vous recommandons d’utiliser des [groupes de disponibilité AlwaysOn SQL](https://msdn.microsoft.com/library/hh510230.aspx) pour la haute disponibilité. Créez un groupe de disponibilité unique qui comprend les instances de SQL Server dans les deux régions.
 
--   **Connexion VPN de réseau virtuel à réseau virtuel**. Comme VNET Peering n’est pas encore disponible sur Azure Stack, utilisez une connexion VPN de réseau virtuel à réseau virtuel pour connecter les deux réseaux virtuels. Pour plus d’informations, consultez [Réseau virtuel à réseau virtuel dans Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-1908).
+-   **Connexion VPN de réseau virtuel à réseau virtuel**. Comme VNET Peering n’est pas encore disponible sur Azure Stack Hub, utilisez une connexion VPN de réseau virtuel à réseau virtuel pour connecter les deux réseaux virtuels. Pour plus d’informations, voir [Réseau virtuel à réseau virtuel dans Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-1908).
 
 ## <a name="recommendations"></a>Recommandations
 
@@ -132,7 +132,7 @@ Pour configurer le groupe de disponibilité
 
 Avec une application multiniveau complexe, vous n’aurez peut-être pas besoin de répliquer l’ensemble de l’application dans la région secondaire. Au lieu de cela, vous pourrez simplement répliquer un sous-système critique nécessaire pour prendre en charge la continuité d’activité.
 
-Traffic Manager est un point de défaillance possible dans le système. Si le service Traffic Manager échoue, les clients ne peuvent plus accéder à votre application pendant le temps d’arrêt. Consultez le [contrat SLA de Traffic Manager](https://azure.microsoft.com/support/legal/sla/traffic-manager) et déterminez si Traffic Manager peut à lui seul répondre à vos exigences métiers en matière de haute disponibilité. Si tel n’est pas le cas, envisagez d’ajouter une autre solution de gestion du trafic en guise de restauration automatique. Si le service Azure Traffic Manager échoue, modifiez vos enregistrements CNAME dans DNS pour qu’ils pointent vers l’autre service de gestion du trafic. (Cette opération doit être effectuée manuellement, et votre application reste inaccessible tant que ces modifications DNS n’ont pas été propagées.)
+Traffic Manager est un point de défaillance possible dans le système. Si le service Traffic Manager échoue, les clients ne peuvent plus accéder à votre application pendant le temps d’arrêt. Consultez le [contrat SLA de Traffic Manager](https://azure.microsoft.com/support/legal/sla/traffic-manager) et déterminez si Traffic Manager peut à lui seul répondre à vos exigences métiers en matière de haute disponibilité. Si tel n’est pas le cas, envisagez d’ajouter une autre solution de gestion du trafic en guise de restauration automatique. En cas de défaillance du service Azure Traffic Manager, modifiez vos enregistrements CNAME dans DNS pour qu’ils pointent vers l’autre service de gestion du trafic. (Cette opération doit être effectuée manuellement, et votre application reste inaccessible tant que ces modifications DNS n’ont pas été propagées.)
 
 Pour le cluster SQL Server, deux scénarios de basculement doivent être pris en compte :
 
@@ -153,7 +153,7 @@ Pour le cluster SQL Server, deux scénarios de basculement doivent être pris en
 
 Quand vous mettez à jour votre déploiement, mettez à jour une seule région à la fois, afin de réduire le risque de défaillance globale due à une configuration incorrecte ou à une erreur dans l’application.
 
-Testez la résilience aux défaillances du système. Voici quelques scénarios courants de défaillance à tester :
+Testez la résilience aux défaillances du système. Voici quelques scénarios courants de défaillance à tester :
 
 -   Arrêt des instances de machine virtuelle.
 
@@ -161,9 +161,9 @@ Testez la résilience aux défaillances du système. Voici quelques scénarios c
 
 -   Déconnexion/délai de réseau.
 
--   Blocage de processus.
+-   Blocage des processus.
 
--   Expiration de certificats.
+-   Expiration des certificats.
 
 -   Simulation de défaillances matérielles.
 

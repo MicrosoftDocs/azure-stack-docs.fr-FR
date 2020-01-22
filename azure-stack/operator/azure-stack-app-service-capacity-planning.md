@@ -1,6 +1,6 @@
 ---
-title: Planification de la capacité pour les rôles serveur App Service dans Azure Stack | Microsoft Docs
-description: Découvrez comment planifier les rôles serveur App Service dans Azure Stack.
+title: Planification de capacité pour des rôles serveur App Service dans Azure Stack Hub | Microsoft Docs
+description: Découvrez comment planifier des rôles serveur App Service dans Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -16,18 +16,16 @@ ms.date: 03/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: 80dc7bae2371025fba82531b08216606580176e1
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: d0273a1d8bca100f09254804919ba0061b6c7bd3
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975200"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880683"
 ---
-# <a name="capacity-planning-for-app-service-server-roles-in-azure-stack"></a>Planification de la capacité pour les rôles serveur App Service dans Azure Stack
+# <a name="capacity-planning-for-app-service-server-roles-in-azure-stack-hub"></a>Planification de capacité pour des rôles serveur App Service dans Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
-
-Pour configurer un déploiement prêt pour la production d’Azure App Service sur Azure Stack, vous devez planifier la capacité que vous attendez que le système prenne en charge.  
+Pour configurer un déploiement prêt pour la production d’Azure App Service sur Azure Stack Hub, vous devez planifier la capacité que vous attendez que le système prenne en charge.  
 
 Cet article fournit des instructions pour le nombre minimal d’instances de calcul et de références SKU de calcul à utiliser pour un déploiement de production.
 
@@ -35,10 +33,10 @@ Vous pouvez planifier votre stratégie de capacité App Service à l’aide de c
 
 | Rôle serveur App Service | Nombre d’instances minimal recommandé | Référence SKU de calcul recommandée|
 | --- | --- | --- |
-| Controller | 2 | A1 |
+| Contrôleur | 2 | A1 |
 | Serveur frontal | 2 | A1 |
-| gestion | 2 | A3 |
-| Publisher | 2 | A1 |
+| Gestion | 2 | A3 |
+| Serveur de publication | 2 | A1 |
 | Rôles de travail - partagés | 2 | A1 |
 | Rôles de travail - dédiés | 2 par niveau | A1 |
 
@@ -82,7 +80,7 @@ Pour fournir Azure Functions aux utilisateurs dans le modèle de plan de consomm
 Quand vous choisissez le nombre de traitements web partagés à utiliser, passez en revue les considérations suivantes :
 
 - **Mémoire** : La mémoire est la ressource la plus critique pour un rôle de travail web. Une mémoire insuffisante a un impact sur les performances du site web lorsque la mémoire virtuelle est échangée à partir du disque. Chaque serveur nécessite environ 1,2 Go de RAM pour le système d’exploitation. La RAM au-dessus de ce seuil peut être utilisée pour exécuter des sites web.
-- **Pourcentage de sites web actifs** : En règle générale, environ 5 pourcent des applications d’un service Azure App Service sur un déploiement Azure Stack sont actives. Toutefois, le pourcentage d’applications actives à un moment donné peut varier. Avec un taux d’applications actives de 5 %, le nombre maximal d’applications à placer dans un plan Azure App Service sur un déploiement Azure Stack doit être inférieur à 20 fois le nombre de sites web actifs (5 x 20 = 100).
+- **Pourcentage de sites web actifs** : En règle générale, environ 5 pour cent des applications d’un service Azure App Service sur un déploiement d’Azure Stack Hub sont actives. Toutefois, le pourcentage d’applications actives à un moment donné peut varier. Avec un taux d’applications actives de 5 pour cent, le nombre maximal d’applications à placer dans un service Azure App Service sur un déploiement d’Azure Stack Hub doit être inférieur à 20 fois le nombre de sites web actifs (5 x 20 = 100).
 - **Empreinte mémoire moyenne** : L’empreinte mémoire moyenne des applications observée dans les environnements de production s’élève à environ 70 Mo. Sur la base de cette empreinte mémoire, la mémoire allouée sur l’ensemble des ordinateurs ou machines virtuelles avec le rôle de worker web se calcule comme suit :
 
    `Number of provisioned applications * 70 MB * 5% - (number of web worker roles * 1044 MB)`
@@ -95,11 +93,11 @@ Quand vous choisissez le nombre de traitements web partagés à utiliser, passez
 
 ### <a name="additional-considerations-for-dedicated-workers-during-upgrade-and-maintenance"></a>Considérations supplémentaires pour les workers dédiés au cours de la mise à niveau et la maintenance
 
-Pendant la mise à niveau et la maintenance des workers, Azure App Service sur Azure Stack effectue la maintenance sur 20 % de chaque niveau de worker à tout moment.  Par conséquent, les administrateurs cloud doivent toujours conserver un pool de 20 % de workers non alloués par niveau de worker, afin de garantir que leurs locataires ne subissent pas de perte de service pendant les opérations de mise à niveau et de maintenance.  Par exemple, si vous avez dix workers dans un niveau de worker, assurez-vous de laisser deux workers non alloués pour les besoins de mise à niveau et de maintenance. Si les dix workers sont alloués, vous devez faire un scale-up du niveau de worker pour conserver un pool de workers non alloués. 
+Pendant la mise à niveau et la maintenance des workers, Azure App Service sur Azure Stack Hub effectue la maintenance sur 20 % de chaque niveau de worker à tout moment.  Par conséquent, les administrateurs cloud doivent toujours conserver un pool de 20 % de workers non alloués par niveau de worker, afin de garantir que leurs locataires ne subissent pas de perte de service pendant les opérations de mise à niveau et de maintenance.  Par exemple, si vous avez dix workers dans un niveau de worker, assurez-vous de laisser deux workers non alloués pour les besoins de mise à niveau et de maintenance. Si les dix workers sont alloués, vous devez faire un scale-up du niveau de worker pour conserver un pool de workers non alloués. 
 
 Durant la mise à niveau et la maintenance, Azure App Service déplace les charges de travail vers les workers non alloués pour garantir la continuité d’exécution des charges de travail. Toutefois, si aucun worker non alloué n’est disponible pendant la mise à niveau, il y a un risque d’interruption de la charge de travail du locataire. En ce qui concerne les workers partagés, les clients n’ont pas besoin de provisionner des workers supplémentaires, car le service alloue automatiquement les applications de locataire dans les workers disponibles. Pour garantir une haute disponibilité, il faut au minimum deux workers dans ce niveau.
 
-Les administrateurs cloud peuvent superviser l’allocation de leurs niveaux de worker dans la zone d’administration d’App Service sur le portail administrateur Azure Stack. Accédez à App Service, puis sélectionnez Niveaux de worker dans le volet gauche. Le tableau Niveaux de worker indique le nom du niveau de worker, la taille, l’image utilisée, le nombre de workers disponibles (non alloués), le nombre total de workers dans chaque niveau et l’état global du niveau de worker.
+Les administrateurs cloud peuvent superviser l’allocation de leurs niveaux de worker dans la zone d’administration d’App Service sur le portail administrateur Azure Stack Hub. Accédez à App Service, puis sélectionnez Niveaux de worker dans le volet gauche. Le tableau Niveaux de worker indique le nom du niveau de worker, la taille, l’image utilisée, le nombre de workers disponibles (non alloués), le nombre total de workers dans chaque niveau et l’état global du niveau de worker.
 
 ![Administration App Service - Niveaux de worker][1]
 
@@ -119,7 +117,7 @@ Pour plus d’informations, consultez la rubrique [Provisionner un serveur de fi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Prérequis pour le déploiement d’App Service sur Azure Stack](azure-stack-app-service-before-you-get-started.md)
+[Conditions préalables pour le déploiement d’App Service sur Azure Stack Hub](azure-stack-app-service-before-you-get-started.md)
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-capacity-planning/worker-tier-allocation.png

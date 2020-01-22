@@ -1,6 +1,6 @@
 ---
-title: Mettre à jour le fournisseur de ressources MySQL dans Azure Stack | Microsoft Docs
-description: Découvrez comment mettre à jour le fournisseur de ressources MySQL dans Azure Stack.
+title: Mettre à jour le fournisseur de ressources MySQL dans Azure Stack Hub | Microsoft Docs
+description: Découvrez comment mettre à jour le fournisseur de ressources MySQL dans Azure Stack Hub.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,20 +15,18 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 2fd85cb897f1d5e457183ffeeffc5340cbb48696
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: 3c184b581233e8bdb9ccade4af73401fe1907527
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557560"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882196"
 ---
-# <a name="update-the-mysql-resource-provider-in-azure-stack"></a>Mettre à jour le fournisseur de ressources MySQL dans Azure Stack
+# <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>Mettre à jour le fournisseur de ressources MySQL dans Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack.*
+Un nouvel adaptateur de fournisseur de ressources MySQL peut être publié lors de la mise à jour de builds Azure Stack Hub. Même si l’adaptateur existant continue de fonctionner, nous vous recommandons d’effectuer une mise à jour dès que possible vers la build la plus récente.
 
-Un nouvel adaptateur de fournisseur de ressources MySQL peut être publié quand des builds Azure Stack sont mises à jour. Même si l’adaptateur existant continue de fonctionner, nous vous recommandons d’effectuer une mise à jour dès que possible vers la build la plus récente.
-
-À compter de la publication de la version 1.1.33.0 du fournisseur de ressources MySQL, les mises à jour sont cumulatives et ne doivent pas être installées dans l’ordre où elles ont été publiées dès lors que vous démarrez par la version 1.1.24.0 ou ultérieure. Par exemple, si vous exécutez la version 1.1.24.0 du fournisseur de ressources MySQL, vous pouvez mettre à niveau vers la version 1.1.33.0 ou ultérieure sans devoir d’abord installer la version 1.1.30.0. Pour passer en revue les versions disponibles du fournisseur de ressources et la version d’Azure Stack sur laquelle elles sont prises en charge, reportez-vous à la liste des versions dans [Déployer les prérequis du fournisseur de ressources](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+À compter de la publication de la version 1.1.33.0 du fournisseur de ressources MySQL, les mises à jour sont cumulatives et ne doivent pas être installées dans l’ordre où elles ont été publiées dès lors que vous démarrez par la version 1.1.24.0 ou ultérieure. Par exemple, si vous exécutez la version 1.1.24.0 du fournisseur de ressources MySQL, vous pouvez mettre à niveau vers la version 1.1.33.0 ou ultérieure sans devoir d’abord installer la version 1.1.30.0. Pour passer en revue les versions disponibles du fournisseur de ressources et la version d’Azure Stack Hub sur laquelle elles sont prises en charge, consultez la liste des versions dans [Conditions préalables pour le déploiement du fournisseur de ressources](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
 Pour mettre à jour le fournisseur de ressources, vous utilisez le script **UpdateMySQLProvider.ps1**. Le processus est semblable au processus utilisé pour installer un fournisseur de ressources, comme décrit dans la section Déployer le fournisseur de ressources de cet article. Le script est inclus avec le téléchargement du fournisseur de ressources. 
 
@@ -51,10 +49,10 @@ Spécifiez les paramètres suivants à partir de la ligne de commande quand vous
 | Nom du paramètre | Description | Commentaire ou valeur par défaut | 
 | --- | --- | --- | 
 | **CloudAdminCredential** | Informations d’identification de l’administrateur du cloud, nécessaires pour accéder au point de terminaison privilégié. | _Obligatoire_ | 
-| **AzCredential** | Informations d’identification du compte d’administration de service Azure Stack. Utilisez les mêmes informations d’identification que celles utilisées pour le déploiement d’Azure Stack. | _Obligatoire_ | 
+| **AzCredential** | Informations d’identification du compte administrateur de service Azure Stack Hub. Utilisez les mêmes informations d’identification que celles utilisées pour le déploiement d’Azure Stack Hub. | _Obligatoire_ | 
 | **VMLocalCredential** |Informations d’identification du compte d’administrateur local de la machine virtuelle du fournisseur de ressources SQL. | _Obligatoire_ | 
 | **PrivilegedEndpoint** | Adresse IP ou nom DNS du point de terminaison privilégié. |  _Obligatoire_ | 
-| **AzureEnvironment** | L’environnement Azure du compte administrateur de service utilisé pour déployer Azure Stack. Nécessaire uniquement pour les déploiements Azure AD. Les noms d’environnement pris en charge sont **AzureCloud**, **AzureUSGovernment**, ou, si vous utilisez un compte Azure AD en Chine, **AzureChinaCloud**. | AzureCloud |
+| **AzureEnvironment** | Environnement Azure du compte administrateur de service utilisé pour déployer Azure Stack Hub. Nécessaire uniquement pour les déploiements Azure AD. Les noms d’environnement pris en charge sont **AzureCloud**, **AzureUSGovernment**, ou, si vous utilisez un compte Azure AD en Chine, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Votre fichier de certificat .pfx doit également être placé dans ce répertoire. | _Facultatif_ (_obligatoire_ pour les nœuds multiples) | 
 | **DefaultSSLCertificatePassword** | Mot de passe pour le certificat .pfx. | _Obligatoire_ | 
 | **MaxRetryCount** | Nombre de fois où vous souhaitez réessayer chaque opération en cas d’échec.| 2 | 
@@ -68,26 +66,29 @@ Spécifiez les paramètres suivants à partir de la ligne de commande quand vous
 > [!NOTE] 
 > Le processus de mise à jour s’applique uniquement aux systèmes intégrés.
 
-Si vous mettez à jour le fournisseur de ressources MySQL vers la version 1.1.33.0 ou une version antérieure, vous devez installer des versions spécifiques des modules Azure Stack et AzureRm.Bootstrapper dans PowerShell. Si vous mettez à jour le fournisseur de ressources MySQL vers la version 1.1.47.0, cette étape peut être ignorée.
+Si vous mettez à jour le fournisseur de ressources MySQL vers la version 1.1.33.0 ou une version antérieure, vous devez installer des versions spécifiques des modules Azure Stack Hub et AzureRm.Bootstrapper dans PowerShell. Si vous mettez à jour le fournisseur de ressources MySQL vers la version 1.1.47.0, le script de déploiement télécharge et installe automatiquement les modules PowerShell nécessaires dans le chemin C:\Program Files\SqlMySqlPsh.
 
 ```powershell 
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
-# Note that this might not be the most currently available version of Azure Stack PowerShell.
+# Note that this might not be the most currently available version of Azure Stack Hub PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
 
+> [!NOTE]
+> Dans un scénario déconnecté, vous devez télécharger les modules PowerShell requis et inscrire manuellement le référentiel en tant que condition préalable. Pour plus d’informations, voir [Déployer un fournisseur de ressources MySQL](azure-stack-mysql-resource-provider-deploy.md)
+
 Voici un exemple d’utilisation du script *UpdateMySQLProvider.ps1* que vous pouvez exécuter à partir d’une console PowerShell avec privilèges élevés. Veillez à changer les informations des variables et les mots de passe selon vos besoins :
 
 ```powershell 
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
+# Use the NetBIOS name for the Azure Stack Hub domain. On the Azure Stack Hub SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack" 
 
 # For integrated systems, use the IP address of one of the ERCS VMs.
 $privilegedEndpoint = "AzS-ERCS01" 
 
-# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+# Provide the Azure environment used for deploying Azure Stack Hub. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
 $AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted. 
@@ -108,7 +109,12 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
- 
+
+# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
+# The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
+$rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
+$env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath 
+
 # Change directory to the folder where you extracted the installation files.
 # Then adjust the endpoints.
 .$tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds ` 
@@ -120,6 +126,8 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 -DependencyFilesLocalPath $tempDir\cert ` 
 -AcceptLicense 
 ```  
+
+Une fois l’exécution du script de mise à jour du fournisseur de ressources terminée, fermez la session PowerShell active.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Tenir à jour le fournisseur de ressources MySQL](azure-stack-mysql-resource-provider-maintain.md)

@@ -1,6 +1,6 @@
 ---
-title: Créer des bases de données MySQL dans Azure Stack | Microsoft Docs
-description: Découvrez comment créer et gérer des bases de données MySQL provisionnées avec le fournisseur de ressources de l’adaptateur MySQL dans Azure Stack.
+title: Créer des bases de données MySQL dans Azure Stack Hub | Microsoft Docs
+description: Découvrez comment créer et gérer des bases de données MySQL provisionnées avec le fournisseur de ressources de l’adaptateur MySQL dans Azure Stack Hub.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,19 +15,19 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 9daaea395ee28da79da1d6fd553d2e0b30e28156
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: 4bdbc8007be3aae0ec6313b02138eb043b5d393c
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682227"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811377"
 ---
-# <a name="create-mysql-databases-in-azure-stack"></a>Créer des bases de données MySQL dans Azure Stack
-Un utilisateur Azure Stack abonné à une offre comprenant le service de base de données MySQL peut créer et gérer des bases de données MySQL libre-service dans le portail de l’utilisateur.
+# <a name="create-mysql-databases-in-azure-stack-hub"></a>Créer des bases de données MySQL dans Azure Stack Hub
+Un utilisateur Azure Stack Hub abonné à une offre comprenant le service de base de données MySQL peut créer et gérer des bases de données MySQL libre-service sur le portail de l’utilisateur.
 
 ## <a name="create-a-mysql-database"></a>Créer une base de données MySQL
 
-1. Connectez-vous au portail utilisateur Azure Stack.
+1. Connectez-vous au portail utilisateur Azure Stack Hub.
 2. Cliquez sur **+ Créer une ressource** > **Données + Stockage** > **Base de données MySQL** > **Ajouter**.
 3. Sous **Créer une base de données MySQL**, entrez le nom de la base de données, puis configurez les autres paramètres en fonction des besoins de votre environnement.
 
@@ -38,7 +38,7 @@ Un utilisateur Azure Stack abonné à une offre comprenant le service de base de
     ![Sélectionner une référence (SKU) MySQL](./media/azure-stack-mysql-rp-deploy/mysql-select-sku.png)
 
     >[!Note]
-    >Quand ils sont ajoutés à Azure Stack, les serveurs d’hébergement se voient affectés une référence (SKU). Les bases de données sont créées dans ce pool de serveurs d’hébergement d’une référence (SKU).
+    >Les serveurs d’hébergement reçoivent une référence (SKU) quand ils sont ajoutés à Azure Stack Hub. Les bases de données sont créées dans le pool de serveurs d’hébergement d’une référence (SKU).
 
 5. Sous **Connexion**, sélectionnez ***Configurer les paramètres requis***.
 6. Sous **Sélectionner une connexion**, vous pouvez choisir une connexion existante ou sélectionner **+ Créer une connexion** pour configurer une nouvelle connexion.  Entrez un nom et un **Mot de passe** de **Connexion à la base de données**, puis sélectionnez **OK**.

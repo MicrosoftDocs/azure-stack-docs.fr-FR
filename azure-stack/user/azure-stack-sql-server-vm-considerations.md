@@ -1,6 +1,6 @@
 ---
-title: Bonnes pratiques SQL Server pour optimiser les performances dans Azure Stack | Microsoft Docs
-description: Cet article fournit les meilleures pratiques SQL Server pour améliorer les performances et optimiser SQL Server dans les machines virtuelles Azure Stack.
+title: Meilleures pratiques SQL Server pour optimiser les performances dans Azure Stack Hub | Microsoft Docs
+description: Cet article décrit les meilleures pratiques SQL Server pour améliorer les performances et optimiser SQL Server dans les machines virtuelles Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,30 +16,32 @@ ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 96dbca8c3b834565d2fafb73aa02b870cb2bc9a6
-ms.sourcegitcommit: 6bb20ed3dcbd64231331a8e807ba69eff8b7439b
+ms.openlocfilehash: 63fbc121aea2fe83b2ffda860f505fe069a4a5f1
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74946816"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023065"
 ---
-# <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>Meilleures pratiques SQL Server pour optimiser les performances dans Azure Stack
+# <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack-hub"></a>Meilleures pratiques SQL Server pour optimiser les performances dans Azure Stack Hub
 
-Cet article fournit les bonnes pratiques SQL Server pour optimiser SQL Server et améliorer les performances dans les machines virtuelles Microsoft Azure Stack. Quand vous exécutez SQL Server sur des machines virtuelles Azure Stack, utilisez les mêmes options de réglage des performances de base de données qui s’appliquent à SQL Server dans un environnement de serveur local. Les performances d’une base de données relationnelle dans un cloud Azure Stack dépendent de nombreux facteurs, notamment la taille de la famille d’une machine virtuelle et la configuration des disques de données.
+Cet article décrit les meilleurs pratiques pour optimiser SQL Server et améliorer les performances sur les machines virtuelles Microsoft Azure Stack Hub. Quand vous exécutez SQL Server sur des machines virtuelles Azure Stack Hub, utilisez les options de réglage des performances de base de données qui s’appliquent à SQL Server dans un environnement de serveur local. Les performances d’une base de données relationnelle dans un cloud Azure Stack Hub dépendent de nombreux facteurs, notamment la taille de la famille d’une machine virtuelle et la configuration des disques de données.
 
-Lors de la création d’images SQL Server, [pensez à provisionner vos machines virtuelles dans le portail Azure Stack](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Téléchargez l’extension IaaS SQL à partir de la fonctionnalité Gestion de la Place de marché dans le portail administrateur Azure Stack et téléchargez les images de machine virtuelle SQL Server de votre choix. Il s’agit notamment de SQL Server 2016 SP1, SQL Server 2016 SP2 et SQL Server 2017.
+Lors de la création d’images SQL Server, [pensez à approvisionner vos machines virtuelles dans le portail Azure Stack Hub](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Téléchargez l’extension IaaS SQL à partir de la fonctionnalité Gestion de la Place de marché dans le portail administrateur Azure Stack Hub, et téléchargez les images de machine virtuelle SQL Server de votre choix. Il s’agit notamment de SQL Server 2016 SP1, SQL Server 2016 SP2 et SQL Server 2017.
 
 > [!NOTE]  
-> Bien que l’article explique comment provisionner une machine virtuelle SQL Server à l’aide du portail Azure global, les instructions s’appliquent également à Azure Stack, en tenant compte des différences suivantes : SSD n’est pas disponible pour le disque de système d’exploitation et la configuration du stockage présente des différences mineures.
+> Si l’article explique comment approvisionner une machine virtuelle SQL Server à l’aide du portail Azure global, les instructions s’appliquent également à Azure Stack Hub, aux différences suivantes près : SSD n’est pas disponible pour le disque de système d’exploitation et la configuration du stockage présente des différences mineures.
 
-Cet article se concentre sur l’obtention des *meilleures* performances pour SQL Server sur des machines virtuelles Azure Stack. Si votre charge de travail est moindre, vous n’aurez peut-être pas besoin de toutes les optimisations recommandées. Tenez compte de vos besoins de performances et de vos modèles de charges de travail lors de l’évaluation de ces recommandations.
+Dans les images de machine virtuelle, dans SQL Server, vous ne pouvez utiliser que l’approche BYOL (apportez votre propre licence). Pour Windows Server, le modèle de licence par défaut est celui assorti du paiement à l’utilisation (PAYG). Pour des informations détaillées sur le modèle de licence Windows Server dans une machine virtuelle, voir [FAQ concernant Windows Server sur la Place de marché Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-windows-server-faq#what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server).  
+
+Cet article se concentre sur l’obtention des *meilleures* performances pour SQL Server sur des machines virtuelles Azure Stack Hub. Si votre charge de travail est moindre, vous n’aurez peut-être pas besoin de toutes les optimisations recommandées. Tenez compte de vos besoins de performances et de vos modèles de charges de travail lors de l’évaluation de ces recommandations.
 
 > [!NOTE]  
 > Pour obtenir de l’aide sur les performances de SQL Server dans des machines virtuelles Azure, consultez [cet article](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
 
 ## <a name="checklist-for-sql-server-best-practices"></a>Check-list des meilleures pratiques SQL Server
 
-La check-list suivante permet d’optimiser les performances de SQL Server sur des machines virtuelles Azure Stack :
+La liste de contrôle suivante a trait aux performances optimales de SQL Server sur des machines virtuelles Azure Stack Hub :
 
 
 |Domaine|Optimisations|
@@ -61,26 +63,26 @@ Pour les applications sensibles aux performances, les [tailles de machines virtu
 
 - **Édition SQL Server Standard et édition Web :** DS2 ou supérieure
 
-Avec Azure Stack, il n’existe aucune différence de performances entre les séries de familles de machines virtuelles DS et DS_v2.
+Avec Azure Stack Hub, il n’existe aucune différence de performances entre les séries de machines virtuelles DS et DS_v2.
 
 ## <a name="storage-guidance"></a>Conseils liés au stockage
 
-Les machines virtuelles de la série DS (ainsi que de la série DSv2) dans Azure Stack fournissent le débit de disque de système d’exploitation et de disque de données maximal (IOPS). Une machine virtuelle de la série DS ou DSv2 fournit jusqu’à 1 000 IOPS pour le disque de système d’exploitation et jusqu’à 2 300 IOPS par disque de données, quel que soit le type ou la taille du disque choisi.
+Les machines virtuelles de la série DS (ainsi que de la série DSv2) dans Azure Stack Hub fournissent les débits (IOPS) maximaux de disque de système d’exploitation et de disque de données. Une machine virtuelle de la série DS ou DSv2 fournit jusqu’à 1 000 IOPS pour le disque de système d’exploitation et jusqu’à 2 300 IOPS par disque de données, quel que soit le type ou la taille du disque choisi.
 
 Le débit des disques de données est déterminé de façon unique en fonction de la série de famille de machines virtuelles. Vous pouvez [consulter cet article](azure-stack-vm-sizes.md) pour identifier le débit des disques de données par série de famille de machines virtuelles.
 
 > [!NOTE]  
 > Pour les charges de travail de production, sélectionnez une machine virtuelle de série DSv2 ou DS pour fournir le maximum d’IOPS possible sur le disque de système d’exploitation et les disques de données.
 
-Quand vous créez un compte de stockage dans Azure Stack, l’option de géoréplication n’a aucun effet, car cette fonctionnalité n’est pas disponible dans Azure Stack.
+Quand vous créez un compte de stockage dans Azure Stack Hub, l’option de géoréplication est sans effet, car cette fonctionnalité n’est pas disponible dans Azure Stack Hub.
 
 ## <a name="disks-guidance"></a>Conseils liés aux disques
 
-Il existe trois types de disques principaux sur une machine virtuelle Azure Stack :
+Il existe trois types de disques principaux sur une machine virtuelle Azure Stack Hub :
 
-- **Disque de système d’exploitation :** Quand vous créez une machine virtuelle Azure Stack, la plateforme attache au moins un disque (désigné par la lettre **C**) à la machine virtuelle en tant que disque de système d’exploitation. Ce disque est un disque dur virtuel (VHD) stocké en tant qu’objet blob de pages dans le stockage.
+- **Disque de système d’exploitation :** Quand vous créez une machine virtuelle Azure Stack Hub, la plateforme attache au moins un disque (désigné par la lettre **C**) à la machine virtuelle en tant que disque de système d’exploitation. Ce disque est un disque dur virtuel (VHD) stocké en tant qu’objet blob de pages dans le stockage.
 
-- **Disque temporaire :** Les machines virtuelles Azure Stack contiennent un autre disque, appelé disque temporaire (portant le nom de lecteur **D**). C’est un disque du nœud qui peut être utilisé comme un espace de travail temporaire.
+- **Disque temporaire :** Les machines virtuelles Azure Stack Hub contiennent un autre disque, appelé disque temporaire (lecteur **D**). C’est un disque du nœud qui peut être utilisé comme un espace de travail temporaire.
 
 - **Disques de données :** vous pouvez attacher des disques supplémentaires à votre machine virtuelle en tant que disques de données ; ces disques sont également stockés en tant qu’objets blob de pages.
 
@@ -98,12 +100,12 @@ Nous vous recommandons de stocker TempDB sur un disque de données, car chaque d
 
 ### <a name="data-disks"></a>Disques de données
 
-- **Utilisation de disques de données pour les fichiers journaux et de données.** Si vous n’utilisez pas l’entrelacement de disques, utilisez deux disques de données à partir d’une machine virtuelle qui prend en charge le stockage Premium, l’un pour contenir les fichiers journaux et l’autre pour contenir les fichiers TempDB et de données. Chaque disque de données fournit un nombre d’IOPS (E/S par seconde) en fonction de la famille de la machine virtuelle, comme décrit dans [Tailles de machine virtuelle prises en charge dans Azure Stack](azure-stack-vm-sizes.md). Si vous utilisez une technique d’entrelacement de disques, comme des espaces de stockage, placez tous les fichiers journaux et de données sur le même disque (y compris TempDB). Cette configuration vous donne le nombre maximal d’IOPS utilisables par SQL Server, quel que soit le fichier qui en a besoin à un moment donné.
+- **Utilisation de disques de données pour les fichiers journaux et de données.** Si vous n’utilisez pas l’entrelacement de disques, utilisez deux disques de données à partir d’une machine virtuelle qui prend en charge le stockage Premium, l’un pour contenir les fichiers journaux et l’autre pour contenir les fichiers TempDB et de données. Chaque disque de données fournit un nombre d’IOPS dépendant de la famille de la machine virtuelle, comme décrit dans [Tailles de machine virtuelle prises en charge dans Azure Stack Hub](azure-stack-vm-sizes.md). Si vous utilisez une technique d’entrelacement de disques, comme des espaces de stockage, placez tous les fichiers journaux et de données sur le même disque (y compris TempDB). Cette configuration vous donne le nombre maximal d’IOPS utilisables par SQL Server, quel que soit le fichier qui en a besoin à un moment donné.
 
 > [!NOTE]  
-> Lorsque vous configurez une machine virtuelle SQL Server dans le portail, vous avez la possibilité de modifier votre configuration de stockage. Selon votre configuration, Azure Stack configure un ou plusieurs disques. Plusieurs disques sont combinés en un pool de stockage unique. Les fichiers journaux et de données se trouvent dans cette configuration.
+> Lorsque vous configurez une machine virtuelle SQL Server dans le portail, vous avez la possibilité de modifier votre configuration de stockage. Selon votre configuration, Azure Stack Hub configure un ou plusieurs disques. Plusieurs disques sont combinés en un pool de stockage unique. Les fichiers journaux et de données se trouvent dans cette configuration.
 
-- **Entrelacement de disques :** Pour augmenter le débit, vous pouvez ajouter des disques de données et utiliser l’entrelacement de disques. Pour déterminer le nombre de disques de données dont vous avez besoin, analysez le nombre d’IOPS nécessaires pour vos fichiers journaux, ainsi que pour vos fichiers de données et TempDB. Notez que les limites d’IOPS sont exprimées par disque de données, en fonction de la famille de série de la machine virtuelle et non de la taille de la machine virtuelle. Toutefois, les limites de bande passante réseau sont basées sur la taille de la machine virtuelle. Consultez les tableaux sur les [tailles de machine virtuelle dans Azure Stack](azure-stack-vm-sizes.md) pour plus de détails. Respectez les recommandations suivantes :
+- **Entrelacement de disques :** Pour augmenter le débit, vous pouvez ajouter des disques de données et utiliser l’entrelacement de disques. Pour déterminer le nombre de disques de données dont vous avez besoin, analysez le nombre d’IOPS nécessaires pour vos fichiers journaux, ainsi que pour vos fichiers de données et TempDB. Notez que les limites d’IOPS sont exprimées par disque de données, en fonction de la famille de série de la machine virtuelle et non de la taille de la machine virtuelle. Toutefois, les limites de bande passante réseau sont basées sur la taille de la machine virtuelle. Pour plus de détails, voir les tableaux des [tailles de machine virtuelle dans Azure Stack Hub](azure-stack-vm-sizes.md). Respectez les recommandations suivantes :
 
   - Pour Windows Server 2012 ou version ultérieure, utilisez des [espaces de stockage](https://technet.microsoft.com/library/hh831739.aspx) en respectant les consignes suivantes :
 
@@ -120,7 +122,7 @@ Nous vous recommandons de stocker TempDB sur un disque de données, car chaque d
        New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple -UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
        ```
 
-- Déterminez le nombre de disques associés à votre pool de stockage en fonction de vos attentes en matière de charge. N’oubliez pas que les différentes tailles de machines virtuelles autorisent différents nombres de disques de données attachés. Pour plus d’informations, consultez [Tailles de machine virtuelle prises en charge dans Azure Stack](azure-stack-vm-sizes.md).
+- Déterminez le nombre de disques associés à votre pool de stockage en fonction de vos attentes en matière de charge. N’oubliez pas que les différentes tailles de machines virtuelles autorisent différents nombres de disques de données attachés. Pour plus d’informations, voir les [Tailles de machine virtuelle prises en charge dans Azure Stack Hub](azure-stack-vm-sizes.md).
 - Pour obtenir le nombre maximal d’IOPS possible pour les disques de données, il est recommandé d’ajouter le nombre maximal de disques de données pris en charge par votre [taille de machine virtuelle](azure-stack-vm-sizes.md) et d’utiliser l’entrelacement de disques.
 - **Taille d’unité d’allocation NTFS :** Lors du formatage du disque de données, nous vous recommandons d’utiliser une taille d’unité d’allocation de 64 Ko pour les fichiers de données et les fichiers journaux ainsi que pour TempDB.
 - **Pratiques de gestion des disques :** lors de la suppression d’un disque de données, arrêtez le service SQL Server. En outre, ne changez pas les paramètres de cache sur les disques, car cette opération n’améliore pas les performances.
@@ -139,26 +141,26 @@ Nous vous recommandons de stocker TempDB sur un disque de données, car chaque d
 
 - Activez les pages verrouillées pour réduire les activités d’E/S et de pagination. Pour plus d’informations, consultez [Activer l’option Lock Pages in Memory (Windows)](https://msdn.microsoft.com/library/ms190730.aspx).
 
-- Envisagez de compresser tous les fichiers de données durant les transferts vers et depuis Azure Stack, y compris les sauvegardes.
+- Envisagez de compresser tous les fichiers de données lors des transferts à destination et à partir d’Azure Stack Hub, y compris les sauvegardes.
 
 ## <a name="feature-specific-guidance"></a>Conseils spécifiques aux fonctionnalités
 
 Certains déploiements peuvent bénéficier de plus grands avantages en termes de performances à l’aide de techniques de configuration avancées. La liste suivante présente certaines fonctionnalités SQL Server qui peuvent vous aider à améliorer les performances :
 
-- **Sauvegarde vers le** **stockage Azure.** Durant la réalisation de sauvegardes pour un serveur SQL Server s’exécutant sur des machines virtuelles Azure Stack, vous pouvez utiliser Sauvegarde SQL Server vers une URL. Cette fonctionnalité est disponible à partir de SQL Server 2012 SP1 CU2, et recommandée pour la sauvegarde vers les disques de données attachés.
+- **Sauvegardez sur** **Stockage Azure.** Lors de sauvegardes de SQL Server s’exécutant sur des machines virtuelles Azure Stack Hub, vous pouvez utiliser l’option Sauvegarde SQL Server vers une URL. Cette fonctionnalité est disponible à partir de SQL Server 2012 SP1 CU2, et recommandée pour la sauvegarde vers les disques de données attachés.
 
     Durant la sauvegarde ou la restauration à l’aide du stockage Azure, suivez les suggestions indiquées dans [Meilleures pratiques et dépannage de sauvegarde SQL Server vers une URL](https://msdn.microsoft.com/library/jj919149.aspx) et [Restauration à partir de sauvegardes stockées dans Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017). Vous pouvez également automatiser ces sauvegardes en utilisant la [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup).
 
--   **Sauvegarde vers le stockage Azure Stack.** Vous pouvez effectuer une sauvegarde vers le stockage Azure Stack de la même manière qu’une sauvegarde vers le stockage Azure. Quand vous créez une sauvegarde dans SQL Server Management Studio (SSMS), vous devez entrer manuellement les informations de configuration. Vous ne pouvez pas utiliser SSMS pour créer le conteneur de stockage ou la signature d’accès partagé. SSMS se connecte uniquement à des abonnements Azure, pas à des abonnements Azure Stack. Au lieu de cela, vous devez créer le compte de stockage, le conteneur et la signature d’accès partagé dans le portail Azure Stack ou avec PowerShell.
+-   **Sauvegardez vers le stockage Azure Stack Hub.** Vous pouvez effectuer une sauvegarde vers le stockage Azure Stack Hub de la même manière qu’une sauvegarde vers Stockage Azure. Quand vous créez une sauvegarde dans SQL Server Management Studio (SSMS), vous devez entrer manuellement les informations de configuration. Vous ne pouvez pas utiliser SSMS pour créer le conteneur de stockage ou la signature d’accès partagé. SSMS se connecte uniquement à des abonnements Azure, pas à des abonnements Azure Stack Hub. Au lieu de cela, vous devez créer le compte de stockage, le conteneur et la signature d’accès partagé dans le portail Azure Stack Hub ou avec PowerShell.
 
 
     ![Sauvegarde SQL Server](./media/sql-server-vm-considerations/image3.png)
 
     > [!NOTE]  
-    > La signature d’accès partagé est le jeton SAP à partir du portail Azure Stack, sans le caractère initial « ? » dans la chaîne. Si vous utilisez la fonction de copie à partir du portail, vous devez supprimer le caractère initial « ? » pour que le jeton fonctionne dans SQL Server.
+    > La signature d’accès partagé est le jeton SAP provenant du portail Azure Stack Hub, sans le caractère initial « ? » dans la chaîne. Si vous utilisez la fonction de copie à partir du portail, vous devez supprimer le caractère initial « ? » pour que le jeton fonctionne dans SQL Server.
 
-    Une fois la destination de sauvegarde configurée dans SQL Server, vous pouvez effectuer une sauvegarde vers le stockage d’objets blob Azure Stack.
+    Une fois la destination de sauvegarde configurée dans SQL Server, vous pouvez effectuer une sauvegarde vers le stockage d’objets blob Azure Stack Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Utilisation de services ou création d’applications pour Azure Stack](azure-stack-considerations.md)
+[Utilisation de services ou génération d’applications pour Azure Stack Hub](azure-stack-considerations.md)

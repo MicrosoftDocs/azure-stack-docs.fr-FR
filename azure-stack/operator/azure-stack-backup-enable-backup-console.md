@@ -1,6 +1,6 @@
 ---
-title: Activer la sauvegarde Azure Stack à partir du portail d’administration | Microsoft Docs
-description: Découvrez comment activer le service Infrastructure Backup sur le portail d’administration pour restaurer Azure Stack en cas de panne.
+title: Activer la sauvegarde d’Azure Stack Hub à partir du portail administrateur | Microsoft Docs
+description: Découvrez comment activer le service Infrastructure Backup du portail administrateur de façon à ce qu’il soit possible de restaurer Azure Stack Hub en cas de défaillance.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,16 +16,16 @@ ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: 43d2e79732e065342e3d8c5afdee5dff6b391634
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: b554c40ec18efce37cc409771a9bed5b1ca6908d
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974774"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816766"
 ---
-# <a name="enable-backup-for-azure-stack-from-the-administrator-portal"></a>Activer la sauvegarde Azure Stack à partir du portail d’administration
+# <a name="enable-backup-for-azure-stack-hub-from-the-administrator-portal"></a>Activer la sauvegarde d’Azure Stack Hub à partir du portail administrateur
 
-Vous pouvez activer le service Infrastructure Backup sur le portail d’administration pour permettre à Azure Stack de générer des sauvegardes de l’infrastructure. Le partenaire matériel peut utiliser ces sauvegardes pour restaurer votre environnement par récupération cloud en cas [d’erreur grave](./azure-stack-backup-recover-data.md). L’objectif d’une récupération cloud est de s’assurer que les opérateurs et utilisateurs peuvent se reconnecter au portail une fois la récupération terminée. Les abonnements des utilisateurs seront restaurés, notamment :
+Vous pouvez activer le service Infrastructure Backup à partir du portail administrateur pour permettre à Azure Stack Hub de générer des sauvegardes d’infrastructure. Le partenaire matériel peut utiliser ces sauvegardes pour restaurer votre environnement par récupération cloud en cas [d’erreur grave](./azure-stack-backup-recover-data.md). L’objectif d’une récupération cloud est de s’assurer que les opérateurs et utilisateurs peuvent se reconnecter au portail une fois la récupération terminée. Les abonnements des utilisateurs seront restaurés, notamment :
 
 - Les rôles et les autorisations d’accès en fonction du rôle
 - Les plans et les offres d’origine
@@ -36,19 +36,19 @@ Toutefois, le service Infrastructure Backup ne permet pas de sauvegarder les mac
 
 Les administrateurs et les utilisateurs sont en charge de sauvegarder et de restaurer les ressources IaaS et PaaS indépendamment des processus de sauvegarde d’infrastructure. Pour plus d’informations sur la sauvegarde des ressources IaaS et PaaS, consultez les liens suivants :
 
-- [Protéger des machines virtuelles déployées sur Azure Stack](../user/azure-stack-manage-vm-protect.md)
+- [Protéger des machines virtuelles déployées sur Azure Stack Hub](../user/azure-stack-manage-vm-protect.md)
 - [Sauvegarde de votre application dans Azure](https://docs.microsoft.com/azure/app-service/manage-backup)
 - [Qu’est-ce que SQL Server sur machines virtuelles Azure ? (Windows)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 
 ## <a name="enable-or-reconfigure-backup"></a>Activer ou reconfigurer une sauvegarde
 
-1. Ouvrez le [portail administrateur Azure Stack](azure-stack-manage-portals.md).
+1. Ouvrez le [portail administrateur Azure Stack Hub](azure-stack-manage-portals.md).
 2. Sélectionnez **Tous les services** puis, sous la catégorie **ADMINISTRATION**, sélectionnez **Sauvegarde d’infrastructure**. Choisissez **Configuration** dans le panneau **Sauvegarde d’infrastructure**.
 3. Saisissez le chemin d’accès à l’**emplacement de stockage de sauvegarde**. Utilisez une chaîne UNC (Universal Naming Convention) pour le chemin d’un partage de fichiers hébergé sur un appareil distinct. Une chaîne UNC spécifie l’emplacement de ressources telles que des appareils ou des fichiers partagés. Pour le service, vous pouvez utiliser une adresse IP. Pour garantir la disponibilité des données de sauvegarde après un sinistre, l’appareil doit se trouver dans un emplacement distinct.
 
     > [!Note]  
-    > Si votre environnement prend en charge la résolution de noms entre le réseau d’infrastructure Azure Stack et votre environnement d’entreprise, vous pouvez utiliser un nom de domaine complet plutôt que l’adresse IP.
+    > Si votre environnement prend en charge la résolution de noms entre le réseau d’infrastructure Azure Stack Hub et votre environnement d’entreprise, vous pouvez utiliser un nom de domaine complet (FQDN) plutôt que l’adresse IP.
 
 4. Saisissez le **Nom d’utilisateur** à l’aide du domaine et du nom d’utilisateur avec un accès suffisant pour lire et écrire des fichiers. Par exemple : `Contoso\backupshareuser`.
 5. Saisissez le **mot de passe** de l’utilisateur.
@@ -74,45 +74,45 @@ Les administrateurs et les utilisateurs sont en charge de sauvegarder et de rest
     ```
 
    > [!Note]
-   > **Version 1901 et versions ultérieures** : Azure Stack accepte un certificat permettant de chiffrer les données de sauvegarde de l’infrastructure. Veillez à stocker le certificat comportant la clé publique et la clé privée dans un emplacement sécurisé. Pour des raisons de sécurité, il est déconseillé de l’utiliser pour configurer les paramètres de sauvegarde. Pour savoir comment gérer le cycle de vie de ce certificat, consultez [Meilleures pratiques relatives au service Infrastructure Backup](azure-stack-backup-best-practices.md).
+   > **Version 1901 et versions ultérieures** : Azure Stack Hub accepte un certificat pour chiffrer les données de sauvegarde de l’infrastructure. Veillez à stocker le certificat comportant la clé publique et la clé privée dans un emplacement sécurisé. Pour des raisons de sécurité, il est déconseillé de l’utiliser pour configurer les paramètres de sauvegarde. Pour savoir comment gérer le cycle de vie de ce certificat, consultez [Meilleures pratiques relatives au service Infrastructure Backup](azure-stack-backup-best-practices.md).
    > 
-   > **1811 ou versions antérieures** : Azure Stack accepte une clé symétrique pour chiffrer les données de sauvegarde de l’infrastructure. Utilisez la [cmdlet New-AzsEncryptionKey64 pour créer une clé](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). Après la mise à niveau de 1811 à 1901, les paramètres de sauvegarde conservent la clé de chiffrement. Il est recommandé de mettre à jour les paramètres de sauvegarde pour utiliser un certificat. La prise en charge de la clé de chiffrement est désormais déconseillée. Vous disposez d’au moins trois versions pour mettre à jour les paramètres afin d’utiliser un certificat.
+   > **1811 ou versions antérieures** : Azure Stack Hub accepte une clé symétrique pour chiffrer les données de sauvegarde de l’infrastructure. Utilisez la [cmdlet New-AzsEncryptionKey64 pour créer une clé](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). Après la mise à niveau de 1811 à 1901, les paramètres de sauvegarde conservent la clé de chiffrement. Il est recommandé de mettre à jour les paramètres de sauvegarde pour utiliser un certificat. La prise en charge de la clé de chiffrement est désormais déconseillée. Vous disposez d’au moins trois versions pour mettre à jour les paramètres afin d’utiliser un certificat.
 
 10. Sélectionnez **OK** pour enregistrer vos paramètres de contrôleur de sauvegarde.
 
-![Azure Stack - Paramètres du contrôleur de sauvegarde](media/azure-stack-backup/backup-controller-settings-certificate.png)
+![Azure Stack Hub – Paramètres du contrôleur de sauvegarde](media/azure-stack-backup/backup-controller-settings-certificate.png)
 
 
 ## <a name="start-backup"></a>Démarrer la sauvegarde
 Pour démarrer une sauvegarde, cliquez sur **Sauvegarder maintenant** afin de démarrer une sauvegarde à la demande. Le fait d’effectuer une sauvegarde à la demande ne modifie pas la date et l’heure de la prochaine sauvegarde planifiée. Une fois la tâche terminée, vous pouvez confirmer les paramètres dans **Éléments principaux** :
 
-![Azure Stack - sauvegarde à la demande](media/azure-stack-backup/scheduled-backup.png)
+![Azure Stack Hub – Sauvegarde à la demande](media/azure-stack-backup/scheduled-backup.png)
 
-Vous pouvez également exécuter l’applet de commande PowerShell **Start-AzsBackup** sur votre ordinateur d’administration Azure Stack. Pour plus d’informations, consultez [Sauvegarde d’Azure Stack](azure-stack-backup-back-up-azure-stack.md).
+Vous pouvez également exécuter l’applet de commande PowerShell **Start-AzsBackup** sur votre ordinateur d’administration Azure Stack Hub. Pour plus d’informations, voir [Sauvegarder Azure Stack Hub](azure-stack-backup-back-up-azure-stack.md).
 
 ## <a name="enable-or-disable-automatic-backups"></a>Activer ou désactiver les sauvegardes automatiques
 Les sauvegardes sont automatiquement planifiées lorsque vous activez la sauvegarde. Vous pouvez vérifier la prochaine sauvegarde planifiée dans **Éléments principaux**. 
 
-![Azure Stack - sauvegarde à la demande](media/azure-stack-backup/on-demand-backup.png)
+![Azure Stack Hub – Sauvegarde à la demande](media/azure-stack-backup/on-demand-backup.png)
 
 Si vous devez désactiver les futures sauvegardes planifiées, cliquez sur **Désactiver les sauvegardes automatiques**. Lorsque vous désactivez des sauvegardes automatiques, les paramètres de sauvegarde configurés et la planification de sauvegarde sont conservés. Cette action indique simplement au planificateur d’ignorer les futures sauvegardes.
 
-![Azure Stack - Désactiver les sauvegardes planifiées](media/azure-stack-backup/disable-auto-backup.png)
+![Azure Stack Hub – Désactiver les sauvegardes planifiées](media/azure-stack-backup/disable-auto-backup.png)
 
 Vérifiez que les futures sauvegardes planifiées ont été désactivées dans **Éléments principaux**:
 
-![Azure Stack - confirmer que les sauvegardes ont été désactivées](media/azure-stack-backup/confirm-disable.png)
+![Azure Stack Hub – Confirmer que les sauvegardes ont été désactivées](media/azure-stack-backup/confirm-disable.png)
 
 Cliquez sur **Activer les sauvegardes automatiques** pour informer le planificateur de démarrer les sauvegardes ultérieures à l’heure planifiée. 
 
-![Azure Stack - Activer les sauvegardes planifiées](media/azure-stack-backup/enable-auto-backup.png)
+![Azure Stack Hub – Activer les sauvegardes planifiées](media/azure-stack-backup/enable-auto-backup.png)
 
 
 > [!Note]  
-> Si vous avez configuré la sauvegarde de l’infrastructure avant la mise à jour vers 1807, les sauvegardes automatiques seront désactivées. Ainsi, les sauvegardes démarrées par Azure Stack n’entrent pas en conflit avec les sauvegardes démarrées par un moteur de planification de tâches externe. Après avoir désactivé un planificateur de tâche externe, cliquez sur **Activer les sauvegardes automatiques**.
+> Si vous avez configuré la sauvegarde de l’infrastructure avant la mise à jour vers 1807, les sauvegardes automatiques seront désactivées. Ainsi, les sauvegardes démarrées par Azure Stack Hub n’entrent pas en conflit avec celles démarrées par un moteur de planification de tâches externe. Après avoir désactivé un planificateur de tâche externe, cliquez sur **Activer les sauvegardes automatiques**.
 
 ## <a name="update-backup-settings"></a>Mettre à jour les paramètres de sauvegarde
-À partir de la version 1901, la prise en charge de la clé de chiffrement est déconseillée. Si vous configurez une sauvegarde pour la première fois dans la version 1901, vous devez utiliser un certificat. Azure Stack ne prend en charge la clé de chiffrement que si elle est configurée avant le passage à la version 1901. Le mode de compatibilité descendante se poursuivra pour trois versions, après quoi les clés de chiffrement ne seront plus gérées.
+À partir de la version 1901, la prise en charge de la clé de chiffrement est déconseillée. Si vous configurez une sauvegarde pour la première fois dans la version 1901, vous devez utiliser un certificat. Azure Stack Hub ne prend en charge la clé de chiffrement que si celle-ci est configurée avant la mise à jour vers la version 1901. Le mode de compatibilité descendante se poursuivra pour trois versions, après quoi les clés de chiffrement ne seront plus gérées.
 
 ### <a name="default-mode"></a>Mode par défaut
 Dans les paramètres de chiffrement, si vous configurez la sauvegarde de l’infrastructure pour la première fois après l’installation ou le passage à la version 1901, vous devez utiliser un certificat. Les clés de chiffrement ne sont plus prises en charge.
@@ -121,20 +121,20 @@ Pour mettre à jour le certificat servant à chiffrer les données de sauvegarde
 
 Les nouvelles sauvegardes commenceront à utiliser la clé publique dans le nouveau certificat, sans incidence sur toutes les sauvegardes déjà créées avec le certificat précédent. Veillez à conserver l’ancien certificat dans un emplacement sécurisé au cas où il soit nécessaire pour une récupération cloud.
 
-![Azure Stack – voir l’empreinte numérique du certificat](media/azure-stack-backup/encryption-settings-thumbprint.png)
+![Azure Stack Hub – Afficher l’empreinte numérique du certificat](media/azure-stack-backup/encryption-settings-thumbprint.png)
 
 ### <a name="backwards-compatibility-mode"></a>Mode de compatibilité descendante
 Si vous avez configuré la sauvegarde avant le passage à la version 1901, les paramètres sont transférés sans aucun changement de comportement. Dans ce cas, la clé de chiffrement est prise en charge par compatibilité descendante. Vous pouvez mettre à jour la clé de chiffrement ou le commutateur pour utiliser un certificat. Vous avez au moins trois versions pour poursuivre la mise à jour de la clé de chiffrement. Profitez de ce laps de temps pour passer à un certificat. Pour créer une clé de chiffrement, utilisez [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
 
-![Azure Stack – Utiliser la clé de chiffrement en mode de compatibilité descendante](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
+![Azure Stack Hub – Utiliser une clé de chiffrement en mode de compatibilité descendante](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
 
 > [!Note]  
 > La mise à jour de la clé de chiffrement au certificat est une opération unidirectionnelle. Une fois cette modification effectuée, il n’est pas possible de revenir à la clé de chiffrement. Toutes les sauvegardes existantes resteront chiffrées avec l’ancienne clé de chiffrement.
 
-![Azure Stack – utiliser le certificat de chiffrement en mode de compatibilité descendante](media/azure-stack-backup/encryption-settings-backcompat-certificate.png)
+![Azure Stack Hub – Utiliser un certificat de chiffrement en mode de compatibilité descendante](media/azure-stack-backup/encryption-settings-backcompat-certificate.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez à exécuter une sauvegarde. Voir [Sauvegarde d’Azure Stack](azure-stack-backup-back-up-azure-stack.md).
+Apprenez à exécuter une sauvegarde. Voir [Sauvegarder Azure Stack Hub](azure-stack-backup-back-up-azure-stack.md).
 
 Apprenez à vérifier que votre sauvegarde a été exécutée. Voir [Confirmer l’exécution de la sauvegarde sur le portail d’administration](azure-stack-backup-back-up-azure-stack.md).

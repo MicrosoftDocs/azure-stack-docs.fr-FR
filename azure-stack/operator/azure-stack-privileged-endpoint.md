@@ -1,6 +1,6 @@
 ---
-title: Utilisation du point de terminaison privilégié dans Azure Stack | Microsoft Docs
-description: Découvrir comment utiliser le point de terminaison privilégié dans Azure Stack en tant qu’opérateur.
+title: Utilisation du point de terminaison privilégié dans Azure Stack Hub | Microsoft Docs
+description: Découvrez comment utiliser le point de terminaison privilégié dans Azure Stack Hub en tant qu’opérateur.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,16 @@ ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/8/2020
-ms.openlocfilehash: 19783172dd402d7ea80dcbfc226aefb44846182f
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 665e0a32abfbdce3953423135600eed98cbc2eef
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727086"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882128"
 ---
-# <a name="use-the-privileged-endpoint-in-azure-stack"></a>Utiliser le point de terminaison privilégié dans Azure Stack
+# <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Utiliser le point de terminaison privilégié dans Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
-
-En tant qu’opérateur Azure Stack, vous devez utiliser le portail administrateur, PowerShell ou les API Azure Resource Manager pour la plupart des tâches d’administration quotidiennes. Toutefois, pour certaines opérations moins courantes, vous devez utiliser le *point de terminaison privilégié* (PEP). Ce point de terminaison est une console PowerShell distante préconfigurée qui vous fournit suffisamment de fonctionnalités pour vous aider à effectuer une tâche nécessaire. Le point de terminaison s’appuie sur [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) pour exposer uniquement un ensemble limité d’applets de commande. Pour accéder au point de terminaison privilégié et appeler l’ensemble limité d’applets de commande, un compte à faibles privilèges est utilisé. Aucun compte d’administrateur n’est nécessaire. Pour plus de sécurité, les scripts ne sont pas autorisés.
+En tant qu’opérateur Azure Stack Hub, vous devez utiliser le portail administrateur, PowerShell ou les API Azure Resource Manager pour la plupart des tâches d’administration quotidiennes. Toutefois, pour certaines opérations moins courantes, vous devez utiliser le *point de terminaison privilégié* (PEP). Ce point de terminaison est une console PowerShell distante préconfigurée qui vous fournit suffisamment de fonctionnalités pour vous aider à effectuer une tâche nécessaire. Le point de terminaison s’appuie sur [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) pour exposer uniquement un ensemble limité d’applets de commande. Pour accéder au point de terminaison privilégié et appeler l’ensemble limité d’applets de commande, un compte à faibles privilèges est utilisé. Aucun compte d’administrateur n’est nécessaire. Pour plus de sécurité, les scripts ne sont pas autorisés.
 
 Vous pouvez utiliser le points de terminaison privilégié pour effectuer les tâches suivantes :
 
@@ -43,7 +41,7 @@ Le point de terminaison privilégié journalise chaque action (et sa sortie corr
 
 Vous accédez au point de terminaison privilégié via une session PowerShell distante sur la machine virtuelle qui héberge le point de terminaison privilégié. Dans ASDK, cette machine virtuelle est nommée **AzS-ERCS01**. Si vous utilisez un système intégré, il existe trois instances du point de terminaison privilégié, chacune s’exécutant à l’intérieur d’une machine virtuelle (*Préfixe*-ERCS01, *Préfixe*-ERCS02 ou *Préfixe*-ERCS03) sur des hôtes différents à des fins de résilience.
 
-Avant de commencer cette procédure pour un système intégré, vérifiez que vous pouvez accéder à un point de terminaison privilégié via une adresse IP ou via DNS. Après le déploiement initial d’Azure Stack, vous pouvez accéder au point de terminaison privilégié seulement via une adresse IP, car l’intégration de DNS n’est pas encore configurée. Votre fournisseur de matériel OEM vous fournira un fichier JSON nommé **AzureStackStampDeploymentInfo** qui contient les adresses IP de point de terminaison privilégié.
+Avant de commencer cette procédure pour un système intégré, vérifiez que vous pouvez accéder à un point de terminaison privilégié via une adresse IP ou via DNS. Après le déploiement initial d’Azure Stack Hub, vous pouvez accéder au point de terminaison privilégié seulement via une adresse IP, car l’intégration de DNS n’est pas encore configurée. Votre fournisseur de matériel OEM vous fournira un fichier JSON nommé **AzureStackStampDeploymentInfo** qui contient les adresses IP de point de terminaison privilégié.
 
 Vous pouvez également trouver l’adresse IP dans le portail administrateur Azure Stack Hub. Ouvrez le portail, par exemple, `https://adminportal.local.azurestack.external`. Sélectionnez **Gestion des régions** > **Propriétés**.
 
@@ -76,7 +74,7 @@ Vous devez affecter la valeur `en-US` à votre paramètre de culture actuel au m
     Le paramètre `ComputerName` peut être l’adresse IP ou le nom DNS de l’une des machines virtuelles qui héberge le point de terminaison privilégié.
 
     > [!NOTE]  
-    >Azure Stack n’effectue pas d’appel à distance lors de la validation des informations d’identification du point de terminaison privilégié. Pour les valider, il s’appuie sur une clé publique RSA stockée localement.
+    >Azure Stack Hub n’effectue pas d’appel à distance lors de la validation des informations d’identification du point de terminaison privilégié. Pour les valider, il s’appuie sur une clé publique RSA stockée localement.
 
    - Si vous exécutez le kit ADSK :
 
@@ -89,7 +87,7 @@ Vous devez affecter la valeur `en-US` à votre paramètre de culture actuel au m
     
    - Quand vous y êtes invité, utilisez les informations d’identification suivantes :
    
-       - **Nom d’utilisateur** : spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack*&gt;\cloudadmin**. (Pour le Kit ASDK, le nom d’utilisateur est **azurestack\cloudadmin**.)
+       - **Nom d’utilisateur** : spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack Hub*&gt;\cloudadmin**. (Pour le Kit ASDK, le nom d’utilisateur est **azurestack\cloudadmin**.)
   
         - **Mot de passe** : entrez le mot de passe du compte d'administrateur de domaine AzureStackAdmin tel qu'il vous a été fourni pendant l'installation.
 
@@ -167,7 +165,7 @@ Pour importer la session du point de terminaison privilégié sur votre ordinate
 
      Quand vous y êtes invité, utilisez les informations d’identification suivantes :
 
-     - **Nom d’utilisateur** : spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack*&gt;\cloudadmin**. (Pour le Kit ASDK, le nom d’utilisateur est **azurestack\cloudadmin**.)
+     - **Nom d’utilisateur** : spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack Hub*&gt;\cloudadmin**. (Pour le Kit ASDK, le nom d’utilisateur est **azurestack\cloudadmin**.)
      - **Mot de passe** : entrez le mot de passe du compte d'administrateur de domaine AzureStackAdmin tel qu'il vous a été fourni pendant l'installation.
 
 3. Importer la session du point de terminaison privilégié dans votre machine locale :
@@ -176,7 +174,7 @@ Pour importer la session du point de terminaison privilégié sur votre ordinate
       Import-PSSession $session
     ```
 
-4. Vous pouvez désormais utiliser la saisie semi-automatique via la touche Tab et écrire des scripts comme de coutume sur votre session locale PowerShell à l’aide de l’ensemble des fonctions et des applets de commande du point de terminaison privilégié, sans réduire l’état de la sécurité d’Azure Stack. Vous n’avez plus qu’à l’utiliser !
+4. Vous pouvez désormais utiliser la saisie semi-automatique via la touche Tab pour écrire des scripts comme de coutume sur votre session locale PowerShell à l’aide de l’ensemble des fonctions et des applets de commande du point de terminaison privilégié, sans réduire la sécurité d’Azure Stack Hub. Vous n’avez plus qu’à l’utiliser !
 
 ## <a name="close-the-privileged-endpoint-session"></a>Fermer la session du point de terminaison privilégié
 
@@ -207,4 +205,4 @@ Une fois les fichiers journaux de transcription correctement transférés vers l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Outils de diagnostic Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)
+[Outils de diagnostic d’Azure Stack Hub](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)

@@ -1,6 +1,6 @@
 ---
-title: Gérer Key Vault dans Azure Stack en utilisant le portail | Microsoft Docs
-description: Découvrez comment gérer Key Vault dans Azure Stack à l’aide du portail Azure Stack.
+title: Gérer Key Vault dans Azure Stack Hub à l'aide du portail | Microsoft Docs
+description: Apprenez à gérer Key Vault dans Azure Stack Hub à l'aide du portail Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,21 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 01/10/2020
 ms.author: sethm
-ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: fc0907ffb905012043a3e446fcc29cc9e06f6932
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.lastreviewed: 1/10/2020
+ms.openlocfilehash: 1ba2be2d37cfa0b0d850f67124440fb9de13a23f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961499"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879153"
 ---
-# <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>Gérer Key Vault dans Azure Stack à l’aide du portail
+# <a name="manage-key-vault-in-azure-stack-hub-using-the-portal"></a>Gérer Key Vault dans Azure Stack Hub à l'aide du portail
 
-Cet article explique comment créer et gérer un coffre de clés dans Azure Stack en utilisant le portail Azure Stack.
+Cet article explique comment créer et gérer un coffre de clés dans Azure Stack Hub à l'aide du portail Azure Stack Hub.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous devez vous abonner à une offre qui inclut le service Azure Key Vault.
 
@@ -58,11 +58,11 @@ Après avoir créé un coffre de clés, procédez comme suit pour y créer et y 
 
 ### <a name="create-a-key"></a>Créer une clé
 
-1. Connectez-vous au [portail utilisateur](https://portal.local.azurestack.external).
+1. Connectez-vous au portail utilisateur [Azure Stack Hub](https://portal.local.azurestack.external).
 
 2. Dans le tableau de bord, sélectionnez **Toutes les ressources**, sélectionnez le coffre de clés que vous avez créé, puis sélectionnez la vignette **Clés**.
 
-3. Dans le volet **Clés**, sélectionnez **Ajouter**.
+3. Dans le volet **Clés**, sélectionnez **Générer/importer**.
 
 4. Dans le volet **Créer une clé**, dans la liste **Options**, choisissez la méthode que vous voulez utiliser pour créer une clé. Vous pouvez **Générer** une nouvelle clé, **Charger** une clé existante ou utiliser **Restaurer la sauvegarde** pour sélectionner une sauvegarde d’une clé.
 

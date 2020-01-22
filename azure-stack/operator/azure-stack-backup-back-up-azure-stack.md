@@ -1,6 +1,6 @@
 ---
-title: Sauvegarde d’Azure Stack | Microsoft Docs
-description: Découvrez comment effectuer une sauvegarde à la demande sur Azure Stack.
+title: Sauvegarde d’Azure Stack Hub | Microsoft Docs
+description: Découvrez comment effectuer une sauvegarde à la demande sur Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,20 +16,18 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 01a4ff62b7cc340a0cf0f98298ee28425d6df892
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 04f07af2860518174bf1f2e65ed17e85c34b4692
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974716"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882672"
 ---
-# <a name="back-up-azure-stack"></a>Sauvegarde d’Azure Stack
+# <a name="back-up-azure-stack-hub"></a>Sauvegarder Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+Cet article explique comment effectuer une sauvegarde à la demande sur Azure Stack Hub. Pour obtenir des instructions sur la configuration de l’environnement PowerShell, voir [Installer PowerShell pour Azure Stack Hub](azure-stack-powershell-install.md). Pour vous connecter à Azure Stack Hub, voir [Utilisation du portail administrateur dans Azure Stack Hub](azure-stack-manage-portals.md).
 
-Cet article explique comment effectuer une sauvegarde à la demande sur Azure Stack. Pour obtenir des instructions sur la configuration de l’environnement PowerShell, consultez [Installer PowerShell pour Azure Stack](azure-stack-powershell-install.md). Pour vous connecter à Azure Stack, consultez [Utilisation du portail administrateur dans Azure Stack](azure-stack-manage-portals.md).
-
-## <a name="start-azure-stack-backup"></a>Démarrer la sauvegarde d’Azure Stack
+## <a name="start-azure-stack-hub-backup"></a>Démarrer une sauvegarde d’Azure Stack Hub
 
 ### <a name="start-a-new-backup-without-job-progress-tracking"></a>Démarrer une nouvelle sauvegarde sans suivi de la progression du travail
 Utilisez Start-AzSBackup pour démarrer une nouvelle sauvegarde immédiatement sans aucun suivi de la progression du travail.
@@ -38,7 +36,7 @@ Utilisez Start-AzSBackup pour démarrer une nouvelle sauvegarde immédiatement s
    Start-AzsBackup -Force
 ```
 
-### <a name="start-azure-stack-backup-with-job-progress-tracking"></a>Démarrer une sauvegarde Azure Stack avec suivi de la progression du travail
+### <a name="start-azure-stack-hub-backup-with-job-progress-tracking"></a>Démarrer une sauvegarde d’Azure Stack Hub avec suivi de la progression du travail
 Utilisez Start-AzSBackup pour démarrer une nouvelle sauvegarde avec le paramètre **-AsJob** et l’enregistrer comme variable afin de suivre la progression du travail de sauvegarde.
 
 > [!NOTE]
@@ -112,9 +110,9 @@ Le résultat doit ressembler à la sortie suivante :
 ```
 
 ### <a name="confirm-backup-has-completed-in-the-administrator-portal"></a>Vérifier que la sauvegarde est terminée dans le portail d’administration
-Dans le portail d’administration Azure Stack, vérifiez que la sauvegarde s’est terminée en effectuant les étapes suivantes :
+Dans le portail administrateur Azure Stack Hub, vérifiez que la sauvegarde a abouti en procédant comme suit :
 
-1. Ouvrez le [portail d’administration Azure Stack](azure-stack-manage-portals.md).
+1. Ouvrez le [portail administrateur Azure Stack Hub](azure-stack-manage-portals.md).
 2. Sélectionnez **Tous les services** et, sous la catégorie **ADMINISTRATION**, sélectionnez > **Sauvegarde d’infrastructure**. Choisissez **Configuration** dans le panneau **Sauvegarde d’infrastructure**.
 3. Recherchez le **nom** et la **date d’exécution** de la sauvegarde dans la liste des **sauvegardes disponibles**.
 4. Vérifiez que l’**état** indique une **réussite**.

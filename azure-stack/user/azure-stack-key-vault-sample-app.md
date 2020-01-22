@@ -1,6 +1,6 @@
 ---
-title: Autoriser les applications à accéder aux secrets d’un coffre de clés dans Azure Stack | Microsoft Docs
-description: Découvrez comment exécuter un exemple d’application qui récupère les clés et les secrets d’un coffre de clés dans Azure Stack.
+title: Autoriser des applications à accéder aux secrets d’un Key Vault Azure Stack Hub | Microsoft Docs
+description: Découvrez comment exécuter un exemple d’application qui récupère des clés et secrets d’un coffre de clés dans Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,31 +15,29 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 97299ec47908325f7d3eddb7cf57ca891e145a8d
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: f73af34f3069b0fe550c8266253dce32efcb6b90
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718485"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883624"
 ---
-# <a name="allow-apps-to-access-azure-stack-key-vault-secrets"></a>Autoriser les applications à accéder aux secrets d’un coffre de clés dans Azure Stack
+# <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>Autoriser des applications à accéder aux secrets d’un Key Vault Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
-
-Suivez les étapes de cet article pour exécuter l’exemple d’application **HelloKeyVault** qui récupère les clés et les secrets d’un coffre de clés dans Azure Stack.
+Suivez les étapes de cet article pour exécuter l’exemple d’application **HelloKeyVault** qui récupère des clés et secrets d’un coffre de clés dans Azure Stack Hub.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous pouvez installer les prérequis suivants à partir du [Kit de développement Azure Stack](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) ou à partir d’un client externe Windows si vous êtes [connecté via un VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) :
 
-* Installez les [modules Azure PowerShell compatibles avec Azure Stack](../operator/azure-stack-powershell-install.md).
-* Téléchargez les [outils nécessaires pour utiliser Azure Stack](../operator/azure-stack-powershell-download.md).
+* Installez les [modules Azure PowerShell compatibles avec Azure Stack Hub](../operator/azure-stack-powershell-install.md).
+* Téléchargez les [outils nécessaires pour utiliser Azure Stack Hub](../operator/azure-stack-powershell-download.md).
 
 ## <a name="create-a-key-vault-and-register-an-app"></a>Créer un coffre de clés et inscrire une application
 
 Pour préparer l’exemple d’application :
 
-* Créez un coffre de clés dans Azure Stack.
+* Créez un coffre de clés dans Azure Stack Hub.
 * Inscrivez une application dans Azure Active Directory (Azure AD).
 
 Utilisez le portail Azure ou PowerShell pour préparer l’exemple d’application.
@@ -67,12 +65,12 @@ Function GenerateSymmetricKey()
     return [System.Convert]::ToBase64String($key)
 }
 
-Write-Host 'Please log into your Azure Stack user environment' -foregroundcolor Green
+Write-Host 'Please log into your Azure Stack Hub user environment' -foregroundcolor Green
 
 $tenantARM = "https://management.local.azurestack.external"
 $aadTenantName = "FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
 
-# Configure the Azure Stack operator's PowerShell environment.
+# Configure the Azure Stack Hub operator's PowerShell environment.
 Add-AzureRMEnvironment `
   -Name "AzureStackUser" `
   -ArmEndpoint $tenantARM
@@ -161,7 +159,7 @@ Dans Visual Studio :
 
 ## <a name="run-the-app"></a>Exécuter l’application
 
-Quand vous exécutez **HelloKeyVault**, l’application se connecte à Azure AD, puis utilise le jeton `AuthClientSecret` pour s’authentifier auprès du coffre de clés dans Azure Stack.
+Quand vous exécutez **HelloKeyVault**, l’application se connecte à Azure AD, puis utilise le jeton `AuthClientSecret` pour s’authentifier auprès du coffre de clés dans Azure Stack Hub.
 
 Vous pouvez utiliser l’exemple **HelloKeyVault** pour :
 

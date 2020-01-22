@@ -1,7 +1,7 @@
 ---
-title: Remplacer un nœud d’unité d’échelle sur un système intégré Azure Stack
-titleSuffix: Azure Stack
-description: Découvrez comment remplacer un nœud d’unité d’échelle physique sur un système intégré Azure Stack.
+title: Remplacer un nœud d'unité d'échelle sur un système intégré Azure Stack Hub
+titleSuffix: Azure Stack Hub
+description: Apprenez à remplacer un nœud d'unité d'échelle physique sur un système intégré Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,21 +16,19 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 255802151183cc2b832aaa64f2110b9c9052a0ba
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: 9e289420d10cace3c466c0b1ff18c4d84cf97800
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465465"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881975"
 ---
-# <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Remplacer un nœud d’unité d’échelle sur un système intégré Azure Stack
+# <a name="replace-a-scale-unit-node-on-an-azure-stack-hub-integrated-system"></a>Remplacer un nœud d'unité d'échelle sur un système intégré Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack*
-
-Cet article décrit la procédure générale permettant de remplacer un ordinateur physique (également appelé « nœud d’unité d’échelle ») sur un système intégré Azure Stack. Les étapes de remplacement de nœud d’unité d’échelle varient en fonction de votre fournisseur de matériel OEM. Pour obtenir des instructions détaillées propres à votre système, consultez la documentation FRU (Field Replaceable Unit) de votre fournisseur.
+Cet article décrit le processus général de remplacement d'un ordinateur physique (également appelé « nœud d'unité d'échelle ») sur un système intégré Azure Stack Hub. Les étapes de remplacement de nœud d’unité d’échelle varient en fonction de votre fournisseur de matériel OEM. Pour obtenir des instructions détaillées propres à votre système, consultez la documentation FRU (Field Replaceable Unit) de votre fournisseur.
 
 > [!CAUTION]  
-> Le nivellement du microprogramme est essentiel pour la réussite de l’opération décrite dans cet article. Le manquement de cette étape peut entraîner une instabilité du système, une baisse des performances, des threads de sécurité ou empêcher l’automatisation Azure Stack de déployer le système d’exploitation. Consultez toujours la documentation de votre partenaire de matériel lors du remplacement du matériel pour vous assurer que le microprogramme appliqué correspond à la version OEM affichée dans le [portail d’administration Azure Stack](azure-stack-updates.md). Pour en savoir plus et obtenir des liens vers la documentation du partenaire, consultez [Remplacer un composant matériel](azure-stack-replace-component.md).
+> Le nivellement du microprogramme est essentiel pour la réussite de l’opération décrite dans cet article. Le fait d'ignorer cette étape peut entraîner une instabilité du système, une baisse des performances, ainsi que des threads de sécurité, ou empêcher la fonctionnalité d'automatisation d'Azure Stack Hub de déployer le système d'exploitation. Lors du remplacement du matériel, consultez toujours la documentation de votre partenaire matériel pour vous assurer que le microprogramme appliqué correspond à la version OEM affichée sur le [portail administrateur Azure Stack Hub](azure-stack-updates.md). Pour en savoir plus et obtenir des liens vers la documentation du partenaire, consultez [Remplacer un composant matériel](azure-stack-replace-component.md).
 
 L’organigramme suivant illustre la procédure générale de la FRU pour remplacer un nœud d’unité d’échelle dans son ensemble.
 
@@ -39,7 +37,7 @@ L’organigramme suivant illustre la procédure générale de la FRU pour rempla
 \* Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
 
 > [!Note]  
-> Si l’opération d’arrêt échoue, il est recommandé d’utiliser l’opération de vidage suivie de l’opération d’arrêt. Pour plus d’informations, voir [Mettre à l’échelle des actions de nœud d’unité dans Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-node-actions).
+> Si l’opération d’arrêt échoue, il est recommandé d’utiliser l’opération de vidage suivie de l’opération d’arrêt. Pour plus d'informations, consultez [Actions relatives aux nœuds d'unité d'échelle dans Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-node-actions).
 
 ## <a name="review-alert-information"></a>Examiner les informations sur l’alerte
 

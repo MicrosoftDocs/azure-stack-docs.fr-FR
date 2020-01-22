@@ -1,6 +1,6 @@
 ---
-title: Ajouter une image de machine virtuelle personnalisée à Azure Stack | Microsoft Docs
-description: Découvrez comment ajouter ou supprimer une image de machine virtuelle personnalisée dans Azure Stack.
+title: Ajouter une image de machine virtuelle personnalisée à Azure Stack Hub | Microsoft Docs
+description: Apprenez à ajouter ou supprimer une image de machine virtuelle personnalisée dans Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: Justinha
@@ -15,18 +15,16 @@ ms.date: 10/16/2019
 ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 44bb9701e27bc98abbc1a353c8ada9fafddf0bbe
-ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
+ms.openlocfilehash: 738c9aad910e558f883e3474b248a8271beb30a3
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75654803"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880887"
 ---
-# <a name="add-a-custom-vm-image-to-azure-stack"></a>Ajouter une image de machine virtuelle personnalisée à Azure Stack
+# <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Ajouter une image de machine virtuelle personnalisée à Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
-
-Dans Azure Stack, vous pouvez ajouter votre image de machine virtuelle personnalisée à la Place de marché et la rendre disponible pour vos utilisateurs. Vous pouvez ajouter des images de machine virtuelle à la Place de marché Azure Stack Hub via le portail administrateur ou Windows PowerShell. Utilisez une image de la Place de marché Azure globale en tant que base de votre image personnalisée, ou créez la vôtre à l’aide d’Hyper-V.
+Azure Stack Hub vous permet d'ajouter votre image de machine virtuelle personnalisée à la Place de marché pour la mettre à la disposition de vos utilisateurs. Vous pouvez ajouter des images de machine virtuelle à la Place de marché Azure Stack Hub via le portail administrateur ou Windows PowerShell. Utilisez une image de la Place de marché Azure globale en tant que base de votre image personnalisée, ou créez la vôtre à l’aide d’Hyper-V.
 
 ## <a name="step-1-create-the-custom-vm-image"></a>Étape 1 : Créer l’image de machine virtuelle personnalisée
 
@@ -34,7 +32,7 @@ Dans Azure Stack, vous pouvez ajouter votre image de machine virtuelle personnal
 
 Créez un disque dur virtuel généralisé personnalisé. Si le disque dur virtuel est en dehors d’Azure, suivez les étapes décrites dans [Charger un disque dur virtuel généralisé et l’utiliser pour créer des machines virtuelles dans Azure](/azure/virtual-machines/windows/upload-generalized-managed) pour appliquer correctement **Sysprep** sur votre disque dur virtuel et le rendre généralisé.
 
-Si le VHD (disque dur virtuel) provient d’Azure, suivez les instructions de [ce document](/azure/virtual-machines/windows/download-vhd) pour généraliser et télécharger correctement le VHD avant de le porter sur Azure Stack.
+Si le disque dur virtuel (VHD) provient d'Azure, suivez les instructions de [ce document](/azure/virtual-machines/windows/download-vhd) pour le généraliser et le télécharger correctement avant de le porter sur Azure Stack Hub.
 
 ### <a name="linux"></a>Linux
 
@@ -56,7 +54,7 @@ Si le VHD provient d’Azure, suivez les instructions ci-après pour le généra
    logout
    ```
 
-   Les versions de l’agent Linux Azure qui fonctionnent avec Azure Stack sont [répertoriées ici](azure-stack-linux.md#azure-linux-agent). Vérifiez que l’image préparée avec Sysprep possède une version de l’agent Linux Azure compatible avec Azure Stack.
+   Les versions de l'agent Linux Azure compatibles avec Azure Stack Hub sont [répertoriées ici](azure-stack-linux.md#azure-linux-agent). Vérifiez que l'image préparée avec Sysprep possède une version de l'agent Linux Azure compatible avec Azure Stack Hub.
 
 2. Arrêtez/libérez la machine virtuelle.
 
@@ -82,21 +80,21 @@ Si le VHD provient d’Azure, suivez les instructions ci-après pour le généra
 
 Avant de charger l’image, il est important de tenir compte des éléments suivants :
 
-- Azure Stack prend seulement en charge les machines virtuelles de génération un (1) dans le format VHD de disque dur fixe. Le format fixe structure linéairement le disque logique dans le fichier, de façon que l’offset du disque *X* soit stocké à l’offset de l’objet blob *X*. Un petit pied de page à la fin de l’objet blob décrit les propriétés du disque dur virtuel. Pour vérifier si votre disque est fixe, utilisez l’applet de commande PowerShell **Get-VHD**.
+- Azure Stack Hub prend uniquement en charge la génération une (1) des machines virtuelles au format VHD de disque dur fixe. Le format fixe structure linéairement le disque logique dans le fichier, de façon que l’offset du disque *X* soit stocké à l’offset de l’objet blob *X*. Un petit pied de page à la fin de l’objet blob décrit les propriétés du disque dur virtuel. Pour vérifier si votre disque est fixe, utilisez l’applet de commande PowerShell **Get-VHD**.
 
-- Azure Stack ne prend pas en charge les disques durs virtuels de disque dynamique. 
+- Azure Stack Hub ne prend pas en charge les disques durs virtuels dynamiques. 
 
 ## <a name="step-2-upload-the-vm-image-to-a-storage-account"></a>Étape 2 : Charger l’image de machine virtuelle sur un compte de stockage
 
-1. [Installez PowerShell pour Azure Stack](azure-stack-powershell-install.md).  
+1. [Installez PowerShell pour Azure Stack Hub](azure-stack-powershell-install.md).  
 
-2. Connectez-vous à Azure Stack comme opérateur. Pour obtenir des instructions, consultez [Se connecter à Azure Stack comme opérateur](azure-stack-powershell-configure-admin.md).
+2. Connectez-vous à Azure Stack Hub en tant qu'opérateur. Pour obtenir des instructions, consultez [Se connecter à Azure Stack Hub en tant qu'opérateur](azure-stack-powershell-configure-admin.md).
 
-3. Les images doivent pouvoir être référencées par un URI de stockage d’objets blob. Préparez une image de système d’exploitation Windows ou Linux au format VHD (pas VHDX), puis chargez cette image sur un compte de stockage dans Azure Stack.
+3. Les images doivent pouvoir être référencées par un URI de stockage d’objets blob. Préparez une image de système d'exploitation Windows ou Linux au format VHD (pas VHDX), puis chargez cette image sur un compte de stockage d'Azure Stack Hub.
 
-   - Si le disque dur virtuel est dans Azure, vous pouvez utiliser un outil comme [Azcopy ](/azure/storage/common/storage-use-azcopy) pour transférer directement le disque dur virtuel entre un compte de stockage Azure et votre compte de stockage Azure Stack si vous l’exécutez sur un cloud Azure Stack connecté.
+   - Si le disque dur virtuel se trouve dans Azure, vous pouvez utiliser un outil comme [Azcopy ](/azure/storage/common/storage-use-azcopy) pour le transférer directement entre un compte de stockage Azure et votre compte de stockage Azure Stack Hub si vous l'exécutez sur une instance connectée d'Azure Stack Hub.
 
-   - Sur un cloud Azure Stack déconnecté, si votre disque dur virtuel est dans Azure, vous devez télécharger le disque dur virtuel sur une machine qui a une connectivité à la fois à Azure et à Azure Stack. Ensuite, vous copiez le disque dur virtuel sur cette machine à partir d’Azure avant de transférer le disque dur virtuel vers Azure Stack en utilisant un des [outils de transfert de données de stockage](../user/azure-stack-storage-transfer.md) courants qui peuvent être utilisés dans Azure et dans Azure Stack.
+   - Sur une instance déconnectée d'Azure Stack Hub, si votre disque dur virtuel se trouve dans Azure, vous devez le télécharger sur une machine connectée à Azure et à Azure Stack Hub. Ensuite, vous copiez le disque dur virtuel sur cette machine à partir d'Azure avant de le transférer vers Azure Stack Hub à l'aide d'un des [outils de transfert de données de stockage](../user/azure-stack-storage-transfer.md) courants qui peuvent être utilisés sur Azure et Azure Stack Hub.
 
      L’outil utilisé dans cet exemple est la commande Add-AzureRmVHD, qui permet de charger un VHD sur un compte de stockage dans le portail Administrateur Azure Stack Hub.  
 
@@ -115,9 +113,9 @@ Avant de charger l’image, il est important de tenir compte des éléments suiv
    ![Définir un accès public pour les objets blob](./media/azure-stack-add-vm-image/tca3.png)
    
 
-## <a name="step-3-option-1-add-the-vm-image-as-an-azure-stack-operator-using-the-portal"></a>Étape 3, option 1 : Ajouter l’image de machine virtuelle en tant qu’opérateur Azure Stack à l’aide du portail
+## <a name="step-3-option-1-add-the-vm-image-as-an-azure-stack-hub-operator-using-the-portal"></a>Étape 3, option 1 : Ajouter l'image de machine virtuelle en tant qu'opérateur Azure Stack Hub à l'aide du portail
 
-1. Connectez-vous au Azure Stack en tant qu’opérateur. Dans le menu, sélectionnez **Tous les services** > **Calcul** sous **Images de machine virtuelle** > **Ajouter**.
+1. Connectez-vous à Azure Stack Hub en tant qu'opérateur. Dans le menu, sélectionnez **Tous les services** > **Calcul** sous **Images de machine virtuelle** > **Ajouter**.
 
    ![IU de chargement indépendant d’image personnalisée](./media/azure-stack-add-vm-image/tca4.png)
 
@@ -129,11 +127,11 @@ Avant de charger l’image, il est important de tenir compte des éléments suiv
    
 3. Quand vous ajoutez une image, celle-ci est disponible seulement pour des modèles Azure Resource Manager et des déploiements PowerShell. Pour rendre une image disponible pour vos utilisateurs comme élément de Place de marché, publiez cet élément en suivant les étapes de l’article [Créer et publier un élément de Place de marché](azure-stack-create-and-publish-marketplace-item.md). Notez bien les valeurs pour **Éditeur**, **Offre**, **Référence SKU** et **Version**. Vous en aurez besoin pour modifier le modèle Resource Manager et le fichier Manifest.json dans votre fichier .azpkg personnalisé.
 
-## <a name="step-3-option-2-add-a-vm-image-as-an-azure-stack-operator-using-powershell"></a>Étape 3, option 2 : Ajouter une image de machine virtuelle en tant qu’opérateur Azure Stack en utilisant PowerShell
+## <a name="step-3-option-2-add-a-vm-image-as-an-azure-stack-hub-operator-using-powershell"></a>Étape 3, option 2 : Ajouter une image de machine virtuelle en tant qu'opérateur Azure Stack Hub à l'aide de PowerShell
 
-1. [Installez PowerShell pour Azure Stack](azure-stack-powershell-install.md).  
+1. [Installez PowerShell pour Azure Stack Hub](azure-stack-powershell-install.md).  
 
-2. Connectez-vous à Azure Stack comme opérateur. Pour obtenir des instructions, consultez [Se connecter à Azure Stack comme opérateur](azure-stack-powershell-configure-admin.md).
+2. Connectez-vous à Azure Stack Hub en tant qu'opérateur. Pour obtenir des instructions, consultez [Se connecter à Azure Stack Hub en tant qu'opérateur](azure-stack-powershell-configure-admin.md).
 
 3. Ouvrez PowerShell avec une invite de commandes avec élévation de privilèges et exécutez :
 
@@ -170,9 +168,9 @@ Avant de charger l’image, il est important de tenir compte des éléments suiv
      
 4. Quand vous ajoutez une image, celle-ci est disponible seulement pour des modèles Azure Resource Manager et des déploiements PowerShell. Pour rendre une image disponible pour vos utilisateurs comme élément de Place de marché, publiez cet élément en suivant les étapes de l’article [Créer et publier un élément de Place de marché](azure-stack-create-and-publish-marketplace-item.md). Notez bien les valeurs pour **Éditeur**, **Offre**, **Référence SKU** et **Version**. Vous en avez besoin quand vous modifiez le modèle Resource Manager et le fichier Manifest.json dans votre fichier .azpkg personnalisé.
 
-## <a name="remove-the-vm-image-as-an-azure-stack-operator-using-the-portal"></a>Supprimer l’image de machine virtuelle en tant qu’opérateur Azure Stack en utilisant le portail
+## <a name="remove-the-vm-image-as-an-azure-stack-hub-operator-using-the-portal"></a>Supprimer l'image de machine virtuelle en tant qu'opérateur Azure Stack Hub à l'aide du portail
 
-1. Ouvrez le [portail d’administration Azure Stack](https://adminportal.local.azurestack.external).
+1. Ouvrez le [portail administrateur](https://adminportal.local.azurestack.external) Azure Stack Hub.
 
 2. Si l’image de machine virtuelle a un élément de Place de marché associé, sélectionnez **Gestion de la Place de marché**, puis sélectionnez l’élément de Place de marché de machines virtuelles que vous voulez supprimer.
 
@@ -180,13 +178,13 @@ Avant de charger l’image, il est important de tenir compte des éléments suiv
 
 4. Sélectionnez **Supprimer**.
 
-## <a name="remove-a-vm-image-as-an-azure-stack-operator-using-powershell"></a>Supprimer une image de machine virtuelle en tant qu’opérateur Azure Stack en utilisant PowerShell
+## <a name="remove-a-vm-image-as-an-azure-stack-hub-operator-using-powershell"></a>Supprimer une image de machine virtuelle en tant qu'opérateur Azure Stack Hub à l'aide de PowerShell
 
 Si vous n’avez plus besoin de l’image de machine virtuelle que vous avez chargée, vous pouvez la supprimer sur la Place de marché à l’aide de l’applet de commande suivante :
 
-1. [Installez PowerShell pour Azure Stack](azure-stack-powershell-install.md).
+1. [Installez PowerShell pour Azure Stack Hub](azure-stack-powershell-install.md).
 
-2. Connectez-vous à Azure Stack comme opérateur.
+2. Connectez-vous à Azure Stack Hub en tant qu'opérateur.
 
 3. Ouvrez PowerShell avec une invite de commandes avec élévation de privilèges et exécutez :
 
@@ -212,9 +210,9 @@ Si vous n’avez plus besoin de l’image de machine virtuelle que vous avez cha
      Par exemple : `1.0.0`  
      Version de l’image de machine virtuelle que les utilisateurs indiquent lors du déploiement de l’image. La version suit le format *\#.\#.\#* , N’incluez aucun espace ou autre caractère spécial dans ce champ.  
 
-     Pour plus d’informations sur l’applet de commande **Remove-AzsPlatformImage**, consultez la [documentation sur les modules Opérateur Azure Stack](/powershell/module/) de Microsoft PowerShell.
+     Pour plus d'informations sur le cmdlet **Remove-AzsPlatformImage**, consultez la [documentation sur les modules Opérateur Azure Stack Hub](/powershell/module/) de Microsoft PowerShell.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer et publier un élément personnalisé de Place de marché Azure Stack](azure-stack-create-and-publish-marketplace-item.md)
+- [Créer et publier un élément personnalisé de Place de marché Azure Stack Hub](azure-stack-create-and-publish-marketplace-item.md)
 - [Approvisionner une machine virtuelle](../user/azure-stack-create-vm-template.md)

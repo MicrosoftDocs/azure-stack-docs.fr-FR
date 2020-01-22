@@ -1,6 +1,6 @@
 ---
-title: 'Stockage Azure Stack : différences et considérations | Microsoft Docs'
-description: Découvrez les différences entre le stockage Azure Stack et le stockage Azure, ainsi que les points à prendre en compte quand vous déployez Azure Stack.
+title: 'Stockage Azure Stack Hub : différences et considérations | Microsoft Docs'
+description: Découvrez les différences entre le stockage Azure Stack Hub et le stockage Azure, ainsi que les points à prendre en compte lorsque vous déployez Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,24 +15,22 @@ ms.date: 10/2/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: e2680a91aa2b9232eb86de4338d1198fb515e6d3
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 9b945f4cbb5e955c38b18c4bacd18726bbcb5e89
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824720"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883862"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Stockage Azure Stack : Différences et considérations
+# <a name="azure-stack-hub-storage-differences-and-considerations"></a>Stockage Azure Stack Hub : Différences et considérations
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+Le stockage Azure Stack Hub englobe l'ensemble des services cloud de stockage fournis dans Microsoft Azure Stack Hub. Le stockage Azure Stack Hub fournit des fonctionnalités de gestion des objets blob, des tables, des files d'attente et des comptes dont la sémantique est cohérente avec Azure.
 
-Le stockage Azure Stack est l’ensemble des services cloud de stockage fournis dans Microsoft Azure Stack. Le stockage Azure Stack fournit des fonctionnalités de gestion des objets blob, des tables, des files d’attente et des comptes avec une sémantique Azure cohérente.
+Cet article récapitule les différences connues entre le stockage Azure Stack Hub et les services de stockage Azure. Il énumère également les éléments à prendre en compte lorsque vous déployez Azure Stack Hub. Pour connaître les différences majeures entre Azure global et Azure Stack Hub, consultez l'article [Principales considérations](azure-stack-considerations.md).
 
-Cet article récapitule les différences connues entre le stockage Azure Stack et les services stockage Azure. Il répertorie également les points à considérer lorsque vous déployez Azure Stack. Pour connaître les différences majeures entre Azure global et Azure Stack, consultez l’article [Principales considérations](azure-stack-considerations.md).
+## <a name="cheat-sheet-storage-differences"></a>Aide-mémoire : différences entre les stockages
 
-## <a name="cheat-sheet-storage-differences"></a>Aide-mémoire : différences entre les stockages
-
-| Fonctionnalité | Azure (global) | Azure Stack |
+| Fonctionnalité | Azure (global) | Azure Stack Hub |
 | --- | --- | --- |
 |Stockage Fichier|Partages de fichiers SMB sur le cloud pris en charge|Pas encore pris en charge
 |Chiffrement du service de stockage Azure pour les données au repos|Chiffrement AES 256 bits. Prise en charge du chiffrement à l’aide de clés gérées par le client dans Azure Key Vault.|Chiffrement AES 128 bits BitLocker. Le chiffrement à l’aide de clés gérées par le client n’est pas pris en charge.
@@ -62,7 +60,7 @@ Il existe également des différences sur le plan des métriques de stockage :
 
 ## <a name="api-version"></a>Version de l'API
 
-Les versions suivantes sont prises en charge avec le stockage Azure Stack :
+Les versions suivantes sont prises en charge avec le stockage Azure Stack Hub :
 
 API de services de Stockage Azure :
 
@@ -102,10 +100,20 @@ Versions antérieures :
 - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
-Pour plus d’informations sur les bibliothèques clientes de stockage Azure Stack prises en charge, consultez : [Bien démarrer avec les outils de développement du stockage Azure Stack](azure-stack-storage-dev.md).
+## <a name="powershell-version"></a>Version de PowerShell
+
+Pour le module de stockage PowerShell, tenez compte de la version compatible avec l'API REST. 
+
+| Module | Version prise en charge | Usage |
+|----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Azure.Storage | [4.5.0](https://www.powershellgallery.com/packages/Azure.Storage/4.5.0) | Gère les objets blob, les files d'attente et les tables dans les comptes de stockage Azure Stack Hub |
+| AzureRM.Storage | [5.0.4](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.4) | Crée et gère des comptes de stockage dans Azure Stack Hub |
+
+
+Pour plus d'informations sur les bibliothèques clientes de stockage Azure Stack Hub prises en charge, consultez : [Bien démarrer avec les outils de développement du stockage Azure Stack Hub](azure-stack-storage-dev.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Bien démarrer avec les outils de développement du stockage Azure Stack](azure-stack-storage-dev.md)
-* [Utiliser des outils de transfert de données pour le stockage Azure Stack](azure-stack-storage-transfer.md)
-* [Présentation du stockage Azure Stack](azure-stack-storage-overview.md)
+* [Bien démarrer avec les outils de développement du stockage Azure Stack Hub](azure-stack-storage-dev.md)
+* [Utiliser des outils de transfert de données pour le stockage Azure Stack Hub](azure-stack-storage-transfer.md)
+* [Présentation du stockage Azure Stack Hub](azure-stack-storage-overview.md)

@@ -1,6 +1,6 @@
 ---
 title: Définir des autorisations d’accès en utilisant le contrôle d’accès en fonction du rôle | Microsoft Docs
-description: Découvrez comment définir des autorisations d’accès en utilisant le contrôle d’accès en fonction du rôle (RBAC) dans Azure Stack.
+description: Découvrez comment définir des autorisations d’accès en utilisant le contrôle d’accès en fonction du rôle (RBAC) dans Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -15,18 +15,16 @@ ms.date: 12/23/2019
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: ae5b167ca807fc1e28c13c553e13ea89c7e6fe49
-ms.sourcegitcommit: dc3d0b77ee77742525fa0cd72d8547d25393022f
+ms.openlocfilehash: 7630579591b7d6e4c4179964d522dceb1023f55e
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75492786"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882366"
 ---
 # <a name="set-access-permissions-using-role-based-access-control"></a>Définir des autorisations d’accès en utilisant le contrôle d’accès en fonction du rôle
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
-
-Un utilisateur Azure Stack peut être un lecteur, un propriétaire ou un collaborateur pour chaque instance d’un abonnement, d’un groupe de ressources ou d’un service. Par exemple, l’utilisateur A peut disposer des autorisations de lecteur sur l’abonnement un, mais disposer des autorisations de propriétaire sur la machine virtuelle sept.
+Un utilisateur Azure Stack Hub peut être un lecteur, un propriétaire ou un collaborateur pour chaque instance d’un abonnement, d’un groupe de ressources ou d’un service. Par exemple, l’utilisateur A peut disposer des autorisations de lecteur sur l’abonnement un, mais disposer des autorisations de propriétaire sur la machine virtuelle sept.
 
  - Lecteur : L’utilisateur peut tout voir, mais ne peut faire aucun changement.
  - Collaborateur : L'utilisateur peut tout gérer, à l’exception de l’accès aux ressources.
@@ -54,4 +52,4 @@ Un utilisateur Azure Stack peut être un lecteur, un propriétaire ou un collabo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Ajouter un locataire Azure Stack](azure-stack-add-new-user-aad.md)
+[Ajouter un locataire Azure Stack Hub](azure-stack-add-new-user-aad.md)

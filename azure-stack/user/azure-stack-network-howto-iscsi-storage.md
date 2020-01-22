@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour se connecter au stockage iSCSI avec Azure Stack | Microsoft Docs
-description: Découvrez comment se connecter au stockage iSCSI avec Azure Stack.
+title: Se connecter au stockage iSCSI avec Azure Stack Hub | Microsoft Docs
+description: Découvrez comment vous connecter au stockage iSCSI avec Azure Stack Hub.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,31 +9,29 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 0fe542cf17ce5b47436c8838c8d7c61b22e2fda8
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 5616284e7632f89ba31c89febb5a26158ad81bd7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718451"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879035"
 ---
-# <a name="how-to-connect-to-iscsi-storage-with-azure-stack"></a>Guide pratique pour se connecter au stockage iSCSI avec Azure Stack
+# <a name="how-to-connect-to-iscsi-storage-with-azure-stack-hub"></a>Se connecter au stockage iSCSI avec Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+Vous pouvez utiliser le modèle présenté dans cet article pour connecter une machine virtuelle Azure Stack Hub à une cible iSCSI locale, configurer la machine virtuelle pour qu’elle utilise le stockage hébergé en dehors de l’instance Azure Stack Hub et ailleurs dans votre centre de données. Cet article présente l’utilisation d’un ordinateur Windows en tant que cible iSCSI.
 
-Vous pouvez utiliser le modèle de cet article pour connecter une machine virtuelle Azure Stack à une cible iSCSI locale, configurer la machine virtuelle pour qu’elle utilise le stockage hébergé en dehors de l’instance Azure Stack et ailleurs dans votre centre de données. Cet article présente l’utilisation d’un ordinateur Windows en tant que cible iSCSI.
-
-Le modèle est disponible dans la branche **lucidqdreams** du dépôt [Azure Intelligent Edge Patterns GitHub](https://github.com/lucidqdreams/azure-intelligent-edge-patterns). Le modèle se trouve dans le dossier **storage-iSCSI**. Le modèle a été conçu pour configurer l’infrastructure nécessaire côté Azure Stack pour se connecter à une cible iSCSI. Il s’agit d’une machine virtuelle qui agit en tant qu’initiateur iSCSI avec le réseau virtuel, le groupe de sécurité réseau, l’adresse IP privée et le stockage associés. Une fois que le modèle a été déployé, deux scripts PowerShell doivent être exécutés pour terminer la configuration. Un script est exécuté sur la machine virtuelle locale (cible) et l’autre est exécuté sur la machine virtuelle Azure Stack (initiateur). L’objectif de l’exécution de ces scripts est d’ajouter un stockage local à votre machine virtuelle Azure Stack. 
+Le modèle est disponible dans la branche **lucidqdreams** du dépôt [Azure Intelligent Edge Patterns GitHub](https://github.com/lucidqdreams/azure-intelligent-edge-patterns). Le modèle se trouve dans le dossier **storage-iSCSI**. Le modèle est conçu pour configurer l’infrastructure nécessaire côté Azure Stack Hub afin de se connecter à une cible iSCSI. Il s’agit d’une machine virtuelle qui agit en tant qu’initiateur iSCSI avec le réseau virtuel, le groupe de sécurité réseau, l’adresse IP privée et le stockage associés. Une fois que le modèle a été déployé, deux scripts PowerShell doivent être exécutés pour terminer la configuration. Un script est exécuté sur la machine virtuelle locale (cible) et l’autre sur la machine virtuelle Azure Stack Hub (initiateur). Une fois ces scripts exécutés, un stockage local est ajouté à votre machine virtuelle Azure Stack Hub. 
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Le schéma montre une machine virtuelle hébergée sur Azure Stack avec un disque monté en iSCSI à partir d’un ordinateur Windows local (physique ou virtuel), ce qui permet au stockage externe à Azure Stack de monter à l’intérieur de votre machine virtuelle hébergée sur Azure Stack via le protocole iSCSI.
+Le schéma montre une machine virtuelle hébergée sur Azure Stack Hub avec un disque iSCSI monté à partir d’un ordinateur (physique ou virtuel) Windows local, ce qui permet le montage du stockage externe à Azure Stack Hub à l’intérieur de votre machine virtuelle hébergée par Azure Stack Hub via le protocole iSCSI.
 
 ![texte de remplacement](./media/azure-stack-network-howto-iscsi-storage/overview.png)
 
 ### <a name="requirements"></a>Spécifications
 
 - Un ordinateur local (physique ou virtuel) exécutant Windows Server 2016 Datacenter ou Windows Server 2019 Datacenter.
-- Éléments de la Place de marché Azure Stack requis :
+- Éléments requis de la Place de marché Azure Stack Hub :
     -  Windows Server 2016 Datacenter ou Windows Server 2019 Datacenter (dernière version recommandée).
     -  Extension PowerShell DSC.
     -  Extension de script personnalisé.
@@ -65,10 +63,10 @@ Le schéma montre les ressources déployées à partir du modèle pour créer le
 
 ### <a name="the-deployment-process"></a>Processus de déploiement
 
-Le modèle de groupe de ressources génère une sortie, qui est censée être l’entrée de l’étape suivante. Il se concentre principalement sur le nom du serveur et l’adresse IP publique Azure Stack d’origine du trafic iSCSI. Pour cet exemple :
+Le modèle de groupe de ressources génère une sortie, qui est censée être l’entrée de l’étape suivante. Elle se concentre principalement sur le nom du serveur et l’adresse IP publique Azure Stack Hub d’où provient le trafic iSCSI. Pour cet exemple :
 
 1. Déployez le modèle d’infrastructure.
-2. Déployez une machine virtuelle Azure Stack sur une machine virtuelle hébergée ailleurs dans votre centre de données. 
+2. Déployez une machine virtuelle Azure Stack Hub sur une machine virtuelle hébergée ailleurs dans votre centre de données. 
 3. Exécutez `Create-iSCSITarget.ps1` à l’aide des sorties d’adresse IP et de nom de serveur du modèle en tant que paramètres d’extraction du script sur la cible iSCSI, qui peut être une machine virtuelle ou un serveur physique.
 4. Utilisez l’adresse IP externe ou les adresses du serveur cible iSCSI comme entrées pour exécuter le script `Connect-toiSCSITarget.ps1`. 
 
@@ -143,4 +141,4 @@ Le script `Create-iSCSITarget.ps1 ` doit être exécuté sur le système, qui se
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Différences et considérations relatives aux réseaux Azure Stack](azure-stack-network-differences.md)  
+[Différences et considérations relatives aux réseaux Azure Stack Hub](azure-stack-network-differences.md)  

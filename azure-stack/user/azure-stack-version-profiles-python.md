@@ -1,6 +1,6 @@
 ---
-title: Utiliser les profils de version des API avec Python dans Azure Stack | Microsoft Docs
-description: Découvrez comment utiliser des profils de version des API avec Python dans Azure Stack.
+title: Utiliser des profils de version d’API avec Python dans Azure Stack Hub | Microsoft Docs
+description: Découvrez comment utiliser des profils de version d’API avec Python dans Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,18 +14,16 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: b54a4440adcc4f683ca27c42d637efa807e9ac75
-ms.sourcegitcommit: ac7d98a2b58442e82798022d69ebfae6616a225f
+ms.openlocfilehash: 556933545af27b1fc22241ced3c83389072b3c8f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74239352"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883199"
 ---
-# <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Utiliser des profils de version des API avec Python dans Azure Stack
+# <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Utiliser des profils de version d’API avec Python dans Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
-
-Le SDK Python prend en charge les profils de version d’API pour cibler différentes plateformes cloud comme Azure Stack et Azure international. Utilisez des profils d’API dans la création de solutions pour un cloud hybride.
+Le Kit de développement logiciel (SDK) Python prend en charge les profils de version d’API pour cibler différentes plateformes cloud telles qu’Azure Stack Hub et Azure global. Utilisez des profils d’API dans la création de solutions pour un cloud hybride.
 
 Les instructions de cet article nécessitent un abonnement Microsoft Azure. Si vous n’en avez pas, vous pouvez obtenir un [compte d’essai gratuit](https://go.microsoft.com/fwlink/?LinkId=330212).
 
@@ -36,38 +34,38 @@ Le Kit de développement logiciel (SDK) Python prend en charge les profils d’A
 - **le plus récent**  
     Ce profil cible les dernières versions d’API de tous les fournisseurs de services de la plateforme Azure.
 - **2019-03-01-hybrid**  
-    Ce profil cible les dernières versions d’API de tous les fournisseurs de ressources de la plateforme Azure Stack pour les versions 1904 ou ultérieures.
+    Ce profil cible les dernières versions d’API de tous les fournisseurs de ressources de la plateforme Azure Stack Hub pour les versions 1904 ou ultérieures.
 - **2018-03-01-hybrid**  
-    Ce profil cible les versions d’API les plus compatibles de tous les fournisseurs de ressources de la plateforme Azure Stack.
+    Ce profil cible les versions d’API les plus compatibles pour tous les fournisseurs de ressources de la plateforme Azure Stack Hub.
 - **2017-03-09-profile**  
-    Ce profil cible les versions d’API les plus compatibles des fournisseurs de ressources pris en charge par Azure Stack.
+    Ce profil cible les versions d’API les plus compatibles des fournisseurs de ressources pris en charge par Azure Stack Hub.
 
-   Pour plus d’informations sur les profils d’API et Azure Stack, consultez [Gérer les profils de version des API dans Azure Stack](azure-stack-version-profiles.md).
+   Pour plus d’informations sur les profils d’API et Azure Stack Hub, voir [Gérer les profils de version des API dans Azure Stack Hub](azure-stack-version-profiles.md).
 
 ## <a name="install-the-azure-python-sdk"></a>Installer le kit SDK Azure Python
 
 1. Installez Git à partir du [site officiel](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 2. Pour des instructions sur l’installation du SDK Python, consultez [Azure pour développeurs Python](/python/azure/python-sdk-azure-install?view=azure-python).
-3. Si vous n’en avez pas de disponible, créez un abonnement et enregistrez l’ID d’abonnement pour l’utiliser plus tard. Pour des instructions sur la création d’un abonnement, consultez [Créer des abonnements pour des offres dans Azure Stack](../operator/azure-stack-subscribe-plan-provision-vm.md).
-4. Créez un principal de service et enregistrez son ID et son secret. Pour plus d’informations sur la création d’un principal de service pour Azure Stack, consultez l’article [Fournir l’accès des applications à Azure Stack](../operator/azure-stack-create-service-principals.md).
-5. Vérifiez que votre principal de service bénéficie du rôle contributeur/propriétaire sur votre abonnement. Pour plus d’informations sur l’assignation d’un rôle à votre principal de service, consultez l’article [Fournir l’accès des applications à Azure Stack](../operator/azure-stack-create-service-principals.md).
+3. Si vous n’en avez pas de disponible, créez un abonnement et enregistrez l’ID d’abonnement pour l’utiliser plus tard. Pour des instructions sur la création d’un abonnement, voir [Créer des abonnements pour des offres dans Azure Stack Hub](../operator/azure-stack-subscribe-plan-provision-vm.md).
+4. Créez un principal de service et enregistrez son ID et son secret. Pour plus d’informations sur la création d’un principal de service pour Azure Stack Hub, voir [Fournir à des applications l’accès à Azure Stack Hub](../operator/azure-stack-create-service-principals.md).
+5. Vérifiez que votre principal de service bénéficie du rôle contributeur/propriétaire sur votre abonnement. Pour plus d’informations sur l’attribution d’un rôle à votre principal de service, voir [Fournir à des applications l’accès à Azure Stack Hub](../operator/azure-stack-create-service-principals.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour pouvoir utiliser le SDK Azure pour Python avec Azure Stack, vous devez fournir les valeurs suivantes et définir les valeurs avec des variables d’environnement. Pour définir les variables d’environnement, consultez les instructions fournies après le tableau et qui correspondent à votre système d’exploitation spécifique.
+Pour pouvoir utiliser le Kit de développement logiciel (SDK) Azure pour Python avec Azure Stack Hub, vous devez fournir les valeurs suivantes, puis les définir avec des variables d’environnement. Pour définir les variables d’environnement, consultez les instructions fournies après le tableau et qui correspondent à votre système d’exploitation spécifique.
 
-| Valeur | Variables d’environnement | Description |
+| Valeur | Variables d'environnement | Description |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
-| ID client | `AZURE_TENANT_ID` | Votre [ID de locataire](../operator/azure-stack-identity-overview.md) Azure Stack. |
+| ID client | `AZURE_TENANT_ID` | Votre [ID de locataire](../operator/azure-stack-identity-overview.md) Azure Stack Hub. |
 | ID client | `AZURE_CLIENT_ID` | L’ID d’application du principal de service enregistré lors de la création du principal de service dans la section précédente de cet article. |
-| Identifiant d’abonnement | `AZURE_SUBSCRIPTION_ID` | Vous utilisez l’[ID d’abonnement](../operator/service-plan-offer-subscription-overview.md#subscriptions) pour accéder à des offres dans Azure Stack. |
+| Identifiant d’abonnement | `AZURE_SUBSCRIPTION_ID` | Vous utilisez l’[ID d’abonnement](../operator/service-plan-offer-subscription-overview.md#subscriptions) pour accéder à des offres dans Azure Stack Hub. |
 | Clé secrète client | `AZURE_CLIENT_SECRET` | Le secret d’application du principal de service enregistré lors de la création du principal de service. |
-| Point de terminaison Resource Manager | `ARM_ENDPOINT` | Consultez l’article [Point de terminaison Azure Stack Resource Manager](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
-| Emplacement des ressources | `AZURE_RESOURCE_LOCATION` | Emplacement des ressources de votre environnement Azure Stack.
+| Point de terminaison Resource Manager | `ARM_ENDPOINT` | Voir l’article [Point de terminaison Azure Stack Hub Resource Manager](azure-stack-version-profiles-ruby.md#the-azure-stack-hub-resource-manager-endpoint). |
+| Emplacement de la ressource | `AZURE_RESOURCE_LOCATION` | Emplacement de la ressource de votre environnement Azure Stack Hub.
 
-### <a name="trust-the-azure-stack-ca-root-certificate"></a>Approuver le certificat racine d’autorité de certification Azure Stack
+### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Approuver le certificat d’autorité de certification racine d’Azure Stack Hub
 
-Si vous utilisez le kit ASDK, vous devez approuver explicitement le certificat racine de l’autorité de certification sur votre machine distante. Vous n’avez pas besoin d’approuver le certificat racine de l’autorité de certification avec les systèmes intégrés Azure Stack.
+Si vous utilisez le kit ASDK, vous devez approuver explicitement le certificat racine de l’autorité de certification sur votre machine distante. Vous n’avez pas besoin d’approuver le certificat d’autorité de certification racine avec des systèmes intégrés Azure Stack Hub.
 
 #### <a name="windows"></a>Windows
 
@@ -79,7 +77,7 @@ Si vous utilisez le kit ASDK, vous devez approuver explicitement le certificat r
 
     Notez l’emplacement du magasin de certificats ; par exemple, **~/lib/python3.5/site-packages/certifi/cacert.pem**. Votre chemin particulier dépend de votre système d’exploitation et de la version de Python que vous avez installée.
 
-2. Pour approuver le certificat racine d’autorité de certification Azure Stack, ajoutez-le au certificat Python existant :
+2. Pour approuver le certificat d’autorité de certification racine Azure Stack Hub, ajoutez-le au certificat Python existant :
 
     ```powershell
     $pemFile = "<Fully qualified path to the PEM certificate; for ex: C:\Users\user1\Downloads\root.pem>"
@@ -107,23 +105,23 @@ Si vous utilisez le kit ASDK, vous devez approuver explicitement le certificat r
     Write-Host "Adding the certificate content to Python Cert store"
     Add-Content "${env:ProgramFiles(x86)}\Python35\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
 
-    Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
+    Write-Host "Python Cert store was updated to allow the Azure Stack Hub CA root certificate"
     ```
 
 > [!NOTE]  
 > Si vous utilisez **virtualenv** dans le cadre du développement avec le SDK Python comme indiqué dans la section [Exécuter l’exemple Python](#run-the-python-sample) suivante, vous devez ajouter le certificat précédent au magasin de certificats de votre environnement virtuel. Le chemin peut se présenter comme suit : `..\mytestenv\Lib\site-packages\certifi\cacert.pem`.
 
-## <a name="python-samples-for-azure-stack"></a>Exemples Python pour Azure Stack
+## <a name="python-samples-for-azure-stack-hub"></a>Exemples Python pour Azure Stack Hub
 
-Parmi les exemples de code disponibles pour Azure Stack à l’aide du SDK Python, citons :
+Parmi les exemples de code disponibles pour Azure Stack Hub utilisant le Kit de développement logiciel (SDK) Python, citons :
 
 - [Gérer des ressources et des groupes de ressources](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/)
 - [Gérer un compte de stockage](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/)
-- [Gérer des machines virtuelles](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/) : cet exemple utilise le profil **2019-03-01-hybrid** qui cible les dernières versions d’API prises en charge par Azure Stack.
+- [Gérer des machines virtuelles](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/) : cet exemple utilise le profil **2019-03-01-hybrid** qui cible les dernières versions d’API prises en charge par Azure Stack Hub.
 
 ## <a name="manage-virtual-machine-sample"></a>Exemple de gestion de machines virtuelles
 
-Utilisez l’exemple de code Python suivant pour effectuer des tâches de gestion courantes pour les machines virtuelles de votre infrastructure Azure Stack. L’exemple de code vous montre comment :
+Utilisez l’exemple de code Python suivant pour effectuer des tâches de gestion courantes pour des machines virtuelles de votre Azure Stack Hub. L’exemple de code vous montre comment :
 
 - Créer des machines virtuelles :
   - Créer une machine virtuelle Linux
@@ -173,7 +171,7 @@ Chaque opération est clairement commentée et présente une fonction d’impres
     pip install -r requirements.txt
     ```
 
-6. Créez un [principal de service](../operator/azure-stack-create-service-principals.md) à utiliser avec Azure Stack. Vérifiez que votre principal de service bénéficie du [rôle contributeur/propriétaire](../operator/azure-stack-create-service-principals.md#assign-a-role) sur votre abonnement.
+6. Créez un [principal de service](../operator/azure-stack-create-service-principals.md) à utiliser avec Azure Stack Hub. Vérifiez que votre principal de service bénéficie du [rôle contributeur/propriétaire](../operator/azure-stack-create-service-principals.md#assign-a-role) sur votre abonnement.
 
 7. Définissez les variables d’environnement suivantes, puis exportez-les dans votre environnement actuel :
 
@@ -186,7 +184,7 @@ Chaque opération est clairement commentée et présente une fonction d’impres
     export AZURE_RESOURCE_LOCATION={your AzureStack Resource location}
     ```
 
-8. Pour exécuter cet exemple, les images Ubuntu 16.04-LTS et WindowsServer 2012-R2-DataCenter doivent être présentes dans la Place de marché Azure Stack. Ces images peuvent être [téléchargées à partir d’Azure](../operator/azure-stack-download-azure-marketplace-item.md) ou ajoutées au [dépôt d’images de la plateforme](../operator/azure-stack-add-vm-image.md).
+8. Pour exécuter cet exemple, les images Ubuntu 16.04-LTS et WindowsServer 2012-R2-DataCenter doivent être présentes sur la Place de marché Azure Stack Hub. Ces images peuvent être [téléchargées à partir d’Azure](../operator/azure-stack-download-azure-marketplace-item.md) ou ajoutées au [dépôt d’images de la plateforme](../operator/azure-stack-add-vm-image.md).
 
 9. Exécutez l’exemple :
 

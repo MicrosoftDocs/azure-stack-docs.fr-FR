@@ -1,6 +1,6 @@
 ---
-title: Activer la sauvegarde d’Azure Stack avec PowerShell | Microsoft Docs
-description: Découvrez comment activer le service Infrastructure Backup avec PowerShell pour permettre la restauration d’Azure Stack en cas de panne.
+title: Activer la sauvegarde pour Azure Stack Hub avec PowerShell | Microsoft Docs
+description: Découvrez comment activer le service Infrastructure Backup avec PowerShell pour permettre la restauration d’Azure Stack Hub en cas de panne.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -15,16 +15,14 @@ ms.date: 04/25/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 2e419c32caf78d97ee38e570ce0fa823cc94651a
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 06f20168bb3960eccab5b29b8538382dcd9a0ce3
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975182"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75877657"
 ---
-# <a name="enable-backup-for-azure-stack-with-powershell"></a>Activer la sauvegarde d’Azure Stack avec PowerShell
-
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+# <a name="enable-backup-for-azure-stack-hub-with-powershell"></a>Activer la sauvegarde pour Azure Stack Hub avec PowerShell
 
 Activez le service Infrastructure Backup avec Windows PowerShell pour sauvegarder régulièrement :
  - Le service d’identité interne et le certificat racine.
@@ -38,7 +36,7 @@ Vous pouvez accéder aux cmdlets PowerShell pour activer la sauvegarde, démarre
 
 ## <a name="prepare-powershell-environment"></a>Préparer l’environnement PowerShell
 
-Pour obtenir des instructions sur la configuration de l’environnement PowerShell, consultez [Installer PowerShell pour Azure Stack](azure-stack-powershell-install.md). Pour vous connecter à Azure Stack, consultez [Configurer l’environnement de l’opérateur et se connecter à Azure Stack](azure-stack-powershell-configure-admin.md).
+Pour obtenir des instructions sur la configuration de l’environnement PowerShell, voir [Installer PowerShell pour Azure Stack Hub](azure-stack-powershell-install.md). Pour vous connecter à Azure Stack Hub, voir [Configurer l’environnement de l’opérateur et se connecter à Azure Stack Hub](azure-stack-powershell-configure-admin.md).
 
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Indiquer le partage de sauvegarde, les informations d’identification et la clé de chiffrement pour activer la sauvegarde
 
@@ -51,8 +49,8 @@ Dans la même session PowerShell, modifiez le script PowerShell suivant en ajout
 | `$sharepath`      | Saisissez le chemin d’accès à l’**emplacement de stockage de sauvegarde**. Vous devez utiliser une chaîne UNC (Universal Naming Convention) pour le chemin d’un partage de fichiers hébergé sur un appareil distinct. Une chaîne UNC spécifie l’emplacement de ressources telles que des appareils ou des fichiers partagés. Pour garantir la disponibilité des données de sauvegarde, l’appareil doit se trouver dans un emplacement distinct. |
 | `$frequencyInHours` | La fréquence en heures détermine la fréquence à laquelle les sauvegardes sont créées. La valeur par défaut est 12. Scheduler prend en charge un maximum de 12 heures et un minimum de 4 heures.|
 | `$retentionPeriodInDays` | La période de rétention en jours détermine le nombre de jours pendant lesquels les sauvegardes sont conservées sur l’emplacement externe. La valeur par défaut est 7. Scheduler prend en charge un maximum de 14 jours et un minimum de 2 jours. Les sauvegardes antérieures à la période de rétention sont automatiquement supprimées de l’emplacement externe.|
-| `$encryptioncertpath` | S’applique aux versions 1901 et ultérieures. Paramètre disponible dans le module Azure Stack 1.7 et ultérieur. Le chemin du certificat de chiffrement spécifie le chemin du fichier .CER avec la clé publique utilisée pour le chiffrement des données. |
-| `$encryptionkey` | S’applique à la build 1811 et builds antérieures. Paramètre disponible dans le module Azure Stack 1.6 et les versions antérieures. La clé de chiffrement est utilisée pour le chiffrement des données. Pour créer une nouvelle clé, utilisez la cmdlet [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). |
+| `$encryptioncertpath` | S’applique aux versions 1901 et ultérieures. Paramètre disponible dans le module Azure Stack Hub versions 1.7 et ultérieures. Le chemin du certificat de chiffrement spécifie le chemin du fichier .CER avec la clé publique utilisée pour le chiffrement des données. |
+| `$encryptionkey` | S’applique à la build 1811 et builds antérieures. Paramètre disponible dans le module Azure Stack Hub versions 1.6 et antérieures. La clé de chiffrement est utilisée pour le chiffrement des données. Pour créer une nouvelle clé, utilisez la cmdlet [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). |
 |     |     |
 
 ### <a name="enable-backup-on-1901-and-later-using-certificate"></a>Activer la sauvegarde sur la version 1901 et ultérieur à l’aide d’un certificat
@@ -140,15 +138,15 @@ Le résultat doit ressembler à l’exemple de sortie suivant :
     BackupRetentionPeriodInDays : 5
    ```
 
-### <a name="azure-stack-powershell"></a>Azure Stack PowerShell 
+### <a name="azure-stack-hub-powershell"></a>Azure Stack Hub PowerShell 
 La cmdlet PowerShell permettant de configurer la sauvegarde de l'infrastructure est Set-AzsBackupConfiguration. Dans les versions précédentes, il s'agissait de la cmdlet Set-AzsBackupShare. Cette cmdlet nécessite la présentation d'un certificat. Si la sauvegarde de l’infrastructure est configurée avec une clé de chiffrement, vous ne pouvez pas mettre à jour la clé de chiffrement ni voir la propriété. Vous devrez utiliser PowerShell version 1.6 en mode Administrateur.
 
 Si la sauvegarde de l’infrastructure a été configurée avant la mise à jour vers la version 1901, vous pouvez utiliser la version 1.6 du mode Administrateur de PowerShell pour configurer et voir la clé de chiffrement. La version 1.6 ne vous permettra pas de procéder à la mise à jour en passant d’une clé de chiffrement à un fichier de certificat.
-Pour plus d’informations sur l’installation de la version appropriée du module, consultez [Installer Azure Stack PowerShell](azure-stack-powershell-install.md).
+Pour plus d’informations sur l’installation de la version appropriée du module, voir [Installer Azure Stack Hub PowerShell](azure-stack-powershell-install.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment exécuter une sauvegarde, voir [Sauvegarde d’Azure Stack](azure-stack-backup-back-up-azure-stack.md).
+Pour exécuter une sauvegarde, voir [Sauvegarder Azure Stack Hub](azure-stack-backup-back-up-azure-stack.md).
 
 Pour savoir comment vérifier que votre sauvegarde a été exécutée, voir [Confirmer que la sauvegarde est terminée dans le portail d’administration](azure-stack-backup-back-up-azure-stack.md).

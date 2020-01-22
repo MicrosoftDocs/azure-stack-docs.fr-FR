@@ -1,7 +1,7 @@
 ---
-title: Préparer des certificats PKI Azure Stack pour un déploiement ou une rotation | Microsoft Docs
-titleSuffix: Azure Stack
-description: Découvrez comment préparer des certificats PKI pour le déploiement de systèmes intégrés Azure Stack ou la rotation de secrets dans un environnement Azure Stack existant.
+title: Préparer des certificats PKI Azure Stack Hub pour un déploiement ou une rotation | Microsoft Docs
+titleSuffix: Azure Stack Hub
+description: Découvrez comment préparer des certificats PKI pour un déploiement de systèmes intégrés Azure Stack Hub ou la rotation de secrets dans un environnement Azure Stack Hub existant.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,20 +16,20 @@ ms.date: 09/16/2019
 ms.author: justinha
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: a63e0e3a2246cc3c3c659f9671afdf4be0cc93cd
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.openlocfilehash: 9031f81909a5bfe44882aabce47488ba6ca40edf
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802374"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810348"
 ---
-# <a name="prepare-azure-stack-pki-certificates-for-deployment-or-rotation"></a>Préparer des certificats PKI Azure Stack pour un déploiement ou une rotation
+# <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>Préparer des certificats PKI Azure Stack Hub pour un déploiement ou une rotation
 
-Les fichiers de certificat [obtenus auprès de l’autorité de certification de votre choix](azure-stack-get-pki-certs.md) doivent être importés et exportés avec les propriétés qui correspondent aux exigences de certificat d’Azure Stack.
+Les fichiers de certificat [obtenus auprès de l’autorité de certification de votre choix](azure-stack-get-pki-certs.md) doivent être importés et exportés avec des propriétés correspondant aux exigences de certificat d’Azure Stack Hub.
 
 ## <a name="prepare-certificates-for-deployment"></a>Préparer les certificats pour le déploiement
 
-Effectuez les étapes suivantes pour préparer et valider les certificats PKI Azure Stack qui seront utilisés pour déployer un nouvel environnement Azure Stack ou effectuer la rotation de secrets dans un environnement Azure Stack existant.
+Procédez comme suit pour préparer et valider les certificats PKI Azure Stack Hub à utiliser pour déployer un nouvel environnement Azure Stack Hub ou opérer la rotation de secrets dans un environnement Azure Stack Hub.
 
 ### <a name="import-the-certificate"></a>Importer le certificat
 
@@ -54,7 +54,7 @@ Effectuez les étapes suivantes pour préparer et valider les certificats PKI A
 1. Sélectionnez **Terminer** pour effectuer l’importation.
 
 > [!NOTE]
-> Après l’importation d’un certificat pour Azure Stack, la clé privée du certificat est stockée sous la forme d’un fichier PKCS 12 (PFX) sur l’espace de stockage en cluster.
+> Après importation d’un certificat pour Azure Stack Hub, la clé privée du certificat est stockée sous la forme d’un fichier PKCS 12 (PFX) sur le stockage en cluster.
 
 ### <a name="export-the-certificate"></a>Exportation du certificat
 
@@ -75,7 +75,7 @@ Ouvrez la console MMC du Gestionnaire de certificats et connectez-vous au magasi
 5. Dans la barre des tâches de la console Gestionnaire de certificats, sélectionnez **Actions** > **Toutes les tâches** > **Exporter**. Sélectionnez **Suivant**.
 
    > [!NOTE]
-   > Selon le nombre de certificats Azure Stack que vous avez, vous devrez peut-être effectuer ce processus plusieurs fois.
+   > Selon le nombre de certificats Azure Stack Hub que vous avez, il se peut que vous deviez effectuer ce processus plusieurs fois.
 
 6. Sélectionnez **Oui, exporter la clé privée**, puis cliquez sur **Suivant**.
 

@@ -1,6 +1,6 @@
 ---
-title: Gérer les comptes de stockage Azure Stack | Microsoft Docs
-description: Découvrez comment rechercher, gérer, restaurer et récupérer des comptes de stockage Azure Stack
+title: Gérer des comptes de stockage Azure Stack Hub | Microsoft Docs
+description: Découvrez comment rechercher, gérer, restaurer et récupérer des comptes de stockage Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,30 +15,30 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 9af79442a0fb56e4d6a9cef99741b0180e84304c
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: 888d34441af672dfcfa27e8f48237c41105ce629
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534190"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817123"
 ---
-# <a name="manage-azure-stack-storage-accounts"></a>Gérer des comptes de stockage Azure Stack
+# <a name="manage-azure-stack-hub-storage-accounts"></a>Gérer des comptes de stockage Azure Stack Hub
 
-Découvrez comment gérer des comptes de stockage Azure Stack. Rechercher et récupérer de la capacité de stockage en fonction des besoins de l’entreprise.
+Découvrez comment gérer des comptes de stockage Azure Stack Hub. Rechercher et récupérer de la capacité de stockage en fonction des besoins de l’entreprise.
 
 ## <a name="find-a-storage-account"></a>Rechercher un compte de stockage
 
-La liste des comptes de stockage de la région peut être affichée dans Azure Stack en procédant comme suit :
+Vous pouvez consulter la liste des comptes de stockage de la région dans Azure Stack Hub en procédant comme suit :
 
 1. Connectez-vous au [portail d’administration](https://adminportal.local.azurestack.external).
 
 2. Sélectionnez **Tous les services** > **Stockage** > **Comptes de stockage**.
 
-   ![Comptes de stockage Azure Stack](media/azure-stack-manage-storage-accounts/image4.png)
+   ![Comptes de stockage Azure Stack Hub](media/azure-stack-manage-storage-accounts/image4.png)
 
 Par défaut, les 10 premiers comptes sont affichés. Vous pouvez choisir d’en afficher plus en cliquant sur le lien **Charger plus** en bas de la liste.
 
-Ou
+OR
 
 Si vous êtes intéressé par un compte de stockage particulier, vous pouvez **filtrer et extraire les comptes appropriés** uniquement.
 
@@ -48,7 +48,7 @@ Si vous êtes intéressé par un compte de stockage particulier, vous pouvez **f
 2. Dans le volet Filtrer, vous pouvez spécifier un **nom de compte**, un **ID d’abonnement** ou un **statut** pour affiner la liste des comptes de stockage à afficher. Utilisez-les pour filtrer selon vos besoins.
 3. Lorsque vous tapez, la liste applique automatiquement le filtre.
 
-    ![Filtrer des comptes de stockage Azure Stack](media/azure-stack-manage-storage-accounts/image5.png)
+    ![Filtrer des comptes de stockage Azure Stack Hub](media/azure-stack-manage-storage-accounts/image5.png)
 
 4. Pour réinitialiser le filtre, sélectionnez **Filtrer**, effacez les sélections, puis mettez à jour la liste.
 
@@ -56,7 +56,7 @@ La zone de texte de recherche (en haut du volet de la liste de comptes de stocka
 
 Vous pouvez utiliser ici du texte libre pour rechercher le compte qui vous intéresse.
 
-![Rechercher des comptes de stockage Azure Stack](media/azure-stack-manage-storage-accounts/image6.png)
+![Rechercher des comptes de stockage Azure Stack Hub](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>Accéder aux détails du compte
 Une fois que vous avez trouvé les comptes qui vous intéressent, vous pouvez sélectionner un compte particulier pour afficher certains détails. Un nouveau volet s’ouvre et affiche les détails du compte. Ces détails incluent notamment le type de compte, l’heure de création et l’emplacement.
@@ -66,7 +66,7 @@ Une fois que vous avez trouvé les comptes qui vous intéressent, vous pouvez s�
 ## <a name="recover-a-deleted-account"></a>Récupérer un compte supprimé
 Il peut être parfois nécessaire de récupérer un compte supprimé.
 
-Dans Azure Stack, il existe un moyen simple de le faire :
+Dans Azure Stack Hub, il existe un moyen simple de le faire :
 
 1. Accédez à la liste de comptes de stockage. Pour plus d’informations, consultez [Rechercher un compte de stockage](azure-stack-manage-storage-accounts.md) en haut de cet article.
 2. Localisez ce compte particulier dans la liste. Il peut être nécessaire de filtrer.
@@ -143,10 +143,10 @@ Vous pouvez aussi utiliser PowerShell pour remplacer explicitement la période d
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
 ```
 
-Pour plus d’informations, consultez la [documentation Azure Stack PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
+Pour plus d’informations, voir la [documentation Azure Stack Hub PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
  - Pour plus d’informations sur la gestion des autorisations, consultez [Définir les autorisation d’accès à l’aide du contrôle d’accès en fonction du rôle](azure-stack-manage-permissions.md).
- - Pour plus d’informations sur la gestion de la capacité de stockage pour Azure Stack, consultez [Gérer la capacité de stockage pour Azure Stack](azure-stack-manage-storage-shares.md).
+ - Pour plus d’informations sur la gestion de la capacité de stockage pour Azure Stack Hub, voir [Gérer la capacité de stockage pour Azure Stack Hub](azure-stack-manage-storage-shares.md).

@@ -1,7 +1,7 @@
 ---
 title: Opérations de maintenance du fournisseur de ressources SQL
-titleSuffix: Azure Stack
-description: Apprenez-en davantage sur les opérations de maintenance du fournisseur de ressources SQL dans Azure Stack.
+titleSuffix: Azure Stack Hub
+description: Apprenez-en davantage sur les opérations de maintenance du fournisseur de ressources SQL dans Azure Stack Hub.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: d5467974a6b9164d92a2281fd94973835bc21993
-ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
+ms.openlocfilehash: 609d0d77af4f11630616567d36fd5ffc35a24a8d
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75756880"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814471"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Opérations de maintenance du fournisseur de ressources SQL
 
@@ -29,7 +29,7 @@ Le fournisseur de ressources SQL s’exécute sur une machine virtuelle verrouil
 
 ## <a name="patching-and-updating"></a>Mise à jour corrective et mise à jour
 
-Le fournisseur de ressources SQL n’est pas traité au sein d’Azure Stack, car il s’agit d’un composant additionnel. Microsoft fournit au besoin des mises à jour du fournisseur de ressources SQL. Lorsqu’une mise à jour d’adaptateur SQL est publiée, un script est fourni pour appliquer la mise à jour. Ce script crée une nouvelle machine virtuelle pour le fournisseur de ressources et effectue la migration de l’état de l’ancienne machine virtuelle du fournisseur vers la nouvelle. Pour plus d’informations, consultez [Mettre à jour le fournisseur de ressources SQL](azure-stack-sql-resource-provider-update.md).
+Le fournisseur de ressources SQL n’est pas intégré dans Azure Stack Hub, car il s’agit d’un module complémentaire. Microsoft fournit au besoin des mises à jour du fournisseur de ressources SQL. Lorsqu’une mise à jour d’adaptateur SQL est publiée, un script est fourni pour appliquer la mise à jour. Ce script crée une nouvelle machine virtuelle pour le fournisseur de ressources et effectue la migration de l’état de l’ancienne machine virtuelle du fournisseur vers la nouvelle. Pour plus d’informations, consultez [Mettre à jour le fournisseur de ressources SQL](azure-stack-sql-resource-provider-update.md).
 
 ### <a name="provider-vm"></a>Machine virtuelle du fournisseur
 
@@ -37,7 +37,7 @@ Le fournisseur de ressources SQL n’est pas traité au sein d’Azure Stack, ca
 
 ## <a name="updating-sql-credentials"></a>Mise à jour des informations d’identification SQL
 
-Vous êtes responsable de la création et de la gestion des comptes administrateur système sur vos serveurs SQL. Le fournisseur de ressources a besoin d’un compte disposant de ces privilèges pour gérer les bases de données pour le compte d’utilisateurs, mais il n’a pas besoin d’accéder aux données utilisateur. Pour mettre à jour les mots de passe d’administrateur système sur vos serveurs SQL, vous pouvez utiliser l’interface d’administration du fournisseur de ressources afin de modifier le mot de passe stocké utilisé par ce dernier. Ces mots de passe sont stockés dans un coffre de clés sur votre instance Azure Stack.
+Vous êtes responsable de la création et de la gestion des comptes administrateur système sur vos serveurs SQL. Le fournisseur de ressources a besoin d’un compte disposant de ces privilèges pour gérer les bases de données pour le compte d’utilisateurs, mais il n’a pas besoin d’accéder aux données utilisateur. Pour mettre à jour les mots de passe d’administrateur système sur vos serveurs SQL, vous pouvez utiliser l’interface d’administration du fournisseur de ressources afin de modifier le mot de passe stocké utilisé par ce dernier. Ces mots de passe sont stockés dans un coffre de clés sur votre instance Azure Stack Hub.
 
 Pour modifier les paramètres, cliquez sur **Parcourir** &gt; **RESSOURCES ADMINISTRATIVES** &gt; **Serveurs d’hébergement SQL** &gt; **Connexions SQL**, puis sélectionnez un nom d’utilisateur. La modification doit d’abord être effectuée sur l’instance SQL (et sur tous les réplicas, si nécessaire). Sous **Paramètres**, sélectionnez **Mot de passe**.
 
@@ -45,9 +45,9 @@ Pour modifier les paramètres, cliquez sur **Parcourir** &gt; **RESSOURCES ADMIN
 
 ## <a name="secrets-rotation"></a>Rotation des secrets
 
-*Ces instructions s’appliquent uniquement aux systèmes intégrés Azure Stack*.
+*Ces instructions s’appliquent uniquement aux systèmes intégrés Azure Stack Hub*.
 
-Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèmes intégrés Azure Stack, l’opérateur Azure Stack est chargé de faire pivoter les secrets d’infrastructure de fournisseurs de ressources suivants pour garantir qu’ils n’expirent pas :
+Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèmes intégrés Azure Stack Hub, l’opérateur Azure Stack Hub est chargé d’opérer la rotation des secrets d’infrastructure de fournisseurs de ressources suivants pour garantir qu’ils n’expirent pas :
 
 - Certificat SSL externe [fourni au cours du déploiement](azure-stack-pki-certs.md).
 - Mot de passe de compte d’administrateur local des machines virtuelles du fournisseur de ressources fourni au cours du déploiement.
@@ -103,8 +103,8 @@ Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèm
 
 |Paramètre|Description|
 |-----|-----|
-|AzCredential|Informations d’identification du compte d’administration de service Azure Stack.|
-|CloudAdminCredential|Informations d’identification du compte de domaine d’administrateur cloud d’Azure Stack.|
+|AzCredential|Informations d’identification du compte d’administration de service Azure Stack Hub.|
+|CloudAdminCredential|Informations d’identification du compte de domaine d’administrateur cloud d’Azure Stack Hub.|
 |PrivilegedEndpoint|Point de terminaison privilégié pour accéder à Get-AzureStackStampInformation.|
 |DiagnosticsUserPassword|Diagnostique le mot de passe de compte d’utilisateur.|
 |VMLocalCredential|Compte d’administrateur local de la machine virtuelle MySQLAdapter.|

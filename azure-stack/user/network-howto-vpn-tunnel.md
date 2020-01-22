@@ -1,6 +1,6 @@
 ---
-title: Configurer un tunnel VPN site à site multiple dans Azure Stack | Microsoft Docs
-description: Découvrez comment configurer un tunnel VPN site à site multiple dans Azure Stack.
+title: Configurer un tunnel VPN site à site multiple dans Azure Stack Hub | Microsoft Docs
+description: Découvrez comment configurer un tunnel VPN site à site multiple dans Azure Stack Hub.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,18 +9,16 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: d85de1892e2e6620249ff3a95ee2debb01b81981
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 4593898a1ea70b2001c252f885b12db2f16e922e
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73168282"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883046"
 ---
-# <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack"></a>Configurer un tunnel VPN site à site multiple dans Azure Stack
+# <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>Configurer un tunnel VPN site à site multiple dans Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
-
-Cet article vous explique comment utiliser un modèle Azure Stack Resource Manager pour déployer la solution. La solution crée plusieurs groupes de ressources avec des réseaux virtuels associés et permet de connecter ces systèmes.
+Cet article explique comment utiliser un modèle Resource Manager Azure Stack Hub pour déployer la solution. La solution crée plusieurs groupes de ressources avec des réseaux virtuels associés et permet de connecter ces systèmes.
 
 Les modèles sont disponibles dans le référentiel GitHub [Azure intelligent Edge Patterns](https://github.com/Azure-Samples/azure-intelligent-edge-patterns). Le modèle se trouve dans le dossier **rras-gre-vnet-vnet**. 
 
@@ -34,7 +32,7 @@ Les modèles sont disponibles dans le référentiel GitHub [Azure intelligent Ed
 
 -  Déployez une application à trois niveaux : Web, App et DB.
 
--  Déployez les deux premiers modèles sur des instances Azure Stack distinctes.
+-  Déployez les deux premiers modèles sur des instances Azure Stack Hub distinctes.
 
 -  **WebTier** sera déployé sur PPE1 et **AppTier** sur PPE2.
 
@@ -44,15 +42,15 @@ Les modèles sont disponibles dans le référentiel GitHub [Azure intelligent Ed
 
 ## <a name="steps-to-deploy-multiple-vpns"></a>Procédure de déploiement de plusieurs VPN
 
-Cette procédure comprend plusieurs étapes. Pour cette solution, vous allez utiliser le portail Azure Stack. Vous pouvez cependant utiliser PowerShell, Azure CLI ou d’autres chaînes d’outils d’infrastructure en tant que code pour capturer les sorties et les utiliser en tant qu'entrées.
+Cette procédure comprend plusieurs étapes. Pour cette solution, vous allez utiliser le portail Azure Stack Hub. Vous pouvez cependant utiliser PowerShell, Azure CLI ou d’autres chaînes d’outils d’infrastructure en tant que code pour capturer les sorties et les utiliser en tant qu'entrées.
 
 ![texte de remplacement](./media/azure-stack-network-howto-vpn-tunnel/image2.png)
 
 ## <a name="walkthrough"></a>Procédure pas à pas
 
-### <a name="deploy-web-tier-to-azure-stack-instances-ppe1"></a>Déployer le niveau web sur les instances Azure Stack PPE1
+### <a name="deploy-web-tier-to-azure-stack-hub-instances-ppe1"></a>Déployer le niveau web sur des instances Azure Stack Hub PPE1
 
-1.  Ouvrez le portail utilisateur Azure Stack, puis sélectionnez **Créer une ressource**.
+1.  Ouvrez le portail utilisateur Azure Stack Hub, puis sélectionnez **Créer une ressource**.
 
 2.  Sélectionnez **Déploiement de modèle**.
 
@@ -69,7 +67,7 @@ Cette procédure comprend plusieurs étapes. Pour cette solution, vous allez uti
 
     ![](./media/azure-stack-network-howto-vpn-tunnel/image5.png)
 
-### <a name="deploy-app-tier-to-the-second-azure-stack-instances"></a>Déployer le niveau application vers les deuxièmes instances Azure Stack
+### <a name="deploy-app-tier-to-the-second-azure-stack-hub-instances"></a>Déployer le niveau application sur des secondes instances Azure Stack Hub
 
 Vous pouvez suivre la même procédure que pour le niveau **WebTier**, mais des paramètres différents s'affichent ici :
 
@@ -96,7 +94,7 @@ Vous pouvez suivre la même procédure que pour le niveau **WebTier**, mais des 
 
 ### <a name="create-tunnel-from-web-tier-to-app-tier"></a>Créer un tunnel entre le niveau web et le niveau application
 
-1.  Ouvrez le portail utilisateur Azure Stack, puis sélectionnez **Créer une ressource**.
+1.  Ouvrez le portail utilisateur Azure Stack Hub, puis sélectionnez **Créer une ressource**.
 
 2.  Sélectionnez **Déploiement de modèle**.
 
@@ -108,7 +106,7 @@ Vous pouvez suivre la même procédure que pour le niveau **WebTier**, mais des 
 
 ### <a name="create-tunnel-from-app-tier-to-web-tier"></a>Créer un tunnel entre le niveau application et le niveau web
 
-1.  Ouvrez le portail utilisateur Azure Stack, puis sélectionnez **Créer une ressource**.
+1.  Ouvrez le portail utilisateur Azure Stack Hub, puis sélectionnez **Créer une ressource**.
 
 2.  Sélectionnez **Déploiement de modèle**.
 
@@ -163,7 +161,7 @@ Si vous affichez la sortie de l’extension de script personnalisé, vous pouvez
 
 ### <a name="configure-app-tier-to-db-tier"></a>Configurer le niveau application sur le niveau DB
 
-1.  Ouvrez le portail utilisateur Azure Stack, puis sélectionnez **Créer une ressource**.
+1.  Ouvrez le portail utilisateur Azure Stack Hub, puis sélectionnez **Créer une ressource**.
 
 2.  Sélectionnez **Déploiement de modèle**.
 
@@ -201,7 +199,7 @@ Si vous affichez la sortie de l’extension de script personnalisé, vous pouvez
     > Vous pouvez tester le protocole RDP d'une première à une deuxième machine, et inversement.
 
     > [!Note]  
-    > Pour implémenter cette solution localement, vous devez déployer des itinéraires entre le réseau distant Azure Stack et votre infrastructure de basculement ou, au minimum, sur des machines virtuelles spécifiques.
+    > Pour implémenter cette solution localement, vous devez déployer des itinéraires vers le réseau distant Azure Stack Hub dans votre infrastructure de basculement ou, au minimum, sur des machines virtuelles spécifiques.
 
 ### <a name="deploying-a-gre-tunnel"></a>Déployer un tunnel GRE
 
@@ -213,6 +211,6 @@ La procédure est quasiment la même. Toutefois, lorsque vous déployez le modè
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Différences et considérations relatives aux réseaux Azure Stack](azure-stack-network-differences.md)  
+[Différences et considérations relatives aux réseaux Azure Stack Hub](azure-stack-network-differences.md)  
 [Créer un tunnel VPN à l’aide de GRE](network-howto-vpn-tunnel-gre.md)  
 [Créer un tunnel VPN à l’aide d’IPSEC](network-howto-vpn-tunnel-ipsec.md)

@@ -1,6 +1,6 @@
 ---
-title: Exécuter une machine virtuelle Windows sur Azure Stack | Microsoft Docs
-description: Découvrez comment exécuter une machine virtuelle Windows sur Azure Stack.
+title: Exécuter une machine virtuelle Windows sur Azure Stack Hub | Microsoft Docs
+description: Découvrez comment exécuter une machine virtuelle Windows sur Azure Stack Hub.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,42 +9,42 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 5f9d8de7c08e8cfa0ad2af9bcb8f898fc32848a3
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 20e855655edfdbf2c67c130b88cfa2af10338986
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690222"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818449"
 ---
-# <a name="run-a-windows-virtual-machine-on-azure-stack"></a>Exécuter une machine virtuelle Windows dans Azure Stack
+# <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>Exécuter une machine virtuelle Windows sur Azure Stack Hub
 
-Le provisionnement d’une machine virtuelle Azure Stack nécessite des composants supplémentaires en plus de la machine virtuelle elle-même, notamment des ressources réseau et de stockage. Cet article décrit les bonnes pratiques pour l’exécution d’une machine virtuelle Windows sur Azure.
+L’approvisionnement d’une machine virtuelle dans Azure Stack Hub nécessite des composants en plus de la machine virtuelle proprement dite, dont des ressources réseau et de stockage. Cet article décrit les bonnes pratiques pour l’exécution d’une machine virtuelle Windows sur Azure.
 
-![Architecture pour une machine virtuelle Windows sur Azure Stack](./media/iaas-architecture-vm-windows/image1.png)
+![Architecture pour machine virtuelle Windows sur Azure Stack Hub](./media/iaas-architecture-vm-windows/image1.png)
 
 ## <a name="resource-group"></a>Resource group
 
-Un [groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) est un conteneur logique qui héberge les ressources Azure Stack associées. En règle générale, regroupez les ressources en fonction de leur durée de vie et de qui va les gérer.
+Un [groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) est un conteneur logique hébergeant des ressources Azure Stack Hub associées. En règle générale, regroupez les ressources en fonction de leur durée de vie et de qui va les gérer.
 
 Placez les ressources étroitement associées qui partagent le même cycle de vie dans un même [groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Les groupes de ressources vous permettent de déployer et de surveiller les ressources en tant que groupe et de suivre les coûts de facturation par groupe de ressources. Vous pouvez également supprimer des ressources comme un tout, ce qui est pratique pour les déploiements de test. Affectez des noms de ressource explicites pour simplifier la recherche d’une ressource spécifique et comprendre son rôle. Pour plus d’informations, consultez [Conventions d’affectation de noms recommandées pour les ressources Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
 ## <a name="virtual-machine"></a>Machine virtuelle
 
-Vous pouvez provisionner une machine virtuelle issue d’une liste d’images publiées, d’une image managée personnalisée ou d’un fichier de disque dur virtuel (VHD) chargé(e) dans le Stockage Blob Azure Stack.
+Vous pouvez approvisionner une machine virtuelle à partir d’une liste d’images publiées, d’une image managée personnalisée ou d’un fichier de disque dur virtuel (VHD) chargés dans le stockage d’objets blob Azure Stack Hub.
 
-Azure Stack propose de nombreuses tailles de machines virtuelles Azure. Pour plus d’informations, consultez [Tailles des machines virtuelles sur Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes). Si vous déplacez une charge de travail vers Azure Stack, commencez par choisir la taille de machine virtuelle qui correspond le mieux à vos serveurs locaux/Azure. Mesurez ensuite les performances de votre charge de travail réelle en termes de processeur, de mémoire et d’opérations d’entrée/sortie par seconde du disque, puis ajustez la taille selon vos besoins.
+Azure Stack Hub propose différentes tailles de machines virtuelles Azure. Pour plus d’informations, voir [Tailles des machines virtuelles dans Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes). Si vous déplacez une charge de travail vers Azure Stack Hub, commencez par choisir la taille de machine virtuelle correspondant le mieux à vos serveurs locaux/Azure. Mesurez ensuite les performances de votre charge de travail réelle en termes de processeur, de mémoire et d’opérations d’entrée/sortie par seconde du disque, puis ajustez la taille selon vos besoins.
 
 ## <a name="disks"></a>Disques
 
 Le coût est basé sur la capacité du disque approvisionné. Le nombre d’E/S par seconde et le débit (c’est-à-dire le taux de transfert des données) dépendent de la taille de la machine virtuelle. Lorsque vous provisionnez un disque, vous devez donc tenir compte des trois facteurs : capacité, E/S par seconde et débit.
 
-Sur Azure Stack, les IOPS disque (opérations d’entrée/sortie par seconde) dépendent de la [taille de la machine virtuelle](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) et non du type de disque. Cela signifie que, pour une machine virtuelle Standard_Fs, quel que soit le type de disque choisi (SSD ou HDD), la limite d'IOPS est de 2 300 par disque de données supplémentaire. La limite d’IOPS imposée est un plafond (maximum possible) pour éviter les voisins bruyants. Elle ne garantit pas les IOPS obtenues avec une taille de machine virtuelle spécifique.
+Sur Azure Stack Hub, les IOPS (opérations d’entrée/sortie par seconde) du disque dépendent de la [taille de la machine virtuelle](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) plutôt que du type de disque. Cela signifie que, pour une machine virtuelle Standard_Fs, quel que soit le type de disque choisi (SSD ou HDD), la limite d'IOPS est de 2 300 par disque de données supplémentaire. La limite d’IOPS imposée est un plafond (maximum possible) pour éviter les voisins bruyants. Elle ne garantit pas les IOPS obtenues avec une taille de machine virtuelle spécifique.
 
 Nous vous recommandons également d’utiliser la fonctionnalité [Disques managés](https://docs.microsoft.com/azure-stack/user/azure-stack-managed-disk-considerations). Les disques managés simplifient la gestion des disques en gérant le stockage pour vous. Les disques managés ne nécessitent pas de compte de stockage. Il vous suffit de spécifier leur taille et leur type, puis de les déployer en tant que ressource hautement disponible.
 
-Le disque du système d’exploitation est un disque dur virtuel stocké dans Stockage Blob Azure, donc il persiste même lorsque l’ordinateur hôte est arrêté. Nous vous recommandons également de créer un ou plusieurs [disques de données](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-disks), qui sont des disques durs virtuels persistants utilisés pour les données d’application. Lorsque cela est possible, installez les applications sur un disque de données plutôt que sur le disque du système d’exploitation. Certaines applications héritées requièrent peut-être l’installation de composants sur le lecteur C: ; dans ce cas, vous pouvez [redimensionner le disque du système d’exploitation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-expand-os-disk) à l’aide de PowerShell.
+Le disque du système d’exploitation étant un disque dur virtuel stocké dans le stockage d’objets blob Azure Stack Hub, il persiste même lorsque l’ordinateur hôte est arrêté. Nous vous recommandons également de créer un ou plusieurs [disques de données](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-disks), qui sont des disques durs virtuels persistants utilisés pour les données d’application. Lorsque cela est possible, installez les applications sur un disque de données plutôt que sur le disque du système d’exploitation. Certaines applications héritées requièrent peut-être l’installation de composants sur le lecteur C: ; dans ce cas, vous pouvez [redimensionner le disque du système d’exploitation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-expand-os-disk) à l’aide de PowerShell.
 
-La machine virtuelle est créée avec un disque temporaire (le lecteur D: sur Windows). Ce disque est stocké sur un volume temporaire de l’infrastructure de stockage Azure Stack. Il peut être supprimé lors des redémarrages ou d’autres événements de cycle de vie de la machine virtuelle. N’utilisez ce disque que pour des données temporaires, telles que des fichiers de pagination ou d’échange.
+La machine virtuelle est créée avec un disque temporaire (le lecteur D: sur Windows). Ce disque est stocké sur un volume temporaire dans l’infrastructure de stockage Azure Stack Hub. Il peut être supprimé lors des redémarrages ou d’autres événements de cycle de vie de la machine virtuelle. N’utilisez ce disque que pour des données temporaires, telles que des fichiers de pagination ou d’échange.
 
 ## <a name="network"></a>Réseau
 
@@ -68,7 +68,7 @@ Tous les groupes de sécurité réseau contiennent un ensemble de [règles par d
 
 **Diagnostics**. Permet la supervision et le diagnostic, avec notamment des indicateurs d’intégrité de base, des journaux d’infrastructure de diagnostic et des [diagnostics de démarrage](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Les diagnostics de démarrage peuvent vous aider à identifier le problème de démarrage si votre machine virtuelle refuse de démarrer. Créez un compte de stockage Azure pour stocker les journaux d’activité. Un compte de stockage localement redondant (LRS) standard suffit pour les journaux de diagnostic. Pour en savoir plus, consultez [Activation de la surveillance et des diagnostics](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data).
 
-**Disponibilité**. Votre machine virtuelle peut faire l’objet d’un redémarrage en raison d’une maintenance planifiée par l’opérateur Azure Stack. Pour garantir la haute disponibilité d’un système de production à plusieurs machines virtuelles dans Azure, ces machines virtuelles sont placées dans un [groupe à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) qui les répartit entre plusieurs domaines d’erreur et de mise à jour. À la plus petite échelle d’Azure Stack Hub, un domaine d’erreur au sein d’un groupe à haute disponibilité est défini comme un nœud unique dans l’unité d’échelle.  
+**Disponibilité**. Votre machine virtuelle peut faire l’objet d’un redémarrage en raison d’une maintenance planifiée par l’opérateur Azure Stack Hub. Pour garantir la haute disponibilité d’un système de production à plusieurs machines virtuelles dans Azure, ces machines virtuelles sont placées dans un [groupe à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) qui les répartit entre plusieurs domaines d’erreur et de mise à jour. À la plus petite échelle d’Azure Stack Hub, un domaine d’erreur au sein d’un groupe à haute disponibilité est défini comme un nœud unique dans l’unité d’échelle.  
 
 Même si l’infrastructure d’Azure Stack Hub est déjà résiliente aux défaillances, la technologie sous-jacente (clustering de basculement) implique toujours un temps d’arrêt pour les machines virtuelles qui se trouvent sur un serveur physique impacté en cas de défaillance matérielle. Azure Stack Hub prend ne charge les groupes à haute disponibilité avec un maximum de trois domaines d’erreur, pour rester cohérent avec Azure.
 
@@ -77,9 +77,9 @@ Même si l’infrastructure d’Azure Stack Hub est déjà résiliente aux défa
 | **Domaines d'erreur** | Les machines virtuelles placées dans un groupe à haute disponibilité sont physiquement isolées les unes des autres grâce à une répartition aussi équilibrée que possible sur plusieurs domaines d’erreur (nœuds Azure Stack Hub). En cas de défaillance matérielle, les machines virtuelles du domaine défaillant sont redémarrées dans d’autres domaines d’erreur. Elles seront conservées dans des domaines d’erreur distincts des autres machines virtuelles, mais si possible dans le même groupe à haute disponibilité. Une fois le matériel rétabli, les machines virtuelles seront rééquilibrées de façon à maintenir une haute disponibilité. |
 | **Domaines de mise à jour**| Les domaines de mise à jour sont utilisés par Azure pour fournir la haute disponibilité aux groupes à haute disponibilité. Un domaine de mise à jour est un groupe logique de matériel sous-jacent pouvant faire l’objet simultanément d’une opération de maintenance. Les machines virtuelles qui se trouvent dans le même domaine de mise à jour sont redémarrées ensemble lors de la maintenance planifiée. Lorsqu’un client crée des machines virtuelles au sein d’un groupe à haute disponibilité, la plateforme Azure les distribue automatiquement dans ces différents domaines de mise à jour. <br>Dans Azure Stack Hub, les machines virtuelles sont migrées en direct sur les autres hôtes en ligne du cluster avant que leur hôte sous-jacent soit mis à jour. Comme il ne se produit aucun temps d’arrêt du côté du locataire pendant la mise à jour d’un hôte, la fonctionnalité de domaine de mise à jour d’Azure Stack Hub n’existe que pour des raisons de compatibilité des modèles avec Azure. Les machines virtuelles d’un groupe à haute disponibilité affichent 0 comme numéro de domaine de mise à jour sur le portail. |
 
-**Sauvegardes** Pour obtenir des recommandations sur la protection de vos machines virtuelles IaaS Azure Stack, consultez cet article.
+**Sauvegardes** Pour obtenir des recommandations sur la protection de vos machines virtuelles IaaS Azure Stack Hub, voir cet article.
 
-**Arrêt d’une machine virtuelle**. Azure établit une distinction entre les états « arrêté » et « désalloué ». Vous payez lorsque l’état de la machine virtuelle est « arrêté », mais pas lorsque la machine virtuelle est désallouée. Le bouton **Arrêter** du portail Azure Stack désalloue la machine virtuelle. Si vous arrêtez la machine virtuelle par le biais du système d’exploitation pendant que vous êtes connecté, la machine virtuelle est arrêtée mais **non** désallouée. Vous serez donc toujours facturé.
+**Arrêt d’une machine virtuelle**. Azure établit une distinction entre les états « arrêté » et « désalloué ». Vous payez lorsque l’état de la machine virtuelle est « arrêté », mais pas lorsque la machine virtuelle est désallouée. Sur le portail Azure Stack Hub, le bouton **Arrêter** désalloue la machine virtuelle. Si vous arrêtez la machine virtuelle par le biais du système d’exploitation pendant que vous êtes connecté, la machine virtuelle est arrêtée mais **non** désallouée. Vous serez donc toujours facturé.
 
 **Suppression d’une machine virtuelle**. La suppression d’une machine virtuelle n’entraîne pas celle des disques associés. Vous pouvez donc supprimer la machine virtuelle, sans risque de perdre des données. Toutefois, vous serez toujours facturé pour le stockage. Pour supprimer le disque de machine virtuelle, supprimez l’objet disque managé. Pour éviter toute suppression accidentelle, utilisez un *verrou de ressource* pour verrouiller tout le groupe de ressources ou des ressources individuelles, par exemple une machine virtuelle.
 
@@ -98,10 +98,10 @@ Intégrez vos machines virtuelles dans [Azure Security Center](https://docs.micr
 
 **Journaux d’audit**. Utilisez les [journaux d’activité](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data?#activity-log) pour voir les actions de provisionnement et d’autres événements concernant la machine virtuelle.
 
-**Chiffrement des données**. Azure Stack utilise le chiffrement AES 128 bits BitLocker pour protéger les données de l’utilisateur et de l’infrastructure au repos dans le sous-système de stockage. Pour plus d’informations, consultez [Chiffrement des données au repos dans Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker).
+**Chiffrement des données**. Azure Stack Hub utilise le chiffrement AES 128 bits BitLocker pour protéger les données de l’utilisateur et de l’infrastructure au repos dans le sous-système de stockage. Pour plus d’informations, voir [Chiffrement des données au repos dans Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur les machines virtuelles Azure Stack, passez en revue les [fonctionnalités des machines virtuelles Azure Stack](azure-stack-vm-considerations.md).  
+- Pour en savoir plus sur les machines virtuelles Azure Stack Hub, voir [Fonctionnalités des machines virtuelles Azure Stack Hub](azure-stack-vm-considerations.md).  
 - Pour plus d’informations sur les modèles Azure Cloud, consultez [Modèles de conception cloud](https://docs.microsoft.com/azure/architecture/patterns).

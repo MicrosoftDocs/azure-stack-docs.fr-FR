@@ -1,5 +1,5 @@
 ---
-title: Gérer les ressources réseau dans Azure Stack | Microsoft Docs
+title: Gérer les ressources réseau dans Azure Stack Hub | Microsoft Docs
 description: Les administrateurs peuvent gérer les ressources réseau, y compris le pool d'adresses MAC et la consommation d'adresses IP publiques dans une région
 services: azure-stack
 documentationcenter: ''
@@ -15,33 +15,31 @@ ms.date: 09/17/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 6abf8480528aad0bff121d553172bdc8d0446e11
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: d651405fad55501bf655b8b38970a882a8e5dc91
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070197"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881669"
 ---
 # <a name="manage-network-resources"></a>Gérer des ressources réseau
 
 ## <a name="mac-address-pool"></a>Pool d’adresses MAC
 
-Azure Stack utilise un pool d’adresses MAC statique pour générer et affecter automatiquement une adresse MAC aux machines virtuelles.
+Azure Stack Hub utilise un pool d'adresses MAC statiques pour générer et attribuer automatiquement une adresse MAC aux machines virtuelles.
 Ce pool d’adresses MAC est généré automatiquement pendant le déploiement et utilise la plage suivante :
 
 - StartMacAddress : 00-1D-D8-B7-00-00
 - EndMacAddress : 00-1D-D8-F4-FF-FF
 
 > [!Note]  
-> Ce pool d’adresses MAC est le même pour chaque système Azure Stack et n’est pas configurable.
+> Ce pool d'adresses MAC est le même pour chaque système Azure Stack Hub et il n'est pas configurable.
 
 Selon la façon dont les réseaux virtuels se connectent aux réseaux d’entreprise existants, vous pouvez vous attendre à obtenir des adresses MAC en double pour les machines virtuelles.
 
-Vous trouverez plus d’informations sur l’utilisation du pool d’adresses MAC à l’aide de la cmdlet [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) dans le module PowerShell Administrateur Azure Stack.
+Pour plus d'informations sur l'utilisation du pool d'adresses MAC, utilisez la cmdlet [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) dans le module PowerShell Administrateur d'Azure Stack Hub.
 
-## <a name="view-public-ip-address-consumption-in-azure-stack"></a>Afficher la consommation d’adresses IP publiques dans Azure Stack
-
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+## <a name="view-public-ip-address-consumption-in-azure-stack-hub"></a>Afficher la consommation d'adresses IP publiques dans Azure Stack Hub
 
 En tant qu’administrateur, vous pouvez afficher les éléments suivants :
  - Le nombre d’adresses IP publiques qui ont été attribuées à des locataires.
@@ -50,7 +48,7 @@ En tant qu’administrateur, vous pouvez afficher les éléments suivants :
 
 La vignette **Utilisation des pools d’adresses IP publiques** indique le nombre d’adresses IP publiques consommées sur les pools d’adresses IP publiques. Pour chaque adresse IP, la vignette affiche l’utilisation du locataire des instances de machine virtuelle IaaS, des services d’infrastructure fabric et des ressources d’adresses IP publiques créées explicitement par les locataires.
 
-L’objectif de la vignette est de donner aux opérateurs Azure Stack une idée du nombre d’adresses IP publiques utilisées à cet emplacement. Ce nombre permet aux administrateurs de déterminer si cette ressource est insuffisante.
+L'objectif de la vignette est de donner aux opérateurs Azure Stack Hub une idée du nombre d'adresses IP publiques utilisées à cet emplacement. Ce nombre permet aux administrateurs de déterminer si cette ressource est insuffisante.
 
 L’élément de menu **Adresses IP publiques** sous **Ressources de locataire** répertorie uniquement les adresses IP publiques qui ont été *explicitement créées par les locataires*. L’élément de menu se trouve sur le volet **Fournisseurs de ressources**, **Réseau**. Le nombre d’adresses IP publiques **Utilisées** dans la vignette **Utilisation des pools d’adresses IP publiques** est toujours différent (supérieur) par rapport au nombre de la vignette **Adresses IP publiques** sous **Ressources de locataire**.
 
@@ -58,7 +56,7 @@ L’élément de menu **Adresses IP publiques** sous **Ressources de locataire**
 
 Pour afficher le nombre total d’adresses IP publiques qui ont été consommées dans la région :
 
-1. Dans le portail d’administration Azure Stack, sélectionnez **Tous les services**. Ensuite, sous la catégorie **ADMINISTRATION**, sélectionnez **Réseau**.
+1. Sur le portail d'administration Azure Stack Hub, sélectionnez **Tous les services**. Ensuite, sous la catégorie **ADMINISTRATION**, sélectionnez **Réseau**.
 1. Le volet **Réseau** affiche la vignette **Utilisation des pools d’adresses IP publiques** dans la section **Vue d’ensemble**.
 
     ![Volet Fournisseur de ressources réseau](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-01.png)
@@ -81,12 +79,12 @@ Quand une adresse IP publique est affectée, elle apparaît dans une liste ou da
 
 | **Cas d’affectation d’adresses IP publiques** | **Apparaît dans le récapitulatif d’utilisation** | **Apparaît dans la liste d’adresses IP publiques du locataire** |
 | --- | --- | --- |
-| Adresse IP publique dynamique non encore affectée à une carte réseau ou un équilibreur de charge (temporaire) |Non |OUI |
-| Adresse IP publique dynamique affectée à une carte réseau ou un équilibreur de charge. |OUI |OUI |
-| Adresse IP publique statique affectée à une carte réseau ou un équilibreur de charge du locataire. |OUI |OUI |
-| Adresse IP publique statique affectée à un point de terminaison de service d’infrastructure fabric. |OUI |Non |
-| Adresse IP publique implicitement créée pour des instances de machine virtuelle IaaS et utilisée pour les règles NAT de trafic sortant sur le réseau virtuel. Ces adresses IP sont créées en arrière-plan chaque fois qu’un locataire crée une instance de machine virtuelle pour que les machines virtuelles puissent envoyer des informations sur Internet. |OUI |Non |
+| Adresse IP publique dynamique non encore affectée à une carte réseau ou un équilibreur de charge (temporaire) |Non |Oui |
+| Adresse IP publique dynamique affectée à une carte réseau ou un équilibreur de charge. |Oui |Oui |
+| Adresse IP publique statique affectée à une carte réseau ou un équilibreur de charge du locataire. |Oui |Oui |
+| Adresse IP publique statique affectée à un point de terminaison de service d’infrastructure fabric. |Oui |Non |
+| Adresse IP publique implicitement créée pour des instances de machine virtuelle IaaS et utilisée pour les règles NAT de trafic sortant sur le réseau virtuel. Ces adresses IP sont créées en arrière-plan chaque fois qu’un locataire crée une instance de machine virtuelle pour que les machines virtuelles puissent envoyer des informations sur Internet. |Oui |Non |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Gérer les comptes de stockage dans Azure Stack](azure-stack-manage-storage-accounts.md)
+[Gérer les comptes de stockage dans Azure Stack Hub](azure-stack-manage-storage-accounts.md)

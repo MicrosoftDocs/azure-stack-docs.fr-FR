@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour connecter deux réseaux Azure Stack à l’aide de l’appairage VNET | Microsoft Docs
-description: Découvrez comment connecter deux réseaux Azure Stack à l’aide de l’appairage VNET.
+title: Guide pratique pour connecter deux réseaux Azure Stack Hub à l’aide de VNet Peering | Microsoft Docs
+description: Découvrez comment connecter deux infrastructures Azure Stack Hub à l’aide de VNet Peering.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,30 +9,28 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 9eb4780a80e5cedd595950813d5cb5029e1b1857
-ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
+ms.openlocfilehash: f2d737f9048760b9c2b1561ba44f36379bfd3f00
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73845841"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883403"
 ---
-# <a name="vnet-peering-in-azure-stack-with-vms"></a>VNET Peering dans Azure Stack avec des machines virtuelles
+# <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>VNET Peering dans Azure Stack Hub avec des machines virtuelles
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+Vous pouvez connecter deux réseaux virtuels Azure Stack Hub l’un à l’autre au sein du même environnement Azure Stack Hub. Il n’est actuellement pas possible de connecter des réseaux virtuels Azure Stack Hub à l’aide de la [passerelle de réseau virtuel](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences) intégrée. Vous devez utiliser des appliances virtuelles réseau pour créer un tunnel VPN entre deux réseaux virtuels Azure Stack Hub. Dans les références de modèle de cet article, deux machines virtuelles Windows Server 2016 sont déployées et RRAS y est installé. Les deux serveurs RRAS sont configurés pour implémenter un tunnel IKEv2 S2SVPN entre deux réseaux virtuels. Les règles de groupe de sécurité réseau et de route définie par l’utilisateur appropriées sont créées pour permettre le routage entre les sous-réseaux sur chaque réseau virtuel désigné comme **interne**. 
 
-Vous pouvez connecter deux réseaux virtuels Azure Stack l’un à l’autre dans le même environnement Azure Stack. Il n’est actuellement pas possible de connecter des réseaux virtuels Azure Stack à l’aide de la [passerelle de réseau virtuel](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences) intégrée. Vous devez utiliser des appliances virtuelles réseau pour créer un tunnel VPN entre deux réseaux virtuels Azure Stack. Dans les références de modèle de cet article, deux machines virtuelles Windows Server 2016 sont déployées et RRAS y est installé. Les deux serveurs RRAS sont configurés pour implémenter un tunnel IKEv2 S2SVPN entre deux réseaux virtuels. Les règles de groupe de sécurité réseau et de route définie par l’utilisateur appropriées sont créées pour permettre le routage entre les sous-réseaux sur chaque réseau virtuel désigné comme **interne**. 
-
-Ce modèle de déploiement est la base qui permet de créer des tunnels VPN au sein d’une instance Azure Stack et aussi entre des instances Azure Stack et d’autres ressources, telles que des réseaux locaux, avec l’utilisation de tunnels VPN S2S Windows RRAS. 
+Ce modèle de déploiement est la base qui permet de créer des tunnels VPN au sein d’une instance Azure Stack Hub ainsi qu’entre des instances Azure Stack Hub et d’autres ressources, telles que des réseaux locaux, avec l’utilisation de tunnels VPN S2S Windows RRAS. 
 
 Vous trouverez les modèles dans le dépôt GitHub [Azure Intelligent Edge Patterns](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
 ). Le modèle se trouve dans le dossier **S2SVPNTunnel**.
 
 ![texte de remplacement](./media/azure-stack-network-howto-vnet-peering/overview.png)
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Exigences
 
-- ASDK ou système intégré Azure Stack avec les dernières mises à jour appliquées. 
-- Éléments de la Place de marché Azure Stack requis :
+- Un déploiement avec les dernières mises à jour appliquées. 
+- Éléments requis de la Place de marché Azure Stack Hub :
     -  Windows Server 2016 Datacenter (dernière version recommandée)
     -  Extension de script personnalisé
 
@@ -53,10 +51,10 @@ Vous trouverez les modèles dans le dépôt GitHub [Azure Intelligent Edge Patte
 - Vous pouvez utiliser votre propre compte de stockage blob et votre propre jeton SAP à l’aide des paramètres _artifactsLocation et _artifactsLocationSasToken.
 - Il existe deux sorties sur ce modèle, INTERNALSUBNETREFVNET1 et INTERNALSUBNETREFVNET2, qui correspondent aux ID de ressource des sous-réseaux internes, si vous souhaitez utiliser ceci dans un modèle de déploiement de type pipeline.
 
-Le modèle fournit des valeurs par défaut pour l’affectation de noms et l’adressage IP au réseau virtuel. Il requiert un mot de passe pour l’administrateur (rrasadmin) et offre également la possibilité d’utiliser votre propre blob de stockage avec un jeton SAS. Veillez à conserver ces valeurs dans des limites légales dans la mesure où le déploiement peut échouer. Le package PowerShell DSC est exécuté sur chaque machine virtuelle RRAS et installe le routage ainsi que tous les services et fonctionnalités dépendants requis. Ce DSC peut être personnalisé davantage si nécessaire. L’extension de script personnalisé exécute le script suivant et `Add-Site2Site.ps1` configure le tunnel VPNS2S entre les deux serveurs RRAS avec une clé partagée. Vous pouvez afficher la sortie détaillée de l’extension de script personnalisé pour voir les résultats de la configuration du tunnel VPN.
+Le modèle fournit des valeurs par défaut pour l’affectation de noms et l’adressage IP au réseau virtuel. Il requiert un mot de passe pour l’administrateur (rrasadmin) et offre également la possibilité d’utiliser votre propre blob de stockage avec un jeton SAS. Veillez à conserver ces valeurs dans les limites qui conviennent pour permettre au déploiement d'aboutir. Le package PowerShell DSC est exécuté sur chaque machine virtuelle RRAS et installe le routage ainsi que tous les services et fonctionnalités dépendants requis. Ce DSC peut être davantage personnalisé, si besoin. L’extension de script personnalisé exécute le script suivant et `Add-Site2Site.ps1` configure le tunnel VPNS2S entre les deux serveurs RRAS avec une clé partagée. Vous pouvez afficher la sortie détaillée de l’extension de script personnalisé pour consulter les résultats de la configuration du tunnel VPN.
 
 ![texte de remplacement](./media/azure-stack-network-howto-vnet-peering/s2svpntunnels2.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Différences et considérations relatives aux réseaux Azure Stack](azure-stack-network-differences.md)  
+[Différences et considérations relatives aux réseaux Azure Stack Hub](azure-stack-network-differences.md)  

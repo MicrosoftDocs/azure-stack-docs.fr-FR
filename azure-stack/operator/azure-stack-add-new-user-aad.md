@@ -1,41 +1,31 @@
 ---
-title: Ajouter un nouveau compte client Azure Stack dans Azure Active Directory | Microsoft Docs
-description: Découvrez comment créer un compte de locataire dans ASDK afin de pouvoir explorer le portail des locataires.
-services: azure-stack
-documentationcenter: ''
+title: Ajouter un nouveau compte d’utilisateur Azure Stack Hub dans Azure Active Directory
+description: Découvrez comment créer un compte d’utilisateur dans Azure Active Directory, afin de pouvoir explorer le portail utilisateur.
 author: PatAltimore
 manager: femila
-editor: ''
-ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
 ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: b9b18b62786c0720b531d0f74ed68c629034b8d7
-ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
+ms.openlocfilehash: 3f0ef1b6a61d271541ee894f854639b13e24d699
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70144005"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880989"
 ---
-# <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Ajouter un nouveau compte de locataire Azure Stack dans Azure Active Directory
+# <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>Ajouter un nouveau compte d’utilisateur Azure Stack Hub dans Azure Active Directory (Azure AD)
 
+Pour pouvoir tester des offres et des plans, ainsi que créer des ressources, vous devez disposer d’un compte d’utilisateur. Vous créez un compte d’utilisateur dans votre locataire Azure AD à l’aide du portail Azure ou de PowerShell.
 
-Après le [déploiement du Kit de développement Azure Stack](../asdk/asdk-install.md), vous aurez besoin d’un compte utilisateur client afin de pouvoir explorer le portail client et tester vos offres et vos plans. Vous pouvez créer un compte client à l’aide du portail Azure ou de PowerShell.
-
-
-
-## <a name="create-an-azure-stack-tenant-account-by-using-the-azure-portal"></a>Création d’un compte de locataire Azure Stack à l’aide du portail Azure
+## <a name="create-user-account-using-the-azure-portal"></a>Créer un compte d’utilisateur à l’aide du portail Azure
 
 Pour utiliser le portail Azure, vous devez disposer d’un abonnement Azure.
 
 1. Connectez-vous à [Azure](https://portal.azure.com).
-2. Dans la barre de navigation de gauche, sélectionnez **Active Directory** et accédez au répertoire que vous souhaitez utiliser pour Azure Stack, ou créez-en un.
+2. Dans la barre de navigation de gauche, sélectionnez **Active Directory**, puis accédez au répertoire que vous souhaitez utiliser pour Azure Stack Hub, ou créez-en un.
 3. Sélectionnez **Azure Active Directory** > **Utilisateurs** > **Nouvel utilisateur**.
 
     ![Page Utilisateurs - Tous avec l’option Nouvel utilisateur mis en surbrillance](media/azure-stack-add-new-user-aad/new-user-all-users.png)
@@ -44,7 +34,7 @@ Pour utiliser le portail Azure, vous devez disposer d’un abonnement Azure.
 
     ![Ajouter un nouvel utilisateur, page Utilisateur avec les informations sur l’utilisateur](media/azure-stack-add-new-user-aad/new-user-user.png)
 
-   - **Nom (obligatoire)** : Prénom et nom du nouvel utilisateur. Par exemple, Mary Parker.
+   - **Nom (obligatoire)**  : Prénom et nom du nouvel utilisateur. Par exemple, Mary Parker.
    - **Nom d’utilisateur (obligatoire)** : Nom d’utilisateur du nouvel utilisateur. Par exemple : mary@contoso.com.
        Le domaine dans le nom d’utilisateur doit correspondre au nom de domaine par défaut initial, <_votrenomdedomaine_>.onmicrosoft.com, ou à un nom de domaine personnalisé, comme contoso.com. Pour plus d’informations sur la création d’un nom de domaine personnalisé, consultez [Ajouter un nom de domaine personnalisé dans Azure AD](/azure/active-directory/fundamentals/add-custom-domain).
    - **Profil** : Si vous le souhaitez, ajoutez des informations supplémentaires sur l’utilisateur. Vous pouvez également ajouter ces informations ultérieurement. Pour plus d’informations sur l’ajout d’informations sur l’utilisateur, consultez [Ajouter ou modifier des informations de profil utilisateur](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal).
@@ -57,9 +47,9 @@ Pour utiliser le portail Azure, vous devez disposer d’un abonnement Azure.
     L’utilisateur est créé et ajouté à votre locataire Azure AD.
 
 7. Connectez-vous au portail Azure avec le nouveau compte. Modifiez le mot de passe lorsque vous y êtes invité.
-8. Connectez-vous à `https://portal.local.azurestack.external` avec le nouveau compte pour afficher le portail client.
+8. Connectez-vous à `https://portal.local.azurestack.external` avec le nouveau compte pour afficher le portail utilisateur.
 
-## <a name="create-an-azure-stack-user-account-using-powershell"></a>Création d’un compte d’utilisateur Azure Stack à l’aide de PowerShell
+## <a name="create-a-user-account-using-powershell"></a>Créer un compte d’utilisateur à l’aide de PowerShell
 
 Si vous n’avez pas d’abonnement Azure, vous ne pouvez pas utiliser le portail Azure pour ajouter un compte utilisateur client. Dans ce cas, vous pouvez utiliser le module Azure AD pour Windows PowerShell à la place.
 
@@ -82,7 +72,7 @@ Si vous n’avez pas d’abonnement Azure, vous ne pouvez pas utiliser le portai
 
             $msolcred = get-credential
 
-    # Add a tenant account "Tenant Admin <username>@<yourdomainname>" with the initial password "<password>".
+    # Add a user account "Tenant Admin <username>@<yourdomainname>" with the initial password "<password>".
 
             connect-msolservice -credential $msolcred
             $user = new-msoluser -DisplayName "Tenant Admin" -UserPrincipalName <username>@<yourdomainname> -Password <password>
@@ -91,8 +81,8 @@ Si vous n’avez pas d’abonnement Azure, vous ne pouvez pas utiliser le portai
     ```
 
 1. Connectez-vous à Azure avec le nouveau compte. Modifiez le mot de passe lorsque vous y êtes invité.
-2. Connectez-vous à `https://portal.local.azurestack.external` avec le nouveau compte pour afficher le portail client.
+2. Connectez-vous à `https://portal.local.azurestack.external` avec le nouveau compte pour afficher le portail utilisateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Ajouter des utilisateurs Azure Stack dans AD FS](azure-stack-add-users-adfs.md)
+[Ajouter des utilisateurs d’Azure Stack Hub dans AD FS](azure-stack-add-users-adfs.md)

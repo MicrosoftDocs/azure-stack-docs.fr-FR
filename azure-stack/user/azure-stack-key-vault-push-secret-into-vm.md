@@ -1,6 +1,6 @@
 ---
-title: Déployer une machine virtuelle avec un certificat stocké de façon sécurisée sur Azure Stack | Microsoft Docs
-description: Découvrez comment déployer une machine virtuelle et y placer un certificat avec un coffre de clés dans Azure Stack.
+title: Déployer une machine virtuelle avec un certificat stocké de façon sécurisée sur Azure Stack Hub | Microsoft Docs
+description: Découvrez comment déployer une machine virtuelle et y placer un certificat en utilisant un coffre de clés dans Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,22 +15,20 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 8741d63dbbcefde950fc10c0917d87bc4e9718f7
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: a65615e03e6e7fcda84ec16c6323e9fa2c2f6221
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961516"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879085"
 ---
-# <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack"></a>Déployer une machine virtuelle avec un certificat stocké de façon sécurisée sur Azure Stack 
+# <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Déployer une machine virtuelle avec un certificat stocké de façon sécurisée sur Azure Stack Hub 
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+Cet article décrit comment déployer une machine virtuelle Azure Stack Hub avec un certificat Key Vault installé.
 
-Cet article décrit comment déployer une machine virtuelle Azure Stack avec un certificat Key Vault installé.
+## <a name="overview"></a>Vue d’ensemble
 
-## <a name="overview"></a>Vue d'ensemble
-
-Les certificats sont utilisés dans de nombreux scénarios, comme l’authentification auprès d’Active Directory ou le chiffrement du trafic web. Vous pouvez stocker de manière sécurisée des certificats en tant que secrets dans un coffre de clés Azure Stack. Les avantages de l’utilisation d’un coffre de clés Azure Stack sont :
+Les certificats sont utilisés dans de nombreux scénarios, comme l’authentification auprès d’Active Directory ou le chiffrement du trafic web. Vous pouvez stocker de manière sécurisée des certificats en tant que secrets dans un coffre de clés Azure Stack Hub. Les avantages de l’utilisation d’un coffre de clés Azure Stack Hub sont les suivants :
 
 * Les certificats ne sont pas exposés dans un script, un historique de ligne de commande ou un modèle.
 * Le processus de gestion des certificats est simple.
@@ -47,11 +45,11 @@ Les étapes suivantes décrivent le processus permettant de placer un certificat
 > [!NOTE]
 > Vous pouvez utiliser ces étapes à partir du Kit de développement Azure Stack (ASDK), ou à partir d’un client externe si vous êtes connecté via un VPN.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Les utilisateurs doivent s’abonner à une offre qui inclut le service Key Vault.
-* [Installez PowerShell pour Azure Stack](../operator/azure-stack-powershell-install.md).
-* [Configurez l’environnement PowerShell de l’utilisateur Azure Stack](azure-stack-powershell-configure-user.md).
+* [Installez PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md).
+* [Configurez l’environnement PowerShell de l’utilisateur Azure Stack Hub.](azure-stack-powershell-configure-user.md)
 
 ## <a name="create-a-key-vault-secret"></a>Créer un secret Key Vault
 
@@ -177,7 +175,7 @@ Une fois le modèle déployé, il affiche la sortie suivante :
 
 ![Résultats du déploiement du modèle](media/azure-stack-key-vault-push-secret-into-vm/deployment-output.png)
 
-Azure Stack envoie (push) le certificat sur la machine virtuelle lors du déploiement. L’emplacement du certificat dépend du système d’exploitation de la machine virtuelle :
+Azure Stack Hub envoie (push) le certificat à la machine virtuelle lors du déploiement. L’emplacement du certificat dépend du système d’exploitation de la machine virtuelle :
 
 * Sous Windows, le certificat est ajouté à l’emplacement de certificat **LocalMachine**, avec le magasin de certificats fourni par l’utilisateur.
 * Sous Linux, le certificat est placé dans le répertoire **/var/lib/waagent**, avec le nom de fichier **UppercaseThumbprint.crt** pour le fichier de certificat X509 et **UppercaseThumbprint.prv** pour la clé privée.

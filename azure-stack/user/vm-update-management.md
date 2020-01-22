@@ -1,6 +1,6 @@
 ---
-title: Automatisation de la gestion et de la mise à jour des machines virtuelles dans Azure Stack | Microsoft Docs
-description: Découvrez comment utiliser les solutions Azure Monitor pour machines virtuelles, Update Management, Change Tracking et Inventory dans Azure Automation pour gérer les machines virtuelles Windows et Linux déployées dans Azure Stack.
+title: Automatisation de la gestion et de la mise à jour des machines virtuelles dans Azure Stack Hub | Microsoft Docs
+description: Découvrez comment utiliser les solutions Azure Monitor pour machines virtuelles, Update Management, Change Tracking, et Inventory dans Azure Automation, afin de gérer les machines virtuelles Windows et Linux déployées dans Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,35 +16,35 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 87549d27418f787b0e173cfda1ca835dc1c181e4
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 580e1e724a1d03183091ce4e59b779fc30cfb92c
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955944"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023124"
 ---
-# <a name="vm-update-and-management-automation-in-azure-stack"></a>Automatisation de la gestion et de la mise à jour des machines virtuelles dans Azure Stack
-Utilisez les fonctionnalités des solutions Azure Automation suivantes pour gérer les machines virtuelles Windows et Linux déployées avec Azure Stack :
+# <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Automatisation de la gestion et de la mise à jour des machines virtuelles dans Azure Stack Hub
+Utilisez les fonctionnalités suivantes de la solution Azure Automation pour gérer des machines virtuelles Windows et Linux déployées avec Azure Stack Hub :
 
 - **[Update Management](https://docs.microsoft.com/azure/automation/automation-update-management)**  : La solution Update Management vous permet d’évaluer rapidement l’état des mises à jour disponibles sur tous les ordinateurs d’agent et de gérer le processus d’installation des mises à jour obligatoires pour les machines virtuelles Windows et Linux.
 
 - **[Change Tracking](https://docs.microsoft.com/azure/automation/automation-change-tracking)**  : Les modifications apportées aux logiciels installés, aux services Windows, aux fichiers et au Registre Windows ainsi qu’aux démons Linux sur les serveurs supervisés sont envoyées au service cloud Azure Monitor pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données. En utilisant les informations du tableau de bord Change Tracking, vous pouvez facilement voir les modifications apportées à votre infrastructure de serveur.
 
-- **[Inventory](https://docs.microsoft.com/azure/automation/automation-vm-inventory)** . Le suivi Inventory pour une machine virtuelle dans Azure Stack fournit une interface utilisateur basée sur le navigateur pour définir et configurer la collecte d’inventaire.
+- **[Inventory](https://docs.microsoft.com/azure/automation/automation-vm-inventory)** . Le suivi d’inventaire pour une machine virtuelle Azure Stack Hub fournit une interface utilisateur basée sur un navigateur pour mettre en place et configurer une collecte d’inventaire.
 
-- **[Azure Monitor pour machines virtuelles](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)**  : Azure Monitor pour machines virtuelles supervise les machines virtuelles et groupes de machines virtuelles identiques Azure et Azure Stack à grande échelle. Il analyse les performances et l’intégrité des machines virtuelles Windows et Linux, et supervise également leurs processus et dépendances vis-à-vis d’autres ressources et des processus externes.
+- **[Azure Monitor pour machines virtuelles](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)**  : Azure Monitor pour machines virtuelles supervise vos machines virtuelles et groupes de machines virtuelles identiques Azure et Azure Stack Hub à grande échelle. Il analyse les performances et l’intégrité des machines virtuelles Windows et Linux, et supervise également leurs processus et dépendances vis-à-vis d’autres ressources et des processus externes.
 
 > [!IMPORTANT]
-> Ces solutions sont les mêmes que celles utilisées pour gérer des machines virtuelles Azure. Les machines virtuelles Azure et Azure Stack sont gérées de la même façon, à partir de la même interface et avec les mêmes outils. Les machines virtuelles Azure Stack sont également soumises aux mêmes tarifs que les machines virtuelles Azure quand vous utilisez les solutions Update Management, Change Tracking, Inventory et Azure Monitor pour machines virtuelles avec Azure Stack.
+> Ces solutions sont les mêmes que celles utilisées pour gérer des machines virtuelles Azure. Les machines virtuelles tant Azure qu’Azure Stack Hub sont gérées de la même façon, à partir de la même interface et avec les mêmes outils. Les machines virtuelles Azure Stack Hub sont proposées aux mêmes tarifs que les machines virtuelles Azure quand vous utilisez les solutions Update Management, Change Tracking, Inventory et Azure Monitor pour machines virtuelles avec Azure Stack Hub.
 
-## <a name="prerequisites"></a>Prérequis
-Plusieurs prérequis doivent être satisfaits avant de pouvoir utiliser ces fonctionnalités pour mettre à jour et gérer des machines virtuelles Azure Stack. Ces prérequis incluent les étapes qui doivent être suivies dans le portail Azure, ainsi que le portail d’administration Azure Stack.
+## <a name="prerequisites"></a>Conditions préalables requises
+Avant de pouvoir utiliser ces fonctionnalités pour mettre à jour et gérer des machines virtuelles Azure Stack Hub, quelques conditions préalables doivent être remplies. Celles-ci incluent des mesures qui doivent être prises au niveau du portail Azure, ainsi que du portail d’administration Azure Stack Hub.
 
 ### <a name="in-the-azure-portal"></a>Dans le portail Azure
-Pour utiliser les fonctionnalités Azure Monitor pour machines virtuelles, Inventory, Change Tracking et Update Management d’Azure Automation sur les machines virtuelles Azure Stack, vous devez d’abord activer ces solutions dans Azure.
+Pour utiliser les fonctionnalités Azure Monitor pour machines virtuelles, Inventory, Change Tracking et Update Management d’Azure Automation sur des machines virtuelles Azure Stack Hub, vous devez commencer par activer ces solutions dans Azure.
 
 > [!TIP]
-> Si ces fonctionnalités sont déjà activées pour les machines virtuelles Azure, vous pouvez utiliser vos informations d’identification d’espace de travail Log Analytics préexistantes. Si vous avez déjà une clé primaire et un ID d’espace de travail Log Analytics que vous souhaitez utiliser, passez directement à [la section suivante](./vm-update-management.md#in-the-azure-stack-administrator-portal). Sinon, poursuivez dans cette section pour créer un espace de travail Log Analytics et un compte Automation.
+> Si ces fonctionnalités sont déjà activées pour les machines virtuelles Azure, vous pouvez utiliser vos informations d’identification d’espace de travail Log Analytics préexistantes. Si vous avez déjà une clé primaire et un ID d’espace de travail Log Analytics que vous souhaitez utiliser, passez directement à [la section suivante](./vm-update-management.md#in-the-azure-stack-hub-administrator-portal). Sinon, poursuivez dans cette section pour créer un espace de travail Log Analytics et un compte Automation.
 
 La première étape de l’activation de ces solutions consiste à [créer un espace de travail Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) dans votre abonnement Azure. Un espace de travail Log Analytics est un environnement de journalisation Azure Monitor unique qui a un référentiel de données, des sources de données et des solutions qui lui sont propres. Après avoir créé un espace de travail, notez la clé et l’ID. Pour afficher ces informations, accédez au panneau de l’espace de travail, cliquez sur **Paramètres avancés** et passez en revue les valeurs pour **ID de l’espace de travail** et **Clé primaire**. 
 
@@ -76,8 +76,8 @@ La solution Azure Monitor pour machines virtuelles prend en charge le monitoring
 
 Une fois l'espace de travail Log Analytics créé, activez les compteurs de performances de l'espace de travail pour procéder à la collecte sur les machines virtuelles Linux et Windows. Installez et activez ensuite les solutions ServiceMap et InfrastructureInsights dans votre espace de travail. Ce processus est décrit dans le guide [Déployer Azure Monitor pour machines virtuelles](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-onboard#how-to-enable-azure-monitor-for-vms-preview).
 
-### <a name="in-the-azure-stack-administrator-portal"></a>Dans le portail administrateur Azure Stack
-Après avoir activé les solutions Azure Automation dans le portail Azure, vous devez vous connecter au portail administrateur Azure Stack en tant qu’administrateur cloud, puis télécharger l’extension **Azure Monitor, Update and Configuration Management** et **Azure Monitor, Update and Configuration Management for Linux** de la Place de marché Azure Stack.
+### <a name="in-the-azure-stack-hub-administrator-portal"></a>Dans le portail administrateur Azure Stack Hub
+Après avoir activé les solutions Azure Automation sur le portail Azure, vous devez vous connecter au portail administrateur Azure Stack Hub en tant qu’administrateur cloud, puis télécharger les extensions **Azure Monitor, Update and Configuration Management** et **Azure Monitor, Update and Configuration Management for Linux** à partir de la Place de marché Azure Stack Hub.
 
    ![Élément d’extension Azure Monitor, Update and Configuration Management de la Place de marché](media/vm-update-management/2.PNG) 
 
@@ -85,12 +85,12 @@ Pour activer la solution Map d’Azure Monitor pour machines virtuelles et obten
 
    ![Azure Monitor Dependency Agent](media/vm-update-management/2-dependency.PNG) 
 
-## <a name="enable-update-management-for-azure-stack-vms"></a>Activer Update Management pour les machines virtuelles Azure Stack
-Effectuez les étapes suivantes pour activer la gestion des mises à jour pour les machines virtuelles Azure Stack.
+## <a name="enable-update-management-for-azure-stack-hub-vms"></a>Activer Update Management pour les machines virtuelles Azure Stack Hub
+Pour activer la gestion des mises à jour des machines virtuelles Azure Stack Hub, procédez comme suit.
 
-1. Connectez-vous au portail utilisateur Azure Stack.
+1. Connectez-vous au portail utilisateur Azure Stack Hub.
 
-2. Dans le portail utilisateur Azure Stack, accédez au panneau Extensions des machines virtuelles pour lesquelles vous voulez activer ces solutions, cliquez sur **+ Ajouter**, sélectionnez l’extension **Azure Update and Configuration Management**, puis cliquez sur **Créer** :
+2. Dans le portail utilisateur Azure Stack Hub, accédez au panneau Extensions des machines virtuelles pour lesquelles vous voulez activer ces solutions, cliquez sur **+ Ajouter**, sélectionnez l’extension **Azure Update and Configuration Management**, puis cliquez sur **Créer** :
 
    [![](media/vm-update-management/3-sm.PNG "VM extension blade")](media/vm-update-management/3-lg.PNG#lightbox)
 
@@ -103,7 +103,7 @@ Effectuez les étapes suivantes pour activer la gestion des mises à jour pour l
    [![](media/vm-update-management/5-sm.PNG "Enable Update Management solution on all machines")](media/vm-update-management/5-lg.PNG#lightbox) 
 
    > [!TIP]
-   > Répétez cette étape pour activer chaque solution pour les machines virtuelles Azure Stack qui sont associées à l’espace de travail. 
+   > Répétez cette étape pour activer chaque solution pour les machines virtuelles Azure Stack Hub associées à l’espace de travail. 
   
 Une fois l’extension Azure Update and Configuration Management activée, une analyse est effectuée deux fois par jour pour chaque machine virtuelle gérée. L’API est appelée toutes les 15 minutes pour rechercher l’heure de la dernière mise à jour afin de déterminer si l’état a changé. Si l’état a changé, une analyse de conformité est lancée.
 
@@ -114,9 +114,9 @@ Une fois les machines virtuelles analysées, elles s’affichent dans le compte 
 > [!IMPORTANT]
 > L’affichage sur le tableau de bord des données mises à jour provenant des ordinateurs gérés peut prendre entre 30 minutes et 6 heures.
 
-Les machines virtuelles Azure Stack peuvent maintenant être incluses dans des déploiements de mise à jour planifiés avec des machines virtuelles Azure.
+Les machines virtuelles Azure Stack Hub peuvent maintenant être incluses dans des déploiements de mise à jour planifiés avec des machines virtuelles Azure.
 
-## <a name="enable-azure-monitor-for-vms-running-on-azure-stack"></a>Activer Azure Monitor pour machines virtuelles sur Azure Stack
+## <a name="enable-azure-monitor-for-vms-running-on-azure-stack-hub"></a>Activer Azure Monitor pour machines virtuelles s’exécutant sur Azure Stack Hub
 Une fois les extensions **Azure Monitor, Update and Configuration Management** et **Azure Monitor Dependency Agent** installées sur la machine virtuelle, celle-ci peut commencer à envoyer des rapports de données à la solution [Azure Monitor pour machines virtuelles](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview). 
 
 > [!TIP]
@@ -126,7 +126,7 @@ Azure Monitor pour machines virtuelles comprend un ensemble de graphiques de per
 
    ![Onglet Performances Azure Monitor pour machines virtuelles](https://docs.microsoft.com/azure/azure-monitor/insights/media/vminsights-performance/vminsights-performance-aggview-01.png)
 
-La consultation des composants d’application découverts sur les machines virtuelles Windows et Linux s'exécutant dans Azure Stack peut se faire de deux manières avec Azure Monitor pour machines virtuelles. La première intervient directement à partir d’une machine virtuelle et la seconde, dans les groupes de machines virtuelles à partir d'Azure Monitor.
+Vous pouvez observer les composants d’application découverts sur des machines virtuelles Windows et Linux s’exécutant dans Azure Stack Hub de deux manières avec Azure Monitor pour machines virtuelles. La première intervient directement à partir d’une machine virtuelle et la seconde, dans les groupes de machines virtuelles à partir d'Azure Monitor.
 L’article [Utiliser la fonctionnalité Map d’Azure Monitor pour machines virtuelles pour comprendre les composants d’application](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-maps) vous aide à comprendre ce que les deux perspectives apportent et comment utiliser la fonctionnalité Map.
 
    ![Onglet Map d'Azure Monitor pour machines virtuelles](https://docs.microsoft.com/azure/azure-monitor/insights/media/vminsights-maps/map-multivm-azure-monitor-01.png)
@@ -134,7 +134,7 @@ L’article [Utiliser la fonctionnalité Map d’Azure Monitor pour machines vir
 Dans le cas où [Azure Monitor pour machines virtuelles](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) n’affiche aucune donnée de performances, vous devez activer la collecte des données de performances pour Windows et Linux dans les paramètres avancés de votre [espace de travail LogAnalytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters).
 
 ## <a name="enable-update-management-using-a-resource-manager-template"></a>Activer Update Management à l’aide d’un modèle Resource Manager
-Si vous avez un grand nombre de machines virtuelles Azure Stack, vous pouvez utiliser [ce modèle Azure Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) pour déployer plus facilement la solution sur des machines virtuelles. Le modèle déploie l’extension Microsoft Monitoring Agent sur une machine virtuelle Azure Stack existante et l’ajoute à un espace de travail Azure Log Analytics existant.
+Si vous avez un grand nombre de machines virtuelles Azure Stack Hub, vous pouvez utiliser [ce modèle Azure Resource Manager](https://aka.ms/aa6zdzy) pour déployer plus facilement la solution sur des machines virtuelles. Le modèle déploie l’extension Microsoft Monitoring Agent sur une machine virtuelle Azure Stack Hub existante et l’ajoute à un espace de travail Azure Log Analytics existant.
  
 ## <a name="next-steps"></a>Étapes suivantes
 [Optimiser les performances des machines virtuelles SQL Server](azure-stack-sql-server-vm-considerations.md)

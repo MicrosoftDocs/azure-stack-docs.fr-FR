@@ -1,6 +1,6 @@
 ---
-title: Installer des mises à jour Azure Stack | Microsoft Docs
-description: Découvrez comment installer des mises à jour Azure Stack.
+title: Installer des mises à jour d’Azure Stack Hub | Microsoft Docs
+description: Découvrez comment installer des mises à jour d’Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,16 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: a3864bc7233edd5b6b81a19a467ad1dca63fd3fa
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 2686b761ccf92af4ea643dd3e3c7d3fad5dcf2b5
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277620"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76022979"
 ---
-# <a name="install-azure-stack-updates"></a>Installer des mises à jour Azure Stack
+# <a name="install-azure-stack-hub-updates"></a>Installer des mises à jour d’Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack*
-
-Vous pouvez installer les packages de mise à jour à l’aide du panneau **Mise à jour** dans Azure Stack. Cet article vous guide tout au long des étapes de mise à jour, de surveillance et de résolution des problèmes liés au processus de mise à jour. Accédez au panneau Mise à jour pour lire les informations sur les mises à jour, installer des mises à jour, superviser la progression des mises à jour, vérifier l’historique des mises à jour et connaître la version actuelle d’Azure Stack et du package OEM.
+Vous pouvez installer des packages de mise à jour à l’aide du panneau **Mise à jour** dans Azure Stack Hub. Cet article vous guide tout au long des étapes de mise à jour, de surveillance et de résolution des problèmes liés au processus de mise à jour. Accédez au panneau Mise à jour pour lire les informations sur les mises à jour, installer des mises à jour, superviser la progression des mises à jour, vérifier l’historique des mises à jour et connaître la version actuelle d’Azure Stack Hub et du package OEM.
 
 Vous pouvez gérer les mises à jour à partir du portail administrateur et utiliser la section **Mises à jour** du tableau de bord pour :
 
@@ -37,9 +35,9 @@ Vous pouvez gérer les mises à jour à partir du portail administrateur et util
 
 ## <a name="determine-the-current-version"></a>Déterminer la version actuelle
 
-Vous pouvez voir la version actuelle d’Azure Stack dans le panneau **Mise à jour**. Pour ouvrir :
+Vous pouvez voir la version actuelle d’Azure Stack Hub dans le panneau **Mises à jour**. Pour ouvrir :
 
-1.  Ouvrez le portail administrateur Azure Stack.
+1.  Ouvrez le portail administrateur Azure Stack Hub.
 
 2.  Sélectionnez **Tableau de bord**. La version actuelle apparaît dans le panneau **Mise à jour**.
 
@@ -49,7 +47,10 @@ Vous pouvez voir la version actuelle d’Azure Stack dans le panneau **Mise à j
 
 ## <a name="install-updates-and-monitor-progress"></a>Installer des mises à jour et surveiller la progression
 
-1. Ouvrez le portail administrateur Azure Stack.
+> [!Important]
+> Avant d’appliquer des mises à jour dans Azure Stack Hub, assurez-vous que vous avez effectué **TOUTES** les étapes répertoriées dans la [liste de contrôle préalable à la mise à jour](release-notes-checklist.md) et que vous avez planifié une fenêtre de maintenance appropriée pour le type de mise à jour que vous appliquez.
+
+1. Ouvrez le portail administrateur Azure Stack Hub.
 
 2. Sélectionnez **Tableau de bord**. Sélectionnez **Update**.
 
@@ -57,21 +58,21 @@ Vous pouvez voir la version actuelle d’Azure Stack dans le panneau **Mise à j
 
 4. Sélectionnez **Mettre à jour maintenant**.
 
-    ![Détails de l’exécution de la mise à jour d'Azure Stack](./media/azure-stack-update-apply/image2.png)
+    ![Détails de l’exécution de la mise à jour d’Azure Stack Hub](./media/azure-stack-update-apply/image2.png)
 
-5. Vous pouvez afficher l’état de haut niveau à mesure que le processus de mise à jour effectue une itération dans les différents sous-systèmes d’Azure Stack. Exemples de sous-systèmes : hôtes physiques, Service Fabric, machines virtuelles d’infrastructure et services fournissant des portails administrateur et utilisateur. Tout au long du processus de mise à jour, le fournisseur de ressources de mise à jour transmet des détails supplémentaires sur la mise à jour, notamment le nombre d’étapes réussies et le nombre d’étapes en cours.
+5. Vous pouvez afficher l’état général à mesure que le processus de mise à jour effectue une itération dans les différents sous-systèmes d’Azure Stack Hub. Exemples de sous-systèmes : hôtes physiques, Service Fabric, machines virtuelles d’infrastructure et services fournissant des portails administrateur et utilisateur. Tout au long du processus de mise à jour, le fournisseur de ressources de mise à jour transmet des détails supplémentaires sur la mise à jour, notamment le nombre d’étapes réussies et le nombre d’étapes en cours.
 
 6. Sélectionnez l’option **Télécharger le résumé** dans le panneau des détails de l’exécution de la mise à jour pour télécharger les journaux complets.
 
-    Si vous rencontrez un problème pendant la supervision de la mise à jour, vous pouvez utiliser le [point de terminaison privilégié](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint) pour surveiller la progression de l’exécution d’une mise à jour Azure Stack. Le point de terminaison privilégié vous permet également de reprendre l’exécution d’une mise à jour ayant échoué à partir de la dernière étape réussie, dans le cas où vous n’avez plus accès au portail Azure Stack. Pour obtenir des instructions, consultez [Surveiller les mises à jour dans Azure Stack à l’aide de PowerShell](azure-stack-update-monitor.md).
+    Si vous rencontrez un problème pendant la supervision de la mise à jour, vous pouvez utiliser le [point de terminaison privilégié](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint) pour surveiller la progression de l’exécution d’une mise à jour d’Azure Stack Hub. Le point de terminaison privilégié vous permet également de reprendre l’exécution d’une mise à jour ayant échoué à partir de la dernière étape réussie, si vous n’avez plus accès au portail Azure Stack Hub. Pour obtenir des instructions, voir [Superviser les mises à jour dans Azure Stack Hub à l’aide de PowerShell](azure-stack-update-monitor.md).
 
-    ![Détails de l’exécution de la mise à jour d'Azure Stack](./media/azure-stack-update-apply/image3.png)
+    ![Détails de l’exécution de la mise à jour d’Azure Stack Hub](./media/azure-stack-update-apply/image3.png)
 
 7. Une fois l’opération terminée, le fournisseur de ressources de mise à jour vous envoie une confirmation de **réussite** pour indiquer la fin du processus de mise à jour et sa durée. De là, vous pouvez afficher des informations sur la totalité des mises à jour, les mises à jour disponibles ou les mises à jour installées à l’aide du filtre.
 
     ![azure-stack-update-apply](./media/azure-stack-update-apply/image4.png)
 
-    Si la mise à jour échoue, le panneau **Mise à jour** affiche **Doit être surveillé**. Utilisez l’option **Télécharger les journaux d’activité complets** pour obtenir un état général de l’endroit où la mise à jour a échoué. La collecte des journaux Azure Stack facilite les diagnostics et le dépannage.
+    Si la mise à jour échoue, le panneau **Mise à jour** affiche **Doit être surveillé**. Utilisez l’option **Télécharger les journaux d’activité complets** pour obtenir un état général de l’endroit où la mise à jour a échoué. La collecte des journaux Azure Stack Hub facilite les diagnostics et le dépannage.
 
 ## <a name="review-update-history"></a>Consulter l'historique des mises à jour
 
@@ -81,9 +82,9 @@ Vous pouvez voir la version actuelle d’Azure Stack dans le panneau **Mise à j
 
 3. Sélectionnez **Historique des mises à jour**.
 
-    ![Historique des mises à jour d'Azure Stack](./media/azure-stack-update-apply/image7.png)
+    ![Historique de mise à jour d’Azure Stack Hub](./media/azure-stack-update-apply/image7.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
--   [Gérer les mises à jour dans Azure Stack - Vue d’ensemble](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)  
--   [Stratégie de maintenance d’Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)  
+-   [Vue d’ensemble de la gestion des mises à jour dans Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)  
+-   [Stratégie de maintenance d’Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)  

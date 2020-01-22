@@ -1,6 +1,6 @@
 ---
-title: Présentation de la gestion réseau Azure Stack | Microsoft Docs
-description: En savoir plus sur la gestion réseau Azure Stack
+title: Présentation de la gestion de réseau Azure Stack Hub | Microsoft Docs
+description: En savoir plus sur la gestion de réseau Azure Stack Hub
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -10,37 +10,35 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e47079b100487331434a201a05bbcae7645de4f1
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 0682a698dadf79feb2e22eaa683b723e7ae23717
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824162"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883352"
 ---
-# <a name="introduction-to-azure-stack-networking"></a>Présentation de la gestion réseau Azure Stack
+# <a name="introduction-to-azure-stack-hub-networking"></a>Présentation de la gestion de réseau Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+Azure Stack Hub fournit plusieurs types de fonctionnalités de gestion de réseau qui peuvent être utilisées ensemble ou séparément :
 
-Azure Stack fournit plusieurs types de fonctionnalités de mise en réseau qui peuvent être utilisées ensemble ou séparément :
-
-- **Connectivité entre les ressources Azure Stack**  
+- **Connectivité entre les ressources Azure Stack Hub**  
     Connectez les ressources Azure ensemble dans un réseau virtuel privé et sécurisé dans le cloud.
 - **Connectivité Internet**  
-    Communiquez vers et à partir de ressources Azure Stack sur Internet.
+    Communiquez vers et à partir de ressources Azure Stack Hub sur Internet.
 - **Connectivité locale**  
-    Connectez un réseau local aux ressources Azure Stack par le biais d’un réseau privé virtuel (VPN) sur Internet ou d’une connexion dédiée à Azure Stack.
+    Connectez un réseau local à des ressources Azure Stack Hub via un réseau privé virtuel (VPN) sur Internet ou une connexion dédiée à Azure Stack Hub.
 - **Équilibrage de charge et direction de trafic**  
     Équilibrez la charge du trafic sur les serveurs dans le même emplacement et dirigez le trafic vers les serveurs dans différents emplacements.
 - **Sécurité**  
     Filtrez le trafic réseau entre les sous-réseaux ou des machines virtuelles du réseau.
 - **Routage**  
-    Utilisez le routage par défaut ou contrôlez entièrement le routage entre vos ressources Azure Stack et locales.
+    Utilisez le routage par défaut ou contrôlez entièrement le routage entre vos ressources Azure Stack Hub et locales.
 - **Facilité de gestion**  
-    Analysez et gérez vos ressources réseau Azure Stack.
+    Analysez et gérez vos ressources de gestion de réseau Azure Stack Hub.
 - **Outils de déploiement et de configuration**  
     Utilisez un portail web ou des outils de ligne de commande multiplateforme pour déployer et configurer les ressources réseau.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Considérations relatives à la mise en réseau Azure Stack](azure-stack-network-differences.md)
+* [Considérations relatives à la gestion de réseau Azure Stack Hub](azure-stack-network-differences.md)

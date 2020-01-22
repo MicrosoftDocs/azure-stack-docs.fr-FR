@@ -1,6 +1,6 @@
 ---
-title: Déployer Azure Cognitive Services sur Azure Stack | Microsoft Docs
-description: Découvrez comment déployer Azure Cognitive Services sur Azure Stack.
+title: Déployer Azure Cognitive Services sur Azure Stack Hub | Microsoft Docs
+description: Apprenez à déployer Azure Cognitive Services sur Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,25 +15,23 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 4323993c76019ffa2b3084679b2587e300094e38
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: d9e98e4d6f8bd1ba2bc2450f91d510da9bfe7d36
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955629"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878439"
 ---
-# <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Déployer Azure Cognitive Services sur Azure Stack
-
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+# <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Déployer Azure Cognitive Services sur Azure Stack Hub
 
 > [!Note]  
-> Azure Cognitive Services sur Azure Stack est disponible en préversion.
+> Azure Cognitive Services sur Azure Stack Hub est disponible en préversion.
 
-Vous pouvez utiliser Azure Cognitive Services avec prise en charge des conteneurs sur Azure Stack. La prise en charge des conteneurs dans Azure Cognitive Services vous permet d’utiliser les mêmes API puissantes que celles disponibles dans Azure. L’utilisation des conteneurs vous offre une flexibilité quant à l’emplacement où vous déployez et hébergez les services délivrés dans des [conteneurs Docker](https://www.docker.com/what-container). La prise en charge des conteneurs est désormais disponible en préversion pour quelques solutions Azure Cognitive Services, dont des composants de [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [Visage](https://docs.microsoft.com/azure/cognitive-services/face/overview), [Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) et [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS).
+Vous pouvez utiliser Azure Cognitive Services avec prise en charge des conteneurs sur Azure Stack Hub. La prise en charge des conteneurs dans Azure Cognitive Services vous permet d’utiliser les mêmes API puissantes que celles disponibles dans Azure. L’utilisation des conteneurs vous offre une flexibilité quant à l’emplacement où vous déployez et hébergez les services délivrés dans des [conteneurs Docker](https://www.docker.com/what-container). La prise en charge des conteneurs est désormais disponible en préversion pour quelques solutions Azure Cognitive Services, dont des composants de [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [Visage](https://docs.microsoft.com/azure/cognitive-services/face/overview), [Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) et [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS).
 
 La mise en conteneur, ou conteneurisation, est une méthode de distribution de logiciels dans laquelle une application ou un service, y compris ses dépendances et sa configuration, est empaqueté(e) dans une image conteneur. Avec peu ou aucune modification, vous pouvez déployer une image sur un hôte de conteneur. Chaque conteneur est isolé des autres conteneurs et du système d’exploitation sous-jacent. Le système proprement dit a uniquement les composants nécessaires pour exécuter votre image. Un hôte de conteneur a un encombrement inférieur à celui d’une machine virtuelle. Vous pouvez également créer des conteneurs à partir d’images pour les tâches à court terme et les supprimer quand vous n’en avez plus besoin.
 
-## <a name="use-containers-with-cognitive-services-on-azure-stack"></a>Utiliser des conteneurs avec Cognitive Services sur Azure Stack
+## <a name="use-containers-with-cognitive-services-on-azure-stack-hub"></a>Utiliser des conteneurs avec Cognitive Services sur Azure Stack Hub
 
 - **Contrôle des données**  
   Autorisez les utilisateurs de votre application à contrôler leurs données lors de l’utilisation de Cognitive Services. Vous pouvez distribuer Cognitive Services aux utilisateurs de l’application qui ne peuvent pas envoyer de données vers le cloud public ou Azure mondial.
@@ -42,32 +40,32 @@ La mise en conteneur, ou conteneurisation, est une méthode de distribution de l
   Fournissez aux utilisateurs de votre application la version et les mises à jour des modèles déployés dans leur solution.
 
 - **Architecture portable**  
-  Facilitez la création d'une architecture d'application portable afin de pouvoir déployer votre solution sur le cloud public, sur un cloud privé local ou à la périphérie. Vous pouvez déployer votre conteneur sur Azure Kubernetes Service, Azure Container Instances ou un cluster Kubernetes dans Azure Stack. Pour plus d’informations, consultez [Déployer Kubernetes sur Azure Stack](azure-stack-solution-template-kubernetes-deploy.md).
+  Facilitez la création d'une architecture d'application portable afin de pouvoir déployer votre solution sur le cloud public, sur un cloud privé local ou à la périphérie. Vous pouvez déployer votre conteneur sur Azure Kubernetes Service, Azure Container Instances ou un cluster Kubernetes dans Azure Stack Hub. Pour plus d'informations, consultez [Déployer Kubernetes sur Azure Stack Hub](azure-stack-solution-template-kubernetes-deploy.md).
 
 - **Haut débit et faible latence**  
    Offrez aux utilisateurs de votre application la possibilité de mettre à l’échelle avec des pics de trafic pour un débit élevé et une faible latence. Activez Cognitive Services pour une exécution dans Azure Kubernetes Service physiquement proche de leur logique d’application et de leurs données.
 
-Avec Azure Stack, déployez des conteneurs Cognitive Services dans un cluster Kubernetes avec vos conteneurs d’application pour une haute disponibilité et une mise à l’échelle élastique. Vous pouvez développer votre application en combinant Cognitive Services avec des composants reposant sur App Services, Functions, Stockage Blob, SQL ou des bases de données mySQL.
+Avec Azure Stack Hub, déployez des conteneurs Cognitive Services dans un cluster Kubernetes avec vos conteneurs d'applications pour bénéficier d'une haute disponibilité et d'une mise à l'échelle élastique. Vous pouvez développer votre application en combinant Cognitive Services avec des composants reposant sur App Services, Functions, Stockage Blob, SQL ou des bases de données mySQL.
 
 Pour plus d’informations sur les conteneurs Cognitive Services, consultez [Prise en charge des conteneurs dans Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support).
 
 ## <a name="deploy-the-azure-face-api"></a>Déployer l’API Visage Azure
 
-Cet article décrit comment déployer l’API Visage Azure sur un cluster Kubernetes dans Azure Stack. Vous pouvez adopter la même approche pour déployer d’autres conteneurs Cognitive Services sur des clusters Kubernetes dans Azure Stack.
+Cet article explique comment déployer l'API Visage Azure sur un cluster Kubernetes dans Azure Stack Hub. Vous pouvez adopter la même approche pour déployer d'autres conteneurs Cognitive Services sur des clusters Kubernetes d'Azure Stack Hub.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vous devez :
 
 1.  Demander l’accès au registre de conteneurs pour extraire des images conteneurs Visage à partir d’Azure Cognitive Services Container Registry. Pour plus d’informations, consultez [Demander l’accès au registre de conteneurs privé](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers#request-access-to-the-private-container-registry).
 
-2.  Préparer un cluster Kubernetes sur Azure Stack. Vous pouvez suivre les instructions fournies dans l’article [Déployer Kubernetes sur Azure Stack](azure-stack-solution-template-kubernetes-deploy.md).
+2.  Préparer un cluster Kubernetes sur Azure Stack Hub. Vous pouvez suivre les instructions fournies dans l'article [Déployer Kubernetes sur Azure Stack Hub](azure-stack-solution-template-kubernetes-deploy.md).
 
 ## <a name="create-azure-resources"></a>Créer des ressources Azure
 
 Créez une ressource Cognitive Services sur Azure pour afficher un aperçu des conteneurs Visage, LUIS ou Reconnaître le texte. Vous devez utiliser la clé d’abonnement et l’URL de point de terminaison de la ressource pour instancier les conteneurs Cognitive Services.
 
-1. Créez une ressource Azure dans le portail Azure. Si vous souhaitez afficher un aperçu des conteneurs Visage, vous devez d’abord créer une ressource Visage correspondante dans le portail Azure. Pour plus d’informations, consultez [Démarrage rapide : Créer un compte Cognitive Services dans le portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Créez une ressource Azure dans le portail Azure. Si vous souhaitez afficher un aperçu des conteneurs Visage, vous devez d’abord créer une ressource Visage correspondante dans le portail Azure. Pour plus d’informations, consultez [Démarrage rapide : Créer un compte Cognitive Services dans le portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
    > [!Note]
    >  La ressource Visage ou Vision par ordinateur doit utiliser le niveau tarifaire F0.
@@ -89,7 +87,7 @@ Utilisez la commande de création de secret Kubectl pour accéder au registre de
 
 Utilisez le fichier de configuration YAML pour simplifier le déploiement du service cognitif sur le cluster Kubernetes.
 
-Voici un exemple de fichier de configuration YAML pour déployer le service Visage sur Azure Stack :
+Voici un exemple de fichier de configuration YAML pour déployer le service Visage sur Azure Stack Hub :
 
 ```Yaml  
 apiVersion: apps/v1beta1
@@ -174,7 +172,7 @@ Vous pouvez obtenir l’adresse IP externe à l’aide de la commande suivante 
 
 ## <a name="try-the-services-with-python"></a>Essayer les services avec Python
 
-Vous pouvez essayer de valider les services cognitifs sur votre système Azure Stack en exécutant quelques scripts Python simples. Pour référence, il existe des exemples de guides de démarrage rapide Python officiels pour les services [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [Visage](https://docs.microsoft.com/azure/cognitive-services/face/overview), [Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) et [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS).
+Vous pouvez essayer de valider les services cognitifs sur votre système Azure Stack Hub en exécutant quelques scripts Python simples. Pour référence, il existe des exemples de guides de démarrage rapide Python officiels pour les services [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [Visage](https://docs.microsoft.com/azure/cognitive-services/face/overview), [Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) et [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS).
 
 Il y a deux points à garder à l’esprit quand vous utilisez des applications Python pour valider les services exécutés sur des conteneurs : 
 1. Les services cognitifs dans les conteneurs n’utilisent pas de sous-clés pour l’authentification, mais ils ont quand même besoin d’une chaîne comme espace réservé pour satisfaire au SDK. 
@@ -190,7 +188,7 @@ import cognitive_face as CF
 KEY = '0'  #  (keeping the quotes in place).
 CF.Key.set(KEY)
 
-# Get your actual Ip Address of service endpoint of your cognitive service on Azure Stack
+# Get your actual Ip Address of service endpoint of your cognitive service on Azure Stack Hub
 BASE_URL = 'http://<svc IP Address>:5000/face/v1.0/'  
 CF.BaseUrl.set(BASE_URL)
 
