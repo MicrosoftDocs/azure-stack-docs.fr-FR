@@ -4,7 +4,7 @@
   items:
     - name: "Qu’est-ce qu’Azure Stack Hub\_?"
       href: azure-stack-overview.md
-    - name: "Qu’est-ce qu’Azure Stack Hub HCI\_?"
+    - name: "Qu’est-ce qu’Azure Stack HCI\_?"
       href: azure-stack-hci-overview.md
     - name: Comparaison de l’écosystème Azure
       href: compare-azure-azure-stack.md
