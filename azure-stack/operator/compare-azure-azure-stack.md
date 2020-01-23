@@ -17,18 +17,18 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: a3930a0259ba71d4fabce99a3cc1168d44d139bd
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 2d350bedd88ba5c3d04b29f833a17bdd19705f05
+ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812601"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145850"
 ---
-# <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hub-hci"></a>Différences entre Azure international, Azure Stack Hub et Azure Stack Hub HCI
+# <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>Différences entre Azure international, Azure Stack Hub et Azure Stack HCI
 
 Microsoft fournit Azure et la famille de services Azure Stack Hub dans un même écosystème Azure. Utilisez les mêmes modèle d’application, portails en libre service et API avec Azure Resource Manager pour fournir des fonctionnalités basées sur le cloud, que votre entreprise utilise Azure international ou des ressources locales.
 
-Cet article décrit les fonctionnalités Azure international, Azure Stack Hub et Azure Stack Hub HCI, il présente également des suggestions pour les scénarios courants afin de vous aider à effectuer le meilleur choix pour votre organisation en matière de fourniture de services cloud Microsoft.
+Cet article décrit les fonctionnalités Azure international, Azure Stack Hub et Azure Stack HCI et présente des recommandations de scénarios courants afin de vous permettre de faire le meilleur choix de services cloud Microsoft pour votre organisation.
 
 ![Vue d’ensemble de l’écosystème Azure](./media/compare-azure-azure-stack/azure-family.png)
 
@@ -75,19 +75,19 @@ En plus des fournisseurs de ressources décrits ci-dessus, il existe des service
 
 Apprenez-en davantage sur Azure Stack Hub avec [Présentation d’Azure Stack Hub](azure-stack-overview.md).
 
-## <a name="azure-stack-hub-hci"></a>Azure Stack Hub HCI
+## <a name="azure-stack-hci"></a>Azure Stack HCI
 
-Les solutions [Azure Stack Hub HCI](azure-stack-hci-overview.md) vous permettent d’exécuter des machines virtuelles localement et de vous connecter facilement à Azure avec une solution d’infrastructure hyperconvergée (HCI). Créez et exécutez des applications cloud en utilisant des services Azure cohérents localement pour répondre aux exigences réglementaires ou techniques. En plus d’exécuter des applications virtualisées localement, Azure Stack Hub HCI vous permet de remplacer et de consolider l’infrastructure de serveur vieillissante, et de vous connecter à Azure pour les services cloud à l’aide de Windows Admin Center.
+Les solutions [Azure Stack HCI](azure-stack-hci-overview.md) vous permettent d’exécuter des machines virtuelles localement et de vous connecter facilement à Azure avec une solution d’infrastructure hyperconvergée (HCI). Créez et exécutez des applications cloud en utilisant des services Azure cohérents localement pour répondre aux exigences réglementaires ou techniques. En plus d’exécuter des applications virtualisées localement, Azure Stack HCI vous permet de remplacer et de consolider l’infrastructure de serveur vieillissante et de vous connecter à Azure pour les services cloud à l’aide de Windows Admin Center.
 
-Azure Stack Hub HCI fournit des solutions HCI validées bénéficiant des technologies Hyper-V et des espaces de stockage direct avec le SDDC (Software-Defined Datacenter) Windows Server 2019. Windows Admin Center est utilisé pour la gestion et l’accès intégré aux services Azure tels que :
+Azure Stack HCI fournit des solutions HCI validées bénéficiant des technologies Hyper-V et des espaces de stockage direct avec le SDDC (Software-Defined Datacenter) Windows Server 2019. Windows Admin Center est utilisé pour la gestion et l’accès intégré aux services Azure tels que :
 
 - Sauvegarde Azure
 - Azure Site Recovery
 - Azure Monitor and Update
 
-Pour obtenir une liste mise à jour des services Azure auxquels vous pouvez connecter Azure Stack Hub HCI, consultez [Connexion de Windows Server aux services Azure hybrides](https://docs.microsoft.com/windows-server/azure-hybrid-services/index).
+Pour obtenir une liste mise à jour des services Azure auxquels vous pouvez connecter Azure Stack HCI, consultez [Connexion de Windows Server aux services Azure hybrides](https://docs.microsoft.com/windows-server/azure-hybrid-services/index).
 
-### <a name="example-use-cases-for-azure-stack-hub-hci"></a>Exemples de cas d’utilisation pour Azure Stack Hub HCI :
+### <a name="example-use-cases-for-azure-stack-hci"></a>Exemples de cas d’utilisation pour Azure Stack HCI
 - Systèmes de bureau distant ou de succursale
 - Consolidation de centre de données
 - Infrastructure de bureau virtuel
@@ -96,7 +96,7 @@ Pour obtenir une liste mise à jour des services Azure auxquels vous pouvez conn
 - Haute disponibilité et reprise d’activité dans le cloud
 - Applications d’entreprise telles que SQL Server
 
-Visitez le [site web Azure Stack Hub HCI](https://azure.microsoft.com/overview/azure-stack/hci/) pour découvrir plus de 70 solutions Azure Stack Hub HCI disponibles auprès des partenaires Microsoft.
+Visitez le [site web Azure Stack HCI](https://azure.microsoft.com/overview/azure-stack/hci/) pour découvrir plus de 70 solutions Azure Stack HCI disponibles auprès des partenaires Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
