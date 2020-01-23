@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: b16453cd8cc6942417cacc0e70f73f87865df3d2
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 9351ce5b2dde1fc7e2dfeddc2d3520a4f5d1fe2b
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882179"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76534615"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack-hub"></a>Utiliser des bases de données MySQL sur Microsoft Azure Stack Hub
 
@@ -44,8 +44,8 @@ Le fournisseur de ressources comprend les éléments suivants :
 * **Le fournisseur de ressources**, qui traite les requêtes et accède aux ressources de la base de données.
 * **Les serveurs qui hébergent MySQL Server**, qui fournissent de la capacité pour les bases de données, appelés serveurs d’hébergement. Vous pouvez créer vous-même des instances MySQL ou bien accorder l’accès à des instances MySQL externes. La [Galerie de démarrage rapide Azure Stack Hub](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) comporte un exemple de modèle permettant d’effectuer les opérations suivantes :
 
-  * Créer un serveur MySQL pour vous.
-  * Télécharger et déployer un serveur MySQL à partir de la Place de marché Azure.
+  * Créez un serveur MySQL pour vous.
+  * Téléchargez et déployez un serveur MySQL à partir de la Place de marché Azure.
 
 > [!NOTE]
 > Les serveurs d’hébergement installés sur des systèmes intégrés Azure Stack Hub doivent être créés à partir d’un abonnement de locataire. Ils ne peuvent pas être créés à partir de l’abonnement du fournisseur par défaut. Ils doivent être créés à partir du portail utilisateur ou à partir d’une session PowerShell avec une connexion appropriée. Tous les serveurs d’hébergement sont des machines virtuelles facturables et doivent être sous licence. L’administrateur de service peut être le propriétaire de l’abonnement locataire.

@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: fd6dd68773fdfbb595ae5281f57651d068018ce8
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e51e5e67a95af5aeee8c35ebbefceb0790ae6aec
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878524"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536400"
 ---
 # <a name="use-the-azure-stack-hub-user-portal"></a>Utiliser le portail utilisateur Azure Stack Hub
 
@@ -63,7 +63,7 @@ Si vous avez besoin d’aide pour savoir comment utiliser les services disponibl
 
     Nous vous suggérons en particulier de consulter les articles suivants pour commencer :
 
-    - [Principales considérations : Utilisation de services ou génération d’applications pour Azure Stack Hub](azure-stack-considerations.md).
+    - [Principales considérations relatives Utilisation de services ou génération d’applications pour Azure Stack Hub](azure-stack-considerations.md).
     - La section **Utiliser les services** de la documentation comporte un article sur les considérations pour chaque service. La page relative aux considérations décrit les différences entre le service proposé dans Azure et le service équivalent dans Azure Stack Hub. Pour obtenir un exemple, voir [Considérations relatives aux machines virtuelles](azure-stack-vm-considerations.md). D’autres informations spécifiques d’Azure Stack Hub peuvent figurer dans la section **Utiliser les services**.
 
       Vous pouvez utiliser la documentation Azure en tant que référence générale pour un service, mais devez avoir conscience de ces différences. Comprenez que les liens de documentation dans la vignette **Tutoriels de prise en main** pointent sur la documentation Azure.
@@ -76,4 +76,4 @@ Si vous utilisez le Kit de développement Azure Stack (ASDK), le [Forum Azure St
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Principales considérations : Utilisation de services ou génération d’applications pour Azure Stack Hub](azure-stack-considerations.md)
+[Principales considérations relatives Utilisation de services ou génération d’applications pour Azure Stack Hub](azure-stack-considerations.md)

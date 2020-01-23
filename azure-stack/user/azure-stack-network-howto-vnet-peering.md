@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 10/03/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: f2d737f9048760b9c2b1561ba44f36379bfd3f00
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: bf855be0ec6fc63be4ab816dac4dde170b24fdad
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883403"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536077"
 ---
 # <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>VNET Peering dans Azure Stack Hub avec des machines virtuelles
 
@@ -27,7 +27,7 @@ Vous trouverez les modèles dans le dépôt GitHub [Azure Intelligent Edge Patte
 
 ![texte de remplacement](./media/azure-stack-network-howto-vnet-peering/overview.png)
 
-## <a name="requirements"></a>Exigences
+## <a name="requirements"></a>Spécifications
 
 - Un déploiement avec les dernières mises à jour appliquées. 
 - Éléments requis de la Place de marché Azure Stack Hub :

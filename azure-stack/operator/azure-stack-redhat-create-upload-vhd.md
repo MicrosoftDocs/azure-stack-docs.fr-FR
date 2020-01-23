@@ -18,12 +18,12 @@ ms.date: 12/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 381cc82bcade8196f6e65a9c82bfef9b9093724d
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: 2ac894211b1ccd8d1537453100879ad695507268
+ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924412"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145816"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Préparation d’une machine virtuelle Red Hat pour Azure Stack Hub
 
@@ -118,58 +118,58 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
     ```
 
 1. Durant la création d’un VHD (disque dur virtuel) personnalisé pour Azure Stack Hub, gardez à l’esprit que la version de WALinuxAgent comprise entre la 2.2.20 et la 2.2.35 (ces deux versions étant exclues) ne fonctionne pas dans les environnements Azure Stack Hub avant la version 1910. Vous pouvez utiliser les versions 2.2.20/2.2.35 pour préparer votre image. Pour utiliser les versions postérieures à la version 2.2.35 et préparer votre image personnalisée, mettez à jour votre infrastructure Azure Stack Hub vers la version 1903 (ou ultérieure), ou appliquez le correctif logiciel 1901/1902.
-
+    
     [Avant la version 1910] Suivez ces instructions pour télécharger une version compatible de WALinuxAgent :
-
+    
     1. Téléchargez setuptools.
-
-    ```bash
-    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
-    tar xzf setuptools-7.0.tar.gz
-    cd setuptools-7.0
-    ```
-
+        
+        ```bash
+        wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+        tar xzf setuptools-7.0.tar.gz
+        cd setuptools-7.0
+        ```
+    
     1. Téléchargez et décompressez la version 2.2.20 de l’agent à partir de GitHub.
 
-    ```bash
-    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
-    unzip v2.2.20.zip
-    cd WALinuxAgent-2.2.20
-    ```
+        ```bash
+        wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+        unzip v2.2.20.zip
+        cd WALinuxAgent-2.2.20
+        ```
 
     1. Installez setup.py.
 
-    ```bash
-    sudo python setup.py install
-    ```
+        ```bash
+        sudo python setup.py install
+        ```
 
     1. Redémarrez waagent.
-
-    ```bash
-    sudo systemctl restart waagent
-    ```
+    
+        ```bash
+        sudo systemctl restart waagent
+        ```
 
     1. Vérifiez si la version de l’agent correspond à celle que vous avez téléchargée. Pour cet exemple, la version devrait être 2.2.20.
 
-    ```bash
-    waagent -version
-    ```
-    
+        ```bash
+        waagent -version
+        ```
+
     [Après la version 1910] Suivez ces instructions pour télécharger une version compatible de WALinuxAgent :
     
     1. Le package WALinuxAgent, `WALinuxAgent-<version>`, a fait l’objet d’une transmission de type push vers le référentiel Red Hat « extras ». Activez le référentiel extras en exécutant la commande suivante :
 
-    ```bash
-    subscription-manager repos --enable=rhel-7-server-extras-rpms
-    ```
+        ```bash
+        subscription-manager repos --enable=rhel-7-server-extras-rpms
+        ```
 
-    1.Installez l’agent linux Azure en exécutant la commande suivante :
+    1. Installez l'agent linux Azure en exécutant la commande suivante :
 
-    ```bash
-    sudo yum install WALinuxAgent
-    sudo systemctl enable waagent.service
-    ```
-
+        ```bash
+        sudo yum install WALinuxAgent
+        sudo systemctl enable waagent.service
+        ```
+    
 
 1. Ne créez pas d’espace d’échange sur le disque du système d’exploitation.
 
@@ -321,53 +321,53 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
     [Avant la version 1910] Suivez ces instructions pour télécharger une version compatible de WALinuxAgent :
 
     1. Téléchargez setuptools.
-
-    ```bash
-    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
-    tar xzf setuptools-7.0.tar.gz
-    cd setuptools-7.0
-    ```
-
+        
+        ```bash
+        wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+        tar xzf setuptools-7.0.tar.gz
+        cd setuptools-7.0
+        ```
+        
     1. Téléchargez et décompressez la version 2.2.20 de l’agent à partir de GitHub.
-
-    ```bash
-    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
-    unzip v2.2.20.zip
-    cd WALinuxAgent-2.2.20
-    ```
-
+        
+        ```bash
+        wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+        unzip v2.2.20.zip
+        cd WALinuxAgent-2.2.20
+        ```
+        
     1. Installez setup.py.
-
-    ```bash
-    sudo python setup.py install
-    ```
-
+        
+        ```bash
+        sudo python setup.py install
+        ```
+        
     1. Redémarrez waagent.
-
-    ```bash
-    sudo systemctl restart waagent
-    ```
-
+        
+        ```bash
+        sudo systemctl restart waagent
+        ```
+        
     1. Vérifiez si la version de l’agent correspond à celle que vous avez téléchargée. Pour cet exemple, la version devrait être 2.2.20.
-
-    ```bash
-    waagent -version
-    ```
-    
+        
+        ```bash
+        waagent -version
+        ```
+        
     [Après la version 1910] Suivez ces instructions pour télécharger une version compatible de WALinuxAgent :
     
     1. Le package WALinuxAgent, `WALinuxAgent-<version>`, a fait l’objet d’une transmission de type push vers le référentiel Red Hat « extras ». Activez le référentiel extras en exécutant la commande suivante :
 
-    ```bash
-    subscription-manager repos --enable=rhel-7-server-extras-rpms
-    ```
+        ```bash
+        subscription-manager repos --enable=rhel-7-server-extras-rpms
+        ```
 
-    1.Installez l’agent linux Azure en exécutant la commande suivante :
+        1.Installez l’agent linux Azure en exécutant la commande suivante :
 
-    ```bash
-    sudo yum install WALinuxAgent
-    sudo systemctl enable waagent.service
-    ```
+            ```bash
+            sudo yum install WALinuxAgent
+            sudo systemctl enable waagent.service
+            ```
 
 1. Ne créez pas d’espace d’échange sur le disque du système d’exploitation.
 
@@ -526,39 +526,39 @@ Cette section part de l’hypothèse que vous avez déjà installé une machine 
     [Avant la version 1910] Suivez ces instructions pour télécharger une version compatible de WALinuxAgent :
 
     1. Téléchargez setuptools.
-
-    ```bash
-    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
-    tar xzf setuptools-7.0.tar.gz
-    cd setuptools-7.0
-    ```
-
-    1. Téléchargez et décompressez la version 2.2.20 de l’agent à partir de GitHub.
-
-    ```bash
-    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
-    unzip v2.2.20.zip
-    cd WALinuxAgent-2.2.20
-    ```
-
-    1. Installez setup.py.
-
-    ```bash
-    sudo python setup.py install
-    ```
-
-    1. Redémarrez waagent.
-
-    ```bash
-    sudo systemctl restart waagent
-    ```
-
-    1. Vérifiez si la version de l’agent correspond à celle que vous avez téléchargée. Pour cet exemple, la version devrait être 2.2.20.
-
-    ```bash
-    waagent -version
-    ```
     
+        ```bash
+        wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+        tar xzf setuptools-7.0.tar.gz
+        cd setuptools-7.0
+        ```
+        
+    1. Téléchargez et décompressez la version 2.2.20 de l’agent à partir de GitHub.
+        
+        ```bash
+        wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+        unzip v2.2.20.zip
+        cd WALinuxAgent-2.2.20
+        ```
+        
+    1. Installez setup.py.
+        
+        ```bash
+        sudo python setup.py install
+        ```
+        
+    1. Redémarrez waagent.
+        
+        ```bash
+        sudo systemctl restart waagent
+        ```
+        
+    1. Vérifiez si la version de l’agent correspond à celle que vous avez téléchargée. Pour cet exemple, la version devrait être 2.2.20.
+        
+        ```bash
+        waagent -version
+        ```
+        
     [Après la version 1910] Suivez ces instructions pour télécharger une version compatible de WALinuxAgent :
     
     1. Le package WALinuxAgent, `WALinuxAgent-<version>`, a fait l’objet d’une transmission de type push vers le référentiel Red Hat « extras ». Activez le référentiel extras en exécutant la commande suivante :
@@ -568,12 +568,12 @@ Cette section part de l’hypothèse que vous avez déjà installé une machine 
     ```
 
     1.Installez l’agent linux Azure en exécutant la commande suivante :
-
-    ```bash
-    sudo yum install WALinuxAgent
-    sudo systemctl enable waagent.service
-    ```
-
+        
+        ```bash
+        sudo yum install WALinuxAgent
+        sudo systemctl enable waagent.service
+        ```
+        
 1. Ne créez pas d’espace d’échange sur le disque du système d’exploitation.
 
     L’agent Linux Azure peut configurer automatiquement l’espace d’échange à l’aide du disque de ressources local attaché à la machine virtuelle après le provisionnement de celle-ci sur Azure. Notez que le disque de ressources local est un disque temporaire qui peut être vidé quand la machine virtuelle est déprovisionnée. Après avoir installé l’agent Linux Azure lors de l’étape précédente, modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :

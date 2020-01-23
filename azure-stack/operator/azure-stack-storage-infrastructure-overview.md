@@ -12,20 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: article
-ms.date: 08/27/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 508036c399b44fc6de50c11955417c5a0732d8bc
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: dfc073c87b1e6c8b1696b4d052e89c4ef786bc4d
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914991"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535737"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Gérer l’infrastructure de stockage pour Azure Stack Hub
-
-*S’applique à : Systèmes intégrés Azure Stack Hub et Kit de développement Azure Stack*
 
 Cet article décrit l’intégrité et l’état opérationnel des ressources de l’infrastructure de stockage Azure Stack Hub. Ces ressources incluent les lecteurs et les volumes de stockage. Les informations contenues dans cette rubrique peuvent vous aider à résoudre différents problèmes, par exemple l’impossibilité d’ajouter un lecteur à un pool.
 

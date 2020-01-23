@@ -16,16 +16,14 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: b07d90f17d1c4380f65c43029215bf8946d209e2
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: cb46029fabb81c224716e5e1c5eb8f65cd0cd34e
+ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924200"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124784"
 ---
 # <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>Ajouter des workers et une infrastructure dans App Service sur Azure Stack Hub
-
-*S’applique à : Systèmes intégrés Azure Stack Hub et kit SDK de développement Azure Stack Hub*  
 
 Ce document fournit des instructions sur la mise à l’échelle des rôles de travail et de l’infrastructure dans Azure App Service sur Azure Stack Hub. Il explique toutes les étapes à effectuer pour créer des rôles de worker supplémentaires en vue de la prise en charge de toutes les applications, quelle que soit leur taille.
 

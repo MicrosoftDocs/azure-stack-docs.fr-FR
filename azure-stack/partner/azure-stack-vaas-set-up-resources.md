@@ -10,25 +10,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: e36235af4dea72ae6d8016085ee18aec819ae4dd
-ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
+ms.openlocfilehash: b187194dd63e95fa922000b68dbb701914d10465
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618241"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535907"
 ---
-# <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Didacticiel : Configurer des ressources pour la validation en tant que service
+# <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Tutoriel : Configurer des ressources pour la validation en tant que service
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Validation en tant que Service (VaaS) est un service Azure qui est utilisé pour valider et prendre en charge les solutions Azure Stack sur le marché. Lisez cet article et suivez les indications avant d’utiliser le service pour valider votre solution.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Soyez prêt à utiliser VaaS en configurant votre annuaire Azure Active Directory (AD).
@@ -56,7 +56,7 @@ Créez un locataire que votre organisation utilisera pour accéder aux services 
 
     Pour affecter de rôles dans l’application **Azure Stack Validation Service** :
 
-   1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+   1. Connectez-vous au [portail Azure](https://portal.azure.com).
    2. Sélectionnez **Tous les Services** > **Azure Active Directory** dans la section **Identité**.
    3. Sélectionnez **Applications d’entreprise** > **application Azure Stack Validation Service**.
    4. Sélectionnez **Utilisateurs et groupes**. Le panneau **Azure Stack Validation services - Utilisateurs et groupes** répertorie les utilisateurs ayant l’autorisation d’utiliser l’application.

@@ -16,16 +16,14 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: eb38d3f237b872e552bd135cbe6b93c905115e30
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: 783bed2b6f90a88b815e534da17a953b3c309af2
+ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924247"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124835"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>Déployer App Service dans Azure Stack Hub
-
-*S’applique à : Systèmes intégrés Azure Stack Hub et kit SDK de développement Azure Stack Hub*
 
 Cet article explique comment déployer App Service dans Azure Stack Hub.
 
@@ -44,7 +42,7 @@ Vous pouvez donner à vos utilisateurs la possibilité de créer des application
 
 L’installation du fournisseur de ressources App Service prend au moins une heure. Le temps nécessaire dépend du nombre d’instances de rôle que vous déployez. Lors du déploiement, le programme d’installation exécute les tâches suivantes :
 
-- Crée un conteneur d’objets blob dans le compte de stockage Azure Stack Hub spécifié.
+- Crée un conteneur d'objets blob dans le compte de stockage Azure Stack Hub spécifié.
 - Crée une zone DNS et les entrées pour App Service.
 - Inscrit le fournisseur de ressources App Service.
 - Inscrit les éléments de la galerie App Service.
@@ -72,16 +70,16 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
     1. Sélectionnez la méthode de connexion que vous souhaitez utiliser : **Informations d’identification** ou **Principal du service**
  
         - **Informations d'identification**
-            - Si vous utilisez Azure Active Directory (Azure AD), entrez votre compte et mot de passe d’administrateur Azure AD que vous avez indiqués lors du déploiement d’Azure Stack Hub. Sélectionnez **Connecter**.
+            - Si vous utilisez Azure Active Directory (Azure AD), entrez le compte et le mot de passe d'administrateur Azure AD que vous avez indiqués lors du déploiement d'Azure Stack Hub. Sélectionnez **Connecter**.
             - Si vous utilisez Active Directory Federation Services (AD FS), fournissez votre compte d’administrateur. Par exemple : cloudadmin@azurestack.local. Entrez votre mot de passe, puis sélectionnez **Se connecter**.
 
         - **Principal du service**
-            - Le principal du service que vous utilisez **doit** avoir des droits de **propriétaire** sur l’**abonnement fournisseur par défaut**
-            - Indiquez l’**ID du principal du service**, le **fichier de certificat** et le **mot de passe**, puis sélectionnez **Connecter**.
+            - Le principal de service que vous utilisez **doit** avoir des droits de **propriétaire** sur l'**abonnement fournisseur par défaut**
+            - Indiquez l'**ID du principal de service**, le **fichier de certificat** et le **mot de passe**, puis sélectionnez **Se connecter**.
 
-    1. Dans **Abonnements Azure Stack Hub**, sélectionnez **Abonnement au fournisseur par défaut**.  Azure App Service sur Azure Stack Hub **doit** être déployé dans l’**abonnement au fournisseur par défaut**.
+    1. Dans **Abonnements Azure Stack Hub**, sélectionnez **Abonnement au fournisseur par défaut**.  Azure App Service sur Azure Stack Hub **doit** être déployé dans l'**abonnement au fournisseur par défaut**.
 
-    1. Dans **Emplacements Azure Stack Hub**, sélectionnez l’emplacement qui correspond à la région où vous effectuez le déploiement. Par exemple, sélectionnez **local** si vous effectuez le déploiement sur ASDK.
+    1. Dans **Emplacements Azure Stack Hub**, sélectionnez l'emplacement qui correspond à la région où vous effectuez le déploiement. Par exemple, sélectionnez **local** si vous effectuez le déploiement sur ASDK.
 
     ![Programme d’installation App Service][3]
 
