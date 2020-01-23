@@ -1,6 +1,6 @@
 ---
-title: Questions fréquentes (FAQ) sur Windows Server dans Azure Stack | Microsoft Docs
-description: Liste des questions fréquentes sur Windows Server dans la Place de marché Azure Stack
+title: Questions fréquentes (FAQ) sur Windows Server dans Azure Stack Hub | Microsoft Docs
+description: FAQ sur Windows Server dans la Place de marché Azure Stack Hub
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 8110f48ef9e42ef2ee89b4766164b5005c7d51fa
-ms.sourcegitcommit: df8de80b8c295495edc091e0a12012ccc7a96594
+ms.openlocfilehash: ae3a1d602347a4cb4dcb6199075cd1e3dce9cb29
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75503604"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023228"
 ---
-# <a name="windows-server-in-azure-stack-marketplace-faq"></a>FAQ relative à Windows Server dans la Place de marché Azure Stack
+# <a name="windows-server-in-azure-stack-hub-marketplace-faq"></a>FAQ relative à Windows Server dans la Place de marché Azure Stack Hub
 
-Cet article répond à certaines questions fréquentes sur les images Windows Server dans la [Place de marché Azure Stack](azure-stack-marketplace.md).
+Cet article répond à certaines questions fréquentes sur les images Windows Server dans la [Place de marché Azure Stack Hub](azure-stack-marketplace.md).
 
 ## <a name="marketplace-items"></a>Éléments du Marketplace
 
@@ -34,16 +34,16 @@ Déterminez d’abord si des modèles Azure Resource Manager font référence à
 
 Ensuite, si des groupes de machines virtuelles identiques font référence à une version spécifique, déterminez s’ils vont être mis à l’échelle plus tard, et décidez si les anciennes versions doivent être conservées ou non. Si aucune de ces conditions ne s’applique, supprimez les anciennes images de la Place de marché avant de télécharger les plus récentes. Utilisez pour cela le panneau Gestion de la Place de marché si la version d’origine a été téléchargée de cette façon. Téléchargez ensuite la version plus récente.
 
-### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack"></a>Quelles sont les options de licence pour les images Place de Marché Windows Server sur Azure Stack ?
+### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack-hub"></a>Quelles sont les options de licence pour les images Place de Marché Windows Server sur Azure Stack Hub ?
 
-Les images Windows Server proposées par Microsoft par le biais de la place de marché Azure Stack sont disponibles en deux versions. Une seule version de cette image peut être utilisée dans un environnement Azure Stack.  
+Les images Windows Server proposées par Microsoft par le biais de la place de marché Azure Stack Hub sont disponibles en deux versions. Une seule version de cette image peut être utilisée dans un environnement Azure Stack Hub.  
 
 - **Paiement à l’utilisation** : ces images sont associées à des compteurs Windows plein tarif.
    Public visé : clients Contrat Entreprise (EA) utilisant le *modèle de facturation Consommation* et fournisseurs de services cloud ne souhaitant pas utiliser de licence SPLA.
 - **BYOL (apportez votre propre licence)**  : ces images sont associées à des compteurs de base.
    Public visé : clients EA disposant d’une licence Windows Server et fournisseurs de services cloud utilisant une licence SPLA.
 
-Azure Hybrid Use Benefit (AHUB) n’est pas pris en charge sur Azure Stack. Les clients qui concèdent des licences par le biais du modèle « Capacité » doivent utiliser l’image BYOL. Si vous effectuez des tests avec le Kit de développement Azure Stack (ASDK), vous pouvez utiliser l’une de ces options.
+Azure Hybrid Use Benefit (AHUB) n’est pas pris en charge sur Azure Stack Hub. Les clients qui concèdent des licences par le biais du modèle « Capacité » doivent utiliser l’image BYOL. Si vous effectuez des tests avec le Kit de développement Azure Stack (ASDK), vous pouvez utiliser l’une de ces options.
 
 ### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>Que faire si je télécharge la mauvaise version et que j’offre celle-ci à mes clients/utilisateurs ?
 
@@ -89,10 +89,10 @@ Vous pouvez ajouter **licenseType : Windows_Server** dans un modèle Azure Reso
 
 ## <a name="activation"></a>Activation
 
-Pour activer une machine virtuelle Windows Server sur Azure Stack, les conditions suivantes doivent être remplies :
+Pour activer une machine virtuelle Windows Server sur Azure Stack Hub, les conditions suivantes doivent être remplies :
 
-- Le fabricant OEM a défini le marqueur BIOS approprié sur chaque système hôte dans Azure Stack.
-- Windows Server 2012 R2 et Windows Server 2016 doivent utiliser l’[activation automatique de machine virtuelle](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)). Le service de gestion de clés (KMS) et d’autres services d’activation ne sont pas pris en charge sur Azure Stack.
+- Le fabricant OEM a défini le marqueur BIOS approprié sur chaque système hôte dans Azure Stack Hub.
+- Windows Server 2012 R2 et Windows Server 2016 doivent utiliser l’[activation automatique de machine virtuelle](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)). Le service de gestion de clés (KMS) et d’autres services d’activation ne sont pas pris en charge sur Azure Stack Hub.
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>Comment vérifier que ma machine virtuelle est activée ?
 
@@ -134,5 +134,5 @@ L’[activation automatique de machine virtuelle](/previous-versions/windows/it-
 
 Pour plus d’informations, consultez les articles suivants :
 
-- [Vue d’ensemble de la Place de Marché Azure Stack](azure-stack-marketplace.md)
-- [Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack](azure-stack-download-azure-marketplace-item.md)
+- [Vue d’ensemble de la Place de marché Azure Stack Hub](azure-stack-marketplace.md)
+- [Télécharger des éléments de la Place de marché à partir d’Azure vers Azure Stack Hub](azure-stack-download-azure-marketplace-item.md)

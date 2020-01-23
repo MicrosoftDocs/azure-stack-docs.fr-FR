@@ -1,6 +1,6 @@
 ---
-title: Offrir des bases de données MySQL à haute disponibilité dans Azure Stack
-description: Découvrez comment créer un ordinateur hôte fournisseur de ressources MySQL Server et des bases de données MySQL à haute disponibilité dans Azure Stack.
+title: Offrir des bases de données MySQL à haute disponibilité dans Azure Stack Hub
+description: Découvrez comment créer un ordinateur hôte fournisseur de ressources de serveur MySQL et des bases de données MySQL à haute disponibilité dans Azure Stack Hub.
 services: azure-stack
 author: BryanLa
 manager: femila
@@ -11,32 +11,32 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: a03fbf9170e6cc1840bea62efeb33b960a25f99c
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 422ffe6f0b99909af8d3baf3dbc64a8b8c810a7b
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283409"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023271"
 ---
 # <a name="offer-highly-available-mysql-databases"></a>Offrir des bases de données MySQL à haute disponibilité
 
-En tant qu’opérateur Azure Stack, vous pouvez configurer des machines virtuelles serveurs pour héberger des bases de données MySQL Server. Une fois qu’un cluster MySQL est correctement créé et géré par Azure Stack, les utilisateurs qui se sont abonnés aux services MySQL peuvent facilement créer des bases de données MySQL à haute disponibilité.
+En tant qu’opérateur Azure Stack Hub, vous pouvez configurer des machines virtuelles serveurs pour héberger des bases de données MySQL. Une fois qu’un cluster MySQL est correctement créé et géré par Azure Stack Hub, les utilisateurs qui se sont abonnés aux services MySQL peuvent facilement créer des bases de données MySQL à haute disponibilité.
 
-Cet article montre comment utiliser des éléments de Place de marché Azure Stack pour créer un [cluster MySQL with Replication](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster). Cette solution utilise plusieurs machines virtuelles pour répliquer les bases de données à partir du nœud principal sur un nombre configurable de réplicas. Une fois créé, le cluster peut être ajouté en tant que serveur d’hébergement MySQL Azure Stack, puis les utilisateurs peuvent créer des bases de données MySQL à haute disponibilité.
+Cet article montre comment utiliser des éléments de Place de marché Azure Stack Hub pour créer un [cluster MySQL with Replication](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster). Cette solution utilise plusieurs machines virtuelles pour répliquer les bases de données à partir du nœud principal sur un nombre configurable de réplicas. Une fois créé, le cluster peut être ajouté en tant que serveur d’hébergement MySQL Azure Stack Hub, après quoi les utilisateurs peuvent créer des bases de données MySQL à haute disponibilité.
 
 > [!IMPORTANT]
-> L’élément de la Place de marché Azure Stack **MySQL with Replication** peut ne pas être disponible pour tous les environnements d’abonnement cloud Azure. Vérifiez que l’élément de la Place de marché est disponible dans votre abonnement avant d’essayer de suivre le reste de ce tutoriel.
+> L’élément de la Place de marché Azure Stack Hub **MySQL with Replication** peut ne pas être disponible pour tous les environnements d’abonnement cloud Azure. Vérifiez que l’élément de la Place de marché est disponible dans votre abonnement avant d’essayer de suivre le reste de ce tutoriel.
 
 Contenu :
 
 > [!div class="checklist"]
 > * Créer un cluster MySQL Server à partir d’éléments de la Place de marché
-> * Créer un serveur d’hébergement MySQL Azure Stack
+> * Créer un serveur d’hébergement MySQL Azure Stack Hub
 > * Créer une base de données MySQL à haute disponibilité
 
-Un cluster MySQL Server de trois machines virtuelles est créé et configuré avec des éléments disponibles sur la Place de marché Azure Stack. 
+Un cluster MySQL Server de trois machines virtuelles est créé et configuré avec des éléments disponibles sur la Place de marché Azure Stack Hub. 
 
-Avant de commencer, vérifiez que le [fournisseur de ressources MySQL Server](azure-stack-mysql-resource-provider-deploy.md) a été installé correctement et que les éléments suivants sont disponibles dans la Place de marché Azure Stack :
+Avant de commencer, vérifiez que le [fournisseur de ressources MySQL Server](azure-stack-mysql-resource-provider-deploy.md) a été correctement installé et que les éléments suivants sont disponibles dans la Place de marché Azure Stack Hub :
 
 > [!IMPORTANT]
 > Tous les éléments suivants sont nécessaires pour créer le cluster MySQL.
@@ -46,7 +46,7 @@ Avant de commencer, vérifiez que le [fournisseur de ressources MySQL Server](az
 - [Script personnalisé pour Linux 2.0](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.custom-script-linux?tab=Overview) L’extension de script personnalisé est un outil pour exécuter les tâches de personnalisation de votre machine virtuelle après son provisionnement. Quand cette extension est ajoutée à une machine virtuelle, elle peut télécharger des scripts depuis Stockage Azure et les exécuter sur la machine virtuelle. Les tâches de l’extension de script personnalisé peuvent également être automatisées avec des applets de commande Azure PowerShell et avec l’interface de ligne de commande multiplateforme Azure (xPlat CLI).
 - VM Access For Linux Extension 1.4.7. L’extension d’accès aux machines virtuelles vous permet de réinitialiser le mot de passe, la clé SSH ou les configurations SSH : vous pouvez ainsi récupérer l’accès à votre machine virtuelle. Avec cette extension, vous pouvez également ajouter un nouvel utilisateur avec un mot de passe ou une clé SSH, ou supprimer un utilisateur. Cette extension cible les machines virtuelles Linux.
 
-Pour plus d’informations sur l’ajout d’éléments à la Place de marché Azure Stack, consultez [Vue d’ensemble de la Place de marché Azure Stack](azure-stack-marketplace.md).
+Pour plus d’informations sur l’ajout d’éléments à la Place de marché Azure Stack Hub, consultez [Vue d’ensemble de la Place de marché Azure Stack Hub](azure-stack-marketplace.md).
 
 Vous avez également besoin d’un client SSH comme [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) pour vous connecter aux machines virtuelles Linux après leur déploiement.
 
@@ -75,20 +75,20 @@ Utilisez les étapes décrites dans cette section pour déployer le cluster MySQ
    - Nombre de machines virtuelles de réplica de base de données MySQL à créer (la valeur par défaut est 2)
    - Sélectionnez l’abonnement à utiliser
    - Sélectionnez le groupe de ressources ou créez-en un
-   - Sélectionnez l’emplacement (la valeur par défaut est « local » pour ASDK)
+   - Sélectionnez l’emplacement (la valeur par défaut est `local` pour ASDK)
 
-   [![](media/azure-stack-tutorial-mysqlrp/2-sm.PNG "Éléments de base du déploiement")](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
+   [![](media/azure-stack-tutorial-mysqlrp/2-sm.PNG "Deployment basics")](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 
 4. Dans la page **Configuration de l’environnement**, spécifiez les informations suivantes, puis cliquez sur **OK** : 
    - Mot de passe ou clé publique SSH à utiliser pour l’authentification SSH (secure shell). Si vous utilisez un mot de passe, il doit contenir des lettres et des chiffres, et il **peut** contenir des caractères spéciaux.
    - Taille de machine virtuelle (la valeur par défaut est « Standard D1 v2 »)
    - Taille du disque de données en Go : cliquez sur **OK**
 
-   [![](media/azure-stack-tutorial-mysqlrp/3-sm.PNG "Configuration de l’environnement")](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
+   [![](media/azure-stack-tutorial-mysqlrp/3-sm.PNG "Environment configuration")](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
 
 5. Examinez le **Résumé** du déploiement. Si vous le souhaitez, vous pouvez télécharger le modèle et les paramètres personnalisés, puis cliquez sur **OK**.
 
-   [![](media/azure-stack-tutorial-mysqlrp/4-sm.PNG "Résumé")](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
+   [![](media/azure-stack-tutorial-mysqlrp/4-sm.PNG "Summary")](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
 
 6. Cliquez sur **Créer** dans la page **Acheter** pour démarrer le déploiement.
 
@@ -97,11 +97,11 @@ Utilisez les étapes décrites dans cette section pour déployer le cluster MySQ
     > [!NOTE]
     > Le déploiement prendra environ une heure. Vérifiez que le déploiement est terminé et que le cluster MySQL a été entièrement configuré avant de continuer. 
 
-7. Une fois tous les déploiements terminés, examinez les éléments du groupe de ressources, puis sélectionnez l’élément Adresse IP publique **mysqlip**. Notez l’adresse IP publique et le nom de domaine complet de l’adresse IP pour le cluster.<br><br>Vous devrez fournir ces informations à un opérateur Azure Stack pour qu’il puisse créer un serveur d’hébergement MySQL tirant parti de ce cluster MySQL.
+7. Une fois tous les déploiements terminés, examinez les éléments du groupe de ressources, puis sélectionnez l’élément Adresse IP publique **mysqlip**. Notez l’adresse IP publique et le nom de domaine complet de l’adresse IP pour le cluster.<br><br>Vous devrez fournir ces informations à un opérateur Azure Stack Hub pour lui permettre de créer un serveur d’hébergement MySQL tirant parti de ce cluster MySQL.
 
 
 ### <a name="create-a-network-security-group-rule"></a>Créer une règle de groupe de sécurité réseau
-Par défaut, aucun accès public n’est configuré pour MySQL dans la machine virtuelle hôte. Pour que le fournisseur de ressources Azure Stack MySQL puisse se connecter au cluster MySQL et le gérer, vous devez créer une règle de groupe de sécurité réseau de trafic entrant.
+Par défaut, aucun accès public n’est configuré pour MySQL dans la machine virtuelle hôte. Pour que le fournisseur de ressources Azure Stack Hub MySQL puisse se connecter au cluster MySQL et le gérer, vous devez créer une règle de groupe de sécurité réseau de trafic entrant.
 
 1. Dans le portail d’administration, accédez au groupe de ressources créé lors du déploiement du cluster MySQL et sélectionnez le groupe de sécurité réseau (**default-subnet-sg**) :
 
@@ -112,7 +112,7 @@ Par défaut, aucun accès public n’est configuré pour MySQL dans la machine v
    ![ouvert](media/azure-stack-tutorial-mysqlrp/7.png)
 
 ### <a name="configure-external-access-to-the-mysql-cluster"></a>Configurer l’accès externe au cluster MySQL
-Avant de pouvoir ajouter le cluster MySQL comme hôte MySQL Server Azure Stack, vous devez activer un accès externe.
+Avant de pouvoir ajouter le cluster MySQL comme hôte de serveur MySQL Azure Stack Hub, vous devez activer un accès externe.
 
 1. Avec un client SSH (cet exemple utilise [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)), connectez-vous à la machine MySQL principale à partir d’un ordinateur qui peut accéder à l’adresse IP publique. Le nom de la machine virtuelle MySQL principale se termine généralement par **0** et une adresse IP publique lui est affectée.<br><br>Utilisez l’adresse IP publique et connectez-vous à la machine virtuelle avec le nom d’utilisateur **bitnami** et le mot de passe d’application sans caractères spéciaux que vous avez créé précédemment.
 
@@ -125,7 +125,7 @@ Avant de pouvoir ajouter le cluster MySQL comme hôte MySQL Server Azure Stack, 
 
    ![Vérifier le service](media/azure-stack-tutorial-mysqlrp/bitnami2.png)
 
-3. Créez un compte d’utilisateur d’accès à distance à utiliser par le serveur d’hébergement MySQL Azure Stack pour vous connecter à MySQL, puis quittez le client SSH.<br><br>Exécutez les commandes suivantes pour vous connecter à MySQL comme utilisateur racine, en utilisant le mot de passe racine créé précédemment, et créez un utilisateur administrateur, en remplaçant *\<username\>* et *\<password\>* en fonction de votre environnement. Dans cet exemple, l’utilisateur à créer est nommé **sqlsa** et un mot de passe fort est utilisé :
+3. Créez un compte d’utilisateur d’accès à distance à utiliser par le serveur d’hébergement MySQL Azure Stack Hub pour vous connecter à MySQL, puis quittez le client SSH.<br><br>Exécutez les commandes suivantes pour vous connecter à MySQL comme utilisateur racine, en utilisant le mot de passe racine créé précédemment, et créez un utilisateur administrateur, en remplaçant *\<username\>* et *\<password\>* en fonction de votre environnement. Dans cet exemple, l’utilisateur à créer est nommé **sqlsa** et un mot de passe fort est utilisé :
 
    ```mysql
    mysql -u root -p
@@ -136,18 +136,18 @@ Avant de pouvoir ajouter le cluster MySQL comme hôte MySQL Server Azure Stack, 
    ![Créer un utilisateur administrateur](media/azure-stack-tutorial-mysqlrp/bitnami3.png)
 
 
-4. Notez les informations du nouvel utilisateur MySQL.<br><br>Vous devez fournir ce nom d’utilisateur et ce mot de passe, ainsi que l’adresse IP publique ou le nom de domaine complet de l’adresse IP publique pour le cluster, à un opérateur Azure Stack pour qu’il puisse créer un serveur d’hébergement MySQL avec ce cluster MySQL.
+4. Notez les informations du nouvel utilisateur MySQL.<br><br>Vous devez fournir ce nom d’utilisateur et ce mot de passe, ainsi que l’adresse IP publique ou le nom de domaine complet de l’adresse IP publique pour le cluster, à un opérateur Azure Stack Hub pour lui permettre de créer un serveur d’hébergement MySQL avec ce cluster MySQL.
 
 
-## <a name="create-an-azure-stack-mysql-hosting-server"></a>Créer un serveur d’hébergement MySQL Azure Stack
-Une fois que le cluster MySQL Server a été créé et configuré correctement, un opérateur Azure Stack doit créer un serveur d’hébergement MySQL Azure Stack pour rendre la fonctionnalité supplémentaire permettant de créer des bases de données disponible pour les utilisateurs. 
+## <a name="create-an-azure-stack-hub-mysql-hosting-server"></a>Créer un serveur d’hébergement MySQL Azure Stack Hub
+Une fois le cluster MySQL Server créé et correctement configuré, un opérateur Azure Stack Hub doit créer un serveur d’hébergement MySQL Azure Stack Hub pour rendre la fonctionnalité supplémentaire permettant de créer des bases de données disponible pour les utilisateurs. 
 
 Veillez à utiliser l’adresse IP publique ou le nom de domaine complet pour l’adresse IP publique de la machine virtuelle principale du cluster MySQL que vous avez enregistré précédemment lors de la création du groupe de ressources du cluster MySQL (**mysqlip**). En outre, l’opérateur doit connaître les informations d’identification d’authentification de MySQL Server que vous avez créées pour accéder à distance à la base de données du cluster MySQL.
 
 > [!NOTE]
-> Cette étape doit être effectuée à partir du portail d’administration Azure Stack par un opérateur Azure Stack.
+> Cette étape doit être effectuée par un opérateur Azure Stack Hub à partir du portail d’administration Azure Stack Hub.
 
-À l’aide de l’adresse IP publique du cluster MySQL et des informations de connexion d’authentification MySQL, un opérateur Azure Stack peut maintenant [créer un serveur d’hébergement MySQL avec le nouveau cluster MySQL](azure-stack-mysql-resource-provider-hosting-servers.md#connect-to-a-mysql-hosting-server). 
+À l’aide de l’adresse IP publique du cluster MySQL et des informations de connexion d’authentification MySQL, un opérateur Azure Stack Hub peut désormais [créer un serveur d’hébergement MySQL avec le nouveau cluster MySQL](azure-stack-mysql-resource-provider-hosting-servers.md#connect-to-a-mysql-hosting-server). 
 
 Vérifiez également que vous avez créé des plans et des offres pour rendre la création de bases de données MySQL disponible pour les utilisateurs. Un opérateur doit ajouter le service **Microsoft.MySqlAdapter** à un plan et créer un quota spécifiquement pour les bases de données à haute disponibilité. Pour plus d’informations sur la création de plans, consultez [Vue d’ensemble des services, des plans, des offres et des abonnements](service-plan-offer-subscription-overview.md).
 
@@ -157,19 +157,19 @@ Vérifiez également que vous avez créé des plans et des offres pour rendre la
 
 
 ## <a name="create-a-highly-available-mysql-database"></a>Créer une base de données MySQL à haute disponibilité
-Une fois que le cluster MySQL a été créé, configuré et ajouté en tant que serveur d’hébergement MySQL Azure Stack par un opérateur Azure Stack, un utilisateur du locataire avec un abonnement incluant les fonctionnalités de base de données MySQL Server peut créer des bases de données MySQL à haute disponibilité en suivant les étapes décrites dans cette section. 
+Une fois le cluster MySQL créé, configuré et ajouté en tant que serveur d’hébergement MySQL Azure Stack Hub par un opérateur Azure Stack Hub, un utilisateur du locataire doté d'un abonnement incluant les fonctionnalités de base de données de serveur MySQL peut créer des bases de données MySQL à haute disponibilité en suivant la procédure décrite dans cette section. 
 
 > [!NOTE]
-> Effectuez ces étapes à partir du portail utilisateur Azure Stack en tant qu’utilisateur du locataire, avec un abonnement fournissant des fonctionnalités MySQL Server (service Microsoft.MySQLAdapter).
+> Effectuez ces étapes à partir du portail utilisateur Azure Stack Hub en tant qu’utilisateur du locataire doté d'un abonnement fournissant des fonctionnalités de serveur MySQL (service Microsoft.MySQLAdapter).
 
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. Cliquez sur **\+** **Créer une ressource** > **Données\+Stockage**, puis sur **Base de données MySQL**.<br><br>Spécifiez les informations des propriétés de base de données nécessaires, notamment le nom, le classement, l’abonnement et l’emplacement à utiliser pour le déploiement. 
+2. Sélectionnez **\+** **Créer une ressource** > **Données\+Stockage**, puis **Base de données MySQL**.<br><br>Spécifiez les informations des propriétés de base de données nécessaires, notamment le nom, le classement, l’abonnement et l’emplacement à utiliser pour le déploiement. 
 
    ![Créer une base de données MySQL](./media/azure-stack-tutorial-mysqlrp/createdb1.png)
 
-3. Sélectionnez **Référence (SKU)** , puis choisissez la référence de serveur d’hébergement MySQL appropriée à utiliser. Dans cet exemple, l’opérateur Azure Stack a créé la référence **MySQL-HA** pour prendre en charge la haute disponibilité pour les bases de données MySQL.
+3. Sélectionnez **Référence (SKU)** , puis choisissez la référence de serveur d’hébergement MySQL appropriée à utiliser. Dans cet exemple, l’opérateur Azure Stack Hub a créé la référence SKU **MySQL-HA** afin de prendre en charge la haute disponibilité pour les bases de données MySQL.
 
    ![Sélectionner une référence (SKU)](./media/azure-stack-tutorial-mysqlrp/createdb2.png)
 

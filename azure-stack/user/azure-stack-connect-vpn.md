@@ -1,6 +1,6 @@
 ---
-title: Connecter Azure Stack à Azure à l’aide d’un VPN | Microsoft Docs
-description: Découvrez comment connecter des réseaux virtuels Azure Stack à des réseaux virtuels Azure à l’aide d’un VPN.
+title: Connecter Azure Stack Hub à Azure à l’aide d’un VPN | Microsoft Docs
+description: Découvrez comment connecter des réseaux virtuels Azure Stack Hub à des réseaux virtuels Azure à l’aide d’un VPN.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,24 +16,22 @@ ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 844162e4f31a6f543a9fe774aa40bd606dad85b9
-ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
+ms.openlocfilehash: 210890ce5ae82142906fb8f98d874c2f90ea3713
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71974105"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883828"
 ---
-# <a name="connect-azure-stack-to-azure-using-vpn"></a>Connexion d’Azure Stack à Azure à l’aide d’un VPN
+# <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Connecter Azure Stack Hub à Azure à l’aide d’un VPN
 
-*S’applique à : systèmes intégrés Azure Stack*
-
-Cet article explique comment créer un VPN de site à site pour connecter un réseau virtuel dans Azure Stack à un réseau virtuel dans Azure.
+Cet article explique comment créer un VPN de site à site pour connecter un réseau virtuel dans Azure Stack Hub à un réseau virtuel dans Azure.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Avant de commencer la configuration de la connexion, vérifiez que vous disposez des éléments suivants :
 
-* Un déploiement de systèmes intégrés Azure Stack (plusieurs nœuds) directement connecté à Internet. Votre plage d’adresses IP publiques externe doit être directement accessible à partir de l’Internet public.
+* Un déploiement de systèmes intégrés Azure Stack Hub (plusieurs nœuds) directement connecté à Internet. Votre plage d’adresses IP publiques externe doit être directement accessible à partir de l’Internet public.
 * Un abonnement Azure valide. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte Azure gratuit ici](https://azure.microsoft.com/free/?b=17.06).
 
 ### <a name="vpn-connection-diagram"></a>Diagramme de connexions VPN
@@ -46,7 +44,7 @@ La figure ci-après illustre à quoi la configuration d’une connexion devra re
 
 Le tableau d’exemples de configuration réseau montre les valeurs utilisées pour les exemples de cet article. Pour mieux comprendre cet article, vous pouvez utiliser les valeurs suivantes ou vous y référer :
 
-|   |Azure Stack|Azure|
+|   |Azure Stack Hub|Azure|
 |---------|---------|---------|
 |Nom du réseau virtuel     |Azs-VNet|AzureVNet |
 |Espace d’adressage du réseau virtuel |10.1.0.0/16|10.100.0.0/16|
@@ -103,8 +101,8 @@ Tout d’abord, créez les ressources réseau pour Azure. Les instructions ci-ap
 2. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 3. Dans la liste des ressources, sélectionnez **Passerelle de réseau local**.
 4. Dans le champ **Nom**, tapez **Azs-GW**.
-5. Dans le champ **Adresse IP**, tapez l’adresse IP publique de votre passerelle de réseau virtuel Azure Stack, indiquée précédemment dans le tableau de configuration du réseau.
-6. Dans le champ **Espace d’adressage**, à partir d’Azure Stack, tapez l’espace d’adressage **10.1.0.0/24** et **10.1.1.0/24** pour **AzureVNet**.
+5. Dans le champ **Adresse IP**, tapez l’adresse IP publique de votre passerelle de réseau virtuel Azure Stack Hub, indiquée précédemment dans le tableau de configuration réseau.
+6. Dans le champ **Espace d’adressage**, à partir d’Azure Stack Hub, entrez l’espace d’adressage **10.1.0.0/24** et **10.1.1.0/24** pour **AzureVNet**.
 7. Vérifiez l’exactitude des valeurs des champs **Abonnement**, **Groupe de ressources** et **Emplacement**, puis sélectionnez **Créer**.
 
 ## <a name="create-the-connection"></a>Créer la connexion
@@ -144,9 +142,9 @@ Tout d’abord, créez les ressources réseau pour Azure. Les instructions ci-ap
 
 9. Dans la section **Résumé**, vérifiez les paramètres, puis sélectionnez **OK**.
 
-## <a name="create-the-network-resources-in-azure-stack"></a>Créer les ressources réseau dans Azure Stack
+## <a name="create-the-network-resources-in-azure-stack-hub"></a>Créer les ressources réseau dans Azure Stack Hub
 
-Ensuite, créez les ressources réseau dans Azure Stack.
+Ensuite, créez les ressources réseau dans Azure Stack Hub.
 
 ### <a name="sign-in-as-a-user"></a>Connectez-vous en tant qu’utilisateur
 
@@ -182,7 +180,7 @@ Un administrateur de service peut se connecter en tant qu’utilisateur pour tes
 
 ### <a name="create-the-virtual-network-gateway"></a>Créer la passerelle de réseau virtuel
 
-1. Dans le portail Azure Stack, sélectionnez **+ Créer une ressource**.
+1. Dans le portail Azure Stack Hub, sélectionnez **+ Créer une ressource**.
 2. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 3. Dans la liste des ressources réseau, sélectionnez **Passerelle de réseau virtuel**.
 4. Dans le champ **Nom**, saisissez **Azs-GW**.
@@ -195,15 +193,15 @@ Un administrateur de service peut se connecter en tant qu’utilisateur pour tes
 
 ### <a name="create-the-local-network-gateway"></a>Créer la passerelle de réseau local
 
-Le concept de *passerelle de réseau local* dans Azure Stack diffère légèrement de celui dans un déploiement Azure.
+Dans Azure Stack Hub, le concept de *passerelle de réseau local* diffère légèrement de celui dans un déploiement Azure.
 
-En effet, dans un déploiement Azure, une passerelle de réseau local représente un appareil physique local (à l’emplacement de l’utilisateur) que vous vous connectez à une passerelle de réseau virtuel dans Azure. Cependant, dans Azure Stack, les deux extrémités de la connexion sont des passerelles de réseau virtuel.
+En effet, dans un déploiement Azure, une passerelle de réseau local représente un appareil physique local (à l’emplacement de l’utilisateur) que vous vous connectez à une passerelle de réseau virtuel dans Azure. Cependant, dans Azure Stack Hub, les deux extrémités de la connexion sont des passerelles de réseau virtuel.
 
 De façon plus générale, la ressource de passerelle de réseau local représente toujours la passerelle distante située à l’autre extrémité de la connexion.
 
 ### <a name="create-the-local-network-gateway-resource"></a>Créer la ressource de passerelle de réseau local
 
-1. Connectez-vous au portail Azure Stack.
+1. Connectez-vous au portail Azure Stack Hub.
 2. Dans le portail utilisateur, sélectionnez **+ Créer une ressource**.
 3. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 4. Dans la liste des ressources, sélectionnez **Passerelle de réseau local**.
@@ -229,7 +227,7 @@ De façon plus générale, la ressource de passerelle de réseau local représen
 
 ### <a name="create-a-vm"></a>Créer une machine virtuelle
 
-Pour vérifier la connexion VPN, créez deux machines virtuelles, une dans Azure et l’autre dans Azure Stack. Après avoir créé ces machines virtuelles, vous pouvez les utiliser pour envoyer et recevoir des données via le tunnel VPN.
+Pour vérifier la connexion VPN, créez deux machines virtuelles, une dans Azure et l’autre dans Azure Stack Hub. Après avoir créé ces machines virtuelles, vous pouvez les utiliser pour envoyer et recevoir des données via le tunnel VPN.
 
 1. Dans le Portail Azure, sélectionnez **+ Créer une ressource**.
 2. Accédez à la **Place de marché**, puis sélectionnez **Compute**.
@@ -246,15 +244,15 @@ Pour vérifier la connexion VPN, créez deux machines virtuelles, une dans Azure
 
 Maintenant que la connexion de site à site est établie, vous devez vérifier que les données transitent dans les deux directions. Le moyen le plus simple de tester la connexion est d’effectuer un test ping :
 
-* Connectez-vous à la machine virtuelle que vous avez créée dans Azure Stack et effectuez un test ping sur la machine virtuelle dans Azure.
-* Connectez-vous à la machine virtuelle que vous avez créée dans Azure et effectuez un test ping sur la machine virtuelle dans Azure Stack.
+* Connectez-vous à la machine virtuelle que vous avez créée dans Azure Stack Hub et effectuez un test ping sur la machine virtuelle dans Azure.
+* Connectez-vous à la machine virtuelle que vous avez créée dans Azure et effectuez un test ping sur la machine virtuelle dans Azure Stack Hub.
 
 >[!NOTE]
 >Pour vérifier que le trafic envoyé passe par la connexion de site à site, effectuez le test ping sur l’adresse IP directe (DIP) de la machine virtuelle du sous-réseau distant, et non sur l’adresse IP virtuelle.
 
-### <a name="sign-in-to-the-user-vm-in-azure-stack"></a>Connectez-vous à la machine virtuelle utilisateur dans Azure Stack
+### <a name="sign-in-to-the-user-vm-in-azure-stack-hub"></a>Se connecter à la machine virtuelle utilisateur dans Azure Stack Hub
 
-1. Connectez-vous au portail Azure Stack.
+1. Connectez-vous au portail Azure Stack Hub.
 2. Sélectionnez **Machines virtuelles** dans la barre de navigation de gauche.
 3. Dans la liste des machines virtuelles, recherchez la machine virtuelle **AZs-VM** que vous avez créée précédemment et sélectionnez-la.
 4. Dans la section de la machine virtuelle, sélectionnez **Se connecter**, puis ouvrez le fichier Azs-VM.rdp.
@@ -291,7 +289,7 @@ Maintenant que la connexion de site à site est établie, vous devez vérifier q
     -Protocol ICMPv4
    ```
 
-10. À partir de la machine virtuelle dans Azure, effectuez un test ping de la machine virtuelle dans Azure Stack, par le biais du tunnel. Pour cela, effectuez un test Ping sur l’adresse IP directe (DIP) que vous avez enregistrée à partir d’Azs-VM. Dans l’exemple d’environnement, l’adresse est **10.1.0.4**, mais vous devez effectuer le test ping sur l’adresse que vous avez notée dans votre lab. Vous devez obtenir un résultat semblable à celui présenté dans la capture d’écran suivante :
+10. À partir de la machine virtuelle dans Azure, effectuez un test ping de la machine virtuelle dans Azure Stack Hub, par le biais du tunnel. Pour cela, effectuez un test Ping sur l’adresse IP directe (DIP) que vous avez enregistrée à partir d’Azs-VM. Dans l’exemple d’environnement, l’adresse est **10.1.0.4**, mais vous devez effectuer le test ping sur l’adresse que vous avez notée dans votre lab. Vous devez obtenir un résultat semblable à celui présenté dans la capture d’écran suivante :
 
     ![Test ping réussi](media/azure-stack-connect-vpn/image19b.png)
 
@@ -303,7 +301,7 @@ Vous devez également effectuer un test plus rigoureux de transfert de données,
 
 Si vous souhaitez connaître la quantité de données qui transite par votre connexion de site à site, consultez cette information dans la section **Connexion**. Ce test est également un autre moyen de vérifier que la commande ping que vous venez d’envoyer est bien passée par la connexion VPN.
 
-1. Lorsque vous êtes connecté à la machine virtuelle utilisateur dans Azure Stack, utilisez votre compte d’utilisateur pour vous connecter au portail de l’utilisateur.
+1. Une fois connecté à la machine virtuelle utilisateur dans Azure Stack Hub, utilisez votre compte d’utilisateur pour vous connecter au portail utilisateur.
 2. Accédez à **Toutes les ressources**, puis sélectionnez la connexion **Azs-Azure**. Le panneau **Connexion** s’affiche.
 3. La section **Connexion** affiche les statistiques pour **Données entrantes** et **Données sortantes**. Dans la capture d’écran suivante, les valeurs élevées sont dues au transfert de fichiers supplémentaires. Normalement, vous ne devez pas voir de valeurs nulles ici.
 
@@ -311,4 +309,4 @@ Si vous souhaitez connaître la quantité de données qui transite par votre con
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Déployer des applications sur Azure et Azure Stack](azure-stack-solution-pipeline.md)
+* [Déployer des applications sur Azure et Azure Stack Hub](azure-stack-solution-pipeline.md)

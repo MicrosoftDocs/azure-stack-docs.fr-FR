@@ -1,6 +1,6 @@
 ---
-title: Notes de publication d’App Service sur Azure Stack Update 3 | Microsoft Docs
-description: Découvrez les améliorations, les correctifs et les problèmes connus concernant la version Update 3 d’App Service pour Azure Stack.
+title: Notes de publication d'App Service sur Azure Stack Hub Update 3 | Microsoft Docs
+description: Découvrez les améliorations, les correctifs et les problèmes connus concernant la version Update 3 d'App Service pour Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,43 +16,41 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: d226be9bad3bd6ddf775d8415329ea1fa8099eb0
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: b8c888ba0c4821cfd6ff621d565c61359edc757f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159557"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880156"
 ---
-# <a name="app-service-on-azure-stack-update-3-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 3
+# <a name="app-service-on-azure-stack-hub-update-3-release-notes"></a>Notes de publication d'App Service sur Azure Stack Hub Update 3
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
-
-Ces notes de publication décrivent les améliorations, les correctifs et les problèmes connus concernant Azure App Service sur Azure Stack Update 3. Les problèmes connus ont été répartis en trois sections : ceux qui concernent directement le déploiement, ceux qui concernent le processus de mise à jour et ceux qui concernent la build (après l’installation).
+Ces notes de publication décrivent les améliorations, les correctifs et les problèmes connus dans la version Update 3 d'Azure App Service sur Azure Stack Hub. Les problèmes connus ont été répartis en trois sections : ceux qui concernent directement le déploiement, ceux qui concernent le processus de mise à jour et ceux qui concernent la build (après l’installation).
 
 > [!IMPORTANT]
-> Appliquez la mise à jour 1807 à votre système intégré Azure Stack ou déployez le dernier kit de développement Azure Stack (ASDK) avant de déployer Azure App Service 1.3.
+> Appliquez la mise à jour 1807 à votre système intégré Azure Stack Hub, ou déployez le dernier Kit de développement Azure Stack Hub (ASDK) avant de déployer Azure App Service 1.3.
 
 ## <a name="build-reference"></a>Référence de build
 
-Le numéro de build d’App Service sur Azure Stack Update 3 est **74.0.13698.31**.
+Le numéro de build d'App Service sur Azure Stack Hub Update 3 est **74.0.13698.31**.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
-Avant de commencer le déploiement, consultez les [Prérequis pour le déploiement d’App Service sur Azure Stack](azure-stack-app-service-before-you-get-started.md).
+Avant de commencer le déploiement, consultez les [Conditions préalables pour le déploiement d’App Service sur Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).
 
-Avant de commencer la mise à niveau d’Azure App Service sur Azure Stack vers la version 1.3, vérifiez que tous les rôles sont prêts dans l’administration Azure App Service par le biais du portail administrateur Azure Stack.
+Avant de commencer la mise à niveau d’Azure App Service sur Azure Stack Hub vers la version 1.3, vérifiez que tous les rôles sont prêts dans l’administration Azure App Service par le biais du portail administrateur Azure Stack Hub.
 
 ![Statut du rôle App Service](media/azure-stack-app-service-release-notes-update-three/image01.png)
 
 ### <a name="new-features-and-fixes"></a>Nouvelles fonctionnalités et correctifs
 
-Azure App Service sur Azure Stack Update 3 inclut les améliorations et correctifs suivants :
+Azure App Service sur Azure Stack Hub Update 3 contient les améliorations et correctifs suivants :
 
 - Prise en charge de l’utilisation de SQL Server AlwaysOn pour les bases de données de fournisseurs de ressources Azure App Service.
 
 - Ajout du nouveau paramètre d’environnement au script d’assistance Create-AADIdentityApp afin de faciliter le ciblage des différentes régions Azure AD.
 
-- Mises à jour des **portails Locataire, Administration et Functions d’App Service, ainsi que des outils Kudu**. Cohérentes avec celles de la version du SDK du portail Azure Stack.
+- Mises à jour des **portails Locataire, Administration et Functions d’App Service, ainsi que des outils Kudu**. Cohérentes avec la version du kit de développement logiciel (SDK) sur le portail Azure Stack Hub.
 
 - Mises à jour du **runtime d’Azure Functions** à la **version 1.0.11820**.
 
@@ -78,10 +76,10 @@ Azure App Service sur Azure Stack Update 3 inclut les améliorations et correcti
 
 ### <a name="post-update-steps-optional"></a>Étapes post-mise à jour (facultatif)
 
-Pour les clients qui cherchent à effectuer une migration vers une base de données autonome pour des déploiements existants d’Azure App Service sur Azure Stack, exécutez les étapes suivantes après avoir mis à jour Azure App Service sur Azure Stack 1.3 :
+Pour les clients désireux d'effectuer une migration vers une base de données autonome pour des déploiements existants d'Azure App Service sur Azure Stack Hub, suivez les étapes ci-dessous après la mise à jour d'Azure App Service sur Azure Stack Hub 1.3 :
 
 > [!IMPORTANT]
-> Cette procédure prend environ 5 à 10 minutes. Elle suppose de forcer l’arrêt des sessions de connexion à la base de données. Planifier un temps d’arrêt pour la migration et la validation d’Azure App Service sur Azure Stack après la migration
+> Cette procédure prend environ 5 à 10 minutes. Elle suppose de forcer l’arrêt des sessions de connexion à la base de données. Planifier un temps d'arrêt pour la migration et la validation d'Azure App Service sur Azure Stack Hub après la migration
 >
 >
 
@@ -182,7 +180,7 @@ Pour les clients qui cherchent à effectuer une migration vers une base de donn�
 
 ### <a name="known-issues-post-installation"></a>Problèmes connus (après l’installation)
 
-- Les Workers ne peuvent pas atteindre le serveur de fichiers si App Service est déployé dans un réseau virtuel existant et si le serveur de fichiers est uniquement disponible sur le réseau privé. Ce problème est évoqué dans la documentation de déploiement d’Azure App Service sur Azure Stack.
+- Les Workers ne peuvent pas atteindre le serveur de fichiers si App Service est déployé dans un réseau virtuel existant et si le serveur de fichiers est uniquement disponible sur le réseau privé. Ce problème est évoqué dans la documentation de déploiement d'Azure App Service sur Azure Stack Hub.
 
 Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et avec une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau worker et le serveur de fichiers. Accédez au WorkersNsg dans le portail administrateur, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
 
@@ -191,16 +189,16 @@ Si vous avez choisi de procéder au déploiement dans un réseau virtuel existan
  * Destination : Adresses IP
  * Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
  * Plage de ports de destination : 445
- * Protocole : TCP
- * Action : AUTORISER
- * Priorité : 700
+ * Protocole : TCP
+ * Action : Allow
+ * Priorité : 700
  * Nom : Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problèmes connus des administrateurs cloud utilisant Azure App Service sur Azure Stack
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Problèmes connus des administrateurs cloud utilisant Azure App Service sur Azure Stack Hub
 
-Reportez-vous à la documentation des notes de publication d’Azure Stack 1807.
+Reportez-vous à la documentation fournie dans les Notes de publication d'Azure Stack Hub 1807.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une présentation d’Azure App Service, consultez [Vue d’ensemble d’App Service sur Azure Stack](azure-stack-app-service-overview.md).
-- Pour plus d’informations sur la préparation au déploiement d’App Service sur Azure Stack, consultez [Prérequis pour le déploiement d’App Service sur Azure Stack](azure-stack-app-service-before-you-get-started.md).
+- Pour une présentation d’Azure App Service, consultez [Vue d’ensemble d’Azure App Service sur Azure Stack Hub](azure-stack-app-service-overview.md).
+- Pour plus d’informations sur la préparation au déploiement d’App Service sur Azure Stack Hub, consultez [Conditions préalables pour le déploiement d’App Service sur Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).

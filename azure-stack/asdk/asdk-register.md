@@ -15,12 +15,12 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 2dea14ab5d43aab8deab2632b07277d7094e33c4
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: c12882ea5f26589c18abaf016ba09b17d02bdcab
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974618"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76022943"
 ---
 # <a name="register-the-asdk-with-azure"></a>Inscrire le kit ASDK auprès d’Azure
 
@@ -28,7 +28,7 @@ Vous pouvez inscrire le Kit de développement Azure Stack auprès d’Azure pour
 
 Si vous n’inscrivez pas votre kit ASDK, il se peut qu’un message d’avertissement **Activation requise** s’affiche pour vous inviter à l’inscrire. Il s’agit du comportement attendu.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de suivre ces instructions pour inscrire le kit ASDK auprès d’Azure, veillez à installer Azure Stack PowerShell et télécharger les outils Azure Stack, comme décrit dans l’article relatif à la [configuration post-déploiement](asdk-post-deploy.md).
 
@@ -221,7 +221,7 @@ Vous pouvez utiliser la vignette **Gestion des régions** pour vérifier que l�
 
 2. Dans le tableau de bord, sélectionnez **Gestion des régions**.
 
-    [![Vignette de gestion des régions dans le portail d’administration d’Azure Stack](media/asdk-register/admin1sm.png "Vignette de gestion des régions")](media/asdk-register/admin1.png#lightbox)
+    [![Vignette Gestion des régions dans le portail administrateur Azure Stack](media/asdk-register/admin1sm.png "Vignette Gestion des régions")](media/asdk-register/admin1.png#lightbox)
 
 3. Sélectionner **Propriétés**. Ce panneau affiche l’état et les détails de votre environnement. L’état peut être **Inscrit** ou **Non inscrit**. S’il est inscrit, il montre également l’ID d’abonnement Azure que vous avez utilisé pour inscrire votre instance Azure Stack ainsi que le groupe de ressources et le nom de l’inscription.
 
@@ -231,4 +231,4 @@ Le déplacement d’une ressource d’inscription entre des groupes de ressource
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Ajouter un élément marketplace Azure Stack](../operator/azure-stack-marketplace.md)
+- [Ajouter un élément de la Place de marché Azure Stack Hub](../operator/azure-stack-marketplace.md)

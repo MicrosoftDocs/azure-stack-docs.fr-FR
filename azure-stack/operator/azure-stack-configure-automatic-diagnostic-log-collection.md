@@ -1,6 +1,6 @@
 ---
-title: Configurer la collecte automatique des journaux Azure Stack | Microsoft Docs
-description: Découvrez comment configurer la collecte automatique des journaux dans Azure Stack Aide et support.
+title: Configurer la collecte automatique des journaux Azure Stack Hub | Microsoft Docs
+description: Découvrez comment configurer la collecte automatique des journaux dans Azure Stack Hub Aide et support.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,32 +16,30 @@ ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 087698b4f12c646422fda05cc4c707ad135b150a
-ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
+ms.openlocfilehash: 63ee429c37d5ec7bf9258e3e940d9dbfa3786907
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72310605"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882587"
 ---
-# <a name="configure-automatic-azure-stack-diagnostic-log-collection"></a>Configurer la collecte automatique des journaux de diagnostic Azure Stack
-
-*S’applique à : systèmes intégrés Azure Stack*
+# <a name="configure-automatic-azure-stack-hub-diagnostic-log-collection"></a>Configurer la collecte automatique des journaux de diagnostic Azure Stack Hub
 
 Nous vous recommandons de configurer la fonctionnalité de collecte automatique des journaux de diagnostic afin de simplifier la collecte des journaux et l’expérience du support technique. Si les conditions d’intégrité du système doivent être examinées, les journaux peuvent être automatiquement téléchargés à des fins d'analyse par les services de support technique Microsoft (CSS). 
 
 ## <a name="create-an-azure-blob-container-sas-url"></a>Créer une URL SAP de conteneur d'objets blob Azure 
 
-Avant de configurer la collecte automatique des journaux, vous devez obtenir une signature d’accès partagé (SAP) pour un conteneur d’objets blob. Une signature d’accès partagé vous permet d'accorder l’accès aux ressources dans votre compte de stockage sans partager les clés de votre compte. Vous pouvez enregistrer les fichiers journaux Azure Stack dans un conteneur d’objets blob dans Azure, puis fournir l’URL SAR dans laquelle CSS peut collecter les journaux. 
+Avant de configurer la collecte automatique des journaux, vous devez obtenir une signature d’accès partagé (SAP) pour un conteneur d’objets blob. Une signature d’accès partagé vous permet d'accorder l’accès aux ressources dans votre compte de stockage sans partager les clés de votre compte. Vous pouvez enregistrer les fichiers journaux Azure Stack Hub dans un conteneur d’objets blob dans Azure, puis fournir l’URL SAR dans laquelle CSS peut collecter les journaux. 
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Vous pouvez utiliser un conteneur d’objets blob nouveau ou existant dans Azure. Pour créer un conteneur d’objets blob dans Azure, vous devez disposer au minimum du [rôle de contributeur de stockage d'objets blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) ou de l'[autorisation spécifique](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). Les administrateurs généraux disposent également de l’autorisation nécessaire. 
 
-Pour connaître les meilleures pratiques en matière de choix des paramètres de compte de stockage de collecte de journaux, consultez [Meilleures pratiques pour la collecte automatique des journaux Azure Stack](azure-stack-best-practices-automatic-diagnostic-log-collection.md). Pour plus d’informations sur les types de comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+Pour connaître les meilleures pratiques en matière de choix des paramètres de compte de stockage de collecte de journaux, consultez [Meilleures pratiques pour la collecte automatique des journaux Azure Stack Hub](azure-stack-best-practices-automatic-diagnostic-log-collection.md). Pour plus d’informations sur les types de comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
 ### <a name="create-a-blob-storage-account"></a>Création d’un compte de stockage d’objets blob
  
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Cliquez sur **Compte de stockage** > **Ajouter**. 
 1. Créez un conteneur d’objets blob avec les paramètres suivants :
    - **Abonnement**: Choisir votre abonnement Azure
@@ -73,7 +71,7 @@ Pour connaître les meilleures pratiques en matière de choix des paramètres de
    - Heure de début : vous pouvez reculer l'heure de début 
    - Heure d’expiration : deux ans
    - Fuseau horaire : UTC
-   - Autorisations : lecture, écriture et énumération
+   - Autorisations : lecture, écriture et énumération
 
    ![Capture d’écran montrant les propriétés de signature d’accès partagé](media/azure-stack-automatic-log-collection/sas-properties.png) 
 
@@ -86,7 +84,7 @@ Copiez l’URL et entrez-la lorsque vous [configurez la collecte automatique des
 
 Pour ajouter l'URL SAP à l’interface utilisateur de collecte des journaux, procédez comme suit : 
 
-1. Connectez-vous au portail d’administration d’Azure Stack.
+1. Connectez-vous au portail d’administration Azure Stack Hub.
 1. Ouvrez **Aide et support - Vue d'ensemble**.
 1. Cliquez sur **Paramètres de collecte automatique**.
 
@@ -102,7 +100,7 @@ Pour ajouter l'URL SAP à l’interface utilisateur de collecte des journaux, pr
 
 ## <a name="view-log-collection"></a>Afficher la collecte des journaux
 
-L’historique des journaux collectés à partir d'Azure Stack s'affiche sur la page **Collecte de journaux** dans Aide et support, avec les dates et heures suivantes :
+L’historique des journaux collectés à partir d'Azure Stack Hub s'affiche sur la page **Collecte de journaux** dans Aide et support, avec les dates et heures suivantes :
 
 - **Heure de collecte** : heure à laquelle l'opération de collecte des journaux a commencé 
 - **Date de début** : date à laquelle vous souhaitez commencer à collecter des journaux
@@ -151,11 +149,11 @@ Par exemple, **Échec de la mise à jour** est une alerte qui déclenche la coll
 
 ## <a name="see-also"></a>Voir aussi
 
-[Gestion des données client et des journaux Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
+[Gestion des journaux et des données client Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
 
 [Utilisation des signatures d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 
-[Meilleures pratiques pour la collecte automatique des journaux Azure Stack](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
+[Meilleures pratiques pour la collecte automatique des journaux Azure Stack Hub](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
 
 
 

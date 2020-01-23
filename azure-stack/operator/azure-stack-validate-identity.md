@@ -1,6 +1,6 @@
 ---
-title: Valider l’identité Azure pour Azure Stack | Microsoft Docs
-description: Utilisez l’outil Azure Stack Readiness Checker pour valider l’identité Azure.
+title: Valider l’identité Azure pour Azure Stack Hub | Microsoft Docs
+description: Utilisez l’outil Azure Stack Hub Readiness Checker pour valider l’identité Azure.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,29 +16,29 @@ ms.date: 06/24/2019
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 9f455d6614917c0365b2143f0523ff2a44b3c05d
-ms.sourcegitcommit: fdeb2760845c9760ea7df1414b8e140b0624a823
+ms.openlocfilehash: e38e0462bc9b30783ff0932a16e2e997f64df0fd
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67334416"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812890"
 ---
 # <a name="validate-azure-identity"></a>Valider l’identité Azure
 
-Utilisez l’outil Azure Stack Readiness Checker (**AzsReadinessChecker**) pour vérifier que votre annuaire Azure Active Directory (Azure AD) peut être utilisé avec Azure Stack. Validez votre solution d’identité Azure avant de commencer un déploiement Azure Stack.  
+Utilisez l’outil Azure Stack Hub Readiness Checker (**AzsReadinessChecker**) pour vérifier que votre annuaire Azure Active Directory (Azure AD) peut être utilisé avec Azure Stack Hub. Validez votre solution d’identité Azure avant de commencer un déploiement Azure Stack Hub.  
 
 L’outil Readiness Checker valide ce qui suit :
 
-- Azure AD comme fournisseur d’identité pour Azure Stack.
+- Azure Active Directory (Azure AD) en tant que fournisseur d’identité pour Azure Stack Hub.
 - Le compte Azure AD que vous prévoyez d’utiliser peut se connecter en tant qu’administrateur général de votre annuaire Azure Active Directory.
 
-La validation garantit que votre environnement permet à Azure Stack de stocker des informations sur les utilisateurs, applications, groupes et principaux de service d’Azure Stack dans votre annuaire Azure AD.
+La validation garantit que votre environnement permet à Azure Stack Hub de stocker des informations sur les utilisateurs, applications, groupes et principaux de service d’Azure Stack Hub dans votre annuaire Azure AD.
 
 ## <a name="get-the-readiness-checker-tool"></a>Obtenir l’outil Readiness Checker
 
-Téléchargez la dernière version de l’outil Azure Stack Readiness Checker (AzsReadinessChecker) sur le site [PowerShell Gallery](https://aka.ms/AzsReadinessChecker).  
+Téléchargez la dernière version de l’outil Azure Stack Hub Readiness Checker (AzsReadinessChecker) à partir de [PowerShell Gallery](https://aka.ms/AzsReadinessChecker).  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Les prérequis suivants sont obligatoires :
 
@@ -51,12 +51,12 @@ Les prérequis suivants sont obligatoires :
   $PSVersionTable.PSVersion
   ```
 
-- [PowerShell configuré pour Azure Stack](azure-stack-powershell-install.md).
-- Dernière version de l’outil [Microsoft Azure Stack Readiness Checker](https://aka.ms/AzsReadinessChecker).
+- [PowerShell configuré pour Azure Stack Hub](azure-stack-powershell-install.md).
+- Dernière version de l’outil [Microsoft Azure Stack Hub Readiness Checker](https://aka.ms/AzsReadinessChecker).
 
 **Environnement Azure Active Directory :**
 
-- Identifiez le compte Azure AD à utiliser pour Azure Stack et vérifiez qu’il correspond à un administrateur général Azure Active Directory.
+- Identifiez le compte Azure AD à utiliser pour Azure Stack Hub et vérifiez qu’il correspond à un administrateur général Azure Active Directory.
 - Identifiez le nom du locataire Azure AD. Le nom du locataire doit être le nom de domaine principal de votre annuaire Azure Active Directory, par exemple, **contoso.onmicrosoft.com**.
 - Identifiez l’environnement Azure que vous allez utiliser. Les valeurs prises en charge pour le paramètre du nom d’environnement sont **AzureCloud**, **AzureChinaCloud** ou **AzureUSGovernment** selon l’abonnement Azure que vous utilisez.
 
@@ -102,14 +102,14 @@ Les prérequis suivants sont obligatoires :
 
 Chaque fois qu’une validation s’exécute, les résultats sont journalisés dans **AzsReadinessChecker.log** et **AzsReadinessCheckerReport.json**. L’emplacement de ces fichiers est indiqué avec les résultats de la validation dans PowerShell.
 
-Ces fichiers peuvent vous aider à partager l’état de validation avant de déployer Azure Stack ou à enquêter sur les problèmes de validation. Les deux fichiers conservent les résultats des vérifications de validation postérieures. Le rapport fournit à votre équipe de déploiement la confirmation de la configuration de l’identité. Le fichier journal peut aider l’équipe de déploiement ou de support à enquêter sur les problèmes de validation.
+Ces fichiers peuvent vous aider à partager l’état de validation avant de déployer Azure Stack Hub ou à examiner les problèmes de validation. Les deux fichiers conservent les résultats des vérifications de validation postérieures. Le rapport fournit à votre équipe de déploiement la confirmation de la configuration de l’identité. Le fichier journal peut aider l’équipe de déploiement ou de support à enquêter sur les problèmes de validation.
 
 Par défaut, les deux fichiers sont écrits à l’emplacement **C:\Users\<nom_utilisateur>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**.  
 
-- Utilisez le paramètre **-OutputPath** ***&lt;chemin&gt;*** à la fin de la ligne de commande d’exécution pour spécifier un emplacement de rapport différent.
+- Utilisez le paramètre **-OutputPath*****&lt;chemin&gt;*** à la fin de la ligne de commande d’exécution pour spécifier un emplacement de rapport différent.
 - Utilisez le paramètre **-CleanReport** à la fin de la commande d’exécution pour effacer les informations sur les exécutions précédentes de l’outil du fichier **AzsReadinessCheckerReport.json**.
 
-Pour plus d’informations, consultez [Rapport de validation Azure Stack](azure-stack-validation-report.md).
+Pour plus d’informations, consultez [Rapport de validation Azure Stack Hub](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Échec de validation
 
@@ -193,10 +193,10 @@ Invoke-AzsAzureIdentityValidation Completed
 
 **Résolution** : connectez-vous au [portail Azure](https://portal.azure.com) en tant que propriétaire du compte, accédez à **Azure Active Directory**, puis à **Utilisateurs**, à **Sélectionner l’utilisateur**, à **Rôle d’annuaire**,puis vérifiez que l’utilisateur est un **Administrateur général**. Si le compte correspond à un **utilisateur**, accédez à **Azure Active Directory** > **Noms de domaine personnalisés**, puis vérifiez que le nom que vous avez fourni pour **AADDirectoryTenantName** est marqué comme nom de domaine principal pour cet annuaire. Dans cet exemple, il s’agit de **contoso.onmicrosoft.com**.
 
-Azure Stack exige que le nom de domaine soit le nom de domaine principal.
+Azure Stack Hub exige que le nom de domaine corresponde au nom de domaine principal.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Valider l’inscription auprès d’Azure](azure-stack-validate-registration.md)  
 [Afficher le rapport de préparation](azure-stack-validation-report.md)  
-[Considérations générales relatives à l’intégration de Microsoft Azure Stack](azure-stack-datacenter-integration.md)  
+[Considérations générales relatives à l’intégration d’Azure Stack Hub](azure-stack-datacenter-integration.md)  

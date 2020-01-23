@@ -1,6 +1,6 @@
 ---
-title: Surveiller les mises à jour dans Azure Stack à l’aide de PowerShell | Microsoft Docs
-description: Apprendre à surveiller les mises à jour dans Azure Stack à l’aide de PowerShell
+title: Surveiller les mises à jour dans Azure Stack Hub à l’aide de PowerShell | Microsoft Docs
+description: Apprendre à surveiller les mises à jour dans Azure Stack Hub à l’aide de PowerShell
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,14 @@ ms.date: 08/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: f14b4180e567df13e576b520cdac01a676c101ea
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 5f4f469c6652bdb492d9c7365fb128b0461093a4
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75717941"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882842"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>Superviser les mises à jour dans Azure Stack Hub à l’aide de PowerShell
-
-*S’applique à : Systèmes intégrés Azure Stack Hub*
 
 Vous pouvez utiliser les points de terminaison d’administration Azure Stack Hub pour superviser et gérer vos mises à jour. Ils sont accessibles avec PowerShell. Pour obtenir des instructions sur la configuration de PowerShell sur Azure Stack Hub, consultez [Installer PowerShell pour Azure Stack Hub](azure-stack-powershell-install.md).
 
@@ -56,4 +54,4 @@ Get-AzsUpdateRun -Name 5173e9f4-3040-494f-b7a7-738a6331d55c -UpdateName Microsof
 
 ## <a name="next-steps"></a>Étapes suivantes
 
--   [Gestion des mises à jour dans Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
+-   [Gestion des mises à jour dans Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)

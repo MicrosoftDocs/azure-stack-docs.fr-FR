@@ -1,6 +1,7 @@
 ---
-title: S’abonner à une offre dans Azure Stack
-description: Créer des abonnements pour des offres dans Azure Stack
+title: Créer des abonnements à des offres dans Azure Stack Hub
+titleSuffix: Azure Stack
+description: Apprenez à créer des abonnements à des offres dans Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -10,16 +11,14 @@ ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: bryanla
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: c69c8a4be93cc392ca1eaf4edb70fb7fb4fc8676
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 357b44e5a9860f8626c7b17e215ee773e4e4ebca
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283368"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914788"
 ---
-# <a name="create-subscriptions-to-offers-in-azure-stack"></a>Créer des abonnements pour des offres dans Azure Stack
-
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+# <a name="create-subscriptions-to-offers-in-azure-stack-hub"></a>Créer des abonnements à des offres dans Azure Stack Hub
 
 Après avoir [créé une offre](azure-stack-create-offer.md), les utilisateurs ont besoin d’un abonnement à cette offre pour pouvoir l’utiliser. Les utilisateurs peuvent s’abonner à une offre de deux façons :
 
@@ -30,7 +29,7 @@ Après avoir [créé une offre](azure-stack-create-offer.md), les utilisateurs o
 
 Les opérateurs cloud peuvent utiliser le portail d’administration pour créer un abonnement à une offre pour un utilisateur. Vous pouvez créer des abonnements pour les membres de votre propre locataire d’annuaire. Lorsque la [mutualisation](azure-stack-enable-multitenancy.md) est activée, vous pouvez également créer des abonnements pour les utilisateurs dans des locataires d’annuaires supplémentaires.
 
-Si vous ne voulez pas que vos locataires puissent créer leurs propres abonnements, rendez vos offres privées et créez ensuite des abonnements pour vos locataires. Cette approche est courante lors de l’intégration d’Azure Stack avec les systèmes externes de catalogue de service ou de facturation.
+Si vous ne souhaitez pas que vos locataires puissent créer leurs propres abonnements, rendez vos offres privées et créez ensuite des abonnements pour vos locataires. Cette approche est courante lors de l’intégration d’Azure Stack Hub avec les systèmes externes de catalogue de service ou de facturation.
 
 Après avoir créé un abonnement pour un utilisateur, ce dernier peut se connecter au portail utilisateur et constater qu’il est abonné à l’offre.  
 
@@ -42,9 +41,9 @@ Après avoir créé un abonnement pour un utilisateur, ce dernier peut se connec
    - **Nom d’affichage** : nom convivial pour identifier l’abonnement qui s’affiche en tant que *Nom d’abonnement utilisateur*.
    - **Utilisateur** : spécifiez un utilisateur depuis un locataire d’annuaire disponible pour cet abonnement. Le nom d’utilisateur apparaît en tant que *Propriétaire*.  Le format du nom d’utilisateur dépend de votre solution d’identité. Par exemple :
 
-     - **Azure AD :** `<user1>@<contoso.onmicrosoft.com>`
+     - **Azure AD :** `<user1>@<contoso.onmicrosoft.com>`
 
-     - **AD FS :** `<user1>@<azurestack.local>`
+     - **AD FS :** `<user1>@<azurestack.local>`
 
    - **Locataire d’annuaire** : sélectionnez le locataire d’annuaire auquel appartient le compte d’utilisateur. Si vous n’avez pas activé la mutualisation, seul votre locataire d’annuaire local est disponible.
 
@@ -67,17 +66,17 @@ Un opérateur cloud peut ajouter à tout moment un plan à un abonnement créé 
 En tant qu’utilisateur, vous pouvez vous connecter au portail utilisateur pour trouver et vous abonner aux offres publiques et aux plans additionnels pour votre locataire d’annuaire (organisation).
 
 >[!NOTE]
->Si votre environnement Azure Stack prend en charge la [mutualisation](azure-stack-enable-multitenancy.md), vous pouvez également vous abonner à des offres à partir d’un locataire d’annuaire distant.
+>Si votre environnement Azure Stack Hub prend en charge la [mutualisation](azure-stack-enable-multitenancy.md), vous pouvez également vous abonner à des offres à partir d’un locataire d’annuaire distant.
 
 ### <a name="to-subscribe-to-an-offer"></a>S’abonner à une offre
 
-1. [Connectez-vous](../asdk/asdk-connect.md) au [portail utilisateur Azure Stack](https://portal.local.azurestack.external) et sélectionnez **Prendre un abonnement**.
+1. Connectez-vous au portail utilisateur Azure Stack Hub et sélectionnez **Souscrire un abonnement**.
 
-   ![Prendre un abonnement](media/azure-stack-subscribe-plan-provision-vm/image01.png)
+   ![Souscrire un abonnement dans le portail utilisateur Azure Stack Hub](media/azure-stack-subscribe-plan-provision-vm/image01.png)
   
 2. Sous **Prendre un abonnement**, entrez le nom convivial de l’abonnement dans **Nom d’affichage**. Sélectionnez **Offre** et, sous **Choisir une offre**, sélectionnez une offre. Sélectionnez **Créer** pour créer l’abonnement.
 
-   ![Créer une offre](media/azure-stack-subscribe-plan-provision-vm/image02.png)
+   ![Choisir une offre dans le portail utilisateur Azure Stack Hub](media/azure-stack-subscribe-plan-provision-vm/image02.png)
   
 3. Une fois que vous êtes abonné à une offre, actualisez le portail pour voir les services qui font partie du nouvel abonnement.
 
@@ -95,6 +94,7 @@ Si l’offre à laquelle vous vous abonnez a un plan additionnel, vous pouvez aj
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez plus d’informations sur la façon dont un utilisateur peut maintenant déployer des ressources dans son abonnement : 
-  - [Plusieurs guides de démarrage rapide pour l’utilisateur](../user/azure-stack-quick-windows-portal.md) montrent comment provisionner des machines virtuelles Windows et Linux en utilisant PowerShell, Azure CLI et le portail utilisateur. 
-  - [Un tutoriel qui utilise un modèle Azure Resource Manager](../user/azure-stack-create-vm-template.md) montre comment déployer une machine virtuelle Ubuntu 16.04 exécutant Minikube pour gérer un cluster Kubernetes. 
+Découvrez plus d’informations sur la façon dont un utilisateur peut maintenant déployer des ressources dans son abonnement :
+
+- [Plusieurs guides de démarrage rapide pour l’utilisateur](../user/azure-stack-quick-windows-portal.md) montrent comment provisionner des machines virtuelles Windows et Linux en utilisant PowerShell, Azure CLI et le portail utilisateur.
+- [Un tutoriel qui utilise un modèle Azure Resource Manager](../user/azure-stack-create-vm-template.md) montre comment déployer une machine virtuelle Ubuntu 16.04 exécutant Minikube pour gérer un cluster Kubernetes.

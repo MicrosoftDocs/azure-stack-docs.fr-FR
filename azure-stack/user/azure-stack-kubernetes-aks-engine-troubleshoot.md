@@ -1,6 +1,6 @@
 ---
-title: Résoudre les problèmes du moteur AKS sur Azure Stack | Microsoft Docs
-description: Cet article présente les étapes de résolution des problèmes liés au moteur AKS sur Azure Stack.
+title: Résoudre les problèmes du moteur AKS sur Azure Stack Hub | Microsoft Docs
+description: Cet article présente les étapes de résolution des problèmes liés au moteur AKS sur Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,16 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: aed53295b7c1748abd8ab3bd2862043d7d69e4b8
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: 3b87f5cf7273afdabd6ee7da672d06712607e126
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310344"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75923927"
 ---
-# <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Résoudre les problèmes du moteur AKS sur Azure Stack
+# <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Résoudre des problèmes du moteur AKS sur Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
-
-Vous pouvez rencontrer un problème lors du déploiement ou de l’utilisation du moteur AKS sur Azure Stack. Cet article décrit les étapes à suivre pour résoudre les problèmes liés à votre déploiement du moteur AKS, collecter des informations sur votre moteur AKS, collecter des journaux Kubernetes, passer en revue les codes d’erreur d’extension de script personnalisé et obtenir des instructions sur l’ouverture d’un problème GitHub pour le moteur AKS.
+Vous pouvez rencontrer un problème lors du déploiement ou de l’utilisation du moteur AKS sur Azure Stack Hub. Cet article décrit les étapes à suivre pour résoudre les problèmes liés à votre déploiement du moteur AKS, collecter des informations sur votre moteur AKS, collecter des journaux Kubernetes, passer en revue les codes d’erreur d’extension de script personnalisé et obtenir des instructions sur l’ouverture d’un problème GitHub pour le moteur AKS.
 
 ## <a name="troubleshoot-the-aks-engine-install"></a>Résoudre les problèmes d’installation du moteur AKS
 
@@ -72,9 +70,9 @@ Installez GoFish à partir de la page [Installation](https://gofi.sh/#install).
 En cas d'erreurs lors du déploiement d’un cluster Kubernetes à l’aide du moteur AKS, vous pouvez vérifier les points suivants :
 
 1.  Utilisez-vous les bonnes informations d’identification du principal du service (SPN) ?
-2.  Le SPN joue-t-il un rôle de contributeur pour l’abonnement Azure Stack ?
-3. Disposez-vous d’un quota suffisamment élevé dans votre plan Azure Stack ?
-4.  Un correctif ou une mise à niveau sont-ils appliqués à l’instance Azure Stack ?
+2.  Le SPN joue-t-il un rôle de contributeur pour l’abonnement Azure Stack Hub ?
+3. Disposez-vous d’un quota suffisamment élevé dans votre plan Azure Stack Hub ?
+4.  Un correctif ou une mise à niveau sont-ils appliqués à l’instance Azure Stack Hub ?
 
 Pour plus d’informations, consultez l’article sur la [résolution des problèmes](https://github.com/Azure/aks-engine/blob/master/docs/howto/troubleshooting.md) dans le dépôt GitHub **Azure/aks-engine**.
 
@@ -94,7 +92,7 @@ Vous pouvez accéder aux informations de révision créées par le moteur AKS. L
 
 ## <a name="collect-kubernetes-logs"></a>Collecter des journaux Kubernetes
 
-Outre les journaux du moteur AKS, les composants Kubernetes génèrent des messages d’état et d’erreur. Vous pouvez collecter ces journaux à l’aide du script Bash [getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.0/diagnosis.zip).
+Outre les journaux du moteur AKS, les composants Kubernetes génèrent des messages d’état et d’erreur. Vous pouvez collecter ces journaux à l’aide du script Bash [getkuberneteslogs.sh](https://aka.ms/aa6z613).
 
 Ce script automatise le processus de collecte des journaux suivants : 
 
@@ -109,11 +107,11 @@ Ce script automatise le processus de collecte des journaux suivants :
 
 Sans ce script, vous devez vous connecter à chaque nœud du cluster pour rechercher et télécharger les journaux manuellement. De plus, le script peut éventuellement charger les journaux collectés dans un compte de stockage que vous pouvez utiliser pour partager les journaux avec d’autres utilisateurs.
 
-Requirements:
+Conditions requises :
 
  - Une machine virtuelle Linux, Git Bash ou Bash sur Windows.
  - [Azure CLI](azure-stack-version-profiles-azurecli2.md) installé sur la machine à partir de laquelle le script sera exécuté.
- - Identité du principal du service connectée dans une session Azure CLI à Azure Stack. Étant donné que le script a la possibilité de découvrir et de créer des ressources ARM pour effectuer son travail, il nécessite Azure CLI et une identité de principal du service.
+ - Identité du principal du service connectée dans une session Azure CLI à Azure Stack Hub. Étant donné que le script a la possibilité de découvrir et de créer des ressources ARM pour effectuer son travail, il nécessite Azure CLI et une identité de principal du service.
  - Compte d’utilisateur (abonnement) dans lequel le cluster Kubernetes est déjà sélectionné dans l’environnement. 
 1. Téléchargez la dernière version du fichier tar du script sur votre machine virtuelle cliente, une machine qui a accès à votre cluster Kubernetes ou à la même machine que celle que vous avez utilisée pour déployer votre cluster avec le moteur AKS.
 
@@ -128,17 +126,17 @@ Requirements:
 
 2. Recherchez les paramètres exigés par le script `getkuberneteslogs.sh`. Le script utilise les paramètres suivants :
 
-    | Paramètre | Description | Obligatoire | Exemples |
+    | Paramètre | Description | Obligatoire | Exemple |
     | --- | --- | --- | --- |
-    | -h, --help | Utilisation de la commande d’impression. | no | 
+    | -h, --help | Utilisation de la commande d’impression. | non | 
     -u,--user | Nom de l’administrateur des machines virtuelles du cluster. | Oui | azureuser<br>(valeur par défaut) |
     | -i, --identity-file | Clé privée RSA liée à la clé publique utilisée pour créer le cluster Kubernetes (parfois nommée « id_rsa »).  | Oui | `./rsa.pem` (Putty)<br>`~/.ssh/id_rsa` (SSH) |
     |   -g, --resource-group    | Groupe de ressources de cluster Kubernetes. | Oui | k8sresourcegroup |
-    |   -n, --user-namespace               | Collectez les journaux des conteneurs dans les espaces de noms spécifiés (journaux kube-system toujours collectés). | no |   monitoring |
-    |       --api-model                    | Rend le fichier apimodel.json persistant dans un compte de stockage Azure Stack. Le chargement du fichier apimodel.json dans le compte de stockage se produit quand le paramètre --upload-logs est également fourni. | no | `./apimodel.json` |
-    | --all-namespaces               | Collectez les journaux des conteneurs dans tous les espaces de noms. Ce paramètre remplace --user-namespace. | no | |
-    | --upload-logs                  | Conserve les journaux récupérés dans un compte de stockage Azure Stack. Les journaux se trouvent dans le groupe de ressources KubernetesLogs. | no | |
-    --disable-host-key-checking    | Définit l’option StrictHostKeyChecking SSH sur « no » pendant l’exécution du script. Utilisez ce paramètre uniquement dans un environnement sécurisé. | no | |
+    |   -n, --user-namespace               | Collectez les journaux des conteneurs dans les espaces de noms spécifiés (journaux kube-system toujours collectés). | non |   monitoring |
+    |       --api-model                    | Rend le fichier apimodel.json persistant dans un compte de stockage Azure Stack Hub. Le chargement du fichier apimodel.json dans le compte de stockage se produit quand le paramètre --upload-logs est également fourni. | non | `./apimodel.json` |
+    | --all-namespaces               | Collectez les journaux des conteneurs dans tous les espaces de noms. Ce paramètre remplace --user-namespace. | non | |
+    | --upload-logs                  | Conserve les journaux récupérés dans un compte de stockage Azure Stack Hub. Les journaux se trouvent dans le groupe de ressources KubernetesLogs. | non | |
+    --disable-host-key-checking    | Définit l’option StrictHostKeyChecking SSH sur « no » pendant l’exécution du script. Utilisez ce paramètre uniquement dans un environnement sécurisé. | non | |
 
 3. Exécutez l’un des exemples de commandes suivants avec vos informations :
 
@@ -158,9 +156,9 @@ Vous pouvez consulter la liste des codes d’erreur créés par l’extension de
 
 Si après avoir collecté et examiné les journaux, vous ne parvenez toujours pas à résoudre le problème, vous avez la possibilité de créer un ticket de support et de fournir les journaux collectés en exécutant `getkuberneteslogs.sh` avec le jeu de paramètres `--upload-logs`. 
 
-Contactez votre opérateur Azure Stack. Votre opérateur utilise les informations issues de vos journaux pour créer le cas de support.
+Contactez votre opérateur Azure Stack Hub. Votre opérateur utilise les informations issues de vos journaux pour créer le cas de support.
 
-Au cours du processus de résolution des problèmes, un ingénieur du support Microsoft peut demander à ce que votre opérateur Azure Stack collecte les journaux système Azure Stack. Vous serez peut-être amené à fournir à votre opérateur les informations du compte de stockage où vous avez chargé les journaux Kubernetes en exécutant `getkuberneteslogs.sh`.
+Au cours du processus de résolution des problèmes, un ingénieur du support Microsoft peut demander à ce que votre opérateur Azure Stack Hub collecte les journaux système Azure Stack Hub. Vous serez peut-être amené à fournir à votre opérateur les informations du compte de stockage où vous avez chargé les journaux Kubernetes en exécutant `getkuberneteslogs.sh`.
 
 Votre opérateur peut exécuter la cmdlet PowerShell **Get-AzureStackLog**. Cette commande utilise un paramètre (`-InputSaSUri`) qui spécifie le compte de stockage où vous avez stocké les journaux Kubernetes.
 
@@ -180,4 +178,4 @@ Si vous ne parvenez pas à corriger votre erreur de déploiement, vous pouvez ou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [Le moteur AKS sur Azure Stack](azure-stack-kubernetes-aks-engine-overview.md)
+- En savoir plus sur [le moteur AKS sur Azure Stack Hub](azure-stack-kubernetes-aks-engine-overview.md)

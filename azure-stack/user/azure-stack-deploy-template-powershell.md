@@ -1,6 +1,6 @@
 ---
-title: Déployer un modèle à l’aide de PowerShell dans Azure Stack | Microsoft Docs
-description: Déployez un modèle à l’aide de PowerShell dans Azure Stack.
+title: Déployer un modèle à l’aide de PowerShell dans Azure Stack Hub | Microsoft Docs
+description: Déployez un modèle à l’aide de PowerShell dans Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,25 +15,23 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: 38c3c428443afa251c8a6185929bfe0b80680b86
-ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
+ms.openlocfilehash: 8e5521755bdfc7a85c876c3b8df3e2a0acad9901
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72304063"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883692"
 ---
-# <a name="deploy-a-template-using-powershell-in-azure-stack"></a>Déployer un modèle à l’aide de PowerShell dans Azure Stack
+# <a name="deploy-a-template-using-powershell-in-azure-stack-hub"></a>Déployer un modèle à l’aide de PowerShell dans Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
-
-Vous pouvez utiliser PowerShell pour déployer des modèles Azure Resource Manager dans Azure Stack. Cet article montre comment utiliser PowerShell pour déployer un modèle.
+Vous pouvez utiliser PowerShell pour déployer des modèles Azure Resource Manager dans Azure Stack Hub. Cet article montre comment utiliser PowerShell pour déployer un modèle.
 
 ## <a name="run-azurerm-powershell-cmdlets"></a>Exécuter les applets de commande AzureRM PowerShell
 
 Cet exemple utilise les applets de commande **AzureRM** PowerShell et un modèle stocké sur GitHub. Le modèle crée une machine virtuelle Windows Server 2012 R2 Datacenter.
 
 >[!NOTE]
-> Avant d’essayer cet exemple, vérifiez que vous avez [configuré PowerShell](azure-stack-powershell-configure-user.md) pour un utilisateur Azure Stack.
+> Avant d’essayer cet exemple, vérifiez que vous avez [configuré PowerShell](azure-stack-powershell-configure-user.md) pour un utilisateur Azure Stack Hub.
 
 1. Accédez au [dépôt AzureStack-QuickStart-Templates](https://aka.ms/AzureStackGitHub) et recherchez le modèle **101-simple-windows-vm**. Enregistrez le modèle à cet emplacement : `C:\templates\azuredeploy-101-simple-windows-vm.json`.
 2. Ouvrez une invite de commandes PowerShell avec élévation de privilèges.
@@ -60,7 +58,7 @@ Cet exemple utilise les applets de commande **AzureRM** PowerShell et un modèle
     >[!IMPORTANT]
     > Chaque fois que vous exécutez ce script, augmentez la valeur du paramètre `$myNum` pour éviter d’écraser votre déploiement.
 
-4. Ouvrez le portail Azure Stack portal, sélectionnez **Parcourir**, puis sélectionnez **Machines virtuelles** pour rechercher votre nouvelle machine virtuelle (**myDeployment001**).
+4. Ouvrez le portail Azure Stack Hub, sélectionnez **Parcourir**, puis **Machines virtuelles** pour rechercher votre nouvelle machine virtuelle (**myDeployment001**).
 
 ## <a name="cancel-a-running-template-deployment"></a>Annuler le déploiement d’un modèle en cours d’exécution
 

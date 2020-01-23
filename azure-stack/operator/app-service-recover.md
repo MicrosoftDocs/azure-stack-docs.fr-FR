@@ -1,6 +1,6 @@
 ---
-title: Récupération d’App Service sur Azure Stack | Microsoft Docs
-description: En savoir plus sur la récupération d’urgence pour App Service sur Azure Stack.
+title: Récupération d’App Service sur Azure Stack Hub | Microsoft Docs
+description: Découvrez la récupération d’urgence pour App Service sur Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,25 +16,23 @@ ms.date: 03/21/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 82498781e83aedf13a3ba33da24f484bc7e80d4b
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: c814f19c6f9d5df5b81aedb551c5d2cf31b26bff
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579029"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881193"
 ---
-# <a name="app-service-recovery-on-azure-stack"></a>Récupération d’App Service sur Azure Stack
-
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*  
+# <a name="app-service-recovery-on-azure-stack-hub"></a>Récupération pour App Service sur Azure Stack Hub
 
 Cette rubrique fournit des instructions sur les actions à entreprendre pour la reprise d’activité après sinistre d’App Service.
 
-Les actions suivantes sont nécessaires pour récupérer App Service sur Azure Stack à partir d’une sauvegarde :
+Les actions suivantes sont nécessaires pour récupérer App Service sur Azure Stack Hub à partir d’une sauvegarde :
 1. Restaurer les bases de données App Service.
 2. Restaurer le contenu du partage du serveur de fichiers.
 3. Restaurer les services et les rôles App Service.
 
-Si le stockage Azure Stack a été utilisé pour le stockage des applications de fonction, vous devez également prendre des mesures pour restaurer ces applications.
+Si le stockage Azure Stack Hub a été utilisé pour le stockage des applications de fonction, vous devez également prendre des mesures pour restaurer ces applications.
 
 ## <a name="restore-the-app-service-databases"></a>Restaurer les bases de données App Service
 Les bases de données SQL Server pour App Service doivent être restaurées sur une instance SQL Server prête pour la production. 
@@ -105,9 +103,9 @@ Une fois que le contenu du partage de fichiers et les bases de données App Serv
 > Il est fortement recommandé de fermer cette session PowerShell à la fin de la commande.
 
 ## <a name="restore-function-apps"></a>Restaurer des applications de fonction 
-App Service pour Azure Stack ne prend pas en charge la restauration des applications utilisateur de locataire ou des données autres que le contenu du partage de fichiers. Toutes les autres données doivent être sauvegardées et restaurées en dehors des processus de sauvegarde et de restauration d’App Service. Si le stockage Azure Stack a été utilisé pour le stockage des applications de fonction, vous pouvez restaurer des données perdues en effectuant les étapes suivantes :
+App Service pour Azure Stack Hub ne prend pas en charge la restauration des applications utilisateur de locataire ou des données autres que le contenu du partage de fichiers. Toutes les autres données doivent être sauvegardées et restaurées en dehors des processus de sauvegarde et de restauration d’App Service. Si le stockage Azure Stack Hub a été utilisé pour le stockage des applications de fonction, vous pouvez restaurer des données perdues en procédant comme suit :
 
-1. Créez un compte de stockage qui sera utilisé par l’application de fonction. Ce stockage peut être un stockage Azure Stack, un stockage Azure ou tout autre stockage compatible.
+1. Créez un compte de stockage qui sera utilisé par l’application de fonction. Ce stockage peut être un stockage Azure Stack Hub, un stockage Azure ou tout autre stockage compatible.
 2. Récupérez la chaîne de connexion du stockage.
 3. Ouvrez le portail de la fonction et accédez à l’application de fonction.
 4. Accédez à l’onglet **Fonctionnalités de la plateforme** et cliquez sur **Paramètres d’application**.
@@ -116,4 +114,4 @@ App Service pour Azure Stack ne prend pas en charge la restauration des applicat
 7. Redémarrez l’application. Plusieurs tentatives peuvent être nécessaires pour résoudre toutes les erreurs.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Vue d’ensemble d’App Service sur Azure Stack](azure-stack-app-service-overview.md)
+[Vue d’ensemble d’App Service sur Azure Stack Hub](azure-stack-app-service-overview.md)

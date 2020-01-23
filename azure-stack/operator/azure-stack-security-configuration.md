@@ -1,6 +1,6 @@
 ---
-title: Configurer les contrôles de sécurité d’Azure Stack
-description: Découvrez comment configurer les contrôles de sécurité dans Azure Stack
+title: Configurer les contrôles de sécurité d’Azure Stack Hub
+description: Découvrez comment configurer les contrôles de sécurité dans Azure Stack Hub.
 services: azure-stack
 author: PatAltimore
 ms.service: azure-stack
@@ -9,45 +9,43 @@ ms.date: 06/17/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
-ms.openlocfilehash: b36a6d826dc7249f10b4785b27511096e45923a9
-ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
+ms.openlocfilehash: 8fe0019dfee098a7ed022ecb20b6443a4be43f53
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67557854"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881958"
 ---
-# <a name="configure-azure-stack-security-controls"></a>Configurer les contrôles de sécurité d’Azure Stack
+# <a name="configure-azure-stack-hub-security-controls"></a>Configurer les contrôles de sécurité d’Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack*
+Cet article décrit les contrôles de sécurité qui peuvent être modifiés dans Azure Stack Hub et met en évidence les compromis éventuels.
 
-Cet article décrit les contrôles de sécurité qui peuvent être modifiés dans Azure Stack et met en évidence les compromis éventuels.
-
-L’architecture d’Azure Stack repose sur deux principes de sécurité de base : violations présumées et renforcement par défaut. Pour plus d’informations sur la sécurité d’Azure Stack, voir [Situation de sécurité de l’infrastructure Azure Stack](azure-stack-security-foundations.md). Si la situation de sécurité par défaut d’Azure Stack est « prêt pour la production », certains scénarios de déploiement nécessitent un renforcement supplémentaire.
+L’architecture d’Azure Stack Hub repose sur deux principes de sécurité de base : violations présumées et renforcement par défaut. Pour plus d’informations sur la sécurité d’Azure Stack Hub, consultez [Situation de sécurité de l’infrastructure Azure Stack](azure-stack-security-foundations.md). Si la situation de sécurité par défaut d’Azure Stack Hub est « prêt pour la production », certains scénarios de déploiement nécessitent un renforcement supplémentaire.
 
 ## <a name="tls-version-policy"></a>Stratégie de version du protocole TLS
 
-Le protocole TLS est un protocole de chiffrement largement utilisé pour établir une communication chiffrée via le réseau. Le protocole TLS a évolué au fil du temps et plusieurs versions ont été publiées. L’infrastructure Azure Stack utilise exclusivement le protocole TLS 1.2 pour toutes les communications. Pour les interfaces externes, Azure Stack utilise actuellement par défaut le protocole TLS 1.2. Toutefois, pour assurer la compatibilité descendante, il prend également en charge la négociation via les protocoles TLS 1.1 et 1.0. Quand un client TLS demande à communiquer via le protocole TLS 1.1 ou TLS 1.0, Azure Stack satisfait la demande en négociant avec une version antérieure du protocole TLS. Si le client demande à utiliser le protocole TLS 1.2, Azure Stack établit une connexion TLS à l’aide du protocole TLS 1.2.
+Le protocole TLS est un protocole de chiffrement largement utilisé pour établir une communication chiffrée via le réseau. Le protocole TLS a évolué au fil du temps et plusieurs versions ont été publiées. L’infrastructure Azure Stack Hub utilise exclusivement le protocole TLS 1.2 pour toutes les communications. Pour les interfaces externes, Azure Stack Hub utilise actuellement par défaut le protocole TLS 1.2. Toutefois, pour assurer la compatibilité descendante, il prend également en charge la négociation via les protocoles TLS 1.1 et 1.0. Lorsqu'un client TLS demande à communiquer via le protocole TLS 1.1 ou TLS 1.0, Azure Stack Hub satisfait la demande en négociant avec une version antérieure du protocole TLS. Si le client demande à utiliser le protocole TLS 1.2, Azure Stack Hub établit une connexion TLS à l’aide du protocole TLS 1.2.
 
-Étant donné que les protocoles TLS 1.0 et 1.1 sont progressivement abandonnés ou interdits par des organisations et des normes de conformité, depuis la mise à jour 1906, vous pouvez configurer la stratégie de protocole TLS dans Azure Stack. Vous pouvez appliquer une stratégie de protocole exclusivement TLS 1.2 où toute tentative d’établissement d’une session TLS avec une version antérieure à la version 1.2 n’est pas autorisée et rejetée.
+Les protocoles TLS 1.0 et 1.1 étant progressivement abandonnés ou interdits par des organisations et des normes de conformité, à compter de la mise à jour 1906, vous pouvez configurer la stratégie de protocole TLS dans Azure Stack Hub. Vous pouvez appliquer une stratégie de protocole exclusivement TLS 1.2 où toute tentative d’établissement d’une session TLS avec une version antérieure à la version 1.2 n’est pas autorisée et rejetée.
 
 > [!IMPORTANT]
-> Microsoft recommande d’utiliser une stratégie de protocole exclusivement TLS 1.2 pour les environnements de production de Azure Stack.
+> Microsoft recommande d’utiliser une stratégie de protocole exclusivement TLS 1.2 pour les environnements de production d'Azure Stack Hub.
 
 ## <a name="get-tls-policy"></a>Obtenir la stratégie de protocole TLS
 
-Utilisez le [point de terminaison privilégié (PEP)](azure-stack-privileged-endpoint.md) pour afficher la stratégie de protocole TLS pour tous les points de terminaison Azure Stack :
+Utilisez le [point de terminaison privilégié (PEP)](azure-stack-privileged-endpoint.md) pour afficher la stratégie de protocole TLS pour tous les points de terminaison Azure Stack Hub :
 
 ```powershell
 Get-TLSPolicy
 ```
 
-Sortie de l’exemple :
+Exemple de sortie :
 
     TLS_1.2
 
 ## <a name="set-tls-policy"></a>Définir une stratégie de protocole TLS
 
-Utilisez le [point de terminaison privilégié (PEP)](azure-stack-privileged-endpoint.md) pour définir la stratégie de protocole TLS pour tous les points de terminaison Azure Stack :
+Utilisez le [point de terminaison privilégié (PEP)](azure-stack-privileged-endpoint.md) pour définir la stratégie de protocole TLS pour tous les points de terminaison Azure Stack Hub :
 
 ```powershell
 Set-TLSPolicy -Version <String>
@@ -57,14 +55,14 @@ Paramètres pour la cmdlet *Set-TLSPolicy* :
 
 | Paramètre | Description | Type | Obligatoire |
 |---------|---------|---------|---------|
-| *Version* | Version(s) autorisée(s) du protocole TLS dans Azure Stack | Chaîne | Oui|
+| *Version* | Version(s) autorisée(s) du protocole TLS dans Azure Stack Hub | String | Oui|
 
-Utilisez l’une des valeurs suivantes pour configurer les versions de protocole TLS autorisées pour tous les points de terminaison Azure Stack :
+Utilisez l’une des valeurs suivantes pour configurer les versions de protocole TLS autorisées pour tous les points de terminaison Azure Stack Hub :
 
 | Valeur de la version | Description |
 |---------|---------|
-| *TLS_All* | Les points de terminaison de protocole TLS Azure Stack prennent en charge le protocole TLS 1.2, mais la négociation via les protocoles TLS 1.1 et TLS 1.0 est autorisée. |
-| *TLS_1.2* | Les points de terminaison de protocole TLS Azure Stack prennent en charge uniquement le protocole TLS 1.2. | 
+| *TLS_All* | Les points de terminaison de protocole TLS Azure Stack Hub prennent en charge le protocole TLS 1.2, mais la négociation via les protocoles TLS 1.1 et TLS 1.0 est autorisée. |
+| *TLS_1.2* | Les points de terminaison de protocole TLS Azure Stack Hub prennent uniquement en charge le protocole TLS 1.2. | 
 
 La mise à jour de la stratégie de protocole TLS prend quelques minutes.
 
@@ -76,7 +74,7 @@ Cet exemple définit votre stratégie de protocole TLS de façon à appliquer un
 Set-TLSPolicy -Version TLS_1.2
 ```
 
-Sortie de l’exemple :
+Exemple de sortie :
 
     VERBOSE: Successfully setting enforce TLS 1.2 to True
     VERBOSE: Invoking action plan to update GPOs
@@ -101,7 +99,7 @@ Cet exemple définit votre stratégie de protocole TLS pour autoriser toutes les
 Set-TLSPolicy -Version TLS_All
 ```
 
-Sortie de l’exemple :
+Exemple de sortie :
 
     VERBOSE: Successfully setting enforce TLS 1.2 to False
     VERBOSE: Invoking action plan to update GPOs
@@ -120,6 +118,6 @@ Sortie de l’exemple :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Découvrir la situation de sécurité de l’infrastructure Azure Stack](azure-stack-security-foundations.md)
-- [Apprendre à faire pivoter vos clés secrètes dans Azure Stack](azure-stack-rotate-secrets.md)
-- [Mettre à jour l’antivirus Windows Defender sur Azure Stack](azure-stack-security-av.md)
+- [Découvrir la situation de sécurité de l’infrastructure Azure Stack Hub](azure-stack-security-foundations.md)
+- [Apprendre à effectuer la rotation de vos secrets dans Azure Stack Hub](azure-stack-rotate-secrets.md)
+- [Mettre à jour l’antivirus Windows Defender sur Azure Stack Hub](azure-stack-security-av.md)

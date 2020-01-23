@@ -1,6 +1,6 @@
 ---
-title: Déployer le moteur AKS sur Windows dans Azure Stack | Microsoft Docs
-description: Découvrez comment utiliser une machine Windows dans votre infrastructure Azure Stack pour héberger le moteur AKS afin de déployer et de gérer un cluster Kubernetes.
+title: Déployer le moteur AKS sur Windows dans Azure Stack Hub | Microsoft Docs
+description: Découvrez comment utiliser une machine Windows dans votre infrastructure Azure Stack Hub pour héberger le moteur AKS afin de déployer et de gérer un cluster Kubernetes.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,22 +15,20 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 1a4e11996b3dc1f86e8dd337c3243c210c68b33e
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: 280ecbe7c02d3eb9bdc14ba29cfb0b6642a7144c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310279"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883522"
 ---
-# <a name="install-the-aks-engine-on-windows-in-azure-stack"></a>Installer le moteur AKS sur Windows dans Azure Stack
+# <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Installer le moteur AKS sur Windows dans Azure Stack Hub
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
-
-Vous pouvez utiliser une machine Windows dans votre infrastructure Azure Stack pour héberger le moteur AKS afin de déployer et de gérer un cluster Kubernetes. Dans cet article, nous nous intéressons à la préparation de la machine virtuelle cliente en vue de gérer votre cluster pour des instances Azure Stack à la fois connectées et déconnectées, à la vérification de l’installation et à la configuration de la machine virtuelle cliente sur le Kit de développement Azure Stack (ASDK).
+Vous pouvez utiliser une machine Windows dans votre infrastructure Azure Stack Hub pour héberger le moteur AKS afin de déployer et de gérer un cluster Kubernetes. Dans cet article, nous nous intéressons à la préparation de la machine virtuelle cliente en vue de gérer votre cluster pour des instances Azure Stack Hub à la fois connectées et déconnectées, à la vérification de l’installation et à la configuration de la machine virtuelle cliente sur le Kit de développement Azure Stack (ASDK).
 
 ## <a name="prepare-the-client-vm"></a>Préparer la machine virtuelle cliente
 
-Le moteur AKS est un outil en ligne de commande utilisé pour déployer et gérer votre cluster Kubernetes. Vous pouvez exécuter le moteur sur une machine de votre infrastructure Azure Stack. À partir de cette machine, vous allez exécuter le moteur AKS pour déployer les ressources et logiciels IaaS nécessaires à l’exécution de votre cluster. Vous pouvez ensuite utiliser la machine qui exécute le moteur pour effectuer des tâches de gestion sur votre cluster.
+Le moteur AKS est un outil en ligne de commande utilisé pour déployer et gérer votre cluster Kubernetes. Vous pouvez exécuter le moteur sur une machine de votre infrastructure Azure Stack Hub. À partir de cette machine, vous allez exécuter le moteur AKS pour déployer les ressources et logiciels IaaS nécessaires à l’exécution de votre cluster. Vous pouvez ensuite utiliser la machine qui exécute le moteur pour effectuer des tâches de gestion sur votre cluster.
 
 Pour choisir votre machine cliente, tenez compte des points suivants :
 
@@ -39,14 +37,14 @@ Pour choisir votre machine cliente, tenez compte des points suivants :
 
 ## <a name="install-in-a-connected-environment"></a>Installation dans un environnement connecté
 
-Vous pouvez installer la machine virtuelle cliente pour gérer votre cluster Kubernetes sur une infrastructure Azure Stack connectée à Internet.
+Vous pouvez installer la machine virtuelle cliente pour gérer votre cluster Kubernetes sur une infrastructure Azure Stack Hub connectée à Internet.
 
-1. Créez une machine virtuelle Windows dans votre infrastructure Azure Stack. Pour obtenir des instructions, consultez [Démarrage rapide : Créer une machine virtuelle serveur Windows sur le portail Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal).
+1. Créez une machine virtuelle Windows dans votre infrastructure Azure Stack Hub. Pour obtenir des instructions, consultez [Démarrage rapide : Créer une machine virtuelle Windows Server sur le portail Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal).
 2. Connectez-vous à votre machine virtuelle.
 3. [Installez Chocolatey en suivant les instructions PowerShell](https://chocolatey.org/install#install-with-powershellexe). 
 
     Selon le site web de Chocolatey : Chocolatey est un gestionnaire de package pour Windows, comme apt-get ou yum mais pour Windows. Il a été conçu pour servir de framework décentralisé afin d’installer rapidement les applications et outils dont vous avez besoin. Il s’appuie sur l’infrastructure NuGet qui utilise actuellement PowerShell en priorité pour remettre les packages des distributions à votre porte, erreur, ordinateur.
-4. Recherchez la version du moteur AKS dans le tableau [Versions de Kubernetes prises en charge](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions). Le moteur de base AKS doit être disponible dans votre Place de marché Azure Stack. Lors de l’exécution de la commande, vous devez spécifier la version `--version v0.43.0`. Si vous ne spécifiez pas la version, la commande installe la version la plus récente, qui nécessite peut-être une image de disque dur virtuel non disponible dans votre place de marché.
+4. Recherchez la version du moteur AKS dans le tableau [Versions de Kubernetes prises en charge](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions). Le moteur de base AKS doit être disponible dans votre Place de marché Azure Stack Hub. Lors de l’exécution de la commande, vous devez spécifier la version `--version v0.43.0`. Si vous ne spécifiez pas la version, la commande installe la version la plus récente, qui nécessite peut-être une image de disque dur virtuel non disponible dans votre place de marché.
 5. Exécutez la commande suivante à partir d’une invite avec élévation de privilèges et incluez le numéro de version :
 
     ```PowerShell  
@@ -58,15 +56,15 @@ Vous pouvez installer la machine virtuelle cliente pour gérer votre cluster Kub
 
 ## <a name="install-in-a-disconnected-environment"></a>Installation dans un environnement déconnecté
 
-Vous pouvez installer la machine virtuelle cliente pour gérer votre cluster Kubernetes sur une infrastructure Azure Stack déconnectée d’Internet.
+Vous pouvez installer la machine virtuelle cliente pour gérer votre cluster Kubernetes sur une infrastructure Azure Stack Hub déconnectée d’Internet.
 
 1.  À partir d’une machine disposant d’un accès à Internet, accédez à GitHub [Azure/aks-engine](https://github.com/Azure/aks-engine/releases/latest). Téléchargez une archive (*.tar.gz) pour une machine Windows, par exemple, `aks-engine-v0.38.8-windows-amd64.tar.gz`.
 
-2.  Créez un compte de stockage dans votre instance Azure Stack pour charger le fichier d’archive (*.tar.gz) avec le binaire du moteur AKS. Pour obtenir des instructions sur l’utilisation d’Explorateur Stockage Azure, consultez [Explorateur Stockage Azure avec Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se).
+2.  Créez un compte de stockage dans votre instance Azure Stack Hub pour charger le fichier d’archive (*.tar.gz) avec le binaire du moteur AKS. Pour obtenir des instructions sur l’utilisation d’Explorateur Stockage Azure, consultez [Explorateur Stockage Azure avec Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se).
 
-3. Créez une machine virtuelle Windows dans votre infrastructure Azure Stack. Pour obtenir des instructions, consultez [Démarrage rapide : Créer une machine virtuelle serveur Windows sur le portail Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)
+3. Créez une machine virtuelle Windows dans votre infrastructure Azure Stack Hub. Pour obtenir des instructions, consultez [Démarrage rapide : Créer une machine virtuelle Windows Server sur le portail Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal).
 
-4.  À partir de l’URL de l’objet blob du compte de stockage Azure Stack où vous avez chargé le fichier d’archive (*.tar.gz), téléchargez le fichier sur votre machine virtuelle de gestion. Extrayez l’archive dans un répertoire auquel vous avez accès à partir de votre invite de commandes.
+4.  À partir de l’URL de l’objet blob du compte de stockage Azure Stack Hub où vous avez chargé le fichier d’archive (*.tar.gz), téléchargez le fichier sur votre machine virtuelle de gestion. Extrayez l’archive dans un répertoire auquel vous avez accès à partir de votre invite de commandes.
 
 5. Connectez-vous à votre machine virtuelle.
 
@@ -98,10 +96,10 @@ Vous devrez ajouter un certificat, lors de l’exécution de la machine virtuell
 
 Quand vous utilisez un ASDK et que votre point de terminaison Azure Resource Manager utilise un certificat auto-signé, vous devez ajouter explicitement ce certificat au magasin de certificats approuvé de la machine. Vous pouvez trouver le certificat racine ASDK sur toutes les machines virtuelles que vous déployez sur l’ASDK.
 
-1. Exportez le certificat racine de l’autorité de certification. Pour obtenir des instructions, consultez [Exporter le certificat racine de l’autorité de certification Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#export-the-azure-stack-ca-root-certificate).
-2. Approuvez le certificat racine de l’autorité de certification Azure Stack. Pour obtenir des instructions, consultez [Approuver le certificat racine de l’autorité de certification Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#trust-the-azure-stack-ca-root-certificate).
+1. Exportez le certificat racine de l’autorité de certification. Pour obtenir des instructions, consultez [Exporter le certificat racine de l’autorité de certification Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#export-the-azure-stack-hub-ca-root-certificate).
+2. Approuvez le certificat d'autorité de certification racine Azure Stack Hub. Pour obtenir des instructions, consultez [Approuver le certificat racine de l’autorité de certification Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#trust-the-azure-stack-hub-ca-root-certificate).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack](azure-stack-kubernetes-aks-engine-deploy-cluster.md)
+> [Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub](azure-stack-kubernetes-aks-engine-deploy-cluster.md)

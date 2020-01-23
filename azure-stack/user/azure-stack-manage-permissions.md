@@ -1,6 +1,6 @@
 ---
-title: Gérer l’accès aux ressources dans Azure Stack avec le contrôle d’accès en fonction du rôle | Microsoft Docs
-description: Découvrez comment gérer les autorisations de contrôle d’accès en fonction du rôle (RBAC) en tant qu’administrateur ou abonné dans Azure Stack.
+title: Gérer l’accès aux ressources dans Azure Stack Hub avec le contrôle d’accès en fonction du rôle | Microsoft Docs
+description: Découvrez comment gérer les autorisations de contrôle d’accès en fonction du rôle (RBAC) en tant qu’administrateur ou abonné dans Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,29 +16,27 @@ ms.date: 09/13/2019
 ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: a784da0d16f6ec92a105d9360430f4e8da2817ef
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: e242900d3604369306717a3d4cc2c5e3aae7932c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974927"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879579"
 ---
-# <a name="manage-access-to-resources-in-azure-stack-with-role-based-access-control"></a>Gérer l’accès aux ressources dans Azure Stack avec le contrôle d’accès en fonction du rôle
+# <a name="manage-access-to-resources-in-azure-stack-hub-with-role-based-access-control"></a>Gérer l’accès aux ressources dans Azure Stack Hub avec le contrôle d’accès en fonction du rôle
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
-
-Azure Stack prend en charge le contrôle d’accès en fonction du rôle (RBAC), qui est le même [modèle de sécurité de la gestion des accès](/azure/role-based-access-control/overview) que celui utilisé par Microsoft Azure. Le contrôle d’accès en fonction du rôle vous permet de gérer les accès des utilisateurs, groupes et applications aux abonnements, ressources et services.
+Azure Stack Hub prend en charge le contrôle d’accès en fonction du rôle (RBAC), qui est le même [modèle de sécurité de la gestion des accès](/azure/role-based-access-control/overview) que celui utilisé par Microsoft Azure. Le contrôle d’accès en fonction du rôle vous permet de gérer les accès des utilisateurs, groupes et applications aux abonnements, ressources et services.
 
 ## <a name="basics-of-access-management"></a>Concepts de base de la gestion des accès
 
 Avec le contrôle d’accès en fonction du rôle (RBAC), vous pouvez effectuer un contrôle affiné des accès pour sécuriser votre environnement. Vous accordez aux utilisateurs les autorisations spécifiques dont ils ont besoin en leur attribuant un rôle RBAC dans une étendue donnée. L’étendue du rôle attribué peut être un abonnement, un groupe de ressources ou une ressource unique. Pour plus d’informations sur la gestion de l’accès, consultez l’article [Contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure](/azure/role-based-access-control/overview).
 
 > [!NOTE]
-> Quand vous déployez Azure Stack à l’aide des services de fédération Active Directory (AD FS) comme fournisseur d’identité, seuls les groupes universels sont pris en charge pour les scénarios RBAC.
+> Lorsque vous déployez Azure Stack Hub à l’aide des services de fédération Active Directory (AD FS) comme fournisseur d’identité, seuls les groupes universels sont pris en charge pour les scénarios RBAC.
 
 ### <a name="built-in-roles"></a>Rôles intégrés
 
-Azure Stack fournit trois rôles de base applicables à tous les types de ressources :
+Azure Stack Hub fournit trois rôles de base applicables à tous les types de ressources :
 
 * Le **propriétaire** : peut tout gérer, y compris l’accès aux ressources.
 * Le **contributeur** : peut tout gérer, sauf l’accès aux ressources.
@@ -46,7 +44,7 @@ Azure Stack fournit trois rôles de base applicables à tous les types de ressou
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Hiérarchie des ressources et héritage
 
-Dans Azure Stack, la hiérarchie des ressources est la suivante :
+Dans Azure Stack Hub, la hiérarchie des ressources est la suivante :
 
 * Chaque abonnement est membre d’un seul répertoire.
 * Chaque groupe de ressources est membre d’un seul abonnement.

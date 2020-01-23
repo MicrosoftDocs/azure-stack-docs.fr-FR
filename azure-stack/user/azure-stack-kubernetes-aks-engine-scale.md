@@ -1,6 +1,6 @@
 ---
-title: Mettre à l’échelle un cluster Kubernetes sur Azure Stack | Microsoft Docs
-description: Découvrez comment mettre à l’échelle un cluster Kubernetes sur Azure Stack.
+title: Mettre à l'échelle un cluster Kubernetes sur Azure Stack Hub | Microsoft Docs
+description: Découvrez comment mettre à l’échelle un cluster Kubernetes sur Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,14 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 078cacad88a0a7d055baef799c5785d5a06ce922
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: 0fd294e0c7379bed75a0eb753678810d06888106
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310091"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878932"
 ---
-# <a name="scale-a-kubernetes-cluster-on-azure-stack"></a>Mettre à l’échelle un cluster Kubernetes sur Azure Stack
-
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+# <a name="scale-a-kubernetes-cluster-on-azure-stack-hub"></a>Mettre à l’échelle un cluster Kubernetes sur Azure Stack Hub
 
 Vous pouvez mettre à l’échelle votre cluster avec le moteur AKS à l’aide de la commande **scale**. La commande **scale** réutilise votre fichier de configuration de cluster (`apimodel.json`) inclus dans le répertoire de sortie en tant qu’entrée pour un nouveau déploiement Azure Resource Manager. Le moteur exécute l’opération de mise à l’échelle sur le pool d’agents spécifié. Lorsque l’opération de mise à l’échelle est terminée, le moteur met à jour la définition du cluster dans ce même fichier `apimodel.json` afin de refléter le nouveau nombre de nœuds et donc la configuration de cluster mise à jour actuelle.
 
@@ -36,10 +34,10 @@ La commande `aks-engine scale` peut augmenter ou diminuer le nombre de nœuds da
 
 Les paramètres suivants sont utilisés par la commande scale pour rechercher votre fichier de définition de cluster afin de mettre à jour votre cluster.
 
-| Paramètre | Exemples | Description |
+| Paramètre | Exemple | Description |
 | --- | --- | --- | 
-| azure-env | AzureStackCloud | Lorsque vous utilisez Azure Stack, les noms d’environnement doivent être définis sur `AzureStackCloud`. | 
-| location | local | Il s’agit de la région de votre instance Azure Stack. Pour un Kit de développement Azure Stack (ASDK), la région a la valeur `local`.  | 
+| azure-env | AzureStackCloud | Lorsque vous utilisez Azure Stack Hub, les noms d’environnement doivent être définis sur `AzureStackCloud`. | 
+| location | local | Il s’agit de la région de votre instance Azure Stack Hub. Pour un Kit de développement Azure Stack (ASDK), la région a la valeur `local`.  | 
 | resource-group | kube-rg | Nom du groupe de ressources qui contient votre cluster. | 
 | subscription-id |  | GUID de l’abonnement qui contient les ressources utilisées par votre cluster. Vérifiez que votre quota est suffisant sur votre abonnement pour la mise à l’échelle. | 
 | client-id |  | ID client du principal du service utilisé lors de la création de votre cluster à partir du moteur AKS. | 
@@ -49,7 +47,7 @@ Les paramètres suivants sont utilisés par la commande scale pour rechercher vo
 | -master-FQDN |  | Nom de domaine complet maître. Nécessaire lors d’un scale-down. |
 | identity-system | adfs | facultatif. Spécifiez votre solution de gestion des identités si vous utilisez Active Directory Federated Services (AD FS). |
 
-Vous devez spécifier le paramètre **--azure-env** lors de la mise à l’échelle d’un cluster dans Azure Stack. Pour plus d’informations sur les paramètres et leurs valeurs utilisées dans la commande **scale** pour le moteur AKS, consultez [Échelle : paramètres](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters).
+Vous devez spécifier le paramètre **--azure-env** lors de la mise à l’échelle d’un cluster dans Azure Stack Hub. Pour plus d’informations sur les paramètres et leurs valeurs utilisées dans la commande **scale** pour le moteur AKS, consultez [Échelle : paramètres](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters).
 
 ### <a name="command-to-scale-your-cluster"></a>Commande pour mettre à l’échelle votre cluster
 
@@ -71,5 +69,5 @@ aks-engine scale \
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [Le moteur AKS sur Azure Stack](azure-stack-kubernetes-aks-engine-overview.md)
-- [Mettre à niveau un cluster Kubernetes sur Azure Stack](azure-stack-kubernetes-aks-engine-upgrade.md)
+- En savoir plus sur [le moteur AKS sur Azure Stack Hub](azure-stack-kubernetes-aks-engine-overview.md)
+- [Mettre à niveau un cluster Kubernetes sur Azure Stack Hub](azure-stack-kubernetes-aks-engine-upgrade.md)

@@ -1,6 +1,6 @@
 ---
-title: Déployer une machine virtuelle Azure Stack en utilisant un mot de passe stocké dans Key Vault | Microsoft Docs
-description: Découvrez comment déployer une machine virtuelle en utilisant un mot de passe stocké dans un coffre de clés Azure Stack.
+title: Déployer une machine virtuelle Azure Stack Hub en utilisant un mot de passe stocké dans Key Vault | Microsoft Docs
+description: Découvrez comment déployer une machine virtuelle en utilisant un mot de passe stocké dans un coffre de clés Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,34 +11,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 2a75ee1794e9ebfeb995ea03137d12c6c50cce4f
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 866862f237490a9d59211ed6a87fc1cff2fe7c11
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909504"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536145"
 ---
-# <a name="deploy-an-azure-stack-vm-using-a-password-stored-in-key-vault"></a>Déployer une machine virtuelle Azure Stack en utilisant un mot de passe stocké dans Key Vault
+# <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>Déployer une machine virtuelle Azure Stack Hub en utilisant un mot de passe stocké dans Key Vault
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+Cet article décrit pas à pas le déploiement d’une machine virtuelle Windows Server avec un mot de passe stocké dans un coffre de clés Azure Stack Hub. L’utilisation d’un mot de passe d’un coffre de clés est plus sûre que la transmission d’un mot de passe en texte brut.
 
-Cet article décrit pas à pas le déploiement d’une machine virtuelle Windows Server avec un mot de passe stocké dans un coffre de clés Azure Stack. L’utilisation d’un mot de passe d’un coffre de clés est plus sûre que la transmission d’un mot de passe en texte brut.
+## <a name="overview"></a>Vue d’ensemble
 
-## <a name="overview"></a>Vue d'ensemble
-
-Vous pouvez stocker des valeurs, comme des mots de passe, en tant que secrets dans un coffre de clés Azure Stack. Après avoir créé un secret, vous pouvez le référencer dans des modèles Azure Resource Manager. L’utilisation de secrets avec Resource Manager offre les avantages suivants :
+Vous pouvez stocker des valeurs, comme des mots de passe, en tant que secrets dans un coffre de clés Azure Stack Hub. Après avoir créé un secret, vous pouvez le référencer dans des modèles Azure Resource Manager. L’utilisation de secrets avec Resource Manager offre les avantages suivants :
 
 * Vous n’avez pas à entrer manuellement un secret chaque fois que vous déployez une ressource.
 * Vous pouvez spécifier quels utilisateurs ou principaux du service peuvent accéder à un secret.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Les utilisateurs doivent s’abonner à une offre qui inclut le service Key Vault.
-* [Installer PowerShell pour Azure Stack.](../operator/azure-stack-powershell-install.md)
+* [Installer PowerShell pour Azure Stack Hub.](../operator/azure-stack-powershell-install.md)
 * [Configurer votre environnement PowerShell.](azure-stack-powershell-configure-user.md)
 
 Les étapes suivantes décrivent le processus nécessaire pour créer une machine virtuelle en récupérant le mot de passe stocké dans un coffre de clés :
@@ -127,7 +125,7 @@ New-AzureRmResourceGroupDeployment `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
 
-Une fois le modèle déployé, la sortie suivante est générée :
+Une fois le modèle déployé, la sortie suivante est générée :
 
 ![Sortie du déploiement](media/azure-stack-key-vault-deploy-vm-with-secret/deployment-output.png)
 

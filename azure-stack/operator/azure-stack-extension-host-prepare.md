@@ -1,6 +1,6 @@
 ---
-title: Préparer l’hôte d’extension dans Azure Stack | Microsoft Docs
-description: Découvrez comment préparer l’hôte d’extension dans Azure Stack, qui est automatiquement activé via un package de mise à jour Azure Stack après la version 1808.
+title: Préparer l’hôte d’extension dans Azure Stack Hub | Microsoft Docs
+description: Découvrez comment préparer l’hôte d’extension dans Azure Stack Hub, qui est automatiquement activé via un package de mise à jour Azure Stack Hub après la version 1808.
 services: azure-stack
 keywords: ''
 author: mattbriggs
@@ -11,16 +11,16 @@ ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 75070550f1863457c3a2aaf9ab5915536372d55b
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: 45a26354edb7939a5fbc241bb5bcaf5d9db8edf3
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019277"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818387"
 ---
-# <a name="prepare-for-extension-host-in-azure-stack"></a>Préparer l’hôte d’extension dans Azure Stack
+# <a name="prepare-for-extension-host-in-azure-stack-hub"></a>Préparer l’hôte d’extension dans Azure Stack Hub
 
-L’hôte d’extension sécurise Azure Stack en réduisant le nombre de ports TCP/IP requis. Cet article passe en revue la préparation d’Azure Stack pour l’hôte d’extension. Ce dernier est automatiquement activé via un package de mise à jour Azure Stack après la mise à jour 1808. Cet article s’applique aux mises à jour 1808, 1809 et 1811 d’Azure Stack.
+L’hôte d’extension sécurise Azure Stack Hub en réduisant le nombre de ports TCP/IP requis. Cet article passe en revue la préparation d’Azure Stack Hub pour l’hôte d’extension. Ce dernier est automatiquement activé via un package de mise à jour Azure Stack Hub après la mise à jour 1808. Cet article s’applique aux mises à jour 1808, 1809 et 1811 d’Azure Stack Hub.
 
 ## <a name="certificate-requirements"></a>Configuration requise des certificats
 
@@ -33,19 +33,19 @@ Le tableau présente les nouveaux espaces de noms et les certificats associés 
 | Hôte d'extension d’administration | *.adminhosting.\<region>.\<fqdn> (Certificats SSL génériques) | Hôte d'extension d’administration | adminhosting.\<region>.\<fqdn> |
 | Hôte d'extension public | *.hosting.\<region>.\<fqdn> (Certificats SSL génériques) | Hôte d'extension public | hosting.\<region>.\<fqdn> |
 
-Pour connaître le détail des conditions requises, consultez [Exigences de certificat pour infrastructure à clé publique Azure Stack](azure-stack-pki-certs.md).
+Pour connaître le détail des conditions requises, consultez [Exigences de certificat pour infrastructure à clé publique Azure Stack Hub](azure-stack-pki-certs.md).
 
 ## <a name="create-certificate-signing-request"></a>Créer une demande de signature de certificat
 
-L’outil de vérification de la disponibilité Azure Stack vous permet de créer une demande de signature de certificat pour les deux nouveaux certificats SSL obligatoires. Pour ce faire, suivez la procédure de l’article [Génération de CSR Azure Stack](azure-stack-get-pki-certs.md).
+L’outil Azure Stack Hub Readiness Checker vous permet de créer une demande de signature de certificat pour les deux nouveaux certificats SSL obligatoires. Pour ce faire, suivez la procédure de l’article [Génération de CSR Azure Stack Hub](azure-stack-get-pki-certs.md).
 
 > [!Note]  
 > Vous pouvez ignorer cette étape selon la méthode utilisée pour demander vos certificats SSL.
 
 ## <a name="validate-new-certificates"></a>Valider les nouveaux certificats
 
-1. Ouvrez PowerShell avec des autorisations élevées sur l’hôte de cycle de vie du matériel ou sur la station de travail de gestion Azure Stack.
-2. Exécutez l’applet de commande suivante pour installer l’outil de vérification de la disponibilité Azure Stack :
+1. Ouvrez PowerShell avec des autorisations élevées sur l’hôte de cycle de vie du matériel ou sur la station de travail de gestion Azure Stack Hub.
+2. Exécutez la cmdlet suivante pour installer l’outil Azure Stack Hub Readiness Checker :
 
     ```powershell  
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
@@ -64,9 +64,9 @@ L’outil de vérification de la disponibilité Azure Stack vous permet de crée
     ```
 
     > [!Note]  
-    > Si vous effectuez votre déploiement à l’aide des services de fédération Active Directory (AD FS), les anuaires suivants doivent être ajoutés à **$directories** dans le script : `ADFS`, `Graph`.
+    > Si vous effectuez votre déploiement à l’aide des services de fédération Active Directory (AD FS), les répertoires suivants doivent être ajoutés à **$directories** dans le script : `ADFS`, `Graph`.
 
-4. Placez les certificats existants, que vous utilisez dans Azure Stack, dans les annuaires appropriés. Par exemple, placez le certificat **Admin ARM** dans le dossier `Arm Admin`. Puis, placez les certificats d’hébergement qui viennent d’être créés les annuaires `Admin extension host` et `Public extension host`.
+4. Placez les certificats existants, que vous utilisez dans Azure Stack Hub, dans les annuaires appropriés. Par exemple, placez le certificat **Admin ARM** dans le dossier `Arm Admin`. Puis, placez les certificats d’hébergement qui viennent d’être créés les répertoires `Admin extension host` et `Public extension host`.
 5. Exécutez la cmdlet suivante pour démarrer la vérification du certificat :
 
     ```powershell  
@@ -80,9 +80,9 @@ L’outil de vérification de la disponibilité Azure Stack vous permet de crée
 
 ## <a name="import-extension-host-certificates"></a>Importer les certificats d’hôte d’extension
 
-Utilisez un ordinateur capable de se connecter au point de terminaison Azure Stack privilégié pour les étapes suivantes. Assurez-vous d’avoir accès aux nouveaux fichiers de certificat à partir de cet ordinateur.
+Utilisez un ordinateur capable de se connecter au point de terminaison Azure Stack Hub privilégié pour les étapes suivantes. Assurez-vous d’avoir accès aux nouveaux fichiers de certificat à partir de cet ordinateur.
 
-1. Utilisez un ordinateur capable de se connecter au point de terminaison Azure Stack privilégié pour les étapes suivantes. Assurez-vous d’avoir accès aux nouveaux fichiers de certificat à partir de cet ordinateur.
+1. Utilisez un ordinateur capable de se connecter au point de terminaison Azure Stack Hub privilégié pour les étapes suivantes. Assurez-vous d’avoir accès aux nouveaux fichiers de certificat à partir de cet ordinateur.
 2. Ouvrez PowerShell ISE pour exécuter les blocs de script suivants.
 3. Importez le certificat pour le point de terminaison d’hébergement d’administration.
 
@@ -125,22 +125,22 @@ Utilisez un ordinateur capable de se connecter au point de terminaison Azure Sta
 
 > [!Note]  
 > Cette étape n’est pas obligatoire si vous avez utilisé la délégation de Zone DNS pour l’intégration DNS.
-Si les enregistrements d’un hôte A individuel ont été configurés de sorte à publier des points de terminaison Azure Stack, vous devez créer deux enregistrements d’hôte A supplémentaires :
+Si les enregistrements d’un hôte A individuel ont été configurés de sorte à publier des points de terminaison Azure Stack Hub, vous devez créer deux enregistrements d’hôte A supplémentaires :
 
-| IP | Nom d’hôte | Type |
+| IP | HostName | Type |
 |----|------------------------------|------|
-| \<IP> | *.Adminhosting.\<Region>.\<FQDN> | A |
-| \<IP> | *.Hosting.\<Region>.\<FQDN> | A |
+| \<IP> | *.Adminhosting.\<Region>.\<FQDN> | Un |
+| \<IP> | *.Hosting.\<Region>.\<FQDN> | Un |
 
 Les adresses IP allouées peuvent être récupérées à l’aide du point de terminaison privilégié en exécutant l’applet de commande **Get-AzureStackStampInformation**.
 
 ### <a name="ports-and-protocols"></a>Ports et protocoles
 
-L’article [Intégration au centre de données Azure Stack : publier des points de terminaison](azure-stack-integrate-endpoints.md) traite des ports et protocoles qui ont besoin d’une communication entrante pour publier Azure Stack avant le lancement de l’hôte d’extension.
+L’article [Intégration au centre de données Azure Stack Hub : publier des points de terminaison](azure-stack-integrate-endpoints.md) traite des ports et protocoles qui ont besoin d’une communication entrante pour publier Azure Stack Hub avant le lancement de l’hôte d’extension.
 
 ### <a name="publish-new-endpoints"></a>Publier les nouveaux points de terminaison
 
-Il existe deux nouveaux points de terminaison requis pour être publiés via votre pare-feu. Les adresses IP allouées à partir du pool d’adresses IP virtuelles peuvent être récupérées à l'aide du code suivant qui doit être exécuté à partir du [point de terminaison privilégié de votre environnement](azure-stack-privileged-endpoint.md) Azure Stack.
+Il existe deux nouveaux points de terminaison requis pour être publiés via votre pare-feu. Les adresses IP allouées à partir du pool d’adresses IP virtuelles peuvent être récupérées à l'aide du code suivant qui doit être exécuté à partir du [point de terminaison privilégié de votre environnement](azure-stack-privileged-endpoint.md) Azure Stack Hub.
 
 ```powershell
 # Create a PEP Session
@@ -148,7 +148,7 @@ winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
 $PEPSession = New-PSSession -ComputerName <IpOfERCSMachine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
 
-# Obtain DNS Servers and extension host information from Azure Stack Stamp Information and find the IPs for the Host Extension Endpoints
+# Obtain DNS Servers and extension host information from Azure Stack Hub Stamp Information and find the IPs for the Host Extension Endpoints
 $StampInformation = Invoke-Command $PEPSession {Get-AzureStackStampInformation} | Select-Object -Property ExternalDNSIPAddress01, ExternalDNSIPAddress02, @{n="TenantHosting";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://*.","testdnsentry"-replace "/"}},  @{n="AdminHosting";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://*.","testdnsentry"-replace "/"}},@{n="TenantHostingDNS";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://",""-replace "/"}},  @{n="AdminHostingDNS";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://",""-replace "/"}}
 If (Resolve-DnsName -Server $StampInformation.ExternalDNSIPAddress01 -Name $StampInformation.TenantHosting -ErrorAction SilentlyContinue) {
     Write-Host "Can access AZS DNS" -ForegroundColor Green
@@ -182,7 +182,7 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 ```
 
 > [!Note]  
-> Effectuez cette modification avant d’activer l’hôte d’extension. Ainsi, les portails Azure Stack sont accessibles en continu.
+> Effectuez cette modification avant d’activer l’hôte d’extension. Ainsi, les portails Azure Stack Hub sont accessibles en continu.
 
 | Point de terminaison (VIP) | Protocol | Ports |
 |----------------|----------|-------|
@@ -192,7 +192,7 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 ### <a name="update-existing-publishing-rules-post-enablement-of-extension-host"></a>Mettre à jour les règles de publication existantes (activation postérieure à l’hôte d’extension)
 
 > [!Note]  
-> Le package de mise à jour 1808 Azure Stack **n’active pas** l’hôte d’extension. Il vous permet de préparer l’hôte d’extension en important les certificats requis. Ne fermez aucun port avant que l’hôte d’extension ne soit activé automatiquement via un package de mise à jour Azure Stack après la mise à jour 1808.
+> Le package de mise à jour 1808 Azure Stack Hub **n’active pas** l’hôte d’extension. Il vous permet de préparer l’hôte d’extension en important les certificats requis. Ne fermez aucun port avant que l’hôte d’extension ne soit activé automatiquement via un package de mise à jour Azure Stack Hub après la mise à jour 1808.
 
 Les ports de points de terminaison existants suivants doivent être fermés dans vos règles de pare-feu existantes.
 
@@ -209,4 +209,4 @@ Les ports de points de terminaison existants suivants doivent être fermés dans
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur [Intégration du pare-feu](azure-stack-firewall.md).
-- En savoir plus sur la [Génération de CSR Azure Stack](azure-stack-get-pki-certs.md).
+- En savoir plus sur la [Génération de CSR Azure Stack Hub](azure-stack-get-pki-certs.md).

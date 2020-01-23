@@ -1,6 +1,6 @@
 ---
-title: Appliquer une mise à jour de fabricant d’ordinateurs (OEM) à Azure Stack | Microsoft Docs
-description: Apprenez à appliquer une mise à jour de fabricant d’ordinateurs (OEM) à Azure Stack.
+title: Appliquer une mise à jour de fabricant d’ordinateurs (OEM) à Azure Stack Hub | Microsoft Docs
+description: Apprenez à appliquer une mise à jour de fabricant d’ordinateurs (OEM) à Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,22 +15,20 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 8065b2905adb5298c23cd7c924ccff28fb778efe
-ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
+ms.openlocfilehash: 889c26089ed6d26adccec200b19191e8ab13c5a7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75756819"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882621"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Stratégie de maintenance Azure Stack Hub
-
-*S’applique à : Systèmes intégrés Azure Stack Hub*
 
 Cet article décrit la stratégie de maintenance des systèmes intégrés Azure Stack Hub, la marche à suivre pour conserver votre système dans un état de prise en charge ainsi que la façon d’obtenir un support.
 
 ## <a name="keep-your-system-under-support"></a>Conserver votre système dans un état de prise en charge
 
-Pour continuer à bénéficier de la prise en charge, vous devez vous assurer que les mises à jour pour Azure Stack sont actuelles.
+Pour continuer à bénéficier de la prise en charge, vous devez vous assurer que les mises à jour pour Azure Stack Hub sont actuelles.
 
 Pour que votre système Azure Stack Hub reste dans un état de prise en charge, l’instance doit exécuter la version de mise à jour la plus récente ou l’une des deux versions de mise à jour précédentes.
 

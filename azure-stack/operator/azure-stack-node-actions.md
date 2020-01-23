@@ -1,6 +1,6 @@
 ---
-title: Mettre à l’échelle des actions de nœud d’unité dans Azure Stack | Microsoft Docs
-description: Découvrez les actions de nœud sur une unité d’échelle (mise sous tension, mise hors tension, désactivation et reprise) et la façon d’afficher l’état d’un nœud dans des systèmes intégrés Azure Stack.
+title: Mettre à l’échelle des actions de nœud d’unité dans Azure Stack Hub | Microsoft Docs
+description: Découvrez les actions de nœud d'unité d’échelle (mise sous tension, mise hors tension, désactivation et reprise) et la façon d’afficher l’état d’un nœud dans des systèmes intégrés Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 5bc65418c1dd098dc8784cb9bf306676a1cd79ed
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: de0ec0d68b3d63cc0661fe7c4684304d83878a45
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955277"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882349"
 ---
-# <a name="scale-unit-node-actions-in-azure-stack"></a>Mettre à l’échelle des actions de nœud d’unité dans Azure Stack
-
-*S’applique à : systèmes intégrés Azure Stack*
+# <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Mettre à l’échelle des actions de nœud d’unité dans Azure Stack Hub
 
 Cet article décrit comment afficher l’état d’une unité d’échelle. Vous pouvez afficher les nœuds de l’unité. Vous pouvez exécuter des actions de nœud comme la mise sous tension, la mise hors tension, l’arrêt, le vidage, la reprise et la réparation. En règle générale, vous utilisez ces actions de nœud durant le remplacement de pièces sur le terrain ou dans le but de récupérer un nœud.
 
@@ -58,7 +56,7 @@ Pour afficher l’état d’une unité d’échelle :
 
 | Statut | Description |
 |----------------------|-------------------------------------------------------------------|
-| Exécution | Le nœud participe de façon active à l’unité d’échelle. |
+| Exécution en cours | Le nœud participe de façon active à l’unité d’échelle. |
 | Arrêté | Le nœud est indisponible. |
 | Ajout | Le nœud est ajouté de façon active à l’unité d’échelle. |
 | Réparation | Le nœud est réparé de façon active. |
@@ -76,7 +74,7 @@ Lorsque vous affichez des informations relatives à un nœud d’unité d’éch
 
 L’état de fonctionnement du nœud détermine les options disponibles.
 
-Vous devez installer les modules Azure Stack PowerShell. Ces applets de commande se trouvent dans le module **Azs.Fabric.Admin**. Pour installer ou vérifier votre installation de PowerShell pour Azure Stack, consultez [Installer PowerShell pour Azure Stack](azure-stack-powershell-install.md).
+Vous devez installer les modules Azure Stack Hub PowerShell. Ces applets de commande se trouvent dans le module **Azs.Fabric.Admin**. Pour installer ou vérifier votre installation de PowerShell pour Azure Stack Hub, consultez [Installer PowerShell pour Azure Stack Hub](azure-stack-powershell-install.md).
 
 ## <a name="stop"></a>Arrêter
 
@@ -94,7 +92,7 @@ Dans le cas peu probable où l’action d’arrêt ne fonctionnerait pas, réess
 
 Pour plus d’informations, consultez [Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
 
-## <a name="start"></a>Start
+## <a name="start"></a>Démarrer
 
 L’action de **démarrage** active le nœud. Cela revient à appuyer sur le bouton d’alimentation.
 
@@ -140,17 +138,17 @@ Pour plus d’informations, consultez [Enable-AzsScaleUnitNode](https://docs.mic
 ## <a name="repair"></a>Réparation
 
 > [!CAUTION]  
-> Le nivellement du microprogramme est essentiel pour la réussite de l’opération décrite dans cet article. Le manquement de cette étape peut entraîner une instabilité du système, une baisse des performances, des menaces sur la sécurité ou l’échec de l’opération de déploiement du système d’exploitation par Azure Stack Automation. Consultez toujours la documentation de votre partenaire de matériel lors du remplacement du matériel pour vous assurer que le microprogramme appliqué correspond à la version OEM affichée dans le [portail d’administration Azure Stack](azure-stack-updates.md).<br><br>
+> Le nivellement du microprogramme est essentiel pour la réussite de l’opération décrite dans cet article. Ignorer cette étape peut entraîner une instabilité du système, une baisse des performances, des menaces sur la sécurité ou l’échec de l’opération de déploiement du système d’exploitation par Azure Stack Hub Automation. Lors du remplacement du matériel, consultez toujours la documentation de votre partenaire de matériel pour vous assurer que le microprogramme appliqué correspond à la version OEM affichée dans le [portail administrateur Azure Stack Hub](azure-stack-updates.md).<br><br>
 Pour en savoir plus et obtenir des liens vers la documentation du partenaire, consultez [Remplacer un composant matériel](azure-stack-replace-component.md).
 
 | Partenaire matériel | Région | URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | Tous | [Guide des opérations Cisco Integrated System pour Microsoft Azure Stack](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Notes de publication pour Cisco Integrated System pour Microsoft Azure Stack](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
-| Dell EMC | Tous | [Cloud pour Microsoft Azure Stack 14G (compte et connexion requis)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pour Microsoft Azure Stack 13G (compte et connexion requis)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Cisco | Tous | [Guide des opérations Cisco Integrated System pour Microsoft Azure Stack Hub](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Notes de publication de Cisco Integrated System pour Microsoft Azure Stack Hub](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
+| Dell EMC | Tous | [Cloud pour Microsoft Azure Stack Hub 14G (compte et connexion requis)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pour Microsoft Azure Stack Hub 13G (compte et connexion requis)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | JAPON | [Support technique de service géré Fujitsu (compte et connexion requis)](https://eservice.fujitsu.com/supportdesk-web/) |
 |  | EMEA | [Support des produits et systèmes informatiques Fujitsu](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
 |  |  | [MySupport Fujitsu (compte et connexion requis)](https://support.ts.fujitsu.com/IndexMySupport.asp) |
-| HPE | Tous | [HPE ProLiant pour Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
+| HPE | Tous | [HPE ProLiant pour Microsoft Azure Stack Hub](http://www.hpe.com/info/MASupdates) |
 | Lenovo | Tous | [Meilleures recettes ThinkAgile SXM](https://datacentersupport.lenovo.com/us/en/solutions/ht505122) |
 
 L’action de **réparation** répare un nœud. À utiliser uniquement pour un des scénarios suivants :
@@ -185,4 +183,4 @@ Pour exécuter l’action d’arrêt, ouvrez une invite PowerShell avec élévat
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Découvrez le module opérateur Azure Stack Fabric](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0).
+[Découvrez le module opérateur Azure Stack Hub Fabric](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0).
