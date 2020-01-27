@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 7f9ab8b1ee8988689d2ac52dc355b85bfe9bfae6
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 50ff1bf63cbd7aaa36bb16e84f4c57db9c5a607d
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75805062"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256374"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Ajouter des nœuds d’unité d’échelle dans Azure Stack Hub
 
@@ -34,7 +34,7 @@ Le diagramme de flux suivant montre le processus général pour ajouter un nœud
 ![Ajouter un flux d’unités d’échelle](media/azure-stack-add-scale-node/add-node-flow.png)
 <br> *Votre contrat de support indique si votre fournisseur OEM doit choisir l’emplacement physique du rack du serveur et mettre à jour le microprogramme.*
 
-L’opération d’ajout de nouveau nœud peut prendre plusieurs heures ou plusieurs jours.
+L’opération d’ajout de nouveau nœud peut prendre plusieurs heures ou plusieurs jours. Il n’y a aucun impact sur les charges de travail en cours d’exécution sur le système lors de l’ajout d’un nœud d’unité d’échelle supplémentaire.
 
 > [!Note]  
 > N’essayez aucune des opérations suivantes si une opération d’ajout de nœud d’unité d’échelle est déjà en cours :

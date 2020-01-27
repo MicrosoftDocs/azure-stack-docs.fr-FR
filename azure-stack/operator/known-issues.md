@@ -16,12 +16,12 @@ ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 0b150f97adf3e456b41dc3af9ac92e0a281b793a
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 951840c6382506404e514bfd27d69af399b5a120
+ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812397"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76516740"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Problèmes connus d’Azure Stack Hub
 
@@ -776,6 +776,13 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Champ d’application : Ce problème concerne la version 1906.
 - Cause : La page de la vue d’ensemble du groupe de machines virtuelles identiques contient un graphique vide. En cliquant sur le graphique vide, un panneau avec un nuage qui pleure. C’est le graphique des informations de diagnostic du groupe identique, comme le pourcentage UC, et ce n’est pas une fonctionnalité prise en charge dans la version Azure Stack Hub actuelle.
 - Correction : Aucun.
+- Occurrence : Courant
+
+### <a name="issues-creating-resources"></a>Problèmes de création de ressources
+
+- Champ d’application : Ce problème concerne la version 1906.
+- Cause : Il existe un problème connu dans la version 1906 avec les rôles personnalisés et l’allocation d’autorisations pour la création de ressources. Vous risquez de rencontrer des problèmes de création de ressources même si vous disposez des autorisations appropriées.
+- Correction : Effectuez une mise à jour vers la build 1907 pour atténuer ce problème.
 - Occurrence : Courant
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Panneau des paramètres de diagnostic de machine virtuelle

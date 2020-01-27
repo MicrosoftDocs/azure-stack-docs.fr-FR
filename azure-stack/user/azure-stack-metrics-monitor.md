@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 066a179df94d9a61b89e5f6679968db7e4dea314
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e7b7b26afa4cb9a367ea48ef50308568a61db320
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883539"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259747"
 ---
-# <a name="how-to-consume-monitoring-data-from-azure-stack-hub"></a>Comment consommer des données de supervision à partir d’Azure Stack Hub
+# <a name="consume-monitoring-data-from-azure-stack-hub"></a>Consommer des données de supervision à partir d’Azure Stack Hub
 
 Tout comme avec Azure Monitor dans Azure global, les données de supervision se trouvent dans un emplacement unique avec le pipeline Azure Monitor. Cependant, toutes les données de supervision trouvées dans Azure global ne sont pas disponibles dans Azure Stack Hub. Dans cet article, nous récapitulons les différentes façons d’utiliser les données de supervision dans Azure Stack Hub.
  

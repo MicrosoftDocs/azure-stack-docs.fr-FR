@@ -13,16 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: f83380b7eb3f35c5887911f40336bf4286759f53
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: c16987ac19b47eb4d0fedb147522703b98c8792e
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914761"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256357"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>Configurer la télémétrie Azure Stack Hub
 
@@ -36,7 +36,7 @@ Si vous êtes opérateur Azure Stack Hub, les données de télémétrie peuvent 
 La télémétrie Azure Stack Hub est basée sur le composant Expériences des utilisateurs connectés et télémétrie de Windows Server 2016. Ce composant utilise la technologie TraceLogging [Suivi d’événements pour Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) pour collecter et stocker des événements et des données. Les composants Azure Stack utilisent la même technologie pour publier les événements et les données recueillies à l’aide des API de suivi et de journalisation des événements du système d’exploitation publiques. Parmi les exemples de composants Azure Stack Hub, citons les fournisseurs suivants : Ressource réseau, Ressource de stockage, Supervision de la ressource et Mettre à jour la ressource. Le composant Expériences des utilisateurs connectés et télémétrie chiffre les données à l’aide du protocole SSL et utilise l’épinglage de certificat pour transmettre les données via HTTPS vers le service de gestion des données Microsoft.
 
 > [!IMPORTANT]
-> Pour prendre en charge le flux des données de télémétrie, le port 443 (HTTPS) doit être ouvert sur votre réseau. Le composant Expériences des utilisateurs connectés et télémétrie se connecte au service de gestion des données de Microsoft à l’adresse https://v10.vortex-win.data.microsoft.com. Le composant Expériences des utilisateurs connectés et télémétrie se connecte également à l’adresse https://settings-win.data.microsoft.com pour télécharger les informations de configuration.
+> Pour prendre en charge le flux des données de télémétrie, le port 443 (HTTPS) doit être ouvert sur votre réseau. Le composant Expériences des utilisateurs connectés et télémétrie se connecte au service de gestion des données de Microsoft à l’adresse `https://v10.events.data.microsoft.com`. Le composant Expériences des utilisateurs connectés et télémétrie se connecte également à l’adresse `https://settings-win.data.microsoft.com` pour télécharger les informations de configuration. D’autres services de données de diagnostic se connectent `https://watson.telemetry.microsoft.com` pour le rapport d’erreurs.
 
 ## <a name="privacy-considerations"></a>Considérations relatives à la confidentialité
 
@@ -163,4 +163,4 @@ if($psSession)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Inscrire Azure Stack Hub auprès d’Azure](azure-stack-registration.md)
+[Inscrire Azure Stack Hub auprès d'Azure](azure-stack-registration.md)

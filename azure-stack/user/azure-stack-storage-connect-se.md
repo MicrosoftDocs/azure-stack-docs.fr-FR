@@ -1,6 +1,6 @@
 ---
 title: Connecter l’Explorateur Stockage à un compte de stockage ou abonnement Azure Stack Hub | Microsoft Docs
-description: Découvrez comment connecter l’Explorateur de stockage à un abonnement Azure Stack Hub
+description: Découvrir comment connecter l’Explorateur de stockage à un abonnement Azure Stack Hub
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,14 +14,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 010722e7152af7e51747870ae5bf26229ad339d6
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7c01e509dc77e2a036ad640ee5376ffda37f903f
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878405"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259832"
 ---
-# <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Connecter l’Explorateur de stockage à un compte de stockage ou abonnement Azure Stack Hub
+# <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Connecter l’Explorateur de stockage à un compte de stockage ou un abonnement Azure Stack Hub
 
 Dans cet article, vous allez découvrir comment vous connecter à vos comptes de stockage et abonnements Azure Stack Hub à l’aide de l’[Explorateur Stockage Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer). L’Explorateur Stockage est une application autonome qui vous permet d’utiliser facilement les données de stockage Azure Stack Hub sur Windows, macOS et Linux.
 
@@ -65,7 +65,7 @@ Exportez, puis importez le certificat Azure Stack Hub pour les systèmes intégr
 
     Après avoir importé le certificat, vous êtes invité à redémarrer l’Explorateur Stockage.
 
-    ![Importer le certificat dans l’Explorateur de stockage](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
+    ![Importer le certificat dans l’Explorateur Stockage](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
 8. Après le redémarrage de l’Explorateur Stockage, sélectionnez le menu **Modifier** et vérifiez si l’option **Cibler API Azure Stack Hub** est sélectionnée. Si elle ne l’est pas, sélectionnez **Cibler Azure Stack Hub**, puis redémarrez l’Explorateur Stockage pour appliquer la modification. Cette configuration est requise pour la compatibilité avec votre environnement Azure Stack Hub.
 
@@ -159,6 +159,6 @@ Vous pouvez également vous connecter à un compte de stockage Azure Stack Hub �
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Prise en main de l’Explorateur de stockage](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Prise en main de l’Explorateur Stockage](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 * [Stockage Azure Stack Hub : différences et considérations](azure-stack-acs-differences.md)
 * Pour en savoir plus sur le stockage Azure, consultez la rubrique [Présentation du stockage Microsoft Azure](/azure/storage/common/storage-introduction).

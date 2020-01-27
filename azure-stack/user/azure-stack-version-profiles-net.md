@@ -16,12 +16,12 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: ec22eea76e2ab0188c1c7a57ef58b4625dec2fcf
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 3af8a06f10322df67d80c489e1d19a7805dd8b2c
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878490"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256391"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Utiliser des profils de version des API avec .NET dans Azure Stack Hub
 
@@ -106,7 +106,7 @@ Tenez compte des points suivants :
 
 - Le **ResourceManagerUrl** dans le Kit de développement Azure Stack (ASDK) est : https://management.local.azurestack.external/.
 
-- **ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`.
+- Le **ResourceManagerUrl** dans les systèmes intégrés est le suivant : `https://management.region.<fqdn>/`, où `<fqdn>` est votre nom de domaine complet.
 Pour récupérer les métadonnées requises : `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`.
 
 Exemple de fichier JSON :

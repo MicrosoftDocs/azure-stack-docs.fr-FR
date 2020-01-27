@@ -9,14 +9,14 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 5616284e7632f89ba31c89febb5a26158ad81bd7
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 909c138e17a25b06f7ed135c74aefaf63ce69aff
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879035"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259781"
 ---
-# <a name="how-to-connect-to-iscsi-storage-with-azure-stack-hub"></a>Se connecter au stockage iSCSI avec Azure Stack Hub
+# <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Se connecter au stockage iSCSI avec Azure Stack Hub
 
 Vous pouvez utiliser le modèle présenté dans cet article pour connecter une machine virtuelle Azure Stack Hub à une cible iSCSI locale, configurer la machine virtuelle pour qu’elle utilise le stockage hébergé en dehors de l’instance Azure Stack Hub et ailleurs dans votre centre de données. Cet article présente l’utilisation d’un ordinateur Windows en tant que cible iSCSI.
 

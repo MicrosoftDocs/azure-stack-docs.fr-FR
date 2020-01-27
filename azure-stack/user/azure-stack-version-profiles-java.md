@@ -16,12 +16,12 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 37481cee1e7bc5b9bee0e68878077e084369ca39
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 06def59e2ec66f8a3260aaeb008eb05cabb6781e
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883182"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256255"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>Utiliser des profils de version d’API avec Java dans Azure Stack Hub
 
@@ -144,7 +144,7 @@ Tenez compte des points suivants :
 
 - La propriété **ResourceManagerUrl** dans l’ASDK est : `https://management.local.azurestack.external/`.
 
-- **ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`.
+- Le **ResourceManagerUrl** dans les systèmes intégrés est le suivant : `https://management.region.<fqdn>/`, où `<fqdn>` est votre nom de domaine complet.
 
 Pour récupérer les métadonnées requises : `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`.
 

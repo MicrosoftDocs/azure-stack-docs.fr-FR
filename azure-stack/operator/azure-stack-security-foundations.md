@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
-ms.lastreviewed: 12/29/2019
-ms.openlocfilehash: 0d136fdb1a72a6c52a3e441470713b77974d1fa3
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 1/16/2020
+ms.openlocfilehash: f61e7340c766f50f71bc41db7afa5bc079c53c7d
+ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882876"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145799"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Contrôles de sécurité de l’infrastructure Azure Stack Hub
 
@@ -105,7 +105,7 @@ Les ACL réseau sont appliquées dans trois couches :
 
 ## <a name="regulatory-compliance"></a>Conformité aux normes
 
-Azure Stack Hub a fait l’objet d’une évaluation formelle par un cabinet d’audit tiers indépendant. Par conséquent, une documentation concernant la façon dont l’infrastructure Azure Stack Hub satisfait aux contrôles applicables de diverses normes de conformité majeures est disponible. La documentation n’équivaut pas à une certification d’Azure Stack Hub, car les normes incluent plusieurs contrôles en lien avec le personnel et les processus. Au lieu de cela, les clients peuvent utiliser cette documentation pour lancer leurs processus de certification.
+Azure Stack Hub a fait l’objet d’une évaluation de fonctionnalité formelle par un cabinet d’audit tiers indépendant. Par conséquent, une documentation concernant la façon dont l’infrastructure Azure Stack Hub satisfait aux contrôles applicables de diverses normes de conformité majeures est disponible. La documentation n’équivaut pas à une certification d’Azure Stack Hub, car les normes incluent plusieurs contrôles en lien avec le personnel et les processus. Au lieu de cela, les clients peuvent utiliser cette documentation pour lancer leurs processus de certification.
 
 Les évaluations incluent les normes suivantes :
 

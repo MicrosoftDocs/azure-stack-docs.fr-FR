@@ -15,12 +15,12 @@ ms.date: 10/15/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 3ca1d375e5d819e93813c9f6d0fa9baf5619f563
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: c21e2a1335b76da2bcd1f4ce88274685d962a299
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924371"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259917"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Appliquer des mises à jour de fabricants d’ordinateurs (OEM) à Azure Stack Hub
 
@@ -42,7 +42,7 @@ Cette section contient des informations de contact OEM et des liens vers des doc
 
 | Partenaire matériel | Région | URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | Tous | [Guide des opérations Cisco Integrated System pour Microsoft Azure Stack Hub](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_01000.html)<br><br>[UCS C-Series Rack-Mount UCS-Managed Server Software](https://software.cisco.com/download/home/283862063/type/286320368/release/2.0(0)) |
+| Cisco | Tous | [Guide des opérations Cisco Integrated System pour Microsoft Azure Stack Hub](https://aka.ms/aa708e2)<br><br>[UCS C-Series Rack-Mount UCS-Managed Server Software](https://aka.ms/aa700rq) |
 | Dell EMC | Tous | [Cloud pour Microsoft Azure Stack Hub 14G (compte et connexion requis)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pour Microsoft Azure Stack Hub 13G (compte et connexion requis)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | JAPON | [Support technique de service géré Fujitsu (compte et connexion requis)](https://eservice.fujitsu.com/supportdesk-web/) |
 |  | EMEA ET ÉTATS-UNIS | [Support des produits et systèmes informatiques Fujitsu](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
@@ -54,10 +54,13 @@ Cette section contient des informations de contact OEM et des liens vers des doc
 
 Installez les packages OEM en suivant les étapes ci-dessous :
 
+> [!IMPORTANT]
+> Avant d’appliquer des mises à jour dans Azure Stack Hub, assurez-vous que vous avez effectué **TOUTES** les étapes répertoriées dans la [liste de contrôle préalable à la mise à jour](release-notes-checklist.md) et que vous avez planifié une fenêtre de maintenance appropriée pour le type de mise à jour que vous appliquez.
+
 1. Vous devez contacter votre OEM pour :
       - déterminer la version actuelle de votre package OEM ;  
       - rechercher la meilleure méthode pour télécharger votre package OEM.  
-2. Avant d’appliquer une mise à jour de package OEM, vous devez toujours appliquer le dernier correctif logiciel Azure Stack Hub disponible à la version actuelle d’Azure Stack Hub sur votre système. Pour plus d’informations sur les correctifs logiciels, consultez [Correctifs logiciels Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy).
+2. Avant d’appliquer une mise à jour de package OEM, vous devez toujours appliquer le dernier correctif logiciel Azure Stack Hub disponible à la version actuelle d’Azure Stack Hub sur votre système. Pour plus d’informations sur les correctifs logiciels, consultez [Correctifs logiciels Azure Stack Hub](azure-stack-servicing-policy.md).
 3. Préparez votre package OEM avec les étapes décrites dans [Télécharger des packages de mise à jour pour les systèmes intégrés](azure-stack-servicing-policy.md).
 4. Appliquez les mises à jour en suivant les étapes décrites dans [Appliquer les mises à jour dans Azure Stack Hub](azure-stack-apply-updates.md).
 

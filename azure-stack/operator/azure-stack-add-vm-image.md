@@ -15,12 +15,12 @@ ms.date: 10/16/2019
 ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 738c9aad910e558f883e3474b248a8271beb30a3
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: f0d0b268445d3de95e8f4dcaa0d44cb8d553111c
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880887"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259815"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Ajouter une image de machine virtuelle personnalisée à Azure Stack Hub
 
@@ -30,13 +30,22 @@ Azure Stack Hub vous permet d'ajouter votre image de machine virtuelle personnal
 
 ### <a name="windows"></a>Windows
 
-Créez un disque dur virtuel généralisé personnalisé. Si le disque dur virtuel est en dehors d’Azure, suivez les étapes décrites dans [Charger un disque dur virtuel généralisé et l’utiliser pour créer des machines virtuelles dans Azure](/azure/virtual-machines/windows/upload-generalized-managed) pour appliquer correctement **Sysprep** sur votre disque dur virtuel et le rendre généralisé.
+Créez un disque dur virtuel généralisé personnalisé. 
 
-Si le disque dur virtuel (VHD) provient d'Azure, suivez les instructions de [ce document](/azure/virtual-machines/windows/download-vhd) pour le généraliser et le télécharger correctement avant de le porter sur Azure Stack Hub.
+**Si le disque dur virtuel est extérieur à Azure**, suivez les étapes décrites dans [Charger un disque dur virtuel généralisé et l’utiliser pour créer des machines virtuelles dans Azure](/azure/virtual-machines/windows/upload-generalized-managed) pour appliquer correctement **Sysprep** sur votre disque dur virtuel et le rendre généralisé.
+
+**Si le disque dur virtuel vient d’Azure**, avant de généraliser la machine virtuelle, veillez à effectuer les opérations suivantes :
+1) Lorsque vous provisionnez la machine virtuelle sur Azure, utilisez PowerShell et provisionnez-la sans l’indicateur `-ProvisionVMAgent`. 
+2) Supprimez toutes les extensions de machine virtuelle avec l’applet de commande **Remove-AzureRmVMExtension** de la machine virtuelle avant de généraliser la machine virtuelle dans Azure. Vous pouvez rechercher les extensions de machine virtuelle installées en accédant à Windows (C :) > WindowsAzure > Journaux > Plug-ins.
+
+```Powershell
+Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"
+```                       
+Publiez les éléments ci-dessus, suivez les instructions de [ce document](/azure/virtual-machines/windows/download-vhd) pour généraliser et télécharger correctement le disque dur virtuel avant de le porter sur Azure Stack Hub.
 
 ### <a name="linux"></a>Linux
 
-Si le disque dur virtuel provient d’en dehors d’Azure, suivez les instructions appropriées pour généraliser le disque dur virtuel :
+**Si le disque dur virtuel est extérieur à Azure**, suivez les instructions appropriées pour généraliser le disque dur virtuel :
 
 - [Distributions CentOS](/azure/virtual-machines/linux/create-upload-centos?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Debian Linux](/azure/virtual-machines/linux/debian-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -44,7 +53,7 @@ Si le disque dur virtuel provient d’en dehors d’Azure, suivez les instructio
 - [SLES ou openSUSE](/azure/virtual-machines/linux/suse-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Serveur Ubuntu](/azure/virtual-machines/linux/create-upload-ubuntu?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Si le VHD provient d’Azure, suivez les instructions ci-après pour le généraliser et le télécharger :
+**Si le disque virtuel vient d’Azure**, suivez les instructions ci-après pour le généraliser et le télécharger :
 
 1. Arrêtez le service **waagent** :
 
