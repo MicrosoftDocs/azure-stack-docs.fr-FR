@@ -3,16 +3,15 @@ title: Utiliser une identité d’application pour accéder aux ressources
 description: Découvrez comment gérer un principal de service Azure Stack Hub. Vous pouvez utiliser la fonctionnalité RBAC (contrôle d’accès en fonction du rôle) sur un principal de service pour la connexion et l’accès aux ressources.
 author: BryanLa
 ms.author: bryanla
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 73eec3724aa37976809af6d1a4aa1b4b4c7baef5
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e53758880f8cc6bd4b365d5d752a960d623795e6
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883097"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76879854"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Utiliser une identité d’application pour accéder aux ressources Azure Stack Hub
 

@@ -1,27 +1,18 @@
 ---
-title: Activer la sauvegarde d’Azure Stack Hub à partir du portail administrateur | Microsoft Docs
+title: Activer la sauvegarde d’Azure Stack Hub à partir du portail administrateur
 description: Découvrez comment activer le service Infrastructure Backup du portail administrateur de façon à ce qu’il soit possible de restaurer Azure Stack Hub en cas de défaillance.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: 56C948E7-4523-43B9-A236-1EF906A0304F
-ms.service: azure-stack
-ms.workload: naS
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: b554c40ec18efce37cc409771a9bed5b1ca6908d
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0aa5fca80cfc408088f34923a607d4200ece15cb
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816766"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878205"
 ---
 # <a name="enable-backup-for-azure-stack-hub-from-the-administrator-portal"></a>Activer la sauvegarde d’Azure Stack Hub à partir du portail administrateur
 

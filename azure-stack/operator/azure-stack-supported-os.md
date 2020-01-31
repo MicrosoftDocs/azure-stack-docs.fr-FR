@@ -2,26 +2,18 @@
 title: Systèmes d’exploitation invités pris en charge sur Azure Stack Hub
 titleSuffix: Azure Stack
 description: Découvrez les systèmes d’exploitation invités pouvant être utilisés sur Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 8d437425db15fa078c00c973fe50824d0ada58bd
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 5171b52bc3c85dd5dbcc2c83cf307274ef92d558
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023311"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890202"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Systèmes d’exploitation invités pris en charge sur Azure Stack Hub
 

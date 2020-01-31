@@ -1,26 +1,18 @@
 ---
-title: Définir des autorisations d’accès en utilisant le contrôle d’accès en fonction du rôle | Microsoft Docs
+title: Définir des autorisations d’accès en utilisant le contrôle d’accès en fonction du rôle
 description: Découvrez comment définir des autorisations d’accès en utilisant le contrôle d’accès en fonction du rôle (RBAC) dans Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/23/2019
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: 7630579591b7d6e4c4179964d522dceb1023f55e
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 37b1abb946b2b52e467554560a6340c379960f0d
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882366"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882062"
 ---
 # <a name="set-access-permissions-using-role-based-access-control"></a>Définir des autorisations d’accès en utilisant le contrôle d’accès en fonction du rôle
 

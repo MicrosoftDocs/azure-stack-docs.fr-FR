@@ -2,18 +2,17 @@
 title: Router le trafic avec une solution d’application géodistribuée à l’aide d’Azure et d’Azure Stack Hub
 description: Découvrez comment créer une solution d’application géodistribuée avec Azure et Azure Stack Hub, qui dirige le trafic vers des points de terminaison spécifiques.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: c18e510d32773905b59cd756ed49daf59a0d03e9
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 3353977eb36701575a725f2e74f2275dac73bddd
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881856"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877644"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>Créer une solution d’application géodistribuée pour diriger le trafic avec Azure et Azure Stack Hub
 

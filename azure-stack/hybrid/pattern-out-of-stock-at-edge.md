@@ -2,18 +2,17 @@
 title: Modèle d'implémentation de la détection des ruptures de stock en périphérie à l'aide d'Azure et d'Azure Stack Edge.
 description: Découvrez comment utiliser les services Azure et Azure Stack Edge pour implémenter la détection des ruptures de stock.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: fb4eb410eefb8a34bd869543a191a1b044a42f72
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 2fac02fc6bae0d8bfedebcbb059e376d616a5b87
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640094"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875536"
 ---
 # <a name="out-of-stock-detection-at-the-edge-pattern"></a>Détection des ruptures de stock en périphérie
 
@@ -40,7 +39,7 @@ La solution fonctionne comme suit :
 8. Power BI affiche un rapport interactif sur les éléments en rupture de stock avec les données issues de Time Series Insights.
 
 
-## <a name="components"></a>Composants
+## <a name="components"></a>Components
 
 Cette solution utilise les composants suivants :
 
@@ -65,7 +64,7 @@ La plupart des modèles de Machine Learning s'exécutent uniquement à un certai
 
 Il est important d'anticiper ce qui peut se produire si l’appareil de périmètre perd toute connectivité. Réfléchissez aux données susceptibles d'être perdues depuis le tableau de bord Time Series Insights et Power BI. L’exemple de solution fourni n'a pas vocation à être hautement disponible.
 
-### <a name="manageability"></a>Facilité de gestion
+### <a name="manageability"></a>Simplicité de gestion
 
 Cette solution peut couvrir de nombreux appareils et emplacements, et donc devenir difficile à gérer. Les services IoT d'Azure peuvent être utilisés pour mettre automatiquement en ligne de nouveaux emplacements et appareils et les maintenir à jour. Des procédures de gouvernance des données appropriées doivent également être suivies.
 
@@ -81,4 +80,4 @@ Pour en savoir plus sur les sujets abordés dans cet article :
 - Consultez [Considérations relatives à la conception des applications hybrides](overview-app-design-considerations.md) pour en savoir plus sur les meilleures pratiques et obtenir des réponses à d'autres questions.
 - Consultez [Famille de produits et de solutions Azure Stack](/azure-stack) pour en savoir plus sur l'ensemble du portefeuille de produits et de solutions.
 
-Lorsque vous êtes prêt à tester l’exemple de solution, poursuivez avec le [Guide de déploiement d’une solution de données hiérarchisées pour analytique](https://aka.ms/edgeinferencingdeploy). Ce guide de déploiement fournit des instructions pas à pas sur le déploiement et sur le test de ses composants.
+Lorsque vous êtes prêt à tester l’exemple de solution, poursuivez avec le [Guide de déploiement de la solution Données hiérarchisées à des fins analytiques](https://aka.ms/edgeinferencingdeploy). Ce guide de déploiement fournit des instructions pas à pas sur le déploiement et sur le test de ses composants.

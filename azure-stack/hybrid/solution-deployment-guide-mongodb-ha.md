@@ -2,18 +2,17 @@
 title: Déployer une solution MongoDB hautement disponible sur Azure et Azure Stack Hub
 description: Découvrez comment déployer une solution MongoDB hautement disponible sur Azure et Azure Stack Hub
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: e850cde0196d496d6d854822ee0cd1a679bccca0
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 88cad7fc3f9ac4d213cd16f6e690876b1e0faa4d
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881499"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876998"
 ---
 # <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack-hub"></a>Déployer une solution MongoDB hautement disponible sur Azure et Azure Stack Hub
 

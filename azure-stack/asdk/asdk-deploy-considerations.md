@@ -1,27 +1,18 @@
 ---
-title: Configuration requise et éléments à prendre en compte pour ASDK | Microsoft Docs
+title: Conditions requises et éléments à prendre en compte pour ASDK
 description: En savoir plus sur le matériel, le logiciel et la configuration requise de l’environnement pour le Kit de développement Azure Stack (ASDK).
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/13/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: 0e5a4e41e4650de8e3cebe7d33b9638890d5bd99
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 9d466060f46f924441a8226c2f53ff3889b37429
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974565"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873888"
 ---
 # <a name="asdk-requirements-and-considerations"></a>Conditions requises et éléments à prendre en compte pour ASDK
 
@@ -29,7 +20,7 @@ Avant de déployer le Kit de développement Azure Stack (ASDK), vérifiez que l�
 
 ## <a name="hardware"></a>Matériel
 
-| Composant | Minimale | Recommandé |
+| Composant | Minimum | Recommandé |
 | --- | --- | --- |
 | Lecteurs de disque : Système d’exploitation |1 disque de système d’exploitation avec un minimum de 200 Go disponibles pour la partition système (SSD ou HDD). |1 disque de système d’exploitation avec un minimum de 200 Go disponibles pour la partition système (SSD ou HDD). |
 | Lecteurs de disque : données générales du kit de développement<sup>*</sup>  |4 disques. Chaque disque doit avoir une capacité d’au moins 240 Go (SSD ou HDD). Tous les disques disponibles sont utilisés. |4 disques. Chaque disque doit avoir une capacité d’au moins 400 Go (SSD ou HDD). Tous les disques disponibles sont utilisés. |
@@ -86,7 +77,7 @@ Exemple de configuration en miroir bidirectionnelle :
 ## <a name="operating-system"></a>Système d’exploitation
 |  | **Configuration requise** |
 | --- | --- |
-| **Version du SE** |Windows Server 2016 ou version ultérieure. La version du système d’exploitation n’est pas critique avant le démarrage du déploiement, car vous démarrez l’ordinateur hôte sur le disque dur virtuel VHD qui est fourni dans l’installation Azure Stack. Le système d’exploitation et tous les correctifs nécessaires sont déjà intégrés dans l’image. N’utilisez pas de clés pour activer les instances Windows Server utilisées dans le kit ASDK. |
+| **Version du SE** |Windows Server 2016 ou version ultérieure. La version du système d’exploitation n’est pas critique avant le démarrage du déploiement, car vous démarrez l’ordinateur hôte sur le disque dur virtuel VHD qui est fourni dans l’installation Azure Stack. Le système d’exploitation et tous les correctifs nécessaires sont déjà intégrés dans l’image. N’utilisez pas de clés pour activer les instances Windows Server utilisées dans le kit ASDK. |
 
 > [!TIP]
 > Après avoir installé le système d’exploitation, vous pouvez utiliser le [vérificateur de déploiement Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) pour vérifier que votre matériel a la configuration requise.
@@ -109,15 +100,15 @@ Pour déployer Azure Stack en utilisant un compte Azure AD, vous devez prépare
    
    | **Compte Active Directory Azure** | **Pris en charge ?** |
    | --- | --- |
-   | Compte professionnel ou scolaire avec un abonnement Azure mondial valide |OUI |
-   | Compte Microsoft avec un abonnement Azure mondial valide |OUI |
-   | Compte professionnel ou scolaire avec un abonnement Azure en Chine valide |OUI |
-   | Compte professionnel ou scolaire avec un abonnement Azure pour le gouvernement américain valide |OUI |
+   | Compte professionnel ou scolaire avec un abonnement Azure mondial valide |Oui |
+   | Compte Microsoft avec un abonnement Azure mondial valide |Oui |
+   | Compte professionnel ou scolaire avec un abonnement Azure en Chine valide |Oui |
+   | Compte professionnel ou scolaire avec un abonnement Azure pour le gouvernement américain valide |Oui |
 
 Après le déploiement, une autorisation d’administrateur global Azure AD n’est pas requise. Cependant, certaines opérations peuvent nécessiter les informations d'identification d’administrateur global. De telles opérations sont, par exemple, le script d’installation d’un fournisseur de ressources ou une nouvelle fonctionnalité nécessitant une autorisation spécifique. Vous pouvez temporairement réactiver les autorisations d’administrateur général du compte ou utiliser un compte d’administrateur général distinct qui est propriétaire de *l’abonnement de fournisseur par défaut*.
 
 ## <a name="network"></a>Réseau
-### <a name="switch"></a>Switch
+### <a name="switch"></a>Commutateur
 Un port disponible sur un commutateur de l’ordinateur ASDK.  
 
 L’ordinateur ASDK prend en charge la connexion à un port d’accès de commutateur ou de jonction. Aucune fonctionnalité spéciale n’est requise pour le commutateur. Si vous utilisez un port de jonction ou si vous devez configurer un ID de réseau local virtuel, vous devez fournir cet ID de réseau local virtuel comme paramètre de déploiement.

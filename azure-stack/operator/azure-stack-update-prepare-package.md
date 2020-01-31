@@ -1,26 +1,18 @@
 ---
-title: Préparer un package de mise à jour Azure Stack Hub | Microsoft Docs
+title: Préparer une mise à jour Azure Stack Hub
 description: Apprenez à préparer un package de mise à jour Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 2039ad04cc1970167091194da019fa77d3ac582a
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: af8877b9b1c282854a18eb3a1138b70e760cfa91
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535533"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882719"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>Préparer une mise à jour Azure Stack Hub
 

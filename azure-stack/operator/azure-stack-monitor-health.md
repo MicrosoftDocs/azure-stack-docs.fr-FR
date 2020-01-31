@@ -1,25 +1,17 @@
 ---
-title: Surveiller l’intégrité et les alertes dans Azure Stack Hub | Microsoft Docs
+title: Surveiller l’intégrité et les alertes dans Azure Stack Hub
 description: Découvrez comment surveiller l’intégrité et les alertes dans Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 7f8c18c08369bacf4882d1f9d7c389baeedc0e9a
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: bfe250a6285ddf69308e56246d5d4bd6eefadd50
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535193"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881961"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>Surveiller l’intégrité et les alertes dans Azure Stack Hub
 

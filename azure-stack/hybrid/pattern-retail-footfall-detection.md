@@ -2,18 +2,17 @@
 title: Modèle hybride pour l’implémentation d’un modèle de détection des pas basé sur l’intelligence artificielle, en utilisant Azure et Azure Stack Hub.
 description: Découvrez comment utiliser les services Azure et Azure Stack Hub pour implémenter une solution de détection des pas basé sur l’intelligence artificielle afin d’analyser la fréquentation des magasins.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 10/31/2019
-ms.openlocfilehash: d165381b6f8f3138d434b8d62376feb8879a21b3
-ms.sourcegitcommit: f3d40c9fe73cf0a32fc643832085de887edf7cf3
+ms.openlocfilehash: 27fb31a29313543c3eec2b973cdf8e8ce32940fd
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2019
-ms.locfileid: "75187284"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877321"
 ---
 # <a name="footfall-detection-pattern"></a>Modèle de détection des pas
 
@@ -41,7 +40,7 @@ Voici un résumé du fonctionnement de la solution :
 6. Le cluster Event Hubs transmet les données à Stream Analytics.
 7. Stream Analytics agrège les données et les transmet à Power BI.
 
-## <a name="components"></a>Composants
+## <a name="components"></a>Components
 
 Cette solution utilise les composants suivants :
 
@@ -74,7 +73,7 @@ Pour permettre à cette solution de s'adapter à plusieurs caméras et emplaceme
 
 Comme cette solution comporte plusieurs niveaux, il est important de réfléchir à la façon de faire face aux pannes de réseau ou d'électricité. Selon les besoins de l’entreprise, il peut être approprié de mettre en place un mécanisme permettant de mettre en cache des images localement, puis de les transférer vers Azure Stack Hub lorsque la connectivité est rétablie. Si l'emplacement est suffisamment grand, le déploiement d'un appareil Data Box Edge avec le conteneur API Visage sur cet emplacement peut être préférable.
 
-### <a name="manageability"></a>Facilité de gestion
+### <a name="manageability"></a>Simplicité de gestion
 
 Cette solution peut couvrir de nombreux appareils et emplacements, et donc devenir difficile à gérer. Les [services IoT d'Azure](/azure/iot-fundamentals/) peuvent être utilisés pour mettre automatiquement en ligne de nouveaux emplacements et appareils et les maintenir à jour. 
 

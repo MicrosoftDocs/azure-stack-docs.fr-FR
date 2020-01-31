@@ -1,27 +1,18 @@
 ---
-title: Effectuer la rotation des secrets et des certificats App Service sur Azure Stack Hub | Microsoft Docs
+title: Effectuer la rotation des secrets et des certificats App Service sur Azure Stack Hub
 description: Découvrez comment effectuer la rotation des secrets et des certificats utilisés par Azure App Service sur Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: BryanLa
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 079be062ee45e012abf3ec1bc869409ec4ee03a5
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: f1a42f5b04ea83d9ff9130fb63ba6833cd7d2914
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914565"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876539"
 ---
 # <a name="rotate-app-service-on-azure-stack-hub-secrets-and-certificates"></a>Effectuer la rotation des secrets et des certificats App Service sur Azure Stack Hub
 

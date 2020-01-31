@@ -2,18 +2,17 @@
 title: Configurer une identité cloud hybride pour les applications Azure et Azure Stack Hub
 description: Apprenez à configurer une identité cloud hybride pour les applications Azure et Azure Stack Hub.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 813dbe66b2b2c1850430dbe167f0a14227856aee
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: a0e9c00aeca18b8f5ed435d39bfb5cf9d4e56067
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881482"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875485"
 ---
 # <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-hub-applications"></a>Configurer une identité cloud hybride pour les applications Azure et Azure Stack Hub
 

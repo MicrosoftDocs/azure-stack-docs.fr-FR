@@ -2,26 +2,18 @@
 title: Informations de référence sur les API d'utilisation des ressources de locataire
 titleSuffix: Azure Stack
 description: Informations de référence sur les API d'utilisation des ressources, lesquelles récupèrent des informations relatives à l'utilisation d'Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 5e6fd1042edcf59955a6e766d2ffb215c49c2949
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: 458dc41cd587ca78b979270611cb94ba109d7035
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914716"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76880886"
 ---
 # <a name="tenant-resource-usage-api-reference"></a>Informations de référence sur l'API d'utilisation des ressources de locataire
 
@@ -33,7 +25,7 @@ Vous pouvez utiliser le cmdlet Windows PowerShell [Get-UsageAggregates](/powersh
 
 ### <a name="request"></a>Requête
 
-La requête obtient les détails de la consommation pour les abonnements demandés et pour la période demandée. Il n’existe aucun corps de requête.
+La requête obtient les détails de la consommation pour les abonnements demandés et pour la période demandée. Il n’existe aucun corps de demande.
 
 | **Méthode** | **URI de la requête** |
 | --- | --- |

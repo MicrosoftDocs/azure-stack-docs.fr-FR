@@ -2,18 +2,17 @@
 title: Modèle de création d’une application qui effectue une mise à l’échelle multicloud, sur Azure et Azure Stack Hub.
 description: Découvrez comment utiliser Azure et Azure Stack Hub pour créer une application multicloud scalable.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 3bd29e8625fac818d05954720d84d572b684c92e
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 4bf4a7b868822300c39275b8763798007cdada29
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718009"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877372"
 ---
 # <a name="cross-cloud-scaling-pattern"></a>Modèle de mise à l’échelle multicloud
 

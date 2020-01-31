@@ -1,27 +1,18 @@
 ---
-title: Télémétrie Azure Stack | Microsoft Docs
+title: Télémétrie Azure Stack
 description: Découvrez comment configurer les paramètres de télémétrie à l’aide de PowerShell.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: c904f77834e9195ab942f13028fe5ef2fc7a5366
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: 4ab0323b38d538e1c064bc998a84a26eae267a52
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025824"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873445"
 ---
 # <a name="azure-stack-telemetry"></a>Télémétrie Azure Stack
 

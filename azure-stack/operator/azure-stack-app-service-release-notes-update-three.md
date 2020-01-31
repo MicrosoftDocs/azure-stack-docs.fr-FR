@@ -1,27 +1,19 @@
 ---
-title: Notes de publication d'App Service sur Azure Stack Hub Update 3 | Microsoft Docs
+title: Notes de publication d'App Service sur Azure Stack Hub Update 3
 description: Découvrez les améliorations, les correctifs et les problèmes connus concernant la version Update 3 d'App Service pour Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: bryanla
 manager: stefsch
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: b8c888ba0c4821cfd6ff621d565c61359edc757f
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 79fdd8a3d9b026aea21ab04ce85c095e30ee272c
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880156"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874380"
 ---
 # <a name="app-service-on-azure-stack-hub-update-3-release-notes"></a>Notes de publication d'App Service sur Azure Stack Hub Update 3
 
@@ -200,5 +192,5 @@ Reportez-vous à la documentation fournie dans les Notes de publication d'Azure 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une présentation d’Azure App Service, consultez [Vue d’ensemble d’Azure App Service sur Azure Stack Hub](azure-stack-app-service-overview.md).
-- Pour plus d’informations sur la préparation au déploiement d’App Service sur Azure Stack Hub, consultez [Conditions préalables pour le déploiement d’App Service sur Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).
+- Pour une présentation d'Azure App Service, consultez [Vue d'ensemble d'Azure App Service sur Azure Stack Hub](azure-stack-app-service-overview.md).
+- Pour plus d'informations sur la préparation au déploiement d'App Service sur Azure Stack Hub, consultez [Conditions préalables au déploiement d'App Service sur Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).

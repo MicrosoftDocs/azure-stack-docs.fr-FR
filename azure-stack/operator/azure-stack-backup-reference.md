@@ -1,27 +1,18 @@
 ---
-title: Informations de référence sur le service Infrastructure Backup | Microsoft Docs
+title: Informations de référence sur le service Infrastructure Backup
 description: Documentation de référence sur le service Infrastructure Backup dans Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: D6EC0224-97EA-446C-BC95-A3D32F668E2C
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 8e54ae96cec4fff9a50c541bab4ea8e60323ca22
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: ee18141d01805b498a5f9fa1856d226b6738691c
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882927"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878324"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Informations de référence sur le service Infrastructure Backup
 
@@ -42,7 +33,7 @@ Le service Infrastructure Backup comprend les composants suivants :
  - **Fournisseur de ressources de sauvegarde**  
  Le fournisseur de ressources de sauvegarde se compose de l’interface utilisateur et des API exposant les fonctionnalités de sauvegarde de base pour l’infrastructure Azure Stack Hub.
 
-#### <a name="infrastructure-backup-controller"></a>Contrôleur Infrastructure Backup
+#### <a name="infrastructure-backup-controller"></a>Infrastructure Backup Controller
 
 Le contrôleur Infrastructure Backup est un service de Service Fabric qui est instancié pour un cloud Azure Stack Hub. Les ressources de sauvegarde sont créées à un niveau régional et capturent les données des services propres à une région provenant de AD, CA, Azure Resource Manager, CRP, SRP, NRP, Key Vault et RBAC.
 

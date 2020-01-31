@@ -1,27 +1,18 @@
 ---
-title: Planification de capacité pour des rôles serveur App Service dans Azure Stack Hub | Microsoft Docs
+title: Planification de capacité pour des rôles serveur App Service dans Azure Stack Hub
 description: Découvrez comment planifier des rôles serveur App Service dans Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: BryanLa
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: d0273a1d8bca100f09254804919ba0061b6c7bd3
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 78482b149a8397b9cc441cd97da905b782f9b7d4
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880683"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876318"
 ---
 # <a name="capacity-planning-for-app-service-server-roles-in-azure-stack-hub"></a>Planification de capacité pour des rôles serveur App Service dans Azure Stack Hub
 

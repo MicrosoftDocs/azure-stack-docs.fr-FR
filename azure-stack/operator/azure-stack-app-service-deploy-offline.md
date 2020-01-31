@@ -1,27 +1,18 @@
 ---
-title: Déployer Azure App Service dans un environnement hors connexion dans Azure Stack Hub | Microsoft Docs
+title: Déployer Azure App Service dans un environnement hors connexion au sein d’Azure Stack Hub
 description: Découvrez comment déployer Azure App Service dans un environnement Azure Stack Hub sécurisé par AD FS hors connexion.
-services: azure-stack
-documentationcenter: ''
 author: BryanLa
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 147759d9c885d796195a3c581953f8b115587eb1
-ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
+ms.openlocfilehash: fe20a682041e3e23e2a67957ecdce85f922fbf20
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124852"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876369"
 ---
 # <a name="deploy-azure-app-service-in-an-offline-environment-in-azure-stack-hub"></a>Déployer Azure App Service dans un environnement hors connexion au sein d’Azure Stack Hub
 
