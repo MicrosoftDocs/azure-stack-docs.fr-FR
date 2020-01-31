@@ -1,27 +1,19 @@
 ---
-title: Notes de publication d'App Service sur Azure Stack Hub Update 4 | Microsoft Docs
+title: Notes de publication d'App Service sur Azure Stack Hub Update 4
 description: Découvrez les améliorations, les correctifs et les problèmes connus concernant la version Update 4 d'App Service pour Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: bryanla
 manager: stefsch
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 761d9ca8268664786fadc8c47c7269a346954d8f
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 54eae566f2171c471f91e3aaeaf242b90998e962
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880462"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874414"
 ---
 # <a name="app-service-on-azure-stack-hub-update-4-release-notes"></a>Notes de publication d'App Service sur Azure Stack Hub Update 4
 

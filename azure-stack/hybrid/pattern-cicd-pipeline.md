@@ -2,18 +2,17 @@
 title: Modèle DevOps pour la périphérie intelligente utilisant Azure et Azure Stack Hub.
 description: En savoir plus sur le modèle DevOps pour la périphérie intelligente utilisant Azure et Azure Stack Hub.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: f774fb0382409d5674c622f289767ca8ae81effb
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: bf1ae2d8c404f8cc52ab32b22c883ee15934c3b1
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640172"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877474"
 ---
 # <a name="devops-pattern"></a>Modèle DevOps
 
@@ -68,7 +67,7 @@ Dans la pratique, le RTO et le RPO impliquent une redondance et une sauvegarde. 
 
 Il existe d’autres éléments importants à prendre en compte durant la conception du système utilisé pour l’automation du déploiement. Il s’agit du contrôle d’accès et de la gestion appropriée des droits nécessaires au déploiement des services sur les environnements cloud. Quels sont les droits nécessaires pour créer, supprimer ou modifier des déploiements ? Par exemple, vous avez généralement besoin d’un ensemble de droits pour créer un groupe de ressources dans Azure et d’un autre ensemble de droits pour déployer les services sur le groupe de ressources.
 
-### <a name="manageability"></a>Facilité de gestion
+### <a name="manageability"></a>Simplicité de gestion
 
 La conception d’un système basé sur le modèle DevOps doit prendre en compte l’automatisation, la journalisation et les alertes pour chaque service du portefeuille. Utilisez des services partagés, une équipe d’application, ou les deux, et suivez également les stratégies de sécurité et la gouvernance.
 
@@ -90,6 +89,6 @@ Ce modèle n’est pas recommandé :
 
 Pour en savoir plus sur les sujets abordés dans cet article :
 - Consultez la documentation [Azure DevOps](/azure/devops) pour en savoir plus sur Azure DevOps et les outils associés, notamment Azure Repos et Azure Pipelines.
-- Pour plus d’informations sur l’ensemble du portefeuille de produits et de solutions, consultez [Famille de produits et de solutions d’Azure Stack ](/azure-stack).
+- Consultez [Famille de produits et de solutions Azure Stack](/azure-stack) pour en savoir plus sur l'ensemble du portefeuille de produits et de solutions.
 
 Lorsque vous êtes prêt à tester l’exemple de solution, poursuivez avec le [Guide de déploiement d’une solution CI/CD hybride DevOps](https://aka.ms/hybriddevopsdeploy). Ce guide de déploiement fournit des instructions pas à pas sur le déploiement et sur le test de ses composants. Découvrez comment déployer une application sur Azure et Azure Stack Hub à l’aide d’un pipeline d’intégration continue/de livraison continue (CI/CD) hybride.

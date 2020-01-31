@@ -1,27 +1,18 @@
 ---
 title: Valider l’intégration d’Azure Graph pour Azure Stack Hub
 description: Utilisez Azure Stack Hub Readiness Checker pour valider l’intégration des graphes pour Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
-author: PatAltimore
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 06/10/2019
-ms.author: patricka
+ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: b12cf8b12b0765b150a119483125ffcfecb6fc69
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 29cc035e66039d09e761410808098d57f0b1927f
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812924"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882624"
 ---
 # <a name="validate-graph-integration-for-azure-stack-hub"></a>Valider l’intégration des graphes pour Azure Stack Hub
 
@@ -38,7 +29,7 @@ Pour plus d’informations sur l’intégration des centres de données Azure St
 
 ## <a name="get-the-readiness-checker-tool"></a>Obtenir l’outil Readiness Checker
 
-Téléchargez la dernière version de l’outil Azure Stack Hub Readiness Checker (AzsReadinessChecker) sur le site [PowerShell Gallery](https://aka.ms/AzsReadinessChecker).
+Téléchargez la dernière version de l’outil Azure Stack Hub Readiness Checker (AzsReadinessChecker) à partir de [PowerShell Gallery](https://aka.ms/AzsReadinessChecker).
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
@@ -101,7 +92,7 @@ Dans les environnements de production, le test de la connectivité réseau à pa
 
 Chaque fois qu’une validation s’exécute, les résultats sont journalisés dans **AzsReadinessChecker.log** et **AzsReadinessCheckerReport.json**. L’emplacement de ces fichiers apparaît avec les résultats de la validation dans PowerShell.
 
-Ces fichiers de validation peuvent vous aider à partager l’état avant de déployer Azure Stack Hub ou à enquêter sur les problèmes de validation. Les deux fichiers conservent les résultats des vérifications de validation postérieures. Le rapport fournit à votre équipe de déploiement la confirmation de la configuration de l’identité. Le fichier journal peut aider l’équipe de déploiement ou de support à enquêter sur les problèmes de validation.
+Ces fichiers de validation peuvent vous aider à partager l’état avant de déployer Azure Stack Hub ou d’enquêter sur des problèmes de validation. Les deux fichiers conservent les résultats des vérifications de validation postérieures. Le rapport fournit à votre équipe de déploiement la confirmation de la configuration de l’identité. Le fichier journal peut aider l’équipe de déploiement ou de support à enquêter sur les problèmes de validation.
 
 Par défaut, les deux fichiers sont écrits dans `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`.
 
@@ -117,4 +108,4 @@ En cas d’échec de vérification de la validation, des détails s’affichent 
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Afficher le rapport de préparation](azure-stack-validation-report.md)  
-[Considérations générales relatives à l’intégration de Microsoft Azure Stack Hub](azure-stack-datacenter-integration.md)  
+[Considérations générales relatives à l’intégration d’Azure Stack Hub](azure-stack-datacenter-integration.md)  

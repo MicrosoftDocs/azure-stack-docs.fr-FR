@@ -2,18 +2,17 @@
 title: Modèle pour l’implémentation d’une solution de données hiérarchisées à des fins analytiques utilisant Azure et Azure Stack Hub.
 description: Découvrez comment utiliser les services Azure et Azure Stack Hub pour implémenter une solution de données hiérarchisées dans le cloud hybride.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ac2c573e9ee1a2dad3afcdf86c9a6c273fb0f4e5
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 91f23e7362ec0a1a733417dad1f48dc04b80d19f
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73639974"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875519"
 ---
 # <a name="tiered-data-for-analytics-pattern"></a>Modèle Données hiérarchisées à des fins analytiques
 
@@ -42,7 +41,7 @@ Utiliser à la fois des environnements locaux et de cloud public répond aux bes
 
 ![Architecture de la solution Données hiérarchisées à des fins analytiques](media/pattern-tiered-data-analytics/solution-architecture.png)
 
-## <a name="components"></a>Composants
+## <a name="components"></a>Components
 
 Cette solution utilise les composants suivants :
 
@@ -54,7 +53,7 @@ Cette solution utilise les composants suivants :
 
 ## <a name="issues-and-considerations"></a>Problèmes et considérations
 
-Tenez compte des points suivants lors du choix de l’implémentation de cette solution :
+Prenez en compte des points suivants lors du choix de l'implémentation de cette solution :
 
 ### <a name="scalability"></a>Extensibilité 
 
@@ -64,7 +63,7 @@ Les fonctions Azure et les solutions de stockage évoluent pour s’adapter au v
 
 Le stockage est la principale considération relative à la disponibilité pour ce modèle. La connexion via des liens rapides est requise pour le traitement et la distribution d’importants volumes de données. 
 
-### <a name="manageability"></a>Facilité de gestion
+### <a name="manageability"></a>Simplicité de gestion
 
 La facilité de gestion de cette solution dépend des outils de création en cours d’utilisation et de l’engagement du contrôle de code source. 
 
@@ -72,7 +71,7 @@ La facilité de gestion de cette solution dépend des outils de création en cou
 
 Pour en savoir plus sur les sujets abordés dans cet article :
 - Consultez la documentation sur [Stockage Azure](/azure/storage/) et [Azure Functions](/azure/azure-functions/). Ce modèle utilise de façon intensive les comptes de stockage Azure et Azure Functions, à la fois sur Azure et Azure Stack Hub.
-- Consultez [Considérations relatives à la conception des applications hybrides](overview-app-design-considerations.md) pour en savoir plus sur les meilleures pratiques, et pour obtenir les réponses à d’autres questions.
-- Pour plus d’informations sur l’ensemble du portefeuille de produits et de solutions, consultez [Famille de produits et de solutions d’Azure Stack ](/azure-stack).
+- Consultez [Considérations relatives à la conception des applications hybrides](overview-app-design-considerations.md) pour en savoir plus sur les meilleures pratiques et obtenir des réponses à d'autres questions.
+- Consultez [Famille de produits et de solutions Azure Stack](/azure-stack) pour en savoir plus sur l'ensemble du portefeuille de produits et de solutions.
 
 Lorsque vous êtes prêt à tester l’exemple de solution, poursuivez avec le [Guide de déploiement de la solution Données hiérarchisées à des fins analytiques](https://aka.ms/tiereddatadeploy). Ce guide de déploiement fournit des instructions pas à pas sur le déploiement et sur le test de ses composants.

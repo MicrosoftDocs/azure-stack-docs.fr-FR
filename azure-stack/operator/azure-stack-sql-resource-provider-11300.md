@@ -2,36 +2,27 @@
 title: Notes de publication de la version 1.1.30.0 du fournisseur de ressources SQL Azure Stack Hub
 titleSuffix: Azure Stack Hub
 description: Consultez les notes de publication concernant la mise à jour 1.1.30.0 du fournisseur de ressources SQL Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: e6baccbd3ae7f2fe01c1ace47ff809d2d1006158
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 07abcb71715c3078887e00c89f5eac53f5f98def
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534207"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882869"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>Notes de publication de la version 1.1.30.0 du fournisseur de ressources SQL
 
 Ces notes de publication décrivent les améliorations et les problèmes connus liés à la version 1.1.30.0 du fournisseur de ressources SQL.
 
 ## <a name="build-reference"></a>Référence de build
-Téléchargez le binaire du fournisseur de ressources SQL, puis exécutez le fichier auto-extracteur pour extraire le contenu dans un répertoire temporaire. Le fournisseur de ressources possède une build Azure Stack Hub minimale correspondante. La version minimale d’Azure Stack Hub requise pour installer cette version du fournisseur de ressources SQL est mentionnée ci-dessous :
+Téléchargez le binaire du fournisseur de ressources SQL, puis exécutez le fichier auto-extracteur pour extraire le contenu dans un répertoire temporaire. Le fournisseur de ressources dispose d'une build Azure Stack Hub minimale correspondante. La version minimale d’Azure Stack Hub requise pour installer cette version du fournisseur de ressources SQL est mentionnée ci-dessous :
 
-> |Version minimale d’Azure Stack Hub|Version du fournisseur de ressources SQL|
+> |Version minimale d'Azure Stack Hub|Version du fournisseur de ressources SQL|
 > |-----|-----|
 > |Version 1808 (1.1808.0.97)|[1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
 > |     |     |
@@ -87,7 +78,7 @@ Cette version du fournisseur de ressources SQL Azure Stack Hub inclut les améli
     **Solution de contournement** : Vérifiez que DNS fonctionne correctement pour résoudre l’adresse IP de l’écouteur en nom d’hôte de l’écouteur.
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack-hub"></a>Problèmes connus des administrateurs cloud utilisant Azure Stack Hub
-Reportez-vous à la documentation des [notes de publication d’Azure Stack Hub](azure-stack-servicing-policy.md).
+Reportez-vous à la documentation relative aux [notes de publication d’Azure Stack Hub](azure-stack-servicing-policy.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur le déploiement d'un fournisseur de ressources SQL](azure-stack-sql-resource-provider.md).

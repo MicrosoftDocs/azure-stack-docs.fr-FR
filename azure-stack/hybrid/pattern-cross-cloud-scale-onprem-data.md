@@ -2,18 +2,17 @@
 title: Modèle de création d’une application qui effectue une mise multicloud à l’aide de données locales, sur Azure et Azure Stack Hub.
 description: Découvrez comment utiliser Azure et Azure Stack Hub pour créer une application multicloud scalable qui utilise des données locales.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: fbf25d49539ebe244b44681ca3207badf744b99b
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 51224171848b6109a7cd3d8eb2d5fa1fdcb70973
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718281"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875774"
 ---
 # <a name="cross-cloud-scaling-on-premises-data-pattern"></a>Modèle de mise à l’échelle multicloud (données locales)
 

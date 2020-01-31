@@ -1,21 +1,18 @@
 ---
-title: Publier des services Azure Stack Hub dans votre centre de données | Microsoft Docs
+title: Publier des services Azure Stack Hub dans votre centre de données
 description: Découvrez comment publier des services Azure Stack Hub dans votre centre de données.
-services: azure-stack
-author: mattbriggs
-manager: femila
-ms.service: azure-stack
+author: ihenkel
 ms.topic: article
 ms.date: 12/11/2019
-ms.author: justinha
+ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 5ed74e225df2e2667acc536e0b8dbd901a086b9a
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5cd828de0e4123faf3fcb7020703ad5d8682c7e1
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818007"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882154"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Publier des services Azure Stack Hub dans votre centre de données 
 
@@ -104,4 +101,4 @@ Un DNS sortant est toujours nécessaire : ce qui change, c’est la source qui 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Exigences relatives à l’infrastructure à clé publique d’Azure Stack Hub](azure-stack-pki-certs.md)
+[Exigences relatives à l’infrastructure de clés publiques d’Azure Stack Hub](azure-stack-pki-certs.md)

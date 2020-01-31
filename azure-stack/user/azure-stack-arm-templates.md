@@ -1,27 +1,18 @@
 ---
-title: Utiliser les modèles Azure Resource Manager dans Azure Stack Hub | Microsoft Docs
+title: Utiliser les modèles Azure Resource Manager dans Azure Stack Hub
 description: Découvrez comment utiliser les modèles Azure Resource Manager dans Azure Stack Hub pour approvisionner des ressources.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: 2022dbe5-47fd-457d-9af3-6c01688171d7
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: 86981e41495e628571977c3b438a3b57eb0b3c2c
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 48e418c3fa8dd761282f67f59b1cf1ebfc18610b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535873"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883959"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack-hub"></a>Utiliser les modèles Azure Resource Manager dans Azure Stack Hub
 

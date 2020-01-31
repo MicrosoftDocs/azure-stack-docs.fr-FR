@@ -1,20 +1,18 @@
 ---
-title: Proposer une solution réseau dans Azure Stack Hub avec Fortinet FortiGate | Microsoft Docs
+title: Proposer une solution réseau dans Azure Stack Hub avec Fortinet FortiGate
 description: Découvrez comment activer une solution réseau dans Azure Stack Hub avec Fortinet FortiGate
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: dde1ba144f14bd084e2e1050b1401143a06f61c1
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 87122d755ef7065747fc2df214ed270f92c4e49e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534649"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881732"
 ---
 # <a name="offer-a-network-solution-in-azure-stack-hub-with-fortinet-fortigate"></a>Proposer une solution réseau dans Azure Stack Hub avec Fortinet FortiGate
 

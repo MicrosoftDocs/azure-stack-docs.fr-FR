@@ -2,18 +2,17 @@
 title: Modèles hybrides et exemples de solutions pour Azure et Azure Stack
 description: Vue d’ensemble des modèles hybrides et des exemples de solutions, utiles pour l’apprentissage et la création de solutions hybrides sur Azure et Azure Stack.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: overview
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 82f933babd0be4c001bd3001a631a4345bd0e488
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 7b0eedab9981556c06b3f0d102e376b0eb519256
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718060"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875757"
 ---
 # <a name="hybrid-patterns-and-solution-examples-for-azure-and-azure-stack"></a>Modèles hybrides et exemples de solutions pour Azure et Azure Stack
 

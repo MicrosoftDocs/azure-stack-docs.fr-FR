@@ -2,32 +2,25 @@
 title: Remplacer un composant matériel sur un nœud d’unité d’échelle Azure Stack Hub
 titleSuffix: Azure Stack Hub
 description: Découvrez comment remplacer un composant matériel sur un système intégré Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 07/18/2019
-ms.author: thoroet
+ms.author: inhenkel
+ms.reviewer: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 715bd2b3bb5797ff43272a7b721edd03bb2c1b4c
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: 8b17807e5d05f84d53158f71cc6cc345dbc70904
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924392"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881372"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-hub-scale-unit-node"></a>Remplacer un composant matériel sur un nœud d’unité d’échelle Azure Stack Hub
 
 Cet article décrit le processus général de remplacement des composants matériels qui ne sont pas échangeables à chaud. Les étapes de remplacement réelles varient en fonction du revendeur de votre matériel OEM. Pour obtenir des instructions détaillées spécifiques pour votre système intégré Azure Stack Hub, voir la documentation FRU (Field Replaceable Unit) de votre fournisseur.
 
 > [!CAUTION]  
-> Le nivellement du microprogramme est essentiel pour la réussite de l’opération décrite dans cet article. Ignorer cette étape peut entraîner une instabilité du système, une baisse des performances, ainsi que des threads de sécurité, ou empêcher l’automatisation d’Azure Stack Hub de déployer le système d’exploitation. Lors du remplacement du matériel, consultez toujours la documentation de votre partenaire de matériel pour vous assurer que le microprogramme appliqué correspond à la version OEM affichée dans le [portail administrateur Azure Stack Hub](azure-stack-updates.md).
+> Le nivellement du microprogramme est essentiel pour la réussite de l’opération décrite dans cet article. Le fait d'ignorer cette étape peut entraîner une instabilité du système, une baisse des performances, ainsi que des threads de sécurité, ou empêcher la fonctionnalité d'automatisation d'Azure Stack Hub de déployer le système d'exploitation. Lors du remplacement du matériel, consultez toujours la documentation de votre partenaire de matériel pour vous assurer que le microprogramme appliqué correspond à la version OEM affichée dans le [portail administrateur Azure Stack Hub](azure-stack-updates.md).
 
 | Partenaire matériel | Région | URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

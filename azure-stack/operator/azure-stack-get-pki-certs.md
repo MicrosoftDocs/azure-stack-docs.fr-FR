@@ -1,25 +1,18 @@
 ---
-title: Générer des demandes de signature de certificat pour Azure Stack Hub | Microsoft Docs
+title: Générer des demandes de signature de certificat pour Azure Stack Hub
 description: Découvrez comment générer des demandes de signature de certificat pour des certificats PKI Azure Stack Hub dans les systèmes intégrés Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
-author: justinha
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 09/10/2019
-ms.author: justinha
+ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 4b966ac4faec51dac06e39fab8804e295a9a40b1
-ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
+ms.openlocfilehash: baee1a439129f83013e191db683927cd15cb1d65
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76145833"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882248"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Générer des demandes de signature de certificat pour Azure Stack Hub
 

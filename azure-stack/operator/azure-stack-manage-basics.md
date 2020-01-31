@@ -1,25 +1,17 @@
 ---
-title: Principes de bases de l’administration d’Azure Stack Hub | Microsoft Docs
+title: Principes de bases de l’administration d’Azure Stack Hub
 description: Découvrez les principes de bases de l’administration d’Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: justinha
 ms.lastreviewed: 05/29/2019
-ms.openlocfilehash: 0954a318092e075e621c76ba4219030bc37e7ca3
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 53515145d4cbc1ad49ca25261ab65ac8bafdfbb5
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817327"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882051"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Principes de bases de l’administration d’Azure Stack Hub
 

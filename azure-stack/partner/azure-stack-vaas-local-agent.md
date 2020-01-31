@@ -1,26 +1,19 @@
 ---
-title: Déployer l’agent local | Microsoft Docs
+title: Déployer l’agent local
 description: Déployez l’agent local pour le service Validation en tant que service pour Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9cd13f16df804c674c2901ae0e167e47294f176a
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: a84f2495b0e2195ac143dc8fd9ac4ea4668392b4
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955899"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884091"
 ---
 # <a name="deploy-the-local-agent"></a>Déployer l’agent local
 
@@ -93,7 +86,7 @@ Vérifiez que votre machine répond aux critères suivants :
 | --- | --- |
 | AadServiceAdminUser | Utilisateur administrateur général pour votre locataire Azure AD. Par exemple, il peut s’agir de vaasadmin@contoso.onmicrosoft.com. |
 | AadServiceAdminPassword | Mot de passe de l’utilisateur administrateur général. |
-| CloudAdminUserName | Utilisateur administrateur cloud qui peut accéder et exécuter des commandes autorisées dans le point de terminaison privilégié. Par exemple, cela peut être AzusreStack\CloudAdmin. Pour plus d’informations, voir [ici](azure-stack-vaas-parameters.md). |
+| CloudAdminUserName | Utilisateur administrateur cloud qui peut accéder et exécuter des commandes autorisées dans le point de terminaison privilégié. Par exemple, cela peut être AzusreStack\CloudAdmin. Pour plus d’informations, consultez [cet article](azure-stack-vaas-parameters.md) . |
 | CloudAdminPassword | Mot de passe pour le compte d’administrateur cloud.|
 
 ![Télécharger les composants requis](media/installing-prereqs.png)
@@ -136,7 +129,7 @@ Les tests exécutent des opérations à distance. La machine qui exécute les te
 
     | Paramètre | Description |
     | --- | --- |
-    | CloudAdminUserName | Utilisateur administrateur cloud qui peut accéder et exécuter des commandes autorisées dans le point de terminaison privilégié. Par exemple, cela peut être AzusreStack\CloudAdmin. Pour plus d’informations, voir [ici](azure-stack-vaas-parameters.md). |
+    | CloudAdminUserName | Utilisateur administrateur cloud qui peut accéder et exécuter des commandes autorisées dans le point de terminaison privilégié. Par exemple, cela peut être AzusreStack\CloudAdmin. Pour plus d’informations, consultez [cet article](azure-stack-vaas-parameters.md) . |
     | CloudAdminPassword | Mot de passe pour le compte d’administrateur cloud.|
     | VaaSUserId | Identificateur d’utilisateur permettant de se connecter au portail VaaS (par exemple, nom_utilisateur\@Contoso.com). |
     | VaaSTenantId | ID de locataire Azure AD pour le compte Azure inscrit auprès du service Validation en tant que service. |
@@ -156,4 +149,4 @@ Un agent est identifié de manière unique par son nom. Par défaut, il utilise 
 
 - [Résoudre les problèmes de validation en tant que service](azure-stack-vaas-troubleshoot.md)
 - [Validation as a Service key concepts](azure-stack-vaas-key-concepts.md) (Concepts clés à propos de la validation en tant que service)
-- [Démarrage rapide : Utiliser le portail de validation en tant que service pour planifier votre premier test](azure-stack-vaas-schedule-test-pass.md)
+- [Démarrage rapide : Utiliser le portail de validation en tant que service pour planifier votre premier test](azure-stack-vaas-schedule-test-pass.md)

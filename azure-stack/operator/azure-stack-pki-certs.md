@@ -1,35 +1,26 @@
 ---
-title: Exigences de certificat d’infrastructure de clés publiques Azure Stack Hub | Microsoft Docs
+title: Exigences de certificat d’infrastructure de clés publiques Azure Stack Hub
 description: Découvrez les exigences de déploiement de certificat d’infrastructure de clés publiques Azure Stack Hub pour les systèmes intégrés Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
-author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 12/16/2019
-ms.author: justinha
+ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 124f59d043a940ebcd48131f1012551777a17a6d
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 464e47b204c782f5ebac5a3588d0aff5eaf98d49
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810450"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881646"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-certificate-requirements"></a>Exigences de certificat d’infrastructure de clés publiques Azure Stack Hub
 
 Azure Stack Hub inclut un réseau d’infrastructure publique utilisant des adresses IP publiques accessibles en externe affectées à un petit ensemble de services Azure Stack Hub et, éventuellement, à des machines virtuelles de locataires. Des certificats d’infrastructure de clés publiques avec les noms de DNS appropriés pour ces points de terminaison d’infrastructure publique Azure Stack Hub sont requis pendant le déploiement Azure Stack Hub. Cet article fournit des informations sur :
 
 - les certificats requis pour déployer Azure Stack Hub ;
-- le processus d’obtention de certificats correspondants à ces spécifications ;
-- la manière de préparer, valider et utiliser ces certificats pendant le déploiement.
+- Le processus d’obtention de certificats correspondants à ces spécifications
+- Comment préparer, valider et utiliser ces certificats pendant le déploiement
 
 > [!NOTE]
 > Par défaut, Azure Stack Hub utilise également des certificats émis par une autorité de certification interne intégrée à Active Directory pour l’authentification entre les nœuds. Pour valider le certificat, toutes les machines d’infrastructure Azure Stack Hub approuvent le certificat racine de l’autorité de certification interne en ajoutant ce certificat à leur magasin de certificats local. Azure Stack Hub ne permet pas d’épingler les certificats ou de les ajouter à une liste verte. Le réseau SAN de chaque certificat de serveur est validé par rapport au nom de domaine complet de la cible. La totalité de la chaîne d’approbation est également validée, ainsi que la date d’expiration du certificat (authentification de serveur TLS standard sans épinglage du certificat).

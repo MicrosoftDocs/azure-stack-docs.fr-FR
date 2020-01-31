@@ -1,26 +1,18 @@
 ---
-title: Notes de publication d'App Service sur Azure Stack Hub Update 6 | Microsoft Docs
+title: Notes de publication App Service sur Azure Stack Hub Update 6
 description: Découvrez le contenu de la mise à jour 6 d’App Service sur Azure Stack Hub, les problèmes connus et où la télécharger.
-services: azure-stack
-documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 2c96d45aa433fdbae490ed5c1c304b1c000e8c02
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 418e27424f91d4c676565acc27bcde77962d76ec
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880105"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875893"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>Notes de publication App Service sur Azure Stack Hub Update 6
 

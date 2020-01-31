@@ -1,27 +1,18 @@
 ---
-title: Utiliser le portail administrateur dans Azure Stack Hub | Microsoft Docs
+title: Utiliser le portail administrateur dans Azure Stack Hub
 description: Découvrez comment utiliser le portail administrateur dans Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.custom: mvc
 ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: cb4db9d5034aead74a92b8d6d4b896f54460701b
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: def9dd3fca3c7e3a2076ffdf79b96fa00e72fac5
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882383"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882023"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>Utiliser le portail administrateur dans Azure Stack Hub
 

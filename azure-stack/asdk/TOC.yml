@@ -1,6 +1,6 @@
-- name: Documentation sur le Kit de développement Azure Stack Hub
+- name: Documentation relative au Kit de développement Azure Stack
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que l’ASDK\_?"
@@ -43,7 +43,7 @@
       href: asdk-validate-backup.md
     - name: Se connecter à l’ASDK
       href: asdk-connect.md
-    - name: Résolution de problèmes
+    - name: Dépannage
       href: asdk-troubleshooting.md
 - name: Informations de référence
   items:

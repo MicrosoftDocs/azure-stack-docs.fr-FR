@@ -3,17 +3,16 @@ title: Testez une offre de services Azure Stack Hub.
 description: Découvrez comment tester une offre de service en créant un abonnement et en déployant des ressources.
 author: BryanLa
 ms.author: bryanla
-ms.service: azure-stack
 ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: fd14a6099c9906a0b37c8227164b213235dcfee3
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c44f5b06c034a65a79ddd8098b9abc8e220ea5b9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820931"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885091"
 ---
 # <a name="tutorial-test-a-service-offering"></a>Tutoriel : Tester une offre de service
 

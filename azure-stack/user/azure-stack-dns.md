@@ -1,25 +1,17 @@
 ---
-title: DNS dans Azure Stack Hub | Microsoft Docs
+title: DNS dans Azure Stack Hub
 description: Apprenez-en davantage sur le DNS dans Azure Stack Hub, ainsi que sur la création et la gestion des zones DNS.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: caf251ad55e10ac1e763c75d61c52de4353eaf9f
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: dd2b00ced084f4a069626f56d37eec1cdae238d6
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879204"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884840"
 ---
 # <a name="use-dns-in-azure-stack-hub"></a>Utiliser DNS dans Azure Stack Hub
 

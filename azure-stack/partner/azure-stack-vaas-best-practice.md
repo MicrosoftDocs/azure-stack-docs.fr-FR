@@ -1,26 +1,19 @@
 ---
-title: Meilleures pratiques de Validation Azure Stack | Microsoft Docs
+title: Meilleures pratiques de Validation Azure Stack
 description: Cet article traite des meilleures pratiques concernant la validation en tant que service.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 930a8ea40fde7a021a893e5289d16fa73398300f
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: cdd5d8a2b1933559c204e479f0215e63b6100b33
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167273"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884099"
 ---
 # <a name="best-practices-for-validation-as-a-service"></a>Meilleures pratiques concernant la validation en tant que service
 
@@ -34,7 +27,7 @@ Cet article traite des meilleures pratiques concernant la gestion des ressources
 
 Utilisez une convention d’affectation de noms cohérente pour toutes les solutions inscrites dans VaaS. Par exemple, le nom de la solution peut être construit à partir des propriétés de matériel ci-dessous :
 
-|Nom du produit | Élément matériel unique 1 | Élément matériel unique 2 | Nom de la solution
+|Nom du produit | Élément matériel unique 1 | Élément matériel unique 2 | Nom de solution
 |---|---|---|---|
 Ma solution XYZ |  Flash | My Switch X01 | MySolutionXYZ_AllFlash_MySwitchX01
 

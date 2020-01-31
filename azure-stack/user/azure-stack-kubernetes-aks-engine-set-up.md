@@ -1,26 +1,18 @@
 ---
-title: Configurer les prérequis pour le moteur AKS sur Azure Stack Hub | Microsoft Docs
+title: Configurer les prérequis pour le moteur AKS sur Azure Stack Hub
 description: Établissez les conditions d’exécution du moteur AKS sur votre infrastructure Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
 ms.date: 1/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 1516b07cc491ca365f5bc87ad584960818bb537d
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 340b0e9b2b6f4ece2629968128b872282e88c2c0
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879612"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884746"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Configurer les prérequis pour le moteur AKS sur Azure Stack Hub
 
