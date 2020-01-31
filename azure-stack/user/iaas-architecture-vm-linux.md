@@ -1,20 +1,18 @@
 ---
-title: Exécuter une machine virtuelle Linux sur Azure Stack Hub | Microsoft Docs
+title: Exécuter une machine virtuelle Linux dans Azure Stack Hub
 description: Découvrez comment exécuter une machine virtuelle Linux sur Azure Stack Hub.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 8667274e6684af407ca503c25b2e2348a7649134
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 97f1b58fc1d36a9cd3f26875625c2ae7ea67abdc
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023156"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885308"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Exécuter une machine virtuelle Linux dans Azure Stack Hub
 
@@ -24,7 +22,7 @@ Le provisionnement d’une machine virtuelle dans Azure Stack Hub, comme Azure, 
 
 ## <a name="resource-group"></a>Resource group
 
-Un [groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) est un conteneur logique qui héberge les ressources Azure Stack Hub associées. En règle générale, regroupez les ressources en fonction de leur durée de vie et de qui va les gérer.
+Un [groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) est un conteneur logique hébergeant des ressources Azure Stack Hub associées. En règle générale, regroupez les ressources en fonction de leur durée de vie et de qui va les gérer.
 
 Placez les ressources étroitement associées qui partagent le même cycle de vie dans un même [groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Les groupes de ressources vous permettent de déployer et de surveiller les ressources en tant que groupe et de suivre les coûts de facturation par groupe de ressources. Vous pouvez également supprimer des ressources comme un tout, ce qui est pratique pour les déploiements de test. Affectez des noms de ressource explicites pour simplifier la recherche d’une ressource spécifique et comprendre son rôle. Pour plus d’informations, consultez [Conventions d’affectation de noms recommandées pour les ressources Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
@@ -32,13 +30,13 @@ Placez les ressources étroitement associées qui partagent le même cycle de vi
 
 Vous pouvez provisionner une machine virtuelle issue d’une liste d’images publiées, d’une image managée personnalisée ou d’un fichier de disque dur virtuel (VHD) chargé(e) dans le Stockage Blob Azure Stack Hub. Azure Stack Hub prend en charge l’exécution de plusieurs distributions Linux populaires, notamment CentOS, Debian, Red Hat Enterprise, Ubuntu et SUSE. Pour plus d’informations, consultez [Linux sur Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-linux). Vous pouvez également choisir de syndiquer l’une des images Linux publiées disponibles sur la Place de marché Azure Stack Hub.
 
-Azure Stack Hub propose de nombreuses tailles de machines virtuelles Azure. Pour plus d’informations, consultez [Tailles des machines virtuelles sur Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes). Si vous déplacez une charge de travail vers Azure Stack Hub, commencez par choisir la taille de machine virtuelle qui correspond le mieux à vos serveurs locaux/Azure. Mesurez ensuite les performances de votre charge de travail réelle en termes de processeur, de mémoire et d’opérations d’entrée/sortie par seconde du disque, puis ajustez la taille selon vos besoins.
+Azure Stack Hub propose de nombreuses tailles de machines virtuelles Azure. Pour plus d’informations, voir [Tailles des machines virtuelles dans Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes). Si vous déplacez une charge de travail vers Azure Stack Hub, commencez par choisir la taille de machine virtuelle correspondant le mieux à vos serveurs locaux/Azure. Mesurez ensuite les performances de votre charge de travail réelle en termes de processeur, de mémoire et d’opérations d’entrée/sortie par seconde du disque, puis ajustez la taille selon vos besoins.
 
 ## <a name="disks"></a>Disques
 
 Le coût est basé sur la capacité du disque approvisionné. Le nombre d’E/S par seconde et le débit (c’est-à-dire le taux de transfert des données) dépendent de la taille de la machine virtuelle. Lorsque vous provisionnez un disque, vous devez donc tenir compte des trois facteurs : capacité, E/S par seconde et débit.
 
-Sur Azure Stack Hub, les IOPS disque (opérations d’entrée/sortie par seconde) dépendent de la [taille de la machine virtuelle](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) et non du type de disque. Cela signifie que, pour une machine virtuelle Standard_Fs, quel que soit le type de disque choisi (SSD ou HDD), la limite d'IOPS est de 2 300 par disque de données supplémentaire. La limite d’IOPS imposée est un plafond (maximum possible) pour éviter les voisins bruyants. Elle ne garantit pas les IOPS obtenues avec une taille de machine virtuelle spécifique.
+Sur Azure Stack Hub, les IOPS (opérations d’entrée/sortie par seconde) du disque dépendent de la [taille de la machine virtuelle](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) plutôt que du type de disque. Cela signifie que, pour une machine virtuelle Standard_Fs, quel que soit le type de disque choisi (SSD ou HDD), la limite d'IOPS est de 2 300 par disque de données supplémentaire. La limite d’IOPS imposée est un plafond (maximum possible) pour éviter les voisins bruyants. Elle ne garantit pas les IOPS obtenues avec une taille de machine virtuelle spécifique.
 
 Nous vous recommandons également d’utiliser la fonctionnalité [Disques managés](https://docs.microsoft.com/azure-stack/user/azure-stack-managed-disk-considerations). Les disques managés simplifient la gestion des disques en gérant le stockage pour vous. Les disques managés ne nécessitent pas de compte de stockage. Il vous suffit de spécifier leur taille et leur type, puis de les déployer en tant que ressource hautement disponible.
 
@@ -88,7 +86,7 @@ Tous les groupes de sécurité réseau contiennent un ensemble de [règles par d
 
 **Sauvegardes** Pour obtenir des recommandations sur la protection de vos machines virtuelles IaaS Azure Stack Hub, consultez [cet](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-protect) article.
 
-**Arrêt d’une machine virtuelle**. Azure établit une distinction entre les états « arrêté » et « désalloué ». Vous payez lorsque l’état de la machine virtuelle est « arrêté », mais pas lorsque la machine virtuelle est désallouée. Le bouton **Arrêter** du portail Azure Stack Hub désalloue la machine virtuelle. Si vous arrêtez la machine virtuelle par le biais du système d’exploitation pendant que vous êtes connecté, la machine virtuelle est arrêtée mais **non** désallouée. Vous serez donc toujours facturé.
+**Arrêt d’une machine virtuelle**. Azure établit une distinction entre les états « arrêté » et « désalloué ». Vous payez lorsque l’état de la machine virtuelle est « arrêté », mais pas lorsque la machine virtuelle est désallouée. Sur le portail Azure Stack Hub, le bouton **Arrêter** désalloue la machine virtuelle. Si vous arrêtez la machine virtuelle par le biais du système d’exploitation pendant que vous êtes connecté, la machine virtuelle est arrêtée mais **non** désallouée. Vous serez donc toujours facturé.
 
 **Suppression d’une machine virtuelle**. La suppression d’une machine virtuelle n’entraîne pas celle des disques associés. Vous pouvez donc supprimer la machine virtuelle, sans risque de perdre des données. Toutefois, vous serez toujours facturé pour le stockage. Pour supprimer le disque de machine virtuelle, supprimez l’objet disque managé. Pour éviter toute suppression accidentelle, utilisez un [verrou de ressource](https://docs.microsoft.com/azure/resource-group-lock-resources) pour verrouiller tout le groupe de ressources ou des ressources individuelles, par exemple une machine virtuelle.
 
@@ -111,5 +109,5 @@ Intégrez vos machines virtuelles dans [Azure Security Center](https://docs.micr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur les machines virtuelles Azure Stack Hub, consultez [Fonctionnalités des machines virtuelles Azure Stack Hub](azure-stack-vm-considerations.md).  
+- Pour en savoir plus sur les machines virtuelles Azure Stack Hub, voir [Fonctionnalités des machines virtuelles Azure Stack Hub](azure-stack-vm-considerations.md).  
 - Pour plus d’informations sur les modèles Azure Cloud, consultez [Modèles de conception cloud](https://docs.microsoft.com/azure/architecture/patterns).

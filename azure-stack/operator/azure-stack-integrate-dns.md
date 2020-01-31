@@ -1,22 +1,18 @@
 ---
-title: Intégration des services DNS Azure Stack Hub au DNS du centre de données | Microsoft Docs
+title: Intégration des services DNS Azure Stack Hub au DNS du centre de données
 description: Découvrez comment intégrer les services DNS Azure Stack Hub au DNS de votre centre de données.
-services: azure-stack
-author: mattbriggs
-manager: femila
-ms.service: azure-stack
+author: ihenkel
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
-keywords: ''
-ms.openlocfilehash: 3ef8bb7595711c5df991956d6cbde8d4e379ec47
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 3d92504080e754db08d76cf7ec2a2c7e010ee394
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535278"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882176"
 ---
 # <a name="azure-stack-hub-datacenter-dns-integration"></a>Intégration des services DNS Azure Stack Hub au DNS du centre de données
 

@@ -1,26 +1,18 @@
 ---
-title: Laisser votre fournisseur de solutions cloud gérer votre abonnement Azure Stack Hub | Microsoft Docs
+title: Laisser votre fournisseur de solutions cloud gérer votre abonnement Azure Stack Hub
 description: Découvrez comment laisser votre fournisseur de solutions cloud (CSP) gérer votre abonnement Azure Stack Hub à votre place.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/20/2019
-ms.openlocfilehash: 44d00381ea11ef6ac7e947c31adce41b3228d93d
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 5a04602c8906ba546190aa6783b4cbcf40b56cba
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883777"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883859"
 ---
 # <a name="let-your-cloud-solution-provider-manage-your-azure-stack-hub-subscription"></a>Laisser votre fournisseur de solutions cloud gérer votre abonnement Azure Stack Hub
 
