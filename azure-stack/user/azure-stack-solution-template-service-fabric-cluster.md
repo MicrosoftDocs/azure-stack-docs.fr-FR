@@ -1,26 +1,18 @@
 ---
-title: Déployer un cluster Service Fabric sécurisé dans Azure Stack Hub | Microsoft Docs
+title: Déployer un cluster Service Fabric sécurisé dans Azure Stack Hub
 description: Découvrez comment déployer un cluster Service Fabric sécurisé dans Azure Stack Hub
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 11a80f5ae4c256cd49724f6b508d160bf9145a06
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: fadc0adbd8cad2ff92b3849d6c79c933a1bf3bfb
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536502"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884432"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Déployer un cluster Service Fabric dans Azure Stack Hub
 

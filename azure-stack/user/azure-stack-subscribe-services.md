@@ -1,28 +1,18 @@
 ---
-title: Créer un abonnement avec une offre dans Azure Stack Hub | Microsoft Docs
+title: Créer un abonnement avec une offre dans Azure Stack Hub
 description: Apprenez à créer un nouvel abonnement avec une offre dans Azure Stack Hub, puis testez l’offre avec une machine virtuelle de test.
-services: azure-stack
-documentationcenter: ''
 author: bryanla
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
 ms.date: 06/04/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 216fe342bcda090d69452e8623f34f6c43cf70b9
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: ea0bf7287fd0463aa7b57a24386a30f7f3a1b754
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023189"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884326"
 ---
 # <a name="tutorial-create-and-test-a-subscription-in-azure-stack-hub"></a>Tutoriel : Créer et tester un abonnement dans Azure Stack Hub
 

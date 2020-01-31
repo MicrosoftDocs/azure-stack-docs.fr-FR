@@ -1,26 +1,19 @@
 ---
-title: Valider les packages de fabricant d’ordinateurs OEM dans le service Validation en tant que service pour Azure Stack | Microsoft Docs
+title: Valider les packages de fabricant d’ordinateurs OEM dans le service Validation en tant que service pour Azure Stack
 description: Découvrez comment contrôler les packages de fabricant d’ordinateurs OEM avec le service Validation en tant que service.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 774778e382526cffb30e2a69d16c32cc1e548225
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: ed6d3055e3e5cab0def090d31f907e0fd1deea50
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954551"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885102"
 ---
 # <a name="validate-oem-packages"></a>Valider les packages OEM
 
@@ -37,7 +30,7 @@ Vous pouvez tester un nouveau package OEM lorsqu’une modification a été appo
 
 Lorsque vous utilisez le workflow **Validation de package** pour valider un package, vous devez fournir une URL à **Stockage Blob Azure**. Cet objet blob est le package OEM signé de test qui est installé dans le cadre du processus de mise à jour. Créez le blob à l’aide du compte de stockage Azure que vous avez créé au moment de l’installation (voir [Configurer votre validation en tant que Ressources de service](azure-stack-vaas-set-up-resources.md)).
 
-### <a name="prerequisite-provision-a-storage-container"></a>Configuration requise : Provisionner un conteneur de stockage
+### <a name="prerequisite-provision-a-storage-container"></a>Condition préalable : Provisionner un conteneur de stockage
 
 Créer un conteneur dans votre compte de stockage pour les objets blob de package. Ce conteneur peut être utilisé à chaque fois que la validation de package est exécutée.
 
@@ -73,12 +66,12 @@ Dans le cas des niveaux d’accès **Privé** et **Objet blob**, vous devez temp
 |Niveau d’accès | Exigence de workflow | Exigence de test |
 |---|---------|---------|
 |Privé | Générez une URL SAP par objet blob de package ([Option 1](#option-1-generate-a-blob-sas-url)). | Générez une URL SAP au niveau du compte et ajoutez manuellement le nom d’objet blob de package ([Option 2](#option-2-construct-a-container-sas-url)). |
-|Blob | Indiquez la propriété de l’URL d’objet blob ([Option 3](#option-3-grant-public-read-access)). | Générez une URL SAP au niveau du compte et ajoutez manuellement le nom d’objet blob de package ([Option 2](#option-2-construct-a-container-sas-url)). |
+|Objet blob | Indiquez la propriété de l’URL d’objet blob ([Option 3](#option-3-grant-public-read-access)). | Générez une URL SAP au niveau du compte et ajoutez manuellement le nom d’objet blob de package ([Option 2](#option-2-construct-a-container-sas-url)). |
 |Conteneur | Indiquez la propriété de l’URL d’objet blob ([Option 3](#option-3-grant-public-read-access)). | Indiquez la propriété de l’URL d’objet blob ([Option 3](#option-3-grant-public-read-access)).
 
 Les options d’octroi d’accès à vos packages sont classées par ordre d’importance croissante.
 
-#### <a name="option-1-generate-a-blob-sas-url"></a>Option 1 : Générer une URL SAP d’objet blob
+#### <a name="option-1-generate-a-blob-sas-url"></a>Option 1 : Générer une URL SAP d’objet blob
 
 Utilisez cette option si le niveau d’accès de votre conteneur de stockage est défini sur **Privé**, le conteneur dans ce cas ne permet pas l’accès en lecture public sur le conteneur ou ses objets blob.
 
@@ -97,7 +90,7 @@ Utilisez cette option si le niveau d’accès de votre conteneur de stockage est
 
 Utilisez l’**URL SAP d’objet blob** quand vous fournissez des URL d’objet blob de package au portail.
 
-#### <a name="option-2-construct-a-container-sas-url"></a>Option 2 : Construire une URL SAP de conteneur
+#### <a name="option-2-construct-a-container-sas-url"></a>Option n°2 : Construire une URL SAP de conteneur
 
 Utilisez cette option si le niveau d’accès de votre conteneur de stockage est défini sur **Privé** et qu’il vous faut fournir une URL d’objet blob de package à un test *interactif*. Cette URL peut également être utilisée au niveau du workflow.
 
@@ -118,7 +111,7 @@ Utilisez cette option si le niveau d’accès de votre conteneur de stockage est
 
     Utilisez cette valeur quand vous fournissez des URL d’objet blob de package au portail.
 
-#### <a name="option-3-grant-public-read-access"></a>Option 3 : Accorder un accès en lecture public
+#### <a name="option-3-grant-public-read-access"></a>Option 3 : Accorder un accès en lecture public
 
 Utilisez cette option s’il est acceptable d’autoriser l’accès des objets blob individuels à des clients non authentifiés ou, dans le cas de tests *interactifs*, l’accès du conteneur.
 
@@ -136,7 +129,7 @@ Utilisez cette option s’il est acceptable d’autoriser l’accès des objets 
 
 ## <a name="create-a-package-validation-workflow"></a>Créer un workflow validation de package
 
-1. Se connecter au [portail VaaS](https://azurestackvalidation.com).
+1. Connectez-vous au [portail VaaS](https://azurestackvalidation.com).
 
 2. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
 

@@ -1,21 +1,18 @@
 ---
-title: Créer une machine virtuelle Windows avec le portail Azure Stack Hub | Microsoft Docs
+title: Créer une machine virtuelle Windows avec le portail Azure Stack Hub
 description: Découvrez comment créer une machine virtuelle Windows Server 2016 avec le portail Azure Stack Hub.
-services: azure-stack
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
 ms.topic: quickstart
 ms.date: 1/10/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 1b7ea35da7234fde1517b59101205a92075b9016
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: 0792d0dffa8a61194b0f6725aba9222d69c8634e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914890"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883291"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>Démarrage rapide : Créer une machine virtuelle Windows Server avec le portail Azure Stack Hub
 

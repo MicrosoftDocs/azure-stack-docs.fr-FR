@@ -1,20 +1,18 @@
 ---
-title: Déployer une application web Go sur une machine virtuelle dans Azure Stack Hub | Microsoft Docs
+title: Déployer une application web Go sur une machine virtuelle dans Azure Stack Hub
 description: Guide pratique pour déployer une application web Go sur une machine virtuelle dans Azure Stack Hub
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: overview
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: a06fa482914a45ea53cb88ac09dae54f26bb7558
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: e57de0bbcb51b4e1bf2d3d4501b57cbc5115927e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536230"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883767"
 ---
 # <a name="deploy-a-go-web-app-to-a-vm-in-azure-stack-hub"></a>Déployer une application web Go sur une machine virtuelle dans Azure Stack Hub
 

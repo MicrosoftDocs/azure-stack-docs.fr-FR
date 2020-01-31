@@ -1,20 +1,18 @@
 ---
-title: Déployer une application Node.js sur une machine virtuelle dans Azure Stack Hub | Microsoft Docs
+title: Déployer une application Node.js sur une machine virtuelle dans Azure Stack Hub
 description: Déployez une application Node.js dans Azure Stack Hub.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: overview
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: c5d254351fab0bb89023dad8928ac32958f63404
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: ab6d3e378c4a6f40e597367f06d9e5c4e31eb0c3
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536213"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883765"
 ---
 # <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack-hub"></a>Déployer une application web Node.js sur une machine virtuelle dans Azure Stack Hub
 
@@ -47,7 +45,7 @@ Vous pouvez créer une machine virtuelle pour héberger une application web Node
 2. [Installez NPM](https://www.npmjs.com/), un gestionnaire de packages (ou de modules) Node.js. Tout en restant connecté à votre machine virtuelle dans votre session SSH, entrez la commande suivante :
 
     ```bash  
-       go version
+       node --version
     ```
 
 3. [Installez Git](https://git-scm.com), un système couramment utilisé pour la gestion de code source et de versions. Tout en restant connecté à votre machine virtuelle dans votre session SSH, entrez la commande suivante :

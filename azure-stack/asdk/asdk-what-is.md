@@ -1,30 +1,20 @@
 ---
-title: Qu’est-ce que le Kit de développement Azure Stack (ASDK) Hub ? | Microsoft Docs
-description: Découvrez des informations sur le Kit de développement Azure Stack Hub et son utilisation pour évaluer Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
+title: Qu'est-ce que le Kit de développement Azure Stack (ASDK) ? | Microsoft Docs
+description: Découvrez le Kit de développement Azure Stack et son utilisation pour évaluer Azure Stack Hub.
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-ms.custom: mvc
 ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: fb9dab302e20d436be7f3cf9a76de913bbfe22e3
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 7d3b4115ea34a185c5535c77cecdddf060ed84eb
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689829"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873292"
 ---
-# <a name="what-is-the-azure-stack-hub-development-kit-asdk"></a>Qu’est-ce que le Kit de développement Azure Stack (ASDK) Hub ?
+# <a name="what-is-the-azure-stack-development-kit-asdk"></a>Qu'est-ce que le Kit de développement Azure Stack (ASDK) ?
 Les [systèmes intégrés Microsoft Azure Stack Hub](../operator/azure-stack-overview.md) ont une taille comprise entre 4 et 16 nœuds, et ils sont pris en charge conjointement par un fournisseur de matériel partenaire et Microsoft. Utilisez des systèmes intégrés Azure Stack Hub afin de permettre de nouveaux scénarios pour vos charges de travail de production. Si vous êtes opérateur Azure Stack Hub gérant l’infrastructure de systèmes intégrés et proposant des offres, consultez notre [documentation destinée à l’opérateur](/azure-stack/operator).
 
 Le kit ASDK est un déploiement mononœud d’Azure Stack Hub que vous pouvez télécharger et utiliser **gratuitement**. Tous les composants ASDK sont installés sur des machines virtuelles s’exécutant sur un ordinateur hôte unique qui doit satisfaire ou dépasser la [configuration matérielle minimale requise](asdk-deploy-considerations.md#hardware). Le kit ASDK est destiné à fournir un environnement où vous pouvez évaluer Azure Stack Hub et développer des applications modernes en utilisant des API et des outils cohérents avec Azure dans un environnement *hors production*. 

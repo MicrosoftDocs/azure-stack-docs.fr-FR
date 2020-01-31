@@ -1,26 +1,19 @@
 ---
-title: Surveiller et gérer des tests dans le portail Azure Stack VaaS | Microsoft Docs
+title: Surveiller et gérer les tests dans le portail Azure Stack VaaS
 description: Surveillez et gérez des tests dans le portail Azure Stack VaaS.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 87ba89298c0a5a134cb0b3b1a2b7e771151e46d9
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: b2a6f2b1e40ddfad9edbf64c92f29e93786fc6f9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955904"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885082"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Surveiller et gérer les tests dans le portail VaaS
 
@@ -91,7 +84,7 @@ Sélectionnez **Afficher les informations** dans le menu contextuel pour affiche
 | -- | -- |
 | Nom du test | Nom du test. |
 | Test version (Version du test) | La version du test. |
-| Publisher | L’éditeur du test. |
+| Serveur de publication | L’éditeur du test. |
 | Category |  L’objectif du test. |
 | Target services (Services cibles) | Les services Azure Stack en cours de test. |
 | Description | Description du test. |
