@@ -1,20 +1,18 @@
 ---
-title: Guide pratique pour connecter deux réseaux Azure Stack Hub à l’aide de VNet Peering | Microsoft Docs
+title: Connecter deux infrastructures Azure Stack Hub à l’aide de VNet Peering
 description: Découvrez comment connecter deux infrastructures Azure Stack Hub à l’aide de VNet Peering.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: bf855be0ec6fc63be4ab816dac4dde170b24fdad
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 3b257fee978fe576c97855d5af18854082155d7e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536077"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884565"
 ---
 # <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>VNET Peering dans Azure Stack Hub avec des machines virtuelles
 

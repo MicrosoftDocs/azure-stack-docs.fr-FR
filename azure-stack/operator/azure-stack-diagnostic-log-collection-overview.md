@@ -1,27 +1,18 @@
 ---
-title: Vue d’ensemble de la collecte automatique des journaux de diagnostic Azure Stack Hub | Microsoft Docs
+title: Vue d’ensemble de la collecte des journaux de diagnostic dans Azure Stack Hub
 description: Explique la collecte des journaux de diagnostic dans Azure Stack Hub Aide et support, y compris la collecte automatique et à la demande des journaux.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: cd74be55195975238e9c8454badeab26593811b5
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: facbff4bdddc284c4f547c4bf5941678d2c8bcd7
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882468"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882376"
 ---
 # <a name="overview-of-azure-stack-hub-diagnostic-log-collection"></a>Vue d’ensemble de la collecte automatique des journaux de diagnostic Azure Stack Hub 
 
@@ -71,7 +62,7 @@ Pour plus d’informations, consultez [Meilleures pratiques pour la collecte aut
 
 ## <a name="see-also"></a>Voir aussi
 
-[Gestion des journaux et des données client d’Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
+[Gestion des journaux et des données client Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
 
 [Utilisation des signatures d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 

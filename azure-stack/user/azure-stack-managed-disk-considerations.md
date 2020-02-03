@@ -1,31 +1,22 @@
 ---
-title: Différences et considérations relatives aux disques managés dans Azure Stack Hub | Microsoft Docs
+title: Différences et points à connaître sur les disques managés Azure Stack Hub
 description: Découvrez les différences et considérations à prendre en compte lors de l’utilisation de disques et d’images managés dans Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 2e09f10fc61454cf1b32797e75b5a57fc3f90f8f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c1369ada357e8439e39fed4642996af86925522c
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819877"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883438"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Disques managés Azure Stack Hub : différences et considérations
 
-Cet article récapitule les différences entre les [disques managés dans Azure Stack Hub](azure-stack-manage-vm-disks.md) et les [disques managés dans Azure](/azure/virtual-machines/windows/managed-disks-overview). Pour en savoir plus sur les principales différences entre Azure Stack Hub et Azure, consultez l’article [Principales considérations](azure-stack-considerations.md).
+Cet article récapitule les différences entre les [*disques managés* dans Azure Stack Hub](azure-stack-manage-vm-disks.md) et les [disques managés dans Azure](/azure/virtual-machines/windows/managed-disks-overview). Pour en savoir plus sur les principales différences entre Azure Stack Hub et Azure, consultez l'article [Principales considérations](azure-stack-considerations.md).
 
 Les disques managés simplifient la gestion des disques des machines virtuelles IaaS, en gérant les [comptes de stockage](../operator/azure-stack-manage-storage-accounts.md) associés aux disques de machines virtuelles.
 
@@ -144,10 +135,10 @@ Azure Stack Hub prend en charge les *images managées* qui vous permettent de cr
 
 ### <a name="step-1-generalize-the-vm"></a>Étape 1 : Généraliser la machine virtuelle
 
-Pour Windows, consultez la section [Généraliser la machine virtuelle de Windows à l’aide de Sysprep](/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep). Pour Linux, suivez l’étape 1 [ici](/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm).
+Pour Windows, consultez la section [Généraliser la machine virtuelle de Windows à l’aide de Sysprep](/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep). Pour Linux, suivez l’étape 1 [ici](/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm).
 
 > [!NOTE]
-> Veillez à généraliser votre machine virtuelle. La création d’une machine virtuelle mal généralisée entraîne une erreur **VMProvisioningTimeout**.
+> Veillez à généraliser votre machine virtuelle. La création d’une machine virtuelle mal généralisée peut provoquer une erreur **VMProvisioningTimeout**.
 
 ### <a name="step-2-create-the-managed-image"></a>Étape 2 : Créer l'image managée
 
@@ -232,4 +223,4 @@ Après avoir appliqué la mise à jour 1808 ou ultérieure, vous devez applique
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [En savoir plus sur les machines virtuelles Azure Stack Hub](azure-stack-compute-overview.md)
+- Apprenez-en davantage sur les [machines virtuelles Azure Stack Hub](azure-stack-compute-overview.md).

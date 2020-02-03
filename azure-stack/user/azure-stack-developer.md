@@ -1,27 +1,18 @@
 ---
-title: Développer des applications pour Azure Stack Hub | Microsoft Docs
+title: Développer des applications pour Azure Stack Hub
 description: Considérations relatives au développement pour le prototypage d’applications sur Azure Stack Hub à l'aide des services Azure.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: d3ebc6b1-0ffe-4d3e-ba4a-388239d6cdc3
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: ba5aefa61db489f5f7063ebc4785785ba2f26f4c
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: cddce90bf8675aa619175fca2e8c97468b1edebe
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883726"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883682"
 ---
 # <a name="develop-for-azure-stack-hub"></a>Développer pour Azure Stack Hub
 
@@ -37,7 +28,7 @@ Avec un peu de préparation et à l’aide des instructions fournies dans les ru
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur le développement Azure Stack, consultez les articles suivants :
+Pour plus d’informations sur le développement Azure Stack, consultez les articles suivants :
 
 * [Meilleures pratiques relatives aux modèles Azure Resource Manager](azure-stack-develop-templates.md)
-* [Modèles de démarrage rapide Azure Stack Hub](https://github.com/Azure/AzureStack-QuickStart-Templates)
+* [Modèles de démarrage rapide Azure Stack Hub disponibles sur GitHub](https://github.com/Azure/AzureStack-QuickStart-Templates)

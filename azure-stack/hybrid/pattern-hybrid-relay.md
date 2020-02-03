@@ -2,18 +2,17 @@
 title: Modèle pour l’implémentation d’un solution de relais hybride utilisant Azure et Azure Stack Hub.
 description: Découvrez comment utiliser les services Azure et Azure Stack Hub pour vous connecter à des ressources ou des appareils de périphérie protégés par des pare-feu.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 9b9defd4a6aec6dab3511425089e7395649d8087
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 7315013253c04ebbb231a0915dba610e459848e7
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640124"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890066"
 ---
 # <a name="hybrid-relay-pattern"></a>Modèle Relais hybride
 
@@ -36,7 +35,7 @@ Le fonctionnement de la solution est le suivant :
 3. La machine virtuelle sur Azure Stack Hub, qui a déjà établi une connexion de longue durée au relais Service Bus, reçoit le trafic et le transfère vers la destination.
 4. Le point de terminaison ou le service local traite la demande. 
 
-## <a name="components"></a>Composants
+## <a name="components"></a>Components
 
 Cette solution utilise les composants suivants :
 
@@ -49,7 +48,7 @@ Cette solution utilise les composants suivants :
 
 ## <a name="issues-and-considerations"></a>Problèmes et considérations
 
-Tenez compte des points suivants lors du choix de l’implémentation de cette solution :
+Prenez en compte des points suivants lors du choix de l'implémentation de cette solution :
 
 ### <a name="scalability"></a>Extensibilité 
 
@@ -59,9 +58,9 @@ Ce modèle autorise uniquement les mappages de port 1:1 sur le client et le serv
 
 Ces tunnels et connexions ne sont pas redondants. Pour garantir une haute disponibilité, vous pouvez implémenter un code de vérification des erreurs. Une autre option consiste à avoir un pool de machines virtuelles connectées au relais Service Bus derrière un équilibreur de charge.
 
-### <a name="manageability"></a>Facilité de gestion
+### <a name="manageability"></a>Simplicité de gestion
 
-Cette solution peut couvrir de nombreux appareils et emplacements, et donc devenir difficile à gérer. Les services IoT d’Azure peuvent mettre automatiquement en ligne de nouveaux emplacements et appareils et les maintenir à jour.
+Cette solution peut couvrir de nombreux appareils et emplacements, et donc devenir difficile à gérer. Les services IoT d'Azure peuvent être utilisés pour mettre automatiquement en ligne de nouveaux emplacements et appareils et les maintenir à jour.
 
 ### <a name="security"></a>Sécurité
 
@@ -71,7 +70,7 @@ Ce modèle, tel que présenté, permet un accès non autorisé à un port sur un
 
 Pour en savoir plus sur les sujets abordés dans cet article :
 - Ce modèle utilise des relais Azure Service Bus. Pour plus d’informations, consultez la [documentation relative aux relais Azure Service Bus](/azure/service-bus-relay/).
-- Consultez [Considérations relatives à la conception des applications hybrides](overview-app-design-considerations.md) pour en savoir plus sur les meilleures pratiques, et pour obtenir les réponses à d’autres questions.
-- Pour plus d’informations sur l’ensemble du portefeuille de produits et de solutions, consultez [Famille de produits et de solutions d’Azure Stack ](/azure-stack).
+- Consultez [Considérations relatives à la conception des applications hybrides](overview-app-design-considerations.md) pour en savoir plus sur les meilleures pratiques et obtenir des réponses à d'autres questions.
+- Consultez [Famille de produits et de solutions Azure Stack](/azure-stack) pour en savoir plus sur l'ensemble du portefeuille de produits et de solutions.
 
 Lorsque vous êtes prêt à tester l’exemple de solution, poursuivez avec le [Guide de déploiement de la solution de relais hybride](https://aka.ms/hybridrelaydeployment). Ce guide de déploiement fournit des instructions pas à pas sur le déploiement et sur le test de ses composants.

@@ -1,26 +1,18 @@
 ---
-title: Questions fréquentes (FAQ) sur l’API d’utilisation | Microsoft Docs
+title: Questions fréquentes (FAQ) sur l’API d’utilisation
 description: Liste de compteurs Azure Stack Hub, comparaison avec les API d’utilisation Azure, Heure d’utilisation et Heure du rapport, codes d’erreur.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: dea410ab514f095f7ed68a0617b2dd7816544f80
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 18539c666683c6e35c8736616405f961b63adf40
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813060"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76880655"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Questions fréquentes sur l’utilisation d’Azure Stack Hub
 
@@ -396,12 +388,12 @@ Des rapports d’utilisation sont générés pour les fournisseurs de ressources
 
 Les rapports de données d’utilisation comportent deux valeurs de durée principales :
 
-* **Heure du rapport**. Heure à laquelle l’événement d’utilisation est entré dans le système d’utilisation
-* **Heure d’utilisation**. Heure à laquelle la ressource Azure Stack Hub a été consommée
+* **Heure du rapport**. Heure à laquelle l’événement d’utilisation est entré dans le système d’utilisation.
+* **Heure d’utilisation**. Heure à laquelle la ressource Azure Stack Hub a été consommée.
 
 Vous pouvez voir une différence entre l’heure d’utilisation et l’heure du rapport pour un événement d’utilisation spécifique. Ce décalage peut atteindre plusieurs heures dans n’importe quel environnement.
 
-Actuellement, vous pouvez interroger uniquement par *Heure du rapport*.
+Actuellement, vous pouvez interroger uniquement par **Heure du rapport**.
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>Que signifient les codes d’erreur de l’API d’utilisation suivants ?
 
@@ -417,7 +409,7 @@ Actuellement, vous pouvez interroger uniquement par *Heure du rapport*.
 
 ## <a name="what-is-the-policy-for-charging-for-vms"></a>Quelle est la stratégie de facturation pour les machines virtuelles ?
 
-Les machines virtuelles en cours d’exécution ou arrêtés génèrent des données d’utilisation. De manière cohérente avec Azure, la désallocation est nécessaire pour arrêter l’émission de données d’utilisation. Si le portail n’est pas disponible, mais que le fournisseur de ressources de calcul est en cours d’exécution, une utilisation est émise.
+Les machines virtuelles en cours d’exécution ou arrêtés génèrent des données d’utilisation. De manière cohérente avec Azure, la désallocation est nécessaire pour arrêter l’émission de données d’utilisation. Si le portail n’est pas disponible mais que le fournisseur de ressources de calcul est en cours d’exécution, une utilisation est émise.
 
 ## <a name="how-do-i-extract-usage-data-from-the-azure-stack-hub-usage-apis"></a>Comment puis-je extraire les données d’utilisation des API d’utilisation d’Azure Stack Hub ?
 

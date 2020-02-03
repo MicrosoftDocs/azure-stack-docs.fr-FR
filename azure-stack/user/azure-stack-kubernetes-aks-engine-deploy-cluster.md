@@ -1,26 +1,18 @@
 ---
-title: Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub | Microsoft Docs
+title: Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub
 description: Découvrez comment déployer un cluster Kubernetes sur Azure Stack Hub à partir d’une machine virtuelle cliente exécutant le moteur AKS.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 34fc30c13cf365560fbd30234a60af4cc4f9a594
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: bc56a45bc1312488d00570e4a44436bcdfe14834
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883562"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884802"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub
 
@@ -112,7 +104,7 @@ Une fois que vous avez collecté toutes les valeurs requises dans votre modèle 
 Demander à votre opérateur Azure Stack Hub d’effectuer les opérations suivantes :
 
 - Vérifier l’intégrité du système, en lui suggérant d’exécuter `Test-AzureStack` et l’outil de supervision de matériel de votre fournisseur OEM.
-- Vérifier la capacité système, notamment les ressources comme la mémoire, le stockage et les adresses IP publiques.
+- Vérifiez la capacité système, notamment les ressources comme la mémoire, le stockage et les adresses IP publiques.
 - Fournir les détails du quota associé à votre abonnement afin de vous permettre de vérifier que l’espace est toujours suffisant pour le nombre de machines virtuelles que vous envisagez d’utiliser.
 
 Procéder au déploiement d’un cluster :
@@ -127,7 +119,7 @@ Procéder au déploiement d’un cluster :
     | resource-group | kube-rg | Entrez le nom d’un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant. Le nom de la ressource doit être alphanumérique et en minuscules. |
     | api-model | ./kubernetes-azurestack.json | Chemin du fichier de configuration du cluster ou modèle d’API. |
     | output-directory | kube-rg | Entrez le nom du répertoire contenant le fichier de sortie `apimodel.json`, ainsi que d’autres fichiers générés. |
-    | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Entrez le GUID du principal du service. ID de client identifié comme ID d’application quand votre administrateur Azure Stack Hub a créé le principal du service. |
+    | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Entrez le GUID du principal du service. ID de client identifié comme ID d’application lorsque votre administrateur Azure Stack Hub a créé le principal du service. |
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Entrez le secret du principal du service. Il s’agit de la clé secrète client que vous définissez lors de la création de votre service. |
     | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Entrez votre ID d’abonnement. Pour plus d’informations, consultez [S’abonner à une offre](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer). |
 
@@ -158,7 +150,7 @@ Procéder au déploiement d’un cluster :
 
 ## <a name="verify-your-cluster"></a>Vérifier votre cluster
 
-Vérifiez votre cluster en déployant mysql avec Helm pour contrôler votre cluster.
+Vérifiez votre cluster en déployant MySql avec Helm pour contrôler votre cluster.
 
 1. Obtenez l’adresse IP publique de l’un de vos nœuds principaux à l’aide du portail Azure Stack Hub.
 
@@ -166,31 +158,71 @@ Vérifiez votre cluster en déployant mysql avec Helm pour contrôler votre clus
 
 3. Pour le nom d’utilisateur SSH, vous utilisez « azureuser » et le fichier de clé privée de la paire de clés que vous avez fournie pour le déploiement du cluster.
 
-4.  Exécutez les commandes suivantes :
+4. Exécutez les commandes suivantes pour créer un exemple de déploiement d’un maître Redis (pour les tampons connectés uniquement) :
+
+   ```bash
+   kubectl apply -f https://k8s.io/examples/application/guestbook/redis-master-deployment.yaml
+   ```
+
+    1. Interroger la liste des pods :
+
+       ```bash
+       kubectl get pods
+       ```
+
+    2. La réponse doit être semblable à ce qui suit :
+
+       ```shell
+       NAME                            READY     STATUS    RESTARTS   AGE
+       redis-master-1068406935-3lswp   1/1       Running   0          28s
+       ```
+
+    3. Afficher les journaux de déploiement :
+
+       ```shell
+       kubectl logs -f <pod name>
+       ```
+
+    S’il s’agit d’un déploiement complet d’un exemple d’application PHP qui comprend le maître Redis, suivez [les instructions fournies ici](https://kubernetes.io/docs/tutorials/stateless-application/guestbook/).
+
+5. Pour un tampon déconnecté, il suffit généralement d’utiliser les commandes suivantes :
+
+    1. Vérifiez d’abord que les points de terminaison du cluster sont en cours d’exécution :
+
+       ```bash
+       kubectl cluster-info
+       ```
+
+       Le résultat doit être semblable à ce qui suit :
+
+       ```shell
+       Kubernetes master is running at https://democluster01.location.domain.com
+       CoreDNS is running at https://democluster01.location.domain.com/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+       kubernetes-dashboard is running at https://democluster01.location.domain.com/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy
+       Metrics-server is running at https://democluster01.location.domain.com/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
+       ```
+
+    2. Ensuite, vérifiez les états des nœuds :
+
+       ```bash
+       kubectl get nodes
+       ```
+
+       La sortie doit ressembler à ce qui suit :
+
+       ```shell
+       k8s-linuxpool-29969128-0   Ready      agent    9d    v1.15.5
+       k8s-linuxpool-29969128-1   Ready      agent    9d    v1.15.5
+       k8s-linuxpool-29969128-2   Ready      agent    9d    v1.15.5
+       k8s-master-29969128-0      Ready      master   9d    v1.15.5
+       k8s-master-29969128-1      Ready      master   9d    v1.15.5
+       k8s-master-29969128-2      Ready      master   9d    v1.15.5
+       ```
+
+6. Pour nettoyer le déploiement POD Redis effectué à l’étape précédente, exécutez la commande suivante :
 
     ```bash
-    sudo snap install helm --classic
-    kubectl -n kube-system create serviceaccount tiller
-    kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
-    helm init --service-account=tiller
-    helm repo update
-    helm install stable/mysql
-    ```
-
-5.  Pour nettoyer le test, recherchez le nom utilisé pour le déploiement mysql. Dans l’exemple suivant, le nom est `wintering-rodent`. Ensuite, supprimez-le. 
-
-    Exécutez les commandes suivantes :
-
-    ```bash
-    helm ls
-    NAME REVISION UPDATED STATUS CHART APP VERSION NAMESPACE
-    wintering-rodent 1 Thu Oct 18 15:06:58 2018 DEPLOYED mysql-0.10.1 5.7.14 default
-    helm delete wintering-rodent
-    ```
-
-    L’interface CLI affiche :
-    ```bash
-    release "wintering-rodent" deleted
+    kubectl delete deployment -l app=redis
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes

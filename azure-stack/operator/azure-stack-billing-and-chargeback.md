@@ -1,26 +1,18 @@
 ---
-title: Facturation et rétrofacturation dans Azure Stack Hub | Microsoft Docs
+title: Facturation et rétrofacturation des clients dans Azure Stack Hub
 description: Découvrez comment est facturée l’utilisation des ressources pour les utilisateurs d’Azure Stack Hub, et comment les informations de facturation sont récupérées pour l’analytique et la rétrofacturation.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 5bdfb3f39582c198f077e961ff98f5d1352cb942
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: fbf5894c8d15bfb23d8bbdceeadfe857e291864c
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75803804"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878494"
 ---
 # <a name="usage-and-billing-in-azure-stack-hub"></a>Utilisation et facturation dans Azure Stack Hub
 

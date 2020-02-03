@@ -1,29 +1,24 @@
 ---
-title: Rendre les groupes de machines virtuelles identiques disponibles dans Azure Stack Hub | Microsoft Docs
+title: Rendre les groupes identiques de machines virtuelles disponibles dans Azure Stack Hub
 description: Découvrez comment un opérateur cloud peut ajouter des groupes de machines virtuelles identiques à la Place de marché Azure Stack Hub.
-services: azure-stack
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
 ms.topic: article
-ms.date: 10/04/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 4794704678d5b344ea9d0bae9bf89f134e6bff52
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7474b18a1d50c6ab8ed91be64f8f943a215ff7fd
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883012"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76889743"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>Rendre les groupes identiques de machines virtuelles disponibles dans Azure Stack Hub
 
- 
-Les groupes de machines virtuelles identiques constituent une ressource de calcul Azure Stack Hub. Vous pouvez les utiliser pour déployer et gérer un groupe de machines virtuelles identiques. Étant donné que toutes les machines virtuelles sont configurées de la même façon, il n’est pas nécessaire de préprovisionner les machines virtuelles des groupes identiques. Il est plus simple de créer des services à grande échelle qui ciblent le Big Compute, le Big Data et les charges de travail conteneurisées.
+Les groupes de machines virtuelles identiques constituent une ressource de calcul Azure Stack Hub. Vous pouvez utiliser les groupes identiques pour déployer et gérer des groupes de machines virtuelles identiques. Étant donné que toutes les machines virtuelles sont configurées de la même façon, il n’est pas nécessaire de préprovisionner les machines virtuelles des groupes identiques. Il est plus simple de créer des services à grande échelle qui ciblent le Big Compute, le Big Data et les charges de travail conteneurisées.
 
-Cet article explique comment rendre des groupes identiques disponibles sur la Place de marché Azure Stack Hub. Lorsque vous aurez suivi cette procédure, vos utilisateurs pourront ajouter des groupes de machines virtuelles identiques à leurs abonnements.
+Cet article explique comment rendre des groupes identiques disponibles dans la Place de marché Azure Stack Hub. Lorsque vous aurez suivi cette procédure, vos utilisateurs pourront ajouter des groupes de machines virtuelles identiques à leurs abonnements.
 
 Les groupes de machines virtuelles identiques sur Azure Stack Hub ont la même fonction que sur Azure. Pour plus d’informations, consultez les vidéos suivantes :
 
@@ -34,13 +29,13 @@ Sur Azure Stack Hub, les groupes de machines virtuelles identiques ne prennent p
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-* **Place de marché Azure Stack Hub :** Inscrivez Azure Stack Hub auprès d’Azure global pour rendre les éléments disponibles sur la Place de marché Azure Stack Hub. Suivez les instructions fournies dans [Inscrire Azure Stack Hub auprès d’Azure](azure-stack-registration.md).
+* **Place de marché Azure Stack Hub :** Inscrivez Azure Stack Hub auprès d’Azure international pour rendre les éléments disponibles dans la Place de marché Azure Stack Hub. Suivez les instructions fournies dans [Inscrire Azure Stack Hub auprès d’Azure](azure-stack-registration.md).
 * **Image du système d’exploitation :** Pour pouvoir créer un groupe de machines virtuelles identiques, vous devez au préalable télécharger les images de machine virtuelle à utiliser dans ce groupe à partir de la [Place de marché Azure Stack Hub](azure-stack-download-azure-marketplace-item.md). Pour qu’un utilisateur puisse créer un groupe identique, les images doivent déjà être présentes.
 
 ## <a name="use-the-azure-stack-hub-portal"></a>Utiliser le portail Azure Stack Hub
 
 >[!IMPORTANT]  
-> Les informations contenues dans cette section s’appliquent quand vous utilisez Azure Stack Hub versions 1808 ou ultérieures. 
+> Les informations contenues dans cette section s’appliquent quand vous utilisez Azure Stack Hub versions 1808 ou ultérieures.
 
 1. Connectez-vous au portail Azure Stack Hub. Ensuite, accédez à **Tous les services**, **Groupes de machines virtuelles identiques**, puis, sous **COMPUTE**, sélectionnez les **groupes de machines virtuelles identiques**.
    ![Sélectionner des groupes de machines virtuelles identiques](media/azure-stack-compute-add-scalesets/all-services.png)
@@ -75,7 +70,7 @@ Après avoir créé un groupe de machines virtuelles identiques, les utilisateur
 
 2. Le modèle de déploiement du groupe de machines virtuelles identiques **ne spécifie pas de dernière** pour **version** et spécifie un numéro de version à la place :  
 
-    Si l’opérateur Azure Stack télécharge une image avec une version plus récente (et supprime la version antérieure), le groupe identique ne peut pas monter en puissance. Ceci est normal, car la version de l’image spécifiée dans le modèle du groupe identique doit être disponible.  
+    Si l’opérateur Azure Stack télécharge une image d’une version plus récente (et supprime la version antérieure), le scale-up du groupe identique n’est pas possible. Ceci est normal, car la version de l’image spécifiée dans le modèle du groupe identique doit être disponible.  
 
 Pour plus d’informations, consultez [disques et images du système d’exploitation](../user/azure-stack-compute-overview.md#operating-system-disks-and-images).  
 

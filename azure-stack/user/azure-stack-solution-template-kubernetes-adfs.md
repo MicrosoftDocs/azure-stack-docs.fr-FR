@@ -1,26 +1,18 @@
 ---
-title: Déployer Kubernetes sur Azure Stack Hub à l’aide d’Active Directory Federation Services (AD FS) | Microsoft Docs
+title: Déployer Kubernetes sur Azure Stack Hub à l’aide d’Active Directory Federated Services (AD FS)
 description: Découvrez comment déployer Kubernetes sur Azure Stack Hub à l’aide d’Active Directory Federation Services (AD FS).
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: nav
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: b02f4f0deddd7a7eae493d4af02315f636e594c9
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 78abed9225a2a7516db65f9163aac5d0db24ad04
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535958"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884445"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Déployer Kubernetes sur Azure Stack Hub à l’aide d’Active Directory Federation Services
 
@@ -106,7 +98,7 @@ Vous devez travailler avec votre administrateur Azure Stack Hub pour configurer 
 
 1. Sélectionnez **ADFS** comme **système d’identité Azure Stack Hub** pour votre installation Azure Stack Hub.
 
-1. Entrez **l’ID client du principal de service**. Celui-ci est utilisé par le fournisseur cloud d’Azure Kubernetes. ID de client identifié comme ID d’application quand votre administrateur Azure Stack Hub a créé le principal du service.
+1. Entrez **l’ID client du principal de service**. Celui-ci est utilisé par le fournisseur cloud d’Azure Kubernetes. ID de client identifié comme ID d’application lorsque votre administrateur Azure Stack Hub a créé le principal du service.
 
 1. Entrez la **clé secrète client du principal du service**. Il s’agit de la clé secrète client fournie pour votre principal du service AD FS par votre administrateur Azure Stack Hub.
 

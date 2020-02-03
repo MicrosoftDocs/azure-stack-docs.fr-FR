@@ -1,30 +1,22 @@
 ---
-title: Problèmes et erreurs de connectivité liés à l'utilisation d'Azure Stack Hub | Microsoft Docs
+title: Problèmes et erreurs de connectivité liés à l’utilisation d’Azure Stack Hub
 description: Résolution des problèmes et erreurs liés à l'utilisation d'Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
+ms.date: 01/22/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 5ad2f6b3b66e2c01cbae91a42a2b2a1bb0b59a26
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 4a4b34c6aeaac3bd484c0a954af0f3a456cbfe85
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813009"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882681"
 ---
 # <a name="usage-connectivity-errors"></a>Erreurs de connectivité d’utilisation
 
-Les données d'utilisation d'Azure Stack Hub sont envoyées à Azure par le composant [*Azure Bridge* disponible](azure-stack-usage-reporting.md) dans Azure Stack Hub. Si le pont disponible dans Azure Stack Hub ne parvient pas à se connecter au service d'utilisation Azure, l'erreur suivante s'affiche :
+Les données d’utilisation d’Azure Stack Hub sont envoyées à Azure par le composant [*Azure Bridge*](azure-stack-usage-reporting.md) fourni dans Azure Stack Hub. Si le pont disponible dans Azure Stack Hub ne parvient pas à se connecter au service d'utilisation Azure, l'erreur suivante s'affiche :
 
 ![Erreur d’utilisation du pont](media/azure-stack-usage-issues/usageerror2.png)
 

@@ -1,26 +1,18 @@
 ---
-title: Appliquer une mise à jour de fabricant d’ordinateurs (OEM) à Azure Stack Hub | Microsoft Docs
+title: Appliquer une mise à jour de fabricant d’ordinateurs (OEM) à Azure Stack Hub
 description: Apprenez à appliquer une mise à jour de fabricant d’ordinateurs (OEM) à Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: c21e2a1335b76da2bcd1f4ce88274685d962a299
-ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
+ms.openlocfilehash: a5b1449ae82258a7e4d65ef3d237673cba388420
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259917"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76880719"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Appliquer des mises à jour de fabricants d’ordinateurs (OEM) à Azure Stack Hub
 
@@ -55,7 +47,7 @@ Cette section contient des informations de contact OEM et des liens vers des doc
 Installez les packages OEM en suivant les étapes ci-dessous :
 
 > [!IMPORTANT]
-> Avant d’appliquer des mises à jour dans Azure Stack Hub, assurez-vous que vous avez effectué **TOUTES** les étapes répertoriées dans la [liste de contrôle préalable à la mise à jour](release-notes-checklist.md) et que vous avez planifié une fenêtre de maintenance appropriée pour le type de mise à jour que vous appliquez.
+> Avant d’appliquer des mises à jour dans Azure Stack Hub, assurez-vous que vous avez effectué **TOUTES** les étapes répertoriées dans la [check-list pré-mise à jour](release-notes-checklist.md) et que vous avez planifié une fenêtre de maintenance appropriée pour le type de mise à jour que vous appliquez.
 
 1. Vous devez contacter votre OEM pour :
       - déterminer la version actuelle de votre package OEM ;  

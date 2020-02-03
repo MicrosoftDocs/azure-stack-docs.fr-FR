@@ -1,27 +1,18 @@
 ---
-title: Collecter les journaux de diagnostic Azure Stack Hub à la demande | Microsoft Docs
+title: Collecter les journaux de diagnostic Azure Stack Hub à la demande
 description: Découvrez comment collecter les journaux de diagnostic à la demande dans Azure Stack Hub en utilisant Aide et support ou un point de terminaison privilégié.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 01/16/2020
-ms.openlocfilehash: bb7fc0488ea264a83cc93e071b044e6443e97630
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: 759edb6cf4f106e59a1b847cb4dcafd4450665da
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256340"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890083"
 ---
 # <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>Collecter les journaux de diagnostic Azure Stack Hub à la demande
 
@@ -108,7 +99,7 @@ Suivez ces étapes pour exécuter `Get-AzureStackLog` sur un ordinateur hôte AS
   Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-* Collectez les journaux des déploiements de locataires qui exécutent les clusters Kubernetes auto-gérés (Moteur AKS) sur Azure Stack. Les journaux Kubernetes doivent être stockés dans un compte de stockage de locataire dans un format qui permettra de leur appliquer l’intervalle de temps de la collection. 
+* Collectez les journaux des déploiements de locataires qui exécutent les clusters Kubernetes auto-managés (moteur AKS) sur Azure Stack. Les journaux Kubernetes doivent être stockés dans un compte de stockage de locataire dans un format qui permettra de leur appliquer l’intervalle de temps de la collection. 
 
   ```powershell
   Get-AzureStackLog -OutputPath <Path> -InputSasUri "<Blob Service Sas URI>" -FromDate "<Beginning of the time range>" -ToDate "<End of the time range>"

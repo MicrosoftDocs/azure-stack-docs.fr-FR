@@ -1,26 +1,18 @@
 ---
-title: Inscrire des locataires pour un suivi de l’utilisation dans Azure Stack Hub | Microsoft Docs
+title: Inscrire des locataires pour un suivi de l’utilisation dans Azure Stack Hub
 description: Découvrez comment inscrire des locataires et comment l’utilisation des locataires est suivie dans Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 981a80692e087cfcb733e73ec43d70fe67516e69
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 1f5f3011c1546970a1b94773b171e6419757c461
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882570"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882492"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Inscrire des locataires pour un suivi de l’utilisation dans Azure Stack Hub
 
@@ -33,7 +25,7 @@ Cet article contient des détails sur les opérations d’inscription. Vous pouv
 
 Vous pouvez utiliser cette opération quand vous voulez ajouter un nouveau locataire à votre inscription. L’utilisation des locataires est signalée sous un abonnement Azure connecté avec le locataire Azure Active Directory (Azure AD).
 
-Vous pouvez aussi utiliser cette opération pour changer l’abonnement associé à un locataire. Appelez PUT ou **New-AzureRMResource** pour remplacer le mappage précédent.
+Vous pouvez aussi utiliser cette opération pour changer l’abonnement associé à un locataire. Appelez PUT ou l’applet de commande PowerShell **New-AzureRMResource** pour remplacer le mappage précédent.
 
 Vous ne pouvez associer qu’un seul abonnement Azure à un locataire. Si vous essayez d’ajouter un deuxième abonnement à un locataire existant, le premier abonnement est remplacé.
 

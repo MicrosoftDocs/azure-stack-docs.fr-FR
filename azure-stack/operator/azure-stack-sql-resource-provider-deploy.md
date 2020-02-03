@@ -2,26 +2,18 @@
 title: Déployer un fournisseur de ressources SQL Server
 titleSuffix: Azure Stack Hub
 description: Apprenez à déployer le fournisseur de ressources SQL Server sur Azure Stack Hub.
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a8978c5ceb9e54577ff2347671568122751f4715
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: f365886119e343fd550e00e606840172fed7fa21
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881839"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881232"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Déployer le fournisseur de ressources SQL Server sur Azure Stack Hub
 
@@ -100,7 +92,7 @@ _Pour les installations de systèmes intégrés uniquement_. Vous devez fournir 
 
 ## <a name="deploy-the-sql-resource-provider"></a>Déployer le fournisseur de ressources SQL
 
-Une fois tous les prérequis installés, exécutez le script **DeploySqlProvider.ps1** pour déployer le fournisseur de ressources SQL. Le script DeploySqlProvider.ps1 est extrait du binaire du fournisseur de ressources SQL que vous avez téléchargé pour votre version d'Azure Stack Hub.
+Une fois que tous les prérequis sont remplis, exécutez le script **DeploySqlProvider.ps1** à partir d’un ordinateur qui a accès au point de terminaison de gestion des ressources Azure de l’administrateur Azure Stack Hub et au point de terminaison privilégié pour déployer le fournisseur de ressources SQL. Le script DeploySqlProvider.ps1 est extrait du binaire du fournisseur de ressources SQL que vous avez téléchargé pour votre version d'Azure Stack Hub.
 
  > [!IMPORTANT]
  > Avant de déployer le fournisseur de ressources, passez en revue les notes de publication pour en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.
@@ -117,7 +109,7 @@ Exécutez le script DeploySqlProvider.ps1, qui complète les tâches suivantes :
 - Inscription de votre fournisseur de ressources auprès de l’Azure Resource Manager local pour le compte d’opérateur.
 
 > [!NOTE]
-> Lorsque le déploiement du fournisseur de ressources SQL démarre, le groupe de ressources **system.local.sqladapter** est créé. Il peut falloir jusqu’à 75 minutes pour terminer les déploiements requis dans ce groupe de ressources.
+> Lorsque le déploiement du fournisseur de ressources SQL démarre, le groupe de ressources **system.local.sqladapter** est créé. Il peut falloir jusqu’à 75 minutes pour terminer les déploiements requis dans ce groupe de ressources. Vous ne devez pas placer d’autres ressources dans le groupe de ressources **system.local.sqladapter**.
 
 ### <a name="deploysqlproviderps1-parameters"></a>Paramètres de DeploySqlProvider.ps1
 

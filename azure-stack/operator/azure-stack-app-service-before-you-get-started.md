@@ -1,27 +1,18 @@
 ---
-title: Prérequis pour le déploiement d’Azure App Service sur Azure Stack Hub | Microsoft Docs
+title: Prérequis pour le déploiement d’Azure App Service sur Azure Stack Hub
 description: Découvrez les étapes de vérification des prérequis à effectuer avant de déployer Azure App Service sur Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: BryanLa
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: a1cd98973bede3382790430dd59e434e135701de
-ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
+ms.openlocfilehash: eb2b3431fa7c9e9aada4e4df3f43715d48d1d72e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124733"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874754"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Prérequis pour le déploiement d’App Service sur Azure Stack Hub
 

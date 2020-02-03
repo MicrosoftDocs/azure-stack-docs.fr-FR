@@ -1,27 +1,18 @@
 ---
-title: Récupérer suite à une grave perte de données dans Azure Stack Hub | Microsoft Docs
+title: Récupérer des données après une grave perte de données dans Azure Stack Hub
 description: Apprenez à récupérer et restaurer les données de votre infrastructure dans Azure Stack Hub après une grave perte de données.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: 2ECE8580-0BDE-4D4A-9120-1F6771F2E815
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 84ec5659bef23012a8d9ba48879b4b3ebafe29c2
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: ccc4a91fda1bd3c1d3a55ef0bac7df92d6a2e07c
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882961"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878273"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Récupérer des données suite à une perte catastrophique
 

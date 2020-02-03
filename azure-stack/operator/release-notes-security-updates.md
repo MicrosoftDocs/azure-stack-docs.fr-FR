@@ -1,27 +1,18 @@
 ---
-title: Notes de publication d’Azure Stack Hub - Mises à jour de sécurité 1910 | Microsoft Docs
+title: 'Notes de publication d’Azure Stack Hub : mises à jour de sécurité pour la version 1910'
 description: Découvrez les mises à jour de sécurité 1910 pour Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 6487f3380f39d6e321771a23714e99d8f65dd836
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 813e1ecbff5ecf5a8db2a00fb980bce014ee44d8
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75821016"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885176"
 ---
 # <a name="azure-stack-hub-security-updates"></a>Mises à jour de sécurité Azure Stack Hub
 

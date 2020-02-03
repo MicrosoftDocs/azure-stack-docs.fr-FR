@@ -1,32 +1,23 @@
 ---
-title: Effacez les données utilisateur du portail sur demande dans Azure Stack Hub. | Microsoft Docs
+title: Effacez les données utilisateur du portail sur demande dans Azure Stack Hub.
 description: En tant qu’opérateur Azure Stack Hub, découvrez comment effacer les données utilisateur du portail lorsque les utilisateurs Azure Stack Hub en font la demande.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
-ms.date: 09/10/2019
+ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
 monikerRange: azs-1802
-ms.openlocfilehash: ac28a67f7b1409ebc5a786a88e8b9702df94c2ff
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: c632161c32f6a20b7f9943df191ab0f0c0158720
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76022759"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881623"
 ---
 # <a name="clear-portal-user-data-from-azure-stack-hub"></a>Effacer les données utilisateur du portail dans Azure Stack Hub
 
-Les opérateurs Azure Stack Hub peuvent effacer les données utilisateur du portail à la demande des utilisateurs. Les utilisateurs Azure Stack Hub peuvent personnaliser le portail en épinglant des vignettes et en modifiant la disposition du tableau de bord. Ils peuvent également modifier le thème et la langue par défaut pour que celle-ci corresponde aux préférences personnelles. 
+Les opérateurs Azure Stack Hub peuvent effacer les données utilisateur du portail à la demande des utilisateurs. Les utilisateurs Azure Stack Hub peuvent personnaliser le portail en épinglant des vignettes et en modifiant la disposition du tableau de bord. Ils peuvent également modifier le thème et la langue par défaut pour que celle-ci corresponde aux préférences personnelles.
 
 Les données utilisateur du portail sont notamment les favoris, et les ressources récemment consultées dans le portail de l’utilisateur Azure Stack Hub. Cet article explique comment effacer les données utilisateur du portail.
 
@@ -59,7 +50,7 @@ Pour cette procédure, utilisez un ordinateur qui peut communiquer avec le point
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1
    ```
 
-2. Exécutez les commandes suivantes : Veillez à remplacer les espaces réservés par des valeurs qui correspondent à celles de votre environnement.
+2. Exécutez les commandes suivantes : Veillez à remplacer les espaces réservés par des valeurs qui correspondent à celles de votre environnement :
 
    ```powershell
    ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.

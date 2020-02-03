@@ -1,36 +1,27 @@
 ---
-title: Notes de publication de la version 1.1.47.0 du fournisseur de ressources MySQL pour Azure Stack Hub | Microsoft Docs
+title: Notes de publication de la version 1.1.47.0 du fournisseur de ressources MySQL Azure Stack Hub
 description: Consultez les notes de publication pour découvrir les nouveautés incluses dans la mise à jour 1.1.47.0 du fournisseur de ressources MySQL pour Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2019
 ms.author: justinha
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: 43bbfb0c044dc90986a099c1d5729ad54082dc88
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 25d9a3650b51e2b46557800f5e9f6297c9900b77
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882213"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881864"
 ---
 # <a name="mysql-resource-provider-11470-release-notes"></a>Notes de publication de la version 1.1.47.0 du fournisseur de ressources MySQL
 
 Ces notes de publication décrivent les améliorations et les problèmes connus liés à la version 1.1.47.0 du fournisseur de ressources MySQL.
 
 ## <a name="build-reference"></a>Référence de build
-Téléchargez le binaire du fournisseur de ressources MySQL, puis exécutez le fichier auto-extracteur pour extraire le contenu dans un répertoire temporaire. Le fournisseur de ressources possède une build Azure Stack Hub minimale correspondante. La version minimale d’Azure Stack Hub requise pour installer cette version du fournisseur de ressources MySQL est mentionnée ci-dessous :
+Téléchargez le binaire du fournisseur de ressources MySQL, puis exécutez le fichier auto-extracteur pour extraire le contenu dans un répertoire temporaire. Le fournisseur de ressources dispose d'une build Azure Stack Hub minimale correspondante. La version minimale d’Azure Stack Hub requise pour installer cette version du fournisseur de ressources MySQL est mentionnée ci-dessous :
 
-> |Version minimale d’Azure Stack Hub|Version du fournisseur de ressources MySQL|
+> |Version minimale d'Azure Stack Hub|Version du fournisseur de ressources MySQL|
 > |-----|-----|
 > |Version 1910 (1.1910.0.58)|[MySQL RP version 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|  
 > |     |     |

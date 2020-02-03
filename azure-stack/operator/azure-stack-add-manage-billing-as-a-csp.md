@@ -1,26 +1,18 @@
 ---
-title: Gérer l’utilisation et la facturation d’Azure Stack Hub en tant que fournisseur de solutions cloud | Microsoft Docs
+title: Gérer l’utilisation et la facturation d’Azure Stack Hub en tant que fournisseur de solutions cloud
 description: Découvrez comment inscrire Azure Stack Hub en tant fournisseur de solutions cloud, et ajouter des clients pour la facturation.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 7fcd34efefa9c82085274837829f989908f751ba
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 131a3e0cacc1d08df6f2f925845d8dbf21386162
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881091"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876556"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Gérer l’utilisation et la facturation d’Azure Stack Hub en tant que fournisseur de solutions cloud
 
@@ -55,7 +47,7 @@ Les abonnements CSP sont le choix privilégié pour l’inscription quand un rev
 
 ## <a name="register-azure-stack-hub"></a>Inscrire Azure Stack Hub
 
-Utilisez l’abonnement APSS créé en suivant les informations contenues dans la section précédente pour inscrire Azure Stack Hub auprès d’Azure. Pour plus d’informations, voir [Inscrire Azure Stack Hub auprès de votre abonnement Azure](azure-stack-registration.md).
+Utilisez l’abonnement APSS créé en suivant les informations contenues dans la section précédente pour inscrire Azure Stack Hub dans Azure. Pour plus d’informations, consultez [Inscrire Azure Stack Hub dans votre abonnement Azure](azure-stack-registration.md).
 
 ## <a name="add-end-customer"></a>Ajouter un client final
 
@@ -67,7 +59,7 @@ Azure Stack Hub utilise une fonctionnalité appelée *inscription*. Il s’agit 
 
 L’inscription permet à Azure Stack Hub d’effectuer les opérations suivantes :
 
-- transférer des données d’utilisation d’Azure Stack Hub au serveur de commerce Azure, et facturer un abonnement Azure ;
+- transférer des [données d’utilisation d’Azure Stack Hub](azure-stack-billing-and-chargeback.md) au serveur de commerce Azure, et facturer un abonnement Azure ;
 - signaler l’utilisation de chaque client sur un autre abonnement avec un déploiement Azure Stack Hub mutualisé. La mutualisation permet à Azure Stack Hub de prendre en charge différentes organisations sur la même instance Azure Stack Hub.
 
 Pour chaque Azure Stack Hub, il existe un seul abonnement par défaut et de nombreux abonnements de locataires. L’abonnement par défaut est un abonnement Azure qui est facturé s’il n’existe aucun abonnement spécifique au locataire. Il doit être le premier abonnement inscrit. Pour que la génération de rapports sur l’utilisation de plusieurs locataires fonctionne, l’abonnement doit être un abonnement CSP ou APSS.

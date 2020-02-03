@@ -1,25 +1,18 @@
 ---
-title: Résoudre les problèmes de déploiement Kubernetes sur Azure Stack Hub | Microsoft Docs
+title: Résoudre les problèmes de déploiement Kubernetes sur Azure Stack Hub
 description: Apprenez à résoudre les problèmes de déploiement Kubernetes sur Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 93c7972cef394ad86f2619f1ac06781c2dedb3e0
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 5e98ed511fab30e7ece3ebca282c79ef6a5bed97
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883335"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76889539"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Résoudre les problèmes de déploiement Kubernetes sur Azure Stack Hub
 
@@ -83,7 +76,7 @@ Le schéma suivant illustre le processus général de déploiement du cluster.
 
 Vous pouvez collecter et examiner des journaux d’activité liés au déploiement sur les machines virtuelles qui prennent en charge votre cluster Kubernetes. Contactez votre administrateur Azure Stack Hub pour identifier la version d'Azure Stack Hub à utiliser et obtenir à partir d'Azure Stack Hub les journaux d'activité liés à votre déploiement.
 
-1. Examinez le code d’erreur retourné par le déploiement ARM dans le volet **Déploiements**, dans le groupe de ressources dans lequel vous avez déployé le cluster. L’article [Troubleshooting](https://github.com/msazurestackworkloads/azurestack-gallery/blob/master/kubernetes/docs/troubleshooting.md) du dépôt GitHub relatif au moteur AKS fournit les descriptions des codes d’erreur. Si vous ne parvenez pas à résoudre le problème à l’aide de la description de l’erreur, effectuez les étapes suivantes.
+1. Examinez le code d’erreur retourné par le déploiement ARM dans le volet **Déploiements**, dans le groupe de ressources dans lequel vous avez déployé le cluster. Les codes d’erreur sont décrits dans l’article [Troubleshooting](https://github.com/msazurestackworkloads/azurestack-gallery/blob/master/kubernetes/docs/troubleshooting.md) du dépôt GitHub consacré au moteur AKS. Si vous ne parvenez pas à résoudre le problème à l’aide de la description de l’erreur, effectuez les étapes suivantes.
 2. Examinez l’[état du déploiement](#review-deployment-status) et récupérez les journaux à partir du nœud principal de votre cluster Kubernetes.
 3. Veillez à utiliser la version la plus récente d'Azure Stack Hub. Si vous ne savez pas quelle version vous utilisez, contactez votre administrateur Azure Stack Hub.
 4. Passez en revue vos fichiers de création des machines virtuelles. Vous avez peut-être rencontré les problèmes suivants :  

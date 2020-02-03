@@ -1,26 +1,18 @@
 ---
-title: Déployer le fournisseur de ressources MySQL sur Azure Stack Hub | Microsoft Docs
+title: Déployer le fournisseur de ressources MySQL sur Azure Stack Hub
 description: Découvrez comment déployer l’adaptateur du fournisseur de ressources MySQL et des bases de données MySQL en tant que service sur Azure Stack Hub.
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: aecc96bc9e96c39ad1df1111b57bf17ca0d9b59a
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 52ee1953098f861cca572e08269dff56da31f3aa
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534955"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881828"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Déployer le fournisseur de ressources MySQL sur Azure Stack Hub
 
@@ -104,7 +96,7 @@ _Pour les installations de systèmes intégrés uniquement_. Vous devez fournir 
 
 ## <a name="deploy-the-resource-provider"></a>Déployer le fournisseur de ressources
 
-Une fois tous les composants requis installés, vous pouvez exécuter le script **DeployMySqlProvider.ps1** pour déployer le fournisseur de ressources MySQL. Le script DeployMySqlProvider.ps1 est extrait des fichiers d’installation du fournisseur de ressources MySQL que vous avez téléchargé pour votre version d’Azure Stack Hub.
+Une fois que tous les prérequis sont remplis, exécutez le script **DeployMySqlProvider.ps1** à partir d’un ordinateur qui a accès au point de terminaison de gestion des ressources Azure de l’administrateur Azure Stack Hub et au point de terminaison privilégié pour déployer le fournisseur de ressources MySQL. Le script DeployMySqlProvider.ps1 est extrait des fichiers d’installation du fournisseur de ressources MySQL que vous avez téléchargé pour votre version d’Azure Stack Hub.
 
  > [!IMPORTANT]
  > Avant de déployer le fournisseur de ressources, passez en revue les notes de publication pour en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.
@@ -121,7 +113,7 @@ Exécutez le script **DeployMySqlProvider.ps1**, qui complète les tâches suiva
 * Inscription de votre fournisseur de ressources auprès de l’Azure Resource Manager local pour le compte d’opérateur.
 
 > [!NOTE]
-> Lorsque le déploiement du fournisseur de ressources MySQL démarre, le groupe de ressources **system.local.sqladapter** est créé. Il peut falloir jusqu’à 75 minutes pour terminer les déploiements dans ce groupe de ressources.
+> Lorsque le déploiement du fournisseur de ressources MySQL démarre, le groupe de ressources **system.local.sqladapter** est créé. Il peut falloir jusqu’à 75 minutes pour terminer les déploiements dans ce groupe de ressources. Vous ne devez pas placer d’autres ressources dans le groupe de ressources **system.local.mysqladapter**.
 
 ### <a name="deploymysqlproviderps1-parameters"></a>Paramètres de DeployMySqlProvider.ps1
 

@@ -1,28 +1,20 @@
 ---
-title: Ajouter des images Linux dans la Place de marché Azure Stack Hub | Microsoft Docs
+title: Ajouter des images Linux dans la Place de marché Azure Stack Hub
 description: Découvrez comment ajouter des images Linux dans la Place de marché Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: d8714901bc8ac8f8c20b9b2649527f8e6f6627fc
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: b5e15568b2943d34dd5456f924db59cfcf48cb7f
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882400"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890253"
 ---
-# <a name="add-linux-images-to-azure-stack-hub-marketplace"></a>Ajouter des images Linux dans la Place de marché Azure Stack Hub
+# <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>Ajouter des images Linux dans la Place de marché Azure Stack Hub
 
 Vous pouvez déployer des machines virtuelles Linux sur Azure Stack Hub en ajoutant une image Linux dans la Place de marché Azure Stack Hub. Le moyen le plus simple d’ajouter une image Linux à Azure Stack Hub est via la gestion de la Place de marché. Ces images ont été préparées et testées pour leur compatibilité avec Azure Stack Hub.
 
@@ -61,7 +53,7 @@ Vous pouvez préparer votre propre image Linux en appliquant les instructions su
 
 ## <a name="cloud-init"></a>Cloud-Init
 
-[cloud-init](https://cloud-init.io/) est pris en charge dans les versions Azure Stack Hub au-delà de la build 1910. Pour utiliser cloud-init afin de personnaliser votre machine virtuelle Linux, vous pouvez utiliser les instructions PowerShell suivantes : 
+[cloud-init](https://cloud-init.io/) est pris en charge dans les versions Azure Stack Hub au-delà de la build 1910. Pour utiliser cloud-init afin de personnaliser votre machine virtuelle Linux, vous pouvez utiliser les instructions PowerShell suivantes.
 
 ### <a name="step-1-create-a-cloud-inittxt-file-with-your-cloud-config"></a>Étape 1 : Créer un fichier cloud-init.txt avec votre code cloud-config
 

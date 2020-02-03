@@ -1,30 +1,22 @@
 ---
-title: Infrastructure des rapports d’utilisation pour les fournisseurs de solutions cloud pour Azure Stack Hub | Microsoft Docs
+title: Infrastructure des rapports d’utilisation pour les fournisseurs de solutions cloud dans Azure Stack Hub
 description: Découvrez plus d’informations sur l’infrastructure des rapports d’utilisation utilisée pour suivre l’utilisation des locataires gérés par un fournisseur de solutions cloud (CSP).
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 574d6bcd7b86f026a6c7f078e06fa92a3e0d4581
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: fdd08b3b689c069b4bc8c842e252c3b0c51c5580
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809710"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882538"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Infrastructure des rapports d’utilisation pour les fournisseurs de solutions cloud
 
-Azure Stack Hub inclut l’infrastructure nécessaire pour suivre l’utilisation au moment où elle se produit et la transfère à Azure. Dans Azure, Azure Commerce traite les données d’utilisation et facture l’utilisation aux abonnements Azure appropriés. Ce processus fonctionne de la même façon que le suivi de l’utilisation dans le cloud Azure global.
+Azure Stack Hub inclut l’infrastructure nécessaire pour suivre l’utilisation au moment où elle se produit et la transfère à Azure. Dans Azure, Azure Commerce transfère les [données d’utilisation et de facturation](azure-stack-billing-and-chargeback.md) aux abonnements Azure appropriés. Ce processus fonctionne de la même façon que le suivi de l’utilisation dans le cloud Azure global.
 
 Certains concepts sont cohérents entre Azure global et Azure Stack Hub. Azure Stack Hub a des abonnements locaux qui remplissent un rôle similaire à un abonnement Azure. Les abonnements locaux sont valides uniquement localement. Les abonnements locaux sont mappés à des abonnements Azure quand l’utilisation est transférée à Azure.
 
@@ -34,7 +26,7 @@ Il existe des différences entre la façon dont la tarification des services est
 
 Vous trouverez plus d’informations sur les compteurs Azure Stack Hub utilisés dans Azure Commerce et leurs prix dans l’Espace partenaires. Le processus est le même que pour les services Azure :
 
-1. Dans l’Espace partenaires, accédez au **menu Tableau de bord**, sélectionnez **Vente**, puis **Tarifs et offres**.
+1. Dans l’Espace partenaires, accédez au menu **Tableau de bord**, puis sélectionnez **Vente** et **Tarifs et offres**.
 2. Sous **Services basés sur l’utilisation**, sélectionnez **Actuelle**.
 3. Ouvrez la feuille de calcul**Liste des prix Azure dans l’environnement CSP global**.
 4. Filtrez sur **Region = Azure Stack Hub**.

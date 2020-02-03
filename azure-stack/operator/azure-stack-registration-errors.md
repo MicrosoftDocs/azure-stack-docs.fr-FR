@@ -1,26 +1,18 @@
 ---
-title: Codes d’erreur d’inscription d’utilisation et de facturation pour les fournisseurs de solutions cloud pour Azure Stack Hub | Microsoft Docs
+title: Codes d’erreur d’inscription d’utilisation et de facturation pour les fournisseurs de solutions cloud pour Azure Stack Hub
 description: Codes d’erreur d’inscription d’utilisation et de facturation d’Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 508a35d0e52f88cba3aa93db6cc965cba7b05de6
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 863f50f0b780c92f776cfcccbd74502ca9c04d35
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809727"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881439"
 ---
 # <a name="usage-and-billing-registration-error-codes"></a>Codes d’erreur d’inscription d’utilisation et de facturation
 
@@ -43,4 +35,4 @@ Si vous êtes un fournisseur de services cloud, les messages d’erreur suivants
 
 - Apprenez-en davantage sur l’[Infrastructure de rapports d’utilisation pour les fournisseurs de solutions cloud](azure-stack-csp-ref-infrastructure.md).
 - Pour en savoir plus sur le programme CSP, consultez la page [Solutions cloud](https://partner.microsoft.com/solutions/microsoft-cloud-solutions).
-- Pour en savoir plus sur la récupération d’informations d’utilisation de ressources à partir d’Azure Stack Hub, voir [Utilisation et facturation dans Azure Stack Hub](azure-stack-billing-and-chargeback.md).
+- Pour en savoir plus sur la récupération d’informations d’utilisation de ressources à partir d’Azure Stack Hub, consultez [Utilisation et facturation dans Azure Stack Hub](azure-stack-billing-and-chargeback.md).

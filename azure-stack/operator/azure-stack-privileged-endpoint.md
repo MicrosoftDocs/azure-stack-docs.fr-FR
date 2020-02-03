@@ -1,26 +1,18 @@
 ---
-title: Utilisation du point de terminaison privilégié dans Azure Stack Hub | Microsoft Docs
+title: Utiliser le point de terminaison privilégié dans Azure Stack Hub
 description: Découvrez comment utiliser le point de terminaison privilégié dans Azure Stack Hub en tant qu’opérateur.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/8/2020
-ms.openlocfilehash: 665e0a32abfbdce3953423135600eed98cbc2eef
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 74d21915b7df5161817c0cf48ec7db6f06cbd904
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882128"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881523"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Utiliser le point de terminaison privilégié dans Azure Stack Hub
 

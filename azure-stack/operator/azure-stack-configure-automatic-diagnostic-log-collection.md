@@ -1,27 +1,18 @@
 ---
-title: Configurer la collecte automatique des journaux Azure Stack Hub | Microsoft Docs
+title: Configurer la collecte automatique des journaux Azure Stack Hub
 description: Découvrez comment configurer la collecte automatique des journaux dans Azure Stack Hub Aide et support.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 63ee429c37d5ec7bf9258e3e940d9dbfa3786907
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 3dede51916863a79f720f463af2a031e597f844f
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882587"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878188"
 ---
 # <a name="configure-automatic-azure-stack-hub-diagnostic-log-collection"></a>Configurer la collecte automatique des journaux de diagnostic Azure Stack Hub
 

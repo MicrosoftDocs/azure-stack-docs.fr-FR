@@ -1,27 +1,18 @@
 ---
-title: Décisions relatives au déploiement déconnecté Azure des systèmes intégrés Azure Stack Hub | Microsoft Docs
+title: Décisions pour le déploiement Azure déconnecté de systèmes intégrés Azure Stack Hub
 description: Familiarisez-vous avec le déploiement déconnecté Azure des systèmes intégrés Azure Stack Hub ainsi qu'avec les décisions à prendre en compte en termes de planification.
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: cd70782d91a85f8d049762ae34421a7a9e6b7874
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: aa310ffa3896e5468529e8e579328c52a9afa9c8
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75811547"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882324"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Décisions relatives à la planification du déploiement déconnecté Azure des systèmes intégrés Azure Stack Hub
 Une fois que vous avez décidé [comment intégrer Azure Stack Hub dans votre environnement cloud hybride](azure-stack-connection-models.md), vous pouvez finaliser vos décisions de déploiement d'Azure Stack Hub.
@@ -58,9 +49,9 @@ Télémétrie|Non disponible - Les données de télémétrie relatives à Azure 
 |Key Vault|Altérée - Un cas d’usage courant de Key Vault est une application lisant des secrets lors de l’exécution. Pour ce cas d’usage, l’application a besoin d’un principal de service dans l’annuaire. Dans Azure AD, les utilisateurs standard (non-administrateurs) sont autorisés par défaut à ajouter des principaux de service. Dans Azure AD (avec AD FS), ils ne le sont pas. Cette limitation constitue un obstacle à l’expérience de bout en bout, car un utilisateur doit toujours passer par un administrateur d’annuaire pour ajouter une application.
 
 ## <a name="learn-more"></a>En savoir plus
-- Pour plus d'informations sur les cas d'usage, l'achat, les partenaires et les fabricants de matériel OEM, consultez la page produit [Azure Stack Hub](https://azure.microsoft.com/overview/azure-stack/).
-- Pour plus d'informations sur la feuille de route et la disponibilité géographique des systèmes intégrés Azure Stack Hub, consultez le livre blanc : [Azure Stack Hub : An extension of Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
-- Pour plus d'informations sur l'empaquetage et les tarifs de Microsoft Azure Stack Hub, [téléchargez le fichier PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
+- Pour plus d’informations sur les cas d’utilisation, l’achat, les partenaires et les fabricants de matériel OEM, voir la page du produit [Azure Stack Hub](https://azure.microsoft.com/overview/azure-stack/).
+- Pour plus d’informations sur la feuille de route et la disponibilité géographique des systèmes intégrés Azure Stack Hub, voir le livre blanc : [Azure Stack Hub: An extension of Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Pour plus d’informations sur l’empaquetage et les tarifs de Microsoft Azure Stack Hub, [téléchargez le fichier PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Intégration au réseau du centre de données](azure-stack-network.md)

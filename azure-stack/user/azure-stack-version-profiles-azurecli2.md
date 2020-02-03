@@ -1,25 +1,18 @@
 ---
-title: Gérer Azure Stack Hub à l'aide de l'interface Azure CLI | Microsoft Docs
+title: Gérer Azure Stack Hub avec Azure CLI
 description: Apprenez à utiliser l'interface de ligne de commande (CLI) multiplateforme pour gérer et déployer des ressources sur Azure Stack Hub.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: d35e254a17c1b79347e7d13f866e1163bf049a08
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 72f0e04d03a4304c4ed74f54dcd96f16e247f2a3
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883369"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884261"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Gérer et déployer des ressources sur Azure Stack Hub à l'aide de l'interface Azure CLI
 
@@ -35,7 +28,7 @@ Si vous utilisez le kit ASDK, vous devez disposer du certificat d'autorité de c
 
 Les sections suivantes expliquent comment obtenir ces valeurs.
 
-### <a name="export-the-azure-stack-hub-ca-root-certificate"></a>Exporter le certificat d'autorité de certification racine Azure Stack Hub
+### <a name="export-the-azure-stack-hub-ca-root-certificate"></a>Exporter le certificat de l'autorité de certification racine Azure Stack Hub
 
 Si vous utilisez un système intégré, vous n'avez pas besoin d'exporter le certificat racine de l'autorité de certification. Si vous utilisez l'ASDK, exportez le certificat racine de l’autorité de certification sur un ASDK.
 

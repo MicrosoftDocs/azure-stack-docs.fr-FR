@@ -1,32 +1,25 @@
 ---
-title: Concepts clés de la validation en tant que service Azure Stack | Microsoft Docs
+title: Concepts clés de la validation en tant que service (VaaS) d’Azure Stack
 description: Décrit les concepts clés de la Validation en tant que Service Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a79b6e6f34c8293febf30a9cb48ddbfae9c99816
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 25feb0b51d8b202f72b297c2badc5c152144de1f
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167326"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885001"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Concepts clés de la Validation en tant que service
 
 Cet article décrit les concepts clés de la Validation en tant que Service (VaaS).
 
-## <a name="solutions"></a>solutions
+## <a name="solutions"></a>Solutions
 
 Une solution VaaS est une solution Azure Stack associée à une nomenclature matérielle (BoM) particulière. Elle agit comme un conteneur pour les workflows qui s’exécutent sur la solution Azure Stack.
 
@@ -54,7 +47,7 @@ Pour plus d’informations sur les types de workflow, consultez l’article [Qu�
 
 1. Sur le tableau de bord des solutions, créez une solution ou sélectionnez une solution existante. Cela actualise et active les vignettes de workflow.
 2. Pour créer un nouveau flux de travail, sélectionnez **Démarrer** sur n’importe quelle vignette. Pour des informations spécifiques à chaque flux de travail, consultez les articles suivants :
-    - Passe de test : [Démarrage rapide : Utiliser le portail de validation en tant que service pour planifier votre premier test](azure-stack-vaas-schedule-test-pass.md)
+    - Passe de test : [Démarrage rapide : Utiliser le portail de validation en tant que service pour planifier votre premier test](azure-stack-vaas-schedule-test-pass.md)
     - Validation de solution : [Valider une nouvelle solution Azure Stack](azure-stack-vaas-validate-solution-new.md)
     - Validation du package (mise à jour mensuelle) : [Valider les mises à jour logicielles issues de Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
     - Validation du package (signature de package) : [Valider les packages OEM](azure-stack-vaas-validate-oem-package.md)

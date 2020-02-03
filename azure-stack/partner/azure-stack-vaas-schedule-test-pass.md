@@ -1,25 +1,18 @@
 ---
-title: Utiliser le portail de Validation en tant que service pour le portail Azure Stack pour planifier votre premier test | Microsoft Docs
+title: Utiliser le portail de validation en tant que service (VaaS) d’Azure Stack pour planifier votre premier test
 description: Utilisez le portail de Validation en tant que service pour le portail Azure Stack pour planifier votre premier test.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 8843b6791876b4e0362d7aee3aa738453a8c3b88
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 166a75da9f6571e80cdfe213fe0ea32c58279dac
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955924"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885125"
 ---
 # <a name="scheduling-a-test"></a>Planification d’un test
 
@@ -31,7 +24,7 @@ Pour vérifier votre solution, créez le flux de travail pour un test. Un flux d
 
 Si le flux de travail Passe de test peut être utilisé pour exécuter n’importe quel test fourni par VaaS, y compris des tests des flux de travail de validation, les résultats du flux de travail Passe de test ne sont pas considérés comme *officiels*. Pour plus d’informations sur les workflows de validation officiels, consultez [Flux de travail](azure-stack-vaas-key-concepts.md#workflows).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de procéder à ce démarrage rapide, vous devez avoir terminé les éléments suivants :
 
@@ -49,7 +42,7 @@ Connectez-vous au portail, sélectionnez ou créez une solution, puis sélection
 2. Tapez le nom d’une solution existante ou sélectionnez **Nouvelle solution** pour créer une nouvelle solution. Pour obtenir des instructions, consultez [Create a solution in the VaaS portal](azure-stack-vaas-key-concepts.md#create-a-solution-in-the-vaas-portal) (Créer une solution dans le portail VaaS).
 3. Sélectionnez **Démarrer** au niveau de la vignette **Passes de Test**.
 
-## <a name="specify-parameters"></a>Spécifier les paramètres
+## <a name="specify-parameters"></a>Spécifier des paramètres
 
 ![Texte de remplacement](media/vaas_test_pass_parameters.png)
 

@@ -1,26 +1,19 @@
 ---
-title: Résoudre les problèmes du service Azure Stack Validation | Microsoft Docs
+title: Résoudre les problèmes de la validation en tant que service (VaaS) d’Azure Stack
 description: Résolvez les problèmes de validation en tant que service pour Azure Stack.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2dfa55af61627a82f869c7e222dc29997b07a6e3
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 1525ed6ce9005fd8a64acefb44c730e2f172bcdc
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955832"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884979"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Résoudre les problèmes de validation en tant que service
 
@@ -105,9 +98,9 @@ Si l’environnement est sain, chargez manuellement les 5 images de machine virt
 
     | Champ  | Valeur  |
     |---------|---------|
-    | Publisher | MicrosoftWindowsServer |
+    | Serveur de publication | MicrosoftWindowsServer |
     | Offre | WindowsServer |
-    | Type de système d’exploitation | Windows |
+    | Type de système d'exploitation | Windows |
     | SKU | 2012-R2-Datacenter |
     | Version | 1.0.0 |
     | URI de l’objet blob du disque du système d’exploitation | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
@@ -117,7 +110,7 @@ Si l’environnement est sain, chargez manuellement les 5 images de machine virt
 
 Propriétés des 5 images de machine virtuelle :
 
-| Publisher  | Offre  | Type de système d’exploitation | SKU | Version | URI de l’objet blob du disque du système d’exploitation |
+| Serveur de publication  | Offre  | Type de système d'exploitation | SKU | Version | URI de l’objet blob du disque du système d’exploitation |
 |---------|---------|---------|---------|---------|---------|
 | MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 | MicrosoftWindowsServer | WindowsServer | Windows | 2016-centre-de-données | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |

@@ -1,27 +1,18 @@
 ---
-title: Meilleures pratiques concernant le service Infrastructure Backup pour Azure Stack Hub | Microsoft Docs
+title: Bonnes pratiques concernant le service Infrastructure Backup pour Azure Stack Hub
 description: Adoptez ces bonnes pratiques lors du déploiement et de la gestion d'Azure Stack Hub afin de limiter les pertes de données en cas de défaillance catastrophique.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: 221FDE40-3EF8-4F54-A075-0C4D66EECE1A
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 4f25f1a2d78be5aafdfb6ef379353b148cf3b418
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 880c5dfb72d0f70cc8748f2528a3c36562bebe93
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882910"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878052"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Meilleures pratiques concernant le service de sauvegarde de l’infrastructure
 

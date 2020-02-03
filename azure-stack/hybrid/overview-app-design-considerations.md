@@ -2,18 +2,17 @@
 title: Considérations relatives à la création d’applications hybrides dans Azure et Azure Stack
 description: Considérations relatives à la création d’applications hybrides pour le cloud intelligent et la périphérie intelligente.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: a5d282a45f340461b62acb3462cfb84822e0c2be
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 10035700de713910d33114e06fab11321e96e5b1
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640244"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877440"
 ---
 # <a name="hybrid-application-design-considerations"></a>Considérations relatives à la création d’applications hybrides 
 
@@ -21,7 +20,7 @@ Microsoft Azure est le seul cloud hybride cohérent. Il vous permet de réutilis
 
 Le [*Guide de l’architecture des applications Azure*](https://docs.microsoft.com/azure/architecture/guide) décrit une approche structurée pour concevoir des applications scalables, résilientes et hautement disponibles. Les considérations décrites dans le [*Guide de l’architecture des applications Azure*](https://docs.microsoft.com/azure/architecture/guide) s’appliquent également aux applications conçues pour un seul cloud et aux applications couvrant plusieurs clouds.
 
-Cet article complète les [*piliers de la qualité logicielle*](https://docs.microsoft.com/azure/architecture/guide/pillars) décrits dans le [*Guide de l’architecture*](https://docs.microsoft.com/azure/architecture/guide/) [*des applications Azure*,](https://docs.microsoft.com/azure/architecture/guide/) en se concentrant spécifiquement sur la conception d’applications hybrides. De plus, nous ajoutons un pilier de *placement*, car les applications hybrides ne sont pas exclusives à un seul cloud ou à un seul centre de données local.
+Cet article complète les [*piliers de la qualité logicielle*](https://docs.microsoft.com/azure/architecture/guide/pillars) décrits dans le [*Guide de l’architecture*](https://docs.microsoft.com/azure/architecture/guide/) [*des applications Azure*](https://docs.microsoft.com/azure/architecture/guide/), en se concentrant spécifiquement sur la conception d’applications hybrides. De plus, nous ajoutons un pilier de *placement*, car les applications hybrides ne sont pas exclusives à un seul cloud ou à un seul centre de données local.
 
 Les scénarios hybrides varient considérablement avec les ressources qui sont disponibles pour le développement et englobent des considérations telles que la géographie, la sécurité, l’accès à Internet et bien d’autres. Ce guide ne peut certes pas énumérer vos considérations spécifiques, mais il peut fournir des recommandations clés et des bonnes pratiques à suivre. La réussite de la conception, de la configuration, du déploiement et de la maintenance d’une architecture d’application hybride implique de nombreuses considérations de conception qui vous sont probablement inconnues.
 
@@ -78,7 +77,7 @@ Les composants d’application usuels à inclure dans votre inventaire sont list
 | Extensibilité  | Capacité d’un système à traiter une charge accrue. |
 | Disponibilité  | Durée pendant laquelle une application hybride est fonctionnelle et opérationnelle. |
 | Résilience | Capacité de récupération d’une application hybride. |
-| Facilité de gestion | Processus d’opérations assurant l’exécution d’un système en production. |
+| Simplicité de gestion | Processus d’opérations assurant l’exécution d’un système en production. |
 | Sécurité | Protection des applications hybrides et des données contre les menaces. |
 
 ## <a name="placement"></a>Placement
@@ -99,7 +98,7 @@ Le placement est une tâche importante qui consiste à positionner les composant
 
 **Vérifier les emplacements nécessaires.** Vérifiez que l’application, ou l’un de ses composants, fonctionne dans un cloud spécifique ou nécessite une certification pour ce dernier. Cela peut inclure des exigences de souveraineté de la part de votre entreprise ou dictées par des obligations légales. Déterminez également si des opérations locales sont nécessaires pour un emplacement ou des paramètres régionaux particuliers.
 
-**Déterminer les dépendances de connectivité.** Les emplacements imposés et d’autres facteurs peuvent dicter les dépendances de connectivité entre vos composants. Quand vous placez les composants, déterminez la connectivité et la sécurité optimales pour leur communication entre eux. Les choix possibles sont les suivants : [*VPN*,](https://docs.microsoft.com/azure/vpn-gateway/) [*ExpressRoute*,](https://docs.microsoft.com/azure/expressroute/) et [*Connexions hybrides*.](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
+**Déterminer les dépendances de connectivité.** Les emplacements imposés et d’autres facteurs peuvent dicter les dépendances de connectivité entre vos composants. Quand vous placez les composants, déterminez la connectivité et la sécurité optimales pour leur communication entre eux. Les choix possibles sont les suivants : [*VPN*](https://docs.microsoft.com/azure/vpn-gateway/), [*ExpressRoute*](https://docs.microsoft.com/azure/expressroute/) et [*Connexions hybrides*](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections).
 
 **Évaluer les fonctionnalités de la plateforme.** Pour chaque composant d’application, vérifiez si le fournisseur de ressources nécessaire au composant d’application concerné est disponible dans le cloud, et si la bande passante peut prendre en charge les exigences de débit et de latence attendues.
 
@@ -183,7 +182,7 @@ Pour plus d’informations sur ce pilier, consultez [*Résilience*](https://docs
 
 **Documenter les procédures de résolution des problèmes.** Définissez les procédures de résolution des problèmes pour le redéploiement des ressources et des composants d’application.
 
-## <a name="manageability"></a>Facilité de gestion
+## <a name="manageability"></a>Simplicité de gestion
 
 Les considérations relatives à la gestion de vos applications hybrides sont essentielles pour la conception de votre architecture. Une application hybride correctement managée fournit une infrastructure sous forme de code qui permet l’intégration d’un code d’application cohérent dans un pipeline de développement commun. En implémentant des tests cohérents, que ce soit à l’échelle du système ou au niveau individuel, pour les changements apportés à l’infrastructure, vous pouvez garantir un déploiement intégré si ces changements passent les tests avec succès. Ainsi, ils pourront être fusionnés dans le code source.
 
