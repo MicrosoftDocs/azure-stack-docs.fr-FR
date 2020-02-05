@@ -201,7 +201,7 @@ Découvrez-en plus sur les profils d’API :
   [Créer des abonnements à des offres dans Azure Stack Hub]: ../operator/azure-stack-subscribe-plan-provision-vm.md
   [Fournir aux applications l'accès à Azure Stack Hub]: ../operator/azure-stack-create-service-principals.md
   [*ID de locataire*]: ../operator/azure-stack-identity-overview.md
-  [*ID d’abonnement*]: ../operator/service-plan-offer-subscription-overview.md#subscriptions
+  [*ID d'abonnement*]: ../operator/service-plan-offer-subscription-overview.md#subscriptions
   [*Point de terminaison Azure Stack Hub Resource Manager*]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-hub-resource-manager-endpoint
   [Résumé des profils d’API]: ../user/azure-stack-version-profiles.md#summary-of-api-profiles
   [Test Project to Virtual Machine, vNet, resource groups, and storage account]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject
