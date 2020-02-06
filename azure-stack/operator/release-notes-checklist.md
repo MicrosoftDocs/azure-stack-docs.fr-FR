@@ -7,12 +7,12 @@ ms.date: 01/14/2020
 ms.author: sethm
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 373777d5dce715dfa7dc435c5305925af7f9e0b5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7ee8a4bc80b211b8e6aa8fd77d29ae5cf4c524e1
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885191"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037180"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Liste de contrôle des activités de mise à jour Azure Stack Hub
 
@@ -26,7 +26,7 @@ Passez en revue cette liste de contrôle pour préparer une mise à jour Azure S
 | Passer en revue les mises à jour de sécurité | [Liste des mises à jour de sécurité](release-notes-security-updates.md).      |
 | Appliquer le dernier package OEM | Contactez votre OEM afin de vérifier que votre système répond aux exigences minimales du package OEM pour la version Azure Stack Hub vers laquelle votre système est mis à jour. Vérifiez que votre package OEM est compatible avec la version d’Azure Stack Hub vers laquelle vous effectuez la mise à jour. Si votre package OEM n’est pas compatible avec la version d’Azure Stack Hub vers laquelle vous effectuez la mise à jour, vous devez effectuer une mise à jour du package OEM avant d’exécuter une mise à jour Azure Stack Hub. Pour obtenir des instructions, consultez « Appliquer des mises à jour de fabricants d’ordinateurs (OEM) à Azure Stack Hub ». |
 | Facultatif : Configurer la collecte automatique des journaux | Il est recommandé de configurer la collecte automatique des journaux sur votre environnement Azure Stack Hub pour simplifier le processus de collecte des journaux système dans le cas où vous devriez ouvrir un ticket de support. Pour configurer la collecte automatique des journaux, consultez les instructions figurant dans [Configurer la collecte automatique des journaux de diagnostic Azure Stack Hub](azure-stack-configure-automatic-diagnostic-log-collection.md). |
-| Appliquer les derniers correctifs | Appliquez les derniers correctifs qui s’appliquent à la version actuellement installée. Pour obtenir la liste des derniers correctifs, consultez la section [Correctifs logiciels des notes de publication](release-notes.md#hotfixes). |
+| Appliquer les derniers correctifs | Appliquez les derniers correctifs qui s’appliquent à la version actuellement installée. Pour obtenir la liste des derniers correctifs, consultez la section [Correctifs logiciels des notes de publication](release-notes.md). |
 | Exécuter l’outil de planification des capacités | Veillez à utiliser la dernière version de l’[outil Azure Stack Hub Capacity Planner](azure-stack-capacity-planning-overview.md) pour effectuer la planification et le dimensionnement de votre charge de travail. La dernière version contient des résolutions de bogues et fournit de nouvelles fonctionnalités publiées avec chaque mise à jour Azure Stack Hub. |
 | Exécuter **Test-AzureStack** | Exécutez `Test-AzureStack -Group UpdateReadiness` pour identifier les problèmes fonctionnels. L’applet de commande est accessible via la session PEP (session de point de terminaison privilégié). Pour plus d’informations, consultez [Valider l’état du système Azure Stack Hub](azure-stack-diagnostic-test.md). |
 | Résoudre les problèmes | Résolvez les problèmes fonctionnels identifiés par `Test-AzureStack`. |

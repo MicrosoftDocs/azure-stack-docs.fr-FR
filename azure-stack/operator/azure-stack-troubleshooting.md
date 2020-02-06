@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: bacffec0b3bda76eab27097c2d090df371d51fcf
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f5c223e08207518bde315725fd69ddb3fb97a578
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880845"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037265"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Résoudre les problèmes dans Azure Stack Hub
 
@@ -114,7 +114,7 @@ Il peut s’écouler jusqu’à 14 heures avant que la capacité récupérée ne
 
 ### <a name="azure-storage-explorer-not-working-with-azure-stack-hub"></a>L’Explorateur Stockage Azure ne fonctionne pas avec Azure Stack Hub
 
-Si vous utilisez un système intégré dans un scénario déconnecté, il est recommandé d’utiliser une autorité de certification d’entreprise. Exportez le certificat racine au format base 64, puis importez-le dans l’Explorateur Stockage Azure. Veillez à supprimer la barre oblique finale (`/`) du point de terminaison Resource Manager. Pour plus d’informations, consultez [Se préparer à la connexion à Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se#prepare-for-connecting-to-azure-stack).
+Si vous utilisez un système intégré dans un scénario déconnecté, il est recommandé d’utiliser une autorité de certification d’entreprise. Exportez le certificat racine au format base 64, puis importez-le dans l’Explorateur Stockage Azure. Veillez à supprimer la barre oblique finale (`/`) du point de terminaison Resource Manager. Pour plus d’informations, consultez [Se préparer à la connexion à Azure Stack Hub](/azure-stack/user/azure-stack-storage-connect-se).
 
 ## <a name="troubleshooting-app-service"></a>Résolution des problèmes d’App Service
 

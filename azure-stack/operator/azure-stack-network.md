@@ -7,16 +7,16 @@ ms.date: 10/23/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 42529e5757100ed2ad1334b62bf4e58e1266f561
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: cd1e5e66b5cdb893591fc4116b335ff399ace736
+ms.sourcegitcommit: bcd2c6cd08526723f4b770b149c5e9a4fd5ef0ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881699"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76922625"
 ---
 # <a name="network-integration-planning-for-azure-stack-hub"></a>Planification de l’intégration réseau pour Azure Stack Hub
 
-Cet article fournit des informations sur l’infrastructure réseau d’Azure Stack Hub qui vous aideront à déterminer la meilleure façon d’intégrer Azure Stack Hub dans votre environnement réseau existant. 
+Cet article fournit des informations sur l’infrastructure réseau d’Azure Stack Hub qui vous aideront à déterminer la meilleure façon d’intégrer Azure Stack Hub dans votre environnement réseau existant.
 
 > [!NOTE]
 > Pour résoudre des noms de DNS externes à partir d’Azure Stack Hub (par exemple, www\.bing.com), vous devez fournir des serveurs DNS pour transférer les demandes DNS. Pour plus d’informations sur les exigences de DNS d’Azure Stack Hub, voir [Intégration d’Azure Stack Hub dans un centre de données – DNS](azure-stack-integrate-dns.md).

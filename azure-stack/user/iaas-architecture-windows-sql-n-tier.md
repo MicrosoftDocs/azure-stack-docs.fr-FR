@@ -7,12 +7,12 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: f2a981b3eb7b9d233d656daea4d0bcb4bbd21039
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b866b99cca9e4db7fa522bd605512f0aeea632db
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885276"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037231"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>Application multiniveau Windows sur Azure Stack Hub avec SQL Server
 
@@ -80,7 +80,7 @@ Concevez les sous-réseaux en tenant compte des exigences en matière de sécuri
 
 N’exposez pas les machines virtuelles directement à Internet. Attribuez plutôt à chaque machine virtuelle une adresse IP privée. Les clients se connectent à l'aide de l'adresse IP publique associée à l'équilibreur de charge de couche 7.
 
-Définissez des règles d’équilibreur de charge pour diriger le trafic réseau vers les machines virtuelles. Par exemple, pour activer le trafic HTTP, mappez le port 80 de la configuration du serveur frontal au port 80 dans le pool d’adresses principales. Lorsqu'un client envoie une requête HTTP au port 80, l'équilibreur de charge sélectionne une adresse IP principale à l'aide d'un [algorithme de hachage](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#load-balancer-concepts) qui inclue l'adresse IP source. Les requêtes des clients sont réparties entre toutes les machines virtuelles dans le pool d’adresses principales.
+Définissez des règles d’équilibreur de charge pour diriger le trafic réseau vers les machines virtuelles. Par exemple, pour activer le trafic HTTP, mappez le port 80 de la configuration du serveur frontal au port 80 dans le pool d’adresses principales. Lorsqu'un client envoie une requête HTTP au port 80, l'équilibreur de charge sélectionne une adresse IP principale à l'aide d'un [algorithme de hachage](/azure/load-balancer/concepts-limitations#load-balancer-concepts) qui inclue l'adresse IP source. Les requêtes des clients sont réparties entre toutes les machines virtuelles dans le pool d’adresses principales.
 
 ### <a name="network-security-groups"></a>Groupes de sécurité réseau
 

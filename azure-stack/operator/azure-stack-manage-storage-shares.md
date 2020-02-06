@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 2d7db8ade21580af67c0a1b3f3783f694544f5e0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7453e8e454d6af39d86be0eaff49bef6e4538fac
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882003"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037282"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Gérer la capacité de stockage pour Azure Stack Hub
 
@@ -43,7 +43,7 @@ Partages des volumes contenant des données de locataire. Les données de locata
 
 Quand un partage manque d’espace libre et que les actions pour en [récupérer](#reclaim-capacity) n’aboutissent pas ou ne sont pas disponibles, l’opérateur cloud Azure Stack Hub peut migrer les conteneurs d’objets blob d’un partage vers un autre.
 
-- Pour plus d’informations sur l’utilisation du stockage d’objets blob dans Azure Stack Hub par les utilisateurs locataires, voir la section [Services de stockage Azure Stack Hub](/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
+- Pour plus d’informations sur l’utilisation du stockage d’objets blob dans Azure Stack Hub par les utilisateurs locataires, voir la section [Services de stockage Azure Stack Hub](/azure-stack/user/azure-stack-storage-overview).
 
 
 ### <a name="containers"></a>Containers

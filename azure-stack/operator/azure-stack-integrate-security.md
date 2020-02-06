@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 2b8a6b06b0eca680a42d7c15bfe7fbb43afec29a
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 43398b4ef745c9ad0d72274a9a3ef400c4669053
+ms.sourcegitcommit: 3974fc544986a5eccfac0ba7c4441b05279ae226
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882086"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001610"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Intégrer Azure Stack Hub à des solutions de supervision avec le transfert Syslog
 
@@ -23,7 +23,7 @@ Cet article vous montre comment utiliser Syslog pour intégrer l’infrastructur
 Le diagramme suivant décrit l’intégration d’Azure Stack Hub avec un SIEM externe. Deux modèles d’intégration doivent être pris en compte : le premier (en bleu) correspond à l’infrastructure Azure Stack Hub qui englobe les machines virtuelles d’infrastructure et les nœuds Hyper-V. Tous les audits, journaux d’activité de sécurité et alertes provenant de ces composants sont recueillis et exposés de manière centralisée par le biais de syslog avec une charge utile au format CEF. Ce modèle d’intégration est décrit dans cette page de document.
 Le second modèle d’intégration est celui représenté en orange. Il couvre les contrôleurs de gestion de la carte de base (BMC), l’hôte de cycle de vie du matériel (HLH), les machines virtuelles et les appliances virtuelles qui exécutent le logiciel de gestion et de supervision du partenaire matériel, et les commutateurs TOR (Top Of Rack). Ces composants étant propres au partenaire matériel, contactez celui-ci pour obtenir une documentation sur la façon de les intégrer à un SIEM externe.
 
-![Diagramme de transfert de Syslog](media/azure-stack-integrate-security/syslog-forwarding.png)
+![Diagramme de transfert de Syslog](media/azure-stack-integrate-security/azure-stack-hub-syslog-forwarding-diagram_bg.svg)
 
 ## <a name="configuring-syslog-forwarding"></a>Configuration du transfert de Syslog
 

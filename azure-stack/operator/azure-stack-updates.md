@@ -7,12 +7,12 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 43369cc1b06bfd3601353238656e611b84e24c54
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7894d59d3129b151f6110cbac4606cbfecad8889
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880698"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037248"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Gérer les mises à jour dans Azure Stack Hub
 
@@ -57,7 +57,7 @@ La notification des mises à jour dépend de plusieurs facteurs, comme votre con
 
     Une alerte pour les mises à jour et les correctifs logiciels Microsoft s’affiche dans le panneau **Mise à jour** pour les instances Azure Stack Hub connectées à Internet. Si le panneau **Mettre à jour** n’est pas affiché, redémarrez la machine virtuelle du contrôleur de gestion de l’infrastructure.
 
-    Si votre instance n’est pas connectée et que vous souhaitez être notifié chaque fois qu’un correctif logiciel est publié, abonnez-vous au flux [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/32d322a8-acae-202d-e9a9-7371dccf381b/rss) ou [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/32d322a8-acae-202d-e9a9-7371dccf381b/atom).
+    Si votre instance n’est pas connectée et que vous souhaitez être notifié chaque fois qu’un correctif logiciel est publié, abonnez-vous au flux [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) ou [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom).
 
 - **Mises à jour fournies par le fabricant de matériel OEM**
 
