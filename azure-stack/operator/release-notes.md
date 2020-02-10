@@ -3,16 +3,16 @@ title: Notes de publication d’Azure Stack Hub
 description: Notes de publication des systèmes intégrés Azure Stack Hub, y compris les mises à jour et les correctifs de bogues.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 02/03/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 9f2dee0503f5b3210fa8bb8e81f23c326b3b360b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 40c727c97035b0f843ce84b0eafad47c77560938
+ms.sourcegitcommit: 3974fc544986a5eccfac0ba7c4441b05279ae226
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885146"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001639"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Notes de publication d’Azure Stack Hub
 
@@ -200,7 +200,7 @@ Les correctifs logiciels d’Azure Stack Hub s’appliquent uniquement aux syst�
 La version 1910 d’Azure Stack Hub doit être appliquée sur la version 1908 avec les correctifs logiciels suivants :
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack Hub 1.1908.11.47](https://support.microsoft.com/help/4535000)
+- [Correctif logiciel Azure Stack Hub 1.1908.14.53](https://support.microsoft.com/help/4537661)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>Après l’application de la mise à jour 1910
 
@@ -284,7 +284,7 @@ La mise à jour 1908 d’Azure Stack Hub nécessite la **version 2.1 ou ultéri
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez notre [stratégie de maintenance](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack Hub 1.1908.11.47](https://support.microsoft.com/help/4535000)
+- [Correctif logiciel Azure Stack Hub 1.1908.14.53](https://support.microsoft.com/help/4537661)
 ::: moniker-end
 
 ::: moniker range="azs-1907"

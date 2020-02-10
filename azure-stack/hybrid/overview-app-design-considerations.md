@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 10035700de713910d33114e06fab11321e96e5b1
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 72a0fd215363911457271f65d636be37e3388c83
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877440"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037163"
 ---
 # <a name="hybrid-application-design-considerations"></a>Considérations relatives à la création d’applications hybrides 
 
@@ -142,7 +142,7 @@ vous pouvez ajouter des ressources supplémentaires à un autre emplacement pour
 
 La disponibilité est la durée pendant laquelle un système est fonctionnel et opérationnel. La disponibilité est mesurée en pourcentage de la durée de fonctionnement. Les erreurs d’application, les problèmes d’infrastructure et la charge système peuvent réduire la disponibilité.
 
-Pour plus d’informations sur ce pilier, consultez [*Disponibilité*](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) dans la description des piliers de la qualité logicielle.
+Pour plus d’informations sur ce pilier, consultez [*Disponibilité*](/azure/architecture/framework/) dans la description des piliers de la qualité logicielle.
 
 ### <a name="availability-checklist"></a>Liste de contrôle de disponibilité
 
@@ -186,7 +186,7 @@ Pour plus d’informations sur ce pilier, consultez [*Résilience*](https://docs
 
 Les considérations relatives à la gestion de vos applications hybrides sont essentielles pour la conception de votre architecture. Une application hybride correctement managée fournit une infrastructure sous forme de code qui permet l’intégration d’un code d’application cohérent dans un pipeline de développement commun. En implémentant des tests cohérents, que ce soit à l’échelle du système ou au niveau individuel, pour les changements apportés à l’infrastructure, vous pouvez garantir un déploiement intégré si ces changements passent les tests avec succès. Ainsi, ils pourront être fusionnés dans le code source.
 
-Pour plus d’informations sur ce pilier, consultez [*Gestion et DevOps*](https://docs.microsoft.com/azure/architecture/guide/pillars#management-and-devops) dans la description des piliers de la qualité logicielle.
+Pour plus d’informations sur ce pilier, consultez [*DevOps*](/azure/architecture/framework/#devops) dans la description des piliers de la qualité logicielle.
 
 ### <a name="manageability-checklist"></a>Liste de contrôle de gestion
 

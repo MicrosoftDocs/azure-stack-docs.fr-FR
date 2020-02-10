@@ -3,16 +3,16 @@ title: Fonctionnalités des machines virtuelles Azure Stack Hub
 description: Découvrez les différentes fonctionnalités et les éléments à prendre en compte lors de l'utilisation de machines virtuelles dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 2/3/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 94889f2d5d1223d1f5c1da1eaf5289f968cc5efa
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 76ecac957ab7680032c31cd46db4b717a2f029e5
+ms.sourcegitcommit: 4178443d84cf6d3fbaba11425beff703568c1a2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883031"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76977884"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Fonctionnalités des machines virtuelles Azure Stack Hub
 
@@ -23,6 +23,7 @@ Les machines virtuelles Azure Stack Hub fournissent des ressources de calcul év
 | Fonctionnalité | Azure (global) | Azure Stack Hub |
 | --- | --- | --- |
 | Images de machine virtuelle | La Place de marché Azure contient des images que vous pouvez utiliser pour créer une machine virtuelle. Consultez la page [Place de marché Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) pour obtenir la liste des images disponibles sur la Place de marché Azure. | Par défaut, aucune image n'est disponible sur la Place de marché Azure Stack Hub. L'administrateur du cloud Azure Stack Hub doit publier ou télécharger des images sur la Place de marché Azure Stack Hub pour les mettre à la disposition des utilisateurs. |
+| Génération de disques durs virtuels | Les machines virtuelles de 2e génération prennent en charge des fonctionnalités clés qui ne sont pas prises en charge par les machines virtuelles de 1ère génération. Ces fonctionnalités incluent la mémoire augmentée, Intel Software Guard Extensions (Intel SGX) et mémoire persistante virtualisée (vPMEM). Les machines virtuelles locales de 2e génération présentent des fonctionnalités qui ne sont pas encore prises en charge dans Azure. Pour plus d’informations, consultez [Prise en charge des machines virtuelles de 2e génération dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).  | Azure Stack Hub prend uniquement en charge les machines virtuelles de 1ère génération. Vous pouvez convertir une machine virtuelle de 1ère génération du format de fichier VHDX au format de fichier VHD, et son disque de taille dynamique en disque de taille fixe. Vous ne pouvez pas changer la génération d’une machine virtuelle. Pour plus d’informations, consultez [Prise en charge des machines virtuelles de 2e génération dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2). |
 | Tailles de machines virtuelles | Azure prend en charge de nombreuses tailles de machine virtuelle. Pour connaître les options et les tailles disponibles, consultez les rubriques [Tailles des machines virtuelles Windows](/azure/virtual-machines/virtual-machines-windows-sizes) et [Tailles des machines virtuelles Linux](/azure/virtual-machines/linux/sizes). | Azure Stack Hub prend en charge certaines des tailles de machine virtuelle qui sont disponibles dans Azure. Pour obtenir la liste des tailles prises en charge, consultez la section [Tailles de machine virtuelle](#vm-sizes) dans cet article. |
 | Quotas de machine virtuelle | Les [limites de quota](/azure/azure-subscription-service-limits#service-specific-limits) sont définies par Microsoft. | L'administrateur du cloud Azure Stack Hub doit attribuer des quotas avant de mettre des machines virtuelles à la disposition des utilisateurs. |
 | Extensions de machine virtuelle |Azure prend en charge de nombreuses extensions de machine virtuelle. Pour connaître les extensions disponibles, consultez l’article [Extensions et fonctionnalités de machine virtuelle](/azure/virtual-machines/windows/extensions-features).| Azure Stack Hub prend en charge certaines des extensions disponibles dans Azure. Notez que chaque extension est associée à des versions spécifiques. L'administrateur du cloud Azure Stack Hub peut choisir les extensions qu'il souhaite mettre à la disposition des utilisateurs. Pour obtenir la liste des extensions prises en charge, consultez la section [Extensions de machine virtuelle](#vm-extensions) dans cet article. |

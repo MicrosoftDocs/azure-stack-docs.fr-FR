@@ -7,12 +7,12 @@ ms.date: 12/3/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/3/2019
-ms.openlocfilehash: e172e6fe0143e0d7808ad84f9de5c38cf03bde0e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 9e4aef51779480cf7c5e663113e09df71e378f8b
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884204"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972503"
 ---
 # <a name="vm-sizes-supported-in-azure-stack-hub"></a>Tailles de machine virtuelle prises en charge dans Azure Stack Hub
 
@@ -56,7 +56,7 @@ Les tailles de machine virtuelle à usage général ont un ratio processeur/mém
 |-----------------|----|----|-----|-----|------|--------------|---------|
 |**Standard_A1_v2**  |1   |2   |10   |500 |1 000  |2 / 2 x 500   |2 |
 |**Standard_A2_v2**  |2   |4   |20   |500 |2000  |4 / 4 x 500   |2 |
-|**Standard_A4v2**   |4   |8   |40   |500 |4000  |8 / 8 x 500   |4 |
+|**Standard_A4_v2**  |4   |8   |40   |500 |4000  |8 / 8 x 500   |4 |
 |**Standard_A8_v2**  |8   |16  |80   |500 |8000  |16 / 16 x 500 |8 |
 |**Standard_A2m_v2** |2   |16  |20   |500 |2000  |4 / 4 x 500   |2 |
 |**Standard_A4m_v2** |4   |32  |40   |500 |4000  |8 / 8 x 500   |4 |

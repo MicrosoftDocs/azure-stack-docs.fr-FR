@@ -1,18 +1,19 @@
 ---
-title: Valider l’inscription d’Azure Stack Hub dans Azure
-description: Utilisez Azure Stack Hub Readiness Checker pour valider l’inscription auprès d’Azure.
+title: Valider l’inscription auprès d’Azure
+titleSuffix: Azure Stack Hub
+description: Découvrez comment valider l’inscription Azure avec l’outil Azure Stack Hub Readiness Checker.
 author: ihenkel
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: f9d5ff2a4ef02bb8d8b738cf20de2dae3bfafd02
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 58f65be2ac4ba352b17b9b0bba079b286a9609fa
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882579"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972561"
 ---
 # <a name="validate-azure-registration"></a>Valider l’inscription auprès d’Azure
 
@@ -35,15 +36,13 @@ Les prérequis suivants sont obligatoires :
 
 - Windows 10 ou Windows Server 2016, avec connectivité à Internet.
 - PowerShell 5.1 ou ultérieur. Pour vérifier votre version, exécutez l’applet de commande PowerShell suivante, puis examinez les versions **Major** et **Minor** :  
-
   ```powershell
   $PSVersionTable.PSVersion
   ```
-
 - [PowerShell configuré pour Azure Stack Hub](azure-stack-powershell-install.md).
 - Dernière version de l’outil [Microsoft Azure Stack Hub Readiness Checker](https://aka.ms/AzsReadinessChecker).  
 
-### <a name="azure-active-directory-environment"></a>Environnement Azure Active Directory
+### <a name="azure-active-directory-aad-environment"></a>Environnement Azure Active Directory (AAD)
 
 - Identifiez le nom d’utilisateur et le mot de passe d’un compte associé à un propriétaire de l’abonnement Azure que vous allez utiliser avec Azure Stack Hub.  
 - Identifiez l’ID d’abonnement pour l’abonnement Azure à utiliser.
@@ -66,7 +65,7 @@ Les prérequis suivants sont obligatoires :
    > [!NOTE]
    > En tant que fournisseur de services cloud, quand vous utilisez un abonnement à des services partagés ou avec des droits d’utilisation interne, vous devez fournir les informations d’identification d’un utilisateur de cette instance Azure AD. En règle générale, celles-ci sont similaires à `subscriptionowner@iurcontoso.onmicrosoft.com`. Cet utilisateur doit avoir les informations d’identification appropriées, comme décrit dans l’étape précédente.
 
-3. À l’invite PowerShell, exécutez ce qui suit pour définir `$subscriptionID` comme l’abonnement Azure à utiliser. Remplacez `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` par votre propre ID d’abonnement :
+3. À l’invite PowerShell, exécutez la commande suivante pour définir `$subscriptionID` comme l’abonnement Azure à utiliser. Remplacez `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` par votre propre ID d’abonnement :
 
    ```powershell
    $subscriptionID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -75,8 +74,7 @@ Les prérequis suivants sont obligatoires :
 4. À l’invite PowerShell, exécutez la commande suivante pour démarrer la validation de votre abonnement :
 
    - Spécifiez la valeur pour `AzureEnvironment` avec **AzureCloud**, **AzureGermanCloud** ou **AzureChinaCloud**.  
-   - Indiquez l’administrateur et le nom du locataire Azure Active Directory.
-
+   - Indiquez le nom de votre administrateur Azure AD et celui de votre locataire Azure AD.
       ```powershell
       Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID
       ```
@@ -97,7 +95,7 @@ Chaque fois qu’une validation s’exécute, les résultats sont journalisés d
 
 Ces fichiers peuvent vous aider à partager l’état de validation avant de déployer Azure Stack Hub ou à enquêter sur les problèmes de validation. Les deux fichiers conservent les résultats des vérifications de validation postérieures. Le rapport fournit à votre équipe de déploiement la confirmation de la configuration de l’identité. Le fichier journal peut aider l’équipe de déploiement ou de support à enquêter sur les problèmes de validation.
 
-Par défaut, les deux fichiers sont écrits dans **C:\Users\nom_utilisateur\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**.  
+Par défaut, les deux fichiers sont écrits dans `C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json`.  
 
 - Utilisez le paramètre `-OutputPath <path>` situé à la fin de la ligne de commande d’exécution pour spécifier un emplacement de rapport différent.
 - Utilisez le paramètre `-CleanReport` à la fin de la ligne de commande d’exécution pour effacer les informations sur les exécutions précédentes de l’outil du fichier **AzsReadinessCheckerReport.json**.
@@ -144,7 +142,7 @@ Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadines
 Invoke-AzsRegistrationValidation Completed
 ```
 
-**Cause** : Le compte ne peut pas se connecter, car le mot de passe est temporaire ou a expiré.
+**Cause** : Le compte ne peut pas se connecter parce que le mot de passe est temporaire ou a expiré.
 
 **Résolution** : Dans PowerShell, exécutez la commande suivante, puis suivez les invites pour réinitialiser le mot de passe.
 
@@ -152,7 +150,7 @@ Invoke-AzsRegistrationValidation Completed
 Login-AzureRMAccount
 ```
 
-Vous pouvez également vous connecter au [portail Azure](https://portal.azure.com) en tant que propriétaire du compte et l’utilisateur sera obligé de changer de mot de passe.
+Vous pouvez également vous connecter au [portail Azure](https://portal.azure.com) en tant que propriétaire du compte. Ainsi, l’utilisateur sera obligé de changer de mot de passe.
 
 ### <a name="unknown-user-type"></a>Type d’utilisateur inconnu  
 
@@ -167,7 +165,7 @@ Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadines
 Invoke-AzsRegistrationValidation Completed
 ```
 
-**Cause** : Le compte ne peut pas se connecter à l’environnement Azure Active Directory spécifié. Dans cet exemple, **AzureChinaCloud** est spécifié comme **AzureEnvironment**.  
+**Cause** : Le compte ne peut pas se connecter à l’environnement Azure AD spécifié. Dans cet exemple, **AzureChinaCloud** est spécifié comme **AzureEnvironment**.  
 
 **Résolution** : Vérifiez que le compte est valide pour l’environnement Azure spécifié. Dans PowerShell, exécutez la commande suivante pour vérifier que le compte est valide pour un environnement spécifique :
 

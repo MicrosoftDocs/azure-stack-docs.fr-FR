@@ -1,18 +1,21 @@
 ---
 title: Signaler les données d'utilisation Azure Stack Hub à Azure
-description: Apprenez à configurer la génération de rapports sur les données d'utilisation dans Azure Stack Hub.
+titleSuffix: Azure Stack Hub
+description: Découvrez comment signaler les données d’utilisation Azure Stack Hub à Azure.
+services: azure-stack
+documentationcenter: ''
 author: sethmanheim
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 195491ebd67f1e7741a793278b316bab028c4471
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ed0bcd873d6bd33017172eb3accad227e2073668
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882658"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972649"
 ---
 # <a name="report-azure-stack-hub-usage-data-to-azure"></a>Signaler les données d'utilisation Azure Stack Hub à Azure
 
@@ -23,22 +26,22 @@ Les systèmes Azure Stack Hub à plusieurs nœuds qui utilisent un modèle de fa
 > [!IMPORTANT]
 > Toutes les charges de travail [doivent être déployées dans le cadre d'abonnements de locataire](#are-users-charged-for-the-infrastructure-vms), conformément aux termes du contrat de licence d'Azure Stack Hub.
 
-Les rapports relatifs aux données d'utilisation sont nécessaires aux utilisateurs des systèmes Azure Stack Hub à plusieurs nœuds qui attribuent des licences selon le modèle de paiement à l'utilisation. Ceci est facultatif pour les clients qui attribuent des licences sous le modèle de capacité (consultez la page [Comment acheter Azure Stack](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)). Pour les utilisateurs du Kit de développement Azure Stack (ASDK), les opérateurs Azure Stack Hub peuvent communiquer des données d'utilisation et tester la fonctionnalité. Les utilisateurs ne sont cependant pas facturés pour l’utilisation qu’elles impliquent.
+Les rapports relatifs aux données d'utilisation sont nécessaires aux utilisateurs des systèmes Azure Stack Hub à plusieurs nœuds qui attribuent des licences selon le modèle de paiement à l'utilisation. Ceci est facultatif pour les clients qui attribuent des licences sous le modèle de capacité (voir [Comment acheter Azure Stack](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)). Pour les utilisateurs du Kit de développement Azure Stack (ASDK), les opérateurs Azure Stack Hub peuvent communiquer des données d'utilisation et tester la fonctionnalité. Toutefois, l’utilisation qu’elles impliquent n’est pas facturée aux utilisateurs.
 
-![flux de facturation](media/azure-stack-usage-reporting/billing-flow.png)
+![Flux de facturation pour les données d’utilisation dans Azure Stack Hub](media/azure-stack-usage-reporting/billing-flow.png)
 
 Les données d'utilisation sont envoyées d'Azure Stack Hub à Azure via Azure Bridge. Dans Azure, le système de commerce traite les données d’utilisation et génère la facture. Une fois la facture générée, le propriétaire de l’abonnement Azure peut l’afficher et la télécharger à partir du [Centre des comptes Azure](https://account.windowsazure.com/subscriptions). Pour savoir comment Azure Stack Hub est concédé sous licence, consultez le [document relatif à l'empaquetage et aux tarifs d'Azure Stack Hub](https://go.microsoft.com/fwlink/?LinkId=842847).
 
 ## <a name="set-up-usage-data-reporting"></a>Configurer la génération de rapports de données d’utilisation
 
-Pour configurer la génération de rapports sur les données d'utilisation, vous devez [inscrire votre instance Azure Stack Hub auprès d'Azure](azure-stack-registration.md). Le composant Azure Bridge d'Azure Stack Hub, qui connecte Azure Stack Hub à Azure et envoie les données d'utilisation, est configuré dans le cadre du processus d'inscription. Les données d'utilisation suivantes sont envoyées d'Azure Stack Hub à Azure :
+Pour configurer la génération de rapports sur les données d'utilisation, vous devez [inscrire votre instance Azure Stack Hub auprès d'Azure](azure-stack-registration.md). Le composant Azure Bridge d’Azure Stack Hub est configuré dans le cadre du processus d’inscription. Le composant Azure Bridge connecte Azure Stack Hub à Azure. Les données d'utilisation suivantes sont envoyées d'Azure Stack Hub à Azure :
 
 - **ID du compteur** : ID unique de la ressource consommée.
 - **Quantité** : quantité d’utilisation des ressources.
 - **Emplacement** : emplacement où la ressource Azure Stack Hub actuelle est déployée.
 - **URI de ressource** : URI complet de la ressource pour laquelle l’utilisation est signalée.
 - **ID d'abonnement** : ID d'abonnement de l'utilisateur Azure Stack Hub, qui est l'abonnement (Azure Stack Hub) local.
-- **Heure** : heure de début et de fin des données d’utilisation. Il existe un décalage entre le moment où ces ressources sont utilisées dans Azure Stack Hub et celui où les données d'utilisation sont communiquées au commerce. Azure Stack Hub agrège les données d'utilisation toutes les 24 heures, et la communication des données d'utilisation au pipeline Commerce d'Azure prend encore plusieurs heures. Par conséquent, l’utilisation qui se produit peu de temps avant minuit peut apparaître dans Azure le jour suivant.
+- **Heure** : heure de début et de fin des données d’utilisation. Il existe un décalage entre le moment où ces ressources sont consommées dans Azure Stack Hub et celui où les données d’utilisation sont communiquées au commerce. Azure Stack Hub agrège les données d'utilisation toutes les 24 heures, et la communication des données d'utilisation au pipeline Commerce d'Azure prend encore plusieurs heures. Par conséquent, l’utilisation qui se produit peu de temps avant minuit peut s’afficher dans Azure le jour suivant.
 
 ## <a name="generate-usage-data-reporting"></a>Générer des rapports de données d’utilisation
 
@@ -48,21 +51,21 @@ Pour configurer la génération de rapports sur les données d'utilisation, vous
 
 ## <a name="view-usage---csp-subscriptions"></a>Voir l’utilisation : abonnements CSP
 
-Si vous avez inscrit votre service Azure Stack Hub via un abonnement CSP, vous pouvez consulter votre utilisation et vos frais de la même façon que pour votre consommation Azure. L'utilisation d'Azure Stack Hub est incluse dans votre facture et dans le fichier de rapprochement, disponibles par le biais de l'[Espace partenaires](https://partnercenter.microsoft.com/partner/home). Le fichier de réconciliation est mis à jour tous les mois. Si vous avez besoin d'accéder à des informations récentes sur l'utilisation d'Azure Stack Hub, vous pouvez utiliser les API de l'Espace partenaires.
+Si vous avez inscrit votre service Azure Stack Hub via un abonnement CSP, vous pouvez consulter votre utilisation et vos frais de la même façon que pour votre consommation Azure. L’utilisation d’Azure Stack Hub est incluse dans votre facture et dans le fichier de rapprochement, qui est disponible dans l’[Espace partenaires](https://partnercenter.microsoft.com/partner/home). Le fichier de réconciliation est mis à jour tous les mois. Si vous avez besoin d'accéder à des informations récentes sur l'utilisation d'Azure Stack Hub, vous pouvez utiliser les API de l'Espace partenaires.
 
-![Espace partenaires](media/azure-stack-usage-reporting/partner-center.png)
+![Afficher les données de facturation et d’utilisation d’Azure Stack Hub dans l’Espace partenaires Microsoft](media/azure-stack-usage-reporting/partner-center.png)
 
 ## <a name="view-usage---enterprise-agreement-subscriptions"></a>Voir l’utilisation : abonnements Contrat Entreprise
 
-Si vous avez inscrit votre service Azure Stack Hub par le biais d'un abonnement Accord Entreprise, vous pouvez consulter votre utilisation et vos frais sur le [portail EA](https://ea.azure.com/). L'utilisation d'Azure Stack Hub est incluse dans les téléchargements avancés ; l'utilisation d'Azure figure sous la section Rapports de ce portail.
+Si vous avez inscrit votre service Azure Stack Hub par le biais d'un abonnement Contrat Entreprise, vous pouvez consulter votre utilisation et vos frais sur le [portail EA](https://ea.azure.com/). L'utilisation d'Azure Stack Hub est incluse dans les téléchargements avancés ; l'utilisation d'Azure figure sous la section Rapports de ce portail.
 
 ## <a name="view-usage---other-subscriptions"></a>Voir l’utilisation : autres abonnements
 
-Si vous avez inscrit votre service Azure Stack Hub par le biais d'un autre type d'abonnement, par exemple un abonnement avec paiement à l'utilisation, vous pouvez consulter l'utilisation et les frais dans le Centre des comptes Azure. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/subscriptions) en tant qu'administrateur de compte Azure, puis sélectionnez l'abonnement Azure que vous avez utilisé pour inscrire Azure Stack Hub. Vous pouvez consulter les données d'utilisation Azure Stack Hub et le montant facturé pour chacune des ressources utilisées, comme illustré ci-dessous :
+Si vous avez inscrit votre service Azure Stack Hub par le biais d’un autre type d’abonnement (par exemple, un abonnement avec paiement à l’utilisation), vous pouvez consulter l’utilisation et les frais dans le Centre des comptes Azure. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/subscriptions) en tant qu’administrateur de compte Azure, puis sélectionnez l’abonnement Azure que vous avez utilisé pour inscrire Azure Stack Hub. Vous pouvez consulter les données d’utilisation Azure Stack Hub et le montant facturé pour chacune des ressources utilisées, comme illustré ci-dessous :
 
-![flux de facturation](media/azure-stack-usage-reporting/pricing-details.png)
+![Afficher les flux de facturation et d’utilisation dans le Centre des comptes Azure](media/azure-stack-usage-reporting/pricing-details.png)
 
-Pour le kit ASDK, les ressources Azure Stack Hub ne sont pas facturées. Par conséquent, le prix affiché est 0,00 $.
+Pour le kit ASDK, les ressources Azure Stack Hub ne sont pas facturées. Par conséquent, le prix affiché est de 0,00 $.
 
 ## <a name="which-azure-stack-hub-deployments-are-charged"></a>Quels sont les déploiements Azure Stack Hub facturés ?
 
@@ -76,23 +79,23 @@ Les utilisateurs sont facturés seulement pour les machines virtuelles qui s’e
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-hub-how-do-i-do-it"></a>Je dispose d'une licence Windows Server que je souhaite utiliser sur Azure Stack Hub. Comment dois-je procéder ?
 
-L’utilisation des licences existantes évite la génération de compteurs d’utilisation. Les licences Windows Server existantes peuvent être utilisées dans Azure Stack Hub, comme décrit à la section « Utilisation de logiciels existants avec Azure Stack Hub » du [Guide de gestion des licences Azure Stack Hub](https://go.microsoft.com/fwlink/?LinkId=851536). Pour pouvoir utiliser leurs licences existantes, les clients doivent déployer leurs machines virtuelles Windows Server comme décrit dans l’article [Hybrid Benefit pour la licence Windows Server](/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+L’utilisation des licences existantes évite la génération de compteurs d’utilisation. Les licences Windows Server existantes peuvent être utilisées dans Azure Stack Hub. Ce processus est décrit à la section « Utilisation de logiciels existants avec Azure Stack Hub » du [Guide de gestion des licences Azure Stack Hub](https://go.microsoft.com/fwlink/?LinkId=851536). Pour pouvoir utiliser leurs licences existantes, les clients doivent déployer leurs machines virtuelles Windows Server comme décrit dans l’article [Hybrid Benefit pour la licence Windows Server](/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Quel abonnement est facturé pour la consommation de ressources ?
 
-L'abonnement fourni lors de l'[inscription d'Azure Stack Hub auprès d'Azure](azure-stack-registration.md) est facturé.
+L’abonnement fourni lors de l’[inscription d’Azure Stack Hub auprès d’Azure](azure-stack-registration.md) est facturé.
 
 ## <a name="what-types-of-subscriptions-are-supported-for-usage-data-reporting"></a>Quels types d’abonnements sont pris en charge pour la génération de rapports de données d’utilisation ?
 
-Pour les systèmes Azure Stack Hub à plusieurs nœuds, les abonnements Accord Entreprise (EA) et CSP sont pris en charge. Pour le Kit de développement Azure Stack, les abonnements Accord Entreprise, Paiement à l’utilisation, CSP et MSDN prennent en charge les rapports de données d’utilisation.
+Pour les systèmes Azure Stack Hub à plusieurs nœuds, les abonnements Contrat Entreprise (EA) et CSP sont pris en charge. Pour l’ASDK, les abonnements Contrat Entreprise, Paiement à l’utilisation, CSP et MSDN prennent en charge les rapports de données d’utilisation.
 
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>La génération de rapports de données d’utilisation fonctionne-t-elle avec les clouds souverains ?
 
-Dans le Kit de développement Azure Stack, la génération de rapports d’utilisation de données exige que les abonnements soient créés dans le système Azure global. Les abonnements créés dans l’un des clouds souverains (clouds Azure Government, Azure Allemagne et Azure China 21Vianet) ne peuvent pas être inscrits auprès d’Azure. Ils ne prennent donc pas en charge les rapports de données d’utilisation.
+Dans l’ASDK, la génération de rapports d’utilisation des données exige que les abonnements soient créés dans le système Azure global. Les abonnements créés dans l’un des clouds souverains (clouds Azure Government, Azure Allemagne et Azure Chine 21Vianet) ne peuvent pas être inscrits auprès d’Azure. Ils ne prennent donc pas en charge les rapports de données d’utilisation.
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-hub-match-the-report-generated-from-azure-account-center"></a>Pourquoi l'utilisation signalée dans Azure Stack Hub ne correspond-elle pas au rapport généré à partir du Centre des comptes Azure ?
 
-Il existe toujours un décalage entre le moment où les données d'utilisation sont communiquées par les API d'utilisation Azure Stack Hub et celui où elles sont communiquées dans le Centre des comptes Azure. Ce décalage correspond au délai nécessaire pour charger les données d'utilisation d'Azure Stack Hub vers le commerce Azure. En raison de ce décalage, l’utilisation qui se produit peu de temps avant minuit peut apparaître dans Azure le jour suivant. Si vous utilisez les [API d'utilisation d'Azure Stack Hub](azure-stack-provider-resource-api.md) et que vous comparez les résultats avec l'utilisation signalée sur le portail de facturation Azure, vous pouvez constater une différence.
+Il existe toujours un décalage entre le moment où les données d’utilisation sont communiquées par les API d’utilisation Azure Stack Hub et celui où elles sont communiquées dans le Centre des comptes Azure. Ce décalage correspond au délai nécessaire pour charger les données d'utilisation d'Azure Stack Hub vers le commerce Azure. En raison de ce décalage, l’utilisation qui se produit peu de temps avant minuit peut s’afficher dans Azure le jour suivant. Si vous utilisez les [API d’utilisation d’Azure Stack Hub](azure-stack-provider-resource-api.md) et que vous comparez les résultats avec l’utilisation signalée sur le portail de facturation Azure, vous pouvez constater une différence.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

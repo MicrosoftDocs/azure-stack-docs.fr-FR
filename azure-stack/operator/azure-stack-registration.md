@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Découvrez comment inscrire les systèmes intégrés Azure Stack Hub auprès d’Azure afin de pouvoir télécharger des éléments de la Place de marché Azure et configurer les rapports de données.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 2/02/2020
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 81b899104b162e92f74204f9b70c67fc280d7c31
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 568bcc7b04da397dff343662a8e80b86e27d2618
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881409"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972582"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Inscrire Azure Stack Hub auprès d’Azure
 
@@ -478,7 +478,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | BillingModel | String | Le modèle de facturation utilisé par votre abonnement. Les valeurs valides pour ce paramètre sont : Capacity, PayAsYouUse et Development. |
 | MarketplaceSyndicationEnabled | True/False | Détermine si la fonctionnalité de gestion de la Place de marché est disponible dans le portail. Définissez la valeur true en cas d’inscription avec une connectivité Internet. Définissez la valeur false en cas d’inscription dans des environnements déconnectés. Pour les inscriptions déconnectées, l’[outil de syndication hors connexion](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) peut être utilisé pour le téléchargement d’éléments de la Place de Marché. |
 | UsageReportingEnabled | True/False | Azure Stack Hub crée par défaut des rapports sur les métriques d’utilisation. Les opérateurs qui se basent sur la capacité ou qui gèrent un environnement déconnecté doivent désactiver la génération de rapports d’utilisation. Les valeurs valides pour ce paramètre sont : True, False. |
-| AgreementNumber | String |  |
+| AgreementNumber | String | Numéro du Contrat Entreprise sous lequel la référence SKU de capacité d’Azure Stack a été commandée. |
 | RegistrationName | String | Définissez un nom unique pour l’inscription si vous exécutez le script d’inscription dans plusieurs instances Azure Stack Hub en utilisant le même ID d’abonnement Azure. Par défaut, le paramètre a la valeur **AzureStackRegistration**. Cependant, si vous utilisez le même nom sur plusieurs instances d’Azure Stack Hub, le script échoue. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken

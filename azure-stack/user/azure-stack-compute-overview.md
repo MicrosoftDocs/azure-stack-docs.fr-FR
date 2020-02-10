@@ -3,16 +3,16 @@ title: Présentation des machines virtuelles Azure Stack Hub
 description: Apprenez-en davantage sur les machines virtuelles Azure Stack Hub.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/22/2020
+ms.date: 02/03/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: c961716a64d3ccc4efcbf2eb36091e611db39be9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: abb5e6d50b9ec99366578fd84e2d720fb52722a3
+ms.sourcegitcommit: 4178443d84cf6d3fbaba11425beff703568c1a2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883930"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76977901"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Présentation des machines virtuelles Azure Stack Hub
 
@@ -57,7 +57,7 @@ Votre abonnement comporte des limites de quota par défaut qui peuvent avoir un 
 
 ### <a name="operating-system-disks-and-images"></a>Images et disques du système d’exploitation
 
-Les machines virtuelles utilisent des disques durs virtuels pour stocker leurs données et leur système d’exploitation. Les disques durs virtuels sont également utilisés pour les images à partir desquelles vous choisissez d’installer un système d’exploitation. Azure Stack Hub fournit une place de marché à utiliser avec différents types et versions de systèmes d’exploitation. Les images de la Place de marché sont identifiées par l’éditeur de l’image, l’offre, la référence SKU et la version (la version la plus récente est généralement spécifiée comme **dernière**).
+Dans Azure Stack Hub, les machines virtuelles sont limitées au format de disque dur virtuel (VHD/VHDX) de 1ère génération. Les disques durs virtuels peuvent être utilisés pour stocker le système d’exploitation et les données de l’ordinateur. Les disques durs virtuels sont également utilisés pour les images à partir desquelles vous choisissez d’installer un système d’exploitation. Azure Stack Hub fournit une place de marché à utiliser avec différents types et versions de systèmes d’exploitation. Les images de la Place de marché sont identifiées par l’éditeur de l’image, l’offre, la référence SKU et la version (la version la plus récente est généralement spécifiée comme **dernière**).
 
 Le tableau suivant montre comment trouver ces informations pour une image :
 

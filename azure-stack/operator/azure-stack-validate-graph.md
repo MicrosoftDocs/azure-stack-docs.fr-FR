@@ -1,5 +1,6 @@
 ---
-title: Valider l’intégration d’Azure Graph pour Azure Stack Hub
+title: Valider l’intégration des graphes Azure
+titleSuffix: Azure Stack Hub
 description: Utilisez Azure Stack Hub Readiness Checker pour valider l’intégration des graphes pour Azure Stack Hub.
 author: ihenkel
 ms.topic: article
@@ -7,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 29cc035e66039d09e761410808098d57f0b1927f
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ff9763edbd96dda39f3de8e8a764ce4f4acd7200
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882624"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972497"
 ---
 # <a name="validate-graph-integration-for-azure-stack-hub"></a>Valider l’intégration des graphes pour Azure Stack Hub
 
@@ -37,9 +38,11 @@ Vérifiez les prérequis suivants.
 
 **Ordinateur sur lequel l’outil est exécuté :**
 
-* Windows 10 ou Windows Server 2016, avec connectivité au domaine.
-* PowerShell 5.1 ou ultérieur. Pour vérifier votre version, exécutez la commande PowerShell suivante et examinez la version *principale* et les versions *mineures* :  
-   > `$PSVersionTable.PSVersion`
+* Windows 10 ou Windows Server 2016, avec connectivité au domaine.
+* PowerShell 5.1 ou ultérieur. Pour vérifier votre version, exécutez la commande PowerShell suivante et examinez la version *principale* et les versions *mineures* :
+    ```powershell
+    $PSVersionTable.PSVersion
+    ```
 * Module Active Directory PowerShell.
 * Dernière version de l’outil [Microsoft Azure Stack Hub Readiness Checker](https://aka.ms/AzsReadinessChecker).
 
@@ -52,19 +55,25 @@ Vérifiez les prérequis suivants.
 
 1. Sur un ordinateur qui répond aux prérequis, ouvrez une invite PowerShell d’administration, puis exécutez la commande suivante pour installer AzsReadinessChecker :
 
-     `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
+    ```powershell
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+    ```
 
 1. À l’invite PowerShell, exécutez la commande suivante pour définir la variable *$graphCredential* sur le compte de graphique. Remplacez `contoso\graphservice` par votre compte en utilisant le format `domain\username`.
 
-    `$graphCredential = Get-Credential contoso\graphservice -Message "Enter Credentials for the Graph Service Account"`
+    ```powershell
+    $graphCredential = Get-Credential contoso\graphservice -Message "Enter Credentials for the Graph Service Account"
+    ```
 
-1. À l’invite PowerShell, exécutez la commande suivante pour démarrer la validation du service Graph. Spécifiez la valeur de **-ForestFQDN** en tant que nom FQDN de la racine de forêt.
+1. À l’invite PowerShell, exécutez la commande suivante pour démarrer la validation du service Graph. Spécifiez la valeur de `-ForestFQDN` en tant que nom FQDN de la racine de forêt.
 
-     `Invoke-AzsGraphValidation -ForestFQDN contoso.com -Credential $graphCredential`
+    ```powershell
+    Invoke-AzsGraphValidation -ForestFQDN contoso.com -Credential $graphCredential
+    ```
 
 1. Au terme de l’exécution de l’outil, passez en revue la sortie. Vérifiez que l’état est OK pour les conditions d’intégration des graphiques. Une validation réussie ressemble à l’exemple suivant :
 
-    ```
+    ```powershell
     Testing Graph Integration (v1.0)
             Test Forest Root:            OK
             Test Graph Credential:       OK
@@ -98,8 +107,8 @@ Par défaut, les deux fichiers sont écrits dans `C:\Users\<username>\AppData\Lo
 
 Utilisez :
 
-* **-OutputPath** : Le paramètre *path* situé à la fin de la commande d’exécution pour spécifier un emplacement de rapport différent.
-* **-CleanReport** : Le paramètre à la fin de la commande d’exécution pour effacer les informations *AzsReadinessCheckerReport.json* du rapport précédent. Pour plus d’informations, consultez [Rapport de validation Azure Stack Hub](azure-stack-validation-report.md).
+* `-OutputPath`: Le paramètre *path* situé à la fin de la commande d’exécution pour spécifier un emplacement de rapport différent.
+* `-CleanReport`: Le paramètre à la fin de la commande d’exécution pour effacer les informations *AzsReadinessCheckerReport.json* du rapport précédent. Pour plus d’informations, consultez [Rapport de validation Azure Stack Hub](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Échec de validation
 

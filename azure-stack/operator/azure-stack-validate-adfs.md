@@ -1,18 +1,21 @@
 ---
-title: Valider l’intégration d’AD FS pour Azure Stack Hub
-description: Utilisez Azure Stack Hub Readiness Checker pour valider l’intégration d’AD FS pour Azure Stack Hub.
+title: Valider l’intégration d’AD FS
+titleSuffix: Azure Stack Hub
+description: Découvrez comment utiliser Azure Stack Hub Readiness Checker pour valider l’intégration d’AD FS pour Azure Stack Hub.
+services: azure-stack
+documentationcenter: ''
 author: ihenkel
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: a98a5384b8590f494e6e9d6acdeb05e90fce3a20
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 786ee290aba91c855211d3f470f439c3e9b2c01a
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880631"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972589"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>Valider l’intégration d’AD FS pour Azure Stack Hub
 
@@ -21,7 +24,7 @@ Utilisez l’outil Azure Stack Hub Readiness Checker (AzsReadinessChecker) pour 
 L’outil Readiness Checker valide ce qui suit :
 
 * Les *métadonnées de fédération* contiennent les éléments XML valides pour la fédération.
-* Le *certificat SSL AD FS* peut être récupéré et une chaîne d’approbation peut être générée. L’AD FS avec tampon doit approuver la chaîne de certificats SSL. Le certificat doit être signé par la même *autorité de certification* que celle utilisée pour les certificats de déploiement Azure Stack Hub ou par un partenaire d’autorité racine approuvé. Pour obtenir la liste complète des partenaires d’autorité racine approuvés, consultez : [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+* Le *certificat SSL AD FS* peut être récupéré et une chaîne d’approbation peut être générée. L’AD FS avec tampon doit approuver la chaîne de certificats SSL. Le certificat doit être signé par la même *autorité de certification* que celle utilisée pour les certificats de déploiement Azure Stack Hub ou par un partenaire d’autorité racine approuvé. Pour obtenir la liste complète des partenaires d’autorité racine approuvés, consultez : [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 * Le *Certificat de signature AD FS* est approuvé et n’approche pas l’expiration.
 
 Pour plus d’informations sur l’intégration de centre de données Azure Stack Hub, voir [Intégration de centre de données Azure Stack Hub – Identité](azure-stack-integrate-identity.md).
@@ -36,31 +39,37 @@ Vérifiez les prérequis suivants.
 
 **Ordinateur sur lequel l’outil est exécuté :**
 
-* Windows 10 ou Windows Server 2016, avec connectivité au domaine.
+* Windows 10 ou Windows Server 2016, avec connectivité au domaine.
 * PowerShell 5.1 ou ultérieur. Pour vérifier votre version, exécutez la commande PowerShell suivante et examinez la version *principale* et les versions *mineures* :  
-   > `$PSVersionTable.PSVersion`
+    ```powershell
+    $PSVersionTable.PSVersion
+    ```
 * Dernière version de l’outil [Microsoft Azure Stack Hub Readiness Checker](https://aka.ms/AzsReadinessChecker).
 
 **Environnement services de fédération Active Directory :**
 
 Vous avez besoin au minimum d’une des formes de métadonnées suivantes :
 
-* L’URL des métadonnées de fédération AD FS. par exemple `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`.
-* Le fichier XML des métadonnées de fédération. Par exemple, FederationMetadata.xml.
+- L’URL des métadonnées de fédération AD FS. Par exemple : `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`.
+* Le fichier XML des métadonnées de fédération. Par exemple :  FederationMetadata.xml.
 
 ## <a name="validate-ad-fs-integration"></a>Valider l’intégration d’AD FS
 
 1. Sur un ordinateur qui répond aux prérequis, ouvrez une invite PowerShell d’administration, puis exécutez la commande suivante pour installer AzsReadinessChecker :
 
-     `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
+    ```powershell
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+    ```
 
 1. À l’invite PowerShell, exécutez la commande suivante pour démarrer la validation. Spécifiez la valeur de **-CustomADFSFederationMetadataEndpointUri** comme étant l’URI pour les métadonnées de fédération.
 
-     `Invoke-AzsADFSValidation -CustomADFSFederationMetadataEndpointUri https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
+     ```powershell
+     Invoke-AzsADFSValidation -CustomADFSFederationMetadataEndpointUri https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+     ```
 
 1. Au terme de l’exécution de l’outil, passez en revue la sortie. Vérifiez que l’état pour les conditions d’intégration d’AD FS est OK. Une validation réussie ressemble à l’exemple suivant :
 
-    ```
+    ```powershell
     Invoke-AzsADFSValidation v1.1809.1001.1 started.
 
     Testing ADFS Endpoint https://sts.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
@@ -93,8 +102,8 @@ Par défaut, les deux fichiers sont écrits dans `C:\Users\<username>\AppData\Lo
 
 Utilisez :
 
-* **-OutputPath** : Le paramètre *path* situé à la fin de la commande d’exécution pour spécifier un emplacement de rapport différent.
-* **-CleanReport** : Le paramètre à la fin de la commande d’exécution pour effacer les informations AzsReadinessCheckerReport.json du rapport précédent. Pour plus d’informations, voir [Rapport de validation Azure Stack Hub](azure-stack-validation-report.md).
+* `-OutputPath`: Le paramètre *path* situé à la fin de la commande d’exécution pour spécifier un emplacement de rapport différent.
+* `-CleanReport`: Le paramètre à la fin de la commande d’exécution pour effacer les informations AzsReadinessCheckerReport.json du rapport précédent. Pour plus d’informations, voir [Rapport de validation Azure Stack Hub](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Échec de validation
 
@@ -104,13 +113,17 @@ Les exemples suivants donnent des conseils sur la façon de résoudre les échec
 
 ### <a name="command-not-found"></a>Commande introuvable
 
-`Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.`
+```powershell
+Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+```
 
 **Cause** : La fonctionnalité de chargement automatique PowerShell n’a pas pu charger le module Readiness Checker correctement.
 
-**Résolution** : Importez le module Readiness Checker de façon explicite. Copiez et collez le code suivant dans PowerShell et mettez à jour la \<version\> à l’aide du numéro de version de la version actuellement installée.
+**Résolution** : Importez le module Readiness Checker de façon explicite. Copiez et collez le code suivant dans PowerShell et mettez à jour `<version>` avec le numéro de la version actuellement installée.
 
-`Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force`
+```powershell
+Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,29 +1,32 @@
 ---
-title: Valider des certificats pour infrastructure à clé publique Azure Stack Hub en vue du déploiement de systèmes intégrés Azure Stack Hub
-description: Explique comment valider les certificats pour infrastructure à clé publique Azure Stack Hub pour des systèmes intégrés Azure Stack Hub. Couvre l’utilisation de l’outil de vérification de certificats d’Azure Stack Hub.
+title: Valider des certificats PKI Azure Stack Hub
+titleSuffix: Azure Stack Hub
+description: Découvrez comment valider des certificats PKI pour les systèmes intégrés Azure Stack Hub avec l’outil Azure Stack Hub Readiness Checker.
+services: azure-stack
+documentationcenter: ''
 author: ihenkel
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 8ade18f01f9d0636e3a5903307ee9513c44470f7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4ec3732df372e0b768b3f52c082cae5db932a36c
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882597"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972543"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Valider des certificats PKI Azure Stack Hub
 
-L’outil Azure Stack Hub Readiness Checker décrit dans cet article est disponible [à partir de PowerShell Gallery](https://aka.ms/AzsReadinessChecker). Vous pouvez utiliser cet outil pour vérifier que les [certificats pour infrastructure à clé publique (PKI) générés](azure-stack-get-pki-certs.md) sont adaptés au prédéploiement. Validez les certificats en gardant suffisamment de temps pour tester et réémettre les certificats si nécessaire.
+L’outil Azure Stack Hub Readiness Checker décrit dans cet article est disponible [à partir de PowerShell Gallery](https://aka.ms/AzsReadinessChecker). Utilisez cet outil pour vérifier que les [certificats PKI générés](azure-stack-get-pki-certs.md) sont adaptés au prédéploiement. Validez les certificats en gardant suffisamment de temps pour tester et réémettre les certificats si nécessaire.
 
 L’outil Readiness Checker effectue les validations de certificat suivantes :
 
 - **Analyser PFX**  
-    Vérifie si le fichier PFX est valide, si le mot de passe est correct et si les informations publiques sont protégées par le mot de passe. 
+    Vérifie si le fichier PFX est valide, si le mot de passe est correct et si les informations publiques sont protégées par le mot de passe.
 - **Date d’expiration**  
-    Vérifie la validité minimale de 7 jours. 
+    Vérifie la validité minimale de 7 jours.
 - **Algorithme de signature**  
     Vérifie que l’algorithme de signature n’est pas SHA1 (Secure Hash Algorithm 1).
 - **Clé privée**  
@@ -33,7 +36,7 @@ L’outil Readiness Checker effectue les validations de certificat suivantes :
 - **Noms DNS**  
     Vérifie que le réseau SAN contient les noms DNS appropriés pour chaque point de terminaison ou si un caractère générique de prise en charge est présent.
 - **Syntaxe de la clé**  
-    Vérifie que la syntaxe de la clé contient une signature numérique et un chiffrement de clé, et que la syntaxe avancée de la clé contient l’authentification du serveur et l’authentification du client.
+    Vérifie que la syntaxe de la clé contient une signature numérique et un chiffrement de clé, et vérifie que la syntaxe avancée de la clé contient l’authentification du serveur et l’authentification du client.
 - **Taille de la clé**  
     Vérifie que la taille de clé est au moins égale à 2 048 octets.
 - **Ordre de la chaîne**  
@@ -48,16 +51,16 @@ L’outil Readiness Checker effectue les validations de certificat suivantes :
 
 Votre système doit respecter la configuration requise ci-après afin de permettre la validation des certificats PKI pour un déploiement Azure Stack Hub :
 
-- Outil Microsoft Azure Stack Hub Readiness Checker
-- Certificats SSL exportés conformément aux [instructions de préparation](azure-stack-prepare-pki-certs.md)
-- DeploymentData.json
-- Windows 10 ou Windows Server 2016
+- Outil Microsoft Azure Stack Hub Readiness Checker.
+- Certificats SSL exportés conformément aux [instructions de préparation](azure-stack-prepare-pki-certs.md).
+- DeploymentData.json.
+- Windows 10 ou Windows Server 2016
 
 ## <a name="perform-core-services-certificate-validation"></a>Effectuer la validation principale des certificats de service
 
 Pour préparer et valider les certificats PKI Azure Stack Hub en vue du déploiement et de la rotation des secrets, suivez ces étapes :
 
-1. Installez **AzsReadinessChecker** à partir d’une invite PowerShell (5.1 ou version ultérieure) en exécutant l’applet de commande suivante :
+1. Installez **AzsReadinessChecker** à partir d’une invite PowerShell (5.1 ou ultérieur) en exécutant l’applet de commande suivante :
 
     ```powershell  
         Install-Module Microsoft.AzureStack.ReadinessChecker -force 
@@ -75,7 +78,7 @@ Pour préparer et valider les certificats PKI Azure Stack Hub en vue du déploie
     ```
     
     > [!Note]  
-    > AD FS et Graph sont obligatoires si vous utilisez AD FS comme système d’identité. Par exemple :
+    > AD FS et Graph sont obligatoires si vous utilisez AD FS comme système d’identité. Par exemple :
     >
     > ```powershell  
     > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'ARM Admin', 'ARM Public', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal'
@@ -86,14 +89,14 @@ Pour préparer et valider les certificats PKI Azure Stack Hub en vue du déploie
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
 
-3. Dans la fenêtre PowerShell, modifiez les valeurs de **RegionName** et **FQDN** en fonction de l’environnement Azure Stack Hub et exécutez ce qui suit :
+3. Dans la fenêtre PowerShell, changez les valeurs de `RegionName` et `FQDN` en fonction de l’environnement Azure Stack Hub et exécutez l’applet de commande suivante :
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
     Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
-4. Vérifiez que la sortie et tous les certificats réussissent tous les tests. Par exemple :
+4. Vérifiez la sortie pour être sûr que tous les certificats ont réussi l’intégralité des tests. Par exemple :
 
     ```powershell
     Invoke-AzsCertificateValidation v1.1912.1082.37 started.
@@ -140,7 +143,7 @@ Pour préparer et valider les certificats PKI Azure Stack Hub en vue du déploie
     Invoke-AzsCertificateValidation Completed
     ```
 
-    Pour valider les certificats d’autres services Azure Stack Hub, modifiez la valeur de ```-CertificateType```. Par exemple :
+    Pour valider les certificats d’autres services Azure Stack Hub, changez la valeur de ```-CertificateType```. Par exemple :
 
     ```powershell  
     # App Services
@@ -155,7 +158,7 @@ Pour préparer et valider les certificats PKI Azure Stack Hub en vue du déploie
     # IoTHub
     Invoke-AzsCertificateValidation -CertificateType IoTHub -CertificatePath C:\Certificates\IoTHub -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com
     ```
-Chaque dossier doit contenir un seul fichier PFX pour le type de certificat. Si un type de certificat a des exigences multicertificats, des dossiers imbriqués sont attendus pour chaque certificat avec un nom approprié.  Le code suivant montre un exemple de structure de dossier/certificat pour tous les types de certificat ainsi que la valeur appropriée pour ```-CertificateType``` et ```-CertificatePath```.
+    Chaque dossier doit contenir un fichier PFX pour le type de certificat. Si un type de certificat a des exigences multicertificats, des dossiers imbriqués sont attendus pour chaque certificat avec un nom approprié. Le code suivant montre un exemple de structure de dossier/certificat pour tous les types de certificat ainsi que la valeur appropriée pour ```-CertificateType``` et ```-CertificatePath```.
     
     ```powershell  
     C:\>tree c:\SecretStore /A /F
@@ -200,6 +203,7 @@ Chaque dossier doit contenir un seul fichier PFX pour le type de certificat. Si 
                         iothub.pfx      #   -CertificateType IoTHub `
                                         #   -CertificatePath C:\Certificates\IoTHub
     ```
+
 ### <a name="known-issues"></a>Problèmes connus
 
 **Symptôme** : les tests sont ignorés.
@@ -234,21 +238,21 @@ Chaque dossier doit contenir un seul fichier PFX pour le type de certificat. Si 
 
 | Répertoire | Certificat |
 | ---    | ----        |
-| acsBlob | wildcard_blob_\<region>_\<externalFQDN> |
-| ACSQueue  |  wildcard_queue_\<region>_\<externalFQDN> |
-| ACSTable  |  wildcard_table_\<region>_\<externalFQDN> |
-| Hôte d’extension d’administration  |  wildcard_adminhosting_\<region>_\<externalFQDN> |
-| Portail d’administration  |  adminportal_\<region>_\<externalFQDN> |
-| Administrateur ARM  |  adminmanagement_\<region>_\<externalFQDN> |
-| ARM Public  |  management_\<region>_\<externalFQDN> |
-| KeyVault  |  wildcard_vault_\<region>_\<externalFQDN> |
-| KeyVaultInternal  |  wildcard_adminvault_\<region>_\<externalFQDN> |
-| Hôte d’extension public  |  wildcard_hosting_\<region>_\<externalFQDN> |
-| Portail public  |  portal_\<region>_\<externalFQDN> |
+| acsBlob | `wildcard_blob_<region>_<externalFQDN>` |
+| ACSQueue  |  `wildcard_queue_<region>_<externalFQDN>` |
+| ACSTable  |  `wildcard_table_<region>_<externalFQDN>` |
+| Hôte d’extension d’administration  |  `wildcard_adminhosting_<region>_<externalFQDN>` |
+| Portail d’administration  |  `adminportal_<region>_<externalFQDN>` |
+| Administrateur ARM  |  `adminmanagement_<region>_<externalFQDN>` |
+| ARM Public  |  `management_<region>_<externalFQDN>` |
+| KeyVault  |  `wildcard_vault_<region>_<externalFQDN>` |
+| KeyVaultInternal  |  `wildcard_adminvault_<region>_<externalFQDN>` |
+| Hôte d’extension public  |  `wildcard_hosting_<region>_<externalFQDN>` |
+| Portail public  |  `portal_<region>_<externalFQDN>` |
 
 ## <a name="using-validated-certificates"></a>Utilisation des certificats validés
 
-Une fois vos certificats validés par l’outil AzsReadinessChecker, vous êtes prêt à les utiliser dans votre déploiement Azure Stack Hub ou pour la rotation des secrets Azure Stack Hub. 
+Une fois vos certificats validés par l’outil AzsReadinessChecker, vous êtes prêt à les utiliser dans votre déploiement Azure Stack Hub ou pour la rotation des secrets Azure Stack Hub.
 
  - Pour le déploiement, transférez en toute sécurité vos certificats à votre ingénieur de déploiement pour lui permettre de les copier sur l’hôte de déploiement, comme spécifié dans la [documentation relative aux exigences de certificat pour infrastructure à clé publique Azure Stack Hub](azure-stack-pki-certs.md).
  - Pour la rotation des secrets, vous pouvez utiliser les certificats afin de mettre à jour les anciens certificats des points de terminaison d’infrastructure publique de votre environnement Azure Stack Hub en suivant la documentation [Rotation des secrets Azure Stack Hub](azure-stack-rotate-secrets.md).
