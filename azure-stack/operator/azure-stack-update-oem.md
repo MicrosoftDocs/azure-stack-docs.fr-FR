@@ -34,7 +34,7 @@ Cette section contient des informations de contact OEM et des liens vers des doc
 
 | Partenaire matériel | Région | URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | Tous | [Guide des opérations Cisco Integrated System pour Microsoft Azure Stack Hub](https://aka.ms/aa708e2)<br><br>[UCS C-Series Rack-Mount UCS-Managed Server Software](https://aka.ms/aa700rq) |
+| Cisco | Tous | [Guide des opérations Cisco Integrated System pour Microsoft Azure Stack Hub](https://aka.ms/aa708e2)<br><br>[Logiciels serveur UCS C-Series Rack-Mount UCS-Managed](https://aka.ms/aa700rq) |
 | Dell EMC | Tous | [Cloud pour Microsoft Azure Stack Hub 14G (compte et connexion requis)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pour Microsoft Azure Stack Hub 13G (compte et connexion requis)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | JAPON | [Support technique de service géré Fujitsu (compte et connexion requis)](https://eservice.fujitsu.com/supportdesk-web/) |
 |  | EMEA ET ÉTATS-UNIS | [Support des produits et systèmes informatiques Fujitsu](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
