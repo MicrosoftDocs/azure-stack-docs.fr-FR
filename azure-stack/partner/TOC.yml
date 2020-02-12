@@ -1,6 +1,6 @@
 - name: Documentation pour les partenaires Azure Stack Hub
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   href: index.yml
   expanded: true
   items:
@@ -34,7 +34,7 @@
   items:
     - name: Concepts clés
       href: azure-stack-vaas-key-concepts.md
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       href: azure-stack-vaas-best-practice.md
     - name: Surveiller et gérer les tests dans le portail VaaS
       href: azure-stack-vaas-monitor-test.md
@@ -50,11 +50,11 @@
       href: /azure/active-directory/
 - name: Ressources
   items:
-    - name: Feuille de route Azure Stack
+    - name: Feuille de route Azure Stack Hub
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Forum MSDN Azure Stack
+    - name: Forum MSDN Azure Stack Hub
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureStack'
-    - name: Commentaires sur la documentation Azure Stack
+    - name: Commentaires sur la documentation Azure Stack Hub
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Informations sur la tarification
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
