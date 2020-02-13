@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 5955dcf6c211f9f431d84227548496af7782a0d7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 23c823fcbfa76d34a471ac404b18dab13b737315
+ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881848"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125761"
 ---
 # <a name="create-mysql-databases-in-azure-stack-hub"></a>Créer des bases de données MySQL dans Azure Stack Hub
 Un utilisateur Azure Stack Hub abonné à une offre comprenant le service de base de données MySQL peut créer et gérer des bases de données MySQL libre-service sur le portail de l’utilisateur.
@@ -23,7 +23,7 @@ Un utilisateur Azure Stack Hub abonné à une offre comprenant le service de bas
 2. Cliquez sur **+ Créer une ressource** > **Données + Stockage** > **Base de données MySQL** > **Ajouter**.
 3. Sous **Créer une base de données MySQL**, entrez le nom de la base de données, puis configurez les autres paramètres en fonction des besoins de votre environnement.
 
-    ![Créer une base de données MySQL test](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
+    ![Créer une base de données MySQL test](./media/azure-stack-mysql-rp-deploy/mysql-create-db-a.png)
 
 4. Sous **Créer une base de données**, sélectionnez **Référence (SKU)** . Sous **Sélectionner une référence (SKU) MySQL**, choisissez la référence de votre base de données.
 
@@ -44,7 +44,7 @@ Un utilisateur Azure Stack Hub abonné à une offre comprenant le service de bas
 
 Une fois la base de données déployée, notez la **Chaîne de connexion** sous **Bases**. Vous pouvez utiliser cette chaîne dans n’importe quelle application qui doit accéder à la base de données MySQL.
 
-![Obtenir la chaîne de connexion pour la base de données MySQL](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png)
+![Obtenir la chaîne de connexion pour la base de données MySQL](./media/azure-stack-mysql-rp-deploy/mysql-db-created-a.png)
 
 ## <a name="update-the-administrative-password"></a>Mettre à jour le mot de passe d’administration
 

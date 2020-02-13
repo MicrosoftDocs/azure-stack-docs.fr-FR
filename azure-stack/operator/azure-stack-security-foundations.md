@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/16/2020
-ms.openlocfilehash: 396db14d269ee9443d38f8220e5dd0384d04a479
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7b83fa18f8a550a718023c97ccab8d46b5b86564
+ms.sourcegitcommit: 23861d659c89c2d36390085fe9532b2bcba2100d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881302"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075197"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Contrôles de sécurité de l’infrastructure Azure Stack Hub
 
@@ -105,7 +105,7 @@ Les évaluations incluent les normes suivantes :
 - La [Matrice de contrôle cloud CSA](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) est un mappage complet de plusieurs normes, dont FedRAMP Moderate, ISO27001, HIPAA, HITRUST, ITAR, NIST SP800-53.
 - [FedRAMP High](https://www.fedramp.gov/fedramp-releases-high-baseline/) pour les clients du secteur public.
 
-Vous trouverez la documentation relative à la conformité sur le [portail Microsoft Service Trust](https://servicetrust.microsoft.com/ViewPage/Blueprint). Les guides de conformité constituent une ressource protégée et nécessitent que vous vous connectiez avec vos informations d’identification du service cloud Azure.
+Vous trouverez la documentation relative à la conformité sur le [portail Microsoft Service Trust](https://servicetrust.microsoft.com/ViewPage/AzureStack). Les guides de conformité constituent une ressource protégée et nécessitent que vous vous connectiez avec vos informations d’identification du service cloud Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

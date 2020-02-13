@@ -8,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 4269cce339ee606fd8efb4cb08677079c0f2e477
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: b0ea11c3245d8a3ddbf9eeaf85481f830c67dc7f
+ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972658"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125584"
 ---
 # <a name="create-sql-databases"></a>Créer des bases de données SQL
 
@@ -32,7 +32,7 @@ Vous pouvez créer et gérer des bases de données libre-service dans le portail
 
 4. Sous **Créer une base de données**, sélectionnez **Référence (SKU)** . Sous **Sélectionner une référence (SKU)** , choisissez la référence SKU de votre base de données.
 
-   ![Créez une base de données dans le portail utilisateur Azure Stack Hub.](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+   ![Créez une base de données dans le portail utilisateur Azure Stack Hub.](./media/azure-stack-sql-rp-deploy/newsqldba.png)
 
    >[!NOTE]
    >Les serveurs d’hébergement reçoivent une référence (SKU) quand ils sont ajoutés à Azure Stack Hub. Les bases de données sont créées dans le pool de serveurs d’hébergement d’une référence (SKU).
@@ -46,13 +46,13 @@ Vous pouvez créer et gérer des bases de données libre-service dans le portail
    >[!NOTE]
    >Ces paramètres correspondent aux informations d’identification d’authentification SQL qui sont créées pour votre accès à cette seule base de données. Le nom d’utilisateur de connexion doit être globalement unique. Vous pouvez réutiliser les paramètres de connexion d’autres bases de données qui utilisent la même référence (SKU).
 
-   ![Créer une connexion à la base de données dans le portail utilisateur Azure Stack Hub](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+   ![Créer une connexion à la base de données dans le portail utilisateur Azure Stack Hub](./media/azure-stack-sql-rp-deploy/create-new-login-a.png)
 
 8. Sélectionnez **OK** pour achever le déploiement de la base de données.
 
 Sous **Éléments principaux**, qui s’affiche après le déploiement de la base de données, notez la valeur du champ **Chaîne de connexion**. Vous pouvez utiliser cette chaîne dans n’importe quelle application devant accéder à la base de données SQL Server.
 
-![Récupérer la chaîne de connexion pour la base de données SQL Server](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
+![Récupérer la chaîne de connexion pour la base de données SQL Server](./media/azure-stack-sql-rp-deploy/sql-db-settings-a.png)
 
 ## <a name="sql-always-on-databases"></a>Bases de données SQL AlwaysOn
 
@@ -62,7 +62,7 @@ Du fait de leur conception, les bases de données AlwaysOn ne sont pas gérées 
 
 La capture d’écran ci-après vous indique comment vous pouvez utiliser SQL Server Management Studio pour rechercher l’état d’une base de données dans SQL AlwaysOn.
 
-![État d’une base de données AlwaysOn dans SQL Server Management Studio](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+![État d’une base de données AlwaysOn dans SQL Server Management Studio](./media/azure-stack-sql-rp-deploy/verify-always-on.png)
 
 Les bases de données AlwaysOn doivent s’afficher avec l’état **Synchronisé** et comme étant disponibles sur toutes les instances SQL, et elles doivent apparaître dans les **groupes de disponibilité**. Dans la capture d’écran précédente, l’exemple de base de données est newdb1 et présente l’état **newdb1 (synchronisé)** .
 

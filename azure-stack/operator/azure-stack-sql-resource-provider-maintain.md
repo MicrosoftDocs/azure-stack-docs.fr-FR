@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0d6551f7db2ef8b7266d45223c9b20587610b169
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ed76e3611fe0b7b57386a7b688f08ddbdc3c36d7
+ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881244"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125807"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Opérations de maintenance du fournisseur de ressources SQL
 
@@ -33,7 +33,7 @@ Vous êtes responsable de la création et de la gestion des comptes administrate
 
 Pour modifier les paramètres, cliquez sur **Parcourir** &gt; **RESSOURCES ADMINISTRATIVES** &gt; **Serveurs d’hébergement SQL** &gt; **Connexions SQL**, puis sélectionnez un nom d’utilisateur. La modification doit d’abord être effectuée sur l’instance SQL (et sur tous les réplicas, si nécessaire). Sous **Paramètres**, sélectionnez **Mot de passe**.
 
-![Mettre à jour le mot de passe de l’administrateur SQL](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
+![Mettre à jour le mot de passe de l’administrateur SQL](./media/azure-stack-sql-rp-deploy/sql-rp-update-password.png)
 
 ## <a name="secrets-rotation"></a>Rotation des secrets
 
