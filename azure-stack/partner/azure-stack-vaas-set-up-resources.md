@@ -1,6 +1,6 @@
 ---
 title: Tutoriel - Configurer des ressources pour la validation en tant que service
-description: Dans ce tutoriel, apprenez à configurer des ressources pour la validation en tant que service.
+description: Dans ce didacticiel, apprenez à configurer des ressources pour la validation en tant que service.
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 1/22/2020
@@ -8,18 +8,18 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: e04a4fa7384d56a88938e87a83a33bb86829eca3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7c47c6810802cce31793aae3be3a1502acb5f102
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884053"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143926"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Tutoriel : Configurer des ressources pour la validation en tant que service
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Validation en tant que Service (VaaS) est un service Azure qui est utilisé pour valider et prendre en charge les solutions Azure Stack sur le marché. Lisez cet article et suivez les indications avant d’utiliser le service pour valider votre solution.
+La validation en tant que service (VaaS) est un service Azure qui est utilisé pour valider et prendre en charge les solutions Azure Stack Hub présentes sur le marché. Lisez cet article et suivez les indications avant d’utiliser le service pour valider votre solution.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -47,19 +47,19 @@ Créez un locataire que votre organisation utilisera pour accéder aux services 
     | Lecteur | Peut afficher toutes les ressources, mais ne peut ni en créer, ni les gérer. |
     | Contributeur du test | Peut créer et gérer les ressources de test. |
 
-    Pour affecter de rôles dans l’application **Azure Stack Validation Service** :
+    Pour affecter des rôles dans l’application **Validation en tant que service Azure Stack Hub** :
 
    1. Connectez-vous au [portail Azure](https://portal.azure.com).
    2. Sélectionnez **Tous les Services** > **Azure Active Directory** dans la section **Identité**.
-   3. Sélectionnez **Applications d’entreprise** > **application Azure Stack Validation Service**.
-   4. Sélectionnez **Utilisateurs et groupes**. Le panneau **Azure Stack Validation services - Utilisateurs et groupes** répertorie les utilisateurs ayant l’autorisation d’utiliser l’application.
+   3. Sélectionnez **Applications d’entreprise** > **Validation en tant que service Azure Stack Hub**.
+   4. Sélectionnez **Utilisateurs et groupes**. Le panneau **Validation en tant que service Azure Stack Hub - Utilisateurs et groupes** liste les utilisateurs qui sont autorisés à utiliser l’application.
    5. Sélectionnez **+ Ajouter un utilisateur** pour ajouter un utilisateur à partir de votre locataire et lui attribuer un rôle.
 
       Si vous souhaitez isoler des ressources et actions VaaS entre différents groupes au sein d’une organisation, vous pouvez créer plusieurs annuaires de locataire Azure AD.
 
 ### <a name="register-your-tenant"></a>Inscrire votre locataire
 
-Ce processus autorise votre locataire dans l’application Azure AD **Azure Stack Validation Service**.
+Ce processus autorise votre locataire à utiliser l’application Azure AD **Validation en tant que service Azure Stack Hub**.
 
 1. Envoyez les informations suivantes sur le locataire à Microsoft à l’adresse [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
 
@@ -69,7 +69,7 @@ Ce processus autorise votre locataire dans l’application Azure AD **Azure Stac
     | Nom du répertoire du locataire Azure AD | Nom de l’annuaire du locataire Azure AD en cours d’inscription. |
     | ID de l’annuaire du locataire Azure AD | GUID de l’annuaire du locataire AD Azure associé à l’annuaire. Pour plus d’informations sur la façon de trouver votre ID d’annuaire de locataire Azure AD, consultez [Obtenir l’ID de locataire](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in). |
 
-2. Attendez la confirmation de l’équipe de validation Azure Stack pour vérifier que votre locataire peut utiliser le portail VaaS.
+2. Attendez la confirmation de l’équipe de validation Azure Stack Hub pour vérifier que votre locataire peut utiliser le portail VaaS.
 
 ### <a name="consent-to-the-vaas-application"></a>Donner son consentement à l’application VaaS
 
@@ -85,7 +85,7 @@ En tant qu’administrateur Azure AD, attribuez à l’application VaaS Azure AD
 
 Pendant l’exécution du test, VaaS génère des journaux de diagnostic vers un compte de stockage Azure. En plus des journaux d’activité de test, le compte de stockage peut également servir à charger les packages d’extension OEM pour le workflow de validation du package.
 
-Le compte de stockage Azure est hébergé dans le cloud public Azure, et non sur votre environnement Azure Stack.
+Le compte de stockage Azure est hébergé dans le cloud public Azure, et non dans votre environnement Azure Stack Hub.
 
 1. Dans le portail Azure, sélectionnez **Tous les services** > **Stockage** > **Comptes de stockage**. Dans le panneau **Comptes de stockage**, sélectionnez **Ajouter**.
 
@@ -111,7 +111,7 @@ Le compte de stockage Azure est hébergé dans le cloud public Azure, et non sur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si votre environnement n’autorise pas les connexions entrantes, suivez le tutoriel sur le déploiement de l’agent local pour exécuter un test sur votre matériel.
+Si votre environnement n’autorise pas les connexions entrantes, suivez le didacticiel sur le déploiement de l’agent local pour exécuter un test sur votre matériel.
 
 > [!div class="nextstepaction"]
 > [Déployer l’agent local](azure-stack-vaas-local-agent.md)

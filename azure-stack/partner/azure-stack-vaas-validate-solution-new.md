@@ -1,6 +1,6 @@
 ---
-title: Valider une nouvelle solution Azure Stack
-description: Découvrez comment valider une nouvelle solution Azure Stack avec le service Validation en tant que service.
+title: Valider une nouvelle solution Azure Stack Hub
+description: Découvrez comment valider une nouvelle solution Azure Stack Hub avec la validation en tant que service.
 author: mattbriggs
 ms.topic: quickstart
 ms.date: 11/11/2019
@@ -8,20 +8,20 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b3e62141988f99706c652124943da0fbabf44439
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b5380b644aeece0e12e692ebb578fe2b6d0c8792
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884026"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143955"
 ---
-# <a name="validate-a-new-azure-stack-solution"></a>Valider une nouvelle solution Azure Stack
+# <a name="validate-a-new-azure-stack-hub-solution"></a>Valider une nouvelle solution Azure Stack Hub
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Apprenez à utiliser le workflow de **validation de solution** pour certifier de nouvelles solutions Azure Stack.
+Découvrez comment utiliser le workflow de **validation de solution** pour certifier de nouvelles solutions Azure Stack Hub.
 
-Une solution Azure Stack est une nomenclature matérielle qui a été convenue conjointement entre Microsoft et le partenaire après avoir satisfait aux exigences de certification du logo Windows Server. Une solution doit être renouvelée en cas d’une modification de la nomenclature matérielle. Si vous avez d’autres questions concernant le renouvellement de la certification de solutions, contactez l’équipe à l’adresse [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
+Une solution Azure Stack Hub est une nomenclature matérielle qui a été convenue conjointement entre Microsoft et le partenaire après avoir satisfait aux exigences de certification du logo Windows Server. Une solution doit être renouvelée en cas d’une modification de la nomenclature matérielle. Si vous avez d’autres questions concernant le renouvellement de la certification de solutions, contactez l’équipe à l’adresse [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
 
 Pour certifier votre solution, exécutez deux fois le workflow de validation de solution. Exécutez-le une première fois pour la configuration *minimale* prise en charge. Exécutez-le une seconde fois pour la configuration *maximale* prise en charge. Microsoft certifie la solution si les deux configurations réussissent tous les tests.
 
@@ -57,7 +57,7 @@ Pour certifier votre solution, exécutez deux fois le workflow de validation de 
 
 Dans la page **Résumé des tests de validation de solution**, vous trouverez une liste des tests à réaliser pour terminer la validation.
 
-Dans les workflows de validation, la **planification** d’un test utilise des paramètres communs au niveau du workflow que vous avez spécifiés lors de la création de votre workflow (voir [Paramètres de flux de travail communs dans la validation en tant que service Azure Stack](azure-stack-vaas-parameters.md)). Si l’une des valeurs de paramètres de test devient non valide, vous devez les redéfinir comme indiqué dans la section relative à la [modification des paramètres de workflow](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
+Dans les workflows de validation, la **planification** d’un test utilise des paramètres communs au niveau du workflow que vous avez spécifiés lors de la création de votre workflow (voir [Paramètres de workflow communs dans la validation en tant que service Azure Stack Hub](azure-stack-vaas-parameters.md)). Si l’une des valeurs de paramètres de test devient non valide, vous devez les redéfinir comme indiqué dans la section relative à la [modification des paramètres de workflow](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
 
 > [!NOTE]
 > La planification d’un test de validation sur une instance existante créera une nouvelle instance à la place de l’ancienne contenue dans le portail. Les journaux d’activité de l’ancienne instance sont conservés, mais ne sont pas accessibles à partir du portail.  

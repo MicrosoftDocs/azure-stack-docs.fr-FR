@@ -1,6 +1,6 @@
 ---
-title: Test de vérification des fonctionnalités interactives dans le service VaaS Azure Stack
-description: Découvrez comment créer des tests de vérification des fonctionnalités interactives pour Azure Stack avec le service VaaS (validation en tant que service).
+title: Test de vérification des fonctionnalités interactives dans le service VaaS Azure Stack Hub
+description: Découvrez comment créer des tests de vérification des fonctionnalités interactives pour Azure Stack Hub avec le service VaaS (validation en tant que service).
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 10/28/2019
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c957d076fb4d90dc9a19d5b8fbaaddbdb55c789d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 15cd1b2adb4ef1b0e5738b89078beb57d6b7b346
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884144"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143833"
 ---
 # <a name="interactive-feature-verification-testing"></a>Test de vérification des fonctionnalités interactives  
 
@@ -21,7 +21,7 @@ ms.locfileid: "76884144"
 
 Vous pouvez utiliser le framework de test de vérification des fonctionnalités interactives pour demander des tests pour votre système. Quand vous demandez un test, Microsoft utilise le framework pour préparer des tests qui nécessitent des étapes interactives manuelles. Microsoft peut utiliser le framework pour chaîner plusieurs tests automatisés autonomes.
 
-Cet article décrit un scénario manuel simple. Le test vérifie le remplacement d’un disque dans Azure Stack. Le framework collecte des journaux de diagnostic à chaque étape. Vous pouvez déboguer les problèmes à mesure que vous les rencontrez. Le framework permet également le partage de journaux d’activité produits par d’autres outils ou processus, et vous permet de fournir des commentaires sur le scénario.
+Cet article décrit un scénario manuel simple. Le test vérifie le remplacement d’un disque dans Azure Stack Hub. Le framework collecte des journaux de diagnostic à chaque étape. Vous pouvez déboguer les problèmes à mesure que vous les rencontrez. Le framework permet également le partage de journaux d’activité produits par d’autres outils ou processus, et vous permet de fournir des commentaires sur le scénario.
 
 > [!Important]  
 > Cet article fait référence aux étapes pour effectuer l’identification de disque. Il s’agit simplement d’une démonstration, car tous les résultats collectés à partir du workflow de passe de test peuvent ne pas servir pour la vérification de la nouvelle solution.

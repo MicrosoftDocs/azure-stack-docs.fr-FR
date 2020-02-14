@@ -1,5 +1,5 @@
 ---
-title: Valider les packages de fabricant d’ordinateurs OEM dans le service Validation en tant que service pour Azure Stack
+title: Valider les packages OEM dans la validation en tant que service Azure Stack Hub
 description: Découvrez comment contrôler les packages de fabricant d’ordinateurs OEM avec le service Validation en tant que service.
 author: mattbriggs
 ms.topic: tutorial
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: ed6d3055e3e5cab0def090d31f907e0fd1deea50
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8bb39f3aae4031402e38023f92ebdb91feb9bf92
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885102"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143742"
 ---
 # <a name="validate-oem-packages"></a>Valider les packages OEM
 
@@ -55,7 +55,7 @@ Créer un conteneur dans votre compte de stockage pour les objets blob de packag
 
 ### <a name="generate-package-blob-url-for-vaas"></a>Générer des URL d’objet blob de package pour VaaS
 
-Lorsque vous créez un workflow **Validation de package** dans le portail VaaS, vous devez fournir une URL au Stockage Blob Azure qui contient votre package. Certains tests *interactifs*, y compris **Vérification de la mise à jour mensuelle AzureStack** et **Vérification des packages d’extensions OEM**, nécessitent également une URL vers des objets blob de package.
+Lorsque vous créez un workflow **Validation de package** dans le portail VaaS, vous devez fournir une URL au Stockage Blob Azure qui contient votre package. Certains tests *interactifs*, y compris **Vérification de la mise à jour mensuelle Azure Stack Hub** et **Vérification des packages d’extensions OEM**, nécessitent également une URL vers des objets blob de package.
 
 #### <a name="handling-container-access-level"></a>Gestion du niveau d’accès du conteneur
 
@@ -141,14 +141,14 @@ Utilisez cette option s’il est acceptable d’autoriser l’accès des objets 
 
 5. Entrez l’URL de l’objet blob du stockage Azure pour le package OEM signé de test nécessitant une signature de Microsoft. Pour obtenir des instructions, consultez [Générer des URL d’objet blob de package pour VaaS](#generate-package-blob-url-for-vaas).
 
-6. Copiez le dossier du package de mise à jour AzureStack dans un répertoire local sur la DVM. Entrez le chemin du **dossier qui contient le fichier zip du package et le fichier de métadonnées** pour « chemin du dossier du package de mise à jour AzureStack »
+6. Copiez le dossier du package de mise à jour Azure Stack Hub dans un répertoire local sur la DVM. Entrez le chemin du **dossier qui contient le fichier zip du package et le fichier de métadonnées** pour « chemin du dossier du package de mise à jour AzureStack »
 
 7. Copiez le dossier du package OEM créé plus haut dans un répertoire local sur la DVM. Entrez le chemin du **dossier qui contient le fichier zip du package et le fichier de métadonnées** pour « chemin du dossier du package de mise à jour OEM »
 
     > [!NOTE]
-    > Copiez la mise à jour AzureStack et la mise à jour OEM dans **2 répertoires séparés**.
+    > Copiez la mise à jour Azure Stack Hub et la mise à jour OEM dans **deux répertoires séparés**.
 
-8. « RequireDigitalSignature » - spécifiez **true** si vous avez besoin que le package soit signé par Microsoft (exécution du workflow de validation OEM). Si vous validez un package signé par Microsoft sur la dernière mise à jour AzureStack, spécifiez cette valeur comme false (exécution de la vérification de la mise à jour AzureStack mensuelle).
+8. « RequireDigitalSignature » - spécifiez **true** si vous avez besoin que le package soit signé par Microsoft (exécution du workflow de validation OEM). Si vous validez un package signé par Microsoft lors de la dernière mise à jour Azure Stack Hub, spécifiez cette valeur comme false (exécution de la vérification de la mise à jour Azure Stack Hub mensuelle).
 
 9. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
@@ -170,7 +170,7 @@ Les tests suivants doivent être exécutés pour la validation de package OEM :
 
 1. Dans la page **Résumé des tests de validation du package**, vous allez exécuter un sous-ensemble des tests listés appropriés à votre scénario.
 
-    Dans les workflows de validation, la **planification** d’un test utilise des paramètres communs au niveau du workflow que vous avez spécifiés lors de la création de votre workflow (voir [Paramètres de flux de travail communs dans la validation en tant que service Azure Stack](azure-stack-vaas-parameters.md)). Si l’une des valeurs de paramètres de test devient non valide, vous devez les redéfinir comme indiqué dans la section relative à la [modification des paramètres de workflow](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
+    Dans les workflows de validation, la **planification** d’un test utilise des paramètres communs au niveau du workflow que vous avez spécifiés lors de la création de votre workflow (voir [Paramètres de workflow communs dans la validation en tant que service Azure Stack Hub](azure-stack-vaas-parameters.md)). Si l’une des valeurs de paramètres de test devient non valide, vous devez les redéfinir comme indiqué dans la section relative à la [modification des paramètres de workflow](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
 
     > [!NOTE]
     > La planification d’un test de validation sur une instance existante créera une nouvelle instance à la place de l’ancienne contenue dans le portail. Les journaux d’activité de l’ancienne instance sont conservés, mais ne sont pas accessibles à partir du portail.  

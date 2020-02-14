@@ -1,6 +1,6 @@
 ---
-title: Surveiller et gérer les tests dans le portail Azure Stack VaaS
-description: Surveillez et gérez des tests dans le portail Azure Stack VaaS.
+title: Superviser et gérer les tests dans le portail VaaS Azure Stack Hub
+description: Supervisez et gérez les tests dans le portail VaaS Azure Stack Hub.
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 11/11/2019
@@ -8,18 +8,18 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b2a6f2b1e40ddfad9edbf64c92f29e93786fc6f9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 494fffff04cd092afc4a4df3fbf0be59ca894278
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885082"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143811"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Surveiller et gérer les tests dans le portail VaaS
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Suite à la planification de tests relatifs à votre solution Azure Stack, Validation en tant que Service (VaaS) vous communiquera l’état d’exécution des tests. Vous trouverez ces informations, ainsi que des actions telles que la replanification et l’annulation de tests, dans le portail VaaS.
+Lorsque vous aurez planifié des tests pour votre solution Azure Stack Hub, la validation en tant que service (VaaS) vous communiquera l’état d’exécution des tests. Vous trouverez ces informations, ainsi que des actions telles que la replanification et l’annulation de tests, dans le portail VaaS.
 
 ## <a name="navigate-to-the-workflow-tests-summary-page"></a>Accéder à la page de résumé de tests de workflow
 
@@ -37,7 +37,7 @@ Vous pouvez modifier les [paramètres de test](azure-stack-vaas-parameters.md#te
 
 1. Dans la page de résumé de tests, sélectionnez le bouton **Modifier**.
 
-1. Pour plus d’informations, consultez l’article [Paramètres de flux de travail communs dans la validation en tant que service Azure Stack](azure-stack-vaas-parameters.md).
+1. Pour plus d’informations, consultez l’article [Paramètres de workflow communs dans la validation en tant que service Azure Stack Hub](azure-stack-vaas-parameters.md).
 
 1. Sélectionnez **Envoyer** pour enregistrer les valeurs.
 
@@ -53,9 +53,9 @@ Dans les workflows **Passe de Test**, les boutons **Ajouter des tests** et **Mod
 
 ## <a name="managing-test-instances"></a>Gestion des instances de test
 
-Pour les exécutions non officielles (par exemple le workflow **Passe de Test**), la page de résumé des tests répertorie les tests planifiés relatifs à la solution Azure Stack.
+Pour les exécutions non officielles (par exemple le workflow **Passe de test**), la page récapitulative des tests liste les tests planifiés pour la solution Azure Stack Hub.
 
-Pour les exécutions officielles (par exemple, les workflows **Validation**), la page de résumé des tests répertorie les tests planifiés nécessaires à la validation de la solution Azure Stack. Les tests de validation sont planifiés à partir de cette page.
+Pour les exécutions officielles (par exemple, les workflows **Validation**), la page récapitulative des tests liste les tests nécessaires à la validation de la solution Azure Stack Hub. Les tests de validation sont planifiés à partir de cette page.
 
 Chaque instance de test planifiée affiche les informations suivantes :
 
@@ -86,7 +86,7 @@ Sélectionnez **Afficher les informations** dans le menu contextuel pour affiche
 | Test version (Version du test) | La version du test. |
 | Serveur de publication | L’éditeur du test. |
 | Category |  L’objectif du test. |
-| Target services (Services cibles) | Les services Azure Stack en cours de test. |
+| Target services (Services cibles) | Les services Azure Stack Hub en cours de test. |
 | Description | Description du test. |
 | Estimated duration (minutes) (Durée estimée [en minutes]) | Le runtime attendu du test. |
 | Liens | Toutes les informations pertinentes concernant le test ou les points de contact. |
