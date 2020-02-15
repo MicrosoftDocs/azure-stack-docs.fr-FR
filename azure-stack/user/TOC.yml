@@ -253,6 +253,7 @@
             - name: Déployer une application web NodeJS
               href: azure-stack-dev-start-howto-vm-nodejs.md
     - name: Déployer des modèles fondamentaux
+      href: deploy-foundational-patterns.md
       items:
         - name: Modèles réseau
           items:
@@ -282,7 +283,6 @@
               href: azure-stack-network-howto-iscsi-storage.md
             - name: Étendre le centre de données
               href: azure-stack-network-howto-extend-datacenter.md
-        - name: Peering de réseaux virtuels
         - name: Sauvegarde et récupération
           items:
             - name: Sauvegarder votre machine virtuelle sur Azure Stack Hub avec CommVault
