@@ -1,24 +1,24 @@
 ---
-title: Notes de publication de la validation en tant que service (VaaS) d’Azure Stack
-description: Notes de publication d’Azure Stack Validation en tant que service
+title: Notes de publication de la validation en tant que service (VaaS) d’Azure Stack Hub
+description: Notes de publication de la validation en tant que service (VaaS) d’Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
 ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 63602a3bd4f53eada398dc6959a59202e0614708
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4995dfae7a4a505fd260978c25c2fd401768cf63
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884046"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143935"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Notes de publication de Validation en tant que service
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Cet article présente les notes de publication d’Azure Stack Validation en tant que service.
+Cet article présente les notes de publication de la validation en tant que service d’Azure Stack Hub.
 
 ## <a name="version-4421"></a>Version 4.4.2.1
 
@@ -36,9 +36,9 @@ Cet article présente les notes de publication d’Azure Stack Validation en tan
 3 décembre 2019
 
 - Test des mises à jour de contenu
-  - La documentation en ligne relative au workflow de mise à jour mensuelle Azure Stack et au workflow de validation de package OEM a été mise à jour. Consultez la documentation mise à jour ici. Validez les packages OEM ici. Validez les mises à jour logicielles de Microsoft
-  - Mise à jour du workflow de validation de package VaaS : Le workflow de validation OEM est le seul test requis pour la vérification des mises à jour mensuelles Azure Stack et la validation des packages OEM. Le test met à jour l’horodatage avec les packages AzureStack/OEM fournis et exécute les tests de vérification de Cloud Simulation Engine.
-  - Mise à jour de l’extension VaaS PowerShell : L’automatisation du workflow de validation de package est désormais prise en charge. Pour plus d’informations sur l’emplacement et obtenir des instructions pas à pas afin d’utiliser cette extension, consultez Automatiser le service VaaS pour Azure Stack avec PowerShell.
+  - La documentation en ligne relative au workflow de mise à jour mensuelle Azure Stack Hub et au workflow de validation de package OEM a été mise à jour. Consultez la documentation mise à jour ici. Validez les packages OEM ici. Validez les mises à jour logicielles de Microsoft
+  - Mise à jour du workflow de validation de package VaaS : Le workflow de validation OEM est le seul test exigé pour la vérification de mise à jour mensuelle Azure Stack Hub et la validation de package OEM. Le test met à jour l’horodatage avec les packages AzureStack/OEM fournis et exécute les tests de vérification de Cloud Simulation Engine.
+  - Mise à jour de l’extension VaaS PowerShell : L’automatisation du workflow de validation de package est désormais prise en charge. Pour plus d’informations sur l’emplacement et obtenir des instructions pas à pas afin d’utiliser cette extension, consultez Automatiser le service VaaS pour Azure Stack Hub avec PowerShell.
 
 - Problèmes connus
   - Contactez vaashelp@microsoft.com si les cas de test suivants ne s’exécutent pas pendant le workflow de validation OEM :
@@ -51,12 +51,12 @@ Cet article présente les notes de publication d’Azure Stack Validation en tan
 7 novembre 2019
 
 - Test des mises à jour de contenu
-  - Vérification de la mise à jour mensuelle Azure Stack (Version 5.1.46.0 -> 5.1.49.0)
+  - Vérification de la mise à jour mensuelle Azure Stack Hub (Version 5.1.46.0 -> 5.1.49.0)
   - Vérification des packages d’extensions OEM (Version 5.1.46.0 -> 5.1.49.0)
   - Les résultats de la version 5.1.46.0 ont été conservés. Si l’exécution est réussie sur la version 5.1.46.0, adressez une notification à vaashelp@microsoft.com au moment de l’envoi des résultats.
 
 - Résolution des bogues
-  - Correction d’un problème où la vérification de la mise à jour mensuelle Azure Stack ne pouvait pas s’exécuter si le fichier .zip de la mise à jour contenait des caractères spéciaux.
+  - Correction d’un problème où la vérification de la mise à jour mensuelle Azure Stack Hub ne pouvait pas s’exécuter si le fichier .zip de la mise à jour contenait des caractères spéciaux.
 
 - Problèmes connus
   - Échec des tests VaaS si mstest.exe est introuvable. Solution de contournement :
@@ -71,19 +71,19 @@ Cet article présente les notes de publication d’Azure Stack Validation en tan
 
 29 octobre 2019
 
-- La documentation en ligne relative au workflow de mise à jour mensuelle Azure Stack et au workflow de validation de package OEM a été mise à jour.
+- La documentation en ligne relative au workflow de mise à jour mensuelle Azure Stack Hub et au workflow de validation de package OEM a été mise à jour.
 
     Consultez la documentation mise à jour ici. Validez les packages OEM ici. Validez les mises à jour logicielles de Microsoft
-- Mise à jour du workflow VaaS : Mise à jour mensuelle Azure Stack (version 5.1.30.0 -> 5.1.46.0) - Le workflow de test de vérification de la mise à jour mensuelle Azure Stack a été mis à jour.
+- Mise à jour du workflow VaaS : Mise à jour mensuelle Azure Stack Hub (version 5.1.30.0 -> 5.1.46.0) - Le workflow test de vérification de mise à jour mensuelle Azure Stack Hub a été mis à jour.
 
     Le workflow ne nécessite plus d’intervention manuelle et peut être planifié pour une exécution sans interruption.
 - Mise à jour du workflow VaaS : Validation de package OEM (version 5.1.30.0 -> 5.1.46.0) - Le workflow de validation de package OEM a été mis à jour.
 
     Le workflow ne nécessite plus d’intervention manuelle et peut être planifié pour une exécution sans interruption.
 - Cloud Simulation Engine dans le workflow de validation de package OEM (version 5.1.30.0 -> 5.1.46.0) a été mis à jour pour raccourcir le délai de validation : Durée d’exécution réduite à 1 heure.
-- Dans le workflow de validation de package OEM et le workflow de mise à jour Azure Stack (version 5.1.30.0 -> 5.1.46.0), Cloud Simulation Engine nécessite la présence des mises à jour à valider dans 2 dossiers parents distincts sans aucune autre mise à jour dans les dossiers enfants.
-- Dans le workflow de validation de package OEM et le workflow de mise à jour Azure Stack (version 5.1.30.0 -> 5.1.46.0), Cloud Simulation Engine nécessite une planification des tests dans l’ordre suivant : test de vérification mensuelle de la mise à jour Azure Stack, test de vérification du package d’extension OEM, et enfin Cloud Simulation Engine.
-- Mise à jour de l’agent VaaS : L’agent VaaS mis à jour utilise désormais les informations d’identification d’administrateur du cloud Azure Stack pour demander et obtenir les informations d’horodatage afin de permettre le remplissage automatique des workflows. 
+- Dans le workflow de validation de package OEM et le workflow de mise à jour Azure Stack Hub (version 5.1.30.0 -> 5.1.46.0), Cloud Simulation Engine nécessite la présence des mises à jour à valider dans 2 dossiers parents distincts sans aucune autre mise à jour dans les dossiers enfants.
+- Dans le workflow de validation de package OEM et le workflow de mise à jour Azure Stack Hub (version 5.1.30.0 -> 5.1.46.0), Cloud Simulation Engine nécessite une planification des tests dans l’ordre suivant : test de vérification de mise à jour mensuelle Azure Stack Hub, test de vérification de package d’extension OEM, et enfin Cloud Simulation Engine.
+- Mise à jour de l’agent VaaS : L’agent VaaS mis à jour utilise désormais les informations d’identification d’administrateur du cloud Azure Stack Hub pour demander et obtenir les informations d’horodatage, afin de permettre le remplissage automatique des workflows. 
 
     Cette mise à jour nécessite la mise à jour et le redémarrage de tous les agents. Consultez les instructions suivantes pour savoir comment mettre à jour l’agent VaaS : https://docs.microsoft.com/azure-stack/partner/azure-stack-vaas-local-agent
 - Mise à jour de l’IU du portail VaaS : Le tableau de sélection d’agents a été déplacé au-dessus du volet de planification des tests pour faciliter les tests.
@@ -103,15 +103,15 @@ Cet article présente les notes de publication d’Azure Stack Validation en tan
 17 janvier 2019
 
 - Disk Identification Test mis à jour pour résoudre les incohérences du pool de stockage. Version : 5.1.14.0 -> 5.1.15.0
-- Azure Stack Monthly Update Verification mis à jour pour résoudre les incohérences de validation du contenu et du logiciel approuvés. Version : 5.1.14.0 -> 5.1.17.0
-- OEM Extension Package Verification mis à jour pour effectuer les vérifications nécessaires avant l’étape de mise à jour d’Azure Stack. Version : 5.1.14.0 -> 5.1.16.0
+- Mise à jour de la vérification de la mise à jour mensuelle Azure Stack Hub pour résoudre les incohérences de validation du contenu et du logiciel approuvés. Version : 5.1.14.0 -> 5.1.17.0
+- Mise à jour de la vérification des packages d’extension OEM pour effectuer les vérifications nécessaires avant l’étape de mise à jour d’Azure Stack Hub. Version : 5.1.14.0 -> 5.1.16.0
 - Correctifs de bogues internes
 
 ## <a name="version-402"></a>Version 4.0.2
 
 7 janvier 2019
 
-Si vous exécutez le flux de travail Vérification de mise à jour mensuelle Azure Stack et que la version correspondant à votre package de mise à jour OEM n'est pas 1810 ou version ultérieure, vous recevez un message d'erreur lorsque vous accéder à l'étape de mise à jour OEM. Il s'agit d'un bogue. Un correctif est en cours de développement. Les étapes d’atténuation sont les suivantes :
+Si vous exécutez le workflow de vérification de mise à jour mensuelle Azure Stack Hub et que la version correspondant à votre package de mise à jour OEM n’est pas 1810 ou une version ultérieure, vous recevez un message d’erreur lorsque vous accédez à l’étape de mise à jour OEM. Il s'agit d'un bogue. Un correctif est en cours de développement. Les étapes d’atténuation sont les suivantes :
 
 1. Exécutez normalement la mise à jour OEM.
 2. Exécutez Test-AzureStack après avoir appliqué le package et enregistré la sortie.
@@ -160,7 +160,7 @@ Si vous exécutez le flux de travail Vérification de mise à jour mensuelle Azu
                               -CloudAdminCredentials $CloudAdminCreds
     ```
     > [!NOTE]
-    > Les informations d’identification `$CloudAdminCreds` requises par le script concernent l’instance Azure Stack en cours de validation. Ce ne sont pas les informations d’identification Azure Active Directory utilisées par le locataire VaaS.
+    > Les informations d’identification `$CloudAdminCreds` demandées par le script concernent l’instance Azure Stack Hub en cours de validation. Ce ne sont pas les informations d’identification Azure Active Directory utilisées par le locataire VaaS.
 
 - Mise à jour de l’agent local
 
@@ -178,11 +178,11 @@ Si vous exécutez le flux de travail Vérification de mise à jour mensuelle Azu
 
   - Catégorie de test interactif
 
-    La catégorie de test **interactif** a été ajoutée. Ces tests exécutent des scénarios Azure Stack interactifs, non automatisés.
+    La catégorie de test **interactif** a été ajoutée. Ces tests exécutent des scénarios Azure Stack Hub interactifs, non automatisés.
 
   - Vérification interactive des fonctionnalités
 
-    La capacité de fournir des commentaires ciblés pour certaines fonctionnalités est maintenant disponible dans le flux de travail de passe de test. Le test `OEM Update on Azure Stack 1806 RC Validation 5.1.4.0` vérifie si des mises à jour spécifiques ont été correctement appliquées, puis il collecte des commentaires.
+    La capacité de fournir des commentaires ciblés pour certaines fonctionnalités est maintenant disponible dans le flux de travail de passe de test. Le test `OEM Update on Azure Stack Hub 1806 RC Validation 5.1.4.0` vérifie si des mises à jour spécifiques ont été correctement appliquées, puis il collecte des commentaires.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

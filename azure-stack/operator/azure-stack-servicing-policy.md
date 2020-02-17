@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Découvrez la stratégie de maintenance Azure Stack Hub et comment conserver un système intégré dans un état de prise en charge.
 author: sethmanheim
 ms.topic: article
-ms.date: 10/30/2019
+ms.date: 02/07/2020
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 280509c989a10b11884e93947d20569b3c128426
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: be2da63bcb2eb986a14ebae417810ee4b585714d
+ms.sourcegitcommit: 2377c6947cf846fd2a4a0274c41326293a2a239c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882924"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075953"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Stratégie de maintenance Azure Stack Hub
 
@@ -77,6 +77,9 @@ Les packages de mise à jour logicielle Microsoft ne sont pas cumulatifs et requ
 
 Azure Stack Hub suit le même processus de support qu’Azure. Les clients d’entreprise peuvent suivre le processus décrit dans [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Si vous êtes client d’un fournisseur de solutions cloud (CSP), contactez-le pour obtenir de l’aide. Pour plus d’informations, consultez le [Forum Aux Questions sur le support technique Azure](https://azure.microsoft.com/support/faq/).
 
+Pour obtenir de l’aide dans la résolution des problèmes de mise à jour, consultez [Bonnes pratiques pour résoudre les problèmes liés aux correctifs logiciels et aux mises à jour Azure Stack Hub](azure-stack-updates-troubleshoot.md).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Gérer les mises à jour dans Azure Stack Hub](azure-stack-updates.md)
+- [Bonnes pratiques pour résoudre les problèmes liés aux correctifs logiciels et aux mises à jour Azure Stack Hub](azure-stack-updates-troubleshoot.md)

@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: b8ad46128d3b0228fdc2e6ecc0c3ca507b4ec697
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 0a15f4256349b9080f73d976f4e4a9782fd5b665
+ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882738"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77147889"
 ---
 # <a name="create-highly-available-mysql-databases"></a>Créer des bases de données MySQL hautement disponibles
 
@@ -78,7 +78,7 @@ Utilisez les étapes décrites dans cette section pour déployer le cluster MySQ
    - Sélectionnez le groupe de ressources existant à utiliser ou créez-en un.
    - Sélectionnez l’emplacement (par défaut, « local » pour ASDK).
 
-   ![Concepts de base du déploiement : Créer MySQL with Replication](media/azure-stack-tutorial-mysqlrp/2-sm.PNG)](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
+   [![Concepts de base du déploiement : Créer MySQL with Replication](media/azure-stack-tutorial-mysqlrp/2-sm.PNG)](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 
 4. Dans la page **Configuration de l’environnement**, entrez les informations suivantes, puis sélectionnez **OK** :
 
@@ -86,11 +86,11 @@ Utilisez les étapes décrites dans cette section pour déployer le cluster MySQ
    - Taille de machine virtuelle (« Standard D1 v2 » par défaut).
    - Taille du disque de données en Go
 
-   ![Configuration de l’environnement : Créer MySQL with Replication](media/azure-stack-tutorial-mysqlrp/3-sm.PNG)](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
+   [![Configuration de l’environnement : Créer MySQL with Replication](media/azure-stack-tutorial-mysqlrp/3-sm.PNG)](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
 
 5. Examinez le **Résumé** du déploiement. Si vous le souhaitez, téléchargez le modèle personnalisé et les paramètres associés, puis sélectionnez **OK**.
 
-   ![Récapitulatif : Créer MySQL with Replication](media/azure-stack-tutorial-mysqlrp/4-sm.PNG)](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
+   [![Récapitulatif : Créer MySQL with Replication](media/azure-stack-tutorial-mysqlrp/4-sm.PNG)](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
 
 6. Sélectionnez **Créer** dans la page **Acheter** pour démarrer le déploiement.
 

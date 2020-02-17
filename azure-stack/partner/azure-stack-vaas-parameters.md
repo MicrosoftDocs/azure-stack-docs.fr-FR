@@ -1,6 +1,6 @@
 ---
-title: Paramètres communs de workflow pour la validation en tant que service (VaaS) d’Azure Stack
-description: Paramètres de flux de travail communs pour la validation en tant que service Azure Stack
+title: Paramètres de workflow communs dans la validation en tant que service Azure Stack Hub
+description: Paramètres de workflow communs pour la validation en tant que service Azure Stack Hub
 author: mattbriggs
 ms.topic: article
 ms.date: 1/22/2020
@@ -8,14 +8,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: ee72aca1cbba27c75d2811dac96d4b0a78a87617
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: cc237792576ffa3a5bb3ad0a003da4284c9cc56f
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885036"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143687"
 ---
-# <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Paramètres de flux de travail communs pour la validation en tant que service Azure Stack
+# <a name="workflow-common-parameters-for-azure-stack-hub-validation-as-a-service"></a>Paramètres de workflow communs pour la validation en tant que service Azure Stack Hub
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -26,14 +26,14 @@ Les paramètres communs comprennent des valeurs telles que les variables d’env
 
 ## <a name="environment-parameters"></a>Paramètres d’environnement
 
-Les paramètres d’environnement décrivent l’environnement Azure Stack testé. Ces valeurs doivent être fournies en générant et en chargeant un fichier d’informations d’horodatage Azure Stack pour l’instance spécifique que vous testez.
+Les paramètres d’environnement décrivent l’environnement Azure Stack Hub testé. Ces valeurs doivent être fournies en générant et en chargeant un fichier d’informations d’horodatage Azure Stack Hub pour l’instance spécifique que vous testez.
 
 > [!NOTE]
 > Dans les flux de travail de validation officielle, les paramètres d’environnement ne peuvent pas être modifiés après la création du flux de travail.
 
 ### <a name="generate-the-stamp-information-file"></a>Générer le fichier d’informations d’horodatage
 
-1. Connectez-vous à la machine DVM ou à n’importe quelle machine ayant accès à l’environnement Azure Stack.
+1. Connectez-vous à la machine DVM ou à n’importe quelle machine ayant accès à l’environnement Azure Stack Hub.
 2. Exécutez les commandes suivantes dans une fenêtre PowerShell avec élévation de privilèges :
 
     ```powershell  
@@ -54,9 +54,9 @@ Les paramètres de test communs comportent des informations sensibles qui ne peu
 
 Paramètre    | Description
 -------------|-----------------
-Tenant Administrator User (Utilisateur administrateur de locataire)                            | Administrateur de locataire Azure Active Directory qui a été approvisionné par l’administrateur de services fédérés dans le répertoire AAD. Cet utilisateur exécute des actions au niveau du locataire, comme le déploiement de modèles pour configurer des ressources (machines virtuelles, comptes de stockage, etc.) et l’exécution de charges de travail. Pour plus d’informations sur l’approvisionnement du compte de locataire, consultez [Ajouter un nouveau compte de locataire Azure Stack dans Azure Active Directory](../operator/azure-stack-add-new-user-aad.md).
-Utilisateur administrateur de service             | Administrateur Azure Active Directory du locataire du répertoire Azure AD spécifié au cours du déploiement Azure Stack. Recherchez `AADTenant` dans le fichier config ECE et sélectionnez la valeur dans l’élément `UniqueName`.
-Cloud Administrator User (Utilisateur administrateur de cloud)               | Compte administrateur de domaine Azure Stack (par exemple, `contoso\cloudadmin`). Recherchez `User Role="CloudAdmin"` dans le fichier config ECE et sélectionnez la valeur dans l’élément `UserName`.
+Tenant Administrator User (Utilisateur administrateur de locataire)                            | Administrateur de locataire Azure Active Directory qui a été approvisionné par l’administrateur de services fédérés dans le répertoire AAD. Cet utilisateur exécute des actions au niveau du locataire, comme le déploiement de modèles pour configurer des ressources (machines virtuelles, comptes de stockage, etc.) et l’exécution de charges de travail. Pour plus d’informations sur le provisionnement du compte de locataire, consultez [Ajouter un nouveau locataire Azure Stack Hub](../operator/azure-stack-add-new-user-aad.md).
+Utilisateur administrateur de service             | Administrateur Azure Active Directory du locataire Azure AD Directory spécifié au cours du déploiement Azure Stack Hub. Recherchez `AADTenant` dans le fichier config ECE et sélectionnez la valeur dans l’élément `UniqueName`.
+Cloud Administrator User (Utilisateur administrateur de cloud)               | Compte administrateur de domaine Azure Stack Hub (par exemple, `contoso\cloudadmin`). Recherchez `User Role="CloudAdmin"` dans le fichier config ECE et sélectionnez la valeur dans l’élément `UserName`.
 Chaîne de connexion des diagnostics          | Une URL de signature d’accès partagé d’un compte Stockage Azure dans lequel les journaux de diagnostic sont copiés pendant l’exécution des tests. Pour obtenir des instructions sur la génération de l’URL de signature d’accès partagé, consultez [Générer la chaîne de connexion des diagnostics](#generate-the-diagnostics-connection-string). |
 
 > [!IMPORTANT]

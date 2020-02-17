@@ -1,32 +1,33 @@
 ---
-title: Rapport de validation pour Azure Stack Hub
-description: Utilisez le rapport de l’outil Azure Stack Hub Readiness Checker pour passer en revue les résultats de la validation.
+title: Rapport de validation Azure Stack Hub
+titleSuffix: Azure Stack Hub
+description: Utilisez l’outil Azure Stack Hub Readiness Checker pour générer un rapport de validation.
 author: ihenkel
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 21c19a368b62a35e3b2daeef2a0e36f84eb4e527
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a2264608c295a29fecc5335ce4970499dd10c895
+ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880572"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77147724"
 ---
 # <a name="azure-stack-hub-validation-report"></a>Rapport de validation Azure Stack Hub
 
-Utilisez l’outil *Azure Stack Hub Readiness Checker* pour exécuter des validations qui prennent en charge le déploiement et la maintenance d’un environnement Azure Stack Hub. L’outil écrit les résultats dans un fichier de rapport .json. Le rapport affiche des données détaillées et synthétisées sur l’état des prérequis pour le déploiement d’Azure Stack Hub. Le rapport affiche également des informations sur la rotation des secrets pour les déploiements Azure Stack Hub existants.  
+Utilisez l’outil [Azure Stack Hub Readiness Checker](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.2002.1111.69) pour exécuter des validations qui prennent en charge le déploiement et la maintenance d’un environnement Azure Stack Hub. L’outil écrit les résultats dans un fichier de rapport .json. Le rapport affiche des données détaillées et synthétisées sur l’état des prérequis pour le déploiement d’Azure Stack Hub. Le rapport affiche également des informations sur la rotation des secrets pour les déploiements Azure Stack Hub existants.  
 
 ## <a name="where-to-find-the-report"></a>Emplacement du rapport
 
 Quand l’outil s’exécute, il journalise les résultats dans **AzsReadinessCheckerReport.json**. L’outil crée également un journal nommé **AzsReadinessChecker.log**. L’emplacement de ces fichiers est indiqué avec les résultats de la validation dans PowerShell :
 
-![run-validation](./media/azure-stack-validation-report/validation.png)
+![résultats de l’exécution de la validation pour Azure Stack Hub Readiness Checker](./media/azure-stack-validation-report/validation.png)
 
 Les deux fichiers conservent les résultats des vérifications de validation exécutées postérieurement sur le même ordinateur. Par exemple, vous pouvez exécuter l’outil pour valider des certificats, le réexécuter pour valider l’identité Azure, puis l’exécuter une troisième fois pour valider l’inscription. Les résultats des trois validations sont disponibles dans le rapport .json généré.  
 
-Par défaut, les deux fichiers sont écrits dans **C:\Users\nom_utilisateur\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**.  
+Par défaut, les deux fichiers sont écrits dans `C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json`.  
 
 - Utilisez le paramètre `-OutputPath <path>` situé à la fin de la ligne de commande pour spécifier un emplacement de rapport différent.
 - Utilisez le paramètre `-CleanReport` à la fin de la ligne de commande pour effacer les informations sur les exécutions précédentes de l’outil du fichier **AzsReadinessCheckerReport.json**.
@@ -93,7 +94,7 @@ Pour voir un récapitulatif du rapport, vous pouvez ajouter le paramètre `-summ
 Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary
 ```
 
-Le récapitulatif affiche les validations qui n’ont pas de résultats et indique l’état de réussite ou d’échec des validations terminées. Le résultat ressemble à l’exemple suivant :
+Le récapitulatif affiche les validations qui n’ont pas de résultats, et indique l’état de réussite ou d’échec des validations terminées. Le résultat ressemble à l’exemple suivant :
 
 ```shell
 Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
@@ -121,7 +122,7 @@ Azure Stack Hub ADFS Validation results not available.
 
 ## <a name="view-a-filtered-report"></a>Afficher un rapport filtré
 
-Pour afficher un rapport filtré sur un seul type de validation, utilisez le paramètre **-ReportSections** avec l’une des valeurs suivantes :
+Pour afficher un rapport filtré sur un seul type de validation, utilisez le paramètre `-ReportSections` avec l’une des valeurs suivantes :
 
 - Certificat
 - AzureRegistration

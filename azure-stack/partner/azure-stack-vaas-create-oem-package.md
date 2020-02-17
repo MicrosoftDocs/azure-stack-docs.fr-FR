@@ -1,5 +1,5 @@
 ---
-title: Bonnes pratiques relatives à la validation Azure Stack
+title: Bonnes pratiques relatives à la validation Azure Stack Hub
 description: Cet article décrit les meilleures pratiques concernant l’utilisation de la Validation en tant que Service.
 author: mattbriggs
 ms.topic: article
@@ -8,18 +8,18 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 19446113fc2e167d83b578fbad15964b21001ef4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 647e724b179d994819032859c325bf711cb9d2ee
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885057"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143824"
 ---
 # <a name="create-an-oem-package"></a>Créer un package OEM
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Le Package d’Extension OEM Azure Stack est le mécanisme par lequel le contenu spécifique OEM est ajouté à l’infrastructure Azure Stack, pour une utilisation lors du déploiement ainsi que pour les processus opérationnels tels que la mise à jour, l’expansion et le remplacement de champ.
+Le Package d’Extension OEM Azure Stack Hub est le mécanisme par lequel le contenu spécifique OEM est ajouté à l’infrastructure Azure Stack Hub, pour une utilisation lors du déploiement ainsi que pour les processus opérationnels tels que la mise à jour, l’expansion et le remplacement de champ.
 
 ## <a name="creating-the-package"></a>Création du package
 

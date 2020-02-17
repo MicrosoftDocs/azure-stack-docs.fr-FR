@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: b230c78811e79e7a04114b77a2fcacd1b2a2fc9c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2f0b520b4c615e56fea7575422b306c226188eb0
+ms.sourcegitcommit: 23861d659c89c2d36390085fe9532b2bcba2100d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884123"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075214"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>Configurer les paramètres de passerelle VPN pour Azure Stack Hub
 
@@ -160,9 +160,9 @@ Contrairement à Azure qui prend en charge plusieurs offres en tant qu’initiat
 | Propriété              | Valeur|
 |-|-|
 | Version IKE           | IKEv2 |
-|Groupe Diffie-Hellman   | ECP384 |
+|Groupe Diffie-Hellman*   | ECP384 |
 | Méthode d'authentification | Clé prépartagée |
-|Chiffrement et algorithmes de hachage | AES256, SHA384 |
+|Chiffrement et algorithmes de hachage* | AES256, SHA384 |
 |Durée de vie de l’AS (durée)     | 28 800 secondes|
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Paramètres IKE Phase 2 (Mode rapide)
@@ -174,8 +174,19 @@ Contrairement à Azure qui prend en charge plusieurs offres en tant qu’initiat
 |Chiffrement et algorithmes de hachage (Authentification) | GCMAES256|
 |Durée de vie de l’AS (durée)  | 27 000 secondes  |
 |Durée de vie de l’AS (kilo-octets) | 33 553 408     |
-|PFS (Perfect Forward Secrecy) | ECP384 |
-|Détection d’homologue mort | Prise en charge|  
+|PFS (Perfect Forward Secrecy)* | ECP384 |
+|Détection d’homologue mort | Prise en charge| 
+
+>[!NOTE]
+>Les valeurs par défaut pour Groupe Diffie-Hellman, Algorithme de hachage et PFS ont été modifiées dans les builds 1910 et ultérieures. Si votre version de build d’Azure Stack Hub est inférieure à 1910, utilisez les valeurs suivantes pour les paramètres ci-dessus :
+
+>| Propriété| Valeur|
+>|-|-|
+>|Groupe Diffie-Hellman   | DHGroup2 |
+>|Algorithmes de hachage | SHA256 |
+>|PFS (Perfect Forward Secrecy) | None |
+
+\* Paramètre nouveau ou modifié.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

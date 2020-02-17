@@ -1,26 +1,26 @@
 ---
-title: Utiliser le portail de validation en tant que service (VaaS) d’Azure Stack pour planifier votre premier test
-description: Utilisez le portail de Validation en tant que service pour le portail Azure Stack pour planifier votre premier test.
+title: Utiliser le portail de validation en tant que service (VaaS) d’Azure Stack Hub pour planifier votre premier test
+description: Utilisez le portail de validation en tant que service (VaaS) d’Azure Stack Hub pour planifier votre premier test.
 author: mattbriggs
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 166a75da9f6571e80cdfe213fe0ea32c58279dac
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f69629fea796d43e756ccf5436635d282a07b17e
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885125"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143729"
 ---
 # <a name="scheduling-a-test"></a>Planification d’un test
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Planifiez un test dans le portail Validation en tant que Service (VaaS) pour votre solution Azure Stack. Une solution VaaS est une solution Azure Stack associée à une nomenclature matérielle (BoM) particulière. Vous pouvez planifier un test pour vérifier que votre matériel peut exécuter Azure Stack.
+Planifiez un test dans le portail Validation en tant que Service (VaaS) pour votre solution Azure Stack Hub. Une solution VaaS est une solution Azure Stack Hub associée à une nomenclature (BoM) matérielle particulière. Vous pouvez planifier un test pour vérifier que votre matériel peut exécuter Azure Stack Hub.
 
-Pour vérifier votre solution, créez le flux de travail pour un test. Un flux de travail VaaS intervient dans le contexte d’une solution VaaS. Il représente un ensemble de suites de tests qui testent les fonctionnalités d’un déploiement Azure Stack sur votre matériel. Ajoutez les paramètres de l’environnement de votre solution et sélectionnez un ou plusieurs tests à exécuter sur votre solution.
+Pour vérifier votre solution, créez le flux de travail pour un test. Un flux de travail VaaS intervient dans le contexte d’une solution VaaS. Il représente un ensemble de batterie de tests qui testent les fonctionnalités d’un déploiement Azure Stack Hub sur votre matériel. Ajoutez les paramètres de l’environnement de votre solution et sélectionnez un ou plusieurs tests à exécuter sur votre solution.
 
 Si le flux de travail Passe de test peut être utilisé pour exécuter n’importe quel test fourni par VaaS, y compris des tests des flux de travail de validation, les résultats du flux de travail Passe de test ne sont pas considérés comme *officiels*. Pour plus d’informations sur les workflows de validation officiels, consultez [Flux de travail](azure-stack-vaas-key-concepts.md#workflows).
 

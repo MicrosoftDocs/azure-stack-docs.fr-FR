@@ -1,18 +1,19 @@
 ---
-title: Questions fréquentes (FAQ) sur Windows Server dans Azure Stack Hub
-description: FAQ sur Windows Server dans la Place de marché Azure Stack Hub
+title: FAQ relative à Windows Server dans la Place de marché Azure Stack Hub
+titleSuffix: Azure Stack Hub
+description: Questions fréquentes (FAQ) sur Windows Server dans la Place de marché Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
 ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 5a0c02737610a663448286b16afbf1504102a8a6
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: 217bd904d7f0afb62f483f27ba2f800c6d93b6c7
+ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890134"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77147796"
 ---
 # <a name="windows-server-in-azure-stack-hub-marketplace-faq"></a>FAQ relative à Windows Server dans la Place de marché Azure Stack Hub
 
@@ -24,16 +25,16 @@ Cet article répond à certaines questions fréquentes sur les images Windows Se
 
 Déterminez d’abord si des modèles Azure Resource Manager font référence à des versions spécifiques. Si tel est le cas, mettez à jour ces modèles ou conservez les anciennes versions de l’image. Il est préférable d’utiliser **version: latest**.
 
-Ensuite, si des groupes de machines virtuelles identiques font référence à une version spécifique, déterminez s’ils vont être mis à l’échelle plus tard, et décidez si les anciennes versions doivent être conservées ou non. Si aucune de ces conditions ne s’applique, supprimez les anciennes images de la Place de marché avant de télécharger les plus récentes. Utilisez pour cela le panneau Gestion de la Place de marché si la version d’origine a été téléchargée de cette façon. Téléchargez ensuite la version plus récente.
+Ensuite, si des groupes de machines virtuelles identiques font référence à une version spécifique, déterminez s’ils vont être mis à l’échelle plus tard, et décidez si les anciennes versions doivent être conservées ou non. Si aucune de ces conditions ne s’applique, supprimez les anciennes images de la Place de marché Azure Stack Hub avant de télécharger les plus récentes. Utilisez pour cela le panneau Gestion de la Place de marché si la version d’origine a été téléchargée de cette façon. Téléchargez ensuite la version plus récente.
 
 ### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack-hub"></a>Quelles sont les options de licence pour les images Place de Marché Windows Server sur Azure Stack Hub ?
 
-Les images Windows Server proposées par Microsoft par le biais de la place de marché Azure Stack Hub sont disponibles en deux versions. Une seule version de cette image peut être utilisée dans un environnement Azure Stack Hub.  
+Les images Windows Server proposées par Microsoft via la Place de marché Azure Stack Hub sont disponibles en deux versions. Une seule version de cette image peut être utilisée dans un environnement Azure Stack Hub.  
 
-- **Paiement à l’utilisation** : ces images sont associées à des compteurs Windows plein tarif.
-   Public visé : clients Contrat Entreprise (EA) utilisant le *modèle de facturation Consommation* et fournisseurs de services cloud ne souhaitant pas utiliser de licence SPLA.
+- **Paiement à l’utilisation (PAYG)**  : ces images sont associées à des compteurs Windows plein tarif.
+   À qui s’adresse cette option : clients Contrat Entreprise (EA) utilisant le *modèle de facturation Consommation* et fournisseurs de services cloud ne souhaitant pas utiliser de licence SPLA.
 - **BYOL (apportez votre propre licence)**  : ces images sont associées à des compteurs de base.
-   Public visé : clients EA disposant d’une licence Windows Server et fournisseurs de services cloud utilisant une licence SPLA.
+   À qui s’adresse cette option : clients EA disposant d’une licence Windows Server et fournisseurs de services cloud utilisant une licence SPLA.
 
 Azure Hybrid Use Benefit (AHUB) n’est pas pris en charge sur Azure Stack Hub. Les clients qui concèdent des licences par le biais du modèle « Capacité » doivent utiliser l’image BYOL. Si vous effectuez des tests avec le Kit de développement Azure Stack (ASDK), vous pouvez utiliser l’une de ces options.
 
@@ -41,11 +42,11 @@ Azure Hybrid Use Benefit (AHUB) n’est pas pris en charge sur Azure Stack Hub. 
 
 Commencez par supprimer la version incorrecte de la place de marché. Attendez que l’opération se termine (ce qui est indiqué dans une notification, et non dans le panneau **Gestion de la Place de marché**). Téléchargez ensuite la bonne version.
 
-Si vous téléchargez les deux versions de l’image, seule la dernière version est visible pour les clients finaux dans la galerie de la place de marché.
+Si vous téléchargez les deux versions de l’image, seule la dernière version est visible pour les clients finals dans la Place de marché Azure Stack Hub.
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>Que faire si l’un de mes utilisateurs a par erreur coché la case « J’ai une licence » dans les builds Windows précédentes alors qu’il n’a pas de licence ?
 
-Vous pouvez modifier l’attribut de modèle de licence pour passer de la licence BYOL (apportez votre propre licence) au modèle de paiement à l’utilisation (PAYG) en exécutant le script suivant :
+Vous pouvez changer l’attribut de modèle de licence pour passer de la licence BYOL au modèle PAYG en exécutant le script suivant :
 
 ```powershell
 $vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
@@ -53,7 +54,7 @@ $vm.LicenseType = "None"
 Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 
-Vous pouvez vérifier le type de licence de votre machine virtuelle en exécutant les commandes suivantes. Si le modèle de licence indique **Windows_Server**, vous êtes facturé selon les tarifs BYOL ; sinon, vous êtes facturé sur la base des compteurs Windows, conformément au modèle PAYG :
+Vous pouvez vérifier le type de licence de votre machine virtuelle en exécutant les commandes suivantes. Si le modèle de licence indique **Windows_Server**, vous êtes facturé selon le tarif BYOL. Sinon, vous êtes facturé sur la base du compteur Windows, conformément au modèle PAYG :
 
 ```powershell
 $vm | ft Name, VmId,LicenseType,ProvisioningState
@@ -61,7 +62,7 @@ $vm | ft Name, VmId,LicenseType,ProvisioningState
 
 ### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>Que faire si j’ai une ancienne image et que l’un de mes utilisateurs a oublié de cocher la case « J’ai une licence » ou si j’utilise mes propres images et que je ne dispose pas du droit Contrat Entreprise ?
 
-Vous pouvez modifier l’attribut de modèle de licence pour passer à la licence BYOL (apportez votre propre licence) les commandes suivantes :
+Vous pouvez changer l’attribut de modèle de licence pour passer au modèle BYOL en exécutant les commandes suivantes :
 
 ```powershell
 $vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
@@ -71,9 +72,9 @@ Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 
 ### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>Qu’en est-il des autres machines virtuelles qui utilisent Windows Server, par exemple SQL ou Machine Learning Server ?
 
-Ces images appliquent le paramètre **licenseType**, donc elles sont basées sur le paiement à l’utilisation. Vous pouvez définir ce paramètre (voir la réponse précédente). Ceci ne s’applique qu’aux logiciels Windows Server. Les produits en couche comme SQL, qui vous obligent à apporter votre propre licence, ne sont pas concernés. Les licences avec paiement à l’utilisation ne s’appliquent pas aux produits logiciels en couche.
+Ces images appliquent le paramètre **licenseType**, elles sont donc PAYG. Vous pouvez définir ce paramètre (voir la réponse précédente). Ceci ne s’applique qu’aux logiciels Windows Server. Les produits en couche comme SQL, qui vous obligent à apporter votre propre licence, ne sont pas concernés. Les licences PAYG ne s’appliquent pas aux produits logiciels en couche.
 
-Notez que vous pouvez uniquement changer la propriété **licenseType** pour les images SQL Server de la Place de marché si la version est XX.X.20190410 ou une version ultérieure. Si vous exécutez une version antérieure des images SQL Server de la Place de marché, vous ne pouvez pas changer l’attribut **licenseType**. Vous devez effectuer un redéploiement à l’aide des dernières images SQL Server de la Place de marché.
+Vous pouvez uniquement changer la propriété **licenseType** pour les images SQL Server de la Place de marché Azure Stack Hub si la version est XX.X.20190410 ou ultérieure. Si vous exécutez une version antérieure des images SQL Server de la Place de marché Azure Stack Hub, vous ne pouvez pas changer l’attribut **licenseType**. Vous devez effectuer un redéploiement à l’aide des dernières images SQL Server de la Place de marché Azure Stack Hub.
 
 ### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>J’ai un Contrat Entreprise (EA) et je vais utiliser ma licence Windows Server EA. Comment m’assurer que les images sont facturées correctement ?
 
@@ -86,7 +87,7 @@ Pour activer une machine virtuelle Windows Server sur Azure Stack Hub, les condi
 - Le fabricant OEM a défini le marqueur BIOS approprié sur chaque système hôte dans Azure Stack Hub.
 - Windows Server 2012 R2 et Windows Server 2016 doivent utiliser l’[activation automatique de machine virtuelle](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)). Le service de gestion de clés (KMS) et d’autres services d’activation ne sont pas pris en charge sur Azure Stack Hub.
 
-### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>Comment vérifier que ma machine virtuelle est activée ?
+### <a name="how-can-i-verify-that-my-vm-is-activated"></a>Comment vérifier que ma machine virtuelle est activée ?
 
 Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges :
 
@@ -94,9 +95,9 @@ Exécutez la commande suivante à partir d’une invite de commandes avec élév
 slmgr /dlv
 ```
 
-Si la machine virtuelle est correctement activée, c’est clairement indiqué et le nom d’hôte apparaît dans la sortie `slmgr`. Ne vous fiez pas aux filigranes à l’écran, car ils peuvent soit ne pas être à jour, soit provenir d’une autre machine virtuelle derrière la vôtre.
+Si la machine virtuelle est correctement activée, c’est clairement indiqué et le nom d’hôte apparaît dans la sortie `slmgr`. Ne vous fiez pas aux filigranes à l’écran, car ils peuvent ne pas être à jour ou provenir d’une autre machine virtuelle derrière la vôtre.
 
-### <a name="my-vm-is-not-set-up-to-use-avma-how-can-i-fix-it"></a>Comment réparer ma machine virtuelle si elle n’est pas configurée pour utiliser AVMA ?
+### <a name="my-vm-isnt-set-up-to-use-avma-how-can-i-fix-it"></a>Comment corriger ma machine virtuelle si elle n’est pas configurée pour utiliser AVMA ?
 
 Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges :
 
@@ -104,17 +105,17 @@ Exécutez la commande suivante à partir d’une invite de commandes avec élév
 slmgr /ipk <AVMA key>
 ```
 
-Consultez l’article [Activation automatique de machine virtuelle](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) pour obtenir les clés à utiliser pour votre image.
+Consultez l’article [Activation automatique des machines virtuelles](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) pour obtenir les clés à utiliser pour votre image.
 
 ### <a name="i-create-my-own-windows-server-images-how-can-i-make-sure-they-use-avma"></a>Je crée mes propres images Windows Server. Comment m’assurer qu’elles utilisent AVMA ?
 
 Nous vous recommandons d’exécuter la ligne de commande `slmgr /ipk` avec la clé appropriée avant de lancer la commande `sysprep`. Vous pouvez également inclure la clé AVMA dans n’importe quel fichier d’installation Unattend.exe.
 
-### <a name="i-am-trying-to-use-my-windows-server-2016-image-created-on-azure-and-it-is-not-activating-or-using-kms-activation"></a>J’essaie d’utiliser mon image Windows Server 2016 créée sur Azure, mais elle ne s’active pas ou n’utilise pas l’activation KMS.
+### <a name="i-am-trying-to-use-my-windows-server-2016-image-created-on-azure-and-its-not-activating-or-using-kms-activation"></a>J’essaie d’utiliser mon image Windows Server 2016 créée sur Azure, mais elle ne s’active pas ou n’utilise pas l’activation KMS.
 
-Exécutez la commande `slmgr /ipk`. Les images Azure peuvent ne pas revenir correctement à AVMA. Toutefois, si elles parviennent à atteindre le système Azure KMS, elles seront activées. Nous vous recommandons de vérifier que ces machines virtuelles sont définies de manière à utiliser AVMA.
+Exécutez la commande `slmgr /ipk`. Les images Azure peuvent ne pas revenir correctement à AVMA. Toutefois, si elles parviennent à atteindre le système Azure KMS, elles seront activées. Nous vous recommandons de vérifier que ces machines virtuelles sont configurées pour utiliser AVMA.
 
-### <a name="i-have-performed-all-of-these-steps-but-my-virtual-machines-are-still-not-activating"></a>J’ai effectué toutes ces étapes, mais mes machines virtuelles ne sont toujours pas activées.
+### <a name="i-have-performed-all-of-these-steps-but-my-vms-are-still-not-activating"></a>J’ai effectué toutes ces étapes, mais mes machines virtuelles ne sont toujours pas activées.
 
 Contactez le fournisseur de votre matériel pour vérifier que les bons marqueurs BIOS ont été installés.
 

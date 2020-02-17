@@ -1,20 +1,21 @@
 ---
-title: Dans cet article, vous allez apprendre à mettre à jour les offres et les plans Azure Stack Hub
-description: Cet article explique comment afficher et modifier les offres et les plans Azure Stack Hub existants.
+title: Créer des plans d’extension
+titleSuffix: Azure Stack Hub
+description: Découvrez comment créer des plans d’extension dans Azure Stack Hub.
 author: bryanla
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: c4c01db560bbcd0f8312d205ad4643d4af48fed5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 134e5def9de8adfe7f6146f6355d67d6a775afaf
+ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880007"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77147801"
 ---
-# <a name="azure-stack-hub-add-on-plans"></a>Plans additionnels Azure Stack Hub
+# <a name="create-add-on-plans-in-azure-stack-hub"></a>Créer des plans d’extension dans Azure Stack Hub
 
 En tant qu'opérateur Azure Stack Hub, vous créez des plans additionnels pour modifier un [plan de base](azure-stack-create-plan.md) lorsque vous souhaitez proposer des services supplémentaires ou étendre vos quotas en matière d'*ordinateurs*, de *stockage* ou de *réseau* au-delà de l'offre initiale du plan de base. Les plans additionnels modifient le plan de base et sont des extensions facultatives que les utilisateurs peuvent choisir d’activer dans leur abonnement.
 
@@ -32,43 +33,45 @@ Les plans additionnels sont [créés de la même façon ](azure-stack-create-pla
 
 1. Connectez-vous au portail d'administration Azure Stack Hub en tant qu'administrateur de cloud.
 2. Suivez les étapes décrites pour [créer un nouveau plan de base](azure-stack-create-plan.md) afin de créer un plan offrant des services qui n’étaient pas proposés auparavant.
-3. Dans le portail de l’administrateur, cliquez sur **Offres** , puis sélectionnez l’offre à mettre à jour avec un plan d’extension.
+3. Dans le portail de l’administrateur, sélectionnez **Offres** , puis sélectionnez l’offre à mettre à jour avec un plan d’extension.
 
-   ![Créer un plan d’extension](media/create-add-on-plan/add-on1.png)
+   ![Sélectionner l’offre à mettre à jour avec le plan d’extension dans le portail d’administration Azure Stack](media/create-add-on-plan/add-on1.png)
 
-4. En bas des propriétés de l’offre, sélectionnez **Plans d’extension**. Cliquez sur **Add**.
+4. En bas des propriétés de l’offre, sélectionnez **Plans d’extension**. Sélectionnez **Ajouter**.
 
-    ![Créer un plan d’extension](media/create-add-on-plan/add-on2.png)
+    ![Sélectionner les plans d’extension dans le portail d’administration Azure Stack](media/create-add-on-plan/add-on2.png)
 
 5. Sélectionnez le plan à ajouter. Dans cet exemple, le plan s’intitule **20-storageaccounts**. Après avoir sélectionné le plan, cliquez sur **Sélectionnez** pour ajouter le plan à l’offre. Vous devriez recevoir une notification vous indiquant que le plan a été ajouté à l’offre.
 
-    ![Créer un plan d’extension](media/create-add-on-plan/add-on3.png)
+    ![Sélectionner le plan d’extension à ajouter dans le portail d’administration Azure Stack](media/create-add-on-plan/add-on3.png)
 
 6. Passez en revue la liste des plans d’extension inclus dans l’offre pour vérifier que le nouveau y figure.
 
-    [![Créer un plan additionnel](media/create-add-on-plan/add-on4.png "Créer un plan d’extension")](media/create-add-on-plan/add-on4lg.png#lightbox)
+    ![Passer en revue la liste des plans d’extension dans le portail d’administration Azure Stack](media/create-add-on-plan/add-on4.png "Créer un plan d’extension")](media/create-add-on-plan/add-on4lg.png#lightbox)
 ::: moniker-end
 
 ::: moniker range="<=azs-1901"
+
 ## <a name="create-an-add-on-plan-1901-and-earlier"></a>Créer un plan d’extension (versions 1901 et antérieures)
 
 1. Connectez-vous au portail d'administration Azure Stack Hub en tant qu'administrateur de cloud.
 2. Suivez les étapes décrites pour [créer un nouveau plan de base](azure-stack-create-plan.md) afin de créer un plan offrant des services qui n’étaient pas proposés auparavant. Dans cet exemple, les services Key Vault (**Microsoft.KeyVault**) seront inclus dans le nouveau plan.
-3. Dans le portail de l’administrateur, cliquez sur **Offres** , puis sélectionnez l’offre à mettre à jour avec un plan d’extension.
+3. Dans le portail de l’administrateur, sélectionnez **Offres** , puis sélectionnez l’offre à mettre à jour avec un plan d’extension.
 
-   ![Créer un plan d’extension](media/create-add-on-plan/1.PNG)
+   ![Sélectionner l’offre à mettre à jour avec le plan d’extension dans le portail d’administration Azure Stack](media/create-add-on-plan/1.PNG)
 
-4. Faites défiler les propriétés de l’offre jusqu’en bas et sélectionnez **Plans d’extension**. Cliquez sur **Add**.
+4. Faites défiler les propriétés de l’offre jusqu’en bas et sélectionnez **Plans d’extension**. Sélectionnez **Ajouter**.
 
-    ![Créer un plan d’extension](media/create-add-on-plan/2.PNG)
+    ![Sélectionner les plans d’extension dans le portail d’administration Azure Stack](media/create-add-on-plan/2.PNG)
 
 5. Sélectionnez le plan à ajouter. Dans cet exemple, le plan s’intitule **Key vault plan**. Après avoir sélectionné le plan, cliquez sur **Sélectionnez** pour ajouter le plan à l’offre. Vous devriez recevoir une notification vous indiquant que le plan a été ajouté à l’offre.
 
-    ![Créer un plan d’extension](media/create-add-on-plan/3.PNG)
+    ![Sélectionner le plan d’extension à ajouter dans le portail d’administration Azure Stack](media/create-add-on-plan/3.PNG)
 
 6. Passez en revue la liste des plans d’extension inclus dans l’offre pour vérifier que le nouveau y figure.
 
-    ![Créer un plan d’extension](media/create-add-on-plan/4.PNG)
+    ![Passer en revue la liste des plans d’extension dans le portail d’administration Azure Stack](media/create-add-on-plan/4.PNG)
+
 ::: moniker-end
 
 ## <a name="next-steps"></a>Étapes suivantes
