@@ -1,18 +1,18 @@
 ---
 title: Superviser les mises à jour dans Azure Stack Hub à l’aide du point de terminaison privilégié
 description: Découvrez comment utiliser le point de terminaison privilégié pour surveiller l’état des mises à jour pour les systèmes intégrés Azure Stack Hub.
-author: mattbriggs
+author: ihenkel
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: c116051e305f78fd281f420de2f31dbee36601af
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f320973cfd5b7e9117eeeeb1463ee9b45cb5448f
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881890"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492170"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Superviser les mises à jour dans Azure Stack Hub à l’aide du point de terminaison privilégié
 

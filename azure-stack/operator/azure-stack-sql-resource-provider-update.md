@@ -2,18 +2,18 @@
 title: Mettre à jour le fournisseur de ressources SQL Azure Stack Hub
 titleSuffix: Azure Stack Hub
 description: Découvrez comment mettre à jour le fournisseur de ressources SQL Azure Stack Hub.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 11/11/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 07f372f1974780d2310b12cc8d874808e010ac3c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 09a9b190594eb4d737b54c971fc2e3dbd03cd5f9
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881264"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491745"
 ---
 # <a name="update-the-sql-resource-provider"></a>Mettre à jour le fournisseur de ressources SQL
 

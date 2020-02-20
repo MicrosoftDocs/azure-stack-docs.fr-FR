@@ -1,18 +1,18 @@
 ---
 title: Notes de publication de la version 1.1.30.0 du fournisseur de ressources MySQL Azure Stack Hub
 description: Consultez les notes de publication pour découvrir les nouveautés incluses dans la mise à jour 1.1.30.0 du fournisseur de ressources MySQL Azure Stack Hub.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 3598fe210f951e33905bc369b73fd29f9d2a9d5b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 49e161588ba3dadaba0ec55bb63963cb7cc93bce
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881908"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492153"
 ---
 # <a name="mysql-resource-provider-11300-release-notes"></a>Notes de publication 1.1.30.0 de fournisseur de ressources MySQL
 

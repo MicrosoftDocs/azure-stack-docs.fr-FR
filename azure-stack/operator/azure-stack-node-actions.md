@@ -1,18 +1,18 @@
 ---
 title: Mettre à l’échelle des actions de nœud d’unité dans Azure Stack Hub
 description: Découvrez les actions de nœud d'unité d’échelle (mise sous tension, mise hors tension, désactivation et reprise) et la façon d’afficher l’état d’un nœud dans des systèmes intégrés Azure Stack Hub.
-author: mattbriggs
+author: ihenkel
 ms.topic: article
 ms.date: 11/11/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: c9a82059d1b4d8dee853394160997a1366ee8597
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d633aacdc95f273a275f45b7525cfb4f75eecd2a
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881670"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491966"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Mettre à l’échelle des actions de nœud d’unité dans Azure Stack Hub
 

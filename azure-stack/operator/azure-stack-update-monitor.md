@@ -1,18 +1,18 @@
 ---
 title: Superviser les mises à jour dans Azure Stack Hub à l’aide de PowerShell
 description: Apprendre à surveiller les mises à jour dans Azure Stack Hub à l’aide de PowerShell
-author: mattbriggs
+author: ihenkel
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 12c3de988fde0dc7b5abd35bfa07c504f8c60c4b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 02ca66c4dcbd7d02f2129686d4c0a75d84f3ae28
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882690"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491371"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>Superviser les mises à jour dans Azure Stack Hub à l’aide de PowerShell
 

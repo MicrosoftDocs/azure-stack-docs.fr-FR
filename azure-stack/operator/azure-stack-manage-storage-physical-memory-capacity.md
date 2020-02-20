@@ -1,18 +1,18 @@
 ---
 title: Gérer la capacité de mémoire physique dans Azure Stack Hub
 description: Apprenez à surveiller et gérer la mémoire physique et la capacité dans Azure Stack Hub.
-author: mattbriggs
+author: ihenkel
 ms.topic: conceptual
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 5d0b0c160fc502629a23e799e50569886dd7c000
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 87c6bcc7e82ebc7d0f5a017200cccc2e702d6aa7
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881987"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492204"
 ---
 # <a name="manage-physical-memory-capacity-in-azure-stack-hub"></a>Gérer la capacité de mémoire physique dans Azure Stack Hub
 

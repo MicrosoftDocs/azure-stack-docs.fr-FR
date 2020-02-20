@@ -2,18 +2,18 @@
 title: Créer des bases de données SQL
 titleSuffix: Azure Stack Hub
 description: Découvrez comment créer et gérer des bases de données SQL provisionnées avec l’adaptateur du fournisseur de ressources SQL.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: b0ea11c3245d8a3ddbf9eeaf85481f830c67dc7f
-ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
+ms.openlocfilehash: 673fd958d257a04d8c8d6f45350143c3c9d181ab
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77125584"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491847"
 ---
 # <a name="create-sql-databases"></a>Créer des bases de données SQL
 

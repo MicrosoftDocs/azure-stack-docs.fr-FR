@@ -2,18 +2,18 @@
 title: Remplacer un nœud d'unité d'échelle sur un système intégré Azure Stack Hub
 titleSuffix: Azure Stack Hub
 description: Apprenez à remplacer un nœud d'unité d'échelle physique sur un système intégré Azure Stack Hub.
-author: mattbriggs
+author: ihenkel
 ms.topic: article
 ms.date: 11/11/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 9f0a1e21367ee345a004e875594ad6472b3e6a49
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 39c99ff8e57c89e08e053fdaaa845cbbcef57411
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882965"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491898"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-hub-integrated-system"></a>Remplacer un nœud d'unité d'échelle sur un système intégré Azure Stack Hub
 

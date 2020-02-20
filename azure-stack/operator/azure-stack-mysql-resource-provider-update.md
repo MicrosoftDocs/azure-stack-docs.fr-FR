@@ -1,18 +1,18 @@
 ---
 title: Mettre à jour le fournisseur de ressources MySQL dans Azure Stack Hub
 description: Découvrez comment mettre à jour le fournisseur de ressources MySQL dans Azure Stack Hub.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: bdb370b4b9583544075a77dcb4e5d9b7c85d852c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7bd1e47c87d0d746f862f64284eb1c1f915c883f
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881754"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492034"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>Mettre à jour le fournisseur de ressources MySQL dans Azure Stack Hub
 

@@ -2,18 +2,18 @@
 title: Configurer la télémétrie Azure Stack Hub
 titleSuffix: Azure Stack
 description: Apprenez-en davantage sur la télémétrie Azure Stack Hub et sur la configuration des paramètres de télémétrie à l’aide de PowerShell.
-author: mattbriggs
+author: ihenkel
 ms.topic: conceptual
 ms.date: 1/16/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: cc4122424f990fd0c218899956e9ea32a695fe99
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f4f5094cf797a2ab6abf020c81ccb23bc10ad748
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880945"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491456"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>Configurer la télémétrie Azure Stack Hub
 

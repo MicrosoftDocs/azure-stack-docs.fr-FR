@@ -2,18 +2,18 @@
 title: Inscrire Azure Stack Hub auprès d’Azure
 titleSuffix: Azure Stack Hub
 description: Découvrez comment inscrire les systèmes intégrés Azure Stack Hub auprès d’Azure afin de pouvoir télécharger des éléments de la Place de marché Azure et configurer les rapports de données.
-author: mattbriggs
+author: ihenkel
 ms.topic: article
 ms.date: 2/02/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 568bcc7b04da397dff343662a8e80b86e27d2618
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: 6a56c6381cc1a88729b31c5d020460100d29ca39
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972582"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491915"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Inscrire Azure Stack Hub auprès d’Azure
 
@@ -24,7 +24,7 @@ Les informations contenues dans cet article décrivent l’inscription de systè
 > [!IMPORTANT]  
 > L’inscription est obligatoire pour prendre en charge les fonctionnalités complètes d’Azure Stack Hub, notamment pour proposer les éléments sur la Place de marché. Vous enfreignez les conditions du contrat de licence d’Azure Stack Hub si vous ne vous inscrivez pas lorsque vous utilisez le modèle de facturation à l’utilisation. Pour en savoir plus sur les modèles de licence d’Azure Stack Hub, consultez la [page Comment acheter](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vous devez mettre en place les prérequis suivants avant l’inscription :
 
