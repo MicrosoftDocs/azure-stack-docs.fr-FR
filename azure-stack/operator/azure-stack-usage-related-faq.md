@@ -153,7 +153,7 @@ Des rapports d’utilisation sont générés pour les fournisseurs de ressources
 **Nom du compteur** : ActualPremiumDiskSize **Unité** : Go\*mois **Remarques** : Taille réelle du disque managé Premium.
 
 **ID du compteur** : 108fa95b-be0d-4cd9-96e8-5b0d59505df1  
-**Nom du compteur** : ActualStandardSnapshotSize **Unité** : Go**mois **Remarques** : taille réelle de la capture instantanée sur le disque managé Standard.  
+**Nom du compteur** : ActualStandardSnapshotSize **Unité** : Go\*mois **Remarques** : taille réelle de la capture instantanée sur le disque managé Standard.  
 
 **ID du compteur** : 578ae51d-4ef9-42f9-85ae-42b52d3d83ac **Nom du compteur** : ActualPremiumSnapshotSize **Unité** : Go\*mois **Remarques** : Taille réelle de la capture instantanée sur le disque managé Premium.
 
@@ -285,7 +285,7 @@ Des rapports d’utilisation sont générés pour les fournisseurs de ressources
 **Unité** : Go  
 **Remarques**: Total d’octets de la réponse à la demande entrante + total d’octets de la demande sortante + total d’octets de la réponse à la demande FTP entrante + total d’octets de la réponse à la demande de déploiement web entrante.  
   
-## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>En quoi les API d’utilisation d’Azure Stack Hub sont-elles comparables aux [API d’utilisation d’Azure](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (actuellement en préversion publique) ?
+## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-api-currently-in-public-preview"></a>En quoi les API d’utilisation d’Azure Stack Hub sont-elles comparables aux [API d’utilisation d’Azure](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (actuellement en préversion publique) ?
 
 * L’API d’utilisation du locataire fonctionne de la même manière que l’API Azure, à une exception près : l’indicateur *showDetails* n’est pas pris en charge dans Azure Stack Hub.
 * L’API d’utilisation du fournisseur s’applique uniquement à Azure Stack Hub.
