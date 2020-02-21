@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 0a15f4256349b9080f73d976f4e4a9782fd5b665
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: 7201ad85961ecf08d1162d97aa684625e0782d35
+ms.sourcegitcommit: 381e4e47851dd2526bbf04d6b06af90fb1fb6a49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147889"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77363014"
 ---
 # <a name="create-highly-available-mysql-databases"></a>Créer des bases de données MySQL hautement disponibles
 
@@ -60,13 +60,15 @@ Utilisez les étapes décrites dans cette section pour déployer le cluster MySQ
 - Trois machines virtuelles Linux pour héberger le cluster MySQL
 
 1. 
-   [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../includes/azs-user-portal.md)]
 
-2. Sélectionnez **\+** **Créer une ressource** > **Calcul**, puis **MySQL with Replication**.
+2. Si aucun abonnement n’a encore été affecté, sélectionnez **Prendre un abonnement** dans le tableau de bord. Dans le panneau, tapez un nom pour l’abonnement, puis sélectionnez une offre. Il est recommandé de conserver le déploiement du cluster MySQL dans son propre abonnement pour éviter toute suppression accidentelle.
 
-   ![Déploiement de modèle personnalisé dans Azure Stack Hub](media/azure-stack-tutorial-mysqlrp/1.png)
+3. Sélectionnez **\+** **Créer une ressource** > **Calcul**, puis **MySQL with Replication**.
 
-3. Spécifiez les informations de base du déploiement dans la page **De base**. Examinez les valeurs par défaut et modifiez-les au besoin, puis sélectionnez **OK**.
+   ![Déploiement de modèle personnalisé dans Azure Stack Hub](media/azure-stack-tutorial-mysqlrp/img1.png)
+
+4. Spécifiez les informations de base du déploiement dans la page **De base**. Examinez les valeurs par défaut et modifiez-les au besoin, puis sélectionnez **OK**.
 
     Au minimum, spécifiez les informations suivantes :
 
@@ -78,28 +80,28 @@ Utilisez les étapes décrites dans cette section pour déployer le cluster MySQ
    - Sélectionnez le groupe de ressources existant à utiliser ou créez-en un.
    - Sélectionnez l’emplacement (par défaut, « local » pour ASDK).
 
-   [![Concepts de base du déploiement : Créer MySQL with Replication](media/azure-stack-tutorial-mysqlrp/2-sm.PNG)](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
+     ![Concepts de base du déploiement : Créer MySQL with Replication](media/azure-stack-tutorial-mysqlrp/img2.png)
 
-4. Dans la page **Configuration de l’environnement**, entrez les informations suivantes, puis sélectionnez **OK** :
+5. Dans la page **Configuration de l’environnement**, entrez les informations suivantes, puis sélectionnez **OK** :
 
    - Mot de passe ou clé publique SSH à utiliser pour l’authentification SSH (secure shell). Si vous utilisez un mot de passe, celui-ci doit contenir des lettres et des chiffres, et il **peut** contenir des caractères spéciaux.
    - Taille de machine virtuelle (« Standard D1 v2 » par défaut).
    - Taille du disque de données en Go
 
-   [![Configuration de l’environnement : Créer MySQL with Replication](media/azure-stack-tutorial-mysqlrp/3-sm.PNG)](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
+     ![Configuration de l’environnement : Créer MySQL with Replication](media/azure-stack-tutorial-mysqlrp/img3.png)
 
-5. Examinez le **Résumé** du déploiement. Si vous le souhaitez, téléchargez le modèle personnalisé et les paramètres associés, puis sélectionnez **OK**.
+6. Examinez le **Résumé** du déploiement. Si vous le souhaitez, téléchargez le modèle personnalisé et les paramètres associés, puis sélectionnez **OK**.
 
-   [![Récapitulatif : Créer MySQL with Replication](media/azure-stack-tutorial-mysqlrp/4-sm.PNG)](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
+   ![Récapitulatif : Créer MySQL with Replication](media/azure-stack-tutorial-mysqlrp/img4.png)
 
-6. Sélectionnez **Créer** dans la page **Acheter** pour démarrer le déploiement.
+7. Sélectionnez **Créer** dans la page **Acheter** pour démarrer le déploiement.
 
-   ![Page Acheter : Créer MySQL with Replication](media/azure-stack-tutorial-mysqlrp/5.png)
+   ![Page Acheter : Créer MySQL with Replication](media/azure-stack-tutorial-mysqlrp/img5.png)
 
     > [!NOTE]
     > Le déploiement prendra environ une heure. Vérifiez que le déploiement est terminé et que le cluster MySQL a été entièrement configuré avant de continuer.
 
-7. Une fois tous les déploiements terminés, examinez les éléments du groupe de ressources, puis sélectionnez l’élément Adresse IP publique **mysqlip**. Notez l’adresse IP publique et le nom de domaine complet de l’adresse IP pour le cluster.
+8. Une fois tous les déploiements terminés, examinez les éléments du groupe de ressources, puis sélectionnez l’élément Adresse IP publique **mysqlip**. Notez l’adresse IP publique et le nom de domaine complet de l’adresse IP pour le cluster.
 
     Vous devrez fournir ces informations à un opérateur Azure Stack Hub pour lui permettre de créer un serveur d’hébergement MySQL qui utilise ce cluster MySQL.
 
@@ -109,13 +111,13 @@ Par défaut, aucun accès public n’est configuré pour MySQL dans la machine v
 
 1. Dans le portail d’administration, accédez au groupe de ressources créé lors du déploiement du cluster MySQL et sélectionnez le groupe de sécurité réseau (**default-subnet-sg**) :
 
-   ![Sélectionner un groupe de sécurité réseau dans le portail d’administration Azure Stack Hub](media/azure-stack-tutorial-mysqlrp/6.png)
+   ![Sélectionner un groupe de sécurité réseau dans le portail d’administration Azure Stack Hub](media/azure-stack-tutorial-mysqlrp/img6.png)
 
 2. Sélectionnez les **règles de sécurité de trafic entrant**, puis sélectionnez **Ajouter**.
 
     Entrez **3306** dans **Plage de ports de destination** et, si vous le souhaitez, spécifiez une description dans les champs **Nom** et **Description**.
 
-   ![ouvert](media/azure-stack-tutorial-mysqlrp/7.png)
+   ![ouvert](media/azure-stack-tutorial-mysqlrp/img7.png)
 
 3. Sélectionnez **Ajouter** pour fermer la boîte de dialogue Règle de sécurité de trafic entrant.
 

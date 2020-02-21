@@ -1,18 +1,18 @@
 ---
 title: Ajouter des serveurs d’hébergement MySQL dans Azure Stack Hub
 description: Découvrez comment ajouter des serveurs d’hébergement MySQL pour l’approvisionnement via le fournisseur de ressources de l’adaptateur MySQL.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 11/06/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 6cd5d09dcfc2467bd596b94597d001c4803e1655
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f8c998675f3446941a00da9d9a444f1f9186e60e
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881813"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492085"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>Ajouter des serveurs d’hébergement MySQL dans Azure Stack Hub
 
@@ -22,6 +22,39 @@ Vous pouvez héberger une instance de serveur d’hébergement MySQL sur une mac
 > Le fournisseur de ressources MySQL doit être créé dans l’abonnement fournisseur par défaut, alors que les serveurs d’hébergement MySQL doivent être créés dans des abonnements utilisateur facturables. Le serveur du fournisseur de ressources ne doit pas héberger de bases de données utilisateur.
 
 Vous pouvez utiliser les versions de MySQL 5.6, 5.7 et 8.0 pour vos serveurs d’hébergement. Le fournisseur de ressources MySQL ne prend pas en charge l’authentification caching_sha2_password ; celle-ci sera ajoutée dans la prochaine version. Les serveurs MySQL 8.0 doivent être configurés pour utiliser mysql_native_password. MariaDB est également pris en charge.
+
+## <a name="configure-external-access-to-the-mysql-hosting-server"></a>Configurer l’accès externe au serveur d’hébergement MySQL
+
+Avant de pouvoir ajouter le serveur MySQL comme hôte de serveur MySQL Azure Stack Hub, vous devez activer l’accès externe. Prenez BitNami MySQL, qui est disponible dans la Place de marché Azure Stack Hub comme exemple. Vous pouvez effectuer les étapes suivantes pour configurer l’accès externe.
+
+1. Avec un client SSH (cet exemple utilise [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)), connectez-vous au serveur MySQL à partir d’un ordinateur ayant accès à l’adresse IP publique.
+
+    Utilisez l’adresse IP publique et connectez-vous à la machine virtuelle avec le nom d’utilisateur **bitnami** et avec le mot de passe d’application sans caractères spéciaux que vous avez créé précédemment.
+
+   ![LinuxLogin](media/azure-stack-tutorial-mysqlrp/bitnami1.png)
+
+2. Dans la fenêtre du client SSH, utilisez la commande suivante pour vérifier que le service bitnami est actif et en cours d’exécution. Spécifiez à nouveau le mot de passe de bitnami quand vous y êtes invité :
+
+   `sudo service bitnami status`
+
+   ![Vérifier le service bitnami](media/azure-stack-tutorial-mysqlrp/bitnami2.png)
+
+3. Créez un compte d’utilisateur d’accès à distance à utiliser par le serveur d’hébergement MySQL Azure Stack Hub pour vous connecter à MySQL, puis quittez le client SSH.
+
+    Exécutez les commandes suivantes pour vous connecter à MySQL en tant qu’utilisateur racine, en utilisant le mot de passe racine créé précédemment. Créez un utilisateur administrateur et remplacez *\<nom d’utilisateur\>* et *\<mot de passe\>* par les valeurs appropriées pour votre environnement. Dans cet exemple, l’utilisateur créé est nommé **sqlsa** et un mot de passe fort est utilisé :
+
+   ```mysql
+   mysql -u root -p
+   create user <username>@'%' identified by '<password>';
+   grant all privileges on *.* to <username>@'%' with grant option;
+   flush privileges;
+   ```
+
+   ![Créer un utilisateur administrateur](media/azure-stack-tutorial-mysqlrp/bitnami3.png)
+
+4. Notez les informations du nouvel utilisateur MySQL.
+
+Ce nom d’utilisateur et ce mot de passe sont utilisés quand l’opérateur Azure Stack Hub crée un serveur d’hébergement MySQL à l’aide de ce serveur MySQL.
 
 ## <a name="connect-to-a-mysql-hosting-server"></a>Se connecter à un serveur d’hébergement MySQL
 

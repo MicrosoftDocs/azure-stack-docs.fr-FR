@@ -3,21 +3,21 @@ title: Autoriser des applications à accéder aux secrets d’un Key Vault Azure
 description: Découvrez comment exécuter un exemple d’application qui récupère des clés et secrets d’un coffre de clés dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/06/2020
+ms.date: 02/19/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 11b26d5e079ce16c7450bea0424aa4902c0ff8b3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4db38de1586096cfeeb2e7f2b806430d0ca1344f
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883573"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492306"
 ---
 # <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>Autoriser des applications à accéder aux secrets d’un Key Vault Azure Stack Hub
 
 Suivez les étapes de cet article pour exécuter l’exemple d’application **HelloKeyVault** qui récupère des clés et secrets d’un coffre de clés dans Azure Stack Hub.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vous pouvez installer les prérequis suivants à partir du [Kit de développement Azure Stack](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) ou à partir d’un client externe Windows si vous êtes [connecté via un VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) :
 
@@ -142,9 +142,17 @@ Pour charger l’exemple **HelloKeyVault** :
 Dans Visual Studio :
 
 1. Ouvrez le fichier HelloKeyVault\App.config et accédez à l’élément `<appSettings>`.
-2. Mettez à jour les clés **VaultUrl**, **AuthClientId** et **AuthClientSecret** avec les valeurs retournées lors de la création du coffre de clés. Par défaut, le fichier App.config a un espace réservé pour `AuthCertThumbprint`. Remplacez cet espace réservé par `AuthClientSecret`.
+2. Mettez à jour les clés **VaultUrl**, **AuthClientId** et **AuthCertThumbprint** avec les valeurs retournées lors de la création du coffre de clés. Par défaut, le fichier App.config a un espace réservé pour `AuthCertThumbprint`. Remplacez cet espace réservé par `AuthClientSecret`.
 
-   ![Paramètres de l’application](media/azure-stack-key-vault-sample-app/appconfig.png)
+   ```xml
+   <appSettings>
+    <!-- Update these settings for your test environment -->
+    <add key="VaultUrl" value="URL to your Vault" />
+    <add key="AuthClientId" value="Client Id of your Service Principal" />
+    <add key="AuthCertThumbprint" value="Thumbprint of the certificate used for authentication" />
+    <add key="TracingEnabled" value="false" />
+   </appSettings>
+   ```
 
 3. Régénérez la solution.
 

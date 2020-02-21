@@ -3,16 +3,16 @@ title: Liste de contrôle des activités de mise à jour Azure Stack Hub
 description: Liste de contrôle pour préparer votre système à la dernière mise à jour Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 02/20/2020
 ms.author: sethm
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 7ee8a4bc80b211b8e6aa8fd77d29ae5cf4c524e1
-ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
+ms.openlocfilehash: e1260cec62c2b1906f76004f04010e0f0857664e
+ms.sourcegitcommit: b501f9dc931bb0a1648b768f7ea47116b4dfda33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77037180"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213661"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Liste de contrôle des activités de mise à jour Azure Stack Hub
 
@@ -31,7 +31,7 @@ Passez en revue cette liste de contrôle pour préparer une mise à jour Azure S
 | Exécuter **Test-AzureStack** | Exécutez `Test-AzureStack -Group UpdateReadiness` pour identifier les problèmes fonctionnels. L’applet de commande est accessible via la session PEP (session de point de terminaison privilégié). Pour plus d’informations, consultez [Valider l’état du système Azure Stack Hub](azure-stack-diagnostic-test.md). |
 | Résoudre les problèmes | Résolvez les problèmes fonctionnels identifiés par `Test-AzureStack`. |
 | Mise à jour disponible | Dans les scénarios connectés uniquement, les déploiements Azure Stack Hub vérifient périodiquement un point de terminaison sécurisé et vous notifient automatiquement l’existence d’une mise à jour pour votre cloud. Les clients déconnectés peuvent télécharger et importer de nouveaux packages en suivant la [procédure décrite ici](azure-stack-apply-updates.md). |
-| Planifier une fenêtre de maintenance et informer vos utilisateurs | Informez les utilisateurs de toutes les opérations de maintenance et planifiez dans la mesure du possible les fenêtres de maintenance ordinaire pendant les heures creuses. Les opérations de maintenance peuvent affecter les charges de travail de locataires existantes et provoquer l’échec des nouvelles opérations de locataires (par exemple, la création, la reconfiguration ou la suppression de machines virtuelles), si l’opération est lancée à partir du portail ou par programme à partir de l’API Azure Resource Manager. Pour les mises à jour express et complètes d’Azure Stack Hub, vous pouvez consulter les [notes de publication](release-notes.md) afin d’avoir une estimation du délai d’attente pour recevoir la mise à jour de la version que vous appliquez. |
+| Planifier une fenêtre de maintenance et informer vos utilisateurs | Informez les utilisateurs de toutes les opérations de maintenance et planifiez dans la mesure du possible les fenêtres de maintenance ordinaire pendant les heures creuses. Les opérations de maintenance peuvent affecter les charges de travail de locataires existantes et provoquer l’échec des nouvelles opérations de locataires (par exemple, la création, la reconfiguration ou la suppression de machines virtuelles), si l’opération est lancée à partir du portail ou par programme à partir de l’API Azure Resource Manager. D’autres opérations, comme la sauvegarde, peuvent également ne pas être disponibles tant que la mise à jour n’est pas terminée. Pour les mises à jour express et complètes d’Azure Stack Hub, vous pouvez consulter les [notes de publication](release-notes.md) afin d’avoir une estimation du délai d’attente pour recevoir la mise à jour de la version que vous appliquez. |
 
 ## <a name="during-azure-stack-hub-update"></a>Durant l’application de la mise à jour Azure Stack Hub
 

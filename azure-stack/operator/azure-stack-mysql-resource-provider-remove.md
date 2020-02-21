@@ -1,18 +1,18 @@
 ---
 title: Supprimer le fournisseur de ressources MySQL dans Azure Stack Hub
 description: Découvrez comment supprimer le fournisseur de ressources MySQL de votre déploiement Azure Stack Hub.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 89d0a55797b6182b7490778db10914a09977e105
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: e432e0a37dbcea7bf441594ba6669ee15578b3e4
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881781"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492051"
 ---
 # <a name="remove-the-mysql-resource-provider-in-azure-stack-hub"></a>Supprimer le fournisseur de ressources MySQL dans Azure Stack Hub
 
@@ -21,16 +21,7 @@ Avant de supprimer le fournisseur de ressources MySQL, vous devez supprimer tout
 > [!NOTE]
 > Les liens de téléchargement des programmes d’installation du fournisseur de ressources sont disponibles dans les [Conditions préalables pour le déploiement du fournisseur de ressources](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
-Le fait de supprimer le fournisseur de ressources MySQL ne supprime pas les bases de données locataires des serveurs d’hébergement.
-
-## <a name="dependency-cleanup"></a>Nettoyage de la dépendance
-
-Vous devez effectuer plusieurs tâches de nettoyage avant d’exécuter le script DeployMySqlProvider.ps1 pour supprimer le fournisseur de ressources.
-
-L’opérateur Azure Stack Hub est responsable des tâches de nettoyage suivantes :
-
-* Supprimer tous les plans qui référencent l’adaptateur MySQL.
-* Supprimer tous les quotas associés à l’adaptateur MySQL.
+Le fait de supprimer le fournisseur de ressources MySQL supprime les plans et les quotas associés gérés par l’opérateur. Mais cela ne supprime pas les bases de données de locataires des serveurs d’hébergement.
 
 ## <a name="to-remove-the-mysql-resource-provider"></a>Pour supprimer le fournisseur de ressources MySQL
 

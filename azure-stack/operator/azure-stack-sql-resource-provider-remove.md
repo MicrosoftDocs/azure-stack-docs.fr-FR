@@ -2,18 +2,18 @@
 title: Supprimer le fournisseur de ressources SQL
 titleSuffix: Azure Stack Hub
 description: Découvrez comment supprimer le fournisseur de ressources SQL de votre déploiement Azure Stack Hub.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 10/02/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 5d8335e69c35c209e444d88f41ce76a3fae94bb0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f8b9ed17aa19a2d0ed9403ace3876f4c8f3a25bf
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882799"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491779"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Supprimer le fournisseur de ressources SQL
 
@@ -22,16 +22,7 @@ Avant de supprimer le fournisseur de ressources SQL, vous devez supprimer toutes
 > [!NOTE]
 > Les liens de téléchargement des programmes d’installation du fournisseur de ressources sont disponibles dans les [Conditions préalables pour le déploiement du fournisseur de ressources](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
-Le fait de supprimer le fournisseur de ressources SQL ne supprime pas les bases de données locataires des serveurs d’hébergement.
-
-## <a name="dependency-cleanup"></a>Nettoyage de la dépendance
-
-Vous devez effectuer plusieurs tâches de nettoyage avant d’exécuter le script DeploySqlProvider.ps1 pour supprimer le fournisseur de ressources.
-
-L’opérateur Azure Stack Hub est responsable des tâches de nettoyage suivantes :
-
-* Supprimer tous les plans qui référencent l’adaptateur SQL.
-* Supprimer tous les quotas associés à l’adaptateur SQL.
+Le fait de supprimer le fournisseur de ressources SQL supprime les plans et les quotas associés gérés par l’opérateur. Mais cela ne supprime pas les bases de données de locataires des serveurs d’hébergement.
 
 ## <a name="to-remove-the-sql-resource-provider"></a>Pour supprimer le fournisseur de ressources SQL
 

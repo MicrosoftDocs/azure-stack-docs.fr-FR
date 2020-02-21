@@ -3,16 +3,16 @@ title: Configurer le serveur de temps pour Azure Stack Hub
 description: Découvrez comment configurer le serveur de temps pour Azure Stack Hub.
 author: ihenkel
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 2/19/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: d2dbc9ea7968ed3ad1911dd908966b6ac1e2a9c9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 891e034f691f5e8e1e087015aff36107c649198c
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879191"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492187"
 ---
 # <a name="configure-the-time-server-for-azure-stack-hub"></a>Configurer le serveur de temps pour Azure Stack Hub
 
@@ -40,10 +40,16 @@ Au moins un serveur de temps (NTP) est requis pour qu’Azure Stack Hub synchron
 3. Exécutez la commande suivante pour mettre à jour Azure Stack Hub afin d’utiliser le nouveau serveur NTP et de synchroniser l’heure immédiatement.
 
     > [!Note]  
-    > Cette procédure ne met pas à jour le serveur de temps sur les commutateurs physiques
+    > Cette procédure ne met pas à jour le serveur de temps sur les commutateurs physiques. Si le serveur de temps n’est pas un serveur NTP basé sur Windows, vous devez ajouter l’indicateur `0x8`.
 
     ```PowerShell
     Set-AzsTimeSource -TimeServer NEWTIMESERVERIP -resync
+    ```
+
+    Pour les serveurs autres que les serveurs de temps basés sur Windows :
+
+    ```PowerShell
+    Set-AzsTimeSource -TimeServer "NEWTIMESERVERIP,0x8" -resync
     ```
 
 4. Recherchez les erreurs éventuelles dans la sortie de la commande.
