@@ -1,18 +1,18 @@
 ---
 title: Considérations relatives à la planification de l’intégration d’un centre de données pour systèmes intégrés Azure Stack Hub
 description: Découvrez comment planifier et préparer l’intégration du centre de données avec des systèmes intégrés Azure Stack Hub.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: b4809454f6bec18fbfd2ffdc3f1aa866786199c5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5c91ddd19ad384cc2a029dfac21d482470d37bc8
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882472"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510042"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Considérations relatives à la planification de l’intégration d’un centre de données pour systèmes intégrés Azure Stack Hub
 
@@ -76,7 +76,7 @@ Vous devez réfléchir à la façon dont vous souhaitez planifier votre espace d
 
 Le tableau suivant récapitule ces décisions d’attribution de noms de domaine.
 
-| Name | Description | 
+| Nom | Description | 
 | -------- | ------------- | 
 |Nom de la région | Nom de votre première région Azure Stack Hub. Ce nom constitue une partie du nom de domaine complet (FQDN) pour les adresses IP virtuelles publiques (VIP) gérées par Azure Stack Hub. En règle générale, le nom de la région est un identificateur d’emplacement physique tel qu’un emplacement de centre de données.<br><br>Le nom de région doit uniquement comporter des lettres et des nombres compris entre 0 et 9. Les caractères spéciaux (comme `-`, `#`, etc.) ne sont pas autorisés.| 
 | Nom de domaine externe | Le nom de la zone Domain Name System (DNS) pour les points de terminaison avec des adresses IP virtuelles externes. Utilisé dans le nom de domaine complet pour ces adresses IP virtuelles publiques. | 

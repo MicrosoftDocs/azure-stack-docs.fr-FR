@@ -1,18 +1,18 @@
 ---
 title: Intégrer une solution de supervision externe à Azure Stack Hub
 description: Découvrez comment intégrer Azure Stack Hub à une solution de supervision externe dans votre centre de données.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 06/05/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 3e50471201c7207aa68b725daf202d323b836a99
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a38c6f8aca4ad8203b576550dd01873cdeb9b7a8
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882114"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509855"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>Intégrer une solution de supervision externe à Azure Stack Hub
 

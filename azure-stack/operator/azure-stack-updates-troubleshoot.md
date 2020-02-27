@@ -1,18 +1,18 @@
 ---
 title: Résoudre les problèmes liés aux mises à jour dans Azure Stack Hub
 description: En tant qu’opérateur Azure Stack Hub, apprenez à résoudre les problèmes liés aux mises à jour afin qu’Azure Stack Hub puisse reprendre la production le plus rapidement possible.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 09/23/2019
 ms.author: inhenkel
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 8524850d2f93fdf4d7a14c6b6b00a6d989a46a74
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 1c481538183098b6a1a88143dac339a919a248f3
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491107"
+ms.locfileid: "77508682"
 ---
 # <a name="best-practices-for-troubleshooting-azure-stack-hub-patch-and-update-issues"></a>Bonnes pratiques pour résoudre les problèmes liés aux correctifs logiciels et aux mises à jour Azure Stack Hub
 

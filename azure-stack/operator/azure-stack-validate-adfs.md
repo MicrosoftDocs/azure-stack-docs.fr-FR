@@ -4,18 +4,18 @@ titleSuffix: Azure Stack Hub
 description: Découvrez comment utiliser Azure Stack Hub Readiness Checker pour valider l’intégration d’AD FS pour Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 786ee290aba91c855211d3f470f439c3e9b2c01a
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: 1aec8cbf3502321766b79a110b48e1c4cc0cedf1
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972589"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508699"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>Valider l’intégration d’AD FS pour Azure Stack Hub
 
@@ -33,7 +33,7 @@ Pour plus d’informations sur l’intégration de centre de données Azure Stac
 
 Téléchargez la dernière version de l’outil Azure Stack Hub Readiness Checker (AzsReadinessChecker) à partir de [PowerShell Gallery](https://aka.ms/AzsReadinessChecker).  
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vérifiez les prérequis suivants.
 
@@ -51,7 +51,7 @@ Vérifiez les prérequis suivants.
 Vous avez besoin au minimum d’une des formes de métadonnées suivantes :
 
 - L’URL des métadonnées de fédération AD FS. Par exemple : `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`.
-* Le fichier XML des métadonnées de fédération. Par exemple :  FederationMetadata.xml.
+* Le fichier XML des métadonnées de fédération. Par exemple : FederationMetadata.xml.
 
 ## <a name="validate-ad-fs-integration"></a>Valider l’intégration d’AD FS
 

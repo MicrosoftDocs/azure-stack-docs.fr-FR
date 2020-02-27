@@ -1,18 +1,18 @@
 ---
 title: Intégration de pare-feu Azure Stack Hub pour les systèmes intégrés Azure Stack Hub
 description: Découvrez l’intégration de pare-feu Azure Stack Hub pour les systèmes intégrés Azure Stack Hub.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 752fd1f7887b8de6e9d7808e5c887200da8d6b10
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f0074bedfbcd0e55bea84080e33e14738fccb896
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882313"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509974"
 ---
 # <a name="azure-stack-hub-firewall-integration"></a>Intégration de pare-feu Azure Stack Hub
 Nous vous recommandons d’utiliser un dispositif de pare-feu pour sécuriser Azure Stack Hub. Les pare-feu peuvent contribuer à la défense contre les attaques par déni de service distribué (DDoS), à la détection des intrusions et à l'inspection de contenu. Mais ils peuvent également se transformer en goulot d'étranglement pour les services de stockage Azure (objets blobs, tables, files d'attente, etc.).

@@ -1,24 +1,24 @@
 ---
 title: Procédure pas à pas d’intégration d’Azure Stack Hub dans un centre de données
 description: Découvrez comment réussir un déploiement local d’Azure Stack Hub dans votre centre de données, de la planification aux tâches post-déploiement.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/07/2019
 ms.author: inhenkel
 ms.reviewer: asganesh
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 6711483384ba9985ced7396d19e025e0ed3240c6
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ba68a3045876e8dd6e23f430cd23edc429cb4e31
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882509"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510059"
 ---
 # <a name="azure-stack-hub-datacenter-integration-walkthrough"></a>Procédure pas à pas d’intégration d’Azure Stack Hub dans un centre de données
 
 Cet article décrit le processus de bout en bout relatif à l’intégration du centre de données Azure Stack Hub, de l’achat au support de post-déploiement. L’intégration est un projet collaboratif entre le client, un fournisseur de solutions et Microsoft. Cliquez sur les onglets suivants pour voir les étapes spécifiques à chaque membre du projet, puis consultez les sections suivantes pour obtenir un récapitulatif des différentes phases de la chronologie du projet. 
 
-# <a name="customertabcustomer"></a>[Client](#tab/customer)
+# <a name="customer"></a>[Client](#tab/customer)
 
 1. Décrire les cas d’usage et les exigences
 1. Déterminer le modèle de facturation
@@ -29,7 +29,7 @@ Cet article décrit le processus de bout en bout relatif à l’intégration du 
 1. Fournir des informations relatives à l’abonnement durant le déploiement
 1. Résoudre les questions relatives aux données fournies
 
-# <a name="partnertabpartner"></a>[Partenaire](#tab/partner)
+# <a name="partner"></a>[Partenaire](#tab/partner)
 
 1. Recommander des options de solution en fonction des exigences du client
 1. Proposer un POC (preuve de concept) 
@@ -48,7 +48,7 @@ Cet article décrit le processus de bout en bout relatif à l’intégration du 
 1. Déployer Azure Stack Hub
 1. Effectuer la remise au client
 
-# <a name="microsofttabmicro"></a>[Microsoft](#tab/micro)
+# <a name="microsoft"></a>[Microsoft](#tab/micro)
 
 1. Impliquer le partenaire pour le support avant-vente
 2. Préparer la gestion de licences des logiciels et les contrats

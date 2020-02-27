@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2776443fac5e30b14154e96618a49bd89d16a7c0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: c9940e110d86ca1ebeb4739a6beb375381786be2
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884399"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568711"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Connecter l’Explorateur de stockage à un compte de stockage ou un abonnement Azure Stack Hub
 
@@ -62,7 +62,7 @@ Exportez, puis importez le certificat Azure Stack Hub pour les systèmes intégr
 
 8. Après le redémarrage de l’Explorateur Stockage, sélectionnez le menu **Modifier** et vérifiez si l’option **Cibler API Azure Stack Hub** est sélectionnée. Si elle ne l’est pas, sélectionnez **Cibler Azure Stack Hub**, puis redémarrez l’Explorateur Stockage pour appliquer la modification. Cette configuration est requise pour la compatibilité avec votre environnement Azure Stack Hub.
 
-    ![S’assurer que l’option Target Azure Stack Hub (Cibler Azure Stack) est sélectionnée](./media/azure-stack-storage-connect-se/target-azure-stack.png)
+    ![S’assurer que l’option Target Azure Stack Hub (Cibler Azure Stack) est sélectionnée](./media/azure-stack-storage-connect-se/target-azure-stack-new.png)
 
 ## <a name="connect-to-an-azure-stack-hub-subscription-with-azure-ad"></a>Connexion à un abonnement Azure Stack Hub avec Azure AD
 

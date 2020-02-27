@@ -4,15 +4,15 @@ description: Découvrez le contenu de la mise à jour huit d’App Service sur 
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 02/10/2020
+ms.date: 02/25/2020
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: daa4cb85ca58a6e638d6d8a1f14ad5e9232f3d72
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: b8f6e8868723685eb00d6cfa8424905642697c5a
+ms.sourcegitcommit: 7f185ce838756c879b28e380875be97c62b9a707
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143664"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77600292"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>Notes de publication de la mise à jour 8 d’App Service sur Azure Stack Hub
 
@@ -25,7 +25,7 @@ Ces notes de publication décrivent les améliorations et les correctifs que la 
 
 Le numéro de build d’App Service sur la mise à jour 8 d’Azure Stack Hub est **86.0.2.13**
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Avant de passer au déploiement, consultez la [documentation Avant de commencer](azure-stack-app-service-before-you-get-started.md).
 
@@ -91,7 +91,7 @@ Effectuez l’une des actions suivantes, puis cliquez sur Réessayer dans le pro
 
 - Copiez la connexion appservice_hostingAdmin à partir du nœud SQL à présent secondaire ;
 
-**OU**
+**OR**
 
 - Basculez le cluster SQL vers le nœud actif précédent.
 
@@ -232,7 +232,7 @@ En raison d’une régression dans cette version, les deux bases de données App
     $builder = New-Object System.Data.SqlClient.SqlConnectionStringBuilder -ArgumentList (Get-AppServiceConnectionString -Type Hosting)
     $conn = New-Object System.Data.SqlClient.SqlConnection -ArgumentList $builder.ToString()
 
-    $siteManager.Workers | ForEach-Object {
+    $siteManager.RoleServers | Where-Object {$_.IsWorker} | ForEach-Object {
         $worker = $_
         $dbUserName = "WebWorker_" + $worker.Name
 

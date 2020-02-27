@@ -1,18 +1,18 @@
 ---
 title: Informations de référence sur l’applet de commande Start-AzsReadinessChecker
 description: Aide sur l’applet de commande PowerShell pour le module Azure Stack Hub Readiness Checker.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: e4794df9c66f1d060b6701d782c0486ddb914b02
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 067164db905e6649def7ecd06b0e15d166d286b9
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877763"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509379"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Informations de référence sur l’applet de commande Start-AzsReadinessChecker
 

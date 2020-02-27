@@ -1,18 +1,18 @@
 ---
 title: Décisions pour le déploiement Azure déconnecté de systèmes intégrés Azure Stack Hub
 description: Familiarisez-vous avec le déploiement déconnecté Azure des systèmes intégrés Azure Stack Hub ainsi qu'avec les décisions à prendre en compte en termes de planification.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/01/2019
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: aa310ffa3896e5468529e8e579328c52a9afa9c8
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b03d00d4f90a16bbb1a299902097e23607e488b8
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882324"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510008"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Décisions relatives à la planification du déploiement déconnecté Azure des systèmes intégrés Azure Stack Hub
 Une fois que vous avez décidé [comment intégrer Azure Stack Hub dans votre environnement cloud hybride](azure-stack-connection-models.md), vous pouvez finaliser vos décisions de déploiement d'Azure Stack Hub.

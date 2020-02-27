@@ -2,18 +2,18 @@
 title: Valider l’inscription auprès d’Azure
 titleSuffix: Azure Stack Hub
 description: Découvrez comment valider l’inscription Azure avec l’outil Azure Stack Hub Readiness Checker.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 58f65be2ac4ba352b17b9b0bba079b286a9609fa
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: 0bf57569d1f0f3af38f2fc1d276d02cc0e92439b
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972561"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508070"
 ---
 # <a name="validate-azure-registration"></a>Valider l’inscription auprès d’Azure
 
@@ -28,7 +28,7 @@ Pour plus d’informations sur l’inscription d’Azure Stack Hub, consultez [I
 
 Téléchargez la dernière version d’**AzsReadinessChecker** sur le site [PowerShell Gallery](https://aka.ms/AzsReadinessChecker).  
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Les prérequis suivants sont obligatoires :
 

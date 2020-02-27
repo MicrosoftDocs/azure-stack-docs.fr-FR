@@ -2,19 +2,19 @@
 title: Faire pivoter les clés secrètes
 titleSuffix: Azure Stack Hub
 description: Apprenez à effectuer la rotation de vos secrets dans Azure Stack Hub.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 12/13/2019
 ms.reviewer: ppacent
 ms.author: inhenkel
 ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: 38e517aef0dcdd60e691d655004a9a807c2789d3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 22be9075f6c1d8b25c6ce241ad24ed8e10630261
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881336"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509566"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Effectuer la rotation des secrets dans Azure Stack Hub
 

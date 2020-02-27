@@ -1,18 +1,18 @@
 ---
 title: Connectivité frontalière et intégration réseau pour les systèmes intégrés Azure Stack Hub
 description: Apprenez à planifier la connectivité des réseaux frontaliers des centres de données dans les systèmes intégrés Azure Stack Hub.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 15440c32974aebfed3f3faf86885dd6f0af71ddd
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8a0f6b45d261df2347589178bead735e72cdccd7
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878511"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509481"
 ---
 # <a name="border-connectivity"></a>Connectivité de la bordure 
 La planification de l'intégration réseau est une condition préalable importante pour réussir le déploiement, l'exploitation et la gestion de systèmes intégrés Azure Stack Hub. Pour commencer la planification de la connectivité frontalière, vous devez décider si vous voulez utiliser le routage dynamique avec le protocole BGP (Border Gateway Protocol). Pour cela, vous devez soit affecter un numéro de système autonome BGP 16 bits (public ou privé), soit utiliser un routage statique où une route statique par défaut est affectée aux appareils frontière.

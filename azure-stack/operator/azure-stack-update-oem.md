@@ -1,18 +1,18 @@
 ---
 title: Appliquer une mise à jour de fabricant d’ordinateurs (OEM) à Azure Stack Hub
 description: Apprenez à appliquer une mise à jour de fabricant d’ordinateurs (OEM) à Azure Stack Hub.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: inhenkel
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 4ff26f9da9d15bd7a19cf1d54a0810feaeee4d8d
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 82c2af02b26e9a661e600b6296b19cf4b0ba802c
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491201"
+ms.locfileid: "77508937"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Appliquer des mises à jour de fabricants d’ordinateurs (OEM) à Azure Stack Hub
 

@@ -1,18 +1,18 @@
 ---
 title: Gérer des comptes de stockage Azure Stack Hub
 description: Découvrez comment rechercher, gérer, restaurer et récupérer des comptes de stockage Azure Stack Hub.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 212934dee1d5caaece8cfe84df74095ed38e0042
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 77505a2d91ff4aac4174395a170ba040fb4e9ec7
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492272"
+ms.locfileid: "77509821"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Gérer des comptes de stockage Azure Stack Hub
 

@@ -1,18 +1,18 @@
 ---
 title: Gérer les mises à jour
 description: Découvrez comment gérer les mises à jour dans Azure Stack Hub
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 3bbe40c0965027556c1ab00e9b26137e4b956955
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 2931acb3fb3f46f4231a805675bb40307cb05584
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/20/2020
-ms.locfileid: "77490929"
+ms.locfileid: "77508716"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Gérer les mises à jour dans Azure Stack Hub
 
