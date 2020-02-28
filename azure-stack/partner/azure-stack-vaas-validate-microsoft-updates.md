@@ -1,6 +1,7 @@
 ---
-title: Valider les mises à jour logicielles de Microsoft dans la validation en tant que service Azure Stack Hub
-description: Découvrez comment valider les mises à jour logicielles de Microsoft avec le service Validation en tant que service.
+title: Valider les mises à jour logicielles issues de Microsoft
+titleSuffix: Azure Stack Hub
+description: Découvrez comment valider les mises à jour logicielles de Microsoft avec la validation en tant que service Azure Stack Hub.
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 10/29/2019
@@ -8,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8e09160245551ee83f631360931c8e70bac4318e
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: a8e0b3ee678fc56a94a947ab6d390d9e99296977
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143916"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625354"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Valider les mises à jour logicielles issues de Microsoft
 
@@ -21,13 +22,13 @@ ms.locfileid: "77143916"
 
 Microsoft publie régulièrement des mises à jour du logiciel Azure Stack Hub. Ces mises à jour sont fournies à nos partenaires de co-ingénierie Azure Stack Hub. Les mises à jour sont fournies avant d’être mises à la disposition du grand public. Vous pouvez vérifier les mises à jour par rapport à votre solution et fournir des commentaires à Microsoft.
 
-Les mises à jour logicielles Microsoft pour Azure Stack Hub sont nommées conformément à une convention de nommage. Par exemple, 1803 indique que la mise à jour date de mars 2018. Pour plus d’informations sur la stratégie de mise à jour, la cadence des mises à jour et les notes de publication concernant Azure Stack Hub, consultez l’article [Stratégie de maintenance Azure Stack Hub](../operator/azure-stack-servicing-policy.md).
+Les mises à jour logicielles Microsoft pour Azure Stack Hub sont nommées conformément à une convention de nommage. Par exemple, 1803 indique que la mise à jour date de mars 2018. Pour plus d’informations sur la stratégie de maintenance et les notes de publication d’Azure Stack Hub, consultez [Stratégie de maintenance Azure Stack Hub](../operator/azure-stack-servicing-policy.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-Avant de vous exercer au processus de mise à jour mensuelle dans VaaS, vous devez être familiarisé avec les éléments suivants :
+Avant de vous exercer au processus de mise à jour mensuelle dans la validation en tant que service (VaaS), vous devez être familiarisé avec les éléments suivants :
 
-- [Validation as a Service key concepts](azure-stack-vaas-key-concepts.md) (Concepts clés à propos de la validation en tant que service)
+- [Concepts clés de la validation en tant que service](azure-stack-vaas-key-concepts.md)
 
 ## <a name="required-tests"></a>Tests requis
 

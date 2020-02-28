@@ -1,6 +1,7 @@
 ---
-title: Superviser et gérer les tests dans le portail VaaS Azure Stack Hub
-description: Supervisez et gérez les tests dans le portail VaaS Azure Stack Hub.
+title: Gérer les tests dans le portail Validation Azure Stack Hub
+titleSuffix: Azure Stack Hub
+description: Découvrez comment gérer les tests dans le portail Validation Azure Stack Hub.
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 11/11/2019
@@ -8,24 +9,24 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 494fffff04cd092afc4a4df3fbf0be59ca894278
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 697aabcb1b52bc52083b635e67058f1b08451a38
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143811"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625428"
 ---
-# <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Surveiller et gérer les tests dans le portail VaaS
+# <a name="manage-tests-in-the-azure-stack-hub-validation-portal"></a>Gérer les tests dans le portail Validation Azure Stack Hub
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Lorsque vous aurez planifié des tests pour votre solution Azure Stack Hub, la validation en tant que service (VaaS) vous communiquera l’état d’exécution des tests. Vous trouverez ces informations, ainsi que des actions telles que la replanification et l’annulation de tests, dans le portail VaaS.
+Une fois que vous avez planifié les tests pour votre solution Azure Stack Hub, la validation en tant que service (VaaS) commence à vous communiquer l’état d’exécution des tests. Vous trouverez ces informations dans le portail Validation Azure Stack Hub, ainsi que des actions telles que la replanification et l’annulation de tests.
 
 ## <a name="navigate-to-the-workflow-tests-summary-page"></a>Accéder à la page de résumé de tests de workflow
 
 1. Dans le tableau de bord de solutions, sélectionnez une solution existante qui dispose d’au moins un workflow.
 
-    ![Vignettes workflow](media/tile_all-workflows.png)
+    ![Vignettes de workflow dans le tableau de bord des solutions](media/tile_all-workflows.png)
 
 1. Sélectionnez **Gérer** au niveau de la vignette de workflow. La page suivante répertorie les workflows créés pour la solution sélectionnée.
 
@@ -35,7 +36,7 @@ Lorsque vous aurez planifié des tests pour votre solution Azure Stack Hub, la v
 
 Vous pouvez modifier les [paramètres de test](azure-stack-vaas-parameters.md#test-parameters) spécifiés lors de la création du workflow pour n’importe quel type de workflow.
 
-1. Dans la page de résumé de tests, sélectionnez le bouton **Modifier**.
+1. Dans la page de résumé de tests, sélectionnez **Modifier**.
 
 1. Pour plus d’informations, consultez l’article [Paramètres de workflow communs dans la validation en tant que service Azure Stack Hub](azure-stack-vaas-parameters.md).
 
@@ -49,13 +50,13 @@ Vous pouvez modifier les [paramètres de test](azure-stack-vaas-parameters.md#te
 Dans les workflows **Passe de Test**, les boutons **Ajouter des tests** et **Modifier** permettent de planifier les nouveaux tests dans le workflow.
 
 > [!TIP]
-> Sélectionnez **Ajouter des tests** si vous souhaitez uniquement planifier des nouveaux tests et que vous n’avez pas besoin de modifier les paramètres pour un workflow **Passe de test**.
+> Sélectionnez **Ajouter des tests** si vous souhaitez planifier des nouveaux tests et que vous n’avez pas besoin de modifier les paramètres pour un workflow **Passe de test**.
 
-## <a name="managing-test-instances"></a>Gestion des instances de test
+## <a name="manage-test-instances"></a>Gérer les instances de test
 
-Pour les exécutions non officielles (par exemple le workflow **Passe de test**), la page récapitulative des tests liste les tests planifiés pour la solution Azure Stack Hub.
+Pour les exécutions non officielles (le workflow **Passe de test**), la page récapitulative des tests liste les tests planifiés pour la solution Azure Stack Hub.
 
-Pour les exécutions officielles (par exemple, les workflows **Validation**), la page récapitulative des tests liste les tests nécessaires à la validation de la solution Azure Stack Hub. Les tests de validation sont planifiés à partir de cette page.
+Pour les exécutions officielles (les workflows **Validation**), la page récapitulative des tests liste les tests nécessaires à la validation de la solution Azure Stack Hub. Les tests de validation sont planifiés à partir de cette page.
 
 Chaque instance de test planifiée affiche les informations suivantes :
 
@@ -78,7 +79,7 @@ Chaque instance de test répertorie les actions disponibles que vous pouvez effe
 
 #### <a name="view-information-about-the-test-definition"></a>Afficher des informations sur la définition du test
 
-Sélectionnez **Afficher les informations** dans le menu contextuel pour afficher les informations générales sur la définition du test. Toutes les instances de test avec le même nom et la même version partagent ces données.
+Sélectionnez **Afficher les informations** dans le menu contextuel pour afficher les informations générales sur la définition du test. Ces informations sont partagées par chaque instance de test avec le même nom et la même version.
 
 | Propriété du test | Description |
 | -- | -- |
@@ -111,7 +112,7 @@ Sélectionnez **Affichage des opérations** à partir du menu contextuel pour af
 
 #### <a name="download-logs-for-a-completed-test-instance"></a>Télécharger les journaux d’activité pour une instance de test terminée
 
-Sélectionnez **Télécharger les journaux d’activité** dans le menu contextuel pour télécharger un fichier `.zip` de la sortie des journaux d’activité pendant l’exécution du test. Cette action est disponible uniquement pour les tests terminés, par exemple, un test avec un statut `Cancelled`, `Failed`, `Aborted` ou `Succeeded`.
+Sélectionnez **Télécharger les journaux d’activité** dans le menu contextuel pour télécharger un fichier `.zip` de la sortie des journaux d’activité pendant l’exécution du test. Cette action est disponible uniquement pour les tests terminés, ce qui signifie qu’ils doivent avoir l’un des états suivants : `Cancelled`, `Failed`, `Aborted` ou `Succeeded`.
 
 #### <a name="reschedule-a-test-instance-or-schedule-a-test"></a>Replanifier une instance de test ou planifier un test
 
@@ -119,7 +120,7 @@ La planification des tests à partir de la page de gestion varie selon le type d
 
 ##### <a name="test-pass-workflow"></a>Workflow de passe de test
 
-Dans le workflow Passe de test, la **replanification** d’une instance de test réutilise le même ensemble de paramètres que l’instance de test d’origine et *remplace* le résultat d’origine, y compris ses journaux d’activité. Vous devrez entrer à nouveau les chaînes sensibles comme les mots de passe lorsque vous replanifiez.
+Dans le workflow Passe de test, la **replanification** d’une instance de test réutilise le même ensemble de paramètres que l’instance de test d’origine et *remplace* le résultat d’origine, y compris ses journaux d’activité. Vous devez entrer à nouveau les chaînes sensibles comme les mots de passe lorsque vous replanifiez.
 
 1. Sélectionnez **Replanifier** dans le menu contextuel pour ouvrir une invite de replanification de l’instance de test.
 

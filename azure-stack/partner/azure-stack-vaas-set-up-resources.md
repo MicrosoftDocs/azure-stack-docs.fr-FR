@@ -1,6 +1,7 @@
 ---
-title: Tutoriel - Configurer des ressources pour la validation en tant que service
-description: Dans ce didacticiel, apprenez à configurer des ressources pour la validation en tant que service.
+title: Configurer des ressources Azure AD et de stockage pour VaaS
+titleSuffix: Azure Stack Hub
+description: Découvrez comment configurer des ressources Azure AD et de stockage pour la validation en tant que service Azure Stack Hub.
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 1/22/2020
@@ -8,14 +9,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7c47c6810802cce31793aae3be3a1502acb5f102
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 3dc72eb4dfac10e6e199b2cbfe9668666f83e122
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143926"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625303"
 ---
-# <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Tutoriel : Configurer des ressources pour la validation en tant que service
+# <a name="set-up-azure-ad-and-storage-resources-for-validation-as-a-service"></a>Configurer des ressources Azure AD et de stockage pour la validation en tant que service
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -33,7 +34,7 @@ Un locataire Azure AD est utilisé pour inscrire une organisation et authentifie
 
 ### <a name="create-a-tenant"></a>Créer un client
 
-Créez un locataire que votre organisation utilisera pour accéder aux services VaaS. Utilisez un nom descriptif, par exemple `ContosoVaaS@onmicrosoft.com`.
+Créez un locataire que votre organisation utilisera pour accéder aux services VaaS. Utilisez un nom descriptif (par exemple, `ContosoVaaS@onmicrosoft.com`).
 
 1. Créez un locataire Azure Active Directory dans le [portail Azure](https://portal.azure.com) ou utilisez un locataire existant. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
 
@@ -44,10 +45,10 @@ Créez un locataire que votre organisation utilisera pour accéder aux services 
     | Nom du rôle | Description |
     |---------------------|------------------------------------------|
     | Propriétaire | A un accès total à toutes les ressources. |
-    | Lecteur | Peut afficher toutes les ressources, mais ne peut ni en créer, ni les gérer. |
+    | Lecteur | Peut voir toutes les ressources, mais ne peut ni en créer, ni les gérer. |
     | Contributeur du test | Peut créer et gérer les ressources de test. |
 
-    Pour affecter des rôles dans l’application **Validation en tant que service Azure Stack Hub** :
+    Pour attribuer des rôles dans l’application **Validation en tant que service Azure Stack Hub** :
 
    1. Connectez-vous au [portail Azure](https://portal.azure.com).
    2. Sélectionnez **Tous les Services** > **Azure Active Directory** dans la section **Identité**.
@@ -55,7 +56,7 @@ Créez un locataire que votre organisation utilisera pour accéder aux services 
    4. Sélectionnez **Utilisateurs et groupes**. Le panneau **Validation en tant que service Azure Stack Hub - Utilisateurs et groupes** liste les utilisateurs qui sont autorisés à utiliser l’application.
    5. Sélectionnez **+ Ajouter un utilisateur** pour ajouter un utilisateur à partir de votre locataire et lui attribuer un rôle.
 
-      Si vous souhaitez isoler des ressources et actions VaaS entre différents groupes au sein d’une organisation, vous pouvez créer plusieurs annuaires de locataire Azure AD.
+      Si vous voulez isoler des ressources et actions VaaS entre différents groupes au sein d’une organisation, vous pouvez créer plusieurs annuaires de locataire Azure AD.
 
 ### <a name="register-your-tenant"></a>Inscrire votre locataire
 
@@ -69,13 +70,13 @@ Ce processus autorise votre locataire à utiliser l’application Azure AD **Va
     | Nom du répertoire du locataire Azure AD | Nom de l’annuaire du locataire Azure AD en cours d’inscription. |
     | ID de l’annuaire du locataire Azure AD | GUID de l’annuaire du locataire AD Azure associé à l’annuaire. Pour plus d’informations sur la façon de trouver votre ID d’annuaire de locataire Azure AD, consultez [Obtenir l’ID de locataire](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in). |
 
-2. Attendez la confirmation de l’équipe de validation Azure Stack Hub pour vérifier que votre locataire peut utiliser le portail VaaS.
+2. Attendez la confirmation de l’équipe de validation Azure Stack Hub pour vérifier que votre locataire peut utiliser le portail Validation Azure Stack Hub.
 
-### <a name="consent-to-the-vaas-application"></a>Donner son consentement à l’application VaaS
+### <a name="consent-to-the-vaas-app"></a>Donner son consentement à l’application VaaS
 
 En tant qu’administrateur Azure AD, attribuez à l’application VaaS Azure AD les autorisations requises pour le compte de votre locataire :
 
-1. Utilisez les informations d’identification d’administrateur général pour connecter le locataire au [portail VaaS](https://azurestackvalidation.com/). 
+1. Utilisez les informations d’identification d’administrateur général pour connecter le locataire au [portail Validation Azure Stack Hub](https://azurestackvalidation.com/).
 
 2. Sélectionnez **My Account**.
 
@@ -97,7 +98,7 @@ Le compte de stockage Azure est hébergé dans le cloud public Azure, et non dan
 
 5. Sélectionnez la région **USA Ouest** pour votre compte de stockage.
 
-    Afin d’éviter que des frais de mise en réseau ne vous soient facturés pour le stockage des journaux d’activité, le compte de stockage Azure peut être configuré pour utiliser uniquement la région **USA Ouest**. Les fonctions de réplication des données et de niveau d’accès chaud ne sont pas nécessaires pour ces données. L’activation de ces fonctionnalités augmentera considérablement les coûts.
+    Pour éviter que des frais de réseau ne vous soient facturés pour le stockage des journaux d’activité, le compte de stockage Azure peut être configuré pour utiliser uniquement la région **USA Ouest**. Les fonctionnalités de réplication des données et de niveau de stockage chaud ne sont pas nécessaires pour ces données. L’activation de ces fonctionnalités augmentera considérablement les coûts.
 
 6. Conservez les paramètres aux valeurs par défaut ,à l’exception de **Type de compte** :
 
@@ -111,7 +112,7 @@ Le compte de stockage Azure est hébergé dans le cloud public Azure, et non dan
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si votre environnement n’autorise pas les connexions entrantes, suivez le didacticiel sur le déploiement de l’agent local pour exécuter un test sur votre matériel.
+Si votre environnement n’autorise pas les connexions entrantes, suivez le tutoriel sur le déploiement de l’agent local pour exécuter un test sur votre matériel.
 
 > [!div class="nextstepaction"]
 > [Déployer l’agent local](azure-stack-vaas-local-agent.md)
