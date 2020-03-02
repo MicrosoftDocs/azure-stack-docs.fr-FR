@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 88cad7fc3f9ac4d213cd16f6e690876b1e0faa4d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7611387047d80ad7c60f4402c7399d3d0d4e8b09
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876998"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568332"
 ---
 # <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack-hub"></a>Déployer une solution MongoDB hautement disponible sur Azure et Azure Stack Hub
 
@@ -40,7 +40,7 @@ Dans cette solution, vous allez créer un exemple d’environnement pour :
 
 ## <a name="prerequisites-for-mongodb-with-azure-stack-hub"></a>Conditions préalables pour MongoDB avec Azure Stack Hub
 
-  - Deux systèmes intégrés Azure Stack Hub (Azure Stack Hub) connectés ; ce déploiement ne fonctionne pas sur les Kits de développement Azure Stack Hub (ASDK). Pour en savoir plus sur Azure Stack Hub, consultez [Qu’est-ce qu’Azure Stack Hub ?](https://azure.microsoft.com/overview/azure-stack/).
+  - Deux systèmes intégrés Azure Stack Hub (Azure Stack Hub) connectés. Ce déploiement ne fonctionne pas sur les Kits de développement Azure Stack (ASDK). Pour en savoir plus sur Azure Stack Hub, consultez [Qu’est-ce qu’Azure Stack Hub ?](https://azure.microsoft.com/overview/azure-stack/).
       - Un abonnement de locataire sur chaque infrastructure Azure Stack Hub.    
       - **Prenez note de chaque ID d’abonnement et du point de terminaison Azure Resource Manager de chaque infrastructure Azure Stack Hub.**
   - Un principal de service Azure Active Directory (Azure AD) disposant d’autorisations pour l’abonnement du locataire sur chaque infrastructure Azure Stack Hub. Vous devrez peut-être créer deux principaux de service si les infrastructures Azure Stack Hub sont déployées auprès de différents locataires Azure AD. Pour en savoir plus sur la création d’un principal de service pour Azure Stack Hub, consultez [Créer des principaux de service pour permettre à des applications d’accéder à des ressources Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals).    

@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 09a9b190594eb4d737b54c971fc2e3dbd03cd5f9
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 31cdb0d27e9d94e93cf1e410f25f2cc200db31d7
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491745"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568688"
 ---
 # <a name="update-the-sql-resource-provider"></a>Mettre à jour le fournisseur de ressources SQL
 
@@ -21,7 +21,7 @@ Un nouveau fournisseur de ressources SQL peut être publié lorsque le build Azu
 
 À compter de la publication de la version 1.1.33.0 du fournisseur de ressources SQL, les mises à jour sont cumulatives et ne doivent pas être installées dans l’ordre où elles ont été publiées dès lors que vous démarrez par la version 1.1.24.0 ou ultérieure. Par exemple, si vous exécutez la version 1.1.24.0 du fournisseur de ressources SQL, vous pouvez mettre à niveau vers la version 1.1.33.0 ou ultérieure sans devoir d’abord installer la version 1.1.30.0. Pour passer en revue les versions disponibles du fournisseur de ressources et la version d’Azure Stack Hub sur laquelle elles sont prises en charge, consultez la liste des versions dans [Déployer les prérequis du fournisseur de ressources](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
-Pour mettre à jour le fournisseur de ressources, utilisez le script *UpdateSQLProvider.ps1*. Le script est inclus avec le téléchargement du nouveau fournisseur de ressources SQL. Le processus de mise à jour est similaire au processus utilisé pour [déployer le fournisseur de ressources](./azure-stack-sql-resource-provider-deploy.md). Le script de mise à jour utilise les mêmes arguments que le script DeploySqlProvider.ps1. Vous devrez fournir les informations de certificat.
+Pour mettre à jour le fournisseur de ressources, utilisez le script *UpdateSQLProvider.ps1*. Vous devez utiliser votre compte de service avec des droits d’administrateur local et être **propriétaire** de l’abonnement. Le script est inclus avec le téléchargement du nouveau fournisseur de ressources SQL. Le processus de mise à jour est similaire au processus utilisé pour [déployer le fournisseur de ressources](./azure-stack-sql-resource-provider-deploy.md). Le script de mise à jour utilise les mêmes arguments que le script DeploySqlProvider.ps1. Vous devrez fournir les informations de certificat.
 
  > [!IMPORTANT]
  > Avant de mettre à niveau le fournisseur de ressources, passez en revue les notes de publication pour en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.

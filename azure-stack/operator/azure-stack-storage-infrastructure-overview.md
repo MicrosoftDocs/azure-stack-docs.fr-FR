@@ -2,18 +2,18 @@
 title: Gérer l’infrastructure de stockage pour Azure Stack Hub
 titleSuffix: Azure Stack
 description: Découvrez comment gérer l’infrastructure de stockage pour Azure Stack Hub.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 47233e29ef5921fbf8feb7b31f9160a8f67ff71b
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 4db040483ff841801081ef4f2acf60d9a9e3d4a0
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491711"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568637"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Gérer l’infrastructure de stockage pour Azure Stack Hub
 
@@ -68,7 +68,7 @@ Dans un déploiement à plusieurs nœuds, vous devriez voir trois volumes d’in
 
 - Le nombre de volumes reste identique, même si un nœud est défectueux ou supprimé.
 
-- Si vous utilisez le kit de développement Azure Stack Hub, il n’y a qu’un seul volume avec plusieurs partages.
+- Si vous utilisez le Kit de développement Azure Stack, il n’y a qu’un seul volume avec plusieurs partages.
 
 Les volumes dans les espaces de stockage direct offrent une résilience pour se prémunir des problèmes liés au matériel, comme les défaillances de lecteur ou de serveur. Ils permettent également d’avoir une disponibilité continue pendant toues les opérations de maintenance du serveur, comme les mises à jour de logiciel. Le déploiement Azure Stack Hub utilise la mise en miroir triple pour garantir la résilience des données. Trois copies des données de locataire sont écrites sur différents serveurs, où elles arrivent dans le cache :
 

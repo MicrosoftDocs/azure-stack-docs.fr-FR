@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.openlocfilehash: a617483b849b02576f1349e3b79620c47c7a5705
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: c259504e1c4b70ccc5e6be6fc9b88f5e683bc5c9
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874431"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568552"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack-hub"></a>Mise à jour hors connexion d’Azure App Service sur Azure Stack Hub
 
 > [!IMPORTANT]
-> Appliquez la mise à jour 1910 ou une version ultérieure à votre système intégré Azure Stack Hub ou déployez le dernier kit de développement Azure Stack Hub avant de déployer Azure App Service 1.8.
+> Appliquez la mise à jour 1910 ou une version ultérieure à votre système intégré Azure Stack Hub, ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service 1.8.
 
 En suivant les instructions de cet article, vous pouvez mettre à niveau le [fournisseur de ressources Azure App Service](azure-stack-app-service-overview.md) déployé dans un environnement Azure Stack Hub qui :
 
@@ -77,7 +77,7 @@ Pour mettre à niveau App Service dans un environnement déconnecté, vous devez
 
 5. Consultez et acceptez les termes du contrat de licence tiers, puis cliquez sur **Suivant**.
 
-6. Assurez-vous que le point de terminaison Azure Stack Hub Azure Resource Manager et les informations sur le locataire Active Directory sont corrects. Si vous avez utilisé les paramètres par défaut au cours du déploiement du Kit de développement Azure Stack Hub, vous pouvez accepter les valeurs par défaut ici. Toutefois, si vous avez personnalisé les options lors du déploiement d’Azure Stack Hub, vous devez modifier les valeurs dans cette fenêtre. Par exemple, si vous utilisez le suffixe de domaine *mycloud.com*, vous devez modifier votre point de terminaison Azure Stack Hub Azure Resource Manager en le définissant sur *management.region.mycloud.com*. Après avoir confirmé vos informations, cliquez sur **suivant**.
+6. Assurez-vous que le point de terminaison Azure Stack Hub Azure Resource Manager et les informations sur le locataire Active Directory sont corrects. Si vous avez utilisé les paramètres par défaut au cours du déploiement du Kit de développement Azure Stack, vous pouvez accepter les valeurs par défaut ici. Toutefois, si vous avez personnalisé les options lors du déploiement d'Azure Stack Hub, vous devez modifier les valeurs dans cette fenêtre. Par exemple, si vous utilisez le suffixe de domaine *mycloud.com*, vous devez modifier votre point de terminaison Azure Stack Hub Azure Resource Manager en le définissant sur *management.region.mycloud.com*. Après avoir confirmé vos informations, cliquez sur **suivant**.
 
     ![Informations sur Azure Stack Hub Cloud][3]
 

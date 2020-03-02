@@ -7,19 +7,19 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: eb2b3431fa7c9e9aada4e4df3f43715d48d1d72e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8d995550ead87f31a9024cc9c87ba45f0800a78d
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874754"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568450"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Prérequis pour le déploiement d’App Service sur Azure Stack Hub
 
 Avant de déployer Azure App Service sur Azure Stack Hub, vous devez effectuer les étapes de prérequis décrites dans cet article.
 
 > [!IMPORTANT]
-> Appliquez la mise à jour 1910 à votre système intégré Azure Stack Hub ou déployez le dernier kit de développement Azure Stack Hub (ASDK) avant de déployer Azure App Service 1.8.
+> Appliquez la mise à jour 1910 à votre système intégré Azure Stack Hub ou déployez le dernier Kit de développement Azure Stack (ASDK) avant de déployer Azure App Service 1.8.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Téléchargez le programme d’installation et les scripts d’assistance
 

@@ -7,17 +7,17 @@ ms.date: 01/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: ec0b241fd1568fb6851e3ae4fad6c79a8dfeb201
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 07cf0762a87fbf0cea490d246e6e31e003fd7275
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877593"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568603"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>Mettre à jour Azure App Service sur Azure Stack Hub
 
 > [!IMPORTANT]
-> Appliquez la mise à jour 1910 à votre système intégré Azure Stack Hub, ou déployez le dernier Kit de développement Azure Stack Hub (ASDK) avant de déployer Azure App Service 1.8.
+> Appliquez la mise à jour 1910 à votre système intégré Azure Stack Hub, ou déployez le dernier Kit de développement Azure Stack Hub (ASDK) avant de déployer Azure App Service 1.8.
 
 Cet article explique comment mettre à niveau le [fournisseur de ressources Azure App Service](azure-stack-app-service-overview.md) lorsqu'il est déployé dans un environnement Azure Stack Hub connecté à Internet.
 

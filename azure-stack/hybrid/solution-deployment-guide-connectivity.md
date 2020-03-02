@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 4b65ce6d03ee345b308cd5c5dd594e4dcf56cfec
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5ed6869b4c03c9e360cd12a98e206941a3842bfc
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875502"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568484"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>Configurer une connectivité cloud hybride à l'aide d'Azure et d'Azure Stack Hub
 
@@ -31,13 +31,13 @@ Dans cette solution, vous allez générer un exemple d’environnement pour :
 > L’article [Design Considerations for Hybrid Applications](overview-app-design-considerations.md) se penche sur les fondements de la qualité logicielle (sélection élective, scalabilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Certains composants sont nécessaires pour créer un déploiement de connectivité hybride. La préparation de certains de ces composants pouvant prendre du temps, vous devez planifier en conséquence.
 
 **Azure Stack Hub**
 
-Un partenaire OEM/matériel Azure peut déployer une infrastructure Azure Stack Hub de production, et tous les utilisateurs peuvent déployer un Kit de développement Azure Stack Hub (ASDK).
+Un partenaire OEM ou matériel Azure peut déployer une instance Azure Stack Hub de production et tous les utilisateurs peuvent déployer un Kit de développement Azure Stack (ASDK).
 
 **Composants d'Azure Stack Hub**
 
@@ -55,7 +55,7 @@ Cet exemple de solution suppose que vous disposez de connaissances de base sur A
 
 ### <a name="azure-stack-hub"></a>Azure Stack Hub
 
- - Utilisez votre système Azure Stack Hub de production ou déployez le Kit de développement Azure Stack Hub à partir de https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1.
+ - Utilisez votre instance Azure Stack Hub de production ou déployez le Kit de développement Azure Stack à partir de https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1.
    >[!Note]
    >Le déploiement de l’ASDK peut prendre jusqu’à 7 heures, planifiez donc en conséquence.
 
@@ -87,7 +87,7 @@ Spécifications de la connexion :
 
 Adresses IP réseau et sous-réseau :
 
-| Connexion Azure/Azure Stack Hub | Name | Subnet | Adresse IP |
+| Connexion Azure/Azure Stack Hub | Nom | Subnet | Adresse IP |
 |-------------------------------------|---------------------------------------------|---------------------------------------|-----------------------------|
 | Réseau virtuel Azure | ApplicationvNet<br>10.100.102.9/23 | ApplicationSubnet<br>10.100.102.0/24 |  |
 |  |  | Sous-réseau de passerelle<br>10.100.103.0/24 |  |

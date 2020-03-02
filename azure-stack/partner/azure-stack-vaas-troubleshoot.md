@@ -1,5 +1,6 @@
 ---
-title: Résoudre les problèmes de la validation en tant que service (VaaS) d’Azure Stack Hub
+title: Résoudre les problèmes de validation en tant que service
+titleSuffix: Azure Stack Hub
 description: Résolvez les problèmes de validation en tant que service pour Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
@@ -8,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1adadf1df42873d37e45a9c25a4876ee79612cf6
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 6c25ceebdf82c7fe0e32259346d3d59558fdabc7
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143626"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625371"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Résoudre les problèmes de validation en tant que service
 
@@ -25,14 +26,14 @@ Voici les problèmes courants, sans lien avec les versions logicielles, et leurs
 
 ### <a name="the-portal-shows-local-agent-in-debug-mode"></a>Le portail affiche l’agent local en mode débogage
 
-Cela vient probablement du fait que l’agent ne peut pas envoyer de pulsations au service, car la connexion réseau est instable. Une pulsation est envoyée toutes les cinq minutes. Si le service ne reçoit pas de pulsation pendant 15 minutes, il considère que l’agent est inactif et plus aucun test n’est planifié pour ce service. Vérifiez le message d’erreur dans le fichier *Agenthost.log*, il se trouve dans le répertoire où l’agent a été démarré.
+Ce problème vient probablement du fait que l’agent ne peut pas envoyer de pulsations au service, car la connexion réseau est instable. Une pulsation est envoyée toutes les cinq minutes. Si le service ne reçoit pas de pulsation pendant 15 minutes, il considère que l’agent est inactif et plus aucun test n’est planifié pour ce service. Vérifiez le message d’erreur dans le fichier *Agenthost.log*, il se trouve dans le répertoire où l’agent a été démarré.
 
 > [!Note]
-> Tous les tests déjà en cours d’exécution sur l’agent continuent de s’exécuter, mais si la pulsation n’est pas restaurée avant la fin du test, l’agent ne peut pas mettre à jour l’état du test, ni charger les journaux d’activité. Le test apparaît toujours comme étant **en cours d’exécution** et il doit être annulé.
+> Tous les tests déjà en cours d’exécution sur l’agent continuent de s’exécuter, mais si la pulsation n’est pas restaurée avant la fin du test, l’agent ne peut pas mettre à jour l’état du test, ni charger les journaux. Le test apparaît toujours comme étant **en cours d’exécution** et il doit être annulé.
 
 ### <a name="agent-process-on-machine-was-shut-down-while-executing-test-what-to-expect"></a>Le processus de l’agent sur la machine a été arrêté pendant l’exécution du test. À quoi s’attendre ?
 
-Si le processus de l’agent est arrêté de manière anormale, par exemple un redémarrage de la machine avec suppression du processus (un CTRL+C dans la fenêtre de l’agent est considéré comme un arrêt correct), le test en cours d’exécution sur cette machine continue de s’afficher **en cours d’exécution**. Si l’agent est redémarré, il met à jour l’état du test qui est **annulé**. Si l’agent n’est pas redémarré, le test s’affiche comme étant **en cours d’exécution**, et vous devez annuler manuellement le test.
+Si le processus de l’agent s’arrête de manière inappropriée, le test qui s’exécutait sur celui-ci continuera de s’afficher comme étant **en cours d’exécution**. Un exemple d’arrêt inapproprié est lorsque l’ordinateur est redémarré et que le processus est tué (pour un arrêt normal, vous devez appuyer sur CTRL+C dans la fenêtre de l’agent). Si l’agent est redémarré, il met à jour l’état du test qui est **annulé**. Si l’agent n’est pas redémarré, le test s’affiche comme étant **en cours d’exécution**, et vous devez annuler manuellement le test.
 
 > [!Note]
 > Les tests au sein d’un workflow sont planifiés pour une exécution séquentielle. Les tests **en attente** ne sont pas exécutés tant que les tests affichant l’état **en cours d’exécution** dans ce même workflow ne sont pas terminés.
@@ -47,9 +48,9 @@ Vous pouvez télécharger l’image PIR sur un partage dans votre centre de donn
 
 #### <a name="download-pir-image-to-local-share-in-case-of-slow-network-traffic"></a>Télécharger l’image PIR sur un partage local en cas de trafic réseau lent
 
-1. Téléchargez AzCopy à partir de : [vaasexternaldependencies(AzCopy)](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip)
+1. Téléchargez AzCopy à partir de : [vaasexternaldependencies(AzCopy)](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip).
 
-2. Extrayez AzCopy.zip et accédez au répertoire contenant AzCopy.exe
+2. Extrayez AzCopy.zip et accédez au répertoire contenant `AzCopy.exe`.
 
 3. Ouvrez Windows PowerShell à partir d’une invite de commandes avec élévation des privilèges. Exécutez les commandes suivantes :
 
@@ -80,16 +81,16 @@ Vous pouvez utiliser l’applet de commande **Get-HashFile** pour obtenir la val
 | OpenLogic-CentOS-69-20180105.vhd | C8B874FE042E33B488110D9311AF1A5C7DC3B08E6796610BF18FDD6728C7913C |
 | Debian8_latest.vhd | 06F8C11531E195D0C90FC01DFF5DC396BB1DD73A54F8252291ED366CACD996C1 |
 
-### <a name="failure-occurs-when-uploading-vm-image-in-the-vaasprereq-script"></a>Une défaillance se produit lors du chargement d’une image de machine virtuelle dans le script `VaaSPreReq`
+### <a name="failure-happens-when-uploading-vm-image-in-the-vaasprereq-script"></a>Une défaillance se produit lors du chargement d’une image de machine virtuelle dans le script `VaaSPreReq`
 
 Vérifiez tout d’abord que l’environnement est sain :
 
-1. À partir du DVM/de la zone de saut, vérifiez que vous pouvez vous connecter au portail d’administration à l’aide des informations d’identification de l’administrateur.
+1. À partir du DVM ou du serveur de rebond, vérifiez que vous pouvez vous connecter au portail d’administration avec les informations d’identification de l’administrateur.
 1. Vérifiez qu’aucune alerte ou qu’aucun avertissement ne s’affiche.
 
-Si l’environnement est sain, chargez manuellement les 5 images de machine virtuelle requises pour les exécutions du test du service VaaS :
+Si l’environnement est sain, chargez manuellement les cinq images de machine virtuelle nécessaires aux séries de tests VaaS :
 
-1. Connectez-vous au portail d’administration en tant qu’administrateur de service. L’URL du portail d’administration se trouve dans le fichier d’informations de tampon ou ECE. Pour obtenir des instructions, consultez la section [Paramètres d’environnement](azure-stack-vaas-parameters.md#environment-parameters).
+1. Connectez-vous au portail d’administration en tant qu’administrateur de service. L’URL du portail d’administration se trouve dans le fichier d’informations de tampon ou dans le magasin ECE. Pour obtenir des instructions, consultez la section [Paramètres d’environnement](azure-stack-vaas-parameters.md#environment-parameters).
 1. Sélectionnez **Autres services** > **Fournisseurs de ressources** > **Compute** > **Images de VM**.
 1. Sélectionnez le bouton **+Ajouter** situé en haut du panneau **Images de VM**.
 1. Vérifiez ou modifiez les valeurs des champs suivants pour la première image de machine virtuelle :
@@ -108,7 +109,7 @@ Si l’environnement est sain, chargez manuellement les 5 images de machine virt
 1. Cliquez sur le bouton **Créer**.
 1. Répétez cette opération pour les images restantes de machine virtuelle.
 
-Propriétés des 5 images de machine virtuelle :
+Propriétés des cinq images de machine virtuelle :
 
 | Serveur de publication  | Offre  | Type de système d'exploitation | SKU | Version | URI de l’objet blob du disque du système d’exploitation |
 |---------|---------|---------|---------|---------|---------|
@@ -122,4 +123,4 @@ Propriétés des 5 images de machine virtuelle :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour connaître les modifications des dernières versions, consultez l’article [Notes de publication de la validation en tant que service](azure-stack-vaas-release-notes.md).
+- Pour connaître les changements des dernières versions, consultez les [Notes de publication de la validation en tant que service](azure-stack-vaas-release-notes.md).

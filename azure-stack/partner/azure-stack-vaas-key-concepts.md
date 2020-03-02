@@ -1,6 +1,7 @@
 ---
-title: Concepts clés de la validation en tant que service (VaaS) d’Azure Stack Hub
-description: Décrit les concepts clés de la Validation en tant que Service Azure Stack Hub.
+title: Concepts clés de la validation en tant que service
+titleSuffix: Azure Stack Hub
+description: Découvrez les concepts clés de la validation en tant que service Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
 ms.date: 10/28/2019
@@ -8,24 +9,24 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 972b0be328f80a82ed3c12076a1f540c52b53ea7
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 211a2bf18643ff0c873969520f9bfae20d2ed89d
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143753"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625405"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Concepts clés de la Validation en tant que service
 
-Cet article décrit les concepts clés de la Validation en tant que Service (VaaS).
+Cet article explique les concepts clés de la validation en tant que service (VaaS).
 
 ## <a name="solutions"></a>Solutions
 
 Une solution VaaS est une solution Azure Stack Hub associée à une nomenclature (BoM) matérielle particulière. Elle agit comme un conteneur pour les workflows qui s’exécutent sur la solution Azure Stack Hub.
 
-### <a name="create-a-solution-in-the-vaas-portal"></a>Créer une solution dans le portail VaaS
+### <a name="create-a-solution-in-the-azure-stack-hub-validation-portal"></a>Créer une solution dans le portail Validation Azure Stack Hub
 
-1. Connectez-vous au [portail VaaS](https://azurestackvalidation.com).
+1. Connectez-vous au [portail Validation Azure Stack Hub](https://azurestackvalidation.com).
 2. Dans le tableau de bord des solutions, sélectionnez **Nouvelle solution**.
 3. Entrez un nom pour la solution. Pour des suggestions de dénomination, consultez [Naming convention for VaaS workflows](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions) (Conventions d’affectation de noms pour les flux de travail VaaS).
 4. Sélectionnez **Enregistrer** pour créer la solution.
@@ -46,8 +47,8 @@ Pour plus d’informations sur les types de workflow, consultez l’article [Qu�
 ### <a name="getting-started-with-vaas-workflows"></a>Prise en main des flux de travail VaaS
 
 1. Sur le tableau de bord des solutions, créez une solution ou sélectionnez une solution existante. Cela actualise et active les vignettes de workflow.
-2. Pour créer un nouveau flux de travail, sélectionnez **Démarrer** sur n’importe quelle vignette. Pour des informations spécifiques à chaque flux de travail, consultez les articles suivants :
-    - Passe de test : [Démarrage rapide : Utiliser le portail de validation en tant que service pour planifier votre premier test](azure-stack-vaas-schedule-test-pass.md)
+2. Pour créer un workflow, sélectionnez **Démarrer** sur n’importe quelle vignette. Pour des informations spécifiques à chaque flux de travail, consultez les articles suivants :
+    - Passe de test : [Démarrage rapide : Utiliser le portail Validation Azure Stack Hub pour planifier votre premier test](azure-stack-vaas-schedule-test-pass.md)
     - Validation de solution : [Valider une nouvelle solution Azure Stack Hub](azure-stack-vaas-validate-solution-new.md)
     - Validation du package (mise à jour mensuelle) : [Valider les mises à jour logicielles issues de Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
     - Validation du package (signature de package) : [Valider les packages OEM](azure-stack-vaas-validate-oem-package.md)
@@ -58,11 +59,11 @@ Pour plus d’informations sur les propriétés et paramètres du workflow, cons
 
 ## <a name="tests"></a>Tests
 
-Un test dans VaaS se compose d’une suite d’opérations exécutées sur une solution Azure Stack Hub. Les tests ont différents rôles identifiés par une catégorie, par exemple fonctionnel ou fiabilité, et ciblent un ou plusieurs services d’Azure Stack Hub. Chaque test définit son propre ensemble de paramètres, dont certains sont spécifiés par des paramètres communs du flux de travail contenant.
+Un test dans VaaS se compose d’une suite d’opérations exécutées sur une solution Azure Stack Hub. Les tests ont différents rôles identifiés par une catégorie (relative à la fonctionnalité ou à la fiabilité, par exemple) et ciblent un ou plusieurs services Azure Stack Hub. Chaque test définit son propre ensemble de paramètres, dont certains sont spécifiés par des paramètres communs du flux de travail contenant.
 
-Pour plus d’informations sur les tests de gestion et de surveillance, consultez [Surveiller un test avec le service Validation en tant que service pour Azure Stack](azure-stack-vaas-monitor-test.md).
+Pour plus d’informations sur les tests de gestion et de supervision, consultez [Superviser et gérer les tests dans le portail Validation Azure Stack Hub](azure-stack-vaas-monitor-test.md).
 
-Pour plus d’informations sur les paramètres de test, consultez l’article [Paramètres de workflow communs pour la validation en tant que service Azure Stack Hub](azure-stack-vaas-parameters.md).
+Pour plus d’informations sur les paramètres de test, consultez [Paramètres de workflow communs pour la validation en tant que service Azure Stack Hub](azure-stack-vaas-parameters.md).
 
 ## <a name="agents"></a>Agents
 
@@ -77,4 +78,4 @@ Pour obtenir des instructions sur l’ajout d’un agent local, consultez [Deplo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Best practices for Validation as a Service](azure-stack-vaas-best-practice.md) (Meilleures pratiques concernant la validation en tant que service)
+- [Bonnes pratiques concernant la validation en tant que service](azure-stack-vaas-best-practice.md)

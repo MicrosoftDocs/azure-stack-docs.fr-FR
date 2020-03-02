@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: e1042852535648edae61f24f1634ecbf9b6779af
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: abaa1405db1e3837c02cbc67e00cd3a593e9b98b
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877508"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568569"
 ---
 # <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Déployer une application qui utilise des données locales et effectue une mise à l’échelle multicloud à l’aide d’Azure et d’Azure Stack Hub
 
@@ -51,11 +51,11 @@ Ce didacticiel suppose que vous disposez de connaissances de base sur Azure glob
 
 Ce didacticiel part du principe que vous disposez d’un abonnement Azure. Si vous n’avez pas d’abonnement, vous pouvez [créer un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer cette solution, vérifiez que les conditions suivantes sont réunies :
 
-- Un kit de développement Azure Stack Hub (ASDK) ou un abonnement à un système intégré Azure Stack Hub. Pour déployer un kit de développement Azure Stack Hub, suivez les instructions dans [Déployer le kit ASDK à l’aide du programme d’installation](../asdk/asdk-install.md).
+- Un Kit de développement Azure Stack (ASDK) ou un abonnement à un système intégré Azure Stack Hub. Pour déployer un Kit de développement Azure Stack, suivez les instructions de [Déployer l’ASDK à l’aide du programme d’installation](../asdk/asdk-install.md).
 - Votre installation Azure Stack Hub doit avoir installé les éléments suivants :
   - Azure App Service. Travaillez avec votre opérateur Azure Stack Hub pour déployer et configurer Azure App Service sur votre environnement. Ce didacticiel nécessite qu’App Service dispose d’au moins (1) rôle de travail dédié disponible.
   - Une image Windows Server 2016.
@@ -260,7 +260,7 @@ Vous allez configurer le code d’application pour envoyer les données de tél�
 Chaque instance de l’application web utilise une méthode différente pour se connecter à la base de données SQL. L’application dans Azure utilise l’adresse IP privée de la machine virtuelle (VM) SQL Server, et l’application dans Azure Stack Hub l’adresse IP publique de la machine virtuelle SQL Server.
 
 > [!Note]  
-> Sur un système intégré Azure Stack Hub, l’adresse IP publique ne doit pas être routable sur Internet. Sur un kit de développement Azure Stack Hub (ASDK), l’adresse IP publique n’est pas routable en dehors du kit ASDK.
+> Sur un système intégré Azure Stack Hub, l’adresse IP publique ne doit pas être routable sur Internet. Sur un Kit de développement Azure Stack (ASDK), l’adresse IP publique n’est pas routable en dehors de l’ASDK.
 
 Vous pouvez utiliser des variables d’environnement App Service pour transmettre une chaîne de connexion différente à chaque instance de l’application.
 

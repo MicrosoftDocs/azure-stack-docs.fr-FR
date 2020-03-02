@@ -3,20 +3,20 @@ title: Superviser l’intégrité des composants matériels d’Azure Stack Hub
 description: Découvrez comment superviser l’intégrité des composants matériels d’Azure Stack Hub.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/24/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: dba47774205b4c0631f33de336e0efbfb73db9cf
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4fe942e6a4230d9807780507de8b658a6e0ed4c3
+ms.sourcegitcommit: c653efe7cd5177bf61c1a321ba7f38c0cdf90346
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882219"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77575128"
 ---
 # <a name="monitor-azure-stack-hub-hardware-components"></a>Superviser les composants matériels d’Azure Stack Hub
 
-Le système de contrôle d’intégrité et de supervision d’Azure Stack Hub supervise déjà l’état du sous-système de stockage et déclenche des alertes en fonction des besoins. Avec la version 1910 d’Azure Stack Hub, le système de contrôle d’intégrité et de supervision peut désormais déclencher des alertes pour les composants matériels suivants :
+Le système de contrôle d’intégrité et de supervision d’Azure Stack Hub supervise déjà l’état du sous-système de stockage et déclenche des alertes en fonction des besoins. Le système de contrôle d’intégrité et de supervision peut désormais déclencher des alertes pour les composants matériels suivants :
 
 - Ventilateurs système
 - Température système

@@ -1,6 +1,7 @@
 ---
-title: Vue d’ensemble de la validation en tant que service (VaaS) pour Azure Stack Hub
-description: Vue d’ensemble de la validation en tant que service Azure Stack Hub.
+title: Présentation de la validation en tant que service
+titleSuffix: Azure Stack Hub
+description: Présentation de la validation en tant que service Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
 ms.date: 11/11/2019
@@ -8,14 +9,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 95cee26239a4549b87360e62c61a34449f6a0774
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 31d47f947c4c71847156ca4e49c4b370c872e920
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884066"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625286"
 ---
-# <a name="what-is-validation-as-a-service-for-azure-stack-hub"></a>Qu’est-ce que la validation en tant que service pour Azure Stack Hub ?
+# <a name="validation-as-a-service-for-azure-stack-hub"></a>Validation en tant que service pour Azure Stack Hub
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -36,13 +37,13 @@ Pour plus d’informations, consultez [Valider une nouvelle solution Azure Stack
 
 ## <a name="validate-changes-to-the-azure-stack-hub-software"></a>Valider les modifications apportées au logiciel Azure Stack Hub
 
-Les partenaires utilisent le workflow de **validation de package** pour vérifier que leur solution fonctionne avec les dernières mises à jour du logiciel Azure Stack Hub. Le workflow de validation de package doit être exécuté sur un environnement matériel recommandé par Microsoft où les correctifs et mises à jour ont été utilisés pour appliquer la mise à jour. Il est recommandé d’exécuter également le workflow sur le build de la ligne de base.
+Les partenaires utilisent le workflow de **validation de package** pour vérifier que leur solution fonctionne avec les dernières mises à jour du logiciel Azure Stack Hub. Le workflow de validation de package doit être exécuté sur un environnement matériel recommandé par Microsoft où les correctifs et mises à jour ont été utilisés pour appliquer la mise à jour. Il est recommandé d’exécuter également le workflow sur la build de référence.
 
 Pour plus d’informations, consultez [Valider les mises à jour logicielles issues de Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
 
 ## <a name="get-digitally-signed-solution-partner-packages"></a>Obtenir les packages des partenaire de solutions signés numériquement
 
-En plus de la validation des mises à jour Azure Stack Hub, les partenaires utilisent le workflow de **validation de package** pour valider les mises à jour des packages de personnalisation OEM, qui incluent les pilotes, les microprogrammes et d’autres logiciels spécifiques au partenaire Azure Stack Hub, et qui sont utilisés pendant le déploiement du logiciel Azure Stack Hub. Déployez le package que vous validez sur la version actuelle du logiciel Azure Stack Hub, avec au moins la solution de taille minimale pouvant être prise en charge. Le package est envoyé à VaaS avant l’exécution de tests. Une fois les tests réussis, informez [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) que le package a passé les tests et qu’il va être approuvé numériquement avec la signature numérique Azure Stack Hub. Microsoft signe le package et notifie le partenaire Azure Stack Hub que celui-ci est disponible au téléchargement dans le portail VaaS.
+En plus de la validation des mises à jour Azure Stack Hub, les partenaires utilisent le workflow de **validation de package** pour valider les mises à jour des packages de personnalisation OEM. Ces mises à jour incluent des pilotes et des microprogrammes propres aux partenaires Azure Stack Hub, ainsi que d’autres logiciels utilisés lors du déploiement du logiciel Azure Stack Hub. Déployez le package que vous validez sur la version actuelle du logiciel Azure Stack Hub, avec au moins la solution de taille minimale pouvant être prise en charge. Le package est envoyé à VaaS avant l’exécution de tests. Une fois les tests réussis, informez [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) que le package a passé les tests et qu’il va être approuvé numériquement avec la signature numérique Azure Stack Hub. Microsoft signe le package et notifie le partenaire Azure Stack Hub que celui-ci est disponible en téléchargement dans le portail Validation Azure Stack Hub.
 
 Pour plus d’informations, consultez [Valider les packages OEM](azure-stack-vaas-validate-oem-package.md).
 
@@ -50,7 +51,7 @@ Pour plus d’informations, consultez [Valider les packages OEM](azure-stack-vaa
 
 Microsoft propose régulièrement de nouvelles fonctionnalités dans Azure Stack Hub. Dans le cadre du processus de développement pour la mise sur le marché de ces fonctionnalités, de nouveaux outils de test annexes sont proposés dans le workflow de **passe de test**. Ce workflow comprend des outils de test annexes provenant d’autres workflows pour permettre l’exécution de tests non officiels. N’utilisez pas le workflow de passe de test pour soumettre les résultats en vue d’une approbation. Pour obtenir une approbation officielle de votre solution, utilisez le workflow de validation de solution et de validation de package.
 
-Pour plus d’informations, consultez [Démarrage rapide : Utiliser le portail de validation en tant que service pour planifier votre premier test](azure-stack-vaas-schedule-test-pass.md).
+Pour plus d’informations, consultez [Démarrage rapide : Utiliser le portail Validation Azure Stack Hub pour planifier votre premier test](azure-stack-vaas-schedule-test-pass.md).
 
 ## <a name="validation-workflow-tests-summary"></a>Résumé de tests de workflow de validation
 

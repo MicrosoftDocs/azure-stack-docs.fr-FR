@@ -1,6 +1,7 @@
 ---
-title: Paramètres de workflow communs dans la validation en tant que service Azure Stack Hub
-description: Paramètres de workflow communs pour la validation en tant que service Azure Stack Hub
+title: Paramètres de workflow communs dans VaaS
+titleSuffix: Azure Stack Hub
+description: Découvrez les paramètres de workflow communs pour la validation en tant que service Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
 ms.date: 1/22/2020
@@ -8,14 +9,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: cc237792576ffa3a5bb3ad0a003da4284c9cc56f
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 9a53f489ac1fdf92afdf8ba841b1cbb4a030680b
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143687"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625388"
 ---
-# <a name="workflow-common-parameters-for-azure-stack-hub-validation-as-a-service"></a>Paramètres de workflow communs pour la validation en tant que service Azure Stack Hub
+# <a name="common-workflow-parameters-in-validation-as-a-service"></a>Paramètres de workflow communs pour la validation en tant que service
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -26,10 +27,10 @@ Les paramètres communs comprennent des valeurs telles que les variables d’env
 
 ## <a name="environment-parameters"></a>Paramètres d’environnement
 
-Les paramètres d’environnement décrivent l’environnement Azure Stack Hub testé. Ces valeurs doivent être fournies en générant et en chargeant un fichier d’informations d’horodatage Azure Stack Hub pour l’instance spécifique que vous testez.
+Les paramètres d’environnement décrivent l’environnement Azure Stack Hub testé. Ces valeurs doivent être fournies en générant et en chargeant un fichier d’informations d’horodatage Azure Stack Hub pour l’instance que vous testez.
 
 > [!NOTE]
-> Dans les flux de travail de validation officielle, les paramètres d’environnement ne peuvent pas être modifiés après la création du flux de travail.
+> Dans les workflows de validation officielle, les paramètres d’environnement ne peuvent pas être modifiés après la création du workflow.
 
 ### <a name="generate-the-stamp-information-file"></a>Générer le fichier d’informations d’horodatage
 
@@ -50,12 +51,12 @@ Les valeurs de paramètre d’environnement peuvent également être recherchée
 
 ## <a name="test-parameters"></a>Paramètres de test
 
-Les paramètres de test communs comportent des informations sensibles qui ne peuvent pas être stockées dans des fichiers de configuration. Celles-ci doivent être fournies manuellement.
+Les paramètres de test communs comportent des informations sensibles qui ne peuvent pas être stockées dans des fichiers de configuration. Ces paramètres doivent être fournis manuellement.
 
 Paramètre    | Description
 -------------|-----------------
-Tenant Administrator User (Utilisateur administrateur de locataire)                            | Administrateur de locataire Azure Active Directory qui a été approvisionné par l’administrateur de services fédérés dans le répertoire AAD. Cet utilisateur exécute des actions au niveau du locataire, comme le déploiement de modèles pour configurer des ressources (machines virtuelles, comptes de stockage, etc.) et l’exécution de charges de travail. Pour plus d’informations sur le provisionnement du compte de locataire, consultez [Ajouter un nouveau locataire Azure Stack Hub](../operator/azure-stack-add-new-user-aad.md).
-Utilisateur administrateur de service             | Administrateur Azure Active Directory du locataire Azure AD Directory spécifié au cours du déploiement Azure Stack Hub. Recherchez `AADTenant` dans le fichier config ECE et sélectionnez la valeur dans l’élément `UniqueName`.
+Tenant Administrator User (Utilisateur administrateur de locataire)                            | Administrateur de locataire Azure Active Directory (Azure AD) qui a été provisionné par l’administrateur de services fédérés dans l’annuaire AAD. Cet utilisateur exécute des actions au niveau du locataire, comme le déploiement de modèles pour configurer des ressources (machines virtuelles, comptes de stockage, etc.) et l’exécution de charges de travail. Pour plus d’informations sur le provisionnement du compte de locataire, consultez [Ajouter un nouveau locataire Azure Stack Hub](../operator/azure-stack-add-new-user-aad.md).
+Utilisateur administrateur de service             | Administrateur Azure AD du locataire de l’annuaire Azure AD spécifié au cours du déploiement Azure Stack Hub. Recherchez `AADTenant` dans le fichier config ECE et sélectionnez la valeur dans l’élément `UniqueName`.
 Cloud Administrator User (Utilisateur administrateur de cloud)               | Compte administrateur de domaine Azure Stack Hub (par exemple, `contoso\cloudadmin`). Recherchez `User Role="CloudAdmin"` dans le fichier config ECE et sélectionnez la valeur dans l’élément `UserName`.
 Chaîne de connexion des diagnostics          | Une URL de signature d’accès partagé d’un compte Stockage Azure dans lequel les journaux de diagnostic sont copiés pendant l’exécution des tests. Pour obtenir des instructions sur la génération de l’URL de signature d’accès partagé, consultez [Générer la chaîne de connexion des diagnostics](#generate-the-diagnostics-connection-string). |
 
@@ -64,7 +65,7 @@ Chaîne de connexion des diagnostics          | Une URL de signature d’accès 
 
 ### <a name="generate-the-diagnostics-connection-string"></a>Générer la chaîne de connexion des diagnostics
 
-La chaîne de connexion des diagnostics est requise pour le stockage des journaux de diagnostics pendant l’exécution du test. Utilisez le compte Stockage Azure créé pendant la configuration (consultez [Tutorial: Set up resources for Validation as a Service](azure-stack-vaas-set-up-resources.md) (Didacticiel : Configurer des ressources pour la validation en tant que service)) pour créer une URL de signature d’accès partagé et accorder l’accès VaaS pour charger des journaux d’activité dans votre compte de stockage.
+La chaîne de connexion des diagnostics est requise pour le stockage des journaux de diagnostics pendant l’exécution du test. Utilisez le compte Stockage Azure créé pendant la configuration (voir [Configurer des ressources pour la validation en tant que service](azure-stack-vaas-set-up-resources.md)) pour créer une URL de signature d’accès partagé (SAS) et accorder l’accès VaaS permettant de charger les journaux dans votre compte de stockage.
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
 
@@ -79,8 +80,7 @@ La chaîne de connexion des diagnostics est requise pour le stockage des journau
 1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
 
 > [!NOTE]  
-> L’URL de signature d’accès partagé expire à l’heure de fin définie lors de la génération de l’URL.  
-Lors de la planification des tests, assurez-vous que l’URL est valide pendant au moins 30 jours plus le temps nécessaire pour l’exécution des tests (nous vous recommandons une durée de trois mois).
+> L’URL de signature d’accès partagé expire à l’heure de fin définie lors de la génération de l’URL. Lors de la planification des tests, assurez-vous que l’URL est valide pendant au moins 30 jours plus le temps nécessaire pour l’exécution des tests (nous vous recommandons une durée de trois mois).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

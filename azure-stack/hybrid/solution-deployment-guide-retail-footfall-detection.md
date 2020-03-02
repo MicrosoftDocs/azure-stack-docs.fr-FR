@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d81fdf315e9bc834c46161d901d6ac10d736f7ab
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 66f6e316c83e25651dc0e0b1be95d6a8467f7f47
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875298"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568382"
 ---
 # <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>Déployer une solution de détection des pas basé sur l’intelligence artificielle à l'aide d'Azure et Azure Stack Hub
 
@@ -31,12 +31,12 @@ Dans cette solution, vous allez apprendre à :
 > 
 > L’article [Design Considerations for Hybrid Applications](overview-app-design-considerations.md) se penche sur les fondements de la qualité logicielle (sélection élective, scalabilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
 
-## <a name="prerequisites"></a>Conditions préalables requises 
+## <a name="prerequisites"></a>Prérequis 
 
 Avant de commencer à utiliser ce guide de déploiement, vous devez :
 
 - Consulter la [vue d'ensemble sur la solution de détection des pas](pattern-retail-footfall-detection.md) 
-- Obtenir un accès utilisateur à un kit de développement Azure Stack Hub (ASDK) ou à une instance de système intégré Azure Stack Hub avec :
+- Obtenir un accès utilisateur à un Kit de développement Azure Stack (ASDK) ou à une instance de système intégré Azure Stack Hub avec :
   - [Azure App Service sur le fournisseur de ressources Azure Stack Hub](../operator/azure-stack-app-service-overview.md) installé. Vous devez disposer d'un accès opérateur à votre instance Azure Stack Hub ou vous rapprocher de votre administrateur pour qu'il l'installe.
   - Abonnement à une offre fournissant App Service et un quota de stockage. Vous devez disposer d'un accès opérateur pour créer une offre.
 - Obtenir un accès à un abonnement Azure

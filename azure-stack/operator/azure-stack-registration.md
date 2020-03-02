@@ -2,18 +2,18 @@
 title: Inscrire Azure Stack Hub auprès d’Azure
 titleSuffix: Azure Stack Hub
 description: Découvrez comment inscrire les systèmes intégrés Azure Stack Hub auprès d’Azure afin de pouvoir télécharger des éléments de la Place de marché Azure et configurer les rapports de données.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 2/02/2020
+ms.date: 02/25/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 6a56c6381cc1a88729b31c5d020460100d29ca39
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 3f8570f765b87736975a15c49b1a2a5ff4bdf55d
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491915"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625320"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Inscrire Azure Stack Hub auprès d’Azure
 
@@ -506,17 +506,23 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 
 Vous pouvez recevoir l’une des erreurs ci-dessous quand vous tentez d’inscrire votre instance Azure Stack Hub :
 
-- Impossible d’obtenir les informations requises sur le matériel pour $hostName. Vérifiez la connectivité et l’hôte physique, puis réessayez l’inscription.
+- Impossible d’obtenir les informations requises sur le matériel pour `$hostName`. Vérifiez la connectivité et l’hôte physique, puis réessayez l’inscription.
 
-- Impossible de se connecter à $hostName pour obtenir les informations sur le matériel. Vérifiez la connectivité et l’hôte physique, puis réessayez l’inscription.
+- Impossible de se connecter à `$hostName` pour accéder aux informations sur le matériel. Vérifiez la connectivité et l’hôte physique, puis réessayez l’inscription.
 
-> Cause : cette erreur se produit généralement quand vous essayez d’obtenir les informations sur le matériel, comme l’UUID, le BIOS et l’UC, auprès des hôtes lors d’une tentative d’activation et que cette opération échoue en raison d’une connexion impossible à l’hôte physique.
+   Cause : cette erreur se produit généralement quand vous essayez d’obtenir les informations sur le matériel, comme l’UUID, le BIOS et l’UC, auprès des hôtes lors d’une tentative d’activation et que cette opération échoue en raison d’une connexion impossible à l’hôte physique.
 
-Une erreur se produit quand vous tentez d’accéder à la Gestion de la Place de marché et de syndiquer des produits. 
-> Cause : cette erreur se produit généralement quand Azure Stack Hub ne réussit pas à accéder à la ressource d’inscription. Une des causes courantes de cette erreur est le changement du locataire d’annuaire d’un abonnement Azure, qui entraîne la réinitialisation de l’inscription. Vous ne pouvez pas accéder aux rapports d’utilisation ni à la Place de marché Azure Stack Hub après avoir changé le locataire d’annuaire de l’abonnement. Vous devez refaire l’inscription pour résoudre ce problème.
+- L’identificateur de cloud [`GUID`] est déjà inscrit. La réutilisation des identificateurs de cloud n’est pas autorisée.
 
-Vous recevez un message de la Gestion de la Place de marché vous invitant à inscrire et à activer votre instance Azure Stack Hub alors que vous avez déjà inscrit votre tampon à l’aide du processus déconnecté.
-> Cause : il s’agit d’un problème connu dans les environnements déconnectés. Vous pouvez vérifier l’état de votre inscription en suivant [ces étapes](azure-stack-registration.md#verify-azure-stack-hub-registration). Pour utiliser Gestion de la Place de marché, vous devez utiliser l’[outil en mode hors connexion](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario).
+   Cause : cela se produit lorsque votre environnement Azure Stack est déjà inscrit. Si vous souhaitez réinscrire votre environnement avec un autre abonnement ou modèle de facturation, [lisez ces instructions](#change-the-subscription-you-use).
+
+- Une erreur se produit quand vous tentez d’accéder à la Gestion de la Place de marché et de syndiquer des produits.
+
+   Cause : cette erreur se produit généralement quand Azure Stack Hub ne réussit pas à accéder à la ressource d’inscription. Une des causes courantes de cette erreur est le changement du locataire d’annuaire d’un abonnement Azure, qui entraîne la réinitialisation de l’inscription. Vous ne pouvez pas accéder aux rapports d’utilisation ni à la Place de marché Azure Stack Hub après avoir changé le locataire d’annuaire de l’abonnement. Vous devez refaire l’inscription pour résoudre ce problème.
+
+- Vous recevez un message de la Gestion de la Place de marché vous invitant à inscrire et à activer votre instance Azure Stack Hub alors que vous avez déjà inscrit votre tampon à l’aide du processus déconnecté.
+
+   Cause : il s’agit d’un problème connu dans les environnements déconnectés. Vous pouvez vérifier l’état de votre inscription en suivant [ces étapes](azure-stack-registration.md#verify-azure-stack-hub-registration). Pour utiliser la gestion de la Place de marché, utilisez l’[outil hors connexion](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

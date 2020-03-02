@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: dc615786a23295468e173c3ce13b46cb308b8215
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 10ad85a306b225241822cb2b8531515dc9bb1719
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875621"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568586"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Déployer une application qui effectue une mise à l’échelle multicloud à l’aide d’Azure et d’Azure Stack Hub
 
@@ -35,12 +35,12 @@ Dans cette solution, vous allez générer un exemple d’environnement pour :
 > 
 > L’article [Design Considerations for Hybrid Applications](overview-app-design-considerations.md) se penche sur les fondements de la qualité logicielle (sélection élective, scalabilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 -   Abonnement Azure. Si nécessaire, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-- Système intégré Azure Stack Hub ou déploiement du Kit de développement Azure Stack Hub.
-    - Pour des instructions concernant l’installation d’Azure Stack Hub, consultez [Installer le Kit de développement Azure Stack Hub](../asdk/asdk-install.md).
+- Système intégré Azure Stack Hub ou déploiement du Kit de développement Azure Stack.
+    - Pour des instructions concernant l’installation d’Azure Stack Hub, consultez [Installer le Kit de développement Azure Stack](../asdk/asdk-install.md).
     - Pour un script d’automatisation post-déploiement ASDK, accédez à : [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) 
     - Cette installation peut prendre quelques heures.
 
