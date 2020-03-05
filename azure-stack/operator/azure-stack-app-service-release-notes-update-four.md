@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 54eae566f2171c471f91e3aaeaf242b90998e962
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 08/20/2019
+ms.openlocfilehash: 93ca14c17613229aea354e96a9e48be41c2ea5e2
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874414"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703483"
 ---
 # <a name="app-service-on-azure-stack-hub-update-4-release-notes"></a>Notes de publication d'App Service sur Azure Stack Hub Update 4
 
@@ -26,7 +26,7 @@ Ces notes de publication décrivent les améliorations, les correctifs et les pr
 
 Le numéro de build de la mise à jour 4 d'App Service sur Azure Stack Hub est **78.0.13698.5**
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Avant d'entamer le déploiement, consultez les [Conditions préalables au déploiement d'App Service sur Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).
 

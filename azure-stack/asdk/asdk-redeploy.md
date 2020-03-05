@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: d0fc4539b581474c9db2a2dbb05495c9b1bce695
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: 7e4c6668253e79a2fc04a6c4b0cf37c9025ccd3c
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873513"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695969"
 ---
 # <a name="redeploy-the-asdk"></a>Redéployer l’ASDK
 Dans cet article, vous allez découvrir comment redéployer le Kit de développement Azure Stack (ASDK) dans un environnement hors production. La mise à niveau de l’ASDK n’étant pas prise en charge, vous devez le redéployer complètement pour passer à une version plus récente. Vous pouvez également redéployer les ASDK chaque fois que vous souhaitez commencer de zéro.

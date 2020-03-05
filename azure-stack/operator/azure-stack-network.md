@@ -7,12 +7,12 @@ ms.date: 02/18/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: e77edd87f09f4e620c4388b8e5a277d49276bff2
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: c783a22ea284413d7db79ab4925db6d8c58858ea
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509430"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698485"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Planification de l’intégration réseau pour Azure Stack
 
@@ -34,7 +34,7 @@ Les réseaux logiques représentent une abstraction de l’infrastructure résea
 
 Le tableau suivant montre les réseaux logiques et les plages de sous-réseau IPv4 associées à prendre en compte dans le cadre de la planification :
 
-| Réseau logique | Description | Size | 
+| Réseau logique | Description | Taille | 
 | -------- | ------------- | ------------ | 
 | Adresse IP virtuelle publique | Azure Stack utilise un total de 31 adresses de ce réseau. Huit adresses IP publiques sont utilisées pour un petit ensemble de services Azure Stack, et les adresses restantes sont utilisées par les machines virtuelles de locataire. Si vous envisagez d’utiliser App Service et les fournisseurs de ressources SQL, 7 adresses supplémentaires sont utilisées. Les 15 adresses IP restantes sont réservées pour les futurs services Azure. | / 26 (62 hôtes) - /22 (1022 hôtes)<br><br>Recommandé = /24 (254 hôtes) | 
 | Infrastructure du commutateur | Adresses IP de point à point pour le routage, les interfaces de gestion de commutateur dédiées et les adresses de bouclage attribuées au commutateur. | /26 | 

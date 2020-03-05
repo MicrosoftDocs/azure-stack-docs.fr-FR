@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 4db38de1586096cfeeb2e7f2b806430d0ca1344f
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 16973c1c381cfecb611370f940f92a7695f9434f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492306"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702769"
 ---
 # <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>Autoriser des applications à accéder aux secrets d’un Key Vault Azure Stack Hub
 

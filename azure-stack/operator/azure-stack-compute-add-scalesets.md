@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 7474b18a1d50c6ab8ed91be64f8f943a215ff7fd
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.lastreviewed: 10/22/2019
+ms.openlocfilehash: f0b23df25ef2e9fffe9c5f43ee649ecfe5f74092
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76889743"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695289"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>Rendre les groupes identiques de machines virtuelles disponibles dans Azure Stack Hub
 
@@ -27,7 +27,7 @@ Les groupes de machines virtuelles identiques sur Azure Stack Hub ont la même f
 
 Sur Azure Stack Hub, les groupes de machines virtuelles identiques ne prennent pas en charge la mise à l’échelle automatique. Vous pouvez ajouter d’autres instances à un groupe identique en utilisant les modèles Resource Manager, l’interface de ligne de commande ou PowerShell.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * **Place de marché Azure Stack Hub :** Inscrivez Azure Stack Hub auprès d’Azure international pour rendre les éléments disponibles dans la Place de marché Azure Stack Hub. Suivez les instructions fournies dans [Inscrire Azure Stack Hub auprès d’Azure](azure-stack-registration.md).
 * **Image du système d’exploitation :** Pour pouvoir créer un groupe de machines virtuelles identiques, vous devez au préalable télécharger les images de machine virtuelle à utiliser dans ce groupe à partir de la [Place de marché Azure Stack Hub](azure-stack-download-azure-marketplace-item.md). Pour qu’un utilisateur puisse créer un groupe identique, les images doivent déjà être présentes.

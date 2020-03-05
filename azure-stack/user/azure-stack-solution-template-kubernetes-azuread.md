@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: e8c8ad8581b9deff792ce2c095bbc3c5f9cee034
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 6324370313656f05c299f37c8e858109378209db
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883226"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701834"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Déployer Kubernetes sur Azure Stack Hub à l’aide d’Azure Active Directory
 
@@ -21,7 +21,7 @@ ms.locfileid: "76883226"
 
 Vous pouvez suivre les étapes décrites dans cet article pour déployer et configurer les ressources pour Kubernetes lorsque vous utilisez Azure Active Directory (Azure AD) comme service de gestion des identités en une seule et même opération.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, assurez-vous que vous disposez des autorisations appropriées et que votre Azure Stack Hub est prêt.
 

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 78abed9225a2a7516db65f9163aac5d0db24ad04
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 06/18/20192
+ms.openlocfilehash: 5a1b36f7640f3259a4b18f087ebf4bad49f3c4ed
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884445"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703670"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Déployer Kubernetes sur Azure Stack Hub à l’aide d’Active Directory Federation Services
 
@@ -21,7 +21,7 @@ ms.locfileid: "76884445"
 
 Vous pouvez suivre les étapes de cet article pour déployer et configurer les ressources pour Kubernetes. Utilisez ces étapes quand Active Directory Federation Services (AD FS) est votre service de gestion des identités.
 
-## <a name="prerequisites"></a>Conditions préalables requises 
+## <a name="prerequisites"></a>Prérequis 
 
 Pour commencer, assurez-vous que vous disposez des autorisations appropriées et que votre Azure Stack Hub est prêt.
 

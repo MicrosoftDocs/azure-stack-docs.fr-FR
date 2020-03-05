@@ -7,12 +7,12 @@ ms.date: 05/16/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: a9ebb725bed0472eaacc80e821840746966104dd
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 96d1062b7b6b4c30d1d635965b51de27c0b49269
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874329"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703279"
 ---
 # <a name="recover-data-in-azure-stack-hub-with-the-infrastructure-backup-service"></a>Récupérer des données dans Azure Stack Hub avec le service Infrastructure Backup
 

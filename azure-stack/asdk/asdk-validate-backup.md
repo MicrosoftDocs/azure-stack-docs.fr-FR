@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 2ff4ec010243b27406a2ebb3149bc123aa01947d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ee86c3200cbef75f63de0b1aa8f7ac614e1878cc
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873496"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77690920"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Utiliser l’ASDK pour valider une sauvegarde Azure Stack
 Après déploiement d’Azure Stack et approvisionnement de ressources utilisateur telles que des offres, des plans, des quotas et des abonnements, vous devez [activer la sauvegarde d’infrastructure Azure Stack](../operator/azure-stack-backup-enable-backup-console.md). La planification et l’exécution de sauvegardes d’infrastructure régulières garantissent que les données de gestion d’infrastructure ne seront pas perdues en cas de défaillance catastrophique du matériel ou du service.

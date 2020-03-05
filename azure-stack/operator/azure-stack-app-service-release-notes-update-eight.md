@@ -6,13 +6,14 @@ manager: stefsch
 ms.topic: article
 ms.date: 02/25/2020
 ms.author: anwestg
-ms.reviewer: ''
-ms.openlocfilehash: b8f6e8868723685eb00d6cfa8424905642697c5a
-ms.sourcegitcommit: 7f185ce838756c879b28e380875be97c62b9a707
+ms.reviewer: anwestg
+ms.lastreviewed: 03/25/2019
+ms.openlocfilehash: 56838a95c7c937c6fcbbe878ca284ce27d3d1397
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77600292"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695595"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>Notes de publication de la mise à jour 8 d’App Service sur Azure Stack Hub
 

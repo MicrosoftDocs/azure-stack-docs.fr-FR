@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: fadc0adbd8cad2ff92b3849d6c79c933a1bf3bfb
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b09e23fafdfcdff83329e70538cd8d072081a678
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884432"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77687544"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Déployer un cluster Service Fabric dans Azure Stack Hub
 
@@ -22,7 +22,7 @@ Pour plus d’informations sur l’utilisation de Service Fabric, consultez les 
 
 Le cluster Service Fabric dans Azure Stack Hub n’utilise pas le fournisseur de ressources Microsoft.ServiceFabric. Au lieu de cela, dans Azure Stack Hub, le cluster Service Fabric est un groupe de machines virtuelles identiques avec des logiciels préinstallés à l’aide de [DSC (Desired State Configuration)](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Le déploiement du cluster Service Fabric requiert les éléments suivants :
 1. **Certificat de cluster**  

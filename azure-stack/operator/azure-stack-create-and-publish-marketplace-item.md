@@ -7,12 +7,12 @@ ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: fdb31f29faa5fa1890be0fa12050a1cd8b1c56a8
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: bb407a03b2a5887b75b8b5d729fa5cc2cc636755
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890117"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704452"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Créer et publier un élément personnalisé de Place de marché Azure Stack Hub
 
@@ -206,15 +206,15 @@ Pour créer un élément de Place de marché personnalisé, procédez comme suit
 
 ### <a name="identity-information"></a>Informations d’identité
 
-| Name | Obligatoire | Type | Contraintes | Description |
+| Nom | Obligatoire | Type | Contraintes | Description |
 | --- | --- | --- | --- | --- |
-| Name |X |String |[A-Za-z0-9]+ | |
+| Nom |X |String |[A-Za-z0-9]+ | |
 | Serveur de publication |X |String |[A-Za-z0-9]+ | |
 | Version |X |String |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Métadonnées
 
-| Name | Obligatoire | Type | Contraintes | Description |
+| Nom | Obligatoire | Type | Contraintes | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |Recommandation : 80 caractères |Le portail risque de ne pas afficher correctement le nom de votre élément s’il comporte plus de 80 caractères. |
 | PublisherDisplayName |X |String |Recommandation : 30 caractères |Le portail risque de ne pas afficher correctement le nom de votre éditeur s’il comporte plus de 30 caractères. |
@@ -227,7 +227,7 @@ Pour créer un élément de Place de marché personnalisé, procédez comme suit
 
 La Marketplace utilise les icônes suivantes :
 
-| Name | Largeur | Hauteur | Notes |
+| Nom | Largeur | Hauteur | Notes |
 | --- | --- | --- | --- |
 | Large |255 px |115 px |Toujours obligatoire |
 | grand |115 px |115 px |Toujours obligatoire |
@@ -243,7 +243,7 @@ Chaque article de Marketplace doit être étiqueté avec une catégorie qui iden
 
 Chaque article de Marketplace peut comporter différents liens vers du contenu supplémentaire. Les liens sont spécifiés comme une liste de noms et d’URI :
 
-| Name | Obligatoire | Type | Contraintes | Description |
+| Nom | Obligatoire | Type | Contraintes | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |64 caractères maximum. | |
 | Uri |X |URI | | |
@@ -252,7 +252,7 @@ Chaque article de Marketplace peut comporter différents liens vers du contenu s
 
 En plus des métadonnées précédentes, les auteurs de la Marketplace peuvent fournir des données de paire clé-valeur personnalisées sous la forme suivante :
 
-| Name | Obligatoire | Type | Contraintes | Description |
+| Nom | Obligatoire | Type | Contraintes | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |25 caractères maximum. | |
 | Valeur |X |String |30 caractères maximum. | |

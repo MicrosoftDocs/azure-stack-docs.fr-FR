@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 07cc157290280dbfd435dbcda6939d62388ba7d9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8ecb1fde96c4d53bd94c57199635af21d7cf7196
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879004"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700865"
 ---
 # <a name="enable-azure-cli-for-azure-stack-hub-users"></a>Activer Azure CLI pour les utilisateurs d’Azure Stack Hub
 

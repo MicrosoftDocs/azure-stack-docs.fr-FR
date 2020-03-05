@@ -6,13 +6,14 @@ manager: stefsch
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: anwestg
-ms.reviewer: ''
-ms.openlocfilehash: d4ddc7d0b6190c7f855b222079f8d13cb5d6e14e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.reviewer: anwestg
+ms.lastreviewed: 08/20/2019
+ms.openlocfilehash: ecbfa13b9e40a62aa013747c7f877617e29e8f10
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874363"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703177"
 ---
 # <a name="app-service-on-azure-stack-hub-update-7-release-notes"></a>Notes de publication App Service sur Azure Stack Hub Update 7
 
@@ -26,7 +27,7 @@ Ces notes de publication décrivent les améliorations et les correctifs apport�
 
 Le numéro de build d’App Service sur Azure Stack Hub Update 7 est **84.0.2.10**.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Avant de passer au déploiement, consultez la [documentation Avant de commencer](azure-stack-app-service-before-you-get-started.md).
 

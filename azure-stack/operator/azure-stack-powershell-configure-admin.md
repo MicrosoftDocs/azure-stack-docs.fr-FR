@@ -7,18 +7,18 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 1c894dbb431d1f171457ac0300d214cc2e2b7c0f
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: e0f10db1c9d983b4802812bd4274429387032c66
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881609"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698400"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>Se connecter à Azure Stack Hub avec PowerShell
 
 Vous pouvez configurer Azure Stack Hub de façon à utiliser PowerShell pour gérer les ressources, par exemple, pour créer des offres, des plans, des quotas et des alertes. Cette rubrique vous permet de configurer l’environnement de l’opérateur.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Effectuez les prérequis suivants à partir du [kit de développement Azure Stack (ASDK)](../asdk/asdk-connect.md#connect-with-rdp) ou à partir d’un client externe Windows si vous êtes [connecté au Kit de développement Azure Stack via un VPN (réseau privé virtuel)](../asdk/asdk-connect.md#connect-with-vpn).
 

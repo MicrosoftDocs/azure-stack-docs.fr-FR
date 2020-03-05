@@ -7,12 +7,12 @@ ms.date: 06/03/2019
 ms.topic: tutorial
 ms.reviewer: seyadava
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: c981fb453389c4e088db94474dd757f7881dfc6b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a0a13af01fc539788d76377f357ca28db9b05234
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883703"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703075"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack-hub"></a>Déployer un réseau blockchain Ethereum sur Azure Stack Hub
 
@@ -31,7 +31,7 @@ Pour configurer :
 - Choisir une architecture de déploiement.
 - Déployer un réseau autonome, de leader de consortium ou de membre de consortium.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Téléchargez les derniers articles [sur la Place de marché](../operator/azure-stack-download-azure-marketplace-item.md) :
 
@@ -96,9 +96,9 @@ Le modèle de leader de consortium configure l’empreinte du premier membre dan
 
     Nom du paramètre | Description | Valeurs autorisées | Exemple de valeur
     ---------------|-------------|----------------|-------------
-    Subscription | Abonnement vers lequel vous déployez le réseau de consortium. | | Abonnement Consommation
+    Abonnement | Abonnement vers lequel vous déployez le réseau de consortium. | | Abonnement Consommation
     Groupe de ressources | Groupe de ressources sur lequel déployez le réseau de consortium. | | EthereumResources
-    Location | Région Azure du groupe de ressources. | | local
+    Emplacement | Région Azure du groupe de ressources. | | local
 
 8. Sélectionnez **Create** (Créer).
 
@@ -144,9 +144,9 @@ Pour vérifier le déploiement du leader, accédez au site admin du leader. Vous
 
     Nom du paramètre | Description | Valeurs autorisées | Exemple de valeur
     ---------------|-------------|----------------|-------------
-    Subscription | Abonnement vers lequel vous déployez le réseau de consortium. | | Abonnement Consommation
+    Abonnement | Abonnement vers lequel vous déployez le réseau de consortium. | | Abonnement Consommation
     Groupe de ressources | Groupe de ressources sur lequel déployez le réseau de consortium. | | MemberResources
-    Location | Région Azure du groupe de ressources. | | local
+    Emplacement | Région Azure du groupe de ressources. | | local
 
 8. Sélectionnez **Create** (Créer).
 
@@ -194,9 +194,9 @@ Ce modèle crée une connexion du leader à un membre à distance.
 
     Nom du paramètre | Description | Valeurs autorisées | Exemple de valeur
     ---------------|-------------|----------------|-------------
-    Subscription | Abonnement du leader. | | Abonnement Consommation
+    Abonnement | Abonnement du leader. | | Abonnement Consommation
     Groupe de ressources | Groupe de ressources du leader. | | EthereumResources
-    Location | Région Azure du groupe de ressources. | | local
+    Emplacement | Région Azure du groupe de ressources. | | local
 
 8. Sélectionnez **Create** (Créer).
 

@@ -5,13 +5,13 @@ author: sethmanheim
 ms.topic: conceptual
 ms.date: 01/24/2020
 ms.author: sethm
-ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 2903a4c9f47b7f3b5d0161069f76d68eb9d19497
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 12/27/2019
+ms.openlocfilehash: f808d3dca853ef114d215be08f3e6ae3f6737fb5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883596"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702786"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Déployer une machine virtuelle avec un certificat stocké de façon sécurisée sur Azure Stack Hub
 
@@ -36,7 +36,7 @@ Les étapes suivantes décrivent le processus permettant de placer un certificat
 > [!NOTE]
 > Vous pouvez utiliser ces étapes à partir du Kit de développement Azure Stack (ASDK), ou à partir d’un client externe si vous êtes connecté via un VPN.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Les utilisateurs doivent s’abonner à une offre qui inclut le service Key Vault.
 * [Installez PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md).

@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: bc8a6745b9c3e4323e37bc3b4a46291955d227a1
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d5cfb45be74122ec07a7632f9f6c7ef04b6f8c4a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883190"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701817"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Déployer Azure Cognitive Services sur Azure Stack Hub
 
@@ -45,7 +45,7 @@ Pour plus d’informations sur les conteneurs Cognitive Services, consultez [Pri
 
 Cet article explique comment déployer l'API Visage Azure sur un cluster Kubernetes dans Azure Stack Hub. Vous pouvez adopter la même approche pour déployer d'autres conteneurs Cognitive Services sur des clusters Kubernetes d'Azure Stack Hub.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, vous devez :
 

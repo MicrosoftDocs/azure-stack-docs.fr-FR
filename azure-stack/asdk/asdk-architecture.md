@@ -7,12 +7,12 @@ ms.date: 06/28/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 842dab690d8239ca0c4db7622fe7a0bb18347a0c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 207b99b9a3cbb6c030a6e79137d036820b3b3f60
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874142"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695442"
 ---
 # <a name="asdk-architecture"></a>Architecture de l’ASDK
 Le Kit de développement Azure Stack (ASDK) est un déploiement à nœud unique d’Azure Stack qui s'exécute sur un seul ordinateur hôte. Des composants de routage Edge sont installés sur l’ordinateur hôte afin de fournir des fonctionnalités NAT et VPN pour Azure Stack. Les rôles d’infrastructure Azure Stack s’exécutent dans la couche Hyper-V de l’ordinateur hôte physique.
@@ -21,7 +21,7 @@ Le Kit de développement Azure Stack (ASDK) est un déploiement à nœud unique 
 ## <a name="virtual-machine-roles"></a>Rôles de machine virtuelle
 L’ASDK propose des services à l’aide des machines virtuelles suivantes qui sont hébergées sur l’ordinateur hôte du Kit de développement :
 
-| Name | Description |
+| Nom | Description |
 | ----- | ----- |
 | **AzS-ACS01** | Services de stockage Azure Stack.|
 | **AzS-ADFS01** | Services de fédération Active Directory (ADFS).  |

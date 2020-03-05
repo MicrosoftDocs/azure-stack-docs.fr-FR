@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: d81c0387e26a72865b74a88062c5b7b7588b3281
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 08/20/2019
+ms.openlocfilehash: 44baf18b4e7b1acb39125a4ccdeb4228557de4d4
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875961"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703517"
 ---
 # <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>Notes de publication d'App Service sur Azure Stack Hub Update 1
 
@@ -26,7 +26,7 @@ Ces notes de publication décrivent les améliorations, les correctifs et les pr
 
 Le numéro de build de la mise à jour 1 d'App Service sur Azure Stack Hub est **69.0.13698.9**.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 > [!IMPORTANT]
 > Les nouveaux déploiements d'Azure App Service sur Azure Stack Hub nécessitent désormais un [certificat avec caractères génériques à trois sujets](azure-stack-app-service-before-you-get-started.md#get-certificates) en raison des améliorations apportées à la gestion de l'authentification unique pour Kudu dans Azure App Service. Le nouveau sujet est **\*.sso.appservice.\<région\>.\<nom_domaine\>.\<extension\>**

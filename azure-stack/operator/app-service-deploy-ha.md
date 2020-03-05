@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/02/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 1b72a2d71c2ff5e467486fa9672607cca78a38e9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/02/2019
+ms.openlocfilehash: ec4f3dc2a17e362038d11ec988d19ffa9edd6a6e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876901"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701851"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Déployer App Service dans une configuration hautement disponible
 
@@ -105,7 +105,7 @@ Après avoir installé le fournisseur de ressources App Service, vous pouvez l�
 > [!IMPORTANT]
 > Avant d’exécuter le programme d’installation du fournisseur de ressources, vérifiez que vous avez lu les notes de publication qui accompagnent chaque version d’App Service afin d’en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 Avant de pouvoir exécuter le programme d'installation d'App Service, plusieurs étapes sont nécessaires, comme décrit dans l'article [Avant de commencer à utiliser App Service sur Azure Stack Hub](azure-stack-app-service-before-you-get-started.md) :
 
 > [!TIP]

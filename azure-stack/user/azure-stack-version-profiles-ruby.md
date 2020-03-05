@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 1236e501ce09b5e81124f8bc87821d1b5f11cfaa
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5b79c676b922f0e76ed75e3ad043f53c1fb9d6a5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883105"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705166"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Utiliser des profils de version d’API avec Ruby dans Azure Stack Hub
 
@@ -78,7 +78,7 @@ Vous pouvez installer la gemme cumulative azure_sdk avec la commande suivante :
 gem install 'azure_sdk'
 ```
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser le kit de développement logiciel (SDK) Azure pour Ruby avec Azure Stack Hub, vous devez fournir les valeurs ci-après, puis définir ces valeurs avec des variables d'environnement. Pour définir les variables d’environnement, consultez les instructions fournies sous le tableau qui correspondent à votre système d’exploitation spécifique.
 

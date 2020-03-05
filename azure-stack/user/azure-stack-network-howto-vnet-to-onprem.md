@@ -7,18 +7,18 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 19056b0ad37511e75d462c201190c8e2f3a606e0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1b3854ab04792ade8ca0b66cc63f1fdc2c0e60e9
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883379"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703891"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Configurer une passerelle VPN pour Azure Stack Hub avec l’appliance virtuelle réseau FortiGate
 
 Cet article explique comment créer une connexion VPN avec votre environnement Azure Stack Hub. Une passerelle VPN est un type de passerelle de réseau virtuel qui achemine le trafic chiffré entre votre réseau virtuel dans Azure Stack Hub et une passerelle VPN distante. La procédure suivante déploie un réseau virtuel avec une appliance virtuelle réseau FortiGate au sein d’un groupe de ressources. Elle indique également les étapes permettant de configurer un VPN IPSec sur l’appliance virtuelle réseau FortiGate.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 -  Accès à un système intégré Azure Stack Hub permettant de mettre en œuvre les exigences de calcul, de réseau et de ressources nécessaires pour cette solution. 
 

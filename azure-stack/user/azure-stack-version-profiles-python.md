@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 48df6dab5d93e4e9875dc422f90f3f823a4b2ee9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: db66156cfa1b4b5a2c97b5d17559ae2c48760ce0
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884223"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705183"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Utiliser des profils de version d’API avec Python dans Azure Stack Hub
 
@@ -43,7 +43,7 @@ Le Kit de développement logiciel (SDK) Python prend en charge les profils d’A
 4. Créez un principal de service et enregistrez son ID et son secret. Pour plus d’informations sur la création d’un principal de service pour Azure Stack Hub, voir [Fournir à des applications l’accès à Azure Stack Hub](../operator/azure-stack-create-service-principals.md).
 5. Vérifiez que votre principal de service bénéficie du rôle contributeur/propriétaire sur votre abonnement. Pour plus d’informations sur l’attribution d’un rôle à votre principal de service, voir [Fournir à des applications l’accès à Azure Stack Hub](../operator/azure-stack-create-service-principals.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour pouvoir utiliser le Kit de développement logiciel (SDK) Azure pour Python avec Azure Stack Hub, vous devez fournir les valeurs suivantes, puis les définir avec des variables d’environnement. Pour définir les variables d’environnement, consultez les instructions fournies après le tableau et qui correspondent à votre système d’exploitation spécifique.
 

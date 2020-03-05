@@ -7,12 +7,12 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: de9bceea3cd8fb7003afff8e5b654146aff8883b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 202a6269dfc978747b3d1c4dc754b19490911046
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884731"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702429"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Résoudre des problèmes du moteur AKS sur Azure Stack Hub
 

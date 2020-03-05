@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 3353977eb36701575a725f2e74f2275dac73bddd
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2dbff36dba8739661b88b58ef27eec49597646bc
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877644"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701001"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>Créer une solution d’application géodistribuée pour diriger le trafic avec Azure et Azure Stack Hub
 
@@ -76,7 +76,7 @@ Dans cette partie, vous allez créer une application web.
 > - Pointez la génération de l’application sur plusieurs cibles du cloud.
 > - Gérer et configurer le processus CD.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Un abonnement Azure et l’installation d’Azure Stack Hub sont requis.
 
@@ -248,7 +248,7 @@ Azure DevOps Services fournit un pipeline hautement configurable et gérable pou
 
 Pour migrer un site actif et son nom de domaine DNS vers App Service, voir [Migrer un nom DNS actif vers Azure App Service](https://docs.microsoft.com/azure/app-service/manage-custom-dns-migrate-domain).
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Pour effectuer cette solution :
 
@@ -359,7 +359,7 @@ Dans cette partie, nous allons :
 > [!Note]  
 > Si nécessaire, obtenez un certificat SSL dans le portail Azure et liez-le à l’application web. Pour plus d’informations, voir le [didacticiel sur App Service Certificates](https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site).
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Pour effectuer cette solution :
 

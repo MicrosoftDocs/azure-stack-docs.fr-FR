@@ -7,18 +7,18 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 83d52af03f33a01ccdf1b065ea1f59d7842f4cda
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b1d60037dd86a6de1aac73ff5a607605ceda1614
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883386"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703874"
 ---
 # <a name="connect-two-vnets-through-peering"></a>Connecter deux réseaux virtuels via le peering
 
 Cet article explique comment créer une connexion entre deux réseaux virtuels dans le même environnement. Pendant la configuration des connexions, vous allez découvrir le fonctionnement des passerelles VPN dans Azure Stack Hub. Connectez deux réseaux virtuels au sein du même environnement Azure Stack Hub à l’aide de Fortinet FortiGate. Cette procédure déploie deux réseaux virtuels avec une appliance virtuelle réseau FortiGate dans chaque réseau virtuel dans un groupe de ressources distinct. Il détaille également les modifications requises pour configurer un VPN IPSec entre les deux réseaux virtuels. Répétez les étapes de cet article pour chaque déploiement de réseau virtuel.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 -   L’accès à un système ayant la capacité de se conformer aux exigences de calcul, de réseau et de ressources nécessaires pour cette solution.
 

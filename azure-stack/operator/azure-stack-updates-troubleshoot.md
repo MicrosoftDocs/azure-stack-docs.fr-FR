@@ -7,12 +7,12 @@ ms.date: 09/23/2019
 ms.author: inhenkel
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 1c481538183098b6a1a88143dac339a919a248f3
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 160e1c12b09e5a012170673ab5429c9039c8b99e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77508682"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696615"
 ---
 # <a name="best-practices-for-troubleshooting-azure-stack-hub-patch-and-update-issues"></a>Bonnes pratiques pour résoudre les problèmes liés aux correctifs logiciels et aux mises à jour Azure Stack Hub
 

@@ -7,12 +7,12 @@ ms.date: 2/3/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 76ecac957ab7680032c31cd46db4b717a2f029e5
-ms.sourcegitcommit: 4178443d84cf6d3fbaba11425beff703568c1a2c
+ms.openlocfilehash: ba6e4483475b97b6803781f5b7c5d29d94cbe896
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76977884"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705132"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Fonctionnalités des machines virtuelles Azure Stack Hub
 
@@ -47,7 +47,7 @@ Azure Stack Hub impose des limites de ressources pour éviter la consommation ex
 
 Le tableau suivant répertorie les machines virtuelles prises en charge sur Azure Stack Hub, ainsi que leur configuration :
 
-| Type            | Size          | Plage de tailles prises en charge |
+| Type            | Taille          | Plage de tailles prises en charge |
 | ----------------| ------------- | ------------------------ |
 |Usage général  |De base A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
 |Usage général  |Standard A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |

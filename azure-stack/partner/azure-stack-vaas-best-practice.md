@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 87dbfa83fa29c0c2870bd9944ddbf97e3cca0578
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: b3d911a07c7a234ce2284055ff67a7ca46f567a2
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147654"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77694151"
 ---
 # <a name="azure-stack-validation-best-practices"></a>Bonnes pratiques relatives à la validation Azure Stack
 

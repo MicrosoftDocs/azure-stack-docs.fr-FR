@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e1444688d529b2bce148e96dff745b0a86e37a18
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 49b2a950b523ca76143f50784efb048880d1ac93
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884507"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701936"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-cli-in-azure-stack-hub"></a>Démarrage rapide : Créer une machine virtuelle serveur Linux à l’aide d’Azure CLI dans Azure Stack Hub
 
@@ -21,7 +21,7 @@ Vous pouvez créer une machine virtuelle Ubuntu Server 16.04 LTS à l’aide d
 * Installer le serveur web NGINX et afficher la page d’accueil par défaut.
 * Nettoyer les ressources inutiles.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Une image Linux de la Place de marché Azure Stack Hub
 

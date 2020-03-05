@@ -7,12 +7,12 @@ ms.date: 12/03/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: a6f728e69eacab25941ef0640a35243d390fa4c7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5bcfcb8a5e2af29b0d7b60774853fa35392d9f23
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883478"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702480"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Créer un stockage sur disque de machine virtuelle dans Azure Stack Hub
 

@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: c39285cec673a7274304cb2dbe1179e5478ddc7d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 243baa06b2374fb42ffcd70fe7cb194e193d9e34
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884607"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702208"
 ---
 # <a name="establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>Établir une connexion de réseau virtuel à réseau virtuel dans Azure Stack Hub avec l’appliance virtuelle réseau Fortinet FortiGate
 
@@ -20,7 +20,7 @@ Dans cet article, vous allez connecter un réseau virtuel dans un environnement 
 
 Cet article traite de la limitation Azure Stack Hub actuelle, qui permet aux locataires de configurer uniquement une connexion VPN entre deux environnements. Les utilisateurs apprennent à configurer une passerelle personnalisée sur une machine virtuelle Linux qui autorise plusieurs connexions VPN entre différents environnements Azure Stack Hub. La procédure décrite dans cet article déploie deux réseaux virtuels avec une appliance virtuelle réseau FortiGate dans chaque réseau virtuel : un déploiement par environnement Azure Stack Hub. Il détaille également les modifications requises pour configurer un VPN IPSec entre les deux réseaux virtuels. Les étapes décrites dans cet article doivent être répétées pour chaque réseau virtuel dans chaque environnement Azure Stack Hub. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 -  Accès à un système intégré Azure Stack Hub permettant de mettre en œuvre les exigences de calcul, de réseau et de ressources nécessaires pour cette solution. 
 

@@ -6,13 +6,14 @@ manager: stefsch
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: anwestg
-ms.reviewer: ''
-ms.openlocfilehash: 418e27424f91d4c676565acc27bcde77962d76ec
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.reviewer: anwestg
+ms.lastreviewed: 08/20/2019
+ms.openlocfilehash: d41455823c6905a947a703412664fc52ff45e1a8
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875893"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701120"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>Notes de publication App Service sur Azure Stack Hub Update 6
 
@@ -26,7 +27,7 @@ Ces notes de publication décrivent les améliorations et les correctifs d'Azure
 
 Le numéro de build App Service sur Azure Stack Hub Update 6 est **82.0.1.50**.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Avant de passer au déploiement, consultez la [documentation Avant de commencer](azure-stack-app-service-before-you-get-started.md).
 

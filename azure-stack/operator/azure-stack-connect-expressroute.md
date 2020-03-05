@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: f857fc92c5fec814ebd44aeb8bb12449f777586f
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/22/2019
+ms.openlocfilehash: 59fa339cfa58fa2c5c6b0e1b727cf2adee79b7e2
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879429"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701494"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Connecter Azure Stack Hub à Azure à l'aide d’Azure ExpressRoute
 
@@ -34,7 +34,7 @@ Cet article suppose que vous avez :
 * Une connaissance élémentaire d'Azure Stack Hub.
 * Une connaissance élémentaire de la mise en réseau.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Pour connecter Azure Stack Hub et Azure à l’aide d’ExpressRoute, vous devez tenir compte des exigences suivantes :
 
@@ -95,7 +95,7 @@ Suivez les procédures ci-dessous pour créer les ressources réseau nécessaire
 
    |Champ  |Valeur  |
    |---------|---------|
-   |Name     |Tenant1VNet1         |
+   |Nom     |Tenant1VNet1         |
    |Espace d’adressage     |10.1.0.0/16|
    |Nom du sous-réseau     |Tenant1-Sub1|
    |Plage d’adresses de sous-réseau     |10.1.1.0/24|

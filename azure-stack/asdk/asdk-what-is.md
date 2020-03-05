@@ -7,12 +7,12 @@ ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 7d3b4115ea34a185c5535c77cecdddf060ed84eb
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a37547a7c2e5a737685e370307a1ae8f37d5d363
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873292"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77690546"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>Qu'est-ce que le Kit de développement Azure Stack (ASDK) ?
 Les [systèmes intégrés Microsoft Azure Stack Hub](../operator/azure-stack-overview.md) ont une taille comprise entre 4 et 16 nœuds, et ils sont pris en charge conjointement par un fournisseur de matériel partenaire et Microsoft. Utilisez des systèmes intégrés Azure Stack Hub afin de permettre de nouveaux scénarios pour vos charges de travail de production. Si vous êtes opérateur Azure Stack Hub gérant l’infrastructure de systèmes intégrés et proposant des offres, consultez notre [documentation destinée à l’opérateur](/azure-stack/operator).

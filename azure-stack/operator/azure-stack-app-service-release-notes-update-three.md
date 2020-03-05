@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 79fdd8a3d9b026aea21ab04ce85c095e30ee272c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 08/20/2019
+ms.openlocfilehash: 0b277f33472c25d0dc8e6b813685029aea81a303
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874380"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701392"
 ---
 # <a name="app-service-on-azure-stack-hub-update-3-release-notes"></a>Notes de publication d'App Service sur Azure Stack Hub Update 3
 
@@ -26,7 +26,7 @@ Ces notes de publication décrivent les améliorations, les correctifs et les pr
 
 Le numéro de build d'App Service sur Azure Stack Hub Update 3 est **74.0.13698.31**.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Avant de commencer le déploiement, consultez les [Conditions préalables pour le déploiement d’App Service sur Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).
 

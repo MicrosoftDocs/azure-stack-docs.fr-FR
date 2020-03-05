@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: da85abeff55d09684c561679bdc0f85e28440ed7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: c0be80757eb12daac9d452f79ed7c0f5b7326120
+ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884246"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231636"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>Utiliser des profils de version d’API avec Java dans Azure Stack Hub
 
@@ -40,7 +40,7 @@ Un profil d’API est une combinaison de fournisseurs de ressources et de versio
      <dependency>
      <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
      <artifactId>azure</artifactId>
-     <version>1.0.0-beta</version>
+     <version>1.0.0-beta-1</version>
      </dependency>
      ```
 
@@ -62,7 +62,7 @@ Pour installer le SDK Java, effectuez les étapes suivantes :
    <dependency>
    <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
    <artifactId>azure</artifactId>
-   <version>1.0.0-beta</version>
+   <version>1.0.0-beta-1</version>
    </dependency>
    ```
 
@@ -78,7 +78,7 @@ Pour installer le SDK Java, effectuez les étapes suivantes :
 
 7. Vérifiez que votre principal de service bénéficie du rôle contributeur/propriétaire sur votre abonnement. Pour plus d’informations sur l’attribution d’un rôle à un principal de service, voir [Fournir à des applications l’accès à Azure Stack Hub](../operator/azure-stack-create-service-principals.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser le Kit de développement logiciel (SDK) Java Azure avec Azure Stack Hub, vous devez fournir les valeurs ci-après, puis les définir avec des variables d’environnement. Pour définir les variables d’environnement, consultez les instructions fournies sous le tableau qui correspondent à votre système d’exploitation.
 
@@ -89,7 +89,7 @@ Pour utiliser le Kit de développement logiciel (SDK) Java Azure avec Azure Stac
 | Identifiant d’abonnement           | `AZURE_SUBSCRIPTION_ID`      | Vous utilisez l’[ID d’abonnement](../operator/service-plan-offer-subscription-overview.md#subscriptions) pour accéder à des offres dans Azure Stack Hub.                |
 | Clé secrète client             | `AZURE_CLIENT_SECRET`        | Le secret d’application du principal de service enregistré lors de la création du principal de service.                                                                                                                                   |
 | Point de terminaison Resource Manager | `ARM_ENDPOINT`              | Voir l’article [Point de terminaison Azure Stack Hub Resource Manager](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-hub-resource-manager-endpoint). |
-| Location                  | `RESOURCE_LOCATION`    | **Local** pour Azure Stack Hub.                                                                                                                                                                                                |
+| Emplacement                  | `RESOURCE_LOCATION`    | **Local** pour Azure Stack Hub.                                                                                                                                                                                                |
 
 Pour rechercher l’ID de locataire de votre Azure Stack Hub, suivez les instructions fournies [ici](../operator/azure-stack-csp-ref-operations.md). Pour définir vos variables d’environnement, suivez les procédures décrites dans les sections suivantes :
 
@@ -295,13 +295,13 @@ Utilisez les exemples GitHub ci-après en guise de références pour la créatio
 
 6. Dans le fichier **Pom.xml**, ajoutez la dépendance suivante afin d’utiliser le profil **2019-03-01-hybrid** pour Azure Stack Hub. Cette dépendance installe les modules associés à ce profil pour les fournisseurs de ressources Compute, Mise en réseau, Stockage, KeyVault et App Services :
 
-   ```xml
-   <dependency>
-   <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
-   <artifactId>azure</artifactId>
-   <vers1s.0.0-beta</version>
-   </dependency>
-   ```
+    ```xml
+    <dependency>
+      <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
+      <artifactId>azure</artifactId>
+      <version>1.0.0-beta-1</version>
+    </dependency>
+    ```
 
 7. Dans l’invite de commandes qui était ouverte pour la définition des variables d’environnement, entrez la commande suivante :
 

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 772fef1539eccfb69fd7d240314ff8f80af1965c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/15/2019
+ms.openlocfilehash: ab0f54d94b96a7bdd75d13f04fd9146146d42740
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874176"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695459"
 ---
 # <a name="asdk-admin-basics"></a>Notions de base de l’administration ASDK
 Si vous débutez avec l’administration du kit de développement Azure Stack, vous devez prendre connaissance de plusieurs choses. Ce guide présente le rôle d’opérateur Azure Stack dans l’environnement d’évaluation. Si vous vous familiarisez avec ces informations, vos utilisateurs test seront très rapidement productifs.

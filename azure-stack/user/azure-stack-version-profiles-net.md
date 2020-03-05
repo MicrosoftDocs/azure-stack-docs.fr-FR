@@ -7,12 +7,12 @@ ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 6f8220f9a8683569c23460acf2890c9aa8407f30
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 37ffe5bd8325e309f8d9381cf058cfd07ac48480
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883082"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705200"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Utiliser des profils de version des API avec .NET dans Azure Stack Hub
 
@@ -56,7 +56,7 @@ Vous pouvez combiner toutes les options dans la même application.
 
 - Vérifiez que votre principal de service bénéficie du rôle contributeur/propriétaire sur votre abonnement. Pour plus d'informations sur l'attribution d'un rôle au principal de service, consultez [Fournir aux applications l'accès à Azure Stack Hub][].
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser le kit de développement logiciel (SDK) .NET Azure avec Azure Stack Hub, vous devez fournir les valeurs ci-après, puis définir ces valeurs avec des variables d'environnement. Pour définir les variables d’environnement, consultez les instructions fournies sous le tableau qui correspondent à votre système d’exploitation spécifique.
 
@@ -67,7 +67,7 @@ Pour utiliser le kit de développement logiciel (SDK) .NET Azure avec Azure Stac
 | Identifiant d’abonnement           | `AZURE_SUBSCRIPTION_ID` | L'[*ID d'abonnement*][] correspond à la façon dont vous accédez aux offres dans Azure Stack Hub.                                                      |
 | Clé secrète client             | `AZURE_CLIENT_SECRET`   | Le secret d’application du principal de service enregistré lors de la création du principal de service.                                      |
 | Point de terminaison Resource Manager | `ARM_ENDPOINT`          | Voir [*Point de terminaison Azure Stack Hub Resource Manager*][].                                                                    |
-| Location                  | `RESOURCE_LOCATION`     | Emplacement d'Azure Stack Hub.
+| Emplacement                  | `RESOURCE_LOCATION`     | Emplacement d'Azure Stack Hub.
 
 Pour rechercher l'ID de locataire de votre environnement Azure Stack Hub, suivez les instructions fournies [dans cet article](../operator/azure-stack-csp-ref-operations.md). Pour définir vos variables d’environnement, procédez comme suit :
 

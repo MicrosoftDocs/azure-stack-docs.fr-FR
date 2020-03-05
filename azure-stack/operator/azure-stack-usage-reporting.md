@@ -10,12 +10,12 @@ ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: ed0bcd873d6bd33017172eb3accad227e2073668
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: 294fec646462d154c8d8f2e1d22c31d2d88220d4
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972649"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696377"
 ---
 # <a name="report-azure-stack-hub-usage-data-to-azure"></a>Signaler les données d'utilisation Azure Stack Hub à Azure
 
@@ -57,7 +57,7 @@ Si vous avez inscrit votre service Azure Stack Hub via un abonnement CSP, vous 
 
 ## <a name="view-usage---enterprise-agreement-subscriptions"></a>Voir l’utilisation : abonnements Contrat Entreprise
 
-Si vous avez inscrit votre service Azure Stack Hub par le biais d'un abonnement Contrat Entreprise, vous pouvez consulter votre utilisation et vos frais sur le [portail EA](https://ea.azure.com/). L'utilisation d'Azure Stack Hub est incluse dans les téléchargements avancés ; l'utilisation d'Azure figure sous la section Rapports de ce portail.
+Si vous avez inscrit votre service Azure Stack Hub par le biais d'un abonnement Accord Entreprise, vous pouvez consulter votre utilisation et vos frais sur le [portail EA](https://ea.azure.com/). L'utilisation d'Azure Stack Hub est incluse dans les téléchargements avancés ; l'utilisation d'Azure figure sous la section Rapports de ce portail.
 
 ## <a name="view-usage---other-subscriptions"></a>Voir l’utilisation : autres abonnements
 
@@ -87,7 +87,7 @@ L’abonnement fourni lors de l’[inscription d’Azure Stack Hub auprès d’A
 
 ## <a name="what-types-of-subscriptions-are-supported-for-usage-data-reporting"></a>Quels types d’abonnements sont pris en charge pour la génération de rapports de données d’utilisation ?
 
-Pour les systèmes Azure Stack Hub à plusieurs nœuds, les abonnements Contrat Entreprise (EA) et CSP sont pris en charge. Pour l’ASDK, les abonnements Contrat Entreprise, Paiement à l’utilisation, CSP et MSDN prennent en charge les rapports de données d’utilisation.
+Pour les systèmes Azure Stack Hub à plusieurs nœuds, les abonnements Accord Entreprise (EA) et CSP sont pris en charge. Pour l’ASDK, les abonnements Contrat Entreprise, Paiement à l’utilisation, CSP et MSDN prennent en charge les rapports de données d’utilisation.
 
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>La génération de rapports de données d’utilisation fonctionne-t-elle avec les clouds souverains ?
 

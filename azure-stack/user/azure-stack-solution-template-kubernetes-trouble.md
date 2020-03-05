@@ -7,12 +7,12 @@ ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 5e98ed511fab30e7ece3ebca282c79ef6a5bed97
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: 80222728bca3aa65fd211ccc5ef5700d0a15f397
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76889539"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703619"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Résoudre les problèmes de déploiement Kubernetes sur Azure Stack Hub
 
@@ -115,7 +115,7 @@ Lorsque vous déployez votre cluster Kubernetes, vous pouvez consulter l’état
 
 Si le portail Azure Stack Hub ne fournit pas suffisamment d'informations pour vous permettre de résoudre les problèmes ou de surmonter un échec de déploiement, l'étape suivante consiste à analyser en profondeur les journaux du cluster. Pour récupérer manuellement les journaux de déploiement, vous devez généralement vous connecter à l’une des machines virtuelles maîtres du cluster. Une autre approche plus simple consiste à télécharger et exécuter le [script Bash](https://aka.ms/AzsK8sLogCollectorScript) suivant fourni par l'équipe Azure Stack Hub. Ce script se connecte à la machine virtuelle de déploiement et aux machines virtuelles du cluster, collecte les journaux système et de cluster appropriés, puis les télécharge sur votre station de travail.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Vous devez disposer d'une invite Bash sur l'ordinateur que vous utilisez pour gérer Azure Stack Hub. Sur un ordinateur Windows, vous pouvez obtenir une invite Bash en installant [Git pour Windows](https://git-scm.com/downloads). Après l’installation, recherchez _Git Bash_ dans votre menu Démarrer.
 

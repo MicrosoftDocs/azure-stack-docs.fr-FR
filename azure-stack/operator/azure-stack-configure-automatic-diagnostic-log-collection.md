@@ -7,12 +7,12 @@ ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 3dede51916863a79f720f463af2a031e597f844f
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 19482e235690cae10411dde72587b0e4b95518f3
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878188"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695221"
 ---
 # <a name="configure-automatic-azure-stack-hub-diagnostic-log-collection"></a>Configurer la collecte automatique des journaux de diagnostic Azure Stack Hub
 
@@ -22,7 +22,7 @@ Nous vous recommandons de configurer la fonctionnalité de collecte automatique 
 
 Avant de configurer la collecte automatique des journaux, vous devez obtenir une signature d’accès partagé (SAP) pour un conteneur d’objets blob. Une signature d’accès partagé vous permet d'accorder l’accès aux ressources dans votre compte de stockage sans partager les clés de votre compte. Vous pouvez enregistrer les fichiers journaux Azure Stack Hub dans un conteneur d’objets blob dans Azure, puis fournir l’URL SAR dans laquelle CSS peut collecter les journaux. 
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Vous pouvez utiliser un conteneur d’objets blob nouveau ou existant dans Azure. Pour créer un conteneur d’objets blob dans Azure, vous devez disposer au minimum du [rôle de contributeur de stockage d'objets blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) ou de l'[autorisation spécifique](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). Les administrateurs généraux disposent également de l’autorisation nécessaire. 
 

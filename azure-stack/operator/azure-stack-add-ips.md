@@ -7,12 +7,12 @@ ms.date: 09/10/2019
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: e047f50dbdb9e7c645351fd83f9f1551f75c157e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f17ef9fad4dd595d4a8d1e51b4efc3c0dd029bef
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875163"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703364"
 ---
 # <a name="add-public-ip-addresses"></a>Ajouter des adresses IP publiques
 
@@ -43,7 +43,7 @@ Vous devez en premier lieu obtenir le bloc d’adresses que vous souhaitez ajout
 5. Cliquez sur la vignette Utilisation des pools IP publics.
 6. Cliquez sur le bouton Ajouter un pool IP.
 7. Donnez un nom au pool IP. Le nom que vous choisissez vous aide à identifier facilement le pool d’adresses IP. Il est conseillé de donner le même nom que la plage d’adresses, mais cela n’est pas obligatoire.
-8. Entrez le bloc d’adresses que vous voulez ajouter dans la notation CIDR. Par exemple :  192.168.203.0/24
+8. Entrez le bloc d’adresses que vous voulez ajouter dans la notation CIDR. Par exemple : 192.168.203.0/24
 9. Lorsque vous fournissez une plage CIDR valide dans le champ Plage d’adresses (bloc CIDR), les champs Adresse IP de début, Adresse IP de fin et Adresses IP disponibles sont automatiquement renseignés. Ils sont en lecture seule et générés automatiquement. Vous ne pouvez donc pas les modifier sans modifier la valeur dans le champ Plage d’adresses.
 10. Une fois que vous avez vérifié que les informations du panneau sont correctes, sélectionnez **OK** pour valider les modifications et ajouter la plage d’adresses à Azure Stack Hub.
 

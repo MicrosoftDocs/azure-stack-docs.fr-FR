@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
-ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 49e161588ba3dadaba0ec55bb63963cb7cc93bce
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.lastreviewed: 12/10/2019
+ms.openlocfilehash: 710b5d48e4ce906eb357c5e17cff4132bcd747ba
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492153"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698927"
 ---
 # <a name="mysql-resource-provider-11300-release-notes"></a>Notes de publication 1.1.30.0 de fournisseur de ressources MySQL
 

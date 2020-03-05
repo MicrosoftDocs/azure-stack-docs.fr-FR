@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2404ad1cb352690ab2cb7c9077ee562cf0fdfb94
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5e0fb0ec59451874ce641006a626d8de82392f94
+ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883266"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231619"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>Démarrage rapide : Créer une machine virtuelle serveur Linux à l’aide de PowerShell dans Azure Stack Hub
 
@@ -21,7 +21,7 @@ Vous pouvez créer une machine virtuelle Ubuntu Server 16.04 LTS à l’aide d�
 * Installer le serveur web NGINX et afficher la page d’accueil par défaut.
 * Nettoyer les ressources inutiles.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Une image Linux de la Place de marché Azure Stack Hub. La Place de marché Azure Stack Hub ne propose pas d’image Linux par défaut. Demandez à l’opérateur Azure Stack Hub de vous fournir l’image Ubuntu Server 16.04 LTS dont vous avez besoin. L’opérateur peut utiliser les instructions fournies dans [Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack Hub](../operator/azure-stack-download-azure-marketplace-item.md).
 

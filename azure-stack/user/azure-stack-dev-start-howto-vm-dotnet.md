@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 8222d102b22b05a3d5d1fd1a7530aeae62cc276d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 505d00c6255ef7b8b919f1af0229bd207bbe032f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884917"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704180"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>Déployer une application web ASP.NET C# sur une machine virtuelle dans Azure Stack Hub
 
