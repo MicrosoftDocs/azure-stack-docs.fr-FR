@@ -7,12 +7,12 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 66fb60c8fbb19bf125ff143393308b9f755119b6
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2f0af3bd550b31e70f7c1e722ab79149c57c1a2f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873547"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700644"
 ---
 # <a name="register-the-asdk-with-azure"></a>Inscrire le kit ASDK auprès d’Azure
 
@@ -20,7 +20,7 @@ Vous pouvez inscrire le Kit de développement Azure Stack auprès d’Azure pour
 
 Si vous n’inscrivez pas votre kit ASDK, il se peut qu’un message d’avertissement **Activation requise** s’affiche pour vous inviter à l’inscrire. Il s’agit du comportement attendu.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de suivre ces instructions pour inscrire le kit ASDK auprès d’Azure, veillez à installer Azure Stack PowerShell et télécharger les outils Azure Stack, comme décrit dans l’article relatif à la [configuration post-déploiement](asdk-post-deploy.md).
 

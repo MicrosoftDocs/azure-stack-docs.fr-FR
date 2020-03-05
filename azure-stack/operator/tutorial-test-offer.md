@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: c44f5b06c034a65a79ddd8098b9abc8e220ea5b9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4d8f727178b4bbe6da6377f965a4863acf322abc
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885091"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704758"
 ---
 # <a name="tutorial-test-a-service-offering"></a>Tutoriel : Tester une offre de service
 
@@ -24,7 +24,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Création d’un abonnement
 > * Création et déploiement de ressources
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce didacticiel, vous devez remplir les conditions préalables suivantes :
 

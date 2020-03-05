@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: f1cb202a30e381abc498ba950820d5fbefca9e2a
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.openlocfilehash: 90eb2c2c6dac0c4a1dde16b05192b9188b63c709
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568467"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700661"
 ---
 # <a name="deploy-a-sql-server-2016-availability-group-to-azure-and-azure-stack-hub"></a>Déployer un groupe de disponibilité SQL Server 2016 sur Azure et Azure Stack Hub
 

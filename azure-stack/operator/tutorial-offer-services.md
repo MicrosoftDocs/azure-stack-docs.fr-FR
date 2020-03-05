@@ -8,22 +8,22 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 9aa6104e3f6a93d55db82d4bd9ae21ef54601bf2
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 3d05ff70909508701db2f4770ecb3efb9d860a6d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884173"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77694541"
 ---
 # <a name="create-a-service-offering-for-users-in-azure-stack-hub"></a>Créer une offre de service pour les utilisateurs dans Azure Stack Hub
 
-Ce tutoriel a pour but de montrer à un opérateur comment créer une offre. Une offre met les services à la disposition des utilisateurs dans le cadre d’un abonnement. Une fois abonné, un utilisateur est autorisé à créer et à déployer des ressources dans les services spécifiés par l’offre.
+Ce didacticiel a pour but de montrer à un opérateur comment créer une offre. Une offre met les services à la disposition des utilisateurs dans le cadre d’un abonnement. Une fois abonné, un utilisateur est autorisé à créer et à déployer des ressources dans les services spécifiés par l’offre.
 
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Créer une offre.
-> * Créer un plan.
+> * Créez une offre.
+> * Créez un plan.
 > * Affecter des services et des quotas à un plan.
 > * Affecter un plan à une offre.
 
@@ -42,7 +42,7 @@ Dans Azure Stack Hub, il existe deux catégories générales de fournisseurs de 
 ### <a name="foundational-services"></a>Services fondamentaux
 
 >[!NOTE]
-> Dans ce tutoriel, vous allez apprendre à créer une offre basée sur des services fondamentaux. 
+> Dans ce didacticiel, vous allez apprendre à créer une offre basée sur des services fondamentaux. 
 
 Les services fondamentaux sont pris en charge par les fournisseurs de ressources suivants, qui sont disponibles en mode natif avec chaque installation d’Azure Stack Hub :
 
@@ -194,6 +194,6 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 > * Affecter des services et des quotas à un plan.
 > * Affecter un plan à une offre.
 
-Passez au tutoriel suivant pour savoir comment :
+Passez au didacticiel suivant pour savoir comment :
 > [!div class="nextstepaction"]
-> [Tester les services proposés dans ce tutoriel](tutorial-test-offer.md)
+> [Tester les services proposés dans ce didacticiel](tutorial-test-offer.md)

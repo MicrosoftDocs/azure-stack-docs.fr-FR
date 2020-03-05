@@ -7,18 +7,18 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: b31792ce210cfc7fc5c2d1ee4ba1b496b2d340f6
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 3c9c4fca443af34422d76bd30af4efe5de685936
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873802"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695663"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>Déployer ASDK à partir de la ligne de commande à l’aide de PowerShell
 
 Le Kit de développement Azure Stack (ASDK) est un environnement de développement et de test que vous pouvez déployer pour évaluer et présenter les fonctionnalités et services Azure Stack. Pour l’installer et le rendre opérationnel, vous devez préparer l’environnement matériel nécessaire et exécuter plusieurs scripts. L’exécution des scripts prend plusieurs heures. Une fois que vous aurez effectué ces étapes préalables, vous pourrez vous connecter aux portails de l’administrateur et de l’utilisateur pour commencer à utiliser Azure Stack.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Préparer l’ordinateur hôte du kit ASDK. Planifiez votre matériel, vos logiciels et votre réseau. Vérifiez que l’ordinateur prévu pour héberger le kit ASDK a la configuration matérielle, logicielle et réseau requise. Choisissez si vous allez utiliser Azure Active Directory (Azure AD) ou les services de fédération Active Directory (AD FS). Veillez à respecter ces prérequis avant de démarrer votre déploiement, assurez-vous que tous ces prérequis sont remplis pour que le processus d’installation s’exécute correctement.
 

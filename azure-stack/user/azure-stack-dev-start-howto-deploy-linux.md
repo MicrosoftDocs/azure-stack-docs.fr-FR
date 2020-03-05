@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: b887e4e3eba0a3f109d8f338d4de3bcca4908512
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 63fffbf1a9dcc5048286f93b18b20eb72174b8cd
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884940"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704197"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Déployer une machine virtuelle Linux pour héberger une application web dans Azure Stack Hub
 
@@ -33,7 +33,7 @@ Dans ce processus, créez une clé secrète, utilisez l’image de base de la ma
 
 Avant de commencer, vérifiez que tout ce dont vous avez besoin est en place.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure Stack Hub, avec accès à l’image Ubuntu Server 16.04 LTS. Il est possible d’utiliser une version ultérieure de l’image, mais ces instructions sont écrites spécifiquement pour 16.04 LTS. Si vous n’avez pas cette image, contactez votre opérateur cloud pour l’obtenir dans la Place de marché Azure Stack Hub.
 

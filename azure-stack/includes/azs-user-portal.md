@@ -2,13 +2,13 @@
 author: mattbriggs
 ms.topic: include
 ms.date: 1/22/2020
-ms.author: mabrigg
-ms.openlocfilehash: f8ca5bc9ed6054e489af84f5df189e3aa11959d4
-ms.sourcegitcommit: 381e4e47851dd2526bbf04d6b06af90fb1fb6a49
+ms.author: mab
+ms.openlocfilehash: 992f75c7f5797a5cbac4c16666a752308ea95881
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77363165"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696795"
 ---
 Connectez-vous au portail utilisateur : 
 

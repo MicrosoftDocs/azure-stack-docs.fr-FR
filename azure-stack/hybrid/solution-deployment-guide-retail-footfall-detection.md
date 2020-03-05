@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 66f6e316c83e25651dc0e0b1be95d6a8467f7f47
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.openlocfilehash: 3820d5483a0a7051ea51cc4ce7489d2cfe9f2d42
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568382"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77687493"
 ---
 # <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>Déployer une solution de détection des pas basé sur l’intelligence artificielle à l'aide d'Azure et Azure Stack Hub
 
