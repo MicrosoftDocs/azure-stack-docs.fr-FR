@@ -3,16 +3,16 @@ title: Configurer les prérequis pour le moteur AKS sur Azure Stack Hub
 description: Établissez les conditions d’exécution du moteur AKS sur votre infrastructure Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/10/2020
+ms.date: 2/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 340b0e9b2b6f4ece2629968128b872282e88c2c0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 2/27/2020
+ms.openlocfilehash: 1f307a554eca0b9b1bc2af9d8e64a8ec585da078
+ms.sourcegitcommit: bbc4023c9a673c146de4a9e242311d429f7781eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884746"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77782809"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Configurer les prérequis pour le moteur AKS sur Azure Stack Hub
 
@@ -30,6 +30,7 @@ Votre opérateur cloud doit avoir les éléments suivants en place.
 
 | Configuration requise | Description | Obligatoire | Instructions |
 | --- | --- | --- | --- | --- |
+| Azure Stack Hub 1910 ou ultérieur | Le moteur AKS nécessite Azure Stack Hub 1910 ou ultérieur. | Obligatoire | Si vous ne connaissez pas votre version d’Azure Stack Hub, prenez contact avec votre opérateur cloud. |
 | Extension de script personnalisé Linux | Extension de script personnalisé Linux 2.0<br>Offre : Script personnalisé pour Linux 2.0<br>Version : 2.0.6 (ou la dernière version)<br>Éditeur : Microsoft Corp | Obligatoire | Si vous n’avez pas cet élément dans votre abonnement, contactez votre opérateur cloud. |
 | Image Ubuntu de base AKS | Image de base AKS<br>Offre : aks<br> 2019.10.24 (ou version plus récente)<br>Éditeur : microsoft-aks<br>Référence SKU : AKS-Ubuntu-1604-201910 | Obligatoire | Si vous n’avez pas cet élément dans votre abonnement, contactez votre opérateur cloud. Pour plus d’informations sur la dépendance de version, consultez [Correspondance du moteur avec la version de l’image de base](#matching-engine-to-base-image-version).<br> Si vous êtes l’opérateur cloud pour Azure Stack Hub et souhaitez proposer le moteur AKS, suivez les instructions de la rubrique [Ajouter le moteur AKS à la Place de marché Azure Stack Hub](../operator/azure-stack-aks-engine.md). |
 | Identité de principal du service (SPN) |  Une application qui a besoin pour déployer ou configurer des ressources via Azure Resource Manager doit être représentée par un principal de service. | Obligatoire | Vous devrez peut-être contacter votre opérateur Azure Stack Hub pour cet élément.  Pour obtenir des instructions, consultez [Utiliser une identité d’application pour accéder à des ressources](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals). |
