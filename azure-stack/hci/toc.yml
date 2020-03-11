@@ -8,6 +8,20 @@
   items:
     - name: Créer des volumes
       href: manage/create-volumes.md
+    - name: Étendre des volumes
+      href: manage/extend-volumes.md
+    - name: Supprimer des volumes
+      href: manage/delete-volumes.md
+    - name: Remplacer des lecteurs
+      href: manage/replace-drives.md
+- name: Concepts
+  items:
+    - name: Comprendre le cache
+      href: concepts/cache.md
+    - name: Tolérance aux pannes et efficacité du stockage
+      href: concepts/fault-tolerance.md
+    - name: Quorum du pool de stockage et du cluster
+      href: concepts/quorum.md
 - name: Informations de référence
   items:
     - name: Commandes PowerShell Hyper-V
