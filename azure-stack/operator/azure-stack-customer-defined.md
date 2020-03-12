@@ -2,17 +2,17 @@
 title: Modifier des paramètres spécifiques dans votre configuration de commutateur Azure Stack Hub
 description: Découvrez ce que vous pouvez personnaliser dans votre configuration de commutateur Azure Stack Hub. Une fois que le fabricant d’ordinateurs (OEM) a créé la configuration, ne la modifiez pas sans le consentement de l’équipe d’ingénierie OEM ou Microsoft Azure Stack Hub.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 11/11/2019
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: c4d0335f03e0e6012423cfe7d7a7eb684872db3e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 19964b761478bb210d3377b177f05f708697167b
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77700304"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368717"
 ---
 #  <a name="modify-specific-settings-on-your-azure-stack-hub-switch-configuration"></a>Modifier des paramètres spécifiques dans votre configuration de commutateur Azure Stack Hub
 
