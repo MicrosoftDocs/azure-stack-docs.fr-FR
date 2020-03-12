@@ -3,17 +3,17 @@ title: Valider l’inscription auprès d’Azure
 titleSuffix: Azure Stack Hub
 description: Découvrez comment valider l’inscription Azure avec l’outil Azure Stack Hub Readiness Checker.
 author: IngridAtMicrosoft
-ms.topic: conceptual
-ms.date: 10/03/2019
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 402f685b54991bc6bea5311720704a700ccea8db
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 131e4b186078e566c81a2b4aac3e34f3898213bc
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696224"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366481"
 ---
 # <a name="validate-azure-registration"></a>Valider l’inscription auprès d’Azure
 

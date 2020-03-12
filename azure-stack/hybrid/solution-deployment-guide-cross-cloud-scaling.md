@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 9788c875e5d2f40f2ed6e644537f4d13ffa80f5a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 41c6b4e5adf7b659bf9db30eb8a3906c257f5473
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701154"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366243"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Déployer une application qui effectue une mise à l’échelle multicloud à l’aide d’Azure et d’Azure Stack Hub
 
@@ -107,7 +107,7 @@ Azure Repos
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Créer un déploiement d’applications web autonomes pour App Services dans les deux clouds
 
-1.  Modifiez le fichier **WebApplication.csproj**. Sélectionnez `Runtimeidentifier`, puis ajoutez `win10-x64`. (Consultez la documentation sur le [déploiement autonome](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd).) 
+1.  Modifiez le fichier **WebApplication.csproj**. Sélectionnez `Runtimeidentifier`, puis ajoutez `win10-x64`. (Consultez la documentation sur le [déploiement autonome](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf).) 
 
     ![Modifier un fichier de projet d’application web](media/solution-deployment-guide-cross-cloud-scaling/image3.png)
 
@@ -123,7 +123,7 @@ Azure Repos
 
     ![Ajouter du code à l’application web](media/solution-deployment-guide-cross-cloud-scaling/image4.png)
 
-3. Exécutez la build. Le processus de [build de déploiement autonome](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) publie des artefacts qui s’exécutent sur Azure et Azure Stack Hub.
+3. Exécutez la build. Le processus de [build de déploiement autonome](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) publie des artefacts qui s’exécutent sur Azure et Azure Stack Hub.
 
 ## <a name="use-an-azure-hosted-agent"></a>Utiliser un agent hébergé sur Azure
 
@@ -266,7 +266,7 @@ Utilisez des [modèles Azure Resource Manager](https://azure.microsoft.com/resou
 
 #### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Créer un déploiement d’applications web autonomes pour App Services dans les deux clouds
 
-1.  Modifiez le fichier **WebApplication.csproj** : Sélectionnez `Runtimeidentifier`, puis ajoutez `win10-x64`. Pour plus d’informations, consultez la documentation sur le [déploiement autonome](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd).
+1.  Modifiez le fichier **WebApplication.csproj** : Sélectionnez `Runtimeidentifier`, puis ajoutez `win10-x64`. Pour plus d’informations, consultez la documentation sur le [déploiement autonome](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf).
 
 2.  Utilisez Team Explorer pour archiver le code dans Azure Repos.
 
@@ -280,7 +280,7 @@ Utilisez des [modèles Azure Resource Manager](https://azure.microsoft.com/resou
 
 3.  Dans **Arguments**, ajoutez le code **-r win10-x64**. Cet ajout est obligatoire pour déclencher un déploiement autonome avec .NET Core.
 
-4.  Exécutez la build. Le processus de [build de déploiement autonome](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) publie des artefacts qui peuvent s’exécuter sur Azure et Azure Stack Hub.
+4.  Exécutez la build. Le processus de [build de déploiement autonome](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) publie des artefacts qui peuvent s’exécuter sur Azure et Azure Stack Hub.
 
 #### <a name="use-an-azure-hosted-build-agent"></a>Utiliser un agent de build hébergé Azure
 

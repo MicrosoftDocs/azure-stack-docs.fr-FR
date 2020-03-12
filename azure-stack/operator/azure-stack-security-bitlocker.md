@@ -3,17 +3,17 @@ title: Chiffrement des données au repos
 titleSuffix: Azure Stack Hub
 description: Découvrez comment Azure Stack Hub protège vos données avec le chiffrement au repos.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 06/17/2019
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 67d24f65e57df8827d8a8e91962ab3bc11cd6290
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 19680b9e8317e419c0b696d79213f29bcbee2263
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697652"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367604"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack-hub"></a>Chiffrement des données au repos dans Azure Stack Hub
 

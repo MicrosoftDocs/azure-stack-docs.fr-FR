@@ -2,17 +2,17 @@
 title: Modèles de connexion des systèmes intégrés d’Azure Stack Hub
 description: Décidez des modèles de connexion à utiliser et d’autres aspect de la planification du déploiement pour les systèmes intégrés d’Azure Stack Hub.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 1/22/2020
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: 620e88bcf20f9744ab91d2450da2a8570369cc14
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 4e0fb77bc6f6f174d474a123611dbf529e814b0a
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695187"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364042"
 ---
 # <a name="azure-stack-hub-integrated-systems-connection-models"></a>Modèles de connexion des systèmes intégrés d’Azure Stack Hub
 Si vous envisagez d’acheter un système intégré Azure Stack Hub, vous devez prendre en considération [plusieurs aspects relatifs à l’intégration à un centre de données](azure-stack-datacenter-integration.md) pour le déploiement d’Azure Stack Hub, afin de déterminer de quelle façon le système sera intégré dans votre centre de données. Vous devez également définir comment vous allez intégrer Azure Stack Hub dans votre environnement cloud hybride. Cet article fournit une vue d’ensemble de ces décisions, y compris celles relatives aux modèles de connexion Azure, aux options du magasin d’identités et aux options du modèle de facturation.

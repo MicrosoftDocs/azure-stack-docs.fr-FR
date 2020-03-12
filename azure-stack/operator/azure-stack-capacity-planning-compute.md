@@ -2,17 +2,17 @@
 title: Capacité de calcul Azure Stack Hub
 description: Découvrez comment planifier la capacité de calcul pour les déploiements Azure Stack Hub.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 07/16/2019
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: fd67c1bc02c16bc15eb569418bcb5d4914eca222
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 3ec8b0b3ac6f4687fd782dfc692f1c705c5ed733
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77688659"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366345"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Capacité de calcul Azure Stack Hub
 
@@ -76,10 +76,10 @@ Mémoire disponible pour le placement des machines virtuelles = mémoire totale 
 Réserve de résilience = H + R * ((N-1) * H) + V * (N-2)
 
 > Où :
-> - H = taille de la mémoire d’un seul serveur
+> -    H = taille de la mémoire d’un seul serveur
 > - N = taille de l’unité d’échelle (nombre de serveurs)
-> - R = réserve de système d’exploitation pour la surcharge du système d’exploitation, à savoir 0,15 dans cette formule<sup>2</sup>
-> - V = taille de la plus grande machine virtuelle dans l’unité d’échelle
+> -    R = réserve de système d’exploitation pour la surcharge du système d’exploitation, à savoir 0,15 dans cette formule<sup>2</sup>
+> -    V = taille de la plus grande machine virtuelle dans l’unité d’échelle
 
 <sup>1</sup> Surcharge de l’infrastructure Azure Stack Hub = 242 Go + (4 Go x nombre de nœuds). Quelque 31 machines virtuelles sont utilisées pour héberger l’infrastructure d’Azure Stack Hub. Celles-ci consomment au total environ 242 Go + (4 Go x nombre de nœuds) de mémoire et 146 cœurs virtuels. Le nombre de machines virtuelles est lié à la nécessité de séparer les différents services pour répondre aux exigences de sécurité, de scalabilité, de maintenance et d’action corrective. Grâce à cette structure de service interne, de nouveaux services d’infrastructure peuvent être intégrés à mesure qu’ils sont développés.
 

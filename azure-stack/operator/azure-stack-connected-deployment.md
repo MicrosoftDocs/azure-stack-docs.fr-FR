@@ -2,17 +2,17 @@
 title: Décisions pour le déploiement connecté à Azure de systèmes intégrés Azure Stack Hub
 description: Prenez des décisions de planification pour des déploiements connectés à Azure de systèmes intégrés Azure Stack Hub, notamment concernant la facturation et l’identité.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 1/22/2020
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7e00adbf4c0e83094b7425ed650126e8bb072b3d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: b8f8dfe95e50b81c7032e2e2348c2d4e6a6d888d
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701596"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364766"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Décisions de la planification de déploiement connecté à Azure de systèmes intégrés Azure Stack Hub
 Une fois que vous avez décidé [comment intégrer Azure Stack Hub dans votre environnement de cloud hybride](azure-stack-connection-models.md), vous pouvez finaliser vos décisions de déploiement Azure Stack Hub.
