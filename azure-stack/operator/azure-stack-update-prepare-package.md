@@ -2,17 +2,17 @@
 title: Préparer une mise à jour Azure Stack Hub
 description: Apprenez à préparer un package de mise à jour Azure Stack Hub.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 1/22/2020
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: fd31aa7b6d45243a71ec4ba690a39497b386ef8e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 1911a07c1a22cbb58b7b7794addadb9cf01f0993
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696734"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367333"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>Préparer une mise à jour Azure Stack Hub
 
@@ -47,7 +47,7 @@ Les mises à jour logicielles et les correctifs logiciels Azure Stack Hub sont p
 
 ### <a name="where-to-download-azure-stack-hub-update-packages"></a>Où télécharger les mises à jour Azure Stack Hub
 
-Les mises à jour Azure Stack Hub pour les [mises à jour complètes et express](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types) sont hébergées sur un point de terminaison Azure sécurisé. Les opérateurs Azure Stack Hub qui ont des instances connectées voient les [mises à jour Azure Stack Hub apparaître automatiquement dans le portail administrateur](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages). Pour les systèmes déconnectés d’Internet ou qui disposent d’une connectivité Internet faible, les mises à jour peuvent être téléchargées à l’aide de l’[outil de téléchargement des mises à jour Azure Stack Hub](https://aka.ms/azurestackupdatedownload). Les mises à jour logicielles Azure Stack Hub peuvent contenir des mises à jour des services Azure Stack Hub ainsi que des mises à jour du système d’exploitation des unités d’échelle de votre infrastructure Azure Stack Hub.
+Les mises à jour Azure Stack Hub pour les [mises à jour complètes et express](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types) sont hébergées sur un point de terminaison Azure sécurisé. Les opérateurs Azure Stack Hub qui ont des instances connectées voient les [mises à jour Azure Stack Hub apparaître automatiquement dans le portail administrateur](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages). Pour les systèmes déconnectés d’Internet ou qui disposent d’une connectivité Internet faible, les mises à jour peuvent être téléchargées à l’aide de l’[outil de téléchargement des mises à jour Azure Stack Hub](https://aka.ms/azurestackupdatedownload). Les mises à jour logicielles Azure Stack Hub peuvent contenir des mises à jour des services Azure Stack Hub ainsi que des mises à jour du système d’exploitation des unités d’échelle de votre instance d’Azure Stack Hub.
 
 >[!NOTE]
 >Le package de mise à jour et son contenu (comme les fichiers binaires, les scripts PowerShell, etc.) sont signés avec des certificats Microsoft. Toute falsification du package invalide la signature.

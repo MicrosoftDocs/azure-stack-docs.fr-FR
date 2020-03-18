@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 00eba2158fcb4e5a2e18f88d0493e1bb2e7c3b3d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 245951e86128fb71e6820f3b57bdf2723506d4bc
+ms.sourcegitcommit: 8198753ebafd69d0dbfc6b3548defbd70f4c79c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703585"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78935056"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Récupérer des données suite à une perte catastrophique
 
@@ -28,7 +28,7 @@ Ce scénario concerne la récupération de toute votre installation en cas de d�
 
 ## <a name="workflows"></a>Workflows
 
-La protection Azure Stack commence par la sauvegarde distincte des données relatives à l’infrastructure et de celles des applications/des locataires. Ce document explique comment protéger l’infrastructure. 
+La protection Azure Stack Hub commence par une sauvegarde distincte des données relatives à l’infrastructure et des données relatives aux applications/locataires. Ce document explique comment protéger l’infrastructure. 
 
 ![Workflow de récupération des données Azure Stack Hub - Déploiement](media/azure-stack-backup/azure-stack-backup-workflow1.png)
 

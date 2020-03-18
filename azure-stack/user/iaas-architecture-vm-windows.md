@@ -3,16 +3,16 @@ title: Exécuter une machine virtuelle Windows sur Azure Stack Hub
 description: Découvrez comment exécuter une machine virtuelle Windows sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/11/2019
+ms.date: 3/9/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 1bd438802c00a1c00b10f81920c1756d22f83606
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 3/9/2020
+ms.openlocfilehash: b3619d0096b7c14ec6f15aaf37f9bee774213e6a
+ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704979"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79025220"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>Exécuter une machine virtuelle Windows sur Azure Stack Hub
 
@@ -75,7 +75,7 @@ Même si l’infrastructure d’Azure Stack Hub est déjà résiliente aux défa
 | **Domaines d'erreur** | Les machines virtuelles placées dans un groupe à haute disponibilité sont physiquement isolées les unes des autres grâce à une répartition aussi équilibrée que possible sur plusieurs domaines d’erreur (nœuds Azure Stack Hub). En cas de défaillance matérielle, les machines virtuelles du domaine défaillant sont redémarrées dans d’autres domaines d’erreur. Elles seront conservées dans des domaines d’erreur distincts des autres machines virtuelles, mais si possible dans le même groupe à haute disponibilité. Une fois le matériel rétabli, les machines virtuelles seront rééquilibrées de façon à maintenir une haute disponibilité. |
 | **Domaines de mise à jour**| Les domaines de mise à jour sont utilisés par Azure pour fournir la haute disponibilité aux groupes à haute disponibilité. Un domaine de mise à jour est un groupe logique de matériel sous-jacent pouvant faire l’objet simultanément d’une opération de maintenance. Les machines virtuelles qui se trouvent dans le même domaine de mise à jour sont redémarrées ensemble lors de la maintenance planifiée. Lorsqu’un client crée des machines virtuelles au sein d’un groupe à haute disponibilité, la plateforme Azure les distribue automatiquement dans ces différents domaines de mise à jour. <br>Dans Azure Stack Hub, les machines virtuelles sont migrées en direct sur les autres hôtes en ligne du cluster avant que leur hôte sous-jacent soit mis à jour. Comme il ne se produit aucun temps d’arrêt du côté du locataire pendant la mise à jour d’un hôte, la fonctionnalité de domaine de mise à jour d’Azure Stack Hub n’existe que pour des raisons de compatibilité des modèles avec Azure. Les machines virtuelles d’un groupe à haute disponibilité affichent 0 comme numéro de domaine de mise à jour sur le portail. |
 
-**Sauvegardes** Pour obtenir des recommandations sur la protection de vos machines virtuelles IaaS Azure Stack Hub, voir cet article.
+**Sauvegardes** Pour obtenir des suggestions sur la protection de vos machines virtuelles IaaS Azure Stack Hub, consultez [Protéger des machines virtuelles déployées sur Azure Stack Hub](azure-stack-manage-vm-protect.md).
 
 **Arrêt d’une machine virtuelle**. Azure établit une distinction entre les états « arrêté » et « désalloué ». Vous payez lorsque l’état de la machine virtuelle est « arrêté », mais pas lorsque la machine virtuelle est désallouée. Sur le portail Azure Stack Hub, le bouton **Arrêter** désalloue la machine virtuelle. Si vous arrêtez la machine virtuelle par le biais du système d’exploitation pendant que vous êtes connecté, la machine virtuelle est arrêtée mais **non** désallouée. Vous serez donc toujours facturé.
 
