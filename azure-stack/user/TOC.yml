@@ -63,6 +63,8 @@
               href: azure-stack-install-visual-studio.md
             - name: Utiliser Secure Shell
               href: azure-stack-dev-start-howto-ssh-public-key.md
+            - name: Créer une clé avec ssh-keygen
+              href: create-ssh-key-on-windows.md
             - name: Utiliser un client REST avec l’API
               href: azure-stack-rest-api-use.md
         - name: Utiliser les modèles Resource Manager Azure Stack Hub
@@ -210,6 +212,8 @@
                       href: azure-stack-kubernetes-aks-engine-deploy-windows.md
                     - name: Déployer un cluster
                       href: azure-stack-kubernetes-aks-engine-deploy-cluster.md
+                    - name: Déployer sur un réseau virtuel personnalisé
+                      href: kubernetes-aks-engine-custom-vnet.md
                     - name: Mettre à l’échelle un cluster
                       href: azure-stack-kubernetes-aks-engine-scale.md
                     - name: Mettre à niveau un cluster
