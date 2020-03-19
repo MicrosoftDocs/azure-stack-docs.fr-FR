@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ef90476685a786549ed239429a222fbd561f6d15
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: fec8ac1797ef3fb6ce17b7173d813aff74ba3712
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696751"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512330"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Résoudre les problèmes dans Azure Stack Hub
 
@@ -87,7 +87,7 @@ Vous pouvez utiliser PowerShell pour obtenir des informations sur l’utilisatio
 4. Exécutez `get-azurestacklog -filterbyrole seedring` à l’aide d’un appel invoke-command.
 5. Extrayez le fichier seedring.zip. Vous pouvez obtenir le rapport de validation à partir du dossier ERCS dans lequel vous avez exécuté `test-azurestack`.
 
-Pour plus d'informations, consultez [Diagnostics Azure Stack Hub](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+Pour plus d'informations, consultez [Diagnostics Azure Stack Hub](azure-stack-get-azurestacklog.md).
 
 ## <a name="troubleshoot-virtual-machines-vms"></a>Résoudre les problèmes liés aux machines virtuelles
 

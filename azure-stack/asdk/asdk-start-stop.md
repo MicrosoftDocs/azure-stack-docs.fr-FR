@@ -7,12 +7,12 @@ ms.date: 07/18/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 1801174977ef0370e8433e6c41e2d8c13b497ae8
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 6798481e7645c4a1a49c6370b00b1851c32ff478
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77694031"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511978"
 ---
 # <a name="start-and-stop-the-asdk"></a>Démarrer et arrêter l’ASDK
 Il n’est pas recommandé de simplement redémarrer l’ordinateur hôte ASDK. Au lieu de cela, suivez les procédures décrites dans cet article pour arrêter et redémarrer correctement les services ASDK.
@@ -81,4 +81,4 @@ Suivez ces étapes si les services Azure Stack ne démarrent pas correctement da
 Si l’exécution de l’applet **Start-AzureStack** provoque une défaillance, consultez le [forum du support Azure Stack](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack) afin de bénéficier de recommandations sur la résolution des problèmes liés à votre instance ASDK. 
 
 ## <a name="next-steps"></a>Étapes suivantes 
-Pour plus d’informations sur les outils de diagnostic Azure Stack et sur la journalisation des problèmes, consultez l’article [Outils de diagnostic Azure Stack](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+Pour plus d’informations sur les outils de diagnostic Azure Stack et sur la journalisation des problèmes, consultez l’article [Outils de diagnostic Azure Stack](../operator/azure-stack-get-azurestacklog.md).

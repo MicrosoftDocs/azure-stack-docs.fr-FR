@@ -3,16 +3,16 @@ title: Déployer Kubernetes sur Azure Stack Hub à l’aide d’Azure Active Dir
 description: Découvrez comment déployer Kubernetes sur Azure Stack Hub à l’aide d’Azure Active Directory (Azure AD).
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 3/12/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 6324370313656f05c299f37c8e858109378209db
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 3/12/2020
+ms.openlocfilehash: e85df91b08c51ce8255e2b35c9d7ba31505b3d00
+ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701834"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79313213"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Déployer Kubernetes sur Azure Stack Hub à l’aide d’Azure Active Directory
 

@@ -7,19 +7,19 @@ ms.date: 01/16/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: a0f905a0f6238a0303cacb71e5864ac05b223595
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: f17f835c88851d03d7ef1905cbac96b9f6701d8e
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701545"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512216"
 ---
 # <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>Collecter les journaux de diagnostic Azure Stack Hub à la demande
 
 Dans le cadre de la résolution des problèmes, les services de support technique Microsoft (CSS) peuvent avoir besoin d’analyser les journaux de diagnostic. Depuis la version 1907, les opérateurs Azure Stack Hub peuvent charger des journaux de diagnostic sur un conteneur d’objets blob dans Azure avec l’option **Aide et support**. L’utilisation de l’option **Aide et support** est préférable à celle de la méthode PowerShell précédente, car elle est plus simple. Si le portail n’est pas disponible, les opérateurs peuvent continuer de collecter les journaux avec **Get-AzureStackLog** via le point de terminaison privilégié, comme dans les versions précédentes. Cette rubrique décrit les deux méthodes de collecte des journaux de diagnostic à la demande.
 
 >[!Note]
->En guise d’alternative à la collecte de journaux à la demande, vous pouvez simplifier le processus de résolution des problèmes en activant la [collecte automatique des journaux de diagnostic](azure-stack-configure-automatic-diagnostic-log-collection.md). Si les conditions d’intégrité du système doivent être examinées, les journaux sont automatiquement chargés à des fins d’analyse par les services CSS. 
+>En guise d’alternative à la collecte de journaux à la demande, vous pouvez simplifier le processus de résolution des problèmes en activant la [collecte automatique des journaux de diagnostic](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md). Si les conditions d’intégrité du système doivent être examinées, les journaux sont automatiquement chargés à des fins d’analyse par les services CSS. 
 
 ## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>Utiliser Aide et support pour collecter les journaux de diagnostic à la demande
 

@@ -8,11 +8,11 @@ ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2020
 ms.openlocfilehash: 576580732440cabd8ae1c140d13130b81b212d16
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704401"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79295574"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Présentation des machines virtuelles Azure Stack Hub
 
@@ -28,7 +28,7 @@ Vous pouvez utiliser des machines virtuelles Azure Stack Hub de différentes man
 
 - **Centre de données étendu** : Au sein d’un réseau virtuel Azure Stack Hub, les machines virtuelles peuvent se connecter au réseau de votre organisation ou à Azure.
 
-Les machines virtuelles utilisées par votre application peuvent augmenter en nombre (scale up) ou en taille (scale out) pour répondre à vos besoins.
+Les machines virtuelles utilisées par votre application peuvent effectuer un scale-up ou un scale-out pour répondre à vos besoins.
 
 ## <a name="before-creating-a-vm"></a>Avant de créer une machine virtuelle
 

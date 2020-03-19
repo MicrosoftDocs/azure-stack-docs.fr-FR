@@ -7,12 +7,12 @@ ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 19482e235690cae10411dde72587b0e4b95518f3
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 3464738aef30a44b6c50c05b06116641235ab96e
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695221"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512267"
 ---
 # <a name="configure-automatic-azure-stack-hub-diagnostic-log-collection"></a>Configurer la collecte automatique des journaux de diagnostic Azure Stack Hub
 
@@ -68,7 +68,7 @@ Pour connaître les meilleures pratiques en matière de choix des paramètres de
 
 1. Cliquez sur **Créer**.  
 
-Copiez l’URL et entrez-la lorsque vous [configurez la collecte automatique des journaux](azure-stack-configure-automatic-diagnostic-log-collection.md). Pour plus d’informations sur les URL SAP, consultez [Utilisation des signatures d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1). 
+Copiez l’URL et entrez-la lorsque vous [configurez la collecte automatique des journaux](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md). Pour plus d’informations sur les URL SAP, consultez [Utilisation des signatures d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1). 
 
 
 ## <a name="steps-to-configure-automatic-log-collection"></a>Procédure de configuration de la collecte automatique des journaux

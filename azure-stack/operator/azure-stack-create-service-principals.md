@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 11/11/2019
 ms.lastreviewed: 11/11/2019
 ms.openlocfilehash: 1c96ee9520285e0bc2b9784fa5d310a1ec2ae60f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704809"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79295220"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Utiliser une identité d’application pour accéder aux ressources Azure Stack Hub
 

@@ -7,12 +7,12 @@ ms.date: 11/06/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: a0b0e654ac2698c1b9611924cca853bd1ff525de
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: b02ea9e241faea3aeaad76b85dbde9616e1edea5
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698757"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79295544"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>Ajouter des serveurs d’hébergement MySQL dans Azure Stack Hub
 
@@ -21,7 +21,7 @@ Vous pouvez héberger une instance de serveur d’hébergement MySQL sur une mac
 > [!NOTE]
 > Le fournisseur de ressources MySQL doit être créé dans l’abonnement fournisseur par défaut, alors que les serveurs d’hébergement MySQL doivent être créés dans des abonnements utilisateur facturables. Le serveur du fournisseur de ressources ne doit pas héberger de bases de données utilisateur.
 
-Vous pouvez utiliser les versions de MySQL 5.6, 5.7 et 8.0 pour vos serveurs d’hébergement. Le fournisseur de ressources MySQL ne prend pas en charge l’authentification caching_sha2_password ; celle-ci sera ajoutée dans la prochaine version. Les serveurs MySQL 8.0 doivent être configurés pour utiliser mysql_native_password. MariaDB est également pris en charge.
+Vous pouvez utiliser les versions de MySQL 5.6, 5.7 et 8.0 pour vos serveurs d’hébergement. Le fournisseur de ressources MySQL ne prend pas en charge l’authentification caching_sha2_password. Les serveurs MySQL 8.0 doivent être configurés pour utiliser mysql_native_password.
 
 ## <a name="configure-external-access-to-the-mysql-hosting-server"></a>Configurer l’accès externe au serveur d’hébergement MySQL
 

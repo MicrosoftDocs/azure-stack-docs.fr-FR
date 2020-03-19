@@ -7,12 +7,12 @@ ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 21cd92626a5ddb4e86e5f0dd7568dc1a875bd3c1
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 845be919279107e88a922dfd180e3fc8794e1a89
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77687442"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79293889"
 ---
 # <a name="get-authentication-information-for-azure-stack-hub"></a>Obtenir des informations d’authentification pour Azure Stack Hub
 
@@ -68,7 +68,7 @@ Pour obtenir l’ID de locataire :
 
 Le point de terminaison Azure Resource Manager est le point de terminaison des métadonnées pour le service de déploiement et de gestion pour Azure Stack Hub. Il fournit une couche de gestion qui vous permet de créer, mettre à jour et supprimer des ressources dans votre abonnement Azure.
 
-Pour un système intégré, l’URL du point de terminaison Azure Resource Manager est :<br>`https://management.<location>.<fqdn>.com`
+Pour un système intégré, l’URL du point de terminaison Azure Resource Manager est :<br>`https://management.<location>.<fqdn>`
 
 Pour faire en sorte que le point de terminaison de métadonnées pointe vers des propriétés comme Point de terminaison de la galerie, Point de terminaison Graph, Point de terminaison du portail, Point de terminaison de connexion et Audiences, l’URL est : `<ResourceManager>/metadata/endpoints?api-version=1.0`
 

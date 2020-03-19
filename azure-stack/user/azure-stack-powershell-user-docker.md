@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 07/09/2019
-ms.openlocfilehash: ef847871569a96a889a37c0f74e581cda5cc8712
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 2a23469b36bd05aaef1c6597fc0be6e0c1bab783
+ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701987"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79312970"
 ---
 # <a name="use-docker-to-run-powershell-in-azure-stack-hub"></a>Utiliser Docker pour exécuter PowerShell dans Azure Stack Hub
 
@@ -44,7 +44,7 @@ Pour utiliser PowerShell afin d’accéder aux ressources dans Azure Stack Hub, 
 
 Le fichier Dockerfile ouvre l’image Microsoft *microsoft/windowsservercore* dans laquelle est installé Windows PowerShell 5.1. Le fichier charge ensuite NuGet et les modules Azure Stack Hub PowerShell, puis télécharge les outils à partir des outils Azure Stack Hub.
 
-1. [Téléchargez le dépôt azure-stack-powershell](https://github.com/mattbriggs/azure-stack-powershell) sous forme de fichier ZIP ou clonez le dépôt.
+1. [Téléchargez le dépôt azure-stack-powershell](https://github.com/Azure-Samples/azure-stack-hub-powershell-in-docker.git) sous forme de fichier ZIP ou clonez le dépôt.
 
 2. Ouvrez le dossier du dépôt à partir de votre terminal.
 

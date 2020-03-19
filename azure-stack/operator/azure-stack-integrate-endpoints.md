@@ -8,11 +8,11 @@ ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/11/2019
 ms.openlocfilehash: cf72ecf8d5c5e7bfbf4e640b6193319f9e16d511
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699573"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79295058"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Publier des services Azure Stack Hub dans votre centre de données 
 

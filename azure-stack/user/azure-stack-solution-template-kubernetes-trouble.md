@@ -7,12 +7,12 @@ ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 80222728bca3aa65fd211ccc5ef5700d0a15f397
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 0d9e1512cab3ad33bba5cfa2d4f57128edf51cf2
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703619"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512590"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Résoudre les problèmes de déploiement Kubernetes sur Azure Stack Hub
 
@@ -85,7 +85,7 @@ Vous pouvez collecter et examiner des journaux d’activité liés au déploieme
     - Assurez-vous que le nom de domaine complet (FQDN) de la machine virtuelle commence par un préfixe dupliqué.
 5.  Si la machine virtuelle est **OK**, passez à l’évaluation du DVM. Si le DVM affiche un message d’erreur :
     - La clé publique peut être non valide. Examinez la clé que vous avez créée.  
-    - Contactez votre administrateur Azure Stack Hub pour récupérer les journaux d'activité Azure Stack Hub à l'aide des points de terminaison privilégiés. Pour plus d'informations, consultez [Outils de diagnostics Azure Stack Hub](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+    - Contactez votre administrateur Azure Stack Hub pour récupérer les journaux d'activité Azure Stack Hub à l'aide des points de terminaison privilégiés. Pour plus d'informations, consultez [Outils de diagnostics Azure Stack Hub](../operator/azure-stack-get-azurestacklog.md).
 5. Si vous avez une question concernant votre déploiement, vous pouvez la poster ou regarder si quelqu'un y a déjà répondu sur le [Forum Azure Stack Hub](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 

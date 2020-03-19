@@ -7,11 +7,11 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
 ms.openlocfilehash: 35e17b6527b39bc12ad8f140b98a27fa6f4b69ac
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705115"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79295256"
 ---
 # <a name="create-vpn-gateways-for-azure-stack-hub"></a>Créer des passerelles VPN pour Azure Stack Hub
 

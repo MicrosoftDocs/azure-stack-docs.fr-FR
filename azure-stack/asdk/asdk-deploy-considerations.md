@@ -8,11 +8,11 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
 ms.openlocfilehash: 889180858826685150fadb7ad3bef0ffb789b8ec
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695714"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79295280"
 ---
 # <a name="asdk-requirements-and-considerations"></a>Conditions requises et éléments à prendre en compte pour ASDK
 

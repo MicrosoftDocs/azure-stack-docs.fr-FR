@@ -7,12 +7,12 @@ ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/8/2020
-ms.openlocfilehash: 7dc570ede3f953b4886971ea827fe69b881b5b89
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 335afce7423872156c84c655d9c94ed59a9592d2
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698145"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512437"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Utiliser le point de terminaison privilégié dans Azure Stack Hub
 
@@ -20,7 +20,7 @@ En tant qu’opérateur Azure Stack Hub, vous devez utiliser le portail administ
 
 Vous pouvez utiliser le points de terminaison privilégié pour effectuer les tâches suivantes :
 
-- Des tâches de bas niveau, comme [collecter les journaux de diagnostic](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+- Des tâches de bas niveau, comme [collecter les journaux de diagnostic](azure-stack-get-azurestacklog.md).
 - De nombreuses tâches post-déploiement d’intégration au centre de données pour les systèmes intégrés, comme l’ajout de redirecteurs DNS (Domain Name System), la configuration de l’intégration de Microsoft Graph, l’intégration des services de fédération Active Directory (AD FS), la permutation des certificats, etc.
 - Collaborer avec l’équipe de support afin d’obtenir un accès global temporaire pour un dépannage approfondi d’un système intégré.
 
@@ -197,4 +197,4 @@ Une fois les fichiers journaux de transcription correctement transférés vers l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Outils de diagnostic d’Azure Stack Hub](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)
+[Outils de diagnostic d’Azure Stack Hub](azure-stack-diagnostic-log-collection-overview-tzl.md)

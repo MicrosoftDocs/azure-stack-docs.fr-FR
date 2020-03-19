@@ -8,11 +8,11 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/28/2019
 ms.openlocfilehash: 207b99b9a3cbb6c030a6e79137d036820b3b3f60
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695442"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79295172"
 ---
 # <a name="asdk-architecture"></a>Architecture de l’ASDK
 Le Kit de développement Azure Stack (ASDK) est un déploiement à nœud unique d’Azure Stack qui s'exécute sur un seul ordinateur hôte. Des composants de routage Edge sont installés sur l’ordinateur hôte afin de fournir des fonctionnalités NAT et VPN pour Azure Stack. Les rôles d’infrastructure Azure Stack s’exécutent dans la couche Hyper-V de l’ordinateur hôte physique.
