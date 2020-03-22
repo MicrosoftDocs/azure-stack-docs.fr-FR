@@ -2,6 +2,8 @@
   href: index.yml
 - name: Vue d’ensemble
   items:
+    - name: "Qu’est-ce qu’Azure Stack Hub\_?"
+      href: user-overview.md
     - name: Considérations relatives aux clés
       href: azure-stack-considerations.md
 - name: Démarrages rapides
