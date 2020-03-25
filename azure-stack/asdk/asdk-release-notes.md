@@ -3,22 +3,36 @@ title: Notes de publication relatives à l’ASDK
 description: Améliorations, correctifs et problèmes connus pour le Kit de développement Azure Stack (ASDK).
 author: sethmanheim
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: c73e7bc20b1eb1e2538f211d2aaa84dafbfa103b
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 03/18/2020
+ms.openlocfilehash: 6f7bec082564c9f7cb3a0c70cec7e8e7e48fbd35
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77694116"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511808"
 ---
 # <a name="asdk-release-notes"></a>Notes de publication relatives à l’ASDK
 
 Cet article fournit des informations sur des modifications, des correctifs et des problèmes connus en lien avec le Kit de développement Azure Stack (ASDK). Si vous n’êtes pas sûr de la version que vous exécutez, consultez le [portail pour vérifier](../operator/azure-stack-updates.md).
 
 Tenez-vous informé des nouveautés concernant le kit ASDK en vous abonnant au [flux RSS](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
+
+::: moniker range="azs-2002"
+## <a name="build-12002035"></a>Build 1.2002.0.35
+
+### <a name="new-features"></a>Nouvelles fonctionnalités
+
+- Pour obtenir la liste des problèmes résolus, des modifications et des nouvelles fonctionnalités de cette version, consultez les sections correspondantes dans les [notes de publication Azure Stack](../operator/release-notes.md).
+
+### <a name="fixed-and-known-issues"></a>Problèmes connus et résolus
+
+- Le mot de passe de certification de déchiffrement est une nouvelle option qui permet de spécifier le mot de passe destiné au certificat auto-signé (.pfx) contenant la clé privée nécessaire au déchiffrement des données de sauvegarde. Ce mot de passe est obligatoire uniquement si la sauvegarde est chiffrée à l’aide d’un certificat.
+- Pour obtenir la liste des problèmes connus d’Azure Stack de cette version, consultez l’article sur les [problèmes connus](../operator/known-issues.md).
+- Notez que les correctifs logiciels d’Azure Stack ne sont pas applicables au kit ASDK.
+::: moniker-end
 
 ::: moniker range="azs-1910"
 ## <a name="build-11910058"></a>Build 1.1910.0.58
@@ -72,23 +86,4 @@ Tenez-vous informé des nouveautés concernant le kit ASDK en vous abonnant au [
 - Pour obtenir la liste des problèmes Azure Stack corrigés dans cette version, consultez [cette section](/azure-stack/operator/release-notes?view=azs-1907#fixes-2) des notes de publication Azure Stack.
 - Pour obtenir la liste des problèmes connus, consultez [cet article](/azure-stack/operator/known-issues?view=azs-1907).
 - Notez que les [correctifs logiciels d’Azure Stack](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-2) ne sont pas applicables au kit ASDK Azure Stack.
-::: moniker-end
-
-::: moniker range="azs-1906"
-## <a name="build-11906030"></a>Build 1.1906.0.30
-
-### <a name="new-features"></a>Nouvelles fonctionnalités
-
-- Pour obtenir la liste des nouvelles fonctionnalités dans cette version, consultez [cette section](/azure-stack/operator/release-notes?view=azs-1906#whats-in-this-update-1) des notes de publication Azure Stack.
-
-### <a name="changes"></a>Modifications
-
-- Ajout d’une machine virtuelle de prise en charge **AzS-SRNG01** qui héberge le service de collecte des journaux pour Azure Stack. Pour plus d’informations, consultez [Rôles des machines virtuelles](asdk-architecture.md).
-
-### <a name="fixed-and-known-issues"></a>Problèmes connus et résolus
-
-- Lorsque vous créez des ressources de machine virtuelle à l’aide de certaines images de la place de marché, vous ne pourrez peut-être pas effectuer le déploiement. Pour résoudre ce problème, vous pouvez cliquer sur le lien **Télécharger le modèle et les paramètres** dans la page de **résumé**, puis cliquer sur le bouton **Déployer** dans le panneau **Modèle**.
-- Pour obtenir la liste des problèmes Azure Stack corrigés dans cette version, consultez [cette section](/azure-stack/operator/release-notes?view=azs-1906#fixes-3) des notes de publication Azure Stack.
-- Pour obtenir la liste des problèmes connus, consultez [cet article](/azure-stack/operator/known-issues?view=azs-1906).
-- Notez que les [correctifs logiciels d’Azure Stack](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-3) ne sont pas applicables au kit ASDK Azure Stack.
 ::: moniker-end

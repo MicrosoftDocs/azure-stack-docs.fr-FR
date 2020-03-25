@@ -1,16 +1,16 @@
 ---
 title: Supprimer des volumes dans Azure Stack HCI
-description: Guide pratique pour supprimer des volumes dans Azure Stack HCI à l’aide de Windows Admin Center.
+description: Guide pratique pour supprimer des volumes dans Azure Stack HCI à l’aide de Windows Admin Center et de PowerShell.
 author: khdownie
 ms.author: v-kedow
 ms.topic: article
-ms.date: 03/05/2020
-ms.openlocfilehash: ab99ed7a49fe2bf003245f139451895a85c4edbf
-ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
+ms.date: 03/17/2020
+ms.openlocfilehash: cf556a9b6c130907e8607d8e5b9436b71756a3d4
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79025977"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511893"
 ---
 # <a name="deleting-volumes-in-azure-stack-hci"></a>Suppression des volumes dans Azure Stack HCI
 
@@ -18,7 +18,7 @@ ms.locfileid: "79025977"
 
 Cette rubrique fournit des instructions sur la suppression des volumes dans un cluster d’[espaces de stockage direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) à l’aide de Windows Admin Center.
 
-Regardez une courte vidéo sur la suppression d’un volume.
+Regardez une courte vidéo sur la suppression d’un volume à l’aide de Windows Admin Center.
 
 > [!VIDEO https://www.youtube-nocookie.com/embed/DbjF8r2F6Jo]
 
@@ -29,10 +29,35 @@ Regardez une courte vidéo sur la suppression d’un volume.
 3. En haut de la page de détails des volumes, sélectionnez **Supprimer**.
 4. Dans la boîte de dialogue de confirmation, cochez la case permettant de confirmer la suppression du volume, puis sélectionnez **Supprimer**.
 
+## <a name="delete-volumes-using-powershell"></a>Supprimer des volumes à l’aide de PowerShell
+
+Utilisez l’applet de commande **Remove-VirtualDisk** pour supprimer des volumes dans les espaces de stockage direct. Cette applet de commande permet de supprimer l’objet **VirtualDisk** et de rendre l’espace qu’il utilisait au pool de stockage qui expose l’objet **VirtualDisk**.
+
+Tout d’abord, lancez PowerShell sur votre PC de gestion et exécutez l’applet de commande **VirtualDisk** avec le paramètre **CimSession**, qui est le nom d’un nœud de serveur ou de cluster d’espaces de stockage direct, par exemple *clustername.microsoft.com* : 
+
+```PowerShell
+Get-VirtualDisk -CimSession clustername.microsoft.com
+```
+
+Une liste de valeurs possibles pour le paramètre **-FriendlyName**, qui correspondent aux noms de volumes sur votre cluster, est alors retournée.
+
+### <a name="example"></a>Exemple
+
+Pour supprimer un volume en miroir appelé *volume1*, exécutez la commande suivante dans PowerShell :
+
+```PowerShell
+Remove-VirtualDisk -FriendlyName "Volume1"
+```
+
+Vous êtes invité à confirmer que vous souhaitez exécuter l’action et effacer toutes les données contenues dans le volume. Choisissez O ou N.
+
+   > [!WARNING]
+   > Cette action est irréversible. Cet exemple supprime définitivement un objet **VirtualDisk** du volume.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour obtenir des instructions pas à pas sur d’autres tâches essentielles de la gestion du stockage, consultez également :
 
-- [Planification des volumes dans les espaces de stockage direct](/windows-server/storage/storage-spaces/plan-volumes)
-- [Création de volumes dans les espaces de stockage direct](/windows-server/storage/storage-spaces/create-volumes)
-- [Extension des volumes dans les espaces de stockage direct](/windows-server/storage/storage-spaces/resize-volumes)
+- [Planification des volumes dans les espaces de stockage direct](../concepts/plan-volumes.md)
+- [Création de volumes dans les espaces de stockage direct](create-volumes.md)
+- [Extension des volumes dans les espaces de stockage direct](extend-volumes.md)

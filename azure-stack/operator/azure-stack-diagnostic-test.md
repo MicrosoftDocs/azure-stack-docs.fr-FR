@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 1cfae74381121534fea8a49dca4d048e749bc1e6
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 9b082876dca1e39f99ac0b98a7e438aa1231b3c2
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699998"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512539"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Valider l’état du système Azure Stack Hub
 
@@ -47,7 +47,7 @@ Comme indiqué précédemment, l’outil de validation est exécuté via le poin
 
    Pour plus d’informations, consultez les sections [Considérations relatives aux paramètres](azure-stack-diagnostic-test.md#parameter-considerations) et [Exemples de cas d’usage](azure-stack-diagnostic-test.md#use-case-examples).
 
-1. Si un test retourne **FAIL**, exécutez `Get-AzureStackLog`. Pour obtenir des instructions sur un système intégré, voir [Exécuter Get-AzureStackLog sur des systèmes intégrés Azure Stack Hub](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) ou, sur l’ASDK, voir [Exécuter Get-AzureStackLog sur un système ASDK](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+1. Si un test retourne **FAIL**, exécutez `Get-AzureStackLog`. Pour obtenir des instructions sur un système intégré, découvrez comment exécuter [Get-AzureStackLog sur des systèmes intégrés Azure Stack Hub](azure-stack-get-azurestacklog.md).
 
    L’applet de commande recueille des journaux d’activité générés par Test-AzureStack. Nous vous recommandons de ne pas collecter les journaux et de contacter le service de support technique si des tests indiquent **WARN**.
 
@@ -234,6 +234,6 @@ Test-AzureStack -Include AzsNetworkInfra -Debug
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les outils de diagnostic Azure Stack Hub et la journalisation des problèmes, voir [Outils de diagnostic Azure Stack Hub](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+Pour plus d’informations sur les outils de diagnostic Azure Stack Hub et la journalisation des problèmes, voir [Outils de diagnostic Azure Stack Hub](azure-stack-diagnostic-log-collection-overview-tzl.md).
 
 Pour plus d’informations sur la résolution des problèmes, voir [Résolution des problèmes de Microsoft Azure Stack Hub](azure-stack-troubleshooting.md).

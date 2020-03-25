@@ -7,12 +7,12 @@ ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 55609ca3ca8dc0dbb0d557422a9a5b4223450fc3
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 4a847578e73c5c9b518669a46340590242513686
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696462"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512347"
 ---
 # <a name="usage-connectivity-errors"></a>Erreurs de connectivité d’utilisation
 
@@ -47,7 +47,7 @@ Cette section décrit la représentation les codes d’erreur d’utilisation.
 | Non autorisé               | Le pont Azure n'est pas en mesure d'envoyer (push) les données au service d'utilisation Azure, car le service Azure ne parvient pas à authentifier le pont Azure Stack Hub. | Vérifiez si la ressource d'inscription a été modifiée et, si tel est le cas, réinscrivez Azure Stack Hub. <br><br> Parfois, un problème de synchronisation entre Azure Stack Hub et Azure AD peut provoquer cette défaillance. Dans ce cas, vérifiez que les heures des machines virtuelles XRP d'Azure Stack Hub sont synchronisées avec celles d'Azure AD. |
 |                            |                                                                                                                                                   |                                                                                                                                                                                                                                                                                                    |
 
-En outre, vous devrez peut-être fournir les fichiers journaux pour les composants Azure Bridge, WAS et WASPublic en suivant [ces étapes](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+En outre, vous devrez peut-être fournir les fichiers journaux pour les composants Azure Bridge, WAS et WASPublic.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

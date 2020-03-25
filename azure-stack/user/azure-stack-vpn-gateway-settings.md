@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: b762dfa9897ac732df7c09858ef3a5d25357f1d7
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: b8f7be7885bd4565a13983d858c1f10b30df20b3
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705047"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79295568"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>Configurer les paramètres de passerelle VPN pour Azure Stack Hub
 
@@ -154,6 +154,10 @@ Parfois, vous devez modifier les paramètres de passerelle de réseau local. C�
 Lorsque vous configurez une connexion VPN dans Azure Stack Hub, vous devez la configurer aux deux extrémités. Si vous configurez une connexion VPN entre Azure Stack Hub et un dispositif matériel tel qu’un commutateur ou un routeur agissant en tant que passerelle VPN, ce dispositif peut nécessiter la définition de paramètres supplémentaires.
 
 Contrairement à Azure qui prend en charge plusieurs offres en tant qu’initiateur et répondeur, Azure Stack Hub ne prend en charge qu’une seule offre par défaut. Si vous devez utiliser différents paramètres IPSec/IKE pour travailler avec votre appareil VPN, d’autres paramètres sont disponibles pour vous permettre de configurer votre connexion manuellement. Pour plus d’informations, consultez [Configurer la stratégie IPsec/IKE pour des connexions VPN site à site](azure-stack-vpn-s2s.md).
+
+> [!IMPORTANT] 
+> Lorsque vous utilisez le tunnel S2S, les paquets sont encapsulés avec des en-têtes supplémentaires, ce qui augmente la taille globale du paquet. Dans ces scénarios, vous devez définir TCP **MSS** sur **1350**. Dans le cas où vos appareils VPN ne prendraient pas en charge le réglage de la taille maximale de segment, vous pouvez à la place définir l’**unité de transmission maximale** dans l’interface de tunnel sur **1400** octets. Pour plus d’informations, consultez [Réglage des performances TCPIP des réseaux virtuels] (virtual-network-tcpip-performance-tuning.md) 
+>
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Paramètres IKE Phase 1 (Mode principal)
 

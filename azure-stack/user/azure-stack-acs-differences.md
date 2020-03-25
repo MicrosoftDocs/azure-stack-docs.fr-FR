@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: f852aa2165f51c0a57f09ea94b872de015535923
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: eeca00875a13b8f67ccaeab38f124d17979d1a7c
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77687391"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511995"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Stockage Azure Stack Hub : Différences et considérations
 
@@ -30,9 +30,11 @@ Cet article récapitule les différences connues entre le stockage Azure Stack H
 |Options de réplication|Stockage localement redondant, stockage géoredondant, stockage géoredondant avec accès en lecture et stockage redondant interzone|Stockage localement redondant.
 |Stockage Premium|Fournit des performances élevées et un stockage à faible latence. Seuls sont pris en charge les objets blob de pages dans les comptes de stockage Premium.|Peut être approvisionné, mais sans limite ni garantie de performances. Ne bloque pas l’utilisation d’objets blob de blocs, d’objets blob d’ajout, de tables et de files d’attente dans les comptes de stockage Premium.
 |Disques managés|Premium et standard pris en charge|Pris en charge lorsque vous utilisez la version 1808 ou ultérieure.
+|Captures instantanées de disque managé|Disponibilité générale|Pris en charge.
+|Instantanés incrémentiels de disque managé|Disponibilité générale|Pas encore pris en charge.
 |Nom de l’objet blob|1 024 caractères (2 048 octets)|880 caractères (1 760 octets)
 |Taille maximale d’un objet blob de blocs|4,75 To (100 Mo X 50 000 blocs)|4,75 To (100 Mo x 50 000 blocs) pour la mise à jour 1802 ou une version plus récente. 50 000 x 4 Mo (environ 195 Go) pour les versions précédentes.
-|Copie d’instantané d’objet blob de pages|Prise en charge des disques de machine virtuelle non gérés par Sauvegarde Azure attachés à une machine virtuelle en fonctionnement|Pas encore pris en charge.
+|Copie d’instantané d’objet blob de pages|Prise en charge des disques de machine virtuelle non gérés par Sauvegarde Azure attachés à une machine virtuelle en fonctionnement|Prise en charge dans l’[API en tant qu’opération asynchrone](azure-stack-acs-differences.md).
 |Copie d’instantané incrémentiel d’objet blob de pages|Objets blob de pages Azure Premium et standard pris en charge|Pas encore pris en charge.
 |Facturation d’objet blob de pages|Des frais sont liés aux pages uniques, qu’elles soient dans l’objet blob ou dans la capture instantanée. Il n’y a aucuns frais supplémentaires pour les captures instantanées associées à un objet blob jusqu’à ce que l’objet blob de base soit mis à jour.|Des frais sont liés à l’objet blob de base et les captures instantanées associées. Il y a des frais supplémentaires pour chaque capture instantanée individuelle.
 |Niveaux de stockage pour le Stockage Blob|Niveaux de stockage chaud, à froid et archivage.|Pas encore pris en charge.

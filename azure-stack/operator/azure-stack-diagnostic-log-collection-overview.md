@@ -7,18 +7,18 @@ ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 05d54d3db2429faa410cc67a46fba234d285a1af
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 792c639a5233a7d30dc86488059045a9516dfaa2
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77700049"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512556"
 ---
 # <a name="overview-of-azure-stack-hub-diagnostic-log-collection"></a>Vue d’ensemble de la collecte automatique des journaux de diagnostic Azure Stack Hub 
 
 Azure Stack Hub est une grande collection de composants qui fonctionnent ensemble et interagissent. Tous ces composants génèrent leurs propres journaux d’activité. Cela peut compliquer le diagnostic des problèmes, notamment quand les erreurs proviennent de plusieurs composants Azure Stack Hub en interaction. Pour résoudre ce problème, nous avons conçu une expérience de collecte des journaux de diagnostic. 
 
-Avant la version 1907, l’expérience de diagnostic comprenait l’utilisation de [Test-AzureStack](azure-stack-diagnostic-test.md) pour valider l’intégrité du système et l’utilisation du [point de terminaison privilégié (PEP)](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) pour collecter les journaux pour la résolution des problèmes. 
+Avant la version 1907, l’expérience de diagnostic comprenait l’utilisation de [Test-AzureStack](azure-stack-diagnostic-test.md) pour valider l’intégrité du système et l’utilisation du [point de terminaison privilégié (PEP)](azure-stack-get-azurestacklog.md) pour collecter les journaux pour la résolution des problèmes. 
 
 Depuis la version 1907, la page **Aide et support** simplifie l’utilisation de la **collecte des journaux de diagnostic**. 
 **La collecte des journaux de diagnostic** fait partie d’un investissement continu pour améliorer l’expérience de l’opérateur Azure Stack Hub dans le processus de résolution des problèmes. Grâce à ces améliorations, les opérateurs peuvent rapidement collecter et partager des journaux de diagnostic avec les services de support technique Microsoft (CSS). Les journaux peuvent être stockés dans un conteneur d’objets blob dans Azure, où l’accès peut être personnalisé en fonction des besoins.    
@@ -31,20 +31,20 @@ Depuis la version 1907, la page **Aide et support** simplifie l’utilisation de
 ![Capture d’écran des options de collecte des journaux de diagnostic](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
 **La collecte des journaux de diagnostic** a une interface utilisateur simple et ne nécessite pas PowerShell. Les journaux sont collectés de façon fiable, même si les services d’infrastructure sont défaillants.
-Si votre stratégie autorise le partage des journaux de diagnostic avec CSS, la **collecte des journaux de diagnostic** est la méthode de collecte recommandée depuis la version 1907. Vous ne devez utiliser [le PEP](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) pour collecter les journaux que si la **collecte des journaux de diagnostic** dans Aide et support n’est pas disponible.
+Si votre stratégie autorise le partage des journaux de diagnostic avec CSS, la **collecte des journaux de diagnostic** est la méthode de collecte recommandée depuis la version 1907. Vous ne devez utiliser [le PEP](azure-stack-get-azurestacklog.md) pour collecter les journaux que si la **collecte des journaux de diagnostic** dans Aide et support n’est pas disponible.
 
 ## <a name="automatic-diagnostic-log-collection"></a>Collecte automatique des journaux de diagnostic 
 
-Lorsqu’une [alerte d’intégrité spécifique](azure-stack-configure-automatic-diagnostic-log-collection.md#automatic-diagnostic-log-collection-alerts) est déclenchée, la collecte de journaux de diagnostic automatique démarre et télécharge de manière proactive les journaux de diagnostic d’Azure Stack Hub vers un objet blob de stockage dans Azure, ce qui réduit considérablement le temps nécessaire au partage des journaux de diagnostic avec CSS. Les journaux de diagnostic ne sont collectés que lorsqu'une alerte est déclenchée.  
+Lorsqu’une [alerte d’intégrité spécifique](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md#proactive-diagnostic-log-collection-alerts) est déclenchée, la collecte de journaux de diagnostic automatique démarre et télécharge de manière proactive les journaux de diagnostic d’Azure Stack Hub vers un objet blob de stockage dans Azure, ce qui réduit considérablement le temps nécessaire au partage des journaux de diagnostic avec CSS. Les journaux de diagnostic ne sont collectés que lorsqu'une alerte est déclenchée.  
 
-Pour plus d’informations sur la collecte automatique des journaux, consultez [Configurer la collecte automatique des journaux de diagnostic Azure Stack Hub](azure-stack-configure-automatic-diagnostic-log-collection.md).
+Pour plus d’informations sur la collecte automatique des journaux, consultez [Configurer la collecte automatique des journaux de diagnostic Azure Stack Hub](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md).
 
 ## <a name="on-demand-diagnostic-log-collection"></a>Collecte des journaux de diagnostic à la demande
 
 Avec la collecte à la demande, les journaux de diagnostic sont chargés d’Azure Stack Hub vers un objet blob de stockage dans Azure lorsqu’un opérateur Azure Stack Hub déclenche manuellement la collecte.
 CSS fournit une URL de signature d’accès partagé (SAS) à l’objet blob de stockage de CSS. Un opérateur Azure Stack Hub peut cliquer sur **Collecter les journaux maintenant** et entrer l’URL SAS. Les journaux de diagnostic sont ensuite chargés directement vers l’objet blob CSS sans partage intermédiaire. 
 
-Pour plus d’informations sur la collecte des journaux à la demande, consultez [Collecter les journaux de diagnostic Azure Stack Hub maintenant](azure-stack-configure-on-demand-diagnostic-log-collection.md).
+Pour plus d’informations sur la collecte des journaux à la demande, consultez [Envoyer les journaux de diagnostic Azure Stack Hub maintenant](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md).
 
 ## <a name="bandwidth-considerations"></a>Remarques relatives à la bande passante
 

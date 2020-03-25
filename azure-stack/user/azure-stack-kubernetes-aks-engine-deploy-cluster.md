@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: b8826fc929c571e39d36139bf724861ae9cc7fbd
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: fc53a0b1e4273436e9e06e10feccbe577ea2e488
+ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702701"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79312953"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub
 
@@ -35,7 +35,7 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
     > [!Note]  
     > Si vous êtes déconnecté, vous pouvez télécharger le fichier et le copier manuellement sur la machine déconnectée sur laquelle vous envisagez de le modifier. Vous pouvez copier le fichier sur votre machine Linux à l’aide d’outils comme [PuTTY ou WinSCP.](https://www.suse.com/documentation/opensuse103/opensuse103_startup/data/sec_filetrans_winssh.html)
 
-2.  Pour ouvrir le fichier dans un éditeur, vous pouvez utiliser nano :
+2.  Pour ouvrir le modèle d’API dans un éditeur, vous pouvez utiliser nano :
 
     ```bash
     nano ./kubernetes-azurestack.json
@@ -88,9 +88,9 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
     | Champ | Description |
     | --- | --- |
     | adminUsername | Entrez le nom d’utilisateur administrateur de la machine virtuelle. |
-    | ssh | Entrez la clé publique qui sera utilisée pour l’authentification SSH auprès des machines virtuelles. Si vous utilisez PuTTY, ouvrez le générateur de clé PuTTY pour charger la clé privée PuTTY et la clé publique qui commence par ssh-rsa, comme dans l’exemple suivant. Vous pouvez utiliser la clé générée lors de la création du client Linux mais **vous devez copier la clé publique pour qu’il s’agisse d’un texte d’une ligne, comme indiqué dans l’exemple**.|
+    | ssh | Entrez la clé publique qui sera utilisée pour l’authentification SSH auprès des machines virtuelles. Utilisez `ssh-rsa`, puis la clé. Pour obtenir des instructions sur la création d’une clé publique, consultez [Créer une clé SSH pour Linux](create-ssh-key-on-windows.md). |
 
-    ![Générateur de clé PuTTY](media/azure-stack-kubernetes-aks-engine-deploy-cluster/putty-key-generator.png)
+    Si vous déployez sur un réseau virtuel personnalisé, vous pouvez trouver des instructions pour rechercher la clé et les valeurs nécessaires afin de les ajouter aux tableaux appropriés dans le modèle d’API dans [Déployer un cluster Kubernetes sur un réseau virtuel personnalisé](kubernetes-aks-engine-custom-vnet.md).
 
 ### <a name="more-information-about-the-api-model"></a>Plus d’informations sur le modèle d’API
 
@@ -115,12 +115,12 @@ Procéder au déploiement d’un cluster :
     | --- | --- | --- |
     | azure-env | AzureStackCloud | Pour indiquer au moteur AKS que votre plateforme cible est Azure Stack Hub, utilisez `AzureStackCloud`. |
     | identity-system | adfs | facultatif. Spécifiez votre solution de gestion des identités si vous utilisez Active Directory Federated Services (AD FS). |
-    | location | local | Nom de la région de votre Azure Stack Hub. Pour le Kit de développement Azure Stack (ASDK), la région a la valeur `local`. |
+    | location | local | Nom de la région de votre Azure Stack Hub. Pour le kit de développement Azure Stack (ASDK), la région est définie sur `local`. |
     | resource-group | kube-rg | Entrez le nom d’un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant. Le nom de la ressource doit être alphanumérique et en minuscules. |
     | api-model | ./kubernetes-azurestack.json | Chemin du fichier de configuration du cluster ou modèle d’API. |
     | output-directory | kube-rg | Entrez le nom du répertoire contenant le fichier de sortie `apimodel.json`, ainsi que d’autres fichiers générés. |
     | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Entrez le GUID du principal du service. ID de client identifié comme ID d’application lorsque votre administrateur Azure Stack Hub a créé le principal du service. |
-    | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Entrez le secret du principal du service. Il s’agit de la clé secrète client que vous définissez lors de la création de votre service. |
+    | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Entrez le secret du principal du service. Vous configurez la clé secrète client quand vous créez votre service. |
     | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Entrez votre ID d’abonnement. Pour plus d’informations, consultez [S’abonner à une offre](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer). |
 
     Voici un exemple :
