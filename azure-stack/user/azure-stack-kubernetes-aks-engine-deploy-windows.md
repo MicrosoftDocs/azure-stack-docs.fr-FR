@@ -3,16 +3,16 @@ title: Déployer le moteur AKS sur Windows dans Azure Stack Hub
 description: Découvrez comment utiliser une machine Windows dans votre infrastructure Azure Stack Hub pour héberger le moteur AKS afin de déployer et de gérer un cluster Kubernetes.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 0eb3e192ee5b4153c5f04347881954663783807c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 3/19/2020
+ms.openlocfilehash: ca48b252525ea6869233f23158a05962056aa7a4
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702684"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069178"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Installer le moteur AKS sur Windows dans Azure Stack Hub
 

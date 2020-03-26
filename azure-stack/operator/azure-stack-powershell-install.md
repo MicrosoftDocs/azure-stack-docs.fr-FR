@@ -7,20 +7,19 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: df0a87180e1e8ed4b2506d0f2b21406474ee93c1
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: b362ab1e4c555ae4de5be0feecd19d8cc8e6654a
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79512454"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069438"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>Installer le module PowerShell AzureRM pour Azure Stack Hub
 
 Azure PowerShell AzureRM fournit un ensemble d’applets de commande qui utilisent le modèle Azure Resource Manager pour gérer vos ressources Azure Stack Hub.
 
-Pour utiliser votre cloud, vous devez installer des modules PowerShell compatibles avec Azure Stack Hub. Azure Stack Hub peut utiliser le module **AzureRM** plutôt que [le nouveau module **AzureAZ**](powershell-install-az-module.md). 
-
 Vous devez aussi utiliser des *profils d’API* pour spécifier les points de terminaison compatibles pour les fournisseurs de ressources Azure Stack Hub.
+
 Les profils d’API permettent de gérer les différences de version entre Azure et Azure Stack Hub. Un profil de version d’API est un ensemble de modules PowerShell Azure Resource Manager avec des versions d’API spécifiques. Chaque plateforme cloud a un ensemble de profils de version d’API pris en charge. Par exemple, Azure Stack Hub prend en charge une version de profil spécifique telle que **2019-03-01-hybrid**. Quand vous installez un profil, les modules PowerShell Azure Resource Manager qui correspondent au profil spécifié sont installés.
 
 Vous pouvez installer des modules PowerShell compatibles avec Azure Stack Hub dans des scénarios connectés à Internet, partiellement connectés, ou déconnectés. Cet article vous guide dans les instructions détaillées de ces scénarios.
