@@ -3,22 +3,24 @@ title: Tailles de machine virtuelle prises en charge dans Azure Stack Hub
 description: Référence pour les tailles de machine virtuelle prises en charge dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: reference
-ms.date: 12/3/2019
+ms.date: 03/23/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 12/3/2019
-ms.openlocfilehash: eaa7fd667dfba1a9963c1bebfe292b8b6ba9a355
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 03/23/2020
+ms.openlocfilehash: cce150e9e7698ea98035dc4f9104595100686cb7
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705098"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152188"
 ---
 # <a name="vm-sizes-supported-in-azure-stack-hub"></a>Tailles de machine virtuelle prises en charge dans Azure Stack Hub
 
 Cet article répertorie les tailles de machine virtuelle disponibles dans Azure Stack Hub. Cet article peut vous aider à choisir une machine virtuelle pour la prise en charge de votre solution Azure Stack Hub.
 
 Sur Azure Stack Hub, les IOPS disque (opérations d’entrée/sortie par seconde) dépendent de la taille de la machine virtuelle et non du type de disque. Cela signifie que, pour une machine virtuelle Standard_Fs, quel que soit le type de disque choisi (SSD ou HDD), la limite d'IOPS est de 2 300 par disque de données supplémentaire. La limite d'IOPS imposée est un plafond (maximum possible) pour éviter les voisins bruyants. Elle ne garantit pas les IOPS obtenues avec une taille de machine virtuelle spécifique.
+
+Les processeurs virtuels des machines virtuelles dépendent du nombre de cœurs présents dans chaque nœud. Par exemple, les systèmes dont le nombre de cœurs ou de processeurs logiques est inférieur à 64 ne pourront pas prendre en charge la taille de machine virtuelle Standard_F64s_v2.
 
 ## <a name="vm-general-purpose"></a>Usage général d’une machine virtuelle
 
@@ -140,7 +142,7 @@ Les tailles de machine virtuelle à usage général ont un ratio processeur/mém
 
 Les tailles de machine virtuelle à mémoire optimisée offrent un ratio mémoire/processeur supérieur pour les serveurs de base de données relationnelle, les caches moyens à grands et l’analytique en mémoire.
 
-### <a name="mo-d"></a>Série D
+### <a name="d-series"></a><a name="mo-d"></a>Série D
 |Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
 |------------------|---|----|----|--------|------|------------|---------|
 |**Standard_D11**  |2  |14  |100 |500     |6000  |8 / 8 x 500   |2 |
@@ -148,7 +150,7 @@ Les tailles de machine virtuelle à mémoire optimisée offrent un ratio mémoir
 |**Standard_D13**  |8  |56  |400 |500     |24 000 |32 / 32 x 500 |8 |
 |**Standard_D14**  |16 |112 |800 |500     |48 000 |64 / 64 x 500 |8 |
 
-### <a name="mo-ds"></a>Série DS
+### <a name="ds-series"></a><a name="mo-ds"></a>Série DS
 |Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
 |-------------------|---|----|----|--------|------|-------------|---------|
 |**Standard_DS11**  |2  |14  |28  |1 000    |8000  |8 / 8x2 300   |2 |
@@ -156,7 +158,7 @@ Les tailles de machine virtuelle à mémoire optimisée offrent un ratio mémoir
 |**Standard_DS13**  |8  |56  |112 |1 000    |32000 |32 / 32x2 300 |8 |
 |**Standard_DS14**  |16 |112 |224 |1 000    |64 000 |64 / 64x2 300 |8 |
 
-### <a name="mo-dv2"></a>Série Dv2
+### <a name="dv2-series"></a><a name="mo-dv2"></a>Série Dv2
 |Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
 |--------------------|----|----|-----|----|-------|-------------|---------|
 |**Standard_D11_v2** |2   |14  |100  |500 |6000   |8 / 8 x 500    |2 |
@@ -165,7 +167,7 @@ Les tailles de machine virtuelle à mémoire optimisée offrent un ratio mémoir
 |**Standard_D14_v2** |16  |112 |800  |500 |48 000  |64 / 64 x 500  |8 |
 
 
-### <a name="mo-dsv2"></a>Série DSv2
+### <a name="dsv2-series"></a><a name="mo-dsv2"></a>Série DSv2
 |Taille     |Processeurs virtuels     |Mémoire (Gio) | Stockage temporaire (Gio)  | Débit de disque du système d’exploitation max. (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Disques de données max. / débit (E/S par seconde) | Nombre max de cartes réseau |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
 |**Standard_DS11_v2** |2   |14  |28   |1 000 |8000   |4 / 4x2 300    |2 |

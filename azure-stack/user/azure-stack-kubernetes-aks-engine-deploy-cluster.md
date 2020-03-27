@@ -3,16 +3,16 @@ title: Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub
 description: Découvrez comment déployer un cluster Kubernetes sur Azure Stack Hub à partir d’une machine virtuelle cliente exécutant le moteur AKS.
 author: mattbriggs
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: fc53a0b1e4273436e9e06e10feccbe577ea2e488
-ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
+ms.lastreviewed: 3/19/2020
+ms.openlocfilehash: 3186d3976f5d4ca533a89644b3abc16fdf824c7c
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79312953"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152171"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub
 
@@ -66,7 +66,7 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
 
 6. Recherchez `portalURL` et fournissez l’URL du portail du locataire. Par exemple : `https://portal.local.azurestack.external`.
 
-7.  Dans le tableau `masterProfile`, définissez les champs suivants :
+7.  Dans `masterProfile`, définissez les champs suivants :
 
     | Champ | Description |
     | --- | --- |
@@ -75,15 +75,18 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
     | vmSize |  Entrez [une taille prise en charge par Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), par exemple `Standard_D2_v2`. |
     | distro | Entrez `aks-ubuntu-16.04`. |
 
-8.  Dans le tableau `agentPoolProfiles`, mettez à jour :
+8.  Dans la mise à jour `agentPoolProfiles` :
 
     | Champ | Description |
     | --- | --- |
-    | count | Entrez le nombre d’agents que vous souhaitez pour votre déploiement. |
+    | count | Entrez le nombre d’agents que vous souhaitez pour votre déploiement. Le nombre maximal de nœuds à utiliser par abonnement est de 50. Si vous déployez plus d’un cluster par abonnement, veillez à ne pas dépasser 50 agents. Utilisez les éléments de configuration spécifiés dans l’[exemple de fichier JSON de modèle d’API](https://github.com/Azure/aks-engine/blob/master/examples/azure-stack/kubernetes-azurestack.json).  |
     | vmSize | Entrez [une taille prise en charge par Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), par exemple `Standard_D2_v2`. |
     | distro | Entrez `aks-ubuntu-16.04`. |
 
-9.  Dans le tableau `linuxProfile`, mettez à jour :
+
+
+
+9.  Dans la mise à jour `linuxProfile` :
 
     | Champ | Description |
     | --- | --- |

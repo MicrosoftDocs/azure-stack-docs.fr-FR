@@ -8,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiaha
-ms.openlocfilehash: 6bfdca8487a5725417f88b5fcf0fb1acce26635a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 4ac1d0de3775c22c0c982d79713847e7cd171f41
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697091"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152249"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Gérer l’infrastructure de stockage pour Azure Stack Hub
 
@@ -25,9 +25,9 @@ Cet article décrit l’intégrité et l’état opérationnel des ressources de
 
 Alimenté par le logiciel Windows Server, Azure Stack Hub définit des capacités de stockage à l’aide d’une combinaison d’espaces de stockage direct (S2D), et Clustering de basculement Windows Server. Cette combinaison offre un service de stockage performant, scalable et résilient.
 
-Les partenaires système intégrés Azure Stack Hub offrent de nombreuses variations de la solution, notamment un large éventail en matière de souplesse du stockage. Actuellement, vous pouvez sélectionner une combinaison de trois types de lecteurs : NVMe (mémoire expresse non volatile), SATA/SAS SSD (disque sans pièce mobile), HDD (disque dur).
+Les partenaires système intégrés Azure Stack Hub offrent de nombreuses variations de la solution, notamment un large éventail en matière de souplesse du stockage. Vous pouvez sélectionner jusqu’à deux types de lecteurs parmi les trois types pris en charge : NVMe (mémoire expresse non volatile), SATA/SAS SSD (disque sans pièce mobile), HDD (disque dur). 
 
-Les espaces de stockage direct disposent d’un cache pour optimiser les performances de stockage. Dans un appareil Azure Stack Hub avec un ou plusieurs types de lecteurs, les espaces de stockage direct utilisent automatiquement tous les lecteurs du type le « plus rapide » (NVMe &gt; SSD &gt; HDD) pour la mise en cache. Les lecteurs restants sont utilisés pour la capacité. Les lecteurs peuvent être regroupés dans un déploiement « 100 % flash » ou « hybride » :
+Les espaces de stockage direct disposent d’un cache pour optimiser les performances de stockage. Dans une appliance Azure Stack Hub disposant d’un seul type de lecteur (par exemple, NVMe ou SSD), tous les lecteurs sont utilisés pour la capacité. Si elle comprend deux types de lecteurs, les espaces de stockage direct utilisent automatiquement tous les lecteurs du type le « plus rapide » (NVMe &gt; SSD &gt; HDD) pour la mise en cache. Les lecteurs restants sont utilisés pour la capacité. Les lecteurs peuvent être regroupés dans un déploiement « 100 % flash » ou « hybride » :
 
 ![Infrastructure de stockage Azure Stack Hub](media/azure-stack-storage-infrastructure-overview/image1.png)
 

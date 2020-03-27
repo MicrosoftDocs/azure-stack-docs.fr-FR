@@ -3,16 +3,16 @@ title: Notes de publication d’Azure Stack Hub
 description: Notes de publication des systèmes intégrés Azure Stack Hub, y compris les mises à jour et les correctifs de bogues.
 author: sethmanheim
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: ce8c4843bc8316a744e1cf3d4f13e744269a9183
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: cd8569e5ea0f3537aa915207b7d52141d9444afa
+ms.sourcegitcommit: fec2b21e80c8049a823baeaf2b642802ccdcfb67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79512097"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80229551"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Notes de publication d’Azure Stack Hub
 
@@ -67,10 +67,9 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 <!-- What's new, also net new experiences and features. -->
 
 - Une nouvelle version (1.8.1) des modules PowerShell d’administration d’Azure Stack Hub basés sur AzureRM est disponible.
-- Une nouvelle version des modules de locataire Azure PowerShell az.* pour Azure Stack sera publiée le 16 mars 2020. Les modules de gestionnaire de ressources de locataire Azure Stack utilisés continuent de fonctionner, mais ne seront plus mis à jour après la build 2002.
 - Ajout d’une nouvelle alerte d’avertissement sur le portail administrateur Azure Stack Hub pour signaler les problèmes de connectivité avec le serveur syslog configuré. Le titre de l’alerte indique que **le client Syslog a rencontré un problème de réseau lors de l’envoi d’un message Syslog**.
 - Ajout d’une nouvelle alerte d’avertissement sur le portail administrateur Azure Stack Hub pour signaler les problèmes de connectivité avec le serveur NTP (Network Time Protocol). Le titre de l’alerte indique que **la source de temps n’est pas valide sur [nom du nœud]** .
-- Le [SDK Java](https://azure.microsoft.com/develop/java/) a publié de nouveaux packages en raison d’un changement cassant dans la version 2002 lié aux restrictions TLS. Vous devez installer la nouvelle dépendance du SDK Java. Vous trouverez les instructions à la section [Java et les profils de version d’API](../user/azure-stack-version-profiles-java.md?view=azs-1910#java-and-api-version-profiles).
+- Le [SDK Java](https://azure.microsoft.com/develop/java/) a publié de nouveaux packages en raison d’un changement cassant dans la version 2002 lié aux restrictions TLS. Vous devez installer la nouvelle dépendance du SDK Java. Vous trouverez les instructions à la section [Java et les profils de version d’API](../user/azure-stack-version-profiles-java.md?view=azs-2002#java-and-api-version-profiles).
 - Une nouvelle version (1.0.5.10) du pack d’administration de System Center Operations Manager - Azure Stack Hub est disponible et est nécessaire pour tous les systèmes exécutant 2002 en raison des la rupture des changements cassants apportées aux API. Les changements apportés aux API impactent les tableaux de bord des performances de sauvegarde et de stockage, et nous vous recommandons de commencer par mettre à jour tous les systèmes vers la version 2002 avant de mettre à jour le pack d’administration.
 
 ### <a name="improvements"></a>Améliorations
@@ -80,6 +79,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 - Cette mise à jour contient des modifications du processus de mise à jour qui améliorent considérablement les performances des futures mises à jour complètes. Ces modifications prennent effet avec la prochaine mise à jour complète après la version 2002, et visent spécifiquement à améliorer les performances de la phase d’une mise à jour complète dans laquelle les systèmes d’exploitation hôtes sont mis à jour. L’amélioration des performances des mises à jour des systèmes d’exploitation hôtes réduit considérablement la durée pendant laquelle les charges de travail des locataires sont impactées pendant les mises à jour complètes.
 - L’outil de vérification de la disponibilité d’Azure Stack Hub valide désormais l’intégration d’AD Graph à l’aide de tous les ports TCP IP alloués à AD Graph.
 - L’outil de syndication hors connexion a été mis à jour avec des améliorations de la fiabilité. L’outil n’est plus disponible sur GitHub et a été [déplacé vers PowerShell Gallery](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/). Pour plus d’informations, consultez [Télécharger des éléments de la Place de marché vers Azure Stack Hub](azure-stack-download-azure-marketplace-item.md).
+- Une nouvelle fonctionnalité de supervision est sur le point d’être ajoutée. L’alerte concernant un espace disque insuffisant pour les hôtes physiques et les machines virtuelles d’infrastructure sera corrigée automatiquement par la plateforme. Si cette action échoue, l’alerte s’affichera dans le portail d’administration Azure Stack Hub pour que l’opérateur corrige le problème.
 - Améliorations apportées à la [collecte des journaux de diagnostic](azure-stack-diagnostic-log-collection-overview-tzl.md). La nouvelle expérience rationalise et simplifie la collecte des journaux de diagnostic en éliminant la nécessité de configurer un compte de stockage d’objets blob à l’avance. L’environnement de stockage est préconfiguré afin que vous puissiez envoyer des journaux avant d’ouvrir un cas de support et consacrer moins de temps à un appel de support.
 - Le temps nécessaire à la [collecte proactive des journaux et à la collecte des journaux à la demande](azure-stack-diagnostic-log-collection-overview-tzl.md) a été réduit de 80 %. La collecte des journaux peut prendre plus de temps que cette valeur attendue, mais elle ne nécessite aucune action de la part des opérateurs Azure Stack Hub, sauf si la collecte des journaux échoue.
 - La progression du téléchargement d’un package de mise à jour Azure Stack Hub est désormais visible dans le panneau de mise à jour après le lancement d’une mise à jour. Seuls sont concernés les systèmes connectés Azure Stack Hub qui choisissent de [préparer les packages de mise à jour par le biais du téléchargement automatique](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages).

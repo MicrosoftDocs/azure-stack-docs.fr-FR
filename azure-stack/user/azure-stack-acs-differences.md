@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: eeca00875a13b8f67ccaeab38f124d17979d1a7c
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: 864421f543e02da39dcbd3bf2972fe3a0782676f
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79511995"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069383"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Stockage Azure Stack Hub : Différences et considérations
 
@@ -32,6 +32,7 @@ Cet article récapitule les différences connues entre le stockage Azure Stack H
 |Disques managés|Premium et standard pris en charge|Pris en charge lorsque vous utilisez la version 1808 ou ultérieure.
 |Captures instantanées de disque managé|Disponibilité générale|Pris en charge.
 |Instantanés incrémentiels de disque managé|Disponibilité générale|Pas encore pris en charge.
+|Captures instantanées de disques managés pour la machine virtuelle en cours d’exécution|Disponibilité générale|Pas encore pris en charge.
 |Nom de l’objet blob|1 024 caractères (2 048 octets)|880 caractères (1 760 octets)
 |Taille maximale d’un objet blob de blocs|4,75 To (100 Mo X 50 000 blocs)|4,75 To (100 Mo x 50 000 blocs) pour la mise à jour 1802 ou une version plus récente. 50 000 x 4 Mo (environ 195 Go) pour les versions précédentes.
 |Copie d’instantané d’objet blob de pages|Prise en charge des disques de machine virtuelle non gérés par Sauvegarde Azure attachés à une machine virtuelle en fonctionnement|Prise en charge dans l’[API en tant qu’opération asynchrone](azure-stack-acs-differences.md).

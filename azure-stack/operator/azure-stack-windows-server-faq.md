@@ -1,25 +1,29 @@
 ---
-title: FAQ relative à Windows Server dans la Place de marché Azure Stack Hub
+title: Questions fréquentes (FAQ) sur la Place de marché Azure Stack Hub
 titleSuffix: Azure Stack Hub
 description: Questions fréquentes (FAQ) sur Windows Server dans la Place de marché Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/27/2019
+ms.date: 03/19/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 72b21675e97a436499f53f00e4c7d25dfc1beb54
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 95719c6b0651932ab41cef5321db06b77eb4fc63
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696071"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069450"
 ---
-# <a name="windows-server-in-azure-stack-hub-marketplace-faq"></a>FAQ relative à Windows Server dans la Place de marché Azure Stack Hub
+# <a name="azure-stack-hub-marketplace-faq"></a>Questions fréquentes (FAQ) sur la Place de marché Azure Stack Hub
 
-Cet article répond à certaines questions fréquentes sur les images Windows Server dans la [Place de marché Azure Stack Hub](azure-stack-marketplace.md).
+Cet article répond à certaines questions fréquentes sur les produits de la [Place de marché Azure Stack Hub](azure-stack-marketplace.md).
 
 ## <a name="marketplace-items"></a>Éléments du Marketplace
+
+### <a name="who-should-i-contact-for-support-issues-with-azure-stack-hub-marketplace-items"></a>Qui dois-je contacter en cas de problème de support concernant les produits de la Place de marché Azure Stack Hub ?
+
+Le support de la Place de marché Azure s’étend aux produits de la Place de marché Azure Stack Hub. Les éditeurs sont chargés de fournir un support technique pour leurs produits qui figurent sur la Place de marché Azure Stack Hub. Pour plus d’informations sur le support à fournir pour les produits de la Place de marché Azure, consultez la [section consacrée au support](/azure/marketplace/marketplace-faq-publisher-guide#customer-support) dans les Questions fréquentes sur la Place de marché Azure.
 
 ### <a name="how-do-i-update-to-a-newer-windows-image"></a>Comment effectuer une mise à jour avec une image Windows plus récente ?
 

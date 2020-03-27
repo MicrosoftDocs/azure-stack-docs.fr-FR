@@ -3,16 +3,16 @@ title: Installer le moteur AKS sur Linux dans Azure Stack Hub
 description: Découvrez comment utiliser une machine Linux dans votre infrastructure Azure Stack Hub pour héberger le moteur AKS afin de déployer et de gérer un cluster Kubernetes.
 author: mattbriggs
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: 7f37d6c8c46679a3511ee0e071fb3b98907c3075
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 3/19/2020
+ms.openlocfilehash: 23ffcd6e92ba442447dfa43459344904af514d14
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704027"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069095"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>Installer le moteur AKS sur Linux dans Azure Stack Hub
 
