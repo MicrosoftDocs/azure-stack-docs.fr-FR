@@ -14,6 +14,8 @@
       href: manage/delete-volumes.md
     - name: Remplacer des lecteurs
       href: manage/replace-drives.md
+    - name: Attacher un GPU à une machine virtuelle Linux
+      href: manage/attach-gpu-to-linux-vm.md
 - name: Concepts
   items:
     - name: Choisir des lecteurs
@@ -32,10 +34,22 @@
       href: /powershell/module/hyper-v
     - name: Commandes PowerShell Stockage
       href: /powershell/module/storage
+    - name: Commandes PowerShell ClusterAwareUpdating
+      href: /powershell/module/clusterawareupdating
+    - name: Commandes PowerShell FailoverClusters
+      href: /powershell/module/failoverclusters
+    - name: Commandes PowerShell StorageReplica
+      href: /powershell/module/storagereplica
 - name: Rubriques connexes
   items:
     - name: Famille Azure Stack
       href: ../index.yml
+    - name: Azure Stack Hub
+      href: /azure-stack/operator/azure-stack-overview?view=azs-2002
+    - name: Azure Stack Edge
+      href: /azure/databox-online/data-box-edge-overview
+    - name: Windows Server
+      href: /windows-server/
     - name: Windows Admin Center
       href: /windows-server/manage/windows-admin-center/understand/windows-admin-center
     - name: Services hybrides Azure
@@ -48,3 +62,5 @@
       href: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
     - name: SDN (Software Defined Network)
       href: /windows-server/networking/sdn
+    - name: System Center
+      href: /system-center/
