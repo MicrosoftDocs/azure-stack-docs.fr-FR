@@ -21,6 +21,8 @@
       href: azure-stack-quick-create-vm-linux-powershell.md
     - name: Créer une machine virtuelle Linux - CLI
       href: azure-stack-quick-create-vm-linux-cli.md
+    - name: Créer un cluster Event Hubs - Portail
+      href: event-hubs-quickstart-cluster-portal.md
 - name: Tutoriels
   items:
     - name: S’abonner à une offre
@@ -185,6 +187,10 @@
                   href: azure-stack-key-vault-store-credentials.md
                 - name: Exemple d’application Key Vault
                   href: azure-stack-key-vault-sample-app.md
+            - name: Event Hubs
+              items:
+                - name: Vue d’ensemble
+                  href: event-hubs-overview.md
             - name: Azure Monitor
               href: azure-stack-metrics-azure-data.md
               items:
@@ -269,7 +275,7 @@
               items:
                 - name: Peering de réseaux virtuels avec FortiGate
                   href: azure-stack-network-howto-vnet-to-vnet.md
-                - name: Configurer un VPN à local
+                - name: Configurer un VPN en local
                   href: azure-stack-network-howto-vnet-to-onprem.md
                 - name: Connexion de réseau virtuel à réseau virtuel
                   href: azure-stack-network-howto-vnet-to-vnet-stacks.md

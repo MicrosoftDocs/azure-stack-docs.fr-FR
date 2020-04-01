@@ -330,8 +330,36 @@
                   href: azure-stack-app-service-release-notes-update-six.md
                 - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_7"
                   href: azure-stack-app-service-release-notes-update-seven.md
-                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_8"
+                - name: "Notes de publication de la mise à jour 8 d’App\_Service sur Azure Stack Hub"
                   href: azure-stack-app-service-release-notes-update-eight.md
+        - name: Event Hubs sur Azure Stack Hub
+          items:
+            - name: Vue d’ensemble
+              href: event-hubs-rp-overview.md
+            - name: planification de la capacité
+              href: event-hubs-rp-capacity-planning.md
+            - name: Prérequis
+              href: event-hubs-rp-prerequisites.md
+            - name: Installer
+              href: event-hubs-rp-install.md
+            - name: Gestion du cycle de vie
+              items:
+                - name: Appliquer des mises à jour
+                  href: resource-provider-apply-updates.md
+                - name: Sauvegarde et restauration
+                  href: azure-stack-backup-infrastructure-backup.md
+                - name: Collecter les journaux d’activité
+                  href: azure-stack-diagnostic-log-collection-overview.md
+                - name: Intégrité et alertes
+                  href: azure-stack-monitor-health.md
+                - name: Gérer
+                  href: event-hubs-rp-manage.md
+                - name: Faire pivoter les clés secrètes
+                  href: azure-stack-rotate-secrets.md
+                - name: Annonces de mise à jour du service
+                  href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
+            - name: Supprimer
+              href: event-hubs-rp-remove.md
         - name: MySQL sur Azure Stack Hub
           items:
             - name: Vue d’ensemble
