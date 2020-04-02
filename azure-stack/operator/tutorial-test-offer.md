@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: 4d8f727178b4bbe6da6377f965a4863acf322abc
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 2aae33b324be4828b514ffbd019992aae989f50b
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704758"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423851"
 ---
 # <a name="tutorial-test-a-service-offering"></a>Tutoriel : Tester une offre de service
 
@@ -143,3 +143,4 @@ Découvrez ensuite comment déployer des fournisseurs de ressources pour les ser
 - [Offre SQL sur Azure Stack Hub](azure-stack-sql-resource-provider.md)
 - [Offre MySQL sur Azure Stack Hub](azure-stack-mysql-resource-provider.md)
 - [Offre App Service sur Azure Stack Hub](azure-stack-app-service-overview.md)
+- [Offre Event Hubs sur Azure Stack Hub](event-hubs-rp-overview.md)
