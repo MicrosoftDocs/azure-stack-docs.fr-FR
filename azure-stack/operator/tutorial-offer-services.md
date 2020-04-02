@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 3d05ff70909508701db2f4770ecb3efb9d860a6d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 772871cffa3d5394d1d8b939fa22ae91bc90d4ac
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77694541"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423899"
 ---
 # <a name="create-a-service-offering-for-users-in-azure-stack-hub"></a>Créer une offre de service pour les utilisateurs dans Azure Stack Hub
 
@@ -65,6 +65,7 @@ Les services à valeur ajoutée sont pris en charge par les fournisseurs de ress
 | Microsoft.Web | Applications de fonction App Service, applications web, applications API | 
 | Microsoft.MySqlAdapter | Serveur d’hébergement MySQL, base de données MySQL | 
 | Microsoft.SqlAdapter | Serveur d’hébergement SQL Server, base de données SQL Server |
+| Microsoft.EventHub | Event Hubs |
 
 ::: moniker range=">=azs-1902"
 
