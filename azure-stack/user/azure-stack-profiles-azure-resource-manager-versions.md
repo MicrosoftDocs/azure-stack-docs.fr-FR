@@ -7,12 +7,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 3b3ea77dcbb59f2a0471225000aa48624bcb1a15
-ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
+ms.openlocfilehash: 883a39ac7c0d3f11d3f9242a7efaa8549e41f4cf
+ms.sourcegitcommit: 1969a13d378cc3b8c58fea11dca8cf8c06136acd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231670"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80302798"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Versions des API du fournisseur de ressources prises en charge par les profils dans Azure Stack Hub
 
@@ -165,7 +165,7 @@ Azure Resource Manager vous permet de déployer et de gérer l’infrastructure 
 | Opérations | 2018-05-01 |
 | Fournisseurs | 2018-05-01 |
 | Groupes de ressources| 2018-05-01 |
-| Ressources | 2018-05-01/ |
+| Ressources | 2018-05-01 |
 | Abonnements | 2018-05-01 |
 | Abonnements/emplacements | 2016-06-01 |
 | Abonnements/résultats des opérations | 2018-05-01 |

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: cc17789485bc4c1d0676d54751f4d5bc820c3a5e
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: 22919a17f58cf83857dc24d154fcfd1ab3760e59
+ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366277"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80362199"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>Créer une solution d’application géodistribuée pour diriger le trafic avec Azure et Azure Stack Hub
 
@@ -538,7 +538,7 @@ Dans la page d’application web, sélectionnez **Paramètres SSL**. Ensuite, da
 Lorsque l’opération est terminée, accédez à une des URL HTTP pointant vers l’application. Par exemple :
 
 -   https://<nom_application>.azurewebsites.net
--   https://northwindcloud.com
+-   `https://northwindcloud.com`
 -   <https://www.northwindcloud.com>
 
 #### <a name="enforce-tls-1112"></a>Appliquer le protocole TLS 1.1/1.2

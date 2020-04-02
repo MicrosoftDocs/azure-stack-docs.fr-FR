@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 59fe407c24e10c94d2a0d354c98a1dd13301c7a1
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: df742ed6c0a2b082aaddd4498c313474a47c6227
+ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79295166"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80362185"
 ---
 # <a name="azure-stack-telemetry"></a>Télémétrie Azure Stack
 
@@ -26,7 +26,7 @@ En tant qu’opérateur Azure Stack, les données de télémétrie peuvent fourn
 Les données de télémétrie Azure Stack reposent sur le composant Expériences des utilisateurs connectés et télémétrie de *Windows Server 2016*, qui utilise la technologie de [suivi d'événements pour Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) pour collecter et stocker des événements et des données de télémétrie. Les composants Azure Stack utilisent la même technologie de journalisation pour publier les événements et les données recueillies à l’aide des API de suivi et de journalisation des événements du système d’exploitation publiques. Parmi les composants Azure Stack figurent le fournisseur de ressources réseau, le fournisseur de ressources de stockage, le fournisseur de ressources de surveillance et le fournisseur de ressources de mise à jour. Le composant Expériences des utilisateurs connectés et télémétrie chiffre les données à l’aide du protocole SSL et utilise l’épinglage de certificat pour transmettre les données de télémétrie via HTTPS vers le service de gestion des données Microsoft.
 
 > [!NOTE]
-> Pour prendre en charge le flux des données de télémétrie, le port 443 (HTTPS) doit être ouvert sur votre réseau. Le composant Expériences des utilisateurs connectés et télémétrie se connecte au service de gestion des données de Microsoft à l’adresse https://v10.vortex-win.data.microsoft.com et à https://settings-win.data.microsoft.com pour télécharger les informations de configuration.
+> Pour prendre en charge le flux des données de télémétrie, le port 443 (HTTPS) doit être ouvert sur votre réseau. Le composant Expériences des utilisateurs connectés et télémétrie se connecte au service de gestion des données de Microsoft à l’adresse `https://v10.vortex-win.data.microsoft.com` et à `https://settings-win.data.microsoft.com` pour télécharger les informations de configuration.
 
 ## <a name="privacy-considerations"></a>Considérations relatives à la confidentialité
 Le service ETW réachemine les données de télémétrie vers le stockage cloud protégé. Le principe des tout derniers privilégiés guides l’accès aux données de télémétrie. Seul le personnel Microsoft dont les besoins métiers sont valides sont autorisés à accéder aux données de télémétrie. Microsoft ne partage pas les données personnelles de ses clients avec des tiers, excepté à la discrétion du client à des fins limitées décrites dans la [Déclaration de confidentialité d’Azure Stack](https://privacy.microsoft.com/PrivacyStatement). Nous partageons les rapports d’entreprise, qui incluent des informations de télémétrie anonymes et agrégées avec les fabricants OEM et les partenaires. Les décisions relatives au partage des données sont effectuées par une équipe Microsoft interne composée de parties prenantes des domaines de la confidentialité, des questions juridiques et de la gestion des données.
