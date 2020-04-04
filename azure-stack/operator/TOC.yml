@@ -349,7 +349,7 @@
                 - name: Sauvegarde et restauration
                   href: azure-stack-backup-infrastructure-backup.md
                 - name: Collecter les journaux d’activité
-                  href: azure-stack-diagnostic-log-collection-overview.md
+                  href: azure-stack-diagnostic-log-collection-overview-tzl.md
                 - name: Intégrité et alertes
                   href: azure-stack-monitor-health.md
                 - name: Gérer
