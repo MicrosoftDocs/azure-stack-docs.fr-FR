@@ -7,14 +7,14 @@ ms.date: 3/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: a63fcbb13defc0d7e679c0be7fb931c0e2570b37
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: c4565ce33faf1f76a4774736d9195c9d7256b6da
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79295184"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423827"
 ---
-# <a name="azure-stack-hub-public-key-infrastructure-certificate-requirements"></a>Exigences de certificat d’infrastructure de clés publiques Azure Stack Hub
+# <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Exigences de certificat pour infrastructure à clé publique (PKI) Azure Stack Hub
 
 Azure Stack Hub inclut un réseau d’infrastructure publique utilisant des adresses IP publiques accessibles en externe affectées à un petit ensemble de services Azure Stack Hub et, éventuellement, à des machines virtuelles de locataires. Des certificats d’infrastructure de clés publiques avec les noms de DNS appropriés pour ces points de terminaison d’infrastructure publique Azure Stack Hub sont requis pendant le déploiement Azure Stack Hub. Cet article fournit des informations sur :
 
@@ -91,12 +91,12 @@ Si vous déployez Azure Stack Hub à l’aide du mode de déploiement Azure AD, 
 > Tous les certificats répertoriés dans cette section doivent avoir le même mot de passe.
 
 ## <a name="optional-paas-certificates"></a>Certificats PaaS facultatifs
-Si vous envisagez de déployer les services PaaS Azure Stack Hub supplémentaires (SQL, MySQL et App Service) après le déploiement et la configuration d’Azure Stack Hub, vous devez demander des certificats supplémentaires pour couvrir les points de terminaison des services PaaS.
+Si vous envisagez de déployer les autres services PaaS Azure Stack Hub (comme SQL, MySQL, App Service ou Event Hubs) après le déploiement et la configuration d’Azure Stack Hub, vous devez demander des certificats supplémentaires pour couvrir les points de terminaison des services PaaS.
 
 > [!IMPORTANT]
-> Les certificats que vous utilisez pour les fournisseurs de ressources App Service, SQL et MySQL doivent avoir la même autorité racine que ceux utilisés pour les points de terminaison Azure Stack Hub globaux.
+> Les certificats que vous utilisez pour les fournisseurs de ressources doivent avoir la même autorité racine que ceux utilisés pour les points de terminaison Azure Stack Hub globaux.
 
-Le tableau suivant décrit les points de terminaison et les certificats requis pour les adaptateurs SQL et MySQL et pour App Service. Vous n’avez pas besoin de copier ces certificats dans le dossier de déploiement Azure Stack Hub. À la place, vous fournissez ces certificats lorsque vous installez les fournisseurs de ressources supplémentaires.
+Le tableau suivant décrit les points de terminaison et les certificats requis pour les fournisseurs de ressources. Vous n’avez pas besoin de copier ces certificats dans le dossier de déploiement Azure Stack Hub. À la place, vous fournissez ces certificats lors de l’installation du fournisseur de ressources.
 
 |Étendue (par région)|Certificat|Objet et autres noms de l’objet (SAN) du certificat requis|Espace de noms de sous-domaine|
 |-----|-----|-----|-----|
@@ -105,6 +105,7 @@ Le tableau suivant décrit les points de terminaison et les certificats requis p
 |App Service|API|api.appservice. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|FTP|ftp.appservice. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|SSO|sso.appservice. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
+|Event Hubs|Event Hubs|&#42;.eventhub. *&lt;region>.&lt;fqdn>* (SAN)| eventhub. *&lt;region>.&lt;fqdn>* |
 
 <sup>1</sup> Requiert un certificat avec plusieurs autres noms de l’objet génériques. Plusieurs SAN génériques sur un même certificat peuvent ne pas être pris en charge par toutes les autorités de certification publiques.
 

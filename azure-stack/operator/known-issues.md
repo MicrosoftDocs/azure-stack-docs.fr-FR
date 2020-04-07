@@ -7,12 +7,12 @@ ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: d06514242069e20957e15e1503b513ece366fba1
-ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
+ms.openlocfilehash: ca29dd169523872b2dcc21b323bc489de5caf9b3
+ms.sourcegitcommit: b824c7b9af9ba415ca4fe8d15673b521362f0abb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80152147"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80479233"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Problèmes connus d’Azure Stack Hub
 
@@ -111,6 +111,12 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 ## <a name="compute"></a>Calcul
 
+### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Le panneau de vue d’ensemble de la machine virtuelle n’affiche pas le nom correct de l’ordinateur
+
+- Champ d’application : Ce problème concerne les versions 2002 et ultérieures.
+- Cause : Quand vous affichez les détails d’une machine virtuelle dans le panneau de vue d’ensemble, le nom de l’ordinateur s’affiche comme **(non disponible)** .
+- Correction : Affichez le panneau **Propriétés** sous **Paramètres**.
+
 ### <a name="nvv4-vm-size-on-portal"></a>Taille de machine virtuelle NVv4 sur le portail
 
 - Champ d’application : Ce problème concerne les versions 2002 et ultérieures.
@@ -138,6 +144,11 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Échec de la création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur, et échec de la création d’une instance de groupe de machines virtuelles identiques avec l’erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack Hub à 4 nœuds.
 - Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. Toutefois, la création d’instances de groupes identiques n’est toujours pas disponible pendant le processus de mise à jour sur un déploiement Azure Stack Hub à 4 nœuds.
+
+### <a name="sql-vm-provision-will-be-failed-in-asdk"></a>Le provisionnement de la machine virtuelle SQL échoue dans ASDK
+- Champ d’application : Ce problème s’applique uniquement à ASDK 2002. 
+- Cause : Lors de la création d’une machine virtuelle SQL dans ASDK 2002, vous pouvez recevoir le message d’erreur **L’extension avec le serveur de publication « Microsoft.SqlServer.Management », le type « SqlIaaSAgent » et la version du gestionnaire de types « 2.0 » est introuvable dans le dépôt d’extensions.** « SqlIaaSAgent » 2.0 n’existe pas dans Azure Stack Hub. 
+
 
 ## <a name="resource-providers"></a>Fournisseurs de ressources
 

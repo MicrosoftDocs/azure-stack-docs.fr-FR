@@ -7,12 +7,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2019
-ms.openlocfilehash: 5af024f2b3d31e115e80d1e20883b0457037532e
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: bc36b4fe7326596f4ef993ceb087818270cf1b5a
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79295052"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423860"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Types de quota dans Azure Stack Hub
 
@@ -57,6 +57,12 @@ Les [quotas](service-plan-offer-subscription-overview.md#plans) définissent les
 | Nombre maximal de cartes réseau |100 |Nombre maximal d’interfaces réseau qu’un abonnement peut créer à cet emplacement. |
 | Nombre maximal d’équilibreurs de charge |50 |Nombre maximal d’équilibreurs de charge qu’un abonnement peut créer à cet emplacement. |
 | Nombre maximal de groupes de sécurité réseau |50 |Nombre maximal de groupes de sécurité réseau qu’un abonnement peut créer à cet emplacement. |
+
+## <a name="event-hubs-quota-types"></a>Types de quotas Event Hubs
+
+| **Type** | **Valeur par défaut** | **Description** |
+| --- | --- | --- |
+| Nombre maximal de cœurs de machine virtuelle | 10 | Nombre maximal de cœurs qu’un abonnement peut créer à cet emplacement (par exemple, une machine virtuelle A3 a quatre cœurs). |
 
 ## <a name="view-an-existing-quota"></a>Afficher un quota existant
 

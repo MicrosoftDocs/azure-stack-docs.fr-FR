@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: 864421f543e02da39dcbd3bf2972fe3a0782676f
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.openlocfilehash: 3f5701cbb601b82db3b802bfd602c53576230b6f
+ms.sourcegitcommit: f114e9d268a74fde6891180b80c74c148dc0a129
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069383"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80530760"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Stockage Azure Stack Hub : Différences et considérations
 
@@ -44,9 +44,15 @@ Cet article récapitule les différences connues entre le stockage Azure Stack H
 |Taille de page d’un objet blob de pages|512 octets|4 Ko
 |Taille de la clé de ligne et de la clé de partition de table|1 024 caractères (2 048 octets)|400 caractères (800 octets)
 |Instantané d’objet blob|Le nombre maximal d’instantanés d’un objet blob n’est pas limité.|Le nombre maximum d’instantanés d’un objet blob est de 1 000.
-|Azure AD Authentication pour le stockage|En préversion|Pas encore pris en charge.
+|Azure AD Authentication pour le stockage|Disponibilité générale|Pas encore pris en charge.
 |Objets blob immuables|Disponibilité générale|Pas encore pris en charge.
 |Règles de pare-feu et de réseau virtuel pour le stockage|Disponibilité générale|Pas encore pris en charge.|
+|Mapper un domaine personnalisé à un point de terminaison de stockage Blob|Disponibilité générale|Pas encore pris en charge.|
+|Hébergement de sites web statiques dans le stockage Blob|Disponibilité générale|Pas encore pris en charge.|
+|Chiffrer des données de stockage au repos avec des clés gérées par le client|Disponibilité générale|Pas encore pris en charge.|
+|Vérifier l’intégrité des données transactionnelles avec le hachage CRC64|Disponibilité générale|Pas encore pris en charge.|
+|Copie synchrone des données côté serveur à partir de l’URL|Disponibilité générale|Pas encore pris en charge.|
+|API de lot pour le stockage Blob|Disponibilité générale|Pas encore pris en charge.|
 
 Il existe également des différences sur le plan des métriques de stockage :
 

@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: e2b6598137774a5bf654aef1f9a75827da4f108a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 04d7935ca88c578c2019703855e79278211127d1
+ms.sourcegitcommit: b824c7b9af9ba415ca4fe8d15673b521362f0abb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703636"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80479318"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Accéder au tableau de bord Kubernetes dans Azure Stack Hub 
 
@@ -121,6 +121,14 @@ Vous pouvez récupérer l’URL du tableau de bord à partir du nœud maître da
 Vous pouvez utiliser le tableau de bord. Pour plus d’informations sur le tableau de bord Kubernetes, consultez [Tableau de bord de l’interface utilisateur web de Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 
 
 ![Tableau de bord Kubernetes Azure Stack Hub](media/azure-stack-solution-template-kubernetes-dashboard/azure-stack-kub-dashboard.png)
+
+## <a name="troubleshooting"></a>Dépannage
+
+### <a name="custom-virtual-networks"></a>Réseaux virtuels personnalisés
+
+Si vous rencontrez des problèmes de connectivité pour accéder au tableau de bord Kubernetes après avoir déployé Kubernetes sur un [réseau virtuel personnalisé](https://docs.microsoft.com/azure-stack/user/kubernetes-aks-engine-custom-vnet), vérifiez que les sous-réseaux cibles sont liés à la table de routage et aux ressources de groupe de sécurité réseau qui ont été créées par le moteur AKS.
+
+Assurez-vous que les règles de groupe de sécurité réseau autorisent la communication entre les nœuds principaux et l’adresse IP du pod de tableau de bord Kubernetes. Cela peut être validé en utilisant la commande ping à partir d’un nœud principal.
 
 ## <a name="next-steps"></a>Étapes suivantes 
 

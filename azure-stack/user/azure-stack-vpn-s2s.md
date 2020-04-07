@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: a44af909dc3f3309c51f748b0f3b3f0275843c80
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 36a4ea0532eda0593de2beb9191d6e0911e58276
+ms.sourcegitcommit: da91962d8133b985169b236fb4c84f4ef564efc8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705064"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80367806"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN site à site
 
@@ -64,9 +64,9 @@ Le tableau suivant liste les algorithmes de chiffrement pris en charge et les fo
 |------------------------------------------------------|--------------------------------------------------------------------------|
 | Chiffrement IKEv2                                     | AES256, AES192, AES128, DES3, DES                                        |
 | Intégrité IKEv2                                      | SHA384, SHA256, SHA1, MD5                                                |
-| Groupe DH                                             | ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, aucun         |
+| Groupe DH                                             | ECP384, ECP256, DHGroup14, DHGroup2, DHGroup1, aucun                      |
 | Chiffrement IPsec                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Aucun |
-| Intégrité IPsec                                      | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                       |
+| Intégrité IPsec                                      | GCMASE256, GCMAES192, GCMAES128                                          |
 | Groupe PFS                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Aucun                         |
 | Durée de vie de l’AS en mode rapide                                       | (Facultatif : les valeurs par défaut sont utilisées si rien n’est spécifié)<br />                         Secondes (entier ; min. 300 / 27 000 secondes par défaut)<br />                         Ko (entier ; min. 1 024 / 102 400 000 Ko par défaut) |
 | Sélecteur de trafic                                     | Les sélecteurs de trafic basés sur des stratégies ne sont pas pris en charge dans Azure Stack Hub.         |
