@@ -1,6 +1,6 @@
 - name: Documentation Azure Hybrid
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Modèles hybrides et exemples de solutions
       href: overview-patterns-solution-examples.md

@@ -10,10 +10,10 @@ ms.reviewer: johnhas
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7eade045461052b9d978910fdbcf06bd895e5b09
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/14/2020
 ms.locfileid: "77704520"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Valider les mises à jour logicielles issues de Microsoft
