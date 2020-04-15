@@ -1,0 +1,57 @@
+### YamlMime:Landing
+title: Documentation Azure Stack HCI
+summary: Azure Stack HCI est un cluster Windows Server 2019 hyperconvergé qui utilise le matériel validé pour exécuter des charges de travail virtualisées locales, ce qui permet aux clients de consolider facilement l’infrastructure vieillissante et de se connecter à Azure pour les services cloud.
+metadata:
+  title: Documentation Azure Stack HCI
+  description: Azure Stack HCI est un cluster Windows Server 2019 hyperconvergé qui utilise du matériel validé pour exécuter localement des charges de travail virtualisées.
+  ms.topic: landing-page
+  author: khdownie
+  ms.author: v-kedow
+  ms.date: 04/09/2020
+  ms.openlocfilehash: d5a67973b2d9cd2be83346c97f7c5b0de58cbb44
+  ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 04/14/2020
+  ms.locfileid: "81119211"
+landingContent:
+- title: À propos d’Azure Stack HCI
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Azure Stack HCI ?
+      url: overview.md
+  - linkListType: get-started
+    links:
+    - text: Catalogue Azure Stack HCI
+      url: https://www.microsoft.com/cloud-platform/azure-stack-hci-catalog
+- title: Gérer Azure Stack HCI
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Créer des volumes
+      url: manage/create-volumes.md
+    - text: Étendre des volumes
+      url: manage/extend-volumes.md
+    - text: Supprimer des volumes
+      url: manage/delete-volumes.md
+    - text: Remplacer des lecteurs
+      url: manage/replace-drives.md
+    - text: Surveiller avec Azure Monitor
+      url: manage/azure-monitor.md
+    - text: Attacher un GPU à une machine virtuelle Linux
+      url: manage/attach-gpu-to-linux-vm.md
+- title: Concepts Azure Stack HCI
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Choisir des lecteurs
+      url: concepts/choose-drives.md
+    - text: Planifier des volumes
+      url: concepts/plan-volumes.md
+    - text: Comprendre le cache
+      url: concepts/cache.md
+    - text: Tolérance aux pannes et efficacité du stockage
+      url: concepts/fault-tolerance.md
+    - text: Quorum du pool de stockage et du cluster
+      url: concepts/quorum.md
