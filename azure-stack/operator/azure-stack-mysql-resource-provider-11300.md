@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2019
 ms.openlocfilehash: 710b5d48e4ce906eb357c5e17cff4132bcd747ba
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77698927"
 ---
 # <a name="mysql-resource-provider-11300-release-notes"></a>Notes de publication 1.1.30.0 de fournisseur de ressources MySQL

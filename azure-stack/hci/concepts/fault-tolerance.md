@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 02/28/2020
 ms.openlocfilehash: 9ace3960b4c54461a4153c4997694e6d17ee4fd1
-ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79026115"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-azure-stack-hci"></a>Tolérance de panne et efficacité du stockage dans Azure Stack HCI
@@ -97,7 +97,7 @@ L’efficacité du stockage de la parité avec accélération par miroir varie e
 > [!IMPORTANT]
 > Nous vous recommandons d’utiliser la mise en miroir pour la plupart des charges de travail sensibles aux performances. Pour en savoir plus sur la façon d’équilibrer les performances et la capacité en fonction de votre charge de travail, consultez [Planifier des volumes](/windows-server/storage/storage-spaces/plan-volumes#choosing-the-resiliency-type).
 
-## <a name="summary"></a>Résumé
+## <a name="summary"></a><a name="summary"></a>Résumé
 
 Cette section récapitule les types de résilience disponibles dans les espaces de stockage direct, l’échelle minimale requise pour chaque type, le nombre de défaillances que chaque type peut tolérer et l’efficacité du stockage correspondante.
 
@@ -166,7 +166,7 @@ Ce tableau montre l’efficacité du stockage de la parité double et des codes 
 |    15                 |    RS 6+2           |    75,0 %        |
 |    16                 |    LRC (12, 2, 1)   |    80,0 %        |
 
-## <a name="examples"></a>Exemples
+## <a name="examples"></a><a name="examples"></a>Exemples
 
 À moins que vous n’ayez que deux serveurs, nous vous recommandons d’utiliser la mise en miroir triple et/ou la parité double car elles offrent une meilleure tolérance de panne. Plus précisément, ces approches garantissent la sécurité et l’accessibilité de toutes les données en permanence, même en cas de défaillance simultanée des deux domaines d’erreur (soit deux serveurs avec les espaces de stockage direct).
 

@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2020
 ms.openlocfilehash: 576580732440cabd8ae1c140d13130b81b212d16
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79295574"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Présentation des machines virtuelles Azure Stack Hub

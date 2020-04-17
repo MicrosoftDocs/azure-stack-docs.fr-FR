@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
 ms.openlocfilehash: 1df84dc5c6294bbdfc5d448dbf2f2a07a477a400
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79512165"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Liste de contrôle des activités de mise à jour Azure Stack Hub

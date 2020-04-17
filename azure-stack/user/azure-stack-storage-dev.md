@@ -7,11 +7,11 @@ ms.date: 1/22/2020
 ms.topic: conceptual
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 57ca779f776e51d8f491c8c9fe3e6a59a37b42ec
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.openlocfilehash: 939479350718ae2176f7d1531e64ad71301e0596
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80423805"
 ---
 # <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Bien démarrer avec les outils de développement du stockage Azure Stack Hub
@@ -27,40 +27,8 @@ Utilisez cet article comme un guide de démarrage concernant l’utilisation des
 
 Par conséquent, pour les bibliothèques clientes de stockage, vous devez connaître la version qui est compatible avec l’API REST. Vous devez également préciser le point de terminaison Azure Stack Hub dans votre code.
 
-
-::: moniker range=">=azs-2002"
-### <a name="2002-update-or-newer-versions"></a>Mise à jour 2002 ou versions plus récentes
-
-| Bibliothèque cliente | Version prise en charge par Azure Stack Hub | Lien | Spécification du point de terminaison |
-|----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| .NET | 11.0.0 | Package NuGet :<br>Courant : <https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/11.0.0><br>Objet blob : <https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/11.0.0><br>File d’attente : <https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/11.0.0><br> <br>Version de GitHub :<br><https://github.com/Azure/azure-storage-net/releases/tag/v11.0.0> | Fichier app.config |
-| Java | 7.0.0 | Package Maven :<br><https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/7.0.0><br> <br>Version de GitHub :<br><https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0> | Configuration de la chaîne de connexion |
-| Node.js | 2.8.3 | Lien NPM :<br><https://www.npmjs.com/package/azure-storage><br>(Exécuter : `npm install azure-storage@2.8.3`)<br> <br>Version de GitHub :<br><https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3> | Déclaration d’instance de service |
-| C++ | 7.1.0 | Version de GitHub :<br><https://github.com/Azure/azure-storage-cpp/releases/tag/v7.1.0> | Configuration de la chaîne de connexion |
-| PHP | 1.2.0 | Version de GitHub :<br>Courant : <https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common><br>Objet blob : <https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob><br>File d’attente : <https://github.com/Azure/azure-storage-php/releases/tag/v1.1.1-queue><br>Table : <https://github.com/Azure/azure-storage-php/releases/tag/v1.1.0-table><br> <br>Installer via Composer (pour en savoir plus, [voir les détails ci-dessous](#install-php-client-via-composer---current).) | Configuration de la chaîne de connexion |
-| Python | 2.1.0 | Version de GitHub :<br>Courant : <https://github.com/Azure/azure-storage-python/releases/tag/v2.1.0-common><br>Objet blob : <https://github.com/Azure/azure-storage-python/releases/tag/v2.1.0-blob><br>File d’attente : <https://github.com/Azure/azure-storage-python/releases/tag/v2.1.0-queue> | Déclaration d’instance de service |
-| Ruby | 1.0.1 | Package RubyGems :<br>Courant : <https://rubygems.org/gems/azure-storage-common/versions/1.0.1><br>Objet blob :  <https://rubygems.org/gems/azure-storage-blob/versions/1.0.1><br>File d’attente : <https://rubygems.org/gems/azure-storage-queue/versions/1.0.1><br>Table : <https://rubygems.org/gems/azure-storage-table/versions/1.0.1><br> <br>Version de GitHub :<br>Courant : <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common><br>Objet blob : <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob><br>File d’attente : <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue><br>Table : <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table> | Configuration de la chaîne de connexion |
-
-#### <a name="install-php-client-via-composer---current"></a>Installer le client PHP via Composer - actuel
-
-Pour installer via Composer : (prenez l’objet blob en guise d’exemple).
-
-1. Créez un fichier nommé **composer.json** à la racine du projet avec le code suivant :
-
-    ```json
-    {
-      "require": {
-      "Microsoft/azure-storage-blob":"1.2.0"
-      }
-    }
-    ```
-
-2. Téléchargez [composer.phar](https://getcomposer.org/composer.phar) à la racine du projet.
-3. Exécutez : `php composer.phar install`.
-::: moniker-end
-
-::: moniker range=">=azs-1811 <azs-2002"
-### <a name="previous-versions-1811-to-1910-update"></a>Versions précédentes (mises à jour 1811 à 1910)
+::: moniker range=">=azs-1811"
+### <a name="1811-update-or-newer-versions"></a>Mise à jour 1811 ou plus récente
 
 | Bibliothèque cliente | Version prise en charge par Azure Stack Hub | Lien | Spécification du point de terminaison |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|

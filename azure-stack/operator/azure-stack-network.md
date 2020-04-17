@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
 ms.openlocfilehash: 121bbc5ff081a6a7773d69294175f979b89bcfc5
-ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80402833"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Planification de l’intégration réseau pour Azure Stack

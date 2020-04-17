@@ -3,16 +3,16 @@ title: Vue d’ensemble des fournisseurs d’identité pour Azure Stack Hub
 description: Découvrez les fournisseurs d’identité que vous pouvez utiliser avec Azure Stack Hub.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 896dc2b2def823a91278fe77062b20146a3c6976
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: c9a01d4aaa437549177f6e32c10f4600287732a7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699692"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81244122"
 ---
 # <a name="overview-of-identity-providers-for-azure-stack-hub"></a>Vue d’ensemble des fournisseurs d’identité pour Azure Stack Hub
 
@@ -32,7 +32,7 @@ Pour plus d’informations sur ces options, qui dépendent de votre environnemen
 
 Les sections suivantes décrivent les concepts communs relatifs aux fournisseurs d’identité et à leur utilisation dans Azure Stack Hub.
 
-![Terminologie pour les fournisseurs d’identité](media/azure-stack-identity-overview/terminology.png)
+![Terminologie pour les fournisseurs d’identité](media/azure-stack-identity-overview/terminology.svg)
 
 ### <a name="directory-tenants-and-organizations"></a>Les locataires d’annuaire et les organisations
 
@@ -130,7 +130,7 @@ Si vous configurez Azure AD avec une multilocation, certaines applications se pr
 
 ### <a name="authentication-by-apps-and-users"></a>Authentification par les applications et les utilisateurs
 
-![Identité entre les couches de Azure Stack Hub](media/azure-stack-identity-overview/identity-layers.png)
+![Identité entre les couches de Azure Stack Hub](media/azure-stack-identity-overview/identity-layers.svg)
 
 Pour les applications et les utilisateurs, l’architecture d’Azure Stack Hub est décrite par quatre couches. Les interactions entre chacune de ces couches peuvent utiliser différents types d’authentification.
 
@@ -141,7 +141,7 @@ Pour les applications et les utilisateurs, l’architecture d’Azure Stack Hub 
 |Fournisseurs de ressources     |Les appels passés à des fournisseurs de ressources sont sécurisés avec l’authentification par certificat. <br>Azure Resource Manager et le fournisseur de ressources restent ensuite en communication via une API. Pour chaque appel reçu depuis Azure Resource Manager, le fournisseur de ressources valide l’appel avec ce certificat.|
 |Infrastructure et logique métier     |Les fournisseurs de ressources communiquent avec une logique métier et une infrastructure à l’aide du mode d’authentification de leur choix. Les fournisseurs de ressources par défaut fournis avec Azure Stack Hub utilisent l’authentification Windows pour sécuriser cette communication.|
 
-![Informations requises pour l’authentification](media/azure-stack-identity-overview/authentication.png)
+![Informations requises pour l’authentification](media/azure-stack-identity-overview/authentication.svg)
 
 ### <a name="authenticate-to-azure-resource-manager"></a>S’authentifier à Azure Resource Manager
 
@@ -168,7 +168,7 @@ Le jeton doit passer dans l’en-tête d’une demande à Azure Resource Manager
 
 Une fois toutes les validations terminées, Azure Resource Manager utilise les revendications *objecte id* (oid) et *groups* pour dresser la liste des ressources auxquelles le principal peut accéder.
 
-![Diagramme du protocole d’échange de jeton](media/azure-stack-identity-overview/token-exchange.png)
+![Diagramme du protocole d’échange de jeton](media/azure-stack-identity-overview/token-exchange.svg)
 
 > [!NOTE]
 > Après le déploiement, l’autorisation d’administrateur général Azure Active Directory n’est pas nécessaire. Toutefois, certaines opérations peuvent nécessiter les informations d’identification d’administrateur général (par exemple, un script d’installation d’un fournisseur de ressources ou une nouvelle fonctionnalité peut avoir besoin d’une autorisation spécifique). Vous pouvez temporairement réactiver les autorisations d’administrateur général du compte ou utiliser un compte d’administrateur général distinct qui est propriétaire de l’*abonnement de fournisseur par défaut*.

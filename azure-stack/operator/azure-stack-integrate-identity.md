@@ -3,16 +3,16 @@ title: Intégrer l’identité AD FS avec votre centre de données Azure Stack 
 description: Découvrez comment intégrer le fournisseur d’identité AD FS d’Azure Stack Hub avec votre centre de données AD FS.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 999c1b2983342189ca86805a4139e3c7f77b5ceb
-ms.sourcegitcommit: da91962d8133b985169b236fb4c84f4ef564efc8
+ms.openlocfilehash: 31ef13db3d0a195d0d9505dec2fabf4124448a0f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80367816"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81243801"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Intégrer l’identité AD FS avec votre centre de données Azure Stack Hub
 
@@ -27,7 +27,7 @@ Un déploiement avec les services de fédération Active Directory (AD FS) perme
 
 L’authentification est un composant d’identité. Pour pouvoir gérer le contrôle d’accès en fonction du rôle (RBAC) dans Azure Stack Hub, le composant Graph doit être configuré. Lorsque l’accès à une ressource est délégué, le composant Graph recherche le compte d’utilisateur dans la forêt Active Directory existante à l’aide du protocole LDAP.
 
-![Architecture des services de fédération Active Directory (AD FS) d’Azure Stack Hub](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
+![Architecture des services de fédération Active Directory (AD FS) d’Azure Stack Hub](media/azure-stack-integrate-identity/azure-stack-adfs-architecture.svg)
 
 Les services de fédération Active Directory (AD FS) existants sont le service d’émission de jeton de sécurité du compte qui envoie des revendications aux services de fédération Active Directory (AD FS) d’Azure Stack Hub (STS ressource). Dans Azure Stack Hub, une automation crée l’approbation de fournisseur de revendications avec le point de terminaison de métadonnées pour les services de fédération Active Directory (AD FS) existants.
 
@@ -162,7 +162,6 @@ Pour cette procédure, utilisez un ordinateur capable de communiquer avec le poi
 - Il n’y a aucune connectivité réseau vers le serveur AD FS existant à partir l’instance AD FS d’Azure Stack Hub.
 
 Les informations suivantes sont nécessaires en entrée pour les paramètres Automation :
-
 
 |Paramètre|Description|Exemple|
 |---------|---------|---------|

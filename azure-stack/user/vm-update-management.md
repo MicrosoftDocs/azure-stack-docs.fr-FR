@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 0a105730f36aa9ce14e967bcdcefdb93ece0f26b
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.openlocfilehash: 6656d4eec9eedda8bb037598d92b29a07b6a72a0
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77636282"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80806922"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Automatisation de la gestion et de la mise à jour des machines virtuelles dans Azure Stack Hub
 Utilisez les fonctionnalités suivantes de la solution Azure Automation pour gérer des machines virtuelles Windows et Linux déployées avec Azure Stack Hub :
@@ -65,7 +65,7 @@ La solution Azure Monitor pour machines virtuelles prend en charge le monitoring
 
 3. Carte des dépendances affichant les composants interconnectés avec la machine virtuelle de différents groupes de ressources et abonnements.
 
-Une fois l'espace de travail Log Analytics créé, activez les compteurs de performances de l'espace de travail pour procéder à la collecte sur les machines virtuelles Linux et Windows. Installez et activez ensuite les solutions ServiceMap et InfrastructureInsights dans votre espace de travail. Ce processus est décrit dans le guide [Déployer Azure Monitor pour machines virtuelles](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-onboard#how-to-enable-azure-monitor-for-vms-preview).
+Une fois l'espace de travail Log Analytics créé, activez les compteurs de performances de l'espace de travail pour procéder à la collecte sur les machines virtuelles Linux et Windows. Installez et activez ensuite les solutions ServiceMap et InfrastructureInsights dans votre espace de travail. Ce processus est décrit dans le guide [Déployer Azure Monitor pour machines virtuelles](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview).
 
 ### <a name="in-the-azure-stack-hub-administrator-portal"></a>Dans le portail administrateur Azure Stack Hub
 Après avoir activé les solutions Azure Automation sur le portail Azure, vous devez vous connecter au portail administrateur Azure Stack Hub en tant qu’administrateur cloud, puis télécharger les extensions **Azure Monitor, Update and Configuration Management** et **Azure Monitor, Update and Configuration Management for Linux** à partir de la Place de marché Azure Stack Hub.

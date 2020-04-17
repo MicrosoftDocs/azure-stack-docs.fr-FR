@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: 41c6b4e5adf7b659bf9db30eb8a3906c257f5473
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78366243"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Déployer une application qui effectue une mise à l’échelle multicloud à l’aide d’Azure et d’Azure Stack Hub

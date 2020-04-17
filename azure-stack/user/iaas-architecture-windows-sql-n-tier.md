@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
 ms.openlocfilehash: a44c4cee7948fe9f2cf4a55e7ed337c3932fd95c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704945"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>Application multiniveau Windows sur Azure Stack Hub avec SQL Server
@@ -139,7 +139,7 @@ Pour sécuriser le serveur de rebond, ajoutez une règle de groupe de sécurité
 
 ### <a name="scale-sets"></a>Groupes identiques
 
-Pour les couches Web et Entreprise, envisagez d'utiliser des [groupes de machines virtuelles identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview) au lieu de déployer des machines virtuelles distinctes. Un groupe identique facilite le déploiement et la gestion d'un ensemble de machines virtuelles identiques. Les groupes identiques sont parfaits si vous devez rapidement faire monter en puissance des machines virtuelles.
+Pour les couches Web et Entreprise, envisagez d'utiliser des [groupes de machines virtuelles identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview) au lieu de déployer des machines virtuelles distinctes. Un groupe identique facilite le déploiement et la gestion d'un ensemble de machines virtuelles identiques. Les groupes identiques sont parfaits si vous devez rapidement effectuer un scale-out des machines virtuelles.
 
 Il existe deux façons de configurer des machines virtuelles déployées dans un groupe identique :
 

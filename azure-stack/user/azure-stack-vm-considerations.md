@@ -7,12 +7,12 @@ ms.date: 2/3/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 611fec639fbcec478b79d44975b24f2d806df5bc
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: f93ce26acd7474def8495e6e0df28bd3b8669848
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364800"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80614431"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Fonctionnalités des machines virtuelles Azure Stack Hub
 
@@ -108,6 +108,17 @@ Les produits Windows doivent être utilisés conformément aux droits d’utilis
 - Celles qui exécutent Windows Server 2012 ou une version antérieure doivent être activées manuellement à l’aide de l’[activation MAK](https://technet.microsoft.com/library/ff793438.aspx). Pour utiliser l’activation MAK, vous devez fournir votre propre clé de produit (Product Key).
 
 Microsoft Azure utilise l’activation KMS pour activer les machines virtuelles Windows. Si vous déplacez une machine virtuelle d'Azure Stack Hub vers Azure et rencontrez des problèmes d'activation, consultez [Résoudre les problèmes d'activation de Windows sur les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Vous trouverez des informations supplémentaires dans le billet de blog [Troubleshooting Windows activation failures on Azure VMs](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) publié par l’équipe du support technique Azure.
+
+## <a name="high-availability"></a>Haute disponibilité
+
+Votre machine virtuelle peut faire l’objet d’un redémarrage en raison d’une maintenance planifiée par l’opérateur Azure Stack Hub. Pour garantir la haute disponibilité d’un système de production à plusieurs machines virtuelles dans Azure, ces machines virtuelles sont placées dans un [groupe à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) qui les répartit entre plusieurs domaines d’erreur et de mise à jour. À la plus petite échelle d’Azure Stack Hub, un domaine d’erreur au sein d’un groupe à haute disponibilité est défini comme un nœud unique dans l’unité d’échelle.  
+
+Même si l’infrastructure d’Azure Stack Hub est déjà résiliente aux défaillances, la technologie sous-jacente (clustering de basculement) implique toujours un temps d’arrêt pour les machines virtuelles qui se trouvent sur un serveur physique impacté en cas de défaillance matérielle. Azure Stack Hub prend ne charge les groupes à haute disponibilité avec un maximum de trois domaines d’erreur, pour rester cohérent avec Azure.
+
+|                   |             |
+|-------------------|-------------|
+| **Domaines d'erreur** | Les machines virtuelles placées dans un groupe à haute disponibilité sont physiquement isolées les unes des autres grâce à une répartition aussi équilibrée que possible sur plusieurs domaines d’erreur (nœuds Azure Stack Hub). En cas de défaillance matérielle, les machines virtuelles du domaine défaillant sont redémarrées dans d’autres domaines d’erreur. Elles seront conservées dans des domaines d’erreur distincts des autres machines virtuelles, mais si possible dans le même groupe à haute disponibilité. Une fois le matériel rétabli, les machines virtuelles seront rééquilibrées de façon à maintenir une haute disponibilité. |
+| **Domaines de mise à jour**| Les domaines de mise à jour sont utilisés par Azure pour fournir la haute disponibilité aux groupes à haute disponibilité. Un domaine de mise à jour est un groupe logique de matériel sous-jacent pouvant faire l’objet simultanément d’une opération de maintenance. Les machines virtuelles qui se trouvent dans le même domaine de mise à jour sont redémarrées ensemble lors de la maintenance planifiée. Lorsqu’un client crée des machines virtuelles au sein d’un groupe à haute disponibilité, la plateforme Azure les distribue automatiquement dans ces différents domaines de mise à jour. <br>Dans Azure Stack Hub, les machines virtuelles sont migrées en direct sur les autres hôtes en ligne du cluster avant que leur hôte sous-jacent soit mis à jour. Comme il ne se produit aucun temps d’arrêt du côté du locataire pendant la mise à jour d’un hôte, la fonctionnalité de domaine de mise à jour d’Azure Stack Hub n’existe que pour des raisons de compatibilité des modèles avec Azure. Les machines virtuelles d’un groupe à haute disponibilité affichent 0 comme numéro de domaine de mise à jour sur le portail. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

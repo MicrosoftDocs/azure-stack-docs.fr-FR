@@ -9,10 +9,10 @@ ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2020
 ms.openlocfilehash: 4aefe4e01950c7891bedb43eb1245f10608d1709
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77697431"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>Notes de publication de la version 1.1.33.0 du fournisseur de ressources SQL
