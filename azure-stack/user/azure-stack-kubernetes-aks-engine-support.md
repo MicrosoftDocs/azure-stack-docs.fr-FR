@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
 ms.openlocfilehash: 8080f6c5ce8461e9d228dc4c77252b0fd236758e
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80069329"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Stratégies de support pour le moteur AKS sur Azure Stack Hub

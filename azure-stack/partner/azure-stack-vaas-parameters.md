@@ -10,10 +10,10 @@ ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: a9fce93fb66793ec933d2a8182811bd0577a2588
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79295088"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-hub-validation-as-a-service"></a>Paramètres de workflow communs pour la validation en tant que service Azure Stack Hub

@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
 ms.openlocfilehash: cf9d17bda49c1fe5d401481d79b61b18442ee7ef
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77703806"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Bien démarrer avec PowerShell dans Azure Stack Hub
@@ -23,7 +23,7 @@ Cet article vous aide à vous repérer dans les différents modules PowerShell u
 | API | Référence sur PowerShell | Référence REST |
 | --- | --- | --- |
 | Global Azure Resource Manager | [Modules Azure PowerShell](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [Navigateur d’API REST](https://docs.microsoft.com/rest/api/) |
-| Azure Stack Hub Resource Manager | [Gérer les profils de version des API dans Azure Stack Hub](azure-stack-version-profiles.md) | [Gérer les profils de version des API dans Azure Stack Hub](azure-stack-version-profiles.md) |
+| Azure Stack Hub Resource Manager | [Gérer les profils de version d’API dans Azure Stack Hub](azure-stack-version-profiles.md) | [Gérer les profils de version d’API dans Azure Stack Hub](azure-stack-version-profiles.md) |
 | Points de terminaison administrateur Azure Stack Hub | [Module administrateur Azure Stack Hub](https://docs.microsoft.com/powershell/azure/azure-stack/overview) | [Navigateur d’API REST - Azure Stack Hub](https://docs.microsoft.com/rest/api/?term=Azure%20Azure%20Stack%20Admin) |
 | Point de terminaison privilégié Azure Stack Hub | [Utiliser le point de terminaison privilégié dans Azure Stack Hub](../operator/azure-stack-privileged-endpoint.md) | |
 

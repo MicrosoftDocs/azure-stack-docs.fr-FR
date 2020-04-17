@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/02/2019
 ms.openlocfilehash: 3656a5a6a992788ca8d4d975ac819f69793edb02
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702038"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>Se connecter à Azure Stack Hub en tant qu’utilisateur avec PowerShell

@@ -4,10 +4,10 @@ ms.topic: include
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.openlocfilehash: d0c8f7aee723a0cec877508a185d664f82dec898
-ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79081915"
 ---
 Connectez-vous au portail d’administration :

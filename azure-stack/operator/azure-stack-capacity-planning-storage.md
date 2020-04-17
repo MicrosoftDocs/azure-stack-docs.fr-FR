@@ -2,17 +2,17 @@
 title: Planification de la capacité de stockage Azure Stack Hub
 description: Découvrez comment planifier la capacité de stockage pour les déploiements Azure Stack Hub.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 05/31/2019
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: beccdd382ad95229e136442651e8def37a3a9552
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d7776f07745a2f76bc447df3f29a54578624aca6
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695374"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "78935031"
 ---
 # <a name="azure-stack-hub-storage-capacity-planning"></a>Planification de la capacité de stockage Azure Stack Hub
 
@@ -47,7 +47,7 @@ Voici un bref résumé de la configuration des espaces de stockage direct et du 
 
 Les disques virtuels créés automatiquement et leurs capacités sont les suivants :
 
-|Nom|Calcul de la capacité|Description|
+|Name|Calcul de la capacité|Description|
 |-----|-----|-----|
 |Appareil local/de démarrage|Minimum de 340 Go<sup>1</sup>|Stockage serveur individuel pour les images du système d’exploitation et les machines virtuelles de l’infrastructure « locale ».|
 |Infrastructure|3,5 To|Ensemble de l'utilisation de l'infrastructure Azure Stack Hub.|

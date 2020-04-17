@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
 ms.openlocfilehash: 0a3dfcc7d12baa6616f57908e87d24afaf1e927e
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79295382"
 ---
 # <a name="connect-to-azure-stack-hub"></a>Se connecter à Azure Stack Hub
@@ -38,7 +38,7 @@ Vous pouvez établir une connexion VPN avec tunneling fractionné à un Kit de d
 > [!NOTE] 
 > Cette connexion VPN ne fournit pas de connectivité aux machines virtuelles de l’infrastructure Azure Stack Hub. 
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 * Installez [Azure PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md) sur votre ordinateur local.  
 * Téléchargez les [outils nécessaires pour utiliser Azure Stack Hub](../operator/azure-stack-powershell-download.md). 

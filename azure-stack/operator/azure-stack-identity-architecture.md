@@ -3,16 +3,16 @@ title: Architecture d’identité pour Azure Stack Hub
 description: Découvrez l’architecture d’identité pour Azure Stack Hub et les différences entre Azure AD et AD FS.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 42badc226bfd8339c497c752ee4b547c48a1250c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: ae5cc821ffe621d4e14ef37b426ff36202ed37ed
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699675"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81244015"
 ---
 # <a name="identity-architecture-for-azure-stack-hub"></a>Architecture d’identité pour Azure Stack Hub
 
@@ -47,7 +47,7 @@ Une topologie de client unique est utile quand :
 - Tous les utilisateurs sont compris dans le même client.
 - Un fournisseur de services héberge une instance Azure Stack Hub pour une organisation.
 
-![Topologie à un seul locataire d’Azure Stack Hub avec Azure AD](media/azure-stack-identity-architecture/single-tenant.png)
+![Topologie à un seul locataire d’Azure Stack Hub avec Azure AD](media/azure-stack-identity-architecture/single-tenant.svg)
 
 Cette topologie présente les caractéristiques suivantes :
 
@@ -64,7 +64,7 @@ Une topologie d’architecture mutualisée est utile quand :
 
 - Un fournisseur de services souhaite autoriser des utilisateurs de plusieurs organisations à accéder à Azure Stack Hub.
 
-![Topologie mutualisée Azure Stack Hub avec Azure AD](media/azure-stack-identity-architecture/multi-tenant.png)
+![Topologie mutualisée Azure Stack Hub avec Azure AD](media/azure-stack-identity-architecture/multi-tenant.svg)
 
 Cette topologie présente les caractéristiques suivantes :
 
@@ -79,7 +79,7 @@ La topologie AD FS est nécessaire lorsqu’une des conditions suivantes s’app
 - Azure Stack Hub ne se connecte pas à Internet.
 - Azure Stack Hub peut se connecter à Internet, mais vous choisissez d’utiliser AD FS comme fournisseur d’identité.
   
-![Topologie Azure Stack Hub utilisant AD FS](media/azure-stack-identity-architecture/adfs.png)
+![Topologie Azure Stack Hub utilisant AD FS](media/azure-stack-identity-architecture/adfs.svg)
 
 Cette topologie présente les caractéristiques suivantes :
 

@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.lastreviewed: 03/04/2020
 ms.reviewer: ppacent
 ms.openlocfilehash: 982c62ad37d2d19dd3273c7ece3f20ff725ce6b6
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367248"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Appliquer des mises à jour de fabricants d’ordinateurs (OEM) à Azure Stack Hub

@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
 ms.openlocfilehash: d008a30991e41be6abc3f21f888acfbc8d46d69e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77705234"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>Utiliser des profils de version d’API avec Go dans Azure Stack Hub
@@ -300,4 +300,4 @@ Parmi les exemples de code disponibles pour Azure Stack Hub utilisant le Kit de 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Installer PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md)
-- [Configurer l’environnement PowerShell de l’utilisateur Azure Stack Hub](azure-stack-powershell-configure-user.md)
+- [Configurez l’environnement PowerShell de l’utilisateur Azure Stack Hub.](azure-stack-powershell-configure-user.md)

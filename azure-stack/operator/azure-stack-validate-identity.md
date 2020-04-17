@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
 ms.openlocfilehash: 3c2eb6b0efc0bc6f0111ed342ef16e19223f0a85
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78366515"
 ---
 # <a name="validate-azure-identity"></a>Valider l’identité Azure
@@ -30,7 +30,7 @@ La validation garantit que votre environnement permet à Azure Stack Hub de stoc
 
 Téléchargez la dernière version de l’outil Azure Stack Hub Readiness Checker (AzsReadinessChecker) à partir de [PowerShell Gallery](https://aka.ms/AzsReadinessChecker).  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Les prérequis suivants sont obligatoires :
 
@@ -92,7 +92,7 @@ Les prérequis suivants sont obligatoires :
 
 Chaque fois qu’une validation s’exécute, les résultats sont journalisés dans **AzsReadinessChecker.log** et **AzsReadinessCheckerReport.json**. L’emplacement de ces fichiers est indiqué avec les résultats de la validation dans PowerShell.
 
-Ces fichiers peuvent vous aider à partager l’état de validation avant de déployer Azure Stack Hub ou à examiner les problèmes de validation. Les deux fichiers conservent les résultats des vérifications de validation postérieures. Le rapport fournit à votre équipe de déploiement la confirmation de la configuration de l’identité. Le fichier journal peut aider l’équipe de déploiement ou de support à enquêter sur les problèmes de validation.
+Ces fichiers peuvent vous aider à partager l’état de validation avant de déployer Azure Stack Hub ou à enquêter sur les problèmes de validation. Les deux fichiers conservent les résultats des vérifications de validation postérieures. Le rapport fournit à votre équipe de déploiement la confirmation de la configuration de l’identité. Le fichier journal peut aider l’équipe de déploiement ou de support à enquêter sur les problèmes de validation.
 
 Par défaut, les deux fichiers sont écrits dans `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json`.  
 

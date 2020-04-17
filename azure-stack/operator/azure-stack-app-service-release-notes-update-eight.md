@@ -1,5 +1,5 @@
 ---
-title: Notes de publication de la mise à jour 8 d’App Service sur Azure Stack Hub
+title: Notes de publication App Service sur Azure Stack Hub Update 8
 description: Découvrez le contenu de la mise à jour huit d’App Service sur Azure Stack Hub, les problèmes connus et l’emplacement à partir duquel la télécharger.
 author: apwestgarth
 manager: stefsch
@@ -9,13 +9,13 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
 ms.openlocfilehash: 82f43028253638f92866bb679a5ccb5478a5a56e
-ms.sourcegitcommit: 8198753ebafd69d0dbfc6b3548defbd70f4c79c1
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78935078"
 ---
-# <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>Notes de publication de la mise à jour 8 d’App Service sur Azure Stack Hub
+# <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>Notes de publication App Service sur Azure Stack Hub Update 8
 
 Ces notes de publication décrivent les améliorations et les correctifs que la mise à jour 8 d’Azure Stack Hub apporte à Azure App Service, ainsi que les problèmes connus. Les problèmes connus ont été répartis selon qu’ils concernent le déploiement, le processus de mise à jour ou la build (après l’installation).
 
@@ -26,7 +26,7 @@ Ces notes de publication décrivent les améliorations et les correctifs que la 
 
 Le numéro de build d’App Service sur la mise à jour 8 d’Azure Stack Hub est **86.0.2.13**
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de passer au déploiement, consultez la [documentation Avant de commencer](azure-stack-app-service-before-you-get-started.md).
 
@@ -106,13 +106,13 @@ Effectuez l’une des actions suivantes, puis cliquez sur Réessayer dans le pro
 - Les rôltes de travail ne peuvent pas atteindre le serveur de fichiers si App Service est déployé dans un réseau virtuel existant et si le serveur de fichiers est uniquement disponible sur le réseau privé, comme indiqué dans la documentation de déploiement d’Azure App Service sur Azure Stack
 
   Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau Worker et le serveur de fichiers. Accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
-  - Source : Quelconque
+  - Source : Toutes
   - Plage de ports source : : *
-  - Destination : Adresses IP
-  - Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
-  - Plage de ports de destination : 445
+  - Destination : adresses IP
+  - Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
+  - Plage de ports de destination : 445
   - Protocole : TCP
-  - Action : Allow
+  - Action : Autoriser
   - Priorité : 700
   - Nom : Outbound_Allow_SMB445
 

@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
 ms.openlocfilehash: ae72fcbeccdb4500cf9182c01e2913188abd2895
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80068989"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>Utiliser Azure Monitor pour conteneurs sur Azure Stack Hub
@@ -26,7 +26,7 @@ Vous pouvez examiner les performances d’un conteneur avec Azure Monitor en col
 
 Il existe deux méthodes pour activer Azure Monitor sur votre cluster. Ces deux méthodes vous obligent à configurer un espace de travail Azure Monitor Log Analytics dans Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour les deux méthodes, les [prérequis](https://github.com/Helm/charts/tree/master/incubator/azuremonitor-containers#pre-requisites) listés dans la page [Azure Monitor – Containers](https://github.com/Helm/charts/tree/master/incubator/azuremonitor-containers) doivent être respectés.
 
@@ -58,5 +58,5 @@ Les définitions d’API prises en charge pour le cluster Azure Stack Hub sont f
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez l'article [Le moteur AKS sur Azure Stack Hub](azure-stack-kubernetes-aks-engine-overview.md).  
+- En savoir plus sur [le moteur AKS sur Azure Stack Hub](azure-stack-kubernetes-aks-engine-overview.md)  
 - Consultez l’article [Vue d’ensemble d’Azure Monitor pour conteneurs](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).

@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
 ms.openlocfilehash: eb9cc45f3c8de162550cb7f882060a9506831d23
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704826"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Ajouter un locataire pour l’utilisation et la facturation sur Azure Stack Hub
@@ -90,5 +90,5 @@ Une fois que vous avez ajouté le nouveau client à Azure Stack Hub, ou que le l
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour consulter les messages d’erreur s’ils sont déclenchés dans votre processus d’inscription, consultez [Code d’erreur d’utilisation et de facturation](azure-stack-registration-errors.md).
-- Pour en savoir plus sur la récupération d’informations d’utilisation de ressources à partir d’Azure Stack Hub, consultez [Utilisation et facturation dans Azure Stack Hub](azure-stack-billing-and-chargeback.md).
+- Pour en savoir plus sur la récupération d’informations d’utilisation de ressources à partir d’Azure Stack Hub, voir [Utilisation et facturation dans Azure Stack Hub](azure-stack-billing-and-chargeback.md).
 - Pour vérifier comment un client final peut vous ajouter en qualité de CSP, en tant que responsable pour son locataire Azure Stack Hub, consultez [Autoriser un fournisseur de solutions cloud à gérer votre abonnement Azure Stack Hub](../user/azure-stack-csp-enable-billing-usage-tracking.md).

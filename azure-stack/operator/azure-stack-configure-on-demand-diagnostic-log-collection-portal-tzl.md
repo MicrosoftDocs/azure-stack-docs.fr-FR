@@ -7,14 +7,16 @@ ms.date: 03/30/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 03/30/2020
-ms.openlocfilehash: 2a46c031be648eedf42e204496ed2a123c926dd9
-ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
+ms.openlocfilehash: 990ed8ae3a5ba3d08247c79043b3a407c8a876ed
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80402717"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80682225"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-now"></a>Envoyer les journaux de diagnostic Azure Stack Hub maintenant
+
+::: moniker range=">= azs-2002"
 
 Avant de demander une assistance, les opérateurs Azure Stack peuvent envoyer des journaux de diagnostic à la demande aux services de support technique Microsoft (CSS) en utilisant le portail administrateur ou PowerShell. Si Azure Stack Hub est connecté à Azure, l’option **Send logs now** (Envoyer les journaux maintenant) dans le portail administrateur est recommandée, car il s’agit de la méthode la plus simple pour envoyer les journaux directement à Microsoft. Si le portail n’est pas disponible, les opérateurs doivent alors [envoyer désormais les journaux avec Send-AzureStackDiagnosticLog](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md). 
 
@@ -29,6 +31,29 @@ Spécifiez l’heure de début et de fin de la collecte des journaux, puis cliqu
 
 ![Capture d’écran de l’option permettant d’envoyer des journaux maintenant](media/azure-stack-help-and-support/send-logs-now.png)
 
+
+::: moniker-end
+::: moniker range="<= azs-1910"
+## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>Utiliser Aide et support pour collecter les journaux de diagnostic à la demande
+
+Pour résoudre un problème, CSS peut demander à l’opérateur Azure Stack Hub de collecter les journaux de diagnostic à la demande pour une période donnée au cours de la semaine précédente. Dans ce cas, CSS fournira à l’opérateur une URL SAS pour le chargement de la collecte. 
+Procédez comme suit pour configurer la collecte des journaux à la demande à l’aide de l’URL SAS fournie par CSS :
+
+1. Ouvrez **Aide et support - Vue d’ensemble**, puis cliquez sur **Collecter les journaux maintenant**. 
+1. Choisissez une fenêtre de 1à 4 heures sur les sept derniers jours. 
+1. Choisissez le fuseau horaire local.
+1. Entrez l’URL SAS fournie par CSS.
+
+   ![Capture d’écran de la collecte de journaux à la demande](media/azure-stack-automatic-log-collection/collect-logs-now.png)
+
+>[!NOTE]
+>Si la collecte automatique des journaux de diagnostic est activée, **Aide et support** s’affiche lorsque la collecte des journaux est en cours. Si vous cliquez sur **Collecter les journaux maintenant** pour collecter les journaux à partir d’une heure précise alors que la collecte automatique des journaux est en cours, la collecte à la demande commence après la fin de la collecte automatique des journaux. 
+
+
+::: moniker-end
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Utiliser le point de terminaison privilégié pour envoyer les journaux de diagnostic Azure Stack Hub](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md)
+

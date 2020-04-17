@@ -10,10 +10,10 @@ ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: e41fe02946b3f08d34cdb0a6d81c08885ef9d71b
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704605"
 ---
 # <a name="scheduling-a-test"></a>Planification d’un test
@@ -26,7 +26,7 @@ Pour vérifier votre solution, créez le flux de travail pour un test. Un flux d
 
 Si le workflow Passe de test peut être utilisé pour exécuter n’importe quel test fourni par VaaS, y compris des tests des workflows de validation, les résultats du workflow Passe de test ne sont pas considérés comme *officiels*. Pour plus d’informations sur les workflows de validation officiels, consultez [Flux de travail](azure-stack-vaas-key-concepts.md#workflows).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de suivre ce guide de démarrage rapide, terminez les tâches suivantes :
 

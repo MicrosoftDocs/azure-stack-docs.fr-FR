@@ -7,10 +7,10 @@ ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
 ms.openlocfilehash: 9d60c9300d2a717f280ab16a7f6c55d67a13f28c
-ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/15/2020
 ms.locfileid: "80362150"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Différences entre Azure Stack Hub et Azure quand vous utilisez des services et créez des applications
@@ -38,7 +38,7 @@ Le tableau suivant décrit les principales différences entre Azure Stack Hub et
 | -------- | ------------- | ----------|
 | Qui est en charge de son fonctionnement ? | Microsoft | Votre organisation ou fournisseur de services.|
 | Qui contactez-vous pour obtenir un support ? | Microsoft | Pour un système intégré, contactez votre opérateur Azure Stack Hub (auprès de votre organisation ou fournisseur de services) pour obtenir un support.<br><br>Pour plus d’informations sur le support lié au Kit de développement Azure Stack (ASDK), visitez les [forums Microsoft](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack). Le kit de développement étant un environnement d’évaluation, il n’y a aucune prise en charge officielle de la part des services de support technique Microsoft.
-| Services disponibles | Consultez la liste des [produits Azure](https://azure.microsoft.com/services/?b=17.04b). Les services disponibles varient selon la région Azure. | Azure Stack Hub prend en charge une partie des services Azure. Les services réels varient en fonction de ce que votre organisation ou fournisseur de services choisit d’offrir.
+| Services disponibles | Consultez la liste des [produits Azure](https://azure.microsoft.com/services/?b=17.04b). Les services disponibles varient selon la région Azure. | Azure Stack Hub prend en charge un sous-ensemble de services Azure. Les services réels varient en fonction de ce que votre organisation ou fournisseur de services choisit d’offrir.
 | Point de terminaison Azure Resource Manager* | `https://management.azure.com` | Pour un système intégré Azure Stack Hub, utilisez le point de terminaison fourni par votre opérateur Azure Stack Hub.<br><br>Pour le kit de développement, utilisez : https://management.local.azurestack.external.
 | URL du portail* | [https://portal.azure.com](https://portal.azure.com) | Pour un système intégré Azure Stack Hub, utilisez l’URL fournie par votre opérateur Azure Stack Hub.<br><br>Pour le kit de développement, utilisez : https://portal.local.azurestack.external.
 | Région | Vous pouvez sélectionner la région où effectuer le déploiement. | Pour un système intégré Azure Stack Hub, utilisez la région disponible sur votre système.<br><br>Pour le Kit de développement Azure Stack (ASDK), la région est toujours définie sur **local**.
@@ -75,7 +75,7 @@ Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | S
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```
 
-Exemple de sortie (tronquée) : ![Exemple de sortie de la commande Get-AzureRmResourceProvider](media/azure-stack-considerations/image1.png)
+Exemple de sortie (tronquée) : ![Exemple de sortie de la commande Get-AzureRmResourceProvider](media/azure-stack-considerations/image1.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

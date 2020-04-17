@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
 ms.openlocfilehash: 358837da19ad34f82f81a94da0c89b165574ea49
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/15/2020
 ms.locfileid: "77699250"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>Utiliser le portail administrateur dans Azure Stack Hub
@@ -37,7 +37,7 @@ Le fuseau horaire par défaut pour tous les déploiements Azure Stack Hub est d�
 
 Dans le portail d’administration, vous pouvez effectuer ces opérations :
 
-* [Inscrire Azure Stack Hub auprès d’Azure](azure-stack-registration.md)
+* [Inscrire Azure Stack Hub auprès d'Azure](azure-stack-registration.md)
 * [Renseigner la Place de marché](azure-stack-download-azure-marketplace-item.md)
 * [Créer des plans, offres et abonnements pour les utilisateurs](service-plan-offer-subscription-overview.md)
 * [Surveiller l’intégrité et des alertes](azure-stack-monitor-health.md)

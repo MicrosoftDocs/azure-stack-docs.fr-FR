@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 7eb9dce19bb25367181b17d3f13ada5ed12eff5d
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.openlocfilehash: 4cd946bf306761533f7c8d6dcba8af75a5001400
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80424619"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80806724"
 ---
 # <a name="how-to-do-capacity-planning-for-event-hubs-on-azure-stack-hub"></a>Planification de la capacité pour Event Hubs sur Azure Stack Hub
 
@@ -40,7 +40,7 @@ Tous les clusters Event Hubs utilisent un type de machine virtuelle [D11_V2](../
 
 ## <a name="resource-provider-resource-consumption"></a>Consommation des ressources du fournisseur de ressources  
 
-La consommation des ressources du fournisseur de ressources Event Hubs est constante et indépendante du nombre ou de la taille des clusters créés par les utilisateurs. Le tableau suivant montre l’utilisation des cœurs par le fournisseur de ressources Event Hubs sur Azure Stack Hub et la consommation approximative des ressources par d’autres ressources. Le fournisseur de ressources Event Hubs utilise un type de machine virtuelle [D2_V2](/user/azure-stack-vm-sizes#dv2-series) pour son déploiement.
+La consommation des ressources du fournisseur de ressources Event Hubs est constante et indépendante du nombre ou de la taille des clusters créés par les utilisateurs. Le tableau suivant montre l’utilisation des cœurs par le fournisseur de ressources Event Hubs sur Azure Stack Hub et la consommation approximative des ressources par d’autres ressources. Le fournisseur de ressources Event Hubs utilise un type de machine virtuelle [D2_V2](/azure-stack/user/azure-stack-vm-sizes#dv2-series) pour son déploiement.
 
 |                                  | Type de machine virtuelle | Nœuds de cluster | Cœurs | Stockage de machine virtuelle | Mémoire | Comptes de stockage |
 |----------------------------------|---------|-------|-------|------------|--------|------------------|

@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: ff351dcef91491e6d52aa61ff25f282968c963fe
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: 086d8008e44e50268aec29ff4d2c28a8d65b88ab
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79295454"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80806863"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Déployer le fournisseur de ressources SQL Server sur Azure Stack Hub
 
@@ -22,13 +22,13 @@ Utilisez le fournisseur de ressources SQL Server d'Azure Stack Hub pour exposer 
 > [!IMPORTANT]
 > Seul le fournisseur de ressources est pris en charge pour créer des éléments sur des serveurs qui hébergent SQL ou MySQL. Les éléments créés sur un serveur hôte qui ne sont pas créés par le fournisseur de ressources peuvent entraîner un état qui ne correspond pas.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Plusieurs conditions préalables doivent être remplies avant de pouvoir déployer le fournisseur de ressources SQL d'Azure Stack Hub. Afin de répondre à ces exigences, complétez les étapes suivantes sur un ordinateur ayant accès à la machine virtuelle du point de terminaison privilégié :
 
 - Si ce n'est déjà fait, [inscrivez Azure Stack Hub](azure-stack-registration.md) auprès d'Azure pour pouvoir télécharger des éléments de la Place de marché Azure.
 
-- Ajoutez la machine virtuelle Windows Server standard sur la Place de marché Azure Stack Hub en téléchargeant l'image de **Windows Server 2016 Datacenter Server Core**.
+- Ajoutez la machine virtuelle Windows Server standard sur la Place de marché Azure Stack Hub en téléchargeant l'image de **Windows Server 2016 Datacenter Server Core**.
 
 - Téléchargez le binaire du fournisseur de ressources SQL, puis exécutez le fichier auto-extracteur pour extraire le contenu dans un répertoire temporaire. Le fournisseur de ressources dispose d'une build Azure Stack Hub minimale correspondante.
 
@@ -118,7 +118,7 @@ Vous pouvez spécifier les paramètres suivants à partir de la ligne de command
 | Nom du paramètre | Description | Commentaire ou valeur par défaut |
 | --- | --- | --- |
 | **CloudAdminCredential** | Informations d’identification de l’administrateur du cloud, nécessaires pour accéder au point de terminaison privilégié. | _Obligatoire_ |
-| **AzCredential** | Informations d'identification du compte administrateur de service Azure Stack Hub. Utilisez les mêmes informations d'identification que celles utilisées pour le déploiement d'Azure Stack Hub. | _Obligatoire_ |
+| **AzCredential** | Informations d'identification du compte administrateur de service Azure Stack Hub. Utilisez les mêmes informations d'identification que celles utilisées pour le déploiement d'Azure Stack Hub. Le script échoue si le compte que vous utilisez avec AzCredential nécessite l’authentification multifacteur (MFA).| _Obligatoire_ |
 | **VMLocalCredential** | Informations d’identification du compte d’administrateur local de la machine virtuelle du fournisseur de ressources SQL. | _Obligatoire_ |
 | **PrivilegedEndpoint** | Adresse IP ou nom DNS du point de terminaison privilégié. |  _Obligatoire_ |
 | **AzureEnvironment** | Environnement Azure du compte administrateur de service utilisé pour déployer Azure Stack Hub. Nécessaire uniquement pour les déploiements Azure AD. Les noms d’environnement pris en charge sont **AzureCloud**, **AzureUSGovernment** ou, si vous utilisez Azure Active Directory en Chine, **AzureChinaCloud**. | AzureCloud |
@@ -142,7 +142,7 @@ Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
 
 > [!NOTE]
-> Dans un scénario déconnecté, vous devez télécharger les modules PowerShell requis et inscrire manuellement le référentiel. Il s'agit d'une condition préalable.
+> Dans un scénario déconnecté, vous devez télécharger les modules PowerShell requis et inscrire manuellement le référentiel en tant que condition préalable.
 
 Pour éliminer toute configuration manuelle lors du déploiement du fournisseur de ressources, vous pouvez personnaliser le script suivant. Modifiez les informations de compte et les mots de passe par défaut en fonction des besoins de votre déploiement Azure Stack Hub.
 

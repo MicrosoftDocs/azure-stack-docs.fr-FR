@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
 ms.openlocfilehash: d70c44b35612ffb7642a0ee79b5820dba7b66532
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701885"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>Déployer avec Visual Studio Code dans Azure Stack Hub
@@ -33,7 +33,7 @@ Pour comprendre les concepts associés à la coordination de fournisseurs de res
 
 Le schéma de déploiement Azure Stack Hub prend en charge les profils hybrides par le biais des modèles Azure Resource Manager dans Visual Studio Code. Vous pouvez changer une ligne dans le modèle JSON pour référencer le schéma, puis utiliser IntelliSense pour passer en revue la ressource compatible avec Azure. Avec le schéma, passez en revue les fournisseurs de ressources, les types et les versions d’API pris en charge dans votre version d’Azure Stack Hub. Le schéma dépend du profil d’API utilisé pour récupérer les versions spécifiques des points de terminaison d’API dans les fournisseurs de ressources pris en charge dans votre version d’Azure Stack Hub. Vous pouvez utiliser la saisie semi-automatique pour les attributs type et apiVersion. Vous êtes alors êtes limité aux versions d’API et aux types de ressources disponibles pour le profil d’API.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - Accéder à Azure Stack Hub

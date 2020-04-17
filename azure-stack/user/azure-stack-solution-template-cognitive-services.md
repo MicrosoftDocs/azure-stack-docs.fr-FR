@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 11/11/2019
 ms.openlocfilehash: d5cfb45be74122ec07a7632f9f6c7ef04b6f8c4a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701817"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Déployer Azure Cognitive Services sur Azure Stack Hub
@@ -45,7 +45,7 @@ Pour plus d’informations sur les conteneurs Cognitive Services, consultez [Pri
 
 Cet article explique comment déployer l'API Visage Azure sur un cluster Kubernetes dans Azure Stack Hub. Vous pouvez adopter la même approche pour déployer d'autres conteneurs Cognitive Services sur des clusters Kubernetes d'Azure Stack Hub.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vous devez :
 
@@ -57,7 +57,7 @@ Avant de commencer, vous devez :
 
 Créez une ressource Cognitive Services sur Azure pour afficher un aperçu des conteneurs Visage, LUIS ou Reconnaître le texte. Vous devez utiliser la clé d’abonnement et l’URL de point de terminaison de la ressource pour instancier les conteneurs Cognitive Services.
 
-1. Créez une ressource Azure dans le portail Azure. Si vous souhaitez afficher un aperçu des conteneurs Visage, vous devez d’abord créer une ressource Visage correspondante dans le portail Azure. Pour plus d’informations, consultez [Démarrage rapide : Créer un compte Cognitive Services dans le portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Créez une ressource Azure dans le portail Azure. Si vous souhaitez afficher un aperçu des conteneurs Visage, vous devez d’abord créer une ressource Visage correspondante dans le portail Azure. Pour plus d’informations, consultez [Démarrage rapide : créer un compte Cognitive Services dans le portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
    > [!Note]
    >  La ressource Visage ou Vision par ordinateur doit utiliser le niveau tarifaire F0.

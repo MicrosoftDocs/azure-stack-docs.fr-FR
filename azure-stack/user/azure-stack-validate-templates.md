@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2019
 ms.openlocfilehash: 4c545c60c0890f87c87108101a3e30ab4c87d16d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77705285"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>Utiliser l’outil de validation de modèles dans Azure Stack Hub

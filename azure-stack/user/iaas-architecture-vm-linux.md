@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
 ms.openlocfilehash: f969435900f290aaae10942e223ade15cacf4769
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704962"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Exécuter une machine virtuelle Linux dans Azure Stack Hub
@@ -28,9 +28,9 @@ Placez les ressources étroitement associées qui partagent le même cycle de vi
 
 ## <a name="virtual-machine"></a>Machine virtuelle
 
-Vous pouvez provisionner une machine virtuelle issue d’une liste d’images publiées, d’une image managée personnalisée ou d’un fichier de disque dur virtuel (VHD) chargé(e) dans le Stockage Blob Azure Stack Hub. Azure Stack Hub prend en charge l’exécution de plusieurs distributions Linux populaires, notamment CentOS, Debian, Red Hat Enterprise, Ubuntu et SUSE. Pour plus d’informations, consultez [Linux sur Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-linux). Vous pouvez également choisir de syndiquer l’une des images Linux publiées disponibles sur la Place de marché Azure Stack Hub.
+Vous pouvez approvisionner une machine virtuelle à partir d’une liste d’images publiées, d’une image managée personnalisée ou d’un fichier de disque dur virtuel (VHD) chargés dans le stockage d’objets blob Azure Stack Hub. Azure Stack Hub prend en charge l’exécution de plusieurs distributions Linux populaires, notamment CentOS, Debian, Red Hat Enterprise, Ubuntu et SUSE. Pour plus d’informations, consultez [Linux sur Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-linux). Vous pouvez également choisir de syndiquer l’une des images Linux publiées disponibles sur la Place de marché Azure Stack Hub.
 
-Azure Stack Hub propose de nombreuses tailles de machines virtuelles Azure. Pour plus d’informations, voir [Tailles des machines virtuelles dans Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes). Si vous déplacez une charge de travail vers Azure Stack Hub, commencez par choisir la taille de machine virtuelle correspondant le mieux à vos serveurs locaux/Azure. Mesurez ensuite les performances de votre charge de travail réelle en termes de processeur, de mémoire et d’opérations d’entrée/sortie par seconde du disque, puis ajustez la taille selon vos besoins.
+Azure Stack Hub propose différentes tailles de machines virtuelles Azure. Pour plus d’informations, voir [Tailles des machines virtuelles dans Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes). Si vous déplacez une charge de travail vers Azure Stack Hub, commencez par choisir la taille de machine virtuelle correspondant le mieux à vos serveurs locaux/Azure. Mesurez ensuite les performances de votre charge de travail réelle en termes de processeur, de mémoire et d’opérations d’entrée/sortie par seconde du disque, puis ajustez la taille selon vos besoins.
 
 ## <a name="disks"></a>Disques
 

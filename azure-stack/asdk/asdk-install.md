@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
 ms.openlocfilehash: b85279aff5427e0f3dbdc15b979a00a41db43e57
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77695850"
 ---
 # <a name="install-the-asdk"></a>Installer l’ASDK
@@ -68,7 +68,7 @@ Les étapes de cet article vous montrent comment déployer le kit ASDK à l’ai
 
 8. Si vous utilisez un déploiement Azure AD, vous serez invité à entrer vos informations d’identification du compte administrateur général quelques minutes après le lancement de la configuration.
 
-9. Le processus de déploiement peut prendre quelques heures, au cours desquelles l’ordinateur hôte ne redémarre automatiquement qu’une seule fois. Si vous voulez surveiller la progression du déploiement, connectez-vous en tant que azurestack\AzureStackAdmin après le redémarrage de l’hôte ASDK. Une fois le déploiement terminé, la console PowerShell affiche le message suivant : **TERMINÉ : Action « Déploiement »** . 
+9. Le processus de déploiement peut prendre quelques heures, au cours desquelles l’ordinateur hôte ne redémarre automatiquement qu’une seule fois. Si vous voulez surveiller la progression du déploiement, connectez-vous en tant que azurestack\AzureStackAdmin après le redémarrage de l’hôte ASDK. Quand le déploiement est terminé, la console PowerShell affiche le message suivant : **TERMINÉ : Action « Déploiement »** . 
     > [!IMPORTANT]
     > Si vous vous connectez en tant qu’administrateur local une fois que la machine est jointe au domaine azurestack, vous ne voyez pas la progression du déploiement. Ne réexécutez pas le déploiement : au lieu de cela, connectez-vous en tant que azurestack\AzureStackAdmin pour vérifier qu’il est en cours d’exécution.
 

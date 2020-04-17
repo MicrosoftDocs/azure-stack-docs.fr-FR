@@ -9,10 +9,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
 ms.openlocfilehash: d41455823c6905a947a703412664fc52ff45e1a8
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701120"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>Notes de publication App Service sur Azure Stack Hub Update 6
@@ -27,7 +27,7 @@ Ces notes de publication décrivent les améliorations et les correctifs d'Azure
 
 Le numéro de build App Service sur Azure Stack Hub Update 6 est **82.0.1.50**.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de passer au déploiement, consultez la [documentation Avant de commencer](azure-stack-app-service-before-you-get-started.md).
 
@@ -48,7 +48,7 @@ Avant d'entamer la mise à niveau d'Azure App Service sur Azure Stack Hub vers 
 
 Azure App Service sur Azure Stack Hub Update 6 contient les améliorations et correctifs suivants :
 
-- Mises à jour des **portails Locataire, Administration et Functions d’App Service, ainsi que des outils Kudu**. Cohérence avec la version du kit de développement logiciel (SDK) du portail Azure Stack Hub.
+- Mises à jour des **portails Locataire, Administration et Functions d’App Service, ainsi que des outils Kudu**. Cohérence avec la version du SDK du portail Azure Stack Hub.
 
 - Mises à jour du **runtime d’Azure Functions** vers la **version 1.0.12299**.
 
@@ -80,13 +80,13 @@ Azure App Service sur Azure Stack Hub Update 6 contient les améliorations et 
 - Les rôles Worker ne peuvent pas atteindre le serveur de fichiers si App Service est déployé dans un réseau virtuel existant et si le serveur de fichiers est uniquement disponible sur le réseau privé, comme indiqué dans la documentation de déploiement d’Azure App Service sur Azure Stack Hub.
 
 Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau Worker et le serveur de fichiers. Accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
- * Source : Quelconque
+ * Source : Toutes
  * Plage de ports source : : *
- * Destination : Adresses IP
- * Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
- * Plage de ports de destination : 445
+ * Destination : adresses IP
+ * Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
+ * Plage de ports de destination : 445
  * Protocole : TCP
- * Action : Allow
+ * Action : Autoriser
  * Priorité : 700
  * Nom : Outbound_Allow_SMB445
 
@@ -110,5 +110,5 @@ Lorsque vous essayez d’analyser des fonctions individuelles, dans le portail u
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une présentation d’Azure App Service, consultez [Vue d’ensemble d’Azure App Service sur Azure Stack Hub](azure-stack-app-service-overview.md).
+- Pour une présentation d'Azure App Service, consultez [Vue d'ensemble d'Azure App Service sur Azure Stack Hub](azure-stack-app-service-overview.md).
 - Pour plus d’informations sur la préparation au déploiement d’App Service sur Azure Stack Hub, consultez [Avant de commencer avec App Service sur Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).

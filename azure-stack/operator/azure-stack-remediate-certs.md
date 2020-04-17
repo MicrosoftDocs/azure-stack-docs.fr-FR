@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2019
 ms.openlocfilehash: 079bec68836af5491d9f39bcf24e68001ffcfe2b
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367792"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Corriger les problèmes courants liés aux certificats PKI Azure Stack Hub
@@ -94,7 +94,7 @@ L’outil **AzsReadinessChecker** inclut une l’applet de commande d’assistan
 
 **Repair-AzsPfxCertificate** n’est d’aucune utilité si vous devez générer une nouvelle demande CSR et réémettre un certificat.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 L’ordinateur sur lequel l’outil s’exécute doit répondre aux prérequis suivants :
 

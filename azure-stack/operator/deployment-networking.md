@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Découvrez le flux de trafic réseau lors du déploiement d’Azure Stack Hub.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/05/2019
-ms.openlocfilehash: b2acff92365cfd9904a033c381bf85ea843d6b30
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: a663544b21fee671e57483e13030639c7b5edd3b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366396"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81243767"
 ---
 # <a name="deployment-network-traffic"></a>Trafic réseau de déploiement
 
@@ -21,7 +21,7 @@ Pour réussir le déploiement d'Azure Stack Hub, il est important de comprendre 
 
 Cette illustration montre toutes les connexions et composants impliqués dans le processus de déploiement :
 
-![Topologie de réseau du déploiement d'Azure Stack Hub](media/deployment-networking/figure1.png)
+![Topologie de réseau du déploiement d'Azure Stack Hub](media/deployment-networking/figure1.svg)
 
 > [!NOTE]
 > Cet article décrit la configuration exigée pour un déploiement connecté. Pour en savoir plus sur les autres méthodes de déploiement, consultez [Modèles de connexion pour le déploiement Azure Stack Hub](azure-stack-connection-models.md).

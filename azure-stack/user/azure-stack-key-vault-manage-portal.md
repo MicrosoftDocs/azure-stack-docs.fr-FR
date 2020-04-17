@@ -7,17 +7,17 @@ ms.date: 01/10/2020
 ms.author: sethm
 ms.lastreviewed: 1/10/2020
 ms.openlocfilehash: 50348aff594b058606aae49981e497f8b3515235
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702922"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-the-portal"></a>Gérer Key Vault dans Azure Stack Hub à l'aide du portail
 
 Cet article explique comment créer et gérer un coffre de clés dans Azure Stack Hub à l'aide du portail Azure Stack Hub.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous devez vous abonner à une offre qui inclut le service Azure Key Vault.
 

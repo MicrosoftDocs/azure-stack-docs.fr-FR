@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
 ms.openlocfilehash: 4cab915bc4b824c1a178d94aaa571ca71c9c948b
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77698910"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>Notes de publication de la version 1.1.33.0 du fournisseur de ressources MySQL
@@ -46,11 +46,11 @@ Cette version du fournisseur de ressources MySQL Azure Stack Hub inclut les amé
 
 - **Une heure entière peut être nécessaire avant que les références SKU MySQL n’apparaissent dans le portail**. Il peut se passer une heure avant que les références SKU nouvellement créées soient visibles et utilisables lors de la création de nouvelles bases de données MySQL. 
 
-    **Solution de contournement** : Aucun.
+    **Solution de contournement** : aucune.
 
 - **Connexions MySQL réutilisées**. Toute tentative de création d'une nouvelle connexion MySQL avec le même nom d'utilisateur qu'une connexion existante associée au même abonnement entraînera la réutilisation de la même connexion et du mot de passe existant.
 
-    **Solution de contournement** : utilisez des noms d’utilisateurs différents lors de la création de nouvelles connexions associées au même abonnement, ou créez des connexions avec le même nom d’utilisateur mais sous des abonnements différents.
+    **Solution de contournement** : utilisez des noms d'utilisateur différents lors de la création de nouvelles connexions associées au même abonnement, ou créez des connexions avec le même nom d'utilisateur mais sous des abonnements différents.
 
 - **Les connexions MySQL partagées provoquent une incohérence au niveau des données**. Si une connexion MySQL est partagée avec plusieurs bases de données SQL associées au même abonnement, la modification du mot de passe de connexion entraînera une incohérence au niveau des données.
 

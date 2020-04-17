@@ -8,10 +8,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
 ms.openlocfilehash: b468ed4c41c259a0017969615681abcd007d96c7
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77695323"
 ---
 # <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>Ajouter des workers et une infrastructure dans App Service sur Azure Stack Hub
@@ -31,7 +31,7 @@ Azure App Service sur Azure Stack Hub déploie tous les rôles à l’aide de gr
 
 1. [Configurer l’environnement d’administration Azure Stack Hub dans PowerShell](azure-stack-powershell-configure-admin.md)
 
-2. Utilisez cet exemple pour monter en puissance le groupe identique de machines virtuelles :
+2. Utilisez cet exemple pour effectuer un scale-out du groupe identique de machines virtuelles :
    ```powershell
    
     ##### Scale out the AppService Role instances ######
@@ -93,7 +93,7 @@ Une fois que les workers sont entièrement déployés et prêts, les utilisateur
 ![Niveaux tarifaires pour le nouveau plan App Service dans le portail administrateur Azure Stack Hub](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> Pour la montée en charge des rôles Gestion, Frontal ou Serveur de publication, suivez les mêmes étapes en sélectionnant le type de rôle approprié. Les contrôleurs ne sont pas déployés en tant que groupes identiques. Vous devez donc déployer deux contrôleurs au moment de l’installation pour tous les déploiements de production.
+> Pour effectuer un scale-out des rôles Gestion, Frontal ou Serveur de publication, suivez les mêmes étapes en sélectionnant le type de rôle approprié. Les contrôleurs ne sont pas déployés en tant que groupes identiques. Vous devez donc déployer deux contrôleurs au moment de l’installation pour tous les déploiements de production.
 
 ### <a name="next-steps"></a>Étapes suivantes
 

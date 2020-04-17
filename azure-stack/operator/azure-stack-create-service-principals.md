@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 11/11/2019
 ms.lastreviewed: 11/11/2019
 ms.openlocfilehash: 1c96ee9520285e0bc2b9784fa5d310a1ec2ae60f
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79295220"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Utiliser une identité d’application pour accéder aux ressources Azure Stack Hub
@@ -71,7 +71,7 @@ Vous devez exécuter les scripts dans une console PowerShell avec élévation de
 
 Lors de la création d’un certificat pour des informations de principal de service, les conditions suivantes doivent être remplies :
 
- - Pour la production, le certificat doit être émis par une autorité de certification interne ou une autorité de certification publique. Si vous utilisez une autorité de certification publique, vous devez l’inclure dans l’image du système d’exploitation de base dans le cadre du projet Microsoft Trusted Root Authority Program. La liste complète est disponible dans l’article [Programme de certification racine approuvé Microsoft : participants](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca). Un exemple de création de certificat de test « auto-signé » s’affichera plus tard pendant la [mise à jour des informations d’identification du certificat du principal de service](#update-a-service-principals-certificate-credential). 
+ - Pour la production, le certificat doit être émis par une autorité de certification interne ou une autorité de certification publique. Si vous utilisez une autorité de certification publique, vous devez l’inclure dans l’image du système d’exploitation de base dans le cadre du projet Microsoft Trusted Root Authority Program. La liste complète est disponible dans la rubrique [Programme de certification racine approuvé Microsoft : Participants](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca). Un exemple de création de certificat de test « auto-signé » s’affichera plus tard pendant la [mise à jour des informations d’identification du certificat du principal de service](#update-a-service-principals-certificate-credential). 
  - Le fournisseur de services de chiffrement doit être spécifié en tant que fournisseur de clés du fournisseur de services de chiffrement (CSP) hérité Microsoft.
  - Le certificat doit se présenter sous la forme d’un fichier PFX, car la procédure requiert à la fois les clés publiques et privées. Les serveurs Windows utilisent des fichiers .pfx contenant le fichier de clé publique (fichier de certificat SSL) et le fichier de clé privée associé.
  - Votre infrastructure Azure Stack Hub doit avoir accès au réseau de l’emplacement de la liste de révocation de certificats de l’autorité de certification publiée dans le certificat. Cette CRL doit être un point de terminaison HTTP.

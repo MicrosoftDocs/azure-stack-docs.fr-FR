@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 42fb0703ed1e4947a1f35cc14a8708c8372f220e
-ms.sourcegitcommit: 900332596d0bb473d82b1d1a28c3fe3aa6522add
+ms.openlocfilehash: ee51dc973c26335cfb6c75de991508a6063e0993
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79095208"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80806673"
 ---
 # <a name="choosing-drives-for-azure-stack-hci"></a>Choix des lecteurs pour Azure Stack HCI
 
@@ -46,7 +46,7 @@ Il existe actuellement trois façons de le faire :
 
 2. **NVMe + SSD**. Si vous utilisez NVMe avec des SSD, NVMe met automatiquement en cache les écritures sur les SSD. De cette manière, les écritures sont fusionnées dans le cache et déstockées uniquement si nécessaire pour réduire la charge sur les SSD. Les caractéristiques d’écriture sont similaires à NVMe, mais les lectures sont effectuées directement à partir de SSD également rapides.
 
-3. **SSD uniquement**. Comme pour l’option NVMe uniquement, il n’y a pas de cache si tous vos lecteurs sont du même modèle. Si vous combinez des modèles plus ou moins endurants, vous pouvez configurer les modèles plus endurants pour mettre en cache les écritures sur les modèles moins endurants (ce qui [nécessite une configuration](/windows-server/storage/storage-spaces/understand-the-cache.md#manual-configuration)).
+3. **SSD uniquement**. Comme pour l’option NVMe uniquement, il n’y a pas de cache si tous vos lecteurs sont du même modèle. Si vous combinez des modèles plus ou moins endurants, vous pouvez configurer les modèles plus endurants pour mettre en cache les écritures sur les modèles moins endurants (ce qui [nécessite une configuration](/windows-server/storage/storage-spaces/understand-the-cache#manual-configuration)).
 
    >[!NOTE]
    > L’un des avantages d’utiliser uniquement des NVMe ou SSD sans cache est que vous exploitez toute la capacité de stockage de chaque lecteur. Aucune partie de la capacité n’est utilisée pour la mise en cache, ce qui peut être intéressant à plus petite échelle.

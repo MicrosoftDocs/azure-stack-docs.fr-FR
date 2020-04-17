@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
 ms.openlocfilehash: 219689721c66bcf97bb776874a1b33e84fcfa6d0
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77698723"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Opérations de maintenance sur le fournisseur de ressources MySQL dans Azure Stack Hub
@@ -87,7 +87,7 @@ $session | Remove-PSSession
 
 *Ces instructions s’appliquent uniquement aux systèmes intégrés Azure Stack Hub*.
 
-Lorsque vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèmes intégrés Azure Stack Hub, l’opérateur Azure Stack Hub est chargé d’opérer la rotation des secrets d’infrastructure de fournisseurs de ressources suivants pour garantir qu’ils n’expirent pas :
+Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèmes intégrés Azure Stack Hub, l’opérateur Azure Stack Hub est chargé d’opérer la rotation des secrets d’infrastructure de fournisseurs de ressources suivants pour garantir qu’ils n’expirent pas :
 
 - Certificat SSL externe [fourni au cours du déploiement](azure-stack-pki-certs.md).
 - Mot de passe de compte d’administrateur local des machines virtuelles du fournisseur de ressources fourni au moment du déploiement.

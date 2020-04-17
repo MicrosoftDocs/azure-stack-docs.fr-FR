@@ -8,10 +8,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
 ms.openlocfilehash: 095b10039c9df4bf10b3a4bdcfc454416885f5ac
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77688829"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>Mettre à jour Azure App Service sur Azure Stack Hub
@@ -40,11 +40,11 @@ Au cours de ce processus, la mise à niveau va :
 
 Pour mettre à niveau votre déploiement d'Azure App Service sur Azure Stack Hub, procédez comme suit :
 
-1. Téléchargez le [programme d'installation d'Azure App Service](https://aka.ms/appsvcupdate8installer).
+1. Téléchargez le [programme d’installation d’Azure App Service](https://aka.ms/appsvcupdate8installer).
 
 2. Exécutez appservice.exe en tant qu’administrateur.
 
-    ![Programme d'installation d'Azure App Service][1]
+    ![Programme d’installation Azure App Service][1]
 
 3. Cliquez sur **Déployer Azure App Service ou effectuer une mise à niveau vers la dernière version**.
 
@@ -52,13 +52,13 @@ Pour mettre à niveau votre déploiement d'Azure App Service sur Azure Stack Hub
 
 5. Consultez et acceptez les termes du contrat de licence tiers, puis cliquez sur **Suivant**.
 
-6. Vérifiez que le point de terminaison Azure Stack Hub Azure Resource Manager et les informations relatives au locataire Active Directory sont corrects. Si vous avez utilisé les paramètres par défaut durant le déploiement de l’ASDK, vous pouvez accepter les valeurs par défaut. Toutefois, si vous avez personnalisé les options lors du déploiement d'Azure Stack Hub, vous devez modifier les valeurs dans cette fenêtre. Par exemple, si vous utilisez le suffixe de domaine *mycloud.com*, vous devez modifier votre point de terminaison Azure Stack Hub Azure Resource Manager en le définissant sur *management.region.mycloud.com*. Après avoir vérifié vos informations, cliquez sur **Suivant**.
+6. Vérifiez que le point de terminaison Azure Stack Hub Azure Resource Manager et les informations relatives au locataire Active Directory sont corrects. Si vous avez utilisé les paramètres par défaut durant le déploiement de l’ASDK, vous pouvez accepter les valeurs par défaut. Toutefois, si vous avez personnalisé les options lors du déploiement d’Azure Stack Hub, vous devez modifier les valeurs dans cette fenêtre. Par exemple, si vous utilisez le suffixe de domaine *mycloud.com*, vous devez modifier votre point de terminaison Azure Stack Hub Azure Resource Manager en le définissant sur *management.region.mycloud.com*. Après avoir vérifié vos informations, cliquez sur **Suivant**.
 
     ![Informations sur Azure Stack Hub Cloud][2]
 
 7. Sur la page suivante :
 
-    1. Sélectionnez la méthode de connexion que vous souhaitez utiliser : **Informations d'identification** ou **Principal de service**
+    1. Sélectionnez la méthode de connexion que vous souhaitez utiliser : **Informations d’identification** ou **Principal du service**
         - **Informations d'identification**
             - Si vous utilisez Azure Active Directory (Azure AD), entrez le compte et le mot de passe d'administrateur Azure AD que vous avez indiqués lors du déploiement d'Azure Stack Hub. Sélectionnez **Connecter**.
             - Si vous utilisez Active Directory Federation Services (AD FS), fournissez votre compte d’administrateur. Par exemple : cloudadmin@azurestack.local. Entrez votre mot de passe, puis sélectionnez **Se connecter**.
@@ -72,7 +72,7 @@ Pour mettre à niveau votre déploiement d'Azure App Service sur Azure Stack Hub
 
     1. Si un déploiement Azure App Service est détecté, le groupe de ressources et le compte de stockage sont déjà renseignés et ne sont pas disponibles.
 
-      ![Installation d'Azure App Service détectée][3]
+      ![Installation d’Azure App Service détectée][3]
 
 8. Sur la page de résumé :
    1. Vérifiez les choix effectués. Pour apporter des modifications, utilisez les boutons **Précédent** pour visiter les pages précédentes.

@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: b376be7855300dab0177bbbe735d6a5bf34d6bb9
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701069"
 ---
 # <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Déployer une application qui utilise des données locales et effectue une mise à l’échelle multicloud à l’aide d’Azure et d’Azure Stack Hub
@@ -292,16 +292,16 @@ Vous pouvez utiliser des variables d’environnement App Service pour transmettr
 
 ## <a name="enable-automatic-scaling-in-global-azure"></a>Activer la mise à l’échelle automatique dans Azure global
 
-Lorsque vous créez votre application web dans un environnement App Service, l’application démarre avec une seule instance. Vous pouvez ensuite augmenter la taille des instances automatiquement pour fournir des ressources de calcul supplémentaires à votre application. De même, vous pouvez automatiquement diminuer la taille et le nombre d’instances dont votre application a besoin.
+Lorsque vous créez votre application web dans un environnement App Service, l’application démarre avec une seule instance. Vous pouvez ensuite effectuer un scale-out automatiquement pour fournir des ressources de calcul supplémentaires à votre application. De même, vous pouvez automatiquement effectuer un scale-in et réduire le nombre d’instances dont votre application a besoin.
 
 > [!Note]  
-> Vous devez disposer d’un plan App Service pour configurer l’augmentation ou la diminution de la taille des instances. Si vous n’avez pas de plan, créez-le avant de commencer les étapes suivantes.
+> Vous devez disposer d’un plan App Service pour configurer un scale-out et un scale-in. Si vous n’avez pas de plan, créez-le avant de commencer les étapes suivantes.
 
 ### <a name="enable-automatic-scale-out"></a>Activer l’augmentation automatique de la taille des instances
 
-1. Dans Azure, recherchez le plan App Service des sites pour lesquels vous souhaitez augmenter la taille des instances, puis sélectionnez **Scale-out (plan App Service)** .
+1. Dans Azure, recherchez le plan App Service des sites pour lesquels vous souhaitez effectuer un scale-out, puis sélectionnez **Scale-out (plan App Service)** .
 
-    ![Montée en charge](media/solution-deployment-guide-hybrid/image16.png)
+    ![Scale-out](media/solution-deployment-guide-hybrid/image16.png)
 
 2. Sélectionnez **Activer la mise à l’échelle automatique**.
 
@@ -343,11 +343,11 @@ Lorsque vous créez votre application web dans un environnement App Service, l�
    > [!Note]  
    > La ressource actuelle contient le nom/GUID de votre plan App Service, et les listes déroulantes **Type de ressource** et **Ressource** sont indisponibles.
 
-### <a name="enable-automatic-scale-in"></a>Activer la diminution automatique de la taille des instances
+### <a name="enable-automatic-scale-in"></a>Activer le scale-in automatique
 
 Lorsque le trafic diminue, l’application web Azure peut diminuer automatiquement le nombre d’instances actives afin de réduire les coûts. Cette action est moins agressive que l’augmentation de la taille des instances et minimise l’impact sur les utilisateurs de l’application.
 
-1. Accédez à la condition d’augmentation de la taille des instances **Par défaut**, sélectionnez **+ Ajouter une règle**. Utilisez les critères et les actions suivantes pour la règle.
+1. Accédez à la condition de scale-out **Par défaut**, sélectionnez **+ Ajouter une règle**. Utilisez les critères et les actions suivantes pour la règle.
 
 **Critères**
 
@@ -433,7 +433,7 @@ Une fois que les deux points de terminaison sont configurés, ils sont répertor
 
 Azure Application Insights vous permet de surveiller votre application et d’envoyer des alertes en fonction des conditions que vous configurez. Voici quelques exemples : l’application n’est pas disponible, rencontre des erreurs ou présente des problèmes de performances.
 
-Les mesures d’Application Insights vous permettront de créer des alertes. Lorsque ces alertes se déclenchent, l’instance de votre application web bascule automatiquement d’Azure Stack Hub vers Azure pour augmenter la taille des instances avant de revenir à Azure Stack Hub pour la diminuer.
+Les mesures d’Application Insights vous permettront de créer des alertes. Lorsque ces alertes se déclenchent, l’instance de votre application web bascule automatiquement d’Azure Stack Hub vers Azure pour effectuer un scale-out avant de revenir à Azure Stack Hub pour effectuer un scale-in.
 
 ### <a name="create-an-alert-from-metrics"></a>Créer une alerte à partir de mesures
 
@@ -441,7 +441,7 @@ Pour ce didacticiel, accédez au groupe de ressources, puis sélectionnez l’in
 
 ![Application Insights](media/solution-deployment-guide-hybrid/image21.png)
 
-Cet affichage vous permettra de créer une alerte pour augmenter la taille des instances et une autre pour la diminuer.
+Cet affichage vous permettra de créer une alerte de scale-out et une alerte de scale-in.
 
 ### <a name="create-the-scale-out-alert"></a>Créer l’alerte pour augmenter la taille des instances
 
@@ -464,7 +464,7 @@ Cet affichage vous permettra de créer une alerte pour augmenter la taille des i
 
 9. Dans la barre de menus, sélectionnez **Enregistrer**.
 
-### <a name="create-the-scale-in-alert"></a>Créer l’alerte pour diminuer la taille des instances
+### <a name="create-the-scale-in-alert"></a>Créer l’alerte de scale-in
 
 1. Sous **CONFIGURER**, sélectionnez **Alertes (classique)** .
 2. Sélectionnez **Ajouter une alerte métrique (classique)** .

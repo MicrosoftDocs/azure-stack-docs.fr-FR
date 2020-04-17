@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
 ms.openlocfilehash: 2e229c8add5b850384c7b46d05373c4ee19fd266
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79295538"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>Gérer les profils de version des API dans Azure Stack Hub

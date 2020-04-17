@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
 ms.openlocfilehash: 9d39763397ce39c83a50bb57d97f0b5b8e07de6b
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367986"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-hub-integrated-system"></a>Remplacer un nœud d'unité d'échelle sur un système intégré Azure Stack Hub
@@ -20,7 +20,7 @@ ms.locfileid: "78367986"
 Cet article décrit le processus général de remplacement d'un ordinateur physique (également appelé « nœud d'unité d'échelle ») sur un système intégré Azure Stack Hub. Les étapes de remplacement de nœud d’unité d’échelle varient en fonction de votre fournisseur de matériel OEM. Pour obtenir des instructions détaillées propres à votre système, consultez la documentation FRU (Field Replaceable Unit) de votre fournisseur.
 
 > [!CAUTION]  
-> Le nivellement du microprogramme est essentiel pour la réussite de l’opération décrite dans cet article. Le fait d'ignorer cette étape peut entraîner une instabilité du système, une baisse des performances, ainsi que des threads de sécurité, ou empêcher la fonctionnalité d'automatisation d'Azure Stack Hub de déployer le système d'exploitation. Lors du remplacement du matériel, consultez toujours la documentation de votre partenaire matériel pour vous assurer que le microprogramme appliqué correspond à la version OEM affichée sur le [portail administrateur Azure Stack Hub](azure-stack-updates.md). Pour en savoir plus et obtenir des liens vers la documentation du partenaire, consultez [Remplacer un composant matériel](azure-stack-replace-component.md).
+> Le nivellement du microprogramme est essentiel pour la réussite de l’opération décrite dans cet article. Le fait d'ignorer cette étape peut entraîner une instabilité du système, une baisse des performances, ainsi que des threads de sécurité, ou empêcher la fonctionnalité d'automatisation d'Azure Stack Hub de déployer le système d'exploitation. Lors du remplacement du matériel, consultez toujours la documentation de votre partenaire de matériel pour vous assurer que le microprogramme appliqué correspond à la version OEM affichée dans le [portail administrateur Azure Stack Hub](azure-stack-updates.md). Pour en savoir plus et obtenir des liens vers la documentation du partenaire, consultez [Remplacer un composant matériel](azure-stack-replace-component.md).
 
 L’organigramme suivant illustre la procédure générale de la FRU pour remplacer un nœud d’unité d’échelle dans son ensemble.
 

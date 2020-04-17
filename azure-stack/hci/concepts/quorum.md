@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 02/28/2020
 ms.openlocfilehash: 70f10bd8c2c2e5eb639229ba743090ba5e5ac79c
-ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79026103"
 ---
 # <a name="understanding-cluster-and-pool-quorum-on-azure-stack-hci"></a>Présentation du quorum de cluster et de pool dans Azure Stack HCI

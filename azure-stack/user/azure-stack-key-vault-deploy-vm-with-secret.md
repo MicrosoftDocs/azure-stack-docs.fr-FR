@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
 ms.openlocfilehash: 7c68c2b5ecc5a56449e67dd0ffa403b3363cfab9
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702888"
 ---
 # <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>Déployer une machine virtuelle Azure Stack Hub en utilisant un mot de passe stocké dans Key Vault
@@ -25,7 +25,7 @@ Vous pouvez stocker des valeurs, comme des mots de passe, en tant que secrets da
 * Vous n’avez pas à entrer manuellement un secret chaque fois que vous déployez une ressource.
 * Vous pouvez spécifier quels utilisateurs ou principaux du service peuvent accéder à un secret.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Les utilisateurs doivent s’abonner à une offre qui inclut le service Key Vault.
 * [Installer PowerShell pour Azure Stack Hub.](../operator/azure-stack-powershell-install.md)

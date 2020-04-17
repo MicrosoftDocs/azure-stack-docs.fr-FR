@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
 ms.openlocfilehash: 2c8211606ae797b4a88da1c268a7fb36b7de214b
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79512369"
 ---
 # <a name="start-and-stop-azure-stack-hub"></a>Démarrer et arrêter Azure Stack Hub
@@ -25,7 +25,7 @@ Pour arrêter Azure Stack Hub, procédez comme suit :
 
 1. Préparez toutes les charges de travail exécutées sur les ressources de locataire de votre environnement Azure Stack Hub pour l’arrêt à venir.
 
-2. Ouvrez une session de point de terminaison privilégié (PEP, Privileged Endpoint Session) à partir d’une machine ayant accès aux machines virtuelles ERCS Azure Stack Hub via le réseau. Pour obtenir des instructions, consultez [Utilisation du point de terminaison privilégié dans Azure Stack Hub](azure-stack-privileged-endpoint.md).
+2. Ouvrez une session de point de terminaison privilégié (PEP, Privileged Endpoint Session) à partir d’une machine ayant accès aux machines virtuelles ERCS Azure Stack Hub via le réseau. Pour obtenir des instructions, voir [Utilisation du point de terminaison privilégié dans Azure Stack Hub](azure-stack-privileged-endpoint.md).
 
 3. À partir de la session PEP, exécutez :
 

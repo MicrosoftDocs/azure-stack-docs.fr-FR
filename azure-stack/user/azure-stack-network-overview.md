@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2020
 ms.openlocfilehash: 4c96dcc4a9405e22513ecd33e7aa4c7415ac257b
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702123"
 ---
 # <a name="introduction-to-azure-stack-hub-networking"></a>Présentation de la gestion de réseau Azure Stack Hub
@@ -38,4 +38,4 @@ Azure Stack Hub fournit plusieurs types de fonctionnalités de gestion de résea
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Considérations relatives à la gestion de réseau Azure Stack Hub](azure-stack-network-differences.md)
+* [Considérations relatives aux réseaux Azure Stack Hub](azure-stack-network-differences.md)

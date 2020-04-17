@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
 ms.openlocfilehash: 995342f471ed7300d2fb9dd95a6623588a13d1a9
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79295328"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Gérer des comptes de stockage Azure Stack Hub
@@ -100,7 +100,7 @@ Le paramètre de période de conservation permet à un opérateur cloud de spéc
 
    ![Modifier la période de rétention dans le portail d’administration](media/azure-stack-manage-storage-accounts/image10.png)
 
-## <a name="reclaim"></a>Récupérer de la capacité
+## <a name="reclaim-capacity"></a><a name="reclaim"></a>Récupérer de la capacité
 Un des effets secondaires de la période de conservation est qu’un compte supprimé continue à consommer de la capacité jusqu’à ce qu’il sorte de cette période de conservation. En tant qu’opérateur cloud, vous pouvez avoir besoin d’un moyen de récupérer l’espace du compte supprimé, même si la période de conservation n’a pas encore expiré.
 
 Vous pouvez récupérer de la capacité en utilisant le portail ou PowerShell.

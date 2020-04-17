@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
 ms.openlocfilehash: 131e4b186078e566c81a2b4aac3e34f3898213bc
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78366481"
 ---
 # <a name="validate-azure-registration"></a>Valider l’inscription auprès d’Azure
@@ -28,7 +28,7 @@ Pour plus d’informations sur l’inscription d’Azure Stack Hub, consultez [I
 
 Téléchargez la dernière version d’**AzsReadinessChecker** sur le site [PowerShell Gallery](https://aka.ms/AzsReadinessChecker).  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Les prérequis suivants sont obligatoires :
 

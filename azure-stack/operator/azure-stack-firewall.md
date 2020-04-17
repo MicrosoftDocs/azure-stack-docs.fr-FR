@@ -3,16 +3,16 @@ title: Intégration de pare-feu Azure Stack Hub pour les systèmes intégrés Az
 description: Découvrez l’intégration de pare-feu Azure Stack Hub pour les systèmes intégrés Azure Stack Hub.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: d0929edd5db0ba45593d5d061f5d831df50f3d35
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: c33c2dbcdb662f23072ef7aca83364643c3cdf0c
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79295334"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81244197"
 ---
 # <a name="azure-stack-hub-firewall-integration"></a>Intégration de pare-feu Azure Stack Hub
 Nous vous recommandons d’utiliser un dispositif de pare-feu pour sécuriser Azure Stack Hub. Les pare-feu peuvent contribuer à la défense contre les attaques par déni de service distribué (DDoS), à la détection des intrusions et à l'inspection de contenu. Mais ils peuvent également se transformer en goulot d'étranglement pour les services de stockage Azure (objets blobs, tables, files d'attente, etc.).
@@ -41,16 +41,16 @@ Dans le cadre d’un déploiement en périphérie, Azure Stack Hub est déployé
 
 Les adresses IP routables publiques sont spécifiées pour le pool d'adresses IP virtuelles publiques à partir du réseau externe au moment du déploiement. Dans un scénario de périphérie, il n’est pas recommandé d’utiliser des adresses IP routables publiques sur un autre réseau pour des raisons de sécurité. Ce scénario permet à un utilisateur de bénéficier d’une expérience cloud auto-contrôlée complète, comme dans un cloud public tel qu’Azure.  
 
-![Exemple de pare-feu de périmètre Azure Stack Hub](./media/azure-stack-firewall/firewallScenarios.png)
+![Exemple de pare-feu de périmètre Azure Stack Hub](./media/azure-stack-firewall/firewallScenarios.svg)
 
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Scénario de pare-feu réseau de périmètre ou intranet d’entreprise
 Dans un déploiement au sein d’un intranet ou périmètre d’entreprise, Azure Stack Hub est déployé sur un pare-feu multizone ou entre le pare-feu de périphérie et le pare-feu de réseau d’entreprise interne. Le trafic est ensuite distribué entre le réseau de périmètre sécurisé (ou DMZ) et les zones non sécurisées, comme décrit ci-dessous :
 
-- **Zone sécurisée** : il s’agit du réseau interne qui utilise des adresses IP routables de l’entreprise ou internes. Le réseau sécurisé peut être divisé et avoir un accès sortant à internet par le biais de NAT sur le pare-feu. Vous pouvez généralement y accéder à partir de n’importe quel emplacement à l’intérieur de votre centre de données par le biais du réseau interne. Tous les réseaux Azure Stack Hub doivent résider dans la zone sécurisée, à l’exception du pool d’adresses IP virtuelles publiques du réseau externe.
+- **Zone sécurisée** : Il s’agit du réseau interne qui utilise des adresses IP routables de l’entreprise ou internes. Le réseau sécurisé peut être divisé et avoir un accès sortant à internet par le biais de NAT sur le pare-feu. Vous pouvez généralement y accéder à partir de n’importe quel emplacement à l’intérieur de votre centre de données par le biais du réseau interne. Tous les réseaux Azure Stack Hub doivent résider dans la zone sécurisée, à l’exception du pool d’adresses IP virtuelles publiques du réseau externe.
 - **Zone du périmètre**. Les applications externes ou accessibles sur Internet comme les serveurs web sont généralement déployées sur le réseau de périmètre. Celui-ci est habituellement supervisé par un pare-feu pour éviter les attaques de type DDoS et les intrusions (piratage), mais il autorise également le trafic entrant spécifié à partir d’internet. Seul le pool d’adresses IP virtuelles publiques de réseau externe d’Azure Stack Hub doit résider dans la zone DMZ.
 - **Zone non sécurisée**. Il s’agit du réseau externe (Internet). Il **n’est pas** recommandé de déployer Azure Stack Hub dans la zone non sécurisée.
 
-![Exemple de réseau de périmètre Azure Stack Hub](./media/azure-stack-firewall/perimeter-network-scenario.png)
+![Exemple de réseau de périmètre Azure Stack Hub](./media/azure-stack-firewall/perimeter-network-scenario.svg)
 
 ## <a name="learn-more"></a>En savoir plus
 Apprenez-en davantage sur les [ports et protocoles utilisés par les points de terminaison Azure Stack Hub](azure-stack-integrate-endpoints.md).

@@ -8,10 +8,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/02/2019
 ms.openlocfilehash: ec4f3dc2a17e362038d11ec988d19ffa9edd6a6e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701851"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Déployer App Service dans une configuration hautement disponible
@@ -105,7 +105,7 @@ Après avoir installé le fournisseur de ressources App Service, vous pouvez l�
 > [!IMPORTANT]
 > Avant d’exécuter le programme d’installation du fournisseur de ressources, vérifiez que vous avez lu les notes de publication qui accompagnent chaque version d’App Service afin d’en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 Avant de pouvoir exécuter le programme d'installation d'App Service, plusieurs étapes sont nécessaires, comme décrit dans l'article [Avant de commencer à utiliser App Service sur Azure Stack Hub](azure-stack-app-service-before-you-get-started.md) :
 
 > [!TIP]
@@ -162,13 +162,13 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
     ![Boîte de dialogue d’erreur attendue sur App Service](media/app-service-deploy-ha/08.png)
 
     Si vous avez choisi d’effectuer un déploiement sur un réseau virtuel existant en utilisant une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité de trafic sortant. Cette règle active le trafic SMB entre le sous-réseau worker et le serveur de fichiers. Accédez au WorkersNsg dans le portail administrateur, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
-    - Source : Quelconque
+    - Source : Toutes
     - Plage de ports source : : *
-    - Destination : Adresses IP
-    - Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
-    - Plage de ports de destination : 445
+    - Destination : adresses IP
+    - Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
+    - Plage de ports de destination : 445
     - Protocole : TCP
-    - Action : Allow
+    - Action : Autoriser
     - Priorité : 700
     - Nom : Outbound_Allow_SMB445
 

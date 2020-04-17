@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: a1faf66aa6bd3195ceece035b4c67234673359bf
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: d0b50cc2237315c1ab6063aef6419db0e18aa395
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366215"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81243947"
 ---
 # <a name="border-connectivity"></a>Connectivité de la bordure 
 La planification de l'intégration réseau est une condition préalable importante pour réussir le déploiement, l'exploitation et la gestion de systèmes intégrés Azure Stack Hub. Pour commencer la planification de la connectivité frontalière, vous devez décider si vous voulez utiliser le routage dynamique avec le protocole BGP (Border Gateway Protocol). Pour cela, vous devez soit affecter un numéro de système autonome BGP 16 bits (public ou privé), soit utiliser un routage statique où une route statique par défaut est affectée aux appareils frontière.
@@ -29,7 +29,7 @@ L'équilibreur de charge logiciel (SLB, Software Load Balancer) exécuté au sei
 
 Pour garantir la récupération immédiate et transparente du trafic utilisateur en cas d’échec, le VPC ou MLAG configuré entre les appareils TOR permet l’utilisation de l’agrégation de liaisons multichâssis aux hôtes et de HSRP ou VRRP qui fournit la redondance réseau pour les réseaux IP.
 
-![Routage BGP](media/azure-stack-border-connectivity/bgp-routing.png)
+![Routage BGP](media/azure-stack-border-connectivity/bgp-routing.svg)
 
 ## <a name="static-routing"></a>Routage statique
 Le routage statique nécessite une configuration supplémentaire pour les appareils qui se trouvent à la frontière. Il nécessite plus d’intervention manuelle et de gestion, ainsi qu’une analyse minutieuse avant toute modification. En fonction des changements apportés, les problèmes causés par une erreur de configuration peuvent accroître la durée de la restauration. Cette méthode de routage n’est pas recommandée, mais elle est prise en charge.
@@ -42,7 +42,7 @@ Les appareils TOR sont configurés avec un itinéraire statique par défaut qui 
 
 Le routage statique s’applique seulement aux liaisons montantes entre le TOR et les commutateurs situés à la frontière. Le routage dynamique BGP est utilisé dans le rack, car il s’agit d’un outil essentiel pour l’équilibreur de charge logicielle (SLB) et pour d’autres composants. Il ne peut être ni désactivé ni supprimé.
 
-![Routage statique](media/azure-stack-border-connectivity/static-routing.png)
+![Routage statique](media/azure-stack-border-connectivity/static-routing.svg)
 
 <sup>\*</sup> Le réseau BMC est facultatif après le déploiement.
 
@@ -58,7 +58,7 @@ Si votre centre de données exige que l’ensemble du trafic utilise un proxy, v
 
 Un proxy transparent (également appelé proxy d’interception, en ligne ou forcé) intercepte une communication normale sur la couche réseau sans nécessiter une configuration spéciale du client. Les clients ne doivent pas nécessairement être informés de l’existence du proxy.
 
-![Proxy transparent](media/azure-stack-border-connectivity/transparent-proxy.png)
+![Proxy transparent](media/azure-stack-border-connectivity/transparent-proxy.svg)
 
 L’interception du trafic SSL n’est [pas prise en charge](azure-stack-firewall.md#ssl-interception) et peut entraîner des échecs de service lors de l’accès aux points de terminaison. Le délai d’expiration maximal pris en charge pour communiquer avec les points de terminaison requis pour l’identité est de 60 secondes. 3 tentatives sont autorisées.
 

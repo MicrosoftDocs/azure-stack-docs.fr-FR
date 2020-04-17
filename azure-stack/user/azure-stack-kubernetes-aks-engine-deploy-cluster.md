@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
 ms.openlocfilehash: 3186d3976f5d4ca533a89644b3abc16fdf824c7c
-ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80152171"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub
@@ -231,4 +231,4 @@ Vérifiez votre cluster en déployant MySql avec Helm pour contrôler votre clus
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Résoudre des problèmes du moteur AKS sur Azure Stack Hub](azure-stack-kubernetes-aks-engine-troubleshoot.md)
+> [Résoudre les problèmes du moteur AKS sur Azure Stack Hub](azure-stack-kubernetes-aks-engine-troubleshoot.md)

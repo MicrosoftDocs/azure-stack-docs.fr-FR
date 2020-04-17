@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
 ms.openlocfilehash: b52775083f05be4aac3de4fd5d3f72808bcc7569
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78368071"
 ---
 # <a name="manage-physical-memory-capacity-in-azure-stack-hub"></a>Gérer la capacité de mémoire physique dans Azure Stack Hub

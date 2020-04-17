@@ -136,6 +136,10 @@
           items:
             - name: Installer PowerShell RM
               href: azure-stack-powershell-install.md
+            - name: Installer PowerShell Az
+              href: powershell-install-az-module.md
+            - name: Migrer PowerShell AzureRM vers Az
+              href: migrate-azurerm-az.md
             - name: Télécharger des outils
               href: azure-stack-powershell-download.md
             - name: Se connecter avec PowerShell
@@ -330,7 +334,7 @@
                   href: azure-stack-app-service-release-notes-update-six.md
                 - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_7"
                   href: azure-stack-app-service-release-notes-update-seven.md
-                - name: "Notes de publication de la mise à jour 8 d’App\_Service sur Azure Stack Hub"
+                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_8"
                   href: azure-stack-app-service-release-notes-update-eight.md
         - name: Event Hubs sur Azure Stack Hub
           items:
@@ -338,7 +342,7 @@
               href: event-hubs-rp-overview.md
             - name: planification de la capacité
               href: event-hubs-rp-capacity-planning.md
-            - name: Prérequis
+            - name: Conditions préalables requises
               href: event-hubs-rp-prerequisites.md
             - name: Installer
               href: event-hubs-rp-install.md
@@ -472,7 +476,7 @@
               items:
                 - name: Vue d’ensemble
                   href: azure-stack-diagnostic-log-collection-overview-tzl.md
-                - name: Envoyer des journaux de manière proactive
+                - name: Send logs proactively (Envoyer les journaux de manière proactive)
                   href: azure-stack-configure-automatic-diagnostic-log-collection-tzl.md
                 - name: Envoyer des journaux maintenant
                   items:

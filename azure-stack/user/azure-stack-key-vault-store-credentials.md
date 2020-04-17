@@ -7,10 +7,10 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 01/16/2020
 ms.openlocfilehash: 66d69fa3397fa748dfbc67377c3e52c47f35904c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702718"
 ---
 # <a name="store-service-principal-credentials-in-azure-stack-hub-key-vault"></a>Stocker les informations d’identification du principal de service dans un Key Vault Azure Stack Hub
@@ -19,7 +19,7 @@ Le développement d’applications sur Azure Stack Hub nécessite généralement
 
 Pour plus d’informations sur le Key Vault, voir [Introduction à Key Vault dans Azure Stack Hub](azure-stack-key-vault-intro.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Abonnement à une offre qui inclut le service Azure Key Vault.
 - PowerShell installé et configuré pour une utilisation avec Azure Stack Hub.
@@ -30,7 +30,7 @@ Un Key Vault dans Azure Stack Hub permet de protéger les clés de chiffrement e
 
 Pour créer un coffre de clés, procédez comme suit :
 
-1. Connectez-vous au portail utilisateur Azure Stack Hub.
+1. Connectez-vous au portail Azure Stack Hub.
 
 2. Sur le tableau de bord, sélectionnez **+ Créer une ressource**, **Sécurité + Identité**, puis **Coffre de clés**.
 
@@ -93,5 +93,5 @@ Une fois le secret créé, les informations du principal de service y sont stock
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Utiliser les principaux de service](azure-stack-create-service-principals.md)
-- [Gérer Key Vault dans Azure Stack Hub via le portail](azure-stack-key-vault-manage-portal.md)  
+- [Gérer Key Vault dans Azure Stack Hub par le biais du portail](azure-stack-key-vault-manage-portal.md)  
 - [Gérer Key Vault dans Azure Stack Hub à l’aide de PowerShell](azure-stack-key-vault-manage-powershell.md)

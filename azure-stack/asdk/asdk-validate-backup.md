@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/11/2020
 ms.openlocfilehash: 268bef58cb4176909ec6a13029324b18de75b52d
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79512012"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Utiliser l’ASDK pour valider une sauvegarde Azure Stack
@@ -41,7 +41,7 @@ Le scénario suivant **n’est pas** pris en charge lors de la validation de sau
 ## <a name="cloud-recovery-deployment"></a>Déploiement de récupération cloud
 Vous pouvez valide les sauvegardes d’infrastructure de votre déploiement de systèmes intégrés en effectuant un déploiement de récupération cloud de l’ASDK. Dans ce type de déploiement, des données de service spécifiques sont restaurées à partir de la sauvegarde, une fois l’ASDK installé sur l’ordinateur hôte.
 
-### <a name="prereqs"></a>Prérequis de la récupération cloud
+### <a name="cloud-recovery-prerequisites"></a><a name="prereqs"></a>Prérequis de la récupération cloud
 Avant de commencer un déploiement de récupération cloud de l’ASDK, vérifiez que vous disposez des informations suivantes :
 
 **Exigences du programme d’installation de l’interface utilisateur**

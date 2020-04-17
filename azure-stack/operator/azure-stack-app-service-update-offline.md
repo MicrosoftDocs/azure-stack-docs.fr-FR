@@ -7,10 +7,10 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwe
 ms.openlocfilehash: 65fb8a0adebb73fa8740f41d50eb83f869ac534a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77700797"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack-hub"></a>Mise à jour hors connexion d’Azure App Service sur Azure Stack Hub
@@ -77,13 +77,13 @@ Pour mettre à niveau App Service dans un environnement déconnecté, vous devez
 
 5. Consultez et acceptez les termes du contrat de licence tiers, puis cliquez sur **Suivant**.
 
-6. Assurez-vous que le point de terminaison Azure Stack Hub Azure Resource Manager et les informations sur le locataire Active Directory sont corrects. Si vous avez utilisé les paramètres par défaut au cours du déploiement du Kit de développement Azure Stack, vous pouvez accepter les valeurs par défaut ici. Toutefois, si vous avez personnalisé les options lors du déploiement d'Azure Stack Hub, vous devez modifier les valeurs dans cette fenêtre. Par exemple, si vous utilisez le suffixe de domaine *mycloud.com*, vous devez modifier votre point de terminaison Azure Stack Hub Azure Resource Manager en le définissant sur *management.region.mycloud.com*. Après avoir confirmé vos informations, cliquez sur **suivant**.
+6. Assurez-vous que le point de terminaison Azure Stack Hub Azure Resource Manager et les informations sur le locataire Active Directory sont corrects. Si vous avez utilisé les paramètres par défaut au cours du déploiement du Kit de développement Azure Stack, vous pouvez accepter les valeurs par défaut ici. Toutefois, si vous avez personnalisé les options lors du déploiement d’Azure Stack Hub, vous devez modifier les valeurs dans cette fenêtre. Par exemple, si vous utilisez le suffixe de domaine *mycloud.com*, vous devez modifier votre point de terminaison Azure Stack Hub Azure Resource Manager en le définissant sur *management.region.mycloud.com*. Après avoir confirmé vos informations, cliquez sur **suivant**.
 
     ![Informations sur Azure Stack Hub Cloud][3]
 
 7. Sur la page suivante :
 
-   1. Sélectionnez la méthode de connexion que vous souhaitez utiliser : **Informations d'identification** ou **Principal de service**
+   1. Sélectionnez la méthode de connexion que vous souhaitez utiliser : **Informations d’identification** ou **Principal du service**
         - **Informations d'identification**
             - Si vous utilisez Azure Active Directory (Azure AD), entrez le compte et le mot de passe d'administrateur Azure AD que vous avez indiqués lors du déploiement d'Azure Stack Hub. Sélectionnez **Connecter**.
             - Si vous utilisez Active Directory Federation Services (AD FS), fournissez votre compte d’administrateur. Par exemple : cloudadmin@azurestack.local. Entrez votre mot de passe, puis sélectionnez **Se connecter**.

@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2019
 ms.openlocfilehash: 8aa33cda9a657d3e0bcec9525f86bd792c855e65
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77688761"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Ajouter des nœuds d’unité d’échelle dans Azure Stack Hub
@@ -120,16 +120,16 @@ L’état de l’unité d’échelle et des nœuds de l’unité d’échelle pe
 ## <a name="troubleshooting"></a>Dépannage
 Voici les problèmes couramment rencontrés lors de l’ajout d’un nœud. 
 
-**Scénario 1 :**  L'opération d'ajout de nœud d'unité d'échelle échoue, mais un ou plusieurs nœuds sont répertoriés avec l'état Arrêté.  
-- Correction : Exécutez l'opération de réparation afin de réparer un ou plusieurs nœuds. Il n’est possible d’effectuer qu’une seule opération de réparation à la fois.
+**Scénario 1 :** L’opération d’ajout de nœud d’unité d’échelle échoue, mais un ou plusieurs nœuds sont répertoriés dans la liste avec l’état Arrêté.  
+- Correction : Exécutez l’opération de réparation afin de réparer un ou plusieurs nœuds. Il n’est possible d’effectuer qu’une seule opération de réparation à la fois.
 
-**Scénario 2 :** Un ou plusieurs nœuds d'unité d'échelle ont été ajoutés, mais l'extension de stockage a échoué. Dans ce scénario, l’objet du nœud de l’unité d’échelle rapporte un état de fonctionnement, mais la tâche de configuration du stockage n’est pas lancée.  
-- Correction : Utilisez le point de terminaison privilégié pour vérifier l'intégrité du stockage en exécutant la cmdlet PowerShell suivante :
+**Scénario 2 :** Un ou plusieurs nœuds d’unité d’échelle ont été ajoutés, mais l’extension de stockage a échoué. Dans ce scénario, l’objet du nœud de l’unité d’échelle rapporte un état de fonctionnement, mais la tâche de configuration du stockage n’est pas lancée.  
+- Correction : Utilisez le point de terminaison privilégié pour examiner l’intégrité du stockage en exécutant la cmdlet PowerShell suivante :
   ```powershell
      Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
   ```
  
-**Scénario 3 :** Vous recevez une alerte indiquant que le travail de scale-out du stockage a échoué.  
+**Scénario 3 :** Vous recevez une alerte indiquant que la tâche d’échelle du stockage a échoué.  
 - Correction : Dans ce cas, la tâche de configuration du stockage a échoué. Ce problème nécessite que vous contactiez le support technique.
 
 

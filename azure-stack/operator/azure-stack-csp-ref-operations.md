@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
 ms.openlocfilehash: 72fdb2bf4d19291ff5b0a83c2233354bde4ec201
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79295532"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Inscrire des locataires pour un suivi de l’utilisation dans Azure Stack Hub
@@ -57,9 +57,9 @@ New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 
 ### <a name="api-call"></a>Appel d’API
 
-**Opération** : PUT  
+**Opération** : PUT  
 **RequestURI** : `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**Réponse**: 201 Créé  
+**Réponse** : 201 a été créé  
 **Corps de réponse** : Vide  
 
 ## <a name="list-all-registered-tenants"></a>Répertorier tous les locataires inscrits
@@ -89,9 +89,9 @@ Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 
 Vous pouvez obtenir une liste de tous les mappages de locataires à l’aide de l’opération GET.
 
-**Opération** : GET  
+**Opération** : GET  
 **RequestURI** : `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?api-version=2017-06-01 HTTP/1.1`  
-**Réponse**: 200  
+**Réponse** : 200  
 **Corps de réponse** :
 
 ```json
@@ -138,9 +138,9 @@ Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/r
 
 Vous pouvez supprimer des mappages de locataires à l’aide de l’opération DELETE.
 
-**Opération** : Suppression  
+**Opération** : DELETE  
 **RequestURI** : `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**Réponse**: 204 Pas de contenu  
+**Réponse**: 204, aucun contenu  
 **Corps de réponse** : Vide
 
 ## <a name="next-steps"></a>Étapes suivantes
