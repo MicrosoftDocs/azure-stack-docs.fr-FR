@@ -3,16 +3,16 @@ title: Notes de publication d’Azure Stack Hub
 description: Notes de publication des systèmes intégrés Azure Stack Hub, y compris les mises à jour et les correctifs de bogues.
 author: sethmanheim
 ms.topic: article
-ms.date: 03/20/2020
+ms.date: 04/10/2020
 ms.author: sethm
-ms.reviewer: prchint
+ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 33c620624feca5b2d416ff1173741209b99011cb
-ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
+ms.openlocfilehash: a522aee76cef06b49887aa9727651daf4efe506c
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80402818"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81243830"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Notes de publication d’Azure Stack Hub
 
@@ -87,7 +87,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 - Introduction d’un nouveau micro-service nommé DNS Orchestrator qui améliore la logique de résilience pour les services DNS internes au cours des mises à jour et des correctifs.
 - Ajout d’une nouvelle validation de demande visant à faire échouer les URI d’objet blob non valides pour le paramètre de compte de stockage de diagnostics de démarrage lors de la création de machines virtuelles.
 - Améliorations de la correction automatique et de la journalisation pour Rdagent et l’agent Host, deux services sur l’hôte qui facilitent les opérations CRUD de machine virtuelle.
-- Ajout d’une nouvelle fonctionnalité à la gestion de la marketplace qui permet d’empêcher les administrateurs de télécharger des produits de la marketplace qui ne sont pas compatibles avec leurs environnements Azure Stack, en raison de différents attributs, tels que la version Azure Stack ou le modèle de facturation.
+- Ajout d’une nouvelle fonctionnalité à la gestion de la Place de marché qui permet à Microsoft d’ajouter des attributs qui empêchent les administrateurs de télécharger des produits de la Place de marché qui ne sont pas compatibles avec leurs environnements Azure Stack, en raison de différents propriétés, comme la version Azure Stack ou le modèle de facturation. Seul Microsoft peut ajouter ces attributs. Pour plus d’informations, consultez [Utiliser le portail pour télécharger les éléments de la Place de marché](azure-stack-download-azure-marketplace-item.md#use-the-portal-to-download-marketplace-items).
 
 ### <a name="changes"></a>Modifications
 
@@ -109,7 +109,17 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
   | Microsoft.Backup.Admin | backupLocation         | 2016-05-01 |
   | Microsoft.Backup.Admin | backups                | 2016-05-01 |
   | Microsoft.Backup.Admin | opérations             | 2016-05-01 |
-  
+
+- Quand vous créez une machine virtuelle Windows à l’aide de PowerShell, veillez à ajouter l’indicateur `provisionvmagent` si vous souhaitez que la machine virtuelle déploie des extensions. Sans cet indicateur, la machine virtuelle est créée sans l’agent invité, ce qui supprime la possibilité de déployer les extensions de machine virtuelle :
+
+   ```powershell
+   $VirtualMachine = Set-AzureRmVMOperatingSystem `
+     -VM $VirtualMachine `
+     -Windows `
+     -ComputerName "MainComputer" `
+     -Credential $Credential -ProvisionVMAgent
+  ```
+
 ### <a name="fixes"></a>Correctifs
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
@@ -159,14 +169,14 @@ Les correctifs logiciels Azure Stack Hub s’appliquent uniquement aux systèmes
 La version 2002 d’Azure Stack Hub doit être appliquée sur la version 1910 avec les correctifs logiciels suivants :
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack Hub 1.1910.24.108](https://support.microsoft.com/help/4541350)
+- [Correctif logiciel Azure Stack Hub 1.1910.37.132](https://support.microsoft.com/help/4550133)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>Après l’application de la mise à jour 2002
 
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez notre [stratégie de maintenance](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- Aucun correctif Azure Stack Hub n’est disponible pour 2002.
+- [Correctif logiciel Azure Stack Hub 1.2002.19.73](https://support.microsoft.com/help/4557355)
 ::: moniker-end
 
 ::: moniker range="azs-1910"
@@ -326,14 +336,14 @@ Les correctifs logiciels Azure Stack Hub s’appliquent uniquement aux systèmes
 La version 1910 d’Azure Stack Hub doit être appliquée sur la version 1908 avec les correctifs logiciels suivants :
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack Hub 1.1908.19.62](https://support.microsoft.com/help/4541349)
+- [Correctif logiciel Azure Stack Hub 1.1908.25.78](https://support.microsoft.com/help/4552361)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>Après l’application de la mise à jour 1910
 
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez notre [stratégie de maintenance](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack Hub 1.1910.24.108](https://support.microsoft.com/help/4541350)
+- [Correctif logiciel Azure Stack Hub 1.1910.37.132](https://support.microsoft.com/help/4550133)
 ::: moniker-end
 
 ::: moniker range="azs-1908"
@@ -401,7 +411,7 @@ Les correctifs logiciels d’Azure Stack Hub s’appliquent uniquement aux syst�
 La version 1908 d’Azure Stack Hub doit être appliquée sur la version 1907 avec les correctifs logiciels suivants :
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack Hub 1.1907.26.70](https://support.microsoft.com/help/4541348)
+- [Correctif logiciel Azure Stack Hub 1.1907.29.80](https://support.microsoft.com/help/4555650)
 
 La mise à jour 1908 d’Azure Stack Hub nécessite la **version 2.1 ou ultérieure d’OEM pour Azure Stack Hub** du fournisseur de matériel de votre système. Les mises à jour OEM appliquent les mises à jour des pilotes et des microprogrammes aux composants matériels de votre système Azure Stack Hub. Pour plus d’informations sur l’application des mises à jour OEM, consultez [Appliquer des mises à jour de fabricants d’ordinateurs à Azure Stack Hub](azure-stack-update-oem.md)
 
@@ -410,7 +420,7 @@ La mise à jour 1908 d’Azure Stack Hub nécessite la **version 2.1 ou ultéri
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez notre [stratégie de maintenance](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack Hub 1.1908.19.62](https://support.microsoft.com/help/4541349)
+- [Correctif logiciel Azure Stack Hub 1.1908.25.78](https://support.microsoft.com/help/4552361)
 ::: moniker-end
 
 ::: moniker range="azs-1907"
@@ -534,7 +544,7 @@ La version 1907 d’Azure Stack Hub doit être appliquée sur la version 1906 
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez notre [stratégie de maintenance](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack Hub 1.1907.26.70](https://support.microsoft.com/help/4541348)
+- [Correctif logiciel Azure Stack Hub 1.1907.29.80](https://support.microsoft.com/help/4555650)
 ::: moniker-end
 
 ::: moniker range=">=azs-1907"

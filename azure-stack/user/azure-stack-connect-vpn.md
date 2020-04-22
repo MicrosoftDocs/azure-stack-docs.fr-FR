@@ -3,16 +3,16 @@ title: Connecter Azure Stack Hub à Azure à l’aide d’un VPN
 description: Découvrez comment connecter des réseaux virtuels Azure Stack Hub à des réseaux virtuels Azure à l’aide d’un VPN.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/22/2020
+ms.date: 04/07/2020
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2019
-ms.openlocfilehash: 13ac78c3f0a665e4319db4d3bf70b0274b5b8dd5
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: c745325c720ed37f93b12fee844a6ebc0b829cca
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704367"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80812439"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Connecter Azure Stack Hub à Azure à l’aide d’un VPN
 
@@ -112,6 +112,25 @@ Tout d’abord, créez les ressources réseau pour Azure. Les instructions ci-ap
    >Si vous utilisez une autre valeur pour la clé partagée, n’oubliez pas qu’elle doit correspondre à la valeur de la clé partagée que vous créez à l’autre extrémité de la connexion.
 
 10. Dans la section **Résumé**, vérifiez les paramètres, puis sélectionnez **OK**.
+
+## <a name="create-a-custom-ipsec-policy"></a>Créer une stratégie IPsec personnalisée
+
+Comme les paramètres par défaut Azure Stack Hub pour les stratégies IPSec ont changé pour les [builds 1910 et ultérieures](azure-stack-vpn-gateway-settings.md#ipsecike-parameters), une stratégie IPSec personnalisée est nécessaire pour qu’Azure corresponde à Azure Stack Hub.
+
+1. Créez une stratégie personnalisée :
+
+   ```powershell
+     $IPSecPolicy = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup ECP384  `
+     -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup ECP384 -SALifeTimeSeconds 27000 `
+     -SADataSizeKilobytes 102400000 
+   ```
+
+2. Appliquez la stratégie à la connexion :
+
+   ```powershell
+   $Connection = Get-AzVirtualNetworkGatewayConnection -Name myTunnel -ResourceGroupName myRG
+   Set-AzVirtualNetworkGatewayConnection -IpsecPolicies $IPSecPolicy -VirtualNetworkGatewayConnection $Connection
+   ```
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 

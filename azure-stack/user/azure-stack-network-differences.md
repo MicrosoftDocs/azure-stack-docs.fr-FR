@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 1845a25b0cd66168277e39026a3651e6638cf98c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: e1bdb6425848db2c796fed93520da3b5ef982ee3
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703908"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81274070"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Différences et considérations de mise en réseau Azure Stack Hub
 
@@ -38,9 +38,10 @@ Cet article fournit une vue d’ensemble des considérations propres à la mise 
 |  | Points de terminaison de service | Prise en charge d’une connexion interne (non Internet) vers les services Azure. | Pas encore pris en charge. |
 |  | Stratégies de points de terminaison de service | Prise en charge | Pas encore pris en charge. |
 |  | Tunnels de service | Prise en charge | Pas encore pris en charge.  |
-| Network Security Group | Règles de sécurité augmentée | Prise en charge | Pas encore pris en charge. |
+| Network Security Group | Règles de sécurité augmentée | Prise en charge | Pris en charge. |
 |  | Règles de sécurité effectives | Prise en charge | Pas encore pris en charge. |
 |  | Groupes de sécurité d’application | Prise en charge | Pas encore pris en charge. |
+|  | Protocoles de règle | TCP, UDP, ICMP, n’importe lequel | Uniquement TCP, UDP ou n’importe lequel |
 | Passerelles de réseau virtuel | Passerelle VPN de point à site | Prise en charge | Pas encore pris en charge. |
 |  | Passerelle de réseau virtuel à réseau virtuel | Prise en charge | Pas encore pris en charge. |
 |  | Type de passerelle de réseau virtuel | Azure prend en charge VPN<br> ExpressRoute <br> Hyper Net. | Actuellement, Azure Stack Hub prend uniquement en charge le type VPN. |

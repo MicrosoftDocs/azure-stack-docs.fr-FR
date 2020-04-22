@@ -1,20 +1,20 @@
 ---
-title: Considérations relatives à la création d’applications hybrides dans Azure et Azure Stack
-description: Considérations relatives à la création d’applications hybrides pour le cloud intelligent et la périphérie intelligente.
+title: Considérations sur la conception d’applications hybrides dans Azure et Azure Stack Hub
+description: Découvrez les considérations sur la conception qui doivent vous guider lors de la création d’une application hybride pour le cloud intelligent et la périphérie intelligente, relatives notamment au placement, à la scalabilité, à la disponibilité et à la résilience.
 author: BryanLa
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: adc185b290d0006ed3a32584a7e3d8473ba2aa6c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 8f37967534452c43788cbe0c40490ee4021ca5f0
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77689917"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80812333"
 ---
-# <a name="hybrid-application-design-considerations"></a>Considérations relatives à la création d’applications hybrides 
+# <a name="hybrid-app-design-considerations"></a>Considérations sur la conception d’applications hybrides
 
 Microsoft Azure est le seul cloud hybride cohérent. Il vous permet de réutiliser vos investissements en développement et de disposer d’applications couvrant le cloud Azure mondial, les clouds Azure souverains et Azure Stack, qui est une extension d’Azure dans votre centre de données. Les applications qui s’étendent sur des clouds sont également appelées *applications hybrides*.
 
@@ -24,27 +24,23 @@ Cet article complète les [*piliers de la qualité logicielle*](https://docs.mic
 
 Les scénarios hybrides varient considérablement avec les ressources qui sont disponibles pour le développement et englobent des considérations telles que la géographie, la sécurité, l’accès à Internet et bien d’autres. Ce guide ne peut certes pas énumérer vos considérations spécifiques, mais il peut fournir des recommandations clés et des bonnes pratiques à suivre. La réussite de la conception, de la configuration, du déploiement et de la maintenance d’une architecture d’application hybride implique de nombreuses considérations de conception qui vous sont probablement inconnues.
 
-Ce document a pour but d’agréger les éventuelles questions qui peuvent survenir durant l’implémentation d’applications hybrides. Il propose des considérations (piliers) et les bonnes pratiques liées à leur utilisation. En répondant à ces questions durant la phase de conception, vous éviterez les problèmes qu’ils peuvent provoquer en production.
+Ce document a pour but d’agréger les éventuelles questions qui peuvent survenir durant l’implémentation d’applications hybrides. Il propose des considérations (piliers) et les bonnes pratiques liées à leur utilisation. En répondant à ces questions durant la phase de conception, vous éviterez les problèmes qu’elles peuvent provoquer en production.
 
-Pour l’essentiel, il s’agit de questions que vous devez prendre en compte avant de créer une application hybride. Pour commencer, vous devez :
+Pour l’essentiel, il s’agit de questions que vous devez prendre en compte avant de créer une application hybride. Pour commencer, vous devez effectuer les opérations suivantes :
 
--   Identifier et évaluer les composants d’application
+- Identifier et évaluer les composants d’application
+- Évaluer les composants d’application par rapport aux piliers
 
--   Évaluer les composants d’application par rapport aux piliers
-
-## <a name="evaluate-the-application-components"></a>Évaluer les composants d’application
+## <a name="evaluate-the-app-components"></a>Évaluer les composants d’application
 
 Chaque composant d’une application a son propre rôle à l’échelle de l’application. Vous devez l’examiner en tenant compte de toutes les considérations relatives à la conception. Les exigences et les fonctionnalités de chaque composant doivent correspondre à ces considérations, ce qui permet de déterminer l’architecture de l’application.
 
-Décomposez votre application en composants, en étudiant son architecture et en déterminant son contenu. Les composants peuvent également inclure d’autres applications avec lesquelles votre application interagit. Au fur et à mesure que vous identifiez les composants, évaluez les opérations hybrides envisagées en fonction de leurs caractéristiques, par exemple :
+Décomposez votre application en composants, en étudiant son architecture et en déterminant son contenu. Les composants peuvent également inclure d’autres applications avec lesquelles votre application interagit. Au fur et à mesure que vous identifiez les composants, évaluez les opérations hybrides envisagées en fonction de leurs caractéristiques en vous posant les questions suivantes :
 
--   Quelle est la finalité du composant ?
+- Quelle est la finalité du composant ?
+- Quelles sont les interdépendances entre les composants ?
 
--   Quelles sont les interdépendances entre les composants ?
-
-Par exemple, une application peut avoir deux composants : un composant front-end et un composant back-end. Dans un scénario hybride, le composant front-end se trouve dans un cloud et le composant back-end se trouve dans l’autre. L'application
-
-fournit des canaux de communication non seulement entre le composant front-end et l’utilisateur mais également entre le composant front-end et le composant back-end.
+Par exemple, une application peut avoir deux composants : un composant front-end et un composant back-end. Dans un scénario hybride, le composant front-end se trouve dans un cloud et le composant back-end se trouve dans l’autre. L’application fournit des canaux de communication non seulement entre le composant front-end et l’utilisateur mais également entre le composant front-end et le composant back-end.
 
 Un composant d’application est défini par de nombreuses formes et de nombreux scénarios. La tâche la plus importante consiste à les identifier, et à identifier leur emplacement dans le cloud ou leur emplacement local.
 
@@ -52,11 +48,10 @@ Les composants d’application usuels à inclure dans votre inventaire sont list
 
 ### <a name="table-1-common-app-components"></a>Tableau 1. Composants d’application usuels
 
-
 | **Composant** | **Aide relative aux applications hybrides** |
 | ---- | ---- |
-| Connexions clientes | Votre application (quel que soit l’appareil) est accessible aux utilisateurs de différentes manières, à partir d’un seul point d’entrée, notamment dans les cas suivants :<br>-   Un modèle client-serveur dans lequel l’utilisateur doit installer un client pour le faire fonctionner avec l’application. Une application serveur accessible à partir d’un navigateur web.<br>-   Les connexions clientes peuvent inclure des notifications quand la connexion est interrompue, ou des alertes quand des frais d’itinérance peuvent s’appliquer. |
-| Authentication  | Une authentification peut être obligatoire pour un utilisateur qui se connecte à l’application, ou pour un composant qui se connecte à un autre. |
+| Connexions clientes | Votre application (quel que soit l’appareil) est accessible aux utilisateurs de différentes manières, à partir d’un seul point d’entrée, notamment des manières suivantes :<br>-   Un modèle client-serveur dans lequel l’utilisateur doit installer un client pour le faire fonctionner avec l’application. Une application serveur accessible à partir d’un navigateur.<br>-   Les connexions clientes peuvent inclure des notifications quand la connexion est interrompue, ou des alertes quand des frais d’itinérance peuvent s’appliquer. |
+| Authentification  | Une authentification peut être obligatoire pour un utilisateur qui se connecte à l’application, ou pour un composant qui se connecte à un autre. |
 | API  | Vous pouvez fournir aux développeurs un accès programmatique à votre application avec des ensembles d’API et des bibliothèques de classes. De plus, vous pouvez proposer une interface de connexion basée sur les normes Internet. Vous pouvez également utiliser des API pour décomposer une application en unités logiques de fonctionnement indépendantes. |
 | Services  | Vous pouvez utiliser des services succincts pour fournir les fonctionnalités d’une application. Un service peut être le moteur sur lequel l’application s’exécute. |
 | Files d’attente | Vous pouvez utiliser des files d’attente pour organiser le statut des cycles de vie et des états des composants de votre application. Ces files d’attente peuvent fournir des fonctionnalités de messagerie, de notification et de mise en mémoire tampon aux parties abonnées. |
@@ -86,12 +81,12 @@ Le placement, par exemple le choix du centre de données, est au cœur des consi
 
 Le placement est une tâche importante qui consiste à positionner les composants pour qu’ils puissent servir au mieux une application hybride. Par définition, les applications hybrides couvrent plusieurs emplacements allant du local au cloud et incluant différents clouds. Vous pouvez placer les composants de l’application dans des clouds de deux façons :
 
--   **Applications hybrides verticales**  
+- **Applications hybrides verticales**  
     Les composants d’application sont répartis entre différents emplacements. Chaque composant individuel peut avoir plusieurs instances situées à un seul emplacement.
 
--   **Applications hybrides horizontales**  
+- **Applications hybrides horizontales**  
     Les composants d’application sont répartis entre différents emplacements. Chaque composant individuel peut avoir plusieurs instances couvrant plusieurs emplacements.
-    
+
     Certains composants peuvent connaître leur emplacement, tandis que d’autres ignorent leur emplacement et leur placement. Cela est rendu possible grâce à une couche d’abstraction. Cette couche, avec un framework d’application moderne tel que celui des microservices, peut définir la manière dont l’application est servie par le placement des composants d’application fonctionnant sur les nœuds de différents clouds.
 
 ### <a name="placement-checklist"></a>Liste de contrôle de placement
@@ -114,13 +109,13 @@ Le placement est une tâche importante qui consiste à positionner les composant
 
 La scalabilité est la capacité d’un système à gérer une charge accrue sur une application, ce qui peut varier au fil du temps, car d’autres facteurs et d’autres forces affectent la taille de l’audience ainsi que la taille et l’étendue de l’application.
 
-Pour plus d’informations sur ce pilier, consultez [*Scalabilité*](https://docs.microsoft.com/azure/architecture/guide/pillars#scalability) dans la description des piliers de la qualité logicielle.
+Pour plus d’informations sur ce pilier, consultez [*Scalabilité*](https://docs.microsoft.com/azure/architecture/guide/pillars#scalability) dans la description des cinq piliers de l’excellence architecturale.
 
 Une approche basée sur une mise à l’échelle horizontale pour les applications hybrides permet d’ajouter plus d’instances afin de répondre à la demande, puis de les désactiver pendant les périodes plus calmes.
 
 Dans les scénarios hybrides, le scale-out des composants individuels nécessite une attention supplémentaire quand ces composants sont répartis sur différents clouds. La mise à l’échelle d’une partie de l’application peut nécessiter la mise à l’échelle d’une autre partie. Par exemple, si le nombre de connexions clientes augmente mais que les services web de l’application ne font pas l’objet d’un scale out approprié, la charge de la base de données peut saturer l’application.
 
-Certains composants d’application peuvent faire l’objet d’un scale out de manière linéaire, tandis que d’autres ont des dépendances de mise à l’échelle et peuvent être limités par l’étendue de ce dernier. Par exemple, un tunnel VPN fournissant une connectivité hybride pour les emplacements des composants d’application a une limite de scalabilité en ce qui concerne la bande passante et la latence. Comment est effectuée la mise à l’échelle des composants de l’application pour garantir le respect de ces exigences ?
+Certains composants d’application peuvent faire l’objet d’un scale-out de manière linéaire, tandis que d’autres ont des dépendances de mise à l’échelle et peuvent être limités par l’étendue de ce dernier. Par exemple, un tunnel VPN fournissant une connectivité hybride pour les emplacements des composants d’application a une limite de scalabilité en ce qui concerne la bande passante et la latence. Comment est effectuée la mise à l’échelle des composants de l’application pour garantir le respect de ces exigences ?
 
 ### <a name="scalability-checklist"></a>Liste de contrôle de l’extensibilité
 
@@ -130,19 +125,17 @@ Certains composants d’application peuvent faire l’objet d’un scale out de 
 
 **Utiliser un système de supervision centralisé.** Les fonctionnalités de supervision de plateforme peuvent fournir une mise à l’échelle automatique. Toutefois, les applications hybrides ont besoin d’un système de supervision centralisé qui agrège l’intégrité et la charge du système. Un système de supervision centralisé peut lancer la mise à l’échelle d’une ressource à un emplacement et la mise à l’échelle d’une ressource dépendante à un autre emplacement. De plus, un système de supervision central peut suivre les clouds qui effectuent une mise à l’échelle automatique des ressources et les clouds qui n’en font pas.
 
-**Exploiter les fonctionnalités de mise à l’échelle automatique (en fonction des disponibilités).** Si les fonctionnalités de mise à l’échelle automatique font partie de votre architecture, vous implémentez la mise à l’échelle automatique en configurant des seuils qui définissent le moment où un composant d’application doit faire l’objet d’un scale up, d’un scale out, d’un scale down ou d’un scale in. Voici un exemple de mise à l’échelle automatique : une connexion cliente fait l’objet d’une mise à l’échelle automatique dans un cloud pour permettre la gestion d’un accroissement de capacité. Toutefois, cela entraîne également la mise à l’échelle d’autres dépendances de l’application, réparties sur différents clouds. Les fonctionnalités de mise à l’échelle automatique de ces composants dépendants doivent être vérifiées.
+**Exploiter les fonctionnalités de mise à l’échelle automatique (en fonction des disponibilités).** Si les fonctionnalités de mise à l’échelle automatique font partie de votre architecture, vous implémentez la mise à l’échelle automatique en configurant des seuils qui définissent le moment où un composant d’application doit faire l’objet d’un scale-up, d’un scale-out, d’un scale-down ou d’un scale-in. Voici un exemple de mise à l’échelle automatique : une connexion cliente fait l’objet d’une mise à l’échelle automatique dans un cloud pour permettre la gestion d’un accroissement de capacité. Toutefois, cela entraîne également la mise à l’échelle d’autres dépendances de l’application, réparties sur différents clouds. Les fonctionnalités de mise à l’échelle automatique de ces composants dépendants doivent être vérifiées.
 
 Si la mise à l’échelle automatique n’est pas disponible, implémentez des scripts et d’autres ressources pour permettre une mise à l’échelle manuelle, déclenchée par les seuils définis dans le système de supervision centralisé.
 
-**Déterminer la charge attendue en fonction de l’emplacement.** Il arrive que les applications hybrides qui gèrent les requêtes des clients reposent principalement sur un seul emplacement. Quand la charge des requêtes des clients dépasse un seuil,
-
-vous pouvez ajouter des ressources supplémentaires à un autre emplacement pour répartir la charge des requêtes entrantes. Vérifiez que les connexions clientes peuvent gérer les charges accrues, et déterminez également des procédures automatisées pour permettre aux connexions clientes de gérer la charge.
+**Déterminer la charge attendue en fonction de l’emplacement.** Il arrive que les applications hybrides qui gèrent les requêtes des clients reposent principalement sur un seul emplacement. Quand la charge des requêtes des clients dépasse un seuil, vous pouvez ajouter des ressources supplémentaires à un autre emplacement pour répartir la charge des requêtes entrantes. Vérifiez que les connexions clientes peuvent gérer les charges accrues, et déterminez également des procédures automatisées pour permettre aux connexions clientes de gérer la charge.
 
 ## <a name="availability"></a>Disponibilité
 
 La disponibilité est la durée pendant laquelle un système est fonctionnel et opérationnel. La disponibilité est mesurée en pourcentage de la durée de fonctionnement. Les erreurs d’application, les problèmes d’infrastructure et la charge système peuvent réduire la disponibilité.
 
-Pour plus d’informations sur ce pilier, consultez [*Disponibilité*](/azure/architecture/framework/) dans la description des piliers de la qualité logicielle.
+Pour plus d’informations sur ce pilier, consultez [*Disponibilité*](/azure/architecture/framework/) dans la description des cinq piliers de l’excellence architecturale.
 
 ### <a name="availability-checklist"></a>Liste de contrôle de disponibilité
 
@@ -162,7 +155,7 @@ Pour plus d’informations sur ce pilier, consultez [*Disponibilité*](/azure/ar
 
 La résilience est la capacité d’un système et d’une application hybrides à effectuer une reprise d’activité et à continuer de fonctionner. L’objectif de la résilience est que l’application retrouve un état entièrement fonctionnel suite à une défaillance. Les stratégies de résilience incluent des solutions telles que la sauvegarde, la réplication et la reprise d’activité après sinistre.
 
-Pour plus d’informations sur ce pilier, consultez [*Résilience*](https://docs.microsoft.com/azure/architecture/guide/pillars#resiliency) dans la description des piliers de la qualité logicielle.
+Pour plus d’informations sur ce pilier, consultez [*Résilience*](https://docs.microsoft.com/azure/architecture/guide/pillars#resiliency) dans la description des cinq piliers de l’excellence architecturale.
 
 ### <a name="resiliency-checklist"></a>Liste de vérification de résilience
 
@@ -186,7 +179,7 @@ Pour plus d’informations sur ce pilier, consultez [*Résilience*](https://docs
 
 Les considérations relatives à la gestion de vos applications hybrides sont essentielles pour la conception de votre architecture. Une application hybride correctement managée fournit une infrastructure sous forme de code qui permet l’intégration d’un code d’application cohérent dans un pipeline de développement commun. En implémentant des tests cohérents, que ce soit à l’échelle du système ou au niveau individuel, pour les changements apportés à l’infrastructure, vous pouvez garantir un déploiement intégré si ces changements passent les tests avec succès. Ainsi, ils pourront être fusionnés dans le code source.
 
-Pour plus d’informations sur ce pilier, consultez [*DevOps*](/azure/architecture/framework/#devops) dans la description des piliers de la qualité logicielle.
+Pour plus d’informations sur ce pilier, consultez [*DevOps*](/azure/architecture/framework/#devops) dans la description des cinq piliers de l’excellence architecturale.
 
 ### <a name="manageability-checklist"></a>Liste de contrôle de gestion
 
@@ -208,7 +201,7 @@ Déterminez les parties de l’application à superviser.
 
 La sécurité est l’une des principales préoccupations de toute application cloud. Elle l’est encore plus pour les applications cloud hybrides.
 
-Pour plus d’informations sur ce pilier, consultez [*Sécurité*](https://docs.microsoft.com/azure/architecture/guide/pillars#security) dans la description des piliers de la qualité logicielle.
+Pour plus d’informations sur ce pilier, consultez [*Sécurité*](https://docs.microsoft.com/azure/architecture/guide/pillars#security) dans la description des cinq piliers de l’excellence architecturale.
 
 ### <a name="security-checklist"></a>Liste de contrôle de sécurité
 
@@ -228,7 +221,7 @@ Pour plus d’informations sur ce pilier, consultez [*Sécurité*](https://docs.
 
 ## <a name="summary"></a>Résumé
 
-Cet article fournit une liste de contrôle des éléments importants à prendre en compte durant la création et de la conception de vos applications hybrides. Passez en revue ces piliers avant de déployer votre application. Ainsi, vous pourrez éviter les problèmes évoqués en cas d’interruption de production, et vous n’aurez pas à revoir éventuellement votre conception.
+Cet article fournit une liste de contrôle des éléments importants à prendre en compte durant la création et la conception de vos applications hybrides. Passez en revue ces piliers avant de déployer votre application. Ainsi, vous pourrez éviter les problèmes évoqués en cas d’interruption de production, et vous n’aurez pas à revoir éventuellement votre conception.
 
 Cela peut sembler une tâche laborieuse au premier abord, mais vous obtiendrez facilement un retour sur investissement si vous concevez votre application en fonction de ces piliers.
 
@@ -236,6 +229,6 @@ Cela peut sembler une tâche laborieuse au premier abord, mais vous obtiendrez f
 
 Pour plus d’informations, consultez les ressources suivantes :
 
--   [Cloud hybride](https://azure.microsoft.com/overview/hybrid-cloud/)
--   [Applications cloud hybrides](https://azure.microsoft.com/solutions/hybrid-cloud-app/)
--   [Développer des modèles Azure Resource Manager pour la cohérence du cloud](https://aka.ms/consistency)
+- [Cloud hybride](https://azure.microsoft.com/overview/hybrid-cloud/)
+- [Applications cloud hybrides](https://azure.microsoft.com/solutions/hybrid-cloud-app/)
+- [Développer des modèles Azure Resource Manager pour la cohérence du cloud](https://aka.ms/consistency)

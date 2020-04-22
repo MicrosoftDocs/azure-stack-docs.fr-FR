@@ -1,18 +1,18 @@
 ---
-title: Modèle de création d’une application qui effectue une mise à l’échelle multicloud, sur Azure et Azure Stack Hub.
-description: Découvrez comment utiliser Azure et Azure Stack Hub pour créer une application multicloud scalable.
+title: Modèle de mise à l’échelle multicloud dans Azure Stack Hub
+description: Découvrez comment créer une application multicloud scalable sur Azure et Azure Stack Hub.
 author: BryanLa
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 4d997735cdef07d1a0b8aeafe99fed9ee6155c82
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: a830f96e97c347cbbcc09a1b17f4836ecb6eb3e6
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77689458"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80891026"
 ---
 # <a name="cross-cloud-scaling-pattern"></a>Modèle de mise à l’échelle multicloud
 
@@ -39,41 +39,51 @@ Le modèle de mise à l’échelle multicloud étend une application située dan
 
 Le modèle de mise à l’échelle multicloud inclut les composants suivants.
 
-**Traffic Manager**  
+### <a name="outside-the-cloud"></a>En dehors du cloud
+
+#### <a name="traffic-manager"></a>Traffic Manager
 
 Dans le diagramme, il se situe en dehors du groupe de clouds publics, mais il doit pouvoir coordonner le trafic dans le centre de données local et dans le cloud public. L’équilibreur offre une haute disponibilité pour l’application en supervisant les points de terminaison et en assurant la redistribution du basculement en cas de besoin.
 
-**DNS (Domain Name System)**  
+#### <a name="domain-name-system-dns"></a>DNS (Domain Name System)
 
 Le DNS (Domain Name System) se charge de traduire (ou résoudre) un nom de site web ou de service en une adresse IP.
 
 ### <a name="cloud"></a>Cloud
 
-**Serveur de builds hébergé**  
+#### <a name="hosted-build-server"></a>Serveur de builds hébergé
+
 Environnement d’hébergement de votre pipeline de build.
 
-**Ressources d’application**  
-Les ressources d’application doivent pouvoir faire l’objet d’un scale in et d’un scale out, à l’image des groupes de machines virtuelles identiques et des conteneurs.
+#### <a name="app-resources"></a>Ressources d’application
 
-**Nom de domaine personnalisé**  
+Les ressources d’application doivent pouvoir effectuer un scale-in et un scale-out, à l’image des groupes de machines virtuelles identiques et des conteneurs.
+
+#### <a name="custom-domain-name"></a>Nom de domaine personnalisé
+
 Utilisez un nom de domaine personnalisé pour le Glob de routage des requêtes.
 
-**Adresses IP publiques**  
+#### <a name="public-ip-addresses"></a>Adresses IP publiques
+
 Les adresses IP publiques sont utilisées pour router le trafic entrant via Traffic Manager vers le point de terminaison des ressources d’application du cloud public.  
 
 ### <a name="local-cloud"></a>Cloud local
 
-**Serveur de builds hébergé**  
+#### <a name="hosted-build-server"></a>Serveur de builds hébergé
+
 Environnement d’hébergement de votre pipeline de build.
 
-**Ressources d’application**  
-Les ressources d’application doivent pouvoir faire l’objet d’un scale-in et d’un scale-out, à l’image des groupes de machines virtuelles identiques et des conteneurs.
+#### <a name="app-resources"></a>Ressources d’application
 
-**Nom de domaine personnalisé**  
+Les ressources d’application doivent pouvoir effectuer un scale-in et un scale-out, à l’image des groupes de machines virtuelles identiques et des conteneurs.
+
+#### <a name="custom-domain-name"></a>Nom de domaine personnalisé
+
 Utilisez un nom de domaine personnalisé pour le Glob de routage des requêtes.
 
-**Adresses IP publiques**  
-Les adresses IP publiques sont utilisées pour router le trafic entrant via Traffic Manager vers le point de terminaison des ressources d’application du cloud public. 
+#### <a name="public-ip-addresses"></a>Adresses IP publiques
+
+Les adresses IP publiques sont utilisées pour router le trafic entrant via Traffic Manager vers le point de terminaison des ressources d’application du cloud public.
 
 ## <a name="issues-and-considerations"></a>Problèmes et considérations
 
@@ -108,8 +118,9 @@ Ce modèle n’est pas recommandé quand :
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur les sujets abordés dans cet article :
+
 - Pour en savoir plus sur le fonctionnement de cet équilibreur de charge du trafic basé sur DNS, consultez la [présentation d’Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview).
-- Consultez [Considérations relatives à la conception des applications hybrides](overview-app-design-considerations.md) pour en savoir plus sur les meilleures pratiques et obtenir des réponses à d'autres questions.
-- Consultez [Famille de produits et de solutions Azure Stack](/azure-stack) pour en savoir plus sur l'ensemble du portefeuille de produits et de solutions.
+- Consultez [Considérations relatives à la conception des applications hybrides](overview-app-design-considerations.md) pour en savoir plus sur les bonnes pratiques et obtenir des réponses à d’autres questions.
+- Consultez [Famille de produits et de solutions Azure Stack](/azure-stack) pour en savoir plus sur l’ensemble du portefeuille de produits et de solutions.
 
 Lorsque vous êtes prêt à tester l’exemple de solution, poursuivez avec le [Guide de déploiement de la solution de mise à l’échelle multicloud](solution-deployment-guide-cross-cloud-scaling.md). Ce guide de déploiement fournit des instructions pas à pas sur le déploiement et sur le test de ses composants. Découvrez comment créer une solution multicloud pour fournir un processus déclenché manuellement permettant de passer d’une application web hébergée sur Azure Stack Hub à une application web hébergée sur Azure. Découvrez également comment utiliser la mise à l’échelle automatique via Traffic Manager, en garantissant un utilitaire cloud flexible et scalable en cas de charge.

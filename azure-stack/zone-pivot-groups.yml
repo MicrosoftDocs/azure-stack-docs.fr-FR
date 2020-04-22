@@ -1,0 +1,17 @@
+### YamlMime:ZonePivotGroups
+groups:
+- id: state-connected-disconnected
+  title: État du réseau
+  prompt: Choisir un modèle de connexion pour le déploiement
+  pivots:
+  - id: state-connected
+    title: Connecté
+  - id: state-disconnected
+    title: Déconnecté
+metadata:
+  ms.openlocfilehash: dab1da09224730a6ed2da6b0b3a021212e9a79f5
+  ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81308279"

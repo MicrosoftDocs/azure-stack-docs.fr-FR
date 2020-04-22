@@ -1,18 +1,18 @@
 ---
-title: Modèle DevOps pour la périphérie intelligente utilisant Azure et Azure Stack Hub.
-description: En savoir plus sur le modèle DevOps pour la périphérie intelligente utilisant Azure et Azure Stack Hub.
+title: Modèle DevOps dans Azure Stack Hub
+description: Découvrez le modèle DevOps afin de pouvoir garantir la cohérence entre les déploiements dans Azure et Azure Stack Hub.
 author: BryanLa
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ebd9925b471d46dc67df29557f677b43d0221a1d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 306cc9604a8e919724f9f76b7e5122d534d2d1ae
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77689543"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80812292"
 ---
 # <a name="devops-pattern"></a>Modèle DevOps
 
@@ -40,7 +40,7 @@ L’utilisation d’un pipeline de mise en production DevOps vous aide à :
 
 ## <a name="issues-and-considerations"></a>Problèmes et considérations
 
-Le modèle DevOps est destiné à assurer la cohérence entre les déploiements, quel que soit l’environnement cible. Toutefois, les fonctionnalités varient selon les environnements cloud et locaux. Tenez compte des éléments suivants :
+Le modèle DevOps est destiné à assurer la cohérence entre les déploiements, quel que soit l’environnement cible. Toutefois, les fonctionnalités varient selon les environnements cloud et locaux. Observez les points suivants :
 
 - Les fonctions, les points de terminaison, les services et autres ressources de votre déploiement sont-ils disponibles dans les emplacements de déploiement cibles ?
 - Les artefacts de configuration sont-ils stockés dans des emplacements accessibles parmi les différents clouds ?
@@ -59,9 +59,9 @@ Les systèmes d’automation du déploiement constituent le point de contrôle c
 
 Dans le contexte d’un modèle DevOps, la disponibilité signifie la capacité à récupérer les informations d’état associées à votre workflow, par exemple les résultats des tests, les dépendances du code ou d’autres artefacts. Pour évaluer les exigences de disponibilité, tenez compte des deux mesures courantes :
 
--   Le RTO (objectif de délai de récupération) spécifie la durée pendant laquelle vous pouvez vous passer d’un système.
+- Le RTO (objectif de délai de récupération) spécifie la durée pendant laquelle vous pouvez vous passer d’un système.
 
--   Le RPO (objectif de point de récupération) indique la quantité de données que vous pouvez vous permettre de perdre si une interruption de service affecte le système.
+- Le RPO (objectif de point de récupération) indique la quantité de données que vous pouvez vous permettre de perdre si une interruption de service affecte le système.
 
 Dans la pratique, le RTO et le RPO impliquent une redondance et une sauvegarde. Dans le cloud Azure mondial, la disponibilité n’est pas une question de récupération du matériel, elle fait partie intégrante d’Azure. Vous devez plutôt assurer la maintenance de l’état de vos systèmes DevOps. Avec Azure Stack Hub, la récupération du matériel peut être un facteur à prendre en compte.
 
@@ -82,13 +82,14 @@ Utilisez ce modèle si :
 
 Ce modèle n’est pas recommandé :
 
-- Si vous ne pouvez pas automatiser les tâches relatives à l’infrastructure, au provisionnement des ressources, à la configuration, aux identités et à la sécurité
-- Si les équipes n’ont pas accès aux ressources cloud hybrides pour implémenter une approche CI/CD (intégration continue/développement continu)
+- Si vous ne pouvez pas automatiser les tâches relatives à l’infrastructure, au provisionnement des ressources, à la configuration, aux identités et à la sécurité.
+- Si les équipes n’ont pas accès aux ressources cloud hybrides pour implémenter une approche CI/CD (intégration continue/développement continu).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur les sujets abordés dans cet article :
+
 - Consultez la documentation [Azure DevOps](/azure/devops) pour en savoir plus sur Azure DevOps et les outils associés, notamment Azure Repos et Azure Pipelines.
-- Consultez [Famille de produits et de solutions Azure Stack](/azure-stack) pour en savoir plus sur l'ensemble du portefeuille de produits et de solutions.
+- Consultez [Famille de produits et de solutions Azure Stack](/azure-stack) pour en savoir plus sur l’ensemble du portefeuille de produits et de solutions.
 
 Lorsque vous êtes prêt à tester l’exemple de solution, poursuivez avec le [Guide de déploiement d’une solution CI/CD hybride DevOps](https://aka.ms/hybriddevopsdeploy). Ce guide de déploiement fournit des instructions pas à pas sur le déploiement et sur le test de ses composants. Découvrez comment déployer une application sur Azure et Azure Stack Hub à l’aide d’un pipeline d’intégration continue/de livraison continue (CI/CD) hybride.

@@ -1,5 +1,6 @@
 ---
 title: Différences et points à connaître sur le stockage Azure Stack Hub
+titleSuffix: Azure Stack Hub
 description: Découvrez les différences entre le stockage Azure Stack Hub et le stockage Azure, ainsi que les points à prendre en compte lorsque vous déployez Azure Stack Hub.
 author: mattbriggs
 ms.topic: conceptual
@@ -7,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: 3f5701cbb601b82db3b802bfd602c53576230b6f
-ms.sourcegitcommit: f114e9d268a74fde6891180b80c74c148dc0a129
+ms.openlocfilehash: 47e8935e67185b91b73591a28ba3e453e827e708
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80530760"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81394967"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Stockage Azure Stack Hub : Différences et considérations
 
@@ -24,35 +25,26 @@ Cet article récapitule les différences connues entre le stockage Azure Stack H
 
 | Fonctionnalité | Azure (global) | Azure Stack Hub |
 | --- | --- | --- |
-|Stockage Fichier|Partages de fichiers SMB sur le cloud pris en charge|Pas encore pris en charge
+|Stockage Fichier|Partages de fichiers SMB sur le cloud pris en charge. | Pas encore pris en charge.
 |Chiffrement du service de stockage Azure pour les données au repos|Chiffrement AES 256 bits. Prise en charge du chiffrement à l’aide de clés gérées par le client dans Azure Key Vault.|Chiffrement AES 128 bits BitLocker. Le chiffrement à l’aide de clés gérées par le client n’est pas pris en charge.
-|Type de compte de stockage|Comptes de stockage V1, V2 et d’objets blob universels|Comptes de stockage à usage général V1 uniquement
-|Options de réplication|Stockage localement redondant, stockage géoredondant, stockage géoredondant avec accès en lecture et stockage redondant interzone|Stockage localement redondant.
+|Type de compte de stockage|Comptes de stockage V1, V2 et Blob universels. |Comptes de stockage à usage général V1 uniquement
+|Options de réplication|Stockage localement redondant, stockage géoredondant, stockage géoredondant avec accès en lecture et stockage redondant interzone. |Stockage localement redondant.
 |Stockage Premium|Fournit des performances élevées et un stockage à faible latence. Seuls sont pris en charge les objets blob de pages dans les comptes de stockage Premium.|Peut être approvisionné, mais sans limite ni garantie de performances. Ne bloque pas l’utilisation d’objets blob de blocs, d’objets blob d’ajout, de tables et de files d’attente dans les comptes de stockage Premium.
-|Disques managés|Premium et standard pris en charge|Pris en charge lorsque vous utilisez la version 1808 ou ultérieure.
-|Captures instantanées de disque managé|Disponibilité générale|Pris en charge.
-|Instantanés incrémentiels de disque managé|Disponibilité générale|Pas encore pris en charge.
-|Captures instantanées de disques managés pour la machine virtuelle en cours d’exécution|Disponibilité générale|Pas encore pris en charge.
-|Nom de l’objet blob|1 024 caractères (2 048 octets)|880 caractères (1 760 octets)
-|Taille maximale d’un objet blob de blocs|4,75 To (100 Mo X 50 000 blocs)|4,75 To (100 Mo x 50 000 blocs) pour la mise à jour 1802 ou une version plus récente. 50 000 x 4 Mo (environ 195 Go) pour les versions précédentes.
-|Copie d’instantané d’objet blob de pages|Prise en charge des disques de machine virtuelle non gérés par Sauvegarde Azure attachés à une machine virtuelle en fonctionnement|Prise en charge dans l’[API en tant qu’opération asynchrone](azure-stack-acs-differences.md).
-|Copie d’instantané incrémentiel d’objet blob de pages|Objets blob de pages Azure Premium et standard pris en charge|Pas encore pris en charge.
+|Disques managés|Premium et standard pris en charge. |Pris en charge lorsque vous utilisez la version 1808 ou ultérieure.
+|Nom de l’objet blob|1 024 caractères (2 048 octets). |880 caractères (1 760 octets).
+|Taille maximale d’un objet blob de blocs|4,75 To (100 Mo X 50 000 blocs). |4,75 To (100 Mo x 50 000 blocs) pour la mise à jour 1802 ou une version plus récente. 50 000 x 4 Mo (environ 195 Go) pour les versions précédentes.
+|Copie d’instantané d’objet blob de pages|Prise en charge des disques de machine virtuelle non gérés par Sauvegarde Azure attachés à une machine virtuelle en fonctionnement. |Pas encore pris en charge.
+|Copie d’instantané incrémentiel d’objet blob de pages|Objets blob de pages Azure Premium et standard pris en charge. |Pas encore pris en charge.
 |Facturation d’objet blob de pages|Des frais sont liés aux pages uniques, qu’elles soient dans l’objet blob ou dans la capture instantanée. Il n’y a aucuns frais supplémentaires pour les captures instantanées associées à un objet blob jusqu’à ce que l’objet blob de base soit mis à jour.|Des frais sont liés à l’objet blob de base et les captures instantanées associées. Il y a des frais supplémentaires pour chaque capture instantanée individuelle.
 |Niveaux de stockage pour le Stockage Blob|Niveaux de stockage chaud, à froid et archivage.|Pas encore pris en charge.
-|Suppression réversible pour le Stockage Blob|Disponibilité générale|Pas encore pris en charge.
-|Taille maximale d’un objet blob de pages|8 To|1 To
-|Taille de page d’un objet blob de pages|512 octets|4 Ko
-|Taille de la clé de ligne et de la clé de partition de table|1 024 caractères (2 048 octets)|400 caractères (800 octets)
+|Suppression réversible pour le Stockage Blob|Disponibilité générale. |Pas encore pris en charge.
+|Taille maximale d’un objet blob de pages|8 To. |1 To. 
+|Taille de page d’un objet blob de pages|512 octets. |4 Ko. 
+|Taille de la clé de ligne et de la clé de partition de table|1 024 caractères (2 048 octets).|400 caractères (800 octets).
 |Instantané d’objet blob|Le nombre maximal d’instantanés d’un objet blob n’est pas limité.|Le nombre maximum d’instantanés d’un objet blob est de 1 000.
-|Azure AD Authentication pour le stockage|Disponibilité générale|Pas encore pris en charge.
-|Objets blob immuables|Disponibilité générale|Pas encore pris en charge.
-|Règles de pare-feu et de réseau virtuel pour le stockage|Disponibilité générale|Pas encore pris en charge.|
-|Mapper un domaine personnalisé à un point de terminaison de stockage Blob|Disponibilité générale|Pas encore pris en charge.|
-|Hébergement de sites web statiques dans le stockage Blob|Disponibilité générale|Pas encore pris en charge.|
-|Chiffrer des données de stockage au repos avec des clés gérées par le client|Disponibilité générale|Pas encore pris en charge.|
-|Vérifier l’intégrité des données transactionnelles avec le hachage CRC64|Disponibilité générale|Pas encore pris en charge.|
-|Copie synchrone des données côté serveur à partir de l’URL|Disponibilité générale|Pas encore pris en charge.|
-|API de lot pour le stockage Blob|Disponibilité générale|Pas encore pris en charge.|
+|Azure AD Authentication pour le stockage|En préversion. |Pas encore pris en charge.
+|Objets blob immuables|Disponibilité générale. |Pas encore pris en charge.
+|Règles de pare-feu et de réseau virtuel pour le stockage|Disponibilité générale. |Pas encore pris en charge.|
 
 Il existe également des différences sur le plan des métriques de stockage :
 
@@ -103,13 +95,12 @@ Versions antérieures :
 
 ## <a name="powershell-version"></a>Version de PowerShell
 
-Pour le module de stockage PowerShell, tenez compte de la version compatible avec l'API REST. 
+Pour le module de stockage PowerShell, tenez compte de la version compatible avec l’API REST.
 
 | Module | Version prise en charge | Usage |
-|----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure.Storage | [4.5.0](https://www.powershellgallery.com/packages/Azure.Storage/4.5.0) | Gère les objets blob, les files d'attente et les tables dans les comptes de stockage Azure Stack Hub |
-| AzureRM.Storage | [5.0.4](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.4) | Crée et gère des comptes de stockage dans Azure Stack Hub |
-
+|---|---|---|
+| Azure.Storage | [4.5.0](https://www.powershellgallery.com/packages/Azure.Storage/4.5.0) | Gère les objets blob, les files d’attente et les tables dans les comptes de stockage Azure Stack Hub. |
+| AzureRM.Storage | [5.0.4](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.4) | Crée et gère des comptes de stockage dans Azure Stack Hub. |
 
 Pour plus d'informations sur les bibliothèques clientes de stockage Azure Stack Hub prises en charge, consultez : [Bien démarrer avec les outils de développement du stockage Azure Stack Hub](azure-stack-storage-dev.md).
 

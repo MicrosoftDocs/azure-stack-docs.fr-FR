@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: bd62be6a7a2990a7a405dd5c5e1ff44e64007b6f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 0c61abfab5615d265377341f6fb96fe5b4a18b29
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696797"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81478836"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Créer des bases de données SQL à haute disponibilité avec Azure Stack Hub
 
@@ -37,7 +37,7 @@ Avant de commencer, vérifiez que le [fournisseur de ressources SQL Server](azur
 
 - Image de la Place de marché de [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer).
 - SQL Server 2016 SP1 ou SP2 (Standard, Enterprise ou Developer) sur l’image du serveur Windows Server 2016. Cet article utilise l’image de la Place de marché [SQL Server 2016 SP2 Enterprise on Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016).
-- [SQL Server IaaS Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) version 1.2.30 ou ultérieure. L’extension IaaS SQL installe les composants nécessaires pour les éléments de la Place de marché SQL Server pour toutes les versions de Windows. Elle permet la configuration de paramètres SQL sur les machines virtuelles SQL. Si l’extension n’est pas installée dans la place de marché locale, le provisionnement de SQL échoue.
+- [SQL Server IaaS Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) version 1.3.20180 ou ultérieure. L’extension IaaS SQL installe les composants nécessaires pour les éléments de la Place de marché SQL Server pour toutes les versions de Windows. Elle permet la configuration de paramètres SQL sur les machines virtuelles SQL. Si l’extension n’est pas installée dans la place de marché locale, le provisionnement de SQL échoue.
 - [Extension de script personnalisé pour Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) version 1.9.1 ou ultérieure. L’extension de script personnalisé est un outil qui peut être utilisé pour lancer automatiquement des tâches de personnalisation post-déploiement des machines virtuelles.
 - [Configuration d’état souhaité PowerShell](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) version 2.76.0.0 ou ultérieure. DSC (Desired State Configuration) est une plateforme de gestion dans Windows PowerShell qui permet le déploiement et la gestion des données de configuration des services logiciels. Cette plateforme gère également l’environnement d’exécution de ces services.
 
@@ -58,15 +58,15 @@ Suivez les étapes de cette section pour déployer le groupe de disponibilité S
 - Un groupe à haute disponibilité contenant les machines virtuelles SQL et témoins de partage de fichiers.
 
 1. 
-   [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
 2. Sélectionnez **\+** **Créer une ressource** > **Personnalisé**, puis **Déploiement de modèle**.
 
-   ![Déploiement de modèle personnalisé dans le portail d’administration Azure Stack Hub](media/azure-stack-tutorial-sqlrp/1.png)
+   ![Déploiement de modèle personnalisé dans le portail d’administration Azure Stack Hub](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-1.png)
 
 3. Dans le panneau **Déploiement personnalisé**, sélectionnez **Modifier le modèle** > **Modèle de démarrage rapide**, puis utilisez la liste déroulante des modèles personnalisés disponibles pour sélectionner le modèle **sql-2016-alwayson**. Sélectionnez **OK**, puis **Enregistrer**.
 
-   [![Modifier un modèle dans le portail d’administration Azure Stack Hub](media/azure-stack-tutorial-sqlrp/2-sm.PNG "Sélectionner un modèle de démarrage rapide")](media/azure-stack-tutorial-sqlrp/2-lg.PNG#lightbox)
+   [![Modifier un modèle dans le portail d’administration Azure Stack Hub](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-2.png "Sélectionner un modèle de démarrage rapide")](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-2.png#lightbox)
 
 4. Dans le panneau **Déploiement personnalisé**, sélectionnez **Modifier les paramètres** et examinez les valeurs par défaut. Modifiez les valeurs de façon appropriée pour fournir toutes les informations des paramètres nécessaires, puis sélectionnez **OK**.
 
@@ -74,22 +74,20 @@ Suivez les étapes de cette section pour déployer le groupe de disponibilité S
     - Spécifiez des mots de passe complexes pour les paramètres ADMINPASSWORD, SQLSERVERSERVICEACCOUNTPASSWORD et SQLAUTHPASSWORD.
     - Entrez le suffixe DNS pour la recherche inversée tout en minuscules pour le paramètre DNSSUFFIX (**azurestack.external** pour les installations ASDK).
     
-   [![Modifier les paramètres dans le portail d’administration Azure Stack Hub](media/azure-stack-tutorial-sqlrp/3-sm.PNG "Modifier les paramètres du déploiement personnalisé")](media/azure-stack-tutorial-sqlrp/3-lg.PNG#lightbox)
+   [![Modifier les paramètres dans le portail d’administration Azure Stack Hub](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-3.png "Modifier les paramètres du déploiement personnalisé")](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-3.png#lightbox)
 
 5. Dans le panneau **Déploiement personnalisé**, sélectionnez l’abonnement à utiliser, et créez un groupe de ressources ou sélectionnez un groupe de ressources existant pour le déploiement personnalisé.
 
     Ensuite, sélectionnez l’emplacement du groupe de ressources (**local** pour les installations ASDK), puis cliquez sur **Créer**. Les paramètres du déploiement personnalisé sont validés, puis le déploiement commence.
 
-    [![Choisir un abonnement dans le portail d’administration Azure Stack Hub](media/azure-stack-tutorial-sqlrp/4-sm.PNG "Créer un déploiement personnalisé")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
+    [![Choisir un abonnement dans le portail d’administration Azure Stack Hub](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-4.png "Créer un déploiement personnalisé")](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-4.png#lightbox)
 
-6. Dans le portail d’administration, sélectionnez **Groupes de ressources**, puis le nom du groupe de ressources que vous avez créé pour le déploiement personnalisé (**resource-group** pour cet exemple). Regardez l’état du déploiement pour vérifier que tous les déploiements ont réussi.
+6. Dans le portail utilisateur, sélectionnez **Groupes de ressources**, puis le nom du groupe de ressources que vous avez créé pour le déploiement personnalisé (**resource-group** pour cet exemple). Regardez l’état du déploiement pour vérifier que tous les déploiements ont réussi.
     
     Ensuite, passez en revue les éléments du groupe de ressources et sélectionnez l’élément Adresse IP publique de **SQLPIPsql\<nom_groupe_ressources\>** . Notez l’adresse IP publique et le nom de domaine complet de l’équilibreur de charge. Vous devrez fournir ces informations à un opérateur Azure Stack Hub pour que celui-ci puisse créer un serveur d’hébergement SQL qui utilise ce groupe de disponibilité SQL AlwaysOn.
 
    > [!NOTE]
    > Le déploiement du modèle peut durer plusieurs heures.
-
-   ![Déploiement personnalisé terminé dans le portail d’administration Azure Stack Hub](./media/azure-stack-tutorial-sqlrp/5.png)
 
 ### <a name="enable-automatic-seeding"></a>Activer l’amorçage automatique
 

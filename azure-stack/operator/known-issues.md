@@ -3,16 +3,16 @@ title: Problèmes connus d’Azure Stack Hub
 description: Découvrez les problèmes connus des versions d’Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 03/20/2020
+ms.date: 04/13/2020
 ms.author: sethm
-ms.reviewer: prchint
+ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: ca29dd169523872b2dcc21b323bc489de5caf9b3
-ms.sourcegitcommit: b824c7b9af9ba415ca4fe8d15673b521362f0abb
+ms.openlocfilehash: aee141a5840e33dcd2afa093fa906b07d0b310b9
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80479233"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81395067"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Problèmes connus d’Azure Stack Hub
 
@@ -126,7 +126,13 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="vm-boot-diagnostics"></a>Diagnostics de démarrage de machine virtuelle
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Quand vous créez une machine virtuelle Windows, l’erreur suivante peut s’afficher : **Échec du démarrage de la machine virtuelle « vm-name ». Erreur : Failed to update serial output settings for VM 'vm-name' (Impossible de mettre à jour les paramètres de sortie en série de la machine virtuelle « vm-name »)** . Cette erreur se produit si vous activez les diagnostics de démarrage sur une machine virtuelle alors que vous avez supprimé votre compte de stockage des diagnostics de démarrage.
+- Cause : Quand vous créez une machine virtuelle, l’erreur suivante peut s’afficher : **Échec du démarrage de la machine virtuelle « vm-name ». Erreur : Failed to update serial output settings for VM 'vm-name' (Impossible de mettre à jour les paramètres de sortie en série de la machine virtuelle « vm-name »)** . Cette erreur se produit si vous activez les diagnostics de démarrage sur une machine virtuelle alors que vous avez supprimé votre compte de stockage des diagnostics de démarrage.
+- Correction : Recréez le compte de stockage avec le même nom que celui utilisé précédemment.
+- Occurrence : Courant
+
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Lorsque vous essayez de démarrer une machine virtuelle arrêtée-libérée, l’erreur suivante peut s’afficher : **Le compte de stockage des diagnostics de machine virtuelle « diagnosticstorageaccount » est introuvable. Vérifiez que le compte de stockage n’est pas supprimé**. L’erreur se produit si vous tentez de démarrer une machine virtuelle avec les diagnostics de démarrage activés, mais que le compte de stockage des diagnostics de démarrage référencé est supprimé.
 - Correction : Recréez le compte de stockage avec le même nom que celui utilisé précédemment.
 - Occurrence : Courant
 
@@ -145,10 +151,19 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Cause : Échec de la création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur, et échec de la création d’une instance de groupe de machines virtuelles identiques avec l’erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack Hub à 4 nœuds.
 - Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. Toutefois, la création d’instances de groupes identiques n’est toujours pas disponible pendant le processus de mise à jour sur un déploiement Azure Stack Hub à 4 nœuds.
 
-### <a name="sql-vm-provision-will-be-failed-in-asdk"></a>Le provisionnement de la machine virtuelle SQL échoue dans ASDK
-- Champ d’application : Ce problème s’applique uniquement à ASDK 2002. 
-- Cause : Lors de la création d’une machine virtuelle SQL dans ASDK 2002, vous pouvez recevoir le message d’erreur **L’extension avec le serveur de publication « Microsoft.SqlServer.Management », le type « SqlIaaSAgent » et la version du gestionnaire de types « 2.0 » est introuvable dans le dépôt d’extensions.** « SqlIaaSAgent » 2.0 n’existe pas dans Azure Stack Hub. 
+### <a name="sql-vm"></a>Machine virtuelle SQL
 
+#### <a name="storage-account-creating-failure-when-configuring-auto-backup"></a>Échec de création du compte de stockage lors de la configuration de la sauvegarde automatique
+
+- Champ d’application : Ce problème s’applique à la version 2002.
+- Cause : Lors de la configuration de la sauvegarde automatisée des machines virtuelles SQL avec un nouveau compte de stockage, elle échoue avec l’erreur **Échec de la validation du modèle de déploiement. Le paramètre de modèle pour « SqlAutobackupStorageAccountKind » est introuvable.**
+- Correction : Appliquez le dernier correctif logiciel 2002.
+
+#### <a name="auto-backup-cannot-be-configured-with-tls-12-enabled"></a>La sauvegarde automatique ne peut pas être configurée avec TLS 1.2 activé
+
+- Champ d’application : Ce problème s’applique aux nouvelles installations de 2002 et versions ultérieures, ou à toute version précédente avec TLS 1.2 activé.
+- Cause : Lors de la configuration de la sauvegarde automatisée des machines virtuelles SQL avec un compte de stockage existant, elle échoue avec l’erreur **SQL Server IaaS Agent : Le serveur a clos la connexion sous-jacente : Une erreur inattendue s’est produite lors de l’envoi.**
+- Occurrence : Courant
 
 ## <a name="resource-providers"></a>Fournisseurs de ressources
 
@@ -186,7 +201,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Correction : Si vous disposez de ressources s’exécutant sur ces deux abonnements, recréez-les dans des abonnements utilisateur.
 - Occurrence : Courant
 
-### <a name="subscriptions-lock-blade"></a>Panneau de verrouillage des abonnements
+### <a name="duplicate-subscription-button-in-lock-blade"></a>Bouton d’abonnement en double dans le panneau de verrouillage
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Dans le portail administrateur, le panneau de **verrouillage** des abonnements utilisateur comporte deux boutons dont l’intitulé est **Abonnement**.
@@ -424,7 +439,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Correction : Vous pouvez afficher les propriétés de ces abonnements dans le volet **Essentials** du panneau **Vue d’ensemble des abonnements**.
 - Occurrence : Courant
 
-### <a name="subscriptions-lock-blade"></a>Panneau de verrouillage des abonnements
+### <a name="duplicate-subscription-button-in-lock-blade"></a>Bouton d’abonnement en double dans le panneau de verrouillage
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Dans le portail administrateur, le panneau de **verrouillage** des abonnements utilisateur comporte deux boutons dont l’intitulé est **Abonnement**.
