@@ -3,16 +3,16 @@ title: Notes de publication relatives à l’ASDK
 description: Améliorations, correctifs et problèmes connus pour le Kit de développement Azure Stack (ASDK).
 author: sethmanheim
 ms.topic: article
-ms.date: 03/20/2020
+ms.date: 04/06/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 32b4bfb500a9717f99085fe0759297f999244bbb
-ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
+ms.openlocfilehash: bbe37512d943a45b5981f4e862f55440ade3b08f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80152222"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80806712"
 ---
 # <a name="asdk-release-notes"></a>Notes de publication relatives à l’ASDK
 
@@ -32,6 +32,11 @@ Tenez-vous informé des nouveautés concernant le kit ASDK en vous abonnant au [
 - Le mot de passe de certification de déchiffrement est une nouvelle option qui permet de spécifier le mot de passe destiné au certificat auto-signé (.pfx) contenant la clé privée nécessaire au déchiffrement des données de sauvegarde. Ce mot de passe est obligatoire uniquement si la sauvegarde est chiffrée à l’aide d’un certificat.
 - Pour obtenir la liste des problèmes connus d’Azure Stack de cette version, consultez l’article sur les [problèmes connus](../operator/known-issues.md).
 - Notez que les correctifs logiciels d’Azure Stack ne sont pas applicables au kit ASDK.
+
+#### <a name="sql-vm-provision-fails-in-asdk"></a>Le provisionnement de la machine virtuelle SQL échoue dans ASDK
+
+- Champ d’application : Ce problème concerne le kit ASDK 2002.
+- Cause : Lors de la création d’une machine virtuelle SQL dans le kit ASDK 2002, vous pouvez recevoir le message d’erreur **L’extension avec le serveur de publication « Microsoft.SqlServer.Management », le type « SqlIaaSAgent » et la version du gestionnaire de types « 2.0 » est introuvable dans le dépôt d’extensions.** **SqlIaaSAgent** 2.0 n’existe pas dans Azure Stack Hub.
 ::: moniker-end
 
 ::: moniker range="azs-1910"
@@ -60,7 +65,7 @@ Tenez-vous informé des nouveautés concernant le kit ASDK en vous abonnant au [
 
 ### <a name="new-features"></a>Nouvelles fonctionnalités
 
-- Pour obtenir la liste des nouvelles fonctionnalités dans cette version, consultez [cette section](/azure-stack/operator/release-notes?view=azs-1908#whats-new-1) des notes de publication Azure Stack.
+- Pour obtenir la liste des nouvelles fonctionnalités dans cette version, consultez [cette section](/azure-stack/operator/release-notes?view=azs-1908#whats-new-2) des notes de publication Azure Stack.
 
 <!-- ### Changes -->
 
@@ -83,7 +88,7 @@ Tenez-vous informé des nouveautés concernant le kit ASDK en vous abonnant au [
 ### <a name="fixed-and-known-issues"></a>Problèmes connus et résolus
 
 - Lorsque vous créez des ressources de machine virtuelle à l’aide de certaines images de la place de marché, vous ne pourrez peut-être pas effectuer le déploiement. Pour résoudre ce problème, vous pouvez cliquer sur le lien **Télécharger le modèle et les paramètres** dans la page de **résumé**, puis cliquer sur le bouton **Déployer** dans le panneau **Modèle**.
-- Pour obtenir la liste des problèmes Azure Stack corrigés dans cette version, consultez [cette section](/azure-stack/operator/release-notes?view=azs-1907#fixes-2) des notes de publication Azure Stack.
+- Pour obtenir la liste des problèmes Azure Stack corrigés dans cette version, consultez [cette section](/azure-stack/operator/release-notes?view=azs-1907#fixes-3) des notes de publication Azure Stack.
 - Pour obtenir la liste des problèmes connus, consultez [cet article](/azure-stack/operator/known-issues?view=azs-1907).
-- Notez que les [correctifs logiciels d’Azure Stack](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-2) ne sont pas applicables au kit ASDK Azure Stack.
+- Notez que les [correctifs logiciels d’Azure Stack](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-3) ne sont pas applicables au kit ASDK Azure Stack.
 ::: moniker-end

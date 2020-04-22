@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Apprenez à effectuer la rotation de vos secrets dans Azure Stack Hub.
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 04/03/2020
 ms.reviewer: ppacent
 ms.author: inhenkel
 ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: d7179d8b87ee8e543fc7f8b78d1a8113e0e2746b
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: 5ffa1f2f03ca942192acdd881b7e785598c4c94b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367724"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80812371"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Effectuer la rotation des secrets dans Azure Stack Hub
 
@@ -60,6 +60,9 @@ Azure Stack Hub utilise différents secrets pour assurer une communication sécu
 
 > [!Note]
 > Toutes les autres clés et chaînes sécurisées, y compris les mots de passe BMC et switch ainsi que les mots de passe des comptes utilisateur et administrateur, sont toujours mises à jour manuellement par l’administrateur.
+
+> [!Important]
+> Ces procédures n’effectuent pas de rotation des certificats, secrets et informations d’identification pour Azure App Service sur le fournisseur de ressources Azure Stack Hub.  Pour en effectuer la rotation, suivez les étapes de l’article [Effectuer une rotation des secrets et des certificats App Service](app-service-rotate-certificates.md)
 
 > [!Important]
 > Depuis la version 1811 d’Azure Stack Hub, la rotation des secrets est séparée pour les certificats internes et externes.
