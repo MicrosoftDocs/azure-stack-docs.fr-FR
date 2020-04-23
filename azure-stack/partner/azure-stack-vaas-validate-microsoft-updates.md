@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Découvrez comment valider les mises à jour logicielles de Microsoft avec la validation en tant que service Azure Stack Hub.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 10/29/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7eade045461052b9d978910fdbcf06bd895e5b09
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: 46618ee2ab650842ebab9fc90b18b24131ac5d07
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "77704520"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661124"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Valider les mises à jour logicielles issues de Microsoft
 

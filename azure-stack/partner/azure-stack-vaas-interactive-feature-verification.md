@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Découvrez comment créer des tests de vérification des fonctionnalités interactives pour Azure Stack Hub avec la validation en tant que service.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a1ef4a77bdc4f4dd83a7bced78c85d64ae7836c3
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: 5529164b909099156219086dd8a4895c223ed5a3
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "77704724"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661291"
 ---
 # <a name="interactive-feature-verification-testing"></a>Test de vérification des fonctionnalités interactives  
 

@@ -3,16 +3,16 @@ title: Créer une machine virtuelle Linux avec Azure Stack Hub
 description: Créez une machine virtuelle serveur Linux avec Azure Stack Hub.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 1/10/2020
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 5b08cbf0ec316c8a5a2726800942f0d12a458db5
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 75056bbadb3ab5792bd51ed3dcb348ef3d42aa3e
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77702089"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660436"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>Démarrage rapide : Créer une machine virtuelle serveur Linux sur le portail Azure Stack Hub
 

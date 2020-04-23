@@ -3,16 +3,16 @@ title: Créer une machine virtuelle Windows Server avec PowerShell dans Azure St
 description: Créez une machine virtuelle Windows Server avec PowerShell dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 14192029c2bbac427b6609abfc62b06e0ef937cb
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 1bc8316cad8574d09401f803982f853dcb7e2e93
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77703738"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660356"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack-hub"></a>Démarrage rapide : Créer une machine virtuelle Windows Server avec PowerShell dans Azure Stack Hub
 

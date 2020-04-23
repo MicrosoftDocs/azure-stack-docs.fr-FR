@@ -3,16 +3,16 @@ title: Vue d’ensemble d’Azure Stack Hub
 description: Vue d’ensemble d’Azure Stack Hub et de la façon dont il vous permet d’exécuter des services Azure dans votre centre de données.
 author: justinha
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: afa7f02f451192640172665e18213d125e24b574
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: dc5fa60f0ab1460a98ec21a0501c3cdcec6a6637
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77698451"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772635"
 ---
 # <a name="azure-stack-hub-overview"></a>Vue d’ensemble d’Azure Stack Hub
 
@@ -40,11 +40,11 @@ L’architecture d’Azure Stack Hub vous permet de fournir des services Azure �
 
 ## <a name="deployment-options"></a>Options de déploiement
 
-Les systèmes intégrés Azure Stack Hub sont disponibles via un partenariat entre Microsoft et des fournisseurs de matériel partenaires, qui aboutit à la création d’une solution combinant innovation cloud et simplicité de gestion. Comme Azure Stack Hub est offert sous la forme d’un système matériel et logiciel intégré, vous avez la flexibilité et le contrôle dont vous avez besoin, ainsi que la capacité à innover depuis le cloud. 
+Les systèmes intégrés Azure Stack Hub sont disponibles via un partenariat entre Microsoft et des fournisseurs de matériel partenaires, qui aboutit à la création d’une solution combinant innovation cloud et simplicité de gestion. Comme Azure Stack Hub est offert sous la forme d’un système matériel et logiciel intégré, vous avez la flexibilité et le contrôle dont vous avez besoin, ainsi que la capacité à innover depuis le cloud.
 
 Un système intégré Azure Stack Hub peut varier en taille de 4 à 16 serveurs, appelée *unité d’échelle*. Les systèmes intégrés sont pris en charge conjointement par le partenaire fournisseur de matériel et Microsoft. Le diagramme suivant présente un exemple d’unité d’échelle. 
 
-![Diagramme montrant un système intégré Azure Stack Hub](./media/azure-stack-overview/azure-stack-integrated-system.png). 
+![Diagramme montrant un système intégré Azure Stack Hub](./media/azure-stack-overview/azure-stack-integrated-system.svg). 
 
 <!---add info and image on regions, etc--->
 
