@@ -134,7 +134,7 @@
           href: azure-stack-cli-admin.md
         - name: Configurer l’environnement de gestion
           items:
-            - name: Installer PowerShell RM
+            - name: Installer PowerShell AzureRM
               href: azure-stack-powershell-install.md
             - name: Installer PowerShell Az
               href: powershell-install-az-module.md
