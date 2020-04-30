@@ -496,6 +496,8 @@
   items:
     - name: Azure Stack Hub PowerShell
       href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
+    - name: Point de terminaison privilégié Azure Stack Hub
+      href: ../reference/pep-2002/
     - name: Documentation pour les utilisateurs Azure Stack Hub
       href: /azure-stack/user/
     - name: Documentation ASDK
