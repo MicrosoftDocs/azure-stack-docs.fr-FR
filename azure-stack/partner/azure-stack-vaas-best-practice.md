@@ -3,17 +3,17 @@ title: Bonnes pratiques relatives à la validation Azure Stack
 description: Découvrez les bonnes pratiques se rapportant à la validation en tant que service.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b3d911a07c7a234ce2284055ff67a7ca46f567a2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: cfb2e4d71f821c23dd076842a0b4f3963a5599cc
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295310"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661253"
 ---
 # <a name="azure-stack-validation-best-practices"></a>Bonnes pratiques relatives à la validation Azure Stack
 

@@ -3,16 +3,16 @@ title: Configurer une passerelle VPN pour Azure Stack Hub
 description: Découvrez comment configurer une passerelle VPN pour Azure Stack Hub.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 10/03/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 1b3854ab04792ade8ca0b66cc63f1fdc2c0e60e9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: be0457eaa1c8c72984e995a690e5d5c6c53f198f
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703891"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660835"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Configurer une passerelle VPN pour Azure Stack Hub avec l’appliance virtuelle réseau FortiGate
 

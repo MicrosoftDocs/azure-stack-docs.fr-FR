@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 70079b0959f0e5dc5072ef83c68c8887cd006089
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 48bc8e2df857b2e1c352ffaa55ef900672d4f78b
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295406"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772492"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Gérer les mises à jour dans Azure Stack Hub
 
@@ -67,7 +67,7 @@ La notification des mises à jour dépend de plusieurs facteurs, comme votre con
 
 Une fois que vous avez été averti de la disponibilité d’une mise à jour, appliquez la mise à jour en effectuant les étapes décrites ci-après.
 
-![Processus de mise à jour d’Azure Stack Hub](./media/azure-stack-updates/azure-stack-update-process.png)
+![Processus de mise à jour d’Azure Stack Hub](./media/azure-stack-updates/azure-stack-update-process.svg)
 
 1. **Planifiez la mise à jour**.
 

@@ -3,16 +3,16 @@ title: Gérer l’utilisation et la facturation d’Azure Stack Hub en tant que 
 description: Découvrez comment inscrire Azure Stack Hub en tant fournisseur de solutions cloud, et ajouter des clients pour la facturation.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 73970197e6d0b1c55e29e028e53d6639aa9c0afa
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 8202942a10e4faf48b09e9fd0d456a810d6a08fd
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295436"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772407"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Gérer l’utilisation et la facturation d’Azure Stack Hub en tant que fournisseur de solutions cloud
 
@@ -22,7 +22,7 @@ En tant que fournisseur de services cloud, vous travaillez avec différents clie
 
 La figure suivante illustre les étapes nécessaires pour choisir votre compte de services partagés et inscrire le compte Azure auprès du compte Azure Stack Hub. Une fois l’inscription effectuée, vous pouvez embarquer vos clients finaux :
 
-[![Processus d’activation de l’utilisation et de la gestion en tant que fournisseur de services cloud](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png "Processus d’activation de l’utilisation et de la gestion en tant que fournisseur de services cloud")](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png#lightbox)
+[![Processus d’activation de l’utilisation et de la gestion en tant que fournisseur de services cloud](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.svg "Processus d’activation de l’utilisation et de la gestion en tant que fournisseur de services cloud")](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.svg)
 
 ## <a name="create-a-csp-or-apss-subscription"></a>Créer un abonnement CSP ou APSS
 

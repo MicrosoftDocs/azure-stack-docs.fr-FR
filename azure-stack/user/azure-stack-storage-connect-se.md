@@ -3,16 +3,16 @@ title: Connecter l’Explorateur de stockage à un compte de stockage ou un abon
 description: Découvrir comment connecter l’Explorateur de stockage à un abonnement Azure Stack Hub
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ecf05c089ca193cca3554fc6a8e52e406dce3da2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 701b2a0c6bae3fa4f246877f49f73aca8482b0de
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704991"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660375"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Connecter l’Explorateur de stockage à un compte de stockage ou un abonnement Azure Stack Hub
 

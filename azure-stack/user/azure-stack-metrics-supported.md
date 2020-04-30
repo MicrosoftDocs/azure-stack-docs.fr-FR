@@ -3,15 +3,15 @@ title: Métriques prises en charge pour Azure Monitor sur Azure Stack Hub
 description: Découvrez les métriques prises en charge pour Azure Monitor sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: b90458e58054cd0f42564558fd3cb5a8226d6c5d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2a200939dd987ba11edcd5fbca516c3fc6566dbd
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702259"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661028"
 ---
 # <a name="supported-metrics-for-azure-monitor-on-azure-stack-hub"></a>Métriques prises en charge pour Azure Monitor sur Azure Stack Hub
 

@@ -1,18 +1,18 @@
 ---
 title: Vue d’ensemble des fournisseurs d’identité pour Azure Stack Hub
 description: Découvrez les fournisseurs d’identité que vous pouvez utiliser avec Azure Stack Hub.
-author: IngridAtMicrosoft
+author: BryanLa
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.author: inhenkel
+ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: c9a01d4aaa437549177f6e32c10f4600287732a7
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b078158bebf83835e4a0a0eb6d92ba90b4679ca9
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81244122"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82173962"
 ---
 # <a name="overview-of-identity-providers-for-azure-stack-hub"></a>Vue d’ensemble des fournisseurs d’identité pour Azure Stack Hub
 

@@ -7,14 +7,16 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: 8f97ecd20e7ef8db69033268baf96060e1315751
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b1c1048a8ad8bdb8d16d2e86c82febc8c74b03af
+ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79520632"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624939"
 ---
 # <a name="overview-of-azure-stack-hub-diagnostic-log-collection"></a>Vue d’ensemble de la collecte automatique des journaux de diagnostic Azure Stack Hub 
+
+::: moniker range=">= azs-2002"
 
 Azure Stack Hub est une grande collection de composants Windows et de services Azure locaux qui interagissent les uns avec les autres. Tous ces composants et services génèrent leur propre ensemble de journaux. Pour permettre aux services de support technique Microsoft de diagnostiquer efficacement les problèmes, nous avons fourni une expérience fluide pour la collecte des journaux de diagnostic. 
 
@@ -64,18 +66,74 @@ Les données sont utilisées uniquement à des fins de dépannage des alertes d�
 
 Les journaux collectés à l’aide de l’option Send logs now (Envoyer les journaux maintenant) sont chargés sur un stockage managé et contrôlé par Microsoft. Microsoft accède à ces journaux dans le contexte d’un cas de support et pour améliorer l’intégrité d’Azure Stack Hub. 
 
+
+
 ## <a name="bandwidth-considerations"></a>Remarques relatives à la bande passante
 
 La taille moyenne de la collecte des journaux de diagnostic varie selon que la collecte est proactive ou manuelle. La taille moyenne de la **collecte proactive des journaux** est d’environ 2 Go. La taille de la collecte pour l’option **Send logs now** (Envoyer les journaux maintenant) dépend du nombre d’heures collectées.
 
 Le tableau suivant répertorie les éléments à prendre en compte pour les environnements avec des connexions limitées à Azure.
 
-
 | Connexion réseau | Impact |
 |--------------------|--------|
 | Connexion à faible bande passante/latence élevée | Le chargement du journal va prendre un certain temps. | 
 | Connexion partagée | Le chargement peut également avoir un impact sur d’autres applications/utilisateurs partageant la connexion réseau. |
 | Connexion limitée | Des frais supplémentaires peuvent être facturés par votre fournisseur de services Internet pour l’utilisation supplémentaire du réseau. | 
+
+::: moniker-end
+::: moniker range="<= azs-1910"
+
+## <a name="collecting-logs-from-multiple-azure-stack-hub-systems"></a>Collecte des journaux de plusieurs systèmes Azure Stack Hub
+
+Configurez un conteneur d’objets blob pour chaque unité d’échelle Azure Stack Hub dont vous souhaitez collecter les journaux. Pour plus d’informations sur la configuration du conteneur d’objets blob, consultez [Configurer la collecte automatique des journaux de diagnostic Azure Stack Hub](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md). Il est recommandé d’enregistrer uniquement les journaux de diagnostic de la même unité d’échelle Azure Stack Hub dans un seul conteneur d’objets blob. 
+
+## <a name="retention-policy"></a>Stratégie de rétention
+
+Créez une [règle de gestion du cycle de vie](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) du stockage d’objets blob Azure pour gérer la stratégie de rétention des journaux. Nous vous suggérons de conserver les journaux de diagnostic pendant 30 jours. Pour créer une règle de gestion du cycle de vie dans le stockage Azure, connectez-vous au portail Azure, cliquez sur **Comptes de stockage**, cliquez sur le conteneur d’objets blob, puis, sous **Service BLOB**, cliquez sur **Gestion du cycle de vie**.
+
+![Capture d’écran montrant la gestion du cycle de vie dans le Portail Azure](media/azure-stack-automatic-log-collection/blob-storage-lifecycle-management.png)
+
+
+## <a name="sas-token-expiration"></a>Expiration du jeton SAS
+
+Configurez l’expiration de l’URL SAS sur deux ans. Si vous renouvelez vos clés de compte de stockage, veillez à régénérer l’URL SAS. Vous devez gérer le jeton SAS conformément aux meilleures pratiques. Pour plus d’informations, consultez [Meilleures pratiques SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#best-practices-when-using-sas).
+
+
+## <a name="bandwidth-consumption"></a>Consommation de bande passante
+
+La taille moyenne de la collecte des journaux de diagnostic varie selon que la collecte des journaux est à la demande ou automatique. 
+
+Pour la collecte de journaux à la demande, la taille de la collecte des journaux dépend du nombre d’heures collectées. Vous pouvez choisir une fenêtre de 1à 4 heures sur les sept derniers jours. 
+
+Lorsque la collecte automatique des journaux de diagnostic est activée, le service surveille les alertes critiques. 
+Dès qu’une alerte critique est déclenchée et persiste pendant environ 30 minutes, le service collecte et charge les journaux correspondants. 
+La taille de la collecte de journaux est d’environ 2 Go en moyenne. 
+Dans le cas de l’échec d’un correctif et d’une mise à jour, la collecte automatique des journaux ne démarre que si une alerte critique est générée et persiste pendant environ 30 minutes. Nous vous recommandons de suivre les [instructions relatives à la surveillance des correctifs et des mises à jour](azure-stack-updates.md).
+L’analyse des alertes, la collecte des journaux et le téléchargement sont transparents pour l’utilisateur. 
+
+
+
+Sur un système sain, les journaux ne seront pas collectés du tout. 
+Dans un système défectueux, la collecte des journaux peut s’exécuter deux ou trois fois par jour, mais en général une seule fois. 
+Au plus, il peut s’exécuter jusqu’à dix fois par jour dans le pire des cas.  
+
+Le tableau suivant peut aider les environnements avec des connexions limitées à Azure à tenir compte de l’impact de l’activation de la collecte automatique des journaux.
+
+| Connexion réseau | Impact |
+|--------------------|--------|
+| Connexion à faible bande passante/latence élevée | Le chargement du journal va prendre un certain temps. | 
+| Connexion partagée | Le chargement peut également avoir un impact sur d’autres applications/utilisateurs partageant la connexion réseau. |
+| Connexion limitée | Des frais supplémentaires peuvent être facturés par votre fournisseur de services Internet pour l’utilisation supplémentaire du réseau. |
+
+
+## <a name="managing-costs"></a>Gestion des coûts
+
+Les [frais liés au stockage d’objets blob](https://azure.microsoft.com/pricing/details/storage/blobs/) Azure dépendent de la quantité de données enregistrées tous les mois et d’autres facteurs tels que la redondance des données. 
+Si vous n’avez pas de compte de stockage, vous pouvez vous connecter au portail Azure, cliquer sur **Comptes de stockage** et suivre les étapes pour [créer une URL SAS de conteneur d’objets blob Azure](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md).
+
+Il est recommandé de créer une [stratégie de gestion du cycle de vie](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) du stockage d’objets blob Azure pour réduire les coûts de stockage. Pour plus d’informations sur la configuration du compte de stockage, consultez [Configurer la collecte automatique des journaux de diagnostic Azure Stack Hub](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md).
+
+::: moniker-end
 
 ## <a name="see-also"></a>Voir aussi
 

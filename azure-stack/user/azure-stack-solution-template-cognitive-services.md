@@ -3,16 +3,16 @@ title: Déployer Azure Cognitive Services sur Azure Stack Hub
 description: Apprenez à déployer Azure Cognitive Services sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: d5cfb45be74122ec07a7632f9f6c7ef04b6f8c4a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ff5dd1ccb8193e9dae3d97401793773e3e28fb4d
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701817"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660187"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Déployer Azure Cognitive Services sur Azure Stack Hub
 

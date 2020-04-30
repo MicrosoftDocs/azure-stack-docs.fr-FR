@@ -3,16 +3,16 @@ title: Résoudre des problèmes du moteur AKS sur Azure Stack Hub
 description: Cet article présente les étapes de résolution des problèmes liés au moteur AKS sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 4/17/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: d362eb0bf418cf292953afc50fe993dc4867253c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 4/17/2020
+ms.openlocfilehash: 8768628e246c439c86bba80f4faac2ff9ae1973d
+ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069296"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624978"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Résoudre des problèmes du moteur AKS sur Azure Stack Hub
 
@@ -142,7 +142,7 @@ Conditions requises :
 
 ## <a name="review-custom-script-extension-error-codes"></a>Examiner les codes d’erreur d’extension de script personnalisé
 
-Vous pouvez consulter la liste des codes d’erreur créés par l’extension de script personnalisé pendant l’exécution de votre cluster. L’erreur d’extension de script personnalisé peut s’avérer utile pour diagnostiquer la cause racine du problème. L’extension de script personnalisé correspondant au serveur Ubuntu utilisé dans votre cluster Kubernetes prend en charge un grand nombre d’opérations du moteur AKS. Pour plus d’informations sur les codes de sortie de l’extension de script personnalisé, consultez [cse_helpers.sh](https://github.com/Azure/aks-engine/blob/master/parts/k8s/cloud-init/artifacts/cse_helpers.sh).
+Vous pouvez consulter la liste des codes d’erreur créés par l’extension de script personnalisé pendant l’exécution de votre cluster. L’erreur d’extension de script personnalisé peut s’avérer utile pour diagnostiquer la cause racine du problème. L’extension de script personnalisé correspondant au serveur Ubuntu utilisé dans votre cluster Kubernetes prend en charge un grand nombre d’opérations du moteur AKS. Pour plus d’informations sur les codes de sortie de l’extension de script personnalisé, consultez [cse_helpers.sh](https://github.com/Azure/aks-engine/blob/master/pkg/engine/cse.go).
 
 ### <a name="providing-kubernetes-logs-to-a-microsoft-support-engineer"></a>Fournir des journaux Kubernetes à un ingénieur du support Microsoft
 

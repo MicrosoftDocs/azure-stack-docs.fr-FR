@@ -3,16 +3,16 @@ title: Connecter Azure Stack Hub à Azure à l’aide d’ExpressRoute
 description: Découvrez comment connecter des réseaux virtuels dans Azure Stack Hub à des réseaux virtuels dans Azure à l’aide d’ExpressRoute.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 59fa339cfa58fa2c5c6b0e1b727cf2adee79b7e2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1b68435317136afdbfcc5d1ade16b18a2210baad
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701494"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772717"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Connecter Azure Stack Hub à Azure à l'aide d’Azure ExpressRoute
 
@@ -51,7 +51,7 @@ Pour connecter Azure Stack Hub et Azure à l’aide d’ExpressRoute, vous deve
 
 L’illustration suivante montre les environnements Azure Stack Hub et Azure après configuration d'ExpressRoute à l’aide des exemples de cet article :
 
-![Réseau ExpressRoute](media/azure-stack-connect-expressroute/Conceptual.png)
+![Réseau ExpressRoute](media/azure-stack-connect-expressroute/conceptual.svg)
 
 L’illustration suivante montre comment plusieurs locataires se connectent à Azure à partir de l’infrastructure Azure Stack Hub, par le biais du routeur ExpressRoute :
 
@@ -68,7 +68,7 @@ Pour configurer l’environnement Azure Stack Hub pour le premier locataire, sui
 >[!NOTE]
 >Ces étapes expliquent comment créer des ressources à l’aide du portail Azure Stack Hub, mais vous pouvez également utiliser PowerShell.
 
-![Configuration réseau Azure Stack Hub](media/azure-stack-connect-expressroute/image2.png)
+![Configuration réseau Azure Stack Hub](media/azure-stack-connect-expressroute/azure-stack-connect-expressrouteimage-image2.svg)
 
 ### <a name="before-you-begin"></a>Avant de commencer
 
@@ -267,7 +267,7 @@ Le routeur est l’hôte ASDK qui exécute le rôle Services de routage et d’
 
 Après avoir terminé la configuration d’Azure Stack Hub, vous pouvez déployer les ressources Azure. La figure suivante représente un exemple de réseau virtuel locataire dans Azure. Vous pouvez utiliser n’importe quel nom et schéma d’adressage pour désigner votre réseau virtuel dans Azure. Toutefois, les plages d’adresses des réseaux virtuels dans Azure et Azure Stack Hub doivent être uniques et ne doivent pas se chevaucher :
 
-![Réseaux virtuels Azure](media/azure-stack-connect-expressroute/AzureArchitecture.png)
+![Réseaux virtuels Azure](media/azure-stack-connect-expressroute/azurearchitecture.svg)
 
 Les ressources que vous déployez dans Azure sont semblables aux ressources déployées dans Azure Stack Hub. Vous déployez les composants suivants :
 

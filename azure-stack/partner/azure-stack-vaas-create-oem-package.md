@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Découvrez comment créer un package d’extension OEM dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 64ecf37e0fff2e9380a2c13b6fe65a41ec84de08
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c38a2738fcdfcb61c032982ce4ae0d2ea88d6e3f
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704707"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661465"
 ---
 # <a name="create-an-oem-package"></a>Créer un package OEM
 

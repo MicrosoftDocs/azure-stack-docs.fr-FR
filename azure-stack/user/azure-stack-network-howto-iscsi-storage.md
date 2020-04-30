@@ -3,16 +3,16 @@ title: Se connecter au stockage iSCSI avec Azure Stack Hub
 description: Découvrez comment vous connecter au stockage iSCSI avec Azure Stack Hub.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 7451338194742723d6b669f94dc11b4449570eda
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f691ba0cfeadae0d359473db881601e90478276c
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703840"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660889"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Se connecter au stockage iSCSI avec Azure Stack Hub
 

@@ -1,18 +1,18 @@
 ---
 title: Architecture d’identité pour Azure Stack Hub
 description: Découvrez l’architecture d’identité pour Azure Stack Hub et les différences entre Azure AD et AD FS.
-author: IngridAtMicrosoft
+author: BryanLa
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.author: inhenkel
+ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: ae5cc821ffe621d4e14ef37b426ff36202ed37ed
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0175e0880edbecc4cb30e05df94cf26e518b8d0e
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81244015"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82173979"
 ---
 # <a name="identity-architecture-for-azure-stack-hub"></a>Architecture d’identité pour Azure Stack Hub
 

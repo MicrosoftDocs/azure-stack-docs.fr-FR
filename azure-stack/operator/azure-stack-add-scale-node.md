@@ -3,16 +3,16 @@ title: Ajouter des nœuds d’unité d’échelle dans Azure Stack Hub
 description: Découvrez comment ajouter des nœuds d’unité d’échelle à des unités d’échelle dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/16/2020
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 8aa33cda9a657d3e0bcec9525f86bd792c855e65
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c264e0abc0fdc5a382b83a23158f860a56aea260
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77688761"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772594"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Ajouter des nœuds d’unité d’échelle dans Azure Stack Hub
 
@@ -22,7 +22,7 @@ Pour ajouter un nœud d’unité d’échelle, vous devez intervenir dans Azure 
 
 Le diagramme de flux suivant montre le processus général pour ajouter un nœud d’unité d’échelle :
 
-![Ajouter un flux d’unités d’échelle](media/azure-stack-add-scale-node/add-node-flow.png)
+![Ajouter un flux d’unités d’échelle](media/azure-stack-add-scale-node/add-node-flow.svg)
 <br> *Votre contrat de support indique si votre fournisseur OEM doit choisir l’emplacement physique du rack du serveur et mettre à jour le microprogramme.*
 
 L’opération d’ajout de nouveau nœud peut prendre plusieurs heures ou plusieurs jours. Il n’y a aucun impact sur les charges de travail en cours d’exécution sur le système lors de l’ajout d’un nœud d’unité d’échelle supplémentaire.

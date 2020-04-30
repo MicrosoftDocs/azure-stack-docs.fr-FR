@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 294fec646462d154c8d8f2e1d22c31d2d88220d4
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d0d11295d9425e07e34dc59eb2fcc83c6b020582
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696377"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772560"
 ---
 # <a name="report-azure-stack-hub-usage-data-to-azure"></a>Signaler les données d'utilisation Azure Stack Hub à Azure
 
@@ -28,7 +28,7 @@ Les systèmes Azure Stack Hub à plusieurs nœuds qui utilisent un modèle de fa
 
 Les rapports relatifs aux données d'utilisation sont nécessaires aux utilisateurs des systèmes Azure Stack Hub à plusieurs nœuds qui attribuent des licences selon le modèle de paiement à l'utilisation. Ceci est facultatif pour les clients qui attribuent des licences sous le modèle de capacité (voir [Comment acheter Azure Stack](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)). Pour les utilisateurs du Kit de développement Azure Stack (ASDK), les opérateurs Azure Stack Hub peuvent communiquer des données d'utilisation et tester la fonctionnalité. Toutefois, l’utilisation qu’elles impliquent n’est pas facturée aux utilisateurs.
 
-![Flux de facturation pour les données d’utilisation dans Azure Stack Hub](media/azure-stack-usage-reporting/billing-flow.png)
+![Flux de facturation pour les données d’utilisation dans Azure Stack Hub](media/azure-stack-usage-reporting/billing-flow.svg)
 
 Les données d'utilisation sont envoyées d'Azure Stack Hub à Azure via Azure Bridge. Dans Azure, le système de commerce traite les données d’utilisation et génère la facture. Une fois la facture générée, le propriétaire de l’abonnement Azure peut l’afficher et la télécharger à partir du [Centre des comptes Azure](https://account.windowsazure.com/subscriptions). Pour savoir comment Azure Stack Hub est concédé sous licence, consultez le [document relatif à l'empaquetage et aux tarifs d'Azure Stack Hub](https://go.microsoft.com/fwlink/?LinkId=842847).
 
