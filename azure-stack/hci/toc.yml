@@ -18,6 +18,8 @@
       href: manage/delete-volumes.md
     - name: Remplacer des lecteurs
       href: manage/replace-drives.md
+    - name: Utiliser Azure Site Recovery
+      href: manage/azure-site-recovery.md
     - name: Surveiller avec Azure Monitor
       href: manage/azure-monitor.md
     - name: Attacher un GPU à une machine virtuelle Linux
