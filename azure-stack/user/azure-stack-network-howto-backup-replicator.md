@@ -3,16 +3,16 @@ title: Répliquer des ressources sur plusieurs abonnements Azure Stack Hub
 description: Apprenez à répliquer des ressources à l’aide du jeu de scripts du réplicateur d’abonnements Azure Stack Hub.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/07/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: b8e955075553480b4178223a5475b44e3debd106
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: a20979ff0bb60f058658e9a0f9f540b2c0cb434e
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702344"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82173911"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Répliquer des ressources à l’aide du réplicateur d’abonnements Azure Stack Hub
 
@@ -72,7 +72,7 @@ L’outil nécessite un paramètre nommé **parallel**. Ce paramètre utilise un
 
 ## <a name="add-additional-resource-types"></a>Ajout de types de ressources supplémentaires
 
-L’ajout de nouveaux types de ressources est simple. Le développeur doit créer un processeur personnalisé, ainsi qu'un modèle Azure Resource Manager ou un générateur de modèles Azure Resource Manager. Ensuite, le développeur doit ajouter le type de ressource à ValidateSet pour le paramètre **$resourceType** et le groupe **$resourceTypes** dans resource_retriever. ps1. L’ajout du type de ressource au groupe **$resourceTypes** doit se faire dans l'ordre qui convient. L’ordre du groupe détermine l’ordre dans lequel les ressources sont déployées et dès lors, il convient de prendre en compte les dépendances. Enfin, si le processeur personnalisé utilise un générateur de modèles Azure Resource Manager, ils doivent ajouter le nom du type de ressource au groupe **$customTypes** dans **post_process.ps1**.
+L’ajout de nouveaux types de ressources est simple. Le développeur doit créer un processeur personnalisé, ainsi qu'un modèle Azure Resource Manager ou un générateur de modèles Azure Resource Manager. Ensuite, le développeur doit ajouter le type de ressource à ValidateSet pour le paramètre **$resourceType** et le groupe **$resourceTypes** dans resource_retriever. ps1. L’ajout du type de ressource au groupe **$resourceTypes** doit se faire dans l’ordre qui convient. L’ordre du groupe détermine l’ordre dans lequel les ressources sont déployées et dès lors, il convient de prendre en compte les dépendances. Enfin, si le processeur personnalisé utilise un générateur de modèles Azure Resource Manager, ils doivent ajouter le nom du type de ressource au groupe **$customTypes** dans **post_process.ps1**.
 
 ## <a name="run-azure-subscription-replicator"></a>Exécution du réplicateur d'abonnements Azure
 
@@ -85,7 +85,7 @@ Une fois l’exécution du script terminée, trois nouveaux dossiers sont créé
 
 Deployment_Files contient les deux fichiers **DeployResourceGroups.ps1** et **DeployResources.ps1**. L’exécution de DeployResourceGroups. ps1 déploie les groupes de ressources. L’exécution de DeployResources. ps1 déploie toutes les ressources traitées. Si l’outil a été exécuté avec **Tous** ou **Microsoft.Compute/virtualMachines** en tant que type de ressource, DeployResources.ps1 invite l’utilisateur à entrer un mot de passe d’administrateur de machine virtuelle qui sera utilisé pour créer toutes les machines virtuelles.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 1.  Exécutez le script.
 
@@ -98,7 +98,7 @@ Deployment_Files contient les deux fichiers **DeployResourceGroups.ps1** et **De
 
     ![Examinez les dossiers](./media/azure-stack-network-howto-backup-replicator/image4.png)
 
-3.  Définissez le contexte sur l'abonnement cible, remplacez le dossier par **Deployment_Files**, déployez les groupes de ressources, puis lancez le déploiement des ressources.
+3.  Définissez le contexte sur l’abonnement cible, remplacez le dossier par **Deployment_Files**, déployez les groupes de ressources (exécutez le script DeployResourceGroups.ps1), puis lancez le déploiement des ressources (exécutez le script DeployResources.ps1).
 
     ![Configurez et démarrez le déploiement](./media/azure-stack-network-howto-backup-replicator/image6.png)
 

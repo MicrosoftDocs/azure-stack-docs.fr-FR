@@ -3,27 +3,31 @@ title: Télécharger les outils Azure Stack Hub à partir de GitHub
 description: Découvrez comment télécharger les outils nécessaires pour utiliser Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 4/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 8d2f79d85055ef15f7dc0af3e1b36434f9c63d79
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 4/22/2020
+ms.openlocfilehash: 9faa562f9b8ff339016473f1b3c0df0512c90988
+ms.sourcegitcommit: 7b8e067cb449e67ca9c2935580684d78840ad495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77698281"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106922"
 ---
 # <a name="download-azure-stack-hub-tools-from-github"></a>Télécharger les outils Azure Stack Hub à partir de GitHub
 
-**AzureStack-Tools** est un [référentiel GitHub](https://github.com/Azure/AzureStack-Tools) qui héberge des modules PowerShell permettant de gérer et déployer des ressources sur Azure Stack Hub. Si vous prévoyez d’établir la connectivité VPN, vous pouvez télécharger ces modules PowerShell avec le Kit de développement Azure Stack (ASDK) ou sur un client externe Windows. Pour obtenir ces outils, clonez le référentiel GitHub ou téléchargez le dossier **AzureStack-Tools** en exécutant le script suivant :
+**AzureStack-Tools** est un [référentiel GitHub](https://github.com/Azure/AzureStack-Tools) qui héberge des modules PowerShell permettant de gérer et déployer des ressources sur Azure Stack Hub. Si vous prévoyez d’établir la connectivité VPN, vous pouvez télécharger ces modules PowerShell avec le Kit de développement Azure Stack (ASDK) ou sur un client externe Windows. 
+
+## <a name="get-tools-for-azure-stack-hub-azurerm-module"></a>Obtenir les outils Azure Stack Hub pour le module AzureRM
+
+Pour obtenir ces outils, clonez le dépôt GitHub à partir de la branche `master` ou téléchargez le dossier **AzureStack-Tools** en exécutant le script suivant :
 
 ```powershell
 # Change directory to the root directory.
 cd \
 
 # Download the tools archive.
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -37,6 +41,33 @@ expand-archive master.zip `
 cd AzureStack-Tools-master
 
 ```
+Pour plus d’informations sur l’utilisation du module AzureRM pour Azure Stack Hub, consultez [Installer le module PowerShell AzureRM pour Azure Stack Hub](azure-stack-powershell-install.md).
+
+## <a name="get-tools-for-azure-stack-hub-az-preview-module"></a>Obtenir les outils Azure Stack Hub pour le module Az (préversion)
+
+Pour obtenir ces outils, clonez le dépôt GitHub à partir de la branche `az` ou téléchargez le dossier **AzureStack-Tools** en exécutant le script suivant :
+
+```powershell
+# Change directory to the root directory.
+cd \
+
+# Download the tools archive.
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+invoke-webrequest `
+  https://github.com/Azure/AzureStack-Tools/archive/az.zip `
+  -OutFile az.zip
+
+# Expand the downloaded files.
+expand-archive az.zip `
+  -DestinationPath . `
+  -Force
+
+# Change to the tools directory.
+ cd AzureStack-Tools-az
+
+```
+
+Pour plus d’informations sur l’utilisation du module Az pour Azure Stack Hub, consultez [Installer le module PowerShell Az (préversion) pour Azure Stack Hub](powershell-install-az-module.md).
 
 ## <a name="functionality-provided-by-the-modules"></a>Fonctionnalités fournies par les modules
 

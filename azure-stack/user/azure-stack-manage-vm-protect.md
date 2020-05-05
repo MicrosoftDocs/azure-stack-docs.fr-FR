@@ -7,12 +7,12 @@ ms.date: 02/18/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: 913d0eeed1ba2cfce0b062385a4f544919889f43
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b5618fb39e9fc24fc8a086c99a7e1dd71f6b7a65
+ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512607"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82150227"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Protéger des machines virtuelles déployées sur Azure Stack Hub
 
@@ -64,7 +64,7 @@ La récupération d’une application à partir d’un agent nécessite de recr�
 
 #### <a name="backup-using-disk-snapshot-for-stopped-vms"></a>Sauvegarde à l’aide d’un instantané de disque pour les machines virtuelles arrêtées
 
-Certains produits de sauvegarde peuvent protéger la configuration des machines virtuelles IaaS et les disques attachés à une machine virtuelle arrêtée. Ils s’intègrent aux API Azure Stack Hub pour capturer la configuration des machines virtuelles et créer des instantanés de disque. Si un temps d’arrêt planifié est possible pour l’application, vérifiez que la machine virtuelle est arrêtée avant de démarrer le workflow de sauvegarde.  
+Certains produits de sauvegarde peuvent protéger la configuration des machines virtuelles IaaS et les disques attachés à une machine virtuelle arrêtée. Utilisez des produits de sauvegarde qui s’intègrent aux API Azure Stack Hub pour capturer la configuration des machines virtuelles et créer des captures instantanées de disque. Si un temps d’arrêt planifié est possible pour l’application, vérifiez que la machine virtuelle est arrêtée avant de démarrer le workflow de sauvegarde.  
 
 #### <a name="backup-using-disk-snapshot-snapshot-for-running-vms"></a>Sauvegarde à l’aide d’un instantané de disque les machines virtuelles en cours d’exécution
 

@@ -7,16 +7,16 @@ ms.date: 2/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 2/28/2020
-ms.openlocfilehash: e82ddb48b3858acdf25163976854f538400da54b
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b8bc4c1a9e56f363fa604e8df7a1fa0dbe37fcb0
+ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069201"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624979"
 ---
 # <a name="create-an-ssh-key-for-linux-on-azure-stack-hub"></a>Créer une clé SSH pour Linux sur Azure Stack Hub
 
-Vous pouvez créer une clé SSH pour votre machine Linux sur une machine Windows. Utilisez la clé publique générée par les étapes décrites dans cet article pour l’authentification SSH auprès de machines virtuelles. Si vous utilisez une machine Windows, installez Ubuntu sur Windows pour obtenir un terminal avec des utilitaires comme bash, ssh, git. Exécutez **ssh-keygen** pour créer votre clé.
+Vous pouvez créer une clé SSH pour votre machine Linux sur une machine Windows. Utilisez la clé publique générée par les étapes décrites dans cet article pour l’authentification SSH auprès de machines virtuelles. Si vous utilisez une machine Windows, installez Ubuntu sur Windows pour obtenir un terminal avec des utilitaires comme bash, ssh, git, apt, et bien plus encore. Exécutez **ssh-keygen** pour créer votre clé.
 
 ## <a name="open-bash-on-windows"></a>Ouvrir bash sur Windows
 

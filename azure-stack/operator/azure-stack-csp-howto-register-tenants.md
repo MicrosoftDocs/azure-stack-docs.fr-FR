@@ -3,20 +3,20 @@ title: Ajouter des locataires pour l’utilisation et la facturation sur Azure S
 description: Découvrez comment ajouter un locataire pour l’utilisation et la facturation sur Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/24/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: eb9cc45f3c8de162550cb7f882060a9506831d23
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d5a846d762d0dab8d07a16c7a7b6f147d8a92324
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704826"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82167022"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Ajouter un locataire pour l’utilisation et la facturation sur Azure Stack Hub
 
-Cet article vous montre comment ajouter un locataire à un déploiement Azure Stack Hub géré par un fournisseur de solutions cloud (CSP). Quand le nouveau locataire utilise des ressources, Azure Stack Hub signale l’utilisation à son abonnement de fournisseur de services cloud.
+Cet article explique comment ajouter un locataire à un déploiement Azure Stack Hub géré par un fournisseur de solutions cloud (CSP). Quand le nouveau locataire utilise des ressources, Azure Stack Hub signale l’utilisation à son abonnement de fournisseur de services cloud.
 
 Les fournisseurs de services cloud proposent souvent des services à plusieurs clients finaux (locataires) sur leur déploiement Azure Stack Hub. L’ajout de locataires à l’inscription Azure Stack Hub garantit que l’utilisation de chaque locataire sera signalée et facturée sur l’abonnement de fournisseur de services cloud correspondant. Si vous n’effectuez pas les étapes décrites dans cet article, l’utilisation du locataire est facturée pour l’abonnement utilisé dans l’inscription initiale d’Azure Stack Hub. Avant d'ajouter un client final à Azure Stack Hub pour suivre l’utilisation et gérer son locataire, vous devez configurer Azure Stack Hub en tant que fournisseur de services cloud. Pour les étapes et les ressources, consultez [Gérer l’utilisation et la facturation pour Azure Stack Hub comme fournisseur de solutions cloud](azure-stack-add-manage-billing-as-a-csp.md).
 
@@ -49,14 +49,14 @@ Par défaut, en tant que CSP, vous n’avez pas accès à l’abonnement Azure S
 
 Mettez à jour votre inscription avec l’abonnement de nouveau client. Azure signale l’utilisation du client à l’aide de l’identité du client dans l’Espace partenaires. Cette étape garantit que l’utilisation de chaque client est signalée dans l’abonnement de fournisseur de services cloud individuel de ce client. Cela facilite le suivi de l’utilisation et de la facturation. Pour effectuer cette étape, vous devez d’abord [inscrire Azure Stack Hub](azure-stack-registration.md).
 
-1. Ouvrez Windows PowerShell avec une invite élevée et exécutez :  
+1. Ouvrez Windows PowerShell dans une invite de commandes avec élévation des privilèges, puis exécutez la commande suivante :  
 
    ```powershell
    Add-AzureRmAccount
    ```
 
-   >[!Note]
-   > Si votre session expire, si votre mot de passe a changé ou si vous souhaitez simplement changer de compte, exécutez l’applet de commande suivante avant de vous connecter en utilisant Add-AzureRmAccount : `Remove-AzureRmAccount-Scope Process`
+   >[!NOTE]
+   > Si votre session expire, si votre mot de passe a changé ou si vous souhaitez simplement changer de compte, exécutez l’applet de commande suivante avant de vous connecter en utilisant **Add-AzureRmAccount** : `Remove-AzureRmAccount-Scope Process`.
 
 2. Entrez vos informations d’identification Azure.
 3. Dans la session PowerShell, exécutez :
@@ -90,5 +90,5 @@ Une fois que vous avez ajouté le nouveau client à Azure Stack Hub, ou que le l
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour consulter les messages d’erreur s’ils sont déclenchés dans votre processus d’inscription, consultez [Code d’erreur d’utilisation et de facturation](azure-stack-registration-errors.md).
-- Pour en savoir plus sur la récupération d’informations d’utilisation de ressources à partir d’Azure Stack Hub, voir [Utilisation et facturation dans Azure Stack Hub](azure-stack-billing-and-chargeback.md).
+- Pour en savoir plus sur la récupération d’informations d’utilisation de ressources à partir d’Azure Stack Hub, consultez [Utilisation et facturation dans Azure Stack Hub](azure-stack-billing-and-chargeback.md).
 - Pour vérifier comment un client final peut vous ajouter en qualité de CSP, en tant que responsable pour son locataire Azure Stack Hub, consultez [Autoriser un fournisseur de solutions cloud à gérer votre abonnement Azure Stack Hub](../user/azure-stack-csp-enable-billing-usage-tracking.md).

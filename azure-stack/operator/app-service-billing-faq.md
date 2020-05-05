@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble de la facturation d’Azure App Service sur Azure Stack Hub et FAQ
-description: Informations sur le mode de calcul et de facturation d’Azure App Service sur Azure Stack Hub.
+description: Découvrez la facturation d’Azure App Service sur Azure Stack Hub.
 author: apwestgarth
 manager: stefsch
 ms.topic: article
@@ -8,20 +8,20 @@ ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: ea304dc9d95d672377e72ce1dad49d4751b7d5c6
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e5ab25785223d1361553f995d22196cd594a6f0a
+ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77694881"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82150288"
 ---
 # <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Vue d’ensemble de la facturation d’Azure App Service sur Azure Stack Hub et FAQ
 
-Cet article illustre la façon dont les opérateurs cloud sont facturés pour l’offre Azure App Service sur Azure Stack Hub et dont ils peuvent facturer leur utilisation du service à leurs locataires.
+Cet article illustre la façon dont les opérateurs cloud sont facturés pour l’offre Azure App Service sur Azure Stack Hub et dont ils peuvent facturer l’utilisation du service à leurs locataires.
 
 ## <a name="billing-overview"></a>Présentation de la facturation
 
-Les opérateurs cloud Azure Stack Hub choisissent de déployer Azure App Service sur Azure Stack Hub sur leur tampon Azure Stack Hub afin de proposer les fonctionnalités de locataire d’Azure App Service et d’Azure Functions à leurs clients. Le fournisseur de ressources Azure App Service est constitué de plusieurs types de rôles qui peuvent être divisés entre l’infrastructure et les niveaux de worker.
+Les opérateurs cloud Azure Stack Hub choisissent de déployer Azure App Service sur Azure Stack Hub sur leur empreinte Azure Stack Hub afin de proposer les fonctionnalités de locataire d’Azure App Service et d’Azure Functions à leurs clients. Le fournisseur de ressources Azure App Service est constitué de plusieurs types de rôles qui peuvent être divisés entre l’infrastructure et les niveaux de worker.
 
 Les rôles d’infrastructure ne sont pas facturés car ils sont obligatoires pour l’opération principale du service. Les rôles d’infrastructure peuvent faire l’objet d’un scale-out si nécessaire pour prendre en charge les demandes des locataires de l’opérateur cloud. Les rôles d’infrastructure sont les suivants :
 
@@ -45,9 +45,9 @@ Les compteurs sont émis pour les workers dédiés quand ils sont :
 - Marqués comme prêts dans le fournisseur de ressources Azure App Service.
 - Affectés à un plan App Service.
 
-Ce modèle de facturation permet aux opérateurs cloud de provisionner un pool de workers dédiés prêts à être utilisés par les clients sans qu’ils aient à payer pour les workers jusqu’à ce qu’ils soient effectivement réservés par le plan App Service de leur locataire. 
+Ce modèle de facturation permet aux opérateurs cloud de provisionner un pool de workers dédiés prêts à être utilisés par les clients sans qu’ils aient à payer pour les workers jusqu’à ce qu’ils soient effectivement réservés par le plan App Service de leur locataire.
 
-Par exemple, supposons que vous ayez 20 workers dans le niveau de worker Small. Si vous avez cinq clients qui créent chacun deux plans App Service S1 et que chacun met à l’échelle le plan App Service pour qu’il comporte deux instances, vous n’avez aucun Worker disponible. Par conséquent, il n’y a pas non plus de capacité pour que l’un de vos clients ou que de nouveaux clients effectuent un scale-out ou créent des plans App Service. 
+Par exemple, supposons que vous ayez 20 workers dans le niveau de worker Small. Si vous avez cinq clients qui créent chacun deux plans App Service S1 et que chacun met à l’échelle le plan App Service pour qu’il comporte deux instances, vous n’avez aucun Worker disponible. Par conséquent, il n’y a pas non plus de capacité pour que l’un de vos clients ou que de nouveaux clients effectuent un scale-out ou créent des plans App Service.
 
 Les opérateurs cloud peuvent afficher le nombre actuel de workers disponibles par niveau de worker en examinant les niveaux de worker dans la configuration d’Azure App Service sur l’administration d’Azure Stack Hub.
 
@@ -61,7 +61,7 @@ Les opérateurs cloud peuvent interroger l’[API d’utilisation du locataire A
 
 ### <a name="how-do-i-license-the-sql-server-and-file-server-infrastructure-required-in-the-prerequisites"></a>Comment obtenir la licence pour SQL Server et l’infrastructure du serveur de fichiers exigée dans les prérequis ?
 
-La gestion des licences pour SQL Server et l’infrastructure du serveur de fichiers, exigée par le fournisseur de ressources Azure App Service, est traitée dans l’article Azure App Service sur Azure Stack Hub [Avant de commencer](azure-stack-app-service-before-you-get-started.md#licensing-concerns-for-required-file-server-and-sql-server).
+La gestion des licences pour SQL Server et l’infrastructure du serveur de fichiers, exigée par le fournisseur de ressources Azure App Service, est traitée ici : [Prérequis pour le déploiement d’App Service sur Azure Stack Hub](azure-stack-app-service-before-you-get-started.md#licensing-concerns-for-required-file-server-and-sql-server).
 
 ### <a name="the-usage-faq-lists-the-tenant-meters-but-not-the-prices-for-those-meters-where-can-i-find-them"></a>Les Questions fréquentes (FAQ) sur l’utilisation listent les compteurs de locataire, mais pas les prix de ces compteurs. Où les trouver ?
 
@@ -69,11 +69,11 @@ En tant qu’opérateur cloud, vous êtes libres d’appliquer vos propre modèl
 
 ### <a name="as-a-csp-how-can-i-offer-free-and-shared-skus-for-customers-to-try-out-the-service"></a>En tant que CSP, comment puis-je fournir des références SKU gratuites et partagées aux clients qui souhaitent essayer le service ?
 
-En tant qu’opérateur cloud, des frais vous sont facturés pour fournir des références SKU gratuites et partagées, car ces références sont hébergées dans des workers partagés. Pour réduire ces coûts au minimum, vous pouvez choisir de passer au niveau de worker partagé le plus bas. 
+En tant qu’opérateur cloud, des frais vous sont facturés pour fournir des références SKU gratuites et partagées, car ces références sont hébergées dans des workers partagés. Pour réduire ces coûts au minimum, vous pouvez choisir de passer au niveau de worker partagé le plus bas.
 
 Par exemple, pour fournir des références SKU gratuites et partagées de plan App Service ainsi que des fonctions basées sur la consommation, vous avez besoin d’au moins une instance A1 disponible. Les Workers partagés sont multilocataires ; ils peuvent donc héberger plusieurs applications clientes, qui sont isolées et protégées de manière individuelle par le bac à sable App Service. En ajustant le niveau de worker partagé de cette façon, vous pouvez limiter vos dépenses à un coût de une vCPU par mois.
 
-Vous pouvez ensuite choisir de créer un quota, pour une utilisation dans un plan, qui fournit uniquement des références SKU gratuites et partagées et qui limite le nombre de plans App Service gratuits et partagés que votre client est autorisé à créer.
+Vous pouvez ensuite choisir de créer un quota pour une utilisation dans un plan, qui fournit uniquement des références SKU gratuites et partagées et qui limite le nombre de plans App Service gratuits et partagés que votre client est autorisé à créer.
 
 ## <a name="sample-scripts-to-assist-with-billing"></a>Exemples de scripts d’aide à la facturation
 

@@ -1,5 +1,5 @@
 ---
-title: Déployer une application qui utilise des données locales et effectue une mise à l’échelle multicloud à l’aide d’Azure et d’Azure Stack Hub
+title: Déployer une application hybride avec des données locales qui effectue une mise à l’échelle multicloud
 description: Découvrez comment déployer une application qui utilise des données locales et effectue une mise à l’échelle multicloud à l’aide d’Azure et d’Azure Stack Hub.
 author: BryanLa
 ms.topic: article
@@ -7,18 +7,18 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: b376be7855300dab0177bbbe735d6a5bf34d6bb9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ce9536548a7968f565cb653fb91cc2aa074f50ba
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701069"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82167056"
 ---
-# <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Déployer une application qui utilise des données locales et effectue une mise à l’échelle multicloud à l’aide d’Azure et d’Azure Stack Hub
+# <a name="deploy-hybrid-app-with-on-premises-data-that-scales-cross-cloud"></a>Déployer une application hybride avec des données locales qui effectue une mise à l’échelle multicloud
 
-Ce guide de solution vous explique comment déployer une application hybride, qui s'étend sur Azure et Azure Stack Hub et utilise une source de données locale unique.
+Ce guide de solution vous explique comment déployer une application hybride qui s’étend sur Azure et Azure Stack Hub, et utilise une source de données locale unique.
 
-En utilisant une solution de cloud hybride, vous pouvez combiner les avantages de la conformité d’un cloud privé avec l’extensibilité du cloud public. En outre, vos développeurs peuvent tirer parti de l’écosystème de développement Microsoft et appliquer leurs compétences aux environnements cloud et locaux.
+En utilisant une solution de cloud hybride, vous pouvez combiner les avantages de la conformité d’un cloud privé avec l’extensibilité du cloud public. Vos développeurs peuvent aussi tirer parti de l’écosystème de développement Microsoft et appliquer leurs compétences aux environnements cloud et locaux.
 
 ## <a name="overview-and-assumptions"></a>Vue d’ensemble et hypothèses
 
@@ -40,28 +40,28 @@ Ce tutoriel décrit les tâches suivantes :
 > ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack Hub est une extension d’Azure. Azure Stack Hub offre à votre environnement local l’agilité et l’innovation du cloud computing grâce au seul cloud hybride qui vous permette de créer et de déployer des applications hybrides en tout lieu.  
 > 
-> L’article [Design Considerations for Hybrid Applications](overview-app-design-considerations.md) se penche sur les fondements de la qualité logicielle (sélection élective, scalabilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
+> L’article [Considérations sur la conception d’applications hybrides](overview-app-design-considerations.md) se penche sur les fondements de la qualité logicielle (sélection élective, scalabilité, disponibilité, résilience, facilité de gestion et sécurité) pour la conception, le déploiement et le fonctionnement des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
 
 ### <a name="assumptions"></a>Hypothèses
 
 Ce didacticiel suppose que vous disposez de connaissances de base sur Azure global et Azure Stack Hub. Si vous voulez en savoir plus avant de commencer le didacticiel, consultez les articles suivants :
 
- - [Présentation de Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/)
- - [Concepts clés d'Azure Stack Hub](../operator/azure-stack-overview.md)
+- [Présentation de Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/)
+- [Concepts clés d'Azure Stack Hub](../operator/azure-stack-overview.md)
 
-Ce didacticiel part du principe que vous disposez d’un abonnement Azure. Si vous n’avez pas d’abonnement, vous pouvez [créer un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+Ce didacticiel part du principe que vous disposez d’un abonnement Azure. Si vous n’avez pas d’abonnement, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer cette solution, vérifiez que les conditions suivantes sont réunies :
 
-- Un Kit de développement Azure Stack (ASDK) ou un abonnement à un système intégré Azure Stack Hub. Pour déployer un Kit de développement Azure Stack, suivez les instructions de [Déployer l’ASDK à l’aide du programme d’installation](../asdk/asdk-install.md).
+- Un Kit de développement Azure Stack (ASDK) ou un abonnement à un système intégré Azure Stack Hub. Pour déployer le kit ASDK, suivez les instructions qui figurent dans [Déployer le kit ASDK à l’aide du programme d’installation](../asdk/asdk-install.md).
 - Votre installation Azure Stack Hub doit avoir installé les éléments suivants :
   - Azure App Service. Travaillez avec votre opérateur Azure Stack Hub pour déployer et configurer Azure App Service sur votre environnement. Ce didacticiel nécessite qu’App Service dispose d’au moins (1) rôle de travail dédié disponible.
   - Une image Windows Server 2016.
   - Un serveur Windows Server 2016 avec une image Microsoft SQL Server.
   - Les plans et offres appropriés.
-  - Un nom de domaine pour votre application web. Si vous n’avez pas de nom de domaine, vous pouvez en acheter un auprès d’un fournisseur de domaine comme GoDaddy, Bluehost ou InMotion.
+  - Un nom de domaine pour votre application web. Si vous n’avez pas de nom de domaine, vous pouvez en acheter un auprès d’un fournisseur de domaine comme GoDaddy, Bluehost et InMotion.
 - Un certificat SSL pour votre domaine reçu d’une autorité de certification de confiance comme LetsEncrypt.
 - Une application web qui communique avec une base de données SQL Server et prend en charge Application Insights. Vous pouvez télécharger l’exemple d’application [dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) à partir de GitHub.
 - Un réseau hybride entre un réseau virtuel Azure et un réseau virtuel Azure Stack Hub. Pour obtenir des instructions détaillées, consultez [Configurer la connectivité de cloud hybride avec Azure et Azure Stack Hub](solution-deployment-guide-connectivity.md).
@@ -78,13 +78,13 @@ Avant de commencer cette solution, vérifiez que les conditions suivantes sont r
 
 3. Dans **Place de marché**, sélectionnez **Calcul**, puis choisissez **Plus**. Sous **Plus**, sélectionnez l’image **Licence SQL Server gratuite : SQL Server 2017 Developer sur Windows Server**.
 
-    ![Sélectionner une image de machine virtuelle](media/solution-deployment-guide-hybrid/image2.png)
+    ![Sélectionner une image de machine virtuelle dans le portail utilisateur Azure Stack Hub](media/solution-deployment-guide-hybrid/image2.png)
 
 4. Dans **Licence SQL Server gratuite : SQL Server 2017 Developer sur Windows Server**, sélectionnez **Créer**.
 
 5. Sur **Paramètres de base > Configurer les paramètres de base**, saisissez un **Nom** pour la machine virtuelle (VM), un **Nom d’utilisateur** pour l’association de sécurité de SQL Server et un **Mot de passe** pour l’association de sécurité.  Dans la liste déroulante **Abonnement**, sélectionnez l’abonnement sur lequel vous effectuez le déploiement. Pour **Groupe de ressources**, utilisez **Choisir un élément déjà existant** et placez la machine virtuelle dans le même groupe de ressources que votre application web Azure Stack Hub.
 
-    ![Configurer les paramètres de base des machines virtuelles](media/solution-deployment-guide-hybrid/image3.png)
+    ![Configurer les paramètres de base de la machine virtuelle dans le portail utilisateur Azure Stack Hub](media/solution-deployment-guide-hybrid/image3.png)
 
 6. Sous **Taille**, choisissez une taille pour votre machine virtuelle. Pour ce didacticiel, nous vous recommandons A2_Standard ou un DS2_V2_Standard.
 
@@ -102,9 +102,10 @@ Avant de commencer cette solution, vérifiez que les conditions suivantes sont r
    - **Compte de stockage de diagnostics** : Créez un nouveau compte si nécessaire.
    - Cliquez sur **OK** pour enregistrer votre configuration.
 
-     ![Configurer des fonctionnalités facultatives](media/solution-deployment-guide-hybrid/image4.png)
+     ![Configurer des fonctionnalités de machine virtuelle facultatives dans le portail utilisateur Azure Stack Hub](media/solution-deployment-guide-hybrid/image4.png)
 
 8. Sous **Paramètres SQL Server**, configurez les paramètres suivants :
+
    - Pour **Connectivité SQL**, sélectionnez **Public (Internet)** .
    - Pour **Port**, conservez la valeur par défaut, **1433**.
    - Pour **Authentification SQL**, sélectionnez **Activer**.
@@ -114,15 +115,15 @@ Avant de commencer cette solution, vérifiez que les conditions suivantes sont r
 
    - Conservez les valeurs par défaut pour les autres paramètres. Sélectionnez **OK**.
 
-     ![Configurer les paramètres de SQL Server](media/solution-deployment-guide-hybrid/image5.png)
+     ![Configurer des paramètres SQL Server dans le portail utilisateur Azure Stack Hub](media/solution-deployment-guide-hybrid/image5.png)
 
-9. Sur **Résumé**, vérifiez la configuration de la machine virtuelle, puis sélectionnez **OK** pour démarrer le déploiement.
+9. Dans **Résumé**, examinez la configuration de la machine virtuelle, puis sélectionnez **OK** pour démarrer le déploiement.
 
-    ![Résumé de la configuration](media/solution-deployment-guide-hybrid/image6.png)
+    ![Résumé de la configuration dans le portail utilisateur Azure Stack Hub](media/solution-deployment-guide-hybrid/image6.png)
 
 10. La création de la machine virtuelle prend un certain temps. Vous pouvez afficher l’ÉTAT de vos machines virtuelles dans **Machines virtuelles**.
 
-    ![Machines virtuelles](media/solution-deployment-guide-hybrid/image7.png)
+    ![État des machines virtuelles dans le portail utilisateur Azure Stack Hub](media/solution-deployment-guide-hybrid/image7.png)
 
 ## <a name="create-web-apps-in-azure-and-azure-stack-hub"></a>Créer des applications web dans Azure et Azure Stack Hub
 
@@ -134,7 +135,7 @@ Le service Azure App Service simplifie l’exécution et la gestion d’une appl
 
 2. Répétez l’étape précédente (1) dans Azure Stack Hub.
 
-### <a name="add-route-for-azure-stack-hub"></a>Ajouter un itinéraire pour Azure Stack Hub
+### <a name="add-route-for-azure-stack-hub"></a>Ajouter une route pour Azure Stack Hub
 
 Le service App Service sur Azure Stack Hub doit être routable à partir de l’Internet public pour permettre aux utilisateurs d’accéder à votre application. Si votre Azure Stack Hub est accessible à partir d’Internet, notez l’adresse IP ou l’URL publiques de l’application web Azure Stack Hub.
 
@@ -154,11 +155,11 @@ La passerelle de réseau virtuel du côté Azure du réseau hybride doit autoris
 
 1. Dans Azure, accédez à la page de la passerelle de réseau virtuel. Sous **Paramètres**, sélectionnez **Configuration de point à site**.
 
-    ![Option point à site](media/solution-deployment-guide-hybrid/image8.png)
+    ![Option point à site dans la passerelle de réseau virtuel Azure](media/solution-deployment-guide-hybrid/image8.png)
 
 2. Sélectionnez **Configurer maintenant** pour configurer la connectivité point à site.
 
-    ![Démarrer la configuration de point à site](media/solution-deployment-guide-hybrid/image9.png)
+    ![Démarrer la configuration point à site dans la passerelle de réseau virtuel Azure](media/solution-deployment-guide-hybrid/image9.png)
 
 3. Sur la page de la configuration de **Point à site**, ajoutez la plage d’adresses IP privées que vous souhaitez utiliser dans la zone **Pool d’adresses**.
 
@@ -167,7 +168,7 @@ La passerelle de réseau virtuel du côté Azure du réseau hybride doit autoris
 
    Sous **Type de Tunnel**, décochez **VPN IKEv2**. Sélectionnez **Enregistrer** pour terminer la configuration de point-to-site.
 
-   ![Paramètres de point à site](media/solution-deployment-guide-hybrid/image10.png)
+   ![Paramètres point à site dans la passerelle de réseau virtuel Azure](media/solution-deployment-guide-hybrid/image10.png)
 
 ### <a name="integrate-the-azure-app-service-app-with-the-hybrid-network"></a>Intégrer l’application Azure App Service avec le réseau hybride
 
@@ -175,15 +176,15 @@ La passerelle de réseau virtuel du côté Azure du réseau hybride doit autoris
 
 2. Accédez aux **Paramètres** du plan App Service hébergeant l’application web. Sous **Paramètres**, sélectionnez **Mise en réseau**.
 
-    ![Configurer la mise en réseau](media/solution-deployment-guide-hybrid/image11.png)
+    ![Configurer la mise en réseau pour le plan App Service](media/solution-deployment-guide-hybrid/image11.png)
 
 3. Dans **Intégration au réseau virtuel**, sélectionnez **Cliquer ici pour gérer**.
 
-    ![Gérer l’intégration au réseau virtuel](media/solution-deployment-guide-hybrid/image12.png)
+    ![Gérer l’intégration au réseau virtuel pour le plan App Service](media/solution-deployment-guide-hybrid/image12.png)
 
 4. Sélectionnez le réseau virtuel à configurer. Sous **ADRESSES IP ROUTÉES VERS LE RÉSEAU VIRTUEL**, entrez la plage d’adresses IP pour les espaces d’adressage du réseau virtuel Azure, du réseau virtuel Azure Stack Hub et du réseau de point à site. Cliquez sur **Enregistrer** pour valider et enregistrer ces paramètres.
 
-    ![Plages d’adresses IP à router](media/solution-deployment-guide-hybrid/image13.png)
+    ![Plages d’adresses IP à router dans l’intégration au réseau virtuel](media/solution-deployment-guide-hybrid/image13.png)
 
 Pour en savoir plus sur comment App Service s’intègre aux réseaux virtuels Azure, consultez [Intégrer votre application à un réseau virtuel Azure](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet).
 
@@ -191,13 +192,13 @@ Pour en savoir plus sur comment App Service s’intègre aux réseaux virtuels A
 
 La passerelle de réseau local dans le réseau virtuel Azure Stack Hub doit être configurée pour router le trafic à partir de la plage d’adresses de point-to-site App Service.
 
-1. Dans Azure Stack Hub, accédez à la **Passerelle de réseau locale**. Sous **Paramètres**, sélectionnez **Configuration**.
+1. Dans Azure Stack Hub, accédez à **Passerelle de réseau local**. Sous **Paramètres**, sélectionnez **Configuration**.
 
-    ![Option de configuration de la passerelle](media/solution-deployment-guide-hybrid/image14.png)
+    ![Option de configuration de la passerelle dans la passerelle de réseau local Azure Stack Hub](media/solution-deployment-guide-hybrid/image14.png)
 
 2. Dans **Espace d’adressage**, entrez la plage d’adresses point à site pour la passerelle de réseau virtuel dans Azure.
 
-    ![Espace d’adressage de point à site](media/solution-deployment-guide-hybrid/image15.png)
+    ![Espace d’adressage point à site dans la passerelle de réseau local Azure Stack Hub](media/solution-deployment-guide-hybrid/image15.png)
 
 3. Sélectionnez **Enregistrer** pour valider et enregistrer la configuration.
 
@@ -221,7 +222,7 @@ Vous devrez également créer un sous-domaine avec un enregistrement A pour le p
 
 ### <a name="configure-custom-domains-in-azure-stack-hub"></a>Configurer des domaines personnalisés dans Azure Stack Hub
 
-1. Ajoutez le nom d’hôte **azurestack.northwind.com** à l’application web Azure Stack Hub en [mappant un enregistrement A vers Azure App Service](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-an-a-record). Utilisez l’adresse IP routable sur Internet pour l’application App Service.
+1. Ajoutez le nom d’hôte **azurestack.northwind.com** à l’application web Azure Stack Hub en [mappant un enregistrement A vers Azure App Service](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-an-a-record). Utilisez l’adresse IP routable sur Internet pour l’application App Service.
 
 2. Ajoutez le nom d’hôte **app.northwind.com** à l’application web Azure Stack Hub en [mappant un CNAME vers Azure App Service](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-a-cname-record). Utilisez le nom d’hôte que vous avez configuré à l’étape précédente (1) comme cible pour le CNAME.
 
@@ -243,7 +244,7 @@ Pour ajouter SSL à Azure :
 
 Pour ajouter SSL à Azure Stack Hub :
 
-- Répétez les étapes 1 à 3 effectuées pour Azure.
+1. Répétez les étapes 1 à 3 effectuées pour Azure.
 
 ## <a name="configure-and-deploy-the-web-app"></a>Configurer et déployer l’application web
 
@@ -257,10 +258,10 @@ Vous allez configurer le code d’application pour envoyer les données de tél�
 
 ### <a name="configure-dynamic-connection-strings"></a>Configurer des chaînes de connexion dynamiques
 
-Chaque instance de l’application web utilise une méthode différente pour se connecter à la base de données SQL. L’application dans Azure utilise l’adresse IP privée de la machine virtuelle (VM) SQL Server, et l’application dans Azure Stack Hub l’adresse IP publique de la machine virtuelle SQL Server.
+Chaque instance de l’application web utilise une méthode différente pour se connecter à la base de données SQL. L’application dans Azure utilise l’adresse IP privée de la machine virtuelle SQL Server, et l’application dans Azure Stack Hub l’adresse IP publique de la machine virtuelle SQL Server.
 
 > [!Note]  
-> Sur un système intégré Azure Stack Hub, l’adresse IP publique ne doit pas être routable sur Internet. Sur un Kit de développement Azure Stack (ASDK), l’adresse IP publique n’est pas routable en dehors de l’ASDK.
+> Sur un système intégré Azure Stack Hub, l’adresse IP publique ne doit pas être routable sur Internet. Sur un kit ASDK, l’adresse IP publique n’est pas routable en dehors du kit.
 
 Vous pouvez utiliser des variables d’environnement App Service pour transmettre une chaîne de connexion différente à chaque instance de l’application.
 
@@ -301,21 +302,21 @@ Lorsque vous créez votre application web dans un environnement App Service, l�
 
 1. Dans Azure, recherchez le plan App Service des sites pour lesquels vous souhaitez effectuer un scale-out, puis sélectionnez **Scale-out (plan App Service)** .
 
-    ![Scale-out](media/solution-deployment-guide-hybrid/image16.png)
+    ![Effectuer un scale-out d’Azure App Service](media/solution-deployment-guide-hybrid/image16.png)
 
 2. Sélectionnez **Activer la mise à l’échelle automatique**.
 
-    ![Activer la mise à l’échelle automatique](media/solution-deployment-guide-hybrid/image17.png)
+    ![Activer la mise à l’échelle automatique dans Azure App Service](media/solution-deployment-guide-hybrid/image17.png)
 
 3. Fournissez un nom pour le **Nom du paramètre de mise à l’échelle automatique**. Pour la règle de mise à l’échelle automatique **Par défaut**, sélectionnez **Mettre à l’échelle selon une mesure**. Définissez les **Limites d’instance** sur **Minimum : 1**, **Maximum : 10** et **Par défaut : 1**.
 
-    ![Configurer la mise à l’échelle automatique](media/solution-deployment-guide-hybrid/image18.png)
+    ![Configurer la mise à l’échelle automatique dans Azure App Service](media/solution-deployment-guide-hybrid/image18.png)
 
 4. Sélectionnez **+Ajouter une règle**.
 
 5. Dans **Source de la mesure**, sélectionnez **Ressource actuelle**. Utilisez les critères et les actions suivantes pour la règle.
 
-**Critères**
+#### <a name="criteria"></a>Critères
 
 1. Sous **Agrégation du temps**, sélectionnez **Moyenne**.
 
@@ -326,7 +327,7 @@ Lorsque vous créez votre application web dans un environnement App Service, l�
    - Définissez le **Seuil** sur **50**.
    - Définir la **Durée** sur **10**.
 
-**Action**
+#### <a name="action"></a>Action
 
 1. Sous **Opération**, sélectionnez **Augmenter le nombre de**.
 
@@ -341,15 +342,15 @@ Lorsque vous créez votre application web dans un environnement App Service, l�
 6. Dans **Source de la mesure**, sélectionnez **Ressource actuelle**.
 
    > [!Note]  
-   > La ressource actuelle contient le nom/GUID de votre plan App Service, et les listes déroulantes **Type de ressource** et **Ressource** sont indisponibles.
+   > La ressource actuelle contient le nom/GUID de votre plan App Service, et les listes déroulantes **Type de ressource** et **Ressource** ne sont pas disponibles.
 
 ### <a name="enable-automatic-scale-in"></a>Activer le scale-in automatique
 
 Lorsque le trafic diminue, l’application web Azure peut diminuer automatiquement le nombre d’instances actives afin de réduire les coûts. Cette action est moins agressive que l’augmentation de la taille des instances et minimise l’impact sur les utilisateurs de l’application.
 
-1. Accédez à la condition de scale-out **Par défaut**, sélectionnez **+ Ajouter une règle**. Utilisez les critères et les actions suivantes pour la règle.
+1. Accédez à la condition de scale-out **Par défaut**, puis sélectionnez **+ Ajouter une règle**. Utilisez les critères et les actions suivantes pour la règle.
 
-**Critères**
+#### <a name="criteria"></a>Critères
 
 1. Sous **Agrégation du temps**, sélectionnez **Moyenne**.
 
@@ -360,7 +361,7 @@ Lorsque le trafic diminue, l’application web Azure peut diminuer automatiqueme
    - Définissez le **Seuil** sur **30**.
    - Définir la **Durée** sur **10**.
 
-**Action**
+#### <a name="action"></a>Action
 
 1. Sous **Opération**, sélectionnez **Diminuer le nombre de**.
 
@@ -383,7 +384,7 @@ Créez un profil Traffic Manager dans Azure, puis configurez les points de termi
    - Pour la **Méthode de routage**, sélectionnez la méthode **Pondérée**.
    - Sous **Abonnement**, sélectionnez l’abonnement dans lequel vous souhaitez créer ce profil.
    - Sous **Groupe de ressources**, créez un groupe de ressources pour ce profil.
-   - Sous **Emplacement du groupe de ressources**, sélectionnez l’emplacement du groupe de ressources. Ce paramètre fait référence à l’emplacement du groupe de ressources et n’a pas d’incidence sur le profil Traffic Manager déployé globalement.
+   - Sous **Emplacement du groupe de ressources**, sélectionnez l’emplacement du groupe de ressources. Ce paramètre fait référence à l’emplacement du groupe de ressources et n’a pas d’impact sur le profil Traffic Manager qui est déployé globalement.
 
 4. Sélectionnez **Create** (Créer).
 
@@ -427,7 +428,7 @@ Vous configurerez ensuite le point de terminaison Azure.
 
 Une fois que les deux points de terminaison sont configurés, ils sont répertoriés dans **Profil Traffic Manager** lorsque vous sélectionnez **Points de terminaison**. L’exemple sur la capture d’écran suivante montre deux points de terminaison, avec les informations d’état et de configuration pour chacun d’entre eux.
 
-![Points de terminaison](media/solution-deployment-guide-hybrid/image20.png)
+![Points de terminaison dans le profil Traffic Manager](media/solution-deployment-guide-hybrid/image20.png)
 
 ## <a name="set-up-application-insights-monitoring-and-alerting"></a>Configurer la supervision et les alertes Application Insights
 
@@ -437,11 +438,11 @@ Les mesures d’Application Insights vous permettront de créer des alertes. Lor
 
 ### <a name="create-an-alert-from-metrics"></a>Créer une alerte à partir de mesures
 
-Pour ce didacticiel, accédez au groupe de ressources, puis sélectionnez l’instance Application Insights pour ouvrir **Application Insights**.
+Accédez au groupe de ressources de ce tutoriel, puis sélectionnez l’instance Application Insights pour ouvrir **Application Insights**.
 
 ![Application Insights](media/solution-deployment-guide-hybrid/image21.png)
 
-Cet affichage vous permettra de créer une alerte de scale-out et une alerte de scale-in.
+Cette vue vous permettra de créer une alerte de scale-out et une alerte de scale-in.
 
 ### <a name="create-the-scale-out-alert"></a>Créer l’alerte pour augmenter la taille des instances
 
@@ -485,13 +486,13 @@ Cet affichage vous permettra de créer une alerte de scale-out et une alerte de 
 
 9. Dans la barre de menus, sélectionnez **Enregistrer**.
 
-La capture d’écran suivante montre les alertes pour l’augmentation et la diminution de la taille des instances.
+La capture d’écran suivante illustre les alertes de scale-out et de scale-in.
 
-   ![Alertes (classique)](media/solution-deployment-guide-hybrid/image22.png)
+   ![Alertes Application Insights (classiques)](media/solution-deployment-guide-hybrid/image22.png)
 
 ## <a name="redirect-traffic-between-azure-and-azure-stack-hub"></a>Rediriger le trafic entre Azure et Azure Stack Hub
 
-Vous pouvez configurer le basculement manuel ou automatique du trafic de votre application web pour basculer entre Azure et Azure Stack Hub.
+Vous pouvez configurer le basculement manuel ou automatique du trafic de votre application web entre Azure et Azure Stack Hub.
 
 ### <a name="configure-manual-switching-between-azure-and-azure-stack-hub"></a>Configurer un basculement manuel entre Azure et Azure Stack Hub
 
@@ -499,22 +500,22 @@ Lorsque votre site web atteint les seuils que vous avez configurés, vous receve
 
 1. Dans le portail Azure, sélectionnez votre profil Traffic Manager.
 
-    ![Points de terminaison Traffic Manager](media/solution-deployment-guide-hybrid/image20.png)
+    ![Points de terminaison Traffic Manager dans le portail Azure](media/solution-deployment-guide-hybrid/image20.png)
 
 2. Sélectionnez **Points de terminaison**.
 3. Sélectionnez le **point de terminaison Azure**.
 4. Sous **État**, sélectionnez **Activé**, puis **Enregistrer**.
 
-    ![Activer un point de terminaison Azure](media/solution-deployment-guide-hybrid/image23.png)
+    ![Activer un point de terminaison Azure dans le portail Azure](media/solution-deployment-guide-hybrid/image23.png)
 
 5. Sous **Points de terminaison**du profil Traffic Manager, sélectionnez **Point de terminaison externe**.
 6. Sous **État**, sélectionnez **Désactivé**, puis **Enregistrer**.
 
-    ![Désactiver un point de terminaison Azure Stack Hub](media/solution-deployment-guide-hybrid/image24.png)
+    ![Désactiver un point de terminaison Azure Stack Hub dans le portail Azure](media/solution-deployment-guide-hybrid/image24.png)
 
 Une fois les points de terminaison configurés, le trafic de l’application accède à votre application web augmentant la taille des instances Azure plutôt qu’à l’application web Azure Stack Hub.
 
- ![Points de terminaison modifiés](media/solution-deployment-guide-hybrid/image25.png)
+ ![Points de terminaison modifiés dans le trafic des applications web Azure](media/solution-deployment-guide-hybrid/image25.png)
 
 Pour inverser le flux vers Azure Stack Hub, utilisez les étapes précédentes pour :
 

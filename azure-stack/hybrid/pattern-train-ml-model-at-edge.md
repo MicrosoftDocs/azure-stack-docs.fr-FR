@@ -1,42 +1,42 @@
 ---
-title: Modèle permettant d'effectuer l'apprentissage d'un modèle Machine Learning (ML) en périphérie à l'aide d'Azure et d'Azure Stack Hub.
-description: Apprenez à utiliser les services Azure et Azure Stack Hub pour effectuer l'apprentissage d'un modèle ML en périphérie.
+title: Modèle d’entraînement d’un modèle Machine Learning en périphérie
+description: Apprenez à effectuer l’entraînement de modèles Machine Learning en périphérie avec Azure et Azure Stack Hub.
 author: BryanLa
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 4df466a3b1b1e89be704302153e9e835f504445e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 604553ad11961d42063685c1a4b70388605c0db8
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77688863"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166937"
 ---
-# <a name="train-machine-learning-ml-model-at-the-edge-pattern"></a>Effectuer l'apprentissage d'un modèle Machine Learning (ML) en périphérie
+# <a name="train-machine-learning-model-at-the-edge-pattern"></a>Modèle d’entraînement d’un modèle Machine Learning en périphérie
 
-Générez des modèles ML portables à partir de données uniquement disponibles localement.
+Générez des modèles Machine Learning portables à partir de données présentes uniquement en local.
 
 ## <a name="context-and-problem"></a>Contexte et problème
 
-De nombreuses organisations aimeraient pouvoir extraire des insights de leurs données locales ou héritées à l'aide d'outils que leurs équipes de scientifiques des données comprennent. [Azure Machine Learning](/azure/machine-learning/) fournit des outils cloud natifs pour entraîner, régler et déployer des modèles ML et Deep Learning.  
+De nombreuses organisations aimeraient pouvoir extraire des insights de leurs données locales ou héritées à l'aide d'outils que leurs équipes de scientifiques des données comprennent. [Azure Machine Learning](/azure/machine-learning/) fournit des outils cloud natifs pour entraîner, régler et déployer des modèles Machine Learning et Deep Learning.  
 
-Cependant, certaines données sont trop volumineuses pour être envoyées dans le cloud, ou ne peuvent l'être pour des raisons réglementaires. Grâce à ce modèle, les scientifiques des données peuvent utiliser Azure Machine Learning pour effectuer l'apprentissage de modèles à l'aide de données et de calculs locaux. 
+Cependant, certaines données sont trop volumineuses pour être envoyées dans le cloud, ou ne peuvent l’être pour des raisons réglementaires. Grâce à ce modèle, les scientifiques des données peuvent utiliser Azure Machine Learning pour effectuer l'apprentissage de modèles à l'aide de données et de calculs locaux.
 
 ## <a name="solution"></a>Solution
 
-Le modèle d'apprentissage en périphérie utilise une machine virtuelle exécutée sur Azure Stack Hub. La machine virtuelle est enregistrée en tant que cible de calcul dans Azure ML, ce qui lui permet d'accéder aux données uniquement disponibles localement. Dans ce cas, les données sont stockées dans le stockage blob d'Azure Stack Hub. 
+Le modèle d'apprentissage en périphérie utilise une machine virtuelle exécutée sur Azure Stack Hub. La machine virtuelle est inscrite en tant que cible de calcul dans Azure Machine Learning, ce qui lui permet d’accéder aux données disponibles uniquement en local. Dans ce cas, les données sont stockées dans le stockage d’objets blob d’Azure Stack Hub.
 
-Au terme de son apprentissage, le modèle est enregistré auprès d'Azure ML, conteneurisé et ajouté à une instance d'Azure Container Registry à des fins de déploiement. Pour cette itération du modèle, la machine virtuelle d'apprentissage Azure Stack Hub doit être accessible sur l'Internet public. 
+Au terme de son apprentissage, le modèle est enregistré auprès d'Azure ML, conteneurisé et ajouté à une instance d'Azure Container Registry à des fins de déploiement. Pour cette itération du modèle, la machine virtuelle d’entraînement Azure Stack Hub doit être accessible sur l’Internet public.
 
-[![architecture d'apprentissage d'un modèle ml en périphérie](media/pattern-train-ml-model-at-edge/solution-architecture.png)](media/pattern-train-ml-model-at-edge/solution-architecture.png)
+[![Architecture d’entraînement d’un modèle Machine Learning en périphérie](media/pattern-train-ml-model-at-edge/solution-architecture.png)](media/pattern-train-ml-model-at-edge/solution-architecture.png)
 
-Le fonctionnement de la solution est le suivant : 
+Voici comment fonctionne le modèle :
 
 1. La machine virtuelle Azure Stack Hub est déployée et enregistrée en tant que cible de calcul auprès d'Azure ML.
 2. Une expérience est créée dans Azure ML, avec la machine virtuelle Azure Stack Hub comme cible de calcul.
-3. Au terme de son apprentissage, le modèle est enregistré et conteneurisé.
+3. Au terme de son entraînement, le modèle est inscrit et conteneurisé.
 4. Le modèle peut maintenant être déployé localement ou dans le cloud.
 
 ## <a name="components"></a>Components
@@ -55,9 +55,9 @@ Cette solution utilise les composants suivants :
 
 Prenez en compte des points suivants lors du choix de l'implémentation de cette solution :
 
-### <a name="scalability"></a>Extensibilité 
+### <a name="scalability"></a>Extensibilité
 
-Pour la mise à l'échelle de cette solution en vue de l'apprentissage, vous devez créer une machine virtuelle de taille appropriée sur Azure Stack Hub.
+Pour permettre la mise à l’échelle de cette solution, vous devez créer une machine virtuelle de taille appropriée sur Azure Stack Hub pour l’entraînement.
 
 ### <a name="availability"></a>Disponibilité
 
@@ -65,19 +65,20 @@ Assurez-vous que les scripts d'apprentissage et les machines virtuelles Azure St
 
 ### <a name="manageability"></a>Simplicité de gestion
 
-Assurez-vous que les modèles et les expériences sont correctement enregistrés, versionnés et étiquetés afin d'éviter toute confusion lors du déploiement du modèle. 
+Assurez-vous que les modèles et les expériences sont correctement enregistrés, versionnés et étiquetés afin d'éviter toute confusion lors du déploiement du modèle.
 
 ### <a name="security"></a>Sécurité
 
-Ce modèle permet à Azure ML d'accéder localement à d'éventuelles données sensibles. Assurez-vous que le compte utilisé pour la connexion SSH à la machine virtuelle Azure Stack Hub dispose d'un mot de passe fort, et que les scripts d'apprentissage ne conservent pas de données et n'en chargent pas dans le cloud. 
+Ce modèle permet à Azure Machine Learning d’accéder localement à d’éventuelles données sensibles. Vérifiez que le compte utilisé pour la connexion SSH à la machine virtuelle Azure Stack Hub dispose d’un mot de passe fort et que les scripts d’entraînement ne conservent ni ne chargent de données dans le cloud.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur les sujets abordés dans cet article :
+
 - Consultez la [documentation Azure Machine Learning](/azure/machine-learning) pour bénéficier d'une vue d'ensemble sur le Machine Learning et les sujets connexes.
 - Consultez [Azure Container Registry](/azure/container-registry/) pour apprendre à créer, stocker et gérer des images pour les déploiements de conteneurs.
 - Consultez [App Service sur Azure Stack Hub](/azure-stack/operator/azure-stack-app-service-overview) pour en savoir plus sur le fournisseur de ressources et son déploiement.
-- Consultez [Considérations relatives à la conception des applications hybrides](overview-app-design-considerations.md) pour en savoir plus sur les meilleures pratiques et obtenir des réponses à d'autres questions.
-- Consultez [Famille de produits et de solutions Azure Stack](/azure-stack) pour en savoir plus sur l'ensemble du portefeuille de produits et de solutions.
+- Consultez [Considérations sur la conception d’applications hybrides](overview-app-design-considerations.md) pour en savoir plus sur les bonnes pratiques et obtenir des réponses à d’autres questions.
+- Consultez [Famille de produits et de solutions Azure Stack](/azure-stack) pour en savoir plus sur l’ensemble du portefeuille de produits et de solutions.
 
 Lorsque vous êtes prêt à tester l'exemple de solution, poursuivez avec le [Guide de déploiement consacré à l'apprentissage d'un modèle ML en périphérie](https://aka.ms/edgetrainingdeploy). Ce guide de déploiement fournit des instructions pas à pas sur le déploiement et sur le test de ses composants.

@@ -3,16 +3,16 @@ title: Utiliser le point de terminaison privilégié dans Azure Stack Hub
 description: Découvrez comment utiliser le point de terminaison privilégié dans Azure Stack Hub en tant qu’opérateur.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/8/2020
+ms.date: 04/28/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.lastreviewed: 1/8/2020
-ms.openlocfilehash: 335afce7423872156c84c655d9c94ed59a9592d2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 04/28/2020
+ms.openlocfilehash: 8c68e7dd4aa40d448e76050e4c657ee4cea9763b
+ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512437"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82556394"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Utiliser le point de terminaison privilégié dans Azure Stack Hub
 
@@ -47,7 +47,7 @@ Vous devez affecter la valeur `en-US` à votre paramètre de culture actuel au m
       - Sur un système intégré, exécutez la commande suivante à partir d’une session Windows PowerShell avec élévation de privilèges pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur la machine virtuelle renforcée, qui s’exécute sur l’hôte de cycle de vie du matériel ou sur la station de travail à accès privilégié.
 
       ```powershell  
-        winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
+    Set-Item WSMan:\localhost\Client\TrustedHosts -Value '<IP Address of Privileged Endpoint>' -Concatenate
       ```
 
       - Si vous exécutez le kit ASDK, connectez-vous à l’hôte du kit de développement.
@@ -109,7 +109,7 @@ Vous devez affecter la valeur `en-US` à votre paramètre de culture actuel au m
    - Stop-AzureStack
    - Get-ClusterLog
 
-## <a name="tips-for-using-the-privileged-endpoint"></a>Conseils d’utilisation du point de terminaison privilégié 
+## <a name="how-to-use-the-privileged-endpoint"></a>Comment utiliser le point de terminaison privilégié 
 
 Comme mentionné ci-dessus, le point de terminaison privilégié est un point de terminaison [PowerShell JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview). Tout en procurant une couche de sécurité renforcée, un point de terminaison JEA réduit certaines des fonctionnalités de base de PowerShell, comme l’écriture de scripts ou la saisie semi-automatique via la touche Tab. Toute tentative d’opération de script est vouée à l’échec et se solde par l’erreur **ScriptsNotAllowed**. Cette erreur est normale.
 
@@ -119,7 +119,7 @@ Par exemple, pour obtenir la liste des paramètres d’une applet de commande do
     Get-Command <cmdlet_name> -Syntax
 ```
 
-Sinon, vous pouvez utiliser l’applet de commande [Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) pour importer l’ensemble des applets de commande de point de terminaison privilégié dans la session actuelle sur votre ordinateur local. En procédant ainsi, l’ensemble des applets de commande et des fonctions du point de terminaison sont désormais disponibles sur votre ordinateur local, avec la saisie semi-automatique via la touche Tab et, plus généralement, l’écriture de scripts.
+Sinon, vous pouvez utiliser l’applet de commande [**Import-PSSession**](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) pour importer l’ensemble des applets de commande de point de terminaison privilégié dans la session actuelle sur votre ordinateur local. L’ensemble des applets de commande et des fonctions du point de terminaison sont désormais disponibles sur votre ordinateur local, avec la saisie semi-automatique via la touche Tab et, plus généralement, l’écriture de scripts. Vous pouvez également exécuter le module **[Get-Help](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-help)** pour passer en revue les instructions de l’applet de commande.
 
 Pour importer la session du point de terminaison privilégié sur votre ordinateur local, procédez ainsi :
 
@@ -197,4 +197,5 @@ Une fois les fichiers journaux de transcription correctement transférés vers l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Outils de diagnostic d’Azure Stack Hub](azure-stack-diagnostic-log-collection-overview-tzl.md)
+- [Outils de diagnostic d’Azure Stack Hub](azure-stack-diagnostic-log-collection-overview-tzl.md)
+- [Informations de référence sur le point de terminaison privilégié Azure Stack Hub](../reference/pep-2002/index.md)

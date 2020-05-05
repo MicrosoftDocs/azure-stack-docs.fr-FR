@@ -3,16 +3,16 @@ title: Problèmes connus d’Azure Stack Hub
 description: Découvrez les problèmes connus des versions d’Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/13/2020
+ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: aee141a5840e33dcd2afa093fa906b07d0b310b9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: df81020ce365f25587c406aaf13617281769834d
+ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81395067"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82556424"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Problèmes connus d’Azure Stack Hub
 
@@ -35,6 +35,8 @@ Pour accéder aux problèmes connus d'une autre version, utilisez le menu dérou
 
 ::: moniker range="azs-2002"
 ## <a name="update"></a>Update
+
+Après l’application de la mise à jour 2002, une alerte pour une « source de temps non valide » peut s’afficher à tort dans le portail administrateur. Vous pouvez ignorer cette alerte de faux positif, qui sera corrigée dans une prochaine version. 
 
 Pour plus d’informations sur les problèmes connus de mise à jour d’Azure Stack Hub, consultez [Dépannage des mises à jour dans Azure Stack Hub](azure-stack-updates-troubleshoot.md).
 
@@ -81,6 +83,10 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Cause : Il n’est pas autorisé de créer une règle **DenyAllOutbound** explicite dans un groupe de sécurité réseau. En effet, elle empêcherait toute communication interne avec l’infrastructure, et cette communication est nécessaire au bon déploiement de la machine virtuelle.
 - Occurrence : Courant
 
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge. 
+- Cause : Lors de la création d’une règle de sécurité réseau entrante ou sortante, l’option **Protocole** affiche une option **ICMP**. Cette option n’est pas prise en charge dans Azure Stack Hub. Ce problème est résolu et n’apparaîtra pas dans la prochaine version d’Azure Stack Hub.
+- Occurrence : Courant
+
 ### <a name="network-interface"></a>interface réseau
 
 #### <a name="addingremoving-network-interface"></a>Ajout / suppression de l’interface réseau
@@ -94,6 +100,13 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : La carte réseau principale d’une machine virtuelle ne peut pas être changée. La suppression ou le détachement de la carte réseau principale entraînerait des problèmes de démarrage de la machine virtuelle.
+- Occurrence : Courant
+
+### <a name="public-ip"></a>Adresse IP publique
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : La valeur **IdleTimeoutInMinutes** pour une adresse IP publique associée à un équilibreur de charge ne peut pas être changée. L’opération place l’adresse IP publique dans un état d’échec.
+- Correction : Pour rétablir l’adresse IP publique dans un état correct, définissez le paramètre **IdleTimeoutInMinutes** de la règle d’équilibreur de charge qui référence l’adresse IP publique sur la valeur d’origine (la valeur par défaut est 4 minutes).
 - Occurrence : Courant
 
 ### <a name="virtual-network-gateway"></a>Passerelle de réseau virtuel
@@ -113,8 +126,8 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Le panneau de vue d’ensemble de la machine virtuelle n’affiche pas le nom correct de l’ordinateur
 
-- Champ d’application : Ce problème concerne les versions 2002 et ultérieures.
-- Cause : Quand vous affichez les détails d’une machine virtuelle dans le panneau de vue d’ensemble, le nom de l’ordinateur s’affiche comme **(non disponible)** .
+- Champ d’application : Ce problème concerne toutes les versions.
+- Cause : Quand vous affichez les détails d’une machine virtuelle dans le panneau de vue d’ensemble, le nom de l’ordinateur s’affiche comme **(non disponible)** . Cela est dû à la conception des machines virtuelles créées à partir de disques spécialisés/instantanés de disque.
 - Correction : Affichez le panneau **Propriétés** sous **Paramètres**.
 
 ### <a name="nvv4-vm-size-on-portal"></a>Taille de machine virtuelle NVv4 sur le portail

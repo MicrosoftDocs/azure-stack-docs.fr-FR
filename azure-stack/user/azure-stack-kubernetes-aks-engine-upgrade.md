@@ -3,16 +3,16 @@ title: Mettre à niveau un cluster Kubernetes sur Azure Stack Hub
 description: Découvrez comment mettre à niveau un cluster Kubernetes sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 4/23/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 50f63cee7776bd9093d986746ed613b38164b171
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 4/23/2020
+ms.openlocfilehash: 4e7ef93f7199e9257fd602d54d3479a92ac8e8a8
+ms.sourcegitcommit: c51e7787e36c49d34ee86cabf9f823fb98b61026
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069261"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82218804"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Mettre à niveau un cluster Kubernetes sur Azure Stack Hub
 
@@ -47,34 +47,20 @@ Lors de la mise à niveau d’un cluster de production, tenez compte des points 
 
 Les instructions suivantes utilisent les étapes minimales pour effectuer la mise à niveau. Pour plus d'informations, consultez l'article [Mise à niveau des clusters Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md).
 
-1. Vous devez d’abord déterminer les versions que vous pouvez cibler pour la mise à niveau. Ces versions dépendent de celle dont vous disposez actuellement. Utilisez alors la valeur de version adéquate pour effectuer la mise à niveau.
+1. Vous devez d’abord déterminer les versions que vous pouvez cibler pour la mise à niveau. Ces versions dépendent de celle dont vous disposez actuellement. Utilisez alors la valeur de version adéquate pour effectuer la mise à niveau. Les versions de Kubernetes prises en charge dans la dernière mise à jour sont 1.14.7 et 1.15.10. Aidez-vous de ce tableau pour connaître les mises à niveau disponibles :
 
-    Exécutez les commandes suivantes :
+| Version actuelle | Mise à niveau disponible |
+| --- | --- |
+|1.14.7 | 1.15.10 |
+|1.14.8 | 1.15.10 |
+|1.15.4 | 1.15.10 |
+|1.15.5 | 1.15.10 |
 
-    ```bash  
-    $ aks-engine get-versions
-    Version Upgrades
-    1.15.0
-    1.14.3  1.15.0
-    1.14.1  1.14.3, 1.15.0
-    1.13.7  1.14.1, 1.14.3
-    1.13.5  1.13.7, 1.14.1, 1.14.3
-    1.12.8  1.13.5, 1.13.7
-    1.12.7  1.12.8, 1.13.5, 1.13.7
-    1.11.10 1.12.7, 1.12.8
-    1.11.9  1.11.10, 1.12.7, 1.12.8
-    1.10.13 1.11.9, 1.11.10
-    1.10.12 1.10.13, 1.11.9, 1.11.10
-    1.9.11  1.10.12, 1.10.13
-    1.9.10  1.9.11, 1.10.12, 1.10.13
-    1.6.9   1.9.10, 1.9.11
-    ```
-
-    Par exemple, selon la sortie de la commande `get-versions`, si la version actuelle de Kubernetes est « 1.13.5 », vous pouvez effectuer la mise à niveau vers « 1.13.7, 1.14.1, 1.14.3 ».
+Pour un mappage complet des versions du moteur AKS, de l’image de base AKS et de Kubernetes, consultez [Versions du moteur AKS prises en charge](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions).
 
 2. Collectez les informations nécessaires à l’exécution de la commande `upgrade`. La mise à niveau utilise les paramètres suivants :
 
-    | Paramètre | Exemple | Description |
+    | Paramètre |  Exemple | Description |
     | --- | --- | --- |
     | azure-env | AzureStackCloud | Pour indiquer au moteur AKS que votre plateforme cible est Azure Stack Hub, utilisez `AzureStackCloud`. |
     | location | local | Nom de la région de votre Azure Stack Hub. Pour le kit de développement Azure Stack (ASDK), la région est définie sur `local`. |

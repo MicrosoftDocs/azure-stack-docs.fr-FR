@@ -3,16 +3,16 @@ title: Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub
 description: Découvrez comment déployer un cluster Kubernetes sur Azure Stack Hub à partir d’une machine virtuelle cliente exécutant le moteur AKS.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 4/23/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 3186d3976f5d4ca533a89644b3abc16fdf824c7c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 4/23/2020
+ms.openlocfilehash: 85f9e789db3ce86b04b490be83f355eb73e7329e
+ms.sourcegitcommit: c51e7787e36c49d34ee86cabf9f823fb98b61026
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80152171"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82218821"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub
 
@@ -44,11 +44,7 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
     > [!Note]  
     > Si vous n’avez pas installé nano, vous pouvez le faire sur Ubuntu : `sudo apt-get install nano`.
 
-3.  Dans le fichier kubernetes-azurestack.JSON, recherchez `orchestratorRelease`. Sélectionnez l’une des versions de Kubernetes prises en charge. Exemples : 1.14, 1.15. Les versions sont souvent des mises à jour. Spécifiez la version sous la forme x.xx plutôt que x.xx.x. Pour obtenir la liste des versions actuelles, consultez [Versions de Kubernetes prises en charge](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions). Vous pouvez déterminer la version prise en charge en exécutant la commande de moteur AKS suivante :
-
-    ```bash
-    aks-engine get-versions
-    ```
+3.  Dans le fichier kubernetes-azurestack.json, recherchez orchestratorRelease et orchestratorVersion. Sélectionnez l’une des versions de Kubernetes prises en charge. Par exemple, pour `orchestratorRelease`, utilisez 1.14 ou 1.15 ; et pour `orchestratorVersion`, utilisez respectivement 1.14.7 ou 1.15.10. Spécifiez la valeur `orchestratorRelease` sous la forme x.xx et orchestratorVersion sous la forme x.xx.x. Pour obtenir la liste des versions actuelles, consultez [Versions du moteur AKS prises en charge](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions).
 
 4.  Recherchez `customCloudProfile` et fournissez l’URL du portail du locataire. Par exemple : `https://portal.local.azurestack.external`. 
 
@@ -114,7 +110,7 @@ Procéder au déploiement d’un cluster :
 
 1.  Passez en revue les paramètres disponibles pour les [indicateurs CLI](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags) du moteur AKS sur Azure Stack Hub.
 
-    | Paramètre | Exemple | Description |
+    | Paramètre |  Exemple | Description |
     | --- | --- | --- |
     | azure-env | AzureStackCloud | Pour indiquer au moteur AKS que votre plateforme cible est Azure Stack Hub, utilisez `AzureStackCloud`. |
     | identity-system | adfs | facultatif. Spécifiez votre solution de gestion des identités si vous utilisez Active Directory Federated Services (AD FS). |
@@ -231,4 +227,4 @@ Vérifiez votre cluster en déployant MySql avec Helm pour contrôler votre clus
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Résoudre les problèmes du moteur AKS sur Azure Stack Hub](azure-stack-kubernetes-aks-engine-troubleshoot.md)
+> [Résoudre des problèmes du moteur AKS sur Azure Stack Hub](azure-stack-kubernetes-aks-engine-troubleshoot.md)

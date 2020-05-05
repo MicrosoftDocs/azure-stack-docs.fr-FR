@@ -3,16 +3,16 @@ title: Notes de publication d’Azure Stack Hub
 description: Notes de publication des systèmes intégrés Azure Stack Hub, y compris les mises à jour et les correctifs de bogues.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/10/2020
+ms.date: 04/22/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: a522aee76cef06b49887aa9727651daf4efe506c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 3411c1b81634f2bf37ec1724ebb96aedb485fd5d
+ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81243830"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82556330"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Notes de publication d’Azure Stack Hub
 
@@ -38,6 +38,10 @@ Avant d’appliquer la mise à jour, veillez à consulter les informations suiva
 - [Liste de vérification des activités avant et après l’application de la mise à jour](release-notes-checklist.md)
 
 Pour obtenir de l’aide sur la résolution des problèmes liés aux mises à jour et au processus de mise à jour, consultez [Résoudre les problèmes liés aux correctifs logiciels et aux mises à jour pour Azure Stack Hub](azure-stack-updates-troubleshoot.md).
+
+## <a name="download-the-update"></a>Télécharger la mise à jour
+
+Vous pouvez télécharger la mise à jour d’Azure Stack Hub à partir de la [page de téléchargement d’Azure Stack Hub](https://aka.ms/azurestackupdatedownload).
 
 <!---------------------------------------------------------->
 <!------------------- SUPPORTED VERSIONS ------------------->
@@ -67,6 +71,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 <!-- What's new, also net new experiences and features. -->
 
 - Une nouvelle version (1.8.1) des modules PowerShell d’administration d’Azure Stack Hub basés sur AzureRM est disponible.
+- Les nouveaux modules de locataire Azure PowerShell seront publiés pour Azure Stack Hub le 15 avril 2020. Les modules Azure RM utilisés continuent de fonctionner, mais ne seront plus mis à jour après la build 2002.
 - Ajout d’une nouvelle alerte d’avertissement sur le portail administrateur Azure Stack Hub pour signaler les problèmes de connectivité avec le serveur syslog configuré. Le titre de l’alerte indique que **le client Syslog a rencontré un problème de réseau lors de l’envoi d’un message Syslog**.
 - Ajout d’une nouvelle alerte d’avertissement sur le portail administrateur Azure Stack Hub pour signaler les problèmes de connectivité avec le serveur NTP (Network Time Protocol). Le titre de l’alerte indique que **la source de temps n’est pas valide sur [nom du nœud]** .
 - Le [SDK Java](https://azure.microsoft.com/develop/java/) a publié de nouveaux packages en raison d’un changement cassant dans la version 2002 lié aux restrictions TLS. Vous devez installer la nouvelle dépendance du SDK Java. Vous trouverez les instructions à la section [Java et les profils de version d’API](../user/azure-stack-version-profiles-java.md?view=azs-2002#java-and-api-version-profiles).
@@ -132,7 +137,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 - Résolution d’un problème qui était une cause courante des échecs de mise à jour d’Azure Stack Hub en raison de la sollicitation de la mémoire sur le rôle ERCS.
 - Correction d’un bogue dans le panneau de mise à jour lié au fait que l’état de la mise à jour indiquait **Installation** au lieu de **Préparation** pendant la phase de préparation d’une mise à jour d’Azure Stack Hub.
 - Résolution d’un problème lié au fait que la fonctionnalité RSC sur les commutateurs physiques créait des incohérences et abandonnait le trafic circulant via un équilibreur de charge. La fonctionnalité RSC est désormais désactivée par défaut.
-- Résolution d’un problème lié au fait que l’ajout d’une adresse IP secondaire à la machine virtuelle provoquait des problèmes RDP.
+- Résolution d’un problème lié au fait que plusieurs configurations IP sur une carte réseau entraînaient un routage incorrect et empêchaient la connectivité sortante. 
 - Résolution d’un problème lié au fait que l’adresse MAC d’une carte réseau était mise en cache et que l’affectation de cette adresse à une autre ressource provoquait des échecs de déploiement de machine virtuelle.
 - Résolution d’un problème lié au fait que la licence des images de machine virtuelle Windows du canal de vente au détail n’a pas pu être activée par AVMA.
 - Résolution d’un problème qui entraînait l’échec de la création de machines virtuelles si le nombre de cœurs virtuels demandés par la machine virtuelle était égal au nombre de cœurs physiques du nœud. Nous autorisons maintenant les machines virtuelles à avoir un nombre de cœurs virtuels égal ou inférieur au nombre de cœurs physiques du nœud.
@@ -142,18 +147,6 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 ## <a name="security-updates"></a>Mises à jour de sécurité
 
 Pour plus d’informations sur les mises à jour de sécurité dans cette mise à jour d’Azure Stack Hub, consultez [Mises à jour de sécurité Azure Stack Hub](release-notes-security-updates.md).
-
-## <a name="update-planning"></a>Planification des mises à jour
-
-Avant d’appliquer la mise à jour, veillez à consulter les informations suivantes :
-
-- [Problèmes connus](known-issues.md)
-- [Mises à jour de sécurité](release-notes-security-updates.md)
-- [Liste de vérification des activités avant et après l’application de la mise à jour](release-notes-checklist.md)
-
-## <a name="download-the-update"></a>Télécharger la mise à jour
-
-Vous pouvez télécharger la mise à jour 2002 d’Azure Stack Hub à partir de la [page de téléchargement d’Azure Stack Hub](https://aka.ms/azurestackupdatedownload).
 
 ## <a name="hotfixes"></a>Correctifs logiciels
 
@@ -310,17 +303,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 
 Pour plus d’informations sur les mises à jour de sécurité dans cette mise à jour d’Azure Stack Hub, consultez [Mises à jour de sécurité Azure Stack Hub](release-notes-security-updates.md).
 
-## <a name="update-planning"></a>Planification des mises à jour
-
-Avant d’appliquer la mise à jour, veillez à consulter les informations suivantes :
-
-- [Problèmes connus](known-issues.md)
-- [Mises à jour de sécurité](release-notes-security-updates.md)
-- [Liste de vérification des activités avant et après l’application de la mise à jour](release-notes-checklist.md)
-
-## <a name="download-the-update"></a>Télécharger la mise à jour
-
-Vous pouvez télécharger la mise à jour 1910 d’Azure Stack Hub à partir de la [page de téléchargement d’Azure Stack Hub](https://aka.ms/azurestackupdatedownload).
+Le rapport de vulnérabilité Qualys pour cette version peut être téléchargé à partir du [site web Qualys](https://www.qualys.com/azure-stack/).
 
 ## <a name="hotfixes"></a>Correctifs logiciels
 
@@ -396,7 +379,9 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 
 Pour plus d’informations sur les mises à jour de sécurité dans cette mise à jour d’Azure Stack Hub, consultez [Mises à jour de sécurité Azure Stack Hub](release-notes-security-updates.md).
 
-## <a name="download-the-update"></a><a name="download-the-update-1908"></a>Télécharger la mise à jour
+Le rapport de vulnérabilité Qualys pour cette version peut être téléchargé à partir du [site web Qualys](https://www.qualys.com/azure-stack/).
+
+## <a name="download-the-update"></a>Télécharger la mise à jour
 
 Vous pouvez télécharger la mise à jour 1908 d’Azure Stack Hub à partir de la [page de téléchargement d’Azure Stack Hub](https://aka.ms/azurestackupdatedownload).
 
@@ -513,6 +498,8 @@ Le type de build de la mise à jour 1907 d’Azure Stack Hub est **Express**. P
 ## <a name="security-updates"></a>Mises à jour de sécurité
 
 Pour plus d’informations sur les mises à jour de sécurité dans cette mise à jour d’Azure Stack Hub, consultez [Mises à jour de sécurité Azure Stack Hub](release-notes-security-updates.md).
+
+Le rapport de vulnérabilité Qualys pour cette version peut être téléchargé à partir du [site web Qualys](https://www.qualys.com/azure-stack/).
 
 ## <a name="update-planning"></a>Planification des mises à jour
 
