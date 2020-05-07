@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 61ea70c9a59442547a9b4b73d4a3f9e676cf89c7
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 390c6fdb3268dee90b0928b5a280d60c08c1e7fa
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661038"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742493"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Sauvegarder votre machine virtuelle sur Azure Stack Hub avec CommVault
 
@@ -38,7 +38,7 @@ Vous pouvez également télécharger et proposer des images de machines virtuell
 
 Le schéma suivant présente la topologie de cette approche :
 
-![](./media/azure-stack-network-howto-backup-commvault/backup-vm-commvault-diagram.png)
+![](./media/azure-stack-network-howto-backup-commvault/backup-vm-commvault-diagram.svg)
 
 ## <a name="create-the-commvault-vm-form-the-commvault-marketplace-item"></a>Créer la machine virtuelle CommVault à partir de l’élément de Place de marché CommVault
 
@@ -49,7 +49,7 @@ Le schéma suivant présente la topologie de cette approche :
     > [!Note]  
     > Si CommVault n’est pas disponible, contactez votre opérateur cloud.
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-01.png)
+    ![Créer une machine virtuelle](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-01.png)
 
 3. Configurez les paramètres de base dans **Créer une machine virtuelle, 1 De base** :
 
