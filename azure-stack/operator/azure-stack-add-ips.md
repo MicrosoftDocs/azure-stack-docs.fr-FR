@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: efa240fbec361657362b936594ccee4c79f70afe
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: 8cd89a90cb29c802c79e900e07cdb50bfe9c0894
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772471"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847909"
 ---
 # <a name="add-public-ip-addresses"></a>Ajouter des adresses IP publiques
 
@@ -36,7 +36,7 @@ Vous devez en premier lieu obtenir le bloc d’adresses que vous souhaitez ajout
 
 ## <a name="add-the-ip-address-range-to-azure-stack-hub"></a>Ajouter la plage d’adresses IP à Azure Stack Hub
 
-1. Dans un navigateur, accédez au tableau de bord de votre portail administrateur. Pour cet exemple, nous allons utiliser https://adminportal.local.azurestack.external.
+1. Dans un navigateur, accédez au tableau de bord de votre portail administrateur. Pour cet exemple, nous allons utiliser `https://adminportal.local.azurestack.external`.
 2. Connectez-vous au portail administrateur Azure Stack Hub en tant qu’opérateur cloud.
 3. Dans le tableau de bord par défaut, recherchez la liste Gestion des régions et sélectionnez sur la région que vous voulez gérer. Pour cet exemple, nous allons utiliser « local ».
 4. Trouvez la vignette Fournisseurs de ressources et cliquez sur Fournisseur de ressources réseau.

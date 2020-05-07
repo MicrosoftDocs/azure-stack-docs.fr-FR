@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: d6f93b5aa35a6475472df4ff213d98f684a4f7bb
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 99a8425901213d50c17175ab946aeff78a5aa81d
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661108"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742602"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>Extension du stockage sur Azure Stack Hub
 
@@ -30,7 +30,7 @@ Ce qui vous amène au scénario que vous allez aborder ci-dessous. Comment conne
 
 Le schéma illustre un scénario dans lequel une machine virtuelle unique, qui exécute une charge de travail, se connecte à, et utilise le stockage externe (vers la machine virtuelle et l’instance Azure Stack Hub elle-même), à des fins de lecture/écriture de données, etc. Pour cet article, vous allez vous concentrer sur une simple récupération de fichiers, mais vous pouvez développer cet exemple pour des scénarios plus complexes, tels que le stockage étendu des fichiers de base de données.
 
-![](./media/azure-stack-network-howto-extend-datacenter/image1.png)
+![](./media/azure-stack-network-howto-extend-datacenter/azure-stack-network-howto-extend-datacenter-image1.svg)
 
 Dans le schéma, vous voyez que la machine virtuelle sur le système Azure Stack Hub a été déployée avec plusieurs cartes réseau. En termes de redondance, mais également en tant que bonne pratique de stockage, il est important de disposer de plusieurs chemins entre la cible et la destination. Lorsque les choses deviennent plus complexes, les machines virtuelles Azure Stack Hub doivent avoir des adresses IP publiques et privées, comme dans Azure. Si le stockage externe doit atteindre la machine virtuelle, il peut le faire par le biais de l’adresse IP publique, car les adresses IP privées sont principalement utilisées dans les systèmes Azure Stack Hub, au sein de réseaux virtuels et de sous-réseaux. Le stockage externe ne serait pas en mesure de communiquer avec l’espace d’adressage IP privé de la machine virtuelle, sauf s’il passe à travers un réseau VPN de site à site pour entrer dans réseau virtuel lui-même. Ainsi, pour cet exemple, nous allons nous concentrer sur la communication via l’espace d’adressage IP public. Une chose à noter avec l’espace d’adressage IP public dans le schéma est qu’il existe 2 sous-réseaux de pool d’adresses IP publiques différents. Par défaut, Azure Stack Hub nécessite un seul pool pour les adresses IP publiques, mais il peut être nécessaire d’en ajouter un autre pour proposer un routage redondant. Il n’est cependant pas possible pour le moment de sélectionner une adresse IP à partir d’un pool spécifique : vous pouvez donc vous retrouver avec des machines virtuelles avec des adresses IP publiques du même pool sur plusieurs cartes réseau virtuelles.
 

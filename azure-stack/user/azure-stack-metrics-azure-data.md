@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
-ms.openlocfilehash: 9abcc23505279f417e53f896e58e76dd9205691f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0676354bb902ccafed49281c12296440a8aa8c5e
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702327"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742424"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>Utiliser Azure Monitor sur Azure Stack Hub
 
-Cet article fournit une vue d’ensemble du service Azure Monitor dans Azure Stack Hub. Il vous permet de découvrir le fonctionnement d’Azure Monitor ainsi que des informations supplémentaires concernant l’utilisation d’Azure Monitor sur Azure Stack Hub. 
+Cet article fournit une vue d’ensemble du service Azure Monitor dans Azure Stack Hub. Il vous permet de découvrir le fonctionnement d’Azure Monitor ainsi que des informations supplémentaires concernant l’utilisation d’Azure Monitor sur Azure Stack Hub.
 
 Pour une vue d’ensemble d’Azure Monitor, voir l’article concernant Azure global [Bien démarrer avec Azure Monitor sur Azure Stack Hub](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
 
@@ -42,7 +42,7 @@ Tout comme Azure Monitor sur Azure, Azure Monitor sur Azure Stack Hub fournit de
 
 ## <a name="azure-monitor-sources-compute-subset"></a>Sources Azure Monitor : sous-ensemble de calcul
 
-![Sources Azure Monitor sur Azure Stack Hub : sous-ensemble de calcul](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
+![Sources Azure Monitor sur Azure Stack Hub : sous-ensemble de calcul](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.svg)
 
 Le fournisseur de ressources **Microsoft.Compute** dans Azure Stack Hub inclut les éléments suivants :
  - Machines virtuelles 
@@ -76,7 +76,7 @@ Vous pouvez effectuer des recherches dans les journaux d’activité afin d’ob
 
 ## <a name="azure-monitor-sources-everything-else"></a>Sources Azure Monitor : tout le reste
 
-![Sources Azure Monitor sur Azure Stack Hub : tout le reste](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
+![Sources Azure Monitor sur Azure Stack Hub : tout le reste](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.svg)
 
 ### <a name="resources---metrics-and-diagnostics-logs"></a>Ressources – Métriques et journaux de diagnostics
 

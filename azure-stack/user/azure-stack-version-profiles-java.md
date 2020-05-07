@@ -3,16 +3,16 @@ title: Utiliser des profils de version d’API avec Java dans Azure Stack Hub
 description: Découvrez comment utiliser des profils de version d’API avec Java dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: c0be80757eb12daac9d452f79ed7c0f5b7326120
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 6d072c061839c9d10f1f0d97c01ef9b2fa41e6a7
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78231636"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836153"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>Utiliser des profils de version d’API avec Java dans Azure Stack Hub
 
@@ -103,13 +103,13 @@ Set AZURE_TENANT_ID=<Your_Tenant_ID>
 
 ### <a name="macos-linux-and-unix-based-systems"></a>Systèmes macOS, Linux et Unix
 
-Dans les systèmes Unix, utilisez la commande suivante :
+Dans les systèmes Unix, utilisez la commande suivante :
 
 ```shell
 Export AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
-### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Approuver le certificat d’autorité de certification racine d’Azure Stack Hub
+### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Approuver le certificat d'autorité de certification racine Azure Stack Hub
 
 Si vous utilisez le Kit de développement Azure Stack (ASDK), vous devez approuver le certificat racine de l’autorité de certification sur votre machine distante. Vous n’avez pas besoin d’approuver le certificat d’autorité de certification racine avec des systèmes intégrés Azure Stack Hub.
 

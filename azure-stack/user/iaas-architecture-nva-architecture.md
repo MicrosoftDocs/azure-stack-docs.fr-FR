@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 916e12061961b22c518d0048e8bc8c191f8542a1
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 4fc7269e81e021f30049f7b93a9651443f381d6b
+ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660080"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82643538"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>Déployer des appliances virtuelles réseau hautement disponibles sur Azure Stack Hub
 
@@ -40,7 +40,7 @@ Cet article suppose une connaissance élémentaire de la mise en réseau Azure S
 
 Une appliance virtuelle réseau peut être déployée sur un réseau de périmètre dans de nombreuses architectures différentes. Par exemple, la figure suivante illustre l'utilisation d'une seule appliance virtuelle réseau pour l'entrée.
 
-![Capture d'écran d'une description de publication sur les réseaux sociaux générée automatiquement](./media/iaas-architecture-nva-architecture/image1.png)
+![Capture d'écran d'une description de publication sur les réseaux sociaux générée automatiquement](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image1.svg)
 
 Dans cette architecture, l’appliance virtuelle réseau assure une limite réseau sécurisée par la vérification de l’ensemble du trafic réseau entrant et sortant et la transmission uniquement du trafic répondant aux règles de sécurité du réseau. Le fait que tout le trafic réseau doive traverser l'appliance virtuelle réseau signifie que cette dernière est un point de défaillance unique au sein du réseau. Si celle-ci échoue, il n’existe aucun autre chemin d’accès pour le trafic réseau et tous les sous-réseaux principaux sont indisponibles.
 
@@ -58,7 +58,7 @@ Les architectures suivantes décrivent les ressources et la configuration néces
 
 La figure suivante illustre une architecture à haute disponibilité qui implémente un réseau de périmètre d'entrée derrière un équilibreur de charge orienté Internet. Cette architecture est conçue pour fournir une connectivité HTTP ou HTTPS aux charges de travail Azure Stack Hub pour le trafic de couche 7 :
 
-![Capture d'écran d'une description de carte générée automatiquement](./media/iaas-architecture-nva-architecture/image2.png)
+![Capture d'écran d'une description de carte générée automatiquement](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image2.svg)
 
 L’avantage de cette architecture réside dans le fait que toutes les appliances virtuelles réseau sont actives et qu’en cas d’échec de l’une d’entre elles l’équilibreur de charge dirige le trafic réseau vers l’autre appliance virtuelle. Les deux appliances virtuelles réseau acheminent le trafic vers l’équilibreur de charge interne. Ainsi, le trafic est maintenu tant que l’une d’entre elles est active. Les appliances virtuelles réseau doivent arrêter le trafic SSL destiné aux machines virtuelles de la couche web. Ces appliances virtuelles réseau ne peuvent pas être étendues pour gérer le trafic du réseau d'entreprise car celui-ci requiert un autre ensemble dédié d'appliances virtuelles réseau possédant leurs propres itinéraires réseau.
 
@@ -66,7 +66,7 @@ L’avantage de cette architecture réside dans le fait que toutes les appliance
 
 L’architecture Entrée avec appliances virtuelles réseau de couche 7 peut être étendue de manière à fournir un réseau de périmètre de sortie pour les requêtes provenant de la charge de travail Azure Stack Hub. L'architecture suivante est conçue pour assurer une haute disponibilité des appliances virtuelles réseau du réseau de périmètre pour le trafic de couche 7, tel que HTTP ou HTTPS :
 
-![Capture d'écran d'une description de téléphone portable générée automatiquement](./media/iaas-architecture-nva-architecture/image3.png)
+![Capture d'écran d'une description de téléphone portable générée automatiquement](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image4.svg)
 
 Dans cette architecture, tout le trafic en provenance d’Azure Stack Hub est acheminé vers un équilibreur de charge interne. Ce dernier répartit les requêtes sortantes entre un ensemble d’appliances virtuelles réseau. Celles-ci dirigent le trafic vers Internet à l’aide de leurs adresses IP publiques individuelles.
 
@@ -74,7 +74,7 @@ Dans cette architecture, tout le trafic en provenance d’Azure Stack Hub est ac
 
 Les deux architectures d'entrée et de sortie disposaient d'un réseau de périmètre distinct pour l'entrée et la sortie. L'architecture suivante montre comment créer un réseau de périmètre qui peut être utilisé à la fois en entrée et en sortie pour le trafic de couche 7, tel que HTTP ou HTTPS :
 
-![Capture d'écran d'une description de publication sur les réseaux sociaux générée automatiquement](./media/iaas-architecture-nva-architecture/image4.png)
+![Capture d'écran d'une description de publication sur les réseaux sociaux générée automatiquement](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image4.svg)
 
 Dans l'architecture Entrée-sortie avec appliances virtuelles réseau de couche 7, les appliances virtuelles réseau traitent les demandes entrantes provenant d'un équilibreur de charge de couche 7. Les appliances virtuelles réseau traitent également des requêtes sortantes issues des machines virtuelles de la charge de travail du pool principal de l’équilibreur de charge. Comme le trafic entrant est acheminé avec un équilibreur de charge de couche 7 et que le trafic sortant est acheminé avec un SLB (équilibreur de charge Azure Stack Hub de base), les appliances virtuelles réseau sont responsables de la gestion de l’affinité de session. Autrement dit, l'équilibreur de charge de couche 7 gère le mappage des requêtes entrantes et sortantes afin de pouvoir envoyer la réponse qui convient au demandeur initial. Toutefois, l'équilibreur de charge interne n'a pas accès aux mappages de l'équilibreur de charge de couche 7 et utilise sa propre logique pour envoyer des réponses aux appliances virtuelles réseau. Il est possible que l'équilibreur de charge envoie une réponse à une appliance virtuelle réseau qui n'a pas initialement reçu la requête de l'équilibreur de charge de couche 7. Dans ce cas, les appliances virtuelles réseau doivent communiquer et se transférer la réponse entre elles afin que l'appliance virtuelle réseau appropriée puisse transmettre la réponse à l'équilibreur de charge de couche 7.
 

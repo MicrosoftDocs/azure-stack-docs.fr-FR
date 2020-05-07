@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2019
-ms.openlocfilehash: 2c80aafe3665b6ecb31e701483a5e903d0471e42
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9c9838a93c0ee46ce0556cd86e9f6ae8b4c7c9d4
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703415"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848045"
 ---
 # <a name="app-service-on-azure-stack-hub-update-2-release-notes"></a>Notes de publication App Service sur Azure Stack Hub Update 2
 
@@ -26,14 +26,14 @@ Ces notes de publication décrivent les améliorations, les correctifs et les pr
 
 Le numéro de build d’App Service sur Azure Stack Hub Update 2 est **72.0.13698.10**.
 
-### <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Prérequis
 
 > [!IMPORTANT]
-> Les nouveaux déploiements d’Azure App Service sur Azure Stack Hub nécessitent désormais un [certificat avec caractères génériques à trois sujets](azure-stack-app-service-before-you-get-started.md#get-certificates) en raison des améliorations apportées à la gestion de l’authentification unique pour Kudu dans Azure App Service. Le nouveau sujet est : **\*.sso.appservice.\<région\>.\<nom_domaine\>.\<extension\>**
+> Les nouveaux déploiements d’Azure App Service sur Azure Stack Hub nécessitent désormais un certificat avec caractères génériques à trois sujets en raison des améliorations apportées à la gestion de l’authentification unique pour Kudu dans Azure App Service. Le nouveau sujet est : **\*.sso.appservice.\<région\>.\<nom_domaine\>.\<extension\>**
 
 Avant de commencer le déploiement, consultez les [Conditions préalables pour le déploiement d’App Service sur Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).
 
-### <a name="new-features-and-fixes"></a>Nouvelles fonctionnalités et correctifs
+## <a name="new-features-and-fixes"></a>Nouvelles fonctionnalités et correctifs
 
 Azure App Service sur Azure Stack Hub Update 2 contient les améliorations et correctifs suivants :
 
@@ -67,7 +67,7 @@ Azure App Service sur Azure Stack Hub Update 2 contient les améliorations et 
   - Rotation des informations d’identification système
   - Rotation des chaînes de connexion
 
-### <a name="known-issues-post-installation"></a>Problèmes connus (après l’installation)
+## <a name="known-issues-post-installation"></a>Problèmes connus (après l’installation)
 
 - Les Workers ne peuvent pas atteindre le serveur de fichiers si App Service est déployé dans un réseau virtuel existant et si le serveur de fichiers est uniquement disponible sur le réseau privé.
 
@@ -83,7 +83,7 @@ Si vous avez choisi de procéder au déploiement dans un réseau virtuel existan
 * Priorité : 700
 * Nom : Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Problèmes connus des administrateurs cloud utilisant Azure App Service sur Azure Stack Hub
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Problèmes connus des administrateurs cloud utilisant Azure App Service sur Azure Stack Hub
 
 Reportez-vous à la documentation fournie dans les [Notes de publication pour Azure Stack Hub 1804](azure-stack-update-1903.md).
 

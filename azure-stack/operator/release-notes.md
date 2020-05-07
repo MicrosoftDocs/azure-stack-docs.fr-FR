@@ -7,12 +7,12 @@ ms.date: 04/22/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 3411c1b81634f2bf37ec1724ebb96aedb485fd5d
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: ccb21762eded64a5e1a5430c80ebfc4e69617375
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82556330"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848249"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Notes de publication d’Azure Stack Hub
 
@@ -37,7 +37,7 @@ Avant d’appliquer la mise à jour, veillez à consulter les informations suiva
 - [Mises à jour de sécurité](release-notes-security-updates.md)
 - [Liste de vérification des activités avant et après l’application de la mise à jour](release-notes-checklist.md)
 
-Pour obtenir de l’aide sur la résolution des problèmes liés aux mises à jour et au processus de mise à jour, consultez [Résoudre les problèmes liés aux correctifs logiciels et aux mises à jour pour Azure Stack Hub](azure-stack-updates-troubleshoot.md).
+Pour obtenir de l’aide sur la résolution des problèmes liés aux mises à jour et au processus de mise à jour, consultez [Résoudre les problèmes liés aux correctifs logiciels et aux mises à jour pour Azure Stack Hub](azure-stack-troubleshooting.md).
 
 ## <a name="download-the-update"></a>Télécharger la mise à jour
 

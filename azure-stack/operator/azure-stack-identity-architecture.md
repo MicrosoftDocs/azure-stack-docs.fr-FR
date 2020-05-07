@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 0175e0880edbecc4cb30e05df94cf26e518b8d0e
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: d21df4d1a16f7ea56ec02a1aa1e7821bb7fe4484
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173979"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848232"
 ---
 # <a name="identity-architecture-for-azure-stack-hub"></a>Architecture d’identité pour Azure Stack Hub
 
@@ -26,7 +26,7 @@ Le fournisseur d’identité que vous choisissez peut limiter vos options, dont 
 |------------------------------|----------|-------|
 |Connecté à Internet     |Oui       |Facultatif|
 |Prise en charge d’architecture mutualisée     |Oui       |Non      |
-|Proposer des articles dans la place de marché |Oui       |Oui (nécessite l’utilisation de l’outil [Syndication de Place de marché hors ligne](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario))|
+|Proposer des articles dans la place de marché |Oui       |Oui (nécessite l’utilisation de l’outil [Syndication de Place de marché hors ligne](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected))|
 |Prise en charge de la bibliothèque d’authentification Active Directory (ADAL) |Oui |Oui|
 |Prise en charge des outils tels que Azure CLI, Visual Studio et PowerShell  |Oui |Oui|
 |Créer des principaux de service via le portail Azure     |Oui |Non|

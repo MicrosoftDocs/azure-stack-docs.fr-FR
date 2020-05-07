@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 3f9741019a28548e9f20308312d62ea68e757795
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e8a8d2f156d2608db01a652225540a73722f16fc
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81308244"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848215"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Inscrire Azure Stack Hub auprès d’Azure
 
@@ -486,7 +486,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | ResourceGroupName | String |  |
 | ResourceGroupLocation | String |  |
 | BillingModel | String | Le modèle de facturation utilisé par votre abonnement. Les valeurs valides pour ce paramètre sont : Capacity, PayAsYouUse et Development. |
-| MarketplaceSyndicationEnabled | True/False | Détermine si la fonctionnalité de gestion de la Place de marché est disponible dans le portail. Définissez la valeur true en cas d’inscription avec une connectivité Internet. Définissez la valeur false en cas d’inscription dans des environnements déconnectés. Pour les inscriptions déconnectées, l’[outil de syndication hors connexion](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) peut être utilisé pour le téléchargement d’éléments de la Place de Marché. |
+| MarketplaceSyndicationEnabled | True/False | Détermine si la fonctionnalité de gestion de la Place de marché est disponible dans le portail. Définissez la valeur true en cas d’inscription avec une connectivité Internet. Définissez la valeur false en cas d’inscription dans des environnements déconnectés. Pour les inscriptions déconnectées, l’[outil de syndication hors connexion](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) peut être utilisé pour le téléchargement d’éléments de la Place de Marché. |
 | UsageReportingEnabled | True/False | Azure Stack Hub crée par défaut des rapports sur les métriques d’utilisation. Les opérateurs qui se basent sur la capacité ou qui gèrent un environnement déconnecté doivent désactiver la génération de rapports d’utilisation. Les valeurs valides pour ce paramètre sont : True, False. |
 | AgreementNumber | String | Numéro du Contrat Entreprise sous lequel la référence SKU de capacité d’Azure Stack a été commandée. |
 | RegistrationName | String | Définissez un nom unique pour l’inscription si vous exécutez le script d’inscription dans plusieurs instances Azure Stack Hub en utilisant le même ID d’abonnement Azure. Par défaut, le paramètre a la valeur **AzureStackRegistration**. Cependant, si vous utilisez le même nom sur plusieurs instances d’Azure Stack Hub, le script échoue. |
@@ -532,7 +532,7 @@ Vous pouvez recevoir l’une des erreurs ci-dessous quand vous tentez d’inscri
 ::: zone pivot="state-disconnected"
 - Vous recevez un message de la Gestion de la Place de marché vous invitant à inscrire et à activer votre instance Azure Stack Hub alors que vous avez déjà inscrit votre tampon à l’aide du processus déconnecté.
 
-   Cause : il s’agit d’un problème connu pour les environnements déconnectés qui vous oblige à [vérifier l’état de votre inscription](#verify-azure-stack-hub-registration). Pour utiliser la gestion de la Place de marché, utilisez l’[outil hors connexion](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario).
+   Cause : il s’agit d’un problème connu pour les environnements déconnectés qui vous oblige à [vérifier l’état de votre inscription](#verify-azure-stack-hub-registration). Pour utiliser la gestion de la Place de marché, utilisez l’[outil hors connexion](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected).
 ::: zone-end
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -7,12 +7,12 @@ ms.date: 2/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: abbf82a61c27a58833d286639b281989d3a29fd7
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: 5bebac9b3c604b2726cf5cd8f895fb17e0db3486
+ms.sourcegitcommit: 8646eba1674ca708baf6699f4a4b56d134766e85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82166954"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82861382"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Ajouter les prérequis du moteur Azure Kubernetes Services (AKS) à la Place de marché Azure Stack Hub
 
@@ -38,7 +38,7 @@ Si vous utilisez AD FS (Active Directory Federated Services) pour votre service
 
 ## <a name="add-the-aks-base-image"></a>Ajouter l’image de base AKS
 
-Vous pouvez ajouter l'image de base AKS à la Place de marché en vous procurant cet élément auprès d’Azure. Cependant, si votre instance Azure Stack Hub est déconnectée, suivez les instructions de la rubrique [Télécharger des éléments de la Place de marché à partir d’Azure](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) pour ajouter l’élément. Ajoutez l’élément spécifié à l’étape 5.
+Vous pouvez ajouter l'image de base AKS à la Place de marché en vous procurant cet élément auprès d’Azure. Cependant, si votre instance Azure Stack Hub est déconnectée, suivez les instructions de la rubrique [Télécharger des éléments de la Place de marché à partir d’Azure](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) pour ajouter l’élément. Ajoutez l’élément spécifié à l’étape 5.
 
 Ajoutez l'élément suivant à la Place de marché :
 
@@ -61,7 +61,7 @@ Ajoutez l'élément suivant à la Place de marché :
 
 ## <a name="add-a-custom-script-extension"></a>Ajouter une extension de script personnalisé
 
-Vous pouvez ajouter le script personnalisé à la Place de marché en vous procurant l'élément auprès d’Azure. Cependant, si votre instance Azure Stack Hub est déconnectée, suivez les instructions de la rubrique [Télécharger des éléments de la Place de marché à partir d’Azure](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) pour ajouter l’élément.  Ajoutez l’élément spécifié à l’étape 5.
+Vous pouvez ajouter le script personnalisé à la Place de marché en vous procurant l'élément auprès d’Azure. Cependant, si votre instance Azure Stack Hub est déconnectée, suivez les instructions de la rubrique [Télécharger des éléments de la Place de marché à partir d’Azure](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) pour ajouter l’élément.  Ajoutez l’élément spécifié à l’étape 5.
 
 1. Ouvrez le [portail d’administration](https://adminportal.local.azurestack.external).
 

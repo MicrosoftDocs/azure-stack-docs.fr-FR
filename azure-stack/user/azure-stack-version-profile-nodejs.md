@@ -3,16 +3,16 @@ title: Utiliser des profils de version d’API avec Node.js dans Azure Stack Hub
 description: Apprenez-en davantage sur l’utilisation des profils de version d’API avec Node.js dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 04/30/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 639c532d4ac105e434557fe18ef8070b656c0849
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.lastreviewed: 04/30/2020
+ms.openlocfilehash: b838afd49f53adc32af94559cebc5a65db3ee7ef
+ms.sourcegitcommit: 6de5b687197798302c3b1f08e4c82f049a99e49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660125"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82596803"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Utiliser des profils de version d’API avec le kit de développement logiciel (SDK) Node.js dans Azure Stack Hub
 
@@ -209,9 +209,9 @@ function main() {
 
 Vous pouvez utiliser les exemples suivants en guise de références pour la création de solutions avec des profils d’API Node.js et Azure Stack Hub. Vous pouvez récupérer les exemples à partir de GitHub dans les référentiels suivants :
 
-- [Prise en main du fournisseur de ressources de nœud de stockage](https://github.com/sijuman/storage-node-resource-provider-getting-started)
-- [Gérer les nœuds de calcul](https://github.com/sijuman/compute-node-manage-vm)
-- [Ressources et groupes de nœuds du gestionnaire de ressources](https://github.com/sijuman/resource-manager-node-resources-and-groups)
+- [Prise en main du fournisseur de ressources de nœud de stockage](https://github.com/Azure-Samples/hybrid-storage-nodejs-create-storageaccount)
+- [Gérer les nœuds de calcul](https://github.com/Azure-Samples/Hybrid-compute-nodejs-create-vm)
+- [Ressources et groupes de nœuds du gestionnaire de ressources](https://github.com/Azure-Samples/Hybrid-resourcegroups-nodejs-manageresources)
 
 ### <a name="sample-create-storage-account"></a>Exemple de création de compte de stockage 
 

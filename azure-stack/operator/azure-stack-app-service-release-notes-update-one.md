@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 44baf18b4e7b1acb39125a4ccdeb4228557de4d4
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2e8a4e4fe4de85e981bb0f33366b003c5ee907f8
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703517"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847756"
 ---
 # <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>Notes de publication d'App Service sur Azure Stack Hub Update 1
 
@@ -26,14 +26,14 @@ Ces notes de publication décrivent les améliorations, les correctifs et les pr
 
 Le numéro de build de la mise à jour 1 d'App Service sur Azure Stack Hub est **69.0.13698.9**.
 
-### <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Prérequis
 
 > [!IMPORTANT]
-> Les nouveaux déploiements d'Azure App Service sur Azure Stack Hub nécessitent désormais un [certificat avec caractères génériques à trois sujets](azure-stack-app-service-before-you-get-started.md#get-certificates) en raison des améliorations apportées à la gestion de l'authentification unique pour Kudu dans Azure App Service. Le nouveau sujet est **\*.sso.appservice.\<région\>.\<nom_domaine\>.\<extension\>**
+> Les nouveaux déploiements d’Azure App Service sur Azure Stack Hub nécessitent désormais un certificat avec caractères génériques à trois sujets en raison des améliorations apportées à la gestion de l’authentification unique pour Kudu dans Azure App Service. Le nouveau sujet est **\*.sso.appservice.\<région\>.\<nom_domaine\>.\<extension\>**
 
 Avant d'entamer le déploiement, consultez les [Conditions préalables au déploiement d'App Service sur Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).
 
-### <a name="new-features-and-fixes"></a>Nouvelles fonctionnalités et correctifs
+## <a name="new-features-and-fixes"></a>Nouvelles fonctionnalités et correctifs
 
 Azure App Service sur Azure Stack Hub Update 1 contient les améliorations et correctifs suivants :
 
@@ -77,7 +77,7 @@ Azure App Service sur Azure Stack Hub Update 1 contient les améliorations et 
 
   - Ajout de la validation de la connexion au stockage dans le sélecteur de stockage personnalisé pour Azure Functions.
 
-#### <a name="fixes"></a>Correctifs
+### <a name="fixes"></a>Correctifs
 
 - Lorsque vous créez un package de déploiement hors connexion, les utilisateurs ne reçoivent plus le message d’erreur « Accès refusé » quand ils ouvrent le dossier à partir du programme d’installation App Service.
 
@@ -91,7 +91,7 @@ Azure App Service sur Azure Stack Hub Update 1 contient les améliorations et 
 
 - L’état incorrect qui était retourné à Azure Resource Manager lors de la suppression d’un abonnement avec un espace de noms Microsoft.Web contenant des ressources est désormais correct.
 
-### <a name="known-issues-with-the-deployment-process"></a>Problèmes connus liés au processus de déploiement
+## <a name="known-issues-with-the-deployment-process"></a>Problèmes connus liés au processus de déploiement
 
 - Erreurs de validation du certificat.
 
@@ -101,11 +101,11 @@ Azure App Service sur Azure Stack Hub Update 1 contient les améliorations et 
 
     Une erreur présente dans Get-AzureStackRootCert.ps1 empêchait les clients de récupérer le certificat racine Azure Stack Hub lors de l'exécution du script sur un ordinateur où aucun certificat racine n'était installé. Le script a également été republié, ce qui a permis de résoudre le problème. [Téléchargez les scripts d’assistance mis à jour](https://aka.ms/appsvconmashelpers). Si vous continuez à rencontrer des problèmes de récupération du certificat racine avec le script mis à jour, contactez le support technique.
 
-### <a name="known-issues-with-the-update-process"></a>Problèmes connus avec le processus de mise à jour
+## <a name="known-issues-with-the-update-process"></a>Problèmes connus avec le processus de mise à jour
 
 - Il n'existe aucun problème connu lié à la mise à jour d'Azure App Service sur Azure Stack Hub Update 1.
 
-### <a name="known-issues-post-installation"></a>Problèmes connus (après l’installation)
+## <a name="known-issues-post-installation"></a>Problèmes connus (après l’installation)
 
 - L’échange d’emplacement ne fonctionne pas.
 
@@ -201,7 +201,7 @@ Si vous avez choisi de procéder au déploiement dans un réseau virtuel existan
 - Priorité : 700
 - Nom : Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Problèmes connus pour les administrateurs cloud utilisant Azure App Service sur Azure Stack Hub
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Problèmes connus pour les administrateurs cloud utilisant Azure App Service sur Azure Stack Hub
 
 Reportez-vous à la documentation fournie dans les [Notes de publication d'Azure Stack Hub 1802](azure-stack-update-1903.md).
 

@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: dc5fa60f0ab1460a98ec21a0501c3cdcec6a6637
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: a1e49ef9138c04557c8cd0a54b11ada30d97f334
+ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772635"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82605631"
 ---
 # <a name="azure-stack-hub-overview"></a>Vue d’ensemble d’Azure Stack Hub
 
@@ -65,7 +65,7 @@ Pour les déploiements déconnectés d’Azure Stack Hub, vous devez utiliser AD
 
 Azure Stack Hub utilise le même modèle d’opérations qu’Azure. Un opérateur Azure Stack Hub peut fournir un large éventail de services et d’applications aux utilisateurs locataires, de la même façon que Microsoft fournit des services Azure aux utilisateurs locataires. 
 
-![Diagramme montrant les rôles de travail Azure Stack Hub](./media/azure-stack-overview/azure-stack-job-roles.png)
+![Diagramme montrant les rôles de travail Azure Stack Hub](./media/azure-stack-overview/azure-stack-job-roles.svg)
 
 Vous pouvez gérer Azure Stack Hub avec le portail administrateur, le portail utilisateur ou [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1). Les portails Azure Stack Hub sont chacun secondés par des instances distinctes d’Azure Resource Manager. Un **opérateur Azure Stack Hub** utilise le portail administrateur pour gérer Azure Stack Hub, et pour effectuer des opérations comme la création d’offres de locataire, la gestion de l’intégrité du système intégré et la supervision de son état. Le portail utilisateur fournit une expérience en libre-service pour la consommation de ressources cloud comme des machines virtuelles, des comptes de stockage et des applications web.
 

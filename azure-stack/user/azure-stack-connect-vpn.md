@@ -7,12 +7,12 @@ ms.date: 04/07/2020
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2019
-ms.openlocfilehash: c745325c720ed37f93b12fee844a6ebc0b829cca
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 186559752531021ff74833ac71184e692d40a04d
+ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80812439"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82643581"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Connecter Azure Stack Hub à Azure à l’aide d’un VPN
 
@@ -29,7 +29,7 @@ Avant de commencer la configuration de la connexion, vérifiez que vous disposez
 
 La figure ci-après illustre à quoi la configuration d’une connexion devra ressembler lorsque vous aurez terminé :
 
-![Configuration d’une connexion VPN de site à site](media/azure-stack-connect-vpn/image2.png)
+![Configuration d’une connexion VPN de site à site](media/azure-stack-connect-vpn/azure-stack-connect-vpn-image2.svg)
 
 ### <a name="network-configuration-example-values"></a>Exemples de valeurs de configuration réseau
 
@@ -50,7 +50,6 @@ Tout d’abord, créez les ressources réseau pour Azure. Les instructions ci-ap
 ### <a name="create-the-virtual-network-and-virtual-machine-vm-subnet"></a>Créer le réseau virtuel et le sous-réseau de machine virtuelle
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) avec votre compte Azure.
-
 2. Dans le portail utilisateur, sélectionnez **+ Créer une ressource**.
 3. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 4. Sélectionnez **Réseau virtuel**.

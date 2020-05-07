@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: f691ba0cfeadae0d359473db881601e90478276c
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 27442f9bc5107d9dbeb07b19f1f53b84facc5a06
+ms.sourcegitcommit: e591e8531e8fee07a8315fdca29cf8f45a766c81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660889"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82687431"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Se connecter au stockage iSCSI avec Azure Stack Hub
 
@@ -24,7 +24,7 @@ Le modèle est disponible dans la branche **lucidqdreams** du dépôt [Azure Int
 
 Le schéma montre une machine virtuelle hébergée sur Azure Stack Hub avec un disque iSCSI monté à partir d’un ordinateur (physique ou virtuel) Windows local, ce qui permet le montage du stockage externe à Azure Stack Hub à l’intérieur de votre machine virtuelle hébergée par Azure Stack Hub via le protocole iSCSI.
 
-![texte de remplacement](./media/azure-stack-network-howto-iscsi-storage/overview.png)
+![texte de remplacement](./media/azure-stack-network-howto-iscsi-storage/overview-iscsi2.svg)
 
 ### <a name="requirements"></a>Spécifications
 
@@ -57,7 +57,7 @@ Le schéma montre une machine virtuelle hébergée sur Azure Stack Hub avec un d
 
 Le schéma montre les ressources déployées à partir du modèle pour créer le client iSCSI que vous pouvez utiliser pour vous connecter à la cible iSCSI. Ce modèle déploie la machine virtuelle et d’autres ressources. De plus, il exécute prepare-iSCSIClient.ps1 et redémarre la machine virtuelle.
 
-![texte de remplacement](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.png)
+![texte de remplacement](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.svg)
 
 ### <a name="the-deployment-process"></a>Processus de déploiement
 
@@ -68,7 +68,7 @@ Le modèle de groupe de ressources génère une sortie, qui est censée être l�
 3. Exécutez `Create-iSCSITarget.ps1` à l’aide des sorties d’adresse IP et de nom de serveur du modèle en tant que paramètres d’extraction du script sur la cible iSCSI, qui peut être une machine virtuelle ou un serveur physique.
 4. Utilisez l’adresse IP externe ou les adresses du serveur cible iSCSI comme entrées pour exécuter le script `Connect-toiSCSITarget.ps1`. 
 
-![texte de remplacement](./media/azure-stack-network-howto-iscsi-storage/process.png)
+![texte de remplacement](./media/azure-stack-network-howto-iscsi-storage/process.svg)
 
 ### <a name="inputs-for-azuredeployjson"></a>Entrées pour azuredeploy.json
 
@@ -97,7 +97,7 @@ Le modèle de groupe de ressources génère une sortie, qui est censée être l�
 
 Vous pouvez également exécuter les scripts sur une machine virtuelle existante pour vous connecter à partir du client iSCSI à une cible iSCSI. Ce flux est adapté si vous créez vous-même la cible iSCSI. Ce schéma illustre le déroulement de l’exécution des scripts PowerShell. Ces scripts se trouvent dans le répertoire Script :
 
-![texte de remplacement](./media/azure-stack-network-howto-iscsi-storage/script-flow.png)
+![texte de remplacement](./media/azure-stack-network-howto-iscsi-storage/script-flow.svg)
 
 ### <a name="prepare-iscsiclientps1"></a>Prepare-iSCSIClient.ps1
 

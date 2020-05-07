@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 03ead55141ff6a7b8aa9451b814d399b607ebb47
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 97fc89897d63d368cfface0f5fc7dece4b8480cd
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702174"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742527"
 ---
 # <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>VNET Peering dans Azure Stack Hub avec des machines virtuelles
 
@@ -23,7 +23,7 @@ Ce modèle de déploiement est la base qui permet de créer des tunnels VPN au s
 Vous trouverez les modèles dans le dépôt GitHub [Azure Intelligent Edge Patterns](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
 ). Le modèle se trouve dans le dossier **S2SVPNTunnel**.
 
-![texte de remplacement](./media/azure-stack-network-howto-vnet-peering/overview.png)
+![texte de remplacement](./media/azure-stack-network-howto-vnet-peering/overview.svg)
 
 ## <a name="requirements"></a>Spécifications
 
@@ -51,7 +51,7 @@ Vous trouverez les modèles dans le dépôt GitHub [Azure Intelligent Edge Patte
 
 Le modèle fournit des valeurs par défaut pour l’affectation de noms et l’adressage IP au réseau virtuel. Il requiert un mot de passe pour l’administrateur (rrasadmin) et offre également la possibilité d’utiliser votre propre blob de stockage avec un jeton SAS. Veillez à conserver ces valeurs dans les limites qui conviennent pour permettre au déploiement d'aboutir. Le package PowerShell DSC est exécuté sur chaque machine virtuelle RRAS et installe le routage ainsi que tous les services et fonctionnalités dépendants requis. Ce DSC peut être davantage personnalisé, si besoin. L’extension de script personnalisé exécute le script suivant et `Add-Site2Site.ps1` configure le tunnel VPNS2S entre les deux serveurs RRAS avec une clé partagée. Vous pouvez afficher la sortie détaillée de l’extension de script personnalisé pour consulter les résultats de la configuration du tunnel VPN.
 
-![texte de remplacement](./media/azure-stack-network-howto-vnet-peering/s2svpntunnels2.png)
+![texte de remplacement](./media/azure-stack-network-howto-vnet-peering/s2svpntunnels2.svg)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

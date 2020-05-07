@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: a95ce4d59e5374cab351c165405895f552478f6b
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: 7ad15c36d2c3e8ae4442bd153cefd71bd26cc0bc
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82167073"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847416"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Déployer une application qui effectue une mise à l’échelle multicloud à l’aide d’Azure et d’Azure Stack Hub
 
@@ -40,7 +40,7 @@ Dans cette solution, vous allez générer un exemple d’environnement pour :
 - Abonnement Azure. Si nécessaire, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 - Système intégré Azure Stack Hub ou déploiement du kit de développement Azure Stack (ASDK).
   - Pour obtenir des instructions concernant l’installation d’Azure Stack Hub, consultez [Installer le kit ASDK](../asdk/asdk-install.md).
-  - Pour un script d’automatisation post-déploiement ASDK, accédez à : [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1)
+  - Pour un script d’automatisation post-déploiement ASDK, accédez à : [https://github.com/mattmcspirit/azurestack/](https://github.com/mattmcspirit/azurestack)
   - Cette installation peut prendre quelques heures.
 - Déployez les services PaaS [App Service](../operator/azure-stack-app-service-deploy.md) sur Azure Stack Hub.
 - [Créez des plans/offres](../operator/service-plan-offer-subscription-overview.md) dans l’environnement Azure Stack Hub.

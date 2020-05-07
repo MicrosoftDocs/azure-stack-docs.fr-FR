@@ -34,7 +34,11 @@
         - name: Calcul
           href: azure-stack-capacity-planning-compute.md
         - name: Stockage
-          href: azure-stack-capacity-planning-storage.md
+          items:
+            - name: Planification de la capacité de stockage
+              href: azure-stack-capacity-planning-storage.md
+            - name: Vue d’ensemble de l’infrastructure de stockage
+              href: azure-stack-storage-infrastructure-overview.md
         - name: Azure Stack Hub Capacity Planner
           href: azure-stack-capacity-planner.md
     - name: Intégration du centre de données
@@ -168,8 +172,6 @@
                   href: azure-stack-update-monitor.md
                 - name: Utiliser un point de terminaison privilégié
                   href: azure-stack-monitor-update.md
-            - name: Résoudre les problèmes de mise à jour
-              href: azure-stack-updates-troubleshoot.md
         - name: Surveiller l’intégrité et les alertes
           href: azure-stack-monitor-health.md
         - name: Superviser les composants matériels
@@ -187,7 +189,7 @@
             - name: Gérer la capacité de stockage
               href: azure-stack-manage-storage-shares.md
             - name: Gérer l’infrastructure de stockage
-              href: azure-stack-storage-infrastructure-overview.md
+              href: azure-stack-manage-storage-infrastructure.md
             - name: Gérer la capacité de mémoire physique
               href: azure-stack-manage-storage-physical-memory-capacity.md
             - name: Ajouter des nœuds d’unités d’échelle
@@ -294,50 +296,52 @@
               href: azure-stack-app-service-overview.md
             - name: Planification de la capacité App Service
               href: azure-stack-app-service-capacity-planning.md
-            - name: Avant de commencer
-              href: azure-stack-app-service-before-you-get-started.md
-            - name: Déployer App Service
-              href: azure-stack-app-service-deploy.md
-            - name: Déployer App Service pour la haute disponibilité
-              href: app-service-deploy-ha.md
-            - name: Déployer App Service hors connexion
-              href: azure-stack-app-service-deploy-offline.md
-            - name: Mettre à jour App Service
-              href: azure-stack-app-service-update.md
-            - name: Mettre à jour App Service hors connexion
-              href: azure-stack-app-service-update-offline.md
-            - name: Ajouter des rôles d’infrastructure App Service
-              href: azure-stack-app-service-add-worker-roles.md
-            - name: Configurer des sources de déploiement
-              href: azure-stack-app-service-configure-deployment-sources.md
-            - name: Effectuer une rotation des secrets et des certificats App Service
-              href: app-service-rotate-certificates.md
-            - name: "Sauvegarder App\_Service"
-              href: app-service-back-up.md
-            - name: "Récupérer App\_Service"
-              href: app-service-recover.md
-            - name: Supprimer App Service
-              href: app-service-remove.md
             - name: Questions fréquentes (FAQ) sur la facturation App Service
               href: app-service-billing-faq.md
+            - name: Prérequis
+              href: azure-stack-app-service-before-you-get-started.md
+            - name: Déploiement
+              items:
+                - name: Déployer App Service
+                  href: azure-stack-app-service-deploy.md
+                - name: Déployer App Service pour la haute disponibilité
+                  href: app-service-deploy-ha.md
+            - name: Gestion du cycle de vie
+              items:
+                - name: Mettre à jour App Service
+                  href: azure-stack-app-service-update.md
+                - name: Ajouter des rôles d’infrastructure App Service
+                  href: azure-stack-app-service-add-worker-roles.md
+                - name: Configurer des sources de déploiement
+                  href: azure-stack-app-service-configure-deployment-sources.md
+                - name: Effectuer une rotation des secrets et des certificats App Service
+                  href: app-service-rotate-certificates.md
+                - name: "Sauvegarder App\_Service"
+                  href: app-service-back-up.md
+                - name: "Récupérer App\_Service"
+                  href: app-service-recover.md
+                - name: Supprimer App Service
+                  href: app-service-remove.md
             - name: Notes de publication App Service sur Azure Stack Hub
               items:
-                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_1"
-                  href: azure-stack-app-service-release-notes-update-one.md
-                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_2"
-                  href: azure-stack-app-service-release-notes-update-two.md
-                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_3"
-                  href: azure-stack-app-service-release-notes-update-three.md
-                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_4"
-                  href: azure-stack-app-service-release-notes-update-four.md
-                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_5"
-                  href: azure-stack-app-service-release-notes-update-five.md
-                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_6"
-                  href: azure-stack-app-service-release-notes-update-six.md
-                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_7"
-                  href: azure-stack-app-service-release-notes-update-seven.md
+                - name: "Notes de publication App Service sur Azure Stack Hub\_2020 T2"
+                  href: app-service-release-notes-2020-Q2.md
                 - name: "Notes de publication de la mise à jour 8 d’App\_Service sur Azure Stack Hub"
                   href: azure-stack-app-service-release-notes-update-eight.md
+                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_7"
+                  href: azure-stack-app-service-release-notes-update-seven.md
+                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_6"
+                  href: azure-stack-app-service-release-notes-update-six.md
+                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_5"
+                  href: azure-stack-app-service-release-notes-update-five.md
+                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_4"
+                  href: azure-stack-app-service-release-notes-update-four.md
+                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_3"
+                  href: azure-stack-app-service-release-notes-update-three.md
+                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_2"
+                  href: azure-stack-app-service-release-notes-update-two.md
+                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_1"
+                  href: azure-stack-app-service-release-notes-update-one.md
         - name: Event Hubs sur Azure Stack Hub
           items:
             - name: Vue d’ensemble
