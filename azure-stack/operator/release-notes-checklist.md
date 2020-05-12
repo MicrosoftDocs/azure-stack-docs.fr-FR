@@ -3,16 +3,16 @@ title: Liste de contrôle des activités de mise à jour Azure Stack Hub
 description: Liste de contrôle pour préparer votre système à la dernière mise à jour Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 1df84dc5c6294bbdfc5d448dbf2f2a07a477a400
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 03f2b9d80b4fde1f0c7b73b3c24a2d5e799d4d49
+ms.sourcegitcommit: 519f4298dc1ed5c33f9c4fef811f61d61731dd84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512165"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82799847"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Liste de contrôle des activités de mise à jour Azure Stack Hub
 
@@ -24,6 +24,7 @@ Passez en revue cette liste de contrôle pour préparer une mise à jour Azure S
 |------------------------------|-----------------------------------------------------------|
 | Passer en revue les problèmes connus     | [Liste des problèmes connus](known-issues.md).                |
 | Passer en revue les mises à jour de sécurité | [Liste des mises à jour de sécurité](release-notes-security-updates.md).      |
+| Passer en revue les mises à jour complémentaires des fournisseurs de ressources | [App Service](azure-stack-app-service-update.md)<br>[Hubs d'événements](resource-provider-apply-updates.md)<br> [MySQL](azure-stack-sql-resource-provider-update.md)<br>[SQL](azure-stack-mysql-resource-provider-update.md)<br>  |
 | Appliquer le dernier package OEM | Contactez votre OEM afin de vérifier que votre système répond aux exigences minimales du package OEM pour la version Azure Stack Hub vers laquelle votre système est mis à jour. Vérifiez que votre package OEM est compatible avec la version d’Azure Stack Hub vers laquelle vous effectuez la mise à jour. Si votre package OEM n’est pas compatible avec la version d’Azure Stack Hub vers laquelle vous effectuez la mise à jour, vous devez effectuer une mise à jour du package OEM avant d’exécuter une mise à jour Azure Stack Hub. Pour obtenir des instructions, consultez « Appliquer des mises à jour de fabricants d’ordinateurs (OEM) à Azure Stack Hub ». |
 | Facultatif : Configurer la collecte automatique des journaux | Il est recommandé de configurer la collecte automatique des journaux sur votre environnement Azure Stack Hub pour simplifier le processus de collecte des journaux système dans le cas où vous devriez ouvrir un ticket de support. Pour configurer la collecte automatique des journaux, consultez les instructions figurant dans [Configurer la collecte automatique des journaux de diagnostic Azure Stack Hub](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md). |
 | Appliquer les derniers correctifs | Appliquez les derniers correctifs qui s’appliquent à la version actuellement installée. Pour obtenir la liste des derniers correctifs, consultez la section [Correctifs logiciels des notes de publication](release-notes.md). |

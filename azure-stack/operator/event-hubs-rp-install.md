@@ -8,34 +8,29 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: e07d311c8edbe140834a020af489ae49d8380d86
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+zone_pivot_groups: state-connected-disconnected
+ms.openlocfilehash: d92c8c8514020d3b33e236232aa07b95ade9f798
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80424601"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848198"
 ---
 # <a name="how-to-install-event-hubs-on-azure-stack-hub"></a>Guide pratique pour installer Event Hubs sur Azure Stack Hub
 
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
+[!INCLUDE [preview banner](../includes/event-hubs-preview.md)]
 
 Cet article vous montre comment télécharger et installer le fournisseur de ressources Event Hubs afin de pouvoir l’offrir aux clients dans le cadre de l’abonnement.
 
 ## <a name="download-packages"></a>Télécharger des packages
 
-Avant de pouvoir installer Event Hubs sur Azure Stack Hub, vous devez télécharger le fournisseur de ressources et ses packages dépendants. Vous avez deux options, en fonction de votre situation ou de vos besoins :
-
-- Télécharger Event Hubs dans le cadre d’un scénario connecté.
-- Télécharger Event Hubs dans le cadre d’un scénario déconnecté ou partiellement connecté.
-
-Si vous ne connaissez pas la fonctionnalité **Gestion de la Place de marché** du portail administrateur Azure Stack Hub, passez en revue [Télécharger des éléments de la Place de marché Azure et les publier sur Azure Stack Hub](azure-stack-download-azure-marketplace-item.md). Cet article vous guide tout au long du processus de téléchargement des éléments à partir d’Azure vers la Place de marché Azure Stack Hub. Il couvre les deux scénarios, connecté et déconnecté. 
-
-### <a name="download-event-hubs---connected-scenario"></a>Télécharger Event Hubs, scénario connecté
+Avant de pouvoir installer Event Hubs sur Azure Stack Hub, vous devez télécharger le fournisseur de ressources et les packages qui en dépendent à l'aide de la fonctionnalité Gestion de la Place de marché. Si vous ne connaissez pas la fonctionnalité Gestion de la Place de marché, consultez [Télécharger des éléments de la Place de marché Azure et les publier sur Azure Stack Hub](azure-stack-download-azure-marketplace-item.md). Cet article vous guide tout au long du processus de téléchargement des éléments à partir d’Azure vers la Place de marché Azure Stack Hub. Il couvre les deux scénarios, connecté et déconnecté. 
 
 > [!NOTE]
 > Le processus de téléchargement peut prendre entre 30 minutes et 2 heures, en fonction de la latence du réseau et des packages existants sur votre instance Azure Stack Hub. 
 
-Suivez ces instructions si votre instance Azure Stack Hub dispose d’une connectivité Internet :
+::: zone pivot="state-connected"
+Pour un scénario connecté, suivez les instructions ci-dessous :
 
 1. Connectez-vous au portail d’administration Azure Stack Hub.
 2. Sélectionnez **Gestion de la Place de marché** sur la gauche.
@@ -50,25 +45,23 @@ Notez que d’autres packages logiciels sont téléchargés en même temps qu’
 
 - Microsoft Azure Stack Hub Add-On RP Windows Server INTERNE UNIQUEMENT
 - PowerShell Desired State Configuration
+::: zone-end
 
-Une fois le processus de téléchargement terminé, passez à la [section Prérequis pour l’installation](#install-prerequisites).
+::: zone pivot="state-disconnected"
+Pour un scénario déconnecté ou partiellement connecté, vous devez télécharger les packages sur votre ordinateur local, puis les importer sur votre instance d'Azure Stack Hub.
 
-### <a name="download-event-hubs---disconnected-or-partially-connected-scenario"></a>Télécharger Event Hubs, scénario déconnecté ou partiellement connecté
-
-Tout d’abord, vous téléchargez les packages sur votre ordinateur local, puis vous les importez dans votre instance Azure Stack Hub.
-
-1. Si ce n’est pas déjà fait, suivez les instructions de [Télécharger des éléments de la Place de marché - Scénario déconnecté ou partiellement connecté](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario). Ici, vous téléchargez et exécutez l’outil de syndication de la Place de marché, qui vous permet de télécharger les packages Event Hubs.
+1. Si ce n’est pas déjà fait, suivez les instructions de [Télécharger des éléments de la Place de marché - Scénario déconnecté ou partiellement connecté](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected). Ici, vous téléchargez et exécutez l’outil de syndication de la Place de marché, qui vous permet de télécharger les packages Event Hubs.
 2. Quand la fenêtre « Éléments de la Place de marché Azure » de l’outil de syndication s’ouvre, recherchez et sélectionnez « Event Hubs » pour télécharger les packages requis sur votre ordinateur local.
 3. Une fois le téléchargement terminé, vous importez les packages sur votre instance Azure Stack Hub et les publiez sur la Place de marché. 
+::: zone-end
 
 ## <a name="installation"></a>Installation 
 
-1. Si ce n’est pas déjà fait, connectez-vous au portail administrateur Azure Stack Hub.
-2. Sélectionnez **Gestion de la Place de marché** sur la gauche, puis **Fournisseurs de ressources**.
-3. Une fois qu’Event Hubs et d’autres logiciels requis ont été téléchargés, **Gestion de la Place de marché** doit afficher les packages « Event Hubs » avec l’état « Non installé ». Il peut y avoir d’autres packages qui affichent l’état « Téléchargé ». Sélectionnez la ligne « Event Hubs » que vous souhaitez installer.
+1. Si ce n'est déjà fait, connectez-vous au portail d'administration Azure Stack Hub, sélectionnez **Gestion de la Place de marché** sur la gauche, puis choisissez **Fournisseurs de ressources**.
+2. Une fois qu'Event Hubs et les autres logiciels requis ont été téléchargés, **Gestion de la Place de marché** affiche les packages « Event Hubs » avec l'état « Non installé ». Il peut y avoir d’autres packages qui affichent l’état « Téléchargé ». Sélectionnez la ligne « Event Hubs » que vous souhaitez installer.
    [![Packages téléchargés dans Gestion de la Place de marché](media/event-hubs-rp-install/2-marketplace-management-downloaded.png)](media/event-hubs-rp-install/2-marketplace-management-downloaded.png#lightbox)
  
-4. La page d’installation des packages Event Hubs doit afficher une bannière bleue en haut. Sélectionnez la bannière pour démarrer l’installation d’Event Hubs.
+3. Une bannière bleue apparaît en haut de la page d'installation des packages Event Hubs. Sélectionnez la bannière pour démarrer l’installation d’Event Hubs.
    [![Event Hubs dans Gestion de la Place de marché - démarrer l’installation](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
 
 ### <a name="install-prerequisites"></a>Prérequis à installer

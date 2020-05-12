@@ -3,16 +3,16 @@ title: Planification de capacité pour des rôles serveur App Service dans Azure
 description: Découvrez comment planifier des rôles serveur App Service dans Azure Stack Hub.
 author: BryanLa
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/13/20192
-ms.openlocfilehash: 9e9447baf9f5676cac8555513682bab8da750bb2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 04/13/2020
+ms.openlocfilehash: a0cfc16035d82eb230f61900bc0c971a51c86ea1
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701171"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847857"
 ---
 # <a name="capacity-planning-for-app-service-server-roles-in-azure-stack-hub"></a>Planification de capacité pour des rôles serveur App Service dans Azure Stack Hub
 
@@ -20,44 +20,49 @@ Pour configurer un déploiement prêt pour la production d’Azure App Service s
 
 Cet article fournit des instructions pour le nombre minimal d’instances de calcul et de références SKU de calcul à utiliser pour un déploiement de production.
 
+> [!NOTE]
+> Les instructions relatives aux références SKU de calcul recommandées pour les rôles ont été mises à jour avec la version 2020 d'Azure App Service sur Azure Stack Hub afin d'aligner les déploiements standard sur les déploiements Azure.
+
 Vous pouvez planifier votre stratégie de capacité App Service à l’aide de ces instructions.
 
 | Rôle serveur App Service | Nombre d’instances minimal recommandé | Référence SKU de calcul recommandée|
 | --- | --- | --- |
-| Contrôleur | 2 | A1 |
-| Serveur frontal | 2 | A1 |
-| Gestion | 2 | A3 |
-| Serveur de publication | 2 | A1 |
-| Rôles de travail - partagés | 2 | A1 |
-| Rôles de travail - dédiés | 2 par niveau | A1 |
+| Contrôleur | 2 | A4v2 |
+| Serveur frontal | 2 | A4_v2 |
+| Gestion | 2 | D3_v2 |
+| Serveur de publication | 2 | A2_v2 |
+| Rôles de travail - partagés | 2 | A4_v2 |
+| Rôles de travail - dédiés - petits | 2 par niveau | A1_v2 |
+| Rôles de travail - dédiés - intermédiaires | 2 par niveau | A2_v2 |
+| Rôles de travail - dédiés - grands | 2 par niveau | A4_v2 |
 
 ## <a name="controller-role"></a>rôle de contrôleur
 
-**Minimum recommandé** : Deux instances de A1 Standard
+**Minimum recommandé** : deux instances d'A4v2
 
 Le contrôleur Azure App Service consomme généralement peu d’UC, de mémoire et de ressources réseau. Toutefois, pour la haute disponibilité, vous devez disposer de deux contrôleurs. Deux contrôleurs sont également le nombre maximal de contrôleurs autorisé. Vous pouvez créer le second contrôleur de sites web directement à partir du programme d’installation lors du déploiement.
 
 ## <a name="front-end-role"></a>Rôle du front-end
 
-**Minimum recommandé** : Deux instances de A1 Standard
+**Minimum recommandé** : deux instances d'A4v_2
 
 Le front-end achemine les requêtes vers les traitements web en fonction de leur disponibilité. Pour une haute disponibilité, vous devez disposer de plusieurs front-ends. À des fins de planification de la capacité, notez que chaque cœur peut traiter approximativement 100 demandes par seconde.
 
 ## <a name="management-role"></a>Rôle de gestion
 
-**Minimum recommandé** : Deux instances de A3 Standard
+**Minimum recommandé** : deux instances de D3v2
 
 Le rôle du modèle de déploiement Azure App Classic gère les points de terminaison d’App Service Azure Resource Manager et des API, les extensions de portail (administrateur, locataire, Functions) et le service des données. Le rôle de serveur de gestion ne nécessite généralement que 4 Go de RAM environ dans un environnement de production. Toutefois, l’utilisation de l’UC peut augmenter lorsque de nombreuses tâches de gestion (par exemple, la création de sites web) sont effectuées. Pour une haute disponibilité, vous devez disposer de plusieurs serveurs affectés à ce rôle, et au moins deux cœurs par serveur.
 
 ## <a name="publisher-role"></a>Rôle de serveur de publication
 
-**Minimum recommandé** : Deux instances de A1 Standard
+**Minimum recommandé** : deux instances d'A2v2
 
 Si de nombreux utilisateurs publient simultanément, le rôle de serveur de publication peut faire face à une utilisation élevée du processeur. Pour une haute disponibilité, vérifiez que plusieurs rôles de serveur de publication sont disponibles. Le serveur de publication gère uniquement le trafic FTP/FTPS.
 
 ## <a name="web-worker-role"></a>Rôle de travail
 
-**Minimum recommandé** : Deux instances de A1 Standard
+**Minimum recommandé** : deux instances d'A4_v2
 
 Pour offrir une haute disponibilité, prévoyez au moins quatre rôles de worker web : deux pour le mode de site web partagé et deux pour chaque niveau de worker dédié que vous prévoyez de proposer. Les modes de calcul partagé et dédié offrent différents niveaux de service aux locataires. Vous aurez peut-être besoin de traitements web supplémentaires si vous avez de nombreux clients :
 

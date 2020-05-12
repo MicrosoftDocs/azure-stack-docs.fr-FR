@@ -3,16 +3,16 @@ title: Problèmes connus d’Azure Stack Hub
 description: Découvrez les problèmes connus des versions d’Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/29/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: df81020ce365f25587c406aaf13617281769834d
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 35eeee27c2084d0ceec565dea5cecc1ce71ecf7f
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82556424"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848096"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Problèmes connus d’Azure Stack Hub
 
@@ -38,7 +38,7 @@ Pour accéder aux problèmes connus d'une autre version, utilisez le menu dérou
 
 Après l’application de la mise à jour 2002, une alerte pour une « source de temps non valide » peut s’afficher à tort dans le portail administrateur. Vous pouvez ignorer cette alerte de faux positif, qui sera corrigée dans une prochaine version. 
 
-Pour plus d’informations sur les problèmes connus de mise à jour d’Azure Stack Hub, consultez [Dépannage des mises à jour dans Azure Stack Hub](azure-stack-updates-troubleshoot.md).
+Pour plus d’informations sur les problèmes connus de mise à jour d’Azure Stack Hub, consultez [Dépannage des mises à jour dans Azure Stack Hub](azure-stack-troubleshooting.md).
 
 ## <a name="portal"></a>Portail
 
@@ -74,6 +74,12 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Champ d’application : Ce problème concerne les versions 1908 et ultérieures.
 - Cause : Quand un câble est déconnecté d’une carte réseau, aucune alerte ne s’affiche dans le portail administrateur. Ce problème est dû au fait que cette erreur est désactivée par défaut dans Windows Server 2019.
 - Occurrence : Courant
+
+### <a name="access-control-iam"></a>Contrôle d’accès (IAM)
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : L’extension IAM est obsolète. Le portail Ibiza fourni avec Azure Stack Hub introduit un nouveau comportement qui entraîne l’échec de l’extension RBAC si l’utilisateur ouvre le panneau **Contrôle d’accès (IAM)** pour un abonnement qui n’est pas sélectionné dans le sélecteur d’abonnement global (**Annuaire + abonnement** dans le portail utilisateur). Le panneau affiche **Chargement** en boucle, et l’utilisateur ne peut pas ajouter de nouveaux rôles à l’abonnement. Le panneau **Ajouter** affiche également **Chargement** en boucle.
+- Correction : Vérifiez que l’abonnement est coché dans le menu **Répertoire + abonnement**. Le menu est accessible dans le haut du portail, près du bouton **Notifications**, ou via le raccourci du panneau **Toutes les ressources** qui affiche **Vous ne voyez pas d’abonnement ? Ouvrir les paramètres de répertoire et d’abonnement**. L’abonnement doit être sélectionné dans ce menu.
 
 ## <a name="networking"></a>Mise en réseau
 
@@ -203,7 +209,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ::: moniker range="azs-1910"
 ## <a name="update"></a>Update
 
-Pour plus d’informations sur les problèmes connus de mise à jour d’Azure Stack Hub, consultez [Dépannage des mises à jour dans Azure Stack Hub](azure-stack-updates-troubleshoot.md).
+Pour plus d’informations sur les problèmes connus de mise à jour d’Azure Stack Hub, consultez [Dépannage des mises à jour dans Azure Stack Hub](azure-stack-troubleshooting.md).
 
 ## <a name="portal"></a>Portail
 
@@ -246,7 +252,6 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Cause : Dans le portail utilisateur, quand vous essayez de charger un objet blob dans le panneau de chargement, vous pouvez sélectionner **AAD** ou **Key Authentication** (Authentification par clé), mais **AAD** n’est pas pris en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
-
 ### <a name="alert-for-network-interface-disconnected"></a>Alerte relative à l’interface réseau déconnectée
 
 - Champ d’application : Ce problème concerne les versions 1908 et ultérieures.
@@ -264,7 +269,6 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Dans le portail utilisateur, les fonctionnalités **Résolution des problèmes liés au VPN** et **Métriques** figurent dans une ressource de passerelle VPN, mais cela n’est pas pris en charge dans Azure Stack Hub.
 - Occurrence : Courant
-
 
 ### <a name="delete-a-storage-container"></a>Supprimer un conteneur de stockage
 
@@ -409,7 +413,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 - Champ d’application : Ce problème concerne les versions 1910 et antérieures.
 - Cause : Impossible de se connecter au point de terminaison privilégié (machines virtuelles ERC) à partir d’un ordinateur exécutant une version non anglaise de Windows.
-- Correction : Il s’agit d’un problème connu qui a été résolu dans les versions postérieures à 1910. En guise de solution de contournement, vous pouvez exécuter les applets de commande **New-PSSession** et **Enter-PSSession** en utilisant la culture **en-US**. Par exemple, définissez la culture avec ce script : https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1.
+- Correction : Il s’agit d’un problème connu qui a été résolu dans les versions postérieures à 1910. En guise de solution de contournement, vous pouvez exécuter les cmdlets **New-PSSession** et **Enter-PSSession** en utilisant la culture **en-US**. Par exemple, définissez la culture avec le script suivant : https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1.
 - Occurrence : Rare
 
 ### <a name="virtual-machine-scale-set"></a>Jeu de mise à l’échelle de machine virtuelle
@@ -489,7 +493,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="load-balancer"></a>Load Balancer
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge. 
-- Cause : Lors de l’ajout de machines virtuelles d’un groupe à haute disponibilité au pool de back-ends d’un équilibreur de charge, un message d’erreur s’affiche sur le portail, indiquant **Échec de l’enregistrement du pool principal d’équilibreurs de charge**. Il s’agit d’un problème esthétique sur le portail. Les fonctionnalités sont toujours en place et les machines virtuelles sont correctement ajoutées en interne au pool de back-ends. 
+- Cause : Lors de l'ajout des machines virtuelles d'un groupe à haute disponibilité au pool principal d'un équilibreur de charge, le message d'erreur suivant s'affiche sur le portail : **Échec de l'enregistrement du pool principal d'équilibrage de charge**. Il s’agit d’un problème esthétique sur le portail. Les fonctionnalités sont toujours en place et les machines virtuelles sont correctement ajoutées en interne au pool de back-ends. 
 - Occurrence : Courant
 
 ### <a name="network-security-groups"></a>Network Security Group
@@ -653,7 +657,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="load-balancer"></a>Load Balancer
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge. 
-- Cause : Lors de l’ajout de machines virtuelles d’un groupe à haute disponibilité au pool de back-ends d’un équilibreur de charge, un message d’erreur s’affiche sur le portail, indiquant **Échec de l’enregistrement du pool principal d’équilibreurs de charge**. Il s’agit d’un problème esthétique sur le portail. Les fonctionnalités sont toujours en place et les machines virtuelles sont correctement ajoutées en interne au pool de back-ends. 
+- Cause : Lors de l'ajout des machines virtuelles d'un groupe à haute disponibilité au pool principal d'un équilibreur de charge, le message d'erreur suivant s'affiche sur le portail : **Échec de l'enregistrement du pool principal d'équilibrage de charge**. Il s’agit d’un problème esthétique sur le portail. Les fonctionnalités sont toujours en place et les machines virtuelles sont correctement ajoutées en interne au pool de back-ends. 
 - Occurrence : Courant
 
 ### <a name="network-security-groups"></a>Network Security Group

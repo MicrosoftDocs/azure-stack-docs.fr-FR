@@ -3,22 +3,22 @@ title: Gérer les profils de version des API dans Azure Stack Hub
 description: En savoir plus sur les profils de version des API dans Azure Stack Hub
 author: sethmanheim
 ms.topic: article
-ms.date: 01/06/2020
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 2e229c8add5b850384c7b46d05373c4ee19fd266
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f72f0e79fe7b890c65c630ff00ec3870d4756c5e
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295538"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836221"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>Gérer les profils de version des API dans Azure Stack Hub
 
 Les profils d’API précisent le fournisseur de ressources Azure ainsi que la version d’API des points de terminaison Azure REST. Vous pouvez créer des clients personnalisés dans différents langages à l’aide des profils d’API. Chaque client utilise un profil d’API pour contacter le fournisseur de ressources et la version d’API appropriés pour Azure Stack Hub.
 
-Vous pouvez créer une application qui fonctionne avec les fournisseurs de ressources Azure sans savoir exactement quelle version des API de fournisseur de ressources est compatible avec Azure Stack Hub. Il vous suffit d’aligner votre application sur un profil. Le Kit de développement logiciel (SDK) rétablit la version d’API appropriée.
+Vous pouvez créer une application qui fonctionne avec les fournisseurs de ressources Azure sans avoir à savoir exactement quelle version des API de fournisseur de ressources est compatible avec Azure Stack Hub. Il vous suffit d’aligner votre application sur un profil. Le Kit de développement logiciel (SDK) rétablit la version d’API appropriée.
 
 Cette rubrique vous aide à :
 

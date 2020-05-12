@@ -3,23 +3,23 @@ title: Inscrire des locataires pour un suivi de l’utilisation dans Azure Stack
 description: Découvrez comment inscrire des locataires et comment l’utilisation des locataires est suivie dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 72fdb2bf4d19291ff5b0a83c2233354bde4ec201
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b067428a9096855f38f8e1f33a601010dc27359c
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295532"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742312"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Inscrire des locataires pour un suivi de l’utilisation dans Azure Stack Hub
 
 Cet article contient des détails sur les opérations d’inscription. Vous pouvez réaliser ces opérations pour :
 
 - Gérer les inscriptions des locataires
-- Gérer le suivi de l’utilisation des locataires
+- Gérer le suivi de l'utilisation des locataires
 
 ## <a name="add-tenant-to-registration"></a>Ajouter un locataire à l’inscription
 
@@ -57,9 +57,9 @@ New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 
 ### <a name="api-call"></a>Appel d’API
 
-**Opération** : PUT  
+**Opération** : PUT  
 **RequestURI** : `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**Réponse** : 201 a été créé  
+**Réponse**: 201 Créé  
 **Corps de réponse** : Vide  
 
 ## <a name="list-all-registered-tenants"></a>Répertorier tous les locataires inscrits
@@ -89,9 +89,9 @@ Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 
 Vous pouvez obtenir une liste de tous les mappages de locataires à l’aide de l’opération GET.
 
-**Opération** : GET  
+**Opération** : GET  
 **RequestURI** : `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?api-version=2017-06-01 HTTP/1.1`  
-**Réponse** : 200  
+**Réponse**: 200  
 **Corps de réponse** :
 
 ```json
@@ -138,9 +138,9 @@ Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/r
 
 Vous pouvez supprimer des mappages de locataires à l’aide de l’opération DELETE.
 
-**Opération** : DELETE  
+**Opération** : Suppression  
 **RequestURI** : `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**Réponse**: 204, aucun contenu  
+**Réponse**: 204 Pas de contenu  
 **Corps de réponse** : Vide
 
 ## <a name="next-steps"></a>Étapes suivantes

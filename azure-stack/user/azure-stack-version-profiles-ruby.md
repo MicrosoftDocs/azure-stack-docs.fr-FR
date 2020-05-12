@@ -3,16 +3,16 @@ title: Utiliser des profils de version d’API avec Ruby dans Azure Stack Hub
 description: Découvrez comment utiliser les profils de version d'API avec Ruby dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 5b79c676b922f0e76ed75e3ad043f53c1fb9d6a5
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b59adea78b5325a449bd52b211edc5e04ea5e566
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295490"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836238"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Utiliser des profils de version d’API avec Ruby dans Azure Stack Hub
 
@@ -44,7 +44,7 @@ Un profil d’API est une combinaison de fournisseurs de ressources et de versio
 
 - Si vous n’en avez pas de disponible, créez un abonnement et enregistrez l’ID d’abonnement pour une utilisation ultérieure. Des instructions sur la création d’un abonnement sont fournies dans l’article [Créer des abonnements pour des offres dans Azure Stack Hub](../operator/azure-stack-subscribe-plan-provision-vm.md).
 - Créez un principal de service et enregistrez son ID et son secret. Des instructions sur la création d’un principal de service pour Azure Stack Hub sont fournies dans l’article [Utiliser une identité d’application pour accéder aux ressources](../operator/azure-stack-create-service-principals.md).
-- Vérifiez que votre principal de service bénéficie du rôle contributeur/propriétaire attribué sur votre abonnement. Des instructions sur l’attribution d’un rôle à un principal de service sont fournies dans l’article [Utiliser une identité d’application pour accéder aux ressources](../operator/azure-stack-create-service-principals.md).
+- Vérifiez que votre principal de service bénéficie du rôle contributeur/propriétaire attribué sur votre abonnement. Des instructions sur l'attribution d'un rôle à un principal de service sont fournies dans l'article [Utiliser une identité d'application pour accéder aux ressources](../operator/azure-stack-create-service-principals.md).
 
 ## <a name="install-the-rubygem-packages"></a>Installer les packages Rubygem
 

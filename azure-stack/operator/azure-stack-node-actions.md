@@ -3,16 +3,16 @@ title: Mettre à l’échelle des actions de nœud d’unité dans Azure Stack H
 description: Découvrez les actions de nœud d'unité d’échelle (mise sous tension, mise hors tension, désactivation et reprise) et la façon d’afficher l’état d’un nœud dans des systèmes intégrés Azure Stack Hub.
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 04/30/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 4874b93acf9e869a3b8e66f42191d5419e48fece
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 17ecab0f42c89d6c25daba98652d8dc9d1a9e3b0
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295076"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777744"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Mettre à l’échelle des actions de nœud d’unité dans Azure Stack Hub
 
@@ -52,8 +52,37 @@ Pour afficher l’état d’une unité d’échelle :
 | Arrêté | Le nœud est indisponible. |
 | Ajout | Le nœud est ajouté de façon active à l’unité d’échelle. |
 | Réparation | Le nœud est réparé de façon active. |
-| Maintenance | Le nœud est suspendu et aucune charge de travail utilisateur active n’est en cours d’exécution. |
+| Maintenance  | Le nœud est suspendu et aucune charge de travail utilisateur active n’est en cours d’exécution. |
 | Correction nécessaire | Une erreur nécessitant la réparation du nœud a été détectée. |
+
+### <a name="azure-stack-hub-shows-adding-status-after-an-operation"></a>Azure Stack Hub affiche l'état Ajout après une opération
+
+Azure Stack Hub peut afficher l'état opérationnel **Ajout** après l'exécution d'une des opérations suivantes : vidage, reprise, réparation, arrêt ou démarrage.
+Cela peut se produire lorsque le cache du rôle Fournisseur de ressources d'infrastructure ne s'est pas actualisé après une opération. 
+
+Avant de passer aux étapes suivantes, vérifiez qu'aucune opération n'est en cours. Mettez à jour le point de terminaison pour qu'il corresponde à votre environnement.
+
+1. Ouvrez PowerShell et ajoutez votre environnement Azure Stack Hub. Pour cela, [Azure Stack Hub PowerShell doit être installé](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install) sur votre ordinateur.
+
+   ```powershell
+   Add-AzureRmEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
+   Add-AzureRmAccount -Environment AzureStack
+   ```
+
+2. Exécutez la commande suivante pour redémarrer le rôle Fournisseur de ressources d'infrastructure.
+
+   ```powershell
+   Restart-AzsInfrastructureRole -Name FabricResourceProvider
+   ```
+
+3. Vérifiez que l'état opérationnel du nœud de l'unité d'échelle impactée a été remplacé par **Exécution en cours**. Vous pouvez utiliser le portail d'administration ou la commande PowerShell suivante :
+
+   ```powershell
+   Get-AzsScaleUnitNode |ft name,scaleunitnodestatus,powerstate
+   ```
+
+4. Si l'état opérationnel du nœud est toujours **Ajout**, ouvrez un incident de support.
+
 
 ## <a name="scale-unit-node-actions"></a>Actions de nœud d’unité d’échelle
 
@@ -175,4 +204,6 @@ Pour exécuter l’action d’arrêt, ouvrez une invite PowerShell avec élévat
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Découvrez le module opérateur Azure Stack Hub Fabric](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0).
+- [Installer Azure Stack PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install)
+- [Découvrir le module opérateur Azure Stack Hub Fabric](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)
+- [Surveiller les opérations d'ajout de nœud](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-scale-node#monitor-add-node-operations)

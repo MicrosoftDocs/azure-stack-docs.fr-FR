@@ -3,16 +3,16 @@ title: Vue d’ensemble d’Azure App Service sur Azure Stack
 description: Vue d'ensemble d'Azure App Service et d'Azure Functions sur Azure Stack Hub.
 author: BryanLa
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 05/05/2020
 ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: ac9c6707e0b6e179fdae3dac0b4ec94bad11e6d7
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 8cf8f5c42eea1ce1884760c974881712954f1af7
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77688880"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847824"
 ---
 # <a name="azure-app-service-and-azure-functions-on-azure-stack-hub-overview"></a>Vue d'ensemble d'Azure App Service et d'Azure Functions sur Azure Stack Hub
 
@@ -34,7 +34,7 @@ App Service offre plusieurs types d’application, chacun d’eux étant destin�
 
 - [Web Apps](/azure/app-service/overview) pour l’hébergement de sites et d’applications web.
 - [API Apps](/azure/app-service/overview) pour l’hébergement d’API REST.
-- Azure Functions pour l’hébergement de charges de travail sans serveur, pilotées par les événements.
+- [Azure Functions v1](/azure/azure-functions) pour l'hébergement de charges de travail serverless pilotées par les événements.
 
 Le mot *application* fait référence aux ressources d’hébergement dédiées à l’exécution d’une charge de travail. Par exemple, vous avez certainement coutume de penser qu’une *application web* se compose de ressources de calcul et de code d’application qui, ensemble, offrent des fonctionnalités à un navigateur. Dans Azure App Service, une application web est la ressource de calcul qu'Azure Stack Hub fournit pour héberger le code de votre application.
 
@@ -52,7 +52,6 @@ Le fournisseur de ressources App Service utilise le même code que celui utilis�
 Dans Azure, il existe des Workers partagés et dédiés. Un Worker partagé prend en charge l’hébergement d’applications multilocataires à densité élevée, et il n’existe qu’un seul ensemble de Workers partagés. Les serveurs dédiés sont utilisés par un seul locataire et se présentent dans trois tailles : petit, moyen et grand. Les besoins des clients locaux ne peuvent pas toujours être décrits à l’aide de ces termes. Dans App Service sur Azure Stack Hub, les administrateurs du fournisseur de ressources définissent les niveaux Worker qu'ils souhaitent rendre disponibles. Vous pouvez définir plusieurs jeux de Workers partagés ou des jeux différents de Workers dédiés selon leurs besoins d’hébergements uniques. À l’aide de ces définitions de niveau Worker, ils peuvent ensuite définir leurs propres références de tarification.
 
 ## <a name="portal-features"></a>Fonctionnalités du portail
-
 
 Azure App Service sur Azure Stack Hub utilise la même interface utilisateur qu'Azure App Service. Il en est de même avec le back-end. Cependant, certaines fonctionnalités sont désactivées dans Azure Stack Hub. Les exigences ou les services spécifiques à Azure dont ces fonctionnalités ont besoin ne sont pas encore disponibles dans Azure Stack Hub.
 
