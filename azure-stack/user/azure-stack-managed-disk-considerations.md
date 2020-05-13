@@ -3,16 +3,16 @@ title: Différences et points à connaître sur les disques managés Azure Stack
 description: Découvrez les différences et considérations à prendre en compte lors de l’utilisation de disques et d’images managés dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 1abee3556ac45791831c6dcb9fc8dce05477e51e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 335c6e39b067e9a95ec075866279d35b451d7c87
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80479303"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777676"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Disques managés Azure Stack Hub : différences et considérations
 
@@ -21,7 +21,7 @@ Cet article récapitule les différences entre les [*disques managés* dans Azur
 Les disques managés simplifient la gestion des disques des machines virtuelles IaaS, en gérant les [comptes de stockage](../operator/azure-stack-manage-storage-accounts.md) associés aux disques de machines virtuelles.
 
 > [!NOTE]  
-> Les disques managés sur Azure Stack Hub sont disponibles à compter de la mise à jour 1808. À compter de la mise à jour 1811, la fonctionnalité est activée par défaut lors de la création de machines virtuelles par le biais du portail Azure Stack Hub.
+> Les disques managés sur Azure Stack Hub ont été disponibles à compter de la mise à jour 1808. À compter de la mise à jour 1811, la fonctionnalité est activée par défaut lors de la création de machines virtuelles par le biais du portail Azure Stack Hub.
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>Aide-mémoire : différences entre les disques managés
 
@@ -54,7 +54,7 @@ Il existe également des différences sur le plan des métriques de stockage :
 
 Les disques managés Azure Stack Hub prennent en charge les versions d’API suivantes :
 
-- 2017-03-30 
+- 2017-03-30
 - 2017-12-01 (images managées uniquement, pas de disques, pas d’instantanés)
 
 ## <a name="convert-to-managed-disks"></a>Convertir en disques managés

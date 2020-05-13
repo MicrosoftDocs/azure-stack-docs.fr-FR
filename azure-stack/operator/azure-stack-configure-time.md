@@ -1,24 +1,24 @@
 ---
-title: Configurer le serveur de temps pour Azure Stack Hub
-description: Découvrez comment configurer le serveur de temps pour Azure Stack Hub.
+title: Configurer le serveur de temps dans Azure Stack Hub
+description: Découvrez comment configurer le serveur de temps dans Azure Stack Hub.
 author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 2/19/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: 56d0bfdef5329d5dd20c3b9add4d30e7942801e1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f1627be5d6986cd82fe21a58163f22eb0873eda6
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703534"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836102"
 ---
 # <a name="configure-the-time-server-for-azure-stack-hub"></a>Configurer le serveur de temps pour Azure Stack Hub
 
-Vous pouvez utiliser le point de terminaison privilégié pour mettre à jour le serveur de temps dans Azure Stack Hub. Utilisez un nom d’hôte qui se résout en deux adresses IP ou plus de serveur NTP.
+Vous pouvez utiliser le point de terminaison privilégié pour mettre à jour le serveur de temps dans Azure Stack Hub. Utilisez un nom d’hôte qui se résout en deux adresses IP ou plus de serveur NTP (Network Time Protocol).
 
-Azure Stack Hub utilise le protocole NTP (Network Time Protocol) pour se connecter aux serveurs de temps sur Internet. Les serveurs NTP fournissent une heure système précise. L’heure est utilisée sur les commutateurs réseau physiques d’Azure Stack Hub, sur l’hôte de cycle de vie du matériel, sur le service d’infrastructure et sur les machines virtuelles. Si l’horloge n’est pas synchronisée, Azure Stack Hub risque de rencontrer des problèmes graves avec le réseau et l’authentification. Des fichiers journaux, des documents et d’autres fichiers peuvent être créés avec des horodatages incorrects.
+Azure Stack Hub utilise le protocole NTP pour se connecter aux serveurs de temps sur Internet. Les serveurs NTP fournissent une heure système précise. L’heure est utilisée sur les commutateurs réseau physiques d’Azure Stack Hub, sur l’hôte de cycle de vie du matériel, sur le service d’infrastructure et sur les machines virtuelles. Si l’horloge n’est pas synchronisée, Azure Stack Hub risque de rencontrer des problèmes graves avec le réseau et l’authentification. Des fichiers journaux, des documents et d’autres fichiers peuvent être créés avec des horodatages incorrects.
 
 Au moins un serveur de temps (NTP) est requis pour qu’Azure Stack Hub synchronise l’heure. Quand vous déployez Azure Stack Hub, vous fournissez l’adresse d’un serveur NTP. L’heure est un service d’infrastructure de centre de données critique. Si le service change, vous devez mettre à jour l’heure.
 
@@ -27,7 +27,7 @@ Au moins un serveur de temps (NTP) est requis pour qu’Azure Stack Hub synchron
 
 ## <a name="configure-time"></a>Configurer l’heure
 
-1. [Connectez-vous au point de terminaison privilégié](azure-stack-privileged-endpoint.md). 
+1. [Connectez-vous au point de terminaison privilégié](azure-stack-privileged-endpoint.md).
     > [!Note]  
     > Il n’est pas nécessaire de déverrouiller le point de terminaison privilégié en ouvrant un ticket de support.
 

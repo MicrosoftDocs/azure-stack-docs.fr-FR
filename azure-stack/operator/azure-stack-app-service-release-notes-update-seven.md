@@ -8,12 +8,12 @@ ms.date: 10/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 8faeca7cf964ce459ebc10cc047c7b9475deeec4
-ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
+ms.openlocfilehash: 824dd1304f027c1348eff2faad29d3f187e9732f
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580076"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847739"
 ---
 # <a name="app-service-on-azure-stack-hub-update-7-release-notes"></a>Notes de publication App Service sur Azure Stack Hub Update 7
 
@@ -26,7 +26,7 @@ Ces notes de publication décrivent les nouvelles fonctionnalités, les correcti
 
 Le numéro de build de la mise à jour 7 d’App Service sur Azure Stack Hub est **84.0.2.10**.
 
-### <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Prérequis
 
 Consultez les [Prérequis pour le déploiement d’App Service sur Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).
 
@@ -34,16 +34,21 @@ Avant de commencer la mise à niveau d’Azure App Service sur Azure Stack Hub 
 
 - Vérifiez que tous les rôles sont prêts dans la section Administration d’Azure App Service du portail d’administration d’Azure Stack Hub.
 
+- Sauvegardez les secrets App Service à l'aide de l'Administration Azure App Service sur le portail d’administration Azure Stack Hub.
+
 - Sauvegardez les bases de données App Service et MASTER :
   - AppService_Hosting
   - AppService_Metering
-  - Master
+  - master
 
 - Sauvegardez le partage de fichiers de contenu d’application du locataire.
 
+  > [!Important]
+  > Les opérateurs cloud sont responsables de la maintenance et du fonctionnement du serveur de fichiers et de SQL Server.  Le fournisseur de ressources ne gère pas ces ressources.  L'opérateur cloud est responsable de la sauvegarde des bases de données App Service et du partage des fichiers de contenu des locataires.
+
 - Syndiquez l’**extension de script personnalisé** version **1.9.3** à partir de la Place de marché Azure Stack Hub.
 
-### <a name="new-features-and-fixes"></a>Nouvelles fonctionnalités et correctifs
+## <a name="new-features-and-fixes"></a>Nouvelles fonctionnalités et correctifs
 
 Azure App Service sur Azure Stack Hub Update 7 contient les améliorations et correctifs suivants :
 
@@ -90,12 +95,12 @@ Azure App Service sur Azure Stack Hub Update 7 contient les améliorations et 
 
   Déploiements **existants** : si vous avez modifié le paramètre sur le contrôleur, la valeur passe de **false** à **désactivé** et une valeur **true** précédente passe à **automatique**.
 
-### <a name="post-deployment-steps"></a>Étapes de post-déploiement
+## <a name="post-deployment-steps"></a>Étapes de post-déploiement
 
 > [!IMPORTANT]
 > Si vous avez approvisionné le fournisseur de ressources App Service avec une instance SQL Always On, vous DEVEZ [ajouter les bases de données appservice_hosting et appservice_metering à un groupe de disponibilité](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database), puis les synchroniser pour éviter toute perte de service en cas de basculement d’une base de données.
 
-### <a name="known-issues-post-installation"></a>Problèmes connus (après l’installation)
+## <a name="known-issues-post-installation"></a>Problèmes connus (après l’installation)
 
 - Les rôles Worker ne peuvent pas atteindre le serveur de fichiers si App Service est déployé dans un réseau virtuel existant et si le serveur de fichiers est uniquement disponible sur le réseau privé, comme indiqué dans la documentation de déploiement d’Azure App Service sur Azure Stack Hub.
 
@@ -111,7 +116,7 @@ Si vous avez choisi de procéder au déploiement dans un réseau virtuel existan
 * Priorité : 700
 * Nom : Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Problèmes connus pour les administrateurs cloud utilisant Azure App Service sur Azure Stack Hub
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Problèmes connus pour les administrateurs cloud utilisant Azure App Service sur Azure Stack Hub
 
 Reportez-vous à la documentation fournie dans les [Notes de publication d’Azure Stack Hub 1907](azure-stack-release-notes-1907.md).
 

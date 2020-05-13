@@ -1,5 +1,5 @@
 ---
-title: Feuille de déploiement pour les systèmes intégrés Azure Stack Hub
+title: Feuille de déploiement pour Azure Stack Hub
 description: Découvrez comment installer et utiliser l’outil de feuille de calcul de déploiement pour déployer Azure Stack Hub.
 author: IngridAtMicrosoft
 ms.topic: article
@@ -7,29 +7,29 @@ ms.date: 04/19/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 04/19/2019
-ms.openlocfilehash: 8c13121f5d591abca8a6c83771848d97cc9106db
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1949d198c7d85e60c5a3195dfbd5e725cef834c7
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700066"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836123"
 ---
 # <a name="deployment-worksheet-for-azure-stack-hub-integrated-systems"></a>Feuille de déploiement pour les systèmes intégrés Azure Stack Hub
 
 La feuille de calcul de déploiement Azure Stack Hub est une application Windows Forms qui rassemble toutes les informations de déploiement nécessaires et les décisions au même endroit. Vous pouvez remplir la feuille de calcul de déploiement pendant le processus de planification et l’examiner avant le début du déploiement.
 
-Les informations requises par la feuille de calcul contiennent des informations sur la mise en réseau, la sécurité et l’identité. Cela nécessite des décisions importantes qui peuvent nécessiter des connaissances dans de nombreux domaines différents. Par conséquent, nous vous recommandons de consulter les équipes possédant des compétences dans ces domaines pour qu’elles vous aident à remplir la feuille de calcul.
+Les informations requises par la feuille de calcul contiennent des informations sur la mise en réseau, la sécurité et l’identité. Ces informations peuvent nécessiter des connaissances spécifiques dans certains domaines et dès lors, nous vous recommandons de consulter des experts pour remplir la feuille de calcul.
 
-Lors du remplissage de la feuille de calcul, vous devrez peut-être apporter des modifications de configuration pré-déploiement à votre environnement réseau. Ceci peut inclure la réservation d’espaces d’adressage IP pour la solution Azure Stack Hub ainsi que la configuration de routeurs, commutateurs et pare-feu afin de préparer la connectivité à la nouvelle solution Azure Stack Hub.
+Lors du remplissage de la feuille de calcul, vous devrez peut-être apporter des modifications de configuration pré-déploiement à votre environnement réseau. Ces modifications peuvent inclure la réservation d’espaces d’adressage IP pour la solution Azure Stack Hub ainsi que la configuration de routeurs, commutateurs et pare-feu afin de préparer la connectivité à la nouvelle solution Azure Stack Hub.
 
 > [!NOTE]
-> Pour plus d’informations sur le remplissage de la feuille de calcul de déploiement, consultez [cet article dans la documentation Azure Stack Hub](azure-stack-datacenter-integration.md).
+> Pour plus d’informations sur l'utilisation de l'outil de feuille de calcul de déploiement, consultez [Considérations relatives à la planification de l’intégration d’un centre de données pour systèmes intégrés Azure Stack Hub](azure-stack-datacenter-integration.md).
 
-[![Feuille de calcul de déploiement](media/azure-stack-deployment-worksheet/depworksheet.png "Feuille de calcul de déploiement")](media/azure-stack-deployment-worksheet/depworksheet.png)
+[![Feuille de déploiement pour Azure Stack Hub](media/azure-stack-deployment-worksheet/depworksheet.png "Feuille de calcul de déploiement")](media/azure-stack-deployment-worksheet/depworksheet.png)
 
 ## <a name="installing-the-windows-powershell-module"></a>Installation du module Windows PowerShell
 
-Pour chaque version de la feuille de calcul de déploiement, vous devez effectuer une installation unique d’un module Powershell pour chaque ordinateur sur lequel vous souhaitez utiliser la feuille de calcul de déploiement.
+Pour chaque version de la feuille de calcul de déploiement, vous devez effectuer une installation unique d’un module PowerShell pour chaque ordinateur sur lequel vous souhaitez utiliser la feuille de calcul de déploiement.
 
 > [!NOTE]  
 > L’ordinateur doit être connecté à Internet pour que cette méthode fonctionne.
@@ -64,7 +64,7 @@ Pour lancer et utiliser la feuille de calcul de déploiement sur un ordinateur s
 
 La feuille de calcul de déploiement se compose d’onglets distincts pour la collecte des paramètres d’environnement, tels que **Customer Settings (Paramètres client)** , **Network Settings (Paramètres réseau)** et **Scale Unit # (Nombre d’unités d’échelle)** . Vous devez fournir toutes les valeurs (à l’exception de celles qui sont marquées comme **facultatives**) sous tous les onglets avant que des configurations de fichiers de données puissent être générées. Une fois que toutes les valeurs requises ont été entrées dans l’outil, vous pouvez utiliser le menu **Action** pour **importer**, **exporter** et **générer**. Les fichiers JSON suivants sont requis pour le déploiement :
 
-**Importer** : Vous permet d’importer un fichier de données de configuration Azure Stack Hub (ConfigurationData.json) généré par cet outil, ou un de ceux créés par les versions précédentes de la feuille de calcul de déploiement. Le fait d’effectuer une importation réinitialise les formulaires et supprime tous les paramètres entrés précédemment ou toutes les données déjà générées.
+**Importer** : Vous permet d’importer un fichier de données de configuration Azure Stack Hub (ConfigurationData.json) généré par cet outil, ou les fichiers créés par les versions précédentes de la feuille de calcul de déploiement. Le fait d’effectuer une importation réinitialise les formulaires et supprime tous les paramètres entrés précédemment ou toutes les données déjà générées.
 
 **Exporter** : Valide les données entrées actuellement dans les formulaires, génère les sous-réseaux IP et les affectations, puis enregistre le contenu en tant que fichiers de configuration au format JSON. Vous pouvez ensuite utiliser ces fichiers pour générer la configuration du réseau et installer Azure Stack Hub.
 
@@ -72,7 +72,7 @@ La feuille de calcul de déploiement se compose d’onglets distincts pour la co
 
 **Effacer tout** : Efface toutes les données entrées actuellement dans les formulaires et réinitialise les valeurs par défaut.
 
-**Save or Open your work in-progress (Enregistrer ou ouvrir votre travail en cours)**  : Vous pouvez enregistrer et ouvrir des données partiellement entrées sur lesquelles vous travaillez, à l’aide des menus **Fichier -> Enregistrer** et **Fichier -> Ouvrir**. Cela diffère des fonctions **Importer** et **Exporter**, car elles nécessitent l’entrée et la validation de toutes les données. Ouvrir/Enregistrer ne valide pas les données et ne nécessite pas que tous les champs soient remplis pour enregistrer votre travail en cours.
+**Save or Open your work in-progress (Enregistrer ou ouvrir votre travail en cours)**  : Vous pouvez enregistrer et ouvrir des données partiellement entrées sur lesquelles vous travaillez, à l’aide des menus **Fichier -> Enregistrer** et **Fichier -> Ouvrir**. Cette fonction diffère des fonctions **Importer** et **Exporter**, car elles nécessitent l’entrée et la validation de toutes les données. Ouvrir/Enregistrer ne valide pas les données et ne nécessite pas que tous les champs soient remplis pour enregistrer votre travail en cours.
 
 **Logging and Warning messages (Journalisation et messages d’avertissement)**  : Pendant l’utilisation du formulaire, des messages d’avertissements non critique peuvent s’afficher dans la fenêtre PowerShell. Les erreurs critiques sont affichées sous forme de messages contextuels. La journalisation détaillée facultative, notamment un journal écrit sur disque, peut être activée pour aider à résoudre les problèmes.
 

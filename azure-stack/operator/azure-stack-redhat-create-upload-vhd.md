@@ -4,22 +4,22 @@ titleSuffix: Azure Stack Hub
 description: Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation Red Hat Linux.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/11/2019
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: d3df1040faec4c14b08f358f49fe9a6e9404fdc0
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 8f0642cc1ee90ce8e4ae1d26b6bdae9a3b6cdef5
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77698060"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777863"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Préparation d’une machine virtuelle Red Hat pour Azure Stack Hub
 
-Dans cet article, vous allez apprendre à préparer une machine virtuelle RHEL (Red Hat Enterprise Linux) à utiliser dans Azure Stack Hub. Cet article couvre les versions de RHEL 7.1+. Les hyperviseurs de préparation abordés dans cet article sont Hyper-V, KVM (Machine virtuelle basée sur le noyau) et VMware.
+Cet article explique comment préparer une machine virtuelle RHEL (Red Hat Enterprise Linux) à utiliser dans Azure Stack Hub. Cet article couvre les versions de RHEL 7.1 et ultérieures. Les hyperviseurs de préparation abordés dans cet article sont Hyper-V, KVM (Machine virtuelle basée sur le noyau) et VMware.
 
-Pour plus d’informations sur la prise en charge Red Hat Enterprise Linux, consultez [Red Hat and Azure Stack Hub: Forum aux questions](https://access.redhat.com/articles/3413531).
+Pour plus d’informations sur la prise en charge Red Hat Enterprise Linux, consultez [Red Hat and Azure Stack: Forum aux questions](https://access.redhat.com/articles/3413531).
 
 ## <a name="prepare-a-red-hat-based-vm-from-hyper-v-manager"></a>Préparer une machine virtuelle Red Hat à partir du Gestionnaire Hyper-V
 
@@ -27,14 +27,14 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
 
 ### <a name="rhel-installation-notes"></a>Notes d’installation de RHEL
 
-* Azure Stack Hub ne prend pas en charge le format VHDX. Azure prend uniquement en charge les VHD fixes. Vous pouvez utiliser Hyper-V Manager pour convertir le disque au format VHD, ou l’applet de commande Convert-VHD. Si vous utilisez VirtualBox, sélectionnez **Taille fixe** par opposition à l’option de valeur par défaut allouée dynamiquement lorsque vous créez le disque.
-* Azure Stack Hub prend uniquement en charge les machines virtuelles de génération 1. Vous pouvez convertir une machine virtuelle de génération 1 du format de fichier VHDX au format de fichier VHD, et son disque de taille dynamique en disque de taille fixe. Vous ne pouvez pas changer la génération d’une machine virtuelle. Pour plus d’informations, consultez [Dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+* Azure Stack Hub ne prend pas en charge le format VHDX. Azure prend uniquement en charge les VHD fixes. Vous pouvez utiliser Hyper-V Manager pour convertir le disque au format VHD, ou la cmdlet **convert-vhd**. Si vous utilisez VirtualBox, sélectionnez **Taille fixe** par opposition à l’option de valeur par défaut allouée dynamiquement lorsque vous créez le disque.
+* Azure Stack Hub prend uniquement en charge les machines virtuelles de génération 1. Vous pouvez convertir une machine virtuelle de génération 1 du format de fichier VHDX au format de fichier VHD, et son disque de taille dynamique en disque de taille fixe. Vous ne pouvez pas changer la génération d’une machine virtuelle. Pour plus d’informations, consultez [Dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?](/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V).
 * La taille maximale autorisée pour le disque dur virtuel s’élève à 1 023 Go.
 * Lorsque vous installez le système d’exploitation Linux, nous vous recommandons d’utiliser les partitions standard plutôt que le Gestionnaire de volumes logiques (LVM), qui constitue souvent le choix par défaut pour de nombreuses installations. Cette pratique évite les conflits de noms LVM avec les machines virtuelles clonées, notamment si vous devez attacher un disque de système d’exploitation à une autre machine virtuelle identique pour résoudre des problèmes.
-* La prise en charge du noyau pour le montage de systèmes de fichiers UDF (Universal Disk Format) est requise. Au premier démarrage, le média au format UDF attaché à l’invité passe la configuration de provisionnement à la machine virtuelle Linux. Azure Linux Agent doit monter le système de fichiers UDF pour lire sa configuration et provisionner la machine virtuelle.
-* Ne configurez pas de partition d’échange sur le disque du système d’exploitation. L'agent Linux est configurable pour créer un fichier d'échange sur le disque de ressources temporaire. Les étapes suivantes fournissent de plus amples informations à ce sujet.
+* La prise en charge du noyau pour le montage de systèmes de fichiers UDF (Universal Disk Format) est requise. Au premier démarrage, le média au format UDF attaché à l’invité transmet la configuration de provisionnement à la machine virtuelle Linux. Azure Linux Agent doit monter le système de fichiers UDF pour lire sa configuration et provisionner la machine virtuelle.
+* Ne configurez pas de partition swap sur le système d’exploitation ou le disque. L'agent Linux est configurable pour créer un fichier d'échange sur le disque de ressources temporaire. Les étapes suivantes fournissent de plus amples informations à ce sujet.
 * Tous les VHD sur Azure doivent avoir une taille virtuelle alignée sur 1 Mo. Avant de convertir un disque brut en VHD, vous devez vous assurer que la taille du disque brut est un multiple de 1 Mo. Vous trouverez de plus amples informations dans les étapes suivantes.
-* Azure Stack Hub prend en charge cloud-init. [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) est une méthode largement utilisée pour personnaliser une machine virtuelle Linux lors de son premier démarrage. Vous pouvez utiliser cloud-init pour installer des packages et écrire des fichiers, ou encore pour configurer des utilisateurs ou des paramètres de sécurité. cloud-init étant appelé pendant le processus de démarrage initial, aucune autre étape ni aucun agent ne sont nécessaires pour appliquer votre configuration. Pour obtenir des instructions sur l’ajout de cloud-init à votre image, consultez [Préparer une image de machine virtuelle Azure Linux existante pour une utilisation avec cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image).
+* Azure Stack Hub prend en charge cloud-init. [Cloud-init](/azure/virtual-machines/linux/using-cloud-init) est une méthode largement utilisée pour personnaliser une machine virtuelle Linux lors de son premier démarrage. Vous pouvez utiliser cloud-init pour installer des packages et écrire des fichiers, ou encore pour configurer des utilisateurs ou des paramètres de sécurité. cloud-init étant appelé pendant le processus de démarrage initial, aucune autre étape ni aucun agent ne sont nécessaires pour appliquer votre configuration. Pour obtenir des instructions sur l’ajout de cloud-init à votre image, consultez [Préparer une image de machine virtuelle Azure Linux existante pour une utilisation avec cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image).
 
 ### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>Préparer une machine virtuelle RHEL 7 à partir du Gestionnaire Hyper-V
 
@@ -44,14 +44,14 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
 
 1. Créez ou modifiez le fichier `/etc/sysconfig/network`, puis ajoutez le texte suivant :
 
-    ```sh
+    ```shell
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
 1. Créez ou modifiez le fichier `/etc/sysconfig/network-scripts/ifcfg-eth0`, puis ajoutez le texte suivant selon vos besoins :
 
-    ```sh
+    ```shell
     DEVICE=eth0
     ONBOOT=yes
     BOOTPROTO=dhcp
@@ -76,15 +76,15 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
 
 1. Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour effectuer cette modification, ouvrez `/etc/default/grub` dans un éditeur de texte, puis modifiez le paramètre `GRUB_CMDLINE_LINUX`. Par exemple :
 
-    ```sh
+    ```shell
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
    Cette modification permet de garantir que tous les messages de la console sont envoyés au premier port série, ce qui facilite la tâche au support Azure pour la résolution des problèmes de débogage. Cette configuration désactive également les nouvelles conventions d’affectation de noms RHEL 7 pour les cartes réseau.
 
-   Le démarrage graphique et sans assistance n’est pas utile dans un environnement cloud où nous souhaitons que tous les journaux soient envoyés au port série. Vous pouvez laisser l’option `crashkernel` configurée le cas échéant. Ce paramètre réduit la quantité de mémoire disponible sur la machine virtuelle de 128 Mo ou plus, ce qui peut poser un problème pour les machines virtuelles plus petites. Nous vous recommandons de supprimer les paramètres suivants :
+   Le démarrage graphique et transparent n’est pas utile dans un environnement cloud où nous voulons que tous les journaux d’activité soient envoyés au port série. Vous pouvez laisser l’option `crashkernel` configurée le cas échéant. Ce paramètre réduit la quantité de mémoire disponible sur la machine virtuelle de 128 Mo ou plus, ce qui peut poser un problème pour les machines virtuelles plus petites. Nous vous recommandons de supprimer les paramètres suivants :
 
-    ```sh
+    ```shell
     rhgb quiet crashkernel=auto
     ```
 
@@ -103,11 +103,11 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
 
 1. Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu, ce qui est généralement le réglage par défaut. Modifiez `/etc/ssh/sshd_config` pour y inclure la ligne suivante :
 
-    ```sh
+    ```shell
     ClientAliveInterval 180
     ```
 
-1. Durant la création d’un VHD (disque dur virtuel) personnalisé pour Azure Stack Hub, gardez à l’esprit que la version de WALinuxAgent comprise entre la 2.2.20 et la 2.2.35 (ces deux versions étant exclues) ne fonctionne pas dans les environnements Azure Stack Hub avant la version 1910. Vous pouvez utiliser les versions 2.2.20/2.2.35 pour préparer votre image. Pour utiliser les versions postérieures à la version 2.2.35 et préparer votre image personnalisée, mettez à jour votre infrastructure Azure Stack Hub vers la version 1903 (ou ultérieure), ou appliquez le correctif logiciel 1901/1902.
+1. Durant la création d’un VHD (disque dur virtuel) personnalisé pour Azure Stack Hub, notez que la version de WALinuxAgent comprise entre les versions 2.2.20 et 2.2.35 (ces deux versions étant exclues) ne fonctionne pas dans les environnements Azure Stack Hub avant la version 1910. Vous pouvez utiliser les versions 2.2.20/2.2.35 pour préparer votre image. Pour utiliser les versions postérieures à la version 2.2.35 et préparer votre image personnalisée, mettez à jour votre infrastructure Azure Stack Hub vers la version 1903 ou ultérieure, ou appliquez le correctif logiciel 1901/1902.
     
     [Avant la version 1910] Suivez ces instructions pour télécharger une version compatible de WALinuxAgent :
     
@@ -165,7 +165,7 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
 
     L’agent Linux Azure peut configurer automatiquement l’espace d’échange à l’aide du disque de ressources local attaché à la machine virtuelle après le provisionnement de celle-ci sur Azure. Le disque de ressources local est un disque temporaire qui peut être vidé quand la machine virtuelle est déprovisionnée. Après avoir installé l’agent Linux Azure lors de l’étape précédente, modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
 
-    ```sh
+    ```shell
     ResourceDisk.Format=y
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
@@ -179,7 +179,7 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
     sudo subscription-manager unregister
     ```
 
-1. Si vous utilisez un système déployé à l’aide d’une autorité de certification d’entreprise, la machine virtuelle RHEL n’approuve pas le certificat racine Azure Stack Hub. Vous devez placer ce dernier dans le magasin racine approuvé. Pour plus d’informations, consultez les instructions relatives à l’[ajout de certificats racine approuvés au serveur](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+1. Si vous utilisez un système déployé à l’aide d’une autorité de certification d’entreprise, la machine virtuelle RHEL n’approuve pas le certificat racine Azure Stack Hub. Vous devez placer ce certificat dans le magasin racine approuvé. Pour plus d’informations, consultez les instructions relatives à l’[ajout de certificats racine approuvés au serveur](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Exécutez les commandes suivantes pour déprovisionner la machine virtuelle et préparer son provisionnement sur Azure :
 
@@ -189,7 +189,7 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
     logout
     ```
 
-1. Sélectionnez **Action** > **Arrêter** dans le Gestionnaire Hyper-V.
+1. Sélectionnez **Action**, puis **Arrêter** dans le Gestionnaire Hyper-V.
 
 1. Convertissez le VHD en un VHD de taille fixe à l’aide de la fonctionnalité « Modifier le disque » du Gestionnaire Hyper-V ou de la commande PowerShell Convert-VHD. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
@@ -207,7 +207,7 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
 
    Définissez un mot de passe racine avec guestfish :
 
-    ```sh
+    ```shell
     guestfish --rw -a <image-name>
     > <fs> run
     > <fs> list-filesystems
@@ -222,14 +222,14 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
 
 1. Créez ou modifiez le fichier `/etc/sysconfig/network`, puis ajoutez le texte suivant :
 
-    ```sh
+    ```shell
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
 1. Créez ou modifiez le fichier `/etc/sysconfig/network-scripts/ifcfg-eth0`, puis ajoutez le texte suivant :
 
-    ```sh
+    ```shell
     DEVICE=eth0
     ONBOOT=yes
     BOOTPROTO=dhcp
@@ -254,15 +254,15 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
 
 1. Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour effectuer cette configuration, ouvrez le fichier `/etc/default/grub` dans un éditeur de texte et modifiez le paramètre `GRUB_CMDLINE_LINUX`. Par exemple :
 
-    ```sh
+    ```shell
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
    Cette commande permet également d’assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d’Azure. Cette commande désactive également les nouvelles conventions d’affectation de noms RHEL 7 pour les cartes réseau.
 
-   Le démarrage graphique et sans assistance n’est pas utile dans un environnement cloud où tous les journaux sont envoyés au port série. Vous pouvez laisser l’option `crashkernel` configurée le cas échéant. Ce paramètre réduit la quantité de mémoire disponible sur la machine virtuelle de 128 Mo ou plus, ce qui peut poser un problème pour les machines virtuelles plus petites. Nous vous recommandons de supprimer les paramètres suivants :
+   Le démarrage graphique et transparent n’est pas utile dans un environnement cloud dans lequel tous les journaux d’activité sont envoyés au port série. Vous pouvez laisser l’option `crashkernel` configurée le cas échéant. Ce paramètre réduit la quantité de mémoire disponible sur la machine virtuelle de 128 Mo ou plus, ce qui peut poser un problème pour les machines virtuelles plus petites. Nous vous recommandons de supprimer les paramètres suivants :
 
-    ```sh
+    ```shell
     rhgb quiet crashkernel=auto
     ```
 
@@ -276,7 +276,7 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
 
     Modifiez `/etc/dracut.conf` en y ajoutant le contenu suivant :
 
-    ```sh
+    ```shell
     add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
     ```
 
@@ -301,12 +301,12 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
 
     Modifiez /etc/ssh/sshd_config pour y inclure les lignes suivantes :
 
-    ```sh
+    ```shell
     PasswordAuthentication yes
     ClientAliveInterval 180
     ```
 
-1. Durant la création d’un VHD (disque dur virtuel) personnalisé pour Azure Stack Hub, gardez à l’esprit que la version de WALinuxAgent comprise entre la 2.2.20 et la 2.2.35 (ces deux versions étant exclues) ne fonctionne pas dans les environnements Azure Stack Hub avant la version 1910. Vous pouvez utiliser les versions 2.2.20/2.2.35 pour préparer votre image. Pour utiliser les versions postérieures à la version 2.2.35 et préparer votre image personnalisée, mettez à jour votre infrastructure Azure Stack Hub vers la version 1903 (ou ultérieure), ou appliquez le correctif logiciel 1901/1902.
+1. Durant la création d’un VHD (disque dur virtuel) personnalisé pour Azure Stack Hub, notez que la version de WALinuxAgent comprise entre les versions 2.2.20 et 2.2.35 (ces deux versions étant exclues) ne fonctionne pas dans les environnements Azure Stack Hub avant la version 1910. Vous pouvez utiliser les versions 2.2.20/2.2.35 pour préparer votre image. Pour utiliser les versions ultérieures à la version 2.2.35 et préparer votre image personnalisée, mettez à jour votre infrastructure Azure Stack Hub vers la version 1903 ou ultérieure, ou appliquez le correctif logiciel 1901/1902.
 
     [Avant la version 1910] Suivez ces instructions pour télécharger une version compatible de WALinuxAgent :
 
@@ -361,9 +361,9 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
 
 1. Ne créez pas d’espace d’échange sur le disque du système d’exploitation.
 
-    L’agent Linux Azure peut configurer automatiquement l’espace d’échange à l’aide du disque de ressources local attaché à la machine virtuelle après le provisionnement de celle-ci sur Azure. Le disque de ressources local est un disque temporaire qui peut être vidé quand la machine virtuelle est déprovisionnée. Après avoir installé l’agent Linux Azure lors de l’étape précédente, modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
+    L’agent Linux Azure peut configurer automatiquement l’espace d’échange à l’aide du disque de ressources local attaché à la machine virtuelle après le provisionnement de celle-ci sur Azure. Le disque de ressources local est un disque temporaire qui peut être vidé lorsque la machine virtuelle est déprovisionnée. Après avoir installé l’agent Linux Azure lors de l’étape précédente, modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
 
-    ```sh
+    ```shell
     ResourceDisk.Format=y
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
@@ -377,7 +377,7 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
     subscription-manager unregister
     ```
 
-1. Si vous utilisez un système déployé à l’aide d’une autorité de certification d’entreprise, la machine virtuelle RHEL n’approuve pas le certificat racine Azure Stack Hub. Vous devez placer ce dernier dans le magasin racine approuvé. Pour plus d’informations, consultez les instructions relatives à l’[ajout de certificats racine approuvés au serveur](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+1. Si vous utilisez un système déployé à l’aide d’une autorité de certification d’entreprise, la machine virtuelle RHEL n’approuve pas le certificat racine Azure Stack Hub. Vous devez placer ce certificat dans le magasin racine approuvé. Pour plus d’informations, consultez les instructions relatives à l’[ajout de certificats racine approuvés au serveur](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Exécutez les commandes suivantes pour déprovisionner la machine virtuelle et préparer son provisionnement sur Azure :
 
@@ -392,7 +392,7 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
 1. Convertissez l’image qcow2 au format VHD.
 
     > [!NOTE]
-    > Il existe un bogue connu dans les versions de qemu-img >= 2.2.1, qui entraîne un formatage incorrect du VHD. Ce problème a été résolu dans QEMU 2.6. Il est recommandé d’utiliser qemu-img version 2.2.0 ou antérieure, ou d’effectuer une mise à jour vers la version 2.6 ou supérieure. Référence : https://bugs.launchpad.net/qemu/+bug/1490611.
+    > Il existe un bogue connu dans la version 2.2.1 de qemu-img, qui entraîne un formatage incorrect de disque dur virtuel. Ce problème a été résolu dans QEMU 2.6. Il est recommandé d’utiliser qemu-img version 2.2.0 ou antérieure, ou d’effectuer une mise à jour vers la version 2.6 ou supérieure. Référence : https://bugs.launchpad.net/qemu/+bug/1490611.
 
     Convertissez tout d'abord l'image au format RAW :
 
@@ -427,21 +427,21 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
 Cette section part de l’hypothèse que vous avez déjà installé une machine virtuelle RHEL dans VMware. Pour plus d’informations sur l’installation d’un système d’exploitation dans VMWare, voir le document [VMware Guest Operating System Installation Guide](https://aka.ms/aa6z600)(Guide d’installation de système d’exploitation invité VMWare).
 
 * Lorsque vous installez le système d’exploitation Linux, nous vous recommandons d’utiliser les partitions standard plutôt que LVM, ce qui constitue souvent le choix par défaut pour de nombreuses installations. Cette méthode évite les conflits de noms LVM avec les machines virtuelles clonées, notamment si vous devez attacher un disque de système d’exploitation à une autre machine virtuelle pour résoudre des problèmes. Vous pouvez utiliser les techniques LVM ou RAID sur les disques de données si vous le souhaitez.
-* Ne configurez pas de partition d’échange sur le disque du système d’exploitation. Vous pouvez configurer l’agent Linux pour la création d’un fichier d’échange sur le disque de ressources temporaire. Vous trouverez plus d’informations sur cette configuration dans les étapes qui suivent.
+* Ne configurez pas de partition swap sur le système d’exploitation ou le disque. Vous pouvez configurer l’agent Linux pour la création d’un fichier d’échange sur le disque de ressources temporaire. Vous trouverez plus d’informations sur cette configuration dans les étapes suivantes.
 * Lorsque vous créez le disque dur virtuel, sélectionnez **Stocker le disque virtuel en un seul fichier**.
 
 ### <a name="prepare-an-rhel-7-vm-from-vmware"></a>Préparer une machine virtuelle RHEL 7 à partir de VMware
 
 1. Créez ou modifiez le fichier `/etc/sysconfig/network`, puis ajoutez le texte suivant :
 
-    ```sh
+    ```shell
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
 1. Créez ou modifiez le fichier `/etc/sysconfig/network-scripts/ifcfg-eth0`, puis ajoutez le texte suivant :
 
-    ```sh
+    ```shell
     DEVICE=eth0
     ONBOOT=yes
     BOOTPROTO=dhcp
@@ -452,7 +452,7 @@ Cette section part de l’hypothèse que vous avez déjà installé une machine 
     NM_CONTROLLED=no
     ```
 
-1. Assurez-vous que le service réseau commencera aux heures de démarrage en exécutant la commande suivante :
+1. Assurez-vous que le service réseau se lance au démarrage en exécutant la commande suivante :
 
     ```bash
     sudo chkconfig network on
@@ -464,19 +464,19 @@ Cette section part de l’hypothèse que vous avez déjà installé une machine 
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour effectuer cette modification, ouvrez `/etc/default/grub` dans un éditeur de texte, puis modifiez le paramètre `GRUB_CMDLINE_LINUX`. Par exemple :
+1. Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour effectuer cette modification, ouvrez `/etc/default/grub` dans un éditeur de texte. Modifiez le paramètre `GRUB_CMDLINE_LINUX`. Par exemple :
 
-    ```sh
+    ```shell
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
     Cette configuration permet également d’assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d’Azure. Cela désactive également les nouvelles conventions d’affectation de noms RHEL 7 pour les cartes réseau. Nous vous recommandons de supprimer les paramètres suivants :
 
-    ```sh
+    ```shell
     rhgb quiet crashkernel=auto
     ```
 
-    Le démarrage graphique et sans assistance n’est pas utile dans un environnement cloud où nous souhaitons que tous les journaux soient envoyés au port série. Vous pouvez laisser l’option `crashkernel` configurée le cas échéant. Ce paramètre réduit la quantité de mémoire disponible sur la machine virtuelle de 128 Mo ou plus, ce qui peut poser un problème pour les machines virtuelles plus petites.
+    Le démarrage graphique et transparent n’est pas utile dans un environnement cloud où nous voulons que tous les journaux d’activité soient envoyés au port série. Vous pouvez laisser l’option `crashkernel` configurée le cas échéant. Ce paramètre réduit la quantité de mémoire disponible sur la machine virtuelle de 128 Mo ou plus, ce qui peut poser un problème pour les machines virtuelles plus petites.
 
 1. Une fois que vous avez fini de modifier `/etc/default/grub`, exécutez la commande suivante pour regénérer la configuration de grub :
 
@@ -488,7 +488,7 @@ Cette section part de l’hypothèse que vous avez déjà installé une machine 
 
     Modifiez `/etc/dracut.conf`, ajoutez le contenu :
 
-    ```sh
+    ```shell
     add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
     ```
 
@@ -507,11 +507,11 @@ Cette section part de l’hypothèse que vous avez déjà installé une machine 
 
 1. Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. Ce paramètre est généralement la valeur par défaut. Modifiez `/etc/ssh/sshd_config` pour y inclure la ligne suivante :
 
-    ```sh
+    ```shell
     ClientAliveInterval 180
     ```
 
-1. Durant la création d’un VHD (disque dur virtuel) personnalisé pour Azure Stack Hub, gardez à l’esprit que la version de WALinuxAgent comprise entre la 2.2.20 et la 2.2.35 (ces deux versions étant exclues) ne fonctionne pas dans les environnements Azure Stack Hub avant la version 1910. Vous pouvez utiliser les versions 2.2.20/2.2.35 pour préparer votre image. Pour utiliser les versions postérieures à la version 2.2.35 et préparer votre image personnalisée, mettez à jour votre infrastructure Azure Stack Hub vers la version 1903 (ou ultérieure), ou appliquez le correctif logiciel 1901/1902.
+1. Durant la création d’un VHD (disque dur virtuel) personnalisé pour Azure Stack Hub, notez que la version de WALinuxAgent comprise entre les versions 2.2.20 et 2.2.35 (ces deux versions étant exclues) ne fonctionne pas dans les environnements Azure Stack Hub avant la version 1910. Vous pouvez utiliser les versions 2.2.20/2.2.35 pour préparer votre image. Pour utiliser les versions ultérieures à la version 2.2.35 et préparer votre image personnalisée, mettez à jour votre infrastructure Azure Stack Hub vers la version 1903 ou ultérieure, ou appliquez le correctif logiciel 1901/1902.
 
     [Avant la version 1910] Suivez ces instructions pour télécharger une version compatible de WALinuxAgent :
 
@@ -566,9 +566,9 @@ Cette section part de l’hypothèse que vous avez déjà installé une machine 
         
 1. Ne créez pas d’espace d’échange sur le disque du système d’exploitation.
 
-    L’agent Linux Azure peut configurer automatiquement l’espace d’échange à l’aide du disque de ressources local attaché à la machine virtuelle après le provisionnement de celle-ci sur Azure. Notez que le disque de ressources local est un disque temporaire qui peut être vidé quand la machine virtuelle est déprovisionnée. Après avoir installé l’agent Linux Azure lors de l’étape précédente, modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
+    L’agent Linux Azure peut configurer automatiquement l’espace d’échange à l’aide du disque de ressources local attaché à la machine virtuelle après l'approvisionnement de celle-ci sur Azure. Notez que le disque de ressources local est un disque temporaire qui peut être vidé lorsque la machine virtuelle est déprovisionnée. Après avoir installé l’agent Linux Azure lors de l’étape précédente, modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
 
-    ```sh
+    ```shell
     ResourceDisk.Format=y
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
@@ -595,7 +595,7 @@ Cette section part de l’hypothèse que vous avez déjà installé une machine 
 1. Arrêtez la machine virtuelle et convertissez le fichier VMDK au format VHD.
 
     > [!NOTE]
-    > Il existe un bogue connu dans les versions de qemu-img >= 2.2.1, qui entraîne un formatage incorrect du VHD. Ce problème a été résolu dans QEMU 2.6. Il est recommandé d’utiliser qemu-img version 2.2.0 ou antérieure, ou d’effectuer une mise à jour vers la version 2.6 ou supérieure. Référence : <https://bugs.launchpad.net/qemu/+bug/1490611>.
+    > Il existe un bogue connu dans la version 2.2.1 de qemu-img, qui entraîne un formatage incorrect de disque dur virtuel. Ce problème a été résolu dans QEMU 2.6. Il est recommandé d’utiliser qemu-img version 2.2.0 ou antérieure, ou d’effectuer une mise à jour vers la version 2.6 ou supérieure.
 
     Convertissez tout d'abord l'image au format RAW :
 
@@ -629,7 +629,7 @@ Cette section part de l’hypothèse que vous avez déjà installé une machine 
 
 1. Créez un fichier qui inclut le contenu suivant et enregistrez-le. L’arrêt et la désinstallation de cloud-init sont facultatifs (cloud-init est pris en charge sur Azure Stack Hub après la version 1910). Installez l’agent à partir du dépôt redhat uniquement après la version 1910. Avant la version 1910, utilisez le dépôt Azure comme dans la section précédente. Pour plus d’informations sur l’installation de Kickstart, voir le document [Kickstart Installation Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)(Guide d’installation Kickstart).
 
-    ```sh
+    ```shell
     Kickstart for provisioning a RHEL 7 Azure VM
 
     System authorization information
@@ -707,7 +707,7 @@ Cette section part de l’hypothèse que vous avez déjà installé une machine 
     Stop and Uninstall cloud-init
     systemctl stop cloud-init
     yum remove cloud-init
-    
+
     Enable extras repo
     subscription-manager repos --enable=rhel-7-server-extras-rpms
 
@@ -784,7 +784,7 @@ Pour résoudre ce problème, ajoutez des modules Hyper-V dans initramfs, puis r�
 
 Modifiez `/etc/dracut.conf` et ajoutez le contenu suivant :
 
-```sh
+```shell
 add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 ```
 

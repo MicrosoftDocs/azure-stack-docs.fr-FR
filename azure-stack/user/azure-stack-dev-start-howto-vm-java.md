@@ -2,21 +2,21 @@
 title: Déployer un fichier WAR Java sur une machine virtuelle dans Azure Stack Hub
 description: Déployez un fichier WAR Java sur une machine virtuelle dans Azure Stack Hub.
 author: mattbriggs
-ms.topic: overview
-ms.date: 1/22/2020
+ms.topic: how-to
+ms.date: 05/05/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 7ab1370ef77a246b1ccda4ab525040edf9cb596a
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.lastreviewed: 05/05/2020
+ms.openlocfilehash: f252a369588dcf224a1eb7d965a7ff99381e13a6
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77704146"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836204"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Déployer une application web Java sur une machine virtuelle dans Azure Stack Hub
 
-Vous pouvez créer une machine virtuelle pour héberger votre application web Python dans Azure Stack Hub. Dans cet article, vous installez et configurez un serveur Apache Tomcat sur une machine virtuelle Linux dans Azure Stack Hub. Vous chargez ensuite un fichier WAR Java sur le serveur. Un fichier WAR permet de distribuer une collection de fichiers d’archive Java (JAR), qui sont des fichiers compressés contenant des ressources Java comme les classes, le texte, les images, le code XML, le code HTML et les autres ressources nécessaires pour fournir une application web.
+Vous pouvez créer une machine virtuelle pour héberger votre application web Java dans Azure Stack Hub. Dans cet article, vous installez, ouvrez les ports qui conviennent et configurez un serveur Apache Tomcat sur une machine virtuelle Linux dans Azure Stack Hub. Vous chargez ensuite un fichier WAR Java sur le serveur. Un fichier WAR permet de distribuer une collection de fichiers d’archive Java (JAR), qui sont des fichiers compressés contenant des ressources Java comme les classes, le texte, les images, le code XML, le code HTML et les autres ressources nécessaires pour fournir une application web.
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 

@@ -6,14 +6,14 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.reviewer: bryanla
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: e1e2c3c6c3d1149b2cd034c2f5e4abfdf26e712f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d84b6a7d7f4ec1777b8e58e8cafc9ba64726393f
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80424607"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847870"
 ---
-Si vous avez déjà installé un fournisseur de ressources à partir de la Place de marché Azure Stack Hub, vous avez probablement rempli les prérequis courants et pouvez ignorer cette section. Sinon, veillez à respecter les prérequis suivants : 
+Si vous avez déjà installé un fournisseur de ressources, vous avez probablement rempli les prérequis suivants et pouvez ignorer cette section. Sinon, faites-le avant de continuer : 
 
 1. [Inscrivez votre instance Azure Stack Hub auprès d’Azure](../operator/azure-stack-registration.md) si ce n’est déjà fait. Cette étape est nécessaire, car vous allez vous connecter à la Place de marché et y télécharger des éléments à partir d’Azure.
 

@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 3c9c4fca443af34422d76bd30af4efe5de685936
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d6c7e29f83700eb2eb897bcd4b8bfdd65c7dfb4c
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695663"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847144"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>Déployer ASDK à partir de la ligne de commande à l’aide de PowerShell
 
@@ -158,7 +158,7 @@ Vous devez inscrire Azure Stack auprès d’Azure pour pouvoir ensuite [téléch
 **[Inscrire Azure Stack auprès d’Azure](asdk-register.md)**
 
 ## <a name="next-steps"></a>Étapes suivantes
-Félicitations ! Une fois que toutes ces étapes ont été effectuées, l’environnement pour le kit ASDK est prêt, avec les portails de l’[administrateur](https://adminportal.local.azurestack.external) et de l’[utilisateur](https://portal.local.azurestack.external). 
+Félicitations ! Une fois toutes ces étapes effectuées, l’environnement pour le kit ASDK est prêt, avec les portails de l’administrateur `https://adminportal.local.azurestack.external` et de l’utilisateur `https://portal.local.azurestack.external`. 
 
 [Tâches de configuration après l’installation du kit ASDK](asdk-post-deploy.md)
 

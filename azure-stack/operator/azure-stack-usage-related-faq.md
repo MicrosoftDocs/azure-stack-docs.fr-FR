@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 9f7fbb8657ec13aa6c7768e1db4d62f36fbb46cb
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1d5e6d9cbed6f3273cf2e6e18ffcb36d6a627a90
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696445"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742418"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Questions fréquentes sur l’utilisation d’Azure Stack Hub
 
@@ -306,13 +306,13 @@ Actuellement, vous pouvez interroger uniquement par **Heure du rapport**.
 
 | **Code d’état HTTP** | **Code d’erreur** | **Description** |
 | --- | --- | --- |
-| 400 - Demande incorrecte |*NoApiVersion* |Le paramètre de requête *api-version* est manquant. |
-| 400 - Demande incorrecte |*InvalidProperty* |Une propriété est manquante ou a une valeur non valide. Le message indiqué dans le code d’erreur du corps de la réponse identifie la propriété manquante. |
-| 400 - Demande incorrecte |*RequestEndTimeIsInFuture* |La valeur *ReportedEndTime* est dans le futur. Les valeurs situées dans le futur ne sont pas autorisées pour cet argument. |
-| 400 - Demande incorrecte |*SubscriberIdIsNotDirectTenant* |Un appel d’API de fournisseur a utilisé un ID d’abonnement qui ne correspond pas à un locataire valide de l’appelant. |
-| 400 - Demande incorrecte |*SubscriptionIdMissingInRequest* |L’ID d’abonnement de l’appelant est manquant. |
-| 400 - Demande incorrecte |*InvalidAggregationGranularity* |Une granularité d’agrégation non valide a été demandée. Les valeurs valides sont « quotidienne » et « horaire ». |
-| 503 |*ServiceUnavailable* |Une erreur renouvelable s’est produite, car le service est occupé ou l’appel est limité. |
+| 400 - Demande incorrecte |NoApiVersion |Le paramètre de requête `api-version` est manquant. |
+| 400 - Demande incorrecte |InvalidProperty |Une propriété est manquante ou a une valeur non valide. Le message indiqué dans le code d’erreur du corps de la réponse identifie la propriété manquante. |
+| 400 - Demande incorrecte |RequestEndTimeIsInFuture |La valeur de `ReportedEndTime` est dans le futur. Les valeurs dans le futur ne sont pas autorisées pour cet argument. |
+| 400 - Demande incorrecte |SubscriberIdIsNotDirectTenant |Un appel d’API de fournisseur a utilisé un ID d’abonnement qui n’est pas un locataire valide de l’appelant. |
+| 400 - Demande incorrecte |SubscriptionIdMissingInRequest |L’ID d’abonnement de l’appelant est manquant. |
+| 400 - Demande incorrecte |InvalidAggregationGranularity |Une granularité d’agrégation non valide a été demandée. Les valeurs valides sont « quotidienne » et « horaire ». |
+| 503 |ServiceUnavailable |Une erreur renouvelable s’est produite, car le service est occupé ou l’appel est limité. |
 
 ## <a name="what-is-the-policy-for-charging-for-vms"></a>Quelle est la stratégie de facturation pour les machines virtuelles ?
 

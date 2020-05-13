@@ -3,16 +3,16 @@ title: Délégation des offres dans Azure Stack Hub
 description: Découvrez comment déléguer des tâches comme la création d’offres et l’inscription des utilisateurs.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 95b7ca9d6ed5bf0c8fed0019b4b3954fd3a7d458
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 4f32bc3e12689f75ad5c7e5b04e7fb36049271b3
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700236"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742512"
 ---
 # <a name="delegate-offers-in-azure-stack-hub"></a>Déléguer des offres dans Azure Stack Hub
 
@@ -36,11 +36,11 @@ Les rôles suivants font partie de la délégation :
 
 ## <a name="delegation-steps"></a>Étapes de la délégation
 
-Vous configurez une délégation en deux étapes principales :
+Vous configurez une délégation en deux étapes :
 
 1. **Créer un abonnement de fournisseur délégué** : Abonnez un utilisateur à une offre ne contenant que le service d’abonnement. Les utilisateurs qui s’inscrivent à cette offre peuvent ensuite étendre les offres déléguées à d’autres utilisateurs en les inscrivant à ces offres.
 
-2. **Déléguer une offre au fournisseur délégué** : Cette offre permet au fournisseur délégué de créer des abonnements ou d’étendre l’offre à leurs utilisateurs. Le fournisseur délégué peut à présent prendre l’offre et l’offrir à d’autres utilisateurs.
+2. **Déléguer une offre au fournisseur délégué** : Cette offre permet au fournisseur délégué de créer des abonnements ou d’étendre l’offre à leurs utilisateurs. Le fournisseur délégué peut à présent prendre l’offre et l'étendre à d’autres utilisateurs.
 
 La figure suivante illustre les étapes de configuration d’une délégation :
 
@@ -54,11 +54,11 @@ Une fois que cette relation est établie, l’opérateur Azure Stack Hub peut d�
 
 ## <a name="delegation-walkthrough"></a>Procédure pas à pas pour la délégation
 
-Les sections suivantes fournissent une procédure pas à pas pratique pour configurer un fournisseur délégué, déléguer une offre et vérifier que les utilisateurs peuvent s’inscrire pour l’offre déléguée.
+Les sections suivantes décrivent les étapes permettant de configurer un fournisseur délégué, de déléguer une offre et de vérifier que les utilisateurs peuvent s'inscrire à l'offre déléguée.
 
 ### <a name="set-up-roles"></a>Configurer les rôles
 
-Pour utiliser cette procédure pas à pas, vous avez besoin de deux comptes Azure AD en plus de votre compte d’opérateur Azure Stack Hub. Si vous n’avez pas ces deux comptes, vous devez les créer. Les comptes peuvent appartenir à n’importe quel utilisateur de Azure AD et désignent le fournisseur délégué l’utilisateur.
+Pour utiliser cette procédure pas à pas, vous avez besoin de deux comptes Azure AD en plus de votre compte d’opérateur Azure Stack Hub. Si vous n’avez pas ces deux comptes, vous devez les créer. Les comptes peuvent appartenir à n’importe quel utilisateur Azure AD et désignent le *fournisseur délégué* et l’*utilisateur*.
 
 | **Rôle** | **Droits d’organisation** |
 | --- | --- |
@@ -114,7 +114,7 @@ Connectez-vous au portail utilisateur en tant que fournisseur délégué et cré
    ![Affecter un nom dans le portail utilisateur Azure Stack Hub](media/azure-stack-delegated-provider/image6.png)
 
    >[!IMPORTANT]
-   >Il est important de comprendre que les fournisseurs délégués peuvent seulement choisir des offres qui leur ont été déléguées. Les utilisateurs ne peuvent pas modifier ces offres. Seul un opérateur Azure Stack Hub peut changer ces offres. Par exemple, seul un opérateur peut changer les plans et les quotas. Un fournisseur délégué ne construit pas une offre à partir de plans de base et de plans additionnels.
+   >Il est important de comprendre que les fournisseurs délégués peuvent seulement choisir des offres qui leur ont été déléguées. Ils ne sont pas en mesure de modifier ces offres ; seul un opérateur Azure Stack Hub peut le faire. Par exemple, seul un opérateur peut changer les plans et les quotas. Un fournisseur délégué ne construit pas une offre à partir de plans de base et de plans additionnels.
 
 3. Le fournisseur délégué peut publier ces offres via l’URL de son propre portail. Pour publier l’offre, sélectionnez **Parcourir**, puis **Offres**. Sélectionnez l’offre, puis **Changer l’état**.
 
@@ -133,7 +133,7 @@ Connectez-vous au portail utilisateur en tant que fournisseur délégué et cré
 1. Dans une nouvelle fenêtre de navigateur, accédez à l’URL du portail délégué que vous avez enregistrée à l’étape précédente. Connectez-vous au portail en tant qu’utilisateur.
 
    >[!NOTE]
-   >Les offres déléguées sont visibles seulement si vous utilisez le portail délégué.
+   >Les offres déléguées ne sont pas visibles, à moins d’utiliser le portail délégué.
 
 1. Dans le tableau de bord, sélectionnez **Prendre un abonnement**. Vous voyez que seules les offres déléguées créées par le fournisseur délégué sont présentées à l’utilisateur.
 

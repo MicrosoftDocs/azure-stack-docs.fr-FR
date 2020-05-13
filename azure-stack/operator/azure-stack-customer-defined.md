@@ -1,47 +1,47 @@
 ---
-title: Modifier des paramètres spécifiques dans votre configuration de commutateur Azure Stack Hub
-description: Découvrez ce que vous pouvez personnaliser dans votre configuration de commutateur Azure Stack Hub. Une fois que le fabricant d’ordinateurs (OEM) a créé la configuration, ne la modifiez pas sans le consentement de l’équipe d’ingénierie OEM ou Microsoft Azure Stack Hub.
+title: Modifier des paramètres dans votre configuration de commutateur Azure Stack Hub
+description: Découvrez les paramètres que vous pouvez modifier dans votre configuration de commutateur Azure Stack Hub.
 author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 19964b761478bb210d3377b177f05f708697167b
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9fcbd0203684afbbae9d11ed00db12402d8040dd
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78368717"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836000"
 ---
-#  <a name="modify-specific-settings-on-your-azure-stack-hub-switch-configuration"></a>Modifier des paramètres spécifiques dans votre configuration de commutateur Azure Stack Hub
+# <a name="change-settings-on-your-azure-stack-hub-switch-configuration"></a>Modifier des paramètres dans votre configuration de commutateur Azure Stack Hub
 
-Vous pouvez modifier quelques paramètres environnementaux de votre configuration de commutateur Azure Stack Hub. Vous pouvez identifier les paramètres pouvant être modifiés dans le modèle créé par votre fabricant d’ordinateurs (OEM). Cet article explique chacun de ces paramètres personnalisables ainsi que l’impact possible des modifications sur l’infrastructure Azure Stack Hub. Ces paramètres incluent la mise à jour du mot de passe, le serveur Syslog, l’analyse SNMP, l’authentification et la liste de contrôle d’accès. 
+Vous pouvez modifier plusieurs paramètres environnementaux de votre configuration de commutateur Azure Stack Hub. Vous pouvez identifier les paramètres pouvant être modifiés dans le modèle créé par votre fabricant d’ordinateurs (OEM). Cet article explique chacun de ces paramètres personnalisables ainsi que l’impact possible des modifications sur l’infrastructure Azure Stack Hub. Ces paramètres incluent la mise à jour du mot de passe, le serveur Syslog, l’analyse SNMP (Simple Network Management Protocol), l’authentification et la liste de contrôle d’accès.
 
-Pendant le déploiement de la solution Azure Stack Hub, le fabricant d’ordinateurs (OEM) crée et applique la configuration du commutateur pour Tor et pour BMC. Le fabricant d’ordinateurs (OEM) utilise l’outil d’automatisation Azure Stack Hub pour vérifier que les configurations requises sont correctement définies sur ces appareils. La configuration est basée sur les informations contenues dans votre [feuille de calcul de déploiement](azure-stack-deployment-worksheet.md) Azure Stack Hub. Une fois que l’OEM a créé la configuration, ne modifiez **pas** la configuration sans le consentement de l’équipe d’ingénierie OEM ou Microsoft Azure Stack Hub. Une modification de la configuration des périphériques réseau peut avoir un impact significatif sur le fonctionnement ou la résolution de problèmes réseau dans votre instance Azure Stack Hub.
+Pendant le déploiement de la solution Azure Stack Hub, le fabricant d’ordinateurs (OEM) crée et applique la configuration du commutateur pour Tor et pour BMC. Le fabricant d’ordinateurs (OEM) utilise l’outil d’automatisation Azure Stack Hub pour vérifier que les configurations requises sont correctement définies sur ces appareils. La configuration est basée sur les informations contenues dans votre [feuille de calcul de déploiement](azure-stack-deployment-worksheet.md) Azure Stack Hub.
+
+> [!Warning]  
+> Une fois que l’OEM a créé la configuration, ne modifiez **pas** la configuration sans le consentement de l’équipe d’ingénierie OEM ou Microsoft Azure Stack Hub. Une modification de la configuration des périphériques réseau peut avoir un impact significatif sur le fonctionnement ou la résolution de problèmes réseau dans votre instance Azure Stack Hub.
+>
+> Pour plus d’informations sur ces fonctions de votre périphérique réseau ou sur la manière d’effectuer ces modifications, contactez votre fournisseur de matériel OEM ou le support Microsoft. Votre OEM dispose du fichier de configuration créé par l’outil d’automatisation sur la base de votre feuille de déploiement Azure Stack Hub.
 
 Toutefois, certaines valeurs peuvent être ajoutées, supprimées ou modifiées dans la configuration des commutateurs réseau.
 
->[!Warning]  
-> Ne modifiez **pas** la configuration sans le consentement de l’équipe d’ingénierie OEM ou Microsoft Azure Stack Hub. Une modification de la configuration des périphériques réseau peut avoir un impact significatif sur le fonctionnement ou la résolution de problèmes réseau dans votre instance Azure Stack Hub.
->
-> Pour plus d’informations sur ces fonctions de votre périphérique réseau ou sur la manière d’effectuer ces modifications, contactez votre fournisseur de matériel OEM ou le support Microsoft. Votre OEM dispose du fichier de configuration créé par l’outil d’automatisation sur la base de votre feuille de déploiement Azure Stack Hub. 
-
 ## <a name="password-update"></a>Mise à jour du mot de passe
 
-L’opérateur peut à tout moment mettre à jour le mot de passe d’un utilisateur sur les commutateurs réseau. Il n’est pas nécessaire de modifier les informations sur le système de Azure Stack Hub ou d’utiliser les étapes pour [Faire pivoter les secrets dans Azure Stack Hub](azure-stack-rotate-secrets.md).
+L’opérateur peut à tout moment mettre à jour le mot de passe d’un utilisateur sur les commutateurs réseau. Il n’est pas nécessaire de modifier les informations sur le système Azure Stack Hub ou de suivre les étapes pour [Faire pivoter les secrets dans Azure Stack Hub](azure-stack-rotate-secrets.md).
 
 ## <a name="syslog-server"></a>Serveur syslog
 
-Les opérateurs peuvent rediriger les journaux du commutateur vers un serveur Syslog dans leur centre de données. Utilisez cette configuration pour vous assurer que les journaux d’un point spécifique dans le temps peuvent être utilisés pour résoudre des problèmes. Par défaut, les journaux sont stockés sur les commutateurs ; leur capacité de stockage de journaux est limitée. Consultez la section [Mises à jour de la liste de contrôle d’accès](#access-control-list-updates) pour avoir une vue d’ensemble de la configuration des autorisations pour l’accès à la gestion des commutateurs.
+Les opérateurs peuvent rediriger les journaux du commutateur vers un serveur Syslog dans leur centre de données. Utilisez cette configuration pour vous assurer que les journaux d’un point spécifique dans le temps peuvent être utilisés pour résoudre des problèmes. Par défaut, les journaux sont stockés sur les commutateurs, mais leur capacité de stockage de journaux est limitée. Consultez la section [Mises à jour de la liste de contrôle d’accès](#access-control-list-updates) pour avoir une vue d’ensemble de la configuration des autorisations pour l’accès à la gestion des commutateurs.
 
 ## <a name="snmp-monitoring"></a>Analyse SNMP
 
-L’opérateur peut configurer SNMP (simple Network Management Protocol) v2 ou v3 pour surveiller les périphériques réseau et envoyer des interruptions à une application de surveillance réseau dans le centre de données. Pour des raisons de sécurité, utilisez SNMPv3, qui est plus sécurisé que v2. Consultez votre fournisseur de matériel OEM pour obtenir les MIB et les configurations requises. Consultez la section [Mises à jour de la liste de contrôle d’accès](#access-control-list-updates) pour avoir une vue d’ensemble de la configuration des autorisations pour l’accès à la gestion des commutateurs.
+L’opérateur peut configurer SNMP v2 ou v3 pour surveiller les périphériques réseau et envoyer des interruptions à une application de surveillance réseau dans le centre de données. Pour des raisons de sécurité, utilisez SNMPv3, qui est plus sécurisé que v2. Consultez votre fournisseur de matériel OEM pour obtenir les MIB et les configurations requises. Consultez la section [Mises à jour de la liste de contrôle d’accès](#access-control-list-updates) pour avoir une vue d’ensemble de la configuration des autorisations pour l’accès à la gestion des commutateurs.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
-L’opérateur peut configurer RADIUS ou TACACS pour gérer l’authentification sur les périphériques réseau. Consultez votre fournisseur de matériel OEM pour obtenir les méthodes prise en charge et la configuration requise.  Consultez la section [Mises à jour de la liste de contrôle d’accès](#access-control-list-updates) pour avoir une vue d’ensemble de la configuration des autorisations pour l’accès à la gestion des commutateurs.
+L’opérateur peut configurer RADIUS ou TACACS pour gérer l’authentification sur les périphériques réseau. Consultez votre fournisseur de matériel OEM pour obtenir les méthodes prise en charge et la configuration requise. Consultez la section [Mises à jour de la liste de contrôle d’accès](#access-control-list-updates) pour avoir une vue d’ensemble de la configuration des autorisations pour l’accès à la gestion des commutateurs.
 
 ## <a name="access-control-list-updates"></a>Mises à jour de la liste de contrôle d'accès
 

@@ -7,12 +7,12 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: ab0f54d94b96a7bdd75d13f04fd9146146d42740
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 75e20d593f1fb07e55655a7128c12b5417835dfe
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295202"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82846889"
 ---
 # <a name="asdk-admin-basics"></a>Notions de base de l’administration ASDK
 Si vous débutez avec l’administration du kit de développement Azure Stack, vous devez prendre connaissance de plusieurs choses. Ce guide présente le rôle d’opérateur Azure Stack dans l’environnement d’évaluation. Si vous vous familiarisez avec ces informations, vos utilisateurs test seront très rapidement productifs.
@@ -33,7 +33,7 @@ Il faut prendre en compte certains points liés aux comptes pour gérer Azure St
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Quels outils dois-je utiliser pour la gestion ?
-Vous pouvez utiliser le [portail d’administration Azure Stack](https://adminportal.local.azurestack.external) ou PowerShell pour gérer Azure Stack. Le moyen le plus simple de découvrir les concepts de base est d’utiliser le portail. Si vous souhaitez utiliser PowerShell, vous devez installer [PowerShell pour Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) et [télécharger les outils Azure Stack à partir de GitHub](asdk-post-deploy.md#download-the-azure-stack-tools).
+Vous pouvez utiliser le portail d’administration Azure Stack `https://adminportal.local.azurestack.external` ou PowerShell pour gérer Azure Stack. Le moyen le plus simple de découvrir les concepts de base est d’utiliser le portail. Si vous souhaitez utiliser PowerShell, vous devez installer [PowerShell pour Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) et [télécharger les outils Azure Stack à partir de GitHub](asdk-post-deploy.md#download-the-azure-stack-tools).
 
 Azure Stack utilise Azure Resource Manager comme mécanisme de déploiement, de gestion et d’organisation sous-jacent. Si vous comptez gérer Azure Stack et assister les utilisateurs, vous devez connaître Azure Resource Manager. Pour plus d’informations, consultez le livre blanc [Getting Started with Azure Resource Manager](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf).
 
@@ -41,7 +41,7 @@ Azure Stack utilise Azure Resource Manager comme mécanisme de déploiement, de 
 Vos utilisateurs souhaitent utiliser des services. De leur point de vue, votre rôle principal est de mettre ces services à leur disposition. Le kit ASDK vous permet de connaître les services proposés et de savoir comment les rendre accessibles [en créant des plans, des offres et des quotas](../operator/azure-stack-tutorial-tenant-vm.md). Vous devez également ajouter des éléments tels que des images de machine virtuelle à la Place de Marché. Le moyen le plus simple est de [télécharger des éléments de la Place de marché](../operator/azure-stack-create-and-publish-marketplace-item.md) à partir d’Azure dans Azure Stack.
 
 > [!NOTE]
-> Si vous souhaitez tester vos plans, vos offres et vos services, vous devez utiliser le [portail Utilisateur](https://portal.local.azurestack.external), et non le [portail Administrateur](https://adminportal.local.azurestack.external).
+> Si vous souhaitez tester vos plans, vos offres et vos services, vous devez utiliser le portail utilisateur `https://portal.local.azurestack.external`, et non le portail administrateur `https://adminportal.local.azurestack.external`.
 
 En plus de fournir des services, vous devez effectuer toutes les tâches standard d’un opérateur Azure Stack pour veiller au bon fonctionnement du kit ASDK. Il s’agit notamment des tâches suivantes :
 - Ajouter des comptes d’utilisateur pour les déploiements Azure AD ou AD FS.

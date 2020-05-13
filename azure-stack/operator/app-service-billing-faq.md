@@ -4,16 +4,16 @@ description: Découvrez la facturation d’Azure App Service sur Azure Stack Hub
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: e5ab25785223d1361553f995d22196cd594a6f0a
-ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
+ms.lastreviewed: 04/13/2020
+ms.openlocfilehash: 3717308e28b7dfa62534ee1abd4e71ff06361d50
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82150288"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847943"
 ---
 # <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Vue d’ensemble de la facturation d’Azure App Service sur Azure Stack Hub et FAQ
 
@@ -70,6 +70,9 @@ En tant qu’opérateur cloud, vous êtes libres d’appliquer vos propre modèl
 ### <a name="as-a-csp-how-can-i-offer-free-and-shared-skus-for-customers-to-try-out-the-service"></a>En tant que CSP, comment puis-je fournir des références SKU gratuites et partagées aux clients qui souhaitent essayer le service ?
 
 En tant qu’opérateur cloud, des frais vous sont facturés pour fournir des références SKU gratuites et partagées, car ces références sont hébergées dans des workers partagés. Pour réduire ces coûts au minimum, vous pouvez choisir de passer au niveau de worker partagé le plus bas.
+
+> [!IMPORTANT] 
+> Les paramètres par défaut du programme d’installation des Workers partagés ont été modifiés dans Azure App Service sur Azure Stack Hub 2020 T2 pour les nouvelles installations.  Par défaut, les Workers partagés sont approvisionnés à l’aide de la référence SKU de calcul A4_v2 qui peut être modifiée par l’opérateur pendant ou après l'installation.
 
 Par exemple, pour fournir des références SKU gratuites et partagées de plan App Service ainsi que des fonctions basées sur la consommation, vous avez besoin d’au moins une instance A1 disponible. Les Workers partagés sont multilocataires ; ils peuvent donc héberger plusieurs applications clientes, qui sont isolées et protégées de manière individuelle par le bac à sable App Service. En ajustant le niveau de worker partagé de cette façon, vous pouvez limiter vos dépenses à un coût de une vCPU par mois.
 

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: a810579dd3dd50b58b357921657e87103dbfe59a
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: ff314d46e51af89207b1a6299771bd891a995e71
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82166988"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847501"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>Configurer une connectivité cloud hybride à l'aide d'Azure et d'Azure Stack Hub
 
@@ -28,7 +28,7 @@ Dans cette solution, vous allez générer un exemple d’environnement pour :
 > ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack Hub est une extension d’Azure. Azure Stack Hub offre à votre environnement local l’agilité et l’innovation du cloud computing grâce au seul cloud hybride qui vous permette de créer et de déployer des applications hybrides en tout lieu.  
 > 
-> L’article [Considérations sur la conception d’applications hybrides](overview-app-design-considerations.md) se penche sur les fondements de la qualité logicielle (sélection élective, scalabilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
+> L’article [Considérations sur la conception d’applications hybrides](overview-app-design-considerations.md) se penche sur les fondements de la qualité logicielle (sélection élective, scalabilité, disponibilité, résilience, facilité de gestion et sécurité) pour la conception, le déploiement et le fonctionnement des applications hybrides. Les considérations de conception vous aident à optimiser la conception d’application hybride, en réduisant les risques dans les environnements de production.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -43,7 +43,7 @@ Certains composants sont nécessaires pour créer un déploiement de connectivit
 
 Un partenaire OEM ou matériel Azure peut déployer une instance Azure Stack Hub de production et tous les utilisateurs peuvent déployer un Kit de développement Azure Stack (ASDK).
 
-- Utilisez votre instance Azure Stack Hub de production ou déployez le kit ASDK à partir de https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1.
+- Utilisez votre instance Azure Stack Hub de production ou déployez le kit ASDK.
    >[!Note]
    >Le déploiement de l’ASDK peut prendre jusqu’à 7 heures, planifiez donc en conséquence.
 

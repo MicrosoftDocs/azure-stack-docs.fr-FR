@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: cf9d17bda49c1fe5d401481d79b61b18442ee7ef
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 76dd8c2275c0d75132a508d6849d8356ff2e1f67
+ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703806"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82643455"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Bien démarrer avec PowerShell dans Azure Stack Hub
 
@@ -23,7 +23,7 @@ Cet article vous aide à vous repérer dans les différents modules PowerShell u
 | API | Référence sur PowerShell | Référence REST |
 | --- | --- | --- |
 | Global Azure Resource Manager | [Modules Azure PowerShell](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [Navigateur d’API REST](https://docs.microsoft.com/rest/api/) |
-| Azure Stack Hub Resource Manager | [Gérer les profils de version d’API dans Azure Stack Hub](azure-stack-version-profiles.md) | [Gérer les profils de version d’API dans Azure Stack Hub](azure-stack-version-profiles.md) |
+| Azure Stack Hub Resource Manager | [Gérer les profils de version des API dans Azure Stack Hub](azure-stack-version-profiles.md) | [Gérer les profils de version des API dans Azure Stack Hub](azure-stack-version-profiles.md) |
 | Points de terminaison administrateur Azure Stack Hub | [Module administrateur Azure Stack Hub](https://docs.microsoft.com/powershell/azure/azure-stack/overview) | [Navigateur d’API REST - Azure Stack Hub](https://docs.microsoft.com/rest/api/?term=Azure%20Azure%20Stack%20Admin) |
 | Point de terminaison privilégié Azure Stack Hub | [Utiliser le point de terminaison privilégié dans Azure Stack Hub](../operator/azure-stack-privileged-endpoint.md) | |
 
@@ -35,7 +35,7 @@ Les fournisseurs de ressources offrent à la fois des fonctionnalités et des co
 
 Le diagramme de blocs suivant illustre la relation entre les ensembles de modules PowerShell. À partir de votre machine, vous pouvez charger les modules PowerShell et gérer Azure global et Azure Stack Hub.
 
-![Azure Stack Hub PowerShell](media/azure-stack-powershell-overview/Azure-Stack-PowerShell.png)
+![Azure Stack Hub PowerShell](media/azure-stack-powershell-overview/azure-stack-powerShell.svg)
 
 ### <a name="global-azure"></a>Azure global
 
@@ -69,5 +69,5 @@ Vous pouvez utiliser des conteneurs Docker pour isoler chaque version de PowerSh
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez les [Profils d’API pour PowerShell](azure-stack-version-profiles.md) dans Azure Stack Hub.
-- Installer [Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md).
+- Installez [Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md).
 - Découvrez comment créer des [Modèles Azure Resource Manager](azure-stack-develop-templates.md) pour la cohérence du cloud.

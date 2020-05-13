@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Découvrez comment résoudre les problèmes Azure Stack Hub, y compris les problèmes liés aux machines virtuelles, stockage et App Service.
 author: justinha
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 04/30/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: fec8ac1797ef3fb6ce17b7173d813aff74ba3712
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 4c3488ac0f8b022d7d0e21ce09cfb3160f346d5c
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512330"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848113"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Résoudre les problèmes dans Azure Stack Hub
 
@@ -33,6 +33,7 @@ Ces sections contiennent des liens vers des documents qui abordent les questions
 * [Utiliser les outils de diagnostic dans Azure Stack Hub](azure-stack-diagnostics.md)
 * [Valider l’état du système Azure Stack Hub](azure-stack-diagnostic-test.md)
 * [Cadence de publication des packages de mises à jour](azure-stack-servicing-policy.md#update-package-release-cadence)
+* [Vérifier et résoudre les problèmes liés à l'état du nœud](azure-stack-node-actions.md)
 
 ### <a name="supported-operating-systems-and-sizes-for-guest-vms"></a>Systèmes d’exploitation et tailles pris en charge pour les machines virtuelles invitées
 
@@ -116,8 +117,32 @@ Il peut s’écouler jusqu’à 14 heures avant que la capacité récupérée ne
 
 Si vous utilisez un système intégré dans un scénario déconnecté, il est recommandé d’utiliser une autorité de certification d’entreprise. Exportez le certificat racine au format base 64, puis importez-le dans l’Explorateur Stockage Azure. Veillez à supprimer la barre oblique finale (`/`) du point de terminaison Resource Manager. Pour plus d’informations, consultez [Se préparer à la connexion à Azure Stack Hub](/azure-stack/user/azure-stack-storage-connect-se).
 
-## <a name="troubleshooting-app-service"></a>Résolution des problèmes d’App Service
+## <a name="troubleshoot-app-service"></a>Résoudre les problèmes liés à App Service
 
 ### <a name="create-aadidentityappps1-script-fails"></a>Le script Create-AADIdentityApp.ps1 échoue
 
-Si le script Create-AADIdentityApp.ps1 nécessaire pour App Service échoue, veillez à inclure le paramètre obligatoire `-AzureStackAdminCredential` lors de l’exécution du script. Pour plus d’informations, consultez [Conditions préalables au déploiement d’App Service sur Azure Stack Hub](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app).
+Si le script Create-AADIdentityApp.ps1 nécessaire pour App Service échoue, veillez à inclure le paramètre obligatoire `-AzureStackAdminCredential` lors de l’exécution du script. Pour plus d’informations, consultez [Conditions préalables au déploiement d’App Service sur Azure Stack Hub](azure-stack-app-service-before-you-get-started.md#create-an-azure-ad-app).
+
+## <a name="troubleshoot-azure-stack-hub-updates"></a>Résoudre les problèmes liés à Azure Stack Hub
+
+Le processus relatif aux mises à jour et aux correctifs logiciels Azure Stack Hub est conçu pour permettre aux opérateurs d’appliquer les mises à jour de manière cohérente et rationalisée. Bien que cela soit rare, certains problèmes peuvent se produire pendant l’application des correctifs logiciels et des mises à jour. Les étapes suivantes sont recommandées si vous rencontrez un problème pendant le processus d’application des correctifs logiciels et des mises à jour :
+
+0. **Prérequis** : Veillez à suivre la [liste de contrôle des activités de mise à jour](release-notes-checklist.md) et à [configurer la collecte automatique des journaux](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md).
+
+1. Suivez les étapes de correction indiquées dans l’alerte d’échec créée au moment de l’échec de votre mise à jour.
+
+2. Si vous n’êtes pas parvenu à résoudre votre problème, créez un [ticket de support Azure Stack Hub](azure-stack-help-and-support-overview-tzl.md). Veillez à disposer des [journaux collectés](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) pour la période pendant laquelle le problème s’est produit.
+
+## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Problèmes usuels liés aux correctifs logiciels et mises à jour Azure Stack Hub
+
+*S’applique à : Systèmes intégrés Azure Stack Hub*
+
+### <a name="preparationfailed"></a>PreparationFailed
+
+**Champ d’application** : Ce problème s’applique à toutes les versions prises en charge.
+
+**Cause** : L’installation de la mise à jour d’Azure Stack Hub peut échouer, et son état peut passer à `PreparationFailed`. Pour les systèmes connectés à Internet, cela indique généralement que le package de mise à jour ne peut pas être téléchargé correctement en raison d’une connexion Internet faible. 
+
+**Correction** : Vous pouvez contourner ce problème en cliquant sur **Installer maintenant**. Si le problème persiste, nous vous conseillons de charger manuellement le package de mise à jour comme cela est décrit dans la [section Installer des mises à jour](azure-stack-apply-updates.md?#install-updates-and-monitor-progress).
+
+**Occurrence** : Courant

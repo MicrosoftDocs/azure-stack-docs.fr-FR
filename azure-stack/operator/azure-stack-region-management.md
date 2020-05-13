@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Vue d’ensemble de la gestion des régions dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 69cdd8a672cd3431906d949c1a038cc1dbdb9641
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e04f6a6baca7b834a248bc40835d05f0773fd5b4
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77698009"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777846"
 ---
 # <a name="region-management-in-azure-stack-hub"></a>Gestion des régions dans Azure Stack Hub
 
