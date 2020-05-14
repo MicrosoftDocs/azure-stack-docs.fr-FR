@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d219da5d219b5d341e5c62cfbf823be1334cc614
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: 650144e2c1079b65c2d71a47471e600fa9ec4520
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82167107"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847620"
 ---
 # <a name="direct-traffic-with-a-geo-distributed-app-using-azure-and-azure-stack-hub"></a>Diriger le trafic avec une application géodistribuée en utilisant Azure et Azure Stack Hub
 
@@ -343,7 +343,7 @@ Après avoir ajouté l’enregistrement CNAME, la page d’enregistrements DNS r
 
 #### <a name="test-in-a-browser"></a>Test dans un navigateur
 
-Parcourez les noms DNS configurés précédemment (par exemple, `northwindcloud.com` ou www.northwindcloud.com).
+Dans votre navigateur, accédez aux noms DNS configurés précédemment (par exemple, `northwindcloud.com`ou `www.northwindcloud.com`).
 
 ## <a name="part-3-bind-a-custom-ssl-cert"></a>Troisième partie : Lier un certificat SSL personnalisé
 
@@ -537,7 +537,7 @@ Lorsque l’opération est terminée, accédez à l’une des URL HTTP pointant 
 
 - https://<nom_application>.azurewebsites.net
 - `https://northwindcloud.com`
-- <https://www.northwindcloud.com>
+- `https://www.northwindcloud.com`
 
 #### <a name="enforce-tls-1112"></a>Appliquer le protocole TLS 1.1/1.2
 

@@ -3,16 +3,17 @@ title: Télécharger des éléments de la Place de marché Azure et les publier 
 description: Découvrez comment télécharger des éléments de la Place de marché à partir d’Azure et les publier sur Azure Stack Hub.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 04/13/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: a37f8b14a1a21caa8f710afe54868f308971e422
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+zone_pivot_groups: state-connected-disconnected
+ms.openlocfilehash: 48b1d7e5c0b4d40b04ac27c872fd015f3b448913
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80979417"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848266"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Télécharger des éléments de la Place de marché vers Azure Stack Hub 
 
@@ -28,15 +29,14 @@ Consultez [Éléments Place de marché Azure pour Azure Stack Hub](azure-stack-m
 > [!NOTE]
 > Le catalogue est différent selon le cloud auquel votre système Azure Stack Hub est connecté. L’environnement cloud est déterminé par l’abonnement Azure que vous utilisez pour inscrire votre infrastructure Azure Stack Hub.
 
-## <a name="connected-scenario"></a>Scénario connecté
+::: zone pivot="state-connected"
+Un déploiement connecté vous permet d’utiliser le portail d’administration pour télécharger des éléments de la Place de marché.
 
-Si Azure Stack Hub se connecte à Internet, vous pouvez utiliser le portail administrateur pour télécharger des éléments de la Place de marché.
-
-### <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Prérequis
 
 Votre déploiement Azure Stack Hub doit disposer d’une connectivité à Internet et être inscrit auprès d’Azure.
 
-### <a name="use-the-portal-to-download-marketplace-items"></a>Utiliser le portail pour télécharger les éléments de la Place de marché
+## <a name="use-the-portal-to-download-marketplace-items"></a>Utiliser le portail pour télécharger les éléments de la Place de marché
 
 1. Connectez-vous au portail administrateur Azure Stack Hub.
 
@@ -61,10 +61,10 @@ Votre déploiement Azure Stack Hub doit disposer d’une connectivité à Intern
 6. Sélectionnez les éléments que vous souhaitez, puis sélectionnez **Télécharger**. Les temps de téléchargement varient et dépendent de la connectivité réseau. Une fois le téléchargement effectué, vous pouvez déployer le nouvel élément de la Place de marché en tant qu’opérateur ou utilisateur Azure Stack Hub.
 
 7. Pour déployer l’élément téléchargé, sélectionnez **+ Créer une ressource** puis recherchez le nouvel élément de Place de marché parmi les catégories. Cliquez ensuite sur l’élément pour commencer le processus de déploiement. Le processus varie pour les différents éléments de la Place de marché.
+::: zone-end
 
-## <a name="disconnected-or-a-partially-connected-scenario"></a>Scénario déconnecté ou partiellement connecté
-
-Si la connectivité Internet d’Azure Stack Hub est limitée ou inexistante, vous pouvez utiliser PowerShell et l’*outil de syndication de la Place de marché* pour télécharger les éléments de la Place de marché sur une machine connectée à Internet. Transférez ensuite les éléments vers votre environnement Azure Stack Hub. Dans un environnement déconnecté, vous ne pouvez pas télécharger des éléments de la Place de marché à l’aide du portail Azure Stack Hub.
+::: zone pivot="state-disconnected"
+Lorsque la connectivité Internet d’Azure Stack Hub est limitée ou inexistante, utilisez PowerShell et l’*outil de syndication de la Place de marché* pour télécharger les éléments de la Place de marché sur une machine connectée à Internet. Transférez ensuite les éléments vers votre environnement Azure Stack Hub. Dans un environnement déconnecté, vous ne pouvez pas télécharger des éléments de la Place de marché à l’aide du portail Azure Stack Hub.
 
 L’outil de syndication Place de marché peut également être utilisé dans un scénario connecté.
 
@@ -73,7 +73,7 @@ Ce scénario comporte deux parties :
 - **Partie 1** : Effectuez le téléchargement des éléments à partir de la Place de marché. Sur l’ordinateur ayant accès à Internet, configurez PowerShell, téléchargez l’outil de syndication, puis téléchargez les éléments de la Place de marché Azure.
 - **Partie 2** : Effectuez le chargement et la publication sur la Place de marché Azure Stack Hub. Déplacez les fichiers que vous avez téléchargés dans votre environnement Azure Stack Hub, puis publiez-les sur la Place de marché Azure Stack Hub.
 
-### <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Prérequis
 
 - Un environnement connecté (qui n’est pas nécessairement Azure Stack Hub). Vous avez besoin d’une connectivité pour accéder à la liste des produits d’Azure avec leurs détails et pour tout télécharger localement. Une fois cette opération effectuée, le reste de la procédure ne nécessite aucune connectivité Internet. Elle crée un catalogue d’éléments que vous avez précédemment téléchargés, que vous pouvez utiliser dans votre environnement déconnecté.
 
@@ -98,7 +98,7 @@ Une fois que vous avez inscrit Azure Stack, vous pouvez ignorer le message suiva
 
 ![Gestion de la Place de marché](media/azure-stack-download-azure-marketplace-item/toolsmsg.png)
 
-### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Utiliser l’outil de syndication Place de marché pour télécharger les éléments de la Place de marché
+## <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Utiliser l’outil de syndication Place de marché pour télécharger les éléments de la Place de marché
 
 > [!IMPORTANT]
 > Veillez à télécharger l’outil de syndication de la Place de marché chaque fois que vous téléchargez des éléments de Place de marché dans un scénario déconnecté. Des changements fréquents sont apportés à cet outil et la version la plus récente doit être utilisée pour chaque téléchargement.
@@ -168,7 +168,7 @@ Une fois que vous avez inscrit Azure Stack, vous pouvez ignorer le message suiva
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azs.Syndication.Admin -Path "Destination folder path in quotes" -Force
     ```
 
-### <a name="import-the-download-and-publish-to-azure-stack-hub-marketplace-using-powershell"></a>Importer le téléchargement et le publier sur la Place de marché Azure Stack Hub avec PowerShell
+## <a name="import-the-download-and-publish-to-azure-stack-hub-marketplace-using-powershell"></a>Importer le téléchargement et le publier sur la Place de marché Azure Stack Hub avec PowerShell
 
 1. Vous devez déplacer les fichiers que [vous avez téléchargés](#use-the-marketplace-syndication-tool-to-download-marketplace-items) localement vers un ordinateur qui est connecté à votre environnement Azure Stack Hub. L’outil de syndication de la Place de marché doit également être disponible dans votre environnement Azure Stack Hub, car vous devez l’utiliser pour effectuer l’opération d’importation.
 
@@ -187,3 +187,4 @@ Une fois que vous avez inscrit Azure Stack, vous pouvez ignorer le message suiva
     ```
 
 5. Une fois l’exécution du script terminée, les éléments de la Place de marché doivent être disponibles dans la Place de marché Azure Stack Hub.
+::: zone-end

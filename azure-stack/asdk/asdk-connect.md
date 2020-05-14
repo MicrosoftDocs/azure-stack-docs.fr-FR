@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: 1b562d2a72f3da4d4ac9ef7045f5cbd5408f4afa
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 44fa05f5841952d581a35d8394300e96333bfc4f
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295286"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847076"
 ---
 # <a name="connect-to-the-asdk"></a>Se connecter à l’ASDK
 
@@ -33,9 +33,9 @@ Un seul utilisateur simultané peut gérer les ressources dans le portail d’ad
 
 2. Sur l’ordinateur hôte ASDK, ouvrez le gestionnaire de serveur (ServerManager.exe). Sélectionnez **Serveur local**, désactiver **Configuration de sécurité renforcée d’Internet Explorer**, puis fermez le Gestionnaire de serveur.
 
-3. Connectez-vous au portail d’administration en tant que **AzureStack\CloudAdmin** ou utilisez d’autres informations d’identification de l’opérateur d’Azure Stack. L’adresse du portail d’administration d’ASDK est [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
+3. Connectez-vous au portail d’administration en tant que **AzureStack\CloudAdmin** ou utilisez d’autres informations d’identification de l’opérateur d’Azure Stack. L’adresse du portail d’administration d’ASDK est `https://adminportal.local.azurestack.external`.
 
-4. Connectez-vous au portail utilisateur en tant que **AzureStack\CloudAdmin** ou utilisez d’autres informations d’identification de l’utilisateur d’Azure Stack. L’adresse du portail utilisateur d’ASDK est [https://portal.local.azurestack.external](https://portal.local.azurestack.external).
+4. Connectez-vous au portail utilisateur en tant que **AzureStack\CloudAdmin** ou utilisez d’autres informations d’identification de l’utilisateur d’Azure Stack. L’adresse du portail utilisateur d’ASDK est `https://portal.local.azurestack.external`.
 
 > [!NOTE]
 > Pour plus d’informations sur quand utiliser quel compte, consultez [Informations de base sur l’administration du kit de développement Azure Stack](asdk-admin-basics.md#what-account-should-i-use).
@@ -118,7 +118,7 @@ La première fois que vous vous connectez, vous êtes invité à installer le ce
 
 ### <a name="test-vpn-connectivity"></a>Connectivité VPN de test
 
-Pour tester la connexion au portail, ouvrez un navigateur, puis accédez au portail utilisateur (https://portal.local.azurestack.external/) ou au portail administrateur (https://adminportal.local.azurestack.external/).
+Pour tester la connexion au portail, ouvrez un navigateur, puis accédez au portail utilisateur `https://portal.local.azurestack.external/` ou au portail administrateur `https://adminportal.local.azurestack.external/`.
 
 Connectez-vous avec les informations d’identification de l’abonnement approprié pour créer et gérer des ressources.  
 
