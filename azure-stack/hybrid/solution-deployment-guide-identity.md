@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: f3c952695d430befa69c4b3dc2ffaf7787ac8b31
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 7a0777c218a27647214ada7b628cede5f7c01587
+ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847161"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82988231"
 ---
 # <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-hub-apps"></a>Configurer une identité cloud hybride pour les applications Azure et Azure Stack Hub
 
@@ -41,11 +41,11 @@ Pour suivre les étapes de cette solution, vous devez disposer d'autorisations d
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>Créer un principal du service pour Azure AD sur le portail
 
-Si vous avez déployé Azure Stack Hub en utilisant Azure AD en tant que magasin d'identités, vous pouvez créer des principaux de service de la même façon que pour Azure. La rubrique [Utiliser une identité d’application pour accéder aux ressources](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-service-principal) montre comment effectuer les étapes via le portail. Avant de commencer, vérifiez que vous disposez des [autorisations Azure AD requises](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions).
+Si vous avez déployé Azure Stack Hub en utilisant Azure AD en tant que magasin d'identités, vous pouvez créer des principaux de service de la même façon que pour Azure. La rubrique [Utiliser une identité d’application pour accéder aux ressources](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-app-identity) montre comment effectuer les étapes via le portail. Avant de commencer, vérifiez que vous disposez des [autorisations Azure AD requises](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions).
 
 ## <a name="create-a-service-principal-for-ad-fs-using-powershell"></a>Créer un principal du service pour AD FS avec PowerShell
 
-Si vous avez déployé Azure Stack Hub avec AD FS, vous pouvez utiliser PowerShell pour créer un principal de service, attribuer un rôle d'accès et vous connecter à partir de PowerShell à l'aide de cette identité. La rubrique [Utiliser une identité d’application pour accéder aux ressources](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal) montre comment procéder à l’aide de PowerShell.
+Si vous avez déployé Azure Stack Hub avec AD FS, vous pouvez utiliser PowerShell pour créer un principal de service, attribuer un rôle d'accès et vous connecter à partir de PowerShell à l'aide de cette identité. La rubrique [Utiliser une identité d’application pour accéder aux ressources](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-app-identity) montre comment procéder à l’aide de PowerShell.
 
 ## <a name="using-the-azure-stack-hub-api"></a>Utiliser l'API Azure Stack Hub
 
