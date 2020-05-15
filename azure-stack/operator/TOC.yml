@@ -499,13 +499,13 @@
 - name: Informations de référence
   items:
     - name: Azure Stack Hub PowerShell
-      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview?'
+      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview?view='
     - name: Point de terminaison privilégié Azure Stack Hub
       href: ../reference/pep-2002/
     - name: API REST pour les administrateurs Azure Stack Hub
       href: /rest/api/azure-stack/
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/reference-index?'
+      href: 'https://docs.microsoft.com/cli/azure/reference-index?view='
 - name: Rubriques connexes
   items:
     - name: Documentation pour les utilisateurs Azure Stack Hub
