@@ -3,30 +3,30 @@ title: Ajouter des images Linux dans la Place de marché Azure Stack Hub
 description: Découvrez comment ajouter des images Linux dans la Place de marché Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/07/2020
 ms.author: sethm
-ms.reviewer: unknown
+ms.reviewer: ''
 ms.lastreviewed: 11/16/2019
-ms.openlocfilehash: 532f61b2b306dab833c35dab403226e70950d43a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 32cdb1ec98f9825a63b5acfa68e4c8e3f43089a7
+ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295094"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82967724"
 ---
 # <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>Ajouter des images Linux dans la Place de marché Azure Stack Hub
 
-Vous pouvez déployer des machines virtuelles Linux sur Azure Stack Hub en ajoutant une image Linux dans la Place de marché Azure Stack Hub. Le moyen le plus simple d’ajouter une image Linux à Azure Stack Hub est via la gestion de la Place de marché. Ces images ont été préparées et testées pour leur compatibilité avec Azure Stack Hub.
+Vous pouvez déployer des machines virtuelles Linux sur Azure Stack Hub en ajoutant une image Linux dans la Place de marché Azure Stack Hub. Le moyen le plus simple d’ajouter une image Linux à Azure Stack Hub est de passer par la gestion de la Place de marché. Ces images ont été préparées et testées pour leur compatibilité avec Azure Stack Hub.
 
 ## <a name="marketplace-management"></a>Gestion de la Place de marché
 
 Pour ajouter des images Linux à partir de la Place de marché Azure, consultez [Télécharger des éléments de Place de marché depuis Azure vers Azure Stack Hub](azure-stack-download-azure-marketplace-item.md). Sélectionnez les images Linux que vous souhaitez proposer aux utilisateurs sur votre système Azure Stack Hub.
 
-Il existe des mises à jour fréquentes pour ces images ; aussi reportez-vous régulièrement à la gestion de la Place de marché pour les maintenir à jour.
+Les mises à jour étant fréquentes pour ces images, revenez régulièrement pour les maintenir à jour.
 
 ## <a name="prepare-your-own-image"></a>Préparer votre propre image
 
-Dans la mesure du possible, téléchargez les images disponibles via la gestion de la Place de marché. Ces images ont été préparées et testées pour Azure Stack Hub.
+Dans la mesure du possible, téléchargez les images disponibles par l’intermédiaire de la gestion de la Place de marché. Ces images ont été préparées et testées pour Azure Stack Hub.
 
 ### <a name="azure-linux-agent"></a>Agent Linux Azure
 
@@ -101,7 +101,7 @@ runcmd:
   - nodejs index.js
   ```
   
-### <a name="step-2-reference-the-cloud-inittxt-during-the-linux-vm-deployment"></a>Étape 2 : Référencer cloud-init.txt pendant le déploiement de la machine virtuelle Linux
+### <a name="step-2-reference-cloud-inittxt-during-the-linux-vm-deployment"></a>Étape 2 : Référencer cloud-init.txt pendant le déploiement de la machine virtuelle Linux
 
 Chargez le fichier dans un compte de stockage Azure, un compte de stockage Azure Stack Hub ou un dépôt GitHub accessible par votre machine virtuelle Linux Azure Stack Hub.
 Actuellement, l’utilisation de cloud-init pour le déploiement de machines virtuelles est prise en charge uniquement sur REST, PowerShell et l’interface de ligne de commande, et elle n’a pas d’interface utilisateur de portail associée dans Azure Stack Hub.

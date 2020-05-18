@@ -3,16 +3,16 @@ title: Notes de publication d’Azure Stack Hub
 description: Notes de publication des systèmes intégrés Azure Stack Hub, y compris les mises à jour et les correctifs de bogues.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/22/2020
+ms.date: 05/07/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: ccb21762eded64a5e1a5430c80ebfc4e69617375
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 54f993cd76f0d850e0dd82a2e1b9817806f2c517
+ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848249"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82988322"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Notes de publication d’Azure Stack Hub
 
@@ -169,7 +169,7 @@ La version 2002 d’Azure Stack Hub doit être appliquée sur la version 1910 
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez notre [stratégie de maintenance](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack Hub 1.2002.19.73](https://support.microsoft.com/help/4557355)
+- [Correctif logiciel Azure Stack Hub 1.2002.24.85](https://support.microsoft.com/help/4558081)
 ::: moniker-end
 
 ::: moniker range="azs-1910"
@@ -272,7 +272,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 
 - Quand vous téléchargez des éléments de la Place de marché d’Azure vers Azure Stack Hub, une nouvelle interface utilisateur vous permet de spécifier une version de l’élément, au cas où il en existerait plusieurs. La nouvelle interface utilisateur est disponible dans les deux scénarios, connecté et déconnecté. Pour plus d’informations, consultez [Télécharger des éléments de la Place de marché d’Azure vers Azure Stack Hub](azure-stack-download-azure-marketplace-item.md).  
 
-- Depuis la version 1910, le système Azure Stack Hub **nécessite** un espace IP interne privé /20 supplémentaire.  Pour plus d’informations, consultez (Planification de l’intégration réseau pour Azure Stack)[azure-stack-network.md].
+- Depuis la version 1910, le système Azure Stack Hub **nécessite** un espace IP interne privé /20 supplémentaire. Pour plus d’informations, consultez [Planification de l’intégration réseau pour Azure Stack](azure-stack-network.md).
   
 - Le service Infrastructure Backup supprime partiellement les données de sauvegarde chargées si l’emplacement de stockage externe manque d’espace disponible pendant la procédure de chargement.  
 

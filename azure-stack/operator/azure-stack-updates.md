@@ -3,16 +3,16 @@ title: Gérer les mises à jour
 description: Découvrez comment gérer les mises à jour dans Azure Stack Hub
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 05/13/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 48bc8e2df857b2e1c352ffaa55ef900672d4f78b
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: cdf2ba4d3dd226ea727efe05dc8be671ba172f8b
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772492"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374615"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Gérer les mises à jour dans Azure Stack Hub
 
@@ -49,7 +49,7 @@ Les trois types de mises à jour sont publiés à la cadence suivante :
 
 Pour continuer à bénéficier du support, vous devez conserver votre environnement Azure Stack Hub sur une version prise en charge du logiciel Azure Stack Hub. Pour plus d’informations, consultez [Stratégie de maintenance Azure Stack Hub](azure-stack-update-servicing-policy.md).
 
-## <a name="where-to-get-notice-of-an-update"></a>Où recevoir une notification de mise à jour
+## <a name="how-to-know-an-update-is-available"></a>Comment savoir si une mise à jour disponible
 
 La notification des mises à jour dépend de plusieurs facteurs, comme votre connexion à Internet et le type de mise à jour.
 

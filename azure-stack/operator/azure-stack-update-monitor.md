@@ -1,24 +1,24 @@
 ---
-title: Superviser les mises à jour dans Azure Stack Hub à l'aide de PowerShell
-description: Apprenez à superviser les mises à jour dans Azure Stack Hub à l'aide de PowerShell
+title: Superviser les mises à jour avec PowerShell dans Azure Stack Hub
+description: Découvrez comment superviser les mises à jour avec PowerShell dans Azure Stack Hub.
 author: IngridAtMicrosoft
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 0adeafb421c30eaf8753c735b16b85471173a5fc
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 3e6f5ebac251ca18dd15d269ad23ac1632a4794c
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848130"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374987"
 ---
-# <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>Superviser les mises à jour dans Azure Stack Hub à l'aide de PowerShell
+# <a name="monitor-updates-with-powershell-in-azure-stack-hub"></a>Superviser les mises à jour avec PowerShell dans Azure Stack Hub
 
 Vous pouvez utiliser les points de terminaison d’administration Azure Stack Hub pour superviser et gérer vos mises à jour. Ils sont accessibles avec PowerShell. Pour obtenir des instructions sur la configuration de PowerShell sur Azure Stack Hub, consultez [Installer PowerShell pour Azure Stack Hub](azure-stack-powershell-install.md).
 
-Vous pouvez utiliser l’applet de commande PowerShell suivante pour gérer vos mises à jour :
+Vous pouvez utiliser les applets de commande PowerShell suivantes pour gérer vos mises à jour :
 
 | Applet de commande | Description |
 |------------------------------------------------------|-------------|
@@ -30,7 +30,7 @@ Vous pouvez utiliser l’applet de commande PowerShell suivante pour gérer vos 
 
 ## <a name="get-a-list-of-update-runs"></a>Obtenir une liste d’exécutions de mises à jour
 
-Pour afficher la liste des commandes d’exécution des mises à jour :
+Pour afficher la liste des commandes d’exécution des mises à jour, exécutez la commande suivante :
 
 ```powershell
 Get-AzsUpdateRun -UpdateName Microsoft1.0.180302.1
@@ -43,9 +43,11 @@ Si la mise à jour échoue, vous pouvez la reprendre là où elle s’est arrêt
 ```powershell
 Get-AzsUpdateRun -Name 5173e9f4-3040-494f-b7a7-738a6331d55c -UpdateName Microsoft1.0.180305.1 | Resume-AzsUpdateRun
 ```
+
 ## <a name="troubleshoot"></a>Dépanner
-Pour plus d'informations sur le dépannage des problèmes de mise à jour, consultez [Résolution des problèmes liés à Azure Stack](azure-stack-troubleshooting.md).
+
+Pour plus d’informations sur les solutions apportées aux problèmes de mise à jour, consultez [Résolution des problèmes liés à Azure Stack](azure-stack-troubleshooting.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
--   [Gestion des mises à jour dans Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
+- [Gestion des mises à jour dans Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)

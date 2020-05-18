@@ -9,12 +9,12 @@ ms.reviewer: ppacent
 ms.author: inhenkel
 ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: 5ffa1f2f03ca942192acdd881b7e785598c4c94b
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: a16928e233d47c6a3f3a8f612b5d5d22afc08456
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80812371"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83375053"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Effectuer la rotation des secrets dans Azure Stack Hub
 
@@ -212,7 +212,7 @@ Pour effectuer une rotation des secrets externes :
 
 5. Patientez pendant la rotation de vos secrets. La rotation des secrets externes prend environ une heure.
 
-    Quand la rotation des secrets a réussi, la console affiche **Overall action status: Success (état global de l’action : réussite).**
+    Quand la rotation des secrets s’est correctement déroulée, la console affiche **ActionPlanInstanceID ... CurrentStatus: Completed**, suivi d’un **TERMINÉ**.
 
     > [!Note]
     > En cas d’échec de la rotation des secrets, suivez les instructions figurant dans le message d’erreur, puis réexécutez **Start-SecretRotation** avec le paramètre **-ReRun**.
@@ -258,7 +258,7 @@ Remove-PSSession -Session $PEPSession
 
 3. Patientez pendant la rotation de vos secrets.
 
-   Quand la rotation des secrets a réussi, la console affiche **Overall action status: Success (état global de l’action : réussite).**
+   Quand la rotation des secrets s’est correctement déroulée, la console affiche **ActionPlanInstanceID ... CurrentStatus: Completed**, suivi d’un **TERMINÉ**.
     > [!Note]
     > En cas d’échec de la rotation des secrets, suivez les instructions dans le message d’erreur et réexécutez **Start-SecretRotation** avec les paramètres **-Internal** et **-Rerun**.  
 

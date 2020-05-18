@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Découvrez comment résoudre les problèmes Azure Stack Hub, y compris les problèmes liés aux machines virtuelles, stockage et App Service.
 author: justinha
 ms.topic: article
-ms.date: 04/30/2020
+ms.date: 05/13/2020
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 4c3488ac0f8b022d7d0e21ce09cfb3160f346d5c
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.lastreviewed: 15/13/2020
+ms.openlocfilehash: 4910a7aaa2462cb53c4ce89246c92a60f61d5017
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848113"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83375008"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Résoudre les problèmes dans Azure Stack Hub
 
@@ -127,7 +127,7 @@ Si le script Create-AADIdentityApp.ps1 nécessaire pour App Service échoue, vei
 
 Le processus relatif aux mises à jour et aux correctifs logiciels Azure Stack Hub est conçu pour permettre aux opérateurs d’appliquer les mises à jour de manière cohérente et rationalisée. Bien que cela soit rare, certains problèmes peuvent se produire pendant l’application des correctifs logiciels et des mises à jour. Les étapes suivantes sont recommandées si vous rencontrez un problème pendant le processus d’application des correctifs logiciels et des mises à jour :
 
-0. **Prérequis** : Veillez à suivre la [liste de contrôle des activités de mise à jour](release-notes-checklist.md) et à [configurer la collecte automatique des journaux](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md).
+0. **Prérequis** : Veillez à suivre la [check-list des activités de mise à jour](release-notes-checklist.md) et à [activer la collecte proactive des journaux](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md).
 
 1. Suivez les étapes de correction indiquées dans l’alerte d’échec créée au moment de l’échec de votre mise à jour.
 

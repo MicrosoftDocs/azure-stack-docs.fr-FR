@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 35eeee27c2084d0ceec565dea5cecc1ce71ecf7f
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 94b90f8a3a648a466ac221a76099a71964e00f9a
+ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848096"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202434"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Problèmes connus d’Azure Stack Hub
 
@@ -196,7 +196,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 - Champ d’application : Ce problème concerne la version 2002.
 - Cause : Si l’empreinte contient les versions 1.7 et antérieures du fournisseur de ressources App Service, lors de la mise à jour de l’empreinte, les panneaux pour App Service ne sont pas chargés.
-- Correction : Mettre à jour le fournisseur de ressources vers la version 1.8
+- Correction : Mettez à jour le fournisseur de ressources avec la version [2020 Q2](azure-stack-app-service-update.md).
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

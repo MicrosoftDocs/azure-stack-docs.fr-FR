@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: 0c61abfab5615d265377341f6fb96fe5b4a18b29
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: bf9ed5ced7bfde80219f0d9bddcf285e76183361
+ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81478836"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202424"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Créer des bases de données SQL à haute disponibilité avec Azure Stack Hub
 
@@ -95,13 +95,18 @@ Une fois que le modèle a déployé et configuré le groupe de disponibilité Al
 
 Quand vous créez un groupe de disponibilité avec amorçage automatique, SQL Server crée automatiquement les réplicas secondaires pour chaque base de données du groupe, sans qu’aucune autre intervention manuelle ne soit nécessaire. Cette mesure garantit la haute disponibilité des bases de données AlwaysOn.
 
-Utilisez ces commandes SQL pour configurer l’amorçage automatique pour le groupe de disponibilité AlwaysOn. Remplacez `<InstanceName>` par le nom de l’instance SQL Server principale et `<availability_group_name>` par le nom du groupe de disponibilité AlwaysOn approprié.
+Utilisez ces commandes SQL pour configurer l’amorçage automatique pour le groupe de disponibilité AlwaysOn. Remplacez `<PrimaryInstanceName>` par le nom de l’instance SQL Server principale, `<SecondaryInstanceName>` par le nom de l’instance SQL Server secondaire et `<availability_group_name>` par le nom du groupe de disponibilité AlwaysOn si nécessaire.
 
 Sur l’instance SQL principale :
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
-      MODIFY REPLICA ON '<InstanceName>'
+      MODIFY REPLICA ON '<PrimaryInstanceName>'
+      WITH (SEEDING_MODE = AUTOMATIC)
+  GO
+  
+  ALTER AVAILABILITY GROUP [<availability_group_name>]
+      MODIFY REPLICA ON '<SecondaryInstanceName>'
       WITH (SEEDING_MODE = AUTOMATIC)
   GO
   ```

@@ -3,16 +3,16 @@ title: Envoi de demandes API à Azure Stack Hub
 description: Découvrez comment récupérer une authentification d’Azure pour effectuer des requêtes d’API auprès d’Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/06/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 3d7c4e7481b3054eaf44394e9b80f1e07bc75fa9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d44158342b1bca1aec575d51fb7144a8c88e88d1
+ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703721"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82967741"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -22,11 +22,11 @@ Vous pouvez utiliser les API REST Azure Stack Hub pour automatiser des opératio
 
 Les API demandent à votre client de s’authentifier auprès du point de terminaison de connexion Microsoft Azure. Le point de terminaison retourne un jeton à utiliser dans l’en-tête de chaque requête envoyée aux API Azure Stack Hub. Microsoft Azure utilise Oauth 2.0.
 
-Cet article fournit des exemples qui utilisent l’utilitaire **cURL** pour créer des requêtes Azure Stack Hub. cURL est un outil en ligne de commande disposant d’une bibliothèque pour le transfert de données. Ces exemples détaillent étape par étape le processus de récupération d’un jeton pour accéder aux API Azure Stack Hub. La plupart des langages de programmation proposent des bibliothèques Oauth 2.0, qui prennent en charge de lourdes tâches de gestion des jetons et de manipulation des tâches, comme l’actualisation des jetons.
+Cet article fournit des exemples qui utilisent l’utilitaire **cURL** pour créer des requêtes Azure Stack Hub. cURL est un outil en ligne de commande disposant d’une bibliothèque pour le transfert de données. Ces exemples détaillent le processus de récupération d’un jeton pour accéder aux API Azure Stack Hub. La plupart des langages de programmation proposent des bibliothèques Oauth 2.0, qui prennent en charge de lourdes tâches de gestion des jetons et de manipulation des tâches, comme l’actualisation des jetons.
 
 Examinez l’ensemble du processus d’utilisation des API REST Azure Stack Hub avec un client REST générique, comme **cURL**, pour mieux comprendre les requêtes sous-jacentes et voir ce que vous pouvez attendre du contenu reçu dans une réponse.
 
-Cet article ne traite pas de l’ensemble des options disponibles pour la récupération des jetons, comme la connexion interactive ou la création d’ID d’application dédiés. Pour obtenir des informations sur ces sujets, consultez la [Informations de référence sur les API REST Azure](/rest/api/).
+Cet article ne traite pas de l’ensemble des options disponibles pour la récupération des jetons, comme la connexion interactive ou la création d’ID d’application dédiés. Pour des informations sur ces sujets, consultez [Informations de référence sur les API REST Azure](/rest/api/).
 
 ## <a name="get-a-token-from-azure"></a>Récupérer un jeton d’Azure
 
