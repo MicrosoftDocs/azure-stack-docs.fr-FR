@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: e8a8d2f156d2608db01a652225540a73722f16fc
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: cda4a78a507f94d5e40f723cb5489a9e79990d50
+ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848215"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82988297"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Inscrire Azure Stack Hub auprès d’Azure
 
@@ -359,10 +359,10 @@ Vous devez mettre à jour ou renouveler votre inscription dans les cas suivants�
 
 ### <a name="change-the-subscription-you-use"></a>Modifier l’abonnement que vous utilisez
 
-Pour modifier l’abonnement que vous utilisez, vous devez d’abord exécuter l’applet de commande **Remove-AzsRegistration**, puis vous assurer d’être connecté au contexte Azure PowerShell correct. Ensuite, exécutez **Set-AzsRegistration** avec les paramètres modifiés, y compris `<billing model>` :
+Pour modifier l’abonnement que vous utilisez, vous devez d’abord exécuter l’applet de commande **Remove-AzsRegistration**, puis vous assurer d’être connecté au contexte Azure PowerShell correct. Ensuite, exécutez **Set-AzsRegistration** avec les paramètres modifiés, y compris `<billing model>`. Lors de l’exécution de **Remove-AzsRegistration**, vous devez être connecté à l’abonnement utilisé pendant l’inscription et vous servir des valeurs des paramètres `RegistrationName` et `ResourceGroupName`, comme indiqué dans le portail d’administration [Find current registration details](#verify-azure-stack-hub-registration) (Trouver les détails de l’inscription actuelle) :
 
   ```powershell  
-  Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName $RegistrationName
+  Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
   Set-AzureRmContext -SubscriptionId $NewSubscriptionId
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
@@ -423,7 +423,7 @@ Vous avez maintenant complètement annulé l’inscription dans un scénario dé
 
 ### <a name="disable-or-enable-usage-reporting"></a>Désactiver ou activer les rapports d’utilisation
 
-Pour les environnements Azure Stack Hub qui utilisent un modèle de facturation selon la capacité, désactivez la création de rapports d’utilisation avec le paramètre **UsageReportingEnabled** en utilisant la cmdlet **Set-AzsRegistration** ou  **Get-AzsRegistrationToken**. Azure Stack Hub crée par défaut des rapports sur les métriques d’utilisation. Les opérateurs qui se basent sur la capacité ou qui gèrent un environnement déconnecté doivent désactiver la génération de rapports d’utilisation.
+Pour les environnements Azure Stack Hub qui utilisent un modèle de facturation selon la capacité, désactivez la création de rapports d’utilisation avec le paramètre **UsageReportingEnabled** en utilisant la cmdlet **Set-AzsRegistration** ou ** Get-AzsRegistrationToken**. Azure Stack Hub crée par défaut des rapports sur les métriques d’utilisation. Les opérateurs qui se basent sur la capacité ou qui gèrent un environnement déconnecté doivent désactiver la génération de rapports d’utilisation.
 
 ::: zone pivot="state-connected"
 Exécutez les applets de commande PowerShell suivantes :
@@ -436,6 +436,7 @@ Exécutez les applets de commande PowerShell suivantes :
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
       -BillingModel Capacity
       -RegistrationName $RegistrationName
+      -UsageReportingEnabled:$false
    ```
 ::: zone-end
 ::: zone pivot="state-disconnected"
