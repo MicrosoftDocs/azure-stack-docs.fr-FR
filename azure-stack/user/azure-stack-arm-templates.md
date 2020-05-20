@@ -66,7 +66,7 @@ Utilisez l’extension PowerShell DSC pour configurer un gestionnaire local de 
 
 ## <a name="cancel-a-running-template-deployment"></a>Annuler le déploiement d’un modèle en cours d’exécution
 
-Pour annuler le déploiement d’un modèle en cours d’exécution, utilisez l’[applet de commande](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell [Stop-AzureRmResourceGroupDeployment](/powershell/scripting/developer/cmdlet/cmdlet-overview).
+Pour annuler le déploiement d’un modèle en cours d’exécution, utilisez l’[applet de commande](/powershell/scripting/developer/cmdlet/cmdlet-overview) PowerShell [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
