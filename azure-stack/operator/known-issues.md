@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 94b90f8a3a648a466ac221a76099a71964e00f9a
-ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
+ms.openlocfilehash: 31ef3ee64eb98b34160e95fee0a228fc32cee589
+ms.sourcegitcommit: 7c10a45a8de0c5c7649e5329ca5b69a0791e37b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202434"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83721876"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Problèmes connus d’Azure Stack Hub
 
@@ -264,12 +264,6 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Cause : Dans le portail utilisateur, lorsque vous sélectionnez un disque managé de type SSD Premium, la liste déroulante affiche **Disque du système d’exploitation**. L’info-bulle en regard de cette option indique **Certaines tailles de disque de système d’exploitation peuvent être disponibles gratuitement avec le compte Azure gratuit**. Toutefois, cela est non valide pour Azure Stack Hub. De plus, la liste inclut **Compte gratuit éligible**, ce qui est également non valide pour Azure Stack Hub.
 - Occurrence : Courant
 
-### <a name="vpn-troubleshoot-and-metrics"></a>Résolution des problèmes liés au VPN et métriques
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, les fonctionnalités **Résolution des problèmes liés au VPN** et **Métriques** figurent dans une ressource de passerelle VPN, mais cela n’est pas pris en charge dans Azure Stack Hub.
-- Occurrence : Courant
-
 ### <a name="delete-a-storage-container"></a>Supprimer un conteneur de stockage
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
@@ -282,12 +276,6 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Dans le portail utilisateur, lorsque vous accédez à **Machines virtuelles** et tentez d’actualiser à l’aide du bouton situé en haut, les états ne sont pas mis à jour correctement.
 - Correction : L’état est automatiquement mis à jour toutes les 5 minutes, que l’utilisateur ait cliqué ou non sur le bouton d’actualisation. Attendez 5 minutes et vérifiez l’état.
-- Occurrence : Courant
-
-### <a name="virtual-network-gateway"></a>Passerelle de réseau virtuel
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, quand vous créez une table de routage, **Passerelle de réseau virtuel** apparaît comme l’une des options de type de tronçon suivant. Toutefois, cela n’est pas pris en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 ### <a name="storage-account-options"></a>Options de compte de stockage
@@ -364,6 +352,12 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 ### <a name="virtual-network-gateway"></a>Passerelle de réseau virtuel
 
+#### <a name="next-hop-type"></a>Type de tronçon suivant
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, quand vous créez une table de routage, **Passerelle de réseau virtuel** apparaît comme l’une des options de type de tronçon suivant. Toutefois, cela n’est pas pris en charge dans Azure Stack Hub.
+- Occurrence : Courant
+
 #### <a name="alerts"></a>Alertes
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
@@ -380,6 +374,10 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Dans le portail utilisateur, le panneau **Connexions** affiche une fonctionnalité appelée **Résolution des problèmes de VPN**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
+- Occurrence : Courant
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, les fonctionnalités **Résolution des problèmes liés au VPN** et **Métriques** figurent dans une ressource de passerelle VPN, mais cela n’est pas pris en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 #### <a name="documentation"></a>Documentation
@@ -525,6 +523,12 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Occurrence : Courant
 
 ### <a name="virtual-network-gateway"></a>Passerelle de réseau virtuel
+
+#### <a name="next-hop-type"></a>Type de tronçon suivant
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, quand vous créez une table de routage, **Passerelle de réseau virtuel** apparaît comme l’une des options de type de tronçon suivant. Toutefois, cela n’est pas pris en charge dans Azure Stack Hub.
+- Occurrence : Courant
 
 #### <a name="alerts"></a>Alertes
 
@@ -689,6 +693,12 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Occurrence : Courant
 
 ### <a name="virtual-network-gateway"></a>Passerelle de réseau virtuel
+
+#### <a name="next-hop-type"></a>Type de tronçon suivant
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Dans le portail utilisateur, quand vous créez une table de routage, **Passerelle de réseau virtuel** apparaît comme l’une des options de type de tronçon suivant. Toutefois, cela n’est pas pris en charge dans Azure Stack Hub.
+- Occurrence : Courant
 
 #### <a name="alerts"></a>Alertes
 
