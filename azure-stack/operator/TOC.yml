@@ -517,7 +517,7 @@
     - name: Formation et certification
       href: azure-stack-train-and-cert.md
     - name: Feuille de route Azure Stack Hub
-      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+      href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
     - name: Forum MSDN Azure Stack Hub
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
     - name: Commentaires sur la documentation Azure Stack Hub
