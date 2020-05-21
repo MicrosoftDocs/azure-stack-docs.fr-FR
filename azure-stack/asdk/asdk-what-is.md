@@ -7,12 +7,12 @@ ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: a37547a7c2e5a737685e370307a1ae8f37d5d363
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 6e58e60e0863e2ef40abc95689430f8e378a4fd4
+ms.sourcegitcommit: e75218d2e04f41620cc09caf04473ad4c7289253
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "79295634"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83708191"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>Qu'est-ce que le Kit de développement Azure Stack (ASDK) ?
 Les [systèmes intégrés Microsoft Azure Stack Hub](../operator/azure-stack-overview.md) ont une taille comprise entre 4 et 16 nœuds, et ils sont pris en charge conjointement par un fournisseur de matériel partenaire et Microsoft. Utilisez des systèmes intégrés Azure Stack Hub afin de permettre de nouveaux scénarios pour vos charges de travail de production. Si vous êtes opérateur Azure Stack Hub gérant l’infrastructure de systèmes intégrés et proposant des offres, consultez notre [documentation destinée à l’opérateur](/azure-stack/operator).
@@ -67,7 +67,7 @@ Actuellement, les services PaaS (Platform-as-a-Service) supplémentaires suivant
 > Ces services nécessitent une configuration supplémentaire avant que vous puissiez les mettre à disposition de vos utilisateurs et ne sont pas disponibles par défaut quand vous installez le Kit ASDK.
 
 ## <a name="service-roadmap"></a>Feuille de route des services
-Azure Stack Hub continuera à prendre en charge de nouveaux services Azure. Pour plus d’informations sur les nouveautés Azure Stack Hub à venir, consultez la [feuille de route d’Azure Stack](https://azure.microsoft.com/roadmap/?tag=azure-stack). 
+Azure Stack Hub continuera à prendre en charge de nouveaux services Azure. Pour plus d’informations sur les nouveautés Azure Stack Hub à venir, consultez la [feuille de route d’Azure Stack](https://azure.microsoft.com/updates/?query=azure%20stack%20hub).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
