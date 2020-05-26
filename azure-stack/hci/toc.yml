@@ -20,10 +20,16 @@
       href: manage/replace-drives.md
     - name: Gérer des clusters
       href: manage/cluster.md
+    - name: Ajouter ou supprimer des serveurs
+      href: manage/add-cluster.md
     - name: Utiliser Azure Site Recovery
       href: manage/azure-site-recovery.md
     - name: Surveiller avec Azure Monitor
       href: manage/azure-monitor.md
+    - name: Gérer les machines virtuelles
+      href: manage/vm.md
+    - name: Gérer les machines virtuelles avec PowerShell
+      href: manage/vm-powershell.md
     - name: Attacher un GPU à une machine virtuelle Linux
       href: manage/attach-gpu-to-linux-vm.md
 - name: Concepts

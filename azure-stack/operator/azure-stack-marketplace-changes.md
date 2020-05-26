@@ -3,16 +3,16 @@ title: Nouveautés de la Place de marché Azure Stack Hub
 description: Découvrez les nouveautés de la Place de marché Azure Stack Hub, dont les éléments nouveaux, dépréciés et mis à jour.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 05/18/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 5d915c34d5752e2b496705a90215715121127409
-ms.sourcegitcommit: e83191c952a89d4ac52bf2606eb2b45075e6a8ba
+ms.openlocfilehash: 952c77069126288bfe41f9775140aea44071580a
+ms.sourcegitcommit: 458ffe9638bd358e6b5d9e79145b4c1b70c3bacd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83382486"
+ms.lasthandoff: 05/18/2020
+ms.locfileid: "83550144"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Changements sur la Place de marché Azure Stack Hub
 
@@ -63,6 +63,9 @@ L’article [Éléments de la Place de marché Azure Stack Hub](azure-stack-mark
 
 ## <a name="updated-marketplace-items"></a>Éléments mis à jour sur la Place de marché
 
+- 15/05/2020 : Bitnami AbanteCart - version 1.2.2004220207
+- 15/05/2020 : Bitnami Canvas LMS - version 2020.5.2005120909
+- 15/05/2020 : Bitnami Neos - version 5.2.2005130917
 - 07/05/2020 : Bitnami ActiveMQ – version 5.15.2003260344
 - 07/05/2020 : Bitnami Akeneo – version 4-3.2.2004230142
 - 07/05/2020 : Bitnami Alfresco Community – version 201911.0.2004242008
@@ -187,11 +190,11 @@ L’article [Éléments de la Place de marché Azure Stack Hub](azure-stack-mark
 - 07/05/2020 : Bitnami Zurmo – version 3.2.2004220512
 - 20/04/2020 : Windows Server 2019 Datacenter BYOL – version 2019.127.20200213
 - 20/04/2020 : Windows Server 2019 Datacenter Payg – version 2019.127.20200213
-- 20/04/2020 : Windows Server 2019 Datacenter Server Core BYOL – version 2019.127.20200204
-- 20/04/2020 : Windows Server 2019 Datacenter Server Core Payg – version 2019.127.20200204
-- 20/04/2020 : Windows Server 2019 Datacenter avec Containers BYOL – version 2019.127.20200204
-- 20/04/2020 : Windows Server 2019 Datacenter avec Containers Payg – version 2019.127. 20200204
-- 20/04/2020 : Windows Server 2019 Datacenter Core avec Containers BYOL – version 2019.127.20200204
+- 20/04/2020 : Windows Server 2019 Datacenter Server Core BYOL - version 2019.127.20200204
+- 20/04/2020 : Windows Server 2019 Datacenter Server Core Payg - version 2019.127.20200204
+- 20/04/2020 : Windows Server 2019 Datacenter avec Containers BYOL - version 2019.127.20200204
+- 20/04/2020 : Windows Server 2019 Datacenter avec Containers Payg - version 2019.127.20200204
+- 20/04/2020 : Windows Server 2019 Datacenter Core avec Containers BYOL - version 2019.127.20200204
 - 20/04/2020 : Windows Server 2019 Datacenter Core avec Containers Payg – version 2019.127.20200204
 - 20/04/2020 : Windows Server 2016 Datacenter – BYOL – version 2016.127.20200131
 - 20/04/2020 : Windows Server 2016 Datacenter – Pay as you use – version 2016.127.20200131
@@ -199,7 +202,7 @@ L’article [Éléments de la Place de marché Azure Stack Hub](azure-stack-mark
 - 20/04/2020 : Windows Server 2016 Datacenter Server Core – Pay as you use – version 2016.127.20200131
 - 20/04/2020 : Windows Server 2016 Datacenter avec Containers – BYOL – version 2016.127.20200131
 - 20/04/2020 : Windows Server 2016 Datacenter avec Containers – Pay as you use – version 2016.127.20200131
-- 20/04/2020 : Windows Server 2012 Datacenter - BYOL - version 3.127.20190521
+- 20/04/2020 : Windows Server 2012 Datacenter - BYOL - version 3.127.20200205
 - 20/04/2020 : Server 2012 R2 Datacenter Pay-as-you-use - version 4.127.20200205
 - 20/04/2020 : Server 2012 R2 Datacenter BYOL - version 4.127.20200205
 - 20/04/2020 : Windows Server 2012 Datacenter - Pay as you use - version 3.127.20200205

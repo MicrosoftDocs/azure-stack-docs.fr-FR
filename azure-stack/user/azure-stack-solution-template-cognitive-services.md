@@ -3,25 +3,41 @@ title: Déployer Azure Cognitive Services sur Azure Stack Hub
 description: Apprenez à déployer Azure Cognitive Services sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 05/13/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ff5dd1ccb8193e9dae3d97401793773e3e28fb4d
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.lastreviewed: 05/13/2020
+ms.openlocfilehash: 857d934a9cb55052a5e27d15943f05f032d05d6c
+ms.sourcegitcommit: d5d89bbe8a3310acaff29a7a0cd7ac4f2cf5bfe7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660187"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83554979"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Déployer Azure Cognitive Services sur Azure Stack Hub
 
-> [!Note]  
-> Azure Cognitive Services sur Azure Stack Hub est disponible en préversion.
-
-Vous pouvez utiliser Azure Cognitive Services avec prise en charge des conteneurs sur Azure Stack Hub. La prise en charge des conteneurs dans Azure Cognitive Services vous permet d’utiliser les mêmes API puissantes que celles disponibles dans Azure. L’utilisation des conteneurs vous offre une flexibilité quant à l’emplacement où vous déployez et hébergez les services délivrés dans des [conteneurs Docker](https://www.docker.com/what-container). La prise en charge des conteneurs est désormais disponible en préversion pour quelques solutions Azure Cognitive Services, dont des composants de [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [Visage](https://docs.microsoft.com/azure/cognitive-services/face/overview), [Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) et [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS).
+Vous pouvez utiliser Azure Cognitive Services avec prise en charge des conteneurs sur Azure Stack Hub. La prise en charge des conteneurs dans Azure Cognitive Services vous permet d’utiliser les mêmes API puissantes que celles disponibles dans Azure. L’utilisation des conteneurs vous offre une flexibilité quant à l’emplacement où vous déployez et hébergez les services délivrés dans des [conteneurs Docker](https://www.docker.com/what-container). 
 
 La mise en conteneur, ou conteneurisation, est une méthode de distribution de logiciels dans laquelle une application ou un service, y compris ses dépendances et sa configuration, est empaqueté(e) dans une image conteneur. Avec peu ou aucune modification, vous pouvez déployer une image sur un hôte de conteneur. Chaque conteneur est isolé des autres conteneurs et du système d’exploitation sous-jacent. Le système proprement dit a uniquement les composants nécessaires pour exécuter votre image. Un hôte de conteneur a un encombrement inférieur à celui d’une machine virtuelle. Vous pouvez également créer des conteneurs à partir d’images pour les tâches à court terme et les supprimer quand vous n’en avez plus besoin.
+
+La prise en charge des conteneurs est actuellement disponible pour une partie des services Azure Cognitive Services :
+
+- Language Understanding
+- Analytique de texte (Sentiment 3.0)
+
+> [!IMPORTANT]
+> Une partie des services Azure Cognitive Services pour Azure Stack Hub est actuellement en préversion publique.
+> La version de révision est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+La prise en charge des conteneurs est actuellement en préversion publique pour une partie des services Azure Cognitive Services :
+
+- Lecture (reconnaissance optique de caractères \[OCR])
+- Extraction d’expressions clés
+- Détection de la langue
+- Détecteur d’anomalies
+- Form Recognizer
+- Reconnaissance vocale (personnalisée, standard)
+- Conversion de texte par synthèse vocale (personnalisée, standard)
 
 ## <a name="use-containers-with-cognitive-services-on-azure-stack-hub"></a>Utiliser des conteneurs avec Cognitive Services sur Azure Stack Hub
 
@@ -45,7 +61,7 @@ Pour plus d’informations sur les conteneurs Cognitive Services, consultez [Pri
 
 Cet article explique comment déployer l'API Visage Azure sur un cluster Kubernetes dans Azure Stack Hub. Vous pouvez adopter la même approche pour déployer d'autres conteneurs Cognitive Services sur des clusters Kubernetes d'Azure Stack Hub.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, vous devez :
 
@@ -57,7 +73,7 @@ Avant de commencer, vous devez :
 
 Créez une ressource Cognitive Services sur Azure pour afficher un aperçu des conteneurs Visage, LUIS ou Reconnaître le texte. Vous devez utiliser la clé d’abonnement et l’URL de point de terminaison de la ressource pour instancier les conteneurs Cognitive Services.
 
-1. Créez une ressource Azure dans le portail Azure. Si vous souhaitez afficher un aperçu des conteneurs Visage, vous devez d’abord créer une ressource Visage correspondante dans le portail Azure. Pour plus d’informations, consultez [Démarrage rapide : créer un compte Cognitive Services dans le portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Créez une ressource Azure dans le portail Azure. Si vous souhaitez afficher un aperçu des conteneurs Visage, vous devez d’abord créer une ressource Visage correspondante dans le portail Azure. Pour plus d’informations, consultez [Démarrage rapide : Créer un compte Cognitive Services dans le portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
    > [!Note]
    >  La ressource Visage ou Vision par ordinateur doit utiliser le niveau tarifaire F0.
@@ -141,12 +157,37 @@ Détails concernant les principaux champs :
 Utilisez la commande suivante pour déployer les conteneurs Cognitive Services :
 
 ```bash  
-    Kubectl apply -f <yamlFineName>
+    Kubectl apply -f <yamlFileName>
 ```
 Utilisez la commande suivante pour superviser le déploiement : 
 ```bash  
     Kubectl get pod - watch
 ```
+
+## <a name="configure-http-proxy-settings"></a>Configurer les paramètres du proxy HTTP
+
+Les nœuds worker nécessitent un proxy et SSL. Pour configurer un proxy HTTP afin d’effectuer des demandes sortantes, utilisez les deux arguments suivants :
+
+- **HTTP_PROXY** : le proxy à utiliser, par exemple `https://proxy:8888`
+- **HTTP_PROXY_CREDS** : toutes les informations d’identification nécessaires pour s’authentifier auprès du proxy, par exemple `username:password`.
+
+### <a name="set-up-the-proxy"></a>Configurer le proxy
+
+1. Ajoutez un fichier `http-proxy.conf` aux deux emplacements :
+    - `/etc/system/system/docker.service.d/`
+    - `/cat/etc/environment/`
+
+2. Vérifiez que vous pouvez vous connecter au conteneur à l’aide des informations d’identification fournies par l’équipe Cognitive Services et exécutez une commande `docker pull` dans le conteneur suivant : 
+
+    `docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest`
+
+    Exécutez :
+
+    `docker run hello-world pull`
+
+### <a name="ssl-interception-setup"></a>Configuration de l’interception SSL
+
+1. Ajoutez le certificat **https interception** à `/usr/local/share/ca-certificates` et mettez à jour le magasin avec `update-ca-certificates`. 
 
 ## <a name="test-the-cognitive-service"></a>Tester le service cognitif
 
