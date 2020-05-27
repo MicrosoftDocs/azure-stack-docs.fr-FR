@@ -20,6 +20,8 @@
       href: manage/replace-drives.md
     - name: Gérer des clusters
       href: manage/cluster.md
+    - name: Gérer des clusters avec PowerShell
+      href: manage/cluster-powershell.md
     - name: Ajouter ou supprimer des serveurs
       href: manage/add-cluster.md
     - name: Utiliser Azure Site Recovery
