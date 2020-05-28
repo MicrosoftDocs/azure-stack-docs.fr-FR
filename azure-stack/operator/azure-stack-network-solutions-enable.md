@@ -3,16 +3,16 @@ title: Ajouter Fortinet FortiGate à la Place de marché Azure Stack Hub
 description: Découvrez comment ajouter Fortinet FortiGate à votre Place de marché Azure Stack Hub, ce qui permet aux utilisateurs de créer des solutions réseau.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: fb9c8bbb16bcbbee5e1316522aff99752354ef7f
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 12dc8715b90aa257953b5dc13bf671c9264aea8d
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375107"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111167"
 ---
 # <a name="offer-a-network-solution-in-azure-stack-hub-with-fortinet-fortigate"></a>Proposer une solution réseau dans Azure Stack Hub avec Fortinet FortiGate
 

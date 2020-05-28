@@ -3,16 +3,16 @@ title: Se connecter à Azure Stack Hub en tant qu’utilisateur avec PowerShell
 description: Apprenez à vous connecter à Azure Stack Hub avec PowerShell.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 3656a5a6a992788ca8d4d975ac819f69793edb02
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: a8fa6f179b2ff310a291d10f40b2f9a5eaa4e2d9
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702038"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111784"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>Se connecter à Azure Stack Hub en tant qu’utilisateur avec PowerShell
 

@@ -2,17 +2,17 @@
 title: Différences propres à la mise en réseau Azure Stack Hub
 description: Découvrez les différences et considérations de mise en réseau dans Azure Stack Hub.
 author: mattbriggs
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: e1bdb6425848db2c796fed93520da3b5ef982ee3
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2a71320a660c7dbf74ad885226bb7fcbfa78b35f
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81274070"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111384"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Différences et considérations de mise en réseau Azure Stack Hub
 

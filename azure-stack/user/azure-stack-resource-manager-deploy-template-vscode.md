@@ -3,16 +3,16 @@ title: Déployer avec Visual Studio Code dans Azure Stack Hub
 description: En tant qu’utilisateur, je souhaite créer un modèle Azure Resource Manager dans Visual Studio Code et utiliser le schéma de déploiement pour préparer un modèle compatible avec ma version d’Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: d70c44b35612ffb7642a0ee79b5820dba7b66532
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 8f0205425b49ee9e828056e5613a8166d02d95d9
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701885"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111623"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>Déployer avec Visual Studio Code dans Azure Stack Hub
 

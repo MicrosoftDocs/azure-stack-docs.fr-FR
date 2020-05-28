@@ -3,16 +3,16 @@ title: Se connecter à Azure Stack Hub
 description: Découvrez comment vous connecter à Azure Stack Hub.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 0a3dfcc7d12baa6616f57908e87d24afaf1e927e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1b4db2cf67231f8660948af43d4935bbcf9c846c
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295382"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111895"
 ---
 # <a name="connect-to-azure-stack-hub"></a>Se connecter à Azure Stack Hub
 

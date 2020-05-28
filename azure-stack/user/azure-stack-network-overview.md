@@ -3,16 +3,16 @@ title: Présentation de la gestion de réseau Azure Stack Hub
 description: En savoir plus sur la gestion de réseau Azure Stack Hub
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 4c96dcc4a9405e22513ecd33e7aa4c7415ac257b
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1e850e766300ff4d1b24328ba47c8458a903732a
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702123"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111946"
 ---
 # <a name="introduction-to-azure-stack-hub-networking"></a>Présentation de la gestion de réseau Azure Stack Hub
 

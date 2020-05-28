@@ -2,15 +2,15 @@
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: include
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: b053d1e561a7f8e34db898b5433c117a866ed2d3
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: e038e35ebd651b62be5e26c9b417fe661c83cede
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "76694503"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84124471"
 ---
 (Facultatif) Libellez le flux de travail avec des étiquettes de votre choix. Vous pouvez filtrer les flux de travail en fonction de ce texte lors de la gestion des flux de travail pour la solution.

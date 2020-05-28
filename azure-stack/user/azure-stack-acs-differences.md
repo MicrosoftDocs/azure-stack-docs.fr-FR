@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Découvrez les différences entre le stockage Azure Stack Hub et le stockage Azure, ainsi que les points à prendre en compte lorsque vous déployez Azure Stack Hub.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: 47e8935e67185b91b73591a28ba3e453e827e708
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 4206ebb6e8195c43ad043f09567d0911222c1e20
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81394967"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111929"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Stockage Azure Stack Hub : Différences et considérations
 
