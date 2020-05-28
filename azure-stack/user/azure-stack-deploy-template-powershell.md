@@ -3,16 +3,16 @@ title: Déployer un modèle à l’aide de PowerShell dans Azure Stack Hub
 description: Déployez un modèle à l’aide de PowerShell dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: 9081464e05825cbd211f043818e841276a840303
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7c8c27374b7ba114dc09297c2f0112d3f0f9579d
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704265"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112152"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack-hub"></a>Déployer un modèle à l’aide de PowerShell dans Azure Stack Hub
 
