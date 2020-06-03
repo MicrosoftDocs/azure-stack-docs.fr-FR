@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: cda4a78a507f94d5e40f723cb5489a9e79990d50
-ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
+ms.openlocfilehash: 497a051c67b05683a874de955c069256c19bba9a
+ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82988297"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780787"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Inscrire Azure Stack Hub auprès d’Azure
 
@@ -252,7 +252,7 @@ Si vous inscrivez Azure Stack Hub dans un environnement déconnecté (sans conne
 
 ### <a name="connect-to-azure-and-register"></a>Se connecter à Azure et s’inscrire
 
-Sur l’ordinateur qui est connecté à Internet, effectuez les mêmes étapes pour importer le module RegisterWithAzure.psm1 et vous connecter au bon contexte Azure Powershell. Appelez ensuite Register-AzsEnvironment. Spécifiez le jeton d’inscription pour vous inscrire auprès d’Azure. Si vous inscrivez plusieurs instances Azure Stack Hub en utilisant le même ID d’abonnement Azure, spécifiez un nom d’inscription unique.
+Sur l’ordinateur qui est connecté à Internet, effectuez les mêmes étapes pour importer le module RegisterWithAzure.psm1 et vous connecter au bon contexte Azure PowerShell. Appelez ensuite Register-AzsEnvironment. Spécifiez le jeton d’inscription pour vous inscrire auprès d’Azure. Si vous inscrivez plusieurs instances Azure Stack Hub en utilisant le même ID d’abonnement Azure, spécifiez un nom d’inscription unique.
 
 Vous avez besoin de votre jeton d’inscription et d’un nom de jeton unique.
 
@@ -357,22 +357,40 @@ Vous devez mettre à jour ou renouveler votre inscription dans les cas suivants�
 - Lorsque vous changez de modèle de facturation.
 - Lorsque vous mettez à l’échelle des modifications (ajout/suppression de nœuds) pour la facturation basée sur la capacité.
 
+### <a name="prerequisites"></a>Prérequis
+
+Vous avez besoin d’obtenir les informations suivantes à partir du [portail administrateur](#verify-azure-stack-hub-registration) pour renouveler ou modifier une inscription :
+
+| Portail administrateur | Paramètre d’applet de commande | Notes | 
+|-----|-----|-----|
+| ID D’ABONNEMENT DE L’INSCRIPTION | Abonnement | ID d’abonnement utilisé lors de l’inscription précédente |
+| GROUPE DE RESSOURCES DE L’INSCRIPTION | ResourceGroupName | Groupe de ressources sous lequel la ressource de l’inscription précédente existe |
+| NOM DE L’INSCRIPTION | RegistrationName | Nom de l’inscription utilisé lors de l’inscription précédente |
+
 ### <a name="change-the-subscription-you-use"></a>Modifier l’abonnement que vous utilisez
 
-Pour modifier l’abonnement que vous utilisez, vous devez d’abord exécuter l’applet de commande **Remove-AzsRegistration**, puis vous assurer d’être connecté au contexte Azure PowerShell correct. Ensuite, exécutez **Set-AzsRegistration** avec les paramètres modifiés, y compris `<billing model>`. Lors de l’exécution de **Remove-AzsRegistration**, vous devez être connecté à l’abonnement utilisé pendant l’inscription et vous servir des valeurs des paramètres `RegistrationName` et `ResourceGroupName`, comme indiqué dans le portail d’administration [Find current registration details](#verify-azure-stack-hub-registration) (Trouver les détails de l’inscription actuelle) :
+Pour modifier l’abonnement que vous utilisez, vous devez d’abord exécuter l’applet de commande **Remove-AzsRegistration**, puis vous assurer d’être connecté au contexte Azure PowerShell correct. Ensuite, exécutez **Set-AzsRegistration** avec les paramètres modifiés, y compris `<billing model>`. Lors de l’exécution de **Remove-AzsRegistration**, vous devez être connecté à l’abonnement utilisé pendant l’inscription et vous servir des valeurs des paramètres `RegistrationName` et `ResourceGroupName`, comme indiqué dans le [portail administrateur](#verify-azure-stack-hub-registration) :
 
   ```powershell  
+  # select the subscription used during the registration (shown in portal)
+  Select-AzureRmSubscription -Subscription '<Registration subscription ID from portal>'
+  # unregister using the parameter values from portal
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
-  Set-AzureRmContext -SubscriptionId $NewSubscriptionId
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
+  # switch to new subscription id
+  Select-AzureRmSubscription -Subscription '<New subscription ID>'
+  # register 
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' --ResourceGroupName '<Registration resource group name>'
   ```
 
-### <a name="change-the-billing-model-or-how-to-offer-features"></a>Modifier le modèle de facturation ou la façon dont les fonctionnalités sont offertes
+### <a name="change-billing-model-how-features-are-offered-or-re-register-your-instance"></a>Modifier le modèle de facturation, la manière dont les fonctionnalités sont proposées ou réinscrire votre instance
 
-Si vous souhaitez modifier le modèle de facturation ou la façon dont les fonctionnalités sont proposées pour votre installation, vous pouvez appeler la fonction d’inscription pour définir les nouvelles valeurs. Vous n’avez pas besoin de commencer par supprimer l’inscription actuelle :
+Cette section s’applique si vous voulez modifier le modèle de facturation, la manière dont les fonctionnalités sont proposées ou si vous voulez réinscrire votre instance. Pour tous ces cas, vous appelez la fonction d’inscription pour définir les nouvelles valeurs. Vous n’avez pas besoin de commencer par supprimer l’inscription actuelle. Connectez-vous à l’ID d’abonnement affiché dans le [portail administrateur](#verify-azure-stack-hub-registration), puis réexécutez l’inscription avec une nouvelle valeur `BillingModel` tout en conservant les valeurs des paramètres `RegistrationName` et `ResourceGroupName` comme indiqué dans le [portail administrateur](#verify-azure-stack-hub-registration) :
 
   ```powershell  
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
+  # select the subscription used during the registration
+  Select-AzureRmSubscription -Subscription '<Registration subscription ID from portal>'
+  # rerun registration with new BillingModel (or same billing model in case of re-registration) but using other parameters values from portal
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<New billing model>' -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
   ```
 ::: zone-end
 
@@ -389,7 +407,7 @@ Vous devez d’abord supprimer la ressource d’activation d’Azure Stack Hub, 
 
 Pour supprimer la ressource d’activation d’Azure Stack Hub, exécutez les cmdlets PowerShell suivantes dans votre environnement Azure Stack Hub :  
 
-  ```Powershell
+  ```powershell
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
@@ -397,21 +415,20 @@ Ensuite, pour supprimer la ressource d’inscription dans Azure, vérifiez que v
 
 Vous pouvez utiliser le jeton d’inscription utilisé pour créer la ressource :  
 
-  ```Powershell
+  ```powershell
   $RegistrationToken = "<registration token>"
   Unregister-AzsEnvironment -RegistrationToken $RegistrationToken
   ```
 
-Vous pouvez également utiliser le nom d’inscription :
+Vous pouvez utiliser le nom de l’inscription et celui du groupe de ressources de l’inscription obtenus à partir du [portail administrateur](#verify-azure-stack-hub-registration) :
 
-  ```Powershell
-  $RegistrationName = "AzureStack-<unique-registration-name>"
-  Unregister-AzsEnvironment -RegistrationName $RegistrationName
+  ```powershell
+  Unregister-AzsEnvironment -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
   ```
 
 ### <a name="re-register-using-connected-steps"></a>Effectuer une réinscription à l’aide des étapes connectées
 
-Si vous remplacez votre modèle de facturation selon la capacité dans un état déconnecté par le modèle de facturation de la consommation dans un état connecté, vous allez effectuer une réinscription en suivant les [étapes de modèle connectées](azure-stack-registration.md?pivots=state-connected#change-the-billing-model-or-how-to-offer-features). 
+Si vous remplacez votre modèle de facturation selon la capacité dans un état déconnecté par le modèle de facturation de la consommation dans un état connecté, vous allez effectuer une réinscription en suivant les [étapes de modèle connectées](azure-stack-registration.md?pivots=state-connected#change-billing-model-how-features-are-offered-or-re-register-your-instance). 
 
 >[!Note] 
 >Cela ne modifie pas votre modèle d’identité, uniquement le mécanisme de facturation, et vous continuerez à utiliser ADFS comme source d’identité.
@@ -423,7 +440,7 @@ Vous avez maintenant complètement annulé l’inscription dans un scénario dé
 
 ### <a name="disable-or-enable-usage-reporting"></a>Désactiver ou activer les rapports d’utilisation
 
-Pour les environnements Azure Stack Hub qui utilisent un modèle de facturation selon la capacité, désactivez la création de rapports d’utilisation avec le paramètre **UsageReportingEnabled** en utilisant la cmdlet **Set-AzsRegistration** ou ** Get-AzsRegistrationToken**. Azure Stack Hub crée par défaut des rapports sur les métriques d’utilisation. Les opérateurs qui se basent sur la capacité ou qui gèrent un environnement déconnecté doivent désactiver la génération de rapports d’utilisation.
+Pour les environnements Azure Stack Hub qui utilisent un modèle de facturation selon la capacité, désactivez la création de rapports d’utilisation avec le paramètre **UsageReportingEnabled** en utilisant la cmdlet **Set-AzsRegistration** ou  **Get-AzsRegistrationToken**. Azure Stack Hub crée par défaut des rapports sur les métriques d’utilisation. Les opérateurs qui se basent sur la capacité ou qui gèrent un environnement déconnecté doivent désactiver la génération de rapports d’utilisation.
 
 ::: zone pivot="state-connected"
 Exécutez les applets de commande PowerShell suivantes :

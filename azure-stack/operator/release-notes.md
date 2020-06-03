@@ -3,16 +3,16 @@ title: Notes de publication d’Azure Stack Hub
 description: Notes de publication des systèmes intégrés Azure Stack Hub, y compris les mises à jour et les correctifs de bogues.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 05/21/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 54f993cd76f0d850e0dd82a2e1b9817806f2c517
-ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
+ms.openlocfilehash: d8da583fbf954857e2331ce963ec2ae7f0883ea2
+ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82988322"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780800"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Notes de publication d’Azure Stack Hub
 
@@ -162,7 +162,7 @@ Les correctifs logiciels Azure Stack Hub s’appliquent uniquement aux systèmes
 La version 2002 d’Azure Stack Hub doit être appliquée sur la version 1910 avec les correctifs logiciels suivants :
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack Hub 1.1910.37.132](https://support.microsoft.com/help/4550133)
+- [Correctif logiciel Azure Stack Hub 1.1910.40.138](https://support.microsoft.com/help/4558082)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>Après l’application de la mise à jour 2002
 
@@ -319,14 +319,14 @@ Les correctifs logiciels Azure Stack Hub s’appliquent uniquement aux systèmes
 La version 1910 d’Azure Stack Hub doit être appliquée sur la version 1908 avec les correctifs logiciels suivants :
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack Hub 1.1908.25.78](https://support.microsoft.com/help/4552361)
+- [Correctif logiciel Azure Stack Hub 1.1908.29.87](https://support.microsoft.com/help/4558083)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>Après l’application de la mise à jour 1910
 
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez notre [stratégie de maintenance](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack Hub 1.1910.37.132](https://support.microsoft.com/help/4550133)
+- [Correctif logiciel Azure Stack Hub 1.1910.40.138](https://support.microsoft.com/help/4558082)
 ::: moniker-end
 
 ::: moniker range="azs-1908"
@@ -405,7 +405,7 @@ La mise à jour 1908 d’Azure Stack Hub nécessite la **version 2.1 ou ultéri
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez notre [stratégie de maintenance](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack Hub 1.1908.25.78](https://support.microsoft.com/help/4552361)
+- [Correctif logiciel Azure Stack Hub 1.1908.29.87](https://support.microsoft.com/help/4558083)
 ::: moniker-end
 
 ::: moniker range="azs-1907"

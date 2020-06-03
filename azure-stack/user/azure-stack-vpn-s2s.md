@@ -1,17 +1,18 @@
 ---
-title: Configurer des connexions VPN site à site IPsec/IKE
+title: Configurer des connexions VPN site à site IPsec/IKE dans Azure Stack Hub
 description: Découvrez et configurez la stratégie IPsec/IKE pour les connexions VPN site à site ou les connexions de réseau virtuel à réseau virtuel dans Azure Stack Hub.
 author: sethmanheim
+ms.custom: contperfq4
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 05/21/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 2456bd234b8affaecf061871ca701f45088f17c4
-ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
+ms.openlocfilehash: fdc1f71e5d4c5afa8b3989b69795d150cf96de67
+ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82967792"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780679"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN site à site
 
@@ -38,9 +39,17 @@ Notez les points importants suivants concernant l’utilisation de ces stratégi
 
 - Consulter les spécifications de votre fournisseur de périphérique VPN pour vous assurer que la stratégie est prise en charge sur vos périphériques VPN locaux. Les connexions site à site ne peuvent pas être établies si les stratégies sont incompatibles.
 
-## <a name="part-1---workflow-to-create-and-set-ipsecike-policy"></a>Partie 1 - Workflow de création et de définition d’une stratégie IPsec/IKE
+### <a name="prerequisites"></a>Prérequis
 
-Cette section décrit le workflow nécessaire pour créer et mettre à jour la stratégie IPsec/IKE sur une connexion VPN site à site :
+Avant de commencer, vérifiez que les conditions préalables suivantes sont remplies :
+
+- Un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
+
+- Applets de commande Azure Resource Manager PowerShell. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installer PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md).
+
+## <a name="part-1---create-and-set-ipsecike-policy"></a>Partie 1 : Créer et définir une stratégie IPsec/IKE
+
+Cette section décrit les étapes nécessaires pour créer et mettre à jour la stratégie IPsec/IKE sur une connexion VPN site à site :
 
 1. Créer un réseau virtuel et une passerelle VPN
 
@@ -58,7 +67,7 @@ Les instructions de cet article vous aident à préparer et configurer les strat
 
 ## <a name="part-2---supported-cryptographic-algorithms-and-key-strengths"></a>Partie 2 - Algorithmes de chiffrement pris en charge et forces des clés
 
-Le tableau suivant liste les algorithmes de chiffrement pris en charge et les forces de clés configurables par les clients Azure Stack Hub :
+Le tableau suivant liste les algorithmes de chiffrement pris en charge et les forces de clés configurables par Azure Stack Hub :
 
 | IPsec/IKEv2                                          | Options                                                                  |
 |------------------------------------------------------|--------------------------------------------------------------------------|
@@ -81,7 +90,7 @@ Le tableau suivant liste les algorithmes de chiffrement pris en charge et les fo
   - Groupe PFS (Mode rapide/Phase 2).
   - Les durées de vie de l’AS sont uniquement des spécifications locales et n’ont pas besoin de correspondre.
 
-- Si GCMAES est utilisé pour l’algorithme de chiffrement IPsec, vous devez sélectionner le même algorithme GCMAES et la même longueur de clé pour l’intégrité IPsec. Par exemple : utilisation de GCMAES128 pour les deux.
+- Si GCMAES est utilisé comme algorithme de chiffrement IPsec, vous devez sélectionner le même algorithme GCMAES et la même longueur de clé pour l’intégrité IPsec. Par exemple, vous devez utiliser GCMAES128 pour les deux.
 
 - Dans le tableau précédent :
 
@@ -112,14 +121,6 @@ Cette section vous guide tout au long des étapes de création d’une connexion
 ![stratégie site à site](media/azure-stack-vpn-s2s/site-to-site.svg)
 
 Pour obtenir des instructions détaillées sur la création d’une connexion VPN site à site, consultez[Créer une connexion VPN site à site](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell).
-
-### <a name="prerequisites"></a>Prérequis
-
-Avant de commencer, vérifiez que les conditions préalables suivantes sont remplies :
-
-- Un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
-
-- Applets de commande Azure Resource Manager PowerShell. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installer PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md).
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>Étape 1 : création du réseau virtuel, de la passerelle VPN et de la passerelle de réseau local
 
@@ -226,9 +227,9 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupNam
 
 La section précédente a expliqué comment gérer la stratégie IPsec/IKE pour une connexion site à site existante. Cette section décrit les opérations suivantes sur une connexion :
 
-1. Afficher la stratégie IPsec/IKE d’une connexion.
-2. Ajouter la stratégie IPsec/IKE à une connexion ou la mettre à jour.
-3. Supprimer la stratégie IPsec/IKE d’une connexion.
+- Afficher la stratégie IPsec/IKE d’une connexion.
+- Ajouter la stratégie IPsec/IKE à une connexion ou la mettre à jour.
+- Supprimer la stratégie IPsec/IKE d’une connexion.
 
 > [!NOTE]
 > Une stratégie IPsec/IKE est prise en charge uniquement sur des passerelles VPN *Standard* et *HighPerformance* basées sur itinéraires. Elle ne fonctionne pas sur la référence de passerelle *De base*.
