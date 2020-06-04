@@ -3,16 +3,16 @@ title: Guide pratique pour utiliser une clé publique SSH avec Azure Stack Hub
 description: Guide pratique pour utiliser une clé publique SSH
 author: mattbriggs
 ms.topic: overview
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 5f65b0ff096fbf84b140406b7cb98fdbdf5b0b11
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 1b5a83d8fa6626233acc3abbde69494310cbd06e
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "79295628"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146918"
 ---
 # <a name="use-an-ssh-public-key"></a>Utiliser une clé publique SSH
 
@@ -83,7 +83,7 @@ Avant de vous connecter, il vous faut :
 
     ![Volet de configuration de PuTTY - Clé privée SSH](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-set-private-key.png)
 
-5. À côté de la zone **Private key file for authentication** (Fichier de clé privée pour l’authentification), sélectionnez **Browse** (Parcourir), puis recherchez le fichier de clé privée ( *\<nomfichier>.ppk*) correspondant à votre paire de clés privée-publique.
+5. À côté de la zone **Private key file for authentication** (Fichier de clé privée pour l’authentification), sélectionnez **Browse** (Parcourir), puis recherchez le fichier de clé privée ( *\<filename>.ppk*) correspondant à votre paire de clés privée-publique.
 6. Dans l’arborescence **Category**, sélectionnez **Session**.
 
     ![Volet de configuration de PuTTY - Zone « Saved Sessions »](media/azure-stack-dev-start-howto-ssh-public-key/003-puTTY-save-session.png)
@@ -114,7 +114,7 @@ Pour déplacer des fichiers de et vers votre machine Linux, vous pouvez utiliser
     ![Volet Paramètres de FileZilla](media/azure-stack-dev-start-howto-ssh-public-key/006-filezilla-add-private-key.png)
 
 1. Dans l’arborescence **Sélectionner une page**, développez **Connexion**, puis sélectionnez **SFTP**.
-1. Sélectionnez **Ajouter un fichier de clé**, puis entrez votre fichier de clé privée (par exemple, *\<nomfichier>.ppk*).
+1. Sélectionnez **Ajouter un fichier de clé**, puis entrez votre fichier de clé privée (par exemple, *\<filename>.ppk*).
 1. Sélectionnez **OK**.
 
 ### <a name="open-your-connection"></a>Ouvrir la connexion
