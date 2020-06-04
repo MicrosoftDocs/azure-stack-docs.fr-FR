@@ -3,16 +3,16 @@ title: Déployer une application Ruby sur une machine virtuelle dans Azure Stack
 description: Déployez une application Ruby sur une machine virtuelle dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: overview
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 2f4a9d31c1121387efc2310b25703344a85ea5ab
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 58706a248036d38027208518177a89c69922591a
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77704112"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146833"
 ---
 # <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack-hub"></a>Déployer une application web Ruby sur une machine virtuelle dans Azure Stack Hub
 

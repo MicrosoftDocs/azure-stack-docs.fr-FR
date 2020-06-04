@@ -3,16 +3,16 @@ title: Déployer une application Node.js sur une machine virtuelle dans Azure St
 description: Déployez une application Node.js dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: overview
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/20
-ms.openlocfilehash: 3166982098c68760f4f20f4094038f2ab275b73f
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: d264f48864591a7205bf3a116e14c590e5083262
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77703058"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146663"
 ---
 # <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack-hub"></a>Déployer une application web Node.js sur une machine virtuelle dans Azure Stack Hub
 
