@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 5277e908fa9f3c5d8fbcebf28b4d766045d03187
-ms.sourcegitcommit: 999c6cd0ab64cd2d695feb8405a9c720c9ae755b
+ms.openlocfilehash: 361fefb0cfac67d5d55c9b3391da68877d695da3
+ms.sourcegitcommit: f4c2d5b87bc86ac4accb4d4df5b731b67d1a346c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83342950"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84203117"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>Résoudre les problèmes de connexion VPN de site à site
 
@@ -32,6 +32,8 @@ Les paramètres par défaut d’Azure Stack Hub pour IPsec/IKEV2 ont changé [à
 - Vérifiez que la configuration VPN est basée sur le routage (IKEv2). Azure Stack Hub ne prend pas en charge les configurations (IKEv1) basées sur des stratégies.
 
 - Vérifiez si vous utilisez un [appareil VPN et une version de système d’exploitation validés](/azure/vpn-gateway/vpn-gateway-about-vpn-devices#devicetable). Si l’appareil n’est pas un périphérique VPN validé, vous devez contacter son fabricant pour en vérifier la compatibilité.
+
+- Vérifiez qu’il n’existe aucune plage d’adresses IP qui se chevauche entre le réseau virtuel Azure Stack Hub et le réseau local. Cela peut entraîner des problèmes de connectivité. 
 
 - Vérifiez les adresses IP de pair VPN :
 

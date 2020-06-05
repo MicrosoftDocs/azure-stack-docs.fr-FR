@@ -7,12 +7,12 @@ ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 4b193ada5c9a188b725ea88dc2d5f54905a5e537
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: d4cd7b00b00f4447f9ba9a8bc341452ae6464897
+ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375079"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84158331"
 ---
 # <a name="usage-and-billing-registration-error-codes"></a>Codes d’erreur d’inscription d’utilisation et de facturation
 
@@ -23,7 +23,7 @@ Si vous êtes un fournisseur de solutions Cloud (CSP), les messages d’erreur s
 | Error   | Détails  | Commentaires  |
 |---|---|---|
 | RegistrationNotFound | L’inscription fournie est introuvable. Vérifiez que les informations suivantes ont été fournies correctement :<br>1. Identificateur d’abonnement (valeur fournie : **identificateur de l’abonnement**),<br>2. Groupe de ressources (valeur fournie : **groupe de ressources**),<br>3. Nom d’inscription (valeur fournie : **nom de l’inscription**). | Cette erreur se produit généralement quand les informations pointant vers l’inscription initiale ne sont pas correctes. Pour vérifier le groupe de ressources et le nom de votre inscription, consultez le portail Azure, en répertoriant toutes les ressources. Si vous trouvez plusieurs ressources d’inscription, examinez la valeur **CloudDeploymentID** dans les propriétés, puis sélectionnez l’inscription dont la valeur **CloudDeploymentID** correspond à celle de votre cloud. Pour trouver la valeur **CloudDeploymentID**, vous pouvez utiliser la commande PowerShell suivante sur Azure Stack Hub :<br>`$azureStackStampInfo = Invoke-Command -Session $session -ScriptBlock { Get-AzureStackStampInformation }` |
-| BadCustomerSubscriptionId | L’**identificateur d’abonnement du client** et l’identificateur d’abonnement du **nom d’inscription** fournis ne sont pas détenus par le même fournisseur de solutions Cloud Microsoft. Vérifiez que l’identificateur d’abonnement du client est correct. Si le problème persiste, contactez le support technique. | Cette erreur survient quand l’abonnement du client est un abonnement CSP, mais qu’il est associé à un partenaire CSP différent de celui auquel est associé l’abonnement utilisé pour l’inscription initiale. Cette vérification est effectuée afin d’éviter une situation qui entraînerait la facturation d’un partenaire CSP non responsable de l’environnement Azure Stack Hub utilisé. |
+| BadCustomerSubscriptionId | L’**identificateur d’abonnement du client** et l’identificateur d’abonnement du **nom d’inscription** fournis ne sont pas détenus par le même fournisseur de solutions Cloud Microsoft. Vérifiez que l’identificateur d’abonnement du client est correct. L’ID de l’abonnement client est sensible à la casse. Si le problème persiste, contactez le support technique. | Cette erreur survient quand l’abonnement du client est un abonnement CSP, mais qu’il est associé à un partenaire CSP différent de celui auquel est associé l’abonnement utilisé pour l’inscription initiale. Cette vérification est effectuée afin d’éviter une situation qui entraînerait la facturation d’un partenaire CSP non responsable de l’environnement Azure Stack Hub utilisé. |
 | InvalidCustomerSubscriptionId  | La valeur de l’**identificateur d’abonnement du client** n’est pas valide. Vérifiez qu’un abonnement Azure valide est fourni. |   |
 | CustomerSubscriptionNotFound  | L’**identificateur d’abonnement du client** est introuvable sous le **nom d’inscription**. Vérifiez qu’un abonnement Azure valide est utilisé et que l’identificateur d’abonnement a été ajouté à l’inscription à l’aide de l’opération PUT. | Cette erreur se produit quand vous tentez de vérifier qu’un locataire a été ajouté à un abonnement et que l’abonnement du client est introuvable pour être associé à l’inscription. Le client n’a pas été ajouté à l’inscription, ou l’ID de l’abonnement a été écrit de manière incorrecte. |
 | UnauthorizedCspRegistration | Le **nom d’inscription** fourni n’est pas approuvé pour utiliser la multilocation. Envoyez un e-mail à azstCSP@microsoft.com et incluez le nom, le groupe de ressources et l’identificateur d’abonnement de votre inscription utilisés pour l’inscription. | Une inscription doit être approuvée pour la multi-location par Microsoft avant que vous puissiez y ajouter des locataires. |

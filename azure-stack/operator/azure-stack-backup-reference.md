@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: cdbe5150b72a720fa527d3bb1b1e32f5a66a6955
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0760e7d796c6e17c88089675fa6ff659eb684cc7
+ms.sourcegitcommit: 721b82b3a1711f2825ec76ab6d75964b4f508631
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295562"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84301026"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Informations de référence sur le service Infrastructure Backup
 
@@ -111,6 +111,15 @@ Il est recommandé de sauvegarder au moins deux fois par jour et de conserver s
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Partage de fichiers SMB hébergé sur un dispositif de stockage dans l’environnement réseau approuvé | Le port 445 est obligatoire si l’instance Azure Stack Hub réside dans un environnement protégé par un pare-feu. Infrastructure Backup Controller se connecte au serveur de fichiers SMB sur le port 445. |
 | Pour être utilisé, le nom de domaine complet du serveur de fichiers doit pouvoir être résolu à partir du PEP.             |                                                                                                                                                                                         |
+
+#### <a name="firewall-rules"></a>Règles de pare-feu
+Veillez à configurer des règles de pare-feu pour autoriser la connectivité entre les machines virtuelles ERCS dans l’emplacement de stockage externe. 
+
+| Source | Cible | Protocole/Port |
+|------------------|-----------------------|--------------------------------|
+| ERCS VM 1        | Emplacement de stockage      | 445/SMB                        |
+| ERCS VM 2        | Emplacement de stockage      | 445/SMB                        |
+| ERCS VM 3        | Emplacement de stockage      | 445/SMB                        |
 
 > [!Note]  
 > Il n’est pas nécessaire d’ouvrir des ports d’entrée.

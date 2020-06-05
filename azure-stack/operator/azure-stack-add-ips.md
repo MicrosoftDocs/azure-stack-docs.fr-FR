@@ -3,20 +3,22 @@ title: Ajouter des adresses IP publiques dans Azure Stack Hub
 description: Apprenez à ajouter des adresses IP publiques dans Azure Stack Hub.
 author: justinha
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 05/28/2020
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 8cd89a90cb29c802c79e900e07cdb50bfe9c0894
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 423f274dab5569273cc35ec4aac6b082326217f3
+ms.sourcegitcommit: f4c2d5b87bc86ac4accb4d4df5b731b67d1a346c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847909"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84203134"
 ---
 # <a name="add-public-ip-addresses"></a>Ajouter des adresses IP publiques
 
-Dans cet article, nous faisons référence aux adresses externes en tant qu’adresses IP publiques. Dans le contexte d’Azure Stack Hub, une adresse IP publique est une adresse IP accessible à partir de l’extérieur d’Azure Stack Hub. Que ce réseau externe soit routable sur l’Internet public ou sur un intranet, et qu’il utilise un espace d’adressage privée, n’est pas vraiment important dans cet article : les étapes sont les mêmes.
+Dans cet article, nous faisons référence aux adresses externes en tant qu’adresses IP publiques. Dans le contexte d’Azure Stack Hub, une adresse IP publique est une adresse IP accessible à partir de l’extérieur d’Azure Stack Hub. Que ce réseau externe soit routable sur l’Internet public ou sur un intranet, et qu’il utilise un espace d’adressage privée, n’est pas vraiment important dans cet article, car les étapes sont les mêmes. 
+
+Vous pouvez configurer plusieurs pools IP, mais vous ne pouvez pas sélectionner celui que vous souhaitez utiliser. Azure Stack Hub assemble tous les pools d’adresses IP en un seul. Lorsque vous créez une ressource, vous ne pouvez pas choisir une adresse IP pour l’attribution.
 
 > [!IMPORTANT]
 > Les étapes décrites dans cet article s’appliquent uniquement aux systèmes qui ont été déployés à l’aide de la boîte à outils partenaire version 1809 ou ultérieure. Sur les systèmes qui ont été déployés avant la version 1809, vous devez mettre à jour les listes de contrôle d’accès (ACL) du commutateur ToR de façon à autoriser la nouvelle plage de pools d’adresses IP virtuelles publiques. Si vous exécutez des configurations de commutateur plus anciennes, contactez votre OEM pour qu’il vous aide à ajouter les listes de contrôle d’accès « PERMIT » appropriées au nouveau pool d’adresses IP publiques, ou à reconfigurer votre commutateur à l’aide de la dernière boîte à outils partenaire pour empêcher que les nouvelles adresses IP publiques ne soient bloquées.

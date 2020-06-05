@@ -6,16 +6,15 @@ ms.author: bryanla
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
-ms.openlocfilehash: 372df0bdb99ce06b22912e9e5c175af07620f5f4
-ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
+ms.openlocfilehash: 011018493cee92d23675369a9704f5bcf3503ebe
+ms.sourcegitcommit: fe9b2fae89e595c8e739251b7a0d6ea3a0d8659a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82988309"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84262665"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Utiliser une identité d’application pour accéder aux ressources Azure Stack Hub
-
-Une application qui a besoin de déployer ou configurer des ressources via Azure Resource Manager doit être représentée par sa propre identité. Tout comme un utilisateur est représenté par un principal de sécurité, appelé « principal d’utilisateur », une application est représentée par un principal de service. Le principal de service fournit une identité pour votre application, ce qui vous permet de ne déléguer à cette application que les autorisations nécessaires.  
+<meta name="robots" content="nosnippet"> Une application qui a besoin de déployer ou configurer des ressources via Azure Resource Manager doit être représentée par sa propre identité. Tout comme un utilisateur est représenté par un principal de sécurité, appelé « principal d’utilisateur », une application est représentée par un principal de service. Le principal de service fournit une identité pour votre application, ce qui vous permet de ne déléguer à cette application que les autorisations nécessaires.  
 
 Par exemple, vous avez peut-être une application de gestion de la configuration qui utilise Azure Resource Manager pour inventorier les ressources Azure. Dans ce scénario, vous pouvez créer un principal de service, lui accorder le rôle de « lecteur » et limiter l’application de gestion de la configuration à un accès en lecture seule.
 
@@ -337,7 +336,7 @@ Le type de ressource que vous choisissez établit également l’*étendue d’a
 3. Sélectionnez la page **Contrôle d’accès (IAM)** qui est universelle pour toutes les ressources qui prennent en charge le contrôle d’accès en fonction du rôle.
 4. Sélectionnez **+ Ajouter**
 5. Sous **Rôle**, sélectionnez le rôle que vous souhaitez attribuer à l’application.
-6. Sous **Sélectionner**, recherchez votre application en utilisant un nom d’application partiel ou complet. Pendant l’inscription, le nom de l’application est généré en tant que *Azurestack-\<YourAppName\>-\<ClientId\>* . Par exemple, si vous avez utilisé le nom d’application *App2* et que le ClientId *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* a été attribué lors de la création, le nom complet est * Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Vous pouvez rechercher la chaîne exacte ou une portion, par exemple *Azurestack* ou *Azurestack-App2*.
+6. Sous **Sélectionner**, recherchez votre application en utilisant un nom d’application partiel ou complet. Pendant l’inscription, le nom de l’application est généré en tant que *Azurestack-\<YourAppName\>-\<ClientId\>* . Par exemple, si vous avez utilisé le nom d’application *App2* et que le ClientId *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* a été attribué lors de la création, le nom complet est  *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Vous pouvez rechercher la chaîne exacte ou une portion, par exemple *Azurestack* ou *Azurestack-App2*.
 7. Après avoir trouvé l’application, sélectionnez-la pour la faire apparaître sous **Membres sélectionnés**.
 8. Sélectionnez **Enregistrer** pour finaliser l’attribution du rôle.
 

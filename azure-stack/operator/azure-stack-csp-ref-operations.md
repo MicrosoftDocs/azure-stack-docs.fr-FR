@@ -7,12 +7,12 @@ ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: b067428a9096855f38f8e1f33a601010dc27359c
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 89ef1d91ae2c6cb41a26bed04cb87abf33da1650
+ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742312"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84158365"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Inscrire des locataires pour un suivi de l’utilisation dans Azure Stack Hub
 
@@ -40,7 +40,7 @@ Pour plus d’informations sur Azure Stack Hub et les profils d’API, consultez
 | Paramètre                  | Description |
 |---                         | --- |
 | registrationSubscriptionID | L’abonnement Azure qui était utilisé au moment de l’inscription. |
-| customerSubscriptionID     | L’abonnement Azure (pas Azure Stack Hub) appartenant au client à inscrire. Il doit être créé dans l’offre du fournisseur de solution cloud via l’Espace partenaires. Si un client a plusieurs locataires, créez un abonnement pour le locataire pour vous connecter à Azure Stack Hub. |
+| customerSubscriptionID     | L’abonnement Azure (pas Azure Stack Hub) appartenant au client à inscrire. Il doit être créé dans l’offre du fournisseur de solution cloud via l’Espace partenaires. Si un client a plusieurs locataires, créez un abonnement pour le locataire pour vous connecter à Azure Stack Hub. L’ID de l’abonnement client est sensible à la casse. |
 | resourceGroup              | Le groupe de ressources Azure dans lequel est stockée votre inscription. |
 | registrationName           | Le nom de l’inscription de votre compte Azure Stack Hub. Il s’agit d’un objet stocké dans Azure. Le nom prend en général la forme **azurestack-CloudID**, où **CloudID** est l’ID du cloud de votre déploiement Azure Stack Hub. |
 
@@ -124,7 +124,7 @@ Vous pouvez supprimer un locataire qui a été ajouté à une inscription. Si ce
 | registrationSubscriptionId | L’ID d’abonnement pour l’inscription.   |
 | resourceGroup              | Le groupe de ressources pour l’inscription.   |
 | registrationName           | Le nom de l’inscription.  |
-| customerSubscriptionId     | L’ID de l’abonnement client.  |
+| customerSubscriptionId     | L’ID de l’abonnement client. L’ID de l’abonnement client est sensible à la casse.  |
 
 ### <a name="powershell"></a>PowerShell
 
