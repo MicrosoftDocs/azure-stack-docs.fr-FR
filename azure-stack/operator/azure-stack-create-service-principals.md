@@ -6,15 +6,16 @@ ms.author: bryanla
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
-ms.openlocfilehash: 011018493cee92d23675369a9704f5bcf3503ebe
-ms.sourcegitcommit: fe9b2fae89e595c8e739251b7a0d6ea3a0d8659a
+ms.openlocfilehash: 8a86c1c19f4239e6af1e7094ee8803865f9fd70d
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84262665"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666411"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Utiliser une identité d’application pour accéder aux ressources Azure Stack Hub
-<meta name="robots" content="nosnippet"> Une application qui a besoin de déployer ou configurer des ressources via Azure Resource Manager doit être représentée par sa propre identité. Tout comme un utilisateur est représenté par un principal de sécurité, appelé « principal d’utilisateur », une application est représentée par un principal de service. Le principal de service fournit une identité pour votre application, ce qui vous permet de ne déléguer à cette application que les autorisations nécessaires.  
+
+Une application qui a besoin de déployer ou configurer des ressources via Azure Resource Manager doit être représentée par sa propre identité. Tout comme un utilisateur est représenté par un principal de sécurité, appelé « principal d’utilisateur », une application est représentée par un principal de service. Le principal de service fournit une identité pour votre application, ce qui vous permet de ne déléguer à cette application que les autorisations nécessaires.  
 
 Par exemple, vous avez peut-être une application de gestion de la configuration qui utilise Azure Resource Manager pour inventorier les ressources Azure. Dans ce scénario, vous pouvez créer un principal de service, lui accorder le rôle de « lecteur » et limiter l’application de gestion de la configuration à un accès en lecture seule.
 
