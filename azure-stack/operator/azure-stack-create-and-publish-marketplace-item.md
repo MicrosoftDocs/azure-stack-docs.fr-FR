@@ -3,16 +3,16 @@ title: Créer et publier un élément de la Place de marché dans Azure Stack Hu
 description: Découvrez comment créer et publier un élément de la Place de marché Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 06/11/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 45eb02425b0c90e95bb2b0c1c5278b9408fa1f27
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 16ea5f5873e7904931fb05d6113c0b6cb74f9612
+ms.sourcegitcommit: bc246d59f4ad42cc2cc997884f9d52c5097f0964
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660709"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85069123"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Créer et publier un élément personnalisé de Place de marché Azure Stack Hub
 
@@ -149,7 +149,7 @@ Pour créer un élément de Place de marché personnalisé, procédez comme suit
 11. Quand vous avez terminé de modifier vos fichiers, convertissez-les en un fichier .azpkg. Vous effectuez la conversion à l’aide de l’outil **AzureGallery.exe** et de l’exemple de package de galerie que vous avez précédemment téléchargé. Exécutez la commande suivante :
 
     ```shell
-    .\AzureGallery.exe package –m c:\<path>\<gallery package name>\manifest.json –o c:\Temp
+    .\AzureGallery.exe package -m c:\<path>\<gallery package name>\manifest.json -o c:\Temp
     ```
 
     > [!NOTE]
@@ -175,7 +175,7 @@ Pour créer un élément de Place de marché personnalisé, procédez comme suit
 
     ```powershell
     Add-AzsGalleryItem -GalleryItemUri `
-    https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg –Verbose
+    https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg -Verbose
     ```
 
 5. Veillez à disposer d’un compte de stockage valide disponible pour stocker votre élément. Vous pouvez obtenir la valeur de `GalleryItemURI` auprès du portail d’administration Azure Stack Hub. Sélectionnez **Compte de stockage > Propriétés de l’objet blob -> URL**, avec l’extension .azpkg. Le compte de stockage est utilisé seulement de façon temporaire pour publier sur la Place de marché.
@@ -233,7 +233,7 @@ La Marketplace utilise les icônes suivantes :
 | grand |115 px |115 px |Toujours obligatoire |
 | Moyenne |90 px |90 px |Toujours obligatoire |
 | Petite |40 px |40 px |Toujours obligatoire |
-| Capture d'écran |533 px |324 px |Toujours obligatoire |
+| Capture d'écran |533 px |324 px |Facultatif |
 
 ### <a name="categories"></a>Catégories
 
