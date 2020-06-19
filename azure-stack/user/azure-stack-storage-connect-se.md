@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 701b2a0c6bae3fa4f246877f49f73aca8482b0de
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: a72179e26ab4c873aa67ece9e207f4e6f4e71579
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660375"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631236"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Connecter l’Explorateur de stockage à un compte de stockage ou un abonnement Azure Stack Hub
 
@@ -107,7 +107,7 @@ Suivez les étapes ci-après pour connecter l’Explorateur Stockage à un abonn
     | Champ | Notes |
     | ---   | ---   |
     | Nom de l’environnement | Le champ peut être personnalisé par l’utilisateur. |
-    | Point de terminaison Azure Resource Manager | Les exemples de points de terminaison de ressource Azure Resource Manager du Kit de développement Azure Stack.<br>Pour les opérateurs : https://adminmanagement.local.azurestack.external <br> Pour les utilisateurs : https://management.local.azurestack.external |
+    | Point de terminaison Azure Resource Manager | Les exemples de points de terminaison de ressource Azure Resource Manager du Kit de développement Azure Stack.<br>Pour les opérateurs : `https://adminmanagement.local.azurestack.external` <br> Pour les utilisateurs : `https://management.local.azurestack.external` |
 
     Si vous utilisez un système intégré Azure Stack Hub et que vous ne connaissez pas votre point de terminaison de gestion, contactez votre opérateur.
 

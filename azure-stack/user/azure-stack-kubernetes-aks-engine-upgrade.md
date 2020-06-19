@@ -7,12 +7,12 @@ ms.date: 4/23/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: 4e7ef93f7199e9257fd602d54d3479a92ac8e8a8
-ms.sourcegitcommit: c51e7787e36c49d34ee86cabf9f823fb98b61026
+ms.openlocfilehash: 347d790a4e70e37e83be43019f25b875b7ff2302
+ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82218804"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84533720"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Mettre à niveau un cluster Kubernetes sur Azure Stack Hub
 
@@ -90,7 +90,7 @@ Pour un mappage complet des versions du moteur AKS, de l’image de base AKS et 
 
 ## <a name="steps-to-only-upgrade-the-os-image"></a>Procédure de mise à niveau de l’image du système d’exploitation uniquement
 
-1. Examinez [la table supported-kubernetes-versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) afin de déterminer si vous disposez de la version aks-engine et de l'image de base AKS que vous envisagez pour votre mise à niveau. Pour afficher la version aks-engine, exécutez : `aks-engine version`.
+1. Examinez [la table supported-kubernetes-versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions) afin de déterminer si vous disposez de la version aks-engine et de l'image de base AKS que vous envisagez pour votre mise à niveau. Pour afficher la version aks-engine, exécutez : `aks-engine version`.
 2. Mettez à niveau votre moteur AKS en conséquence et, sur la machine où vous avez installé aks-engine, exécutez : `./get-akse.sh --version vx.xx.x` en remplaçant **x.xx.x** par votre version ciblée.
 3. Demandez à votre opérateur Azure Stack Hub d’ajouter la version de l’image de base AKS dont vous avez besoin dans la Place de marché Azure Stack Hub que vous envisagez d’utiliser.
 4. Exécutez la commande `aks-engine upgrade` en utilisant la même version de Kubernetes qu'actuellement, mais ajoutez `--force`. Vous pouvez consulter un exemple dans [Forcer une mise à niveau](#forcing-an-upgrade).

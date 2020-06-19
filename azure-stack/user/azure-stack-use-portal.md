@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: f60094812a5bc0b27a05ec7e66ac7bf65d747d76
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 26225b1b6ba55ed0f5934130e361f1dbab4b664e
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84147020"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631384"
 ---
 # <a name="use-the-azure-stack-hub-user-portal"></a>Utiliser le portail utilisateur Azure Stack Hub
 
@@ -23,7 +23,7 @@ Utilisez le portail Azure Stack Hub pour vous abonner à des offres publiques et
 Votre opérateur Azure Stack Hub (fournisseur de services ou administrateur au sein de votre organisation) vous permet de connaitre l’URL correcte pour accéder au portail.
 
 - Pour un système intégré, l’URL varie en fonction de la région et du nom de domaine externe de votre opérateur, et son format est https://portal.&lt;*région*&gt;.&lt;*FQDN*&gt;.
-- Si vous utilisez le Kit de développement Azure Stack (ASDK), l’adresse du portail est https://portal.local.azurestack.external.
+- Si vous utilisez le Kit de développement Azure Stack (ASDK), l’adresse du portail est `https://portal.local.azurestack.external`.
 - Le fuseau horaire par défaut pour tous les déploiements Azure Stack Hub est celui du Temps universel coordonné (UTC). Vous pouvez sélectionner un fuseau horaire lors de l’installation d’Azure Stack Hub, mais le fuseau UCT est automatiquement rétabli par défaut lors de l’installation.
 
 ## <a name="customize-the-dashboard"></a>Personnaliser le tableau de bord

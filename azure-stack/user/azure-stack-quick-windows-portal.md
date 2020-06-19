@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: b32ce924aae800360229ca1e309b568fdc6f5353
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 5e34a943984583ab1e6d3a83a4aa5e4e7d302d5c
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660260"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631258"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>Démarrage rapide : Créer une machine virtuelle Windows Server avec le portail Azure Stack Hub
 
@@ -26,7 +26,7 @@ Découvrez comment créer une machine virtuelle Windows Server 2016 avec le por
 
 Connectez-vous au portail Azure Stack Hub. L’adresse du portail Azure Stack Hub varie en fonction du produit Azure Stack Hub auquel vous vous connectez :
 
-* Pour le Kit de développement Azure Stack (ASDK), accédez à : https://portal.local.azurestack.external.
+* Pour le Kit de développement Azure Stack (ASDK), accédez à : `https://portal.local.azurestack.external`.
 * Pour un système intégré Azure Stack Hub, accédez à l’URL fournie par votre opérateur Azure Stack Hub.
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
