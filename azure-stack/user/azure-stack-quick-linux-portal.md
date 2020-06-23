@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 75056bbadb3ab5792bd51ed3dcb348ef3d42aa3e
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 5a9d6902d317af76145dde564cef56ac2f42dce8
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660436"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631277"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>Démarrage rapide : Créer une machine virtuelle serveur Linux sur le portail Azure Stack Hub
 
@@ -63,7 +63,7 @@ Pour créer une paire de clés SSH :
 
 L’adresse du portail Azure Stack Hub varie en fonction du produit Azure Stack Hub auquel vous vous connectez :
 
-* Pour le kit ASDK, accédez à https://portal.local.azurestack.external.
+* Pour le kit ASDK, accédez à `https://portal.local.azurestack.external`.
 
 * Pour un système intégré Azure Stack Hub, accédez à l’URL fournie par votre opérateur Azure Stack Hub.
 
@@ -152,7 +152,7 @@ Un groupe de sécurité réseau (NSG) sécurise le trafic entrant et sortant. Qu
 
 Une fois NGINX installé et le port 80 ouvert sur votre machine virtuelle, vous pouvez accéder au serveur web à l’aide de l’adresse IP publique de la machine virtuelle. (L’adresse IP publique est affichée dans la page **Vue d’ensemble** de la machine virtuelle.)
 
-Ouvrez un navigateur web et accédez à *http://\<adresse IP publique>* .
+Ouvrez un navigateur web et accédez à *http://\<public IP address>* .
 
 ![Page d’accueil du serveur web NGINX](media/azure-stack-quick-linux-portal/linux-05a.png)
 

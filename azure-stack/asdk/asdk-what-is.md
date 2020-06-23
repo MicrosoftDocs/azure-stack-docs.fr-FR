@@ -7,12 +7,12 @@ ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 6e58e60e0863e2ef40abc95689430f8e378a4fd4
-ms.sourcegitcommit: e75218d2e04f41620cc09caf04473ad4c7289253
+ms.openlocfilehash: 197d1b47b3127b21f3b843a77a57642894270a71
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83708191"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819235"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>Qu'est-ce que le Kit de développement Azure Stack (ASDK) ?
 Les [systèmes intégrés Microsoft Azure Stack Hub](../operator/azure-stack-overview.md) ont une taille comprise entre 4 et 16 nœuds, et ils sont pris en charge conjointement par un fournisseur de matériel partenaire et Microsoft. Utilisez des systèmes intégrés Azure Stack Hub afin de permettre de nouveaux scénarios pour vos charges de travail de production. Si vous êtes opérateur Azure Stack Hub gérant l’infrastructure de systèmes intégrés et proposant des offres, consultez notre [documentation destinée à l’opérateur](/azure-stack/operator).
@@ -42,7 +42,7 @@ Les déploiements ASDK à nœud unique et les déploiements Azure Stack Hub à 
 |**Résilience**|La configuration à un seul nœud ne fournit pas une haute disponibilité|Les fonctionnalités de haute disponibilité sont prises en charge.|
 |**Mise en réseau**|L’hôte ASDK route tout le trafic réseau ASDK. Il n’existe aucune exigence supplémentaire en matière de commutateur.|Une [infrastructure de routage réseau](../operator/azure-stack-network.md#network-infrastructure) plus complexe est nécessaire dans les déploiements à plusieurs nœuds°: commutateurs TOR (Top-Of-Rack), Baseboard Management Controller (BMC) et commutateurs limite (réseau de centre de données).|
 |**Processus de correctif et mise à jour**|Pour passer à une nouvelle version du Kit ASDK, vous devez redéployer le Kit ASDK sur son ordinateur hôte.|Le processus de [correction et de mise à jour](../operator/azure-stack-updates.md) utilisé pour mettre à jour la version installée d’Azure Stack Hub.|
-|**Support**|Forum MSDN Azure Stack. Le Support technique et Service clientèle de Microsoft (CSS) n’est *pas* disponible pour les environnements hors production.|[Forum MSDN Azure Stack](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) et support CSS complet.|
+|**Support**|Forum MSDN Azure Stack. Le support Microsoft n’est *pas* disponible pour les environnements hors production.|[Forum MSDN Azure Stack](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) et support complet.|
 | | |
 
 ## <a name="learn-about-available-services"></a>Découvrir les services disponibles

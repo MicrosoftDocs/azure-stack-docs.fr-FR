@@ -7,12 +7,12 @@ ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: 358837da19ad34f82f81a94da0c89b165574ea49
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: d7951500afe21ec0800328230d6b5f1653934c40
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77699250"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819194"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>Utiliser le portail administrateur dans Azure Stack Hub
 
@@ -24,7 +24,7 @@ Pour accéder au portail administrateur, accédez à l’URL du portail, puis co
 
 | Environnement | URL du portail administrateur |   
 | -- | -- | 
-| ASDK| https://adminportal.local.azurestack.external  |
+| ASDK| `https://adminportal.local.azurestack.external`  |
 | Systèmes intégrés | https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt; | 
 | | |
 
@@ -37,7 +37,7 @@ Le fuseau horaire par défaut pour tous les déploiements Azure Stack Hub est d�
 
 Dans le portail d’administration, vous pouvez effectuer ces opérations :
 
-* [Inscrire Azure Stack Hub auprès d'Azure](azure-stack-registration.md)
+* [Inscrire Azure Stack Hub auprès d’Azure](azure-stack-registration.md)
 * [Renseigner la Place de marché](azure-stack-download-azure-marketplace-item.md)
 * [Créer des plans, offres et abonnements pour les utilisateurs](service-plan-offer-subscription-overview.md)
 * [Surveiller l’intégrité et des alertes](azure-stack-monitor-health.md)
@@ -77,8 +77,8 @@ Pour accéder à la documentation de l’opérateur Azure Stack Hub, utilisez l�
 
 Si vous cliquez successivement sur l’icône d’aide (point d’interrogation) dans le coin supérieur droit du portail d’administration, sur **Aide + support**, puis sur **Nouvelle demande de support** sous **Support**, vous obtenez l’un des résultats suivants :
 
-- Si vous utilisez un système intégré, cette action ouvre un site sur lequel vous pouvez ouvrir directement un ticket de support auprès des services de support technique Microsoft. Reportez-vous à la section [Où obtenir un support technique ?](azure-stack-manage-basics.md#where-to-get-support) pour comprendre quand vous devez vous adresser au support technique Microsoft ou au support technique de votre fournisseur de matériel OEM.
-- Si vous utilisez le Kit ASDK, cette action ouvre directement le [site des forums Azure Stack Hub](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack). Ces forums sont consultés régulièrement. Le Kit ASDK étant un environnement d’évaluation, les services de support technique Microsoft n’assurent aucun support officiel.
+- Si vous utilisez un système intégré, cette action ouvre un site sur lequel vous pouvez ouvrir directement un ticket de support auprès du support Microsoft. Reportez-vous à la section [Où obtenir un support technique ?](azure-stack-manage-basics.md#where-to-get-support) pour comprendre quand vous devez vous adresser au support technique Microsoft ou au support technique de votre fournisseur de matériel OEM.
+- Si vous utilisez le Kit ASDK, cette action ouvre directement le [site des forums Azure Stack Hub](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack). Ces forums sont consultés régulièrement. Le Kit ASDK étant un environnement d’évaluation, le support Microsoft n’offre aucun support officiel.
 
 ### <a name="quick-access-to-the-azure-roadmap"></a>Accès rapide à la feuille de route Azure
 

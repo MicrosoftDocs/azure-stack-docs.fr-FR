@@ -3,16 +3,16 @@ title: Créer une machine virtuelle à l’aide d’un modèle fourni par la com
 description: Découvrez comment utiliser le Kit de développement Azure Stack (ASDK) pour créer une machine virtuelle à l’aide d’un modèle prédéfini et d’un modèle GitHub personnalisé.
 author: sethmanheim
 ms.topic: tutorial
-ms.date: 01/23/2020
+ms.date: 06/15/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 9e8df158444b0cbb2b6efaea6f99766f36b26241
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: dc666d486f0b36a043ba8da969312879ad785e50
+ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "77704333"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84813830"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>Tutoriel : Créer une machine virtuelle à l’aide d’un modèle fourni par la communauté
 
@@ -31,7 +31,7 @@ Les modèles de démarrage rapide Azure Stack Hub sont stockés dans le [dépôt
 
 Avec le temps, de nombreux utilisateurs de GitHub ont contribué au dépôt, offrant ainsi une collection de plus de 400 modèles de déploiement. Ce dépôt constitue un bon point de départ pour comprendre comment déployer différents types d’environnement dans Azure Stack Hub.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Certains modèles présents sont créés par des membres de la communauté, et non par Microsoft. Chaque modèle est concédé sous licence sous un contrat de licence par son propriétaire, et non par Microsoft. Microsoft ne peut pas être tenu responsable de ces modèles ni ne vérifie leur sécurité, leur compatibilité ou leurs performances. Les modèles de la communauté ne sont pris en charge par aucun programme ou service de support Microsoft. Ils sont proposés « EN L’ÉTAT » sans garantie d’aucune sorte.
 
 Si vous souhaitez proposer des modèles Azure Resource Manager sur GitHub, faites-le dans le dépôt [AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStart-Templates). Pour en savoir plus sur ce dépôt et sur la façon d’y contribuer, consultez le [fichier Lisez-moi](https://aka.ms/aa6zktg).
@@ -118,7 +118,7 @@ Maintenant que la machine virtuelle Linux est créée, vous pouvez vous connecte
 
     ![tableau de bord](media/azure-stack-create-vm-template/12.PNG)
 
-5. Pour déployer un exemple d’application, accédez à la page de documentation officielle de Kubernetes. Comme vous avez déjà créé un cluster, ignorez la section « Create Minikube Cluster » (Créer un cluster Minikube). Passez à la section « Create your Node.js application » (Créer votre application Node.js) sur https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/.
+5. Pour déployer un exemple d’application, accédez à la page de documentation officielle de Kubernetes. Comme vous avez déjà créé un cluster, ignorez la section « Create Minikube Cluster » (Créer un cluster Minikube). Accédez à la section [Créer votre application Node.js](https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

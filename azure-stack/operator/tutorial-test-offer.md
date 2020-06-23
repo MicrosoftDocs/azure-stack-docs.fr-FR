@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: 2aae33b324be4828b514ffbd019992aae989f50b
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: b0dd6b5013a19c120d1d8e69594406292ee6ac6c
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "80423851"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631358"
 ---
 # <a name="tutorial-test-a-service-offering"></a>Tutoriel : Tester une offre de service
 
@@ -37,7 +37,7 @@ Avant de commencer ce didacticiel, vous devez remplir les conditions préalables
 1. Se connecter au portail utilisateur avec un compte d’utilisateur 
 
    - Pour un système intégré, l’URL varie en fonction de la région et du nom de domaine externe de votre opérateur, dans le format https://portal.&lt;*région*&gt;.&lt;*FQDN*&gt;.
-   - Si vous utilisez le Kit de développement Azure Stack, l’adresse du portail est https://portal.local.azurestack.external.
+   - Si vous utilisez le Kit de développement Azure Stack, l’adresse du portail est `https://portal.local.azurestack.external`.
 
 1. Sélectionnez la vignette **Prendre un abonnement**.
 
@@ -76,7 +76,7 @@ Avant de commencer ce didacticiel, vous devez remplir les conditions préalables
 
 1. Connectez-vous au portail utilisateur avec un compte d’utilisateur.
 
-1. Sélectionnez **+Créer une ressource** > **Calculer** > **\<nom-image\>** , où « nom-image » est le nom de la machine virtuelle que vous avez téléchargée préalablement.
+1. Sélectionnez **+Créer une ressource** > **Calcul** > **\<image-name\>** , où « image-name » est le nom de la machine virtuelle que vous avez téléchargée dans les prérequis.
 1. Sous **Créer une machine virtuelle** / **Paramètres de base**, fournissez les informations suivantes :
   
    - Entrez un **Nom** pour la machine virtuelle.
