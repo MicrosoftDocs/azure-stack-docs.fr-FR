@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 995342f471ed7300d2fb9dd95a6623588a13d1a9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2d836c601f292b25a472b38d1afef464a3b22960
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295328"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630931"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Gérer des comptes de stockage Azure Stack Hub
 
@@ -22,7 +22,7 @@ Découvrez comment gérer des comptes de stockage Azure Stack Hub. Rechercher et
 
 Vous pouvez consulter la liste des comptes de stockage de la région dans Azure Stack Hub en procédant comme suit :
 
-1. Connectez-vous au [portail d’administration](https://adminportal.local.azurestack.external).
+1. Connectez-vous au portail administrateur `https://adminportal.local.azurestack.external`.
 
 2. Sélectionnez **Tous les services** > **Stockage** > **Comptes de stockage**.
 
@@ -89,7 +89,7 @@ Le paramètre de période de conservation permet à un opérateur cloud de spéc
 
 **Pour changer la période de conservation :**
 
-1. Connectez-vous au [portail d’administration](https://adminportal.local.azurestack.external).
+1. Connectez-vous au portail administrateur `https://adminportal.local.azurestack.external`.
 2. Sélectionnez **Tous les services** > **Gestion des régions** sous **Administration**.
 3. Sélectionnez **Fournisseurs de ressources** > **Stockage** > **Paramètres**. Votre chemin d’accès est Accueil > *région* - Fournisseurs de ressources > Stockage.
 4. Sélectionnez **Configuration**, puis modifiez la valeur de la période de conservation.

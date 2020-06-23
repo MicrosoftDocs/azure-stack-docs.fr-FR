@@ -1,18 +1,18 @@
 ---
 title: Gérer les mises à jour
 description: Découvrez comment gérer les mises à jour dans Azure Stack Hub
-author: IngridAtMicrosoft
+author: sethmanheim
 ms.topic: how-to
-ms.date: 05/13/2020
-ms.author: inhenkel
+ms.date: 06/09/2020
+ms.author: sethm
 ms.lastreviewed: 09/10/2019
-ms.reviewer: ppacent
-ms.openlocfilehash: cdf2ba4d3dd226ea727efe05dc8be671ba172f8b
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.reviewer: niy
+ms.openlocfilehash: d3f365f825e30e03e74d2e822653ee3ccfdb9e58
+ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374615"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636867"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Gérer les mises à jour dans Azure Stack Hub
 
@@ -63,7 +63,17 @@ La notification des mises à jour dépend de plusieurs facteurs, comme votre con
 
     Les mises à jour OEM dépendent du fabricant. Vous devez établir un canal de communication avec votre OEM afin de savoir quand des mises à jour de votre OEM doivent être appliquées. Pour plus d’informations sur les OEM et le processus de mise à jour OEM, voir [Appliquer des mises à jour de fabricants de matériel (OEM) à Azure Stack Hub](azure-stack-update-oem.md).
 
-## <a name="update-processes"></a>Processus de mise à jour
+### <a name="major-version-to-major-version"></a>Version principale vers version principale
+
+Une mise à jour d’une version principale vers une version principale doit être effectuée étape par étape : l’environnement actuel peut uniquement être mis à jour vers la version principale suivante, et vous ne pouvez pas ignorer une mise à jour de la version principale.
+
+Par exemple, si votre environnement Azure Stack Hub est 1908.x et que la dernière version de mise à jour disponible est 2002.x, vous devez effectuer la mise à jour de 1908 à 1910, puis vers 2002.
+
+### <a name="hotfixes-within-major-versions"></a>Correctifs dans les versions principales
+
+Dans le même numéro de version principale, Azure Stack Hub peut publier plusieurs correctifs. Les correctifs sont cumulatifs ; le package de correctifs le plus récent comprend tous les correctifs précédents pour cette version. Pour plus d’informations, consultez [Correctifs](azure-stack-servicing-policy.md#hotfixes).
+
+## <a name="update-process"></a>Processus de mise à jour
 
 Une fois que vous avez été averti de la disponibilité d’une mise à jour, appliquez la mise à jour en effectuant les étapes décrites ci-après.
 

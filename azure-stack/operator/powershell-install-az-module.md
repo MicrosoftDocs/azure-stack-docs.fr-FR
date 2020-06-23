@@ -7,12 +7,12 @@ ms.date: 04/14/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: d39bac1a99c2dc7d7a43f211a5fd3e5a7275de33
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: 912e40cef34de0831a92817077ac9e33f33a0434
+ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82174013"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84813779"
 ---
 # <a name="install-powershell-az-preview-module-for-azure-stack-hub"></a>Installer le module en préversion PowerShell Az pour Azure Stack Hub
 
@@ -105,16 +105,16 @@ L’installation comporte cinq étapes :
 ::: moniker range=">=azs-2002"
 Azure Stack Hub 2002 ou version ultérieure.
 
-Vous pouvez utiliser les modules AzureRM ou les modules en préversion Az. Pour les modules RM, consultez les instructions dans [Installer le module PowerShell AzureRM](azure-stack-powershell-install.md).
+Vous pouvez utiliser les modules AzureRM ou les modules en préversion Az. Pour les modules RM, consultez les instructions dans [Installer le module PowerShell AzureRM](azure-stack-powershell-install.md). Le code suivant permet d’enregistrer les modules à partir d’un dépôt en ligne fiable https://www.powershellgallery.com/.
 
 ```powershell
 
 Install-module -Name PowerShellGet -MinimumVersion 2.2.3 -Force
 Import-Module -Name PackageManagement -ErrorAction Stop
 
-$Path = "<Path that is used to save the packages>"
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Az -Path $Path -Force -RequiredVersion 0.10.0-preview
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 2.0.0-preview
+$savedModulesPath = "<Path that is used to save the packages>"
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Az -Path $savedModulesPath -Force -RequiredVersion 0.10.0-preview
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $savedModulesPath -Force -RequiredVersion 2.0.0-preview
 ```
 ::: moniker-end
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 2a71320a660c7dbf74ad885226bb7fcbfa78b35f
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 459d6177015cbca40d2f8f830eba85dc87be18c7
+ms.sourcegitcommit: e79aafb05c5fc512a83f0ebc6d76503213ccbc70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111384"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730677"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Différences et considérations de mise en réseau Azure Stack Hub
 
@@ -52,6 +52,7 @@ Cet article fournit une vue d’ensemble des considérations propres à la mise 
 |  | Redimensionnement de passerelle | Azure prend en charge le redimensionnement de la passerelle après le déploiement. | Le redimensionnement n’est pas pris en charge. |
 |  | Configuration de la disponibilité | actif/actif | Actif/passif |
 |  | UsePolicyBasedTrafficSelectors | Azure prend en charge les sélecteurs de trafic basés sur la stratégie (Policy-based) avec des connexions de passerelle basées sur l’itinéraire (Route-based). | Pas encore pris en charge. |
+|  | Supervision et alertes | Azure utilise Azure Monitor pour offrir la possibilité de configurer des alertes pour les ressources VPN. | Pas encore pris en charge.|
 | Équilibrage de charge | SKU | Les équilibreurs de charge de base et standard sont pris en charge | Seul l’équilibreur de charge de base est pris en charge.<br>Cette propriété de référence SKU n'est pas prise en charge.<br>Le chemin de l’équilibreur de charge de la référence SKU De base ne peut pas avoir plus de 5 configurations IP front-end.  |
 |  | Zones | Les zones de disponibilité sont prises en charge. | Pas encore pris en charge |
 |  | Prise en charge des règles NAT pour les points de terminaison de service | Azure prend en charge les points de terminaison de service pour les règles NAT entrantes. | Azure Stack Hub ne prenant pas encore en charge les points de terminaison de service, vous ne pouvez pas les spécifier. |

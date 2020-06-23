@@ -3,15 +3,15 @@ title: Créer des passerelles VPN pour Azure Stack Hub
 description: Créer et configurer des passerelles VPN pour Azure Stack Hub.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 06/15/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 35e17b6527b39bc12ad8f140b98a27fa6f4b69ac
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2393a088e64ec0a3144fe7d5f4c5c3d2c8e25ab1
+ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295256"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84813721"
 ---
 # <a name="create-vpn-gateways-for-azure-stack-hub"></a>Créer des passerelles VPN pour Azure Stack Hub
 
@@ -25,8 +25,8 @@ Chaque réseau virtuel peut avoir deux passerelles de réseau virtuel, mais une 
 
 Avant de créer et configurer des passerelles VPN pour Azure Stack Hub, voir [Considérations relatives à la gestion de réseau Azure Stack Hub](azure-stack-network-differences.md) pour savoir dans quelle mesure les configurations pour Azure Stack Hub diffèrent de celles pour Azure.
 
->[!NOTE]
->Dans Azure, le débit de la bande passante pour la référence SKU de passerelle VPN que vous choisissez doit être réparti entre toutes les connexions connectées à la passerelle. Toutefois, dans Azure Stack Hub, la valeur de la bande passante pour la référence (SKU) de la passerelle VPN est appliquée à chaque ressource de connexion connectée à la passerelle.
+> [!NOTE]
+> Dans Azure, le débit de la bande passante pour la référence SKU de passerelle VPN que vous choisissez doit être réparti entre toutes les connexions connectées à la passerelle. Toutefois, dans Azure Stack Hub, la valeur de la bande passante pour la référence (SKU) de la passerelle VPN est appliquée à chaque ressource de connexion connectée à la passerelle.
 >
 > Par exemple :
 >
@@ -79,7 +79,7 @@ Une connexion *multi-site* est une variante de la connexion site à site. Vous c
 Lorsque vous créez une passerelle de réseau virtuel pour Azure Stack Hub, vous spécifiez la référence (SKU) de passerelle que vous voulez utiliser. Les références SKU de passerelle VPN suivantes sont prises en charge :
 
 * De base
-* standard
+* Standard
 * Hautes performances
 
 Lorsque vous sélectionnez une référence SKU de passerelle supérieure, par exemple Standard à la place de De base, ou HighPerformance à la place de Standard ou De base, un plus grand nombre de processeurs et une bande passante réseau plus importante sont alloués à la passerelle. Par conséquent, la passerelle peut prendre en charge un débit réseau plus élevé sur le réseau virtuel.
@@ -116,8 +116,8 @@ Le tableau suivant présente les types de passerelle et le débit total estimé 
 **(2)** Le nombre maximal de tunnels est le total par déploiement Azure Stack Hub pour tous les abonnements.  
 **(3)** Le routage BGP n’est pas pris en charge pour la référence SKU de base.
 
->[!NOTE]
->Vous ne pouvez créer qu’une seule connexion VPN site à site entre deux déploiements Azure Stack Hub. En effet, la plateforme n’autorise qu’une seule connexion VPN à la même adresse IP. Dans la mesure où Azure Stack exploite la passerelle mutualisée qui utilise une seule adresse IP publique pour toutes les passerelles VPN dans le système Azure Stack Hub, il ne peut y avoir qu’une seule connexion VPN entre deux systèmes Azure Stack Hub. Cette limitation s’applique également à la connexion de plusieurs connexions VPN de site à site à une passerelle VPN qui utilise une seule adresse IP. Azure Stack Hub n’autorise pas la création de plus d’une ressource de passerelle de réseau local à l’aide de la même adresse IP.
+> [!NOTE]
+> Vous ne pouvez créer qu’une seule connexion VPN site à site entre deux déploiements Azure Stack Hub. En effet, la plateforme n’autorise qu’une seule connexion VPN à la même adresse IP. Dans la mesure où Azure Stack exploite la passerelle mutualisée qui utilise une seule adresse IP publique pour toutes les passerelles VPN dans le système Azure Stack Hub, il ne peut y avoir qu’une seule connexion VPN entre deux systèmes Azure Stack Hub. Cette limitation s’applique également à la connexion de plusieurs connexions VPN de site à site à une passerelle VPN qui utilise une seule adresse IP. Azure Stack Hub n’autorise pas la création de plus d’une ressource de passerelle de réseau local à l’aide de la même adresse IP.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

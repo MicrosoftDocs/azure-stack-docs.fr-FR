@@ -3,20 +3,20 @@ title: Ajouter les prérequis du moteur Azure Kubernetes Services (AKS) à la Pl
 description: Découvrez comment ajouter les prérequis du moteur AKS à la Place de marché Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/27/2020
+ms.date: 6/08/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 5bebac9b3c604b2726cf5cd8f895fb17e0db3486
-ms.sourcegitcommit: 8646eba1674ca708baf6699f4a4b56d134766e85
+ms.lastreviewed: 6/08/2020
+ms.openlocfilehash: 7090ac774da41e8f7f1bc319a9956cba8f8b0f4a
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82861382"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630439"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Ajouter les prérequis du moteur Azure Kubernetes Services (AKS) à la Place de marché Azure Stack Hub
 
-Vous pouvez autoriser vos utilisateurs à configurer le moteur Azure Kubernetes Services (AKS) en ajoutant à Azure Stack Hub les éléments décrits dans cet article. Vos utilisateurs peuvent alors déployer un cluster Kubernetes en une seule opération coordonnée. Cet article vous guide tout au long des étapes nécessaires pour mettre le moteur AKS à la disposition de vos utilisateurs dans des environnements connectés et déconnectés. Le moteur AKS s’appuie sur une identité du principal de service, et sur la Place de marché, d’une extension de script personnalisé et de l’image de base AKS. Le moteur AKS vous demande d’exécuter [Azure Stack Hub 1910](release-notes.md?view=azs-1910) ou ultérieur.
+Vous pouvez autoriser vos utilisateurs à configurer le moteur Azure Kubernetes Services (AKS) en ajoutant à Azure Stack Hub les éléments décrits dans cet article. Vos utilisateurs peuvent alors déployer un cluster Kubernetes en une seule opération coordonnée. Cet article vous guide tout au long des étapes nécessaires pour mettre le moteur AKS à la disposition de vos utilisateurs dans des environnements connectés et déconnectés. Le moteur AKS s’appuie sur une identité du principal de service, et sur la Place de marché, d’une extension de script personnalisé et de l’image de base AKS. Le moteur AKS vous demande d’exécuter [Azure Stack Hub 1910](release-notes.md?view=azs-1910) ou ultérieur.
 
 ## <a name="check-your-users-service-offering"></a>Vérifier l'offre de services de votre utilisateur
 
@@ -42,7 +42,7 @@ Vous pouvez ajouter l'image de base AKS à la Place de marché en vous procurant
 
 Ajoutez l'élément suivant à la Place de marché :
 
-1. Connectez-vous au [portail d’administration](https://adminportal.local.azurestack.external).
+1. Connectez-vous au portail d’administration `https://adminportal.local.azurestack.external`.
 
 1. Sélectionnez **Tous les services**, puis, dans la catégorie **ADMINISTRATION**, sélectionnez **Gestion de la Place de marché**.
 
@@ -50,12 +50,12 @@ Ajoutez l'élément suivant à la Place de marché :
 
 1. Entrez `AKS Base`.
 
-1. Sélectionnez la version de l’image correspondant à la version du moteur AKS. La liste des versions d’image de base AKS et du moteur AKS est disponible dans la rubrique [Versions de Kubernetes prises en charge](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions). 
+1. Sélectionnez la version de l’image correspondant à la version du moteur AKS. La liste des versions d’image de base AKS et du moteur AKS est disponible dans la rubrique [Versions de Kubernetes prises en charge](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions). 
 
     Dans la liste, sélectionnez :
     - **Éditeur** : Azure Kubernetes Service
     - **Offre** : aks
-    - **Version** : Image de base AKS 16.04-LTS Image Distro, octobre 2019 (2019.10.24 ou version mappée au moteur AKS)
+    - **Version** : Distribution d’images de base AKS Ubuntu 16.04-LTS, mars 2020 (2020.03.19 ou version mappée au moteur AKS)
 
 1. Sélectionnez **Télécharger**.
 
@@ -63,7 +63,7 @@ Ajoutez l'élément suivant à la Place de marché :
 
 Vous pouvez ajouter le script personnalisé à la Place de marché en vous procurant l'élément auprès d’Azure. Cependant, si votre instance Azure Stack Hub est déconnectée, suivez les instructions de la rubrique [Télécharger des éléments de la Place de marché à partir d’Azure](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) pour ajouter l’élément.  Ajoutez l’élément spécifié à l’étape 5.
 
-1. Ouvrez le [portail d’administration](https://adminportal.local.azurestack.external).
+1. Ouvrez le portail d’administration `https://adminportal.local.azurestack.external`.
 
 1. Sélectionnez **Tous les services**, puis, dans la catégorie **ADMINISTRATION**, sélectionnez **Gestion de la Place de marché**.
 

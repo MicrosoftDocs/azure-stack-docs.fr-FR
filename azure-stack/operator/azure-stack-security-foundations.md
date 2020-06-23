@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: 2d1b97bc17543e4fbdc1a1f79c39a01f188332df
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 35b4fbd97032df00236a67dd5b776a2f3fada8ea
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80891079"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819248"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Contrôles de sécurité de l’infrastructure Azure Stack Hub
 
@@ -48,9 +48,7 @@ Pour plus d’informations sur la façon d’appliquer le protocole TLS 1.2 aux
 
 ## <a name="secret-management"></a>Gestion des secrets
 
-L’infrastructure Azure Stack Hub utilise une multitude de secrets, tels que des mots de passe, pour fonctionner. La plupart d’entre eux sont souvent automatiquement permutés, car ce sont des comptes de service administré de groupe (gMSA), qui permutent toutes les 24 heures.
-
-Les autres secrets qui ne sont pas des comptes gMSA peuvent être permutés manuellement avec un script dans le point de terminaison privilégié.
+L’infrastructure Azure Stack Hub utilise une multitude de secrets, tels que des mots de passe et des certificats, pour fonctionner. La plupart des mots de passe associés aux comptes de service internes sont automatiquement permutés toutes les 24 heures, car ce sont des [comptes de service administrés de groupe (gMSA)](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview), un type de compte de domaine géré directement par le contrôleur de domaine interne.
 
 L’infrastructure Azure Stack Hub utilise des clés RSA 4 096 bits pour tous ses certificats internes. Vous pouvez utiliser les mêmes certificats de longueur de clé pour les points de terminaison externes. Pour plus d’informations sur la rotation des secrets et des certificats, voir [Effectuer une rotation des secrets dans Azure Stack Hub](azure-stack-rotate-secrets.md).
 

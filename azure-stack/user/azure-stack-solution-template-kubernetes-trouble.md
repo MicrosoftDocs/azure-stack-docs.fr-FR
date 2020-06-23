@@ -7,12 +7,12 @@ ms.author: mabrigg
 ms.date: 04/20/2020
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 30743cf5a2edf880c155e443c0608dc7d3f8f55f
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 3f51aa2c8d1d2987d3823e8fefe953d4cc6cc890
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660214"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631091"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Résoudre les problèmes de déploiement Kubernetes sur Azure Stack Hub
 
@@ -93,7 +93,7 @@ Vous pouvez collecter et examiner des journaux d’activité liés au déploieme
 
 Lorsque vous déployez votre cluster Kubernetes, vous pouvez consulter l’état du déploiement pour détecter d’éventuels problèmes.
 
-1. Ouvrez le [portail Azure Stack Hub](https://portal.local.azurestack.external).
+1. Ouvrez le portail Azure Stack Hub `https://portal.local.azurestack.external`.
 2. Sélectionnez **Groupe de ressources**, puis sélectionnez le nom du groupe de ressources utilisé lors du déploiement du cluster Kubernetes.
 3. Sélectionnez **Déploiements**, puis le **Nom du déploiement**.
 

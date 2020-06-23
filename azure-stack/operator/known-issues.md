@@ -3,16 +3,16 @@ title: Problèmes connus d’Azure Stack Hub
 description: Découvrez les problèmes connus des versions d’Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 06/17/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 31ef3ee64eb98b34160e95fee0a228fc32cee589
-ms.sourcegitcommit: 7c10a45a8de0c5c7649e5329ca5b69a0791e37b5
+ms.openlocfilehash: 68b83e78f29e60d4dac2b980dd9fd4aefb3bcf66
+ms.sourcegitcommit: 7df4f3fbb211063e9eef6ac1e2734de72dc6078b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83721876"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977170"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Problèmes connus d’Azure Stack Hub
 
@@ -83,14 +83,23 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 ## <a name="networking"></a>Mise en réseau
 
-### <a name="network-security-groups"></a>Network Security Group
+### <a name="denyalloutbound-rule-cannot-be-created"></a>Impossible de créer la règle DenyAllOutbound
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge. 
 - Cause : Il n’est pas autorisé de créer une règle **DenyAllOutbound** explicite dans un groupe de sécurité réseau. En effet, elle empêcherait toute communication interne avec l’infrastructure, et cette communication est nécessaire au bon déploiement de la machine virtuelle.
 - Occurrence : Courant
 
+### <a name="icmp-protocol-not-supported-for-nsg-rules"></a>Protocole ICMP non pris en charge pour les règles de groupe de sécurité réseau
+
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge. 
 - Cause : Lors de la création d’une règle de sécurité réseau entrante ou sortante, l’option **Protocole** affiche une option **ICMP**. Cette option n’est pas prise en charge dans Azure Stack Hub. Ce problème est résolu et n’apparaîtra pas dans la prochaine version d’Azure Stack Hub.
+- Occurrence : Courant
+
+### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>Impossible de supprimer un groupe de sécurité réseau si des cartes réseau ne sont pas associées à une machine virtuelle en cours d’exécution
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Lors de la dissociation d’un groupe de sécurité réseau et d’une carte réseau qui n’est pas associée à une machine virtuelle en cours d’exécution, l’opération de mise à jour (PUT) de cet objet échoue au niveau de la couche du contrôleur de réseau. Le groupe de sécurité réseau est mis à jour au niveau de la couche du fournisseur de ressources réseau, mais pas sur le contrôleur de réseau, de sorte que le groupe de sécurité réseau passe à l’état d’échec.
+- Correction : Attachez les cartes réseau associées au groupe de sécurité réseau devant être supprimé avec des machines virtuelles en cours d’exécution, et dissociez le groupe de sécurité réseau ou retirez toutes les cartes réseau associées au groupe de sécurité réseau.
 - Occurrence : Courant
 
 ### <a name="network-interface"></a>interface réseau
@@ -129,6 +138,11 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
   - [Spécifier des stratégies IPsec/IKE personnalisées](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
 ## <a name="compute"></a>Calcul
+### <a name="cannot-create-a-vmss-with-standard_ds2_v2-vm-size-on-portal"></a>Impossible de créer un groupe identique de machines virtuelles avec la taille de machine virtuelle Standard_DS2_v2 sur le portail
+
+- Champ d’application : Ce problème s’applique à la version 2002.
+- Cause : Il existe un bogue de portail qui empêche la création du groupe identique de machines virtuelles avec la taille de machine virtuelle Standard_DS2_v2. La création de celui-ci génère une erreur avec : "{"code":"DeploymentFailed","message": « Au moins une opération de déploiement de ressource n’a pas réussi. Dressez la liste des opérations de déploiement pour plus d’informations. Pour plus d’informations sur l’utilisation, consultez https://aka.ms/arm-debug.","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\": \" NetworkProfileValidationError\" ,\r\n \" message\": \" La taille de machine virtuelle Standard_DS2_v2 ne figure pas dans la liste autorisée de tailles de machine virtuelle pour que la mise en réseau accélérée soit activée sur la machine virtuelle à l’index 0 pour le groupe identique de machines virtuelles /subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss. Tailles autorisées : .\"\r\n }\r\n}"}]}"
+- Correction : Créez un groupe identique de machines virtuelles avec PowerShell ou un modèle Resource Manager.
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Le panneau de vue d’ensemble de la machine virtuelle n’affiche pas le nom correct de l’ordinateur
 
@@ -138,7 +152,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 ### <a name="nvv4-vm-size-on-portal"></a>Taille de machine virtuelle NVv4 sur le portail
 
-- Champ d’application : Ce problème concerne les versions 2002 et ultérieures.
+- Champ d’application : Ce problème s’applique à la version 2002 et aux suivantes.
 - Cause : Lors de la création de la machine virtuelle, vous verrez la taille suivante : NV4as_v4. Les clients qui disposent du matériel nécessaire à la préversion du GPU Azure Stack Hub AMD Mi25 verront réussir le déploiement de leur machine virtuelle. Tous les autres clients verront le déploiement de leur machine virtuelle échouer avec cette taille.
 - Correction : Ceci est normal dans le cadre de la préparation à la préversion du GPU Azure Stack Hub.
 
@@ -149,6 +163,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Correction : Recréez le compte de stockage avec le même nom que celui utilisé précédemment.
 - Occurrence : Courant
 
+### <a name="vm-boot-diagnostics"></a>Diagnostics de démarrage de machine virtuelle
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Lorsque vous essayez de démarrer une machine virtuelle arrêtée-libérée, l’erreur suivante peut s’afficher : **Le compte de stockage des diagnostics de machine virtuelle « diagnosticstorageaccount » est introuvable. Vérifiez que le compte de stockage n’est pas supprimé**. L’erreur se produit si vous tentez de démarrer une machine virtuelle avec les diagnostics de démarrage activés, mais que le compte de stockage des diagnostics de démarrage référencé est supprimé.
@@ -335,6 +350,13 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Cause : Dans le portail utilisateur, le panneau **Réseau virtuel** comporte une option pour utiliser les **points de terminaison du service**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
+### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>Impossible de supprimer un groupe de sécurité réseau si des cartes réseau ne sont pas associées à une machine virtuelle en cours d’exécution
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Lors de la dissociation d’un groupe de sécurité réseau et d’une carte réseau qui n’est pas associée à une machine virtuelle en cours d’exécution, l’opération de mise à jour (PUT) de cet objet échoue au niveau de la couche du contrôleur de réseau. Le groupe de sécurité réseau est mis à jour au niveau de la couche du fournisseur de ressources réseau, mais pas sur le contrôleur de réseau, de sorte que le groupe de sécurité réseau passe à l’état d’échec.
+- Correction : Attachez les cartes réseau associées au groupe de sécurité réseau devant être supprimé avec des machines virtuelles en cours d’exécution, et dissociez le groupe de sécurité réseau ou retirez toutes les cartes réseau associées au groupe de sécurité réseau.
+- Occurrence : Courant
+
 ### <a name="network-interface"></a>interface réseau
 
 #### <a name="addingremoving-network-interface"></a>Ajout / suppression de l’interface réseau
@@ -375,6 +397,8 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Dans le portail utilisateur, le panneau **Connexions** affiche une fonctionnalité appelée **Résolution des problèmes de VPN**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
+
+#### <a name="vpn-troubleshooter"></a>Résolution des problèmes de VPN
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Dans le portail utilisateur, les fonctionnalités **Résolution des problèmes liés au VPN** et **Métriques** figurent dans une ressource de passerelle VPN, mais cela n’est pas pris en charge dans Azure Stack Hub.
@@ -504,6 +528,13 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Dans le portail utilisateur, le panneau **Réseau virtuel** comporte une option pour utiliser les **points de terminaison du service**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
+- Occurrence : Courant
+
+### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>Impossible de supprimer un groupe de sécurité réseau si des cartes réseau ne sont pas associées à une machine virtuelle en cours d’exécution
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Lors de la dissociation d’un groupe de sécurité réseau et d’une carte réseau qui n’est pas associée à une machine virtuelle en cours d’exécution, l’opération de mise à jour (PUT) de cet objet échoue au niveau de la couche du contrôleur de réseau. Le groupe de sécurité réseau est mis à jour au niveau de la couche du fournisseur de ressources réseau, mais pas sur le contrôleur de réseau, de sorte que le groupe de sécurité réseau passe à l’état d’échec.
+- Correction : Attachez les cartes réseau associées au groupe de sécurité réseau devant être supprimé avec des machines virtuelles en cours d’exécution, et dissociez le groupe de sécurité réseau ou retirez toutes les cartes réseau associées au groupe de sécurité réseau.
 - Occurrence : Courant
 
 ### <a name="network-interface"></a>interface réseau
@@ -662,6 +693,13 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge. 
 - Cause : Lors de l'ajout des machines virtuelles d'un groupe à haute disponibilité au pool principal d'un équilibreur de charge, le message d'erreur suivant s'affiche sur le portail : **Échec de l'enregistrement du pool principal d'équilibrage de charge**. Il s’agit d’un problème esthétique sur le portail. Les fonctionnalités sont toujours en place et les machines virtuelles sont correctement ajoutées en interne au pool de back-ends. 
+- Occurrence : Courant
+
+### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>Impossible de supprimer un groupe de sécurité réseau si des cartes réseau ne sont pas associées à une machine virtuelle en cours d’exécution
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Lors de la dissociation d’un groupe de sécurité réseau et d’une carte réseau qui n’est pas associée à une machine virtuelle en cours d’exécution, l’opération de mise à jour (PUT) de cet objet échoue au niveau de la couche du contrôleur de réseau. Le groupe de sécurité réseau est mis à jour au niveau de la couche du fournisseur de ressources réseau, mais pas sur le contrôleur de réseau, de sorte que le groupe de sécurité réseau passe à l’état d’échec.
+- Correction : Attachez les cartes réseau associées au groupe de sécurité réseau devant être supprimé avec des machines virtuelles en cours d’exécution, et dissociez le groupe de sécurité réseau ou retirez toutes les cartes réseau associées au groupe de sécurité réseau.
 - Occurrence : Courant
 
 ### <a name="network-security-groups"></a>Network Security Group

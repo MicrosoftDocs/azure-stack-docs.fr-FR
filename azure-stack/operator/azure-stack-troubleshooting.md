@@ -8,12 +8,12 @@ ms.date: 05/13/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 15/13/2020
-ms.openlocfilehash: 4910a7aaa2462cb53c4ce89246c92a60f61d5017
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: de19e65866413ec4e498c9a21848c1f43af6d65a
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375008"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819518"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Résoudre les problèmes dans Azure Stack Hub
 
@@ -21,7 +21,7 @@ Ce document fournit des informations de résolution des problèmes pour les envi
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 
-Ces sections contiennent des liens vers des documents qui abordent les questions les plus fréquemment posées aux services de support technique Microsoft.
+Ces sections contiennent des liens vers des documents qui abordent les questions les plus fréquemment posées au support Microsoft.
 
 ### <a name="purchase-considerations"></a>Considérations relatives à l’achat
 
@@ -80,7 +80,7 @@ Choisissez le type de compte de services partagés que vous utilisez pour Azure 
 
 ### <a name="get-scale-unit-metrics"></a>Récupérer les métriques d’unité d’échelle
 
-Vous pouvez utiliser PowerShell pour obtenir des informations sur l’utilisation des tampons sans l’aide des services de support technique Microsoft. Pour obtenir l’utilisation des tampons :
+Vous pouvez utiliser PowerShell pour obtenir des informations sur l’utilisation des tampons sans l’aide du support Microsoft. Pour obtenir l’utilisation des tampons :
 
 1. Créez une session PEP.
 2. Exécutez `test-azurestack`.

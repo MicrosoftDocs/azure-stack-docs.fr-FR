@@ -3,27 +3,27 @@ title: Gérer Key Vault dans Azure Stack Hub à l'aide du portail
 description: Apprenez à gérer Key Vault dans Azure Stack Hub à l'aide du portail Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 50348aff594b058606aae49981e497f8b3515235
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 5413c37b0574e022716a1a0d333c18e78a818937
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702922"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666382"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-the-portal"></a>Gérer Key Vault dans Azure Stack Hub à l'aide du portail
 
 Cet article explique comment créer et gérer un coffre de clés dans Azure Stack Hub à l'aide du portail Azure Stack Hub.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vous devez vous abonner à une offre qui inclut le service Azure Key Vault.
 
 ## <a name="create-a-key-vault"></a>Création d’un coffre de clés
 
-1. Connectez-vous au [portail utilisateur](https://portal.local.azurestack.external).
+1. Connectez-vous au portail utilisateur `https://portal.local.azurestack.external`.
 
 2. Sur le tableau de bord, sélectionnez **+ Créer une ressource**, **Sécurité + Identité** et **Coffre de clés**.
 
@@ -49,7 +49,7 @@ Après avoir créé un coffre de clés, procédez comme suit pour y créer et y 
 
 ### <a name="create-a-key"></a>Créer une clé
 
-1. Connectez-vous au portail utilisateur [Azure Stack Hub](https://portal.local.azurestack.external).
+1. Connectez-vous au portail utilisateur Azure Stack Hub `https://portal.local.azurestack.external`.
 
 2. Dans le tableau de bord, sélectionnez **Toutes les ressources**, sélectionnez le coffre de clés que vous avez créé, puis sélectionnez la vignette **Clés**.
 
@@ -69,7 +69,7 @@ Une fois la clé créée, vous pouvez la sélectionner sous **Clés** et affiche
 
 ### <a name="create-a-secret"></a>Créer un secret
 
-1. Connectez-vous au [portail utilisateur](https://portal.local.azurestack.external).
+1. Connectez-vous au portail utilisateur `https://portal.local.azurestack.external`.
 
 2. Dans le tableau de bord, sélectionnez **Toutes les ressources**, sélectionnez le coffre de clés que vous avez créé, puis sélectionnez la vignette **Secrets**.
 

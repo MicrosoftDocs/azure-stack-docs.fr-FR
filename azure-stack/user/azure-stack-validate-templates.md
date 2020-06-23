@@ -3,20 +3,20 @@ title: Utiliser l’outil de validation de modèles dans Azure Stack Hub
 description: Vérifiez vos modèles pour le déploiement vers Azure Stack Hub avec l’outil de validation de modèles.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 06/09/2020
 ms.author: sethm
-ms.reviewer: unknown
+ms.reviewer: sijuman
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 4c545c60c0890f87c87108101a3e30ab4c87d16d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 69df3da5b5769be9ee9d9bd3234c53de177fd9e2
+ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77705285"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744864"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>Utiliser l’outil de validation de modèles dans Azure Stack Hub
 
-Utilisez l’outil de validation de modèles pour vérifier si vos [modèles](azure-stack-arm-templates.md) Azure Resource Manager sont prêts pour un déploiement vers Azure Stack Hub. L’outil de validation de modèles est disponible dans le référentiel GitHub des outils Azure Stack Hub. Pour téléchargez les outils Azure Stack Hub, suivez la procédure décrite dans [Télécharger des outils à partir de GitHub](../operator/azure-stack-powershell-download.md).
+Utilisez l’outil de validation de modèles pour vérifier si vos [modèles](azure-stack-arm-templates.md) Azure Resource Manager sont prêts pour un déploiement vers Azure Stack Hub. L’outil de validation de modèles est disponible avec le dépôt GitHub des outils Azure Stack Hub. Pour téléchargez les outils Azure Stack Hub, suivez la procédure décrite dans [Télécharger des outils à partir de GitHub](../operator/azure-stack-powershell-download.md).
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -29,7 +29,7 @@ Pour valider un modèle, vous devez d’abord générer un fichier des fonctionn
 
 Avant d’utiliser le validateur de modèle, exécutez le module PowerShell **AzureRM.CloudCapabilities** pour générer un fichier JSON.
 
->[!NOTE]
+> [!NOTE]
 > Si vous mettez à jour votre système intégré ou que vous ajoutez de nouveaux services ou de nouvelles extensions virtuelles, vous devez exécuter à nouveau ce module.
 
 1. Vérifiez que vous disposez d’une connectivité à Azure Stack Hub. Cette procédure peut être effectuée à partir de l’hôte du Kit de développement Azure Stack, ou vous pouvez utiliser un [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) pour vous connecter à partir de votre station de travail.

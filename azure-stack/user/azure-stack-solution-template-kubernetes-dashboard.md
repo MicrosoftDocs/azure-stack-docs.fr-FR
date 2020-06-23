@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 82c3a0c7c43494a3a1a2790ba4672c3d498a61cd
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 0efcac6635a94b3fdc5551f9aa61b5c774e93905
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111565"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631182"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Accéder au tableau de bord Kubernetes dans Azure Stack Hub 
 
@@ -47,7 +47,7 @@ Vous pouvez récupérer l’URL du tableau de bord à partir du nœud maître da
 
 1. Obtenez l’adresse IP publique et le nom d’utilisateur pour votre maître de cluster à partir du tableau de bord Azure Stack Hub. Pour obtenir ces informations :
 
-    - Connectez-vous au [portail Azure Stack Hub](https://portal.local.azurestack.external/).
+    - Connectez-vous au portail Azure Stack Hub `https://portal.local.azurestack.external/`.
     - Sélectionnez **Tous les services** > **Toutes les ressources**. Recherchez le maître dans votre groupe de ressources de cluster. Le maître se nomme `k8s-master-<sequence-of-numbers>`. 
 
 2. Ouvrez le nœud maître dans le portail. Copiez l’**adresse IP publique**. Cliquez sur **Se connecter** pour obtenir votre nom d’utilisateur dans la zone **Connexion avec un compte local de machine virtuelle**. Il s’agit du même nom d’utilisateur que vous avez défini lors de la création de votre cluster. Utilisez l’adresse IP publique plutôt que l’adresse IP privée listée dans le panneau de connexion.

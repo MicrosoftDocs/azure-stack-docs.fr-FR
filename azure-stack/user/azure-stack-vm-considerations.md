@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: c90231d96f3f076b0824222fba43c8d9ef680fa5
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 4559eb88c044d38182a14f1bafecf2f7019cd5cb
+ms.sourcegitcommit: 7df4f3fbb211063e9eef6ac1e2734de72dc6078b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146782"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977136"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Fonctionnalités des machines virtuelles Azure Stack Hub
 
@@ -36,6 +36,7 @@ Les machines virtuelles Azure Stack Hub fournissent des ressources de calcul év
 | Groupes identiques de machines virtuelles|La mise à l’échelle automatique est prise en charge.|La mise à l’échelle automatique n’est pas prise en charge.<br><br>Pour ajouter d’autres instances à un groupe identique, utilisez le portail, les modèles Resource Manager ou PowerShell. |
 | Témoin cloud | Sélectionnez les points de terminaison dans les propriétés du compte de stockage disponibles dans Azure Stack Hub. | Le [témoin de cloud](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) est un type de témoin de quorum de cluster de basculement qui utilise Microsoft Azure pour fournir un vote sur le quorum du cluster.<br>Voici à quoi peuvent ressembler les points de terminaison dans Azure global par rapport à Azure Stack Hub :<br>Azure global :<br>`https://mywitness.blob.core.windows.net/`<br>Azure Stack Hub :<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | Diagnostics de machine virtuelle | Les diagnostics de machine virtuelle Linux sont pris en charge. | Les diagnostics de machine virtuelle Linux ne sont pas pris en charge dans Azure Stack Hub. Lorsque vous déployez une machine virtuelle Linux en activant les diagnostics de machine virtuelle, le déploiement échoue. Le déploiement échoue également si vous activez les mesures de base de la machine virtuelle Linux dans les paramètres de diagnostic. |
+| Tailles de machine virtuelle de virtualisation imbriquée | Prise en charge | Non pris en charge |
 
 ## <a name="vm-sizes"></a>Tailles de machine virtuelle
 

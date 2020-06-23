@@ -7,12 +7,12 @@ ms.date: 04/17/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 04/17/2020
-ms.openlocfilehash: e77252cf89d52291d7d4071d83981eb36bb062ef
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 067817e29858113fc22b596aa394d6e0942e921a
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836170"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819422"
 ---
 # <a name="proactive-diagnostic-log-collection-in-azure-stack-hub"></a>Collecte proactive des journaux de diagnostic dans Azure Stack Hub
 
@@ -20,7 +20,7 @@ ms.locfileid: "82836170"
 
 Faites gagner du temps au service clientèle en collectant de manière proactive les journaux de diagnostic lorsqu'une alerte est déclenchée sur Azure Stack Hub.
 
-Si les conditions d’intégrité du système doivent être examinées, les journaux peuvent être automatiquement chargés à des fins d’analyse avant l’ouverture d’un cas de support auprès des services de support technique Microsoft (CSS).
+Si les conditions d’intégrité du système doivent être examinées, les journaux peuvent être automatiquement chargés à des fins d’analyse avant l’ouverture d’un cas de support auprès du support Microsoft.
 
 ## <a name="steps-to-configure-proactive-log-collection"></a>Procédure de configuration de la collecte proactive des journaux
 
@@ -41,13 +41,13 @@ Suivez cette procédure pour configurer la collecte proactive des journaux. La c
 
 Nous vous recommandons de configurer la fonctionnalité de collecte automatique des journaux de diagnostic afin de simplifier la collecte des journaux et l’expérience du support technique.
 
-Si les conditions d’intégrité du système doivent être examinées, les journaux peuvent être automatiquement téléchargés à des fins d'analyse par les services de support technique Microsoft (CSS).
+Si les conditions d’intégrité du système doivent être examinées, les journaux peuvent être automatiquement chargés à des fins d’analyse par le support Microsoft.
 
 ## <a name="create-an-azure-blob-container-sas-url"></a>Créer une URL SAP de conteneur d'objets blob Azure
 
 Avant de configurer la collecte automatique des journaux, vous devez obtenir une signature d'accès partagé (SAP) pour un conteneur d'objets blob. Une signature d’accès partagé vous permet d'accorder l’accès aux ressources dans votre compte de stockage sans partager les clés de votre compte.
 
-Vous pouvez enregistrer les fichiers journaux Azure Stack Hub dans un conteneur d’objets blob dans Azure, puis fournir l’URL SAR dans laquelle CSS peut collecter les journaux.
+Vous pouvez enregistrer les fichiers journaux Azure Stack Hub dans un conteneur d’objets blob dans Azure, puis fournir l’URL SAS dans laquelle le support Microsoft peut collecter les journaux.
 
 ### <a name="prerequisites"></a>Prérequis
 
@@ -135,7 +135,7 @@ L'historique des journaux collectés à partir d'Azure Stack Hub apparaît sur l
 
 Si elle est activée, la collecte de journaux proactive charge les journaux uniquement quand l’un des événements suivants est déclenché.
 
-Par exemple, **Échec de la mise à jour** est une alerte qui déclenche la collecte proactive des journaux de diagnostic. Si elle est activée, les journaux de diagnostic sont capturés de manière proactive au cours d'un échec de mise à jour pour aider les services de support technique Microsoft à résoudre le problème. Les journaux de diagnostic sont collectés uniquement quand l’alerte pour **Échec de la mise à jour** est déclenchée.
+Par exemple, **Échec de la mise à jour** est une alerte qui déclenche la collecte proactive des journaux de diagnostic. Si elle est activée, les journaux de diagnostic sont capturés de manière proactive au cours d’un échec de mise à jour pour aider le support Microsoft à résoudre le problème. Les journaux de diagnostic sont collectés uniquement quand l’alerte pour **Échec de la mise à jour** est déclenchée.
 
 | Titre de l’alerte | FaultIdType |
 |---|---|

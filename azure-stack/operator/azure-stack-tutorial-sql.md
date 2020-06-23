@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: be747a57b61b2d06a667bd577dd135c6220fc968
-ms.sourcegitcommit: e2ed259c0274abe930df1c7716c3f4c9f3a7b167
+ms.openlocfilehash: 6d5c80403a355186632c245baecd0796ac3acbf9
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83403863"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630985"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Créer des bases de données SQL à haute disponibilité avec Azure Stack Hub
 
@@ -35,8 +35,8 @@ Avant de commencer, vérifiez que le [fournisseur de ressources SQL Server](azur
 > [!IMPORTANT]
 > Tous les éléments suivants sont nécessaires pour pouvoir utiliser le modèle de démarrage rapide Azure Stack Hub.
 
-- Image de la Place de marché Windows Server 2016 Datacenter.
-- SQL Server 2016 SP1 ou SP2 (Enterprise ou Developer) sur l’image du serveur Windows Server 2016. Cet article utilise l’image de la Place de marché SQL Server 2016 SP2 Enterprise sur Windows Server 2016.
+- Windows Server 2016 Datacenter.
+- SQL Server 2016 SP1 ou SP2 (Standard, Enterprise ou Developer) sur l’image du serveur Windows Server 2016. 
 - [SQL Server IaaS Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) version 1.3.20180 ou ultérieure. L’extension IaaS SQL installe les composants nécessaires pour les éléments de la Place de marché SQL Server pour toutes les versions de Windows. Elle permet la configuration de paramètres SQL sur les machines virtuelles SQL. Si l’extension n’est pas installée dans la place de marché locale, le provisionnement de SQL échoue.
 - [Extension de script personnalisé pour Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) version 1.9.1 ou ultérieure. L’extension de script personnalisé est un outil qui peut être utilisé pour lancer automatiquement des tâches de personnalisation post-déploiement des machines virtuelles.
 - [Configuration d’état souhaité PowerShell](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) version 2.76.0.0 ou ultérieure. DSC (Desired State Configuration) est une plateforme de gestion dans Windows PowerShell qui permet le déploiement et la gestion des données de configuration des services logiciels. Cette plateforme gère également l’environnement d’exécution de ces services.
@@ -84,7 +84,7 @@ Suivez les étapes de cette section pour déployer le groupe de disponibilité S
 
 6. Dans le portail utilisateur, sélectionnez **Groupes de ressources**, puis le nom du groupe de ressources que vous avez créé pour le déploiement personnalisé (**resource-group** pour cet exemple). Regardez l’état du déploiement pour vérifier que tous les déploiements ont réussi.
     
-    Ensuite, passez en revue les éléments du groupe de ressources et sélectionnez l’élément Adresse IP publique de **SQLPIPsql\<nom_groupe_ressources\>** . Notez l’adresse IP publique et le nom de domaine complet de l’équilibreur de charge. Vous devrez fournir ces informations à un opérateur Azure Stack Hub pour que celui-ci puisse créer un serveur d’hébergement SQL qui utilise ce groupe de disponibilité SQL AlwaysOn.
+    Ensuite, passez en revue les éléments du groupe de ressources et sélectionnez l’élément d’adresse IP publique **SQLPIPsql\<resource group name\>** . Notez l’adresse IP publique et le nom de domaine complet de l’équilibreur de charge. Vous devrez fournir ces informations à un opérateur Azure Stack Hub pour que celui-ci puisse créer un serveur d’hébergement SQL qui utilise ce groupe de disponibilité SQL AlwaysOn.
 
    > [!NOTE]
    > Le déploiement du modèle peut durer plusieurs heures.
@@ -141,7 +141,7 @@ Utilisez ces commandes pour définir l’option du serveur « contained database
 
 Une fois le groupe de disponibilité SQL Server AlwaysOn créé et configuré, un opérateur Azure Stack Hub doit créer un serveur d’hébergement SQL Azure Stack Hub. Ce serveur fournit aux utilisateurs des capacités supplémentaires pour la création de bases de données.
 
-Veillez à utiliser l’adresse IP publique ou le nom de domaine complet pour l’adresse IP publique de l’équilibreur de charge SQL que vous avez enregistré précédemment lors de la création du groupe de ressources du groupe de disponibilité AlwaysOn SQL (**SQLPIPsql\<nom du groupe de ressources\>** ). En outre, vous devez connaître les informations d’identification SQL Server permettant d’accéder aux instances SQL du groupe de disponibilité AlwaysOn.
+Veillez à utiliser l’adresse IP publique ou le nom de domaine complet pour l’adresse IP publique de l’équilibreur de charge SQL que vous avez enregistré précédemment lors de la création du groupe de ressources du groupe de disponibilité SQL AlwaysOn (**SQLPIPsql\<resource group name\>** ). En outre, vous devez connaître les informations d’identification SQL Server permettant d’accéder aux instances SQL du groupe de disponibilité AlwaysOn.
 
 > [!NOTE]
 > Cette étape doit être effectuée par un opérateur Azure Stack Hub à partir du portail d’administration Azure Stack Hub.

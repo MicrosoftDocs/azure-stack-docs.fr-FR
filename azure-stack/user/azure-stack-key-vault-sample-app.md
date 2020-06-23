@@ -3,21 +3,21 @@ title: Autoriser des applications à accéder aux secrets d’un Key Vault Azure
 description: Découvrez comment exécuter un exemple d’application qui récupère des clés et secrets d’un coffre de clés dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 06/15/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 16973c1c381cfecb611370f940f92a7695f9434f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2941adf109f9e8c142523f607bce969427127ec3
+ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702769"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84813789"
 ---
 # <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>Autoriser des applications à accéder aux secrets d’un Key Vault Azure Stack Hub
 
-Suivez les étapes de cet article pour exécuter l’exemple d’application **HelloKeyVault** qui récupère des clés et secrets d’un coffre de clés dans Azure Stack Hub.
+Les étapes de cet article décrivent comment exécuter l’exemple d’application **HelloKeyVault** qui récupère des clés et secrets d’un coffre de clés dans Azure Stack Hub.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vous pouvez installer les prérequis suivants à partir du [Kit de développement Azure Stack](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) ou à partir d’un client externe Windows si vous êtes [connecté via un VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) :
 
@@ -130,7 +130,7 @@ Prenez note des valeurs de **VaultUrl**, **AuthClientId** et **AuthClientSecret*
 
 ## <a name="download-and-configure-the-sample-application"></a>Télécharger et configurer l’exemple d’application
 
-Téléchargez l’exemple de coffre de clés à partir de la page [Azure Key Vault client samples](https://www.microsoft.com/download/details.aspx?id=45343). Extrayez le contenu du fichier .zip sur votre station de travail de développement. Il existe deux applications dans le dossier d’exemples. Cet article utilise **HelloKeyVault**.
+Téléchargez l’exemple de coffre de clés à partir de la page [Azure Key Vault client samples](https://www.microsoft.com/download/details.aspx?id=45343). Extrayez le contenu du fichier .zip sur votre station de travail de développement. Le dossier d’exemples contient deux applications : cet article utilise **HelloKeyVault**.
 
 Pour charger l’exemple **HelloKeyVault** :
 

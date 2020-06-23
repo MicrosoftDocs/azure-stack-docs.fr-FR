@@ -7,12 +7,12 @@ ms.date: 3/12/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: e85df91b08c51ce8255e2b35c9d7ba31505b3d00
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ee0410467a7e2608580da5c209a97f86a60b675a
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79313213"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631195"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Déployer Kubernetes sur Azure Stack Hub à l’aide d’Azure Active Directory
 
@@ -71,7 +71,7 @@ Créer un principal de service dans Azure. Le principal du service permet à vot
 
 Accordez l’accès à votre abonnement au principal de service afin qu’il puisse créer des ressources.
 
-1.  Connectez-vous au [portail Azure Stack Hub](https://portal.local.azurestack.external/).
+1.  Connectez-vous au portail Azure Stack Hub `https://portal.local.azurestack.external/`.
 
 1. Sélectionnez **Tous les services** > **Abonnements**.
 
@@ -87,7 +87,7 @@ Accordez l’accès à votre abonnement au principal de service afin qu’il pui
 
 ## <a name="deploy-kubernetes"></a>Déployer Kubernetes
 
-1. Ouvrez le [portail Azure Stack Hub](https://portal.local.azurestack.external).
+1. Ouvrez le portail Azure Stack Hub `https://portal.local.azurestack.external`.
 
 1. Sélectionnez **Créer une ressource** > **Calcul** > **Cluster Kubernetes**. Cliquez sur **Créer**.
 

@@ -7,12 +7,12 @@ ms.date: 04/30/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 17ecab0f42c89d6c25daba98652d8dc9d1a9e3b0
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: e78b396822c86c9785ddecc691f57c27afeb6fcd
+ms.sourcegitcommit: e79aafb05c5fc512a83f0ebc6d76503213ccbc70
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82777744"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730711"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Mettre à l’échelle des actions de nœud d’unité dans Azure Stack Hub
 
@@ -52,7 +52,7 @@ Pour afficher l’état d’une unité d’échelle :
 | Arrêté | Le nœud est indisponible. |
 | Ajout | Le nœud est ajouté de façon active à l’unité d’échelle. |
 | Réparation | Le nœud est réparé de façon active. |
-| Maintenance  | Le nœud est suspendu et aucune charge de travail utilisateur active n’est en cours d’exécution. |
+| Maintenance | Le nœud est suspendu et aucune charge de travail utilisateur active n’est en cours d’exécution. |
 | Correction nécessaire | Une erreur nécessitant la réparation du nœud a été détectée. |
 
 ### <a name="azure-stack-hub-shows-adding-status-after-an-operation"></a>Azure Stack Hub affiche l'état Ajout après une opération
@@ -159,7 +159,7 @@ Pour plus d’informations, consultez [Enable-AzsScaleUnitNode](https://docs.mic
 ## <a name="repair"></a>Réparation
 
 > [!CAUTION]  
-> Le nivellement du microprogramme est essentiel pour la réussite de l’opération décrite dans cet article. Ignorer cette étape peut entraîner une instabilité du système, une baisse des performances, des menaces sur la sécurité ou l’échec de l’opération de déploiement du système d’exploitation par Azure Stack Hub Automation. Lors du remplacement du matériel, consultez toujours la documentation de votre partenaire de matériel pour vous assurer que le microprogramme appliqué correspond à la version OEM affichée dans le [portail administrateur Azure Stack Hub](azure-stack-updates.md).<br><br>
+> Le nivellement du microprogramme est essentiel pour la réussite de l’opération décrite dans cet article. Le manquement de cette étape peut entraîner une instabilité du système, une baisse des performances, des menaces sur la sécurité ou l’échec de l’opération de déploiement du système d’exploitation par l’outil d’automatisation Azure Stack Hub. Lors du remplacement du matériel, consultez toujours la documentation de votre partenaire matériel pour vous assurer que le microprogramme appliqué correspond à la version OEM affichée sur le [portail administrateur Azure Stack Hub](azure-stack-updates.md).<br><br>
 Pour en savoir plus et obtenir des liens vers la documentation du partenaire, consultez [Remplacer un composant matériel](azure-stack-replace-component.md).
 
 | Partenaire matériel | Région | URL |

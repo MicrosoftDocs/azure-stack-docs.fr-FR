@@ -3,18 +3,18 @@ title: Inscrire Azure Stack Hub auprès d’Azure
 titleSuffix: Azure Stack Hub
 description: Découvrez comment inscrire les systèmes intégrés Azure Stack Hub auprès d’Azure afin de pouvoir télécharger des éléments de la Place de marché Azure et configurer les rapports de données.
 author: IngridAtMicrosoft
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 497a051c67b05683a874de955c069256c19bba9a
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: e21b3a68d17f07006997b70eb1ff3dfa22bad229
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780787"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819553"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Inscrire Azure Stack Hub auprès d’Azure
 
@@ -326,7 +326,7 @@ Si vous le souhaitez, vous pouvez utiliser l’applet de commande Get-Content po
 
 Vous pouvez utiliser la vignette **Gestion des régions** pour vérifier que l’inscription Azure Stack Hub a réussi. Cette vignette est disponible sur le tableau de bord par défaut du portail d’administration. L’état peut être inscrit ou non. S’il est inscrit, il montre également l’ID d’abonnement Azure que vous avez utilisé pour inscrire votre instance Azure Stack Hub ainsi que le groupe de ressources et le nom de l’inscription.
 
-1. Connectez-vous au [portail d’administration Azure Stack Hub](https://adminportal.local.azurestack.external).
+1. Connectez-vous au portail administrateur Azure Stack Hub `https://adminportal.local.azurestack.external`.
 
 2. Dans le tableau de bord, sélectionnez **Gestion des régions**.
 

@@ -8,12 +8,12 @@ ms.date: 03/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 03/24/2020v
-ms.openlocfilehash: bd8867b4bd7fae79f82752a0f4cdbd1457efc0ef
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 092d73339eb2ea733cb0fb67404bf52cc9539343
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80229526"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630754"
 ---
 # <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>Ajouter Kubernetes sur la Place de marché Azure Stack Hub
 
@@ -28,7 +28,7 @@ Cet article explique comment utiliser un modèle Azure Resource Manager pour dé
 
 Créez un plan, une offre et un abonnement pour le produit Kubernetes de la Place de marché. Vous pouvez également utiliser un plan et une offre existants.
 
-1. Connectez-vous au [portail Administrateur](https://adminportal.local.azurestack.external).
+1. Connectez-vous au portail administrateur `https://adminportal.local.azurestack.external`.
 
 1. Créez un plan de base. Pour obtenir des instructions, voir [Créer un plan dans Azure Stack Hub](azure-stack-create-plan.md).
 
@@ -60,7 +60,7 @@ Si vous utilisez AD FS (Active Directory Federated Services) pour votre service
 
 Ajoutez l’image de serveur Ubuntu suivante sur la Place de marché Azure Stack Hub :
 
-1. Connectez-vous au [portail d’administration](https://adminportal.local.azurestack.external).
+1. Connectez-vous au portail administrateur `https://adminportal.local.azurestack.external`.
 
 1. Sélectionnez **Tous les services**, puis, dans la catégorie **ADMINISTRATION**, sélectionnez **Gestion de la Place de marché**.
 
@@ -80,7 +80,7 @@ Ajoutez l’image de serveur Ubuntu suivante sur la Place de marché Azure Stack
 
 Ajoutez la plateforme Kubernetes à partir de la Place de marché Azure Stack Hub :
 
-1. Ouvrez le [portail Administrateur](https://adminportal.local.azurestack.external).
+1. Ouvrez le portail administrateur `https://adminportal.local.azurestack.external`.
 
 1. Sélectionnez **Tous les services**, puis, dans la catégorie **ADMINISTRATION**, sélectionnez **Gestion de la Place de marché**.
 
@@ -100,7 +100,7 @@ Ajoutez la plateforme Kubernetes à partir de la Place de marché Azure Stack Hu
 
 ## <a name="add-kubernetes-to-the-marketplace"></a>Ajouter Kubernetes sur la Place de marché
 
-1. Ouvrez le [portail Administrateur](https://adminportal.local.azurestack.external).
+1. Ouvrez le portail administrateur `https://adminportal.local.azurestack.external`.
 
 1. Sélectionnez **Tous les services** et, sous la catégorie **ADMINISTRATION**, sélectionnez **Gestion de la Place de marché**.
 

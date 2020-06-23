@@ -3,16 +3,16 @@ title: Notes de publication d’Azure Stack Hub
 description: Notes de publication des systèmes intégrés Azure Stack Hub, y compris les mises à jour et les correctifs de bogues.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/29/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 39e6c3ce9b942398954c5c81cbce172095520d90
-ms.sourcegitcommit: c167bf3724139aafe40066f9533985ed7d919c0e
+ms.openlocfilehash: adb3d5d995b9bb267dacf957a9a7f15582114484
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84329212"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819457"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Notes de publication d’Azure Stack Hub
 
@@ -157,6 +157,8 @@ Azure Stack Hub publie régulièrement des correctifs logiciels. Veillez à inst
 
 Les correctifs logiciels Azure Stack Hub s’appliquent uniquement aux systèmes intégrés Azure Stack Hub. N’essayez pas d’installer des correctifs logiciels sur l’ASDK.
 
+Pour plus d’informations sur les correctifs, consultez la [stratégie de maintenance Azure Stack Hub](azure-stack-servicing-policy.md#hotfixes).
+
 ### <a name="prerequisites-before-applying-the-2002-update"></a>Configuration requise : Avant d’appliquer la mise à jour 2002
 
 La version 2002 d’Azure Stack Hub doit être appliquée sur la version 1910 avec les correctifs logiciels suivants :
@@ -166,7 +168,7 @@ La version 2002 d’Azure Stack Hub doit être appliquée sur la version 1910 
 
 ### <a name="after-successfully-applying-the-2002-update"></a>Après l’application de la mise à jour 2002
 
-Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez notre [stratégie de maintenance](azure-stack-servicing-policy.md).
+Après l’installation de cette mise à jour, installez les correctifs logiciels applicables.
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
 - [Correctif logiciel Azure Stack Hub 1.2002.28.93](https://support.microsoft.com/help/4562966)
@@ -222,7 +224,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
     - Intégration avec Azure Arc.
     - Intégration avec Azure Monitor pour conteneurs.
   - Utiliser des conteneurs Windows avec le moteur AKS.
-  - Bénéficier du support CSS et d’ingénierie pour leurs déploiements.
+  - Bénéficier du support Microsoft et d’ingénierie pour leurs déploiements.
 
 ### <a name="improvements"></a>Améliorations
 
@@ -429,7 +431,7 @@ Le type de build de la mise à jour 1907 d’Azure Stack Hub est **Express**. P
 
 <!-- What's new, also net new experiences and features. -->
 
-- Mise à la disposition générale du service de collecte des journaux de diagnostic Azure Stack Hub pour faciliter et améliorer la collecte des journaux de diagnostic. Le service de collecte des journaux de diagnostic Azure Stack Hub propose un moyen simplifié de collecter et de partager des journaux de diagnostic avec les services de support technique Microsoft. Ce service de collecte des journaux de diagnostic offre une nouvelle expérience utilisateur dans le portail d’administration Azure Stack Hub. Il permet aux opérateurs de configurer le chargement automatique des journaux de diagnostic dans un objet blob de stockage lorsque certaines alertes critiques sont générées. Ce service peut également être utilisé pour effectuer la même opération à la demande. Pour plus d’informations, consultez l'article [Collecte des journaux de diagnostic](azure-stack-diagnostic-log-collection-overview.md).
+- Mise à la disposition générale du service de collecte des journaux de diagnostic Azure Stack Hub pour faciliter et améliorer la collecte des journaux de diagnostic. Le service de collecte des journaux de diagnostic Azure Stack Hub propose un moyen simplifié de collecter et de partager des journaux de diagnostic avec le support Microsoft. Ce service de collecte des journaux de diagnostic offre une nouvelle expérience utilisateur dans le portail d’administration Azure Stack Hub. Il permet aux opérateurs de configurer le chargement automatique des journaux de diagnostic dans un objet blob de stockage lorsque certaines alertes critiques sont générées. Ce service peut également être utilisé pour effectuer la même opération à la demande. Pour plus d’informations, consultez l'article [Collecte des journaux de diagnostic](azure-stack-diagnostic-log-collection-overview.md).
 
 - Mise à la disposition générale de la validation de l’infrastructure réseau Azure Stack Hub dans le cadre de l’outil de validation Azure Stack Hub **Test-AzureStack**. L’infrastructure réseau Azure Stack Hub fera partie de **Test-AzureStack** pour identifier toute défaillance sur l’infrastructure d’Azure Stack Hub. Le test vérifie la connectivité de l’infrastructure réseau en contournant le réseau à définition logicielle Azure Stack Hub. Il démontre la connectivité d’une adresse IP virtuelle publique aux redirecteurs DNS, serveurs NTP et points de terminaison d'identité configurés. Il vérifie aussi la connectivité à Azure quand Azure AD est utilisé en tant que fournisseur d’identité, ou au serveur fédéré quand ADFS est utilisé. Pour plus d’informations, consultez l’article [Outil de validation Azure Stack Hub](azure-stack-diagnostic-test.md).
 

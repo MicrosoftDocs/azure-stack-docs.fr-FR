@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: 20d20e5e53a8826ea0514e894bacbfeeeda6c540
-ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
+ms.openlocfilehash: a9b81eb49abdcd08cef13e89845473db5c9c9032
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580136"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819498"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Aide et support d’Azure Stack Hub
 
@@ -42,15 +42,15 @@ En haut de **Aide + support** se trouvent des actions que vous devez essayer en
 
 Pour un système intégré, il existe un processus d’escalade et de résolution coordonné entre Microsoft et nos partenaires fabricants d’ordinateurs OEM.
 
-En cas de problème au niveau des services cloud, le support technique s’effectue via les services de support technique Microsoft (CSS). Vous pouvez sélectionner **Aide** (point d’interrogation) dans le coin supérieur droit du portail administrateur et sélectionner ensuite sur **Aide + support** pour ouvrir **Aide + support - Vue d’ensemble** et envoyer une nouvelle demande de support. La création d’une demande de support présélectionne le service Azure Stack Hub. Nous recommandons fortement aux clients d’utiliser ce moyen pour envoyer des tickets de support, plutôt que d’utiliser le portail Azure global.
+En cas de problème avec des services cloud, le support est assuré par le support Microsoft. Vous pouvez sélectionner **Aide** (point d’interrogation) dans le coin supérieur droit du portail administrateur et sélectionner ensuite sur **Aide + support** pour ouvrir **Aide + support - Vue d’ensemble** et envoyer une nouvelle demande de support. La création d’une demande de support présélectionne le service Azure Stack Hub. Nous recommandons fortement aux clients d’utiliser ce moyen pour envoyer des tickets de support, plutôt que d’utiliser le portail Azure global.
 
-En cas de problème de déploiement, de correctif et de mise à jour, de matériel (y compris les unités remplaçables sur site) et de logiciel d’une marque de matériel (notamment les logiciels exécutés sur l’hôte du cycle de vie du matériel), contactez d’abord votre fournisseur de matériel OEM. Pour tout autre problème, contactez Microsoft CSS.
+En cas de problème de déploiement, de correctif et de mise à jour, de matériel (y compris les unités remplaçables sur site) et de logiciel d’une marque de matériel (notamment les logiciels exécutés sur l’hôte du cycle de vie du matériel), contactez d’abord votre fournisseur de matériel OEM. Pour tout autre problème, contactez le support Microsoft.
 
 ![Bénéficier d’une aide spécialisée pour les systèmes intégrés](media/azure-stack-help-and-support/get-support-integrated.png)
 
 Pour le Kit de développement Azure Stack (ASDK), vous pouvez poser des questions de support technique sur le [Forum MSDN Azure Stack Hub](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack).
 
-Sélectionnez **Aide** (point d’interrogation) dans le coin supérieur droit du portail d’administration et sélectionnez ensuite **Aide + support** pour ouvrir **Aide + support - Vue d’ensemble**, où vous trouverez un lien vers le forum. Les forums MSDN sont consultés régulièrement. Le Kit ASDK étant un environnement d’évaluation, les services de support technique Microsoft n’assurent aucun support officiel.
+Sélectionnez **Aide** (point d’interrogation) dans le coin supérieur droit du portail d’administration et sélectionnez ensuite **Aide + support** pour ouvrir **Aide + support - Vue d’ensemble**, où vous trouverez un lien vers le forum. Les forums MSDN sont consultés régulièrement. ASDK étant un environnement d’évaluation, le support Microsoft n’offre aucun support officiel.
 
 Vous pouvez aussi contacter les forums MSDN pour trouver de l’aide concernant un problème, ou suivre une formation en ligne pour améliorer vos propres compétences.
 
@@ -83,7 +83,7 @@ Vous pouvez envoyer des journaux de diagnostic à Microsoft de deux manières :
 
 ![Options de collecte des journaux de diagnostic](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
-Les systèmes intégrés peuvent partager les journaux de diagnostic avec les services de support technique Microsoft (CSS). Le Kit de développement Azure Stack (ASDK) étant un environnement d’évaluation, il n’est pas pris en charge par CSS. Pour plus d’informations, consultez [Vue d’ensemble de la collecte automatique des journaux de diagnostic Azure Stack Hub](azure-stack-diagnostic-log-collection-overview.md).
+Les systèmes intégrés peuvent partager les journaux de diagnostic avec le support Microsoft. Le kit de développement Azure Stack (ASDK) étant un environnement d’évaluation, il n’est pas pris en charge par le support Microsoft. Pour plus d’informations, consultez [Vue d’ensemble de la collecte automatique des journaux de diagnostic Azure Stack Hub](azure-stack-diagnostic-log-collection-overview.md).
 
 ## <a name="help-and-support-for-earlier-releases-azure-stack-hub-pre-1905"></a>Aide et support pour les versions d’Azure Stack Hub antérieures à la version 1905
 
@@ -91,15 +91,15 @@ Dans les versions antérieures d’Azure Stack Hub, vous avez également un lien
 
 ![Obtenir des tutoriels de support](media/azure-stack-help-and-support/get-support-previous.png)
 
-En cas de problème au niveau des services cloud, le support technique s’effectue via les services de support technique Microsoft (CSS). Vous pouvez sélectionner **Aide** (point d’interrogation) dans le coin supérieur droit du portail administrateur, sélectionner **Aide + support** et sélectionner ensuite **Nouvelle demande de support** pour envoyer une nouvelle demande de support directement à Microsoft CSS.
+En cas de problème avec des services cloud, le support est assuré par le support Microsoft. Vous pouvez sélectionner **Aide** (point d’interrogation) dans le coin supérieur droit du portail administrateur, **Aide et support**, puis **Nouvelle demande de support** pour envoyer une nouvelle demande de support directement au support Microsoft.
 
-Pour un système intégré, il existe un processus d’escalade et de résolution coordonné entre Microsoft et nos partenaires OEM. En cas de problème avec des services cloud, le support est assuré par Microsoft CSS.
+Pour un système intégré, il existe un processus d’escalade et de résolution coordonné entre Microsoft et nos partenaires OEM. En cas de problème avec des services cloud, le support est assuré par le support Microsoft.
 
-En cas de problème de déploiement, de correctif et de mise à jour, de matériel (y compris les unités remplaçables sur site) et de logiciel d’une marque de matériel, notamment les logiciels exécutés sur l’hôte du cycle de vie du matériel, contactez d’abord votre fournisseur de matériel OEM. Pour tout autre problème, contactez Microsoft CSS.
+En cas de problème de déploiement, de correctif et de mise à jour, de matériel (y compris les unités remplaçables sur site) et de logiciel d’une marque de matériel, notamment les logiciels exécutés sur l’hôte du cycle de vie du matériel, contactez d’abord votre fournisseur de matériel OEM. Pour tout autre problème, contactez le support Microsoft.
 
 Pour l’ADSK, vous pouvez poser des questions de support sur le [Forum MSDN Azure Stack Hub](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack).
 
-Sélectionnez **Aide** (point d’interrogation) dans le coin supérieur droit du portail administrateur et sélectionnez ensuite **Nouvelle demande de support** pour obtenir de l’aide de la part de spécialistes parmi la communauté Azure Stack Hub. Le Kit ASDK étant un environnement d’évaluation, les services de support technique Microsoft n’assurent aucun support officiel.
+Sélectionnez **Aide** (point d’interrogation) dans le coin supérieur droit du portail administrateur et sélectionnez ensuite **Nouvelle demande de support** pour obtenir de l’aide de la part de spécialistes parmi la communauté Azure Stack Hub. ASDK étant un environnement d’évaluation, le support Microsoft n’offre aucun support officiel.
 
 ::: moniker-end
 

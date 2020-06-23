@@ -7,12 +7,12 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 75e20d593f1fb07e55655a7128c12b5417835dfe
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 70d2cfd7ce2dddd73117783c97003178281927d9
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82846889"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819377"
 ---
 # <a name="asdk-admin-basics"></a>Notions de base de l’administration ASDK
 Si vous débutez avec l’administration du kit de développement Azure Stack, vous devez prendre connaissance de plusieurs choses. Ce guide présente le rôle d’opérateur Azure Stack dans l’environnement d’évaluation. Si vous vous familiarisez avec ces informations, vos utilisateurs test seront très rapidement productifs.
@@ -56,7 +56,7 @@ Pour l'ADSK, vous pouvez poser des questions de support technique sur le [Forum 
 Vous pouvez également accéder aux forums en cliquant sur **Aide** (point d’interrogation) dans le coin supérieur droit du portail d’administration. Cliquez ensuite sur **Aide + support** pour ouvrir la **vue d'ensemble** Aide + support, qui contient un lien vers le forum. Les forums MSDN sont consultés régulièrement.  
 
 > [!IMPORTANT]
-> Le kit de développement étant un environnement d’évaluation, aucune prise en charge officielle n’est proposée par les services de support technique Microsoft.
+> ASDK étant un environnement d’évaluation, le support Microsoft n’offre aucun support officiel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Déployer l’ASDK](asdk-install.md)

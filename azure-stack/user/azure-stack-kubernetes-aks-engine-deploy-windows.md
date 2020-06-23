@@ -7,12 +7,12 @@ ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: efe8b85d9363e0c5e3c07bf4190314e030707a9a
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: a68736088f8da95b0a7851007b8add4038c8199c
+ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82556446"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84533737"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Installer le moteur AKS sur Windows dans Azure Stack Hub
 
@@ -36,7 +36,7 @@ Vous pouvez installer la machine virtuelle cliente pour gérer votre cluster Kub
 3. [Installez Chocolatey en suivant les instructions PowerShell](https://chocolatey.org/install#install-with-powershellexe). 
 
     Selon le site web de Chocolatey : Chocolatey est un gestionnaire de package pour Windows, comme apt-get ou yum mais pour Windows. Il a été conçu pour servir de framework décentralisé afin d’installer rapidement les applications et outils dont vous avez besoin. Il s’appuie sur l’infrastructure NuGet qui utilise actuellement PowerShell en priorité pour remettre les packages des distributions à votre porte, erreur, ordinateur.
-4. Recherchez la version du moteur AKS dans le tableau [Versions de Kubernetes prises en charge](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions). Le moteur de base AKS doit être disponible dans votre Place de marché Azure Stack Hub. Lors de l’exécution de la commande, vous devez spécifier la version `--version v0.48.0`. Si vous ne spécifiez pas la version, la commande installe la version la plus récente, qui nécessite peut-être une image de disque dur virtuel non disponible dans votre place de marché.
+4. Recherchez la version du moteur AKS dans le tableau [Versions de Kubernetes prises en charge](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions). Le moteur de base AKS doit être disponible dans votre Place de marché Azure Stack Hub. Lors de l’exécution de la commande, vous devez spécifier la version `--version v0.48.0`. Si vous ne spécifiez pas la version, la commande installe la version la plus récente, qui nécessite peut-être une image de disque dur virtuel non disponible dans votre place de marché.
 5. Exécutez la commande suivante à partir d’une invite avec élévation de privilèges et incluez le numéro de version :
 
     ```PowerShell  

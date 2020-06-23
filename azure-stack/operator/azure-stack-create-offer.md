@@ -7,12 +7,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: fe2cb87c666e8c3447eca46bdcb49c71514bccdc
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ab12123410971dcbff3a4750650dd5508ca93efe
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704486"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631148"
 ---
 # <a name="create-an-offer-in-azure-stack-hub"></a>Créer une offre dans Azure Stack Hub
 
@@ -21,7 +21,7 @@ Les [offres](azure-stack-overview.md) sont des groupes d’un ou plusieurs plans
 ::: moniker range=">=azs-1902"
 ## <a name="create-an-offer-1902-and-later"></a>Créer une offre (1902 et versions ultérieures)
 
-1. Connectez-vous au [portail d’administration Azure Stack Hub](https://adminportal.local.azurestack.external) et sélectionnez **+ Créer une ressource**, puis **Offres + plans** et **Offre**.
+1. Connectez-vous au portail administrateur Azure Stack Hub `https://adminportal.local.azurestack.external` et sélectionnez **+ Créer une ressource**, puis **Offres + plans** et **Offre**.
 
    ![Créer une offre dans Azure Stack Hub](media/azure-stack-create-offer/offers.png)
 
@@ -68,7 +68,7 @@ Il existe deux façons de changer l’état d’une offre :
 ::: moniker range="<=azs-1901"
 ## <a name="create-an-offer-1901-and-earlier"></a>Créer une offre (1901 et versions antérieures)
 
-1. Connectez-vous au [portail d’administration Azure Stack Hub](https://adminportal.local.azurestack.external) et sélectionnez **+ Créer une ressource**, puis **Offres + plans de locataire** et **Offre**.
+1. Connectez-vous au portail administrateur Azure Stack Hub `https://adminportal.local.azurestack.external` et sélectionnez **+ Créer une ressource**, puis **Offres + plans de locataire** et **Offre**.
 
    ![Créer une offre dans Azure Stack Hub](media/azure-stack-create-offer/image01.png)
   

@@ -3,15 +3,15 @@ title: Utiliser le module de stratégie Azure Stack Hub
 description: Apprenez à contraindre un abonnement Azure à se comporter comme un abonnement Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: 7af2662c52de8085b6b77fa0c9a2b36f401168fc
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f39bbf689cd3b847b29c2d5b046721029078a5dd
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703823"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666479"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-hub-policy-module"></a>Gérer la stratégie Azure à l’aide du module de stratégie Azure Stack Hub
 

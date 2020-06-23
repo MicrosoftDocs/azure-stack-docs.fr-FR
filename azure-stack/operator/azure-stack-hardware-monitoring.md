@@ -3,16 +3,16 @@ title: Superviser l’intégrité matérielle d’Azure Stack Hub
 description: Découvrez comment superviser l’intégrité des composants matériels d’Azure Stack Hub.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 06/15/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: a4f5d82979e209eae124f930d1f59abc1bb88b98
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: dff881fe332367b0911c21c0e23745210feb9051
+ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375175"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84813764"
 ---
 # <a name="monitor-azure-stack-hub-hardware-components"></a>Superviser les composants matériels d’Azure Stack Hub
 
@@ -26,11 +26,11 @@ Le système de contrôle d’intégrité et de supervision d’Azure Stack Hub s
 - Lecteurs de démarrage
 
 > [!NOTE]
-> Avant d’activer cette fonctionnalité, vous devez vérifier auprès de votre partenaire fournisseur de matériel qu’ils sont prêts. Votre partenaire Matériel fournira également les étapes détaillées permettant d’activer cette fonctionnalité dans le contrôleur BMC.
+> Avant d’activer cette fonctionnalité, vous devez vérifier auprès de votre partenaire fournisseur de matériel qu’ils sont prêts. Votre partenaire matériel fournira également les étapes détaillées permettant d’activer cette fonctionnalité dans le contrôleur de gestion de la carte de base (BMC).
 
 ## <a name="snmp-listener-scenario"></a>Scénario d’écouteur SNMP
 
-Un écouteur SNMP v3 s’exécute sur les trois instances ERCS, sur le port TCP 162. Le contrôleur BMC (Baseboard Management Controller) doit être configuré pour envoyer des interruptions SNMP à l’écouteur Azure Stack Hub. Vous pouvez obtenir les trois adresses IP PEP à partir du portail d’administration en ouvrant l’affichage des propriétés de région.
+Un écouteur SNMP v3 s’exécute sur les trois instances ERCS, sur le port TCP 162. Le contrôleur BMC doit être configuré pour envoyer des interruptions SNMP à l’écouteur Azure Stack Hub. Vous pouvez obtenir les trois adresses IP PEP à partir du portail d’administration en ouvrant l’affichage des propriétés de région.
 
 L’envoi d’interruptions à l’écouteur requiert une authentification et doit utiliser les mêmes informations d’identification que l’accès au contrôleur BMC de base lui-même.
 

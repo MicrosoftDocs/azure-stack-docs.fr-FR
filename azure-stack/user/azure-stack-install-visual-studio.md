@@ -3,16 +3,16 @@ title: Installer Visual Studio et se connecter à Azure Stack Hub
 description: Découvrez comment installer Visual Studio et se connecter à Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 06/11/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2020
-ms.openlocfilehash: 9fb0cf281fb97bc5cf255fb39507869b106d0a1b
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c9d8ad6293735db1a65d6f24e7a53a869535af6d
+ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702956"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744927"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack-hub"></a>Installer Visual Studio et se connecter à Azure Stack Hub
 
@@ -32,7 +32,7 @@ Vous pouvez utiliser Visual Studio pour écrire et déployer des [modèles](azur
 
 5. [Installez PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md).
 
-6. Redémarrez le système d’exploitation après l’installation.
+6. Redémarrez l’ordinateur une fois l’installation terminée.
 
 ## <a name="connect-to-azure-stack-hub-with-azure-ad"></a>Se connecter à Azure Stack Hub avec Azure AD
 
@@ -40,7 +40,7 @@ Vous pouvez utiliser Visual Studio pour écrire et déployer des [modèles](azur
 
 2. Dans le menu **Affichage**, sélectionnez **Cloud Explorer**.
 
-3. Dans le nouveau volet, sélectionnez **Ajouter un compte** et connectez-vous avec vos informations d’identification Azure Active Directory (Azure AD).  
+3. Sélectionnez **Gérer les comptes** et, dans le nouveau volet, connectez-vous avec vos informations d’identification Azure Active Directory (Azure AD).  
 
     ![Capture d’écran de Cloud Explorer, une fois connecté à Azure Stack Hub](./media/azure-stack-install-visual-studio/image2.png)
 
@@ -52,7 +52,7 @@ Une fois connecté, vous pouvez [déployer des modèles](azure-stack-deploy-temp
 
 2. Dans **Outils**, sélectionnez **Options**.
 
-3. Développez **Environnement** dans le **volet de navigation** et sélectionnez **Comptes**.
+3. Développez **Environnement** dans le volet de navigation et sélectionnez **Comptes**.
 
 4. Sélectionnez **Ajouter**, puis entrez le point de terminaison Azure Resource Manager utilisateur. Pour le kit de développement Azure Stack (ASDK), l’URL est : `https://management.local.azurestack/external`.  Pour les systèmes intégrés Azure Stack Hub, l’URL est : `https://management.[Region}.[External FQDN]`.
 

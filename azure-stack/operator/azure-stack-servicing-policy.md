@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Découvrez la stratégie de maintenance Azure Stack Hub et comment conserver un système intégré dans un état de prise en charge.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 06/09/2020
 ms.author: sethm
-ms.reviewer: harik
+ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 479343623f59720cd330c3f9d8d8b8c7836a8a0e
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 6b2a3a281e16ff658b7124071cdb83326d0cbbde
+ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848147"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636833"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Stratégie de maintenance Azure Stack Hub
 
@@ -52,9 +52,9 @@ Pour en savoir plus sur une mise à jour, notamment comment la télécharger, co
 
 ## <a name="hotfixes"></a>Correctifs logiciels
 
-Parfois, Microsoft fournit des correctifs logiciels pour Azure Stack Hub qui corrigent un problème précis, souvent préventif ou urgent. Chaque correctif est publié en même temps que son article correspondant dans la Base de connaissances Microsoft, où sont détaillés le problème, la cause et la résolution.
+Parfois, Microsoft fournit des correctifs logiciels pour Azure Stack Hub qui corrigent un problème précis, souvent préventif ou urgent. Chaque correctif est publié en même temps que son article correspondant dans la Base de connaissances Microsoft, qui détaille les problèmes résolus par ce correctif.
 
-Les correctifs logiciels sont téléchargés et installés comme les packages de mises à jour complets pour Azure Stack Hub. Toutefois, contrairement à une mise à jour complète, les correctifs logiciels peuvent s’installer en quelques minutes. Il est recommandé aux opérateurs Azure Stack Hub de définir des fenêtres de maintenance lors de l’installation des correctifs logiciels. Les correctifs mettent à jour la version de votre cloud Azure Stack Hub. Il est donc facile de déterminer si le correctif a été appliqué. Un correctif logiciel distinct est fourni pour chaque version d’Azure Stack Hub prise en charge. Chaque correctif d’une itération est cumulatif et englobe les mises à jour précédentes de la même version. Pour en savoir plus sur la nécessité de l’application d’un correctif logiciel, vous pouvez consulter l’article correspondant dans la Base de connaissances. Consultez les liens des notes de version dans la section précédente.
+Les correctifs logiciels sont téléchargés et installés comme les packages de mises à jour complets pour Azure Stack Hub. Toutefois, contrairement à une mise à jour complète, les correctifs logiciels peuvent s’installer en quelques minutes. Il est recommandé aux opérateurs Azure Stack Hub de définir des fenêtres de maintenance lors de l’installation des correctifs logiciels. Les correctifs mettent à jour la version de votre cloud Azure Stack Hub. Il est donc facile de déterminer si le correctif a été appliqué. Un correctif logiciel distinct est fourni pour chaque version d’Azure Stack Hub prise en charge. **Chaque correctif d’une itération est cumulatif et englobe les correctifs précédents de la même version.** Pour en savoir plus sur la nécessité de l’application d’un correctif logiciel, vous pouvez consulter l’article correspondant dans la Base de connaissances. Consultez les liens des notes de version dans la section précédente.
 
 Pour plus d’informations sur les correctifs logiciels actuellement disponibles, consultez les notes de publication de cette mise à jour :
 

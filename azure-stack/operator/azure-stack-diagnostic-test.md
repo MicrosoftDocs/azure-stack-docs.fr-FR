@@ -7,16 +7,16 @@ ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 9b082876dca1e39f99ac0b98a7e438aa1231b3c2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: bb83d8dcf567bac6081083e34c0770a277879282
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512539"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819491"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Valider l’état du système Azure Stack Hub
 
-En tant qu’opérateur Azure Stack Hub, il est essentiel de pouvoir déterminer à la demande l’intégrité et l’état de votre système. L’outil de validation Azure Stack Hub (**Test-AzureStack**) est une cmdlet PowerShell qui vous permet d’exécuter une série de tests sur votre système pour identifier d’éventuelles défaillances. Il vous est généralement demandé d’exécuter cet outil via le [point de terminaison privilégié (PEP)](azure-stack-privileged-endpoint.md) quand vous contactez les services de support technique Microsoft pour un problème. Avec toutes les informations sur l’état et l’intégrité du système à portée de main, les services de support technique peuvent collecter et analyser des journaux détaillés, se concentrer sur la zone où l’erreur s’est produite et collaborer avec vous afin de résoudre le problème.
+En tant qu’opérateur Azure Stack Hub, il est essentiel de pouvoir déterminer à la demande l’intégrité et l’état de votre système. L’outil de validation Azure Stack Hub (**Test-AzureStack**) est une cmdlet PowerShell qui vous permet d’exécuter une série de tests sur votre système pour identifier d’éventuelles défaillances. Il vous sera généralement demandé d’exécuter cet outil via le [point de terminaison privilégié (PEP)](azure-stack-privileged-endpoint.md) quand vous contactez les services de support technique Microsoft (Support Microsoft) pour un problème. Avec toutes les informations sur l’état et l’intégrité du système à portée de main, le support Microsoft peut collecter et analyser des journaux détaillés, se concentrer sur la zone où l’erreur s’est produite et collaborer avec vous afin de résoudre le problème.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Exécution de l’outil de validation et accès aux résultats
 
@@ -49,9 +49,9 @@ Comme indiqué précédemment, l’outil de validation est exécuté via le poin
 
 1. Si un test retourne **FAIL**, exécutez `Get-AzureStackLog`. Pour obtenir des instructions sur un système intégré, découvrez comment exécuter [Get-AzureStackLog sur des systèmes intégrés Azure Stack Hub](azure-stack-get-azurestacklog.md).
 
-   L’applet de commande recueille des journaux d’activité générés par Test-AzureStack. Nous vous recommandons de ne pas collecter les journaux et de contacter le service de support technique si des tests indiquent **WARN**.
+   L’applet de commande recueille des journaux d’activité générés par Test-AzureStack. Nous vous recommandons de ne pas collecter les journaux et de contacter le support Microsoft si des tests indiquent **WARN**.
 
-1. Si les services de support technique vous ont demandé d’exécuter l’outil de validation, le représentant du support technique vous demandera de fournir les journaux que vous avez collectés afin de poursuivre la résolution de votre problème.
+1. Si le support Microsoft vous a demandé d’exécuter l’outil de validation, le représentant du support Microsoft vous demandera de fournir les journaux que vous avez collectés afin de poursuivre la résolution de votre problème.
 
 ## <a name="tests-available"></a>Tests disponibles
 

@@ -7,17 +7,17 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 73e769358d0b6007a7849edd1cebaac0ade78d04
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: efc23ad5694ba7828c2dc5c5ba5de09be3591e04
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77691345"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819279"
 ---
 # <a name="troubleshoot-the-asdk"></a>Résoudre les problèmes de ASDK
 Cet article fournit des informations de dépannage courantes pour le Kit de développement Azure Stack (ASDK). Pour obtenir de l’aide sur les systèmes intégrés Azure Stack, consultez [Résolution des problèmes de Microsoft Azure Stack](../operator/azure-stack-troubleshooting.md). 
 
-ASDK étant un environnement d’évaluation, les services de support technique Microsoft ne fournissent pas de support. Si vous rencontrez un problème qui n’est pas documenté, vous pouvez obtenir de l’aide auprès d’experts sur le [Forum MSDN Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+ASDK étant un environnement d’évaluation, le support Microsoft ne fournit pas de support. Si vous rencontrez un problème qui n’est pas documenté, vous pouvez obtenir de l’aide auprès d’experts sur le [Forum MSDN Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 
 ## <a name="deployment"></a>Déploiement

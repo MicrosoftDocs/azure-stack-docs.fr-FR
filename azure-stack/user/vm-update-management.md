@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 7ef6b1fe7bcaa0cba1138c194847c40076f3ec6e
-ms.sourcegitcommit: 29734b4ca6917b86674c17de9f41b0aaf367a838
+ms.openlocfilehash: 838ce4ab909019ce14569a8c5ad5da0b19457a90
+ms.sourcegitcommit: f082a8aa7e9cfaeab21b750d58520db58147ff1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82223053"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84679703"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Automatisation de la gestion et de la mise à jour des machines virtuelles dans Azure Stack Hub
 Utilisez les fonctionnalités suivantes de la solution Azure Automation pour gérer des machines virtuelles Windows et Linux déployées avec Azure Stack Hub :

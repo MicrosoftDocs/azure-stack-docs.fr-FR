@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 1b4db2cf67231f8660948af43d4935bbcf9c846c
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: d94f9130825493ea521441a43a58aa053ff2cc05
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111895"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631398"
 ---
 # <a name="connect-to-azure-stack-hub"></a>Se connecter à Azure Stack Hub
 
@@ -28,7 +28,7 @@ Avec une connexion Bureau à distance, un seul utilisateur à la fois peut se co
 
 2. À partir de l’ordinateur du kit de développement, ouvrez le Gestionnaire de serveur, cliquez sur **Serveur local**, désactivez la sécurité renforcée d’Internet Explorer, puis fermez le Gestionnaire de serveur.
 
-3. Pour ouvrir le portail, accédez à (https://portal.local.azurestack.external/) et connectez-vous à l’aide des informations d’identification utilisateur.
+3. Pour ouvrir le portail, accédez à `https://portal.local.azurestack.external/` et connectez-vous à l’aide des informations d’identification utilisateur.
 
 
 ## <a name="connect-to-azure-stack-hub-with-vpn"></a>Se connecter à Azure Stack Hub avec l'option VPN
@@ -38,7 +38,7 @@ Vous pouvez établir une connexion VPN avec tunneling fractionné à un Kit de d
 > [!NOTE] 
 > Cette connexion VPN ne fournit pas de connectivité aux machines virtuelles de l’infrastructure Azure Stack Hub. 
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 * Installez [Azure PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md) sur votre ordinateur local.  
 * Téléchargez les [outils nécessaires pour utiliser Azure Stack Hub](../operator/azure-stack-powershell-download.md). 
@@ -97,7 +97,7 @@ Connectez-vous à l’instance Azure Stack Hub à l’aide d’une des deux mét
 
 ### <a name="test-the-vpn-connectivity"></a>Tester la connectivité VPN
 
-Pour tester la connexion au portail, ouvrez un navigateur et accédez au portail de l’utilisateur (https://portal.local.azurestack.external/), connectez-vous et créez des ressources.  
+Pour tester la connexion au portail, ouvrez un navigateur et accédez au portail de l’utilisateur `https://portal.local.azurestack.external/`, connectez-vous et créez des ressources.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
