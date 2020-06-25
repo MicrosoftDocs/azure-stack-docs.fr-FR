@@ -3,16 +3,16 @@ title: Installer le module PowerShell Az pour Azure Stack Hub
 description: Découvrez comment installer PowerShell pour Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/14/2020
+ms.date: 06/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: 912e40cef34de0831a92817077ac9e33f33a0434
-ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
+ms.lastreviewed: 06/22/2020
+ms.openlocfilehash: c0ce996e1c94b731af808d410c8891c1fcf1395e
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84813779"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85197070"
 ---
 # <a name="install-powershell-az-preview-module-for-azure-stack-hub"></a>Installer le module en préversion PowerShell Az pour Azure Stack Hub
 
@@ -77,7 +77,7 @@ Exécutez la commande suivante à partir d’une session PowerShell :
 ```powershell  
 Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
 Install-AzProfile -Profile 2019-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 2.0.0-preview -AllowPrerelease
+Install-Module -Name AzureStack -RequiredVersion 2.0.1-preview -AllowPrerelease
 ```
 
 > [!Note]  
@@ -114,7 +114,7 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 $savedModulesPath = "<Path that is used to save the packages>"
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Az -Path $savedModulesPath -Force -RequiredVersion 0.10.0-preview
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $savedModulesPath -Force -RequiredVersion 2.0.0-preview
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $savedModulesPath -Force -RequiredVersion 2.0.1-preview
 ```
 ::: moniker-end
 
@@ -145,13 +145,9 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
    Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation -InstallationPolicy Trusted
 
-   Install-Module -Name Az.BootStrapper -Repository $RepoName -Scope AllUsers -AllowPrerelease
+   Install-Module -Name AzureStack -Repository $RepoName -RequiredVersion 2.0.1-preview -AllowPrerelease -Scope AllUsers
 
-   Set-BootstrapRepo -Repo $RepoName
-
-   Install-AzProfile -Profile '2019-03-01-hybrid' -Force -Scope AllUsers
-
-   Install-Module -Name AzureStack -Repository $RepoName -RequiredVersion 2.0.0-preview -AllowPrerelease -Scope AllUsers
+   Install-Module -Name Az -Repository $RepoName -RequiredVersion 0.10.0-preview -AllowPrerelease -Scope AllUsers
    ```
 
 ### <a name="confirm-the-installation-of-powershell"></a>Confirmer l’installation de PowerShell

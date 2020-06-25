@@ -3,14 +3,14 @@ title: Présentation du quorum de cluster et de pool dans Azure Stack HCI
 description: Découvrez le quorum de cluster et de pool dans les espaces de stockage direct sur Azure Stack HCI, avec des exemples précis permettant de saisir toutes les subtilités.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 70f10bd8c2c2e5eb639229ba743090ba5e5ac79c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 82b1ab24567b124c4a2450149e37e9f05aab8bf8
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79026103"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196866"
 ---
 # <a name="understanding-cluster-and-pool-quorum-on-azure-stack-hci"></a>Présentation du quorum de cluster et de pool dans Azure Stack HCI
 
@@ -59,7 +59,7 @@ Il existe deux façons pour le cluster de rendre le *nombre total de votes* impa
 1. Tout d’abord, il peut *augmenter ce nombre* en ajoutant un *témoin* avec un vote supplémentaire. Cela nécessite une configuration de la part de l’utilisateur.
 2. Il peut également *diminuer ce nombre* en annulant le vote d’un nœud (cela se produit automatiquement lorsque c’est nécessaire).
 
-Chaque fois que les nœuds survivants vérifient qu’ils sont *majoritaires*, la définition de *majorité* est mise à jour de manière à se trouver parmi les survivants. Cela permet au cluster de perdre un nœud, puis un autre, puis un autre, et ainsi de suite. Ce concept de *nombre total de votes* qui s’adapte après des échecs successifs est appelé ***quorum dynamique***.  
+Chaque fois que les nœuds survivants vérifient qu’ils sont *majoritaires*, la définition de *majorité* est mise à jour de manière à se trouver parmi les survivants. Cela permet au cluster de perdre un nœud, puis un autre, puis un autre, et ainsi de suite. Ce concept de *nombre total de votes* qui s’adapte après des échecs successifs est appelé ***quorum dynamique***.
 
 ### <a name="dynamic-witness"></a>Témoin dynamique
 
@@ -74,7 +74,7 @@ Le quorum dynamique fonctionne avec un témoin dynamique comme décrit ci-dessou
 - Si vous disposez d’un nombre de nœuds **pair** et d’un témoin, *le témoin dispose d’un vote* et le nombre total devient impair.
 - Si vous disposez d’un nombre de nœuds **impair** et d’un témoin, *le témoin ne disposera pas d’un vote*.
 
-Le quorum dynamique permet d’attribuer dynamiquement un vote à un nœud afin d’éviter de perdre la majorité des votes et de permettre au cluster de s’exécuter avec un seul nœud (on appelle ce nœud « last-man standing » ou « dernier homme debout »). Prenons comme exemple un cluster à quatre nœuds. Supposons que le quorum nécessite 3 votes. 
+Le quorum dynamique permet d’attribuer dynamiquement un vote à un nœud afin d’éviter de perdre la majorité des votes et de permettre au cluster de s’exécuter avec un seul nœud (on appelle ce nœud « last-man standing » ou « dernier homme debout »). Prenons comme exemple un cluster à quatre nœuds. Supposons que le quorum nécessite 3 votes.
 
 Dans ce cas, le cluster s’arrêterait si vous perdiez deux nœuds.
 
@@ -140,7 +140,7 @@ Tous les nœuds votent, ainsi que le témoin. La *majorité* est donc détermin�
 
 - Peut survivre à un échec de serveur : **Oui**.
 - Peut survivre à l’échec d’un serveur, puis d’un autre : **Oui**.
-- Peut survivre à deux échecs de serveur simultanés : **Oui**. 
+- Peut survivre à deux échecs de serveur simultanés : **Oui**.
 
 #### <a name="five-nodes-and-beyond"></a>Cinq nœuds et plus.
 Tous les nœuds votent, ou tous sauf un, du moment que le total est impair. Les espaces de stockage direct ne peuvent pas gérer une situation dans laquelle plus de deux nœuds sont indisponibles. Par conséquent, aucun témoin n’est nécessaire.
@@ -149,7 +149,7 @@ Tous les nœuds votent, ou tous sauf un, du moment que le total est impair. Les 
 
 - Peut survivre à un échec de serveur : **Oui**.
 - Peut survivre à l’échec d’un serveur, puis d’un autre : **Oui**.
-- Peut survivre à deux échecs de serveur simultanés : **Oui**. 
+- Peut survivre à deux échecs de serveur simultanés : **Oui**.
 
 Maintenant que nous savons comment fonctionne un quorum, intéressons-nous aux différents types de témoins de quorum.
 
@@ -189,25 +189,25 @@ Toutefois, le quorum de pool fonctionne différemment du quorum de cluster :
 
 ### <a name="examples"></a>Exemples
 
-#### <a name="four-nodes-with-a-symmetrical-layout"></a>Quatre nœuds avec une disposition symétrique. 
+#### <a name="four-nodes-with-a-symmetrical-layout"></a>Quatre nœuds avec une disposition symétrique.
 Chacun des 16 lecteurs a un vote, et le nœud 2 a également un vote (puisqu’il s’agit du propriétaire de la ressource du pool). La *majorité* est donc déterminée par rapport à un total de **16 votes**. Si les nœuds 3 et 4 échouent, le sous-ensemble survivant comprendra 8 lecteurs, ainsi que le propriétaire de la ressource du pool, soit 9 votes sur 16. Par conséquent, le pool survit.
 
 ![Quorum de pool 1](media/quorum/pool-1.png)
 
 - Peut survivre à un échec de serveur : **Oui**.
 - Peut survivre à l’échec d’un serveur, puis d’un autre : **Oui**.
-- Peut survivre à deux échecs de serveur simultanés : **Oui**. 
+- Peut survivre à deux échecs de serveur simultanés : **Oui**.
 
-#### <a name="four-nodes-with-a-symmetrical-layout-and-drive-failure"></a>Quatre nœuds avec une disposition symétrique et l’échec d’un lecteur. 
+#### <a name="four-nodes-with-a-symmetrical-layout-and-drive-failure"></a>Quatre nœuds avec une disposition symétrique et l’échec d’un lecteur.
 Chacun des 16 lecteurs a un vote, et le nœud 2 a également un vote (puisqu’il s’agit du propriétaire de la ressource du pool). La *majorité* est donc déterminée par rapport à un total de **16 votes**. D’abord, le lecteur 7 connaît un échec. Si les nœuds 3 et 4 échouent, le sous-ensemble survivant comprendra 7 lecteurs, ainsi que le propriétaire de la ressource du pool, soit 8 votes sur 16. Par conséquent, le pool n’a pas la majorité et devient indisponible.
 
 ![Quorum de pool 2](media/quorum/pool-2.png)
 
 - Peut survivre à un échec de serveur : **Oui**.
 - Peut survivre à l’échec d’un serveur, puis d’un autre : **Non**.
-- Peut survivre à deux échecs de serveur simultanés : **Non**. 
+- Peut survivre à deux échecs de serveur simultanés : **Non**.
 
-#### <a name="four-nodes-with-a-non-symmetrical-layout"></a>Quatre nœuds avec une disposition non symétrique. 
+#### <a name="four-nodes-with-a-non-symmetrical-layout"></a>Quatre nœuds avec une disposition non symétrique.
 Chacun des 24 lecteurs a un vote, et le nœud 2 a également un vote (puisqu’il s’agit du propriétaire de la ressource du pool). La *majorité* est donc déterminée par rapport à un total de **24 votes**. Si les nœuds 3 et 4 échouent, le sous-ensemble survivant comprendra 8 lecteurs, ainsi que le propriétaire de la ressource du pool, soit 9 votes sur 24. Par conséquent, le pool n’a pas la majorité et devient indisponible.
 
 ![Quorum de pool 3](media/quorum/pool-3.png)
@@ -219,7 +219,7 @@ Chacun des 24 lecteurs a un vote, et le nœud 2 a également un vote (puisqu�
 ### <a name="pool-quorum-recommendations"></a>Recommandations relatives au quorum de pool
 
 - Vérifiez que chaque nœud de votre cluster est symétrique (c’est-à-dire que chaque nœud a le même nombre de lecteurs)
-- Activez le miroir triple ou la double parité pour tolérer les échecs de nœud et maintenir les disques virtuels en ligne. 
+- Activez le miroir triple ou la double parité pour tolérer les échecs de nœud et maintenir les disques virtuels en ligne.
 - Si plus de deux nœuds échouent, ou si deux nœuds et un disque d’un autre nœud échouent, les volumes peuvent ne pas avoir accès aux trois copies de leurs données, et donc être mis hors connexion et devenir indisponibles. Il est recommandé de remettre les serveurs en ligne ou de remplacer rapidement les disques afin de garantir une résilience optimale pour toutes les données du volume.
 
 ## <a name="next-steps"></a>Étapes suivantes

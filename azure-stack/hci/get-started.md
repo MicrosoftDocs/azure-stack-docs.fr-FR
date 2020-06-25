@@ -3,14 +3,14 @@ title: Bien démarrer avec Azure Stack HCI et Windows Admin Center
 description: Connectez-vous rapidement à un cluster Azure Stack HCI existant et utilisez Windows Admin Center pour superviser les performances du cluster et du stockage.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
+ms.topic: overview
 ms.date: 04/08/2020
-ms.openlocfilehash: efd0922639f628bfea0f2c78755b10de0053bc1f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: dd97ee55779d1c3c35976005a880a0dd510e29af
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80979454"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196883"
 ---
 # <a name="get-started-with-azure-stack-hci-and-windows-admin-center"></a>Bien démarrer avec Azure Stack HCI et Windows Admin Center
 
@@ -35,7 +35,7 @@ Une fois que vous avez terminé l’installation de Windows Admin Center, vous p
     :::image type="content" source="media/get-started/addcluster.png" alt-text="Capture d’écran d’ajout de cluster":::
 
 2. Choisissez d’ajouter un cluster Windows Server :
-    
+
     :::image type="content" source="media/get-started/chooseconnectiontype.png" alt-text="Capture d’écran du choix d’un type de connexion":::
 
 3. Tapez le nom du cluster à gérer, puis cliquez sur **Ajouter**. Le cluster est ajouté à votre liste de connexions dans la page de présentation.

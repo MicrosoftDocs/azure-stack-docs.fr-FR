@@ -3,14 +3,14 @@ title: Superviser Azure Stack HCI avec Azure Monitor
 description: Supervisez des serveurs et configurez des alertes avec Azure Monitor à partir de Windows Admin Center.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/03/2020
-ms.openlocfilehash: 9dcb6050b4980b476d15552c92ff5445c72bbc55
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 43bcc5be8fd96e33d16cfdebd87e0d965c8eff41
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80750918"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196968"
 ---
 # <a name="monitor-azure-stack-hci-with-azure-monitor"></a>Superviser Azure Stack HCI avec Azure Monitor
 
@@ -124,18 +124,18 @@ Pour plus d’informations sur les étapes indiquées ci-dessous, consultez la [
 
 2. Cliquez sur **Créer**, puis sélectionnez des options pour les éléments suivants :
 
-   * Attribuez un nom au nouvel **Espace de travail Log Analytics**, tel que *DefaultLAWorkspace*. 
+   * Attribuez un nom au nouvel **Espace de travail Log Analytics**, tel que *DefaultLAWorkspace*.
    * Dans la liste déroulante **Abonnement**, sélectionnez un abonnement à lier si la valeur par défaut sélectionnée n’est pas appropriée.
    * Pour **Groupe de ressources**, sélectionnez un groupe de ressources existant qui contient une ou plusieurs machines virtuelles Azure.
 
     :::image type="content" source="media/monitor/create-loganalytics-workspace-02.png" alt-text="Créer le panneau de ressources Log Analytics":::
 
-3. Après avoir entré les informations requises dans le volet **Espace de travail Log Analytics**, cliquez sur **OK**.  
+3. Après avoir entré les informations requises dans le volet **Espace de travail Log Analytics**, cliquez sur **OK**.
 
 Pendant que les informations sont vérifiées et l’espace de travail créé, vous pouvez suivre la progression sous **Notifications** dans le menu.
 
 #### <a name="obtain-workspace-id-and-key"></a>Obtenir l’ID et la clé d’espace de travail
-Avant d’installer l’agent MMA pour Windows, vous devez disposer de l’ID et de la clé de votre espace de travail Log Analytics.  L’Assistant Installation a besoin de ces informations pour configurer correctement l’agent et s’assurer qu’il peut communiquer avec Log Analytics.  
+Avant d’installer l’agent MMA pour Windows, vous devez disposer de l’ID et de la clé de votre espace de travail Log Analytics.  L’Assistant Installation a besoin de ces informations pour configurer correctement l’agent et s’assurer qu’il peut communiquer avec Log Analytics.
 
 1. Dans le portail Azure, cliquez sur **Tous les services** en haut à gauche. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
 2. Dans votre liste d’espaces de travail Log Analytics, sélectionnez *DefaultLAWorkspace* créé précédemment.
@@ -156,7 +156,7 @@ Les étapes suivantes installent et configurent Microsoft Monitoring Agent.
 4. Dans la page **Termes du contrat de licence**, lisez les conditions de licence, puis cliquez sur **J’accepte**.
 5. Dans la page **Dossier de destination**, modifiez ou conservez le dossier d’installation par défaut, puis cliquez sur **Suivant**.
 6. Sur la page **Options d’installation de l’agent**, choisissez de connecter l’agent à Azure Log Analytics, puis cliquez sur **Suivant**.
-7. Dans la page **Azure Log Analytics**, collez les valeurs **ID de l’espace de travail** et **Clé de l’espace de travail (clé primaire)** que vous avez copiées précédemment. Si l’ordinateur a besoin de communiquer via un serveur proxy avec le service Log Analytics, cliquez sur **Avancé**, puis indiquez l’URL et le numéro de port du serveur proxy. Si votre serveur proxy requiert une authentification, tapez le nom d’utilisateur et un mot de passe pour vous authentifier auprès du serveur proxy, puis cliquez sur **Suivant**.  
+7. Dans la page **Azure Log Analytics**, collez les valeurs **ID de l’espace de travail** et **Clé de l’espace de travail (clé primaire)** que vous avez copiées précédemment. Si l’ordinateur a besoin de communiquer via un serveur proxy avec le service Log Analytics, cliquez sur **Avancé**, puis indiquez l’URL et le numéro de port du serveur proxy. Si votre serveur proxy requiert une authentification, tapez le nom d’utilisateur et un mot de passe pour vous authentifier auprès du serveur proxy, puis cliquez sur **Suivant**.
 8. Cliquez sur **Suivant** après avoir fourni les paramètres de configuration nécessaires.
     :::image type="content" source="media/monitor/log-analytics-mma-setup-laworkspace.png" alt-text="Coller l’ID et la clé primaire de l’espace de travail":::
 9. Dans la page **Prêt pour l’installation**, passez en revue vos choix, puis cliquez sur **Installer**.
@@ -191,22 +191,22 @@ Une fois que vous avez configuré les alertes dans Windows Admin Center, vous po
 
 ### <a name="collecting-event-and-performance-data"></a>Collecte de données d’événements et de performances
 
-Log Analytics est capable de collecter les événements des journaux des événements Windows ainsi que des compteurs de performances que vous spécifiez dans l’optique de procéder à une analyse à long terme et de générer des rapports afin de réagir dès qu’une condition particulière est détectée. Pour configurer la collecte d’événements à partir du journal des événements Windows, ainsi que plusieurs compteurs de performances courants avec lesquels commencer, procédez comme suit.  
+Log Analytics est capable de collecter les événements des journaux des événements Windows ainsi que des compteurs de performances que vous spécifiez dans l’optique de procéder à une analyse à long terme et de générer des rapports afin de réagir dès qu’une condition particulière est détectée. Pour configurer la collecte d’événements à partir du journal des événements Windows, ainsi que plusieurs compteurs de performances courants avec lesquels commencer, procédez comme suit.
 
 1. Dans le portail Azure, cliquez sur **Plus de services** dans l’angle inférieur gauche. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
 2. Sélectionnez **Paramètres avancés**.
     :::image type="content" source="media/monitor/log-analytics-advanced-settings-01.png" alt-text="Paramètres avancés de Log Analytics":::
-3. Sélectionnez **Données**, puis **Journaux des événements Windows**.  
-4. Ici, ajoutez le canal d’événements du service de contrôle d’intégrité en tapant le nom ci-dessous, puis cliquez sur le signe plus ( **+** ).  
+3. Sélectionnez **Données**, puis **Journaux des événements Windows**.
+4. Ici, ajoutez le canal d’événements du service de contrôle d’intégrité en tapant le nom ci-dessous, puis cliquez sur le signe plus ( **+** ).
    ```
    Event Channel: Microsoft-Windows-Health/Operational
    ```
-5. Dans le tableau, vérifiez les niveaux de gravité **Erreur** et **Avertissement**.   
+5. Dans le tableau, vérifiez les niveaux de gravité **Erreur** et **Avertissement**.
 6. Cliquez sur **Enregistrer** en haut de la page pour enregistrer la configuration.
-7. Sélectionnez **Compteurs de performances Windows** pour activer la collecte des compteurs de performances sur un ordinateur Windows. 
+7. Sélectionnez **Compteurs de performances Windows** pour activer la collecte des compteurs de performances sur un ordinateur Windows.
 8. Quand vous procédez à la configuration initiale des compteurs de performances Windows pour un nouvel espace de travail Log Analytics, la possibilité vous est offerte de créer rapidement plusieurs compteurs courants. Ils s’affichent avec une case à cocher en regard.
     :::image type="content" source="media/monitor/windows-perfcounters-default.png" alt-text="Compteurs de performances Windows par défaut sélectionnés":::
-    Cliquez sur **Ajouter les compteurs de performances sélectionnés**.  Ils sont ajoutés et prédéfinis avec un intervalle d’échantillonnage de collecte de dix secondes.  
+    Cliquez sur **Ajouter les compteurs de performances sélectionnés**.  Ils sont ajoutés et prédéfinis avec un intervalle d’échantillonnage de collecte de dix secondes.
 9. Cliquez sur **Enregistrer** en haut de la page pour enregistrer la configuration.
 
 ## <a name="create-queries-and-alerts-based-on-log-data"></a>Créer des requêtes et des alertes en fonction des données de journal
@@ -220,7 +220,7 @@ Commencez par ouvrir le portail **Recherche dans les journaux**.
 1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste des ressources, tapez **Moniteur**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Moniteur**.
 2. Dans le menu de navigation **Superviser**, sélectionnez **Log Analytics**, puis sélectionnez un espace de travail.
 
-Le moyen le plus rapide de récupérer des données à utiliser consiste à faire appel à une requête simple qui retourne tous les enregistrements d’une table. Tapez les requêtes suivantes dans la zone de recherche, puis cliquez sur le bouton de recherche.  
+Le moyen le plus rapide de récupérer des données à utiliser consiste à faire appel à une requête simple qui retourne tous les enregistrements d’une table. Tapez les requêtes suivantes dans la zone de recherche, puis cliquez sur le bouton de recherche.
 
 ```
 Event
@@ -251,26 +251,24 @@ Une fois que vous avez effectué les requêtes appropriées pour les événement
 3. Pour la première étape, sous la section **Créer une alerte**, vous allez sélectionner votre espace de travail Log Analytics comme ressource, car il s’agit d’un signal d’alerte basé sur des journaux.  Filtrez les résultats en choisissant l’**Abonnement** spécifique dans la liste déroulante si vous en avez plusieurs. Cette liste contient l’espace de travail Log Analytics créé précédemment.  Filtrez le **Type de ressource** en sélectionnant **Log Analytics** dans la liste déroulante.  Pour finir, sélectionnez la **ressource** **DefaultLAWorkspace** et cliquez sur **Terminé**.
     :::image type="content" source="media/monitor/alert-rule-03.png" alt-text="Capture d’écran de l’étape 1 de création d’une règle d’alerte":::
 4. Dans la section **Critères d’alerte**, cliquez sur **Ajouter des critères** pour sélectionner votre requête enregistrée, puis spécifiez la logique que suit la règle d’alerte.
-5. Configurez l’alerte avec les informations suivantes :  
-   a. Dans la liste déroulante **Basé sur**, sélectionnez **Mesure des métriques**.  Une mesure des métriques créera une alerte pour chaque objet de la requête dont la valeur dépasse notre seuil spécifié.  
-   b. Pour la **Condition**, sélectionnez **Supérieur à**, puis spécifiez un seuil.  
-   c. Définissez ensuite quand déclencher l’alerte. Par exemple, vous pouvez sélectionner **Violations consécutives**, puis, dans la liste déroulante, sélectionnez **Supérieur à** avec la valeur 3.  
-   d. Dans la section Évaluées sur la base de, définissez la valeur **Période** sur **30** minutes et la **Fréquence** sur 5. La règle s’exécute toutes les cinq minutes et renvoie les enregistrements qui ont été créés dans les trente minutes précédant l’heure actuelle.  Paramétrer la période de temps sur une durée plus longue compense la latence potentielle des données et garantit que la requête retourne des données pour éviter un faux positif où l’alerte ne se déclenche jamais.  
+5. Configurez l’alerte avec les informations suivantes : a. Dans la liste déroulante **Basé sur**, sélectionnez **Mesure des métriques**.  Une mesure des métriques créera une alerte pour chaque objet de la requête dont la valeur dépasse notre seuil spécifié.
+   b. Pour la **Condition**, sélectionnez **Supérieur à**, puis spécifiez un seuil.
+   c. Définissez ensuite quand déclencher l’alerte. Par exemple, vous pouvez sélectionner **Violations consécutives**, puis, dans la liste déroulante, sélectionnez **Supérieur à** avec la valeur 3.
+   d. Dans la section Évaluées sur la base de, définissez la valeur **Période** sur **30** minutes et la **Fréquence** sur 5. La règle s’exécute toutes les cinq minutes et renvoie les enregistrements qui ont été créés dans les trente minutes précédant l’heure actuelle.  Paramétrer la période de temps sur une durée plus longue compense la latence potentielle des données et garantit que la requête retourne des données pour éviter un faux positif où l’alerte ne se déclenche jamais.
 6. Cliquez sur **Terminé** pour terminer la règle d’alerte.
     :::image type="content" source="media/monitor/alert-signal-logic-02.png" alt-text="Capture d’écran de configuration d’un signal d’alerte":::
 7. Passons maintenant à la deuxième étape. Donnez un nom à votre alerte dans le champ **Nom de la règle d’alerte** ; par exemple, **Alerte pour tous les événements d’erreur**.  Spécifiez une **Description** détaillant les spécificités de l’alerte, puis sélectionnez **Critique (gravité 0)** pour la valeur de **Gravité** parmi les options fournies.
 8. Pour activer immédiatement la règle d’alerte lors de la création, acceptez la valeur par défaut pour l’option **Activer la règle lors de sa création**.
-9. Pour la troisième et dernière étape, vous spécifiez un **Groupe d’actions**, ce qui garantit que les mêmes actions soient entreprises chaque fois qu’une alerte est déclenchée et peuvent être utilisées pour chaque règle que vous définissez. Configurez un nouveau groupe d’actions avec les informations suivantes :  
-   a. Sélectionnez **Nouveau groupe d’actions** et le volet **Ajouter un groupe action** s’affiche.  
-   b. Pour le **Nom du groupe d’actions**, spécifiez un nom tel que **Opérations informatiques - Notifier** et un **Nom court** comme **itops-n**.  
+9. Pour la troisième et dernière étape, vous spécifiez un **Groupe d’actions**, ce qui garantit que les mêmes actions soient entreprises chaque fois qu’une alerte est déclenchée et peuvent être utilisées pour chaque règle que vous définissez. Configurez un nouveau groupe d’actions avec les informations suivantes : a. Sélectionnez **Nouveau groupe d’actions** et le volet **Ajouter un groupe action** s’affiche.
+   b. Pour le **Nom du groupe d’actions**, spécifiez un nom tel que **Opérations informatiques - Notifier** et un **Nom court** comme **itops-n**.
    c. Vérifiez que les valeurs par défaut de l’**Abonnement** et du **Groupe de ressources** sont correctes. Si ce n’est pas le cas, sélectionnez la valeur correcte dans la liste déroulante.
-   d. Dans la section Actions, spécifiez un nom pour l’action, tel que **Envoyer un message électronique**, et pour le **Type d’action**, sélectionnez **E-mail/SMS/Push/Voix** dans la liste déroulante. Le volet Propriétés **E-mail/SMS/Push/Voix** s’ouvre sur la droite afin de fournir des informations supplémentaires.  
-   e. Dans le volet **E-mail/SMS/Push/Voix**, sélectionnez et configurez votre préférence. Par exemple, autorisez les **e-mails** et fournissez une adresse e-mail SMTP valide à laquelle envoyer le message.  
-   f. Cliquez sur **OK** pour enregistrer vos modifications.<br><br> 
+   d. Dans la section Actions, spécifiez un nom pour l’action, tel que **Envoyer un message électronique**, et pour le **Type d’action**, sélectionnez **E-mail/SMS/Push/Voix** dans la liste déroulante. Le volet Propriétés **E-mail/SMS/Push/Voix** s’ouvre sur la droite afin de fournir des informations supplémentaires.
+   e. Dans le volet **E-mail/SMS/Push/Voix**, sélectionnez et configurez votre préférence. Par exemple, autorisez les **e-mails** et fournissez une adresse e-mail SMTP valide à laquelle envoyer le message.
+   f. Cliquez sur **OK** pour enregistrer vos modifications.<br><br>
 
     :::image type="content" source="media/monitor/action-group-properties-01.png" alt-text="Capture d’écran de création d’un groupe d’actions":::
 
-10. Cliquez sur **OK** pour créer le groupe d’actions. 
+10. Cliquez sur **OK** pour créer le groupe d’actions.
 11. Cliquez sur **Créer une règle d’alerte** pour terminer la règle d’alerte. Son exécution démarre immédiatement.
     :::image type="content" source="media/monitor/alert-rule-01.png" alt-text="Capture d’écran de la finalisation de la création d’une règle d’alerte":::
 

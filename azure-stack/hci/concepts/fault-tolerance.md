@@ -3,14 +3,14 @@ title: Tolérance de panne et efficacité du stockage dans Azure Stack HCI
 description: Discussion des options de résilience dans les espaces de stockage direct, notamment la mise en miroir et la parité.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 9ace3960b4c54461a4153c4997694e6d17ee4fd1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1505e86133fe66bebf4198e0d0620a8632f067c8
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79026115"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196900"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-azure-stack-hci"></a>Tolérance de panne et efficacité du stockage dans Azure Stack HCI
 

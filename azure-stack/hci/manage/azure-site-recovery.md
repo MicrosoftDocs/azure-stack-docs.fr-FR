@@ -1,17 +1,17 @@
 ---
 title: Protéger les machines virtuelles Azure Stack HCI à l'aide d'Azure Site Recovery
 description: Utilisez le Centre d'administration Windows pour protéger vos machines virtuelles Azure Stack HCI avec Azure Site Recovery.
-ms.topic: article
+ms.topic: how-to
 author: davannaw-msft
 ms.author: dawhite
 ms.date: 04/30/2020
 ms.localizationpriority: low
-ms.openlocfilehash: 01b6f16b3812b5f11f95d9d11f6563a1631fd690
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: 0465666549e0ae8801c9bab0be6d8a3d6dad8891
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82783997"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196458"
 ---
 # <a name="protect-azure-stack-hci-vms-using-azure-site-recovery"></a>Protéger les machines virtuelles Azure Stack HCI à l'aide d'Azure Site Recovery
 
@@ -53,13 +53,13 @@ Procédez comme suit une fois par serveur hôte ou cluster contenant les machine
 
    - **Abonnement :** abonnement Azure que vous souhaitez utiliser pour la réplication des machines virtuelles sur cet hôte.
    - **Groupe de ressources :** nouveau nom du groupe de ressources.
-   - **Coffre Recovery Services :** nom du coffre Azure Site Recovery des machines virtuelles protégées sur cet hôte.  
+   - **Coffre Recovery Services :** nom du coffre Azure Site Recovery des machines virtuelles protégées sur cet hôte.
    - **Emplacement :** région Azure où les ressources Azure Site Recovery doivent être créées.
 
     :::image type="content" source="media/azure-site-recovery/set-up-host-with-asr.png" alt-text="Page Configurer l'hôte avec Azure Site Recovery dans le Centre d'administration Windows.":::
 
 1. Attendez que la notification suivante s'affiche : **Configuration de Site Recovery terminée**.
- 
+
 Ce processus peut prendre jusqu'à 10 minutes. Vous pouvez suivre la progression en accédant à **Notifications** (icône représentant une cloche en haut à droite du Centre d'administration Windows).
 
 >[!NOTE]
@@ -81,11 +81,11 @@ Pour protéger vos machines virtuelles, procédez comme suit :
 
     :::image type="content" source="media/azure-site-recovery/protect-vm-setting-asr.png" alt-text="Définition du compte de stockage à utiliser pour permettre à Azure Site Recovery de protéger une machine virtuelle dans le Centre d'administration Windows.":::
 
-    Azure Site Recovery lance le processus de réplication. La machine virtuelle est protégée lorsque la valeur figurant dans la colonne **Protégée** de la grille **Inventaire des machines virtuelles** est remplacée par **Oui**. Ce processus peut prendre quelques minutes.  
+    Azure Site Recovery lance le processus de réplication. La machine virtuelle est protégée lorsque la valeur figurant dans la colonne **Protégée** de la grille **Inventaire des machines virtuelles** est remplacée par **Oui**. Ce processus peut prendre quelques minutes.
 
 ## <a name="step-3-configure-and-run-a-test-failover-in-the-azure-portal"></a>Étape 3 : Configurer et exécuter un test de basculement sur le portail Azure
 Cette étape n'est pas obligatoire avant de lancer la réplication de la machine virtuelle. La réplication suffit à elle seule à protéger la machine virtuelle. Néanmoins, nous vous recommandons de configurer les paramètres de basculement au moment de la configuration d'Azure Site Recovery.
- 
+
 Procédez comme suit pour préparer le basculement vers une machine virtuelle Azure :
 1. Configurez un réseau Azure que la machine virtuelle basculée joindra à ce réseau virtuel. Pour plus d'informations, consultez [Configurer la récupération d'urgence des machines virtuelles Hyper-V locales dans Azure](https://docs.microsoft.com/azure/site-recovery/hyper-v-site-walkthrough-prepare-azure).
 

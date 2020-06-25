@@ -2,16 +2,16 @@
 title: Gérer des machines virtuelles sur Azure Stack HCI avec Windows Admin Center
 description: Découvrez comment créer et gérer des machines virtuelles dans un cluster sur Azure Stack HCI à l’aide de Windows Admin Center.
 author: v-dasis
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: f3ba9415cd5d91260067a1648bdb38c196be206a
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: 21bb8cf8c88a66fdb4ecee8d45d3e13127faabec
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83794407"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196492"
 ---
 # <a name="manage-vms-on-azure-stack-hci-using-windows-admin-center"></a>Gérer des machines virtuelles sur Azure Stack HCI avec Windows Admin Center
 
@@ -61,7 +61,7 @@ Vous pouvez afficher les métriques d’utilisation des ressources et de perform
 :::image type="content" source="media/manage-vm/host-metrics.png" alt-text="Écran des métriques d’hôte":::
 
 1. Sous **Outils**, faites défiler la liste et sélectionnez **Machines virtuelles**.
-1. L’onglet **Résumé** situé à droite fournit un aperçu complet des ressources et des performances des hôtes Hyper-V d’un serveur ou cluster sélectionné, y compris les informations suivantes : 
+1. L’onglet **Résumé** situé à droite fournit un aperçu complet des ressources et des performances des hôtes Hyper-V d’un serveur ou cluster sélectionné, y compris les informations suivantes :
     - Nombre de machines virtuelles en cours d’exécution, arrêtées, suspendues et enregistrées
     - Alertes d’intégrité récentes ou événements du journal des événements Hyper-V pour les clusters
     - Utilisation des processeurs et de la mémoire avec répartition entre hôte et invité
@@ -148,7 +148,7 @@ Vous pouvez facilement créer une machine virtuelle à l’aide de Windows Admin
 1. Sous **Processeurs virtuels**, sélectionnez le nombre de processeurs virtuels et indiquez si vous voulez activer la virtualisation imbriquée.
 1. Sous **Mémoire**, sélectionnez la quantité de mémoire de démarrage (4 Go minimum sont recommandés) et une plage minimale et maximale de mémoire dynamique selon ce qu’il convient d’allouer à la machine virtuelle.
 1. Sous **Réseau**, sélectionnez une carte réseau dans la liste déroulante.
-1. Sous **Stockage**, cliquez sur **Ajouter** et indiquez si vous voulez créer disque dur virtuel ou en utiliser un existant. Pour utiliser un disque dur virtuel existant, cliquez sur **Parcourir** pour sélectionner le chemin du fichier concerné.  
+1. Sous **Stockage**, cliquez sur **Ajouter** et indiquez si vous voulez créer disque dur virtuel ou en utiliser un existant. Pour utiliser un disque dur virtuel existant, cliquez sur **Parcourir** pour sélectionner le chemin du fichier concerné.
 1. Sous **Système d’exploitation**, effectuez l’une des opérations suivantes :
    - Sélectionnez **Installer un système d’exploitation ultérieurement** si vous voulez installer un système d’exploitation pour la machine virtuelle plus tard.
    - Sélectionnez **Installer un système d’exploitation à partir d’un fichier image (*.iso)** , cliquez sur **Parcourir**, puis sélectionnez le fichier image .iso applicable à utiliser.

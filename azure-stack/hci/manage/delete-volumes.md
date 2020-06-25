@@ -3,14 +3,14 @@ title: Supprimer des volumes dans Azure Stack HCI
 description: Guide pratique pour supprimer des volumes dans Azure Stack HCI à l’aide de Windows Admin Center et de PowerShell.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/17/2020
-ms.openlocfilehash: cf556a9b6c130907e8607d8e5b9436b71756a3d4
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ffa848436169a55e2a2ad4f878e1e3aecaf29d6e
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79511893"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196356"
 ---
 # <a name="deleting-volumes-in-azure-stack-hci"></a>Suppression des volumes dans Azure Stack HCI
 
@@ -33,7 +33,7 @@ Regardez une courte vidéo sur la suppression d’un volume à l’aide de Windo
 
 Utilisez l’applet de commande **Remove-VirtualDisk** pour supprimer des volumes dans les espaces de stockage direct. Cette applet de commande permet de supprimer l’objet **VirtualDisk** et de rendre l’espace qu’il utilisait au pool de stockage qui expose l’objet **VirtualDisk**.
 
-Tout d’abord, lancez PowerShell sur votre PC de gestion et exécutez l’applet de commande **VirtualDisk** avec le paramètre **CimSession**, qui est le nom d’un nœud de serveur ou de cluster d’espaces de stockage direct, par exemple *clustername.microsoft.com* : 
+Tout d’abord, lancez PowerShell sur votre PC de gestion et exécutez l’applet de commande **VirtualDisk** avec le paramètre **CimSession**, qui est le nom d’un nœud de serveur ou de cluster d’espaces de stockage direct, par exemple *clustername.microsoft.com* :
 
 ```PowerShell
 Get-VirtualDisk -CimSession clustername.microsoft.com
