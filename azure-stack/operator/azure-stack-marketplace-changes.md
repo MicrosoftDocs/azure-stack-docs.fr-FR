@@ -3,20 +3,20 @@ title: Nouveautés de la Place de marché Azure Stack Hub
 description: Découvrez les nouveautés de la Place de marché Azure Stack Hub, dont les éléments nouveaux, dépréciés et mis à jour.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/16/2020
+ms.date: 06/19/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 6649f7d282c869fbd348310a2bfdf883727282ff
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: a1e7b227a0e18475a1fcfac3246f193f54b84ced
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819361"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196951"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Changements sur la Place de marché Azure Stack Hub
 
-Cet article liste les ajouts, nouveautés, changements et suppressions d’[éléments de la Place de marché Azure Stack Hub](azure-stack-marketplace-azure-items.md) survenus au cours des 3 derniers mois. Les informations contenues dans cette section sont fréquemment mises à jour. Consultez-la régulièrement.
+Cet article liste les nouveautés, modifications, suppressions et ajouts récents des [éléments de la Place de marché Azure Stack Hub](azure-stack-marketplace-azure-items.md). Les informations contenues dans cette section sont fréquemment mises à jour. Consultez-la régulièrement.
 
 L’article [Éléments de la Place de marché Azure Stack Hub](azure-stack-marketplace-azure-items.md) reprend toujours la liste la plus récente des éléments disponibles sur la Place de marché Azure Stack Hub.
 
@@ -63,6 +63,7 @@ L’article [Éléments de la Place de marché Azure Stack Hub](azure-stack-mark
 
 ## <a name="updated-marketplace-items"></a>Éléments mis à jour sur la Place de marché
 
+- 19/06/2020 : Bitnami GitLab CE – version 13.0.2006110322
 - 16/06/2020 : SQLIaaSExtension – version 1.3.20370
 - 12/06/2020 : Bitnami Grafana - version 6.7.2006040249
 - 21/05/2020 : Ubuntu Server 16.04 LTS – version 16.04.202004290

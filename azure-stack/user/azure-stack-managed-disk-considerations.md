@@ -7,12 +7,12 @@ ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: da3ba321eee4c71549fb84a61d3010803e5e6349
-ms.sourcegitcommit: 85c373fd8f9e8888a7ba25bedce2f640c93de1e5
+ms.openlocfilehash: bfa7abf0d481e8791c4e35d80d391de95b8a5b97
+ms.sourcegitcommit: 874ad1cf8ce7e9b3615d6d69651419642d5012b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84334159"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85107185"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Disques managés Azure Stack Hub : différences et considérations
 
@@ -152,7 +152,7 @@ Veillez à généraliser correctement votre machine virtuelle avant d’effectue
 
 Suivez les instructions de la section [Créer une image à partir d’une machine virtuelle qui utilise un compte de stockage](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vm-that-uses-a-storage-account) pour créer une image managée à partir d’un disque dur virtuel généralisé dans un compte de stockage. Vous pouvez utiliser cette image pour créer ultérieurement des machines virtuelles managées.
 
-#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>Cas n° 2 : Créer une machine virtuelle managée à partir d’une image managée à l’aide de Powershell
+#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>Cas n° 2 : Créer une machine virtuelle managée à partir d’une image managée à l’aide de PowerShell
 
 Après avoir créé une image à partir d’une machine virtuelle de disque managé avec le script dans [Créer une image à partir d’un disque managé à l’aide de PowerShell](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-managed-disk-using-powershell), utilisez l’exemple de script suivant pour créer une machine virtuelle Linux similaire à partir d’un objet image existant.
 
@@ -210,7 +210,7 @@ Add-AzureRmVMNetworkInterface -Id $Nic.Id
 New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VmConfig
 ```
 
-Vous pouvez également utiliser le portail pour créer une machine virtuelle à partir d’une image managée. Pour plus d’informations, consultez les articles sur les images managées Azure, [Créer une image managée d’une machine virtuelle généralisée dans Azure](/azure/virtual-machines/windows/capture-image-resource) et [Créer une machine virtuelle à partir d’une image managée](/azure/virtual-machines/windows/create-vm-generalized-managed).
+Vous pouvez également utiliser le portail pour créer une machine virtuelle à partir d’une image managée. Pour plus d’informations, voir les articles sur les images managées Azure, [Créer une image managée d’une machine virtuelle généralisée dans Azure](/azure/virtual-machines/windows/capture-image-resource) et [Créer une machine virtuelle à partir d’une image managée](/azure/virtual-machines/windows/create-vm-generalized-managed).
 
 ## <a name="configuration"></a>Configuration
 
@@ -219,7 +219,7 @@ Après avoir appliqué la mise à jour 1808 ou ultérieure, vous devez applique
 - Si un abonnement a été créé avant la mise à jour 1808, procédez comme suit pour mettre à jour l’abonnement. Sinon, le déploiement de machines virtuelles dans cet abonnement peut échouer avec un message d’erreur « Erreur interne dans le gestionnaire de disque ».
    1. Dans le portail utilisateur Azure Stack Hub, accédez à **Abonnements** et recherchez l’abonnement. Cliquez sur **Fournisseurs de ressources**, sur **Microsoft.Compute**, puis sur **Réinscrire**.
    2. Sous le même abonnement, accédez à **Contrôle d’accès (IAM)** et vérifiez que l’élément **Azure Stack Hub – Disques managés** est répertorié.
-- Si vous utilisez un environnement mutualisé, demandez à votre opérateur cloud (dans votre organisation ou chez votre fournisseur de services) de reconfigurer chacun de vos annuaires invités conformément aux étapes décrites dans [cet article](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-hub-with-the-guest-directory). Sinon, le déploiement de machines virtuelles dans un abonnement associé à cet annuaire invité peut échouer avec le message d’erreur « Erreur interne dans le gestionnaire de disque ».
+- Si vous utilisez un environnement mutualisé, demandez à votre opérateur cloud (dans votre organisation ou chez votre fournisseur de services) de reconfigurer chacun de vos annuaires invités conformément aux étapes décrites dans [cet article](../operator/azure-stack-enable-multitenancy.md#register-azure-stack-hub-with-the-guest-directory). Sinon, le déploiement de machines virtuelles dans un abonnement associé à cet annuaire invité peut échouer avec le message d’erreur « Erreur interne dans le gestionnaire de disque ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 

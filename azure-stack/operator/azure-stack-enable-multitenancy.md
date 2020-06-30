@@ -3,16 +3,16 @@ title: Configurer l’architecture multilocataire dans Azure Stack Hub
 description: Découvrez comment activer et désactiver plusieurs locataires Azure Active Directory dans Azure Stack Hub.
 author: BryanLa
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 06/18/2020
 ms.author: bryanla
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: ffad503fec50952eca492e16ca0051e69d1c1f14
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: 16b8ca5999507bd64d3416c3ee22fdd5c827c8b5
+ms.sourcegitcommit: 874ad1cf8ce7e9b3615d6d69651419642d5012b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173877"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85107167"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Configurer l’architecture multilocataire dans Azure Stack Hub
 
@@ -76,7 +76,7 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 Une fois que l’opérateur Azure Stack Hub a activé l’utilisation de l’annuaire Fabrikam avec Azure Stack Hub, Marie doit inscrire Azure Stack Hub auprès du locataire d’annuaire de Fabrikam.
 
-#### <a name="registering-azure-stack-hub-with-the-guest-directory"></a>Inscription d’Azure Stack Hub auprès de l’annuaire invité
+#### <a name="register-azure-stack-hub-with-the-guest-directory"></a>Inscrire Azure Stack Hub auprès de l’annuaire invité
 
 Marie (administratrice de l’annuaire de Fabrikam) exécute les commandes suivantes dans l’annuaire invité fabrikam.onmicrosoft.com :
 
@@ -148,6 +148,42 @@ Si vous ne souhaitez plus bénéficier de la mutualisation dans Azure Stack Hub,
 
     > [!WARNING]
     > Les étapes de désactivation d’une architecture mutualisée doivent être effectuées dans l’ordre. L’étape 1 échoue si l’étape 2 est terminée en premier.
+
+## <a name="retrieve-azure-stack-hub-identity-health-report"></a>Récupérer le rapport d’intégrité des identités Azure Stack Hub 
+
+Remplacez les espaces réservés `<region>`, `<domain>` et `<homeDirectoryTenant>`, puis exécutez l’applet de commande suivante en tant qu’administrateur Azure Stack Hub.
+
+```powershell
+
+$AdminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
+$DirectoryName = "<homeDirectoryTenant>.onmicrosoft.com"
+$healthReport = Get-AzsHealthReport -AdminResourceManagerEndpoint $AdminResourceManagerEndpoint -DirectoryTenantName $DirectoryName
+Write-Host "Healthy directories: "
+$healthReport.directoryTenants | Where status -EQ 'Healthy' | Select -Property tenantName,tenantId,status | ft
+
+
+Write-Host "Unhealthy directories: "
+$healthReport.directoryTenants | Where status -NE 'Healthy' | Select -Property tenantName,tenantId,status | ft
+```
+
+### <a name="update-azure-ad-tenant-permissions"></a>Mettre à jour les autorisations de locataire Azure AD
+
+Cette action désactivera l’alerte dans Azure Stack Hub, indiquant qu’un annuaire a besoin d’une mise à jour. Exécutez les commandes suivantes à partir du dossier **Azurestack-tools-master/identity** :
+
+```powershell
+Import-Module ..\Connect\AzureStack.Connect.psm1
+Import-Module ..\Identity\AzureStack.Identity.psm1
+
+$adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
+
+# This is the primary tenant Azure Stack is registered to:
+$homeDirectoryTenantName = "<homeDirectoryTenant>.onmicrosoft.com"
+
+Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManagerEndpoint `
+   -DirectoryTenantName $homeDirectoryTenantName -Verbose
+```
+
+Le script vous invite à entrer des informations d’identification d’administration sur le locataire Azure AD, et prend plusieurs minutes pour s’exécuter. L’alerte devrait disparaître après l’exécution de l’applet de commande.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
