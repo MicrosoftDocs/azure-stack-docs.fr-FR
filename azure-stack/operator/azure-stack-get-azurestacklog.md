@@ -2,22 +2,22 @@
 title: Utiliser le point de terminaison privilégié pour collecter les journaux de diagnostic
 description: Découvrez comment collecter les journaux de diagnostic à la demande dans Azure Stack Hub en utilisant le portail administrateur ou un script PowerShell.
 author: justinha
+ms.custom: conteperfq4
 ms.topic: article
-ms.date: 03/05/2020
+ms.date: 06/30/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 03/05/2020
-ms.openlocfilehash: df5a98e8526181a84d8b214fbdf82eb1dba00088
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 06/30/2020
+ms.openlocfilehash: b8be0f88b53bb599b716d50ac75e1d6d18515475
+ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79520650"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85764586"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>Envoyer des journaux de diagnostic Azure Stack Hub à l’aide du point de terminaison privilégié
 
 <!--how do you look up the PEP IP address. You look up the azurestackstampinfo.json--->
-
 
 Pour exécuter Get-AzureStackLog sur un système intégré, vous devez avoir accès au point de terminaison privilégié (PEP). Voici un exemple de script que vous pouvez exécuter en utilisant le point de terminaison privilégié pour collecter des journaux. Si vous annulez une collecte de journaux en cours d’exécution pour en démarrer une nouvelle, attendez 5 minutes avant de démarrer la nouvelle collecte de journaux et entrez `Remove-PSSession -Session $session`.
 

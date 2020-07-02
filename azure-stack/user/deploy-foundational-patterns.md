@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: b41b0fd7d9ce86a8e56fb8f445e52c224df65a65
-ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
+ms.openlocfilehash: d3450c78c3dc0632d5230d65bcd176b5067be852
+ms.sourcegitcommit: 2a144c367a17eb1f8db58dd7bf1c820520182015
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84533754"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85835073"
 ---
 # <a name="deploy-foundational-patterns-overview"></a>Vue d’ensemble du déploiement de modèles fondamentaux
 
@@ -43,7 +43,7 @@ Chaque article traite des considérations courantes, par exemple :
 Utilisez les modèles de stockage pour augmenter vos options de stockage avec Azure Stack Hub. Dans Azure Stack Hub, le stockage est limité. Connectez-vous aux ressources de votre centre de ressources existant. Pour obtenir des instructions sur la création d’une machine virtuelle Windows dans Azure Stack Hub, connectez-vous à une cible iSCSI externe. Vous pouvez apprendre à activer des fonctionnalités clés comme MPIO (Multipath I/O) afin d’optimiser les performances et la connectivité entre la machine virtuelle et le stockage externe.
 
 | Stockage iSCSI | Étendre le stockage |
-| --- | --- | --- |
+| --- | --- |
 | ![Se connecter au stockage iSCSI](media/deploy-foundational-patterns/icon-storage-87-storage-accounts-classic.svg)<br>[Se connecter au stockage iSCSI](azure-stack-network-howto-iscsi-storage.md) | ![Étendre le centre de données](media/deploy-foundational-patterns/icon-storage-88-recovery-services-vaults.svg)<br>[Étendre le centre de données](azure-stack-network-howto-extend-datacenter.md) |
 
 ## <a name="backup"></a>Backup
@@ -53,9 +53,9 @@ Vous pouvez utiliser les modèles de sauvegarde et de reprise d’activité apr�
 
 
 |  Sauvegarder  |  Copier  |
-| --- | --- | --- |
+| --- | --- |
 | ![Sauvegarder votre machine virtuelle sur Azure Stack Hub avec CommVault](media/deploy-foundational-patterns/icon-storage-100-import-export-jobs.svg)<br>[Sauvegarder votre machine virtuelle sur Azure Stack Hub avec CommVault](azure-stack-network-howto-backup-commvault.md) | ![Copier des ressources d’abonnement](media/deploy-foundational-patterns/icon-storage-94-data-box.svg)<br>[Copier des ressources d’abonnement](azure-stack-network-howto-backup-replicator.md) |
-|  | ![Sauvegarder vos comptes de stockage sur Azure Stack Hub](media/deploy-foundational-patterns/icon-storage-93-storage-sync-services.svg)<br>[Sauvegarder vos comptes de stockage sur Azure Stack Hub](azure-stack-network-howto-backup-storage.md)  |
+|  ![Sauvegarder vos comptes de stockage sur Azure Stack Hub](media/deploy-foundational-patterns/icon-storage-93-storage-sync-services.svg)<br>[Sauvegarder vos comptes de stockage sur Azure Stack Hub](azure-stack-network-howto-backup-storage.md)  | |
 
 ## <a name="github-samples"></a>Exemples GitHub
 
@@ -63,4 +63,4 @@ Vous trouverez les modèles dans le dépôt GitHub [Azure Intelligent Edge Patte
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Documentation sur les modèles hybrides et les solutions Azure](\hybrid\app-solutions)
+[Documentation sur les modèles hybrides et les solutions Azure](/hybrid/app-solutions)

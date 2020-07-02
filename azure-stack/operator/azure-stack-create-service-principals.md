@@ -6,12 +6,13 @@ ms.author: bryanla
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
-ms.openlocfilehash: 8a86c1c19f4239e6af1e7094ee8803865f9fd70d
-ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
+ms.custom: contperfq4
+ms.openlocfilehash: e5123a5a9810ce9da4516b67aab8bbd8dfa433e5
+ms.sourcegitcommit: 9c3339e0e3c3a953d64feff9ae08d94300c351ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84666411"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85449886"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Utiliser une identité d’application pour accéder aux ressources Azure Stack Hub
 
