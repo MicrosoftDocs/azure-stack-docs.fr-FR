@@ -4,17 +4,17 @@ description: Guide pratique pour remplacer les lecteurs défectueux sur Azure St
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/27/2020
-ms.openlocfilehash: f4e67545519f54d630c8a83e100d2b4918025f0e
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 06/24/2020
+ms.openlocfilehash: 93aa7035719fcfd6d96be0c21fc4616608e8af85
+ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196373"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85764556"
 ---
 # <a name="replace-failed-drives-on-azure-stack-hci"></a>Remplacer les lecteurs défectueux sur Azure Stack HCI
 
-Azure Stack HCI fonctionne avec les lecteurs SATA, SAS ou NVMe de type DAS (attachement direct) qui sont physiquement attachés à un seul serveur chacun. En cas de défaillance d’un lecteur, vous devez accéder au matériel du serveur physique pour le remplacer.
+Azure Stack HCI fonctionne avec les lecteurs SATA, SAS, NVMe ou à mémoire persistante en attachement direct qui sont physiquement attachés à un seul serveur chacun. En cas de défaillance d’un lecteur, vous devez accéder au matériel du serveur physique pour le remplacer.
 
 ## <a name="find-the-alert"></a>Trouver l’alerte
 En cas de défaillance d’un lecteur, une alerte apparaît dans la zone **Alertes** en haut à gauche du tableau de bord de **Windows Admin Center**. Vous pouvez également sélectionner **Lecteurs** dans le volet de navigation à gauche, ou cliquer sur le lien **VIEW DRIVES >** (VOIR LES LECTEURS) sur la vignette en bas à droite pour parcourir les lecteurs et voir leur état par vous-même. Sous l’onglet **Affichage**, la grille prend en charge le tri, le regroupement et la recherche par mot clé.
@@ -29,4 +29,5 @@ En cas de défaillance d’un lecteur, une alerte apparaît dans la zone **Alert
 Dans **Lecteurs > Inventaire**, le nouveau lecteur apparaît. Au bout d’un certain temps, l’alerte disparaît, les volumes retournent à l’état OK, et le stockage se rééquilibre par rapport au nouveau lecteur. Aucune action de l’utilisateur n’est nécessaire.
 
 ## <a name="next-steps"></a>Étapes suivantes
--  Pour en savoir plus sur le suivi de l’intégrité du stockage à différents niveaux, notamment au niveau du lecteur, consultez [États d’intégrité et opérationnels](/windows-server/storage/storage-spaces/storage-spaces-states).
+- Pour en savoir plus sur le suivi de l’intégrité du stockage à différents niveaux, notamment au niveau du lecteur, consultez [États d’intégrité et opérationnels](/windows-server/storage/storage-spaces/storage-spaces-states).
+- Si vous utilisez PMem, consultez [Comprendre et déployer la mémoire persistante](/windows-server/storage/storage-spaces/deploy-pmem).

@@ -4,27 +4,28 @@ description: Découvrez comment choisir des lecteurs pour les espaces de stockag
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.openlocfilehash: c16907c9fab70bd185e0174b79ce746770ff646a
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/01/2020
+ms.openlocfilehash: 693414f25687c923af3a3be8c1c421f08076cd28
+ms.sourcegitcommit: 92392e7275ab7fbbb9b75d0529d66adbd11070a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196849"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85814294"
 ---
 # <a name="choosing-drives-for-azure-stack-hci"></a>Choix des lecteurs pour Azure Stack HCI
 
->S’applique à : Windows Server 2019
+>S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
 
 Cette rubrique fournit des conseils sur le choix de lecteurs pour les [espaces de stockage direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) dans le but de répondre à vos besoins de performances et de capacité pour Azure Stack HCI.
 
 ## <a name="drive-types"></a>Types de lecteurs
 
-Pour l’heure, les espaces de stockage direct fonctionnent avec trois types de lecteurs :
+Pour l’heure, les espaces de stockage direct fonctionnent avec quatre types de lecteurs :
 
 |||
 |----------------------|--------------------------|
-|![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe** (Non-Volatile Memory Express) fait référence aux disques SSD qui se trouvent directement sur le bus PCIe. Les facteurs de forme courants sont les suivants : U.2 2,5 pouces, PCIe Add-In-Card (AIC) et M.2. NVMe offre un plus haut débit d’E/S par seconde (IOPS) et d’E/S avec une latence plus faible que tout autre type de lecteur actuellement pris en charge.|
+|![PMem](media/choose-drives/pmem-100px.png)|**PMem** fait référence à la mémoire persistante, un nouveau type de stockage à faible latence et haute performance.|
+|![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe** (Non-Volatile Memory Express) fait référence aux disques SSD qui se trouvent directement sur le bus PCIe. Les facteurs de forme courants sont les suivants : U.2 2,5 pouces, PCIe Add-In-Card (AIC) et M.2. NVMe offre un plus haut débit d’E/S par seconde (IOPS) et d’E/S avec une latence plus faible que tout autre type de lecteur actuellement pris en charge, sauf PMem.|
 |![SSD](media/choose-drives/SSD-100-px.png)|**SSD** fait référence aux disques SSD qui se connectent par le biais de connecteurs SATA ou SAS conventionnels.|
 |![HDD](media/choose-drives/HDD-100-px.png)|**HDD** fait référence aux lecteurs de disque dur magnétiques rotationnels qui offrent une capacité de stockage importante.|
 
@@ -100,3 +101,4 @@ Pour plus d'informations, consultez également :
 - [Configuration matérielle requise pour les espaces de stockage direct](/windows-server/storage/storage-spaces/storage-spaces-direct-hardware-requirements)
 - [Planification de volumes dans Azure Stack HCI](plan-volumes.md)
 - [Tolérance de panne et efficacité du stockage](fault-tolerance.md)
+- [Comprendre et déployer la mémoire persistante](/windows-server/storage/storage-spaces/deploy-pmem)

@@ -6,12 +6,12 @@ author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
 ms.date: 05/20/2020
-ms.openlocfilehash: 63290b49558d85e0869664c6ca760ae492718c34
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.openlocfilehash: 08cc96a1b4e4c9d1752b0f988a042735df1034b1
+ms.sourcegitcommit: b307cc147ede308e0b534ef656bc685ddaf5f95e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196475"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85370079"
 ---
 # <a name="manage-azure-stack-hci-clusters-using-windows-admin-center"></a>Gérer des clusters Azure Stack HCI avec Windows Admin Center
 
@@ -103,7 +103,7 @@ Cinq paramètres d’hôte Hyper-V peuvent être appliqués à votre cluster.
 
     :::image type="content" source="media/manage-cluster/cluster-settings-numa.png" alt-text="écran de répartition NUMA du cluster":::
 
-1. Pour spécifier le nombre de machines virtuelles qui peuvent être déplacées simultanément pendant l’exécution (migration dynamique), sélectionnez **Migration dynamique**, un nombre, puis spécifiez les éléments suivants : sélectionnez **Migration dynamique**, un nombre, puis spécifiez les éléments suivants :
+1. Pour spécifier le nombre de machines virtuelles qui peuvent être déplacées simultanément pendant l’exécution (migration dynamique), sélectionnez **Migration dynamique**, un nombre, puis spécifiez les éléments suivants :
 
    - Pour **Protocole d’authentification**, sélectionnez **CredSSP** ou **Kerberos**.
 

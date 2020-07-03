@@ -7,12 +7,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: a5776189c1792844b6d9bf2ec229ec02936f82c1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2ebbc1d7a2d6a159c4d35303c833875452c20c01
+ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80423881"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85764610"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Présentation des services, plans, offres et abonnements Azure Stack Hub
 
@@ -98,6 +98,10 @@ Quand vous planifiez vos offres, gardez à l’esprit les points suivants :
 Les abonnements permettent aux utilisateurs d’accéder à vos offres. Si vous êtes un opérateur Azure Stack Hub chez un fournisseur de services, vos utilisateurs (locataires) achètent vos services en s’abonnant à vos offres. Si vous êtes un opérateur Azure Stack Hub au sein d’une organisation, vos utilisateurs (employés) peuvent s’abonner gratuitement aux services que vous proposez.
 
 Les utilisateurs créent des abonnements et obtiennent l’accès aux abonnements existants en se connectant à Azure Stack Hub. Chaque abonnement représente une association avec une seule offre. L’offre (ainsi que ses plans et quotas) affectée à un abonnement ne peut pas être partagée avec d’autres abonnements. Chaque ressource créée par un utilisateur est associée à un seul abonnement.
+
+En tant qu’opérateur Azure Stack Hub, vous pouvez voir des informations sur les abonnements des locataires, mais vous ne pouvez pas accéder au contenu de ces abonnements, sauf si un administrateur de locataires vous ajoute explicitement à cet abonnement au moyen de RBAC. Les locataires peuvent ainsi appliquer la séparation des pouvoirs et des responsabilités entre l’opérateur Azure Stack Hub et les espaces des locataires. 
+
+L’exception à cette règle est quand le propriétaire de l’abonnement ne peut pas octroyer à l’opérateur l’accès à l’abonnement. L’administrateur doit alors s’approprier l’abonnement, comme indiqué dans [Changer le propriétaire de facturation d’un abonnement utilisateur Azure Stack Hub](azure-stack-change-subscription-owner.md).
 
 ### <a name="default-provider-subscription"></a>Abonnement au fournisseur par défaut
 

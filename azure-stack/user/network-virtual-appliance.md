@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: f933e9c4e70f533d4194b48c7b9e4d6e4bf380b0
-ms.sourcegitcommit: d5d89bbe8a3310acaff29a7a0cd7ac4f2cf5bfe7
+ms.openlocfilehash: 04c381bfefa40cc04f59e4b5f6641c2a227d14b8
+ms.sourcegitcommit: b2b0fe629d840ca8d5b6353a90f1fcb392a73bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83554962"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85376797"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>Résoudre les problèmes d’appliance virtuelle réseau
 
@@ -84,7 +84,7 @@ Chaque appliance virtuelle réseau doit respecter les configurations de base req
 ### <a name="check-whether-traffic-can-be-routed-to-the-nva"></a>Vérifier si le trafic peut être routé vers l’appliance virtuelle réseau
 
 1. Localisez une machine virtuelle qui est configurée pour rediriger le trafic vers l’appliance virtuelle réseau.
-1. Pour vérifier que l’appliance virtuelle réseau est le tronçon suivant, exécutez **Tracert \<Adresse IP privée de l’appliance virtuelle réseau\>** pour Windows ou **Traceroute \<Adresse IP privée de l’appliance virtuelle réseau\>** .
+1. Pour vérifier que l’appliance virtuelle réseau est le tronçon suivant, exécutez **Tracert \<Private IP of NVA\>** pour Windows ou **Traceroute \<Private IP of NVA\>** .
 1. Si l’appliance virtuelle réseau n’est pas listée comme tronçon suivant, vérifiez et mettez à jour les tables de routage Azure Stack Hub.
 
 Certains systèmes d’exploitation de niveau invité peuvent mettre en place des stratégies de pare-feu pour bloquer le trafic ICMP. Mettez à jour ces règles de pare-feu pour que les commandes précédentes fonctionnent.
@@ -92,7 +92,7 @@ Certains systèmes d’exploitation de niveau invité peuvent mettre en place de
 ### <a name="check-whether-traffic-can-reach-the-nva"></a>Vérifier si le trafic peut atteindre l’appliance virtuelle réseau
 
 1. Localisez une machine virtuelle qui devrait être connectée à l’appliance virtuelle réseau.
-1. Vérifiez si des groupes de sécurité réseau bloquent le trafic. Pour Windows, exécutez **ping** (ICMP) ou **Test-NetConnection \<Adresse IP privée de l’appliance virtuelle réseau\>** (TCP). Pour Linux, exécutez **Tcpping \<Adresse IP privée de l’appliance virtuelle réseau\>** .
+1. Vérifiez si des groupes de sécurité réseau bloquent le trafic. Pour Windows, exécutez **ping** (ICMP) ou **Test-NetConnection \<Private IP of NVA\>** (TCP). Pour Linux, exécutez **Tcpping \<Private IP of NVA\>** .
 1. Si vos groupes de sécurité réseau bloquent le trafic, modifiez-les pour autoriser le trafic.
 
 ### <a name="check-whether-the-nva-and-vms-are-listening-for-expected-traffic"></a>Vérifier si l’appliance virtuelle réseau et les machines virtuelles écoutent le trafic attendu
@@ -163,4 +163,4 @@ Si vous avez besoin d’aide, [contactez le fournisseur de l’appliance virtuel
 
 ### <a name="create-a-support-ticket"></a>Création d’un ticket de support
 
-Si les étapes précédentes ne permettent pas de résoudre votre problème, créez un [ticket de support](../operator/azure-stack-manage-basics.md#where-to-get-support) et utilisez l’[outil de collecte de journaux à la demande](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md) pour fournir des journaux.
+Si les étapes précédentes ne permettent pas de résoudre votre problème, créez un [ticket de support](../operator/azure-stack-manage-basics.md#where-to-get-support) et utilisez l’[outil de collecte de journaux à la demande](../operator/azure-stack-diagnostic-log-collection-overview.md) pour fournir des journaux.
