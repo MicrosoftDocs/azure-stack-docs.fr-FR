@@ -7,12 +7,13 @@ ms.date: 04/10/2020
 ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: f1217bacebc4c391347506720c760b947e363b3a
-ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
+ms.custom: conteperfq4
+ms.openlocfilehash: 04cca678b32c04faac1b3c8f12a09deb918fb0c0
+ms.sourcegitcommit: e28821041b8111fdcd2c28d35a83ab0a8018455c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82908608"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86033270"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Intégrer l’identité AD FS avec votre centre de données Azure Stack Hub
 

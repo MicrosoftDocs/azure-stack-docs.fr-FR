@@ -106,8 +106,6 @@
         - name: Valider l’inscription auprès d’Azure
           href: azure-stack-validate-registration.md
           items:
-            - name: Référence sur les applets de commande Start-AzsReadiness
-              href: azure-stack-azsreadiness-cmdlet.md
             - name: Afficher l’état de préparation
               href: azure-stack-validation-report.md
         - name: Surveillance externe
