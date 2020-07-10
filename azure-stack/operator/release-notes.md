@@ -3,16 +3,16 @@ title: Notes de publication d’Azure Stack Hub
 description: Notes de publication des systèmes intégrés Azure Stack Hub, y compris les mises à jour et les correctifs de bogues.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 07/07/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: f330385b391b82762594107715b32d6a984ccce4
-ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
+ms.openlocfilehash: 4519c52d9075ba78d7a66d982400f706b3bd72f0
+ms.sourcegitcommit: 84b089387f5cf89e3a72e576f1c7649667075e0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85764650"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86137207"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Notes de publication d’Azure Stack Hub
 
@@ -71,6 +71,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 <!-- What's new, also net new experiences and features. -->
 
 - Une nouvelle version (1.8.1) des modules PowerShell d’administration d’Azure Stack Hub basés sur AzureRM est disponible.
+- Une nouvelle version de l’API REST d’administration d’Azure Stack Hub est disponible. Vous trouverez plus d’informations sur les points de terminaison et les modifications cassantes dans les [Informations de référence sur l’API](https://docs.microsoft.com/rest/api/azure-stack/).
 - Les nouveaux modules de locataire Azure PowerShell seront publiés pour Azure Stack Hub le 15 avril 2020. Les modules Azure RM utilisés continuent de fonctionner, mais ne seront plus mis à jour après la build 2002.
 - Ajout d’une nouvelle alerte d’avertissement sur le portail administrateur Azure Stack Hub pour signaler les problèmes de connectivité avec le serveur syslog configuré. Le titre de l’alerte indique que **le client Syslog a rencontré un problème de réseau lors de l’envoi d’un message Syslog**.
 - Ajout d’une nouvelle alerte d’avertissement sur le portail administrateur Azure Stack Hub pour signaler les problèmes de connectivité avec le serveur NTP (Network Time Protocol). Le titre de l’alerte indique que **la source de temps n’est pas valide sur [nom du nœud]** .
@@ -164,14 +165,14 @@ Pour plus d’informations sur les correctifs, consultez la [stratégie de maint
 La version 2002 d’Azure Stack Hub doit être appliquée sur la version 1910 avec les correctifs logiciels suivants :
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack Hub 1.1910.54.167](https://support.microsoft.com/help/4570100)
+- [Correctif logiciel Azure Stack Hub 1.1910.62.184](https://support.microsoft.com/help/4571141)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>Après l’application de la mise à jour 2002
 
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables.
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack Hub 1.2002.44.126](https://support.microsoft.com/help/4570099)
+- [Correctif logiciel Azure Stack Hub 1.2002.52.142](https://support.microsoft.com/help/4571140)
 ::: moniker-end
 
 ::: moniker range="azs-1910"
@@ -321,14 +322,14 @@ Les correctifs logiciels Azure Stack Hub s’appliquent uniquement aux systèmes
 La version 1910 d’Azure Stack Hub doit être appliquée sur la version 1908 avec les correctifs logiciels suivants :
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack Hub 1.1908.42.114](https://support.microsoft.com/help/4570101)
+- [Correctif logiciel Azure Stack Hub 1.1908.50.131](https://support.microsoft.com/help/4571142)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>Après l’application de la mise à jour 1910
 
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez notre [stratégie de maintenance](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack Hub 1.1910.54.167](https://support.microsoft.com/help/4570100)
+- [Correctif logiciel Azure Stack Hub 1.1910.62.184](https://support.microsoft.com/help/4571141)
 ::: moniker-end
 
 ::: moniker range="azs-1908"
@@ -407,7 +408,7 @@ La mise à jour 1908 d’Azure Stack Hub nécessite la **version 2.1 ou ultéri
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez notre [stratégie de maintenance](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack Hub 1.1908.42.114](https://support.microsoft.com/help/4570101)
+- [Correctif logiciel Azure Stack Hub 1.1908.50.131](https://support.microsoft.com/help/4571142)
 ::: moniker-end
 
 ::: moniker range="azs-1907"

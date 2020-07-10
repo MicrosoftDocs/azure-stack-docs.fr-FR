@@ -3,16 +3,16 @@ title: Problèmes connus d’Azure Stack Hub
 description: Découvrez les problèmes connus des versions d’Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/17/2020
+ms.date: 07/06/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 68b83e78f29e60d4dac2b980dd9fd4aefb3bcf66
-ms.sourcegitcommit: 7df4f3fbb211063e9eef6ac1e2734de72dc6078b
+ms.openlocfilehash: 5f0210d32367212769da66b2a55b1fff91fb5017
+ms.sourcegitcommit: e28821041b8111fdcd2c28d35a83ab0a8018455c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84977170"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86033209"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Problèmes connus d’Azure Stack Hub
 
@@ -100,6 +100,12 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Lors de la dissociation d’un groupe de sécurité réseau et d’une carte réseau qui n’est pas associée à une machine virtuelle en cours d’exécution, l’opération de mise à jour (PUT) de cet objet échoue au niveau de la couche du contrôleur de réseau. Le groupe de sécurité réseau est mis à jour au niveau de la couche du fournisseur de ressources réseau, mais pas sur le contrôleur de réseau, de sorte que le groupe de sécurité réseau passe à l’état d’échec.
 - Correction : Attachez les cartes réseau associées au groupe de sécurité réseau devant être supprimé avec des machines virtuelles en cours d’exécution, et dissociez le groupe de sécurité réseau ou retirez toutes les cartes réseau associées au groupe de sécurité réseau.
+- Occurrence : Courant
+
+### <a name="load-balancer-directing-traffic-to-one-backend-vm-in-specific-scenarios"></a>Load Balancer dirigeant le trafic vers une machine virtuelle back-end dans des scénarios spécifiques 
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge. 
+- Cause : Lors de l’activation de l’**affinité de session** sur un équilibreur de charge, le hachage à 2 tuples utilise l’adresse IP physique au lieu des adresses IP privées affectées aux machines virtuelles. Dans les scénarios où le trafic dirigé vers l’équilibreur de charge arrive via un VPN, ou si toutes les machines virtuelles clientes (adresses IP sources) se trouvent sur le même nœud et que l’affinité de session est activée, tout le trafic est dirigé vers une seule machine virtuelle back-end.
 - Occurrence : Courant
 
 ### <a name="network-interface"></a>interface réseau

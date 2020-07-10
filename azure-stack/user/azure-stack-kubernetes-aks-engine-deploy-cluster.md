@@ -3,16 +3,16 @@ title: Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub
 description: Découvrez comment déployer un cluster Kubernetes sur Azure Stack Hub à partir d’une machine virtuelle cliente exécutant le moteur AKS.
 author: mattbriggs
 ms.topic: article
-ms.date: 4/23/2020
+ms.date: 07/07/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: 85f9e789db3ce86b04b490be83f355eb73e7329e
-ms.sourcegitcommit: c51e7787e36c49d34ee86cabf9f823fb98b61026
+ms.lastreviewed: 07/07/2020
+ms.openlocfilehash: 6dd3cb20570bcd4cf580f169f8ba9cbc44a673ac
+ms.sourcegitcommit: 84b089387f5cf89e3a72e576f1c7649667075e0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82218821"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86137183"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub
 
@@ -91,6 +91,9 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
 
     Si vous déployez sur un réseau virtuel personnalisé, vous pouvez trouver des instructions pour rechercher la clé et les valeurs nécessaires afin de les ajouter aux tableaux appropriés dans le modèle d’API dans [Déployer un cluster Kubernetes sur un réseau virtuel personnalisé](kubernetes-aks-engine-custom-vnet.md).
 
+    > [!Note]  
+    > Le moteur AKS pour Azure Stack Hub ne vous permet pas de fournir vos propres certificats pour la création du cluster.
+
 ### <a name="more-information-about-the-api-model"></a>Plus d’informations sur le modèle d’API
 
 - Pour obtenir des informations de référence complètes sur toutes les options disponibles dans le modèle d’API, reportez-vous aux [définitions de cluster](https://github.com/Azure/aks-engine/blob/master/docs/topics/clusterdefinitions.md).  
@@ -110,7 +113,7 @@ Procéder au déploiement d’un cluster :
 
 1.  Passez en revue les paramètres disponibles pour les [indicateurs CLI](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags) du moteur AKS sur Azure Stack Hub.
 
-    | Paramètre |  Exemple | Description |
+    | Paramètre | Exemple | Description |
     | --- | --- | --- |
     | azure-env | AzureStackCloud | Pour indiquer au moteur AKS que votre plateforme cible est Azure Stack Hub, utilisez `AzureStackCloud`. |
     | identity-system | adfs | facultatif. Spécifiez votre solution de gestion des identités si vous utilisez Active Directory Federated Services (AD FS). |

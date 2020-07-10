@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: a141beed4df6b34175f37d9e1e60e694f3ab71f2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 6ea6d73e14b5c164691ed42deab298109b1c1ad8
+ms.sourcegitcommit: a5bb340c5689f7dcf1ef3a340416f7f337782170
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700508"
+ms.lasthandoff: 07/03/2020
+ms.locfileid: "85937947"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Meilleures pratiques concernant le service de sauvegarde de l’infrastructure
 
@@ -53,6 +53,7 @@ La clé doit être stockée dans un emplacement sécurisé (par exemple, secret 
 ### <a name="backups"></a>Sauvegardes
 
  - Les travaux de sauvegarde s’exécutent pendant l’exécution du système, les expériences de gestion et les applications utilisateur ne subissent donc aucun temps d’arrêt. Les travaux de sauvegarde prennent généralement entre 20 et 40 minutes pour une solution sous charge raisonnable.
+ - Les sauvegardes automatiques ne démarrent pas pendant les opérations liées aux correctifs et aux mises à jour, et au FRU. Les travaux de sauvegarde planifiés sont ignorés par défaut. Les sauvegardes à la demande sont également bloquées pendant ces opérations.    
  - Suivant les instructions fournies par le fabricant d’ordinateurs (OEM), les commutateurs réseau sauvegardés manuellement et l’hôte de cycle de vie du matériel (HLH) doivent être stockés sur le partage de sauvegarde dans lequel le contrôleur Infrastructure Backup conserve les données de sauvegarde du plan de contrôle. Envisagez de stocker les configurations HLH et de commutateur dans le dossier de la région. Si vous disposez de plusieurs instances d'Azure Stack Hub dans la même région, envisagez d'utiliser un identificateur pour chaque configuration qui appartient à une unité d'échelle.
 
 ### <a name="folder-names"></a>Noms de dossier

@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: 3a59f36b5bae91255628d79b14ee727a5990ef11
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 1fd3c8de163d8539a0a3bf09e75e33959413fe96
+ms.sourcegitcommit: e28821041b8111fdcd2c28d35a83ab0a8018455c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146935"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86033230"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Protéger des machines virtuelles déployées sur Azure Stack Hub
 
@@ -71,9 +71,9 @@ Certains produits de sauvegarde peuvent protéger la configuration des machines 
 > [!Important]  
 > L’utilisation d’instantanés de disque n’est actuellement pas prise en charge pour les machines virtuelles en cours d’exécution. La création d’un instantané d’un disque attaché à une machine virtuelle en cours d’exécution peut dégrader les performances ou avoir un impact sur la disponibilité du système d’exploitation ou de l’application dans la machine virtuelle. Il est recommandé d’utiliser un agent dans l’invité pour protéger l’application si un temps d’arrêt planifié n’est pas possible. 
 
-### <a name="vms-in-a-scale-set-or-availability-group"></a>Machines virtuelles dans un groupe identique ou dans un groupe de disponibilité
+### <a name="vms-in-a-scale-set-or-availability-set"></a>Machines virtuelles dans un groupe identique ou dans un groupe à haute disponibilité
 
-Les machines virtuelles incluses dans un groupe identique ou un groupe de disponibilité considérées comme des ressources éphémères ne doivent pas être sauvegardées au niveau de la machine virtuelle, particulièrement si l’application est sans état. Pour les applications avec état déployées dans un groupe identique ou de disponibilité, envisagez de protéger les données d’application (par exemple, une base de données ou un volume dans un pool de stockage). 
+Les machines virtuelles incluses dans un groupe identique ou un groupe de disponibilité considérées comme des ressources éphémères ne doivent pas être sauvegardées au niveau de la machine virtuelle, particulièrement si l’application est sans état. Pour les applications avec état déployées dans un groupe identique ou un groupe à haute disponibilité, envisagez de protéger les données d’application (par exemple une base de données ou un volume dans un pool de stockage). 
 
 ### <a name="replicationmanual-failover"></a>Réplication/basculement manuel
 
@@ -83,7 +83,7 @@ Avec cette approche, l’application est déployée dans un cloud et les donnée
  
 ### <a name="high-availabilityautomatic-failover"></a>Haute disponibilité/basculement automatique
 
-Pour les applications sans état qui ne peuvent tolérer que quelques secondes ou minutes de temps d’arrêt, envisagez une configuration à haute disponibilité. Les applications à haute disponibilité sont conçues pour être déployées à plusieurs emplacements dans une topologie active/active dans laquelle toutes les instances peuvent traiter des demandes. Pour les pannes matérielles locales, l’infrastructure Azure Stack Hub implémente la haute disponibilité dans le réseau physique à l’aide de deux commutateurs TOR (Top of Rack). Pour les pannes au niveau du calcul, Azure Stack Hub utilise plusieurs nœuds dans une unité d’échelle. Au niveau de la machine virtuelle, vous pouvez utiliser des groupes identiques en combinaison avec des domaines d’erreur pour vous assurer que les pannes de nœud n’interrompent pas votre application. La même application doit alors être déployée sur un emplacement secondaire dans la même configuration. Pour rendre l’application active/active, un équilibreur de charge ou un système DNS peuvent être utilisés pour diriger les demandes vers toutes les instances disponibles.
+Pour les applications sans état qui ne peuvent tolérer que quelques secondes ou minutes de temps d’arrêt, envisagez une configuration à haute disponibilité. Les applications à haute disponibilité sont conçues pour être déployées à plusieurs emplacements dans une topologie active/active dans laquelle toutes les instances peuvent traiter des demandes. Pour les pannes matérielles locales, l’infrastructure Azure Stack Hub implémente la haute disponibilité dans le réseau physique à l’aide de deux commutateurs TOR (Top of Rack). Pour les pannes au niveau du calcul, Azure Stack Hub utilise plusieurs nœuds dans une unité d’échelle et bascule automatiquement une machine virtuelle. Au niveau de la machine virtuelle, vous pouvez utiliser des groupes identiques ou des machines virtuelles dans un groupe à haute disponibilité pour garantir que les pannes des nœuds n’interrompent pas votre application. La même application doit alors être déployée sur un emplacement secondaire dans la même configuration. Pour rendre l’application active/active, un équilibreur de charge ou un système DNS peuvent être utilisés pour diriger les demandes vers toutes les instances disponibles.
 
 ### <a name="no-recovery"></a>Aucune récupération
 
