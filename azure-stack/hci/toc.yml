@@ -5,9 +5,7 @@
     - name: "Qu’est-ce qu’Azure Stack HCI\_?"
       href: overview.md
 - name: Bien démarrer
-  items:
-    - name: Utiliser Azure Stack HCI avec Windows Admin Center
-      href: get-started.md
+  items: null
 - name: Gérer
   items:
     - name: Créer des volumes
@@ -26,6 +24,8 @@
       href: manage/add-cluster.md
     - name: Utiliser Azure Site Recovery
       href: manage/azure-site-recovery.md
+    - name: Utiliser une carte réseau Azure
+      href: manage/use-azure-network-adapter.md
     - name: Surveiller avec Azure Monitor
       href: manage/azure-monitor.md
     - name: Gérer les machines virtuelles
