@@ -3,17 +3,17 @@ title: Télécharger des éléments de la Place de marché Azure et les publier 
 description: Découvrez comment télécharger des éléments de la Place de marché à partir d’Azure et les publier sur Azure Stack Hub.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 07/09/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 48b1d7e5c0b4d40b04ac27c872fd015f3b448913
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 5774d06e07c6f4bc7f71d5dcd58257fcbb8700ee
+ms.sourcegitcommit: fe48fd5310004d68a4f28589e4d311708babb634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848266"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86210049"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Télécharger des éléments de la Place de marché vers Azure Stack Hub 
 
@@ -21,8 +21,8 @@ En tant qu’opérateur cloud, vous pouvez télécharger des éléments vers Azu
 
 Il existe deux scénarios pour télécharger des produits de la Place de marché :
 
-- **Scénario connecté** : votre environnement Azure Stack Hub doit être connecté à Internet. Vous utilisez le portail administrateur Azure Stack Hub pour localiser et télécharger des éléments.
 - **Scénario déconnecté ou partiellement connecté** : vous devez accéder à Internet à l’aide de l’outil de syndication de la Place de marché pour télécharger des éléments de la Place de marché. Ensuite, vous transférez vos téléchargements pour votre installation déconnectée de Azure Stack Hub. Ce scénario utilise PowerShell.
+- **Scénario connecté** : votre environnement Azure Stack Hub doit être connecté à Internet. Vous utilisez le portail administrateur Azure Stack Hub pour localiser et télécharger des éléments.
 
 Consultez [Éléments Place de marché Azure pour Azure Stack Hub](azure-stack-marketplace-azure-items.md) pour obtenir la liste complète des éléments de la Place de marché que vous pouvez télécharger. Pour obtenir la liste des ajouts, suppressions et mises à jour récents de la Place de marché Azure Stack Hub, consultez l’article [Modifications de la Place de marché Azure Stack Hub](azure-stack-marketplace-changes.md).
 

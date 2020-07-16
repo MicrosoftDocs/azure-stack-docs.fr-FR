@@ -4,17 +4,17 @@ description: Découvrez comment choisir des lecteurs pour les espaces de stockag
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 693414f25687c923af3a3be8c1c421f08076cd28
-ms.sourcegitcommit: 92392e7275ab7fbbb9b75d0529d66adbd11070a3
+ms.date: 07/14/2020
+ms.openlocfilehash: f243bcefec74f23efb555e0dbf72597736687694
+ms.sourcegitcommit: 2be3dd5419b0d003a9598a42541ebb1d251aea3d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85814294"
+ms.lasthandoff: 07/15/2020
+ms.locfileid: "86390787"
 ---
 # <a name="choosing-drives-for-azure-stack-hci"></a>Choix des lecteurs pour Azure Stack HCI
 
->S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
+>S’applique à : Windows Server 2019
 
 Cette rubrique fournit des conseils sur le choix de lecteurs pour les [espaces de stockage direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) dans le but de répondre à vos besoins de performances et de capacité pour Azure Stack HCI.
 
