@@ -133,6 +133,8 @@
                   href: azure-stack-manage-vm-disks.md
                 - name: Considérations relatives aux disques managés
                   href: azure-stack-managed-disk-considerations.md
+                - name: Supprimer une machine virtuelle avec des dépendances
+                  href: delete-vm.md
                 - name: Protéger les machines virtuelles
                   href: azure-stack-manage-vm-protect.md
                 - name: Problèmes de machine virtuelle connus
