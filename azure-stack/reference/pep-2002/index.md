@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 218aff04912abcce97cf0f3568b6bff1321b4cba
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 76eb340da04e9254bcf8d8a626822c65362f44d2
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564045"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86486034"
 ---
 # <a name="azure-stack-hub-privileged-endpoint-reference"></a>Informations de référence sur le point de terminaison privilégié Azure Stack Hub
 
@@ -69,4 +69,4 @@ Le point de terminaison privilégié Azure Stack PowerShell est une console Powe
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur le point de terminaison privilégié sur Azure Stack Hub, consultez [Utilisation du point de terminaison privilégié dans Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+Pour plus d’informations sur le point de terminaison privilégié sur Azure Stack Hub, consultez [Utilisation du point de terminaison privilégié dans Azure Stack](../../operator/azure-stack-privileged-endpoint.md).
