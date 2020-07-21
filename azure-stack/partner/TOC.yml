@@ -34,7 +34,7 @@
   items:
     - name: Concepts clés
       href: azure-stack-vaas-key-concepts.md
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       href: azure-stack-vaas-best-practice.md
     - name: Surveiller et gérer les tests dans le portail VaaS
       href: azure-stack-vaas-monitor-test.md
@@ -45,7 +45,7 @@
 - name: Rubriques connexes
   items:
     - name: Documentation pour les opérateurs Azure Stack Hub
-      href: /azure-stack/operator
+      href: ../operator/index.yml
     - name: Azure Active Directory
       href: /azure/active-directory/
 - name: Ressources
@@ -61,4 +61,4 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'
     - name: Formation et certification
-      href: /azure-stack/operator/azure-stack-train-and-cert
+      href: ../operator/azure-stack-train-and-cert.md

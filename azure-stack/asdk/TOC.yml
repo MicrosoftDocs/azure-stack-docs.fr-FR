@@ -54,9 +54,9 @@
 - name: Rubriques connexes
   items:
     - name: Documentation pour les opérateurs Azure Stack Hub
-      href: /azure-stack/operator
+      href: ../operator/index.yml
     - name: Documentation pour les utilisateurs Azure Stack Hub
-      href: /azure-stack/user/
+      href: ../user/index.yml
 - name: Ressources
   items:
     - name: Feuille de route Azure Stack
@@ -70,4 +70,4 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'
     - name: Formation et certification
-      href: /azure-stack/operator/azure-stack-train-and-cert
+      href: ../operator/azure-stack-train-and-cert.md
