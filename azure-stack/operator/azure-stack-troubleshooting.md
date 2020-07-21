@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Découvrez comment résoudre les problèmes Azure Stack Hub, y compris les problèmes liés aux machines virtuelles, stockage et App Service.
 author: justinha
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 07/13/2020
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 15/13/2020
-ms.openlocfilehash: de19e65866413ec4e498c9a21848c1f43af6d65a
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.lastreviewed: 07/13/2020
+ms.openlocfilehash: ea96a990682e601d2cbe555185bdf5d4b8b6cbad
+ms.sourcegitcommit: 71620f2b014d9e73ce34123ca6757ee9a626617c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819518"
+ms.lasthandoff: 07/14/2020
+ms.locfileid: "86380131"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Résoudre les problèmes dans Azure Stack Hub
 
@@ -91,6 +91,38 @@ Vous pouvez utiliser PowerShell pour obtenir des informations sur l’utilisatio
 Pour plus d'informations, consultez [Diagnostics Azure Stack Hub](azure-stack-get-azurestacklog.md).
 
 ## <a name="troubleshoot-virtual-machines-vms"></a>Résoudre les problèmes liés aux machines virtuelles
+
+### <a name="license-activation-fails-for-windows-server-2012-r2-during-provisioning"></a>Échec de l’activation de la licence pour Windows Server 2012 R2 durant le provisionnement
+
+Dans ce cas, l’activation de Windows est un échec, et vous voyez s’afficher un filigrane dans le coin inférieur droit de l’écran. Le journal WaSetup.xml situé sous C:\Windows\Panther contient l’événement suivant :
+
+```xml
+<Event time="2019-05-16T21:32:58.660Z" category="ERROR" source="Unattend">
+    <UnhandledError>
+        <Message>InstrumentProcedure: Failed to execute 'Call ConfigureLicensing()'. Will raise error to caller</Message>
+        <Number>-2147221500</Number>
+        <Description>Could not find the VOLUME_KMSCLIENT product</Description>
+        <Source>Licensing.wsf</Source>
+    </UnhandledError>
+</Event>
+```
+
+
+Pour activer la licence, copiez la clé AVMA (activation automatique de machine virtuelle) correspondant à la référence SKU à activer.
+
+|Édition|Clé AVMA|
+|-|-|
+|Centre de données|Y4TGP-NPTV9-HTC2H-7MGQ3-DV4TW|
+|Standard|DBGBW-NPF86-BJVTX-K3WKJ-MTB6V|
+|Essentials|K2XGM-NMBT3-2R6Q8-WF2FK-P36R2|
+
+Sur la machine virtuelle, exécutez la commande suivante :
+
+```powershell
+slmgr /ipk <AVMA_key>
+```
+
+Pour obtenir des détails complets, consultez [Activation automatique de machine virtuelle](https://docs.microsoft.com/windows-server/get-started-19/vm-activation-19).
 
 ### <a name="default-image-and-gallery-item"></a>Élément de la galerie et image par défaut
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/21/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: fdc1f71e5d4c5afa8b3989b69795d150cf96de67
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: 81608b62ad84a5b26028a80da40bc5a627b231f6
+ms.sourcegitcommit: 7447a9b9312cdae2f5fa13a700be84cd1ffdd456
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780679"
+ms.lasthandoff: 07/14/2020
+ms.locfileid: "86302131"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN site à site
 
@@ -73,12 +73,14 @@ Le tableau suivant liste les algorithmes de chiffrement pris en charge et les fo
 |------------------------------------------------------|--------------------------------------------------------------------------|
 | Chiffrement IKEv2                                     | AES256, AES192, AES128, DES3, DES                                        |
 | Intégrité IKEv2                                      | SHA384, SHA256, SHA1, MD5                                                |
-| Groupe DH                                             | ECP384, ECP256, DHGroup24, DHGroup14, DHGroup2, DHGroup1                 |
+| Groupe DH                                             | ECP384, DHGroup14, DHGroup2, DHGroup1, ECP256 *, DHGroup24*             |
 | Chiffrement IPsec                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Aucun |
 | Intégrité IPsec                                      | GCMASE256, GCMAES192, GCMAES128                                          |
 | Groupe PFS                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, PFSMM, Aucun                  |
 | Durée de vie de l’AS en mode rapide                                       | (Facultatif : les valeurs par défaut sont utilisées si rien n’est spécifié)<br />                         Secondes (entier ; min. 300 / 27 000 secondes par défaut)<br />                         Ko (entier ; min. 1 024 / 102 400 000 Ko par défaut) |
 | Sélecteur de trafic                                     | Les sélecteurs de trafic basés sur des stratégies ne sont pas pris en charge dans Azure Stack Hub.         |
+
+\* Ces paramètres sont disponibles uniquement dans les builds 2002 et les versions ultérieures. 
 
 - La configuration de votre périphérique VPN local doit correspondre aux algorithmes et paramètres suivants, spécifiés dans la stratégie IPsec/IKE Azure ou les contenir :
 
@@ -108,9 +110,11 @@ Le tableau suivant répertorie les groupes Diffie-Hellman correspondants pris en
 | 1                    | DHGroup1  | PFS1          | MODP 768 bits  |
 | 2                    | DHGroup2  | PFS2          | MODP 1 024 bits |
 | 14                   | DHGroup14<br/>DHGroup2048 | PFS2048       | MODP 2 048 bits |
-| 19                   | ECP256    | ECP256        | ECP 256 bits   |
+| 19                   | ECP256*    | ECP256        | ECP 256 bits   |
 | 20                   | ECP384    | ECP384        | ECP 384 bits   |
-| 24                   | DHGroup24 | PFS24         | MODP 2 048 bits |
+| 24                   | DHGroup24* | PFS24         | MODP 2 048 bits |
+
+\* Ces paramètres sont disponibles uniquement dans les builds 2002 et les versions ultérieures. 
 
 Pour en savoir plus, voir [RFC3526](https://tools.ietf.org/html/rfc3526) et [RFC5114](https://tools.ietf.org/html/rfc5114).
 

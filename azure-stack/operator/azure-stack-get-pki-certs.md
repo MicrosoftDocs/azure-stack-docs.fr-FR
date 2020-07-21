@@ -7,12 +7,12 @@ ms.date: 09/10/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: d197a8b4464af8f331a11af2ba642ad053273bf9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 22781a4613b495e8441dd3f24ed7684932bdeb90
+ms.sourcegitcommit: c1f48c19c8a9c438fd22298bc570c12a9b19bb45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77699709"
+ms.lasthandoff: 07/16/2020
+ms.locfileid: "86410581"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Générer des demandes de signature de certificat pour Azure Stack Hub
 
@@ -20,7 +20,8 @@ Vous pouvez utiliser l’outil Azure Stack Hub Readiness Checker pour créer des
 
 L’outil Azure Stack Hub Readiness Checker (AzsReadinessChecker) permet de demander les certificats suivants :
 
-- **Demandes de certificat standard** conformes à [Générer une demande de signature de certificat](azure-stack-get-pki-certs.md#generate-certificate-signing-requests).
+- **Demandes de certificat standard** conformes à [Générer une demande de signature de certificat pour les nouveaux déploiements](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments).
+- **Demandes de renouvellement de certificat** conformes à [Générer une demande de signature de certificat pour le renouvellement de certificat](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-certificate-renewal).
 - **Plateforme en tant que service (PaaS)** : Vous pouvez demander des noms PaaS pour les certificats comme spécifié dans [Exigences de certificat pour infrastructure à clé publique Azure Stack Hub - Certificats PaaS facultatifs](azure-stack-pki-certs.md#optional-paas-certificates).
 
 ## <a name="prerequisites"></a>Prérequis
@@ -37,9 +38,9 @@ Votre système doit respecter la configuration requise suivante avant de génér
   > [!NOTE]  
   > Après avoir récupéré vos certificats de sauvegarde auprès de votre autorité de certification, vous devrez procéder aux étapes décrites dans [Préparer des certificats PKI Azure Stack Hub](azure-stack-prepare-pki-certs.md) sur le même système.
 
-## <a name="generate-certificate-signing-requests"></a>Générer les demandes de signature de certificat
+## <a name="generate-certificate-signing-requests-for-new-deployments"></a>Générer des demandes de signature de certificat pour les nouveaux déploiements
 
-Suivez ces étapes pour préparer et valider les certificats PKI Azure Stack Hub :
+Suivez les étapes ci-après afin de préparer des demandes de signature de certificat pour les nouveaux certificats PKI Azure Stack Hub :
 
 1. Installez AzsReadinessChecker à partir d’une invite PowerShell (5.1 ou version ultérieure) en exécutant l’applet de commande suivante :
 
@@ -91,45 +92,107 @@ Suivez ces étapes pour préparer et valider les certificats PKI Azure Stack Hub
 6. Pour générer des demandes de signature de certificat pour le déploiement :
 
     ```powershell  
-    New-AzsCertificateSigningRequest -certificateType Deployment -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    New-AzsHubDeploymentCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
     Pour générer des demandes de certificat pour d’autres services Azure Stack Hub, changez la valeur de `-CertificateType`. Par exemple :
 
     ```powershell  
     # App Services
-    New-AzsCertificateSigningRequest -certificateType AppServices -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
+    New-AzsHubAppServicesCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
 
     # DBAdapter
-    New-AzsCertificateSigningRequest -certificateType DBAdapter -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
+    New-AzsHubDbAdapterCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
 
     # EventHubs
-    New-AzsCertificateSigningRequest -certificateType EventHubs -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
+    New-AzsHubEventHubsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
 
     # IoTHub
-    New-AzsCertificateSigningRequest -certificateType IoTHub -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
+    New-AzsHubIoTHubCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
     ```
 
 7. Pour les environnements Dev/Test, afin de générer une requête de certificat unique avec plusieurs autres noms d’objets, vous pouvez ajouter le paramètre **-RequestType SingleCSR** et la valeur (**non** recommandé pour les environnements de production) :
 
     ```powershell  
-    New-AzsCertificateSigningRequest -certificateType Deployment -RegionName $regionName -FQDN $externalFQDN -RequestType SingleCSR -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    New-AzsHubDeploymentCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -RequestType SingleCSR -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
 8.  Passez en revue la sortie :
 
     ```powershell  
-    New-AzsCertificateSigningRequest v1.1912.1082.37 started.
     Starting Certificate Request Process for Deployment
     CSR generating for following SAN(s): *.adminhosting.east.azurestack.contoso.com,*.adminvault.east.azurestack.contoso.com,*.blob.east.azurestack.contoso.com,*.hosting.east.azurestack.contoso.com,*.queue.east.azurestack.contoso.com,*.table.east.azurestack.contoso.com,*.vault.east.azurestack.contoso.com,adminmanagement.east.azurestack.contoso.com,adminportal.east.azurestack.contoso.com,management.east.azurestack.contoso.com,portal.east.azurestack.contoso.com
-    Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\checker\Documents\AzureStackCSR\wildcard_adminhosting_east_azurestack_contoso_com_CertRequest_20191219140359.req
+    Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\[*redacted*]\Documents\AzureStackCSR\Deployment_east_azurestack_contoso_com_SingleCSR_CertRequest_20200710165538.req
     Certreq.exe output: CertReq: Request Created
-
-    Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
-    New-AzsCertificateSigningRequest Completed
     ```
 
 9.  Envoyez le fichier **.REQ** généré à votre autorité de certification (interne ou publique). Le répertoire de sortie de **New-AzsCertificateSigningRequest** contient les CSR nécessaires à envoyer à une autorité de certification. Ce répertoire contient également pour votre référence un répertoire enfant contenant le ou les fichiers INF utilisés pendant la génération de demande de certificat. Assurez-vous que votre autorité de certification génère des certificats à l’aide de votre requête générée qui est conforme aux [exigences PKI d’Azure Stack Hub](azure-stack-pki-certs.md).
+
+## <a name="generate-certificate-signing-requests-for-certificate-renewal"></a>Générer des demandes de signature de certificat pour le renouvellement de certificat
+
+Suivez les étapes ci-après afin de préparer des demandes de signature de certificat pour le renouvellement des certificats PKI Azure Stack Hub existants :
+
+1. Installez AzsReadinessChecker à partir d’une invite PowerShell (5.1 ou version ultérieure) en exécutant l’applet de commande suivante :
+
+    ```powershell  
+        Install-Module Microsoft.AzureStack.ReadinessChecker
+    ```
+
+2. Déclarez le **stampEndpoint**. Par exemple :
+
+    ```powershell  
+    $stampEndpoint = 'portal.east.azurestack.contoso.com'
+    ```
+
+    > [!NOTE]  
+    > Une connectivité HTTPS est nécessaire pour le point de terminaison ci-dessus.
+    > Le point de terminaison ci-dessus doit correspondre à l’un des certificats nécessaires au type de certificat. Par exemple, pour les certificats de déploiement, le point de terminaison portal.region.domain est nécessaire, pour AppServices, sso.appservices.region.domain est nécessaire, etc. Le certificat lié au point de terminaison va être utilisé pour cloner des attributs tels que le sujet, la longueur de clé et l’algorithme de signature.  Un seul point de terminaison existant est nécessaire. Toutes les demandes de signature vont créer l’ensemble des certificats nécessaires.
+
+3. Déclarez un répertoire de sortie qui existe déjà. Par exemple :
+
+    ```powershell  
+    $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
+    ```
+
+4. Pour générer des demandes de signature de certificat pour le déploiement :
+
+    ```powershell  
+    New-AzsHubDeploymentCertificateSigningRequest -StampEndpoint $stampEndpoint -OutputRequestPath $OutputDirectory
+    ```
+
+    Si vous souhaitez générer des demandes de certificat pour d’autres services Azure Stack Hub, utilisez :
+
+    ```powershell  
+    # App Services
+    New-AzsHubAppServicesCertificateSigningRequest -StampEndpoint $stampEndpoint -OutputRequestPath $OutputDirectory
+
+    # DBAdapter
+    New-AzsHubDBAdapterCertificateSigningRequest -StampEndpoint $stampEndpoint -OutputRequestPath $OutputDirectory
+
+    # EventHubs
+    New-AzsHubEventHubsCertificateSigningRequest -StampEndpoint $stampEndpoint -OutputRequestPath $OutputDirectory
+
+    # IoTHub
+    New-AzsHubIotHubCertificateSigningRequest -StampEndpoint $stampEndpoint -OutputRequestPath $OutputDirectory
+    ```
+
+5. Pour les environnements Dev/Test, afin de générer une requête de certificat unique avec plusieurs autres noms d’objets, vous pouvez ajouter le paramètre **-RequestType SingleCSR** et la valeur (**non** recommandé pour les environnements de production) :
+
+    ```powershell  
+    New-AzsHubDeploymentCertificateSigningRequest -StampEndpoint $stampendpoint -OutputRequestPath $OutputDirectory -RequestType SingleCSR
+    ```
+
+6.  Passez en revue la sortie :
+
+    ```powershell  
+    Querying StampEndpoint portal.east.azurestack.contoso.com for existing certificate
+    Starting Certificate Request Process for Deployment
+    CSR generating for following SAN(s): *.adminhosting.east.azurestack.contoso.com,*.adminvault.east.azurestack.contoso.com,*.blob.east.azurestack.contoso.com,*.hosting.east.azurestack.contoso.com,*.queue.east.azurestack.contoso.com,*.table.east.azurestack.contoso.com,*.vault.east.azurestack.contoso.com,adminmanagement.east.azurestack.contoso.com,adminportal.east.azurestack.contoso.com,management.east.azurestack.contoso.com,portal.east.azurestack.contoso.com
+    Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\[*redacted*]\Documents\AzureStackCSR\Deployment_east_azurestack_contoso_com_SingleCSR_CertRequest_20200710122723.req
+    Certreq.exe output: CertReq: Request Created
+    ```
+
+7.  Envoyez le fichier **.REQ** généré à votre autorité de certification (interne ou publique). Le répertoire de sortie de **New-AzsCertificateSigningRequest** contient les CSR nécessaires à envoyer à une autorité de certification. Ce répertoire contient également pour votre référence un répertoire enfant contenant le ou les fichiers INF utilisés pendant la génération de demande de certificat. Assurez-vous que votre autorité de certification génère des certificats à l’aide de votre requête générée qui est conforme aux [exigences PKI d’Azure Stack Hub](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
