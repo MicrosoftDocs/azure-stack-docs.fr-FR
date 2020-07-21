@@ -298,12 +298,8 @@
               href: app-service-billing-faq.md
             - name: Prérequis
               href: azure-stack-app-service-before-you-get-started.md
-            - name: Déploiement
-              items:
-                - name: Déployer App Service
-                  href: azure-stack-app-service-deploy.md
-                - name: Déployer App Service pour la haute disponibilité
-                  href: app-service-deploy-ha.md
+            - name: Déployer App Service
+              href: azure-stack-app-service-deploy.md
             - name: Gestion du cycle de vie
               items:
                 - name: Mettre à jour App Service
@@ -320,26 +316,14 @@
                   href: app-service-recover.md
                 - name: Supprimer App Service
                   href: app-service-remove.md
-            - name: Notes de publication App Service sur Azure Stack Hub
+            - name: Notes de publication
               items:
-                - name: "Notes de publication App Service sur Azure Stack Hub\_2020 T2"
+                - name: 'Notes de publication 2020 T2 [Mai2020]'
                   href: app-service-release-notes-2020-Q2.md
-                - name: "Notes de publication de la mise à jour 8 d’App\_Service sur Azure Stack Hub"
+                - name: 'Notes de publication Update 8 [Jan2020]'
                   href: azure-stack-app-service-release-notes-update-eight.md
-                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_7"
+                - name: 'Notes de publication Update 7 [aoû2019]'
                   href: azure-stack-app-service-release-notes-update-seven.md
-                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_6"
-                  href: azure-stack-app-service-release-notes-update-six.md
-                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_5"
-                  href: azure-stack-app-service-release-notes-update-five.md
-                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_4"
-                  href: azure-stack-app-service-release-notes-update-four.md
-                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_3"
-                  href: azure-stack-app-service-release-notes-update-three.md
-                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_2"
-                  href: azure-stack-app-service-release-notes-update-two.md
-                - name: "Notes de publication App\_Service sur Azure Stack Hub Update\_1"
-                  href: azure-stack-app-service-release-notes-update-one.md
         - name: Event Hubs sur Azure Stack Hub
           items:
             - name: Vue d’ensemble
@@ -497,19 +481,19 @@
 - name: Informations de référence
   items:
     - name: Azure Stack Hub PowerShell
-      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
+      href: /powershell/azure/azure-stack/overview
     - name: Point de terminaison privilégié Azure Stack Hub
       href: ../reference/pep-2002/
     - name: API REST pour les administrateurs Azure Stack Hub
       href: /rest/api/azure-stack/
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest'
+      href: /cli/azure/reference-index?view=azure-cli-latest
 - name: Rubriques connexes
   items:
     - name: Documentation pour les utilisateurs Azure Stack Hub
-      href: /azure-stack/user/
+      href: ../user/index.yml
     - name: Documentation ASDK
-      href: /azure-stack/asdk/
+      href: ../asdk/index.yml
 - name: Ressources
   items:
     - name: Formation et certification
