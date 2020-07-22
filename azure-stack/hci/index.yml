@@ -1,19 +1,19 @@
 ### YamlMime:Landing
 title: Documentation Azure Stack HCI
-summary: Azure Stack HCI est un cluster Windows Server 2019 hyperconvergé qui utilise le matériel validé pour exécuter des charges de travail virtualisées locales, ce qui permet aux clients de consolider facilement l’infrastructure vieillissante et de se connecter à Azure pour les services cloud.
+summary: Azure Stack HCI est un cluster hyperconvergé qui utilise le matériel validé pour exécuter localement des charges de travail virtualisées, ce qui permet aux clients de consolider facilement une infrastructure vieillissante et de se connecter à Azure pour les services cloud.
 metadata:
   title: Documentation Azure Stack HCI
-  description: Azure Stack HCI est un cluster Windows Server 2019 hyperconvergé qui utilise du matériel validé pour exécuter localement des charges de travail virtualisées.
+  description: Azure Stack HCI est un cluster hyperconvergé qui utilise le matériel validé pour exécuter localement des charges de travail virtualisées.
   ms.topic: landing-page
   author: khdownie
   ms.author: v-kedow
-  ms.date: 04/17/2020
-  ms.openlocfilehash: 4a0a9d91efd11cc2affe70ecdbfe4b9781f3a2a5
-  ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+  ms.date: 07/21/2020
+  ms.openlocfilehash: 439e41651800ddb6ee478bfad083890193aef5da
+  ms.sourcegitcommit: e675eafd12b044a6d8ae3790d1874e935f80f7cb
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/22/2020
-  ms.locfileid: "85196781"
+  ms.lasthandoff: 07/22/2020
+  ms.locfileid: "86891966"
 landingContent:
 - title: À propos d’Azure Stack HCI
   linkLists:
@@ -25,33 +25,89 @@ landingContent:
     links:
     - text: Utiliser Azure Stack HCI avec Windows Admin Center
       url: get-started.md
-- title: Gérer Azure Stack HCI
+- title: Déployer Azure Stack HCI
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Avant de commencer
+      url: deploy/before-you-start.md
+    - text: Déployer le système d’exploitation Azure Stack HCI
+      url: deploy/operating-system.md
+    - text: Créer un cluster
+      url: deploy/create-cluster.md
+    - text: Configurer un témoin de cluster
+      url: deploy/witness.md
+    - text: Inscription auprès d’Azure
+      url: deploy/register-with-azure.md
+    - text: Valider un cluster Azure Stack HCI
+      url: deploy/validate.md
+- title: Gérer le stockage
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Créer des volumes
       url: manage/create-volumes.md
+    - text: Créer des volumes étendus
+      url: manage/create-stretched-volumes.md
     - text: Étendre des volumes
       url: manage/extend-volumes.md
     - text: Supprimer des volumes
       url: manage/delete-volumes.md
     - text: Remplacer des lecteurs
       url: manage/replace-drives.md
-    - text: Surveiller avec Azure Monitor
-      url: manage/azure-monitor.md
-    - text: Attacher un GPU à une machine virtuelle Linux
-      url: manage/attach-gpu-to-linux-vm.md
+- title: Gérer les machines virtuelles
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gérer des machines virtuelles avec Windows Admin Center
+      url: manage/vm.md
+    - text: Gérer les machines virtuelles avec PowerShell
+      url: manage/vm-powershell.md
+    - text: Configurer des règles d’affinité de machine virtuelle
+      url: deploy/before-you-start.md
+- title: Gérer le cluster
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gérer un cluster avec Windows Admin Center
+      url: manage/cluster.md
+    - text: Gérer un cluster avec PowerShell
+      url: manage/cluster-powershell.md
+    - text: Ajouter ou supprimer des serveurs
+      url: manage/add-cluster.md
+    - text: Mettre à jour un cluster
+      url: manage/update-cluster.md
+    - text: Changer de langue
+      url: manage/vm-powershell.md
 - title: Concepts Azure Stack HCI
   linkLists:
   - linkListType: concept
     links:
+    - text: Clusters étendus
+      url: concepts/stretched-clusters.md
+    - text: Facturation
+      url: concepts/billing.md
+    - text: Mises à jour et mises à niveau
+      url: concepts/updates.md
     - text: Choisir des lecteurs
       url: concepts/choose-drives.md
     - text: Planifier des volumes
       url: concepts/plan-volumes.md
-    - text: Comprendre le cache
-      url: concepts/cache.md
     - text: Tolérance aux pannes et efficacité du stockage
       url: concepts/fault-tolerance.md
-    - text: Quorum du pool de stockage et du cluster
-      url: concepts/quorum.md
+    - text: Considérations relatives à la sécurité
+      url: concepts/security.md
+- title: Connexion à Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Inscrire Windows Admin Center avec Azure
+      url: manage/register-windows-admin-center.md
+    - text: Utiliser Azure Site Recovery
+      url: manage/azure-site-recovery.md
+    - text: Surveiller avec Azure Monitor
+      url: manage/azure-monitor.md
+    - text: Utiliser une carte réseau Azure
+      url: manage/use-azure-network-adapter.md
+    - text: Utiliser la Sauvegarde Azure
+      url: manage/use-azure-backup.md

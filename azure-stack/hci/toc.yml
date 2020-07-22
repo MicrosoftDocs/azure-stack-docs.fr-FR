@@ -4,38 +4,90 @@
   items:
     - name: "Qu’est-ce qu’Azure Stack HCI\_?"
       href: overview.md
+    - name: Problèmes connus
+      href: known-issues.md
 - name: Bien démarrer
-  items: null
+  items:
+    - name: Utiliser Azure Stack HCI avec Windows Admin Center
+      href: get-started.md
+- name: Déployer
+  items:
+    - name: Vue d’ensemble du déploiement
+      href: deploy/deployment-overview.md
+    - name: Avant de commencer
+      href: deploy/before-you-start.md
+    - name: Déployer le système d’exploitation Azure Stack HCI
+      href: deploy/operating-system.md
+    - name: Créer le cluster
+      href: deploy/create-cluster.md
+    - name: Créer le cluster avec PowerShell
+      href: deploy/create-cluster-powershell.md
+    - name: Configurer un témoin de cluster
+      href: deploy/witness.md
+    - name: Inscription auprès d’Azure
+      href: deploy/register-with-azure.md
+    - name: Valider le cluster
+      href: deploy/validate.md
 - name: Gérer
   items:
-    - name: Créer des volumes
-      href: manage/create-volumes.md
-    - name: Étendre des volumes
-      href: manage/extend-volumes.md
-    - name: Supprimer des volumes
-      href: manage/delete-volumes.md
-    - name: Remplacer des lecteurs
-      href: manage/replace-drives.md
-    - name: Gérer des clusters
-      href: manage/cluster.md
-    - name: Gérer des clusters avec PowerShell
-      href: manage/cluster-powershell.md
-    - name: Ajouter ou supprimer des serveurs
-      href: manage/add-cluster.md
-    - name: Utiliser Azure Site Recovery
-      href: manage/azure-site-recovery.md
-    - name: Utiliser une carte réseau Azure
-      href: manage/use-azure-network-adapter.md
-    - name: Surveiller avec Azure Monitor
-      href: manage/azure-monitor.md
     - name: Gérer les machines virtuelles
-      href: manage/vm.md
-    - name: Gérer les machines virtuelles avec PowerShell
-      href: manage/vm-powershell.md
-    - name: Attacher un GPU à une machine virtuelle Linux
-      href: manage/attach-gpu-to-linux-vm.md
+      items:
+        - name: Gérer les machines virtuelles
+          href: manage/vm.md
+        - name: Gérer les machines virtuelles avec PowerShell
+          href: manage/vm-powershell.md
+        - name: Créer des règles d’affinité de machine virtuelle
+          href: manage/vm-affinity.md
+        - name: Attacher un GPU à une machine virtuelle Linux
+          href: manage/attach-gpu-to-linux-vm.md
+    - name: Gérer le stockage
+      items:
+        - name: Créer des volumes
+          href: manage/create-volumes.md
+        - name: Créer des volumes étendus
+          href: manage/create-stretched-volumes.md
+        - name: Étendre des volumes
+          href: manage/extend-volumes.md
+        - name: Supprimer des volumes
+          href: manage/delete-volumes.md
+        - name: Remplacer des lecteurs
+          href: manage/replace-drives.md
+    - name: Gérer le cluster
+      items:
+        - name: Gérer le cluster
+          href: manage/cluster.md
+        - name: Gérer des clusters avec PowerShell
+          href: manage/cluster-powershell.md
+        - name: Mettre à jour le cluster
+          href: manage/update-cluster.md
+        - name: Ajouter ou supprimer des serveurs
+          href: manage/add-cluster.md
+        - name: Gérer une inscription Azure
+          href: manage/manage-azure-registration.md
+        - name: Changer de langue
+          href: manage/languages.md
+        - name: Résoudre les problèmes de rapport de validation de cluster
+          href: manage/validate-qos.md
+    - name: Gérer les services Azure
+      items:
+        - name: Inscrire Windows Admin Center avec Azure
+          href: manage/register-windows-admin-center.md
+        - name: Surveiller avec Azure Monitor
+          href: manage/azure-monitor.md
+        - name: Utiliser Azure Site Recovery
+          href: manage/azure-site-recovery.md
+        - name: Utiliser la Sauvegarde Azure
+          href: manage/use-azure-backup.md
+        - name: Utiliser une carte réseau Azure
+          href: manage/use-azure-network-adapter.md
 - name: Concepts
   items:
+    - name: Clusters étendus
+      href: concepts/stretched-clusters.md
+    - name: Facturation
+      href: concepts/billing.md
+    - name: Mises à jour et mises à niveau
+      href: concepts/updates.md
     - name: Choisir des lecteurs
       href: concepts/choose-drives.md
     - name: Planifier des volumes
@@ -46,6 +98,8 @@
       href: concepts/fault-tolerance.md
     - name: Quorum du pool de stockage et du cluster
       href: concepts/quorum.md
+    - name: Considérations relatives à la sécurité
+      href: concepts/security.md
 - name: Informations de référence
   items:
     - name: Commandes PowerShell Hyper-V
@@ -68,22 +122,10 @@
   items:
     - name: Famille Azure Stack
       href: ../index.yml
-    - name: Azure Stack Hub
-      href: /azure-stack/operator/azure-stack-overview?view=azs-2002
-    - name: Azure Stack Edge
-      href: /azure/databox-online/data-box-edge-overview
     - name: Windows Server
       href: /windows-server/
     - name: Windows Admin Center
       href: /windows-server/manage/windows-admin-center/understand/windows-admin-center
-    - name: Services hybrides Azure
-      href: /windows-server/manage/windows-admin-center/azure
-    - name: Espaces de stockage direct
-      href: /windows-server/storage/storage-spaces/storage-spaces-direct-overview
-    - name: Clustering de basculement
-      href: /windows-server/failover-clustering/failover-clustering-overview
-    - name: Hyper-V
-      href: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
     - name: SDN (Software Defined Network)
       href: /windows-server/networking/sdn
     - name: System Center
