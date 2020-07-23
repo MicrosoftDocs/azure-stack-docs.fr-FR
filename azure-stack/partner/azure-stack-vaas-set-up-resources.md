@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3b3cbaff12c4d4decb0d7204fa558dd5690fe638
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 1076dc69190b79728d28be99c7b84629e80b5709
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112014"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86490165"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Tutoriel : Configurer des ressources pour la validation en tant que service
 
@@ -30,13 +30,13 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="configure-an-azure-ad-tenant"></a>Configurer un locataire Azure AD
 
-Un locataire Azure AD est utilisé pour inscrire une organisation et authentifier des utilisateurs avec VaaS. Le partenaire utilise les fonctionnalités de contrôle d’accès en fonction du rôle (RBAC) du locataire pour gérer les personnes pouvant utiliser VaaS dans son organisation. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
+Un locataire Azure AD est utilisé pour inscrire une organisation et authentifier des utilisateurs avec VaaS. Le partenaire utilise les fonctionnalités de contrôle d’accès en fonction du rôle (RBAC) du locataire pour gérer les personnes pouvant utiliser VaaS dans son organisation. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory ?](/azure/active-directory/fundamentals/active-directory-whatis).
 
 ### <a name="create-a-tenant"></a>Créer un client
 
 Créez un locataire que votre organisation utilisera pour accéder aux services VaaS. Utilisez un nom descriptif (par exemple, `ContosoVaaS@onmicrosoft.com`).
 
-1. Créez un locataire Azure Active Directory dans le [portail Azure](https://portal.azure.com) ou utilisez un locataire existant. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
+1. Créez un locataire Azure Active Directory dans le [portail Azure](https://portal.azure.com) ou utilisez un locataire existant. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](/azure/active-directory/get-started-azure-ad). -->
 
 2. Ajoutez au locataire des membres de votre organisation. Ces utilisateurs auront la responsabilité d’utiliser le service pour afficher ou planifier des tests. Une fois que vous avez terminé l’inscription, vous devez définir les niveaux d’accès des utilisateurs.
 
@@ -68,7 +68,7 @@ Ce processus autorise votre locataire à utiliser l’application Azure AD **Va
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | Nom de l’organisation | Nom officiel de l’organisation. |
     | Nom du répertoire du locataire Azure AD | Nom de l’annuaire du locataire Azure AD en cours d’inscription. |
-    | ID de l’annuaire du locataire Azure AD | GUID de l’annuaire du locataire AD Azure associé à l’annuaire. Pour plus d’informations sur la façon de trouver votre ID d’annuaire de locataire Azure AD, consultez [Obtenir l’ID de locataire](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in). |
+    | ID de l’annuaire du locataire Azure AD | GUID de l’annuaire du locataire AD Azure associé à l’annuaire. Pour plus d’informations sur la façon de trouver votre ID d’annuaire de locataire Azure AD, consultez [Obtenir l’ID de locataire](/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in). |
 
 2. Attendez la confirmation de l’équipe de validation Azure Stack Hub pour vérifier que votre locataire peut utiliser le portail Validation Azure Stack Hub.
 

@@ -7,12 +7,12 @@ ms.date: 06/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 06/22/2020
-ms.openlocfilehash: c0ce996e1c94b731af808d410c8891c1fcf1395e
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.openlocfilehash: 14747b3eec8dfb3d3722eab7dd02c5d0d08b816b
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85197070"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86490029"
 ---
 # <a name="install-powershell-az-preview-module-for-azure-stack-hub"></a>Installer le module en préversion PowerShell Az pour Azure Stack Hub
 
@@ -33,9 +33,9 @@ Vous pouvez installer des modules PowerShell Az compatibles avec Azure Stack Hub
 
 ## <a name="1-verify-your-prerequisites"></a>1. Vérifier la configuration requise
 
-Les modules Az sont pris en charge uniquement sur [Azure Stack Hub avec la mise à jour 2002](https://docs.microsoft.com/azure-stack/operator/release-notes?view=azs-2002#2002-build-reference) et le dernier [correctif](https://docs.microsoft.com/azure-stack/operator/release-notes?view=azs-2002#hotfixes).
+Les modules Az sont pris en charge uniquement sur [Azure Stack Hub avec la mise à jour 2002](./release-notes.md?view=azs-2002#2002-build-reference) et le dernier [correctif](./release-notes.md?view=azs-2002#hotfixes).
 
-Azure PowerShell fonctionne avec PowerShell 5.1 ou ultérieur sur Windows, ou avec PowerShell 6.x et ultérieur sur toutes les plateformes. Vous devez installer la [dernière version de PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell-core) disponible pour votre système d’exploitation. Azure PowerShell ne présente aucune exigence supplémentaire quand il est exécuté sur PowerShell Core.
+Azure PowerShell fonctionne avec PowerShell 5.1 ou ultérieur sur Windows, ou avec PowerShell 6.x et ultérieur sur toutes les plateformes. Vous devez installer la [dernière version de PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core) disponible pour votre système d’exploitation. Azure PowerShell ne présente aucune exigence supplémentaire quand il est exécuté sur PowerShell Core.
 
 Pour vérifier votre version de PowerShell, exécutez la commande :
 
@@ -46,12 +46,12 @@ $PSVersionTable.PSVersion
 ### <a name="prerequisites-for-windows"></a>Prérequis pour Windows
 Pour utiliser Azure PowerShell dans PowerShell 5.1 sur Windows :
 
-1. Mettrez à jour vers [Windows PowerShell 5.1](https://docs.microsoft.com//powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell) si nécessaire. Si vous êtes sur Windows 10, PowerShell 5.1 est déjà installé.
-2. Installez [.NET Framework 4.7.2 ou ultérieur](https://docs.microsoft.com//dotnet/framework/install).
+1. Mettrez à jour vers [Windows PowerShell 5.1](//powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell) si nécessaire. Si vous êtes sur Windows 10, PowerShell 5.1 est déjà installé.
+2. Installez [.NET Framework 4.7.2 ou ultérieur](//dotnet/framework/install).
 3. Veillez à disposer de la dernière version de PowerShellGet. Exécutez `Install-Module PowerShellGet -MinimumVersion 2.2.3 -Force`. 
 
 ## <a name="2-prerequisites-for-linux-and-mac"></a>2. Prérequis pour Linux et Mac
-PowerShell Core 6.x ou version ultérieure est nécessaire. Pour obtenir des instructions, suivez le [lien](https://docs.microsoft.com//powershell/scripting/install/installing-powershell-core-on-windows)
+PowerShell Core 6.x ou version ultérieure est nécessaire. Pour obtenir des instructions, suivez le [lien](//powershell/scripting/install/installing-powershell-core-on-windows)
 
 ## <a name="3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules"></a>3. Désinstaller les versions existantes des modules Azure Stack Hub PowerShell
 
@@ -84,7 +84,7 @@ Install-Module -Name AzureStack -RequiredVersion 2.0.1-preview -AllowPrerelease
 > La version 2.0.0 du module Azure Stack Hub marque un changement cassant. Pour plus d’informations, reportez-vous à [Effectuer une migration depuis AzureRM vers Azure PowerShell Az dans Azure Stack Hub](migrate-azurerm-az.md).
 
 > [!WARNING]
-> Vous ne pouvez pas avoir en même temps les modules AzureRM et Az installés pour PowerShell 5.1 pour Windows. Si vous avez besoin de conserver AzureRM disponible sur votre système, installez le module Az pour PowerShell Core 6.x ou ultérieur. Pour cela, [installez PowerShell Core 6.x ou ultérieur](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows) et suivez ces instructions dans un terminal PowerShell Core.
+> Vous ne pouvez pas avoir en même temps les modules AzureRM et Az installés pour PowerShell 5.1 pour Windows. Si vous avez besoin de conserver AzureRM disponible sur votre système, installez le module Az pour PowerShell Core 6.x ou ultérieur. Pour cela, [installez PowerShell Core 6.x ou ultérieur](/powershell/scripting/install/installing-powershell-core-on-windows) et suivez ces instructions dans un terminal PowerShell Core.
 
 ## <a name="5-disconnected-install-without-internet-connection"></a>5. Déconnecté : Installer sans connexion à Internet
 
@@ -130,7 +130,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 2. Connectez-vous à la station de travail déconnectée, puis copiez les packages du périphérique USB vers un emplacement sur la station de travail.
 
-3. Démarrez manuellement le fournisseur NuGet sur votre station de travail déconnecté. Pour plus d’instructions, consultez la section [Démarrage manuel du fournisseur NuGet sur un ordinateur qui n’est pas connecté à Internet](https://docs.microsoft.com/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
+3. Démarrez manuellement le fournisseur NuGet sur votre station de travail déconnecté. Pour plus d’instructions, consultez la section [Démarrage manuel du fournisseur NuGet sur un ordinateur qui n’est pas connecté à Internet](/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
 
 4. Inscrivez cet emplacement en tant que dépôt par défaut, puis installez les modules AzureRM et `AzureStack` à partir de ce dépôt :
 

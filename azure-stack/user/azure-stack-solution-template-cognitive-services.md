@@ -7,12 +7,12 @@ ms.date: 05/21/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 05/21/2020
-ms.openlocfilehash: 07af0665b2bc7993a90100edccc0a4831700c432
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: 217dc3a46d277aa8abf57379224dcad0fca4d983
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780764"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566751"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Déployer Azure Cognitive Services sur Azure Stack Hub
 
@@ -55,7 +55,7 @@ La prise en charge des conteneurs est actuellement en préversion publique pour 
 
 Avec Azure Stack Hub, déployez des conteneurs Cognitive Services dans un cluster Kubernetes avec vos conteneurs d'applications pour bénéficier d'une haute disponibilité et d'une mise à l'échelle élastique. Vous pouvez développer votre application en combinant Cognitive Services avec des composants reposant sur App Services, Functions, Stockage Blob, SQL ou des bases de données mySQL.
 
-Pour plus d’informations sur les conteneurs Cognitive Services, consultez [Prise en charge des conteneurs dans Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support).
+Pour plus d’informations sur les conteneurs Cognitive Services, consultez [Prise en charge des conteneurs dans Azure Cognitive Services](/azure/cognitive-services/cognitive-services-container-support).
 
 ## <a name="deploy-the-azure-face-api"></a>Déployer l’API Visage Azure
 
@@ -65,7 +65,7 @@ Cet article explique comment déployer l'API Visage Azure sur un cluster Kuberne
 
 Avant de commencer, vous devez :
 
-1.  Demander l’accès au registre de conteneurs pour extraire des images conteneurs Visage à partir d’Azure Cognitive Services Container Registry. Pour plus d’informations, consultez [Demander l’accès au registre de conteneurs privé](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers#request-access-to-the-private-container-registry).
+1.  Demander l’accès au registre de conteneurs pour extraire des images conteneurs Visage à partir d’Azure Cognitive Services Container Registry. Pour plus d’informations, consultez [Demander l’accès au registre de conteneurs privé](/azure/cognitive-services/face/face-how-to-install-containers#request-access-to-the-private-container-registry).
 
 2.  Préparer un cluster Kubernetes sur Azure Stack Hub. Vous pouvez suivre les instructions fournies dans l'article [Déployer Kubernetes sur Azure Stack Hub](azure-stack-solution-template-kubernetes-deploy.md).
 
@@ -73,7 +73,7 @@ Avant de commencer, vous devez :
 
 Créez une ressource Cognitive Services sur Azure pour afficher un aperçu des conteneurs Visage, LUIS ou Reconnaître le texte. Vous devez utiliser la clé d’abonnement et l’URL de point de terminaison de la ressource pour instancier les conteneurs Cognitive Services.
 
-1. Créez une ressource Azure dans le portail Azure. Si vous souhaitez afficher un aperçu des conteneurs Visage, vous devez d’abord créer une ressource Visage correspondante dans le portail Azure. Pour plus d’informations, consultez [Démarrage rapide : Créer un compte Cognitive Services dans le portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Créez une ressource Azure dans le portail Azure. Si vous souhaitez afficher un aperçu des conteneurs Visage, vous devez d’abord créer une ressource Visage correspondante dans le portail Azure. Pour plus d’informations, consultez [Démarrage rapide : Créer un compte Cognitive Services dans le portail Azure](/azure/cognitive-services/cognitive-services-apis-create-account).
 
    > [!Note]
    >  La ressource Visage ou Vision par ordinateur doit utiliser le niveau tarifaire F0.
@@ -205,7 +205,7 @@ Vous pouvez obtenir l’adresse IP externe à l’aide de la commande suivante 
 
 ## <a name="try-the-services-with-python"></a>Essayer les services avec Python
 
-Vous pouvez essayer de valider les services cognitifs sur votre système Azure Stack Hub en exécutant quelques scripts Python simples. Pour référence, il existe des exemples de guides de démarrage rapide Python officiels pour les services [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [Visage](https://docs.microsoft.com/azure/cognitive-services/face/overview), [Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) et [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS).
+Vous pouvez essayer de valider les services cognitifs sur votre système Azure Stack Hub en exécutant quelques scripts Python simples. Pour référence, il existe des exemples de guides de démarrage rapide Python officiels pour les services [Vision par ordinateur](/azure/cognitive-services/computer-vision/home), [Visage](/azure/cognitive-services/face/overview), [Analyse de texte](/azure/cognitive-services/text-analytics/overview) et [Language Understanding](/azure/cognitive-services/luis/luis-container-howto) (LUIS).
 
 Il y a deux points à garder à l’esprit quand vous utilisez des applications Python pour valider les services exécutés sur des conteneurs : 
 1. Les services cognitifs dans les conteneurs n’utilisent pas de sous-clés pour l’authentification, mais ils ont quand même besoin d’une chaîne comme espace réservé pour satisfaire au SDK. 
@@ -234,10 +234,10 @@ print(faces)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Guide pratique pour installer et exécuter des conteneurs d’API Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
+[Guide pratique pour installer et exécuter des conteneurs d’API Vision par ordinateur](/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
 
-[Guide pratique pour installer et exécuter des conteneurs d’API Visage](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers)
+[Guide pratique pour installer et exécuter des conteneurs d’API Visage](/azure/cognitive-services/face/face-how-to-install-containers)
 
-[Guide pratique pour installer et exécuter des conteneurs d’API Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)
+[Guide pratique pour installer et exécuter des conteneurs d’API Analyse de texte](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)
 
-[Guide pratique pour installer et exécuter des conteneurs LUIS (Language Understanding)](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto)
+[Guide pratique pour installer et exécuter des conteneurs LUIS (Language Understanding)](/azure/cognitive-services/luis/luis-container-howto)

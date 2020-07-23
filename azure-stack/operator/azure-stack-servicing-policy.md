@@ -8,12 +8,12 @@ ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 6b2a3a281e16ff658b7124071cdb83326d0cbbde
-ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
+ms.openlocfilehash: 38fb04f0b3dae557eee18271146312c57347bd89
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636833"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487853"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Stratégie de maintenance Azure Stack Hub
 
@@ -45,10 +45,10 @@ Pour lire la documentation relative à la planification et à la gestion des mis
 
 Pour en savoir plus sur une mise à jour, notamment comment la télécharger, consultez les notes de publication qui s’y rapportent :
 
-- [Mise à jour Azure Stack Hub 2002](/azure-stack/operator/release-notes?view=azs-2002)
-- [Mise à jour Azure Stack Hub 1910](/azure-stack/operator/release-notes?view=azs-1910)
-- [Mise à jour Azure Stack Hub 1908](/azure-stack/operator/release-notes?view=azs-1908)
-- [Mise à jour Azure Stack Hub 1907](/azure-stack/operator/release-notes?view=azs-1907)
+- [Mise à jour Azure Stack Hub 2002](./release-notes.md?view=azs-2002)
+- [Mise à jour Azure Stack Hub 1910](./release-notes.md?view=azs-1910)
+- [Mise à jour Azure Stack Hub 1908](./release-notes.md?view=azs-1908)
+- [Mise à jour Azure Stack Hub 1907](./release-notes.md?view=azs-1907)
 
 ## <a name="hotfixes"></a>Correctifs logiciels
 
@@ -58,10 +58,10 @@ Les correctifs logiciels sont téléchargés et installés comme les packages de
 
 Pour plus d’informations sur les correctifs logiciels actuellement disponibles, consultez les notes de publication de cette mise à jour :
 
-- [Correctif logiciel Azure Stack Hub 2002](/azure-stack/operator/release-notes?view=azs-2002#hotfixes)
-- [Correctif logiciel Azure Stack Hub 1910](/azure-stack/operator/release-notes?view=azs-1910#hotfixes-1)
-- [Correctif logiciel Azure Stack Hub 1908](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-2)
-- [Correctif logiciel Azure Stack Hub 1907](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-3)
+- [Correctif logiciel Azure Stack Hub 2002](./release-notes.md?view=azs-2002#hotfixes)
+- [Correctif logiciel Azure Stack Hub 1910](./release-notes.md?view=azs-1910#hotfixes-1)
+- [Correctif logiciel Azure Stack Hub 1908](./release-notes.md?view=azs-1908#hotfixes-2)
+- [Correctif logiciel Azure Stack Hub 1907](./release-notes.md?view=azs-1907#hotfixes-3)
 
 ## <a name="keep-your-system-under-support"></a>Conserver votre système dans un état de prise en charge
 
@@ -88,7 +88,7 @@ Pour plus d’informations sur la compatibilité du fournisseur de ressources, c
 
 ## <a name="get-support"></a>Obtenir de l’aide
 
-Azure Stack Hub suit le même processus de support qu’Azure. Les clients d’entreprise peuvent suivre le processus décrit dans [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Si vous êtes client d’un fournisseur de solutions cloud (CSP), contactez-le pour obtenir de l’aide. Pour plus d’informations, consultez le [Forum Aux Questions sur le support technique Azure](https://azure.microsoft.com/support/faq/).
+Azure Stack Hub suit le même processus de support qu’Azure. Les clients d’entreprise peuvent suivre le processus décrit dans [Création d’une demande de support Azure](/azure/azure-supportability/how-to-create-azure-support-request). Si vous êtes client d’un fournisseur de solutions cloud (CSP), contactez-le pour obtenir de l’aide. Pour plus d’informations, consultez le [Forum Aux Questions sur le support technique Azure](https://azure.microsoft.com/support/faq/).
 
 Pour obtenir de l’aide dans la résolution des problèmes de mise à jour, consultez [Bonnes pratiques pour résoudre les problèmes liés aux correctifs logiciels et aux mises à jour Azure Stack Hub](azure-stack-troubleshooting.md).
 

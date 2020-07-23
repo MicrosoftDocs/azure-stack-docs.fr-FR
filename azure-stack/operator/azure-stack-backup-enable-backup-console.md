@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: ce401b20d6baa66807e6ee5f7ee1e94503b653af
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1c44bbc0e185d15ef14b2a7f57aa1309b82a4298
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703160"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489468"
 ---
 # <a name="enable-backup-for-azure-stack-hub-from-the-administrator-portal"></a>Activer la sauvegarde d’Azure Stack Hub à partir du portail administrateur
 
@@ -28,8 +28,8 @@ Toutefois, le service Infrastructure Backup ne permet pas de sauvegarder les mac
 Les administrateurs et les utilisateurs sont en charge de sauvegarder et de restaurer les ressources IaaS et PaaS indépendamment des processus de sauvegarde d’infrastructure. Pour plus d’informations sur la sauvegarde des ressources IaaS et PaaS, consultez les liens suivants :
 
 - [Protéger des machines virtuelles déployées sur Azure Stack Hub](../user/azure-stack-manage-vm-protect.md)
-- [Sauvegarde de votre application dans Azure](https://docs.microsoft.com/azure/app-service/manage-backup)
-- [Qu’est-ce que SQL Server sur machines virtuelles Azure ? (Windows)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
+- [Sauvegarde de votre application dans Azure](/azure/app-service/manage-backup)
+- [Qu’est-ce que SQL Server sur machines virtuelles Azure ? (Windows)](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 
 ## <a name="enable-or-reconfigure-backup"></a>Activer ou reconfigurer une sauvegarde
@@ -67,7 +67,7 @@ Les administrateurs et les utilisateurs sont en charge de sauvegarder et de rest
    > [!Note]
    > **Version 1901 et versions ultérieures** : Azure Stack Hub accepte un certificat pour chiffrer les données de sauvegarde de l’infrastructure. Veillez à stocker le certificat comportant la clé publique et la clé privée dans un emplacement sécurisé. Pour des raisons de sécurité, il est déconseillé de l’utiliser pour configurer les paramètres de sauvegarde. Pour savoir comment gérer le cycle de vie de ce certificat, consultez [Meilleures pratiques relatives au service Infrastructure Backup](azure-stack-backup-best-practices.md).
    > 
-   > **1811 ou versions antérieures** : Azure Stack Hub accepte une clé symétrique pour chiffrer les données de sauvegarde de l’infrastructure. Utilisez la [cmdlet New-AzsEncryptionKey64 pour créer une clé](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). Après la mise à niveau de 1811 à 1901, les paramètres de sauvegarde conservent la clé de chiffrement. Il est recommandé de mettre à jour les paramètres de sauvegarde pour utiliser un certificat. La prise en charge de la clé de chiffrement est désormais déconseillée. Vous disposez d’au moins trois versions pour mettre à jour les paramètres afin d’utiliser un certificat.
+   > **1811 ou versions antérieures** : Azure Stack Hub accepte une clé symétrique pour chiffrer les données de sauvegarde de l’infrastructure. Utilisez la [cmdlet New-AzsEncryptionKey64 pour créer une clé](/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). Après la mise à niveau de 1811 à 1901, les paramètres de sauvegarde conservent la clé de chiffrement. Il est recommandé de mettre à jour les paramètres de sauvegarde pour utiliser un certificat. La prise en charge de la clé de chiffrement est désormais déconseillée. Vous disposez d’au moins trois versions pour mettre à jour les paramètres afin d’utiliser un certificat.
 
 10. Sélectionnez **OK** pour enregistrer vos paramètres de contrôleur de sauvegarde.
 
@@ -115,7 +115,7 @@ Les nouvelles sauvegardes commenceront à utiliser la clé publique dans le nouv
 ![Azure Stack Hub – Afficher l’empreinte numérique du certificat](media/azure-stack-backup/encryption-settings-thumbprint.png)
 
 ### <a name="backwards-compatibility-mode"></a>Mode de compatibilité descendante
-Si vous avez configuré la sauvegarde avant le passage à la version 1901, les paramètres sont transférés sans aucun changement de comportement. Dans ce cas, la clé de chiffrement est prise en charge par compatibilité descendante. Vous pouvez mettre à jour la clé de chiffrement ou le commutateur pour utiliser un certificat. Vous avez au moins trois versions pour poursuivre la mise à jour de la clé de chiffrement. Profitez de ce laps de temps pour passer à un certificat. Pour créer une clé de chiffrement, utilisez [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
+Si vous avez configuré la sauvegarde avant le passage à la version 1901, les paramètres sont transférés sans aucun changement de comportement. Dans ce cas, la clé de chiffrement est prise en charge par compatibilité descendante. Vous pouvez mettre à jour la clé de chiffrement ou le commutateur pour utiliser un certificat. Vous avez au moins trois versions pour poursuivre la mise à jour de la clé de chiffrement. Profitez de ce laps de temps pour passer à un certificat. Pour créer une clé de chiffrement, utilisez [New-AzsEncryptionKeyBase64](/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
 
 ![Azure Stack Hub – Utiliser une clé de chiffrement en mode de compatibilité descendante](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
 

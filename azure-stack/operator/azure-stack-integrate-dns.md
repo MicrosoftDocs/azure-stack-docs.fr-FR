@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: d16aea039103c69302c8f84aa7de078907f1efce
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: be6ea1e8dbf8b17e02a4117f5f2d20cb9cfbbcfe
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81244073"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488720"
 ---
 # <a name="azure-stack-hub-datacenter-dns-integration"></a>Intégration des services DNS Azure Stack Hub au DNS du centre de données
 
@@ -133,7 +133,7 @@ Si la machine virtuelle de déploiement n’est plus disponible ou n’est pas a
 
 La façon la plus simple et la plus sûre d’intégrer Azure Stack Hub à votre infrastructure DNS consiste à effectuer un transfert conditionnel de la zone à partir du serveur qui héberge la zone parente. Nous vous recommandons cette approche si vous contrôlez directement les serveurs DNS qui hébergent la zone parente pour votre espace de noms DNS externe Azure Stack Hub.
 
-Si vous ne savez pas comment effectuer une redirection conditionnelle avec DNS, consultez l’article TechNet suivant : [Assigner un redirecteur conditionnel pour un nom de domaine](https://technet.microsoft.com/library/cc794735), ou reportez-vous à la documentation spécifique à votre solution DNS.
+Si vous ne savez pas comment effectuer une redirection conditionnelle avec DNS, consultez l’article TechNet suivant : [Assigner un redirecteur conditionnel pour un nom de domaine](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794735(v=ws.10)), ou reportez-vous à la documentation spécifique à votre solution DNS.
 
 Dans les scénarios où vous avez spécifié votre zone DNS Azure Stack Hub externe de telle façon qu’elle s’apparente à un domaine enfant de votre nom de domaine d’entreprise, vous ne pouvez pas utiliser le transfert conditionnel. Vous devez configurer la délégation DNS.
 

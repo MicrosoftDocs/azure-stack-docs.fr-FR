@@ -7,22 +7,22 @@ ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: aac2f9a0991bdae7f15d7fc54517a880ab384785
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: da15bfa9b19da8d65f54db86633b5ec300d76067
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80068939"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567720"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Déployer un cluster Kubernetes sur un réseau virtuel personnalisé sur Azure Stack Hub 
 
 Vous pouvez déployer un cluster Kubernetes à l’aide du moteur Azure Kubernetes Service (AKS) sur un réseau virtuel personnalisé. Cet article s’intéresse aux informations dont vous avez besoin dans votre réseau virtuel. Vous allez découvrir les étapes à suivre pour calculer les adresses IP utilisées par votre cluster, définir les valeurs dans le modèle d’API et définir la table de routage et le groupe de sécurité réseau.
 
-Dans Azure Stack Hub, le cluster Kubernetes qui utilise le moteur AKS utilise le plug-in réseau kubenet. Pour plus d’informations sur la mise en réseau du plug-in réseau kubenet dans Azure, consultez [Utiliser la mise en réseau kubenet avec vos propres plages d’adresses IP dans Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-kubenet).
+Dans Azure Stack Hub, le cluster Kubernetes qui utilise le moteur AKS utilise le plug-in réseau kubenet. Pour plus d’informations sur la mise en réseau du plug-in réseau kubenet dans Azure, consultez [Utiliser la mise en réseau kubenet avec vos propres plages d’adresses IP dans Azure Kubernetes Service (AKS)](/azure/aks/configure-kubenet).
 
 ## <a name="create-custom-virtual-network"></a>Créer un réseau virtuel personnalisé
 
-Vous devez avoir un réseau virtuel personnalisé dans votre instance Azure Stack Hub. Pour plus d’informations, consultez [Démarrage rapide : Créer un réseau virtuel avec le portail Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
+Vous devez avoir un réseau virtuel personnalisé dans votre instance Azure Stack Hub. Pour plus d’informations, consultez [Démarrage rapide : Créer un réseau virtuel avec le portail Azure](/azure/virtual-network/quick-create-portal).
 
 Créez un sous-réseau dans votre réseau virtuel. Vous devez obtenir l’ID de ressource de sous-réseau et la plage d’adresses IP. Vous allez utiliser l’ID de ressource et la plage dans votre modèle d’API quand vous déploierez votre cluster.
 
@@ -130,4 +130,4 @@ Après avoir déployé votre cluster, revenez à votre réseau virtuel dans le p
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Consultez l'article [Le moteur AKS sur Azure Stack Hub](azure-stack-kubernetes-aks-engine-overview.md).  
-- Consultez l’article [Vue d’ensemble d’Azure Monitor pour conteneurs](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
+- Consultez l’article [Vue d’ensemble d’Azure Monitor pour conteneurs](/azure/azure-monitor/insights/container-insights-overview).

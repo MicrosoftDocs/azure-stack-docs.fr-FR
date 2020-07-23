@@ -7,12 +7,12 @@ ms.date: 12/23/2019
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: f74f35a8b1124ed9678e6b4bc254d4d2cd05a84e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c54e086ad8edefcb8e7a799c5153af6b7ce5b194
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77699267"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488533"
 ---
 # <a name="set-access-permissions-using-role-based-access-control"></a>Définir des autorisations d’accès en utilisant le contrôle d’accès en fonction du rôle
 
@@ -23,7 +23,7 @@ Un utilisateur Azure Stack Hub peut être un lecteur, un propriétaire ou un col
  - Propriétaire : L'utilisateur peut tout gérer, y compris l’accès aux ressources.
  - Personnalisé : L’utilisateur dispose d’un accès limité et spécifique aux ressources.
 
- Pour plus d’informations sur la création d’un rôle personnalisé, consultez [Rôles personnalisés pour les ressources Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+ Pour plus d’informations sur la création d’un rôle personnalisé, consultez [Rôles personnalisés pour les ressources Azure](/azure/role-based-access-control/custom-roles).
 
 ## <a name="set-access-permissions-for-a-user"></a>Définir des autorisations d’accès pour un utilisateur
 

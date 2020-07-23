@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: a30c3a4f745e46a5e7b58d4355f1c193d8702e28
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0345c3290b717385d8080dc6be771660ea22a2e1
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295424"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487904"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Ajouter des serveurs d’hébergement pour le fournisseur de ressources SQL
 
@@ -41,7 +41,7 @@ Avant d’ajouter un serveur d’hébergement SQL, consultez les exigences gén�
 
 Des images de machines virtuelles IaaS SQL sont disponibles via la fonctionnalité Gestion de la Place de marché. Ces images sont les mêmes que les machines virtuelles SQL disponibles dans Azure.
 
-Veillez à toujours télécharger la dernière version de **l’extension IaaS SQL** avant de déployer une machine virtuelle SQL à l’aide d’un élément de la Place de marché. L’extension IaaS et les améliorations apportées au portail correspondantes fournissent des fonctionnalités supplémentaires de mise à jour corrective et de sauvegarde automatique. Pour plus d’information sur cette extension, consultez [Automatiser les tâches de gestion sur des machines virtuelles Azure avec l’extension SQL Server Agent](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+Veillez à toujours télécharger la dernière version de **l’extension IaaS SQL** avant de déployer une machine virtuelle SQL à l’aide d’un élément de la Place de marché. L’extension IaaS et les améliorations apportées au portail correspondantes fournissent des fonctionnalités supplémentaires de mise à jour corrective et de sauvegarde automatique. Pour plus d’information sur cette extension, consultez [Automatiser les tâches de gestion sur des machines virtuelles Azure avec l’extension SQL Server Agent](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
 
 > [!NOTE]
 > L’extension IaaS SQL est _requise_ pour toutes les images SQL sur Windows dans la Place de marché. Si vous n’avez pas téléchargé cette extension, la machine virtuelle ne pourra pas être déployée. Elle n’est pas utilisée avec les images de machine virtuelle SQL basées sur Linux.
@@ -66,7 +66,7 @@ Les informations suivantes fournissent des conseils de sécurité supplémentair
 
 * Tout le stockage Azure Stack Hub étant chiffré à l’aide de BitLocker, toute instance SQL sur Azure Stack Hub utilise le stockage d’objets blob chiffré.
 * Le fournisseur de ressources SQL prend entièrement en charge TLS 1.2. Vérifiez que tout serveur SQL géré par le biais du fournisseur de ressources SQL est configuré pour TLS 1.2 _uniquement_ et que le fournisseur de ressources utilise ce dernier par défaut. Toutes les versions prises en charge de SQL Server prennent en charge TLS 1.2. Pour plus d’informations, consultez [Prise en charge de TLS 1.2 pour Microsoft SQL Server](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
-* Utilisez le Gestionnaire de configuration SQL Server pour définir l’option **ForceEncryption** afin que toutes les communications vers le serveur SQL soient toujours chiffrées. Pour plus d’informations, consultez [Pour configurer le serveur afin qu’il force les connexions chiffrées](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections).
+* Utilisez le Gestionnaire de configuration SQL Server pour définir l’option **ForceEncryption** afin que toutes les communications vers le serveur SQL soient toujours chiffrées. Pour plus d’informations, consultez [Pour configurer le serveur afin qu’il force les connexions chiffrées](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections).
 * Vérifiez que toute application cliente communique également via une connexion chiffrée.
 * Le fournisseur de ressources est configuré pour approuver les certificats utilisés par les instances de SQL Server.
 
@@ -106,15 +106,15 @@ Pour ajouter un serveur d’hébergement autonome déjà configuré, effectuez l
 
 La configuration d’instances Always On SQL nécessite des étapes supplémentaires et exige trois machines virtuelles (ou machines physiques). Cet article suppose que vous disposiez déjà d’une connaissance approfondie des groupes de disponibilité Always On. Pour plus d’informations, consultez les articles suivants :
 
-* [Présentation des groupes de disponibilité SQL Server Always On sur des machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
-* [Groupes de disponibilité SQL Server Always On (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
+* [Présentation des groupes de disponibilité SQL Server Always On sur des machines virtuelles Azure](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
+* [Groupes de disponibilité SQL Server Always On (SQL Server)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
 
 > [!NOTE]
 > Le fournisseur de ressources de l’adaptateur SQL prend en charge _uniquement_ SQL 2016 SP1 Enterprise ou les instances ultérieures pour les groupes de disponibilité Always On. Cette configuration de l’adaptateur requiert des nouvelles fonctionnalités SQL telles que l’amorçage automatique.
 
 ### <a name="automatic-seeding"></a>Amorçage automatique
 
-Vous devez activer [l’amorçage automatique](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) sur chaque groupe de disponibilité pour chaque instance de SQL Server.
+Vous devez activer [l’amorçage automatique](/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) sur chaque groupe de disponibilité pour chaque instance de SQL Server.
 
 Pour activer l’amorçage automatique sur toutes les instances, modifiez, puis exécutez la commande SQL suivante sur le réplica principal pour chaque instance secondaire :
 
@@ -136,7 +136,7 @@ Sur les nœuds secondaires, exécutez la commande SQL suivante :
 
 ### <a name="configure-contained-database-authentication"></a>Configurer l’option contained database authentication
 
-Avant d’ajouter une base de données autonome à un groupe de disponibilité, vérifiez que l’option de serveur contained database authentication est définie sur 1 sur chaque instance de serveur qui héberge un réplica de disponibilité pour le groupe de disponibilité. Pour plus d’informations, consultez [contained database authentication (option de configuration de serveur)](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Avant d’ajouter une base de données autonome à un groupe de disponibilité, vérifiez que l’option de serveur contained database authentication est définie sur 1 sur chaque instance de serveur qui héberge un réplica de disponibilité pour le groupe de disponibilité. Pour plus d’informations, consultez [contained database authentication (option de configuration de serveur)](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
 
 Utilisez ces commandes pour définir l’option de serveur contained database authentication pour chaque instance :
 

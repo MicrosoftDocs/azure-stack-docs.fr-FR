@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.lastreviewed: 5/5/2020
 ms.reviewer: jiaha
 ms.custom: contperfq4
-ms.openlocfilehash: a8bc501587c4f4450a07704734391a8e889e3296
-ms.sourcegitcommit: 7d4c28353bc138bbae744d9dbca79fe934c2e94b
+ms.openlocfilehash: 86809f68e488f077b0a8125d92db325b40dc5452
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83624585"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487817"
 ---
 # <a name="azure-stack-hub-storage-infrastructure-overview"></a>Vue d'ensemble de l'infrastructure de stockage Azure Stack Hub
 
@@ -99,7 +99,7 @@ Le nombre de volumes de machine virtuelle temporaire et de magasin d’objets es
 - Le nombre de volumes reste identique, même si un nœud est défectueux ou supprimé.
 
 > [!NOTE]
-> Si vous utilisez le [kit de développement Azure Stack (ASDK)](https://docs.microsoft.com/azure-stack/asdk/), il n’y a qu’un seul volume avec plusieurs [partages](azure-stack-manage-storage-shares.md).
+> Si vous utilisez le [kit de développement Azure Stack (ASDK)](../asdk/index.yml), il n’y a qu’un seul volume avec plusieurs [partages](azure-stack-manage-storage-shares.md).
 
 ### <a name="fault-tolerance-and-mirroring"></a>Tolérance de panne et mise en miroir
 

@@ -4,15 +4,17 @@ description: Guide pratique pour remplacer les lecteurs défectueux sur Azure St
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 06/24/2020
-ms.openlocfilehash: 93aa7035719fcfd6d96be0c21fc4616608e8af85
-ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
+ms.date: 07/21/2020
+ms.openlocfilehash: d3d03f1e5cc89186e2eb8198b52e96bffbd21768
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85764556"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866481"
 ---
 # <a name="replace-failed-drives-on-azure-stack-hci"></a>Remplacer les lecteurs défectueux sur Azure Stack HCI
+
+> S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
 
 Azure Stack HCI fonctionne avec les lecteurs SATA, SAS, NVMe ou à mémoire persistante en attachement direct qui sont physiquement attachés à un seul serveur chacun. En cas de défaillance d’un lecteur, vous devez accéder au matériel du serveur physique pour le remplacer.
 

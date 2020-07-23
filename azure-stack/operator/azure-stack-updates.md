@@ -7,19 +7,19 @@ ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 09/10/2019
 ms.reviewer: niy
-ms.openlocfilehash: d3f365f825e30e03e74d2e822653ee3ccfdb9e58
-ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
+ms.openlocfilehash: a2fadeaf7700b08f2fab70f882f5f6c1fc03f48f
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636867"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487513"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Gérer les mises à jour dans Azure Stack Hub
 
 Les mises à jour complètes et expresses, les correctifs logiciels ainsi que les mises à jour des pilotes et des microprogrammes des fabricants d’ordinateurs (OEM) vous aident à maintenir Azure Stack Hub à jour. Cet article explique les différents types de mises à jour, leur mise à disposition prévue ainsi que l’emplacement des notes de publication de la version actuelle.
 
 > [!Note]  
-> Vous ne pouvez pas appliquer les packages de mise à jour Azure Stack Hub au Kit de développement Azure Stack (ASDK). Les packages de mise à jour sont conçues pour les systèmes intégrés. Pour plus d’informations, consultez [Redéployer l’ASDK](https://docs.microsoft.com/azure-stack/asdk/asdk-redeploy).
+> Vous ne pouvez pas appliquer les packages de mise à jour Azure Stack Hub au Kit de développement Azure Stack (ASDK). Les packages de mise à jour sont conçues pour les systèmes intégrés. Pour plus d’informations, consultez [Redéployer l’ASDK](../asdk/asdk-redeploy.md).
 
 ## <a name="update-package-types"></a>Types de packages de mise à jour
 

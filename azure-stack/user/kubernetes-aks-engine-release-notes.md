@@ -7,12 +7,12 @@ ms.date: 06/29/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/25/2020
-ms.openlocfilehash: d606e76a6c7bdaabc1828c26cd07fffba2d6fec7
-ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
+ms.openlocfilehash: ff396f6123109b00e693f2f88a5bac244cb2ec7b
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85764562"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567685"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Notes de publication du moteur AKS sur Azure Stack Hub
 ::: moniker range=">=azs-2002"
@@ -28,7 +28,7 @@ La commande de mise à niveau du moteur AKS automatise entièrement le processus
 
 -   Utilisez-vous l’élément de la Place de marché appropriée pour votre version du moteur AKS, à savoir la distribution d’images de base AKS Ubuntu 16.04-LTS ? Vous trouverez les versions à la section « Télécharger une nouvelle image et le moteur AKS ».
 
--   Utilisez-vous la spécification de cluster (`apimodel.json`) et le groupe de ressources adaptés au cluster cible ? Quand vous avez initialement déployé le cluster, ce fichier a été généré dans votre répertoire de sortie. Consultez les paramètres de la commande `deploy` dans [Déployer un cluster Kubernetes](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-cluster#deploy-a-kubernetes-cluster).
+-   Utilisez-vous la spécification de cluster (`apimodel.json`) et le groupe de ressources adaptés au cluster cible ? Quand vous avez initialement déployé le cluster, ce fichier a été généré dans votre répertoire de sortie. Consultez les paramètres de la commande `deploy` dans [Déployer un cluster Kubernetes](./azure-stack-kubernetes-aks-engine-deploy-cluster.md#deploy-a-kubernetes-cluster).
 
 -   Utilisez-vous une machine fiable pour exécuter le moteur AKS et à partir de laquelle vous effectuez les opérations de mise à niveau ?
 
@@ -44,7 +44,7 @@ La commande de mise à niveau du moteur AKS automatise entièrement le processus
 
 ### <a name="use-the-upgrade-command"></a>Utiliser la commande de mise à niveau
 
-Vous devez utiliser la commande `upgrade` du moteur AKS, comme décrit dans l’article suivant [Mettre à niveau un cluster Kubernetes sur Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-upgrade).
+Vous devez utiliser la commande `upgrade` du moteur AKS, comme décrit dans l’article suivant [Mettre à niveau un cluster Kubernetes sur Azure Stack Hub](./azure-stack-kubernetes-aks-engine-upgrade.md).
 
 ### <a name="upgrade-interruptions"></a>Interruptions de la mise à niveau
 
@@ -72,9 +72,9 @@ Les nouvelles versions de ces composants sont disponibles avec cette mise à jou
 
     -   Version : 2020.05.13
 
-    -   Suivez les instructions de l’article [Ajouter les prérequis du moteur Azure Kubernetes Services (AKS) à la Place de marché Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-aks-engine)
+    -   Suivez les instructions de l’article [Ajouter les prérequis du moteur Azure Kubernetes Services (AKS) à la Place de marché Azure Stack Hub](../operator/azure-stack-aks-engine.md)
 
--   L’administrateur de cluster Kubernetes doit télécharger la nouvelle version 0.51.0 d’aks-engine. Consultez les instructions de l’article [Installer le moteur AKS sur Linux dans Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux). Vous pouvez suivre le même processus que celui que vous utilisez pour installer le cluster pour la première fois. La mise à jour remplace le binaire précédent. Par exemple, si vous avez utilisé le script get-akse.sh, effectuez les mêmes étapes que celles décrites à la section [Installer dans un environnement connecté](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux#install-in-a-connected-environment). Le même processus s’applique si vous effectuez l’installation sur un système Windows. Consultez l’article [Installer le moteur AKS sur Windows dans Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-windows).
+-   L’administrateur de cluster Kubernetes doit télécharger la nouvelle version 0.51.0 d’aks-engine. Consultez les instructions de l’article [Installer le moteur AKS sur Linux dans Azure Stack Hub](./azure-stack-kubernetes-aks-engine-deploy-linux.md). Vous pouvez suivre le même processus que celui que vous utilisez pour installer le cluster pour la première fois. La mise à jour remplace le binaire précédent. Par exemple, si vous avez utilisé le script get-akse.sh, effectuez les mêmes étapes que celles décrites à la section [Installer dans un environnement connecté](./azure-stack-kubernetes-aks-engine-deploy-linux.md#install-in-a-connected-environment). Le même processus s’applique si vous effectuez l’installation sur un système Windows. Consultez l’article [Installer le moteur AKS sur Windows dans Azure Stack Hub](./azure-stack-kubernetes-aks-engine-deploy-windows.md).
 
 ## <a name="aks-engine-and-azure-stack-version-mapping"></a>Mappage des versions du moteur AKS avec celles d’Azure Stack
 
@@ -115,7 +115,7 @@ Dans le fichier JSON du modèle d’API, spécifiez les valeurs de version relea
 -   Vérifiez que pod-security-policy est le premier module complémentaire chargé ([#3313](https://github.com/Azure/aks-engine/issues/3313))
 -   Mise à jour d’Azure CNI vers la version 1.1.0 ([#3075](https://github.com/Azure/aks-engine/issues/3075)) (préversion)
 -   Ajout de fonctionnalités et de correctifs pour prendre en charge les conteneurs Windows dans Azure Stack Hub (préversion) :
-    -   Correction de la collection de versions Windows ([#2954](https://github.com/Azure/aks-engine/issues/2954))
+    -   Correction de la collection de versions Windows ([#2954](https://github.com/Azure/aks-engine/pull/2954))
     -   Mise à jour du nom de composant des fichiers binaires Windows dans Azure Stack ([#3231](https://github.com/Azure/aks-engine/issues/3231))
     -   Mise à jour de la validation des images Windows sur Azure Stack Hub ([#3260](https://github.com/Azure/aks-engine/issues/3260))
     -   Mise à jour les disques durs virtuels Windows pour inclure les correctifs de mai ([#3263](https://github.com/Azure/aks-engine/issues/3263))
@@ -154,7 +154,7 @@ La commande de mise à niveau du moteur AKS automatise entièrement le processus
 
 -   Utilisez-vous l’élément de la Place de marché appropriée pour votre version du moteur AKS, à savoir la distribution d’images de base AKS Ubuntu 16.04-LTS ? Les versions sont disponibles dans la section [Télécharger les versions de la nouvelle l’image de base Ubuntu AKS et du moteur AKS](#download-new-image-and-aks-engine).
 
--   Utilisez-vous la spécification de cluster (apimodel.json) et le groupe de ressources adaptés au cluster cible ? Quand vous avez initialement déployé le cluster, ce fichier a été généré dans votre répertoire de sortie. Consultez les paramètres de la commande « deploy » dans [Déployer un cluster Kubernetes](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-cluster#deploy-a-kubernetes-cluster).
+-   Utilisez-vous la spécification de cluster (apimodel.json) et le groupe de ressources adaptés au cluster cible ? Quand vous avez initialement déployé le cluster, ce fichier a été généré dans votre répertoire de sortie. Consultez les paramètres de la commande « deploy » dans [Déployer un cluster Kubernetes](./azure-stack-kubernetes-aks-engine-deploy-cluster.md#deploy-a-kubernetes-cluster).
 
 -   Utilisez-vous une machine fiable pour exécuter le moteur AKS et à partir de laquelle vous effectuez les opérations de mise à niveau ?
 
@@ -170,7 +170,7 @@ La commande de mise à niveau du moteur AKS automatise entièrement le processus
 
 ### <a name="use-the-upgrade-command"></a>Utiliser la commande de mise à niveau
 
-Vous devez utiliser la commande « upgrade » du moteur AKS comme décrit dans l’article suivant : [Mettre à niveau un cluster Kubernetes sur Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-upgrade).
+Vous devez utiliser la commande « upgrade » du moteur AKS comme décrit dans l’article suivant : [Mettre à niveau un cluster Kubernetes sur Azure Stack Hub](./azure-stack-kubernetes-aks-engine-upgrade.md).
 
 ### <a name="upgrade-interruptions"></a>Interruptions de la mise à niveau
 
@@ -194,9 +194,9 @@ Les nouvelles versions de ces composants sont disponibles avec cette mise à jou
 
     -   Nom : `AKS Base Ubuntu 16.04-LTS Image Distro, March 2020`
     -   Version : `2020.03.19`
-    -   Suivez les instructions de l’article [Ajouter les prérequis du moteur Azure Kubernetes Services (AKS) à la Place de marché Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-aks-engine)
+    -   Suivez les instructions de l’article [Ajouter les prérequis du moteur Azure Kubernetes Services (AKS) à la Place de marché Azure Stack Hub](../operator/azure-stack-aks-engine.md)
 
--   L’administrateur de cluster Kubernetes doit télécharger la nouvelle version 0.48.0 d’aks-engine. Consultez les instructions de l’article [Installer le moteur AKS sur Linux dans Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux). Vous pouvez suivre le même processus que celui que vous utilisez pour installer le cluster pour la première fois. La mise à jour remplace le binaire précédent. Par exemple, si vous avez utilisé le script `get-akse.sh`, effectuez les mêmes étapes que celles décrites dans l’article [Installer dans un environnement connecté](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux#install-in-a-connected-environment). Le même processus s’applique si vous effectuez l’installation sur un système Windows. Consultez l’article [Installer le moteur AKS sur Windows dans Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-windows).
+-   L’administrateur de cluster Kubernetes doit télécharger la nouvelle version 0.48.0 d’aks-engine. Consultez les instructions de l’article [Installer le moteur AKS sur Linux dans Azure Stack Hub](./azure-stack-kubernetes-aks-engine-deploy-linux.md). Vous pouvez suivre le même processus que celui que vous utilisez pour installer le cluster pour la première fois. La mise à jour remplace le binaire précédent. Par exemple, si vous avez utilisé le script `get-akse.sh`, effectuez les mêmes étapes que celles décrites dans l’article [Installer dans un environnement connecté](./azure-stack-kubernetes-aks-engine-deploy-linux.md#install-in-a-connected-environment). Le même processus s’applique si vous effectuez l’installation sur un système Windows. Consultez l’article [Installer le moteur AKS sur Windows dans Azure Stack Hub](./azure-stack-kubernetes-aks-engine-deploy-windows.md).
 
 ## <a name="kubernetes-version-upgrade-path"></a>Chemin de mise à niveau de la version de Kubernetes
 

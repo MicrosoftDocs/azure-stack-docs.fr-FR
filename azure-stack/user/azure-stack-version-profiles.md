@@ -7,12 +7,12 @@ ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: f72f0e79fe7b890c65c630ff00ec3870d4756c5e
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 8dd456ad26605c592160ffdc4a4c0d0ea28b2628
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836221"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567329"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>Gérer les profils de version des API dans Azure Stack Hub
 
@@ -73,7 +73,7 @@ Il existe des exemples de code pour vous aider à intégrer votre solution et vo
 - **.NET** <br>
 Utilisez le profil d’API .NET pour obtenir la version la plus récente et la plus stable de chaque type de ressource dans un package de fournisseurs de ressources. Pour plus d’informations, consultez l’article [Utiliser des profils de version d’API avec .NET dans Azure Stack Hub](azure-stack-version-profiles-net.md).
 - **PowerShell**  
-Utilisez le module **AzureRM.Bootstrapper**, disponible via PowerShell Gallery pour obtenir les cmdlets PowerShell nécessaires pour utiliser des profils de version d’API. Pour plus d’informations, consultez [Utiliser des profils de version d’API pour PowerShell](azure-stack-version-profiles-powershell.md).
+Utilisez le module **AzureRM.Bootstrapper**, disponible via PowerShell Gallery pour obtenir les cmdlets PowerShell nécessaires pour utiliser des profils de version d’API. Pour plus d’informations, consultez [Utiliser des profils de version d’API pour PowerShell](../operator/azure-stack-powershell-install.md?view=azs-2002).
 - **Azure CLI**  
 Mettez à jour la configuration de votre environnement pour utiliser le profil de version des API propre à Azure Stack Hub. Pour plus d’informations, consultez [Utiliser les profils de version d’API pour Azure CLI](azure-stack-version-profiles-azurecli2.md).
 - **Go**  

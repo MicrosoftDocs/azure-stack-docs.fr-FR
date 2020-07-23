@@ -8,18 +8,18 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: 6d5c80403a355186632c245baecd0796ac3acbf9
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: ce3f6e0542678fe2d399e101a90a916cf412599f
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84630985"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487717"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Créer des bases de données SQL à haute disponibilité avec Azure Stack Hub
 
 En tant qu’opérateur Azure Stack Hub, vous pouvez configurer des machines virtuelles serveurs pour héberger des bases de données SQL Server. Une fois qu’un serveur d’hébergement SQL est créé et managé par Azure Stack Hub, les utilisateurs qui se sont abonnés aux services SQL peuvent facilement créer des bases de données SQL.
 
-Cet article montre comment utiliser un modèle de démarrage rapide Azure Stack Hub pour créer un [groupe de disponibilité SQL Server AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017), l’ajouter en tant que serveur d’hébergement SQL Azure Stack Hub, puis créer une base de données SQL à haut niveau de disponibilité.
+Cet article montre comment utiliser un modèle de démarrage rapide Azure Stack Hub pour créer un [groupe de disponibilité SQL Server AlwaysOn](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017), l’ajouter en tant que serveur d’hébergement SQL Azure Stack Hub, puis créer une base de données SQL à haut niveau de disponibilité.
 
 Ce que vous allez apprendre :
 
@@ -37,7 +37,7 @@ Avant de commencer, vérifiez que le [fournisseur de ressources SQL Server](azur
 
 - Windows Server 2016 Datacenter.
 - SQL Server 2016 SP1 ou SP2 (Standard, Enterprise ou Developer) sur l’image du serveur Windows Server 2016. 
-- [SQL Server IaaS Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) version 1.3.20180 ou ultérieure. L’extension IaaS SQL installe les composants nécessaires pour les éléments de la Place de marché SQL Server pour toutes les versions de Windows. Elle permet la configuration de paramètres SQL sur les machines virtuelles SQL. Si l’extension n’est pas installée dans la place de marché locale, le provisionnement de SQL échoue.
+- [SQL Server IaaS Extension](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) version 1.3.20180 ou ultérieure. L’extension IaaS SQL installe les composants nécessaires pour les éléments de la Place de marché SQL Server pour toutes les versions de Windows. Elle permet la configuration de paramètres SQL sur les machines virtuelles SQL. Si l’extension n’est pas installée dans la place de marché locale, le provisionnement de SQL échoue.
 - [Extension de script personnalisé pour Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) version 1.9.1 ou ultérieure. L’extension de script personnalisé est un outil qui peut être utilisé pour lancer automatiquement des tâches de personnalisation post-déploiement des machines virtuelles.
 - [Configuration d’état souhaité PowerShell](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) version 2.76.0.0 ou ultérieure. DSC (Desired State Configuration) est une plateforme de gestion dans Windows PowerShell qui permet le déploiement et la gestion des données de configuration des services logiciels. Cette plateforme gère également l’environnement d’exécution de ces services.
 
@@ -91,7 +91,7 @@ Suivez les étapes de cette section pour déployer le groupe de disponibilité S
 
 ### <a name="enable-automatic-seeding"></a>Activer l’amorçage automatique
 
-Une fois que le modèle a déployé et configuré le groupe de disponibilité AlwaysOn SQL, vous devez activer [l’amorçage automatique](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) sur chaque instance de SQL Server du groupe de disponibilité.
+Une fois que le modèle a déployé et configuré le groupe de disponibilité AlwaysOn SQL, vous devez activer [l’amorçage automatique](/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) sur chaque instance de SQL Server du groupe de disponibilité.
 
 Quand vous créez un groupe de disponibilité avec amorçage automatique, SQL Server crée automatiquement les réplicas secondaires pour chaque base de données du groupe, sans qu’aucune autre intervention manuelle ne soit nécessaire. Cette mesure garantit la haute disponibilité des bases de données AlwaysOn.
 
@@ -124,7 +124,7 @@ Sur les instances SQL secondaires :
 
 ### <a name="configure-contained-database-authentication"></a>Configurer l’option contained database authentication
 
-Avant d’ajouter une base de données autonome à un groupe de disponibilité, vérifiez que l’option de serveur contained database authentication est définie sur 1 sur chaque instance de serveur qui héberge un réplica de disponibilité pour le groupe de disponibilité. Pour plus d’informations, consultez [contained database authentication](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Avant d’ajouter une base de données autonome à un groupe de disponibilité, vérifiez que l’option de serveur contained database authentication est définie sur 1 sur chaque instance de serveur qui héberge un réplica de disponibilité pour le groupe de disponibilité. Pour plus d’informations, consultez [contained database authentication](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
 
 Utilisez ces commandes pour définir l’option du serveur « contained database authentication » pour chaque instance SQL Server du groupe de disponibilité :
 

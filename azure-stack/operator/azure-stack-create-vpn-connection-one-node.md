@@ -7,12 +7,12 @@ ms.date: 01/22/2020
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 01/22/2020
-ms.openlocfilehash: fcfd453cf6ccbbbc8f5e65b9db475ab4fdad33b0
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 84e32744a2a337f9a6c64c558195de02e3a7db92
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295070"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489162"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>Créer une connexion VPN de site à site entre deux réseaux virtuels dans des environnements ASDK différents
 
@@ -42,7 +42,7 @@ Pour configurer la connexion, vous devez déployer deux environnements ASDK.
 
 ## <a name="prepare-an-offer-on-poc1-and-poc2"></a>Préparer une offre sur POC1 et POC2
 
-Sur POC1 et POC2, préparez une offre pour qu’un utilisateur puisse s’y abonner et déployer les machines virtuelles. Pour plus d’informations sur la création d’une offre, voir [Rendre des machines virtuelles disponibles pour vos utilisateurs Azure Stack Hub](azure-stack-tutorial-tenant-vm.md).
+Sur POC1 et POC2, préparez une offre pour qu’un utilisateur puisse s’y abonner et déployer les machines virtuelles. Pour plus d’informations sur la création d’une offre, voir [Rendre des machines virtuelles disponibles pour vos utilisateurs Azure Stack Hub](./tutorial-offer-services.md?view=azs-2002).
 
 ## <a name="review-and-complete-the-network-configuration-table"></a>Vérifier et compléter la table de configuration réseau
 

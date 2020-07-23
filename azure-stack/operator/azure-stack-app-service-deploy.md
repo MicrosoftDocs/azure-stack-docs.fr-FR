@@ -8,12 +8,12 @@ ms.author: bryanla
 ms.reviewer: anwestg
 ms.lastreviewed: 04/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 4f9bdf84f73bf06c42f3b6910e0faad83a9bbd80
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 441200d89d64705e0632c8f09a76afa65d52e194
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847983"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489893"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>Déployer App Service dans Azure Stack Hub
 
@@ -180,7 +180,7 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 ## <a name="post-deployment-steps"></a>Étapes de post-déploiement
 
 > [!IMPORTANT]
-> Si vous avez indiqué le fournisseur de ressources App Service avec une instance SQL Always On, vous **devez** [ajouter les bases de données appservice_hosting et appservice_metering à un groupe de disponibilité](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) et synchroniser les bases de données pour éviter toute perte de service en cas de basculement d’une base de données.
+> Si vous avez indiqué le fournisseur de ressources App Service avec une instance SQL Always On, vous **devez** [ajouter les bases de données appservice_hosting et appservice_metering à un groupe de disponibilité](/sql/database-engine/availability-groups/windows/availability-group-add-a-database) et synchroniser les bases de données pour éviter toute perte de service en cas de basculement d’une base de données.
 
 Si vous effectuez un déploiement sur un réseau virtuel existant en utilisant une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité de trafic sortant. Cette règle active le trafic SMB entre le sous-réseau worker et le serveur de fichiers. Dans le portail administrateur, accédez au groupe de sécurité réseau WorkersNsg, puis ajoutez une règle de sécurité sortante ayant les propriétés suivantes :
 
@@ -418,7 +418,7 @@ Pour déployer Azure App Service dans un environnement hors connexion, créez d�
 ## <a name="post-deployment-steps"></a>Étapes de post-déploiement
 
 > [!IMPORTANT]
-> Si vous avez spécifié le fournisseur de ressources Azure App Service avec une instance SQL Always On, vous **devez** [ajouter les bases de données appservice_hosting et appservice_metering à un groupe de disponibilité](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database). Vous devez aussi synchroniser les bases de données pour éviter toute perte de service en cas de basculement d’une base de données.
+> Si vous avez spécifié le fournisseur de ressources Azure App Service avec une instance SQL Always On, vous **devez** [ajouter les bases de données appservice_hosting et appservice_metering à un groupe de disponibilité](/sql/database-engine/availability-groups/windows/availability-group-add-a-database). Vous devez aussi synchroniser les bases de données pour éviter toute perte de service en cas de basculement d’une base de données.
 
 Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau Worker et le serveur de fichiers. Dans le portail administrateur, accédez au groupe de sécurité réseau WorkersNsg, puis ajoutez une règle de sécurité sortante ayant les propriétés suivantes :
 

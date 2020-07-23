@@ -7,12 +7,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: f679f4a609f7be2798a664dc4a748e56f8b0d2fb
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 2dda2d52a1819f715f0b80f8d14c247ba256ed7f
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374903"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489774"
 ---
 # <a name="configure-deployment-sources-for-app-services-on-azure-stack-hub"></a>Configurer des sources de déploiement pour App Services sur Azure Stack Hub
 
@@ -154,7 +154,7 @@ Vous devez disposer d’un compte Microsoft associé à un compte OneDrive pour 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les utilisateurs peuvent désormais utiliser les sources de déploiement pour le [déploiement continu](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment), le [déploiement Git local](https://docs.microsoft.com/azure/app-service/deploy-local-git), et la [synchronisation de dossiers de cloud](https://docs.microsoft.com/azure/app-service/deploy-content-sync).
+Les utilisateurs peuvent désormais utiliser les sources de déploiement pour le [déploiement continu](/azure/app-service/deploy-continuous-deployment), le [déploiement Git local](/azure/app-service/deploy-local-git), et la [synchronisation de dossiers de cloud](/azure/app-service/deploy-content-sync).
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin.png

@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: b54e8a184c90408c0d27054446a91f09c34749fb
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 9731586043f42358bef0e8e37f9de7e23feebbff
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111814"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567040"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Bien démarrer avec PowerShell dans Azure Stack Hub
 
@@ -22,9 +22,9 @@ Cet article vous aide à vous repérer dans les différents modules PowerShell u
 
 | API | Référence sur PowerShell | Référence REST |
 | --- | --- | --- |
-| Global Azure Resource Manager | [Modules Azure PowerShell](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [Navigateur d’API REST](https://docs.microsoft.com/rest/api/) |
+| Global Azure Resource Manager | [Modules Azure PowerShell](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [Navigateur d’API REST](/rest/api/) |
 | Azure Stack Hub Resource Manager | [Gérer les profils de version des API dans Azure Stack Hub](azure-stack-version-profiles.md) | [Gérer les profils de version des API dans Azure Stack Hub](azure-stack-version-profiles.md) |
-| Points de terminaison administrateur Azure Stack Hub | [Module administrateur Azure Stack Hub](https://docs.microsoft.com/powershell/azure/azure-stack/overview) | [Navigateur d’API REST - Azure Stack Hub](https://docs.microsoft.com/rest/api/?term=Azure%20Azure%20Stack%20Admin) |
+| Points de terminaison administrateur Azure Stack Hub | [Module administrateur Azure Stack Hub](/powershell/azure/azure-stack/overview) | [Navigateur d’API REST - Azure Stack Hub](/rest/api/?term=Azure Azure Stack Admin) |
 | Point de terminaison privilégié Azure Stack Hub | [Utiliser le point de terminaison privilégié dans Azure Stack Hub](../operator/azure-stack-privileged-endpoint.md) | |
 
 Chaque interface contacte les fournisseurs de ressources dans Azure global ou Azure Stack Hub. Les fournisseurs de ressources activent les fonctionnalités Azure. Par exemple, le fournisseur de ressources Azure Compute vous donne un accès programmatique à la création et à la gestion de machines virtuelles et de leurs ressources prises en charge.
@@ -39,7 +39,7 @@ Le diagramme de blocs suivant illustre la relation entre les ensembles de module
 
 ### <a name="global-azure"></a>Azure global
 
-Azure PowerShell contient un ensemble d’applets de commande qui utilisent la version actuelle d’Azure Resource Manager pour l’utilisation de vos ressources Azure. Azure PowerShell utilise la version .NET Standard, ce qui signifie que vous pouvez utiliser des versions de PowerShell avec Windows, macOS et Linux. Azure PowerShell est également disponible sur Azure Cloud Shell. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Azure PowerShell contient un ensemble d’applets de commande qui utilisent la version actuelle d’Azure Resource Manager pour l’utilisation de vos ressources Azure. Azure PowerShell utilise la version .NET Standard, ce qui signifie que vous pouvez utiliser des versions de PowerShell avec Windows, macOS et Linux. Azure PowerShell est également disponible sur Azure Cloud Shell. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ### <a name="azure-stack-hub-resource-manager"></a>Azure Stack Hub Resource Manager
 

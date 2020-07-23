@@ -7,12 +7,12 @@ ms.date: 04/02/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
-ms.openlocfilehash: fbcca6d24f37162fa62729f38d50a6ceb0f0374c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 15c62fc6812b4b4247ce7370316a23490dfc65ce
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80638197"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489026"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Considérations relatives à la planification de l’intégration d’un centre de données pour systèmes intégrés Azure Stack Hub
 
@@ -111,7 +111,7 @@ Vous devez spécifier une adresse IP pour le serveur de synchronisation de l’h
 
 Pour des scénarios de cloud hybride, vous devez planifier la façon dont vous souhaitez connecter Azure Stack Hub à Azure. Deux méthodes permettent de connecter des réseaux virtuels dans Azure Stack Hub à des réseaux virtuels Azure :
 
-- **Site à site** : Une connexion de réseau privé virtuel (VPN) sur IPsec (IKE v1 et IKE v2). Ce type de connexion requiert un périphérique VPN ou le service de routage et d’accès à distance (RRAS). Pour plus d’informations sur les passerelles VPN dans Azure, consultez l’article [À propos de la passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). La communication via ce tunnel est chiffrée et sécurisée. Toutefois, la bande passante est limitée par le débit maximal du tunnel (100-200 Mbps).
+- **Site à site** : Une connexion de réseau privé virtuel (VPN) sur IPsec (IKE v1 et IKE v2). Ce type de connexion requiert un périphérique VPN ou le service de routage et d’accès à distance (RRAS). Pour plus d’informations sur les passerelles VPN dans Azure, consultez l’article [À propos de la passerelle VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways). La communication via ce tunnel est chiffrée et sécurisée. Toutefois, la bande passante est limitée par le débit maximal du tunnel (100-200 Mbps).
 
 - **NAT de trafic sortant** : Par défaut, toutes les machines virtuelles dans Azure Stack Hub ont une connectivité aux réseaux externes via une NAT de trafic sortant. Une adresse IP publique est attribuée à chaque réseau virtuel créé dans Azure Stack Hub. Si la machine virtuelle se voit directement affecter une adresse IP publique ou se trouve derrière un équilibreur de charge avec une adresse IP publique, elle aura un accès sortant via le NAT de trafic sortant avec l’adresse IP virtuelle du réseau virtuel. Cette méthode fonctionne seulement pour une communication initiée par la machine virtuelle et destinée à des réseaux externes (Internet ou intranet). Elle ne peut pas être utilisée pour communiquer avec la machine virtuelle depuis l’extérieur.
 
@@ -139,7 +139,7 @@ Le tableau suivant récapitule les scénarios de connectivité hybride, avec les
 
 ### <a name="using-expressroute"></a>Utilisation de ExpressRoute
 
-Vous pouvez connecter Azure Stack Hub à Azure via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) pour les scénarios intranet tant avec locataire unique que mutualisés. Vous aurez besoin d’un circuit ExpressRoute approvisionné via un [fournisseur de connectivité](https://docs.microsoft.com/azure/expressroute/expressroute-locations).
+Vous pouvez connecter Azure Stack Hub à Azure via [ExpressRoute](/azure/expressroute/expressroute-introduction) pour les scénarios intranet tant avec locataire unique que mutualisés. Vous aurez besoin d’un circuit ExpressRoute approvisionné via un [fournisseur de connectivité](/azure/expressroute/expressroute-locations).
 
 Le diagramme suivant montre ExpressRoute pour un scénario à un client (où « Connexion du client » est le circuit ExpressRoute).
 

@@ -7,12 +7,12 @@ ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 612d5fa11c2f34c73925212103c2699c9581f107
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.openlocfilehash: 6b10f43081ae9781005fcbc13eec50bd03b5128e
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85197036"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566105"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Installer le moteur AKS sur Windows dans Azure Stack Hub
 
@@ -31,7 +31,7 @@ Pour choisir votre machine cliente, tenez compte des points suivants :
 
 Vous pouvez installer la machine virtuelle cliente pour gérer votre cluster Kubernetes sur une infrastructure Azure Stack Hub connectée à Internet.
 
-1. Créez une machine virtuelle Windows dans votre infrastructure Azure Stack Hub. Pour obtenir des instructions, consultez [Démarrage rapide : Créer une machine virtuelle Windows Server sur le portail Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal).
+1. Créez une machine virtuelle Windows dans votre infrastructure Azure Stack Hub. Pour obtenir des instructions, consultez [Démarrage rapide : Créer une machine virtuelle Windows Server sur le portail Azure Stack Hub](./azure-stack-quick-windows-portal.md).
 2. Connectez-vous à votre machine virtuelle.
 3. [Installez Chocolatey en suivant les instructions PowerShell](https://chocolatey.org/install#install-with-powershellexe). 
 
@@ -52,9 +52,9 @@ Vous pouvez installer la machine virtuelle cliente pour gérer votre cluster Kub
 
 1.  À partir d’une machine disposant d’un accès à Internet, accédez à GitHub [Azure/aks-engine](https://github.com/Azure/aks-engine/releases/latest). Téléchargez une archive (*.tar.gz) pour une machine Windows, par exemple, `aks-engine-v0.38.8-windows-amd64.tar.gz`.
 
-2.  Créez un compte de stockage dans votre instance Azure Stack Hub pour charger le fichier d’archive (*.tar.gz) avec le binaire du moteur AKS. Pour obtenir des instructions sur l’utilisation d’Explorateur Stockage Azure, consultez [Explorateur Stockage Azure avec Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se).
+2.  Créez un compte de stockage dans votre instance Azure Stack Hub pour charger le fichier d’archive (*.tar.gz) avec le binaire du moteur AKS. Pour obtenir des instructions sur l’utilisation d’Explorateur Stockage Azure, consultez [Explorateur Stockage Azure avec Azure Stack Hub](./azure-stack-storage-connect-se.md).
 
-3. Créez une machine virtuelle Windows dans votre infrastructure Azure Stack Hub. Pour obtenir des instructions, consultez [Démarrage rapide : Créer une machine virtuelle Windows Server sur le portail Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal).
+3. Créez une machine virtuelle Windows dans votre infrastructure Azure Stack Hub. Pour obtenir des instructions, consultez [Démarrage rapide : Créer une machine virtuelle Windows Server sur le portail Azure Stack Hub](./azure-stack-quick-windows-portal.md).
 
 4.  À partir de l’URL de l’objet blob du compte de stockage Azure Stack Hub où vous avez chargé le fichier d’archive (*.tar.gz), téléchargez le fichier sur votre machine virtuelle de gestion. Extrayez l’archive dans un répertoire auquel vous avez accès à partir de votre invite de commandes.
 
@@ -88,8 +88,8 @@ Vous devrez ajouter un certificat, lors de l’exécution de la machine virtuell
 
 Quand vous utilisez un ASDK et que votre point de terminaison Azure Resource Manager utilise un certificat auto-signé, vous devez ajouter explicitement ce certificat au magasin de certificats approuvé de la machine. Vous pouvez trouver le certificat racine ASDK sur toutes les machines virtuelles que vous déployez sur l’ASDK.
 
-1. Exportez le certificat racine de l’autorité de certification. Pour obtenir des instructions, consultez [Exporter le certificat racine de l’autorité de certification Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#export-the-azure-stack-hub-ca-root-certificate).
-2. Approuvez le certificat d'autorité de certification racine Azure Stack Hub. Pour obtenir des instructions, consultez [Approuver le certificat racine de l’autorité de certification Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#trust-the-azure-stack-hub-ca-root-certificate).
+1. Exportez le certificat racine de l’autorité de certification. Pour obtenir des instructions, consultez [Exporter le certificat racine de l’autorité de certification Azure Stack Hub](./azure-stack-version-profiles-azurecli2.md#export-the-azure-stack-hub-ca-root-certificate).
+2. Approuvez le certificat d'autorité de certification racine Azure Stack Hub. Pour obtenir des instructions, consultez [Approuver le certificat racine de l’autorité de certification Azure Stack Hub](./azure-stack-version-profiles-azurecli2.md#trust-the-azure-stack-hub-ca-root-certificate).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

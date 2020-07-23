@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 0efcac6635a94b3fdc5551f9aa61b5c774e93905
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: b454d6b91a99ecebc512de4a20e5e230af8bf47f
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631182"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566819"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Accéder au tableau de bord Kubernetes dans Azure Stack Hub 
 
@@ -29,7 +29,7 @@ Kubernetes comprend un tableau de bord web qui peut être utilisé pour les opé
 
 * Client SSH
 
-    Vous avez besoin d’un client SSH pour vous connecter en toute sécurité à votre nœud maître dans le cluster. Si vous utilisez Windows, vous pouvez employer [PuTTY](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm). Vous avez besoin de la clé privée utilisée quand vous avez déployé votre cluster Kubernetes.
+    Vous avez besoin d’un client SSH pour vous connecter en toute sécurité à votre nœud maître dans le cluster. Si vous utilisez Windows, vous pouvez employer [PuTTY](/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm). Vous avez besoin de la clé privée utilisée quand vous avez déployé votre cluster Kubernetes.
 
 * FTP (PSCP)
 
@@ -52,7 +52,7 @@ Vous pouvez récupérer l’URL du tableau de bord à partir du nœud maître da
 
 2. Ouvrez le nœud maître dans le portail. Copiez l’**adresse IP publique**. Cliquez sur **Se connecter** pour obtenir votre nom d’utilisateur dans la zone **Connexion avec un compte local de machine virtuelle**. Il s’agit du même nom d’utilisateur que vous avez défini lors de la création de votre cluster. Utilisez l’adresse IP publique plutôt que l’adresse IP privée listée dans le panneau de connexion.
 
-3.  Ouvrez un client SSH pour vous connecter au maître. Si vous travaillez sur Windows, vous pouvez utiliser [Putty](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) pour créer la connexion. Vous utilisez l’adresse IP publique pour le nœud maître, le nom d’utilisateur, puis ajoutez la clé privée utilisée lors de la création du cluster.
+3.  Ouvrez un client SSH pour vous connecter au maître. Si vous travaillez sur Windows, vous pouvez utiliser [Putty](/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) pour créer la connexion. Vous utilisez l’adresse IP publique pour le nœud maître, le nom d’utilisateur, puis ajoutez la clé privée utilisée lors de la création du cluster.
 
 4.  Quand le terminal se connecte, tapez `kubectl` pour ouvrir le client de ligne de commande Kubernetes.
 
@@ -116,7 +116,7 @@ Vous pouvez récupérer l’URL du tableau de bord à partir du nœud maître da
     kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard 
     ``` 
 
-    Le script donne à `kubernetes-dashboard` des privilèges d’administrateur de cloud. Pour plus d’informations, consultez [Pour les clusters où RBAC est activé](https://docs.microsoft.com/azure/aks/kubernetes-dashboard).
+    Le script donne à `kubernetes-dashboard` des privilèges d’administrateur de cloud. Pour plus d’informations, consultez [Pour les clusters où RBAC est activé](/azure/aks/kubernetes-dashboard).
 
 Vous pouvez utiliser le tableau de bord. Pour plus d’informations sur le tableau de bord Kubernetes, consultez [Tableau de bord de l’interface utilisateur web de Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 
 
@@ -126,7 +126,7 @@ Vous pouvez utiliser le tableau de bord. Pour plus d’informations sur le table
 
 ### <a name="custom-virtual-networks"></a>Réseaux virtuels personnalisés
 
-Si vous rencontrez des problèmes de connectivité pour accéder au tableau de bord Kubernetes après avoir déployé Kubernetes sur un [réseau virtuel personnalisé](https://docs.microsoft.com/azure-stack/user/kubernetes-aks-engine-custom-vnet), vérifiez que les sous-réseaux cibles sont liés à la table de routage et aux ressources de groupe de sécurité réseau qui ont été créées par le moteur AKS.
+Si vous rencontrez des problèmes de connectivité pour accéder au tableau de bord Kubernetes après avoir déployé Kubernetes sur un [réseau virtuel personnalisé](./kubernetes-aks-engine-custom-vnet.md), vérifiez que les sous-réseaux cibles sont liés à la table de routage et aux ressources de groupe de sécurité réseau qui ont été créées par le moteur AKS.
 
 Assurez-vous que les règles de groupe de sécurité réseau autorisent la communication entre les nœuds principaux et l’adresse IP du pod de tableau de bord Kubernetes. Cela peut être validé en utilisant la commande ping à partir d’un nœud principal.
 
@@ -136,4 +136,4 @@ Assurez-vous que les règles de groupe de sécurité réseau autorisent la commu
 
 [Ajouter un cluster Kubernetes à la Place de marché (pour l'opérateur Azure Stack Hub)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)  
 
-[Kubernetes sur Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)  
+[Kubernetes sur Azure](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)  

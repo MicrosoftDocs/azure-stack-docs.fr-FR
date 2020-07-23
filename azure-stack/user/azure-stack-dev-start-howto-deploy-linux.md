@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 35863d41776ece59592d57264db6522e47ee4208
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 67b1971c3579de31374b9babdf6696e2950dbb35
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146952"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567533"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Déployer une machine virtuelle Linux pour héberger une application web dans Azure Stack Hub
 
@@ -87,7 +87,7 @@ Pour déployer la machine virtuelle, suivez les instructions indiquées dans les
 
     b. Pour **Stockage**, sélectionnez **Disques Premium (SSD)** ou **Disques Standard (HDD)** . Les disques Premium (SSD) sont associés à des disques SSD afin d’offrir des performances constantes et une faible latence. Ils proposent le meilleur rapport prix/performances et conviennent parfaitement aux charges de travail de production et aux applications nécessitant beaucoup d’E/S. Les disques Standard sont associés à des lecteurs magnétiques et conviennent davantage aux applications dont les données sont rarement utilisées. Les disques redondants interzones sont associés à un stockage redondant interzone (ZRS) qui réplique vos données sur plusieurs zones, et restent disponibles même si une zone n’est pas disponible. 
 
-    c. Sélectionnez **Utiliser des disques managés**. Lorsque vous activez cette fonctionnalité, Azure gère automatiquement la disponibilité des disques. Vous bénéficiez de la redondance des données et de la tolérance de panne, sans avoir à créer ni à gérer des comptes de stockage vous-même. Les disques managés peuvent ne pas être disponibles dans toutes les régions. Pour plus d’informations, consultez [Présentation des disques managés Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
+    c. Sélectionnez **Utiliser des disques managés**. Lorsque vous activez cette fonctionnalité, Azure gère automatiquement la disponibilité des disques. Vous bénéficiez de la redondance des données et de la tolérance de panne, sans avoir à créer ni à gérer des comptes de stockage vous-même. Les disques managés peuvent ne pas être disponibles dans toutes les régions. Pour plus d’informations, consultez [Présentation des disques managés Azure](/azure/virtual-machines/windows/managed-disks-overview).
 
     d. Pour configurer votre réseau, sélectionnez **Réseau virtuel**. Les réseaux virtuels sont isolés logiquement les uns des autres dans Azure. Vous pouvez configurer les plages d’adresses IP, sous-réseaux, tables de routage, passerelles et paramètres de sécurité, comme pour un réseau traditionnel dans votre centre de données. Des machines virtuelles situées dans le même réseau virtuel peuvent accéder les unes aux autres par défaut. 
 

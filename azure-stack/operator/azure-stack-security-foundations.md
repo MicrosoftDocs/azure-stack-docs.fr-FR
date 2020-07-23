@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: 35b4fbd97032df00236a67dd5b776a2f3fada8ea
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: 27ba6098755d93ef1de902a9a4e052f1ff6b53d5
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819248"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487870"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Contrôles de sécurité de l’infrastructure Azure Stack Hub
 
@@ -48,7 +48,7 @@ Pour plus d’informations sur la façon d’appliquer le protocole TLS 1.2 aux
 
 ## <a name="secret-management"></a>Gestion des secrets
 
-L’infrastructure Azure Stack Hub utilise une multitude de secrets, tels que des mots de passe et des certificats, pour fonctionner. La plupart des mots de passe associés aux comptes de service internes sont automatiquement permutés toutes les 24 heures, car ce sont des [comptes de service administrés de groupe (gMSA)](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview), un type de compte de domaine géré directement par le contrôleur de domaine interne.
+L’infrastructure Azure Stack Hub utilise une multitude de secrets, tels que des mots de passe et des certificats, pour fonctionner. La plupart des mots de passe associés aux comptes de service internes sont automatiquement permutés toutes les 24 heures, car ce sont des [comptes de service administrés de groupe (gMSA)](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview), un type de compte de domaine géré directement par le contrôleur de domaine interne.
 
 L’infrastructure Azure Stack Hub utilise des clés RSA 4 096 bits pour tous ses certificats internes. Vous pouvez utiliser les mêmes certificats de longueur de clé pour les points de terminaison externes. Pour plus d’informations sur la rotation des secrets et des certificats, voir [Effectuer une rotation des secrets dans Azure Stack Hub](azure-stack-rotate-secrets.md).
 
@@ -59,7 +59,7 @@ Azure Stack Hub se sert des dernières fonctionnalités de sécurité de Windows
 Le code autorisé est signé par Microsoft ou le partenaire OEM. Le code autorisé signé est inclus dans la liste des logiciels autorisés, spécifiée dans une stratégie définie par Microsoft. En d’autres termes, seuls les logiciels approuvés pour s’exécuter dans l’infrastructure Azure Stack Hub peuvent être exécutés. Toute tentative d’exécution de code non autorisé est bloquée, et une alerte est générée. Azure Stack Hub applique à la fois l’intégrité du code du mode utilisateur (UMCI) et l’intégrité du code de l’hyperviseur (HVCI).
 
 La stratégie WDAC empêche également les agents ou logiciels tiers de s’exécuter dans l’infrastructure Azure Stack Hub.
-Pour plus d’informations sur WDAC, consultez [Windows Defender Application Control et protection de l’intégrité du code basée sur la virtualisation](https://docs.microsoft.com/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control).
+Pour plus d’informations sur WDAC, consultez [Windows Defender Application Control et protection de l’intégrité du code basée sur la virtualisation](/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control).
 
 ## <a name="credential-guard"></a>Credential Guard
 

@@ -7,12 +7,12 @@ ms.date: 04/25/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 2369ffbd1d3fc72c9d2df7ff87be6131f7aabcd7
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 01f02fcf624db0a8ce47084ec5aa331e0831014b
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703313"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489281"
 ---
 # <a name="enable-backup-for-azure-stack-hub-with-powershell"></a>Activer la sauvegarde pour Azure Stack Hub avec PowerShell
 
@@ -42,7 +42,7 @@ Dans la même session PowerShell, modifiez le script PowerShell suivant en ajout
 | `$frequencyInHours` | La fréquence en heures détermine la fréquence à laquelle les sauvegardes sont créées. La valeur par défaut est 12. Scheduler prend en charge un maximum de 12 heures et un minimum de 4 heures.|
 | `$retentionPeriodInDays` | La période de rétention en jours détermine le nombre de jours pendant lesquels les sauvegardes sont conservées sur l’emplacement externe. La valeur par défaut est 7. Scheduler prend en charge un maximum de 14 jours et un minimum de 2 jours. Les sauvegardes antérieures à la période de rétention sont automatiquement supprimées de l’emplacement externe.|
 | `$encryptioncertpath` | S’applique aux versions 1901 et ultérieures. Paramètre disponible dans le module Azure Stack Hub versions 1.7 et ultérieures. Le chemin du certificat de chiffrement spécifie le chemin du fichier .CER avec la clé publique utilisée pour le chiffrement des données. |
-| `$encryptionkey` | S’applique à la build 1811 et builds antérieures. Paramètre disponible dans le module Azure Stack Hub versions 1.6 et antérieures. La clé de chiffrement est utilisée pour le chiffrement des données. Pour créer une nouvelle clé, utilisez la cmdlet [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). |
+| `$encryptionkey` | S’applique à la build 1811 et builds antérieures. Paramètre disponible dans le module Azure Stack Hub versions 1.6 et antérieures. La clé de chiffrement est utilisée pour le chiffrement des données. Pour créer une nouvelle clé, utilisez la cmdlet [New-AzsEncryptionKeyBase64](/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). |
 |     |     |
 
 ### <a name="enable-backup-on-1901-and-later-using-certificate"></a>Activer la sauvegarde sur la version 1901 et ultérieur à l’aide d’un certificat

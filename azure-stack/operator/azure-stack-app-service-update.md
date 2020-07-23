@@ -8,12 +8,12 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: ecedd49789a20788f1f1ba40e568298c569d168d
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 9ab446785d463358b3d04850b5d08ff9410a40d5
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848079"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489655"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>Mettre à jour Azure App Service sur Azure Stack Hub
 
@@ -96,7 +96,7 @@ Cet article explique comment mettre à niveau le [fournisseur de ressources Azur
 * est sécurisé par les services de fédération Active Directory (AD FS).
 
 > [!IMPORTANT]
-> Avant d'exécuter la mise à niveau, vous devez procéder au [déploiement d'Azure App Service sur Azure Stack Hub dans un environnement déconnecté](azure-stack-app-service-deploy-offline.md). 
+> Avant d'exécuter la mise à niveau, vous devez procéder au [déploiement d'Azure App Service sur Azure Stack Hub dans un environnement déconnecté](./azure-stack-app-service-deploy.md?pivots=state-disconnected&view=azs-2002). 
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Exécuter le programme d’installation du fournisseur de ressources App Service
 

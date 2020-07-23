@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 17ba031e6aa1c9e7c0699309d98183ed38cbd4e7
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 9b7086f63e22ede89ae0ed21be1aec8453532de6
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631368"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567448"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Configurer une passerelle VPN pour Azure Stack Hub avec l’appliance virtuelle réseau FortiGate
 
@@ -23,7 +23,7 @@ Cet article explique comment créer une connexion VPN avec votre environnement A
 -  Accès à un système intégré Azure Stack Hub permettant de mettre en œuvre les exigences de calcul, de réseau et de ressources nécessaires pour cette solution. 
 
     > [!Note]  
-    > Ces instructions **ne fonctionnent pas** avec un Kit de développement Azure Stack (ASDK) en raison des limitations réseau dans le kit ASDK. Pour plus d’informations, consultez [Exigences et éléments à prendre en compte pour ASDK](https://docs.microsoft.com/azure-stack/asdk/asdk-deploy-considerations).
+    > Ces instructions **ne fonctionnent pas** avec un Kit de développement Azure Stack (ASDK) en raison des limitations réseau dans le kit ASDK. Pour plus d’informations, consultez [Exigences et éléments à prendre en compte pour ASDK](../asdk/asdk-deploy-considerations.md).
 
 -  Accès à un périphérique VPN dans le réseau local qui héberge le système intégré Azure Stack Hub. Le périphérique doit créer un tunnel IPSec, qui répond aux paramètres décrits dans les [paramètres de déploiement](#deployment-parameters).
 
@@ -241,7 +241,7 @@ Vous pouvez effectuer un routage entre le réseau virtuel et le réseau local vi
 
 Pour valider la connexion :
 
-1. Créez une machine virtuelle dans les réseaux virtuels Azure Stack Hub et un système sur le réseau local. Pour créer une machine virtuelle, vous pouvez suivre les instructions du [Guide de démarrage rapide : Créez une machine virtuelle Windows Server avec le portail Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal).
+1. Créez une machine virtuelle dans les réseaux virtuels Azure Stack Hub et un système sur le réseau local. Pour créer une machine virtuelle, vous pouvez suivre les instructions du [Guide de démarrage rapide : Créez une machine virtuelle Windows Server avec le portail Azure Stack Hub](./azure-stack-quick-windows-portal.md).
 
 2. Quand vous créez la machine virtuelle Azure Stack Hub et que vous préparez le système local, vérifiez les points suivants :
 

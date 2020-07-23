@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: d3c6ecaa062f97aef76835d3c291b4ecaf405b11
-ms.sourcegitcommit: b2b0fe629d840ca8d5b6353a90f1fcb392a73bd5
+ms.openlocfilehash: f7d9335e612387a780e002a2fe3d070436a10c5a
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85377158"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488975"
 ---
 # <a name="diagnostic-log-collection-in-azure-stack-hub"></a>Collecte des journaux de diagnostic dans Azure Stack Hub
 
@@ -35,7 +35,7 @@ La fonctionnalité de collecte des journaux de diagnostic offre deux options pou
 
 ### <a name="send-logs-proactively"></a>Send logs proactively (Envoyer les journaux de manière proactive)
 
-La [collecte proactive des journaux](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md) rationalise et simplifie la collecte des journaux de diagnostic afin que les clients puissent envoyer des journaux à Microsoft avant d’ouvrir un cas de support. Les journaux de diagnostic sont chargés de manière proactive à partir d’Azure Stack Hub à des fins d’analyse. Ces journaux sont collectés uniquement quand une [alerte d’intégrité du système](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md#proactive-diagnostic-log-collection-alerts) est déclenchée et ne sont accessibles au support Microsoft que dans le contexte d’un cas de support.
+La [collecte proactive des journaux](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002) rationalise et simplifie la collecte des journaux de diagnostic afin que les clients puissent envoyer des journaux à Microsoft avant d’ouvrir un cas de support. Les journaux de diagnostic sont chargés de manière proactive à partir d’Azure Stack Hub à des fins d’analyse. Ces journaux sont collectés uniquement quand une [alerte d’intégrité du système](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002#proactive-diagnostic-log-collection-alerts) est déclenchée et ne sont accessibles au support Microsoft que dans le contexte d’un cas de support.
 
 #### <a name="how-the-data-is-handled"></a>Gestion des données
 
@@ -49,9 +49,9 @@ Les journaux collectés à l’aide de la **collecte proactive des journaux** so
 
 ### <a name="send-logs-now"></a>Envoyer des journaux maintenant
 
-[Send logs now](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) (Envoyer les journaux maintenant) est une option manuelle qui permet de charger les journaux de diagnostic à partir d’Azure Stack Hub uniquement quand vous (en tant que client) lancez la collecte, généralement avant d’ouvrir un cas de support.
+[Send logs now](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) (Envoyer les journaux maintenant) est une option manuelle qui permet de charger les journaux de diagnostic à partir d’Azure Stack Hub uniquement quand vous (en tant que client) lancez la collecte, généralement avant d’ouvrir un cas de support.
 
-Les opérateurs Azure Stack peuvent envoyer des journaux de diagnostic à la demande au support Microsoft en utilisant le portail administrateur ou PowerShell. Si Azure Stack Hub est connecté à Azure, l'utilisation de la méthode [Envoyer les journaux maintenant sur le portail administrateur](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) est recommandée, car il s'agit de la plus simple pour envoyer les journaux directement à Microsoft. Si le portail n’est pas disponible, les opérateurs doivent alors [envoyer les journaux maintenant avec PowerShell](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md).
+Les opérateurs Azure Stack peuvent envoyer des journaux de diagnostic à la demande au support Microsoft en utilisant le portail administrateur ou PowerShell. Si Azure Stack Hub est connecté à Azure, l'utilisation de la méthode [Envoyer les journaux maintenant sur le portail administrateur](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) est recommandée, car il s'agit de la plus simple pour envoyer les journaux directement à Microsoft. Si le portail n’est pas disponible, les opérateurs doivent alors [envoyer les journaux maintenant avec PowerShell](./azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md?view=azs-2002).
 
 Si vous êtes déconnecté d'Internet ou souhaitez uniquement enregistrer les journaux localement, utilisez la méthode [Get-AzureStackLog](azure-stack-get-azurestacklog.md) pour envoyer les journaux. L’organigramme suivant montre l’option à utiliser pour l’envoi des journaux de diagnostic dans chaque cas.
 
@@ -82,17 +82,17 @@ Le tableau suivant répertorie les éléments à prendre en compte pour les envi
 
 ## <a name="collecting-logs-from-multiple-azure-stack-hub-systems"></a>Collecte des journaux de plusieurs systèmes Azure Stack Hub
 
-Configurez un conteneur d’objets blob pour chaque unité d’échelle Azure Stack Hub dont vous souhaitez collecter les journaux. Pour plus d’informations sur la configuration du conteneur d’objets blob, consultez [Configurer la collecte automatique des journaux de diagnostic Azure Stack Hub](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md). Il est recommandé d’enregistrer uniquement les journaux de diagnostic de la même unité d’échelle Azure Stack Hub dans un seul conteneur d’objets blob.
+Configurez un conteneur d’objets blob pour chaque unité d’échelle Azure Stack Hub dont vous souhaitez collecter les journaux. Pour plus d’informations sur la configuration du conteneur d’objets blob, consultez [Configurer la collecte automatique des journaux de diagnostic Azure Stack Hub](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002). Il est recommandé d’enregistrer uniquement les journaux de diagnostic de la même unité d’échelle Azure Stack Hub dans un seul conteneur d’objets blob.
 
 ## <a name="retention-policy"></a>Stratégie de rétention
 
-Créez une [règle de gestion du cycle de vie](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) du stockage d’objets blob Azure pour gérer la stratégie de rétention des journaux. Nous vous suggérons de conserver les journaux de diagnostic pendant 30 jours. Pour créer une règle de gestion du cycle de vie dans Stockage Azure, connectez-vous au portail Azure, sélectionnez **Comptes de stockage**, sélectionnez le conteneur d'objets blob, puis, sous **Service BLOB**, sélectionnez **Gestion du cycle de vie**.
+Créez une [règle de gestion du cycle de vie](/azure/storage/blobs/storage-lifecycle-management-concepts) du stockage d’objets blob Azure pour gérer la stratégie de rétention des journaux. Nous vous suggérons de conserver les journaux de diagnostic pendant 30 jours. Pour créer une règle de gestion du cycle de vie dans Stockage Azure, connectez-vous au portail Azure, sélectionnez **Comptes de stockage**, sélectionnez le conteneur d'objets blob, puis, sous **Service BLOB**, sélectionnez **Gestion du cycle de vie**.
 
 ![Gestion du cycle de vie sur le portail Azure](media/azure-stack-automatic-log-collection/blob-storage-lifecycle-management.png)
 
 ## <a name="sas-token-expiration"></a>Expiration du jeton SAS
 
-Configurez l’expiration de l’URL SAS sur deux ans. Si vous renouvelez vos clés de compte de stockage, veillez à régénérer l’URL SAS. Vous devez gérer le jeton SAS conformément aux meilleures pratiques. Pour plus d’informations, consultez [Meilleures pratiques SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#best-practices-when-using-sas).
+Configurez l’expiration de l’URL SAS sur deux ans. Si vous renouvelez vos clés de compte de stockage, veillez à régénérer l’URL SAS. Vous devez gérer le jeton SAS conformément aux meilleures pratiques. Pour plus d’informations, consultez [Meilleures pratiques SAS](/azure/storage/common/storage-dotnet-shared-access-signature-part-1#best-practices-when-using-sas).
 
 ## <a name="bandwidth-consumption"></a>Consommation de bande passante
 
@@ -114,12 +114,12 @@ Le tableau suivant peut aider les environnements avec des connexions limitées �
 
 ## <a name="managing-costs"></a>Gestion des coûts
 
-Les [frais liés au stockage d'objets blob](https://azure.microsoft.com/pricing/details/storage/blobs/) Azure dépendent de la quantité de données enregistrées tous les mois et d'autres facteurs tels que la redondance des données. Si vous n'avez pas de compte de stockage, vous pouvez vous connecter au portail Azure, sélectionner **Comptes de stockage** et suivre les étapes pour [créer une URL SAS de conteneur d'objets blob Azure](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md).
+Les [frais liés au stockage d'objets blob](https://azure.microsoft.com/pricing/details/storage/blobs/) Azure dépendent de la quantité de données enregistrées tous les mois et d'autres facteurs tels que la redondance des données. Si vous n'avez pas de compte de stockage, vous pouvez vous connecter au portail Azure, sélectionner **Comptes de stockage** et suivre les étapes pour [créer une URL SAS de conteneur d'objets blob Azure](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002).
 
-Il est recommandé de créer une [stratégie de gestion du cycle de vie](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) du stockage d’objets blob Azure pour réduire les coûts de stockage. Pour plus d’informations sur la configuration du compte de stockage, consultez [Configurer la collecte automatique des journaux de diagnostic Azure Stack Hub](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md).
+Il est recommandé de créer une [stratégie de gestion du cycle de vie](/azure/storage/blobs/storage-lifecycle-management-concepts) du stockage d’objets blob Azure pour réduire les coûts de stockage. Pour plus d’informations sur la configuration du compte de stockage, consultez [Configurer la collecte automatique des journaux de diagnostic Azure Stack Hub](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002).
 
 ::: moniker-end
 
 ## <a name="see-also"></a>Voir aussi
 
-[Gestion des journaux et des données client Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
+[Gestion des journaux et des données client Azure Stack Hub](./azure-stack-data-collection.md)

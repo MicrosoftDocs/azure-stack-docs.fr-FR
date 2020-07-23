@@ -7,12 +7,12 @@ ms.date: 08/13/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: 3c8c8b424d6ce555b19f4a77dbb8275b731f488e
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 3ceea390376610ca1354a1b015ca91a5edd096e5
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836128"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566292"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>Supprimer des quotas, plans, offres et abonnements
 
@@ -59,8 +59,9 @@ Vous pouvez afficher et modifier les quotas existants par le biais du portail d'
 
 Vous pouvez également supprimer certains quotas à l'aide de ces API REST :
 
-- [Calcul](/rest/api/azurestack/quotas%20(compute)/delete)
+- [Calcul](/rest/api/azurestack/quotas/delete)
 - [Réseau](/rest/api/azurestack/quotas%20(network)/delete)
+- [Stockage](/rest/api/azurestack/storagequotas/delete)
 
 > [!NOTE]
 > Vous ne pouvez pas supprimer un quota s'il est utilisé par des plans actuels. Vous devez d’abord supprimer le plan qui fait référence au quota.

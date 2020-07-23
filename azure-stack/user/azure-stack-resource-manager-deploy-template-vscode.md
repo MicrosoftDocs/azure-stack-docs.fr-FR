@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 8f0205425b49ee9e828056e5613a8166d02d95d9
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 7da28f1cbe1087ff9f791c27979091de1869a56f
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111623"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566989"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>Déployer avec Visual Studio Code dans Azure Stack Hub
 
@@ -37,7 +37,7 @@ Le schéma de déploiement Azure Stack Hub prend en charge les profils hybrides 
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - Accéder à Azure Stack Hub
-- [Azure Stack Hub PowerShell installé](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json) sur une machine qui atteint les points de terminaison de gestion
+- [Azure Stack Hub PowerShell installé](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json) sur une machine qui atteint les points de terminaison de gestion
 
 ## <a name="install-resource-manager-tools-extension"></a>Installer l’extension Resource Manager Tools
 

@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: a8fa6f179b2ff310a291d10f40b2f9a5eaa4e2d9
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 43140eb8e64840aefa738ea08c3138cb9dd1d89f
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111784"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567057"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>Se connecter à Azure Stack Hub en tant qu’utilisateur avec PowerShell
 
@@ -36,7 +36,7 @@ Veillez à remplacer les variables de script suivantes par des valeurs de votre 
 - **Nom du locataire Azure AD**  
   Nom de votre locataire Azure AD utilisé pour gérer Azure Stack Hub. Par exemple, yourdirectory.onmicrosoft.com.
 - **Point de terminaison Azure Resource Manager**  
-  Pour le kit de développement Azure Stack, cette valeur est définie sur https://management.local.azurestack.external. Pour obtenir cette valeur pour les systèmes Azure Stack Hub intégrés, contactez votre fournisseur de services.
+  Pour le kit de développement Azure Stack, cette valeur est définie sur `https://management.local.azurestack.external`. Pour obtenir cette valeur pour les systèmes Azure Stack Hub intégrés, contactez votre fournisseur de services.
 
 ## <a name="connect-to-azure-stack-hub-with-azure-ad"></a>Se connecter à Azure Stack Hub avec Azure AD
 
@@ -86,5 +86,5 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 - [Développer des modèles pour Azure Stack Hub](azure-stack-develop-templates.md)
 - [Déployer des modèles avec PowerShell](azure-stack-deploy-template-powershell.md)
-- [Informations de référence sur le module PowerShell Azure Stack Hub](https://docs.microsoft.com/powershell/azure/azure-stack/overview)
+- [Informations de référence sur le module PowerShell Azure Stack Hub](/powershell/azure/azure-stack/overview)
 - Si vous souhaitez configurer PowerShell pour l’environnement d’opérateur cloud, consultez l’article [Configurer l’environnement PowerShell de l’opérateur Azure Stack Hub](../operator/azure-stack-powershell-configure-admin.md).

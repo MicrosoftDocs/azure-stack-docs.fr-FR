@@ -7,12 +7,12 @@ ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: bfa7abf0d481e8791c4e35d80d391de95b8a5b97
-ms.sourcegitcommit: 874ad1cf8ce7e9b3615d6d69651419642d5012b4
+ms.openlocfilehash: 0bb8ebeb46c0290a6e5d66f4aa8e9928f660598d
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85107185"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86490148"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Disques managés Azure Stack Hub : différences et considérations
 
@@ -204,6 +204,7 @@ $Image = Get-AzureRmImage -ResourceGroupName $ImageRG -ImageName $ImageName
 $VmConfig = New-AzureRmVMConfig -VMName $VirtualMachineName -VMSize "Standard_D1" | `
 Set-AzureRmVMOperatingSystem -Linux -ComputerName $VirtualMachineName -Credential $Cred | `
 Set-AzureRmVMSourceImage -Id $Image.Id | `
+Set-AzureRmVMOSDisk -VM $VmConfig -CreateOption FromImage -Linux | `
 Add-AzureRmVMNetworkInterface -Id $Nic.Id
 
 # Create a virtual machine

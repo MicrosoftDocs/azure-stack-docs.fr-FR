@@ -7,16 +7,16 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 3ec8b0b3ac6f4687fd782dfc692f1c705c5ed733
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: dd82a3a9c2b6eff74c8f6823fc37b8767431ca02
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78366345"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489230"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Capacité de calcul Azure Stack Hub
 
-Les [tailles de machine virtuelle](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) prises en charge sur Azure Stack Hub constituent une partie de celles prises en charge dans Azure. Azure impose des limites de ressources à différents niveaux pour éviter la consommation excessive des ressources (au niveau du service ou du serveur local). Si aucune limite n’est appliquée à la consommation des locataires, la surconsommation de ressources par certains locataires aurait un impact négatif sur l’expérience des autres locataires. Pour la sortie réseau de la machine virtuelle, il existe des limites de bande passante dans Azure Stack Hub correspondant aux limites d’Azure. Pour les ressources de stockage sur Azure Stack Hub, les limites d’IOPS de stockage évitent une surconsommation des ressources par les locataires pour l’accès au stockage.
+Les [tailles de machine virtuelle](../user/azure-stack-vm-sizes.md) prises en charge sur Azure Stack Hub constituent une partie de celles prises en charge dans Azure. Azure impose des limites de ressources à différents niveaux pour éviter la consommation excessive des ressources (au niveau du service ou du serveur local). Si aucune limite n’est appliquée à la consommation des locataires, la surconsommation de ressources par certains locataires aurait un impact négatif sur l’expérience des autres locataires. Pour la sortie réseau de la machine virtuelle, il existe des limites de bande passante dans Azure Stack Hub correspondant aux limites d’Azure. Pour les ressources de stockage sur Azure Stack Hub, les limites d’IOPS de stockage évitent une surconsommation des ressources par les locataires pour l’accès au stockage.
 
 >[!IMPORTANT]
 >[Azure Stack Hub Capacity Planner](https://aka.ms/azstackcapacityplanner) ne tient pas compte des performances d’IOPS et ne les garantit pas.
@@ -25,7 +25,7 @@ Les [tailles de machine virtuelle](https://docs.microsoft.com/azure-stack/user/a
 
 Le moteur de placement Azure Stack Hub effectue le placement des machines virtuelles locataires sur les hôtes disponibles.
 
-Azure Stack Hub détermine le placement des machines virtuelles selon deux critères. En premier lieu, y a-t-il suffisamment de mémoire sur l’hôte pour le type de machine virtuelle en question ? En second lieu, les machines virtuelles font-elles partie d’un [groupe à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) ou constituent-elles des [groupes de machines virtuelles identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) ?
+Azure Stack Hub détermine le placement des machines virtuelles selon deux critères. En premier lieu, y a-t-il suffisamment de mémoire sur l’hôte pour le type de machine virtuelle en question ? En second lieu, les machines virtuelles font-elles partie d’un [groupe à haute disponibilité](/azure/virtual-machines/windows/manage-availability) ou constituent-elles des [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/overview) ?
 
 Pour garantir la haute disponibilité d’un système de production à plusieurs machines virtuelles dans Azure Stack Hub, ces machines virtuelles sont placées dans un groupe à haute disponibilité qui les répartit entre plusieurs domaines d’erreur. Un domaine d’erreur au sein d’un groupe à haute disponibilité est défini comme un nœud unique dans l’unité d’échelle. Azure Stack Hub prend ne charge les groupes à haute disponibilité avec un maximum de trois domaines d’erreur, pour rester cohérent avec Azure. Les machines virtuelles placées dans un groupe à haute disponibilité sont physiquement isolées les unes des autres grâce à une répartition aussi équilibrée que possible sur plusieurs domaines d’erreur (hôtes Azure Stack Hub). En cas de défaillance matérielle, les machines virtuelles du domaine défaillant sont redémarrées dans d’autres domaines d’erreur. Dans la mesure du possible, elles sont conservées dans des domaines d’erreur distincts des autres machines virtuelles du même groupe à haute disponibilité. Une fois l’hôte rétabli, les machines virtuelles sont rééquilibrées de façon à maintenir une haute disponibilité.  
 

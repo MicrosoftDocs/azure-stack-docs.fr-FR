@@ -8,12 +8,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 9d39763397ce39c83a50bb57d97f0b5b8e07de6b
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7166ab4072776adef3d3b3fd233bf082214ad39a
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367986"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488210"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-hub-integrated-system"></a>Remplacer un nœud d'unité d'échelle sur un système intégré Azure Stack Hub
 
@@ -29,7 +29,7 @@ L’organigramme suivant illustre la procédure générale de la FRU pour rempla
 \* Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
 
 > [!Note]  
-> Si l’opération d’arrêt échoue, il est recommandé d’utiliser l’opération de vidage suivie de l’opération d’arrêt. Pour plus d'informations, consultez [Actions relatives aux nœuds d'unité d'échelle dans Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-node-actions).
+> Si l’opération d’arrêt échoue, il est recommandé d’utiliser l’opération de vidage suivie de l’opération d’arrêt. Pour plus d'informations, consultez [Actions relatives aux nœuds d'unité d'échelle dans Azure Stack Hub](./azure-stack-node-actions.md).
 
 ## <a name="review-alert-information"></a>Examiner les informations sur l’alerte
 

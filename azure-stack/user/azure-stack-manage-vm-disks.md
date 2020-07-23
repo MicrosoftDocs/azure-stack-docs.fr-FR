@@ -7,12 +7,12 @@ ms.date: 04/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 757b978012fc1b17362343309d57c0df09862a98
-ms.sourcegitcommit: 98f62c33469ba963ba266bd88e206e9144258ea3
+ms.openlocfilehash: 95fafe541db48ced7025d7750b46de9789b441cf
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82032839"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567499"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Créer un stockage sur disque de machine virtuelle dans Azure Stack Hub
 
@@ -121,8 +121,8 @@ Pour plus d’informations sur l’utilisation des comptes de stockage dans Azur
 1. [Préparez un fichier .vhd](/azure/virtual-machines/windows/classic/createupload-vhd) à utiliser comme disque de données pour une machine virtuelle. Chargez ce fichier .vhd sur un compte de stockage que vous utilisez avec la machine virtuelle à laquelle vous souhaitez attacher le fichier .vhd.
 
     - Pour stocker le fichier .vhd, pensez à utiliser un conteneur autre que le conteneur du disque du système d’exploitation.  
-    - Avant de télécharger un disque dur virtuel dans Azure, vous devez apprendre à [préparer un disque dur virtuel Windows à charger sur Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-    - Consultez [Planification de la migration vers la fonctionnalité Disques managés](https://docs.microsoft.com/azure/virtual-machines/windows/on-prem-to-azure#plan-for-the-migration-to-managed-disks) avant de démarrer la migration vers la [fonctionnalité Disques managés](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
+    - Avant de télécharger un disque dur virtuel dans Azure, vous devez apprendre à [préparer un disque dur virtuel Windows à charger sur Azure](/azure/virtual-machines/windows/prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json).
+    - Consultez [Planification de la migration vers la fonctionnalité Disques managés](/azure/virtual-machines/windows/on-prem-to-azure#plan-for-the-migration-to-managed-disks) avant de démarrer la migration vers la [fonctionnalité Disques managés](/azure/virtual-machines/windows/managed-disks-overview).
 
     ![Exemple : Télécharger un fichier VHD](media/azure-stack-manage-vm-disks/upload-vhd.png)
 

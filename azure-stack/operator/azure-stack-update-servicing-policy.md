@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppace
-ms.openlocfilehash: 402450c9a0abc8096456450e1e81f92a68d65114
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: cbc073150d8da6aa9b7542041b22f176c6147f22
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367265"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487530"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Stratégie de maintenance Azure Stack Hub
 
@@ -32,7 +32,7 @@ Les packages de mise à jour logicielle Microsoft ne sont pas cumulatifs et requ
 
 ## <a name="get-support"></a>Obtenir de l’aide
 
-Azure Stack Hub suit le même processus de support qu’Azure. Les clients d’entreprise peuvent suivre le processus décrit dans [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Si vous êtes client d’un fournisseur de solutions cloud (CSP), contactez-le pour obtenir de l’aide. Pour plus d’informations, consultez le [Forum Aux Questions sur le support technique Azure](https://azure.microsoft.com/support/faq/).
+Azure Stack Hub suit le même processus de support qu’Azure. Les clients d’entreprise peuvent suivre le processus décrit dans [Création d’une demande de support Azure](/azure/azure-supportability/how-to-create-azure-support-request). Si vous êtes client d’un fournisseur de solutions cloud (CSP), contactez-le pour obtenir de l’aide. Pour plus d’informations, consultez le [Forum Aux Questions sur le support technique Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

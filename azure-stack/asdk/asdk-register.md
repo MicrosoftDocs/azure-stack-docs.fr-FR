@@ -7,12 +7,12 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: e93b5b16d30017dd7a1ea50d2f990ee983c8f124
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 4795b7abbd5c1f0dd9dfc1c3064aefa9371725a2
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847127"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86490012"
 ---
 # <a name="register-the-asdk-with-azure"></a>Inscrire le kit ASDK auprès d’Azure
 
@@ -218,7 +218,7 @@ Vous pouvez utiliser la vignette **Gestion des régions** pour vérifier que l�
 3. Sélectionner **Propriétés**. Ce panneau affiche l’état et les détails de votre environnement. L’état peut être **Inscrit** ou **Non inscrit**. S’il est inscrit, il montre également l’ID d’abonnement Azure que vous avez utilisé pour inscrire votre instance Azure Stack ainsi que le groupe de ressources et le nom de l’inscription.
 
 ## <a name="move-a-registration-resource"></a>Déplacer une ressource d’inscription
-Le déplacement d’une ressource d’inscription entre des groupes de ressources sous le même abonnement **est** pris en charge. Pour plus d’informations sur le déplacement de ressources vers un nouveau groupe de ressources, voir [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+Le déplacement d’une ressource d’inscription entre des groupes de ressources sous le même abonnement **est** pris en charge. Pour plus d’informations sur le déplacement de ressources vers un nouveau groupe de ressources, voir [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](/azure/azure-resource-manager/resource-group-move-resources).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 1d5e6d9cbed6f3273cf2e6e18ffcb36d6a627a90
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 7574124033445c9095ebcec3ff401d393bebbb04
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742418"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487377"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Questions fréquentes sur l’utilisation d’Azure Stack Hub
 
@@ -285,7 +285,7 @@ Des rapports d’utilisation sont générés pour les fournisseurs de ressources
 **Unité** : Go  
 **Remarques**: Total d’octets de la réponse à la demande entrante + total d’octets de la demande sortante + total d’octets de la réponse à la demande FTP entrante + total d’octets de la réponse à la demande de déploiement web entrante.  
   
-## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-api-currently-in-public-preview"></a>En quoi les API d’utilisation d’Azure Stack Hub sont-elles comparables aux [API d’utilisation d’Azure](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (actuellement en préversion publique) ?
+## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-api-currently-in-public-preview"></a>En quoi les API d’utilisation d’Azure Stack Hub sont-elles comparables aux [API d’utilisation d’Azure](/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (actuellement en préversion publique) ?
 
 * L’API d’utilisation du locataire fonctionne de la même manière que l’API Azure, à une exception près : l’indicateur *showDetails* n’est pas pris en charge dans Azure Stack Hub.
 * L’API d’utilisation du fournisseur s’applique uniquement à Azure Stack Hub.

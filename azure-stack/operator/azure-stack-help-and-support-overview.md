@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: a9b81eb49abdcd08cef13e89845473db5c9c9032
-ms.sourcegitcommit: b2b0fe629d840ca8d5b6353a90f1fcb392a73bd5
+ms.openlocfilehash: f08f2af4cf85d1e4346b6fc378135d218216c9d0
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85377159"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488839"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Aide et support d’Azure Stack Hub
 
@@ -66,8 +66,8 @@ Cette série de tutoriels est personnalisée selon que vous exécutez le Kit ASD
 
 Vous pouvez envoyer des journaux de diagnostic à Microsoft de deux manières :
 
-- [Send logs proactively](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md) (Envoyer les journaux de manière proactive) : si cette option est activée, la collecte des journaux est déclenchée par des alertes d’intégrité spécifiques.
-- [Send logs now](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) (Envoyer les journaux maintenant) : vous pouvez choisir manuellement une fenêtre glissante spécifique comme délai d’exécution pour la collecte des journaux.
+- [Send logs proactively](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002) (Envoyer les journaux de manière proactive) : si cette option est activée, la collecte des journaux est déclenchée par des alertes d’intégrité spécifiques.
+- [Send logs now](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) (Envoyer les journaux maintenant) : vous pouvez choisir manuellement une fenêtre glissante spécifique comme délai d’exécution pour la collecte des journaux.
 
 ![Options de collecte des journaux de diagnostic](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
 
@@ -105,6 +105,6 @@ Sélectionnez **Aide** (point d’interrogation) dans le coin supérieur droit d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez la [collecte des journaux de diagnostic](azure-stack-diagnostic-log-collection-overview-tzl.md).
+- Découvrez la [collecte des journaux de diagnostic](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002).
 - Découvrez comment [trouver votre ID cloud](azure-stack-find-cloud-id.md).
 - Découvrez la [résolution des problèmes Azure Stack Hub](azure-stack-troubleshooting.md).

@@ -7,12 +7,12 @@ ms.date: 2/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 2/28/2020
-ms.openlocfilehash: b8bc4c1a9e56f363fa604e8df7a1fa0dbe37fcb0
-ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
+ms.openlocfilehash: 25c4e1825ac6838d204a5d7f5f6ae834a304bb56
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624979"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567074"
 ---
 # <a name="create-an-ssh-key-for-linux-on-azure-stack-hub"></a>Créer une clé SSH pour Linux sur Azure Stack Hub
 
@@ -21,7 +21,7 @@ Vous pouvez créer une clé SSH pour votre machine Linux sur une machine Window
 ## <a name="open-bash-on-windows"></a>Ouvrir bash sur Windows
 
 1. Si le Sous-système Windows pour Linux n’est pas installé sur votre machine, installez [Ubuntu sur Windows](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab).  
-    Pour plus d’informations sur l’utilisation du Sous-système Windows pour Linux, consultez la [documentation du Sous-système Windows pour Linux](https://docs.microsoft.com/windows/wsl/about).
+    Pour plus d’informations sur l’utilisation du Sous-système Windows pour Linux, consultez la [documentation du Sous-système Windows pour Linux](/windows/wsl/about).
 
 2. Tapez **Ubuntu** dans votre barre d’outils et sélectionnez **Ouvrir**.
 

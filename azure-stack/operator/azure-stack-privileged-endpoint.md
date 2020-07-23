@@ -8,16 +8,16 @@ ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: d0ca1abfbecc76ac3d6dd3362626a19b7ee52d0a
-ms.sourcegitcommit: e28821041b8111fdcd2c28d35a83ab0a8018455c
+ms.openlocfilehash: 2906846b3f9aac2a748955032d8f9bce060f14cd
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86033200"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488244"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Utiliser le point de terminaison privilégié dans Azure Stack Hub
 
-En tant qu’opérateur Azure Stack Hub, vous devez utiliser le portail administrateur, PowerShell ou les API Azure Resource Manager pour la plupart des tâches d’administration quotidiennes. Toutefois, pour certaines opérations moins courantes, vous devez utiliser le *point de terminaison privilégié* (PEP). Ce point de terminaison est une console PowerShell distante préconfigurée qui vous fournit suffisamment de fonctionnalités pour vous aider à effectuer une tâche nécessaire. Le point de terminaison s’appuie sur [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) pour exposer uniquement un ensemble limité d’applets de commande. Pour accéder au point de terminaison privilégié et appeler l’ensemble limité d’applets de commande, un compte à faibles privilèges est utilisé. Aucun compte d’administrateur n’est nécessaire. Pour plus de sécurité, les scripts ne sont pas autorisés.
+En tant qu’opérateur Azure Stack Hub, vous devez utiliser le portail administrateur, PowerShell ou les API Azure Resource Manager pour la plupart des tâches d’administration quotidiennes. Toutefois, pour certaines opérations moins courantes, vous devez utiliser le *point de terminaison privilégié* (PEP). Ce point de terminaison est une console PowerShell distante préconfigurée qui vous fournit suffisamment de fonctionnalités pour vous aider à effectuer une tâche nécessaire. Le point de terminaison s’appuie sur [PowerShell JEA (Just Enough Administration)](/powershell/scripting/learn/remoting/jea/overview) pour exposer uniquement un ensemble limité d’applets de commande. Pour accéder au point de terminaison privilégié et appeler l’ensemble limité d’applets de commande, un compte à faibles privilèges est utilisé. Aucun compte d’administrateur n’est nécessaire. Pour plus de sécurité, les scripts ne sont pas autorisés.
 
 Vous pouvez utiliser le points de terminaison privilégié pour effectuer les tâches suivantes :
 
@@ -41,7 +41,7 @@ Vous pouvez également trouver l’adresse IP dans le portail administrateur Az
 Vous devez affecter la valeur `en-US` à votre paramètre de culture actuel au moment de l’exécution du point de terminaison privilégié. Sinon, les applets de commande telles que Test-AzureStack ou Get-AzureStackLog ne vont pas fonctionner comme prévu.
 
 > [!NOTE]
-> Pour des raisons de sécurité, vous devez vous connecter au point de terminaison privilégié uniquement à partir d’une machine virtuelle renforcée s’exécutant par-dessus l’hôte de cycle de vie du matériel, ou d’un ordinateur dédié et sécurisé, comme une [station de travail à accès privilégié](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). La configuration d’origine de l’hôte de cycle de vie du matériel ne doit pas être modifiée (même lors de l’installation de nouveaux logiciels), ni utilisée pour se connecter au point de terminaison privilégié.
+> Pour des raisons de sécurité, vous devez vous connecter au point de terminaison privilégié uniquement à partir d’une machine virtuelle renforcée s’exécutant par-dessus l’hôte de cycle de vie du matériel, ou d’un ordinateur dédié et sécurisé, comme une [station de travail à accès privilégié](/windows-server/identity/securing-privileged-access/privileged-access-workstations). La configuration d’origine de l’hôte de cycle de vie du matériel ne doit pas être modifiée (même lors de l’installation de nouveaux logiciels), ni utilisée pour se connecter au point de terminaison privilégié.
 
 1. Établir une relation de confiance.
 
@@ -114,7 +114,7 @@ Vous devez affecter la valeur `en-US` à votre paramètre de culture actuel au m
 
 ## <a name="how-to-use-the-privileged-endpoint"></a>Comment utiliser le point de terminaison privilégié 
 
-Comme mentionné ci-dessus, le point de terminaison privilégié est un point de terminaison [PowerShell JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview). Tout en procurant une couche de sécurité renforcée, un point de terminaison JEA réduit certaines des fonctionnalités de base de PowerShell, comme l’écriture de scripts ou la saisie semi-automatique via la touche Tab. Toute tentative d’opération de script est vouée à l’échec et se solde par l’erreur **ScriptsNotAllowed**. Cette erreur est normale.
+Comme mentionné ci-dessus, le point de terminaison privilégié est un point de terminaison [PowerShell JEA](/powershell/scripting/learn/remoting/jea/overview). Tout en procurant une couche de sécurité renforcée, un point de terminaison JEA réduit certaines des fonctionnalités de base de PowerShell, comme l’écriture de scripts ou la saisie semi-automatique via la touche Tab. Toute tentative d’opération de script est vouée à l’échec et se solde par l’erreur **ScriptsNotAllowed**. Cette erreur est normale.
 
 Par exemple, pour obtenir la liste des paramètres d’une applet de commande donnée, exécutez la commande suivante :
 
@@ -122,7 +122,7 @@ Par exemple, pour obtenir la liste des paramètres d’une applet de commande do
     Get-Command <cmdlet_name> -Syntax
 ```
 
-Sinon, vous pouvez utiliser l’applet de commande [**Import-PSSession**](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) pour importer l’ensemble des applets de commande de point de terminaison privilégié dans la session actuelle sur votre ordinateur local. L’ensemble des applets de commande et des fonctions du point de terminaison sont désormais disponibles sur votre ordinateur local, avec la saisie semi-automatique via la touche Tab et, plus généralement, l’écriture de scripts. Vous pouvez également exécuter le module **[Get-Help](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-help)** pour passer en revue les instructions de l’applet de commande.
+Sinon, vous pouvez utiliser l’applet de commande [**Import-PSSession**](/powershell/module/microsoft.powershell.utility/import-pssession?view=powershell-5.1) pour importer l’ensemble des applets de commande de point de terminaison privilégié dans la session actuelle sur votre ordinateur local. L’ensemble des applets de commande et des fonctions du point de terminaison sont désormais disponibles sur votre ordinateur local, avec la saisie semi-automatique via la touche Tab et, plus généralement, l’écriture de scripts. Vous pouvez également exécuter le module **[Get-Help](/powershell/module/microsoft.powershell.core/get-help)** pour passer en revue les instructions de l’applet de commande.
 
 Pour importer la session du point de terminaison privilégié sur votre ordinateur local, procédez ainsi :
 
@@ -200,5 +200,5 @@ Une fois les fichiers journaux de transcription correctement transférés vers l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Outils de diagnostic d’Azure Stack Hub](azure-stack-diagnostic-log-collection-overview-tzl.md)
+- [Outils de diagnostic d’Azure Stack Hub](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)
 - [Informations de référence sur le point de terminaison privilégié Azure Stack Hub](../reference/pep-2002/index.md)

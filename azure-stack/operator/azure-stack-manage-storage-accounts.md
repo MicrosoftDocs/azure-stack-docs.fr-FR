@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 2d836c601f292b25a472b38d1afef464a3b22960
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: a99339b2a8708bac8c20b5f2fb507e42fc7588de
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84630931"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488652"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Gérer des comptes de stockage Azure Stack Hub
 
@@ -123,7 +123,7 @@ Vous pouvez aussi utiliser PowerShell pour remplacer explicitement la période d
 **Pour récupérer de la capacité en utilisant PowerShell :**
 
 1. Vérifiez qu’Azure PowerShell est installé et configuré. Dans le cas contraire, suivez ces instructions : 
-   * Pour installer la dernière version d’Azure PowerShell et l’associer à votre abonnement Azure, consultez [Installer et configurer Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+   * Pour installer la dernière version d’Azure PowerShell et l’associer à votre abonnement Azure, consultez [Installer et configurer Azure PowerShell](/powershell/azure/).
    Pour plus d’informations sur les applets de commande Azure Resource Manager, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkId=394767).
 2. Exécutez les applets de commande suivantes :
 
@@ -135,7 +135,7 @@ Vous pouvez aussi utiliser PowerShell pour remplacer explicitement la période d
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
 ```
 
-Pour plus d’informations, voir la [documentation Azure Stack Hub PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
+Pour plus d’informations, voir la [documentation Azure Stack Hub PowerShell](/powershell/azure/azure-stack/overview).
  
 
 ## <a name="next-steps"></a>Étapes suivantes

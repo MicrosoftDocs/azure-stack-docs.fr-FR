@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
-ms.openlocfilehash: ea2ccd33bc64c01b4ab5ba56024a54aa82453e63
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: bd8a7ee4082f446c9d175a9b3b69fa0e5a460b24
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112031"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567414"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>Utiliser Azure Monitor sur Azure Stack Hub
 
 Cet article fournit une vue d’ensemble du service Azure Monitor dans Azure Stack Hub. Il vous permet de découvrir le fonctionnement d’Azure Monitor ainsi que des informations supplémentaires concernant l’utilisation d’Azure Monitor sur Azure Stack Hub.
 
-Pour une vue d’ensemble d’Azure Monitor, voir l’article concernant Azure global [Bien démarrer avec Azure Monitor sur Azure Stack Hub](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
+Pour une vue d’ensemble d’Azure Monitor, voir l’article concernant Azure global [Bien démarrer avec Azure Monitor sur Azure Stack Hub](/azure/monitoring-and-diagnostics/monitoring-get-started).
 
 ![Panneau Azure Stack Hub Monitor](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
@@ -71,7 +71,7 @@ Les ressources de calcul répertoriées précédemment disposent d’une machine
 
 ### <a name="activity-log"></a>Journal d’activité
 
-Vous pouvez effectuer des recherches dans les journaux d’activité afin d’obtenir des informations sur vos ressources de calcul telles qu’elles sont analysées par l’infrastructure Azure Stack Hub. Ce journal contient des informations telles que les dates et heures de création ou de destruction de ressources. Les journaux d’activité sur Azure Stack Hub sont cohérents avec ceux d’Azure. Pour en savoir plus, consultez l’article [Présentation du journal d’activité Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). 
+Vous pouvez effectuer des recherches dans les journaux d’activité afin d’obtenir des informations sur vos ressources de calcul telles qu’elles sont analysées par l’infrastructure Azure Stack Hub. Ce journal contient des informations telles que les dates et heures de création ou de destruction de ressources. Les journaux d’activité sur Azure Stack Hub sont cohérents avec ceux d’Azure. Pour en savoir plus, consultez l’article [Présentation du journal d’activité Azure](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). 
 
 
 ## <a name="azure-monitor-sources-everything-else"></a>Sources Azure Monitor : tout le reste
@@ -114,9 +114,9 @@ Il existe quelques méthodes de visualisation, qui sont les suivantes :
 Vous pouvez utiliser le suivi, le routage et la récupération des données à l’aide de l’une des méthodes suivantes. Toutes les méthodes ne sont pas disponibles pour toutes les actions ou tous les types de données. 
 
  - [Portail utilisateur Azure Stack Hub ](azure-stack-use-portal.md)
- - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
- - [Interface de ligne de commande interplateforme (CLI)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
- - [REST API](https://docs.microsoft.com/rest/api/monitor)
+ - [PowerShell](/azure/monitoring-and-diagnostics/insights-powershell-samples)
+ - [Interface de ligne de commande interplateforme (CLI)](/azure/monitoring-and-diagnostics/insights-cli-samples)
+ - [REST API](/rest/api/monitor)
  - [Kit de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 > [!Important]  

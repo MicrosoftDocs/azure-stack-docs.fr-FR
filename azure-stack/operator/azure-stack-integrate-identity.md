@@ -8,12 +8,12 @@ ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 04cca678b32c04faac1b3c8f12a09deb918fb0c0
-ms.sourcegitcommit: e28821041b8111fdcd2c28d35a83ab0a8018455c
+ms.openlocfilehash: 8e6ec9fcb6428b9f8dad7c4f78acde54291b30f1
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86033270"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488618"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Intégrer l’identité AD FS avec votre centre de données Azure Stack Hub
 
@@ -64,7 +64,7 @@ Pour des déploiements d’Active Directory sur plusieurs sites, configurez le s
 
 Ajoutez le sous-réseau [Réseau d’adresses IP virtuelles publiques](azure-stack-network.md#public-vip-network) d’Azure Stack Hub au site Active Directory le plus proche d’Azure Stack Hub. Supposons par exemple que votre annuaire Active Directory ait deux sites : Seattle et Redmond. Si Azure Stack Hub est déployé sur le site de Seattle, vous devez ajouter le sous-réseau Réseau d’adresses IP virtuelles publiques d’Azure Stack Hub au site Active Directory de Seattle.
 
-Pour plus d’informations sur les sites Active Directory, consultez [Conception de la topologie du site](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
+Pour plus d’informations sur les sites Active Directory, consultez [Conception de la topologie du site](/windows-server/identity/ad-ds/plan/designing-the-site-topology).
 
 > [!Note]  
 > Si vous n’avez qu’un seul site Active Directory, vous pouvez ignorer cette étape. Si vous avez configuré un sous-réseau fourre-tout, assurez-vous que le sous-réseau Réseau d’adresses IP virtuelles publiques d’Azure Stack Hub n’en fait pas partie.
@@ -260,7 +260,7 @@ Si vous décidez d’exécuter manuellement les commandes, procédez comme suit�
    ```
 
     > [!Note]  
-    > Les chaînes d’agent utilisateur prises en charge par l’authentification Windows intégrée peuvent être obsolètes pour votre déploiement AD FS et nécessiter une mise à jour pour prendre en charge les clients les plus récents. Pour plus d’informations sur les chaînes d’agent utilisateur prises en charge par l’authentification Windows intégrée, consultez [Configuration de l’authentification basée sur des formulaires intranet pour les appareils qui ne prennent pas en charge l’authentification Windows intégrée](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br><br>Pour les étapes d’activation de la stratégie d’authentification par formulaire, consultez [Configurer des stratégies d’authentification](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies).
+    > Les chaînes d’agent utilisateur prises en charge par l’authentification Windows intégrée peuvent être obsolètes pour votre déploiement AD FS et nécessiter une mise à jour pour prendre en charge les clients les plus récents. Pour plus d’informations sur les chaînes d’agent utilisateur prises en charge par l’authentification Windows intégrée, consultez [Configuration de l’authentification basée sur des formulaires intranet pour les appareils qui ne prennent pas en charge l’authentification Windows intégrée](/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br><br>Pour les étapes d’activation de la stratégie d’authentification par formulaire, consultez [Configurer des stratégies d’authentification](/windows-server/identity/ad-fs/operations/configure-authentication-policies).
 
 3. Pour ajouter la partie de confiance, exécutez la commande Windows PowerShell suivante sur votre instance AD FS ou membre de la batterie de serveurs. Veillez à mettre à jour le point de terminaison AD FS et pointez vers le fichier créé à l’étape 1.
 

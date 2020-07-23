@@ -7,12 +7,12 @@ ms.author: mabrigg
 ms.date: 04/20/2020
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 3f51aa2c8d1d2987d3823e8fefe953d4cc6cc890
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 8342d8eccca348771630777ed212c18111f88bda
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631091"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566717"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Résoudre les problèmes de déploiement Kubernetes sur Azure Stack Hub
 
@@ -164,4 +164,4 @@ Suivez ces étapes pour collecter et télécharger les journaux de cluster :
 
 [Ajouter un cluster Kubernetes à la Place de marché (pour l'opérateur Azure Stack Hub)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)
 
-[Kubernetes sur Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
+[Kubernetes sur Azure](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

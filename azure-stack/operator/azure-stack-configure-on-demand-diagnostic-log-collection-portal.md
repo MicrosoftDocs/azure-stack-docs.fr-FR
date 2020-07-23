@@ -7,25 +7,25 @@ ms.date: 03/30/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 03/30/2020
-ms.openlocfilehash: 2c741440deb92be81497b34a7e485d4628501100
-ms.sourcegitcommit: b2b0fe629d840ca8d5b6353a90f1fcb392a73bd5
+ms.openlocfilehash: a4939e308b4f91fc0a9821499bb51615d11ab131
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85377148"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489247"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-now"></a>Envoyer les journaux de diagnostic Azure Stack Hub maintenant
 
 ::: moniker range=">= azs-2002"
 
-Avant de demander une assistance, les opérateurs Azure Stack peuvent envoyer des journaux de diagnostic à la demande au support Microsoft en utilisant le portail administrateur ou PowerShell. Si Azure Stack Hub est connecté à Azure, l’option **Send logs now** (Envoyer les journaux maintenant) dans le portail administrateur est recommandée, car il s’agit de la méthode la plus simple pour envoyer les journaux directement à Microsoft. Si le portail n’est pas disponible, les opérateurs doivent alors [envoyer désormais les journaux avec Send-AzureStackDiagnosticLog](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md). 
+Avant de demander une assistance, les opérateurs Azure Stack peuvent envoyer des journaux de diagnostic à la demande au support Microsoft en utilisant le portail administrateur ou PowerShell. Si Azure Stack Hub est connecté à Azure, l’option **Send logs now** (Envoyer les journaux maintenant) dans le portail administrateur est recommandée, car il s’agit de la méthode la plus simple pour envoyer les journaux directement à Microsoft. Si le portail n’est pas disponible, les opérateurs doivent alors [envoyer désormais les journaux avec Send-AzureStackDiagnosticLog](./azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md?view=azs-2002). 
 
 Si vous êtes déconnecté d’Internet ou souhaitez uniquement enregistrer les journaux localement, utilisez la méthode [Get-AzureStackLog](azure-stack-get-azurestacklog.md) pour envoyer les journaux. L’organigramme suivant montre l’option à utiliser pour l’envoi des journaux de diagnostic dans chaque cas. 
 
 ![Organigramme montrant comment envoyer des journaux à Microsoft](media/azure-stack-help-and-support/send-logs-now-flowchart.png)
 
 >[!NOTE]
->En guise d’alternative à la collecte de journaux à la demande, vous pouvez simplifier le processus de résolution des problèmes en [collectant les journaux de diagnostic de façon proactive](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md). Si les conditions d’intégrité du système doivent être examinées, les journaux sont automatiquement chargés à des fins d’analyse avant l’ouverture d’un cas auprès du support Microsoft. Si la collecte proactive des journaux est activée, **Aide et support** s’affiche quand la collecte des journaux est en cours. Si vous cliquez sur **Send logs now** (Envoyer les journaux maintenant) pour collecter les journaux à partir d’une heure précise alors que la collecte proactive des journaux est en cours, la collecte à la demande commence après la fin de la collecte proactive des journaux.
+>En guise d’alternative à la collecte de journaux à la demande, vous pouvez simplifier le processus de résolution des problèmes en [collectant les journaux de diagnostic de façon proactive](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002). Si les conditions d’intégrité du système doivent être examinées, les journaux sont automatiquement chargés à des fins d’analyse avant l’ouverture d’un cas auprès du support Microsoft. Si la collecte proactive des journaux est activée, **Aide et support** s’affiche quand la collecte des journaux est en cours. Si vous cliquez sur **Send logs now** (Envoyer les journaux maintenant) pour collecter les journaux à partir d’une heure précise alors que la collecte proactive des journaux est en cours, la collecte à la demande commence après la fin de la collecte proactive des journaux.
 
 Spécifiez l’heure de début et de fin de la collecte des journaux, puis cliquez sur **Collect and Upload** (Collecter et charger). 
 
@@ -55,5 +55,4 @@ Procédez comme suit pour configurer la collecte des journaux à la demande à l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Utiliser le point de terminaison privilégié pour envoyer les journaux de diagnostic Azure Stack Hub](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md)
-
+[Utiliser le point de terminaison privilégié pour envoyer les journaux de diagnostic Azure Stack Hub](./azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md?view=azs-2002)

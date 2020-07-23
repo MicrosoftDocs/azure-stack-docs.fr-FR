@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 7667039bc64fe45f912cb855d5cb832b7fe5d28f
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: fe96b2adeb679492a2f6ca820880763c0c2c0686
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81659878"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567805"
 ---
 # <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>Exécuter une application multiniveau dans plusieurs régions Azure Stack Hub pour une haute disponibilité
 
@@ -29,15 +29,15 @@ Cette architecture repose sur celle décrite dans l’article [Application multi
 
 -   **Régions primaires et secondaires**. Pour obtenir une plus haute disponibilité, utilisez deux régions. L’une est la région primaire, tandis que l’autre sert au basculement.
 
--   **Azure Traffic Manager**. [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) achemine les requêtes entrantes vers l’une des régions. Pendant le fonctionnement normal, il achemine les requêtes vers la région primaire. Si cette région n’est plus disponible, Traffic Manager bascule vers la région secondaire. Pour plus d’informations, consultez la section [Configuration de Traffic Manager](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server#traffic-manager-configuration).
+-   **Azure Traffic Manager**. [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) achemine les requêtes entrantes vers l’une des régions. Pendant le fonctionnement normal, il achemine les requêtes vers la région primaire. Si cette région n’est plus disponible, Traffic Manager bascule vers la région secondaire. Pour plus d’informations, consultez la section [Configuration de Traffic Manager](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server#traffic-manager-configuration).
 
--   **Groupe de ressources**. Créez des [groupes de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) distincts pour la région primaire et la région secondaire. Vous obtenez ainsi la flexibilité nécessaire pour gérer chaque région comme une collection de ressources unique. Par exemple, vous pourriez redéployer une région sans arrêter l’autre. [Liez les groupes de ressources](https://docs.microsoft.com/azure/resource-group-link-resources) afin de pouvoir exécuter une requête pour répertorier toutes les ressources de l’application.
+-   **Groupe de ressources**. Créez des [groupes de ressources](/azure/azure-resource-manager/resource-group-overview) distincts pour la région primaire et la région secondaire. Vous obtenez ainsi la flexibilité nécessaire pour gérer chaque région comme une collection de ressources unique. Par exemple, vous pourriez redéployer une région sans arrêter l’autre. [Liez les groupes de ressources](/azure/resource-group-link-resources) afin de pouvoir exécuter une requête pour répertorier toutes les ressources de l’application.
 
 -   **Réseaux virtuels**. Créez un réseau virtuel distinct pour chaque région. Vérifiez que les espaces d’adressage ne se chevauchent pas.
 
--   **Groupe de disponibilité SQL Server Always On**. Si vous utilisez SQL Server, nous vous recommandons d’utiliser des [groupes de disponibilité AlwaysOn SQL](https://msdn.microsoft.com/library/hh510230.aspx) pour la haute disponibilité. Créez un groupe de disponibilité unique qui comprend les instances de SQL Server dans les deux régions.
+-   **Groupe de disponibilité SQL Server Always On**. Si vous utilisez SQL Server, nous vous recommandons d’utiliser des [groupes de disponibilité AlwaysOn SQL](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15) pour la haute disponibilité. Créez un groupe de disponibilité unique qui comprend les instances de SQL Server dans les deux régions.
 
--   **Connexion VPN de réseau virtuel à réseau virtuel**. Comme VNET Peering n’est pas encore disponible sur Azure Stack Hub, utilisez une connexion VPN de réseau virtuel à réseau virtuel pour connecter les deux réseaux virtuels. Pour plus d’informations, voir [Réseau virtuel à réseau virtuel dans Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-1908).
+-   **Connexion VPN de réseau virtuel à réseau virtuel**. Comme VNET Peering n’est pas encore disponible sur Azure Stack Hub, utilisez une connexion VPN de réseau virtuel à réseau virtuel pour connecter les deux réseaux virtuels. Pour plus d’informations, voir [Réseau virtuel à réseau virtuel dans Azure Stack Hub](./azure-stack-network-howto-vnet-to-vnet.md?view=azs-1908).
 
 ## <a name="recommendations"></a>Recommandations
 
@@ -57,9 +57,9 @@ Cette architecture de référence est axée sur le mode actif/passif avec serveu
 
 Considérez les points suivants lors de la configuration de Traffic Manager :
 
--   **Routage**. Traffic Manager prend en charge plusieurs [algorithmes de routage](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods). Pour le scénario décrit dans cet article, utilisez le routage *par priorité* (auparavant désigné sous le terme de routage *par basculement*). Quand cette méthode de routage est configurée, Traffic Manager envoie toutes les requêtes à la région primaire, sauf si elle devient inaccessible. À ce moment-là, les requêtes basculent automatiquement vers la région secondaire. Consultez [Configurer la méthode de routage de basculement](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-failover-routing-method).
+-   **Routage**. Traffic Manager prend en charge plusieurs [algorithmes de routage](/azure/traffic-manager/traffic-manager-routing-methods). Pour le scénario décrit dans cet article, utilisez le routage *par priorité* (auparavant désigné sous le terme de routage *par basculement*). Quand cette méthode de routage est configurée, Traffic Manager envoie toutes les requêtes à la région primaire, sauf si elle devient inaccessible. À ce moment-là, les requêtes basculent automatiquement vers la région secondaire. Consultez [Configurer la méthode de routage de basculement](/azure/traffic-manager/traffic-manager-configure-failover-routing-method).
 
--   **Sonde d’intégrité**. Traffic Manager utilise une [sonde](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) HTTP (ou HTTPS) pour superviser la disponibilité de chaque région. La sonde vérifie la présence d’une réponse HTTP 200 pour un chemin d’URL spécifié. Une bonne pratique consiste à créer un point de terminaison qui signale l’intégrité globale de l’application et à utiliser ce point de terminaison pour la sonde d’intégrité. Dans le cas contraire, la sonde risque de signaler un point de terminaison intègre alors que des parties critiques de l’application sont défaillantes. Pour plus d’informations, consultez [Modèle Supervision de point de terminaison d’intégrité](https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring).
+-   **Sonde d’intégrité**. Traffic Manager utilise une [sonde](/azure/traffic-manager/traffic-manager-monitoring) HTTP (ou HTTPS) pour superviser la disponibilité de chaque région. La sonde vérifie la présence d’une réponse HTTP 200 pour un chemin d’URL spécifié. Une bonne pratique consiste à créer un point de terminaison qui signale l’intégrité globale de l’application et à utiliser ce point de terminaison pour la sonde d’intégrité. Dans le cas contraire, la sonde risque de signaler un point de terminaison intègre alors que des parties critiques de l’application sont défaillantes. Pour plus d’informations, consultez [Modèle Supervision de point de terminaison d’intégrité](/azure/architecture/patterns/health-endpoint-monitoring).
 
 Quand Traffic Manager déclenche un basculement, l’application reste inaccessible aux clients pendant un certain laps de temps. Ce laps de temps dépend des facteurs suivants :
 
@@ -67,13 +67,13 @@ Quand Traffic Manager déclenche un basculement, l’application reste inaccessi
 
 -   Les serveurs DNS (Domain Name Service) doivent mettre à jour les enregistrements DNS mis en cache pour l’adresse IP, qui dépend de la durée de vie (TTL) DNS. La valeur TTL par défaut est de 300 secondes (5 minutes), mais vous pouvez configurer cette valeur quand vous créez le profil Traffic Manager.
 
-Pour plus d’informations, consultez [À propos de la supervision de Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring).
+Pour plus d’informations, consultez [À propos de la supervision de Traffic Manager](/azure/traffic-manager/traffic-manager-monitoring).
 
 En cas de basculement de Traffic Manager, nous vous recommandons de procéder à une restauration manuelle plutôt que d’implémenter une restauration automatique. Dans le cas contraire, l’application risque d’alterner continuellement entre les régions. Vérifiez que tous les sous-systèmes de l’application sont intègres avant d’effectuer la restauration automatique.
 
 Notez que Traffic Manager procède à une restauration automatique par défaut. Pour éviter cela, diminuez manuellement la priorité de la région primaire après un événement de basculement. Par exemple, supposez que la région primaire a la priorité 1, et que la base de données secondaire a la priorité 2. Après un basculement, définissez la priorité de la région primaire sur la valeur 3 afin d’empêcher la restauration automatique. Quand vous êtes prêt à rebasculer vers cette région, redéfinissez sa priorité sur la valeur 1.
 
-La commande [Azure CLI](https://docs.microsoft.com/cli/azure/) suivante met à jour la priorité :
+La commande [Azure CLI](/cli/azure/) suivante met à jour la priorité :
 
 ```cli  
 az network traffic-manager endpoint update --resource-group <resource-group> --profile-name <profile>
@@ -105,15 +105,15 @@ Pour configurer le groupe de disponibilité
 
 -   Donnez à chaque contrôleur de domaine une adresse IP statique.
 
--   Créez un [réseau virtuel](https://docs.microsoft.com/azure-stack/user/azure-stack-vpn-gateway-about-vpn-gateways) pour activer la communication entre les deux réseaux virtuels.
+-   Créez un [réseau virtuel](./azure-stack-vpn-gateway-about-vpn-gateways.md) pour activer la communication entre les deux réseaux virtuels.
 
--   Pour chaque réseau virtuel, ajoutez les adresses IP des contrôleurs de domaine (des deux régions) à la liste des serveurs DNS. Vous pouvez utiliser la commande CLI suivante. Pour plus d’informations, consultez [Modifier les serveurs DNS](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers).
+-   Pour chaque réseau virtuel, ajoutez les adresses IP des contrôleurs de domaine (des deux régions) à la liste des serveurs DNS. Vous pouvez utiliser la commande CLI suivante. Pour plus d’informations, consultez [Modifier les serveurs DNS](/azure/virtual-network/manage-virtual-network#change-dns-servers).
 
     ```cli
     az network vnet update --resource-group <resource-group> --name <vnet-name> --dns-servers "10.0.0.4,10.0.0.6,172.16.0.4,172.16.0.6"
     ```
 
--   Créez un cluster [WSFC (Clustering de basculement Windows Server)](https://msdn.microsoft.com/library/hh270278.aspx) qui inclut les instances de SQL Server dans les deux régions.
+-   Créez un cluster [WSFC (Clustering de basculement Windows Server)](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15) qui inclut les instances de SQL Server dans les deux régions.
 
 -   Créez un groupe de disponibilité SQL Server AlwaysOn qui inclut les instances de SQL Server dans les régions primaire et secondaire. Pour connaître les étapes, consultez [Extending AlwaysOn Availability Group to Remote Azure Datacenter (PowerShell) (Extension de groupe de disponibilité AlwaysOn à un centre de données Azure à distance (PowerShell)](https://techcommunity.microsoft.com/t5/DataCAT/Extending-AlwaysOn-Availability-Group-to-Remote-Azure-Datacenter/ba-p/305217).
 
@@ -134,10 +134,10 @@ Traffic Manager est un point de défaillance possible dans le système. Si le se
 
 Pour le cluster SQL Server, deux scénarios de basculement doivent être pris en compte :
 
--   Tous les réplicas de base de données SQL Server dans la région primaire échouent. Cela peut par exemple se produire pendant une panne régionale. Dans ce cas, vous devez faire basculer manuellement le groupe de disponibilité, même si Traffic Manager bascule automatiquement vers le frontend. Suivez les étapes de l’article [Perform a Forced Manual Failover of a SQL Server Availability Group](https://msdn.microsoft.com/library/ff877957.aspx) (Effectuer un basculement manuel forcé d’un groupe de disponibilité SQL Server), qui explique comment effectuer un basculement forcé à l’aide de SQL Server Management Studio, Transact-SQL ou PowerShell dans SQL Server 2016.
+-   Tous les réplicas de base de données SQL Server dans la région primaire échouent. Cela peut par exemple se produire pendant une panne régionale. Dans ce cas, vous devez faire basculer manuellement le groupe de disponibilité, même si Traffic Manager bascule automatiquement vers le frontend. Suivez les étapes de l’article [Perform a Forced Manual Failover of a SQL Server Availability Group](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15) (Effectuer un basculement manuel forcé d’un groupe de disponibilité SQL Server), qui explique comment effectuer un basculement forcé à l’aide de SQL Server Management Studio, Transact-SQL ou PowerShell dans SQL Server 2016.
 
     > [!Warning]  
-    > Avec le basculement forcé, il existe un risque de perte de données. Une fois la région primaire de nouveau en ligne, prenez un instantané de la base de données et utilisez [tablediff](https://msdn.microsoft.com/library/ms162843.aspx) pour rechercher les différences.
+    > Avec le basculement forcé, il existe un risque de perte de données. Une fois la région primaire de nouveau en ligne, prenez un instantané de la base de données et utilisez [tablediff](/sql/tools/tablediff-utility?view=sql-server-ver15) pour rechercher les différences.
 
 -   Traffic Manager bascule vers la région secondaire, mais le réplica de base de données SQL Server principal est toujours disponible. Par exemple, le niveau frontend peut échouer sans affecter les machines virtuelles SQL Server. Dans ce cas, le trafic Internet est acheminé vers la région secondaire, et cette région peut toujours se connecter au réplica principal. Toutefois, il y aura une latence accrue, car les connexions SQL Server traversent différentes régions. Dans ce cas, vous devez effectuer un basculement manuel comme suit :
 
@@ -171,4 +171,4 @@ Mesurez les temps de récupération et vérifiez qu’ils répondent aux besoins
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les modèles Azure Cloud, consultez [Modèles de conception cloud](https://docs.microsoft.com/azure/architecture/patterns).
+- Pour plus d’informations sur les modèles Azure Cloud, consultez [Modèles de conception cloud](/azure/architecture/patterns).

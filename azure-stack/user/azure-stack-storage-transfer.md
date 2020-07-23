@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: d61ce13c46e53f5eb2b9ed8fa544096db6ca8590
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 496d22eac80c00c723732b6c5d12543b059f8c31
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660152"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566598"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>Utiliser des outils de transfert de données pour le stockage Azure Stack Hub
 
@@ -276,7 +276,7 @@ L’Explorateur de stockage Azure est une application autonome de Microsoft. Il 
 
 [Blobfuse](https://github.com/Azure/azure-storage-fuse) est un pilote de système de fichiers virtuel pour le Stockage Blob Azure, qui vous permet d’accéder à vos données d’objet blob de blocs dans votre compte de stockage via le système de fichiers Linux. Le Stockage Blob Azure est un service de stockage d’objets qui n’a pas d’espace de noms hiérarchique. Blobfuse fournit cet espace de noms grâce au schéma de répertoire virtuel qui utilise la barre oblique (`/`) comme délimiteur. Blobfuse fonctionne à la fois sur Azure et sur Azure Stack Hub. 
 
-Pour plus d’informations sur le montage du stockage Blob en tant que système de fichiers avec Blobfuse sur Linux, consultez [Guide pratique pour monter le stockage Blob en tant que système de fichiers avec Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux). 
+Pour plus d’informations sur le montage du stockage Blob en tant que système de fichiers avec Blobfuse sur Linux, consultez [Guide pratique pour monter le stockage Blob en tant que système de fichiers avec Blobfuse](/azure/storage/blobs/storage-how-to-mount-container-linux). 
 
 Pour Azure Stack Hub, *blobEndpoint* doit être spécifié lors de la configuration de vos informations d’identification du compte de stockage avec accountName, accountKey/sasToken et containerName.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 4a7e7987a5b5b7bb60e6acc882c07b80519bc052
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7d6be0c2b70edce6d06a12eb7b73831a46b82c03
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80424589"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86490080"
 ---
 # <a name="event-hubs-on-azure-stack-hub-overview"></a>Vue d’ensemble d’Event Hubs sur Azure Stack Hub
 
@@ -23,7 +23,7 @@ Event Hubs sur Azure Stack Hub vous permet de réaliser des scénarios de cloud 
 
 ## <a name="features"></a>Fonctionnalités
 
-Consultez la [documentation pour les utilisateurs Azure Stack Hub](/azure-stack/user/event-hubs-overview) pour obtenir une comparaison des fonctionnalités entre Event Hubs sur Azure Stack et Azure Event Hubs.
+Consultez la [documentation pour les utilisateurs Azure Stack Hub](../user/event-hubs-overview.md) pour obtenir une comparaison des fonctionnalités entre Event Hubs sur Azure Stack et Azure Event Hubs.
 
 ## <a name="feature-documentation"></a>Documentation sur les fonctionnalités
 

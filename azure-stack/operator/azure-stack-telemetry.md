@@ -8,12 +8,12 @@ ms.date: 1/16/2020
 ms.author: inhenkel
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 6bc12104ef8ce325fe9b1773373ef235a33919e5
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: afaf8f4716443631ae0d2bbe1b82cd84b9d0e424
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696955"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487734"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>Configurer la télémétrie Azure Stack Hub
 
@@ -24,7 +24,7 @@ Si vous êtes opérateur Azure Stack Hub, les données de télémétrie peuvent 
 > [!NOTE]
 > Vous pouvez également configurer Azure Stack Hub pour transmettre certaines informations sur l’utilisation à Azure à des fins de facturation. Cela est requis pour les clients Azure Stack Hub à plusieurs nœuds qui choisissent une facturation de paiement à l’utilisation. Les rapports d’utilisation sont contrôlés indépendamment de la télémétrie et ne sont pas requis pour les clients à plusieurs nœuds qui choisissent le modèle de capacité ou pour les utilisateurs du Kit de développement Azure Stack Hub. Pour ces scénarios, les rapports d’utilisation peuvent être désactivés [à l’aide du script d’enregistrement](azure-stack-usage-reporting.md).
 
-La télémétrie Azure Stack Hub est basée sur le composant Expériences des utilisateurs connectés et télémétrie de Windows Server 2016. Ce composant utilise la technologie TraceLogging [Suivi d’événements pour Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) pour collecter et stocker des événements et des données. Les composants Azure Stack utilisent la même technologie pour publier les événements et les données recueillies à l’aide des API de suivi et de journalisation des événements du système d’exploitation publiques. Parmi les exemples de composants Azure Stack Hub, citons les fournisseurs suivants : Ressource réseau, Ressource de stockage, Supervision de la ressource et Mettre à jour la ressource. Le composant Expériences des utilisateurs connectés et télémétrie chiffre les données à l’aide du protocole SSL et utilise l’épinglage de certificat pour transmettre les données via HTTPS vers le service de gestion des données Microsoft.
+La télémétrie Azure Stack Hub est basée sur le composant Expériences des utilisateurs connectés et télémétrie de Windows Server 2016. Ce composant utilise la technologie TraceLogging [Suivi d’événements pour Windows (ETW)](/windows/win32/tracelogging/trace-logging-about) pour collecter et stocker des événements et des données. Les composants Azure Stack utilisent la même technologie pour publier les événements et les données recueillies à l’aide des API de suivi et de journalisation des événements du système d’exploitation publiques. Parmi les exemples de composants Azure Stack Hub, citons les fournisseurs suivants : Ressource réseau, Ressource de stockage, Supervision de la ressource et Mettre à jour la ressource. Le composant Expériences des utilisateurs connectés et télémétrie chiffre les données à l’aide du protocole SSL et utilise l’épinglage de certificat pour transmettre les données via HTTPS vers le service de gestion des données Microsoft.
 
 > [!IMPORTANT]
 > Pour prendre en charge le flux des données de télémétrie, le port 443 (HTTPS) doit être ouvert sur votre réseau. Le composant Expériences des utilisateurs connectés et télémétrie se connecte au service de gestion des données de Microsoft à l’adresse `https://v10.events.data.microsoft.com`. Le composant Expériences des utilisateurs connectés et télémétrie se connecte également à l’adresse `https://settings-win.data.microsoft.com` pour télécharger les informations de configuration. D’autres services de données de diagnostic se connectent `https://watson.telemetry.microsoft.com` pour le rapport d’erreurs.

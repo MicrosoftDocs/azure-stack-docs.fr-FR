@@ -8,12 +8,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 468e6617ecf4b8be13b56176c805d07c994acda6
-ms.sourcegitcommit: e28821041b8111fdcd2c28d35a83ab0a8018455c
+ms.openlocfilehash: 5acbe557c58d33785e0c227c2014264fbcd06a06
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86033285"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488414"
 ---
 # <a name="azure-stack-hub-overview"></a>Vue d’ensemble d’Azure Stack Hub
 
@@ -68,13 +68,13 @@ Azure Stack Hub utilise le même modèle d’opérations qu’Azure. Un opérate
 
 ![Diagramme montrant les rôles de travail Azure Stack Hub](./media/azure-stack-overview/azure-stack-job-roles.svg)
 
-Vous pouvez gérer Azure Stack Hub avec le portail administrateur, le portail utilisateur ou [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1). Les portails Azure Stack Hub sont chacun secondés par des instances distinctes d’Azure Resource Manager. Un **opérateur Azure Stack Hub** utilise le portail administrateur pour gérer Azure Stack Hub, et pour effectuer des opérations comme la création d’offres de locataire, la gestion de l’intégrité du système intégré et la supervision de son état. Le portail utilisateur fournit une expérience en libre-service pour la consommation de ressources cloud comme des machines virtuelles, des comptes de stockage et des applications web.
+Vous pouvez gérer Azure Stack Hub avec le portail administrateur, le portail utilisateur ou [PowerShell](/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1). Les portails Azure Stack Hub sont chacun secondés par des instances distinctes d’Azure Resource Manager. Un **opérateur Azure Stack Hub** utilise le portail administrateur pour gérer Azure Stack Hub, et pour effectuer des opérations comme la création d’offres de locataire, la gestion de l’intégrité du système intégré et la supervision de son état. Le portail utilisateur fournit une expérience en libre-service pour la consommation de ressources cloud comme des machines virtuelles, des comptes de stockage et des applications web.
 
 > Pour plus d’informations sur la gestion d’Azure Stack Hub avec le portail administrateur, consultez le [guide de démarrage rapide consacré au portail d’administration d’Azure Stack Hub](azure-stack-manage-portals.md).
 
-En tant qu’opérateur Azure Stack Hub, vous pouvez fournir des [machines virtuelles](azure-stack-tutorial-tenant-vm.md), des [applications web](azure-stack-app-service-overview.md) et des bases de données [SQL Server](azure-stack-tutorial-sql.md) et [MySQL Server](azure-stack-tutorial-mysql.md) à haute disponibilité. Vous pouvez également utiliser les [modèles Azure Resource Manager fournis dans le guide de démarrage rapide consacré à Azure Stack Hub](https://github.com/Azure/AzureStack-QuickStart-Templates) pour déployer des produits comme SharePoint ou Exchange.
+En tant qu’opérateur Azure Stack Hub, vous pouvez fournir des [machines virtuelles](./tutorial-offer-services.md?view=azs-2002), des [applications web](azure-stack-app-service-overview.md) et des bases de données [SQL Server](azure-stack-tutorial-sql.md) et [MySQL Server](azure-stack-tutorial-mysql.md) à haute disponibilité. Vous pouvez également utiliser les [modèles Azure Resource Manager fournis dans le guide de démarrage rapide consacré à Azure Stack Hub](https://github.com/Azure/AzureStack-QuickStart-Templates) pour déployer des produits comme SharePoint ou Exchange.
 
-Un opérateur peut gérer Azure Stack Hub avec le [portail administrateur](azure-stack-manage-portals.md) ou [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1). Vous pouvez configurer Azure Stack Hub pour [fournir des services](service-plan-offer-subscription-overview.md) à des locataires en utilisant des plans, des quotas, des offres et des abonnements. Les locataires peuvent s’abonner à plusieurs offres. Les offres peuvent contenir un ou plusieurs plans, et les plans peuvent contenir un ou plusieurs services. Les opérateurs gèrent aussi la capacité et répondent aux alertes.
+Un opérateur peut gérer Azure Stack Hub avec le [portail administrateur](azure-stack-manage-portals.md) ou [PowerShell](/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1). Vous pouvez configurer Azure Stack Hub pour [fournir des services](service-plan-offer-subscription-overview.md) à des locataires en utilisant des plans, des quotas, des offres et des abonnements. Les locataires peuvent s’abonner à plusieurs offres. Les offres peuvent contenir un ou plusieurs plans, et les plans peuvent contenir un ou plusieurs services. Les opérateurs gèrent aussi la capacité et répondent aux alertes.
 
 Les utilisateurs consomment les services offerts par l’opérateur. Les utilisateurs peuvent provisionner, superviser et gérer les services auxquels ils sont abonnés, comme des applications web, du stockage et des machines virtuelles. Les utilisateurs peuvent gérer Azure Stack Hub avec le portail utilisateur ou PowerShell.
 
@@ -90,7 +90,7 @@ Il existe trois fournisseurs de ressources IaaS fondamentaux :
 
 - **Calcul** : Le fournisseur de ressources de calcul permet aux locataires Azure Stack Hub de créer leurs propres machines virtuelles. Le fournisseur de ressources de calcul inclut la possibilité de créer des machines virtuelles ainsi que des extensions de machine virtuelle. Le service d’extension de machine virtuelle fournit des fonctionnalités IaaS pour les machines virtuelles Windows et Linux. Par exemple, vous pouvez utiliser le fournisseur de ressources de calcul pour provisionner une machine virtuelle Linux et exécuter des scripts Bash lors du déploiement pour configurer la machine virtuelle.
 - **Fournisseur de ressources réseau** : Le fournisseur de ressources réseau offre une série de fonctionnalités SDN (Software Defined Networking) et NFV (Network Function Virtualization) pour le cloud privé. Vous pouvez utiliser le fournisseur de ressources réseau pour créer des ressources telles que des équilibreurs de charge logiciels, des adresses IP publiques, des groupes de sécurité réseau et des réseaux virtuels.
-- **Fournisseur de ressources de stockage** : Le fournisseur de ressources de stockage propose quatre services de stockage cohérents au niveau d’Azure : [objet blob](https://docs.microsoft.com/azure/storage/common/storage-introduction#blob-storage), [file d’attente](https://docs.microsoft.com/azure/storage/common/storage-introduction#queue-storage), [table](https://docs.microsoft.com/azure/storage/common/storage-introduction#table-storage) et gestion de comptes [Key Vault](https://docs.microsoft.com/azure/key-vault/) pour la gestion et l’audit des secrets, comme les mots de passe et les certificats. Le fournisseur de ressources de stockage offre également un service d’administration de stockage cloud pour faciliter l’administration du fournisseur de services de stockage cohérents au niveau d’Azure. Stockage Azure offre la flexibilité nécessaire pour stocker et récupérer de grandes quantités de données non structurées, comme des documents et des fichiers multimédias avec des objets blob Azure, et de données NoSQL structurées avec des tables Azure.
+- **Fournisseur de ressources de stockage** : Le fournisseur de ressources de stockage propose quatre services de stockage cohérents au niveau d’Azure : [objet blob](/azure/storage/common/storage-introduction#blob-storage), [file d’attente](/azure/storage/common/storage-introduction#queue-storage), [table](/azure/storage/common/storage-introduction#table-storage) et gestion de comptes [Key Vault](/azure/key-vault/) pour la gestion et l’audit des secrets, comme les mots de passe et les certificats. Le fournisseur de ressources de stockage offre également un service d’administration de stockage cloud pour faciliter l’administration du fournisseur de services de stockage cohérents au niveau d’Azure. Stockage Azure offre la flexibilité nécessaire pour stocker et récupérer de grandes quantités de données non structurées, comme des documents et des fichiers multimédias avec des objets blob Azure, et de données NoSQL structurées avec des tables Azure.
 
 ### <a name="optional-resource-providers"></a>Fournisseurs de ressources facultatifs
 

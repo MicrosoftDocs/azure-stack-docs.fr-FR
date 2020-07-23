@@ -8,12 +8,12 @@ ms.date: 10/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: b29b5963326a49b5e74c786f22b53e20e32c2bd6
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 449c1dac3e983aacefe4d69581ee854239d435ae
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374696"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489604"
 ---
 # <a name="app-service-on-azure-stack-hub-update-7-release-notes"></a>Notes de publication App Service sur Azure Stack Hub Update 7
 
@@ -75,7 +75,7 @@ Azure App Service sur Azure Stack Hub Update 7 contient les améliorations et 
   - [Mise à jour cumulative d’août 2019 pour Windows Server 2016 sur systèmes x64 (KB4512495)](https://support.microsoft.com/help/4512495)
 
 - **Restrictions d’accès désormais activées dans le portail utilisateur** :
-  - Les utilisateurs peuvent désormais configurer des restrictions d’accès pour leurs applications web/API/de fonction, conformément à la documentation publiée, [Restrictions d’accès dans Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions).
+  - Les utilisateurs peuvent désormais configurer des restrictions d’accès pour leurs applications web/API/de fonction, conformément à la documentation publiée, [Restrictions d’accès dans Azure App Service](/azure/app-service/app-service-ip-restrictions).
   
   > [!NOTE]
   > Azure App Service sur Azure Stack Hub ne prend pas en charge les points de terminaison de service.
@@ -98,7 +98,7 @@ Azure App Service sur Azure Stack Hub Update 7 contient les améliorations et 
 ## <a name="post-deployment-steps"></a>Étapes de post-déploiement
 
 > [!IMPORTANT]
-> Si vous avez approvisionné le fournisseur de ressources App Service avec une instance SQL Always On, vous DEVEZ [ajouter les bases de données appservice_hosting et appservice_metering à un groupe de disponibilité](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database), puis les synchroniser pour éviter toute perte de service en cas de basculement d’une base de données.
+> Si vous avez approvisionné le fournisseur de ressources App Service avec une instance SQL Always On, vous DEVEZ [ajouter les bases de données appservice_hosting et appservice_metering à un groupe de disponibilité](/sql/database-engine/availability-groups/windows/availability-group-add-a-database), puis les synchroniser pour éviter toute perte de service en cas de basculement d’une base de données.
 
 ## <a name="known-issues-post-installation"></a>Problèmes connus (après l’installation)
 
@@ -118,7 +118,7 @@ Si vous avez choisi de procéder au déploiement dans un réseau virtuel existan
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Problèmes connus pour les administrateurs cloud utilisant Azure App Service sur Azure Stack Hub
 
-Reportez-vous à la documentation fournie dans les [Notes de publication d’Azure Stack Hub 1907](azure-stack-release-notes-1907.md).
+Reportez-vous à la documentation fournie dans les [Notes de publication d’Azure Stack Hub 1907](./release-notes.md?view=azs-2002).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

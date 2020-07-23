@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 27e7073d2b266cb5fa8c7c36739219bc29660e87
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: f19d64331e7ef64095bc91a04eb817e2f056d3a9
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374598"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489706"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>Notes de publication de la mise à jour 8 d’App Service sur Azure Stack Hub
 
@@ -105,7 +105,7 @@ Effectuez l’une des actions suivantes, puis sélectionnez Réessayer dans le p
 ## <a name="post-deployment-steps"></a>Étapes de post-déploiement
 
 > [!IMPORTANT]
-> Si vous avez approvisionné le fournisseur de ressources App Service avec une instance SQL Always On, vous DEVEZ [ajouter les bases de données appservice_hosting et appservice_metering à un groupe de disponibilité](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database), puis les synchroniser pour éviter toute perte de service en cas de basculement d’une base de données.
+> Si vous avez approvisionné le fournisseur de ressources App Service avec une instance SQL Always On, vous DEVEZ [ajouter les bases de données appservice_hosting et appservice_metering à un groupe de disponibilité](/sql/database-engine/availability-groups/windows/availability-group-add-a-database), puis les synchroniser pour éviter toute perte de service en cas de basculement d’une base de données.
 
 ## <a name="known-issues-post-installation"></a>Problèmes connus (après l’installation)
 
@@ -130,7 +130,7 @@ Effectuez l’une des actions suivantes, puis sélectionnez Réessayer dans le p
     > [!IMPORTANT]
     > Cette procédure prend environ 5 à 10 minutes. Elle suppose de forcer l’arrêt des sessions de connexion à la base de données. Planifiez un temps d'arrêt pour la migration et la validation d'Azure App Service sur Azure Stack Hub après la migration.
 
-    1. Ajoutez les [bases de données App Service (appservice_hosting et appservice_metering) à un groupe de disponibilité](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
+    1. Ajoutez les [bases de données App Service (appservice_hosting et appservice_metering) à un groupe de disponibilité](/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
 
     1. Activez la base de données autonome.
 
@@ -298,7 +298,7 @@ Effectuez l’une des actions suivantes, puis sélectionnez Réessayer dans le p
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Problèmes connus pour les administrateurs cloud utilisant Azure App Service sur Azure Stack Hub
 
-Reportez-vous à la documentation fournie dans les [Notes de publication d’Azure Stack Hub 1907](azure-stack-release-notes-1907.md).
+Reportez-vous à la documentation fournie dans les [Notes de publication d’Azure Stack Hub 1907](./release-notes.md?view=azs-2002).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

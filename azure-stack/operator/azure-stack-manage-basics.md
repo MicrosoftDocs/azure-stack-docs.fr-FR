@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/16/2020
 ms.author: justinha
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: 62cccdb235432f6ca870605e061be2c2c0dac74a
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: bacaccd664996af7dafa7fd6b7b3518b7dcaa851
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819274"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488550"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Principes de bases de l’administration d’Azure Stack Hub
 
@@ -96,7 +96,7 @@ En plus de fournir des services, vous devez effectuer toutes les tâches standar
 
 ## <a name="what-to-tell-your-users"></a>Ce que vous devez dire à vos utilisateurs
 
-Vous devez dire à vos utilisateurs comment utiliser des services dans Azure Stack Hub, se connecter à l’environnement et s’abonner aux offres. Outre la documentation personnalisée que vous voudrez peut-être fournir à vos utilisateurs, vous diriger ceux-ci vers la [Documentation pour les utilisateurs Azure Stack Hub](/azure-stack/user/).
+Vous devez dire à vos utilisateurs comment utiliser des services dans Azure Stack Hub, se connecter à l’environnement et s’abonner aux offres. Outre la documentation personnalisée que vous voudrez peut-être fournir à vos utilisateurs, vous diriger ceux-ci vers la [Documentation pour les utilisateurs Azure Stack Hub](../user/index.yml).
 
 **Utiliser des services dans Azure Stack Hub**
 

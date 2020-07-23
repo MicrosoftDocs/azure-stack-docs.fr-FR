@@ -7,16 +7,16 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 1fbf50e36b75c847f81b9c065410a736d557f5e4
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 7e64ed126e8a5c7fc875b21b499b93a986ab6d07
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146714"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566357"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-gre-in-azure-stack-hub"></a>Créer un tunnel VPN à l’aide de GRE dans Azure Stack Hub
 
-Vous pouvez utiliser le modèle Resource Manager d’Azure Stack Hub de cette solution pour connecter deux réseaux virtuels Azure Stack Hub au sein du même environnement Azure Stack Hub. Vous [ne pouvez pas connecter de réseaux virtuels Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences) à l’aide de la passerelle de réseau virtuel intégrée. Actuellement, vous devez utiliser des appliances virtuelles réseau pour créer un tunnel VPN entre deux réseaux virtuels Azure Stack Hub. Le modèle de solution déploie deux machines virtuelles Windows Server 2016 avec RRAS installé. La solution configure les deux serveurs RRAS pour utiliser un tunnel S2SVPN IKEv2 entre les deux réseaux virtuels. Les règles UDR et NSG qui conviennent sont créées pour permettre le routage entre les sous-réseaux de chaque réseau virtuel désigné comme **interne**. 
+Vous pouvez utiliser le modèle Resource Manager d’Azure Stack Hub de cette solution pour connecter deux réseaux virtuels Azure Stack Hub au sein du même environnement Azure Stack Hub. Vous [ne pouvez pas connecter de réseaux virtuels Azure Stack Hub](./azure-stack-network-differences.md) à l’aide de la passerelle de réseau virtuel intégrée. Actuellement, vous devez utiliser des appliances virtuelles réseau pour créer un tunnel VPN entre deux réseaux virtuels Azure Stack Hub. Le modèle de solution déploie deux machines virtuelles Windows Server 2016 avec RRAS installé. La solution configure les deux serveurs RRAS pour utiliser un tunnel S2SVPN IKEv2 entre les deux réseaux virtuels. Les règles UDR et NSG qui conviennent sont créées pour permettre le routage entre les sous-réseaux de chaque réseau virtuel désigné comme **interne**. 
 
 Ce modèle de déploiement est la base qui vous permet de créer des tunnels VPN non seulement au sein de votre instance Azure Stack Hub, mais également entre des instances Azure Stack Hub et d’autres ressources, telles que vos réseaux locaux, avec l’utilisation de tunnels VPN S2S Windows RRAS.
 

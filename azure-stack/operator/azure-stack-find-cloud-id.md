@@ -7,12 +7,12 @@ ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: e0045ae6bf76b6b4e5973f65c6c0a5f758e0d46b
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 09b22541ed77915a2a28c4abf5212ccbbbf5fb81
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79520620"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488958"
 ---
 # <a name="find-your-cloud-id"></a>Rechercher votre ID cloud
 
@@ -51,11 +51,5 @@ Cette rubrique explique comment vous procurer l’ID cloud à l’aide du portai
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Send logs proactively](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md) (Envoyer les journaux de manière proactive)
-* [Send logs now](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) (Envoyer les journaux maintenant)
-
-
-
-
-
-
+* [Send logs proactively](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002) (Envoyer les journaux de manière proactive)
+* [Send logs now](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) (Envoyer les journaux maintenant)

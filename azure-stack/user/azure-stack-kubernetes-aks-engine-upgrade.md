@@ -7,12 +7,12 @@ ms.date: 4/23/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: 347d790a4e70e37e83be43019f25b875b7ff2302
-ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
+ms.openlocfilehash: dc89c8939f7a0ad988586df3fe0e33a02c2f7c79
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84533720"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567550"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Mettre à niveau un cluster Kubernetes sur Azure Stack Hub
 
@@ -65,7 +65,7 @@ Pour un mappage complet des versions du moteur AKS, de l’image de base AKS et 
     | azure-env | AzureStackCloud | Pour indiquer au moteur AKS que votre plateforme cible est Azure Stack Hub, utilisez `AzureStackCloud`. |
     | location | local | Nom de la région de votre Azure Stack Hub. Pour le kit de développement Azure Stack (ASDK), la région est définie sur `local`. |
     | resource-group | kube-rg | Entrez le nom d’un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant. Le nom de la ressource doit être alphanumérique et en minuscules. |
-    | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Entrez votre ID d’abonnement. Pour plus d’informations, consultez [S’abonner à une offre](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer). |
+    | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Entrez votre ID d’abonnement. Pour plus d’informations, consultez [S’abonner à une offre](./azure-stack-subscribe-services.md#subscribe-to-an-offer). |
     | api-model | ./kubernetes-azurestack.json | Chemin du fichier de configuration du cluster ou modèle d’API. |
     | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Entrez le GUID du principal du service. ID de client identifié comme ID d’application lorsque votre administrateur Azure Stack Hub a créé le principal du service. |
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Entrez le secret du principal du service. Il s’agit de la clé secrète client que vous définissez lors de la création de votre service. |

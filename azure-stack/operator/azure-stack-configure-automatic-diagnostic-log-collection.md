@@ -7,12 +7,12 @@ ms.date: 04/17/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 04/17/2020
-ms.openlocfilehash: 067817e29858113fc22b596aa394d6e0942e921a
-ms.sourcegitcommit: b2b0fe629d840ca8d5b6353a90f1fcb392a73bd5
+ms.openlocfilehash: a348b2c301b7fbfbffe31f9ea5dff3fbb3e92b44
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85377147"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489332"
 ---
 # <a name="proactive-diagnostic-log-collection-in-azure-stack-hub"></a>Collecte proactive des journaux de diagnostic dans Azure Stack Hub
 
@@ -51,9 +51,9 @@ Vous pouvez enregistrer les fichiers journaux Azure Stack Hub dans un conteneur 
 
 ### <a name="prerequisites"></a>Prérequis
 
-Vous pouvez utiliser un conteneur d’objets blob nouveau ou existant dans Azure. Pour créer un conteneur d’objets blob dans Azure, vous devez disposer au minimum du [rôle de contributeur de stockage d'objets blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) ou de l'[autorisation spécifique](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). Les administrateurs généraux disposent également de l'autorisation nécessaire.
+Vous pouvez utiliser un conteneur d’objets blob nouveau ou existant dans Azure. Pour créer un conteneur d’objets blob dans Azure, vous devez disposer au minimum du [rôle de contributeur de stockage d'objets blob](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) ou de l'[autorisation spécifique](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). Les administrateurs généraux disposent également de l'autorisation nécessaire.
 
-Pour connaître les meilleures pratiques en matière de choix des paramètres du compte de stockage de la collecte automatique des journaux, consultez [Meilleures pratiques pour la collecte automatique des journaux Azure Stack Hub](azure-stack-best-practices-automatic-diagnostic-log-collection.md). Pour plus d'informations sur les types de comptes de stockage, consultez [Vue d'ensemble des comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+Pour connaître les meilleures pratiques en matière de choix des paramètres du compte de stockage de la collecte automatique des journaux, consultez [Meilleures pratiques pour la collecte automatique des journaux Azure Stack Hub](./azure-stack-overview.md?view=azs-2002). Pour plus d'informations sur les types de comptes de stockage, consultez [Vue d'ensemble des comptes de stockage Azure](/azure/storage/common/storage-account-overview).
 
 ### <a name="create-a-blob-storage-account"></a>Création d’un compte de stockage d’objets blob
 
@@ -97,7 +97,7 @@ Pour connaître les meilleures pratiques en matière de choix des paramètres du
 
 1. Sélectionnez **Create** (Créer).  
 
-Copiez l’URL et entrez-la lorsque vous [configurez la collecte automatique des journaux](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md). Pour plus d’informations sur les URL SAP, consultez [Utilisation des signatures d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
+Copiez l’URL et entrez-la lorsque vous [configurez la collecte automatique des journaux](?view=azs-2002). Pour plus d’informations sur les URL SAP, consultez [Utilisation des signatures d’accès partagé (SAP)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
 
 ## <a name="steps-to-configure-automatic-log-collection"></a>Procédure de configuration de la collecte automatique des journaux
 

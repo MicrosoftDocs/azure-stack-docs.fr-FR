@@ -4,17 +4,17 @@ description: Guide pratique pour utiliser un GPU avec des charges de travail d�
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 03/24/2020
-ms.openlocfilehash: 804ead80185f6fe140f6b7d216bcff845769735e
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/01/2020
+ms.openlocfilehash: e00d35e02b45d0a184bc8274d06ed2460f2de152
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196985"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866856"
 ---
 # <a name="attaching-a-gpu-to-an-ubuntu-linux-vm-on-azure-stack-hci"></a>Attachement d’un GPU à une machine virtuelle Ubuntu Linux sur Azure Stack HCI
 
-> S’applique à : Windows Server 2019
+> S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
 
 Cette rubrique fournit des instructions pas à pas sur l’installation et la configuration d’un processeur graphique (GPU, graphics processing unit) NVIDIA avec Azure Stack HCI en utilisant la technologie DDA (Discrete Device Assignment) pour une machine virtuelle Ubuntu.
 Ce document suppose que le cluster Azure Stack HCI est déployé et que les machines virtuelles sont installées.

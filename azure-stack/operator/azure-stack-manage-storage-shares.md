@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: ecac1c8c69a8f332a85bf0a934f688f14dbcaddd
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 1c80f8d0d83ab734be98d8e26d4c3abe803ae514
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84630995"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488703"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Gérer la capacité de stockage pour Azure Stack Hub
 
@@ -45,7 +45,7 @@ Comme les objets de stockage (objets blob, etc.) sont individuellement contenus 
 
 Quand un volume de magasin d’objets manque d’espace libre et que les actions pour en [récupérer](#reclaim-capacity) n’aboutissent pas ou ne sont pas disponibles, les opérateurs de cloud Azure Stack Hub peuvent migrer des objets de stockage d’un volume vers un autre.
 
-Pour plus d’informations sur l’utilisation du stockage d’objets blob dans Azure Stack Hub par les utilisateurs locataires, voir la section [Services de stockage Azure Stack Hub](/azure-stack/user/azure-stack-storage-overview).
+Pour plus d’informations sur l’utilisation du stockage d’objets blob dans Azure Stack Hub par les utilisateurs locataires, voir la section [Services de stockage Azure Stack Hub](../user/azure-stack-storage-overview.md).
 
 ### <a name="containers"></a>Containers
 Les utilisateurs locataires créent des conteneurs qui sont ensuite utilisés pour stocker des données d’objet blob. Même si les utilisateurs décident du conteneur dans lequel placer les objets blob, le service de stockage utilise un algorithme pour identifier le volume dans lequel placer le conteneur. En règle générale, l’algorithme choisit le volume contenant la plus grande quantité d’espace disponible.  
@@ -173,7 +173,7 @@ La migration consolide tous les objets blob d’un conteneur du nouveau partage.
 > La migration des objets blob d’un conteneur est une opération hors connexion qui nécessite l’utilisation de PowerShell. Tant que la migration n’est pas terminée, tous les objets blob du conteneur que vous migrez restent hors connexion et ne peuvent pas être utilisés. Il est aussi conseillé d’éviter la mise à niveau d’Azure Stack Hub tant que toutes les migrations en cours ne sont pas terminées.
 
 #### <a name="migrate-containers-by-using-powershell"></a>Migrer des conteneurs en utilisant PowerShell
-1. Vérifiez qu’[Azure PowerShell est installé et configuré](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). Pour plus d’informations, consultez [Gérer les ressources Azure à l’aide d’Azure PowerShell](https://go.microsoft.com/fwlink/?LinkId=394767).
+1. Vérifiez qu’[Azure PowerShell est installé et configuré](/powershell/azure/). Pour plus d’informations, consultez [Gérer les ressources Azure à l’aide d’Azure PowerShell](https://go.microsoft.com/fwlink/?LinkId=394767).
 2. Examinez le conteneur pour connaître les données du partage que vous envisagez de migrer. Afin d’identifier les meilleurs conteneurs candidats pour la migration d’un volume, utilisez l’applet de commande `Get-AzsStorageContainer` :
 
    ```powershell  
@@ -324,4 +324,4 @@ La méthode la plus extrême de gestion de l’espace implique le déplacement d
 ::: moniker-end
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur l’offre des machines virtuelles aux utilisateurs, consultez [Gérer la capacité de stockage pour Azure Stack Hub](azure-stack-tutorial-tenant-vm.md).
+Pour en savoir plus sur l’offre des machines virtuelles aux utilisateurs, consultez [Gérer la capacité de stockage pour Azure Stack Hub](./tutorial-offer-services.md?view=azs-2002).

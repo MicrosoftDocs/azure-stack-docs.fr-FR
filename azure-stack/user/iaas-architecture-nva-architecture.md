@@ -7,18 +7,18 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 4fc7269e81e021f30049f7b93a9651443f381d6b
-ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
+ms.openlocfilehash: 19cfee9cf4e2698bcb75cb7dd15a9439ed55341a
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82643538"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566088"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>Déployer des appliances virtuelles réseau hautement disponibles sur Azure Stack Hub
 
 Cet article explique comment déployer des appliances virtuelles réseau pour la haute disponibilité dans Azure Stack Hub. Une appliance virtuelle réseau est généralement utilisée pour contrôler le flux de trafic réseau à partir d’un réseau de périmètre, également appelé DMZ, vers d’autres réseaux ou sous-réseaux. L’article inclut des exemples d’architecture pour l’entrée ou la sortie uniquement, et pour les deux à la fois.
 
-Différents fournisseurs proposent des appliances virtuelles réseau sur la [Place de marché Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items). N’hésitez pas à avoir recours à l’une de ces appliances pour bénéficier de performances optimales.
+Différents fournisseurs proposent des appliances virtuelles réseau sur la [Place de marché Azure Stack Hub](../operator/azure-stack-marketplace-azure-items.md). N’hésitez pas à avoir recours à l’une de ces appliances pour bénéficier de performances optimales.
 
 L’architecture possède les composants suivants :
 
@@ -26,13 +26,13 @@ L’architecture possède les composants suivants :
 
 -   **Réseau virtuel et sous-réseaux**. Chaque machine virtuelle Azure est déployée dans un réseau virtuel qui peut être segmenté en sous-réseaux. Créez un sous-réseau distinct pour chaque niveau.
 
--   **Équilibreur de charge de couche 7.** Application Gateway n’étant pas encore disponible sur Azure Stack Hub, des alternatives sont proposées sur la [Place de marché Azure Stack Hub ](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items), par exemple : [Commutateur de contenu ADC Load Balancer KEMP LoadMaster](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [f5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) ou [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
+-   **Équilibreur de charge de couche 7.** Application Gateway n’étant pas encore disponible sur Azure Stack Hub, des alternatives sont proposées sur la [Place de marché Azure Stack Hub ](../operator/azure-stack-marketplace-azure-items.md), par exemple : [Commutateur de contenu ADC Load Balancer KEMP LoadMaster](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [f5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) ou [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
 
--   **Équilibreurs de charge** : Utilisez [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) pour répartir le trafic réseau de la couche Web vers la couche Entreprise, et de la couche Entreprise vers SQL Server.
+-   **Équilibreurs de charge** : Utilisez [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) pour répartir le trafic réseau de la couche Web vers la couche Entreprise, et de la couche Entreprise vers SQL Server.
 
 -   **Groupes de sécurité réseau (NSG) :** Utilisez des groupes de sécurité réseau pour limiter le trafic réseau au sein du réseau virtuel. Par exemple, dans l'architecture à trois couches illustrée ici, la couche Base de données n'accepte pas le trafic en provenance du serveur web frontal, mais uniquement de la couche Entreprise et du sous-réseau de gestion.
 
--   **Itinéraires définis par l'utilisateur (UDR).** Utilisez des [*itinéraires définis par l'utilisateur*](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview/) (UDR) pour acheminer le trafic vers l'équilibreur de charge spécifique.
+-   **Itinéraires définis par l'utilisateur (UDR).** Utilisez des [*itinéraires définis par l'utilisateur*](/azure/virtual-network/virtual-networks-udr-overview/) (UDR) pour acheminer le trafic vers l'équilibreur de charge spécifique.
 
 Cet article suppose une connaissance élémentaire de la mise en réseau Azure Stack Hub.
 
@@ -84,4 +84,4 @@ Dans l'architecture Entrée-sortie avec appliances virtuelles réseau de couche 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur les machines virtuelles Azure Stack Hub, voir [Fonctionnalités des machines virtuelles Azure Stack Hub](azure-stack-vm-considerations.md).  
-- Pour plus d’informations sur les modèles Azure Cloud, consultez [Modèles de conception cloud](https://docs.microsoft.com/azure/architecture/patterns).
+- Pour plus d’informations sur les modèles Azure Cloud, consultez [Modèles de conception cloud](/azure/architecture/patterns).

@@ -7,12 +7,12 @@ ms.date: 07/07/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 6dd3cb20570bcd4cf580f169f8ba9cbc44a673ac
-ms.sourcegitcommit: 84b089387f5cf89e3a72e576f1c7649667075e0a
+ms.openlocfilehash: c687e704f1e8cb1d0e650dd0e283567a07d96fd2
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86137183"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566207"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub
 
@@ -68,7 +68,7 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
     | --- | --- |
     | dnsPrefix | Entrez une chaîne unique qui servira à identifier le nom d’hôte des machines virtuelles. Par exemple, un nom basé sur le nom du groupe de ressources. |
     | count |  Entrez le nombre de maîtres que vous souhaitez pour votre déploiement. Le minimum pour un déploiement HA s’élève à 3, mais 1 seul maître est autorisé pour les déploiements non-HA. |
-    | vmSize |  Entrez [une taille prise en charge par Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), par exemple `Standard_D2_v2`. |
+    | vmSize |  Entrez [une taille prise en charge par Azure Stack Hub](./azure-stack-vm-sizes.md), par exemple `Standard_D2_v2`. |
     | distro | Entrez `aks-ubuntu-16.04`. |
 
 8.  Dans la mise à jour `agentPoolProfiles` :
@@ -76,7 +76,7 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
     | Champ | Description |
     | --- | --- |
     | count | Entrez le nombre d’agents que vous souhaitez pour votre déploiement. Le nombre maximal de nœuds à utiliser par abonnement est de 50. Si vous déployez plus d’un cluster par abonnement, veillez à ne pas dépasser 50 agents. Utilisez les éléments de configuration spécifiés dans l’[exemple de fichier JSON de modèle d’API](https://github.com/Azure/aks-engine/blob/master/examples/azure-stack/kubernetes-azurestack.json).  |
-    | vmSize | Entrez [une taille prise en charge par Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), par exemple `Standard_D2_v2`. |
+    | vmSize | Entrez [une taille prise en charge par Azure Stack Hub](./azure-stack-vm-sizes.md), par exemple `Standard_D2_v2`. |
     | distro | Entrez `aks-ubuntu-16.04`. |
 
 
@@ -123,7 +123,7 @@ Procéder au déploiement d’un cluster :
     | output-directory | kube-rg | Entrez le nom du répertoire contenant le fichier de sortie `apimodel.json`, ainsi que d’autres fichiers générés. |
     | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Entrez le GUID du principal du service. ID de client identifié comme ID d’application lorsque votre administrateur Azure Stack Hub a créé le principal du service. |
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Entrez le secret du principal du service. Vous configurez la clé secrète client quand vous créez votre service. |
-    | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Entrez votre ID d’abonnement. Pour plus d’informations, consultez [S’abonner à une offre](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer). |
+    | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Entrez votre ID d’abonnement. Pour plus d’informations, consultez [S’abonner à une offre](./azure-stack-subscribe-services.md#subscribe-to-an-offer). |
 
     Voici un exemple :
 

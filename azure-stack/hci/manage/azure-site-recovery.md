@@ -6,12 +6,12 @@ author: davannaw-msft
 ms.author: dawhite
 ms.date: 04/30/2020
 ms.localizationpriority: low
-ms.openlocfilehash: 0465666549e0ae8801c9bab0be6d8a3d6dad8891
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.openlocfilehash: d66948092d97ac42ef9484d47e9b584ed6a80a90
+ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196458"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86947569"
 ---
 # <a name="protect-azure-stack-hci-vms-using-azure-site-recovery"></a>Protéger les machines virtuelles Azure Stack HCI à l'aide d'Azure Site Recovery
 
@@ -24,7 +24,7 @@ Cet article explique comment utiliser Azure Site Recovery pour configurer les pa
 Pour plus d'informations, consultez [Connexion de Windows Server aux services Azure hybrides](/windows-server/manage/windows-admin-center/azure/).
 
 ## <a name="how-azure-site-recovery-works-with-windows-admin-center"></a>Fonctionnement d'Azure Site Recovery avec le Centre d'administration Windows
-*Azure Site Recovery* est un service Azure qui réplique les charges de travail exécutées sur les machines virtuelles afin de protéger l'infrastructure de votre entreprise en cas de sinistre. Pour plus d'informations, consultez [À propos de Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
+*Azure Site Recovery* est un service Azure qui réplique les charges de travail exécutées sur les machines virtuelles afin de protéger l'infrastructure de votre entreprise en cas de sinistre. Pour plus d'informations, consultez [À propos de Site Recovery](/azure/site-recovery/site-recovery-overview).
 
 Azure Site Recovery comprend un composant de *réplication* et d'un composant de *basculement*. En cas de sinistre, la partie réplication protège vos machines virtuelles en répliquant le disque dur virtuel de la machine virtuelle cible sur un compte de stockage Azure. Vous pouvez ensuite basculer les machines virtuelles et les exécuter dans Azure. Vous pouvez également effectuer un test de basculement sans impact sur vos machines virtuelles principales pour tester le processus de récupération dans Azure.
 
@@ -36,8 +36,8 @@ Vous pouvez configurer la partie basculement lorsque vous souhaitez basculer ver
 Les conditions préalables ci-dessous doivent être réunies pour suivre les étapes décrites dans cet article.
 
 - Les serveurs cibles qui hébergent les machines virtuelles à protéger doivent disposer d'un accès à Internet pour la réplication vers Azure.
-- Connexion entre le Centre d'administration Windows et Azure. Pour plus d'informations, consultez [Configurer l'intégration d'Azure](https://docs.microsoft.com/windows-server/manage/windows-admin-center/azure/azure-integration).
-- Passer en revue l'outil de planification de la capacité pour évaluer les conditions d'une réplication et d'un basculement réussis. Pour plus d'informations, consultez [À propos du Planificateur de déploiement Azure Site Recovery pour la récupération d'urgence de Hyper-V sur Azure](https://docs.microsoft.com/azure/site-recovery/hyper-v-site-walkthrough-capacity).
+- Connexion entre le Centre d'administration Windows et Azure. Pour plus d'informations, consultez [Configurer l'intégration d'Azure](/windows-server/manage/windows-admin-center/azure/azure-integration).
+- Passer en revue l'outil de planification de la capacité pour évaluer les conditions d'une réplication et d'un basculement réussis. Pour plus d'informations, consultez [À propos du Planificateur de déploiement Azure Site Recovery pour la récupération d'urgence de Hyper-V sur Azure](/azure/site-recovery/hyper-v-site-walkthrough-capacity).
 
 ## <a name="step-1-set-up-vm-protection-on-your-target-host"></a>Étape 1 : Configurer la protection des machines virtuelles sur votre hôte cible
 Procédez comme suit une fois par serveur hôte ou cluster contenant les machines virtuelles à protéger :
@@ -73,9 +73,9 @@ Pour protéger vos machines virtuelles, procédez comme suit :
 
     :::image type="content" source="media/azure-site-recovery/protect-vm-setting.png" alt-text="Option Protéger la machine virtuelle dans le Centre d'administration Windows.":::
 
-1. Passez en revue la capacité requise pour protéger la machine virtuelle. Pour plus d'informations, consultez [Planifier la capacité nécessaire à la récupération d'urgence des machines virtuelles Hyper-V](https://docs.microsoft.com/azure/site-recovery/site-recovery-capacity-planner).
+1. Passez en revue la capacité requise pour protéger la machine virtuelle. Pour plus d'informations, consultez [Planifier la capacité nécessaire à la récupération d'urgence des machines virtuelles Hyper-V](/azure/site-recovery/site-recovery-capacity-planner).
 
-    Si vous souhaitez utiliser un compte de stockage Premium, créez-en un sur le portail Azure. Pour plus d'informations, consultez la section **SSD Premium** de [Quels sont les types de disque disponibles dans Azure ?](https://docs.microsoft.com/azure/storage/common/storage-premium-storage) L'option **Créer nouveau** du Centre d'administration Windows crée un compte de stockage standard.
+    Si vous souhaitez utiliser un compte de stockage Premium, créez-en un sur le portail Azure. Pour plus d'informations, consultez la section **SSD Premium** de [Quels sont les types de disque disponibles dans Azure ?](/azure/storage/common/storage-premium-storage) L'option **Créer nouveau** du Centre d'administration Windows crée un compte de stockage standard.
 
 1. Entrez le nom du **compte de stockage** à utiliser pour la réplication de cette machine virtuelle, puis sélectionnez **Protéger la machine virtuelle** pour activer la réplication de celle-ci.
 
@@ -87,17 +87,17 @@ Pour protéger vos machines virtuelles, procédez comme suit :
 Cette étape n'est pas obligatoire avant de lancer la réplication de la machine virtuelle. La réplication suffit à elle seule à protéger la machine virtuelle. Néanmoins, nous vous recommandons de configurer les paramètres de basculement au moment de la configuration d'Azure Site Recovery.
 
 Procédez comme suit pour préparer le basculement vers une machine virtuelle Azure :
-1. Configurez un réseau Azure que la machine virtuelle basculée joindra à ce réseau virtuel. Pour plus d'informations, consultez [Configurer la récupération d'urgence des machines virtuelles Hyper-V locales dans Azure](https://docs.microsoft.com/azure/site-recovery/hyper-v-site-walkthrough-prepare-azure).
+1. Configurez un réseau Azure que la machine virtuelle basculée joindra à ce réseau virtuel. Pour plus d'informations, consultez [Configurer la récupération d'urgence des machines virtuelles Hyper-V locales dans Azure](/azure/site-recovery/hyper-v-site-walkthrough-prepare-azure).
 
     >[!NOTE]
     > Le Centre d'administration Windows accomplit automatiquement les étapes de cette ressource. Il vous suffit de configurer le réseau Azure.
 
-1. Exécutez un test de basculement. Pour plus d'informations, consultez [Exécuter une simulation de récupération d'urgence dans Azure](https://docs.microsoft.com/azure/site-recovery/hyper-v-site-walkthrough-test-failover).
+1. Exécutez un test de basculement. Pour plus d'informations, consultez [Exécuter une simulation de récupération d'urgence dans Azure](/azure/site-recovery/hyper-v-site-walkthrough-test-failover).
 
 ## <a name="step-4-create-recovery-plans"></a>Étape 4 : Créer des plans de récupération
 Les plans de récupération Azure Site Recovery vous permettent de basculer et de récupérer l'ensemble des machines virtuelles d'une application. Il est possible de récupérer des machines virtuelles protégées individuellement. Mais il est préférable d'ajouter les machines virtuelles d'une application à votre plan de récupération. Vous pourrez alors basculer l'ensemble de l'application via le plan de récupération. Vous pouvez également utiliser la fonctionnalité de test de basculement d'un plan de récupération pour tester la récupération de l'application.
 
-Les plans de récupération vous permettent de regrouper des machines virtuelles, de déterminer l'ordre dans lequel elles doivent démarrer lors d'un basculement et d'automatiser les autres étapes de récupération. Après avoir protégé vos machines virtuelles, vous pouvez accéder au coffre Azure Site Recovery du portail Azure afin de créer des plans de récupération pour celles-ci. Pour plus d'informations, consultez [Créer et personnaliser des plans de récupération](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans).
+Les plans de récupération vous permettent de regrouper des machines virtuelles, de déterminer l'ordre dans lequel elles doivent démarrer lors d'un basculement et d'automatiser les autres étapes de récupération. Après avoir protégé vos machines virtuelles, vous pouvez accéder au coffre Azure Site Recovery du portail Azure afin de créer des plans de récupération pour celles-ci. Pour plus d'informations, consultez [Créer et personnaliser des plans de récupération](/azure/site-recovery/site-recovery-create-recovery-plans).
 
 ## <a name="step-5-monitor-replicated-vms-in-azure"></a>Étape 5 : Superviser les machines virtuelles répliquées dans Azure
 Pour vérifier l'absence de défaillances dans le processus d'inscription du serveur, accédez au **portail Azure**, puis sélectionnez **Toutes les ressources**, **Coffre Recovery Services**, **Travaux** et **Travaux Site Recovery**. Le nom du **coffre Recovery Services** est celui que vous avez spécifié à l'étape 6 de la première tâche de cet article.
@@ -112,4 +112,4 @@ Lorsque vous inscrivez Azure Site Recovery auprès d'un cluster, si un nœud ne 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations sur Azure Site Recovery, consultez également :
 
-- [Questions générales sur Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq)
+- [Questions générales sur Azure Site Recovery](/azure/site-recovery/site-recovery-faq)

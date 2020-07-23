@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: f447f4969e9cb9bcb4d56ea5961473e1028e44f3
-ms.sourcegitcommit: 7b8e067cb449e67ca9c2935580684d78840ad495
+ms.openlocfilehash: 563892dd4275c6e42fdda1f7046edc7418f50350
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106905"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488397"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Planification de l’intégration réseau pour Azure Stack
 
@@ -92,7 +92,7 @@ Ce réseau /29 (6 adresses IP d’hôte) est dédié à la connexion des ports d
 
 ## <a name="permitted-networks"></a>Réseaux autorisés
 
-À compter de la version 1910, la feuille de calcul de déploiement comportera ce nouveau champ permettant à l’opérateur de changer une liste de contrôle d’accès (ACL) pour autoriser l’accès à des interfaces de gestion des périphériques réseau et à l’hôte HLH (hôte du cycle de vie du matériel) à partir d’une plage réseau de centre de données de confiance. Avec le changement de liste de contrôle d’accès, l’opérateur peut autoriser ses machines virtuelles Jumpbox de gestion au sein d’une plage réseau spécifique à accéder à l’interface de gestion du commutateur, au système d’exploitation HLH et au contrôleur BMC HLH. L’opérateur peut fournir un ou plusieurs sous-réseaux à cette liste, si elle est laissée vide, elle refuse l’accès par défaut. Cette nouvelle fonctionnalité remplace la nécessité d’une intervention manuelle postérieure au déploiement, telle qu’elle était décrite dans [Modifier des paramètres spécifiques dans votre configuration de commutateur Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-customer-defined#access-control-list-updates).
+À compter de la version 1910, la feuille de calcul de déploiement comportera ce nouveau champ permettant à l’opérateur de changer une liste de contrôle d’accès (ACL) pour autoriser l’accès à des interfaces de gestion des périphériques réseau et à l’hôte HLH (hôte du cycle de vie du matériel) à partir d’une plage réseau de centre de données de confiance. Avec le changement de liste de contrôle d’accès, l’opérateur peut autoriser ses machines virtuelles Jumpbox de gestion au sein d’une plage réseau spécifique à accéder à l’interface de gestion du commutateur, au système d’exploitation HLH et au contrôleur BMC HLH. L’opérateur peut fournir un ou plusieurs sous-réseaux à cette liste, si elle est laissée vide, elle refuse l’accès par défaut. Cette nouvelle fonctionnalité remplace la nécessité d’une intervention manuelle postérieure au déploiement, telle qu’elle était décrite dans [Modifier des paramètres spécifiques dans votre configuration de commutateur Azure Stack](./azure-stack-customer-defined.md#access-control-list-updates).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,16 +7,16 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: a72179e26ab4c873aa67ece9e207f4e6f4e71579
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: c92b037d34026df65569747949cca98d75910fad
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631236"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566785"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Connecter l’Explorateur de stockage à un compte de stockage ou un abonnement Azure Stack Hub
 
-Dans cet article, vous allez découvrir comment vous connecter à vos comptes de stockage et abonnements Azure Stack Hub à l’aide de l’[Explorateur Stockage Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer). L’Explorateur Stockage est une application autonome qui vous permet d’utiliser facilement les données de stockage Azure Stack Hub sur Windows, macOS et Linux.
+Dans cet article, vous allez découvrir comment vous connecter à vos comptes de stockage et abonnements Azure Stack Hub à l’aide de l’[Explorateur Stockage Azure](/azure/vs-azure-tools-storage-manage-with-storage-explorer). L’Explorateur Stockage est une application autonome qui vous permet d’utiliser facilement les données de stockage Azure Stack Hub sur Windows, macOS et Linux.
 
 > [!NOTE]  
 > Il existe plusieurs outils qui permettent de déplacer des données vers et à partir du stockage Azure Stack Hub. Pour plus d’informations, consultez [Outils de transfert de données pour le stockage Azure Stack Hub](azure-stack-storage-transfer.md).
