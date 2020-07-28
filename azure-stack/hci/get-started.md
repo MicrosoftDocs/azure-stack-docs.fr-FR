@@ -3,28 +3,24 @@ title: Bien démarrer avec Azure Stack HCI et Windows Admin Center
 description: Connectez-vous rapidement à un cluster Azure Stack HCI existant et utilisez Windows Admin Center pour superviser les performances du cluster et du stockage.
 author: khdownie
 ms.author: v-kedow
-ms.topic: overview
-ms.date: 04/08/2020
-ms.openlocfilehash: dd97ee55779d1c3c35976005a880a0dd510e29af
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.topic: how-to
+ms.date: 07/21/2020
+ms.openlocfilehash: 18d5947bc5816bac4b4ed9610c970ebeb4195909
+ms.sourcegitcommit: e675eafd12b044a6d8ae3790d1874e935f80f7cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196883"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86892053"
 ---
 # <a name="get-started-with-azure-stack-hci-and-windows-admin-center"></a>Bien démarrer avec Azure Stack HCI et Windows Admin Center
 
-> S’applique à : Windows Server 2019
+> S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
 
-Cette rubrique indique comment installer Windows Admin Center, se connecter à un cluster Azure Stack HCI et superviser les performances du cluster et du stockage.
+Cette rubrique indique comment se connecter à un cluster Azure Stack HCI et superviser les performances du cluster et du stockage.
 
 ## <a name="install-windows-admin-center"></a>Installer Windows Admin Center
 
-La façon la plus simple d’installer Windows Admin Center consiste à effectuer l’opération sur un PC Windows 10 local, mais vous devez pour cela être membre du groupe Administrateurs local.
-
-1. Téléchargez [Windows Admin Center](https://www.microsoft.com/evalcenter/evaluate-windows-admin-center) à partir du Centre d’évaluation de Microsoft. Même si le Centre indique « Commencer l’évaluation », il s’agit de la version en disponibilité générale pour l’utilisation en production, incluse dans le cadre de votre licence Windows Server.
-2. Exécutez le fichier WindowsAdminCenter.msi pour lancer l’installation.
-3. Quand vous démarrez Windows Admin Center pour la première fois, une icône s’affiche dans la zone de notification de votre bureau. Cliquez avec le bouton droit sur cette icône et choisissez Ouvrir pour ouvrir l’outil dans votre navigateur par défaut. Quand vous êtes invité à sélectionner un certificat, veillez à sélectionner le certificat client Windows Admin Center.
+Windows Admin Center est une application basée sur un navigateur déployée localement qui permet de gérer Azure Stack HCI. Le plus simple est d’[installer Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install) sur un PC de gestion local, même si vous pouvez aussi l’installer sur un serveur.
 
 ## <a name="add-and-connect-to-an-azure-stack-hci-cluster"></a>Ajouter un cluster Azure Stack HCI et s’y connecter
 
@@ -112,7 +108,7 @@ Utilisez l’outil Analyseur de performances afin d’afficher et comparer des c
 
 ## <a name="use-azure-monitor-for-monitoring-and-alerts"></a>Utiliser Azure Monitor pour la supervision et les alertes
 
-Vous pouvez également utiliser [Azure Monitor](/windows-server/manage/windows-admin-center/azure/azure-monitor) (nécessite un abonnement Azure) pour collecter des événements et des compteurs de performances à des fins d’analyse et de création de rapports, agir quand une condition particulière est détectée et recevoir des notifications par e-mail. Cliquez sur **Azure Monitor** dans le menu **Outils** pour vous connecter directement à Azure à partir de Windows Admin Center.
+Vous pouvez également utiliser [Azure Monitor](manage/azure-monitor.md) pour collecter des événements et des compteurs de performances à des fins d’analyse et de rapport, agir quand une condition particulière est détectée et recevoir des notifications par e-mail. Cliquez sur **Azure Monitor** dans le menu **Outils** pour vous connecter directement à Azure à partir de Windows Admin Center.
 
 ## <a name="collect-diagnostics-information"></a>Collecter les informations de diagnostic
 
@@ -120,7 +116,7 @@ Sélectionnez **Diagnostics** dans le menu **Outils** pour collecter les informa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour approfondir vos connaissances dans l’analyse des performances, consultez également :
+Pour approfondir votre connaissance de la supervision de vos clusters Azure Stack HCI, consultez également :
 
 - [Historique des performances pour les espaces de stockage direct](/windows-server/storage/storage-spaces/performance-history)
 - [Superviser Azure Stack HCI avec Azure Monitor](manage/azure-monitor.md)
