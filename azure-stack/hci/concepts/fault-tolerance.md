@@ -4,17 +4,17 @@ description: Discussion des options de résilience dans les espaces de stockage 
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 02/28/2020
-ms.openlocfilehash: 1505e86133fe66bebf4198e0d0620a8632f067c8
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/21/2020
+ms.openlocfilehash: f7ac25f80a738d2c6c59d2561668ac13d112b442
+ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196900"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86947127"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-azure-stack-hci"></a>Tolérance de panne et efficacité du stockage dans Azure Stack HCI
 
->S’applique à : Windows Server 2019
+> S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
 
 Cette rubrique présente les options de résilience disponibles dans les espaces de stockage direct et décrit les exigences en matière d’échelle, l’efficacité du stockage ainsi que les compromis et avantages d’ordre général de chaque option. Elle fournit également des instructions d’utilisation pour vous aider à bien démarrer ainsi que des références à des livres blancs, blogs et contenus supplémentaires pour en savoir plus.
 
@@ -28,7 +28,7 @@ Comme pour RAID, il existe plusieurs façons d’utiliser les espaces de stockag
 
 ## <a name="mirroring"></a>Mise en miroir
 
-La mise en miroir fournit la tolérance de panne en conservant plusieurs copies de toutes les données. Cette approche s’apparente à RAID-1. La façon dont les données sont agrégées par bande et placées n’est pas négligeable (consultez [ce blog](https://blogs.technet.microsoft.com/filecab/2016/11/21/deep-dive-pool-in-spaces-direct/) pour en savoir plus), mais il est absolument vrai de dire que toutes les données stockées à l’aide de la mise en miroir sont écrites, dans leur intégralité, plusieurs fois. Chaque copie est écrite sur différents supports physiques (lecteurs différents sur différents serveurs) qui sont supposés échouer de manière indépendante.
+La mise en miroir fournit la tolérance de panne en conservant plusieurs copies de toutes les données. Cette approche s’apparente à RAID-1. La façon dont les données sont agrégées par bande et placées n’est pas négligeable (consultez [ce blog](https://techcommunity.microsoft.com/t5/storage-at-microsoft/deep-dive-the-storage-pool-in-storage-spaces-direct/ba-p/425959) pour en savoir plus), mais il est absolument vrai de dire que toutes les données stockées à l’aide de la mise en miroir sont écrites, dans leur intégralité, plusieurs fois. Chaque copie est écrite sur différents supports physiques (lecteurs différents sur différents serveurs) qui sont supposés échouer de manière indépendante.
 
 Les espaces de stockage proposent deux types de mise en miroir : « double » et « triple ».
 
@@ -84,11 +84,11 @@ Avec des lecteurs de disque dur (HDD), la taille des groupes est de quatre symbo
 
 ![local-reconstruction-codes](media/fault-tolerance/local-reconstruction-codes-180px.png)
 
-Nous vous recommandons de suivre cette procédure de [Claus Joergensen](https://twitter.com/clausjor), qui explique en détail mais de manière très compréhensible [comment les codes de reconstruction locale gèrent différents scénarios de panne et en quoi ils sont intéressants](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/).
+Nous vous recommandons de suivre cette procédure de [Claus Joergensen](https://twitter.com/clausjor), qui explique en détail mais de manière très compréhensible [comment les codes de reconstruction locale gèrent différents scénarios de panne et en quoi ils sont intéressants](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB).
 
 ## <a name="mirror-accelerated-parity"></a>Parité avec accélération par miroir
 
-Un volume d’espaces de stockage direct peut utiliser à la fois la mise en miroir et la parité. Les écritures sont dans un premier temps hébergées dans la partie miroir, puis progressivement déplacées dans la partie parité. Il s’agit en fait d’[utiliser la mise en miroir pour accélérer le codage d’effacement](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/).
+Un volume d’espaces de stockage direct peut utiliser à la fois la mise en miroir et la parité. Les écritures sont dans un premier temps hébergées dans la partie miroir, puis progressivement déplacées dans la partie parité. Il s’agit en fait d’[utiliser la mise en miroir pour accélérer le codage d’effacement](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB).
 
 Pour combiner le miroir triple et la parité double, vous devez disposer d’au moins quatre domaines d’erreur (soit quatre serveurs).
 
@@ -202,14 +202,14 @@ Pendant leur durée de vie, les espaces de stockage peuvent tolérer un nombre i
 
 ## <a name="usage"></a>Usage
 
-Consultez [Création de volumes dans les espaces de stockage direct](/windows-server/storage/storage-spaces/create-volumes).
+Consultez [Créer des volumes](../manage/create-volumes.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les sujets mentionnés dans cet article, consultez les pages suivantes :
 
 - [Codage d’effacement dans Azure par Microsoft Research](https://www.microsoft.com/research/publication/erasure-coding-in-windows-azure-storage/)
-- [Local Reconstruction Codes and Accelerating Parity Volumes](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/)
-- [Volumes in the Storage Management API](https://blogs.technet.microsoft.com/filecab/2016/08/29/deep-dive-volumes-in-spaces-direct/)
+- [Local Reconstruction Codes and Accelerating Parity Volumes](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)
+- [Volumes in the Storage Management API](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)
 - [Démonstration de l’efficacité du stockage (Microsoft Ignite 2016)](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s)
 - [Calculatrice de capacité pour les espaces de stockage direct (préversion)](https://aka.ms/s2dcalc)

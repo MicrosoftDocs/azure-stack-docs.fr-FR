@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 2e8a4e4fe4de85e981bb0f33366b003c5ee907f8
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 48ba500c7b9315c4fbc8a622b99d4707f4eb86a7
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847756"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489621"
 ---
 # <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>Notes de publication d'App Service sur Azure Stack Hub Update 1
 
@@ -29,7 +29,7 @@ Le numéro de build de la mise à jour 1 d'App Service sur Azure Stack Hub est 
 ## <a name="prerequisites"></a>Prérequis
 
 > [!IMPORTANT]
-> Les nouveaux déploiements d’Azure App Service sur Azure Stack Hub nécessitent désormais un certificat avec caractères génériques à trois sujets en raison des améliorations apportées à la gestion de l’authentification unique pour Kudu dans Azure App Service. Le nouveau sujet est **\*.sso.appservice.\<région\>.\<nom_domaine\>.\<extension\>**
+> Les nouveaux déploiements d’Azure App Service sur Azure Stack Hub nécessitent désormais un certificat avec caractères génériques à trois sujets en raison des améliorations apportées à la gestion de l’authentification unique pour Kudu dans Azure App Service. Le nouveau sujet est **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>**
 
 Avant d'entamer le déploiement, consultez les [Conditions préalables au déploiement d'App Service sur Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).
 
@@ -203,7 +203,7 @@ Si vous avez choisi de procéder au déploiement dans un réseau virtuel existan
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Problèmes connus pour les administrateurs cloud utilisant Azure App Service sur Azure Stack Hub
 
-Reportez-vous à la documentation fournie dans les [Notes de publication d'Azure Stack Hub 1802](azure-stack-update-1903.md).
+Reportez-vous à la documentation fournie dans les [Notes de publication d'Azure Stack Hub 1802](./release-notes.md?view=azs-2002).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

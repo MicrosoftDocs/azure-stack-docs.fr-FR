@@ -1,22 +1,22 @@
 ---
-title: Création de volumes dans Azure Stack HCI
+title: Créer des volumes dans Azure Stack HCI
 description: Guide pratique pour créer des volumes dans Azure Stack HCI à l’aide de Windows Admin Center et de PowerShell.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/28/2020
-ms.openlocfilehash: e5ef5d16ca1d03ec7f6c6cbd1318b7d1e5e90096
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/21/2020
+ms.openlocfilehash: 61f3515bcec6e0819b175db149d27f15a347f132
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196407"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866571"
 ---
-# <a name="creating-volumes-in-azure-stack-hci"></a>Création de volumes dans Azure Stack HCI
+# <a name="create-volumes-in-azure-stack-hci"></a>Créer des volumes dans Azure Stack HCI
 
-> S’applique à : Windows Server 2019
+> S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
 
-Cette rubrique explique comment créer des volumes sur un cluster d’espaces de stockage direct à l’aide de Windows Admin Center et de Windows PowerShell, comment utiliser des fichiers sur les volumes, et comment activer la déduplication et la compression des données sur les volumes.
+Cette rubrique explique comment créer des volumes sur un cluster Azure Stack HCI à l’aide de Windows Admin Center et de Windows PowerShell, comment utiliser des fichiers sur les volumes, et comment activer la déduplication et la compression des données sur les volumes. Pour apprendre à créer des volumes et à configurer la réplication pour des clusters étendus, consultez [Créer des volumes étendus](create-stretched-volumes.md).
 
 ## <a name="create-a-three-way-mirror-volume"></a>Créer un volume miroir triple
 
@@ -147,9 +147,9 @@ Vous avez terminé ! Répétez l’opération selon les besoins pour créer plu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour effectuer d’autres tâches de gestion du stockage dans les espaces de stockage direct, consultez également :
+Pour consulter des rubriques connexes et d’autres tâches de gestion du stockage, référez-vous également à :
 
 - [Vue d’ensemble des espaces de stockage direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [Planification des volumes dans les espaces de stockage direct](/windows-server/storage/storage-spaces/plan-volumes)
-- [Extension des volumes dans les espaces de stockage direct](/windows-server/storage/storage-spaces/resize-volumes)
-- [Suppression des volumes dans les espaces de stockage direct](/windows-server/storage/storage-spaces/delete-volumes)
+- [Planifier des volumes](../concepts/plan-volumes.md)
+- [Étendre les volumes](extend-volumes.md)
+- [Supprimer des volumes](delete-volumes.md)

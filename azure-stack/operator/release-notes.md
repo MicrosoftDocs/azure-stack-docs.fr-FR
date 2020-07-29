@@ -3,16 +3,16 @@ title: Notes de publication d’Azure Stack Hub
 description: Notes de publication des systèmes intégrés Azure Stack Hub, y compris les mises à jour et les correctifs de bogues.
 author: sethmanheim
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 07/21/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 4519c52d9075ba78d7a66d982400f706b3bd72f0
-ms.sourcegitcommit: 84b089387f5cf89e3a72e576f1c7649667075e0a
+ms.openlocfilehash: aef85fb3ee99254350c604a819befd27728a8b7c
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86137207"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86867026"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Notes de publication d’Azure Stack Hub
 
@@ -71,7 +71,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 <!-- What's new, also net new experiences and features. -->
 
 - Une nouvelle version (1.8.1) des modules PowerShell d’administration d’Azure Stack Hub basés sur AzureRM est disponible.
-- Une nouvelle version de l’API REST d’administration d’Azure Stack Hub est disponible. Vous trouverez plus d’informations sur les points de terminaison et les modifications cassantes dans les [Informations de référence sur l’API](https://docs.microsoft.com/rest/api/azure-stack/).
+- Une nouvelle version de l’API REST d’administration d’Azure Stack Hub est disponible. Vous trouverez plus d’informations sur les points de terminaison et les modifications cassantes dans les [Informations de référence sur l’API](/rest/api/azure-stack/).
 - Les nouveaux modules de locataire Azure PowerShell seront publiés pour Azure Stack Hub le 15 avril 2020. Les modules Azure RM utilisés continuent de fonctionner, mais ne seront plus mis à jour après la build 2002.
 - Ajout d’une nouvelle alerte d’avertissement sur le portail administrateur Azure Stack Hub pour signaler les problèmes de connectivité avec le serveur syslog configuré. Le titre de l’alerte indique que **le client Syslog a rencontré un problème de réseau lors de l’envoi d’un message Syslog**.
 - Ajout d’une nouvelle alerte d’avertissement sur le portail administrateur Azure Stack Hub pour signaler les problèmes de connectivité avec le serveur NTP (Network Time Protocol). Le titre de l’alerte indique que **la source de temps n’est pas valide sur [nom du nœud]** .
@@ -86,8 +86,8 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 - L’outil de vérification de la disponibilité d’Azure Stack Hub valide désormais l’intégration d’AD Graph à l’aide de tous les ports TCP IP alloués à AD Graph.
 - L’outil de syndication hors connexion a été mis à jour avec des améliorations de la fiabilité. L’outil n’est plus disponible sur GitHub et a été [déplacé vers PowerShell Gallery](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/). Pour plus d’informations, consultez [Télécharger des éléments de la Place de marché vers Azure Stack Hub](azure-stack-download-azure-marketplace-item.md).
 - Une nouvelle fonctionnalité de supervision est sur le point d’être ajoutée. L’alerte concernant un espace disque insuffisant pour les hôtes physiques et les machines virtuelles d’infrastructure sera corrigée automatiquement par la plateforme. Si cette action échoue, l’alerte s’affichera dans le portail d’administration Azure Stack Hub pour que l’opérateur corrige le problème.
-- Améliorations apportées à la [collecte des journaux de diagnostic](azure-stack-diagnostic-log-collection-overview-tzl.md). La nouvelle expérience rationalise et simplifie la collecte des journaux de diagnostic en éliminant la nécessité de configurer un compte de stockage d’objets blob à l’avance. L’environnement de stockage est préconfiguré afin que vous puissiez envoyer des journaux avant d’ouvrir un cas de support et consacrer moins de temps à un appel de support.
-- Le temps nécessaire à la [collecte proactive des journaux et à la collecte des journaux à la demande](azure-stack-diagnostic-log-collection-overview-tzl.md) a été réduit de 80 %. La collecte des journaux peut prendre plus de temps que cette valeur attendue, mais elle ne nécessite aucune action de la part des opérateurs Azure Stack Hub, sauf si la collecte des journaux échoue.
+- Améliorations apportées à la [collecte des journaux de diagnostic](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002). La nouvelle expérience rationalise et simplifie la collecte des journaux de diagnostic en éliminant la nécessité de configurer un compte de stockage d’objets blob à l’avance. L’environnement de stockage est préconfiguré afin que vous puissiez envoyer des journaux avant d’ouvrir un cas de support et consacrer moins de temps à un appel de support.
+- Le temps nécessaire à la [collecte proactive des journaux et à la collecte des journaux à la demande](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002) a été réduit de 80 %. La collecte des journaux peut prendre plus de temps que cette valeur attendue, mais elle ne nécessite aucune action de la part des opérateurs Azure Stack Hub, sauf si la collecte des journaux échoue.
 - La progression du téléchargement d’un package de mise à jour Azure Stack Hub est désormais visible dans le panneau de mise à jour après le lancement d’une mise à jour. Seuls sont concernés les systèmes connectés Azure Stack Hub qui choisissent de [préparer les packages de mise à jour par le biais du téléchargement automatique](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages).
 - Améliorations de la fiabilité de l’agent hôte du contrôleur de réseau.
 - Introduction d’un nouveau micro-service nommé DNS Orchestrator qui améliore la logique de résilience pour les services DNS internes au cours des mises à jour et des correctifs.
@@ -137,7 +137,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 - Résolution d’un problème provoquant l’échec des opérations du fournisseur de ressources de module complémentaire après l’exécution de la rotation des secrets Azure Stack Hub.
 - Résolution d’un problème qui était une cause courante des échecs de mise à jour d’Azure Stack Hub en raison de la sollicitation de la mémoire sur le rôle ERCS.
 - Correction d’un bogue dans le panneau de mise à jour lié au fait que l’état de la mise à jour indiquait **Installation** au lieu de **Préparation** pendant la phase de préparation d’une mise à jour d’Azure Stack Hub.
-- Résolution d’un problème lié au fait que la fonctionnalité RSC sur les commutateurs physiques créait des incohérences et abandonnait le trafic circulant via un équilibreur de charge. La fonctionnalité RSC est désormais désactivée par défaut.
+- Résolution d’un problème lié au fait que la fonctionnalité RSC sur les commutateurs virtuels créait des incohérences et abandonnait le trafic circulant via un équilibreur de charge. La fonctionnalité RSC est désormais désactivée par défaut.
 - Résolution d’un problème lié au fait que plusieurs configurations IP sur une carte réseau entraînaient un routage incorrect et empêchaient la connectivité sortante. 
 - Résolution d’un problème lié au fait que l’adresse MAC d’une carte réseau était mise en cache et que l’affectation de cette adresse à une autre ressource provoquait des échecs de déploiement de machine virtuelle.
 - Résolution d’un problème lié au fait que la licence des images de machine virtuelle Windows du canal de vente au détail n’a pas pu être activée par AVMA.
@@ -609,5 +609,3 @@ Pour accéder aux notes de publication archivées d’une ancienne version, util
 ::: moniker range="<azs-1907"
 Vous pouvez accéder aux [versions antérieures des notes de publication d’Azure Stack Hub dans la galerie TechNet](https://aka.ms/azsarchivedrelnotes). Ces documents archivés sont fournis uniquement pour référence et n’impliquent aucune prise en charge de ces versions. Pour plus d’informations sur le support d’Azure Stack Hub, consultez [Stratégie de maintenance Azure Stack Hub](azure-stack-servicing-policy.md). Pour obtenir de l’aide, contactez les services de support technique Microsoft.
 ::: moniker-end
-
-

@@ -4,17 +4,17 @@ description: Découvrez comment choisir des lecteurs pour les espaces de stockag
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.openlocfilehash: f243bcefec74f23efb555e0dbf72597736687694
-ms.sourcegitcommit: 2be3dd5419b0d003a9598a42541ebb1d251aea3d
+ms.date: 07/21/2020
+ms.openlocfilehash: 7ae6a7abc3bb9dc0f73f64c72c56e2436b91a990
+ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2020
-ms.locfileid: "86390787"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86947144"
 ---
 # <a name="choosing-drives-for-azure-stack-hci"></a>Choix des lecteurs pour Azure Stack HCI
 
->S’applique à : Windows Server 2019
+> S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
 
 Cette rubrique fournit des conseils sur le choix de lecteurs pour les [espaces de stockage direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) dans le but de répondre à vos besoins de performances et de capacité pour Azure Stack HCI.
 
@@ -86,7 +86,7 @@ Pour les charges de travail qui nécessitent une grande capacité et des écritu
 
 Chaque serveur doit avoir au minimum deux lecteurs de cache pour assurer la redondance. Nous vous recommandons de faire en sorte que le nombre de lecteurs de capacité soit un multiple du nombre de lecteurs de cache. Par exemple, si vous avez 4 lecteurs de cache, vous bénéficierez de performances plus cohérentes avec 8 lecteurs de capacité (ratio de 1:2) qu’avec 7 ou 9.
 
-Le cache doit être dimensionné de façon à accueillir la plage de travail de vos applications et charges de travail, c’est-à-dire toutes les données activement lues ou écrites à n’importe quel moment. Il n’y a pas d’autre exigence en matière de taille du cache. Pour les déploiements avec des HDD, un bon point de départ est 10 % de capacité. Par exemple, si chaque serveur a 4 x 4 To (HDD) = 16 To de capacité, vous avez alors 2 x 800 Go (SSD) = 1,6 To de cache par serveur. Pour les déploiements 100 % flash, en particulier avec des SSD à [forte endurance](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/), il peut être judicieux de commencer plus près de 5 % de capacité. Par exemple, si chaque serveur a 24 x 1,2 To (SSD) = 28,8 To de capacité, vous avez alors 2 x 750 Go (NVMe) = 1,5 To de cache par serveur. Vous pouvez toujours ajouter ou supprimer des lecteurs de cache par la suite en fonction de vos besoins.
+Le cache doit être dimensionné de façon à accueillir la plage de travail de vos applications et charges de travail, c’est-à-dire toutes les données activement lues ou écrites à n’importe quel moment. Il n’y a pas d’autre exigence en matière de taille du cache. Pour les déploiements avec des HDD, un bon point de départ est 10 % de capacité. Par exemple, si chaque serveur a 4 x 4 To (HDD) = 16 To de capacité, vous avez alors 2 x 800 Go (SSD) = 1,6 To de cache par serveur. Pour les déploiements 100 % flash, en particulier avec des SSD à [forte endurance](https://techcommunity.microsoft.com/t5/storage-at-microsoft/understanding-ssd-endurance-drive-writes-per-day-dwpd-terabytes/ba-p/426024), il peut être judicieux de commencer plus près de 5 % de capacité. Par exemple, si chaque serveur a 24 x 1,2 To (SSD) = 28,8 To de capacité, vous avez alors 2 x 750 Go (NVMe) = 1,5 To de cache par serveur. Vous pouvez toujours ajouter ou supprimer des lecteurs de cache par la suite en fonction de vos besoins.
 
 ### <a name="general"></a>Général
 
@@ -96,7 +96,6 @@ Nous vous recommandons de limiter la capacité de stockage totale par serveur à
 
 Pour plus d'informations, consultez également :
 
-- [Vue d’ensemble d’Azure Stack HCI](../overview.md)
 - [Fonctionnement du cache dans Azure Stack HCI](cache.md)
 - [Configuration matérielle requise pour les espaces de stockage direct](/windows-server/storage/storage-spaces/storage-spaces-direct-hardware-requirements)
 - [Planification de volumes dans Azure Stack HCI](plan-volumes.md)

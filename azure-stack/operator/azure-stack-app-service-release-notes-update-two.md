@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2019
-ms.openlocfilehash: 9c9838a93c0ee46ce0556cd86e9f6ae8b4c7c9d4
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: b06ab0601616f8c089d7bcf90526dae97a8c6e5f
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848045"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489536"
 ---
 # <a name="app-service-on-azure-stack-hub-update-2-release-notes"></a>Notes de publication App Service sur Azure Stack Hub Update 2
 
@@ -29,7 +29,7 @@ Le numéro de build d’App Service sur Azure Stack Hub Update 2 est **72.0.136
 ## <a name="prerequisites"></a>Prérequis
 
 > [!IMPORTANT]
-> Les nouveaux déploiements d’Azure App Service sur Azure Stack Hub nécessitent désormais un certificat avec caractères génériques à trois sujets en raison des améliorations apportées à la gestion de l’authentification unique pour Kudu dans Azure App Service. Le nouveau sujet est : **\*.sso.appservice.\<région\>.\<nom_domaine\>.\<extension\>**
+> Les nouveaux déploiements d’Azure App Service sur Azure Stack Hub nécessitent désormais un certificat avec caractères génériques à trois sujets en raison des améliorations apportées à la gestion de l’authentification unique pour Kudu dans Azure App Service. Le nouveau sujet est : **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>**
 
 Avant de commencer le déploiement, consultez les [Conditions préalables pour le déploiement d’App Service sur Azure Stack Hub](azure-stack-app-service-before-you-get-started.md).
 
@@ -55,11 +55,11 @@ Azure App Service sur Azure Stack Hub Update 2 contient les améliorations et 
   - Mise à jour des composants .NET Core pour qu’ils soient cohérents avec Azure App Service dans le cloud public.
   - Mise à jour de Kudu
 
-- Activation de la fonctionnalité d’échange automatique des emplacements de déploiement - [Configuration de l’échange automatique](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap).
+- Activation de la fonctionnalité d’échange automatique des emplacements de déploiement - [Configuration de l’échange automatique](/azure/app-service/deploy-staging-slots#configure-auto-swap).
 
 - Activation de la fonctionnalité de test en production - [Présentation du test en production](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/).
 
-- Activation d’Azure Functions Proxies - [Utilisation d’Azure Functions Proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
+- Activation d’Azure Functions Proxies - [Utilisation d’Azure Functions Proxies](/azure/azure-functions/functions-proxies).
 
 - Ajout de la prise en charge de l’expérience utilisateur dans l’extension d’administration d’App Service pour les opérations suivantes :
   - Rotation des secrets
@@ -85,7 +85,7 @@ Si vous avez choisi de procéder au déploiement dans un réseau virtuel existan
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Problèmes connus des administrateurs cloud utilisant Azure App Service sur Azure Stack Hub
 
-Reportez-vous à la documentation fournie dans les [Notes de publication pour Azure Stack Hub 1804](azure-stack-update-1903.md).
+Reportez-vous à la documentation fournie dans les [Notes de publication pour Azure Stack Hub 1804](./release-notes.md?view=azs-2002).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

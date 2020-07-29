@@ -4,17 +4,17 @@ description: Supervisez des serveurs et configurez des alertes avec Azure Monito
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 04/03/2020
-ms.openlocfilehash: 43bcc5be8fd96e33d16cfdebd87e0d965c8eff41
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/21/2020
+ms.openlocfilehash: f721b16d6742cde5e27fae8b81d8d256c7defa2a
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196968"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866805"
 ---
 # <a name="monitor-azure-stack-hci-with-azure-monitor"></a>Superviser Azure Stack HCI avec Azure Monitor
 
-> S’applique à : Windows Server 2019
+> S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
 
 [Azure Monitor](/azure/azure-monitor/overview) collecte les données de télémétrie provenant de diverses ressources, notamment des serveurs Windows et des machines virtuelles, il les analyse et il agit dessus, à la fois localement et dans le cloud. Même si Azure Monitor extrait des données à partir de machines virtuelles Azure et d’autres ressources Azure, cet article porte essentiellement sur la façon dont Azure Monitor fonctionne avec les serveurs locaux et les machines virtuelles s’exécutant sur Azure Stack HCI, en particulier avec Windows Admin Center.
 
@@ -24,7 +24,7 @@ Les données générées à partir de serveurs Windows locaux sont collectées d
 
 Quand vous activez une solution de supervision dans un espace de travail Log Analytics, tous les serveurs qui envoient des rapports à cet espace de travail commencent à collecter des données pertinentes pour cette solution, afin qu’elle puisse générer des insights pour tous les serveurs de l’espace de travail.
 
-Pour collecter des données de télémétrie sur un serveur local et les transmettre à l’espace de travail Log Analytics, Azure Monitor exige l’installation de Microsoft Monitoring Agent (MMA). Certaines solutions de supervision nécessitent également un agent secondaire. Par exemple, Azure Monitor pour machines virtuelles dépend également d’un agent ServiceMap pour les fonctionnalités supplémentaires fournies par cette solution.
+Pour collecter des données de diagnostic sur un serveur local et les envoyer (push) à l’espace de travail Log Analytics, Azure Monitor exige l’installation de Microsoft Monitoring Agent (MMA). Certaines solutions de supervision nécessitent également un agent secondaire. Par exemple, Azure Monitor pour machines virtuelles dépend également d’un agent ServiceMap pour les fonctionnalités supplémentaires fournies par cette solution.
 
 Certaines solutions, comme Azure Update Management, dépendent également d’Azure Automation, qui vous permet de gérer de manière centralisée les ressources dans les environnements Azure et non Azure. Par exemple, Azure Update Management utilise Azure Automation pour planifier et orchestrer l’installation des mises à jour sur les machines de votre environnement, de manière centralisée, à partir du portail Azure.
 
@@ -60,7 +60,7 @@ Si vous voulez ajouter une autre solution de supervision à partir de Windows Ad
 
 Si vous vous connectez à un autre serveur, mais que vous avez déjà configuré un espace de travail Log Analytics (par le biais de Windows Admin Center ou manuellement dans le portail Azure), vous pouvez également installer MMA sur le serveur et le connecter à un espace de travail existant. Quand vous connectez un serveur à un espace de travail, il démarre automatiquement la collecte de données et l’envoi de rapports aux solutions installées dans cet espace de travail.
 
-## <a name="azure-monitor-for-virtual-machines-aka-virtual-machine-insights"></a>Azure Monitor pour machines virtuelles (solution également appelée « Insights sur les machines virtuelles »)
+## <a name="azure-monitor-for-virtual-machines-virtual-machine-insights"></a>Azure Monitor pour machines virtuelles (insights sur les machines virtuelles)
 
 Quand vous configurez Azure Monitor pour machines virtuelles dans **Paramètres du serveur**, Windows Admin Center active la solution Azure Monitor pour machines virtuelles, également appelée « Insights sur les machines virtuelles ». Cette solution vous permet de superviser l’intégrité et les événements du serveur, de créer des alertes par e-mail, d’obtenir une vue centralisée des performances du serveur dans l’ensemble de votre environnement et de visualiser des applications, des systèmes et des services connectés à un serveur donné.
 
@@ -110,7 +110,7 @@ Pour comprendre la configuration prise en charge, consultez les pages [Prise en 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-#### <a name="login-in-to-azure-portal"></a>Se connecter au portail Azure
+#### <a name="log-in-to-azure-portal"></a>Connexion au portail Azure
 
 Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -172,7 +172,7 @@ Pour comprendre la configuration prise en charge, consultez les pages [Prise en 
 
 Une fois que vous avez attaché votre serveur à Azure Monitor, vous pouvez utiliser les liens hypertexte intelligents figurant dans la page **Paramètres > Supervision et alertes** pour accéder au portail Azure. Dans Windows Admin Center, vous pouvez facilement configurer des alertes par défaut qui s’appliquent à tous les serveurs de votre espace de travail Log Analytics. Windows Admin Center permet de collecter automatiquement des compteurs de performances. Vous pouvez donc [créer une alerte](/azure/azure-monitor/platform/alerts-log) en personnalisant l’une des nombreuses requêtes prédéfinies, ou écrire votre propre requête.
 
-:::image type="content" source="media/monitor/setup1.gif" alt-text="Capture d’écran Configurer des alertes":::
+:::image type="content" source="media/monitor/setup1.gif" alt-text="Capture d’écran de la configuration des alertes":::
 
 Il s’agit des alertes et de leurs conditions par défaut que vous pouvez choisir :
 
@@ -187,7 +187,7 @@ Il s’agit des alertes et de leurs conditions par défaut que vous pouvez chois
 
 Une fois que vous avez configuré les alertes dans Windows Admin Center, vous pouvez voir les alertes dans votre espace de travail Log Analytics dans Azure.
 
-:::image type="content" source="media/monitor/setup2.gif" alt-text="Capture d’écran Afficher les alertes":::
+:::image type="content" source="media/monitor/setup2.gif" alt-text="Capture d’écran de l’affichage des alertes":::
 
 ### <a name="collecting-event-and-performance-data"></a>Collecte de données d’événements et de performances
 
@@ -247,7 +247,7 @@ Une fois que vous avez effectué les requêtes appropriées pour les événement
 
 1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
 2. Dans le volet gauche, sélectionnez **Alertes** puis cliquez sur **Nouvelle règle d’alerte** en haut de la page pour créer une nouvelle alerte.
-    :::image type="content" source="media/monitor/alert-rule-02.png" alt-text="Capture d’écran de création d’une règle d’alerte":::
+    :::image type="content" source="media/monitor/alert-rule-02.png" alt-text="Capture d’écran de la création d’une règle d’alerte":::
 3. Pour la première étape, sous la section **Créer une alerte**, vous allez sélectionner votre espace de travail Log Analytics comme ressource, car il s’agit d’un signal d’alerte basé sur des journaux.  Filtrez les résultats en choisissant l’**Abonnement** spécifique dans la liste déroulante si vous en avez plusieurs. Cette liste contient l’espace de travail Log Analytics créé précédemment.  Filtrez le **Type de ressource** en sélectionnant **Log Analytics** dans la liste déroulante.  Pour finir, sélectionnez la **ressource** **DefaultLAWorkspace** et cliquez sur **Terminé**.
     :::image type="content" source="media/monitor/alert-rule-03.png" alt-text="Capture d’écran de l’étape 1 de création d’une règle d’alerte":::
 4. Dans la section **Critères d’alerte**, cliquez sur **Ajouter des critères** pour sélectionner votre requête enregistrée, puis spécifiez la logique que suit la règle d’alerte.
@@ -256,7 +256,7 @@ Une fois que vous avez effectué les requêtes appropriées pour les événement
    c. Définissez ensuite quand déclencher l’alerte. Par exemple, vous pouvez sélectionner **Violations consécutives**, puis, dans la liste déroulante, sélectionnez **Supérieur à** avec la valeur 3.
    d. Dans la section Évaluées sur la base de, définissez la valeur **Période** sur **30** minutes et la **Fréquence** sur 5. La règle s’exécute toutes les cinq minutes et renvoie les enregistrements qui ont été créés dans les trente minutes précédant l’heure actuelle.  Paramétrer la période de temps sur une durée plus longue compense la latence potentielle des données et garantit que la requête retourne des données pour éviter un faux positif où l’alerte ne se déclenche jamais.
 6. Cliquez sur **Terminé** pour terminer la règle d’alerte.
-    :::image type="content" source="media/monitor/alert-signal-logic-02.png" alt-text="Capture d’écran de configuration d’un signal d’alerte":::
+    :::image type="content" source="media/monitor/alert-signal-logic-02.png" alt-text="Capture d’écran de la configuration d’un signal d’alerte":::
 7. Passons maintenant à la deuxième étape. Donnez un nom à votre alerte dans le champ **Nom de la règle d’alerte** ; par exemple, **Alerte pour tous les événements d’erreur**.  Spécifiez une **Description** détaillant les spécificités de l’alerte, puis sélectionnez **Critique (gravité 0)** pour la valeur de **Gravité** parmi les options fournies.
 8. Pour activer immédiatement la règle d’alerte lors de la création, acceptez la valeur par défaut pour l’option **Activer la règle lors de sa création**.
 9. Pour la troisième et dernière étape, vous spécifiez un **Groupe d’actions**, ce qui garantit que les mêmes actions soient entreprises chaque fois qu’une alerte est déclenchée et peuvent être utilisées pour chaque règle que vous définissez. Configurez un nouveau groupe d’actions avec les informations suivantes : a. Sélectionnez **Nouveau groupe d’actions** et le volet **Ajouter un groupe action** s’affiche.
@@ -266,7 +266,7 @@ Une fois que vous avez effectué les requêtes appropriées pour les événement
    e. Dans le volet **E-mail/SMS/Push/Voix**, sélectionnez et configurez votre préférence. Par exemple, autorisez les **e-mails** et fournissez une adresse e-mail SMTP valide à laquelle envoyer le message.
    f. Cliquez sur **OK** pour enregistrer vos modifications.<br><br>
 
-    :::image type="content" source="media/monitor/action-group-properties-01.png" alt-text="Capture d’écran de création d’un groupe d’actions":::
+    :::image type="content" source="media/monitor/action-group-properties-01.png" alt-text="Capture d’écran de la création d’un groupe d’actions":::
 
 10. Cliquez sur **OK** pour créer le groupe d’actions.
 11. Cliquez sur **Créer une règle d’alerte** pour terminer la règle d’alerte. Son exécution démarre immédiatement.
@@ -276,7 +276,7 @@ Une fois que vous avez effectué les requêtes appropriées pour les événement
 
 Pour référence, voici à quoi ressemble un exemple d’alerte dans Azure.
 
-:::image type="content" source="media/monitor/alert.gif" alt-text="Capture d’écran d’alerte Azure":::
+:::image type="content" source="media/monitor/alert.gif" alt-text="Capture d’écran d’une alerte Azure":::
 
 Voici un exemple de l’e-mail qui vous sera envoyé par Azure Monitor :
 
@@ -299,7 +299,7 @@ Quand Windows Admin Center intègre un serveur à la solution Insights sur les m
 
 ## <a name="disabling-monitoring"></a>Désactivation de la supervision
 
-Pour déconnecter complètement votre serveur de l’espace de travail Log Analytics, désinstallez l’agent MMA. Cela signifie que ce serveur n’enverra plus de données à l’espace de travail, et que toutes les solutions installées dans cet espace de travail ne collecteront plus et ne traiteront plus de données à partir de ce serveur. Toutefois, cela n’affecte pas l’espace de travail en soi. Toutes les ressources qui envoient de rapports à cet espace de travail continueront à le faire. Pour désinstaller l’agent MMA dans Windows Admin Center (WAC), accédez à **Applications et fonctionnalités**, recherchez **Microsoft Monitoring Agent**, puis cliquez sur **Désinstaller**.
+Pour déconnecter complètement votre serveur de l’espace de travail Log Analytics, désinstallez l’agent MMA. Cela signifie que ce serveur n’enverra plus de données à l’espace de travail, et que toutes les solutions installées dans cet espace de travail ne collecteront plus et ne traiteront plus de données à partir de ce serveur. Toutefois, cela n’affecte pas l’espace de travail en soi. Toutes les ressources qui envoient de rapports à cet espace de travail continueront à le faire. Pour désinstaller l’agent MMA dans Windows Admin Center, connectez-vous au serveur. Ensuite, accédez à **Installed apps** (Applications installées), recherchez Microsoft Monitoring Agent, puis sélectionnez **Remove** (Supprimer).
 
 Si vous voulez désactiver une solution spécifique dans un espace de travail, vous devez [supprimer la solution de supervision du portail Azure](/azure/azure-monitor/insights/solutions#remove-a-management-solution). La suppression d’une solution de supervision signifie que les insights créés par cette solution ne seront plus générés pour _aucun_ des serveurs envoyant des rapports à cet espace de travail. Par exemple, si vous désinstallez la solution Azure Monitor pour machines virtuelles, vous ne voyez plus d’insights sur les performances des machines virtuelles ou des serveurs en provenance de l’une des machines connectées à votre espace de travail.
 

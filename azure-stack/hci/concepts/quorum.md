@@ -4,17 +4,17 @@ description: Découvrez le quorum de cluster et de pool dans les espaces de stoc
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 02/28/2020
-ms.openlocfilehash: 82b1ab24567b124c4a2450149e37e9f05aab8bf8
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/21/2020
+ms.openlocfilehash: cf9ecc42ed839fc133eb64b38b314816f19aecd7
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196866"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866907"
 ---
 # <a name="understanding-cluster-and-pool-quorum-on-azure-stack-hci"></a>Présentation du quorum de cluster et de pool dans Azure Stack HCI
 
->S’applique à : Windows Server 2019
+> S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
 
 Le [clustering de basculement Windows Server](/windows-server/failover-clustering/failover-clustering-overview) offre une haute disponibilité pour les charges de travail. Ces ressources sont considérées comme hautement disponibles si les nœuds qui les hébergent sont actifs. Toutefois, le cluster nécessite généralement plus de la moitié des nœuds en cours d’exécution. C’est ce que l’on appelle disposer d’un *quorum*.
 
@@ -227,4 +227,4 @@ Chacun des 24 lecteurs a un vote, et le nœud 2 a également un vote (puisqu�
 Pour plus d’informations, consultez les rubriques suivantes :
 
 - [Configurer et gérer un quorum](/windows-server/failover-clustering/manage-cluster-quorum)
-- [Déployer un témoin cloud](/windows-server/failover-clustering/deploy-cloud-witness)
+- [Configurer un témoin de cluster](../deploy/witness.md)

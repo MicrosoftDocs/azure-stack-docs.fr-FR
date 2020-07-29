@@ -4,19 +4,19 @@ description: Guide pratique pour supprimer des volumes dans Azure Stack HCI à l
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 03/17/2020
-ms.openlocfilehash: ffa848436169a55e2a2ad4f878e1e3aecaf29d6e
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/21/2020
+ms.openlocfilehash: 7a90948cccb75bb8bb1578101d530c46852e99d6
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196356"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866520"
 ---
 # <a name="deleting-volumes-in-azure-stack-hci"></a>Suppression des volumes dans Azure Stack HCI
 
-> S’applique à : Windows Server 2019
+> S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
 
-Cette rubrique fournit des instructions sur la suppression des volumes dans un cluster d’[espaces de stockage direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) à l’aide de Windows Admin Center.
+Cette rubrique fournit des instructions sur la suppression des volumes dans un cluster Azure Stack HCI à l’aide de Windows Admin Center.
 
 Regardez une courte vidéo sur la suppression d’un volume à l’aide de Windows Admin Center.
 
@@ -58,6 +58,6 @@ Vous êtes invité à confirmer que vous souhaitez exécuter l’action et effac
 
 Pour obtenir des instructions pas à pas sur d’autres tâches essentielles de la gestion du stockage, consultez également :
 
-- [Planification des volumes dans les espaces de stockage direct](../concepts/plan-volumes.md)
-- [Création de volumes dans les espaces de stockage direct](create-volumes.md)
-- [Extension des volumes dans les espaces de stockage direct](extend-volumes.md)
+- [Planifier des volumes](../concepts/plan-volumes.md)
+- [Créer des volumes](create-volumes.md)
+- [Étendre les volumes](extend-volumes.md)

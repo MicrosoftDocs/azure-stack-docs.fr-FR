@@ -3,27 +3,52 @@ title: Gérer des machines virtuelles sur Azure Stack HCI avec Windows Admin Cen
 description: Découvrez comment créer et gérer des machines virtuelles dans un cluster sur Azure Stack HCI à l’aide de Windows Admin Center.
 author: v-dasis
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 07/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 21bb8cf8c88a66fdb4ecee8d45d3e13127faabec
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.openlocfilehash: cecf03b01a4c621226d7439bc307eb9317918fa7
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196492"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866442"
 ---
 # <a name="manage-vms-on-azure-stack-hci-using-windows-admin-center"></a>Gérer des machines virtuelles sur Azure Stack HCI avec Windows Admin Center
 
-> S’applique à Windows Server 2019
+> S’applique à Azure Stack HCI, version 20H2 ; Windows Server 2019
 
 Windows Admin Center peut être utilisé pour créer et gérer vos machines virtuelles sur Azure Stack HCI.
+
+## <a name="create-a-new-vm"></a>Créer une machine virtuelle
+
+Vous pouvez facilement créer une machine virtuelle à l’aide de Windows Admin Center.
+
+:::image type="content" source="media/manage-vm/new-vm.png" alt-text="Écran Nouvelle machine virtuelle" lightbox="media/manage-vm/new-vm.png":::
+
+1. Dans la page d’accueil de Windows Admin Center, sous **Toutes les connexions**, sélectionnez le serveur ou cluster sur lequel vous voulez créer la machine virtuelle.
+1. Sous **Outils**, faites défiler la liste et sélectionnez **Machines virtuelles**.
+1. Sous **Machines virtuelles**, sélectionnez l’onglet **Inventaire**, puis sélectionnez **Nouveau**.
+1. Sous **Nouvelle machine virtuelle**, entrez un nom pour votre machine virtuelle.
+1. Sélectionnez **Génération 2 (recommandé)** .
+1. Sélectionnez un chemin de fichier prédéfini dans la liste déroulante ou cliquez sur **Parcourir** pour choisir le dossier dans lequel enregistrer la configuration de la machine virtuelle et les fichiers de disque dur virtuel (VHD). Vous pouvez accéder à n’importe quel partage SMB disponible sur le réseau en entrant le chemin *\\server\share*.
+
+1. Sous **Processeurs virtuels**, sélectionnez le nombre de processeurs virtuels et indiquez si vous voulez activer la virtualisation imbriquée.
+1. Sous **Mémoire**, sélectionnez la quantité de mémoire de démarrage (4 Go minimum sont recommandés) et une plage minimale et maximale de mémoire dynamique selon ce qu’il convient d’allouer à la machine virtuelle.
+1. Sous **Réseau**, sélectionnez une carte réseau dans la liste déroulante.
+1. Sous **Stockage**, cliquez sur **Ajouter** et indiquez si vous voulez créer disque dur virtuel ou en utiliser un existant. Pour utiliser un disque dur virtuel existant, cliquez sur **Parcourir** pour sélectionner le chemin du fichier concerné.  
+1. Sous **Système d’exploitation**, effectuez l’une des opérations suivantes :
+   - Sélectionnez **Installer un système d’exploitation ultérieurement** si vous voulez installer un système d’exploitation pour la machine virtuelle plus tard.
+   - Sélectionnez **Installer un système d’exploitation à partir d’un fichier image (*.iso)** , cliquez sur **Parcourir**, puis sélectionnez le fichier image .iso applicable à utiliser.
+   - Sélectionnez **Installer un système d’exploitation à partir d’un serveur d’installation réseau** si vous voulez installer un système d’exploitation sur la machine virtuelle ultérieurement à l’aide de cette méthode. Vérifiez que vous avez sélectionné une carte réseau auparavant, sinon cela ne va pas fonctionner.
+1. Lorsque vous avez terminé, cliquez sur **Créer** pour créer la machine virtuelle.
+1. Pour démarrer la machine virtuelle, dans la liste **Machines virtuelles**, pointez sur la nouvelle machine virtuelle, cochez la case correspondante à gauche, puis sélectionnez **Démarrer**.
+1. Sous **État**, vérifiez que l’état de la machine virtuelle est **En cours d’exécution**.
 
 ## <a name="get-a-list-of-vms"></a>Obtenir la liste des machines virtuelles
 
 Vous pouvez facilement voir toutes les machines virtuelles sur un serveur ou dans votre cluster.
 
-:::image type="content" source="media/manage-vm/vm-inventory.png" alt-text="Écran Machines virtuelles":::
+:::image type="content" source="media/manage-vm/vm-inventory.png" alt-text="Écran Machines virtuelles" lightbox="media/manage-vm/vm-inventory.png":::
 
 1. Dans Windows Admin Center, sous **Outils**, faites défiler la liste pour sélectionner **Machines virtuelles**.
 1. L’onglet **Inventaire** situé à droite liste toutes les machines virtuelles disponibles sur le serveur ou cluster actuel et propose des commandes pour gérer des machines virtuelles individuelles. Vous pouvez :
@@ -40,7 +65,7 @@ Vous pouvez facilement voir toutes les machines virtuelles sur un serveur ou dan
 
 Vous pouvez voir les informations détaillées et les graphiques de performances d’une machine virtuelle particulière à partir de sa page dédiée.
 
-:::image type="content" source="media/manage-vm/vm-details.png" alt-text="Écran des informations détaillées sur les machines virtuelles":::
+:::image type="content" source="media/manage-vm/vm-details.png" alt-text="Écran des informations détaillées sur les machines virtuelles" lightbox="media/manage-vm/vm-details.png":::
 
 1. Sous **Outils**, faites défiler la liste et sélectionnez **Machines virtuelles**.
 1. Cliquez sur l’onglet **Inventaire** situé à droite, puis sélectionnez la machine virtuelle. Dans la page qui suit, vous pouvez effectuer les tâches suivantes :
@@ -58,7 +83,7 @@ Vous pouvez voir les informations détaillées et les graphiques de performances
 
 Vous pouvez afficher les métriques d’utilisation des ressources et de performances de toutes les machines virtuelles incluses dans votre cluster.
 
-:::image type="content" source="media/manage-vm/host-metrics.png" alt-text="Écran des métriques d’hôte":::
+:::image type="content" source="media/manage-vm/host-metrics.png" alt-text="Écran des métriques d’hôte" lightbox="media/manage-vm/host-metrics.png":::
 
 1. Sous **Outils**, faites défiler la liste et sélectionnez **Machines virtuelles**.
 1. L’onglet **Résumé** situé à droite fournit un aperçu complet des ressources et des performances des hôtes Hyper-V d’un serveur ou cluster sélectionné, y compris les informations suivantes :
@@ -82,19 +107,19 @@ Vous pouvez modifier un large éventail de paramètres pour une machine virtuell
     - Pour modifier les actions de démarrage/arrêt de la machine virtuelle par défaut, sélectionnez les paramètres appropriés dans les zones de liste déroulante.
     - Pour modifier les intervalles de temps pour la suspension ou le démarrage d’une machine virtuelle, entrez les valeurs appropriées dans les champs indiqués.
 
-        :::image type="content" source="media/manage-vm/vm-settings-general.png" alt-text="Écran des paramètres généraux d’une machine virtuelle":::
+        :::image type="content" source="media/manage-vm/vm-settings-general.png" alt-text="Écran des paramètres généraux d’une machine virtuelle" lightbox="media/manage-vm/vm-settings-general.png":::
 
 1. Sélectionnez **Mémoire** pour changer la mémoire de démarrage d’une machine virtuelle, la plage de mémoire dynamique, le pourcentage de mémoire tampon et le poids de la mémoire.
 
-    :::image type="content" source="media/manage-vm/vm-settings-memory.png" alt-text="Écran de modification des paramètres de mémoire de la machine virtuelle":::
+    :::image type="content" source="media/manage-vm/vm-settings-memory.png" alt-text="Écran de modification des paramètres de mémoire de la machine virtuelle" lightbox="media/manage-vm/vm-settings-memory.png":::
 
 1. Sélectionnez **Processeurs** pour changer le nombre de processeurs virtuels, activer la virtualisation imbriquée ou activer le multithreading simultané.
 
-    :::image type="content" source="media/manage-vm/vm-settings-processor.png" alt-text="Écran de modification des paramètres des processeurs de la machine virtuelle":::
+    :::image type="content" source="media/manage-vm/vm-settings-processor.png" alt-text="Écran de modification des paramètres des processeurs de la machine virtuelle" lightbox="media/manage-vm/vm-settings-processor.png":::
 
 1. Pour ajouter un nouveau disque virtuel, sélectionnez **Disques**, puis indiquez si vous voulez créer un disque virtuel vide ou utiliser un disque virtuel existant ou un fichier image ISO (.iso). Cliquez sur **Parcourir** et sélectionnez le chemin du disque virtuel ou du fichier image.
 
-    :::image type="content" source="media/manage-vm/vm-settings-disk.png" alt-text="Écran de modification des paramètres des disques de la machine virtuelle":::
+    :::image type="content" source="media/manage-vm/vm-settings-disk.png" alt-text="Écran de modification des paramètres des disques de la machine virtuelle" lightbox="media/manage-vm/vm-settings-disk.png":::
 
 1. Pour ajouter, supprimer ou modifier des paramètres de carte réseau, sélectionnez **Réseaux** et effectuez les étapes suivantes :
     - Spécifiez le commutateur virtuel à utiliser et indiquez si vous voulez activer l’identification du réseau local virtuel (vous devez également spécifier l’identificateur VLAN).
@@ -103,18 +128,18 @@ Vous pouvez modifier un large éventail de paramètres pour une machine virtuell
         - Activer l’usurpation des adresses MAC.
         - Activer la gestion de la bande passante et spécifier la plage max/min.
 
-        :::image type="content" source="media/manage-vm/vm-settings-network.png" alt-text="Écran de modification des paramètres réseau des machines virtuelles":::
+        :::image type="content" source="media/manage-vm/vm-settings-network.png" alt-text="Écran de modification des paramètres réseau des machines virtuelles" lightbox="media/manage-vm/vm-settings-network.png":::
 
 1. Sélectionnez **Ordre de démarrage** pour ajouter des périphériques d’amorçage ou modifier la séquence de démarrage des machines virtuelles.
 
-    :::image type="content" source="media/manage-vm/vm-settings-boot.png" alt-text="Écran de modification de l’ordre de démarrage des machines virtuelles":::
+    :::image type="content" source="media/manage-vm/vm-settings-boot.png" alt-text="Écran de modification de l’ordre de démarrage des machines virtuelles" lightbox="media/manage-vm/vm-settings-boot.png":::
 
 1. Sélectionnez **Points de contrôle** pour activer des points de contrôle de machine virtuelle, sélectionner un type de point de contrôle et sélectionner un emplacement de point de contrôle.
 
     > [!NOTE]
     > Le paramètre de point de contrôle **Production** est recommandé. Il utilise la technologie de sauvegarde du système d’exploitation invité pour créer des points de contrôle de cohérence des données. Le paramètre **Standard** utilise des instantanés de VHD pour créer des points de contrôle avec l’état de l’application et du service.
 
-     :::image type="content" source="media/manage-vm/vm-settings-checkpoint.png" alt-text="Écran de modification des points de contrôle de machine virtuelle":::
+     :::image type="content" source="media/manage-vm/vm-settings-checkpoint.png" alt-text="Écran de modification des points de contrôle de machine virtuelle" lightbox="media/manage-vm/vm-settings-checkpoint.png":::
 
 1. Pour modifier les paramètres de sécurité d’une machine virtuelle, sélectionnez **Sécurité** et effectuez les étapes suivantes :
     - Sélectionnez **Activer le démarrage sécurisé** pour empêcher l’exécution de code non autorisé au moment du démarrage (recommandé). Sélectionnez également un modèle Microsoft ou open source dans la zone de liste déroulante.
@@ -130,7 +155,7 @@ Vous pouvez modifier un large éventail de paramètres pour une machine virtuell
 
     - Sous **Stratégie de sécurité**, sélectionnez **Activer la protection** pour obtenir des options de protection supplémentaires pour la machine virtuelle.
 
-        :::image type="content" source="media/manage-vm/vm-settings-security.png" alt-text="Modifier les paramètres de sécurité d’une machine virtuelle":::
+        :::image type="content" source="media/manage-vm/vm-settings-security.png" alt-text="Modifier les paramètres de sécurité d’une machine virtuelle" lightbox="media/manage-vm/vm-settings-security.png":::
 
 ## <a name="create-a-new-vm"></a>Créer une machine virtuelle
 
@@ -161,7 +186,7 @@ Vous pouvez facilement créer une machine virtuelle à l’aide de Windows Admin
 
 Vous pouvez facilement déplacer une machine virtuelle vers un autre serveur du cluster comme suit :
 
-:::image type="content" source="media/manage-vm/vm-more-move.png" alt-text="Écran Déplacer la machine virtuelle":::
+:::image type="content" source="media/manage-vm/vm-more-move.png" alt-text="Écran Déplacer la machine virtuelle" lightbox="media/manage-vm/vm-more-move.png":::
 
 1. Sous **Outils**, faites défiler la liste et sélectionnez **Machines virtuelles**.
 1. Sélectionnez l’onglet **Inventaire** à droite. Choisissez une machine virtuelle dans la liste et sélectionnez **Plus > Déplacer**.
@@ -173,7 +198,7 @@ Vous pouvez facilement déplacer une machine virtuelle vers un autre serveur du 
 
 Vous pouvez facilement importer ou exporter une machine virtuelle. La procédure suivante décrit le processus d’importation.
 
-:::image type="content" source="media/manage-vm/vm-more-import.png" alt-text="Écran Importer une machine virtuelle":::
+:::image type="content" source="media/manage-vm/vm-more-import.png" alt-text="Écran Importer une machine virtuelle" lightbox="media/manage-vm/vm-more-import.png":::
 
 1. Sous **Outils**, faites défiler la liste et sélectionnez **Machines virtuelles**.
 1. Sélectionnez l’onglet **Inventaire** à droite. Choisissez une machine virtuelle en cluster dans la liste et sélectionnez **Plus > Importer**.
@@ -207,8 +232,8 @@ Au lieu d’utiliser Windows Admin Center, vous pouvez également gérer vos mac
 
 Vous pouvez utiliser Windows Admin Center pour configurer Azure Site Recovery et répliquer vos machines virtuelles locales sur Azure. Ce service à valeur ajoutée est facultatif. Pour commencer, consultez [Protéger des machines virtuelles à l’aide d’Azure Site Recovery](azure-site-recovery.md).
 
-:::image type="content" source="media/manage-vm/vm-more-azure.png" alt-text="Écran de configuration d’Azure Site Recovery":::
+:::image type="content" source="media/manage-vm/vm-more-azure.png" alt-text="Écran de configuration d’Azure Site Recovery" lightbox="media/manage-vm/vm-more-azure.png":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez également créer et gérer des machines virtuelles à l’aide d’applets de commande Hyper-V Windows PowerShell. Pour plus d’informations, consultez [Hyper-V](https://docs.microsoft.com/powershell/module/hyper-v/?view=win10-ps).
+Vous pouvez également créer et gérer des machines virtuelles à l’aide de Windows PowerShell. Pour plus d’informations, consultez [Gérer des machines virtuelles sur Azure Stack HCI avec Windows PowerShell](vm-powershell.md).

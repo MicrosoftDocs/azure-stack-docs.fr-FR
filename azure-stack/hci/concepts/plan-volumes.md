@@ -1,26 +1,26 @@
 ---
-title: Planification de volumes dans Azure Stack HCI
+title: Planifier des volumes dans Azure Stack HCI
 description: Découvrez comment planifier des volumes de stockage dans Azure Stack HCI.
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.openlocfilehash: f056fbbb8c8e05da6f0a4fc7a7fb38d36249747f
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/21/2020
+ms.openlocfilehash: 34806347a8a5e71cb15c93073b546c52f534cdf5
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196934"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866941"
 ---
-# <a name="planning-volumes-in-storage-spaces-direct"></a>Planification de volumes dans les espaces de stockage direct
+# <a name="plan-volumes-in-azure-stack-hci"></a>Planifier des volumes dans Azure Stack HCI
 
-> S’applique à : Windows Server 2019
+> S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
 
-Cette rubrique fournit des conseils sur la façon de planifier des volumes dans les espaces de stockage direct pour répondre aux besoins de vos charges de travail en matière de performances et de capacités, notamment en ce qui concerne le choix de leur système de fichiers, de leur type de résilience et de leur taille.
+Cette rubrique fournit des conseils sur la façon de planifier des volumes dans Azure Stack HCI pour répondre aux besoins de vos charges de travail en matière de performances et de capacités, notamment en ce qui concerne le choix de leur système de fichiers, de leur type de résilience et de leur taille.
 
 ## <a name="review-what-are-volumes"></a>Révision : Présentation des volumes
 
-Vous utilisez des volumes pour placer les fichiers nécessaires à vos charges de travail, comme les fichiers VHD ou VHDX pour les machines virtuelles Hyper-V. Les volumes combinent les lecteurs du pool de stockage en vue d’introduire la tolérance de panne, l’extensibilité et les performances supérieures des espaces de stockage direct.
+Vous utilisez des volumes pour placer les fichiers nécessaires à vos charges de travail, comme les fichiers VHD ou VHDX pour les machines virtuelles Hyper-V. Les volumes combinent les lecteurs du pool de stockage en vue d’introduire la tolérance de panne, la scalabilité et les performances supérieures des [espaces de stockage direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview), la technologie de stockage à définition logicielle derrière Azure Stack HCI.
 
    >[!NOTE]
    > Dans toute la documentation relative aux espaces de stockage direct, nous utilisons le terme « volume » pour désigner à la fois le volume et le disque virtuel sous-jacent, notamment les fonctionnalités offertes par d’autres fonctions Windows intégrées comme les volumes partagés de cluster (CSV) et ReFS. Il n’est pas nécessaire de comprendre toutes les subtilités au niveau de l’implémentation pour planifier et déployer avec succès des espaces de stockage direct.
@@ -191,6 +191,5 @@ Consultez [Création de volumes dans Azure Stack HCI](../manage/create-volumes.m
 
 Pour plus d'informations, consultez également :
 
-- [Vue d’ensemble d’Azure Stack HCI](../overview.md)
 - [Choix des lecteurs pour les espaces de stockage direct](choose-drives.md)
 - [Tolérance de panne et efficacité du stockage](fault-tolerance.md)

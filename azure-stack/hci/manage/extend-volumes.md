@@ -4,18 +4,19 @@ description: Comment redimensionner des volumes dans Azure Stack HCI à l’aide
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 03/10/2020
-ms.openlocfilehash: 1369d3bcd0393fd322d17e1977524732d5b97ccf
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/21/2020
+ms.openlocfilehash: bb4a72e28bd6126d12dbdb1f97d0579fb98bca8e
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196441"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866589"
 ---
-# <a name="extending-volumes-in-storage-spaces-direct"></a>Extension des volumes dans les espaces de stockage direct
-> S’applique à : Windows Server 2019
+# <a name="extending-volumes-in-azure-stack-hci"></a>Extension de volumes dans Azure Stack HCI
 
-Cette rubrique fournit des instructions pour le redimensionnement des volumes sur un cluster des [espaces de stockage direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) à l’aide de Windows Admin Center.
+> S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
+
+Cette rubrique fournit des instructions pour le redimensionnement des volumes sur un cluster Azure Stack HCI à l’aide de Windows Admin Center.
 
 > [!WARNING]
 > **Non pris en charge : redimensionnement du stockage sous-jacent utilisé par les espaces de stockage direct.** Si vous exécutez les espaces de stockage direct dans un environnement de stockage virtualisé, notamment dans Azure, le redimensionnement ou la modification des caractéristiques des périphériques de stockage utilisés par les machines virtuelles n’est pas pris en charge et entraîne l’inaccessibilité des données. Suivez plutôt les instructions de la section [Ajouter des serveurs ou des lecteurs](/windows-server/storage/storage-spaces/add-nodes) pour ajouter une capacité supplémentaire avant d’étendre les volumes.
@@ -26,7 +27,7 @@ Visionnez une courte vidéo sur la façon de redimensionner un volume.
 
 ## <a name="extending-volumes-using-windows-admin-center"></a>Extension des volumes à l’aide de Windows Admin Center
 
-1. Dans Windows Admin Center, connectez-vous à un cluster des espaces de stockage direct, puis sélectionnez **Volumes** dans le volet **Outils**.
+1. Dans Windows Admin Center, connectez-vous à un cluster Azure Stack HCI, puis sélectionnez **Volumes** dans le volet **Outils**.
 2. Dans la page **Volumes**, sélectionnez l’onglet **Inventaire**, puis le volume à redimensionner.
 
     Dans la page sur les détails des volumes, la capacité de stockage du volume est indiquée. Vous pouvez également ouvrir la page sur les détails des volumes directement à partir du tableau de bord. Dans le tableau de bord, dans le volet Alertes, sélectionnez l’alerte, qui vous avertit si un volume ne dispose pas de suffisamment de capacité de stockage, puis **Accéder au volume**.
@@ -143,6 +144,6 @@ Et voilà !
 
 Pour obtenir des instructions pas à pas sur d’autres tâches essentielles de la gestion du stockage, consultez également :
 
-- [Planification des volumes dans les espaces de stockage direct](/windows-server/storage/storage-spaces/plan-volumes)
-- [Création de volumes dans les espaces de stockage direct](/windows-server/storage/storage-spaces/create-volumes)
-- [Suppression des volumes dans les espaces de stockage direct](/windows-server/storage/storage-spaces/delete-volumes)
+- [Planifier des volumes](../concepts/plan-volumes.md)
+- [Créer des volumes](create-volumes.md)
+- [Supprimer des volumes](delete-volumes.md)

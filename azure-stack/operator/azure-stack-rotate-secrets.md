@@ -9,12 +9,12 @@ ms.reviewer: ppacent
 ms.author: inhenkel
 ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: a16928e233d47c6a3f3a8f612b5d5d22afc08456
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: d66f4c6a83dbac71b407990f65922354ee353dc3
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375053"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488108"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Effectuer la rotation des secrets dans Azure Stack Hub
 
@@ -25,12 +25,12 @@ Les secrets vous aident à maintenir une communication sécurisée entre les res
 ## <a name="rotate-secrets-overview"></a>Présentation de la rotation des secrets
 
 1. Préparez les certificats qui seront utilisés pour la rotation des secrets.
-2. Passez en revue les [exigences de certificat d’infrastructure de clés publiques](https://docs.microsoft.com/azure-stack/operator/azure-stack-pki-certs) d’Azure Stack Hub.
+2. Passez en revue les [exigences de certificat d’infrastructure de clés publiques](./azure-stack-pki-certs.md) d’Azure Stack Hub.
 3. [Utilisez le point de terminaison privilégié](azure-stack-privileged-endpoint.md) et exécutez **Test-azurestack** pour vérifier que tout fonctionne bien.  
 4. Passez en revue les [étapes préliminaires à la rotation des secrets](#pre-steps-for-secret-rotation).
-5. [Validez les certificats d’infrastructure de clés publiques Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-validate-pki-certs). Vérifiez que le mot de passe ne contient pas de caractères spéciaux, tels que `*` ou `)`.
-6. Vérifiez que le chiffrement PFX est **TripleDES-SHA1**. Si vous rencontrez un problème, voir [Corriger les problèmes courants liés aux certificats d’infrastructure de clés publiques Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-remediate-certs#pfx-encryption).
-7. Préparez la structure de dossiers.  Vous trouverez un exemple dans la section [Rotation des secrets externes](https://docs.microsoft.com/azure-stack/operator/azure-stack-rotate-secrets#rotating-external-secrets).
+5. [Validez les certificats d’infrastructure de clés publiques Azure Stack Hub](./azure-stack-validate-pki-certs.md). Vérifiez que le mot de passe ne contient pas de caractères spéciaux, tels que `*` ou `)`.
+6. Vérifiez que le chiffrement PFX est **TripleDES-SHA1**. Si vous rencontrez un problème, voir [Corriger les problèmes courants liés aux certificats d’infrastructure de clés publiques Azure Stack Hub](./azure-stack-remediate-certs.md#pfx-encryption).
+7. Préparez la structure de dossiers.  Vous trouverez un exemple dans la section [Rotation des secrets externes](#rotating-external-secrets).
 8. [Démarrez la rotation des secrets](#use-powershell-to-rotate-secrets).
 
 ## <a name="rotate-secrets"></a>Faire pivoter les clés secrètes
@@ -141,18 +141,18 @@ Pour corriger ces alertes, exécutez la rotation des secrets en suivant les inst
 > Le message d’erreur indique l’existence d’un problème d’accès à votre partage de fichiers, alors qu’il s’agit en réalité de la structure de dossiers appliquée ici. Plus d’informations sont disponibles dans Microsoft.AzureStack.ReadinessChecker – [module PublicCertHelper](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.1811.1101.1/Content/CertificateValidation%5CPublicCertHelper.psm1).
 >
 > Il est également important que votre structure de dossiers de partage de fichiers commence par le dossier **Certificates**, sans quoi la validation échouerait également.
-> Le montage du partage de fichiers doit se présenter sous la forme **\\\\\<IPAddress>\\\<ShareName>\\** et contenir le dossier  **Certificates\AAD** ou **Certificates\ADFS**.
+> Le montage du partage de fichiers doit se présenter sous la forme **\\\\\<IPAddress>\\\<ShareName>\\** et contenir le dossier **Certificates\AAD** ou **Certificates\ADFS**.
 >
 > Par exemple :
-> - Fileshare = **\\\\\<IPAddress>\\\<ShareName>\\**
+> - Fileshare = **\\\\\<IPAddress>\\\<ShareName>\\**
 > - CertFolder = **Certificates\AAD**
-> - FullPath = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
+> - FullPath = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
 
 ## <a name="rotating-external-secrets"></a>Rotation des secrets externes
 
 Pour effectuer une rotation des secrets externes :
 
-1. Dans le répertoire **\Certificates\\\<IdentityProvider>** créé lors des étapes préliminaires, placez le nouveau jeu de certificats externes de remplacement dans la structure de répertoires en respectant le format décrit dans la section **Certificats obligatoires** de la page [Exigences de certificat d’infrastructure de clés publiques Azure Stack Hub](azure-stack-pki-certs.md#mandatory-certificates).
+1. Dans le répertoire **\Certificates\\\<IdentityProvider>** nouvellement créé lors des étapes préliminaires, placez le nouveau jeu de certificats externes de remplacement dans la structure de répertoires en suivant le format décrit dans la section **Certificats obligatoires** de la page [Exigences liées aux certificats PKI Azure Stack Hub](azure-stack-pki-certs.md).
 
     Exemple de structure de dossiers pour le fournisseur d’identité Azure AD :
     ```powershell
@@ -200,7 +200,7 @@ Pour effectuer une rotation des secrets externes :
     > [!IMPORTANT]  
     > N’entrez pas dans la session. Stockez la session en tant que variable.
 
-3. Exécutez **[invoke-command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)** . Passez la variable de session PowerShell de votre point de terminaison privilégié en tant que paramètre **Session**.
+3. Exécutez **[invoke-command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-5.1)** . Passez la variable de session PowerShell de votre point de terminaison privilégié en tant que paramètre **Session**.
 
 4. Exécutez **Start-SecretRotation** avec les paramètres suivants :
     - **PfxFilesPath**  

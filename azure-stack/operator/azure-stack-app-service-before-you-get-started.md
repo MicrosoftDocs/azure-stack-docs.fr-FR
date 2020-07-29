@@ -8,12 +8,12 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: c3512a441116f57f74921cec38d5937b89a1978c
-ms.sourcegitcommit: d04b8f2d431ec1e12bcf5aa976fb06ec109caa25
+ms.openlocfilehash: 95d038b53432e94d0259352a2d71c88c24f68c1f
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82868471"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489723"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Prérequis pour le déploiement d’App Service sur Azure Stack Hub
 
@@ -75,7 +75,7 @@ Le certificat de l’API est placé sur le rôle de gestion. Le fournisseur de r
 
 | Format | Exemple |
 | --- | --- |
-| api.appservice.\<région\>.\<nom_domaine\>.\<extension\> | api.appservice.redmond.azurestack.external |
+| api.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
 #### <a name="publishing-certificate"></a>Certificat de publication
 
@@ -228,7 +228,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 Pour qu’Azure App Service sur Azure Stack Hub héberge et contrôle les bases de données, vous devez préparer une instance SQL Server pour stocker les bases de données d’App Service.
 
-Pour des raisons de production et de haute disponibilité, vous devez utiliser une version complète de SQL Server 2014 SP2 ou une version ultérieure, activer l’authentification en mode mixte et déployer une [configuration hautement disponible](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
+Pour des raisons de production et de haute disponibilité, vous devez utiliser une version complète de SQL Server 2014 SP2 ou une version ultérieure, activer l’authentification en mode mixte et déployer une [configuration hautement disponible](/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
 L’instance SQL Server pour Azure App Service sur Azure Stack Hub doit être accessible depuis tous les rôles App Service. SQL Server peut être déployé au sein d’un abonnement de fournisseur par défaut dans Azure Stack Hub. Vous pouvez aussi vous servir d’une infrastructure existante au sein de votre organisation (sous réserve d’une connectivité avec Azure Stack Hub). Si vous utilisez une image de Place de marché Azure, pensez à configurer le pare-feu en conséquence.
 
@@ -388,7 +388,7 @@ Suivez ces étapes pour créer le principal de service dans votre locataire Azur
 1. Recherchez l’ID d’application que vous avez noté à l’étape 7. 
 1. Sélectionnez l’inscription d’application App Service dans la liste.
 1. Dans le volet gauche, sélectionnez **Autorisations d’API**.
-1. Sélectionnez **Accorder un consentement d’administrateur pour \<locataire\>** , où \<locataire\> représente le nom de votre locataire Azure AD. Confirmez l’octroi du consentement en sélectionnant **Oui**.
+1. Sélectionnez **Accorder un consentement d’administrateur pour \<tenant\>** , où \<tenant\> représente le nom de votre locataire Azure AD. Confirmez l’octroi du consentement en sélectionnant **Oui**.
 
 ```powershell
     Create-AADIdentityApp.ps1

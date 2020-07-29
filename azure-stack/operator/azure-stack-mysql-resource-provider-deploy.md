@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: a187937ded0f2f28bb9c772607cb21aad0021a3c
-ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
+ms.openlocfilehash: 699c9a32c316e183c5432308ca26239533f71c98
+ms.sourcegitcommit: 09fbc4e8fc53828647d515bfb556dfe42df28c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82908499"
+ms.lasthandoff: 07/16/2020
+ms.locfileid: "86419151"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Déployer le fournisseur de ressources MySQL sur Azure Stack Hub
 
@@ -53,7 +53,7 @@ Plusieurs conditions préalables doivent être remplies avant de pouvoir déploy
     |-----|-----|
     |La redirection DNS conditionnelle est correctement définie.|[Intégration au centre de données Azure Stack Hub - DNS](azure-stack-integrate-dns.md)|
     |Les ports d’entrée pour les fournisseurs de ressources sont ouverts.|[Intégration au centre de données Azure Stack Hub - Publier des points de terminaison](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |Les objets du certificat PKI et SAN sont correctement définis.|[Prérequis PKI obligatoires pour le déploiement Azure Stack Hub](azure-stack-pki-certs.md#mandatory-certificates)[Prérequis de certificat PaaS pour le déploiement Azure Stack Hub](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |Les objets du certificat PKI et SAN sont correctement définis.|[Prérequis PKI obligatoires pour le déploiement Azure Stack Hub](azure-stack-pki-certs.md)[Prérequis de certificat PaaS pour le déploiement Azure Stack Hub](azure-stack-pki-certs.md)|
     |     |     |
 
 Dans un scénario déconnecté, procédez comme suit pour télécharger les modules PowerShell requis et enregistrer le référentiel manuellement.
@@ -92,7 +92,7 @@ New-Item -Path $env:ProgramFiles -name "SqlMySqlPsh" -ItemType "Directory"
 
 ### <a name="certificates"></a>Certificats
 
-_Pour les installations de systèmes intégrés uniquement_. Vous devez fournir le certificat PKI SQL Paas décrit dans la section facultative consacrée aux certificats PaaS de [Exigences relatives à l'infrastructure de clés publiques pour le déploiement d'Azure Stack Hub](./azure-stack-pki-certs.md#optional-paas-certificates). Copiez le fichier .pfx à l’emplacement spécifié par le paramètre **DependencyFilesLocalPath**. Ne fournissez pas de certificat pour les systèmes ASDK.
+_Pour les installations de systèmes intégrés uniquement_. Vous devez fournir le certificat PKI SQL Paas décrit dans la section facultative consacrée aux certificats PaaS de [Exigences relatives à l'infrastructure de clés publiques pour le déploiement d'Azure Stack Hub](./azure-stack-pki-certs.md). Copiez le fichier .pfx à l’emplacement spécifié par le paramètre **DependencyFilesLocalPath**. Ne fournissez pas de certificat pour les systèmes ASDK.
 
 ## <a name="deploy-the-resource-provider"></a>Déployer le fournisseur de ressources
 
