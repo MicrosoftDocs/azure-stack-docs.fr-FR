@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: d765c4fb9417cf845095266bd13f7dd5d3044dbc
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.openlocfilehash: bbb77e9d96daa3f7f6eefd88812a11656e2acc5d
+ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86947484"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87397428"
 ---
 # <a name="manage-vms-on-azure-stack-hci-using-windows-powershell"></a>Gérer des machines virtuelles sur Azure Stack HCI avec Windows PowerShell
 
@@ -77,7 +77,7 @@ L’exemple suivant retourne la liste de toutes les machines virtuelles sur Serv
 Get-VM -ComputerName Server1
 ```
 
-L’exemple suivant retourne la liste de toutes les machines virtuelles en cours d’exécution sur un serveur en ajoutant un filtre à l’aide de la commande `Where-Object`. Pour plus d’informations, consultez la documentation sur l’[utilisation de Where-Object](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-powershell-1.0/ee177028(v=technet.10)>).
+L’exemple suivant retourne la liste de toutes les machines virtuelles en cours d’exécution sur un serveur en ajoutant un filtre à l’aide de la commande `Where-Object`. Pour plus d’informations, consultez la documentation sur l’[utilisation de Where-Object](/previous-versions/windows/it-pro/windows-powershell-1.0/ee177028(v=technet.10)).
 
 ```powershell
 Get-VM -ComputerName Server1 | Where-Object -Property State -eq "Running"

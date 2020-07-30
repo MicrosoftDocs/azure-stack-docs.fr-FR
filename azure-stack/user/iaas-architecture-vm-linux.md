@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: b573018148f07116d5a49df5a2ac5ce931486228
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.openlocfilehash: 970a128933e8bb65320e8d3d5a0657fac4bc208b
+ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86947161"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87397530"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Exécuter une machine virtuelle Linux dans Azure Stack Hub
 
@@ -70,7 +70,7 @@ Les composants réseau incluent les ressources suivantes :
 
 -   **Adresse IP publique/Adresse IP virtuelle**. Une adresse IP publique est nécessaire pour communiquer avec la machine virtuelle, par exemple via le protocole RDP. Cette adresse IP publique peut être dynamique ou statique. Par défaut, elle est dynamique. Si vous avez besoin de plusieurs cartes réseau (NIC) pour votre machine virtuelle, notez que le nombre maximal de cartes réseau est défini pour chaque [taille de machine virtuelle](./azure-stack-vm-sizes.md).
 
--   Vous pouvez également créer un nom de domaine complet (FQDN) pour l’adresse IP. Vous pouvez inscrire un [enregistrement CNAME](https://en.wikipedia.org/wiki/CNAME_record) dans le DNS qui pointe vers le nom de domaine complet (FQDN). Pour en savoir plus, consultez [Créer un nom de domaine complet dans le Portail Azure](/azure/virtual-machines/virtual-machines-linux-portal-create-fqdn).
+-   Vous pouvez également créer un nom de domaine complet (FQDN) pour l’adresse IP. Vous pouvez inscrire un [enregistrement CNAME](https://en.wikipedia.org/wiki/CNAME_record) dans le DNS qui pointe vers le nom de domaine complet (FQDN). Pour en savoir plus, consultez [Créer un nom de domaine complet dans le Portail Azure](/azure/virtual-machines/linux/portal-create-fqdn).
 
 -   **Groupe de sécurité réseau.** Les groupes de sécurité réseau sont utilisés pour autoriser ou refuser le trafic réseau vers des machines virtuelles. Les groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des instances de machine virtuelle individuelles.
 
@@ -78,7 +78,7 @@ Tous les groupes de sécurité réseau contiennent un ensemble de [règles par d
 
 ## <a name="operations"></a>Opérations
 
-**SSH**. Avant de créer une machine virtuelle Linux, générez une paire de clés publique-privée RSA 2048 bits. Utilisez le fichier de clé publique lorsque vous créez la machine virtuelle. Pour plus d’informations, consultez la rubrique [Utilisation de SSH avec Linux dans Azure](/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+**SSH**. Avant de créer une machine virtuelle Linux, générez une paire de clés publique-privée RSA 2048 bits. Utilisez le fichier de clé publique lorsque vous créez la machine virtuelle. Pour plus d’informations, consultez la rubrique [Utilisation de SSH avec Linux dans Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 **Diagnostics**. Permet la supervision et le diagnostic, avec notamment des indicateurs d’intégrité de base, des journaux d’activité d’infrastructure de diagnostic et des [diagnostics de démarrage](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Les diagnostics de démarrage peuvent vous aider à identifier le problème de démarrage si votre machine virtuelle refuse de démarrer. Créez un compte de stockage Azure pour stocker les journaux d’activité. Un compte de stockage localement redondant (LRS) standard suffit pour les journaux de diagnostic. Pour en savoir plus, consultez [Activation de la surveillance et des diagnostics](./azure-stack-metrics-azure-data.md).
 

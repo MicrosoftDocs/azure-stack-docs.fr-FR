@@ -3,16 +3,16 @@ title: Exécuter une machine virtuelle Windows sur Azure Stack Hub
 description: Découvrez comment exécuter une machine virtuelle Windows sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 3/9/2020
+ms.date: 7/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 3/9/2020
-ms.openlocfilehash: 11ab20369bc95d86f4a1468c4eda670015f33e65
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: d642f01ca55fc18b832a04328be835703dfb5dd2
+ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567771"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87397547"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>Exécuter une machine virtuelle Windows sur Azure Stack Hub
 
@@ -40,7 +40,7 @@ Sur Azure Stack Hub, les IOPS (opérations d’entrée/sortie par seconde) du di
 
 Nous vous recommandons également d’utiliser la fonctionnalité [Disques managés](./azure-stack-managed-disk-considerations.md). Les disques managés simplifient la gestion des disques en gérant le stockage pour vous. Les disques managés ne nécessitent pas de compte de stockage. Il vous suffit de spécifier leur taille et leur type, puis de les déployer en tant que ressource hautement disponible.
 
-Le disque du système d’exploitation étant un disque dur virtuel stocké dans le stockage d’objets blob Azure Stack Hub, il persiste même lorsque l’ordinateur hôte est arrêté. Nous vous recommandons également de créer un ou plusieurs [disques de données](./azure-stack-manage-vm-disks.md), qui sont des disques durs virtuels persistants utilisés pour les données d’application. Lorsque cela est possible, installez les applications sur un disque de données plutôt que sur le disque du système d’exploitation. Certaines applications héritées requièrent peut-être l’installation de composants sur le lecteur C: ; dans ce cas, vous pouvez [redimensionner le disque du système d’exploitation](/azure/virtual-machines/virtual-machines-windows-expand-os-disk) à l’aide de PowerShell.
+Le disque du système d’exploitation étant un disque dur virtuel stocké dans le stockage d’objets blob Azure Stack Hub, il persiste même lorsque l’ordinateur hôte est arrêté. Nous vous recommandons également de créer un ou plusieurs [disques de données](./azure-stack-manage-vm-disks.md), qui sont des disques durs virtuels persistants utilisés pour les données d’application. Lorsque cela est possible, installez les applications sur un disque de données plutôt que sur le disque du système d’exploitation. Certaines applications héritées requièrent peut-être l’installation de composants sur le lecteur C: ; dans ce cas, vous pouvez [redimensionner le disque du système d’exploitation](/azure/virtual-machines/windows/expand-os-disk) à l’aide de PowerShell.
 
 La machine virtuelle est créée avec un disque temporaire (le lecteur D: sur Windows). Ce disque est stocké sur un volume temporaire dans l’infrastructure de stockage Azure Stack Hub. Il peut être supprimé lors des redémarrages ou d’autres événements de cycle de vie de la machine virtuelle. N’utilisez ce disque que pour des données temporaires, telles que des fichiers de pagination ou d’échange.
 
@@ -56,7 +56,7 @@ Les composants réseau incluent les ressources suivantes :
 
 -   Utilisez une [adresse IP statique](/azure/virtual-network/virtual-networks-reserved-public-ip) si vous avez besoin d’une adresse IP non modifiable, par exemple si vous devez créer un enregistrement « A » dans le DNS ou ajouter l’adresse IP dans une liste sécurisée.
 
--   Vous pouvez également créer un nom de domaine complet (FQDN) pour l’adresse IP. Vous pouvez inscrire un [enregistrement CNAME](https://en.wikipedia.org/wiki/CNAME_record) dans le DNS qui pointe vers le nom de domaine complet (FQDN). Pour en savoir plus, consultez [Créer un nom de domaine complet dans le Portail Azure](/azure/virtual-machines/virtual-machines-windows-portal-create-fqdn).
+-   Vous pouvez également créer un nom de domaine complet (FQDN) pour l’adresse IP. Vous pouvez inscrire un [enregistrement CNAME](https://en.wikipedia.org/wiki/CNAME_record) dans le DNS qui pointe vers le nom de domaine complet (FQDN). Pour en savoir plus, consultez [Créer un nom de domaine complet dans le Portail Azure](/azure/virtual-machines/windows/portal-create-fqdn).
 
 -   **Groupe de sécurité réseau**. Les groupes de sécurité réseau sont utilisés pour autoriser ou refuser le trafic réseau vers une machine virtuelle. Les groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des instances de machine virtuelle individuelles.
 

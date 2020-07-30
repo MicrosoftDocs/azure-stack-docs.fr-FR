@@ -3,16 +3,16 @@ title: Tailles de machine virtuelle prises en charge dans Azure Stack Hub
 description: Référence pour les tailles de machine virtuelle prises en charge dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: reference
-ms.date: 03/23/2020
+ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 03/23/2020
-ms.openlocfilehash: cce150e9e7698ea98035dc4f9104595100686cb7
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 3eb2a58c3ab915be9cf8cf1139880409830429f7
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80152188"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250756"
 ---
 # <a name="vm-sizes-supported-in-azure-stack-hub"></a>Tailles de machine virtuelle prises en charge dans Azure Stack Hub
 
