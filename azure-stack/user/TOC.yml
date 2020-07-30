@@ -332,7 +332,7 @@
 - name: Informations de référence
   items:
     - name: Azure Stack Hub PowerShell
-      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
+      href: /powershell/azure/azure-stack/overview
     - name: API REST pour les administrateurs Azure Stack Hub
       href: /rest/api/azure-stack/
     - name: Azure CLI
@@ -348,7 +348,7 @@
     - name: Feuille de route Azure Stack Hub
       href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
     - name: Azure Stack Hub Microsoft Q & A
-      href: 'https://docs.microsoft.com/answers/questions/topics/single/50514.html'
+      href: /answers/questions/topics/single/50514.html
     - name: Commentaires sur la documentation Azure Stack Hub
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Informations sur la tarification
