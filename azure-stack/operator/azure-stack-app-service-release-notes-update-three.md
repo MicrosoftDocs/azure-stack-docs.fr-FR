@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 49ebbbcdebb369c98349e1c919f14fc75b65d6c2
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: e2b53b4b99b02267a6f88b22a2ee373695445081
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489553"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250195"
 ---
 # <a name="app-service-on-azure-stack-hub-update-3-release-notes"></a>Notes de publication d'App Service sur Azure Stack Hub Update 3
 
@@ -126,9 +126,9 @@ Pour les clients désireux d'effectuer une migration vers une base de données a
             GO  
 
             /********[appservice_hosting] Migration End********/
-    '''
+    ```
 
-1. Migrate logins to contained database users.
+1. Migrez les connexions vers les utilisateurs de base de données autonome.
 
     ```sql
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
