@@ -494,6 +494,8 @@
       href: ../user/index.yml
     - name: Documentation ASDK
       href: ../asdk/index.yml
+    - name: Documentation sur le cloud hybride Azure
+      href: /hybrid
 - name: Ressources
   items:
     - name: Formation et certification
