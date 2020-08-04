@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Questions fréquentes (FAQ) sur Windows Server dans la Place de marché Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 03/19/2020
+ms.date: 07/23/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 95719c6b0651932ab41cef5321db06b77eb4fc63
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: fff299a0d537bb4190e66a57eb642db7e8b9824d
+ms.sourcegitcommit: f2a5ce52fcf69e05fe89be8211b7360de46f4a94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069450"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133637"
 ---
 # <a name="azure-stack-hub-marketplace-faq"></a>Questions fréquentes (FAQ) sur la Place de marché Azure Stack Hub
 
@@ -31,11 +31,11 @@ Déterminez d’abord si des modèles Azure Resource Manager font référence à
 
 Ensuite, si des groupes de machines virtuelles identiques font référence à une version spécifique, déterminez s’ils vont être mis à l’échelle plus tard, et décidez si les anciennes versions doivent être conservées ou non. Si aucune de ces conditions ne s’applique, supprimez les anciennes images de la Place de marché Azure Stack Hub avant de télécharger les plus récentes. Utilisez pour cela le panneau Gestion de la Place de marché si la version d’origine a été téléchargée de cette façon. Téléchargez ensuite la version plus récente.
 
-### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack-hub"></a>Quelles sont les options de licence pour les images Place de Marché Windows Server sur Azure Stack Hub ?
+### <a name="what-are-the-licensing-options-for-windows-server-images-on-azure-stack-hub-marketplace"></a>Quelles sont les options de licence pour les images Windows Server sur la Place de Marché Azure Stack Hub ?
 
 Les images Windows Server proposées par Microsoft via la Place de marché Azure Stack Hub sont disponibles en deux versions. Une seule version de cette image peut être utilisée dans un environnement Azure Stack Hub.  
 
-- **Paiement à l’utilisation (PAYG)**  : ces images sont associées à des compteurs Windows plein tarif.
+- **Paiement à l’utilisation (PAYG)**  : Ces images sont associées à des compteurs Windows plein tarif.
    À qui s’adresse cette option : clients Contrat Entreprise (EA) utilisant le *modèle de facturation Consommation* et fournisseurs de services cloud ne souhaitant pas utiliser de licence SPLA.
 - **BYOL (apportez votre propre licence)**  : ces images sont associées à des compteurs de base.
    À qui s’adresse cette option : clients EA disposant d’une licence Windows Server et fournisseurs de services cloud utilisant une licence SPLA.
@@ -78,7 +78,7 @@ Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 
 Ces images appliquent le paramètre **licenseType**, elles sont donc PAYG. Vous pouvez définir ce paramètre (voir la réponse précédente). Ceci ne s’applique qu’aux logiciels Windows Server. Les produits en couche comme SQL, qui vous obligent à apporter votre propre licence, ne sont pas concernés. Les licences PAYG ne s’appliquent pas aux produits logiciels en couche.
 
-Vous pouvez uniquement changer la propriété **licenseType** pour les images SQL Server de la Place de marché Azure Stack Hub si la version est XX.X.20190410 ou ultérieure. Si vous exécutez une version antérieure des images SQL Server de la Place de marché Azure Stack Hub, vous ne pouvez pas changer l’attribut **licenseType**. Vous devez effectuer un redéploiement à l’aide des dernières images SQL Server de la Place de marché Azure Stack Hub.
+Vous pouvez uniquement changer la propriété **licenseType** pour les images SQL Server de la Place de marché Azure Stack Hub si la version est **XX.X.20190410** ou ultérieure. Si vous exécutez une version antérieure des images SQL Server de la Place de marché Azure Stack Hub, vous ne pouvez pas changer l’attribut **licenseType**. Vous devez effectuer un redéploiement à l’aide des dernières images SQL Server de la Place de marché Azure Stack Hub.
 
 ### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>J’ai un Contrat Entreprise (EA) et je vais utiliser ma licence Windows Server EA. Comment m’assurer que les images sont facturées correctement ?
 

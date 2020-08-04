@@ -4,13 +4,13 @@ description: Découvrez comment choisir des lecteurs pour les espaces de stockag
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 7ae6a7abc3bb9dc0f73f64c72c56e2436b91a990
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.date: 07/22/2020
+ms.openlocfilehash: 56d9c2cf09d05de59700c70fd7851999db42265f
+ms.sourcegitcommit: aca1b05b570aa72bfe410c9cf7109f590526ed84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86947144"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115195"
 ---
 # <a name="choosing-drives-for-azure-stack-hci"></a>Choix des lecteurs pour Azure Stack HCI
 
@@ -37,7 +37,7 @@ Pour plus d’informations, consultez [Présentation du cache dans les espaces d
 
 ## <a name="option-1--maximizing-performance"></a>Option 1 : Maximisation des performances
 
-Vous devez opter pour une solution « 100 % flash » si vous souhaitez garantir une latence uniforme et prévisible inférieure à une milliseconde pour toutes les opérations aléatoires de lecture et d’écriture de données, ou si vous voulez obtenir un très grand nombre d’E/S par seconde (nous en avons réalisé [plus de six millions](https://www.youtube.com/watch?v=0LviCzsudGY&t=28m)) ou un débit d’E/S très élevé (nous avons obtenu [plus de 1 To/s](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=16m50s)).
+Vous devez opter pour une solution « 100 % flash » si vous souhaitez garantir une latence uniforme et prévisible inférieure à une milliseconde pour toutes les opérations aléatoires de lecture et d’écriture de données, ou si vous voulez obtenir un très grand nombre d’E/S par seconde (nous en avons réalisé [plus de 13 millions](https://techcommunity.microsoft.com/t5/storage-at-microsoft/the-new-hci-industry-record-13-7-million-iops-with-windows/ba-p/428314)) ou un débit d’E/S très élevé (nous avons effectué des lectures de plus de 500 Go/s).
 
 Il existe actuellement trois façons de le faire :
 

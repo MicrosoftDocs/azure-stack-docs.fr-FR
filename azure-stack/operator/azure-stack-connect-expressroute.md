@@ -3,22 +3,22 @@ title: Connecter Azure Stack Hub à Azure à l’aide d’ExpressRoute
 description: Découvrez comment connecter des réseaux virtuels dans Azure Stack Hub à des réseaux virtuels dans Azure à l’aide d’ExpressRoute.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: b30016866f0d3b7da4c449c40cff54d77adf3e2f
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 04efed21fad37888c6c0be0a92d9da35af1e1b56
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489264"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250399"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Connecter Azure Stack Hub à Azure à l'aide d’Azure ExpressRoute
 
 Cet article explique comment connecter un réseau virtuel Azure Stack Hub à un réseau virtuel Azure à l’aide d’une connexion directe [Microsoft Azure ExpressRoute](/azure/expressroute/).
 
-Vous pouvez utiliser cet article sous forme de didacticiel et utiliser les exemples pour configurer le même environnement de test. Ou bien, vous pouvez utiliser l’article comme une procédure pas-à-pas qui vous guide à travers la configuration de votre propre environnement ExpressRoute.
+Vous pouvez utiliser cet article sous forme de didacticiel et utiliser les exemples pour configurer le même environnement de test. Ou bien, vous pouvez lire l’article comme une procédure pas-à-pas qui vous guide lors de la configuration de votre propre environnement ExpressRoute.
 
 ## <a name="overview-assumptions-and-prerequisites"></a>Vue d’ensemble, hypothèses et conditions préalables
 

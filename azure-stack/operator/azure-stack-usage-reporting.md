@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: d0d11295d9425e07e34dc59eb2fcc83c6b020582
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: 8dff2f6debb12b8579e3b8e0b451b8d6bac17cad
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772560"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250348"
 ---
 # <a name="report-azure-stack-hub-usage-data-to-azure"></a>Signaler les données d'utilisation Azure Stack Hub à Azure
 
@@ -26,11 +26,11 @@ Les systèmes Azure Stack Hub à plusieurs nœuds qui utilisent un modèle de fa
 > [!IMPORTANT]
 > Toutes les charges de travail [doivent être déployées dans le cadre d'abonnements de locataire](#are-users-charged-for-the-infrastructure-vms), conformément aux termes du contrat de licence d'Azure Stack Hub.
 
-Les rapports relatifs aux données d'utilisation sont nécessaires aux utilisateurs des systèmes Azure Stack Hub à plusieurs nœuds qui attribuent des licences selon le modèle de paiement à l'utilisation. Ceci est facultatif pour les clients qui attribuent des licences sous le modèle de capacité (voir [Comment acheter Azure Stack](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)). Pour les utilisateurs du Kit de développement Azure Stack (ASDK), les opérateurs Azure Stack Hub peuvent communiquer des données d'utilisation et tester la fonctionnalité. Toutefois, l’utilisation qu’elles impliquent n’est pas facturée aux utilisateurs.
+Les rapports relatifs aux données d’utilisation sont nécessaires aux utilisateurs des systèmes Azure Stack Hub à plusieurs nœuds qui attribuent des licences selon le modèle de paiement à l’utilisation. Ceci est facultatif pour les clients qui attribuent des licences sous le modèle de capacité (voir [Comment acheter Azure Stack](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)). Pour les utilisateurs du Kit de développement Azure Stack (ASDK), les opérateurs Azure Stack Hub peuvent communiquer des données d'utilisation et tester la fonctionnalité. Toutefois, l’utilisation qu’elles impliquent n’est pas facturée aux utilisateurs.
 
 ![Flux de facturation pour les données d’utilisation dans Azure Stack Hub](media/azure-stack-usage-reporting/billing-flow.svg)
 
-Les données d'utilisation sont envoyées d'Azure Stack Hub à Azure via Azure Bridge. Dans Azure, le système de commerce traite les données d’utilisation et génère la facture. Une fois la facture générée, le propriétaire de l’abonnement Azure peut l’afficher et la télécharger à partir du [Centre des comptes Azure](https://account.windowsazure.com/subscriptions). Pour savoir comment Azure Stack Hub est concédé sous licence, consultez le [document relatif à l'empaquetage et aux tarifs d'Azure Stack Hub](https://go.microsoft.com/fwlink/?LinkId=842847).
+Les données d'utilisation sont envoyées d'Azure Stack Hub à Azure via Azure Bridge. Dans Azure, le système de commerce traite les données d’utilisation et génère la facture. Une fois la facture générée, le propriétaire de l’abonnement Azure peut l’afficher et la télécharger à partir du [Centre des comptes Azure](https://account.windowsazure.com/subscriptions). Pour savoir comment Azure Stack Hub est concédé sous licence, consultez le [document relatif à l’empaquetage et aux tarifs d’Azure Stack Hub](https://go.microsoft.com/fwlink/?LinkId=842847).
 
 ## <a name="set-up-usage-data-reporting"></a>Configurer la génération de rapports de données d’utilisation
 
@@ -41,7 +41,7 @@ Pour configurer la génération de rapports sur les données d'utilisation, vous
 - **Emplacement** : emplacement où la ressource Azure Stack Hub actuelle est déployée.
 - **URI de ressource** : URI complet de la ressource pour laquelle l’utilisation est signalée.
 - **ID d'abonnement** : ID d'abonnement de l'utilisateur Azure Stack Hub, qui est l'abonnement (Azure Stack Hub) local.
-- **Heure** : heure de début et de fin des données d’utilisation. Il existe un décalage entre le moment où ces ressources sont consommées dans Azure Stack Hub et celui où les données d’utilisation sont communiquées au commerce. Azure Stack Hub agrège les données d'utilisation toutes les 24 heures, et la communication des données d'utilisation au pipeline Commerce d'Azure prend encore plusieurs heures. Par conséquent, l’utilisation qui se produit peu de temps avant minuit peut s’afficher dans Azure le jour suivant.
+- **Heure** : heure de début et de fin des données d’utilisation. Il existe un décalage entre le moment où ces ressources sont utilisées dans Azure Stack Hub et celui où les données d'utilisation sont communiquées au commerce. Azure Stack Hub agrège les données d'utilisation toutes les 24 heures, et la communication des données d'utilisation au pipeline Commerce d'Azure prend encore plusieurs heures. Par conséquent, l’utilisation qui se produit peu de temps avant minuit peut s’afficher dans Azure le jour suivant.
 
 ## <a name="generate-usage-data-reporting"></a>Générer des rapports de données d’utilisation
 

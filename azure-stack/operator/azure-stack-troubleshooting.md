@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Découvrez comment résoudre les problèmes Azure Stack Hub, y compris les problèmes liés aux machines virtuelles, stockage et App Service.
 author: justinha
 ms.topic: article
-ms.date: 07/13/2020
+ms.date: 07/21/2020
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/13/2020
-ms.openlocfilehash: e58d57b50f0f11c3e05d660063b5abd94c8e4575
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 07/21/2020
+ms.openlocfilehash: cef555f353b00a0ccfc494b91b5cf4d3c69ac9e9
+ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487564"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87397445"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Résoudre les problèmes dans Azure Stack Hub
 
@@ -92,9 +92,49 @@ Pour plus d'informations, consultez [Diagnostics Azure Stack Hub](azure-stack-ge
 
 ## <a name="troubleshoot-virtual-machines-vms"></a>Résoudre les problèmes liés aux machines virtuelles
 
+### <a name="reset-linux-vm-password"></a>Réinitialiser le mot de passe Linux VM
+
+Si vous oubliez le mot de passe d’une machine virtuelle Linux et que l’option **Réinitialiser le mot de passe** ne fonctionne pas en raison de problèmes liés à l’extension VMAccess, vous pouvez effectuer une réinitialisation en procédant comme suit :
+
+1. Choisissez une machine virtuelle Linux à utiliser en tant que machine virtuelle de récupération.
+
+1. Connectez-vous au portail utilisateur :
+   1. Prenez note de la taille de la machine virtuelle, de la carte réseau, de l’adresse IP publique, du groupe de sécurité réseau et des disques de données.
+   1. Arrêtez la machine virtuelle concernée.
+   1. Supprimez la machine virtuelle concernée.
+   1. Attachez le disque de la machine virtuelle concernée en tant que disque de données sur la machine virtuelle de récupération (la disponibilité du disque peut prendre quelques minutes).
+
+1. Connectez-vous à la machine virtuelle de récupération et exécutez la commande suivante :
+
+   ```
+   sudo su –
+   mkdir /tempmount
+   fdisk -l
+   mount /dev/sdc2 /tempmount /*adjust /dev/sdc2 as necessary*/
+   chroot /tempmount/
+   passwd root /*substitute root with the user whose password you want to reset*/
+   rm -f /.autorelabel /*Remove the .autorelabel file to prevent a time consuming SELinux relabel of the disk*/
+   exit /*to exit the chroot environment*/
+   umount /tempmount
+   ```
+
+1. Connectez-vous au portail utilisateur :
+
+   1. Détachez le disque de la machine virtuelle de récupération.
+   1. Recréez la machine virtuelle à partir du disque.
+   1. Veillez à transférer l’adresse IP publique de la machine virtuelle précédente, à attacher les disques de données, etc.
+
+
+Vous pouvez également prendre un instantané du disque d’origine et créer un disque à partir de celui-ci plutôt que d’effectuer les modifications directement sur le disque d’origine. Pour plus d’informations, consultez les rubriques suivantes :
+
+- [Réinitialiser le mot de passe](/azure/virtual-machines/troubleshooting/reset-password)
+- [Créer un disque à partir de l’instantané](/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-portal-linux#create-a-disk-from-the-snapshot)
+- [Modification et réinitialisation du mot de passe racine](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/system_administrators_guide/sec-terminal_menu_editing_during_boot#sec-Changing_and_Resetting_the_Root_Password)
+
+
 ### <a name="license-activation-fails-for-windows-server-2012-r2-during-provisioning"></a>Échec de l’activation de la licence pour Windows Server 2012 R2 durant le provisionnement
 
-Dans ce cas, l’activation de Windows est un échec, et vous voyez s’afficher un filigrane dans le coin inférieur droit de l’écran. Le journal WaSetup.xml situé sous C:\Windows\Panther contient l’événement suivant :
+Dans ce cas, l’activation de Windows est un échec et un filigrane s’affiche dans le coin inférieur droit de l’écran. Le journal WaSetup.xml situé sous C:\Windows\Panther contient l’événement suivant :
 
 ```xml
 <Event time="2019-05-16T21:32:58.660Z" category="ERROR" source="Unattend">

@@ -3,20 +3,20 @@ title: Vue d’ensemble de la Place de marché Azure Stack Hub
 description: Vue d’ensemble de la Place de marché Azure Stack Hub et de ses éléments.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 638ffe45cef9301059fd9e9e39b74b793e2ba86a
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: b9f01cb8237a3a6764b6ce450e279700a17eea01
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661343"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250807"
 ---
 # <a name="azure-stack-hub-marketplace-overview"></a>Vue d’ensemble de la Place de marché Azure Stack Hub
 
-La Place de marché Azure Stack Hub est un regroupement de services, d’applications et de ressources personnalisés pour Azure Stack Hub. Les ressources incluent des réseaux, des machines virtuelles, des stockages, etc. Utilisez la Place de marché Azure Stack Hub pour créer des ressources et déployer de nouvelles applications, ou parcourez et choisissez les éléments à utiliser. Pour utiliser un élément de Place de Marché, les utilisateurs doivent s’abonner à une offre qui leur accorde l’accès à l’élément.
+La Place de marché Azure Stack Hub est un regroupement de services, d’applications et de ressources personnalisés pour Azure Stack Hub. Les ressources incluent des réseaux, des machines virtuelles, des stockages, etc. Utilisez la Place de marché Azure Stack Hub pour créer des ressources et déployer de nouvelles applications, ou parcourez et choisissez les éléments à utiliser. Pour utiliser un élément de la Place de Marché, les utilisateurs doivent s’abonner à une offre qui leur accorde l’accès à cet élément.
 
 En tant qu’opérateur Azure Stack Hub, vous décidez des éléments à ajouter (publier) sur la Place de marché Azure Stack Hub. Vous pouvez publier des éléments tels que des bases de données, des services d’application, et bien plus. La publication rend ces éléments visibles par tous les utilisateurs. Vous pouvez publier des éléments personnalisés que vous créez. Vous pouvez également publier des éléments à partir d’une [liste croissante d’éléments de Place de marché Azure](azure-stack-marketplace-azure-items.md). Quand vous publiez un élément sur la Place de marché Azure Stack Hub, les utilisateurs peuvent le voir dans les cinq minutes qui suivent.
 

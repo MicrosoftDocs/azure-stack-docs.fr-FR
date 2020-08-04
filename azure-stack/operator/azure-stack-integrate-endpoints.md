@@ -3,16 +3,16 @@ title: Publier des services Azure Stack Hub dans votre centre de données
 description: Découvrez comment publier des services Azure Stack Hub dans votre centre de données.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 04/10/2020
+ms.date: 07/24/2020
 ms.author: inhenkel
 ms.reviewer: wamota
-ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 628253c966717b1d6f291dca35754e058722f1f8
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 07/24/2020
+ms.openlocfilehash: 2ff8d71d31b05ccdd4d63805da2626a3a5785e1b
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488669"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250841"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Publier des services Azure Stack Hub dans votre centre de données
 
@@ -93,7 +93,7 @@ L’interception du trafic SSL n’est [pas prise en charge](azure-stack-firewal
 |LDAP GC|Forêt Active Directory fournie pour l'intégration Graph|TCP|3268|Adresse IP virtuelle publique - /27|
 |LDAP GC SSL|Forêt Active Directory fournie pour l'intégration Graph|TCP|3269|Adresse IP virtuelle publique - /27|
 |AD FS|Point de terminaison de métadonnées AD FS fourni pour l'intégration AD FS|TCP|443|Adresse IP virtuelle publique - /27|
-|Service de collecte des journaux de diagnostic|URL SAS de blob fournie par le stockage Azure|HTTPS|443|Adresse IP virtuelle publique - /27|
+| Collecte des journaux de diagnostic | https://azsdiagppelocalwestus02.blob.core.windows.net<br>https://azsdiagppewestusfrontend.westus.cloudapp.azure.com<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com | HTTPS | 443 | Adresse IP virtuelle publique - /27 |
 |     |     |     |     |     |
 
 Les URL sortantes font l’objet d’un équilibrage de charge avec Azure Traffic Manager pour offrir la meilleure connectivité possible en fonction de l’emplacement géographique. Avec des URL faisant l’objet d’un équilibrage de charge, Microsoft peut mettre à jour et modifier les points de terminaison de back-end sans impact sur les clients. Microsoft ne partage pas la liste des adresses IP pour les URL qui font l’objet d’un équilibrage de charge. Utilisez un appareil qui prend en charge le filtrage par URL plutôt que par adresse IP.

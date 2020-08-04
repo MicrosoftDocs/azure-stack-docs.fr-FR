@@ -4,13 +4,13 @@ description: Découvrez comment planifier des volumes de stockage dans Azure Sta
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 34806347a8a5e71cb15c93073b546c52f534cdf5
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.date: 07/27/2020
+ms.openlocfilehash: c40d1ca54bfe71088b18413371b90bd26f8b7386
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866941"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250450"
 ---
 # <a name="plan-volumes-in-azure-stack-hci"></a>Planifier des volumes dans Azure Stack HCI
 
@@ -35,7 +35,7 @@ Tous les volumes sont accessibles à tous les serveurs du cluster en même temps
 
 Nous vous recommandons de faire en sorte que le nombre de volumes soit un multiple du nombre de serveurs dans votre cluster. Par exemple, si vous avez 4 serveurs, vous bénéficierez de performances plus cohérentes avec 4 volumes en tout qu’avec 3 ou 5. Cela permet au cluster de répartir uniformément la « propriété » des volumes (un serveur gère l’orchestration des métadonnées pour chaque volume) entre les serveurs.
 
-Nous vous recommandons de limiter le nombre total de volumes à 64 volumes par cluster pour Windows Server 2019.
+Nous vous recommandons de limiter le nombre total de volumes à 64 volumes par cluster.
 
 ## <a name="choosing-the-filesystem"></a>Choix du système de fichiers
 
@@ -55,13 +55,13 @@ Les volumes dans les espaces de stockage direct fournissent la résilience pour 
 
 ### <a name="with-two-servers"></a>Avec deux serveurs
 
-Avec deux serveurs dans le cluster, vous pouvez utiliser la mise en miroir double. Si vous exécutez Windows Server 2019, vous pouvez également utiliser la résilience imbriquée.
+Avec deux serveurs dans le cluster, vous pouvez utiliser la mise en miroir bidirectionnelle ou la résilience imbriquée.
 
 La mise en miroir double conserve deux copies de toutes les données, une copie sur les lecteurs de chaque serveur. L’efficacité du stockage est de 50% : pour écrire 1 To de données, vous devez disposer d’au moins 2 To de capacité de stockage physique dans le pool de stockage. La mise en miroir double peut tolérer en toute sécurité une défaillance matérielle à la fois (un serveur ou un lecteur).
 
 ![two-way-mirror](media/plan-volumes/two-way-mirror.png)
 
-La résilience imbriquée (disponible uniquement sur Windows Server 2019) assure la résilience des données entre les serveurs avec mise en miroir double, puis ajoute la résilience au sein d’un serveur avec une mise en miroir double ou une parité avec accélération par miroir. L’imbrication assure la résilience des données même quand un serveur est en cours de redémarrage ou indisponible. L’efficacité du stockage est de 25 % pour la mise en miroir double imbriquée et d’environ 35-40 % pour la parité imbriquée avec accélération par miroir. La résilience imbriquée peut tolérer en toute sécurité deux défaillances matérielles à la fois (deux lecteurs, ou un serveur et un lecteur sur le serveur restant). En raison de cette résilience des données accrue, nous vous recommandons d’utiliser la résilience imbriquée sur les déploiements de production de clusters à deux serveurs si vous utilisez Windows Server 2019. Pour plus d’informations, consultez [Résilience imbriquée](/windows-server/storage/storage-spaces/nested-resiliency).
+La résilience imbriquée assure la résilience des données entre les serveurs avec mise en miroir double, puis ajoute la résilience au sein d’un serveur avec une mise en miroir bidirectionnelle ou une parité avec accélération par miroir. L’imbrication assure la résilience des données même quand un serveur est en cours de redémarrage ou indisponible. L’efficacité du stockage est de 25 % pour la mise en miroir double imbriquée et d’environ 35-40 % pour la parité imbriquée avec accélération par miroir. La résilience imbriquée peut tolérer en toute sécurité deux défaillances matérielles à la fois (deux lecteurs, ou un serveur et un lecteur sur le serveur restant). En raison de cette résilience des données accrue, nous vous recommandons d’utiliser la résilience imbriquée sur les déploiements de production de clusters à deux serveurs. Pour plus d’informations, consultez [Résilience imbriquée](/windows-server/storage/storage-spaces/nested-resiliency).
 
 ![Parité imbriquée avec accélération par miroir](media/plan-volumes/nested-mirror-accelerated-parity.png)
 

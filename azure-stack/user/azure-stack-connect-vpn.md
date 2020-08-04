@@ -3,16 +3,16 @@ title: Connecter Azure Stack Hub à Azure à l’aide d’un VPN
 description: Découvrez comment connecter des réseaux virtuels Azure Stack Hub à des réseaux virtuels Azure à l’aide d’un VPN.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 07/23/2020
 ms.author: sethm
-ms.reviewer: scottnap
+ms.reviewer: TBD
 ms.lastreviewed: 10/24/2019
-ms.openlocfilehash: dc143c4cfc6beec14891caa7e23d3f058f49eae5
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 2ea7dfcccf2b2f4590e09f60db4530d7ebe6d319
+ms.sourcegitcommit: f2a5ce52fcf69e05fe89be8211b7360de46f4a94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567669"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133756"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Connecter Azure Stack Hub à Azure à l’aide d’un VPN
 
@@ -35,7 +35,7 @@ La figure ci-après illustre à quoi la configuration d’une connexion devra re
 
 Le tableau d’exemples de configuration réseau montre les valeurs utilisées pour les exemples de cet article. Pour mieux comprendre cet article, vous pouvez utiliser les valeurs suivantes ou vous y référer :
 
-|   |Azure Stack Hub|Azure|
+| Valeur   |Azure Stack Hub|Azure|
 |---------|---------|---------|
 |Nom du réseau virtuel     |Azs-VNet|AzureVNet |
 |Espace d’adressage du réseau virtuel |10.1.0.0/16|10.100.0.0/16|
@@ -119,9 +119,9 @@ Comme les paramètres par défaut Azure Stack Hub pour les stratégies IPSec ont
 1. Créez une stratégie personnalisée :
 
    ```powershell
-     $IPSecPolicy = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup ECP384  `
-     -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup ECP384 -SALifeTimeSeconds 27000 `
-     -SADataSizeKilobytes 102400000 
+   $IPSecPolicy = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup ECP384  `
+   -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup ECP384 -SALifeTimeSeconds 27000 `
+   -SADataSizeKilobytes 102400000
    ```
 
 2. Appliquez la stratégie à la connexion :
@@ -202,7 +202,7 @@ Un administrateur de service peut se connecter en tant qu’utilisateur pour tes
 
 ### <a name="create-the-local-network-gateway"></a>Créer la passerelle de réseau local
 
-Dans Azure Stack Hub, le concept de *passerelle de réseau local* diffère légèrement de celui dans un déploiement Azure.
+Dans Azure Stack Hub, le concept de *passerelle de réseau local* diffère de celui dans un déploiement Azure.
 
 En effet, dans un déploiement Azure, une passerelle de réseau local représente un appareil physique local (à l’emplacement de l’utilisateur) que vous vous connectez à une passerelle de réseau virtuel dans Azure. Cependant, dans Azure Stack Hub, les deux extrémités de la connexion sont des passerelles de réseau virtuel.
 
@@ -256,8 +256,8 @@ Maintenant que la connexion de site à site est établie, vous devez vérifier q
 * Connectez-vous à la machine virtuelle que vous avez créée dans Azure Stack Hub et effectuez un test ping sur la machine virtuelle dans Azure.
 * Connectez-vous à la machine virtuelle que vous avez créée dans Azure et effectuez un test ping sur la machine virtuelle dans Azure Stack Hub.
 
->[!NOTE]
->Pour vérifier que le trafic envoyé passe par la connexion de site à site, effectuez le test ping sur l’adresse IP directe (DIP) de la machine virtuelle du sous-réseau distant, et non sur l’adresse IP virtuelle.
+> [!NOTE]
+> Pour vérifier que le trafic envoyé passe par la connexion de site à site, effectuez le test ping sur l’adresse IP directe (DIP) de la machine virtuelle du sous-réseau distant, et non sur l’adresse IP virtuelle.
 
 ### <a name="sign-in-to-the-user-vm-in-azure-stack-hub"></a>Se connecter à la machine virtuelle utilisateur dans Azure Stack Hub
 

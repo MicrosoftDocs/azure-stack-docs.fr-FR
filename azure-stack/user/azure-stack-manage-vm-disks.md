@@ -3,16 +3,16 @@ title: Créer un stockage sur disque de machine virtuelle dans Azure Stack Hub
 description: Créez des disques pour machines virtuelles dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 04/22/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 95fafe541db48ced7025d7750b46de9789b441cf
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: ecca2f76e15d23d904db018d82c86269504195f7
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567499"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250909"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Créer un stockage sur disque de machine virtuelle dans Azure Stack Hub
 
@@ -54,7 +54,7 @@ Après avoir créé une machine virtuelle, vous pouvez utiliser le portail pour 
 * Créer un disque de données et l’attacher à la machine virtuelle.
 * Charger un disque de données existant et l’attacher à la machine virtuelle.
 
-Chaque disque non managé que vous ajoutez doit être placé dans un conteneur distinct.
+Placez chaque disque non managé que vous ajoutez dans un conteneur distinct.
 
 > [!NOTE]  
 > Les disques créés et managés par Azure sont appelés [disques managés](/azure/virtual-machines/windows/managed-disks-overview).

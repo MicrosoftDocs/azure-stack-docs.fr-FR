@@ -3,16 +3,16 @@ title: Facturation et rétrofacturation des clients dans Azure Stack Hub
 description: Découvrez comment est facturée l’utilisation des ressources pour les utilisateurs d’Azure Stack Hub, et comment les informations de facturation sont récupérées pour l’analytique et la rétrofacturation.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 9606f5ec17826e4fc339ebad5b4439829bd828cc
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: 890d685bcd6922c02373e7dbe02310e1e2f2bd1f
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772529"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250314"
 ---
 # <a name="usage-and-billing-in-azure-stack-hub"></a>Utilisation et facturation dans Azure Stack Hub
 
@@ -28,7 +28,7 @@ Chaque fournisseur de ressources dans Azure Stack Hub poste des données d’uti
 
 Si vous avez [inscrit votre instance Azure Stack Hub auprès d’Azure](azure-stack-registration.md), Azure Stack Hub est configuré pour envoyer les données d’utilisation à Azure Commerce. Une fois les données chargées dans Azure, vous pouvez y accéder par le biais du portail de facturation ou des API d’utilisation des ressources Azure. Pour plus d’informations sur les données d’utilisation transmises à Azure, consultez [Rapports de données d’utilisation](azure-stack-usage-reporting.md).  
 
-L’illustration suivante montre les principaux composants du pipeline d’utilisation :
+L’image suivante montre les principaux composants du pipeline d’utilisation :
 
 ![Pipeline d’utilisation](media/azure-stack-billing-and-chargeback/usagepipeline.svg)
 
