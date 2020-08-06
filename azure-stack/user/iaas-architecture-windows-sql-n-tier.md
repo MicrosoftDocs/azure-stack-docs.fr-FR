@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: e8563a21ec3c49fa9d5789b28a556645dc73b1ce
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 722c6dbc5d806e9d37817e5f9279e3e51a0ddc14
+ms.sourcegitcommit: 635c8c69d90b7e941659d54141d9f1c58f51cf45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567754"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87477588"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>Application multiniveau Windows sur Azure Stack Hub avec SQL Server
 
@@ -169,7 +169,7 @@ Les réseaux virtuels sont une limite d’isolation du trafic dans Azure. Par d�
 
 **DMZ**. Ajoutez une appliance virtuelle réseau (NVA) pour créer un réseau de périmètre (DMZ) entre Internet et le réseau virtuel Azure. NVA est un terme générique décrivant une appliance virtuelle qui peut effectuer des tâches liées au réseau, telles que pare-feu, inspection des paquets, audit et routage personnalisé.
 
-**Chiffrement**. Chiffrez les données sensibles au repos et utilisez [Key Vault dans Azure Stack Hub](./azure-stack-key-vault-manage-portal.md) pour gérer les clés de chiffrement de la base de données. Pour plus d’informations, consultez [Configurer l’intégration d’Azure Key Vault pour SQL Server sur des machines virtuelles Azure](/azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault). Il est également recommandé pour stocker des secrets de l’application, comme des chaînes de connexion de base de données, dans le coffre de clés.
+**Chiffrement**. Chiffrez les données sensibles au repos et utilisez [Key Vault dans Azure Stack Hub](./azure-stack-key-vault-manage-portal.md) pour gérer les clés de chiffrement de la base de données. Pour plus d’informations, consultez [Configurer l’intégration d’Azure Key Vault pour SQL Server sur des machines virtuelles Azure](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure). Il est également recommandé pour stocker des secrets de l’application, comme des chaînes de connexion de base de données, dans le coffre de clés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

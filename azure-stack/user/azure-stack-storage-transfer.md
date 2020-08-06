@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 496d22eac80c00c723732b6c5d12543b059f8c31
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: d72a380eaa3411d6da240490a8f47d230d5004d4
+ms.sourcegitcommit: 635c8c69d90b7e941659d54141d9f1c58f51cf45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566598"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87477571"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>Utiliser des outils de transfert de données pour le stockage Azure Stack Hub
 
@@ -32,7 +32,7 @@ Vos exigences déterminent lequel des outils suivants est le mieux pour vous :
 
     Outil multiplateforme open source qui fournit un ensemble de commandes à utiliser avec les plateformes Azure et Azure Stack Hub.
 
-* [Explorateur de stockage Microsoft](#microsoft-azure-storage-explorer)
+* [Explorateur Stockage Microsoft Azure](#microsoft-azure-storage-explorer)
 
     Application autonome, facile à utiliser, avec une interface utilisateur.
 
@@ -303,6 +303,6 @@ blobEndpoint myaccount.blob.local.azurestack.external
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Connecter l’Explorateur Stockage à un abonnement Azure Stack Hub](azure-stack-storage-connect-se.md)
-* [Prise en main de l’Explorateur de stockage](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Prise en main de l’Explorateur Stockage](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 * [Stockage Azure : Différences et considérations](azure-stack-acs-differences.md)
 * [Introduction au stockage Microsoft Azure](/azure/storage/common/storage-introduction)

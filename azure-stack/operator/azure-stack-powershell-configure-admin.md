@@ -3,16 +3,16 @@ title: Se connecter à Azure Stack Hub avec PowerShell
 description: Apprenez à vous connecter à Azure Stack Hub avec PowerShell.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 8/4/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 96858ce40e5839f3a5bcff55a11467155ebdc15e
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 8/4/2020
+ms.openlocfilehash: 3001d06deb81e275f3b62127cb555d3afceaff3c
+ms.sourcegitcommit: c75e2cfd96f37a3497958eb87446888477f85bc9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488363"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810794"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>Se connecter à Azure Stack Hub avec PowerShell
 
@@ -61,8 +61,7 @@ Connectez-vous à l’environnement d’opérateur Azure Stack Hub à l’aide d
   Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
   ```
 
-> [!Note]  
-> AD FS prend en charge uniquement l’authentification interactive avec des identités d’utilisateurs. Si un objet d’identification est nécessaire, vous devez utiliser un SPN (nom de principal du service). Pour plus d’informations sur la configuration d’un principal de service avec Azure Stack Hub et AD FS en tant que service de gestion des identités, consultez [Gérer une identité d’application AD FS](azure-stack-create-service-principals.md#manage-an-ad-fs-app-identity).
+[!Include [AD FS only supports interactive authentication with user identities](../includes/note-powershell-adfs.md)]
 
 ## <a name="test-the-connectivity"></a>Tester la connectivité
 
