@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 07/01/2020
-ms.openlocfilehash: e00d35e02b45d0a184bc8274d06ed2460f2de152
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: 55016910a5092414d7d2dff47c07b4f25634cf41
+ms.sourcegitcommit: b69c8334571094721b26e6bdebd639f4fd294dd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866856"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87839247"
 ---
 # <a name="attaching-a-gpu-to-an-ubuntu-linux-vm-on-azure-stack-hci"></a>Attachement d’un GPU à une machine virtuelle Ubuntu Linux sur Azure Stack HCI
 
@@ -84,7 +84,7 @@ Ce document suppose que le cluster Azure Stack HCI est déployé et que les mach
 
 8. Recherchez l’adresse TCP/IP pour l’installation d’Ubuntu à l’aide de la commande **ifconfig** et copiez l’adresse IP de l’interface **eth0**.
 
-9. Utilisez un client SSH tel que [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/) pour vous connecter à la machine virtuelle Ubuntu afin de poursuivre la configuration.
+9. Utilisez un client SSH comme OpenSSH (ssh.exe installé avec Windows 10 par défaut) ou [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/) pour vous connecter à la machine virtuelle Ubuntu pour une configuration plus poussée.
 
 10. Quand vous êtes connecté au client SSH, exécutez la commande **lspci** et vérifiez que le GPU NVIDIA est listé comme « 3D controller ».
 

@@ -1,18 +1,18 @@
 ---
-title: Point de terminaison privilégié Close-PrivilegedEndpoint pour Azure Stack Hub
-description: Informations de référence sur le point de terminaison privilégié Azure Stack PowerShell - Close-PrivilegedEndpoint
+title: Applet de commande de point de terminaison privilégié Start-SecretRotation pour Azure Stack Hub
+description: Informations de référence sur le point de terminaison privilégié Azure Stack Hub PowerShell - Start-SecretRotation
 author: mattbriggs
 ms.topic: reference
-ms.date: 04/27/2020
+ms.date: 07/29/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: e06d51a735daae8c82e1203f7f5e98bfbea47851
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 12614343df051b9283f2e3b8fc2af56f8fc4058e
+ms.sourcegitcommit: eb91a28a19a74f799b093ae2a705f7f6e4c5cd49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86486136"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87436454"
 ---
 # <a name="start-secretrotation"></a>Start-SecretRotation
 
@@ -27,12 +27,12 @@ Start-SecretRotation [-PathAccessCredential <Object>] [-ReRun] [-CertificatePass
 ```
 
 ## <a name="description"></a>Description
-Appelle le processus de rotation des secrets.
+Appelle le processus de rotation des secrets pour les secrets d’infrastructure d’un système Azure Stack Hub. Par défaut, elle effectue uniquement la rotation des certificats des points de terminaison d’infrastructure réseau externes. Pour plus de détails, consultez [Effectuer la rotation des secrets dans Azure Stack Hub](../../operator/azure-stack-rotate-secrets.md).
 
 ## <a name="parameters"></a>Paramètres
 
 ### <a name="-internal"></a>-Internal
- 
+Effectuez une rotation des secrets pour les points de terminaison d’infrastructure réseau internes.
 
 ```yaml
 Type: SwitchParameter

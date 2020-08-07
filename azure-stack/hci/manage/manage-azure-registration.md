@@ -4,13 +4,13 @@ description: Explique comment gérer votre inscription Azure pour Azure Stack HC
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/21/2020
-ms.openlocfilehash: 297643ca5f47c619572e213da2ffd1502d7d1b6f
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.date: 07/29/2020
+ms.openlocfilehash: 696ef552dcf49f31fb613a22393617e653f7e10d
+ms.sourcegitcommit: eb91a28a19a74f799b093ae2a705f7f6e4c5cd49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86867973"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87436457"
 ---
 # <a name="manage-azure-registration"></a>Gérer une inscription Azure
 
@@ -60,11 +60,21 @@ L’obtention de l’approbation de votre administrateur Azure Active Directory 
 
 Lorsque vous êtes prêt à désactiver votre cluster Azure Stack HCI, utilisez l’applet de commande `Unregister-AzStackHCI` pour le désinscrire. La désinscription ne vous permet plus d’utiliser les fonctionnalités de supervision, de support et de facturation qui étaient disponibles par le biais d’Azure Arc. La ressource Azure représentant le cluster et l’identité d’application Azure Active Directory sont supprimées. Toutefois, le groupe de ressources ne l’est pas, car il peut contenir d’autres ressources non liées au cluster.
 
-La syntaxe minimale ne nécessite aucun paramètre. Vous devez simplement vous authentifier auprès d’Azure avant d’exécuter l’applet de commande suivante :
+Si vous exécutez l’applet de commande `Unregister-AzStackHCI` sur un nœud de cluster, utilisez cette syntaxe et spécifiez votre ID d’abonnement Azure, ainsi que le nom de ressource du cluster Azure Stack HCI que vous souhaitez désinscrire :
 
 ```PowerShell
-Unregister-AzStackHCI
+Unregister-AzStackHCI -SubscriptionId "e569b8af-6ecc-47fd-a7d5-2ac7f23d8bfe" -ResourceName HCI001
 ```
+
+Vous serez invité à visiter microsoft.com/devicelogin sur un autre appareil (comme votre PC ou téléphone), à entrer le code et à vous y connecter pour vous authentifier auprès d’Azure.
+
+Si vous exécutez l’applet de commande à partir d’un PC de gestion, vous devez également spécifier le nom d’un serveur dans le cluster :
+
+```PowerShell
+Unregister-AzStackHCI -ComputerName ClusterNode1 -SubscriptionId "e569b8af-6ecc-47fd-a7d5-2ac7f23d8bfe" -ResourceName HCI001
+```
+
+Une fenêtre de connexion Azure interactive s’affichera. Les invites exactes que vous voyez varient en fonction de vos paramètres de sécurité (par exemple, l’authentification à 2 facteurs). Suivez les invites pour vous connecter.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
