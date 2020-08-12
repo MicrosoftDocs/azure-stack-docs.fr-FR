@@ -322,8 +322,6 @@
                   href: app-service-release-notes-2020-Q2.md
                 - name: 'Notes de publication Update 8 [Jan2020]'
                   href: azure-stack-app-service-release-notes-update-eight.md
-                - name: 'Notes de publication Update 7 [aoû2019]'
-                  href: azure-stack-app-service-release-notes-update-seven.md
         - name: Event Hubs sur Azure Stack Hub
           items:
             - name: Vue d’ensemble
@@ -354,7 +352,7 @@
               href: event-hubs-rp-remove.md
         - name: MySQL sur Azure Stack Hub
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: azure-stack-mysql-resource-provider.md
             - name: Déployer le fournisseur de ressources MySQL Server
               href: azure-stack-mysql-resource-provider-deploy.md

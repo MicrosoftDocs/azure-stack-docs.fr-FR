@@ -129,6 +129,8 @@
                   href: azure-stack-vm-considerations.md
                 - name: Tailles de machine virtuelle
                   href: azure-stack-vm-sizes.md
+                - name: Machines virtuelles GPU prises en charge
+                  href: gpu-vms-about.md
                 - name: Gérer les disques de machine virtuelle
                   href: azure-stack-manage-vm-disks.md
                 - name: Considérations relatives aux disques managés
