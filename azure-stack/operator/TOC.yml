@@ -452,6 +452,8 @@
           href: azure-stack-backup-reference.md
     - name: Obtenir de l’aide
       items:
+        - name: Station de travail d’accès pour les opérateurs
+          href: operator-access-workstation.md
         - name: Portail Aide et support
           items:
             - name: Vue d’ensemble

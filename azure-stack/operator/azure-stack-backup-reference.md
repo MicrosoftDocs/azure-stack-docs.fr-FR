@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: 0760e7d796c6e17c88089675fa6ff659eb684cc7
-ms.sourcegitcommit: 721b82b3a1711f2825ec76ab6d75964b4f508631
+ms.openlocfilehash: 8fc10bd53bfcf9822f46eb977c02055db1a65cb7
+ms.sourcegitcommit: 1ab1293b594fe8ffc00dc800c663cf1323dc41ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84301026"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87939291"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Informations de référence sur le service Infrastructure Backup
 
@@ -75,30 +75,15 @@ La configuration requise inclut :
 
 #### <a name="smb-encryption"></a>Chiffrement SMB
 
-**1907 et au-delà**
+::: moniker range=">=azs-1907"
 
 Le service Infrastructure Backup prend en charge le transfert des données de sauvegarde vers un emplacement de stockage externe avec le chiffrement SMB activé côté serveur. Si le serveur ne prend pas en charge le chiffrement SMB ou si la fonctionnalité n’est pas activée, le service Infrastructure Backup revient au transfert de données non chiffré. Les données de sauvegarde placées dans l’emplacement de stockage externe sont toujours chiffrées au repos et ne dépendent pas du chiffrement SMB.
+
+::: moniker-end
 
 #### <a name="storage-location-sizing"></a>Dimensionnement de l’emplacement de stockage
 
 Il est recommandé de sauvegarder au moins deux fois par jour et de conserver sept jours de sauvegarde au maximum. Il s’agit du comportement par défaut lorsque vous activez les sauvegardes d’infrastructure sur Azure Stack Hub.
-
-**1907 et au-delà**
-
-***Système connecté au fournisseur d’identité Azure AD***
-
-| Échelle de l’environnement | Taille prévue de la sauvegarde | Quantité totale d’espace nécessaire |
-|-------------------|--------------------------|--------------------------------|
-| 4-16 nœuds/ASDK   | 1 Go                     | 20 Go                          |
-
-***Système connecté au fournisseur d’identité Azure AD via ADFS***
-
-| Échelle de l’environnement | Taille prévue de la sauvegarde | Quantité totale d’espace nécessaire |
-|-------------------|--------------------------|--------------------------------|
-| 4-16 nœuds        | 20 Go                    | 280 Go                        |
-| ASDK              | 10 Go                    | 140 Go                        |
-
-**Avant 1907**
 
 | Échelle de l’environnement | Taille prévue de la sauvegarde | Quantité totale d’espace nécessaire |
 |-------------------|--------------------------|--------------------------------|

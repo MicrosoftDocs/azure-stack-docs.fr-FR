@@ -3,16 +3,16 @@ title: Liste de contrôle des activités de mise à jour Azure Stack Hub
 description: Liste de contrôle pour préparer votre système à la dernière mise à jour Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/04/2020
+ms.date: 08/10/2020
 ms.author: sethm
-ms.reviewer: ppacent
+ms.reviewer: TBD
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 7e150d67dbc636c11419e0b2f482cceea71c23bc
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 188f403b89e0e77b75f88a5e50440fd72cc61fdb
+ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489978"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88074262"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Liste de contrôle des activités de mise à jour Azure Stack Hub
 
