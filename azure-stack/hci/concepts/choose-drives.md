@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 56d9c2cf09d05de59700c70fd7851999db42265f
-ms.sourcegitcommit: aca1b05b570aa72bfe410c9cf7109f590526ed84
+ms.openlocfilehash: ca2903e6d7680b38f21482076bf46e49097d444f
+ms.sourcegitcommit: cfc453689a5a2f2491ce00ab77a7c5bfddfe01d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115195"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87997751"
 ---
 # <a name="choosing-drives-for-azure-stack-hci"></a>Choix des lecteurs pour Azure Stack HCI
 
@@ -22,7 +22,7 @@ Cette rubrique fournit des conseils sur le choix de lecteurs pour les [espaces d
 
 Pour l’heure, les espaces de stockage direct fonctionnent avec quatre types de lecteurs :
 
-|||
+| Type de lecteur | Description |
 |----------------------|--------------------------|
 |![PMem](media/choose-drives/pmem-100px.png)|**PMem** fait référence à la mémoire persistante, un nouveau type de stockage à faible latence et haute performance.|
 |![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe** (Non-Volatile Memory Express) fait référence aux disques SSD qui se trouvent directement sur le bus PCIe. Les facteurs de forme courants sont les suivants : U.2 2,5 pouces, PCIe Add-In-Card (AIC) et M.2. NVMe offre un plus haut débit d’E/S par seconde (IOPS) et d’E/S avec une latence plus faible que tout autre type de lecteur actuellement pris en charge, sauf PMem.|

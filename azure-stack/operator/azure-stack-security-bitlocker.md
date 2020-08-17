@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
-ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 60ad202ef08d7afd72591640fa1d4d8beef0c476
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 08/06/2020
+ms.openlocfilehash: 2aa24a852e5388a36b1103c2a61f5aa70930d84d
+ms.sourcegitcommit: 1ab1293b594fe8ffc00dc800c663cf1323dc41ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488006"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87939528"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack-hub"></a>Chiffrement des données au repos dans Azure Stack Hub
 
@@ -35,14 +35,14 @@ La récupération des clés de récupération BitLocker nécessite l’accès à
 
 ```powershell
 ##This cmdlet retrieves the recovery keys for all the volumes that are encrypted with BitLocker.
-Get-AzsRecoveryKeys
+Get-AzsRecoveryKeys -raw
 ```
 
-Paramètres facultatifs pour la cmdlet *Get-AzsRecoveryKeys* :
+Paramètres de la cmdlet *Get-AzsRecoveryKeys* :
 
 | Paramètre | Description | Type | Obligatoire |
 |---------|---------|---------|---------|
-|*raw* | Retourne les données brutes du mappage entre la clé de récupération, le nom de l’ordinateur et l’ID de mot de passe de chaque volume chiffré.  | Commutateur | Aucun (conçu pour les scénarios de prise en charge)|
+|*raw* | Retourne le mappage de données entre la clé de récupération, le nom de l’ordinateur et l’ID ou les ID de mot de passe de chaque volume chiffré.  | Commutateur | Non, mais recommandé |
 
 ## <a name="troubleshoot-issues"></a>Problèmes de dépannage
 

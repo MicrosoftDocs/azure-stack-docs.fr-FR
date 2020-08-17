@@ -4,24 +4,24 @@ description: Guide pratique pour préparer le déploiement d’Azure Stack HCI.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/21/2020
-ms.openlocfilehash: defa210cded7f7911586a91e10d3d028d8624261
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.date: 08/03/2020
+ms.openlocfilehash: fc12f638970e82c293a9143c398892a88049f6cd
+ms.sourcegitcommit: 952d26ad08fcc28ad3ad83e27644e61497623a44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86947110"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889184"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>Avant le déploiement d’Azure Stack HCI
 
-> S’applique à : Azure Stack HCI, v20H2
+> S’applique à : Azure Stack HCI, version 20H2
 
 Dans ce guide pratique, vous allez apprendre à effectuer les opérations suivantes :
 
 - Déterminer si votre matériel satisfait aux exigences de base pour les clusters Azure Stack HCI standard (site unique) ou étendus (deux sites)
 - Veiller à ne pas dépasser les spécifications matérielles maximales prises en charge
 - Collecter les informations requises pour un déploiement réussi
-- Installer Windows Admin Center sur un PC de gestion
+- Installer Windows Admin Center sur un PC ou un serveur de gestion
 
 ## <a name="determine-hardware-requirements"></a>Déterminer la configuration matérielle requise
 
@@ -41,7 +41,13 @@ Microsoft recommande d’acheter une solution matérielle/logicielle Azure Stack
 
 ### <a name="networking-requirements"></a>Configuration requise du réseau
 
-Un cluster Azure Stack HCI requiert une connexion réseau fiable à bande passante élevée et à faible latence entre chaque nœud serveur. Il existe plusieurs types de communication qui transitent entre les nœuds serveur :
+Un cluster Azure Stack HCI requiert une connexion réseau fiable à bande passante élevée et à faible latence entre chaque nœud serveur. Vous devriez vérifier les éléments suivants :
+
+- Vérifiez qu’au moins une carte réseau est disponible et dédiée à la gestion du cluster.
+- Vérifiez que les commutateurs physiques de votre réseau sont configurés pour autoriser le trafic sur tous les réseaux locaux virtuels que vous allez utiliser.
+
+
+Il existe plusieurs types de communication qui transitent entre les nœuds serveur :
 
 - Communication entre les clusters (jointures de nœuds, mises à jour de cluster, mises à jour du registre)
 - Pulsations de cluster
@@ -163,10 +169,13 @@ Pour préparer le déploiement, rassemblez les informations suivantes sur votre 
 - **Adresses IP statiques :** Azure Stack HCI requiert des adresses IP statiques pour le trafic de stockage et de charge de travail (VM) et ne prend pas en charge l’attribution d’adresses IP dynamiques via DHCP pour ce réseau à haut débit. Vous pouvez utiliser DHCP pour la carte réseau de gestion, sauf si vous en utilisez deux en équipe, auquel cas vous devez là encore utiliser des adresses IP statiques. Demandez à votre administrateur quelle adresse IP vous devez utiliser pour chaque serveur du cluster.
 - **Mise en réseau RDMA :** il existe deux types de protocoles RDMA : iWarp et RoCE. Notez lequel est utilisé par vos cartes réseau et, si RoCE est utilisé, notez également la version (v1 ou v2). Pour RoCE, notez également le modèle de votre commutateur « Top of the rack ».
 - **ID du réseau local virtuel** : notez l’ID de réseau local virtuel à utiliser pour les cartes réseau sur les serveurs, le cas échéant. Pour l’obtenir, contactez votre administrateur réseau.
+- **Nom des sites :** Pour les clusters étendus, deux sites sont utilisés pour la récupération d’urgence. Vous pouvez configurer des sites à l’aide d’Active Directory Domain Services ou l’Assistant Création d’un cluster peut les configurer automatiquement pour vous. Pour plus d’informations sur la configuration des sites, consultez votre administrateur de domaine. Ou pour en savoir plus, consultez [Présentation d’Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 ## <a name="install-windows-admin-center"></a>Installer Windows Admin Center
 
-Windows Admin Center est une application basée sur un navigateur déployée localement qui permet de gérer Azure Stack HCI. Le plus simple est d’[installer Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install) sur un PC de gestion local, même si vous pouvez aussi l’installer sur un serveur.
+Windows Admin Center est une application basée sur un navigateur déployée localement qui permet de gérer Azure Stack HCI. Le plus simple est d’[installer Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install) sur un PC de gestion local (mode bureau), même si vous pouvez aussi l’installer sur un serveur (mode service).
+
+Si vous installez Windows Admin Center sur un serveur, les tâches qui requièrent CredSSP, telles que la création de clusters et l’installation des mises à jour et des extensions, vous demandent d’utiliser un compte membre du groupe d’administrateurs de passerelles sur le serveur Windows Admin Center. Pour plus d’informations, consultez les deux premières sections dans [Configurer le contrôle d’accès utilisateur et les autorisations](/windows-server/manage/windows-admin-center/configure/user-access-control#gateway-access-role-definitions).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

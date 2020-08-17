@@ -3,16 +3,16 @@ title: Éléments disponibles sur la Place de Marché Azure pour Azure Stack Hub
 description: Découvrez les éléments disponibles sur la Place de Marché Azure pouvant être utilisés dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 08/07/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: 7cecc0eda09c2ae000f469c3704f3256e68268c7
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 1d1c297ca303b38a541bcd982df218444affbc71
+ms.sourcegitcommit: cfc453689a5a2f2491ce00ab77a7c5bfddfe01d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86490216"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87997987"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Éléments disponibles sur la Place de Marché Azure pour Azure Stack Hub
 
@@ -20,7 +20,7 @@ ms.locfileid: "86490216"
 
 Chaque fois que des mises à jour sont publiées pour les extensions de machine virtuelle que vous utilisez, vous devez les télécharger. Les extensions fournies dans le produit ne sont pas mises à jour via les correctifs et le processus de mise à jour standard. Vous devez donc vérifier régulièrement si de nouvelles mises à jour sont disponibles. Les autres extensions sont disponibles seulement via Gestion de la Place de marché.
 
-|  | Nom de l’élément | Description | Serveur de publication | Type de système d'exploitation |
+| Image | Nom de l’élément | Description | Serveur de publication | Type de système d'exploitation |
 | --- | --- | --- | --- | --- |
 |![Extension IaaS SQL (SqlIaasExtension)](media/azure-stack-marketplace-azure-items/cse.png) | [Extension IaaS SQL (SqlIaasExtension)](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **Téléchargez cette extension pour déployer un serveur SQL sur un élément de la Place de marché Windows ; ceci est obligatoire.** | Microsoft | Windows |
 |![Extension de script personnalisé](media/azure-stack-marketplace-azure-items/cse.png) | [Extension de script personnalisé](/azure/virtual-machines/windows/extensions-customscript)| **Téléchargez cette mise à jour de la version d’origine de l’extension de script personnalisé pour Windows.** | Microsoft | Windows |
@@ -41,23 +41,18 @@ Chaque fois que des mises à jour sont publiées pour les extensions de machine 
 
 Microsoft Azure Stack Hub prend en charge les machines virtuelles et les modèles de solution de la Place de Marché Azure suivants. Téléchargez les éventuelles dépendances séparément, comme indiqué. Les applications telles que SQL Server et Machine Learning Server nécessitent des licences appropriées, sauf mention indiquant qu’il s’agit d’une version gratuite ou d’évaluation.
 
-|  | Nom de l’élément | Description | Serveur de publication |
+| Image | Nom de l’élément | Description | Serveur de publication |
 | --- | --- | --- | --- |
 | ![Version d’évaluation de SharePoint Server 2013](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Version d’essai de Microsoft SharePoint Server 2013 sur Windows Server 2012 R2 Datacenter et Visual Studio 2019 Community Edition. | Microsoft |
 | ![Version d’évaluation de SharePoint Server 2016](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Version d’évaluation de Microsoft SharePoint Server 2016 sur Windows Server 2016 R2 Datacenter. | Microsoft |
 | ![SQL Server 2014 SP3 sur Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP3 sur Windows Server 2012 R2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp3-ws2012r2) | SQL Server 2014 Service Pack 2. **Téléchargement nécessaire :** Extension IaaS SQL. | Microsoft |
-| ![SQL Server 2017 Standard sur SUSE Linux Enterprise Server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Standard sur SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017StandardonSLES12SP2?tab=Overview) | Plateforme de base de données pour les applications stratégiques intelligentes. | Microsoft + SUSE |
-| ![Licence gratuite : SQL Server 2017 Developer sur SUSE Linux Enterprise Server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [Licence gratuite : SQL Server 2017 Developer sur SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonSLES12SP2?tab=Overview) | Version de développement gratuite de SQL Server 2017 pour les charges de travail transactionnelles, d’entreposage des données, de décisionnel et analytiques. | Microsoft + SUSE |
-| ![Licence gratuite : SQL Server 2017 Express sur SUSE Linux Enterprise Server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [Licence gratuite : SQL Server 2017 Express sur SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | Version Express gratuite de SQL Server 2017. | Microsoft + SUSE |
-| ![SQL Server 2017 Enterprise sur SUSE Linux Enterprise Server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Enterprise sur SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017EnterpriseonSLES12SP2?tab=Overview) | Plateforme de base de données pour les applications stratégiques intelligentes. | Microsoft + SUSE |
-| ![SQL Server 2017 Web sur SUSE Linux Enterprise Server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Web sur SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017WebonSLES12SP2) | Plateforme de base de données pour les applications stratégiques intelligentes. | Microsoft + SUSE |
 | ![Microsoft Machine Learning Server 9.3.0 sur Windows Server 2016](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 sur Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onWindowsServer2016) | Microsoft Machine Learning Server 9.3.0 sur Windows Server 2016. | Microsoft |
 | ![Microsoft Machine Learning Server 9.3.0 sur Ubuntu 16.04](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 sur Ubuntu 16.04](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onUbuntu1604) | Microsoft Machine Learning Server 9.3.0 sur Ubuntu 16.04. | Microsoft + Canonical |
 | ![Microsoft Machine Learning Server 9.3.0 sur CentOS Linux 7.2](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 sur CentOS Linux 7.2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onCentOSLinux72) | Microsoft Machine Learning Server 9.3.0 sur CentOS Linux 7.2. | Microsoft + Rogue Wave |
 
 ## <a name="linux-distributions"></a>Distributions Linux
 
-|  | Nom de l’élément | Description | Serveur de publication |
+| Image | Nom de l’élément | Description | Serveur de publication |
 | --- | --- | --- | --- |
 | ![Clear Linux OS](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Clear Linux OS](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Une distribution Linux de référence optimisée pour l’architecture Intel. | Projet Clear Linux |
 | ![CoreOS Linux (Stable)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (Stable)](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | CoreOS est une distribution Linux moderne et minime, facilitant l’exécution des conteneurs, la gestion des clusters et la mise à jour homogène de vos serveurs, en fait tous les composants qui rendent possible le calcul à l’échelle de l’entrepôt. | CoreOS |
@@ -73,7 +68,7 @@ Microsoft Azure Stack Hub prend en charge les machines virtuelles et les modèle
 
 ## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>Images et modèles de solution de tiers BYOL, gratuits et en version d’évaluation
 
-|  | Nom de l’élément | Description | Serveur de publication |
+| Image | Nom de l’élément | Description | Serveur de publication |
 | --- | --- | --- | --- |
 | ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | A10 Networks vThunder Application Delivery Controller for Microsoft Azure est conçu pour offrir des performances élevées, de la flexibilité, une livraison d’applications facile à déployer et un équilibrage de charge de serveur optimisé pour s’exécuter nativement dans le cloud Azure. | Réseaux A10 |
 | ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Arista vEOS Router est un routeur virtuel complet, multicloud et multi-hyperviseur, grâce auquel les entreprises et les fournisseurs de services cloud peuvent concevoir des réseaux hybrides modulaires, homogènes et hautement sécurisés. | Arista Networks |
@@ -129,7 +124,7 @@ Microsoft Azure Stack Hub prend en charge les machines virtuelles et les modèle
 | ![Kafka](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka) | Système de messagerie publication/abonnement puissant et distribué. | Bitnami |
 | ![Cluster Kafka](media/azure-stack-marketplace-azure-items/kafka.png) | [Cluster Kafka](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka-cluster) | Apache Kafka est une messagerie de publication-abonnement remaniée en tant que journal de validation distribuée. Cette solution améliore la fiabilité d’un cluster Kafka en configurant plusieurs répartiteurs Kafka et instances Zookeeper. Ce modèle de solution nécessite également **Debian 9** et **Script personnalisé pour extension Linux 2.0**. | Bitnami |
 | ![Kong](media/azure-stack-marketplace-azure-items/kong.png) | [Kong](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kong) | Kong est une passerelle et une plateforme d’API de microservices open source conçue pour gérer les demandes de microservices de haute disponibilité, de tolérance de pannes et de systèmes distribués. | Bitnami |
-| ![Kubernetes Sandbox](media/azure-stack-marketplace-azure-items/sandbox.png) | [Kubernetes Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kubernetessandbox) | BitNami Kubernetes Sandbox fournit un environnement de développement complet et facile à déployer pour les applications en conteneur. Il s’agit d’un environnement réaliste permettant de découvrir et de développer des services dans Kubernetes. | Bitnami |
+| ![Kubernetes Sandbox](media/azure-stack-marketplace-azure-items/sandbox.png) | [Kubernetes Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kubernetessandbox) | Le bac à sable Bitnami Kubernetes fournit un environnement de développement complet et facile à déployer pour les applications en conteneur. Il s’agit d’un environnement réaliste permettant de découvrir et de développer des services dans Kubernetes. | Bitnami |
 | ![LAMP](media/azure-stack-marketplace-azure-items/lamp.png) | [LAMP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lampstack) | Environnement de développement intégré et prêt à l’emploi. | Bitnami |
 | ![LAPP](media/azure-stack-marketplace-azure-items/lapp.png) | [LAPP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lappstack) | Environnement de développement PHP, PostgreSQL et Apache complet. | Bitnami |
 | ![Let's Chat](media/azure-stack-marketplace-azure-items/letschat.png) | [Let’s Chat](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.letschat) | Application de messagerie open source persistante. | Bitnami |
@@ -163,7 +158,7 @@ Microsoft Azure Stack Hub prend en charge les machines virtuelles et les modèle
 | ![Neo4j](media/azure-stack-marketplace-azure-items/neo4j.png) | [Neo4j](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.neo4j) | Neo4j est un magasin de graphiques hautes performances offrant toutes les fonctionnalités attendues dans une base de données mature et robuste, notamment un langage de requête convivial et des transactions ACID.| Bitnami |
 | ![Nginx](media/azure-stack-marketplace-azure-items/nginx.png) | [Nginx](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nginxstack) | Environnement de développement PHP, MySQL et Nginx complet. | Bitnami |
 | ![Noalyss](media/azure-stack-marketplace-azure-items/noalyss.png) | [Noalyss](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.noalyss) | Puissant système de comptabilité en partie double. | Bitnami |
-| ![Node.js](media/azure-stack-marketplace-azure-items/nodejs.png) | [node.js](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs) | Environnement Open Source écrit en Javascript pour une génération facile. | Bitnami |
+| ![Node.js](media/azure-stack-marketplace-azure-items/nodejs.png) | [node.js](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs) | Environnement Open Source écrit en Javascript pour une compilation facile. | Bitnami |
 | ![Odoo](media/azure-stack-marketplace-azure-items/odoo.png) | [Odoo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.odoo) | Système ERP et CRM qui connecte efficacement les processus d’entreprise. | Bitnami |
 | ![Open Atrium](media/azure-stack-marketplace-azure-items/openatrium.png) | [Open Atrium](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.openatrium) | Plateforme intranet flexible et multiniveau. | Bitnami |
 | ![OpenCart](media/azure-stack-marketplace-azure-items/opencart.png) | [OpenCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.opencart) | Plateforme de commerce électronique gratuite pour les commerçants en ligne. | Bitnami |
@@ -203,7 +198,6 @@ Microsoft Azure Stack Hub prend en charge les machines virtuelles et les modèle
 | ![Roundcube](media/azure-stack-marketplace-azure-items/roundcube.png) | [Roundcube](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.roundcube) | Client IMAP basé sur navigateur avec des fonctionnalités telles que la prise en charge MIME. | Bitnami |
 | ![Ruby](media/azure-stack-marketplace-azure-items/ruby.png) | [Ruby](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rubystack) | Environnement de développement facile à utiliser pour Ruby on Rails. | Bitnami |
 | ![SEO Panel](media/azure-stack-marketplace-azure-items/seopanel.png) | [SEO Panel](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.seopanel) | Application de gestion SEO Open Source pour le suivi de plusieurs sites Web. | Bitnami |
-| ![Shopware](media/azure-stack-marketplace-azure-items/shopware.png) | [Shopware](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.shopware) | Plateforme de commerce électronique Open Source. | Bitnami |
  ![SilverStripe](media/azure-stack-marketplace-azure-items/silverstripe.png) | [SilverStripe](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.silverstripe) | SilverStripe est un système de gestion de contenu intuitif open source et une infrastructure flexible. Cette combinaison offre aux développeurs et aux éditeurs de contenu les outils nécessaires pour créer des projets web novateurs. | Bitnami |
 | ![Simple Machines Forum](media/azure-stack-marketplace-azure-items/simplemachinesforum.png) | [Simple Machines Forum](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.simplemachinesforum) | Logiciel de forum simple pour créer votre propre communauté en ligne. | Bitnami |
 | ![SonarQube](media/azure-stack-marketplace-azure-items/sonarqube.png) | [SonarQube](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.sonarqube) | SonarQube est une plateforme de gestion de la qualité open source qui analyse et mesure la qualité technique du code. Il permet aux développeurs de détecter les problèmes, les vulnérabilités et les bogues de code de façon précoce. | Bitnami |

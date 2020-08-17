@@ -4,13 +4,15 @@ description: Comment la mise en cache de lecture et d’écriture fonctionne dan
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 214e4fa6fde30d69d063326cc0c7548bb75b694a
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 08/11/2020
+ms.openlocfilehash: 39d67ffb49b8fa8ceb343038883602b3e940f8e1
+ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86867009"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88145615"
 ---
 # <a name="understanding-the-cache-in-azure-stack-hci"></a>Compréhension du cache dans Azure Stack HCI
 
@@ -28,7 +30,7 @@ La vidéo suivante explique en détail le fonctionnement de la mise en cache pou
 
 Pour l’heure, les espaces de stockage direct fonctionnent avec quatre types de lecteurs :
 
-|||
+| Type de lecteur | Description |
 |----------------------|--------------------------|
 |![PMem](media/choose-drives/pmem-100px.png)|**PMem** fait référence à la mémoire persistante, un nouveau type de stockage à faible latence et haute performance.|
 |![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe** (Non-Volatile Memory Express) fait référence aux disques SSD qui se trouvent directement sur le bus PCIe. Les facteurs de forme courants sont les suivants : U.2 2,5 pouces, PCIe Add-In-Card (AIC) et M.2. NVMe offre un plus haut débit d’E/S par seconde (IOPS) et d’E/S avec une latence plus faible que tout autre type de lecteur actuellement pris en charge, sauf PMem.|

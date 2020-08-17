@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Découvrez la stratégie de maintenance Azure Stack Hub et comment conserver un système intégré dans un état de prise en charge.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/09/2020
+ms.date: 08/11/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 38fb04f0b3dae557eee18271146312c57347bd89
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 22ba6cd5ae2552541c1eeb67ce38699ca012e640
+ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487853"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88145469"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Stratégie de maintenance Azure Stack Hub
 
@@ -21,9 +21,9 @@ Cet article décrit la stratégie de maintenance pour les systèmes intégrés A
 
 ## <a name="download-update-packages-for-integrated-systems"></a>Télécharger les mises à jour pour les systèmes intégrés
 
-Microsoft publie des mises à jour mensuelles complètes, ainsi que des correctifs logiciels pour résoudre des problèmes spécifiques.
+Microsoft publie à la fois des packages de mises à jour complètes et des packages de correctifs logiciels pour résoudre des problèmes spécifiques.
 
-Les mises à jour mensuelles sont hébergées dans un point de terminaison Azure sécurisé. Vous pouvez les télécharger manuellement à l’aide de l’[outil de téléchargement des mises à jour Azure Stack Hub](https://aka.ms/azurestackupdatedownload). Si votre unité d’échelle est connectée, la mise à jour s’affiche automatiquement dans le portail Administrateur avec la notification **Mise à jour disponible**. Les mises à jour mensuelles complètes sont bien documentées. Pour plus d’informations, cliquez sur l’une des versions listées dans la section [Cadence de publication des mises à jour](#update-package-release-cadence) de cet article.
+Les packages de mises à jour complètes sont hébergées dans un point de terminaison Azure sécurisé. Vous pouvez les télécharger manuellement à l’aide de l’[outil de téléchargement des mises à jour Azure Stack Hub](https://aka.ms/azurestackupdatedownload). Si votre unité d’échelle est connectée, la mise à jour s’affiche automatiquement dans le portail Administrateur avec la notification **Mise à jour disponible**. Pour plus d’informations, cliquez sur l’une des versions listées dans la section [Cadence de publication des mises à jour](#update-package-release-cadence) de cet article.
 
 Les correctifs logiciels sont hébergés dans le même point de terminaison Azure sécurisé. Vous pouvez les télécharger en cliquant sur les liens incorporés dans chaque article correspondant de la Base de connaissances ; par exemple, [Correctif logiciel Azure Stack Hub 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Comme pour les mises à jour mensuelles complètes, les opérateurs Azure Stack Hub peuvent télécharger les fichiers .xml, .bin et .exe et les importer en suivant la procédure décrite dans [Effectuer des mises à jour dans Azure Stack Hub](azure-stack-apply-updates.md). Pour les opérateurs Azure Stack Hub disposant d’unités d’échelle connectées, les correctifs logiciels s’affichent automatiquement dans le portail Administrateur avec le message **Mise à jour disponible**.
 
@@ -45,36 +45,32 @@ Pour lire la documentation relative à la planification et à la gestion des mis
 
 Pour en savoir plus sur une mise à jour, notamment comment la télécharger, consultez les notes de publication qui s’y rapportent :
 
-- [Mise à jour Azure Stack Hub 2002](./release-notes.md?view=azs-2002)
-- [Mise à jour Azure Stack Hub 1910](./release-notes.md?view=azs-1910)
-- [Mise à jour Azure Stack Hub 1908](./release-notes.md?view=azs-1908)
-- [Mise à jour Azure Stack Hub 1907](./release-notes.md?view=azs-1907)
+- [Mise à jour Azure Stack Hub 2005](/azure-stack/operator/release-notes?view=azs-2005)
+- [Mise à jour Azure Stack Hub 2002](/azure-stack/operator/release-notes?view=azs-2002)
+- [Mise à jour Azure Stack Hub 1910](/azure-stack/operator/release-notes?view=azs-1910)
 
 ## <a name="hotfixes"></a>Correctifs logiciels
 
-Parfois, Microsoft fournit des correctifs logiciels pour Azure Stack Hub qui corrigent un problème précis, souvent préventif ou urgent. Chaque correctif est publié en même temps que son article correspondant dans la Base de connaissances Microsoft, qui détaille les problèmes résolus par ce correctif.
+Parfois, Microsoft fournit des correctifs logiciels pour Azure Stack Hub qui corrigent un problème précis, souvent préventif ou urgent. Chaque correctif est publié avec un article de base de connaissances Microsoft correspondant, qui détaille les problèmes résolus par ce correctif.
 
-Les correctifs logiciels sont téléchargés et installés comme les packages de mises à jour complets pour Azure Stack Hub. Toutefois, contrairement à une mise à jour complète, les correctifs logiciels peuvent s’installer en quelques minutes. Il est recommandé aux opérateurs Azure Stack Hub de définir des fenêtres de maintenance lors de l’installation des correctifs logiciels. Les correctifs mettent à jour la version de votre cloud Azure Stack Hub. Il est donc facile de déterminer si le correctif a été appliqué. Un correctif logiciel distinct est fourni pour chaque version d’Azure Stack Hub prise en charge. **Chaque correctif d’une itération est cumulatif et englobe les correctifs précédents de la même version.** Pour en savoir plus sur la nécessité de l’application d’un correctif logiciel, vous pouvez consulter l’article correspondant dans la Base de connaissances. Consultez les liens des notes de version dans la section précédente.
+À partir de la build 2005, lorsque vous mettez à jour vers une nouvelle version principale (par exemple, 1.2002.x vers 1.2005.x), les derniers correctifs (le cas échéant) de la nouvelle version principale sont installés automatiquement. À partir de là, si un correctif est mis en production pour votre build, vous devez l’installer.
+
+Les correctifs logiciels sont téléchargés et installés comme les packages de mises à jour complets pour Azure Stack Hub. Toutefois, contrairement à une mise à jour complète, les correctifs logiciels peuvent s’installer en quelques minutes. Il est recommandé aux opérateurs Azure Stack Hub de définir des fenêtres de maintenance lors de l’installation des correctifs logiciels. Les correctifs mettent à jour la version de votre cloud Azure Stack Hub. Il est donc facile de déterminer si le correctif a été appliqué. Un correctif logiciel distinct est fourni pour chaque version d’Azure Stack Hub prise en charge. **Chaque correctif d’une itération est cumulatif et englobe les correctifs précédents de la même version.** Pour en savoir plus sur la nécessité de l’application d’un correctif logiciel, consultez l’article de la base de connaissances correspondant. Consultez les liens des notes de version dans la section précédente.
 
 Pour plus d’informations sur les correctifs logiciels actuellement disponibles, consultez les notes de publication de cette mise à jour :
 
-- [Correctif logiciel Azure Stack Hub 2002](./release-notes.md?view=azs-2002#hotfixes)
-- [Correctif logiciel Azure Stack Hub 1910](./release-notes.md?view=azs-1910#hotfixes-1)
-- [Correctif logiciel Azure Stack Hub 1908](./release-notes.md?view=azs-1908#hotfixes-2)
-- [Correctif logiciel Azure Stack Hub 1907](./release-notes.md?view=azs-1907#hotfixes-3)
+- [Correctif logiciel Azure Stack Hub 2005](/azure-stack/operator/release-notes?view=azs-2005#hotfixes)
+- [Correctif logiciel Azure Stack Hub 2002](/azure-stack/operator/release-notes?view=azs-2002#hotfixes-1)
+- [Correctif logiciel Azure Stack Hub 1910](/azure-stack/operator/release-notes?view=azs-1910#hotfixes-2)
 
 ## <a name="keep-your-system-under-support"></a>Conserver votre système dans un état de prise en charge
 
-::: moniker range="azs-2002"
-
 > [!IMPORTANT]  
-> Avec la mise à jour Azure Stack Hub 2002, Microsoft étend temporairement nos instructions de stratégie de prise en charge d’Azure Stack Hub. Nous travaillons avec des clients du monde entier qui sont confrontés au virus COVID-19 et qui peuvent prendre des décisions importantes sur leurs systèmes Azure Stack Hub et sur la façon dont ils sont mis à jour et gérés, afin que les opérations commerciales de leur centre de données continuent de fonctionner normalement. Pour aider nos clients, Microsoft propose de reporter provisoirement le changement de politique de support pour inclure trois versions de mise à jour précédentes. Ainsi, la nouvelle mise à jour 2002 et les trois versions de mise à jour précédentes (par exemple, 1910, 1908 et 1907) sont prises en charge.
-
-::: moniker-end
+> Avec [la version 2002](release-notes.md?view=azs-2002) d’Azure Stack Hub et pour la prise en charge de nos clients dans le monde entier qui réagissent à la COVID-19 et qui peuvent prendre des décisions importantes quant à leurs systèmes Azure Stack Hub, Microsoft a temporairement étendu sa stratégie de support pour inclure trois versions de mise à jour précédentes (N-3). Avec la version 2005, nous continuons cette extension pendant 45 jours supplémentaires (jusqu’au 25 septembre 2020). Ainsi, la nouvelle mise à jour 2005 et une des trois versions de mise à jour précédentes (par exemple, 2002, 1910 et 1908 ou N-3) sont prises en charge. Après ces 45 jours (après le 25 septembre 2020), nous revenons à notre politique de support standard, ce qui signifie que les versions prises en charge seront 2005, 2002 et 1910 ou N-2.
 
 Pour que votre instance Azure Stack Hub continue d’être prise en charge, vous devez exécuter la version de mise à jour la plus récente ou exécuter les deux versions de mise à jour précédentes.
 
-Les correctifs logiciels ne sont pas considérés comme des versions de mise à jour majeures. Si votre instance Azure Stack Hub présente *plus de deux mises à jour* de retard, elle est considérée comme non conforme. Pour bénéficier de la prise en charge, vous devez mettre à jour avec au moins la version minimale prise en charge.
+Les correctifs logiciels ne sont pas considérés comme des versions de mise à jour majeures. Si votre instance d’Azure Stack Hub a plus de deux mises à jour de retard, elle est considérée comme non conforme. Pour bénéficier de la prise en charge, vous devez mettre à jour avec au moins la version minimale prise en charge.
 
 Par exemple, si la dernière version mise à jour disponible est 1904 et que les deux mises à jour précédentes étaient les versions 1903 et 1902, 1902 et 1903 restent prises en charge. Toutefois, 1901 n’est pas pris en charge. La stratégie reste appliquée quand aucune version n’est publiée pendant un ou deux mois. Par exemple, si la version actuelle est 1807 et qu’il n’existait aucune version 1806, les deux mises à jour précédentes des versions 1805 et 1804 restent prises en charge.
 

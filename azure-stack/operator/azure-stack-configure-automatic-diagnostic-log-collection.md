@@ -3,16 +3,16 @@ title: Collecte proactive des journaux de diagnostic dans Azure Stack Hub
 description: Apprenez à configurer la collecte proactive des journaux de diagnostic dans Azure Stack Hub Aide et support.
 author: justinha
 ms.topic: article
-ms.date: 04/17/2020
+ms.date: 06/16/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 04/17/2020
-ms.openlocfilehash: a348b2c301b7fbfbffe31f9ea5dff3fbb3e92b44
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 06/16/2020
+ms.openlocfilehash: fe1ae4c0c979d579df99b6e440d62dd16a9df2e9
+ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489332"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88074160"
 ---
 # <a name="proactive-diagnostic-log-collection-in-azure-stack-hub"></a>Collecte proactive des journaux de diagnostic dans Azure Stack Hub
 
@@ -21,6 +21,9 @@ ms.locfileid: "86489332"
 Faites gagner du temps au service clientèle en collectant de manière proactive les journaux de diagnostic lorsqu'une alerte est déclenchée sur Azure Stack Hub.
 
 Si les conditions d’intégrité du système doivent être examinées, les journaux peuvent être automatiquement chargés à des fins d’analyse avant l’ouverture d’un cas de support auprès du support Microsoft.
+
+>[!NOTE]
+>Si vous êtes déconnecté d’Internet ou souhaitez uniquement enregistrer les journaux localement, utilisez la méthode [Get-AzureStackLog](azure-stack-get-azurestacklog.md) pour envoyer les journaux. 
 
 ## <a name="steps-to-configure-proactive-log-collection"></a>Procédure de configuration de la collecte proactive des journaux
 
@@ -118,6 +121,9 @@ Pour ajouter l'URL SAP à l’interface utilisateur de collecte des journaux, pr
 >La collecte automatique des journaux peut être désactivée et réactivée à tout moment. La configuration de l’URL SAP ne change pas. Si la collecte automatique des journaux est réactivée, l’URL SAP entrée précédemment est soumise aux mêmes vérifications de validation et une URL SAP expirée sera rejetée.
 
 ::: moniker-end
+
+>[!NOTE]
+>Si les paramètres d’emplacement des journaux sont configurés pour un partage de fichiers local, vérifiez que les stratégies de gestion du cycle de vie empêchent le stockage de partage d’atteindre son quota de taille. Azure Stack Hub n’analyse pas le partage de fichiers local ou n’applique aucune stratégie de rétention.
 
 ## <a name="view-log-collection"></a>Afficher la collecte des journaux
 

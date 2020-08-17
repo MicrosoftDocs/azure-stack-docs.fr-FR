@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 726c632964e0580a5d55219f161e2bc8d6e679de
-ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
+ms.openlocfilehash: 993fb7a054cd350f0231eeb2108cc5a43ddb3f9e
+ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87397496"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88145435"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Fonctionnalités des machines virtuelles Azure Stack Hub
 
@@ -45,6 +45,7 @@ Azure Stack Hub impose des limites de ressources pour éviter la consommation ex
 - Pour la sortie réseau de la machine virtuelle, des limites de bande passante sont en place. Les limites relatives à Azure Stack Hub sont les mêmes que celles appliquées dans Azure.
 - Pour les ressources de stockage, Azure Stack Hub implémente des limites d'opérations d'entrée/sortie par seconde (IOPS, Input/Output Operations Per Second) afin d'éviter une surconsommation de base des ressources par les locataires pour l'utilisation du stockage.
 - Pour les disques de machine virtuelle, les opérations IOPS sur Azure Stack Hub dépendent de la taille de la machine virtuelle et non du type de disque. Cela signifie que, pour une machine virtuelle Standard_Fs, quel que soit le type de disque choisi (SSD ou HDD), la limite d’IOPS est de 2 300 pour un deuxième disque de données.
+- Les disques temporaires joints à la machine virtuelle ne sont pas persistants et peuvent être perdus sur des opérations de plan de contrôle telles que le redimensionnement ou l’arrêt-libération.
 
 Le tableau suivant répertorie les machines virtuelles prises en charge sur Azure Stack Hub, ainsi que leur configuration :
 

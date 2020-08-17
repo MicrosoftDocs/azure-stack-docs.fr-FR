@@ -1,0 +1,86 @@
+---
+title: Machine virtuelle du processeur graphique (GPU) sur Azure Stack Hub
+description: Référence pour l’environnement GPU dans Azure Stack Hub.
+author: mattbriggs
+ms.author: mabrigg
+ms.service: azure-stack
+ms.topic: reference
+ms.date: 07/07/2020
+ms.reviewer: kivenkat
+ms.lastreviewed: 07/07/2020
+ms.openlocfilehash: ec859cfc977c5596f44bf349c765c68873ea7430
+ms.sourcegitcommit: 17ef9f9119f5fea9782adeefb9a430e6a3a650e6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88170351"
+---
+# <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Machine virtuelle du processeur graphique (GPU) sur Azure Stack Hub
+
+*S’applique à : systèmes intégrés Azure Stack*
+
+Dans cet article, vous pouvez découvrir les modèles de processeurs graphiques (GPU) pris en charge sur le système multinœud Azure Stack Hub. Vous y trouverez également des instructions sur l’installation des pilotes utilisés avec les GPU. Le support GPU dans Azure Stack Hub permet de fournir des solutions telles que l’intelligence artificielle, la formation, l’inférence et la visualisation des données. L’accélérateur graphique AMD Radeon Instinct Mi25 peut être utilisé pour prendre en charge des applications gourmandes en graphiques, telles qu’Autodesk AutoCAD.
+
+Vous pouvez choisir parmi trois modèles GPU dans la période de préversion publique. Ils sont disponibles dans les processeurs graphiques NVIDIA V100, NVIDIA T4 et AMD Mi25. Ces GPU physiques s’alignent sur les types de machines virtuelles de la série N Azure suivants, comme suit :
+- [NCv3](https://docs.microsoft.com/azure/virtual-machines/ncv3-series)
+- [NVv4 (AMD Mi25)](https://docs.microsoft.com/azure/virtual-machines/nvv4-series)
+- NCas_T4_v3
+
+> [!IMPORTANT]  
+> Le support GPU Azure Stack Hub est actuellement disponible en préversion publique. Pour participer à la préversion, remplissez le formulaire sur [aka.ms/azurestackhubgpupreview](https://aka.ms/azurestackhubgpupreview).
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="ncv3"></a>NCv3
+
+Les machines virtuelles de série NCv3 sont optimisées par les GPU NVIDIA Tesla V100. Les clients peuvent tirer parti de ces GPU mis à jour pour les charges de travail HPC traditionnelles telles que la modélisation de gisements, le séquençage de l’ADN, l’analyse des protéines, les simulations de Monte-Carlo, etc. 
+
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Nombre max de cartes réseau |
+|---|---|---|---|---|---|---|---|---|
+| Standard_NC6s_v3    | 6  | 112 | 736  | 1 | 16 | 12 | 4 |
+| Standard_NC12s_v3   | 12 | 224 | 1474 | 2 | 32 | 24 | 8 |
+| Standard_NC24s_v3   | 24 | 448 | 2948 | 4 | 64 | 32 | 8 |
+
+## <a name="nvv4"></a>NVv4
+
+Les machines virtuelles de la série NVv4 sont alimentées par des GPU [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25). Avec la série NVv4, Azure Stack Hub introduit des machines virtuelles avec des GPU partiels. Cette taille peut être utilisée pour les applications graphiques accélérées GPU et les bureaux virtuels. Les machines virtuelles NVv4 prennent actuellement en charge uniquement le système d’exploitation invité Windows. 
+
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Nombre max de cartes réseau | 
+| --- | --- | --- | --- | --- | --- | --- | --- |   
+| Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 | 
+
+## <a name="ncas_t4_v3"></a>NCas_T4_v3
+
+Cette nouvelle taille de machine virtuelle NVIDIA T4 permet l’exécution de charges de travail légères de Machine Learning, d’inférence et de visualisation sur Azure Stack Hub. Actuellement, cette taille de machine virtuelle n’est pas disponible sur le portail pour le déploiement et PowerShell/CLI doit être utilisé à la place.
+
+
+| Taille | Processeurs virtuels | Mémoire : Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Nombre max de cartes réseau | 
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_NC4as_T4_v3 |4 |28 | 1 | 16 | 8 | 4 | 
+| Standard_NC8as_T4_v3 |4 |56 | 1 | 16 | 16 | 8 | 
+| Standard_NC16as_T4_v3 |4 |112 | 1 | 16 | 32 | 8 | 
+| Standard_NC64as_T4_v3 |4 |448 | 4 | 64 | 32 | 8 | 
+
+
+## <a name="patch-and-update-fru-behavior-of-vms"></a>Correctif et mise à jour, comportement FRU des machines virtuelles 
+
+Les machines virtuelles GPU subissent des temps d’arrêt pendant les opérations telles que les correctifs et les mises à jour (PnU), ainsi que le remplacement de matériel (FRU) d’Azure Stack Hub. Le tableau suivant présente l’état de la machine virtuelle comme observé au cours de ces activités, ainsi que l’action manuelle que l’utilisateur peut effectuer pour que ces machines virtuelles soient à nouveau disponibles après ces opérations. 
+
+| Opération | PnU - mise à jour Express | PnU - mise à jour complète, mise à jour OEM | FRU | 
+| --- | --- | --- | --- | 
+| État de la machine virtuelle  | Non disponible pendant et après la mise à jour sans opération de démarrage manuelle | Non disponible pendant la mise à jour. Disponible après le démarrage avec une opération manuelle | Non disponible pendant la mise à jour. Disponible après le démarrage avec une opération manuelle| 
+| Opération manuelle | Si la machine virtuelle doit être disponible pendant la mise à jour et si des partitions GPU sont disponibles, la machine virtuelle peut être redémarrée à partir du portail en cliquant sur le bouton **Redémarrer**. Redémarrez la machine virtuelle après la mise à jour à partir du portail à l’aide du bouton **Redémarrer** | Impossible de rendre la machine virtuelle disponible pendant la mise à jour. Après la fin de la mise à jour, la machine virtuelle doit être arrêtée-libérée à l’aide du bouton **Arrêter** et la sauvegarde doit être démarrée à l’aide du bouton « Démarrer » | Impossible de rendre la machine virtuelle disponible pendant la mise à jour. Après la fin de la mise à jour, la machine virtuelle doit être arrêtée-libérée à l’aide du bouton **Arrêter** et la sauvegarde doit être démarrée à l’aide du bouton **Démarrer**.| 
+
+## <a name="guest-driver-installation"></a>Installation du pilote invité 
+
+### <a name="amd-mi25"></a>Mi25 AMD
+L’article [Installer des pilotes GPU AMD sur des machines virtuelles série N exécutant Windows](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup) fournit des instructions sur l’installation du pilote pour l’AMD Radeon instinct Mi25 à l’intérieur de la machine virtuelle compatible GPU-P NVv4, ainsi que les étapes de vérification de l’installation du pilote. Cette extension fonctionne uniquement en mode connecté.
+
+### <a name="nvidia"></a>NVIDIA
+
+Les pilotes NVIDIA sont requis pour exécuter des charges de travail CUDA ou GRID sur la machine virtuelle. Assurez-vous que vous disposez des licences GRID appropriées, ainsi que d’un serveur de licences configuré avant d’utiliser l’extension pour installer les pilotes GRID sur la machine virtuelle. [Cette](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html) peut être utilisée pour apprendre à configurer le serveur de licences. Les pilotes CUDA n’ont pas besoin d’un serveur de licences.
+
+Les pilotes GRID et NVIDIA CUDA doivent être installés manuellement sur la machine virtuelle. Les pilotes Tesla CUDA peuvent être obtenus à partir du [site web de téléchargement](https://www.nvidia.com/Download/index.aspx) NVIDIA. Les pilotes GRID peuvent être téléchargés via le Hub d’applications NVIDIA, à condition que vous disposiez des licences requises.
+
+## <a name="next-steps"></a>Étapes suivantes 
+
+[Fonctionnalités des machines virtuelles Azure Stack](azure-stack-vm-considerations.md) 

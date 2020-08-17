@@ -3,41 +3,58 @@ title: Collecte des journaux de diagnostic dans Azure Stack Hub
 description: Découvrez-en plus sur la collecte des journaux de diagnostic dans Azure Stack Hub Aide et support.
 author: justinha
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 05/11/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: f7d9335e612387a780e002a2fe3d070436a10c5a
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 05/11/2020
+ms.openlocfilehash: c924c5a48337106c08d1112328c32c031d7371bc
+ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488975"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88074233"
 ---
 # <a name="diagnostic-log-collection-in-azure-stack-hub"></a>Collecte des journaux de diagnostic dans Azure Stack Hub
 
-::: moniker range=">= azs-2002"
 
 Azure Stack Hub est une grande collection de composants Windows et de services Azure locaux qui interagissent les uns avec les autres. Tous ces composants et services génèrent leur propre ensemble de journaux. Afin de permettre au support Microsoft de diagnostiquer efficacement les problèmes, nous avons fourni une expérience fluide pour la collecte des journaux de diagnostic.
 
 L’approche de la collecte des journaux de diagnostic dans **Aide et support**  permet aux opérateurs de collecter et de partager rapidement les journaux de diagnostic avec le support Microsoft dans une interface utilisateur simple, qui ne nécessite pas PowerShell. Les journaux sont collectés, même si d’autres services d’infrastructure sont défaillants.  
 
-Nous vous recommandons d'utiliser cette approche de la collecte des journaux et de ne recourir à l'[utilisation du point de terminaison privilégié (PEP)](azure-stack-get-azurestacklog.md) que si le portail administrateur ou le panneau **Aide et support** est indisponible.
+La collecte des journaux de diagnostic dans Aide et support permet aux opérateurs de collecter et de partager rapidement les journaux de diagnostic avec les services de support technique Microsoft, interface utilisateur simple, qui ne nécessite pas PowerShell. Les journaux sont collectés, même si d’autres services d’infrastructure sont défaillants.  
+
+::: moniker range=">= azs-2002"
+
+Nous vous recommandons d’utiliser cette approche de la collecte des journaux et de recourir à l’[utilisation du point de terminaison privilégié (PEP)](azure-stack-get-azurestacklog.md) seulement si le portail administrateur ou le panneau Aide et support n’est pas disponible. 
 
 >[!NOTE]
->Azure Stack Hub doit être inscrit et disposer d’une connexion Internet pour utiliser la collecte des journaux de diagnostic. Si Azure Stack Hub n'est pas inscrit, [utilisez le point de terminaison privilégié (PEP)](azure-stack-get-azurestacklog.md) pour partager les journaux.
+>Azure Stack Hub doit être inscrit pour utiliser le regroupement des journaux de diagnostic. Si Azure Stack Hub n’est pas inscrit, utilisez [Get-AzureStackLog](azure-stack-get-azurestacklog.md) pour partager des journaux. 
 
 ![Options de collecte des journaux de diagnostic dans Azure Stack Hub](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
 
 ## <a name="collection-options-and-data-handling"></a>Options de collecte et gestion des données
 
-La fonctionnalité de collecte des journaux de diagnostic offre deux options pour envoyer des journaux. Le tableau suivant décrit chaque option et la façon dont vos données sont gérées dans chaque cas.
+::: moniker-end
+::: moniker range=">= azs-2005"
 
-### <a name="send-logs-proactively"></a>Send logs proactively (Envoyer les journaux de manière proactive)
+En fonction de la connectivité à Azure, Azure Stack Hub dispose des moyens appropriés pour collecter, enregistrer et envoyer des journaux de diagnostic à CSS. Si Azure Stack Hub peut se connecter à Azure, la méthode recommandée consiste à activer **Collection de journaux proactive**, qui charge automatiquement les journaux de diagnostic vers un blob de stockage contrôlé par Microsoft dans Azure lorsqu’une alerte critique est déclenchée. Vous pouvez également collecter les journaux à la demande à l’aide de **Envoyer des journaux maintenant** ou vous pouvez enregistrer les journaux localement si Azure Stack Hub est déconnecté d’Azure. 
+
+Les sections suivantes décrivent chaque option et la façon dont vos données sont gérées dans chaque cas. 
+
+::: moniker-end
+
+::: moniker range="= azs-2002"
+La fonctionnalité de collecte des journaux de diagnostic offre deux options pour envoyer des journaux. Les sections suivantes décrivent chaque option et la façon dont vos données sont gérées dans chaque cas. 
+::: moniker-end
+
+::: moniker range=">= azs-2002"
+
+## <a name="send-logs-proactively"></a>Send logs proactively (Envoyer les journaux de manière proactive)
 
 La [collecte proactive des journaux](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002) rationalise et simplifie la collecte des journaux de diagnostic afin que les clients puissent envoyer des journaux à Microsoft avant d’ouvrir un cas de support. Les journaux de diagnostic sont chargés de manière proactive à partir d’Azure Stack Hub à des fins d’analyse. Ces journaux sont collectés uniquement quand une [alerte d’intégrité du système](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002#proactive-diagnostic-log-collection-alerts) est déclenchée et ne sont accessibles au support Microsoft que dans le contexte d’un cas de support.
 
-#### <a name="how-the-data-is-handled"></a>Gestion des données
+
+### <a name="how-the-data-is-handled"></a>Gestion des données
 
 Vous acceptez que Microsoft procède régulièrement et automatiquement à la collecte des journaux sur la seule base des alertes d’intégrité du système Azure Stack Hub. Vous reconnaissez et acceptez également le chargement et la conservation de ces journaux dans un compte de stockage Azure managé et contrôlé par Microsoft.
 
@@ -47,23 +64,38 @@ Les données déjà collectées avec votre consentement ne sont pas affectées p
 
 Les journaux collectés à l’aide de la **collecte proactive des journaux** sont chargés sur un compte de stockage Azure managé et contrôlé par Microsoft. Microsoft peut accéder à ces journaux dans le contexte d'un cas de support et pour améliorer l'intégrité d'Azure Stack Hub.
 
-### <a name="send-logs-now"></a>Envoyer des journaux maintenant
+## <a name="send-logs-now"></a>Envoyer des journaux maintenant
 
 [Send logs now](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) (Envoyer les journaux maintenant) est une option manuelle qui permet de charger les journaux de diagnostic à partir d’Azure Stack Hub uniquement quand vous (en tant que client) lancez la collecte, généralement avant d’ouvrir un cas de support.
 
 Les opérateurs Azure Stack peuvent envoyer des journaux de diagnostic à la demande au support Microsoft en utilisant le portail administrateur ou PowerShell. Si Azure Stack Hub est connecté à Azure, l'utilisation de la méthode [Envoyer les journaux maintenant sur le portail administrateur](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) est recommandée, car il s'agit de la plus simple pour envoyer les journaux directement à Microsoft. Si le portail n’est pas disponible, les opérateurs doivent alors [envoyer les journaux maintenant avec PowerShell](./azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md?view=azs-2002).
 
-Si vous êtes déconnecté d'Internet ou souhaitez uniquement enregistrer les journaux localement, utilisez la méthode [Get-AzureStackLog](azure-stack-get-azurestacklog.md) pour envoyer les journaux. L’organigramme suivant montre l’option à utiliser pour l’envoi des journaux de diagnostic dans chaque cas.
+::: moniker-end
+::: moniker range="= azs-2002"
+Si vous êtes déconnecté d’Internet ou souhaitez uniquement enregistrer les journaux localement, utilisez la méthode [Get-AzureStackLog](azure-stack-get-azurestacklog.md) pour envoyer les journaux. L’organigramme suivant montre l’option à utiliser pour l’envoi des journaux de diagnostic dans chaque cas. 
+::: moniker-end
+
+::: moniker range=">= azs-2002"
 
 ![Organigramme montrant comment envoyer des journaux à Microsoft](media/azure-stack-help-and-support/send-logs-now-flowchart.png)
 
-#### <a name="how-the-data-is-handled"></a>Gestion des données
+### <a name="how-the-data-is-handled"></a>Gestion des données
 
 En lançant la collecte des journaux de diagnostic à partir d’Azure Stack Hub, vous reconnaissez et acceptez de charger ces journaux et de les conserver dans un compte de stockage Azure managé et contrôlé par Microsoft. Le support Microsoft peut accéder à ces journaux immédiatement avec le cas de support sans avoir à contacter le client pour la collecte des journaux.
 
-Les données sont exclusivement utilisées à des fins de dépannage des alertes d'intégrité du système, et non à des fins de marketing, de publicité ou à d'autres fins commerciales si vous n'y avez pas consenti. Les données peuvent être conservées pendant une période maximale de 90 jours, et toutes les données collectées par Microsoft sont traitées conformément à nos [pratiques de confidentialité standard](https://privacy.microsoft.com/).
+::: moniker-end
 
-Les journaux collectés via la méthode **Envoyer les journaux maintenant** sont chargés sur un stockage managé et contrôlé par Microsoft. Microsoft accède à ces journaux dans le contexte d’un cas de support et pour améliorer l’intégrité d’Azure Stack Hub.
+::: moniker range=">= azs-2005"
+
+## <a name="save-logs-locally"></a>Enregistrer les journaux localement
+
+Vous pouvez enregistrer des journaux dans un partage SMB local lorsque Azure Stack Hub est déconnecté d’Azure. Dans le panneau **Paramètres**, entrez le chemin d’accès et un nom d’utilisateur et un mot de passe avec l’autorisation d’écrire sur le partage. Au cours d’un cas de support, Microsoft CSS fournit des étapes détaillées sur la façon dont ces journaux locaux doivent être transférés.
+
+![Capture d’écran des options de collecte des journaux de diagnostic](media/azure-stack-help-and-support/save-logs-locally.png)
+
+::: moniker-end
+
+::: moniker range=">= azs-2002"
 
 ## <a name="bandwidth-considerations"></a>Remarques relatives à la bande passante
 

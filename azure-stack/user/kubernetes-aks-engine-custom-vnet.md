@@ -3,22 +3,28 @@ title: Déployer un cluster Kubernetes sur un réseau virtuel personnalisé sur 
 description: Découvrez comment déployer un cluster Kubernetes sur un réseau virtuel personnalisé sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 7/24/2020
+ms.date: 08/05/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: f2d0dbf140e5296df7533ba99bb06a081d97afe0
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.lastreviewed: 08/05/2020
+ms.openlocfilehash: f6fca607f9e963fc2c007c27ebed05cecdf2e35a
+ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250331"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87865220"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Déployer un cluster Kubernetes sur un réseau virtuel personnalisé sur Azure Stack Hub 
 
 Vous pouvez déployer un cluster Kubernetes à l’aide du moteur Azure Kubernetes Service (AKS) sur un réseau virtuel personnalisé. Cet article s’intéresse aux informations dont vous avez besoin dans votre réseau virtuel. Vous allez découvrir les étapes à suivre pour calculer les adresses IP utilisées par votre cluster, définir les valeurs dans le modèle d’API et définir la table de routage et le groupe de sécurité réseau.
 
 Dans Azure Stack Hub, le cluster Kubernetes qui utilise le moteur AKS utilise le plug-in réseau kubenet. Pour plus d’informations sur la mise en réseau du plug-in réseau kubenet dans Azure, consultez [Utiliser la mise en réseau kubenet avec vos propres plages d’adresses IP dans Azure Kubernetes Service (AKS)](/azure/aks/configure-kubenet).
+
+## <a name="constraints-when-creating-a-custom-virtual-network"></a>Contraintes lors de la création d’un réseau virtuel personnalisé
+
+-  Le réseau virtuel personnalisé doit se trouver dans le même abonnement que tous les autres composants du cluster Kubernetes.
+-  Le pool de nœuds principaux et le pool de nœuds d’agent doivent se trouver dans le même réseau virtuel. Vous pouvez déployer vos nœuds dans différents sous-réseaux au sein du même réseau virtuel.
+-  Le sous-réseau de cluster Kubernetes doit utiliser une plage d’adresses IP dans l’espace de la plage d’adresses IP du réseau virtuel personnalisé, consultez [Obtenir le bloc d’adresses IP](#get-the-ip-address-block).
 
 ## <a name="create-custom-virtual-network"></a>Créer un réseau virtuel personnalisé
 
@@ -40,8 +46,6 @@ Créez un sous-réseau dans votre réseau virtuel. Vous devez obtenir l’ID de 
     ![Bloc CIDR du réseau virtuel](media/kubernetes-aks-engine-custom-vnet/virtual-network-cidr-block.png)
     
 6. Dans le panneau du sous-réseau, prenez note de la plage d’adresses et du bloc CIDR du réseau virtuel, par exemple : `10.1.0.0 - 10.1.0.255 (256 addresses)` et `10.1.0.0/24`.
-
-
 
 ## <a name="get-the-ip-address-block"></a>Obtenir le bloc d’adresses IP
 
@@ -69,7 +73,6 @@ Dans cet exemple, la propriété `firstConsecutiveStaticIP` a la valeur `10.1.0.
 
 Pour les sous-réseaux plus larges, par exemple /16 avec plus de 60 000 adresses, il peut s’avérer difficile de définir vos affectations d’adresses IP statiques à la fin de l’espace réseau. Définissez la plage d’adresses IP statiques de votre cluster en dehors des 24 premières adresses de votre espace IP afin que le cluster soit résilient lors de la revendication d’adresses.
 
-
 ## <a name="update-the-api-model"></a>Mettre à jour le modèle d’API
 
 Mettez à jour le modèle d’API utilisé pour déployer le cluster à partir du moteur AKS sur votre réseau virtuel personnalisé.
@@ -87,6 +90,12 @@ Dans **agentPoolProfiles**, définissez les valeurs suivantes :
 | --- | --- | --- |
 | vnetSubnetId | `/subscriptions/77e28b6a-582f-42b0-94d2-93b9eca60845/resourceGroups/MDBN-K8S/providers/Microsoft.Network/virtualNetworks/MDBN-K8S/subnets/default` | Spécifiez l’ID de chemin Azure Resource Manager du sous-réseau.  |
 
+Dans **orchestratorProfile**, recherchez **kubernetesConfig** et définissez la valeur suivante :
+
+| Champ | Exemple | Description |
+| --- | --- | --- |
+| clusterSubnet | `172.16.244.0/24` | La plage d’adresses IP du sous-réseau de clusters doit utiliser une plage d’adresses IP dans l’espace de la plage d’adresses IP du réseau virtuel personnalisé que vous avez défini. |
+
 Par exemple :
 
 ```json
@@ -103,6 +112,13 @@ Par exemple :
     "vnetSubnetId": "/subscriptions/77e28b6a-582f-42b0-94d2-93b9eca60845/resourceGroups/MDBN-K8S/providers/Microsoft.Network/virtualNetworks/MDBN-K8S/subnets/default",
     ...
   },
+    ...
+"kubernetesConfig": [
+  {
+    ...
+    "clusterSubnet": "172.16.244.0/24",
+    ...
+  },
 
 ```
 
@@ -110,7 +126,7 @@ Par exemple :
 
 Après avoir ajouté les valeurs à votre modèle d’API, vous pouvez déployer votre cluster à partir de votre ordinateur client à l’aide de la commande `deploy` en utilisant le moteur AKS. Pour obtenir des instructions, consultez [Déployer un cluster Kubernetes](azure-stack-kubernetes-aks-engine-deploy-cluster.md#deploy-a-kubernetes-cluster).
 
-## <a name="set-the-route-table-and-network-security-group"></a>Définir la table de routage et le groupe de sécurité réseau
+## <a name="set-the-route-table"></a>Définir la table de route
 
 Après avoir déployé votre cluster, revenez à votre réseau virtuel dans le portail utilisateur Azure Stack. Définissez la table de routage et le groupe de sécurité réseau (NSG) dans le panneau du sous-réseau. Si vous n’utilisez pas Azure CNI, par exemple, `networkPlugin`: `kubenet` dans l’objet de configuration du modèle d’API `kubernetesConfig`. Une fois que vous avez correctement déployé un cluster sur votre réseau virtuel personnalisé, obtenez l’ID de la ressource Table de routage à partir du panneau **Réseau** dans le groupe de ressources de votre cluster.
 
@@ -122,12 +138,11 @@ Après avoir déployé votre cluster, revenez à votre réseau virtuel dans le p
     ![Table de routage et groupe de sécurité réseau](media/kubernetes-aks-engine-custom-vnet/virtual-network-rt-nsg.png)
     
 5. Sélectionnez **Table de routage**, puis la table de routage de votre cluster.
-6. Sélectionnez **Groupe de sécurité réseau**, puis le NSG de votre cluster.
 
 > [!Note]  
 > Il existe un [problème connu](https://github.com/Azure/aks-engine/issues/371) dans le réseau virtuel personnalisé d’un cluster Windows Kubernetes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez l'article [Le moteur AKS sur Azure Stack Hub](azure-stack-kubernetes-aks-engine-overview.md).  
+- En savoir plus sur [le moteur AKS sur Azure Stack Hub](azure-stack-kubernetes-aks-engine-overview.md)  
 - Consultez l’article [Vue d’ensemble d’Azure Monitor pour conteneurs](/azure/azure-monitor/insights/container-insights-overview).

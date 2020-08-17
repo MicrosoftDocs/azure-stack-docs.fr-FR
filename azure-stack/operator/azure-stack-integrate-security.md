@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
-ms.lastreviewed: 01/10/2019
-ms.openlocfilehash: a02458ba7790fdf48d8b506abfea0e771b8a179e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 06/15/2020
+ms.openlocfilehash: 84a60646a383d83ba2913b268d51f1cd74f214b9
+ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77699420"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88074143"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Intégrer Azure Stack Hub à des solutions de supervision avec le transfert Syslog
 
@@ -234,6 +234,8 @@ Prefix fields
 * Signature ID: Microsoft-AzureStack-PrivilegedEndpoint: <PEP Event ID>
 * Name: <PEP Task Name>
 * Severity: mapped from PEP Level (details see the PEP Severity table below)
+* Who: account used to connect to the PEP
+* WhichIP: IP address of the device used to connect to the PEP
 ```
 
 Tableau des événements pour le point de terminaison privilégié :
@@ -271,6 +273,8 @@ Prefix fields
 * Signature ID: Microsoft-AzureStack-PrivilegedEndpoint: <REP Event ID>
 * Name: <REP Task Name>
 * Severity: mapped from REP Level (details see the REP Severity table below)
+* Who: account used to connect to the REP
+* WhichIP: IP address of the device used to connect to the REP
 ```
 
 Tableau des événements pour le point de terminaison de récupération :
@@ -354,7 +358,7 @@ Table d’extension personnalisée pour les événements Windows dans Azure Stac
 
 Tableau de gravité des alertes :
 
-| severity | Level |
+| Gravité | Level |
 |----------|-------|
 |0|Indéfini|
 |10|Critique|
@@ -364,7 +368,7 @@ Table d’extension personnalisée pour les alertes créées dans Azure Stack Hu
 
 | Nom de l’extension personnalisée | Exemple | 
 |-----------------------|---------|
-|MasEventDescription|DESCRIPTION : Un compte d’utilisateur \<TestUser\> a été créé pour \<TestDomain\>. Il existe un risque potentiel de sécurité. -- CORRECTION : Contactez le support technique. L’Assistance client est nécessaire pour résoudre ce problème. N’essayez pas de résoudre ce problème sans son assistance. Avant d’ouvrir une demande de support, démarrez le processus de collecte du fichier journal en utilisant les instructions disponibles à l’adresse https://aka.ms/azurestacklogfiles.
+|MasEventDescription|DESCRIPTION : Un compte d'utilisateur \<TestUser\> a été créé pour \<TestDomain\>. Il existe un risque potentiel de sécurité. --CORRECTION : contactez le support technique. L’Assistance client est nécessaire pour résoudre ce problème. N’essayez pas de résoudre ce problème sans son assistance. Avant d’ouvrir une demande de support, démarrez le processus de collecte du fichier journal en utilisant les instructions disponibles à l’adresse https://aka.ms/azurestacklogfiles.
 
 ### <a name="cef-mapping-for-alerts-closed"></a>Mappage CEF pour les alertes fermées
 

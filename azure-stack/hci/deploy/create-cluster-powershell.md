@@ -3,15 +3,15 @@ title: Créer un cluster Azure Stack HCI en utilisant Windows PowerShell
 description: Découvrez comment créer un cluster hyperconvergé pour Azure Stack HCI en utilisant Windows PowerShell
 author: v-dasis
 ms.topic: how-to
-ms.date: 07/21/2020
+ms.date: 08/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ab2edb1dc5650a313ba84af89d0ff386e60f8264
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: e92aa28deadbf334e3cd545e5cd9bc6b0e12e6c4
+ms.sourcegitcommit: 673d9b7cf723bc8ef6c04aee5017f539a815da51
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86868007"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88110466"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Créer un cluster Azure Stack HCI en utilisant Windows PowerShell
 
@@ -29,6 +29,8 @@ Dans cet article, nous allons créer un exemple de cluster nommé Cluster1 compo
 Pour le scénario de cluster étendu, nous allons utiliser ClusterS1 comme nom et utiliser les quatre mêmes nœuds de serveur étendus sur les sites Site1 et Site2.
 
 Pour plus d’informations sur les clusters étendus, consultez [Vue d’ensemble des clusters étendus](../concepts/stretched-clusters.md).
+
+Si vous êtes intéressé par les tests Azure Stack HCI, mais que vous disposez d’un matériel de rechange limité ou inexistant, consultez le [Guide d’évaluation Azure Stack HCI](https://github.com/Azure/AzureStackHCI-EvalGuide/blob/main/README.md), dans lequel nous vous guidons tout au long de la rencontre avec Azure Stack HCI à l’aide de la virtualisation imbriquée, dans Azure ou sur un seul système physique local.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -58,7 +60,7 @@ Pour vous connecter aux serveurs, vous devez d’abord disposer d’une connecti
 Ouvrez PowerShell et utilisez le nom de domaine complet ou l’adresse IP du serveur auquel vous voulez vous connecter. Vous serez invité à entrer un mot de passe après avoir exécuté la commande suivante sur chaque serveur (Server1, Server2, Server3, Server4) :
 
    ```powershell
-   Enter-PSSession -ComputerName Server1 -Credential Server1\Administrator
+   Enter-PSSession -ComputerName "Server1" -Credential "Server1\Administrator"
    ```
 
 Voici un autre exemple qui fait la même chose :
@@ -104,7 +106,7 @@ L’étape suivante consiste à installer les rôles et fonctionnalités Windows
 - BitLocker
 - Data Center Bridging (pour les cartes réseau RoCEv2)
 - Clustering de basculement
-- Serveur de fichiers (pour un témoin de partage de fichiers ou des partages de fichiers d’hébergement)
+- Serveur de fichiers
 - Module FS-Data-Deduplication
 - Hyper-V
 - Module RSAT-AD-PowerShell
@@ -113,7 +115,7 @@ L’étape suivante consiste à installer les rôles et fonctionnalités Windows
 Utilisez la commande suivante pour chaque serveur :
 
 ```powershell
-Install-WindowsFeature -ComputerName Server1 -Name "BitLocker", "Data-Center-Bridging", "Failover-Clustering  -IncludeAllSubFeature -IncludeManagementTools", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica"
+Install-WindowsFeature -ComputerName "Server1" -Name "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica" -IncludeAllSubFeature -IncludeManagementTools
 ```
 
 Pour exécuter la commande sur tous les serveurs du cluster en même temps, utilisez le script suivant, en modifiant la liste des variables au début pour les adapter à votre environnement.
@@ -121,11 +123,11 @@ Pour exécuter la commande sur tous les serveurs du cluster en même temps, util
 ```powershell
 # Fill in these variables with your values
 $ServerList = "Server1", "Server2", "Server3", "Server4"
-$FeatureList = "BitLocker", "Data-Center-Bridging", "Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica"
+$FeatureList = "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica"
 
 # This part runs the Install-WindowsFeature cmdlet on all servers in $ServerList, passing the list of features in $FeatureList.
 Invoke-Command ($ServerList) {
-    Install-WindowsFeature -Name $Using:Featurelist
+    Install-WindowsFeature -Name $Using:Featurelist -IncludeAllSubFeature -IncludeManagementTools
 }
 ```
 Ensuite, redémarrez tous les serveurs :
@@ -137,7 +139,7 @@ Restart-Computer -ComputerName $ServerList
 
 ## <a name="step-2-configure-networking"></a>Étape 2 : Configurer la mise en réseau
 
-Cette étape suppose que vous avez déjà configuré précédemment RDMA et d’autres réseaux pour votre environnement.
+Cette étape configure différents éléments de mise en réseau dans votre environnement.
 
 ### <a name="disable-unused-networks"></a>Désactiver les réseaux inutilisés
 
@@ -155,7 +157,7 @@ Get-NetAdapter -CimSession $Servers | Where-Object Status -eq Disconnected | Dis
 
 ### <a name="assign-virtual-network-adapters"></a>Affecter des cartes réseau virtuelles
 
-Ensuite, vous allez affecter des cartes réseau virtuelles pour la gestion et le reste du trafic, comme dans l’exemple suivant :
+Attribuez ensuite des cartes réseau virtuelles (vNICs) pour la gestion et le reste du trafic, comme dans l’exemple suivant. Vous devez configurer au moins une carte réseau pour la gestion des clusters.
 
 ```powershell
 $Servers = "Server1", "Server2", "Server3", "Server4"
@@ -174,7 +176,9 @@ Get-VMNetworkAdapter -CimSession $Servers -ManagementOS
 
 ### <a name="create-virtual-switches"></a>Créer des commutateurs virtuels
 
-Un commutateur virtuel est nécessaire pour chaque nœud de serveur de votre cluster. Dans l’exemple suivant, un commutateur virtuel avec la fonctionnalité SR-IOV est créé en utilisant des cartes réseau connectées (l’état est en Opérationnel). La fonctionnalité SR-IOV activée peut être utile, car elle est nécessaire pour les cartes réseau virtuelles pour machines virtuelles compatibles RDMA.
+Un commutateur virtuel est nécessaire pour chaque nœud de serveur de votre cluster. Dans l’exemple suivant, un commutateur virtuel avec la fonctionnalité SR-IOV est créé en utilisant des cartes réseau connectées (l’état est en Opérationnel). La fonctionnalité SR-IOV activée peut également être utile, car elle est nécessaire pour les adaptateurs réseau virtuels pour machines virtuelles compatibles RDMA.
+
+Toutes les cartes réseau doivent être identiques pour l’association de cartes réseau.
 
 ```powershell
 $Servers = "Server1", "Server2", "Server3", "Server4"
@@ -325,7 +329,7 @@ Invoke-Command ($ServerList) {
 Dans cette étape, vous allez vérifier que les nœuds de serveur sont configurés correctement pour créer un cluster. L’applet de commande `Test-Cluster` est utilisée pour exécuter des tests afin de vérifier que votre configuration est appropriée pour fonctionner en tant que cluster hyperconvergé. L’exemple ci-dessous utilise le paramètre `-Include`, avec les catégories spécifiques de tests spécifiées. Ceci garantit que les tests corrects sont inclus dans la validation.
 
 ```powershell
-Test-Cluster -Cluster –Node Server1, Server2, Server3, Server4 –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
+Test-Cluster -Cluster –Node "Server1", "Server2", "Server3", "Server4" –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
 ```
 
 ## <a name="step-4-create-the-cluster"></a>Étape 4 : Créer le cluster
@@ -338,13 +342,14 @@ Lors de la création du cluster, vous obtenez un avertissement indiquant `"There
 > Si les serveurs utilisent des adresses IP statiques, modifiez la commande suivante de façon refléter l’adresse IP statique en ajoutant le paramètre suivant et en spécifiant l’adresse IP : `–StaticAddress <X.X.X.X>;`.
 
 ```powershell
- New-Cluster –Name Cluster1 –Node Server1, Server2, Server3, Server4 –NoStorage
+ New-Cluster –Name "Cluster1" –Node "Server1", "Server2", "Server3", "Server4" –NoStorage
 ```
 
 Félicitations, votre cluster a maintenant été créé.
 
-> [!NOTE]
-> Une fois le cluster créé, la réplication du nom du cluster peut prendre du temps. Si la résolution du cluster échoue, dans la plupart des cas, vous pouvez remplacer le nom du cluster par le nom d’ordinateur d’un nœud de serveur du cluster.
+Une fois le cluster créé, la réplication du nom du cluster sur votre domaine peut prendre du temps, en particulier si des serveurs de groupe de travail ont été ajoutés à Active Directory. Bien que le cluster puisse être affiché dans Windows Admin Center, il est possible qu’il ne soit pas encore disponible pour s’y connecter.
+
+Si la résolution du cluster échoue au bout d’un certain temps, dans la plupart des cas, vous pouvez vous connecter en utilisant le nom d’un des serveurs en cluster plutôt que le nom du cluster.
 
 ## <a name="step-5-set-up-sites-stretched-cluster"></a>Étape 5 : Configurer des sites (cluster étendu)
 
@@ -352,20 +357,20 @@ Cette tâche s’applique seulement si vous créez un cluster étendu entre deux
 
 ### <a name="step-51-create-sites"></a>Étape 5.1 : Créer des sites
 
-Dans l’applet de commande ci-dessous, *FaultDomain* est simplement un autre nom pour un site. Cet exemple utilise `ClusterS1` comme nom du cluster étendu.
+Dans l’applet de commande ci-dessous, *FaultDomain* est simplement un autre nom pour un site. Cet exemple utilise « ClusterS1 » comme nom du cluster étendu.
 
 ```powershell
-New-ClusterFaultDomain -CimSession ClusterS1 -Type Site -Name Site1
+New-ClusterFaultDomain -CimSession "ClusterS1" -FaultDomainType Site -Name "Site1"
 ```
 
 ```powershell
-New-ClusterFaultDomain -CimSession ClusterS1 -Type Site -Name Site2
+New-ClusterFaultDomain -CimSession "ClusterS1" -FaultDomainType Site -Name "Site2"
 ```
 
 Utilisez l’applet de commande `Get-ClusterFaultDomain` pour vérifier que les deux sites ont été créés pour le cluster.
 
 ```powershell
-Get-ClusterFaultDomain
+New-ClusterFaultDomain -CimSession "ClusterS1"
 ```
 
 ### <a name="step-52-assign-server-nodes"></a>Étape 5.2 : Affecter des nœuds de serveur
@@ -373,17 +378,17 @@ Get-ClusterFaultDomain
 Nous allons ensuite affecter les quatre nœuds de serveur à leurs sites respectifs. Dans l’exemple ci-dessous, Server1 et Server2 sont affectés à Site1, tandis que Server3 et Server4 sont affectés à Site2.
 
 ```powershell
-Set-ClusterFaultDomain -CimSession ClusterS1 -Name Server1, Server2 -Parent Site1
+Set-ClusterFaultDomain -CimSession "ClusterS1" -Name "Server1", "Server2" -Parent "Site1"
 ```
 
 ```powershell
-Set-ClusterFaultDomain -CimSession ClusterS1 -Name Server3, Server4 -Parent Site2
+Set-ClusterFaultDomain -CimSession "ClusterS1" -Name "Server3", "Server4" -Parent "Site2"
 ```
 
 Avec l’applet de commande `Get-ClusterFaultDomain`, vérifiez que les nœuds se trouvent dans les sites corrects.
 
 ```powershell
-Get-ClusterFaultDomain -CimSession ClusterS1
+Get-ClusterFaultDomain -CimSession "ClusterS1"
 ```
 
 ### <a name="step-53-set-a-preferred-site"></a>Étape 5.3 : Définir un site préféré
@@ -391,7 +396,7 @@ Get-ClusterFaultDomain -CimSession ClusterS1
 Vous pouvez aussi définir un site *préféré* global, ce qui signifie que les ressources et les groupes spécifiés doivent s’exécuter sur le site préféré.  Ce paramètre peut être défini au niveau du site avec la commande suivante :  
 
 ```powershell
-(Get-Cluster).PreferredSite = Site1
+(Get-Cluster).PreferredSite = "Site1"
 ```
 
 La spécification d’un site préféré pour les clusters étendus a les avantages suivants :
@@ -431,20 +436,20 @@ Pour les clusters étendus, l’applet de commande `Enable-ClusterStorageSpacesD
 La commande suivante active les espaces de stockage direct. Vous pouvez aussi spécifier un nom convivial pour un pool de stockage, comme illustré ici :
 
 ```powershell
-New-CimSession -Cluster Cluster1 | Enable-ClusterStorageSpacesDirect -PoolFriendlyName 'Cluster1 Storage Pool'
+$session = New-CimSession -Cluster "Cluster1" | Enable-ClusterStorageSpacesDirect -PoolFriendlyName "Cluster1 Storage Pool"
 ```
 
 Pour voir les pools de stockage, utilisez ceci :
 
 ```powershell
-Get-StoragePool -Cluster Cluster1
+Get-StoragePool -CimSession $session
 ```
 
 Félicitations, vous avez maintenant créé un cluster simple.
 
 ## <a name="after-you-create-the-cluster"></a>Après avoir créé le cluster
 
-Maintenant que vous avez terminé, il y a encore des tâches importantes à effectuer pour disposer d’un cluster entièrement fonctionnel :
+Une fois cela fait, il reste encore des tâches importantes à exécuter :
 
 - Configurer un témoin de cluster. Consultez [Configurer un témoin de cluster](witness.md).
 - Créer vos volumes. Consultez [Créer des volumes](../manage/create-volumes.md).

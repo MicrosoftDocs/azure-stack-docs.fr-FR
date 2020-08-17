@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 245951e86128fb71e6820f3b57bdf2723506d4bc
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ab90c0e9ef0f873fbed44932e9ffc418077fee4a
+ms.sourcegitcommit: 1ab1293b594fe8ffc00dc800c663cf1323dc41ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78935056"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87939575"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Récupérer des données suite à une perte catastrophique
 
@@ -52,10 +52,10 @@ En cas de sinistre rendant le matériel inutilisable, le redéploiement est poss
 Azure Stack Hub prend en charge un type de déploiement appelé mode de récupération cloud. Ce mode n'est utilisé que si vous choisissez de récupérer Azure Stack Hub suite à un sinistre ou au bogue d'un produit qui a rendu la solution irrécupérable. Ce mode de déploiement ne récupère aucune des données utilisateur stockées dans la solution. L’étendue de ce mode de déploiement se limite à la restauration des données suivantes :
 
  - Les entrées de déploiement
- - Les données du service d’identité interne (déploiements ADFS)
+ - Les données du service d’identité interne
  - La configuration des identités fédérées (déploiements ADFS)
  - Les certificats racines utilisés par l’autorité de certification interne
- - Les données utilisateur de configuration d’Azure Resource Manager, telles que les abonnements, les plans, les offres, les quotas de stockage, les quotas réseau et les ressources de calcul
+ - Les données utilisateur de configuration d’Azure Resource Manager, telles que les abonnements, les plans, les offres, les groupes de ressources, les balises, les quotas de stockage, les quotas réseau et les ressources de calcul.
  - Les secrets et les coffres Key Vault
  - Les attributions de stratégies RBAC et les attributions de rôles
 

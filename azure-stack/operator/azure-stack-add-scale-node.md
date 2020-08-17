@@ -3,16 +3,16 @@ title: Ajouter des nœuds d’unité d’échelle dans Azure Stack Hub
 description: Découvrez comment ajouter des nœuds d’unité d’échelle à des unités d’échelle dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 08/03/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: c264e0abc0fdc5a382b83a23158f860a56aea260
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.lastreviewed: 08/03/2020
+ms.openlocfilehash: cc9023e6f7653d13d11a0a63cb65c59840f64ab7
+ms.sourcegitcommit: 952d26ad08fcc28ad3ad83e27644e61497623a44
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772594"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889260"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Ajouter des nœuds d’unité d’échelle dans Azure Stack Hub
 
@@ -51,7 +51,7 @@ Les étapes suivantes présentent de façon générale la procédure à suivre p
 
 Pour ajouter de nouveaux nœuds, vous pouvez vous servir du portail administrateur ou de PowerShell. L’opération Ajouter un nœud commence par ajouter le nouveau nœud d’unité d’échelle en tant que capacité de calcul disponible, puis augmente automatiquement la capacité de stockage. La capacité augmente automatiquement parce que Azure Stack Hub est un système hyperconvergé dans lequel le *calcul* et le *stockage* se mettent à l’échelle simultanément.
 
-### <a name="use-the-administrator-portal"></a>Utiliser le portail d’administration
+### <a name="administrator-portal"></a>[Portail administrateur](#tab/portal)
 
 1. Connectez-vous au portail administrateur Azure Stack Hub en tant qu’opérateur Azure Stack Hub.
 2. Accédez à **+ Créer une ressource** > **Capacité** > **Nœud d’unité d’échelle**.
@@ -60,7 +60,7 @@ Pour ajouter de nouveaux nœuds, vous pouvez vous servir du portail administrate
    ![Ajouter les détails du nœud](media/azure-stack-add-scale-node/select-node2.png)
  
 
-### <a name="use-powershell"></a>Utiliser PowerShell
+### <a name="powershell-azurerm"></a>[PowerShell AzureRM](#tab/AzureRM)
 
 Utilisez l’applet de commande **New-AzsScaleUnitNodeObject** pour ajouter un nœud.  
 
@@ -76,6 +76,23 @@ Avant d’utiliser l’un des exemples de scripts PowerShell suivants, remplacez
  
   Add-AzsScaleUnitNode -NodeList $NewNode -ScaleUnit "<name_of_scale_unit_cluster>" 
   ```  
+
+### <a name="powershell-az"></a>[PowerShell Az](#tab/Az)
+
+Utilisez la cmdlet **Add-AzsScaleUnitNodeObject** pour ajouter un nœud.  
+
+Avant d’utiliser l’un des exemples de scripts PowerShell suivants, remplacez les valeurs *nom_du_nouveau_noeud*, *nom_du_cluster_d’unité_d’échelle*, *adresse BMCIP_du_nouveau_code* par des valeurs de votre environnement Azure Stack Hub.
+
+  > [!Note]  
+  > Lorsque vous nommez un nœud, vous devez spécifier un nom comportant moins de 15 caractères. Vous ne pouvez pas utiliser un nom qui contient un espace ou les caractères suivants : `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
+
+**Ajouter un nœud :**
+  ```powershell
+  ## Add a single Node 
+    Add-AzsScaleUnitNode -BMCIPv4Address "<BMCIP_address_of_new_node>" -computername "<name_of_new_node>" -ScaleUnit "<name_of_scale_unit_cluster>" 
+  ```  
+
+---
 
 ## <a name="monitor-add-node-operations"></a>Surveiller les opérations Ajouter un nœud 
 Utilisez le portail administrateur ou PowerShell pour connaître l’état de l’opération Ajouter un nœud. Les opérations Ajouter un nœud peuvent prendre de plusieurs heures à plusieurs jours.

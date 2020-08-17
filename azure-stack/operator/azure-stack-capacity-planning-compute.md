@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: dd82a3a9c2b6eff74c8f6823fc37b8767431ca02
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 72bebdc5933f09aef58de25627d8b627d7987bdb
+ms.sourcegitcommit: 17ef9f9119f5fea9782adeefb9a430e6a3a650e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489230"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88170419"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Capacité de calcul Azure Stack Hub
 
@@ -40,6 +40,10 @@ Azure Stack Hub ne surengage pas la mémoire. En revanche, un surengagement du n
 Un nouvel aspect doit être pris en compte pour planifier correctement la capacité d’Azure Stack Hub. Avec la mise à jour 1901 (et chaque mise à jour ultérieure), le nombre total de machines virtuelles pouvant être créées est limité. Cette limite est destinée à être temporaire et a pour but de garantir la stabilité de la solution. Nous recherchons actuellement la cause du problème de stabilité en présence d’un plus grand nombre de machines virtuelles, mais aucun échéancier n’a été déterminé pour y remédier. Il y a désormais une limite de 60 machines virtuelles par serveur, la limite totale pour la solution étant de 700. Ainsi, la limite de machines virtuelles Azure Stack Hub pour huit serveurs sera de 480 (8 * 60). Pour une solution Azure Stack Hub de 12 à 16 serveurs, la limite serait de 700 machines virtuelles. Cette limite a été définie en gardant à l’esprit toutes les considérations relatives à la capacité de calcul, telles que la réserve de résilience et le rapport virtuel/physique du processeur qu’un opérateur souhaite conserver. Pour plus d’informations, consultez la nouvelle version de l’outil de planification de la capacité.
 
 Si la limite de mise à l’échelle de la machine virtuelle a été atteinte, les codes d’erreur suivants sont retournés comme résultat : `VMsPerScaleUnitLimitExceeded`, `VMsPerScaleUnitNodeLimitExceeded`.
+
+## <a name="consideration-for-batch-deployment-of-vms"></a>Considération pour le déploiement par lots de machines virtuelles
+
+Dans les versions antérieures à 2002, 2 à 5 machines virtuelles par lot avec un écart de 5 minutes entre les lots fournissaient des déploiements de machines virtuelles fiables pour atteindre une échelle de 700 machines virtuelles. Avec la version 2005 d’Azure Stack Hub, nous pouvons approvisionner de manière fiable des machines virtuelles à de lots de 50 de taille avec un écart de 5 minutes entre les déploiements de lots.
 
 ## <a name="considerations-for-deallocation"></a>Considérations relatives à la désallocation
 
