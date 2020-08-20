@@ -3,15 +3,15 @@ title: Introduction à Key Vault dans Azure Stack Hub
 description: Découvrez comment Key Vault gère les clés et les secrets dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 08/10/2020
 ms.author: sethm
-ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 9842d0aa2892218b9d3e8ef527df8f83574487b8
-ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
+ms.lastreviewed: 08/10/2020
+ms.openlocfilehash: 7387778055a50b138766cc7f8c416b206f4b9db9
+ms.sourcegitcommit: 77f53d8f4188feea7dd2197650ee860104b1e2aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84666462"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88501073"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack-hub"></a>Introduction à Key Vault dans Azure Stack Hub
 
@@ -39,7 +39,7 @@ Toute personne disposant d’un abonnement Azure Stack Hub peut créer et utilis
 * autoriser des utilisateurs ou des apps à accéder au coffre de clés, afin de pouvoir gérer ou utiliser ses clés et ses secrets ;
 * configurer l’utilisation de la clé (par exemple, signature ou chiffrement).
 
-L’opérateur est ensuite à même de fournir aux développeurs des URI (Uniform Resource Identifier), qu’ils peuvent appeler à partir de leurs apps. Il peut également fournir aux administrateurs de sécurité les informations sur la journalisation relative à l’utilisation des clés.
+L’opérateur est ensuite à même de fournir aux développeurs des URI (Uniform Resource Identifier), qu’ils peuvent appeler à partir de leurs apps.
 
 Les développeurs peuvent également gérer les clés directement à l’aide d’API. Pour plus d’informations, consultez le [guide du développeur Key Vault](/azure/key-vault/key-vault-developers-guide).
 
@@ -61,11 +61,11 @@ Les scénarios suivants expliquent comment Key Vault peut permettre de répondre
 
 ### <a name="chief-security-officer-cso"></a>Responsable de la sécurité
 
-**Problème :** Je souhaite m’assurer que mon organisation contrôle le cycle de vie d’une clé et peut surveiller son utilisation.
+**Problème** : Je veux être sûr que mon organisation contrôle le cycle de vie des clés et puisse surveiller leur utilisation.
 
 **Instruction :** Key Vault a été conçu de manière à ce que Microsoft ne puisse pas afficher ni extraire vos clés. Lorsqu’une app doit effectuer des opérations de chiffrement en utilisant des clés de clients, Key Vault effectue cette opération à la place de l’app. L’application ne voit pas les clés de clients. Même si nous utilisons plusieurs services et ressources Azure Stack Hub, vous pouvez gérer les clés depuis un seul emplacement dans Azure Stack Hub. Le coffre fournit une interface unique, indépendamment du nombre de coffres dont vous disposez dans Azure Stack Hub, des régions qui sont prises en charge et des applications qui les utilisent.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Gérer Key Vault dans Azure Stack Hub par le biais du portail](azure-stack-key-vault-manage-portal.md)  
+* [Gérer Key Vault dans Azure Stack Hub via le portail](azure-stack-key-vault-manage-portal.md)  
 * [Gérer Key Vault dans Azure Stack Hub à l’aide de PowerShell](azure-stack-key-vault-manage-powershell.md)

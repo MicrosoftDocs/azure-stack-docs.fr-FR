@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 772871cffa3d5394d1d8b939fa22ae91bc90d4ac
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: e0c152f3c541b3bc2dad042ae88f162b539cec60
+ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "80423899"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88564800"
 ---
 # <a name="create-a-service-offering-for-users-in-azure-stack-hub"></a>Créer une offre de service pour les utilisateurs dans Azure Stack Hub
 
@@ -133,7 +133,7 @@ Pendant le processus de création de l’offre, vous créez à la fois une offre
 1. Connectez-vous au portail administrateur avec un compte admin cloud.
 
     - Pour un système intégré, l’URL varie en fonction de la région et du nom de domaine externe de votre opérateur, dans le format `https://adminportal.<region>.<FQDN>`.
-    - Si vous utilisez le Kit de développement Azure Stack, l’URL est <https://adminportal.local.azurestack.external>.
+    - Si vous utilisez le Kit de développement Azure Stack, l’URL est `https://adminportal.local.azurestack.external`.
 
     Sélectionnez ensuite **+ Créer une ressource** > **Offres + plans** > **Offre**.
 

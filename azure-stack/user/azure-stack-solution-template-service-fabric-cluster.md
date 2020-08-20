@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: fe06aca2423f5347193490798427446c684b6703
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 5347225398e6494d89ba70d6468a6657d13b58e0
+ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566972"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88564766"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Déployer un cluster Service Fabric dans Azure Stack Hub
 
@@ -188,7 +188,7 @@ Vous pouvez accéder au cluster Service Fabric en utilisant l’outil Service Fa
 
 1. Pour rechercher l’URL de Service Fabric Explorer, ainsi que le point de terminaison de connexion du client, consultez les résultats de la solution Template deployment.
 
-1. Dans votre navigateur, accédez à <https://*FQDN*:19080>. Remplacez *FQDN* par le FQDN de votre cluster Service Fabric trouvé à l’étape 2.   
+1. Dans votre navigateur, accédez à `https://*FQDN*:19080`. Remplacez *FQDN* par le FQDN de votre cluster Service Fabric trouvé à l’étape 2.   
    Si vous avez utilisé un certificat auto-signé, vous recevrez un avertissement signalant que la connexion n’est pas sécurisée. Pour accéder au site web, sélectionnez **Informations supplémentaires**, puis **Atteindre la page web**. 
 
 1. Pour vous authentifier auprès du site, vous devez sélectionner un certificat à utiliser. Sélectionnez **Autres choix**, sélectionnez le certificat approprié, puis cliquez sur **OK** pour vous connecter à Service Fabric Explorer. 
