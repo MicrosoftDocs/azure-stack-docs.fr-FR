@@ -4,25 +4,27 @@ description: Connectez-vous rapidement à un cluster Azure Stack HCI existant et
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/29/2020
-ms.openlocfilehash: 30b2533bd33bd39488a3e010262c9e950a84295c
-ms.sourcegitcommit: 952d26ad08fcc28ad3ad83e27644e61497623a44
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 08/12/2020
+ms.openlocfilehash: 4dff1265bd542cebe1268ea54248a7c869bd3df1
+ms.sourcegitcommit: a3e042c782a38ecf3baf7a64b1d492a655972f9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87889151"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88198791"
 ---
 # <a name="get-started-with-azure-stack-hci-and-windows-admin-center"></a>Bien démarrer avec Azure Stack HCI et Windows Admin Center
 
 > S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
 
-Cette rubrique indique comment se connecter à un cluster Azure Stack HCI et superviser les performances du cluster et du stockage.
+Cette rubrique indique comment se connecter à un cluster Azure Stack HCI et superviser les performances du cluster et du stockage. Si vous n’avez pas encore configuré de cluster, consultez la [Présentation du déploiement](deploy/deployment-overview.md) pour savoir comment procéder.
 
 ## <a name="install-windows-admin-center"></a>Installer Windows Admin Center
 
 Windows Admin Center est une application basée sur un navigateur déployée localement qui permet de gérer Azure Stack HCI. Le plus simple est d’[installer Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install) sur un PC de gestion local (mode bureau), même si vous pouvez aussi l’installer sur un serveur (mode service).
 
-Si vous installez Windows Admin Center sur un serveur, les tâches qui requièrent CredSSP, telles que la création de clusters et l’installation des mises à jour et des extensions, vous demandent d’utiliser un compte membre du groupe Administrateurs de passerelle sur le serveur Windows Admin Center. Pour plus d’informations, consultez les deux premières sections dans [Configurer le contrôle d’accès utilisateur et les autorisations](/windows-server/manage/windows-admin-center/configure/user-access-control#gateway-access-role-definitions).
+Si vous installez Windows Admin Center sur un serveur, les tâches qui requièrent CredSSP, telles que la création de clusters et l’installation des mises à jour et des extensions, vous demandent d’utiliser un compte membre du groupe d’administrateurs de passerelles sur le serveur Windows Admin Center. Pour plus d’informations, consultez les deux premières sections dans [Configurer le contrôle d’accès utilisateur et les autorisations](/windows-server/manage/windows-admin-center/configure/user-access-control#gateway-access-role-definitions).
 
 ## <a name="add-and-connect-to-an-azure-stack-hci-cluster"></a>Ajouter un cluster Azure Stack HCI et s’y connecter
 
