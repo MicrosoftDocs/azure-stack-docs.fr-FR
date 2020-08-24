@@ -3,16 +3,16 @@ title: Utiliser Docker pour exécuter PowerShell dans Azure Stack Hub
 description: Utiliser Docker pour exécuter PowerShell dans Azure Stack Hub
 author: mattbriggs
 ms.topic: how-to
-ms.date: 7/20/2020
+ms.date: 8/17/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 7/20/2020
-ms.openlocfilehash: e3efdd0e218ae82cfcea14b20f4b172e5cc87f32
-ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
+ms.lastreviewed: 8/17/2020
+ms.openlocfilehash: e803641b9d63a8b1136f720ce51eb5f7ca79c6e7
+ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87397343"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88564749"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>Utiliser Docker pour exécuter PowerShell pour Azure Stack Hub
 
@@ -65,7 +65,13 @@ Le fichier Dockerfile ouvre l’image Microsoft *microsoft/windowsservercore* da
 4. Lorsque l’image a été créée, démarrez un conteneur interactif en entrant :
 
     ```bash  
-        docker run -it azure-stack-powershell powershell
+    docker run -it azure-stack-powershell powershell
+    ```
+
+    Notez le nom de votre conteneur. Vous pouvez utiliser le même conteneur, plutôt que de créer un conteneur à chaque fois, en exécutant la commande Docker suivante :
+
+    ```bash  
+        docker exec -it "Container name" powershell
     ```
 
 5. L’interpréteur de commandes est prêt pour vos applets de commande.
@@ -82,7 +88,8 @@ Le fichier Dockerfile ouvre l’image Microsoft *microsoft/windowsservercore* da
     ```powershell
     $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
     $pscredential = New-Object System.Management.Automation.PSCredential('<ApplicationID>', $passwd)
-    Connect-AzureRmAccount -ServicePrincipal -Credential $pscredential -TenantId <TenantID>
+    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint <Your Azure Resource Manager endoint>
+    Add-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId <TenantID> -ServicePrincipal -Credential $pscredential
     ```
 
    PowerShell retourne votre objet de compte :

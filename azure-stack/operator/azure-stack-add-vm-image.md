@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/10/2020
-ms.openlocfilehash: 54732e12b330eeda8ba65e9b4add0b78547ac891
-ms.sourcegitcommit: 635c8c69d90b7e941659d54141d9f1c58f51cf45
+ms.openlocfilehash: 71b097b46d388371ef997288f43474873d92af85
+ms.sourcegitcommit: cdfc7bf5fee5e6cb4c531ba58d23a83c36be7de4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87477622"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88251413"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Ajouter une image de machine virtuelle personnalisée à Azure Stack Hub
 
@@ -36,7 +36,7 @@ Les images personnalisées se présentent sous deux formes : **généralisées*
 
 #### <a name="vhd-is-from-outside-azure"></a>Le VHD ne provient pas d’Azure
 
-Suivez les étapes décrites dans [Charger un disque dur virtuel généralisé et l’utiliser pour créer des machines virtuelles dans Azure](/azure/virtual-machines/windows/upload-generalized-managed) afin d’appliquer correctement **Sysprep** à votre VHD et le rendre généralisé.
+Suivez les étapes décrites dans [Préparer un disque dur virtuel ou un VHDX Windows à charger sur Azure](/azure/virtual-machines/windows/prepare-for-upload-vhd-image) pour généraliser correctement votre disque dur virtuel avant le chargement.
 
 #### <a name="vhd-is-from-azure"></a>Le VHD provient d’Azure
 

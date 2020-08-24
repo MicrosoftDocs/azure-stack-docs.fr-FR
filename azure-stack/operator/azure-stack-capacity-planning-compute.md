@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 72bebdc5933f09aef58de25627d8b627d7987bdb
-ms.sourcegitcommit: 17ef9f9119f5fea9782adeefb9a430e6a3a650e6
+ms.openlocfilehash: 8cb772d76b4bfd01a7e0c260c6ff3d20bdec3e0a
+ms.sourcegitcommit: 977c47a5587a747dbd67aa110381759ba39044b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88170419"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88512476"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Capacité de calcul Azure Stack Hub
 
@@ -43,7 +43,7 @@ Si la limite de mise à l’échelle de la machine virtuelle a été atteinte, l
 
 ## <a name="consideration-for-batch-deployment-of-vms"></a>Considération pour le déploiement par lots de machines virtuelles
 
-Dans les versions antérieures à 2002, 2 à 5 machines virtuelles par lot avec un écart de 5 minutes entre les lots fournissaient des déploiements de machines virtuelles fiables pour atteindre une échelle de 700 machines virtuelles. Avec la version 2005 d’Azure Stack Hub, nous pouvons approvisionner de manière fiable des machines virtuelles à de lots de 50 de taille avec un écart de 5 minutes entre les déploiements de lots.
+Dans les versions antérieures à 2002, 2 à 5 machines virtuelles par lot avec un écart de 5 minutes entre les lots fournissaient des déploiements de machines virtuelles fiables pour atteindre une échelle de 700 machines virtuelles. Avec la version 2005 d’Azure Stack Hub, nous pouvons approvisionner de manière fiable des machines virtuelles au niveau de lots de 40 de taille avec un écart de 5 minutes entre les déploiements de lots.
 
 ## <a name="considerations-for-deallocation"></a>Considérations relatives à la désallocation
 
