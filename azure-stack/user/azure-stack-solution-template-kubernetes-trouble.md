@@ -4,19 +4,19 @@ description: Apprenez à résoudre les problèmes de déploiement Kubernetes sur
 author: mattbriggs
 ms.topic: article
 ms.author: mabrigg
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 8342d8eccca348771630777ed212c18111f88bda
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 9a88b6ff0e759c38ad62e6455cbee25eaa9be9eb
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566717"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920761"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Résoudre les problèmes de déploiement Kubernetes sur Azure Stack Hub
 
-> [!Note]  
+> [!NOTE]  
 > Utilisez uniquement l'élément Kubernetes Place de marché Azure Stack Hub pour déployer des clusters en tant que preuve de concept. Pour les clusters Kubernetes pris en charge sur Azure Stack Hub, utilisez [le moteur AKS](azure-stack-kubernetes-aks-engine-overview.md).
 
 Cet article examine comment résoudre les problèmes sur votre cluster Kubernetes. Pour commencer, passez en revue les éléments requis pour le déploiement. Vous devrez peut-être collecter les journaux de déploiement à partir d'Azure Stack Hub ou des machines virtuelles Linux qui hébergent Kubernetes. Pour récupérer les journaux d'activité à partir d'un point de terminaison d'administration, contactez votre administrateur Azure Stack Hub.
@@ -155,7 +155,7 @@ Suivez ces étapes pour collecter et télécharger les journaux de cluster :
 
     Le script de collecteur de journaux recherche également des erreurs dans les fichiers journaux et présente une procédure de résolution s’il rencontre un problème connu. Veillez à exécuter la dernière version du script afin d’augmenter les chances de détecter les problèmes connus.
 
-> [!Note]  
+> [!NOTE]  
 > Consultez ce [dépôt](https://github.com/msazurestackworkloads/azurestack-gallery/tree/master/diagnosis) GitHub pour en savoir plus sur le script de collecteur de journaux.
 
 ## <a name="next-steps"></a>Étapes suivantes

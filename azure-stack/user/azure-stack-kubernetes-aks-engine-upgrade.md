@@ -3,16 +3,16 @@ title: Mettre à niveau un cluster Kubernetes sur Azure Stack Hub
 description: Découvrez comment mettre à niveau un cluster Kubernetes sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 4/23/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: dc89c8939f7a0ad988586df3fe0e33a02c2f7c79
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 4dd690fe5dc88c3edce02a09d594f9728297b4c9
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567550"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920693"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Mettre à niveau un cluster Kubernetes sur Azure Stack Hub
 
@@ -42,7 +42,7 @@ Lors de la mise à niveau d’un cluster de production, tenez compte des points 
 
 ## <a name="steps-to-upgrade-to-a-newer-kubernetes-version"></a>Procédure de mise à niveau vers une version plus récente de Kubernetes
 
-> [!Note]  
+> [!NOTE]  
 > L’image de base AKS sera également mise à niveau si vous utilisez une version plus récente de aks-engine et que l’image est disponible dans la Place de marché.
 
 Les instructions suivantes utilisent les étapes minimales pour effectuer la mise à niveau. Pour plus d'informations, consultez l'article [Mise à niveau des clusters Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md).

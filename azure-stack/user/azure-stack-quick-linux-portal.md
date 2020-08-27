@@ -3,16 +3,16 @@ title: Créer une machine virtuelle Linux avec Azure Stack Hub
 description: Créez une machine virtuelle serveur Linux avec Azure Stack Hub.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 5a9d6902d317af76145dde564cef56ac2f42dce8
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 0d75607eb111762fc49e6e3ccbef05353a5fab5f
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631277"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920659"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>Démarrage rapide : Créer une machine virtuelle serveur Linux sur le portail Azure Stack Hub
 
@@ -79,7 +79,7 @@ L’adresse du portail Azure Stack Hub varie en fonction du produit Azure Stack 
 
 1. Entrez les informations de la machine virtuelle. Sélectionnez **Clé publique SSH** comme type d’authentification, puis collez la clé publique SSH que vous avez enregistrée et sélectionnez **OK**.
 
-    > [!Note]  
+    > [!NOTE]  
     > Veillez à supprimer tout espace blanc au début ou la fin de la clé.
 
    ![Authentification](media/azure-stack-quick-linux-portal/image3.png)

@@ -7,12 +7,12 @@ ms.date: 06/29/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/25/2020
-ms.openlocfilehash: ff396f6123109b00e693f2f88a5bac244cb2ec7b
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 2764bd986cec4b5355c7fd6e9340ef3a1b6c8ce2
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567685"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920013"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Notes de publication du moteur AKS sur Azure Stack Hub
 ::: moniker range=">=azs-2002"
@@ -217,7 +217,7 @@ La version actuelle et la version de mise à niveau sont indiquées dans le tabl
 
     - `"orchestratorVersion": "1.15.10"`
 
-    > [!Note]  
+    > [!NOTE]  
     > Si la version de Kubernetes n’est pas explicitement fournie dans le fichier JSON de modèle d’API, la version `1.15` est utilisée ([\#2932](https://github.com/Azure/aks-engine/issues/2932)) et orchestratorVersion a par défaut la valeur` 1.15.11`, ce qui génère une erreur lors du déploiement du cluster.
 
 -   Avec aks-engine v0.43.1, les paramètres de fréquence par défaut du fournisseur de cloud pour exécuter sa boucle de contrôle et d’autres tâches ne fonctionnent pas correctement avec les limites de seuil Azure Stack Hub Resource Manager pour les demandes entrantes. Cette mise à jour change les valeurs par défaut d’Azure Stack Hub pour réduire le chargement de nouvelles tentatives vers Azure Stack Hub Resource Manager ([\#2861](https://github.com/Azure/aks-engine/issues/2861)).

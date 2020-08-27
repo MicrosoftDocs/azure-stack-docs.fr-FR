@@ -3,16 +3,16 @@ title: Se connecter à Azure Stack Hub en utilisant une extension de compte Azur
 description: En tant que développeur, connectez-vous à Azure Stack Hub en utilisant une extension de compte Azure dans Visual Studio Code
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 768b93c2ef2d984fcc75f6893be6260a1c4fbb1c
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: a3cd09d7138029ba578648e1599916fd71b42292
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661053"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920608"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Se connecter à Azure Stack Hub en utilisant une extension de compte Azure dans Visual Studio Code
 
@@ -20,7 +20,7 @@ Dans cet article, nous vous expliquerons comment vous connecter à Azure Stack H
 
 VS Code est un éditeur léger permettant de générer et de déboguer des applications web et cloud. ASP.NET Core, Python, NodeJS, Go et d’autres développeurs utilisent VS Code. L’extension de compte Azure vous permet d’utiliser une seule connexion à Azure avec un filtrage d’abonnement pour des extensions Azure supplémentaires. L’extension rend Azure Cloud Shell disponible dans le terminal intégré à VS Code. À l’aide de l’extension, vous pouvez vous connecter à votre abonnement Azure Stack Hub à l’aide d’Azure AD et des services AD FS (Active Directory Federation Services) pour Identity Manager. Vous pouvez vous connecter à Azure Stack Hub, sélectionner votre abonnement et ouvrir une nouvelle ligne de commande dans Cloud Shell. 
 
-> [!Note]  
+> [!NOTE]  
 > Vous pouvez utiliser les étapes décrites dans cet article pour un environnement AD FS (Active Directory Federation Services). Utilisez vos informations d’identification AD FS et les points de terminaison.
 
 ## <a name="pre-requisites-for-the-azure-account-extension"></a>Prérequis pour l’extension de compte Azure

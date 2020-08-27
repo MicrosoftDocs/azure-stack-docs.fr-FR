@@ -7,12 +7,12 @@ ms.date: 06/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/19/2020
-ms.openlocfilehash: 37ae031199c0e547e635fc0473d833dc94865523
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 278db618c4628c27241ab1b364a355272a3a3e1b
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566037"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920863"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Configurer les prérequis pour le moteur AKS sur Azure Stack Hub
 
@@ -46,7 +46,7 @@ Vous pouvez définir les éléments suivants.
 | Clé publique privée | Pour utiliser une connexion SSH ouverte entre la machine de développement et la machine virtuelle serveur dans votre instance Azure Stack Hub qui héberge votre application web, il est parfois nécessaire de créer une paire clé privée-clé publique SSH (Secure Shell). | Obligatoire | Pour obtenir des instructions sur la génération d’une clé, voir [Génération d’une clé SSH](./azure-stack-dev-start-howto-ssh-public-key.md).|
 
 
-> [!Note]  
+> [!NOTE]  
 > Vous pouvez également créer les prérequis pour le moteur AKS avec [Azure CLI pour Azure Stack Hub](./azure-stack-version-profiles-azurecli2.md) ou [Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md).
 
 ## <a name="matching-engine-to-base-image-version"></a>Correspondance du moteur avec la version de l’image de base

@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 98c4b4d333a33dc018682e638cec821c8b8ee416
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 729a57d8069f4260fbf68dd31dc0160dbb9d2c8d
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631302"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920387"
 ---
 # <a name="connect-two-vnets-through-peering"></a>Connecter deux réseaux virtuels via le peering
 
@@ -68,7 +68,7 @@ Le tableau suivant récapitule les paramètres utilisés dans ces déploiements 
 | Nom de l’adresse IP publique | Forti2-publicip1 |
 | Type d’adresse IP publique | statique |
 
-> [!Note]
+> [!NOTE]
 > \* Choisissez un autre ensemble d’espaces d’adressage et de préfixes de sous-réseau si les paramètres ci-dessus chevauchent de quelque façon que ce soit l’environnement réseau local, y compris le pool d’adresses IP virtuelles d’un des environnements Azure Stack Hub. Assurez-vous également que les plages d’adresses ne se chevauchent pas.
 
 ## <a name="deploy-the-fortigate-ngfw"></a>Déployer le Pare-feu Fortigate de nouvelle génération
@@ -186,7 +186,7 @@ Suivez les étapes ci-dessous pour les appliances virtuelles réseau forti1 et f
 
 16. Sélectionnez **Pre-shared Key** (Clé prépartagée), puis entrez (et enregistrez) une clé prépartagée. 
 
-    > [!Note]  
+    > [!NOTE]  
     > Vous aurez besoin de cette clé pour configurer la connexion sur le périphérique VPN local ; autrement dit, ils doivent correspondre *exactement*.
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image17.png)

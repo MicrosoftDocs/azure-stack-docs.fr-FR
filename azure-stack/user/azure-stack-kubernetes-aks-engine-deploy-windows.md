@@ -7,12 +7,12 @@ ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: d973099817dada07b8d91ccd5d561f8b3fce5944
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 59181b426ace2ce5f0ce5f9441a7f225dfcfd4d9
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87251028"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920727"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Installer le moteur AKS sur Windows dans Azure Stack Hub
 
@@ -43,7 +43,7 @@ Vous pouvez installer la machine virtuelle cliente pour gérer votre cluster Kub
         choco install aks-engine --version 0.51.0 -y
     ```
 
-> [!Note]  
+> [!NOTE]  
 > Si cette méthode d’installation échoue, vous pouvez essayer de suivre les étapes indiquées dans l’[environnement déconnecté](#install-in-a-disconnected-environment) ou [essayer GoFish](azure-stack-kubernetes-aks-engine-troubleshoot.md#try-gofish), un autre gestionnaire de package.
 
 ## <a name="install-in-a-disconnected-environment"></a>Installation dans un environnement déconnecté

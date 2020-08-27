@@ -3,16 +3,16 @@ title: Comment déployer F5 sur deux instances d’Azure Stack Hub
 description: Découvrez comment déployer F5 sur deux instances d’Azure Stack Hub.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: cfbd828923c7653da0f0bfd86ee74703897996c7
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 29f23f30fd154da33e4a39ab306a4edd9d921b9b
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661442"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920200"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>Comment déployer F5 sur deux instances d’Azure Stack Hub
 
@@ -62,7 +62,7 @@ Procédez au déploiement sur les instances A et B d'Azure Stack Hub.
 
     ![](./media/network-howto-f5/image4.png)
 
-    > [!Note]  
+    > [!NOTE]  
     > Chaque déploiement de BIG-IP doit prendre environ 20 minutes.
 
 ## <a name="configure-big-ip-appliances"></a>Configurer les appliances BIG-IP
@@ -90,7 +90,7 @@ Suivez les étapes ci-dessous pour les instances A et B d'Azure Stack Hub.
 
 1. Connectez-vous à l’appliance BIG-IP et créez un groupe de synchronisation DNS. Pour obtenir des instructions, consultez la page [Creating BIG-IP DNS Sync Group](https://f5-dns-automation-demo-12-1-x.readthedocs.io/en/latest/lab2/sync-group.html).
 
-    > [!Note]  
+    > [!NOTE]  
     > Vous trouverez l’adresse IP locale de l’appliance BIG-IP dans votre groupe de ressources **F5-GSLB**. L’interface réseau est « f5stack1-ext » et vous souhaitez vous connecter à l’adresse IP publique ou privée (en fonction de l’accès).
 
     ![](./media/network-howto-f5/image5.png)
@@ -113,7 +113,7 @@ Au terme de l'installation, vous devez configurer les groupes de sécurité rés
 
 4. Déployez une charge de travail d'application web de base dans votre environnement Azure Stack Hub pour équilibrer les charges derrière BIG-IP. Vous trouverez un exemple d’utilisation du serveur NGINX dans [Deploying NGINX and NGINX Plus on Docker](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/).
 
-    > [!Note]  
+    > [!NOTE]  
     > Déployez une instance de NGINX sur les instances A et B d'Azure Stack Hub.
 
 5. Une fois NGINX déployé dans un conteneur Docker sur une machine virtuelle Ubuntu au sein de chaque instance d'Azure Stack Hub, vérifiez que vous avez accès à la page web par défaut sur les serveurs.
@@ -143,7 +143,7 @@ Au terme de l'installation, vous devez configurer les groupes de sécurité rés
     | Nom | NGINX_Pool |
     | Health Monitor (Moniteur d’intégrité) | HTTPS |
     | Node Name | NGINX |
-    | Adresse | \<adresse IP privée de votre instance NGINX> |
+    | Adresse | \<your NGINX private IP address> |
     | Service Port | 443 |
 
 11. Sélectionnez **Finished**. Quand la configuration est correcte, l’état du pool est vert.
@@ -161,7 +161,7 @@ Au terme de l'installation, vous devez configurer les groupes de sécurité rés
     | Clé | Valeur |
     | --- | --- |
     |Nom | NGINX |
-    |Destination Address | \<Adresse Self IP de l’appliance BIG-IP> |
+    |Destination Address | \<Self IP address of the BIG-IP> |
     |Service Port | 443 |
     |SSL Profile (Client) | clientssl |
     |Source Address Translation | Auto Map |

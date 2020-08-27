@@ -3,16 +3,16 @@ title: Application multiniveau Windows sur Azure Stack Hub avec SQL Server
 description: Apprenez à exécuter une application multiniveau Windows sur Azure Stack Hub avec SQL Server.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 722c6dbc5d806e9d37817e5f9279e3e51a0ddc14
-ms.sourcegitcommit: 635c8c69d90b7e941659d54141d9f1c58f51cf45
+ms.openlocfilehash: f719ec7404e19d5e32f87e6fb9bfd5e41146abb0
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87477588"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920064"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>Application multiniveau Windows sur Azure Stack Hub avec SQL Server
 
@@ -114,7 +114,7 @@ Configurez le groupe de disponibilité SQL Server AlwaysOn comme suit :
 
 4.  Créez une règle d’équilibreur de charge pour le port d’écoute SQL Server (port TCP 1433 par défaut). La règle d’équilibreur de charge doit activer *l’adresse IP flottante*, également appelé Retour direct du serveur. Cela force la machine virtuelle à répondre directement au client, ce qui permet de bénéficier d’une connexion directe au réplica principal.
 
-> [!Note]
+> [!NOTE]
 > Quand l’adresse IP flottante est activée, le numéro de port frontend doit être identique au numéro de port backend dans la règle d’équilibreur de charge.
 
 Quand un client SQL tente de se connecter, l’équilibreur de charge achemine la demande de connexion au réplica principal. En cas de basculement vers un autre réplica, l’équilibreur de charge achemine automatiquement les nouvelles requêtes à un nouveau réplica principal. Pour plus d'informations, consultez [Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité SQL Server AlwaysOn](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener).

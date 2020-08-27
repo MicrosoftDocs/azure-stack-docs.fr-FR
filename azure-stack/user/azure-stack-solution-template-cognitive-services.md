@@ -7,12 +7,12 @@ ms.date: 05/21/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 05/21/2020
-ms.openlocfilehash: 217dc3a46d277aa8abf57379224dcad0fca4d983
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 8a1c71a86f5b0fe6290bddab35726eca5bda0144
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566751"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920625"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Déployer Azure Cognitive Services sur Azure Stack Hub
 
@@ -75,7 +75,7 @@ Créez une ressource Cognitive Services sur Azure pour afficher un aperçu des c
 
 1. Créez une ressource Azure dans le portail Azure. Si vous souhaitez afficher un aperçu des conteneurs Visage, vous devez d’abord créer une ressource Visage correspondante dans le portail Azure. Pour plus d’informations, consultez [Démarrage rapide : Créer un compte Cognitive Services dans le portail Azure](/azure/cognitive-services/cognitive-services-apis-create-account).
 
-   > [!Note]
+   > [!NOTE]
    >  La ressource Visage ou Vision par ordinateur doit utiliser le niveau tarifaire F0.
 
 2. Obtenez l’URL de point de terminaison et la clé d’abonnement pour la ressource Azure. Après avoir créé la ressource Azure, utilisez la clé d’abonnement et l’URL de point de terminaison de cette ressource pour instancier le conteneur Visage, LUIS ou Reconnaître le texte correspondant pour l’aperçu.

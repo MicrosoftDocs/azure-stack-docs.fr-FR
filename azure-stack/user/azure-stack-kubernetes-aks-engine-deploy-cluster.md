@@ -7,12 +7,12 @@ ms.date: 07/07/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 38a362cdc29cac4f0862fe598d9ac29d5f60fd68
-ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
+ms.openlocfilehash: e791f05f76831e9448c4eba796ca8a12d631b9cd
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87865147"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919996"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub
 
@@ -32,7 +32,7 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
     curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > Si vous êtes déconnecté, vous pouvez télécharger le fichier et le copier manuellement sur la machine déconnectée sur laquelle vous envisagez de le modifier. Vous pouvez copier le fichier sur votre machine Linux à l’aide d’outils comme [PuTTY ou WinSCP.](https://www.suse.com/documentation/opensuse103/opensuse103_startup/data/sec_filetrans_winssh.html)
 
 2.  Pour ouvrir le modèle d’API dans un éditeur, vous pouvez utiliser nano :
@@ -41,7 +41,7 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
     nano ./kubernetes-azurestack.json
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > Si vous n’avez pas installé nano, vous pouvez le faire sur Ubuntu : `sudo apt-get install nano`.
 
 3.  Dans le fichier kubernetes-azurestack.json, recherchez orchestratorRelease et orchestratorVersion. Sélectionnez l’une des versions de Kubernetes prises en charge. Par exemple, pour `orchestratorRelease`, utilisez 1.14 ou 1.15 ; et pour `orchestratorVersion`, utilisez respectivement 1.14.7 ou 1.15.10. Spécifiez la valeur `orchestratorRelease` sous la forme x.xx et orchestratorVersion sous la forme x.xx.x. Pour obtenir la liste des versions actuelles, consultez [Versions du moteur AKS prises en charge](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions).
@@ -57,7 +57,7 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
         },
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > Si vous utilisez Azure AD pour votre système d’identité, vous n’avez pas besoin d’ajouter le champ **identitySystem**.
 
 6. Recherchez `portalURL` et fournissez l’URL du portail du locataire. Par exemple : `https://portal.local.azurestack.external`.
@@ -91,7 +91,7 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
 
     Si vous déployez sur un réseau virtuel personnalisé, vous pouvez trouver des instructions pour rechercher la clé et les valeurs nécessaires afin de les ajouter aux tableaux appropriés dans le modèle d’API dans [Déployer un cluster Kubernetes sur un réseau virtuel personnalisé](kubernetes-aks-engine-custom-vnet.md).
 
-    > [!Note]  
+    > [!NOTE]  
     > Le moteur AKS pour Azure Stack Hub ne vous permet pas de fournir vos propres certificats pour la création du cluster.
 
 ### <a name="more-information-about-the-api-model"></a>Plus d’informations sur le modèle d’API

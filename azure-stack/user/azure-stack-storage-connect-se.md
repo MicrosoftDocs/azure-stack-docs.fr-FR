@@ -3,16 +3,16 @@ title: Connecter l’Explorateur de stockage à un compte de stockage ou un abon
 description: Découvrir comment connecter l’Explorateur de stockage à un abonnement Azure Stack Hub
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: c92b037d34026df65569747949cca98d75910fad
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: ff36107a50a534dbb14b77747839bf1aabd0ebbb
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566785"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920370"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Connecter l’Explorateur de stockage à un compte de stockage ou un abonnement Azure Stack Hub
 
@@ -29,7 +29,7 @@ Une fois que vous êtes connecté à un compte de stockage ou abonnement Azure 
 
 Vous avez besoin d’un accès direct à Azure Stack Hub ou à une connexion VPN pour que l’Explorateur Stockage puisse accéder à l’abonnement Azure Stack Hub. Pour savoir comment configurer une connexion VPN à Azure Stack Hub, consultez [Connect to Azure Stack Hub](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) (Se connecter à Azure Stack Hub).
 
-> [!Note]  
+> [!NOTE]  
 > Pour l’ASDK, si vous vous y connectez via un VPN, n’utilisez pas le certificat racine (CA.cer) qui a été créé pendant le processus de configuration du VPN.  Il s’agit d’un certificat codé DER qui n’autorise pas l’Explorateur Stockage à récupérer vos abonnements Azure Stack Hub. Utilisez les étapes suivantes pour exporter un certificat codé en base 64 à utiliser avec l’Explorateur Stockage.
 
 Pour les systèmes intégrés qui sont déconnectés et pour le Kit ASDK, il est recommandé d’utiliser une autorité de certification d’entreprise interne pour exporter le certificat racine au format base 64, puis de l’importer dans Explorateur Stockage Azure.  
@@ -89,7 +89,7 @@ Suivez les étapes ci-après pour connecter l’Explorateur Stockage à un abonn
 
 ## <a name="connect-to-an-azure-stack-hub-subscription-with-ad-fs-account"></a>Connexion à un abonnement Azure Stack Hub avec un compte AD FS
 
-> [!Note]  
+> [!NOTE]  
 > L’expérience de connexion Azure Federated Services (AD FS) prend en charge l’explorateur de stockage 1.2.0 ou versions ultérieures avec Azure Stack Hub 1804 ou mise à jour plus récente.
 Suivez les étapes ci-après pour connecter l’Explorateur Stockage à un abonnement Azure Stack Hub, qui appartient à un compte AD FS.
 

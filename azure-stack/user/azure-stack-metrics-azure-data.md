@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
-ms.openlocfilehash: bd8a7ee4082f446c9d175a9b3b69fa0e5a460b24
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 7d0a11f8a559f1f40ae797392f27caa815129c69
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567414"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920777"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>Utiliser Azure Monitor sur Azure Stack Hub
 
@@ -23,7 +23,7 @@ Pour une vue d’ensemble d’Azure Monitor, voir l’article concernant Azure g
 
 Azure Monitor est un service de plateforme qui fournit une source unique de supervision des ressources Azure. Azure Monitor permet de visualiser, d’interroger, de router et d’archiver les métriques et journaux provenant de ressources Azure, ainsi que d’entreprendre des actions sur ceux-ci. Vous pouvez utiliser ces données à l’aide du portail administrateur Azure Stack Hub, des applets de commande PowerShell Monitor, de l’interface de ligne de commande multiplateforme ou des API REST Azure Monitor. Pour en savoir plus sur la connectivité spécifique prise en charge par Azure Stack Hub, voir [Comment consommer des données de surveillance à partir d’Azure Stack Hub](azure-stack-metrics-monitor.md).
 
-> [!Note]
+> [!NOTE]
 > Les métriques et les journaux de diagnostic ne sont pas disponibles pour le Kit de développement Azure Stack.
 
 ## <a name="prerequisites-for-azure-monitor-on-azure-stack-hub"></a>Conditions préalables pour Azure Monitor sur Azure Stack Hub
@@ -62,7 +62,7 @@ Parmi ces types de mesures, on compte :
  - Vidages sur incident
  - Journaux d’activité d’erreurs client
 
-> [!Note]  
+> [!NOTE]  
 > L’extension Linux Diagnostics sur Azure Stack Hub n’est pas prise en charge.
 
 ### <a name="host-and-guest-vm-metrics"></a>Métriques d’hôte et machine virtuelle invitée

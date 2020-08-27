@@ -7,16 +7,16 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: b454d6b91a99ecebc512de4a20e5e230af8bf47f
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 03dcd58562aaa0bc65bbc545e19c9e3a24c52a4b
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566819"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920489"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Accéder au tableau de bord Kubernetes dans Azure Stack Hub 
 
-> [!Note]   
+> [!NOTE]   
 > Utilisez uniquement l’élément de Place de marché Kubernetes Azure Stack pour déployer des clusters en tant que preuve de concept. Pour les clusters Kubernetes pris en charge sur Azure Stack, utilisez [le moteur AKS](azure-stack-kubernetes-aks-engine-overview.md).
 
 Kubernetes comprend un tableau de bord web qui peut être utilisé pour les opérations de gestion de base. Ce tableau de bord vous permet d’afficher l’état de santé de base et les métriques concernant vos applications, ainsi que de créer et déployer des services et de modifier les applications existantes. Cet article montre comment configurer le tableau de bord Kubernetes sur Azure Stack Hub.

@@ -3,16 +3,16 @@ title: Répliquer des ressources sur plusieurs abonnements Azure Stack Hub
 description: Apprenez à répliquer des ressources à l’aide du jeu de scripts du réplicateur d’abonnements Azure Stack Hub.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: a20979ff0bb60f058658e9a0f9f540b2c0cb434e
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: 7f3c3c2ff61b629d4942edcaf53100e6bb5e7eb5
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173911"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920591"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Répliquer des ressources à l’aide du réplicateur d’abonnements Azure Stack Hub
 
@@ -80,7 +80,7 @@ Pour exécuter le réplicateur d'abonnements Azure (v3), vous devez lancer resou
 
 Une fois l’exécution du script terminée, trois nouveaux dossiers sont créés : **Deployment_Files**, **Parameter_Files** et **Custom_ARM_Templates**.
 
- > [!Note]  
+ > [!NOTE]  
  > Avant d’exécuter l’un des scripts générés, vous devez définir l’environnement qui convient, vous connecter à l’abonnement cible (par exemple, dans la nouvelle instance Azure Stack Hub) et définir le répertoire de travail sur le dossier **Deployment_Files**.
 
 Deployment_Files contient les deux fichiers **DeployResourceGroups.ps1** et **DeployResources.ps1**. L’exécution de DeployResourceGroups. ps1 déploie les groupes de ressources. L’exécution de DeployResources. ps1 déploie toutes les ressources traitées. Si l’outil a été exécuté avec **Tous** ou **Microsoft.Compute/virtualMachines** en tant que type de ressource, DeployResources.ps1 invite l’utilisateur à entrer un mot de passe d’administrateur de machine virtuelle qui sera utilisé pour créer toutes les machines virtuelles.
@@ -91,7 +91,7 @@ Deployment_Files contient les deux fichiers **DeployResourceGroups.ps1** et **De
 
     ![Exécuter le script](./media/azure-stack-network-howto-backup-replicator/image2.png)
 
-    > [!Note]  
+    > [!NOTE]  
     > N'oubliez pas de configurer l'environnement source et le contexte de l'abonnement pour l'instance PS. 
 
 2.  Examinez les dossiers nouvellement créés :
@@ -170,7 +170,7 @@ Si l'outil est exécuté avec le type de ressource **Tous**, l’ordre ci-dessou
             - Configuration du groupe de sécurité réseau  
             - Configuration du groupe à haute disponibilité  
 
-> [!Note]  
+> [!NOTE]  
 > Crée uniquement des disques managés pour le disque du système d'exploitation et les disques de données. L'utilisation de comptes de stockage n'est actuellement pas prise en charge. 
 
 ### <a name="limitations"></a>Limites

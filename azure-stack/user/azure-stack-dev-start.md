@@ -7,12 +7,12 @@ ms.date: 7/23/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ac9e373881ef5d7c88a0397130fdfd560e41e352
-ms.sourcegitcommit: f2a5ce52fcf69e05fe89be8211b7360de46f4a94
+ms.openlocfilehash: f54c8a442b9df31ff112f1e385b15c441c7c0ffd
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133739"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920676"
 ---
 # <a name="set-up-a-development-environment-in-azure-stack-hub"></a>Configurez un environnement de développement dans Azure Stack Hub 
 
@@ -106,7 +106,7 @@ Si vous utilisez un ordinateur Windows 10, vous pouvez utiliser PowerShell 5.0 e
 
 Si vous utilisez un ordinateur Linux, vous pouvez utiliser Azure CLI, Visual Studio Code ou l’environnement de développement intégré de votre choix. 
 
-> [!Note]   
+> [!NOTE]   
 > Si vous utilisez un ordinateur Linux avec le Kit ASDK, votre ordinateur distant doit se trouver dans le même réseau que le kit. Vous ne pouvez pas vous connecter à l’aide d’un réseau privé virtuel. 
 
 ### <a name="set-up-your-tools"></a>Configurer les outils 
@@ -135,7 +135,7 @@ Si vous utilisez un ordinateur Linux, vous pouvez utiliser Azure CLI, Visual Stu
 
 Avec un ordinateur macOS, vous pouvez utiliser Azure CLI, Visual Studio Code ou l’environnement de développement intégré de votre choix. 
 
-> [!Note]   
+> [!NOTE]   
 > Si vous utilisez un ordinateur macOS avec le Kit ASDK, votre ordinateur distant doit se trouver dans le même réseau que le kit. Vous ne pouvez pas vous connecter à l’aide d’un réseau privé virtuel. 
 
 ### <a name="set-up-your-tools"></a>Configurer les outils 

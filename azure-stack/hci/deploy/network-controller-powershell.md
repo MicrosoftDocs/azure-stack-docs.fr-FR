@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/17/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 52934023bab0a223a8ed99acd161a90b17581fe7
-ms.sourcegitcommit: 977c47a5587a747dbd67aa110381759ba39044b7
+ms.openlocfilehash: 6405b774cf27e8c48b9200d401174eaa5e292584
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513356"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88818315"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Déployer le contrôleur de réseau à l’aide de Windows PowerShell
 
@@ -215,4 +215,4 @@ Install-NetworkController -Node @($a,$b,$c) -ClientAuthentication Kerberos -Clie
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous n’utilisez pas Kerberos avec votre déploiement de contrôleur de réseau, vous devez déployer des certificats. Pour plus d’informations, consultez [Étapes de post-déploiement pour le contrôleur de réseau](/technologies/network-controller/post-deploy-steps-nc.md).
+Si vous n’utilisez pas Kerberos avec votre déploiement de contrôleur de réseau, vous devez déployer des certificats. Pour plus d’informations, consultez [Étapes de post-déploiement pour le contrôleur de réseau](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-controller/post-deploy-steps-nc).

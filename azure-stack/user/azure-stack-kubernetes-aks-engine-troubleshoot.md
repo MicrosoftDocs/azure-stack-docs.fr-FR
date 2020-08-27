@@ -3,16 +3,16 @@ title: Résoudre des problèmes du moteur AKS sur Azure Stack Hub
 description: Cet article présente les étapes de résolution des problèmes liés au moteur AKS sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 4/17/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 4/17/2020
-ms.openlocfilehash: 8768628e246c439c86bba80f4faac2ff9ae1973d
-ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
+ms.openlocfilehash: 794320af0595138e335c0b1cd3dad61a777251ff
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624978"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88818760"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Résoudre des problèmes du moteur AKS sur Azure Stack Hub
 

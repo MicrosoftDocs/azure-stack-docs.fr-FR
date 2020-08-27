@@ -3,16 +3,16 @@ title: Exécuter une machine virtuelle Linux dans Azure Stack Hub
 description: Découvrez comment exécuter une machine virtuelle Linux sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: d7284e454b93db28dd47323342fb01e42c51c014
-ms.sourcegitcommit: 9be88793533d21b756718af9a82349760c4abd52
+ms.openlocfilehash: 949bc2a89d485057d92e5c805fa63a7972ac1fb0
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87523490"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920285"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Exécuter une machine virtuelle Linux dans Azure Stack Hub
 
@@ -100,7 +100,7 @@ Intégrez vos machines virtuelles dans [Azure Security Center](/azure/security-c
 
 **Contrôle d’accès**. Utilisez le [contrôle d’accès en fonction du rôle (RBAC)](/azure/active-directory/role-based-access-control-what-is) pour contrôler l’accès aux ressources Azure. Le contrôle RBAC vous permet d’affecter des rôles d’autorisation aux membres de votre équipe DevOps. Par exemple, le rôle Lecteur permet d’afficher des ressources Azure mais pas de les créer, gérer ou supprimer. Certaines autorisations sont spécifiques à un type de ressource Azure. Par exemple, le rôle Contributeur de machine virtuelle peut redémarrer ou désallouer une machine virtuelle, réinitialiser le mot de passe administrateur, créer une machine virtuelle, et ainsi de suite. D’autres [rôles RBAC intégrés](/azure/active-directory/role-based-access-built-in-roles) peuvent être utiles dans cette architecture, notamment [Utilisateur DevTest Lab](/azure/active-directory/role-based-access-built-in-roles#devtest-labs-user) et [Collaborateur de réseau](/azure/active-directory/role-based-access-built-in-roles#network-contributor).
 
-> [!Note]  
+> [!NOTE]  
 > Le contrôle RBAC ne limite pas les actions qu’un utilisateur connecté peut effectuer sur une machine virtuelle. Ces autorisations dépendent du type de compte installé sur le système d’exploitation invité.
 
 **Journaux d’audit**. Utilisez les [journaux d’activité](./azure-stack-metrics-azure-data.md?#activity-log) pour voir les actions de provisionnement et d’autres événements concernant la machine virtuelle.

@@ -7,12 +7,12 @@ ms.date: 08/05/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 08/05/2020
-ms.openlocfilehash: f6fca607f9e963fc2c007c27ebed05cecdf2e35a
-ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
+ms.openlocfilehash: 0b13c0e1655fe9df0cf030872fe8f545219394ba
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87865220"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920081"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Déployer un cluster Kubernetes sur un réseau virtuel personnalisé sur Azure Stack Hub 
 
@@ -135,11 +135,11 @@ Après avoir déployé votre cluster, revenez à votre réseau virtuel dans le p
 3. Entrez le nom de votre réseau virtuel dans la zone de recherche.
 4. Sélectionnez **Sous-réseaux**, puis le nom du sous-réseau qui contient votre cluster.
     
-    ![Table de routage et groupe de sécurité réseau](media/kubernetes-aks-engine-custom-vnet/virtual-network-rt-nsg.png)
+    ![Table de routage et groupe de sécurité réseau](media/kubernetes-aks-engine-custom-vnet/virtual-network-route-table.png)
     
 5. Sélectionnez **Table de routage**, puis la table de routage de votre cluster.
 
-> [!Note]  
+> [!NOTE]  
 > Il existe un [problème connu](https://github.com/Azure/aks-engine/issues/371) dans le réseau virtuel personnalisé d’un cluster Windows Kubernetes.
 
 ## <a name="next-steps"></a>Étapes suivantes

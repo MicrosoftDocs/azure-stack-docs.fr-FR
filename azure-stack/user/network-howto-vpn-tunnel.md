@@ -3,16 +3,16 @@ title: Configurer un tunnel VPN site à site multiple dans Azure Stack Hub
 description: Découvrez comment configurer un tunnel VPN site à site multiple dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: ccfab1377a21c9de1df46c9695d10e4afab84dea
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 4ea38352ca26c94c02f588a786122e51494fadc2
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661497"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920846"
 ---
 # <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>Configurer un tunnel VPN site à site multiple dans Azure Stack Hub
 
@@ -69,7 +69,7 @@ Cette procédure comprend plusieurs étapes. Pour cette solution, vous allez uti
 
 Vous pouvez suivre la même procédure que pour le niveau **WebTier**, mais des paramètres différents s'affichent ici :
 
-> [!Note]  
+> [!NOTE]  
 > L’espace d’adressage AppTier correspond à **10.20.0.0/16** et vous pouvez voir que l’emplacement du groupe de ressources est **WestUS2**
 
 ![](./media/azure-stack-network-howto-vpn-tunnel/image6.png)
@@ -144,7 +144,7 @@ Si vous affichez la sortie de l’extension de script personnalisé, vous pouvez
 
 2.  Si vous copiez le script `Add-Site2SiteIKE.ps1` à partir du référentiel et l’exécutez localement, ce script installe les ressources **WindowsFeature** et **RemoteAccess**.
 
-    > [!Note]
+    > [!NOTE]
     > En fonction de votre environnement, vous serez peut-être amené à redémarrer votre système.
 
     Pour plus d'informations, reportez-vous à la configuration réseau de la machine locale.
@@ -193,10 +193,10 @@ Si vous affichez la sortie de l’extension de script personnalisé, vous pouvez
 
     ![](./media/azure-stack-network-howto-vpn-tunnel/image23.png)
 
-    > [!Note]  
+    > [!NOTE]  
     > Vous pouvez tester le protocole RDP d'une première à une deuxième machine, et inversement.
 
-    > [!Note]  
+    > [!NOTE]  
     > Pour implémenter cette solution localement, vous devez déployer des itinéraires vers le réseau distant Azure Stack Hub dans votre infrastructure de basculement ou, au minimum, sur des machines virtuelles spécifiques.
 
 ### <a name="deploying-a-gre-tunnel"></a>Déployer un tunnel GRE

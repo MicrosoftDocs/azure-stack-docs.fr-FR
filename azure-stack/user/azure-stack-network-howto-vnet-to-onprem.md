@@ -3,16 +3,16 @@ title: Configurer une passerelle VPN pour Azure Stack Hub
 description: Découvrez comment configurer une passerelle VPN pour Azure Stack Hub.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 9b7086f63e22ede89ae0ed21be1aec8453532de6
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: a2ec06ef5e01fa2614a2e54af03162a5b4dddbdf
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567448"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920795"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Configurer une passerelle VPN pour Azure Stack Hub avec l’appliance virtuelle réseau FortiGate
 
@@ -22,14 +22,14 @@ Cet article explique comment créer une connexion VPN avec votre environnement A
 
 -  Accès à un système intégré Azure Stack Hub permettant de mettre en œuvre les exigences de calcul, de réseau et de ressources nécessaires pour cette solution. 
 
-    > [!Note]  
+    > [!NOTE]  
     > Ces instructions **ne fonctionnent pas** avec un Kit de développement Azure Stack (ASDK) en raison des limitations réseau dans le kit ASDK. Pour plus d’informations, consultez [Exigences et éléments à prendre en compte pour ASDK](../asdk/asdk-deploy-considerations.md).
 
 -  Accès à un périphérique VPN dans le réseau local qui héberge le système intégré Azure Stack Hub. Le périphérique doit créer un tunnel IPSec, qui répond aux paramètres décrits dans les [paramètres de déploiement](#deployment-parameters).
 
 -  Une solution d’appliance virtuelle réseau disponible dans votre Place de marché Azure Stack Hub. Une appliance virtuelle réseau contrôle le flux du trafic réseau depuis un réseau de périmètre vers d’autres réseaux ou sous-réseaux. Cette procédure utilise la [solution de machine virtuelle unique Pare-feu Fortigate de nouvelle génération](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm).
 
-    > [!Note]  
+    > [!NOTE]  
     > Si vous ne disposez pas des licences **Fortinet FortiGate-VM For Azure BYOL** et **FortiGate NGFW - Single VM Deployment (BYOL)** dans votre Place de marché Azure Stack Hub, contactez votre opérateur cloud.
 
 -  Pour activer l’appliance virtuelle réseau FortiGate, vous devez disposer d’au moins un fichier de licence FortiGate. Pour plus d’informations sur la façon d’acquérir ces licences, consultez l’article de la bibliothèque de documents Fortinet intitulé [Registering and downloading your license](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license).
@@ -58,7 +58,7 @@ Le tableau suivant récapitule les paramètres utilisés dans ces déploiements 
 | Nom de l’adresse IP publique | forti1-publicip1 |
 | Type d’adresse IP publique | statique |
 
-> [!Note]
+> [!NOTE]
 > \* Choisissez un autre ensemble d’espaces d’adressage et de préfixes de sous-réseau si `172.16.0.0/16` chevauche le réseau local ou le pool d’adresses IP virtuelles Azure Stack Hub.
 
 ## <a name="deploy-the-fortigate-ngfw-marketplace-items"></a>Déployer les éléments de la Place de marché concernant le Pare-feu Fortigate de nouvelle génération
@@ -176,7 +176,7 @@ Une fois que vous avez activé les appliances virtuelles réseau, créez un tunn
 
 16. Sélectionnez **Pre-shared Key** (Clé prépartagée), puis entrez (et enregistrez) une clé prépartagée. 
 
-    > [!Note]  
+    > [!NOTE]  
     > Vous aurez besoin de cette clé pour configurer la connexion sur le périphérique VPN local ; autrement dit, ils doivent correspondre *exactement*.
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image17.png)

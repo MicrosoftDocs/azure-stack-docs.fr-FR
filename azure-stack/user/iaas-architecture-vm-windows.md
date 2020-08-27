@@ -7,12 +7,12 @@ ms.date: 7/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 3/9/2020
-ms.openlocfilehash: d642f01ca55fc18b832a04328be835703dfb5dd2
-ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
+ms.openlocfilehash: 3419e701aede4864cac62ace216a574a6dcc1226
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87397547"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920166"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>Exécuter une machine virtuelle Windows sur Azure Stack Hub
 
@@ -91,7 +91,7 @@ Intégrez vos machines virtuelles dans [Azure Security Center](/azure/security-c
 
 **Contrôle d’accès**. Utilisez le [contrôle d’accès en fonction du rôle (RBAC)](/azure/active-directory/role-based-access-control-what-is) pour contrôler l’accès aux ressources Azure. Le contrôle RBAC vous permet d’affecter des rôles d’autorisation aux membres de votre équipe DevOps. Par exemple, le rôle Lecteur permet d’afficher des ressources Azure mais pas de les créer, gérer ou supprimer. Certaines autorisations sont spécifiques à un type de ressource Azure. Par exemple, le rôle Contributeur de machine virtuelle peut redémarrer ou désallouer une machine virtuelle, réinitialiser le mot de passe administrateur, créer une machine virtuelle, et ainsi de suite. D’autres [rôles RBAC intégrés](/azure/active-directory/role-based-access-built-in-roles) peuvent être utiles dans cette architecture, notamment [Utilisateur DevTest Lab](/azure/active-directory/role-based-access-built-in-roles#devtest-labs-user) et [Collaborateur de réseau](/azure/active-directory/role-based-access-built-in-roles#network-contributor).
 
-> [!Note]  
+> [!NOTE]  
 > Le contrôle RBAC ne limite pas les actions qu’un utilisateur connecté peut effectuer sur une machine virtuelle. Ces autorisations dépendent du type de compte installé sur le système d’exploitation invité.
 
 **Journaux d’audit**. Utilisez les [journaux d’activité](./azure-stack-metrics-azure-data.md?#activity-log) pour voir les actions de provisionnement et d’autres événements concernant la machine virtuelle.

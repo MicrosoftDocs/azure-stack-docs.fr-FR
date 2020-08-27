@@ -8,12 +8,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2019
-ms.openlocfilehash: 7e5ff23d5d5199a5534bab1a3854e2bef69ddebc
-ms.sourcegitcommit: 09fbc4e8fc53828647d515bfb556dfe42df28c19
+ms.openlocfilehash: c7f17c603a6b54474db4036953f0fbd755d496cf
+ms.sourcegitcommit: e72145ebb5eac17a47ba1c9119fd31de545fdace
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86419189"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88724844"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Corriger les problèmes courants liés aux certificats PKI Azure Stack Hub
 
@@ -45,19 +45,19 @@ Les informations contenues dans cet article vous aideront à comprendre et à r�
 
 **Problème** – La clé privée est manquante ou ne contient pas l’attribut d’ordinateur Local.  
 
-**Correction** – Sur l’ordinateur qui a généré la demande CSR, réexportez le certificat en suivant les étapes de la procédure [Préparer des certificats PKI Azure Stack Hub pour le déploiement](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment-with-azure-stack-readiness-checker). Ces étapes incluent l’exportation du certificat à partir du magasin de certificats de l’ordinateur local.
+**Correction** – Sur l’ordinateur qui a généré la demande CSR, réexportez le certificat en suivant les étapes de la procédure [Préparer des certificats PKI Azure Stack Hub pour le déploiement](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker). Ces étapes incluent l’exportation du certificat à partir du magasin de certificats de l’ordinateur local.
 
 ## <a name="certificate-chain"></a>Chaîne d’approbation
 
 **Problème** – La chaîne d’approbation n’est pas complète.  
 
-**Correction** – Les certificats doivent contenir une chaîne d’approbation complète. Réexportez le certificat en suivant les étapes de la procédure [Préparer des certificats PKI Azure Stack Hub pour le déploiement](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment-with-azure-stack-readiness-checker), puis sélectionnez l’option **Inclure tous les certificats dans le chemin d’accès de certification si possible**.
+**Correction** – Les certificats doivent contenir une chaîne d’approbation complète. Réexportez le certificat en suivant les étapes de la procédure [Préparer des certificats PKI Azure Stack Hub pour le déploiement](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker), puis sélectionnez l’option **Inclure tous les certificats dans le chemin d’accès de certification si possible**.
 
 ## <a name="dns-names"></a>Noms DNS
 
 **Problème** – La liste **DNSNameList** sur le certificat ne contient pas le nom du point de terminaison du service Azure Stack Hub, ni de correspondance avec un caractère générique valide. Les correspondances avec un caractère générique ne sont valides que pour l’espace de noms situé à l’extrême gauche du nom DNS. Par exemple, `*.region.domain.com` est uniquement valide pour `portal.region.domain.com`, et non `*.table.region.domain.com`.
 
-**Correction** – Suivez les étapes de la procédure de génération d’une demande de signature de certificat Azure Stack Hub pour regénérer la demande avec les noms DNS corrects, afin de prendre en charge les points de terminaison Azure Stack Hub. Soumettez à nouveau la demande CSR à une autorité de certification. Ensuite, suivez les étapes de la procédure [Préparer des certificats PKI Azure Stack Hub pour le déploiement](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment-with-azure-stack-readiness-checker) afin d’exporter le certificat à partir de la machine qui a généré la demande CSR.  
+**Correction** – Suivez les étapes de la procédure de génération d’une demande de signature de certificat Azure Stack Hub pour regénérer la demande avec les noms DNS corrects, afin de prendre en charge les points de terminaison Azure Stack Hub. Soumettez à nouveau la demande CSR à une autorité de certification. Ensuite, suivez les étapes de la procédure [Préparer des certificats PKI Azure Stack Hub pour le déploiement](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker) afin d’exporter le certificat à partir de la machine qui a généré la demande CSR.  
 
 ## <a name="key-usage"></a>Utilisation de la clé
 
@@ -75,13 +75,13 @@ Les informations contenues dans cet article vous aideront à comprendre et à r�
 
 **Problème** – L’ordre de la chaîne d’approbation est incorrect.  
 
-**Correction** – Réexportez le certificat en suivant les étapes de la procédure [Préparer des certificats PKI Azure Stack Hub pour le déploiement](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment-with-azure-stack-readiness-checker), puis sélectionnez l’option **Inclure tous les certificats dans le chemin d’accès de certification si possible**. Vérifiez que seul le certificat feuille est sélectionné pour l’exportation.
+**Correction** – Réexportez le certificat en suivant les étapes de la procédure [Préparer des certificats PKI Azure Stack Hub pour le déploiement](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker), puis sélectionnez l’option **Inclure tous les certificats dans le chemin d’accès de certification si possible**. Vérifiez que seul le certificat feuille est sélectionné pour l’exportation.
 
 ## <a name="other-certificates"></a>Autres certificats
 
 **Problème** – Le package PFX contient des certificats qui ne sont pas le certificat feuille ou qui ne font pas partie de la chaîne d’approbation.  
 
-**Correction** – Réexportez le certificat en suivant les étapes de la procédure [Préparer des certificats PKI Azure Stack Hub pour le déploiement](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment-with-azure-stack-readiness-checker), puis sélectionnez l’option **Inclure tous les certificats dans le chemin d’accès de certification si possible**. Vérifiez que seul le certificat feuille est sélectionné pour l’exportation.
+**Correction** – Réexportez le certificat en suivant les étapes de la procédure [Préparer des certificats PKI Azure Stack Hub pour le déploiement](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker), puis sélectionnez l’option **Inclure tous les certificats dans le chemin d’accès de certification si possible**. Vérifiez que seul le certificat feuille est sélectionné pour l’exportation.
 
 ## <a name="fix-common-packaging-issues"></a>Résoudre les problèmes courants de packaging
 

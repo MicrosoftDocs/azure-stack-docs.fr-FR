@@ -3,22 +3,22 @@ title: Exécuter une application multiniveau dans plusieurs régions Azure Stack
 description: Découvrez comment exécuter une application multiniveau dans plusieurs régions Azure Stack Hub pour une haute disponibilité.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: fe96b2adeb679492a2f6ca820880763c0c2c0686
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 164533628b605ff1723a50ba2dbcf8ea413ad3bd
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567805"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920336"
 ---
 # <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>Exécuter une application multiniveau dans plusieurs régions Azure Stack Hub pour une haute disponibilité
 
 Cette architecture de référence présente un ensemble de pratiques éprouvées pour l’exécution d’une application multiniveau dans plusieurs régions Azure Stack Hub, afin de bénéficier d’une haute disponibilité et d’une infrastructure de récupération d’urgence fiable. Dans ce document, Traffic Manager est utilisé pour obtenir une haute disponibilité. Toutefois, si Traffic Manager n’est pas un choix préféré dans votre environnement, une paire d’équilibreurs de charge hautement disponibles peut également le remplacer.
 
-> [!Note]  
+> [!NOTE]  
 > Notez que l’instance Traffic Manager utilisée dans l’architecture ci-dessous doit être configurée dans Azure et que les points de terminaison utilisés pour configurer le profil Traffic Manager doivent être des adresses IP routables publiquement.
 
 ## <a name="architecture"></a>Architecture
@@ -123,7 +123,7 @@ Pour configurer le groupe de disponibilité
 
     -   Placez un ou plusieurs réplicas secondaires dans la région secondaire. Pour des raisons de performances, configurez-les afin qu’ils utilisent la validation *asynchrone*. (Dans le cas contraire, toutes les transactions T-SQL doivent attendre un aller-retour sur le réseau vers la région secondaire.)
 
-> [!Note]  
+> [!NOTE]  
 > Les réplicas avec validation asynchrone ne prennent pas en charge le basculement automatique.
 
 ## <a name="availability-considerations"></a>Considérations relatives à la disponibilité

@@ -3,17 +3,17 @@ title: Valider une solution dans Azure Stack Hub
 description: Découvrez comment valider une nouvelle solution Azure Stack Hub avec le workflow de validation de solutions.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2d47450af602928eb9220238ae945610fd9f0477
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 65984da8615d9146db98800c710efee004f021c2
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661157"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764883"
 ---
 # <a name="validate-a-solution-in-azure-stack-hub"></a>Valider une solution dans Azure Stack Hub
 

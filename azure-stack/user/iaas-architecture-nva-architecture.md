@@ -3,16 +3,16 @@ title: Déployer des appliances virtuelles réseau hautement disponibles sur Azu
 description: Apprenez à déployer des appliances virtuelles réseau hautement disponibles sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 19cfee9cf4e2698bcb75cb7dd15a9439ed55341a
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 6fdb1a5ff99b125b513bd4afc39570ee73c1c5b6
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566088"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920404"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>Déployer des appliances virtuelles réseau hautement disponibles sur Azure Stack Hub
 
@@ -78,7 +78,7 @@ Les deux architectures d'entrée et de sortie disposaient d'un réseau de périm
 
 Dans l'architecture Entrée-sortie avec appliances virtuelles réseau de couche 7, les appliances virtuelles réseau traitent les demandes entrantes provenant d'un équilibreur de charge de couche 7. Les appliances virtuelles réseau traitent également des requêtes sortantes issues des machines virtuelles de la charge de travail du pool principal de l’équilibreur de charge. Comme le trafic entrant est acheminé avec un équilibreur de charge de couche 7 et que le trafic sortant est acheminé avec un SLB (équilibreur de charge Azure Stack Hub de base), les appliances virtuelles réseau sont responsables de la gestion de l’affinité de session. Autrement dit, l'équilibreur de charge de couche 7 gère le mappage des requêtes entrantes et sortantes afin de pouvoir envoyer la réponse qui convient au demandeur initial. Toutefois, l'équilibreur de charge interne n'a pas accès aux mappages de l'équilibreur de charge de couche 7 et utilise sa propre logique pour envoyer des réponses aux appliances virtuelles réseau. Il est possible que l'équilibreur de charge envoie une réponse à une appliance virtuelle réseau qui n'a pas initialement reçu la requête de l'équilibreur de charge de couche 7. Dans ce cas, les appliances virtuelles réseau doivent communiquer et se transférer la réponse entre elles afin que l'appliance virtuelle réseau appropriée puisse transmettre la réponse à l'équilibreur de charge de couche 7.
 
-> [!Note]  
+> [!NOTE]  
 > Vous pouvez également résoudre le problème de routage asymétrique en s’assurant que les appliances virtuelles réseau effectuent la traduction des adresses réseau sources entrantes (SNAT). Cela remplacerait l’IP source d’origine du demandeur par une des adresses IP de l’appliance virtuelle réseau utilisée sur le flux entrant. Cela garantit de pouvoir utiliser plusieurs appliances virtuelles réseau à la fois, tout en conservant la symétrie de l’itinéraire.
 
 ## <a name="next-steps"></a>Étapes suivantes

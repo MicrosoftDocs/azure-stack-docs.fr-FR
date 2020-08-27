@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Découvrez comment valider des packages OEM avec la validation Azure Stack Hub en tant que service.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: afbe701cb9943494329baec929aadbe62eaf8ada
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: e475b498895d2c1398ffddb13b1af7baa10d2e90
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86490233"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764866"
 ---
 # <a name="validate-oem-packages"></a>Valider les packages OEM
 
