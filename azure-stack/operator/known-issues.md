@@ -3,16 +3,16 @@ title: Problèmes connus d’Azure Stack Hub
 description: Découvrez les problèmes connus des versions d’Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/13/2020
+ms.date: 08/25/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: 2513fe687bdfc08fe34a4c0cf05e388b84947fee
-ms.sourcegitcommit: 77f53d8f4188feea7dd2197650ee860104b1e2aa
+ms.openlocfilehash: d403128cfe2cfe34bb9f5ed188a8591656819e1e
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88501056"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88818332"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Problèmes connus d’Azure Stack Hub
 
@@ -102,6 +102,12 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 ## <a name="compute"></a>Calcul
 
+### <a name="issues-using-vm-extensions-in-ubuntu-server-2004"></a>Problèmes d’utilisation d’extensions de machine virtuelle dans le Serveur Ubuntu 20.04
+
+- Champ d’application : Ce problème s’applique à **Serveur Ubuntu 20.04 LTS**.
+- Cause : Certaines distributions Linux ont été transférées vers Python 3.8 et ont supprimé complètement le point d’entrée `/usr/bin/python` hérité pour Python. Les utilisateurs de la distribution Linux qui ont effectué la transition vers Python 3.x doivent vérifier l’existence du point d’entrée `/usr/bin/python` hérité avant de tenter de déployer ces extensions sur leurs machines virtuelles. Dans le cas contraire, le déploiement de l’extension risque d’échouer.
+- Correction : Suivez les étapes de résolution décrites dans [Problèmes d’utilisation d’extensions de machine virtuelle dans des systèmes de machines virtuelles Azure Linux compatibles Python 3](/azure/virtual-machines/extensions/issues-using-vm-extensions-python-3), mais ignorez l’étape 2, car Azure Stack Hub ne dispose pas de la fonctionnalité **Run Command**.
+
 ### <a name="nvv4-vm-size-on-portal"></a>Taille de machine virtuelle NVv4 sur le portail
 
 - Champ d’application : Ce problème concerne les versions 2002 et ultérieures.
@@ -122,6 +128,16 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
 - Cause : Échec de la création de machines virtuelles dans un groupe à haute disponibilité de 3 domaines d’erreur, et échec de la création d’une instance de groupe de machines virtuelles identiques avec l’erreur **FabricVmPlacementErrorUnsupportedFaultDomainSize** pendant le processus de mise à jour sur un environnement Azure Stack Hub à 4 nœuds.
 - Correction : Vous pouvez réussir à créer des machines virtuelles uniques dans un groupe à haute disponibilité comprenant 2 domaines d’erreur. Toutefois, la création d’instances de groupes identiques n’est toujours pas disponible pendant le processus de mise à jour sur un déploiement Azure Stack Hub à 4 nœuds.
+
+## <a name="storage"></a>Stockage
+
+### <a name="retention-period-reverts-to-0"></a>La période de rétention revient à 0
+
+- Champ d’application : Ce problème s’applique aux versions 2002 et 2005.
+- Cause : si vous spécifiez une période autre que 0 dans le paramètre de période de rétention, cette valeur revient à 0 (valeur par défaut de ce paramètre) pendant la mise à jour 2002 ou 2005. Le paramètre 0 jour prend effet immédiatement après la fin de la mise à jour. Il entraîne l’arrêt immédiat de la rétention de tous les comptes de stockage supprimés présents et à venir, et leur marquage pour le nettoyage périodique de la mémoire (exécuté toutes les heures).
+- Correction : Spécifiez manuellement une période de rétention correcte. Tout compte de stockage collecté pour le nettoyage avant que la nouvelle période de rétention soit spécifiée n’est pas récupérable.  
+
+## <a name="resource-providers"></a>Fournisseurs de ressources
 
 ### <a name="sqlmysql"></a>SQL/MySQL
 
@@ -309,6 +325,14 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Champ d’application : Ce problème s’applique aux nouvelles installations de 2002 et versions ultérieures, ou à toute version précédente avec TLS 1.2 activé.
 - Cause : Lors de la configuration de la sauvegarde automatisée des machines virtuelles SQL avec un compte de stockage existant, elle échoue avec l’erreur **SQL Server IaaS Agent : Le serveur a clos la connexion sous-jacente : Une erreur inattendue s’est produite lors de l’envoi.**
 - Occurrence : Courant
+
+## <a name="storage"></a>Stockage
+
+### <a name="retention-period-revert-to-0"></a>La période de rétention revient à 0
+
+- Champ d’application : Ce problème concerne les versions 2002 et 2005.
+- Cause : Si vous avez précédemment paramétré une période de rétention autre que 0, celle-ci est restaurée à 0 (valeur par défaut de ce paramètre) pendant les mises à jour 2002 et 2005. Et le paramètre 0 jour prend effet immédiatement après la fin de la mise à jour. Cela entraîne l’arrêt immédiat de la rétention de tous les comptes de stockage supprimés présents et à venir, et leur marquage pour le nettoyage périodique de la mémoire (exécuté toutes les heures). 
+- Correction : Spécifiez manuellement une période de rétention correcte. Cependant, tout compte de stockage collecté pour le nettoyage avant que la nouvelle période de rétention soit spécifiée n’est pas récupérable.  
 
 ## <a name="resource-providers"></a>Fournisseurs de ressources
 

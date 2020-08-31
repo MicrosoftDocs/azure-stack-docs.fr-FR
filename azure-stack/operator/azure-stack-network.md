@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 563892dd4275c6e42fdda1f7046edc7418f50350
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 590746d7ed761905e9a9642b631adc7c3d6b3d4e
+ms.sourcegitcommit: 412ff05b0a0baa9d9c83a482f836453d1aa7c097
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488397"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88886864"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Planification de l’intégration réseau pour Azure Stack
 
@@ -23,10 +23,15 @@ Cet article fournit des informations sur l’infrastructure réseau d’Azure St
 
 ## <a name="physical-network-design"></a>Conception du réseau physique
 
-La solution Azure Stack requiert une infrastructure physique robuste et hautement disponible pour prendre en charge ses opérations et services. Pour intégrer Azure Stack au réseau, elle nécessite des liaisons montantes entre les commutateurs TDR (Top-of-Rack) et le commutateur ou routeur le plus proche, ce qui est appelé « bordure » dans cette documentation. Les commutateurs TDR peuvent avoir une liaison montante à une seule bordure ou à deux bordures. Le commutateur TDR est préconfiguré par notre outil d’automatisation. Il attend au moins une connexion entre le TDR et la bordure lors de l’utilisation du routage BGP et au moins deux connexions (une par TDR) entre le TDR et la bordure en cas d’utilisation du routage statique, avec un maximum de quatre connexions sur l’une ou l’autre des options de routage. Ces connexions sont limitées à un média SFP+ ou SFP28 et à des vitesses de 1 Go, 10 Go ou 25 Go. Vérifiez la disponibilité auprès de votre fournisseur de matériel OEM. Le diagramme suivant représente la conception recommandée :
+La solution Azure Stack requiert une infrastructure physique robuste et hautement disponible pour prendre en charge ses opérations et services. Pour intégrer Azure Stack au réseau, elle nécessite des liaisons montantes entre les commutateurs TDR (Top-of-Rack) et le commutateur ou routeur le plus proche, ce qui est appelé « bordure » dans cette documentation. Les commutateurs TDR peuvent avoir une liaison montante à une seule bordure ou à deux bordures. Le commutateur TDR est préconfiguré par notre outil d’automatisation. Il attend au moins une connexion entre le TDR et la bordure lors de l’utilisation du routage BGP et au moins deux connexions (une par TDR) entre le TDR et la bordure en cas d’utilisation du routage statique, avec un maximum de quatre connexions sur l’une ou l’autre des options de routage. Ces connexions sont limitées à un média SFP+ ou SFP28 et à une vitesse minimale de 1 Go. Vérifiez la disponibilité auprès de votre fournisseur de matériel OEM. Le diagramme suivant représente la conception recommandée :
 
 ![Conception de réseau Azure Stack recommandée](media/azure-stack-network/physical-network.svg)
 
+#### <a name="bandwidth-allocation"></a>Allocation de bande passante
+
+Azure Stack Hub est basé sur un cluster de basculement Windows Server 2019 et les technologies Spaces Direct. Une partie de la configuration du réseau physique Azure Stack Hub vise à utiliser une séparation du trafic et des garanties de bande passante pour s’assurer que les communications de stockage Spaces Direct peuvent puissent offrir les performances et l’échelle requises de la solution.  La configuration réseau utilise des classes de trafic pour séparer les communications Spaces Direct basées sur RDMA, de celles dédiées à l’utilisation du réseau par l’infrastructure et/ou le locataire Azure Stack Hub.  Pour s’aligner sur les meilleures pratiques actuelles définies pour Windows Server 2019, Azure Stack Hub change de façon à utiliser une classe de trafic ou une priorité supplémentaires afin de séparer les communications de serveur à serveur dans la prise en charge de la communication de contrôle du clustering de basculement.  Cette nouvelle définition de classe de trafic sera configurée pour réserver 2 % de la bande passante physique disponible. Cette configuration de réservation de bande passante et de classe de trafic est opérée par une modification des commutateurs ToR (top-of-rack) de la solution Azure Stack Hub, ainsi que sur l’ordinateur hôte ou les serveurs d’Azure Stack Hub. Notez qu’aucune modification n’est requise sur les périphériques réseau frontaliers du client. Le résultat de ces modifications offre une meilleure résilience pour la communication du cluster de basculement, qui vise à éviter des situations où la bande passante réseau est entièrement consommée de sorte que les messages de contrôle du cluster de basculement sont interrompus.  Notez que la communication du cluster de basculement est un composant essentiel de l’infrastructure Azure Stack Hub et qu’en cas d’interruption pendant des périodes prolongées, elle peut entraîner une instabilité dans les espaces de stockage Spaces Direct ou d’autres services, susceptible d’affecter la stabilité de la charge de travail du locataire ou de l’utilisateur final.
+
+Notez également que les modifications décrites sont ajoutées au niveau de l’hôte d’un système Azure Stack Hub dans la version 2008. Contactez votre fabricant OEM pour lui de mander d’apporter les modifications nécessaires aux commutateurs réseau ToR. Cette modification des commutateurs ToR peut être effectuée tant avant qu’après la mise à jour vers la version 2008.  La modification de la configuration des commutateurs ToR est requise pour améliorer les communications du cluster de basculement.
 
 ## <a name="logical-networks"></a>Réseaux logiques
 
@@ -39,7 +44,7 @@ Le tableau suivant montre les réseaux logiques et les plages de sous-réseau IP
 | Adresse IP virtuelle publique | Azure Stack utilise un total de 31 adresses de ce réseau. Huit adresses IP publiques sont utilisées pour un petit ensemble de services Azure Stack, et les adresses restantes sont utilisées par les machines virtuelles de locataire. Si vous envisagez d’utiliser App Service et les fournisseurs de ressources SQL, 7 adresses supplémentaires sont utilisées. Les 15 adresses IP restantes sont réservées pour les futurs services Azure. | / 26 (62 hôtes) - /22 (1022 hôtes)<br><br>Recommandé = /24 (254 hôtes) | 
 | Infrastructure du commutateur | Adresses IP de point à point pour le routage, les interfaces de gestion de commutateur dédiées et les adresses de bouclage attribuées au commutateur. | /26 | 
 | Infrastructure | Utilisé pour les composants internes de Azure Stack pour communiquer. | /24 |
-| Privé | Utilisé pour le réseau de stockage, les adresses IP virtuelles privées, les conteneurs d’infrastructure et d’autres fonctions internes. À compter de la version 1910, la taille de ce sous-réseau passe à /20. Pour plus d’informations, consultez la section [Réseau privé](#private-network) de cet article. | /20 | 
+| Privées | Utilisé pour le réseau de stockage, les adresses IP virtuelles privées, les conteneurs d’infrastructure et d’autres fonctions internes. À compter de la version 1910, la taille de ce sous-réseau passe à /20. Pour plus d’informations, consultez la section [Réseau privé](#private-network) de cet article. | /20 | 
 | BMC | Utilisé pour communiquer avec les contrôleurs BMC sur les hôtes physiques. | /26 | 
 | | | |
 

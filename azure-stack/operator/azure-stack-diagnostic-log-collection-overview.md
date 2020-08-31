@@ -3,16 +3,16 @@ title: Collecte des journaux de diagnostic dans Azure Stack Hub
 description: Découvrez-en plus sur la collecte des journaux de diagnostic dans Azure Stack Hub Aide et support.
 author: justinha
 ms.topic: article
-ms.date: 05/11/2020
+ms.date: 08/24/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 05/11/2020
-ms.openlocfilehash: c924c5a48337106c08d1112328c32c031d7371bc
-ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
+ms.lastreviewed: 08/24/2020
+ms.openlocfilehash: 841c031b6009cdb7970194a3268010e745e9e0f0
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88074233"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764509"
 ---
 # <a name="diagnostic-log-collection-in-azure-stack-hub"></a>Collecte des journaux de diagnostic dans Azure Stack Hub
 
@@ -89,7 +89,7 @@ En lançant la collecte des journaux de diagnostic à partir d’Azure Stack Hub
 
 ## <a name="save-logs-locally"></a>Enregistrer les journaux localement
 
-Vous pouvez enregistrer des journaux dans un partage SMB local lorsque Azure Stack Hub est déconnecté d’Azure. Dans le panneau **Paramètres**, entrez le chemin d’accès et un nom d’utilisateur et un mot de passe avec l’autorisation d’écrire sur le partage. Au cours d’un cas de support, Microsoft CSS fournit des étapes détaillées sur la façon dont ces journaux locaux doivent être transférés.
+Vous pouvez enregistrer des journaux dans un partage SMB local lorsque Azure Stack Hub est déconnecté d’Azure. Dans le panneau **Paramètres**, entrez le chemin d’accès et un nom d’utilisateur et un mot de passe avec l’autorisation d’écrire sur le partage. Au cours d’un cas de support, le Support Microsoft fournit des étapes détaillées sur la façon dont ces journaux locaux doivent être transférés. Si le portail d’administration n’est pas disponible, vous pouvez utiliser la cmdlet [Get-AzureStackLog](azure-stack-get-azurestacklog.md) pour enregistrer les journaux localement.
 
 ![Capture d’écran des options de collecte des journaux de diagnostic](media/azure-stack-help-and-support/save-logs-locally.png)
 

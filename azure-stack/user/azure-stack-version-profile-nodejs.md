@@ -7,12 +7,12 @@ ms.date: 04/30/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: 92f05840d8a2a8f58f70abd10e2860224f706d2b
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: b378ce7f3e894a2ec9de532393907c1266e2eeed
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566496"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920353"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Utiliser des profils de version d’API avec le kit de développement logiciel (SDK) Node.js dans Azure Stack Hub
 
@@ -55,7 +55,7 @@ Pour utiliser la dernière version d’API d’un service, utilisez le profil **
 
 Utilisez les versions d’API spécifiques définies dans le package des versions d'API spécifiques à un fournisseur de ressources.
 
-  > [!Note]  
+  > [!NOTE]  
   > Vous pouvez combiner toutes les options dans la même application.
 
 ## <a name="install-the-nodejs-sdk"></a>Installer le kit de développement logiciel (SDK) Node.js
@@ -112,7 +112,7 @@ Microsoft Azure Resource Manager est une infrastructure de gestion qui permet au
 
 Vous pouvez obtenir les informations de métadonnées du point de terminaison Resource Manager. Le point de terminaison renvoie un fichier JSON avec les informations requises pour exécuter votre code.
 
-> [!Note]  
+> [!NOTE]  
 > Le **ResourceManagerUrl** dans le Kit de développement Azure Stack (ASDK) est : `https://management.local.azurestack.external` Le **ResourceManagerUrl** dans les systèmes intégrés est : `https://management.region.<fqdn>/`, où `<fqdn>` est votre nom de domaine complet.
 Pour extraire les métadonnées requises : `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
 
@@ -221,16 +221,21 @@ Vous pouvez utiliser les exemples suivants en guise de références pour la cré
     git clone https://github.com/sijuman/storage-node-resource-provider-getting-started.git
     ```
 
+1. `cd` dans votre clone du référentiel.
+
 2.  Créez un principal de service Azure et assignez un rôle pour accéder à l’abonnement. Pour obtenir des instructions, consultez [Utiliser Azure PowerShell pour créer un principal du service avec un certificat](/azure/azure-stack/azure-stack-create-service-principals).
 
 3.  Récupérez les valeurs requises suivantes :
     - ID client
-    - ID client
+    - ID client (ID d’application)
     - Clé secrète client
     - ID d’abonnement Azure
     - Point de terminaison Resource Manager Azure Stack Hub
 
 4.  Définissez les variables d’environnement ci-après en utilisant les informations que vous avez récupérées à partir du principal de service que vous avez créé à l’aide de l’invite de commandes :
+
+    > [!NOTE]  
+    > Sous Windows, utilisez **set** plutôt que **export**.
 
     ```bash  
     export TENANT_ID=<your tenant id>
@@ -239,9 +244,6 @@ Vous pouvez utiliser les exemples suivants en guise de références pour la cré
     export AZURE_SUBSCRIPTION_ID=<your subscription id>
     export ARM_ENDPOINT=<your Azure Stack Hub Resource manager URL>
     ```
-
-    > [!Note]  
-    > Sous Windows, utilisez **set** plutôt que **export**.
 
 5.  Ouvrez le fichier `index.js` d’exemple d’application.
 
@@ -401,5 +403,5 @@ return resourceClient.resourceGroups.deleteMethod(resourceGroupName, callback);
 
 Pour plus d’informations sur les profils d’API, consultez les articles suivants :
 
-- [Gérer les profils de version des API dans Azure Stack Hub](azure-stack-version-profiles.md)
+- [Gérer les profils de version d’API dans Azure Stack Hub](azure-stack-version-profiles.md)
 - [Versions des API du fournisseur de ressources prises en charge par des profils dans Azure Stack](azure-stack-profiles-azure-resource-manager-versions.md)

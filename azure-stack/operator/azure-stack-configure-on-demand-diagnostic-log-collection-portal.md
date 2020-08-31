@@ -3,16 +3,16 @@ title: Envoyer les journaux de diagnostic Azure Stack Hub maintenant
 description: Découvrez comment collecter les journaux de diagnostic à la demande dans Azure Stack Hub en utilisant le portail administrateur ou un script PowerShell.
 author: justinha
 ms.topic: article
-ms.date: 03/30/2020
+ms.date: 08/24/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 03/30/2020
-ms.openlocfilehash: a4939e308b4f91fc0a9821499bb51615d11ab131
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 08/24/2020
+ms.openlocfilehash: abcf70b6d714f9a759aeaa9a7f591a60e195594f
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489247"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764645"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-now"></a>Envoyer les journaux de diagnostic Azure Stack Hub maintenant
 
@@ -31,6 +31,14 @@ Spécifiez l’heure de début et de fin de la collecte des journaux, puis cliqu
 
 ![Capture d’écran de l’option permettant d’envoyer des journaux maintenant](media/azure-stack-help-and-support/send-logs-now.png)
 
+
+::: moniker-end
+::: moniker range=">= azs-2005"
+## <a name="save-logs-locally"></a>Enregistrer les journaux localement
+
+Vous pouvez enregistrer des journaux dans un partage SMB local lorsque Azure Stack Hub est déconnecté d’Azure. Dans le panneau **Paramètres**, entrez le chemin d’accès et un nom d’utilisateur et un mot de passe avec l’autorisation d’écrire sur le partage. Au cours d’un cas de support, le Support Microsoft fournit des étapes détaillées sur la façon dont ces journaux locaux doivent être transférés. Si le portail d’administration n’est pas disponible, vous pouvez utiliser la cmdlet [Get-AzureStackLog](azure-stack-get-azurestacklog.md) pour enregistrer les journaux localement.
+
+![Capture d’écran des options de collecte des journaux de diagnostic](media/azure-stack-help-and-support/save-logs-locally.png)
 
 ::: moniker-end
 ::: moniker range="<= azs-1910"

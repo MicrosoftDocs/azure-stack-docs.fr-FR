@@ -3,16 +3,16 @@ title: Ajouter des images Linux dans la Place de marché Azure Stack Hub
 description: Découvrez comment ajouter des images Linux dans la Place de marché Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 08/24/2020
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 11/16/2019
-ms.openlocfilehash: 32cdb1ec98f9825a63b5acfa68e4c8e3f43089a7
-ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
+ms.openlocfilehash: 32e16bac548193a7c0af517c3a60e78a3e52f3ce
+ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82967724"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88857532"
 ---
 # <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>Ajouter des images Linux dans la Place de marché Azure Stack Hub
 
@@ -30,7 +30,7 @@ Dans la mesure du possible, téléchargez les images disponibles par l’interm�
 
 ### <a name="azure-linux-agent"></a>Agent Linux Azure
 
-L’Agent Azure Linux (généralement appelé **WALinuxAgent** ou **walinuxagent**) est nécessaire ; certaines versions de l’agent ne fonctionnent pas sur Azure Stack Hub. Les versions entre 2.2.21 et 2.2.34 (incluses) ne sont pas prises en charge dans Azure Stack Hub. Pour utiliser les dernières versions de l’agent qui sont postérieures à 2.2.35, appliquez le correctif logiciel 1901/1902, ou mettez à jour votre environnement Azure Stack Hub avec la version 1903 (ou supérieure). Notez que [cloud-init](https://cloud-init.io/) est pris en charge dans les versions Azure Stack Hub au-delà de la build 1910.
+L’Agent Azure Linux (généralement appelé **WALinuxAgent** ou **walinuxagent**) est nécessaire ; certaines versions de l’agent ne fonctionnent pas sur Azure Stack Hub. Les versions entre 2.2.21 et 2.2.34 (incluses) ne sont pas prises en charge dans Azure Stack Hub. Pour utiliser les dernières versions de l’agent postérieures à la version 2.2.35, appliquez le correctif logiciel 1901/1902, ou mettez à jour votre environnement Azure Stack Hub vers la version 1903 (ou version ultérieure). Notez que [cloud-init](https://cloud-init.io/) est pris en charge dans les versions d’Azure Stack Hub au-delà de la build 1910.
 
 | Build Azure Stack Hub | Build Agent Linux Azure |
 | ------------- | ------------- |
@@ -53,7 +53,7 @@ Vous pouvez préparer votre propre image Linux en appliquant les instructions su
 
 ## <a name="cloud-init"></a>Cloud-Init
 
-[cloud-init](https://cloud-init.io/) est pris en charge dans les versions Azure Stack Hub au-delà de la build 1910. Pour utiliser cloud-init afin de personnaliser votre machine virtuelle Linux, vous pouvez utiliser les instructions PowerShell suivantes.
+[cloud-init](https://cloud-init.io/) est pris en charge dans les versions Azure Stack Hub postérieures à la build 1910. Pour utiliser cloud-init afin de personnaliser votre machine virtuelle Linux, vous pouvez utiliser les instructions PowerShell suivantes.
 
 ### <a name="step-1-create-a-cloud-inittxt-file-with-your-cloud-config"></a>Étape 1 : Créer un fichier cloud-init.txt avec votre code cloud-config
 

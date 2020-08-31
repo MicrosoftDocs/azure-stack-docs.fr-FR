@@ -7,12 +7,12 @@ ms.date: 06/18/2020
 ms.author: bryanla
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 16b8ca5999507bd64d3416c3ee22fdd5c827c8b5
-ms.sourcegitcommit: 874ad1cf8ce7e9b3615d6d69651419642d5012b4
+ms.openlocfilehash: e99c1cc09f3dc6b0a04ff22f5b5dc96004ba305e
+ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85107167"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88857506"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Configurer l’architecture multilocataire dans Azure Stack Hub
 
@@ -24,16 +24,17 @@ Vous pouvez configurer Azure Stack Hub pour prendre en charge l’utilisation de
 
 Ce guide fournit les étapes nécessaires, dans le cadre de ce scénario, pour configurer une architecture multilocataire dans Azure Stack Hub. Dans ce scénario, Marie et vous-même devez effectuer des étapes pour permettre aux utilisateurs de Fabrikam de se connecter et d’utiliser les services du déploiement Azure Stack Hub dans Contoso.
 
+Si vous êtes un fournisseur de solutions cloud (CSP), vous pouvez [configurer et gérer un Azure Stack Hub mutualisé](azure-stack-add-manage-billing-as-a-csp.md). 
+
 ## <a name="enable-multi-tenancy"></a>Activer l’architecture mutualisée
 
 Il existe quelques prérequis à prendre en compte avant de configurer une architecture multilocataire Azure Stack Hub :
   
  - Marie et vous-même devez coordonner les étapes administratives dans l’annuaire où Azure Stack Hub est installé (Contoso) et dans l’annuaire invité (Fabrikam).
  - Vérifiez que vous avez [installé](azure-stack-powershell-install.md) et [configuré](azure-stack-powershell-configure-admin.md) PowerShell pour Azure Stack Hub.
- - [Téléchargez les outils Azure Stack Hub](azure-stack-powershell-download.md) et importez les modules de connexion et d’identité :
+ - [Téléchargez les outils Azure Stack Hub](azure-stack-powershell-download.md) et importez les modules de d’identité :
 
     ```powershell
-    Import-Module .\Connect\AzureStack.Connect.psm1
     Import-Module .\Identity\AzureStack.Identity.psm1
     ```
 
@@ -168,10 +169,9 @@ $healthReport.directoryTenants | Where status -NE 'Healthy' | Select -Property t
 
 ### <a name="update-azure-ad-tenant-permissions"></a>Mettre à jour les autorisations de locataire Azure AD
 
-Cette action désactivera l’alerte dans Azure Stack Hub, indiquant qu’un annuaire a besoin d’une mise à jour. Exécutez les commandes suivantes à partir du dossier **Azurestack-tools-master/identity** :
+Cette action désactivera l’alerte dans Azure Stack Hub, indiquant qu’un annuaire a besoin d’une mise à jour. Exécutez la commande suivante à partir du dossier **Azurestack-tools-master/identity** :
 
 ```powershell
-Import-Module ..\Connect\AzureStack.Connect.psm1
 Import-Module ..\Identity\AzureStack.Identity.psm1
 
 $adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"

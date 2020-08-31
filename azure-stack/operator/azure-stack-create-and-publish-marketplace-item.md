@@ -3,16 +3,16 @@ title: Créer et publier un élément de la Place de marché dans Azure Stack Hu
 description: Découvrez comment créer et publier un élément de la Place de marché Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/11/2020
+ms.date: 08/18/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 16ea5f5873e7904931fb05d6113c0b6cb74f9612
-ms.sourcegitcommit: bc246d59f4ad42cc2cc997884f9d52c5097f0964
+ms.openlocfilehash: db8a05c8a3f8d4c219cb37de018df46c60f39348
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85069123"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764543"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Créer et publier un élément personnalisé de Place de marché Azure Stack Hub
 
@@ -22,10 +22,14 @@ Chaque élément publié sur la Place de marché Azure Stack Hub utilise le form
 
 Les exemples de cet article montrent comment créer une offre de la Place de marché de machines virtuelles, de type Windows ou Linux.
 
-## <a name="create-a-marketplace-item"></a>Créer un élément de Marketplace
+### <a name="prerequisites"></a>Prérequis
 
-> [!IMPORTANT]
-> Avant de créer l’élément de Place de marché de machines virtuelles, chargez l’image de machine virtuelle personnalisée sur le portail Azure Stack Hub, en suivant les instructions de [Ajouter une image de machine virtuelle à Azure Stack Hub](azure-stack-add-vm-image.md). Ensuite, suivez les instructions de cet article pour empaqueter l’image (créer un fichier .azpkg) et la charger sur la Place de marché Azure Stack Hub.
+Avant de créer l’élément de la Place de marché de machines virtuelles, procédez comme suit :
+
+1. Chargez l’image de machine virtuelle personnalisée sur le portail Azure Stack Hub en suivant les instructions de la section [Ajouter une image de machine virtuelle à Azure Stack Hub](azure-stack-add-vm-image.md). 
+2. Suivez les instructions de cet article pour empaqueter l’image (créer un fichier .azpkg) et la charger sur la Place de marché Azure Stack Hub.
+
+## <a name="create-a-marketplace-item"></a>Créer un élément de Marketplace
 
 Pour créer un élément de Place de marché personnalisé, procédez comme suit :
 
@@ -46,6 +50,8 @@ Pour créer un élément de Place de marché personnalisé, procédez comme suit
    > [!NOTE]  
    > Ne codez jamais en dur des secrets tels que des clés de produit, des mots de passe ou des informations d’identification de client dans le modèle Azure Resource Manager. Les fichiers modèles JSON sont accessibles sans authentification une fois qu’ils sont publiés dans la galerie. Stockez tous les secrets dans [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) et appelez-les à partir du modèle.
 
+   Avant de publier votre propre modèle personnalisé, il est recommandé de publier l’exemple tel quel, et de vous assurer qu’il fonctionne dans votre environnement. Une fois que vous avez vérifié que cette étape fonctionne, supprimez l’exemple de la galerie et effectuez des modifications itératives jusqu’à ce que vous soyez satisfait du résultat.
+
    Le modèle suivant est un exemple de fichier Manifest.json :
 
     ```json
@@ -61,29 +67,19 @@ Pour créer un élément de Place de marché personnalisé, procédez comme suit
        "longSummary": "ms-resource:longSummary",
        "description": "ms-resource:description",
        "longDescription": "ms-resource:description",
-       "uiDefinition": {
-          "path": "UIDefinition.json" (7)
-          },
        "links": [
         { "displayName": "ms-resource:documentationLink", "uri": "http://go.microsoft.com/fwlink/?LinkId=532898" }
         ],
        "artifacts": [
           {
-             "name": "<Template name>",
-             "type": "Template",
-             "path": "DeploymentTemplates\\<Template name>.json", (8)
              "isDefault": true
           }
        ],
-       "categories":[ (9)
-          "Custom",
-          "<Template name>"
-          ],
        "images": [{
           "context": "ibiza",
           "items": [{
              "id": "small",
-             "path": "icons\\Small.png", (10)
+             "path": "icons\\Small.png", (7)
              "type": "icon"
              },
              {
@@ -113,10 +109,7 @@ Pour créer un élément de Place de marché personnalisé, procédez comme suit
     - (4) : Nom que les clients voient.
     - (5) : Nom de l’éditeur que les clients voient.
     - (6) : Raison sociale de l’éditeur.
-    - (7) : Chemin vers l’emplacement de stockage de votre fichier **UIDefinition.json**.  
-    - (8) : Chemin et nom de votre fichier de modèle principal JSON.
-    - (9) : Noms des catégories dans lesquelles ce modèle est affiché.
-    - (10) : Chemin et nom pour chaque icône.
+    - (7) : Chemin et nom pour chaque icône.
 
 5. Pour tous les champs qui référencent **ms-resource**, vous devez changer les valeurs appropriées dans le fichier **strings/resources.json** :
 
@@ -130,8 +123,6 @@ Pour créer un élément de Place de marché personnalisé, procédez comme suit
     "documentationLink": "Documentation"
     }
     ```
-
-    ![Affichage du package](media/azure-stack-create-and-publish-marketplace-item/pkg1.png)![Affichage du package](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
 
 6. Pour garantir la réussite du déploiement de la ressource, testez le modèle avec les [API Azure Stack Hub](../user/azure-stack-profiles-azure-resource-manager-versions.md).
 
@@ -186,12 +177,12 @@ Pour créer un élément de Place de marché personnalisé, procédez comme suit
 
 6. Une fois que votre élément a été publié sur la Place de marché, vous pouvez supprimer le contenu du compte de stockage.
 
-   > [!CAUTION]  
-   > Tous les artefacts par défaut et vos artefacts personnalisés de la galerie sont désormais accessibles sans authentification sous les URL suivantes :  
-   `https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
-   `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
+   Tous les artefacts par défaut et vos artefacts personnalisés de la galerie sont désormais accessibles sans authentification sous les URL suivantes :
 
-6. Vous pouvez supprimer un article de Marketplace avec la cmdlet **Remove-AzureRMGalleryItem**. Par exemple :
+   - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+   - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+
+7. Vous pouvez supprimer un article de Marketplace avec la cmdlet **Remove-AzureRMGalleryItem**. Par exemple :
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose

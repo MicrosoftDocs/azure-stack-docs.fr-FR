@@ -7,12 +7,12 @@ ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 1fc7914755cfa78cf02fa13101559caca766d20c
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 400ae8a487d18b37efdfc52c087019183702a638
+ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250858"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88857569"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Gérer l’utilisation et la facturation d’Azure Stack Hub en tant que fournisseur de solutions cloud
 
@@ -32,6 +32,10 @@ Choisissez le type de compte de services partagés que vous utilisez pour Azure 
 
 - Fournisseur de solutions cloud
 - Abonnement Partner Shared Services
+
+Nous avons créé une vidéo didactique pour vous aider à comprendre comment gérer vos droits mutualisés :
+
+> [!VIDEO https://www.youtube.com/embed/ZP6jkbLeS34]
 
 #### <a name="azure-partner-shared-services"></a>Azure Partner Shared Services
 

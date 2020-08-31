@@ -1,27 +1,28 @@
 ---
-title: Obtenir des demandes de signature de certificat pour le déploiement dans Azure Stack Hub
-description: Découvrez comment obtenir des demandes de signature de certificat pour des certificats PKI Azure Stack Hub dans les systèmes intégrés Azure Stack Hub.
+title: Générer des demandes de signature de certificat pour Azure Stack Hub
+description: Découvrez comment générer des demandes de signature de certificat pour des certificats PKI Azure Stack Hub dans les systèmes intégrés Azure Stack Hub.
 author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 37f308a9b554453a1f7c10219d68b1255c23cbf0
-ms.sourcegitcommit: 09fbc4e8fc53828647d515bfb556dfe42df28c19
+ms.openlocfilehash: 6bcdc7aacfadb37d348eaa33449065b9fb345446
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86419263"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88818349"
 ---
-# <a name="get-certificate-signing-requests-for-deployment-in-azure-stack-hub"></a>Obtenir des demandes de signature de certificat pour le déploiement dans Azure Stack Hub
+# <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Générer des demandes de signature de certificat pour Azure Stack Hub
 
 Vous pouvez utiliser l’outil Azure Stack Hub Readiness Checker pour créer des demandes de signature de certificat (CSR) adaptées à un déploiement Azure Stack Hub. Les certificats doivent être demandés, générés et validés avec suffisamment de temps pour les tester avant le déploiement. Vous pouvez obtenir l’outil à partir de [PowerShell Gallery](https://aka.ms/AzsReadinessChecker).
 
 L’outil Azure Stack Hub Readiness Checker (AzsReadinessChecker) permet de demander les certificats suivants :
 
-- **Demandes de certificat standard** conformes à [Générer une demande de signature de certificat](azure-stack-get-pki-certs.md).
-- **Plateforme en tant que service (PaaS)** : Vous pouvez demander des noms PaaS pour les certificats comme spécifié dans [Exigences de certificat pour infrastructure à clé publique Azure Stack Hub - Certificats PaaS facultatifs](azure-stack-pki-certs.md).
+- **Demandes de certificat standard** conformes à [Générer une demande de signature de certificat pour les nouveaux déploiements](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments).
+- **Demandes de renouvellement de certificat** conformes à [Générer une demande de signature de certificat pour le renouvellement de certificat](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-certificate-renewal).
+- **Plateforme en tant que service (PaaS)** : Vous pouvez demander des noms PaaS pour les certificats comme spécifié dans [Exigences de certificat pour infrastructure à clé publique Azure Stack Hub - Certificats PaaS facultatifs](azure-stack-pki-certs.md#optional-paas-certificates).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -137,15 +138,15 @@ Suivez les étapes ci-après afin de préparer des demandes de signature de cert
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2. Déclarez le **stampEndpoint**. Par exemple :
+2. Déclarez le point de terminaison d’horodatage **stampEndpoint** sous la forme de regionname.domain.com du système Azure Stack Hub. Par exemple (si l’adresse du portail du locataire Azure Stack Hub est https://portal.east.azurestack.contoso.com):
 
     ```powershell  
-    $stampEndpoint = 'portal.east.azurestack.contoso.com'
+    $stampEndpoint = 'east.azurestack.contoso.com'
     ```
 
     > [!NOTE]  
-    > Une connectivité HTTPS est nécessaire pour le point de terminaison ci-dessus.
-    > Le point de terminaison ci-dessus doit correspondre à l’un des certificats nécessaires au type de certificat. Par exemple, pour les certificats de déploiement, le point de terminaison portal.region.domain est nécessaire, pour AppServices, sso.appservices.region.domain est nécessaire, etc. Le certificat lié au point de terminaison va être utilisé pour cloner des attributs tels que le sujet, la longueur de clé et l’algorithme de signature.  Un seul point de terminaison existant est nécessaire. Toutes les demandes de signature vont créer l’ensemble des certificats nécessaires.
+    > Une connexion HTTPS est requise pour le système Azure Stack Hub ci-dessus.
+    > L’outil de vérification de la disponibilité utilise le point de terminaison d’horodatage stampendpoint (région et domaine) pour créer un pointeur vers un certificat existant requis par le type de certificat. Par exemple, pour les certificats de déploiement, l’outil ajoute « portal » devant. Ainsi, portal.east.azurestack.contoso.com est utilisé dans le clonage de certificat pour les AppServices sso.appservices.east.azurestack.contoso.com, etc. Le certificat lié au point de terminaison calculé va être utilisé pour cloner des attributs tels que le sujet, la longueur de clé et l’algorithme de signature.  Si vous souhaitez modifier l’un de ces attributs, vous devez plutôt suivre les étapes décrites dans [Générer une demande de signature de certificat pour les nouveaux déploiements](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments).
 
 3. Déclarez un répertoire de sortie qui existe déjà. Par exemple :
 

@@ -1,47 +1,46 @@
 ---
 title: Préparer des certificats PKI Azure Stack Hub pour un déploiement ou une rotation
 titleSuffix: Azure Stack Hub
-description: Découvrez comment préparer des certificats PKI pour un déploiement de systèmes intégrés Azure Stack Hub ou la rotation de secrets dans un environnement Azure Stack Hub existant.
+description: Découvrez comment préparer des certificats PKI pour le déploiement d’Azure Stack Hub ou la rotation des secrets.
 author: IngridAtMicrosoft
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: fa252ee475cc58fa13429ec7ef9a6cbbf37b6a0f
-ms.sourcegitcommit: 9bbaa8dc7edb9632f1d06f76ebf8f49c8cb8eed6
+ms.openlocfilehash: 3d129c3ed588fbaaa2ca234d19890c88b2dad364
+ms.sourcegitcommit: e72145ebb5eac17a47ba1c9119fd31de545fdace
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86437130"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88724895"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>Préparer des certificats PKI Azure Stack Hub pour un déploiement ou une rotation
 
-Les fichiers de certificat [obtenus auprès de l’autorité de certification de votre choix](azure-stack-get-pki-certs.md) doivent être importés et exportés avec des propriétés correspondant aux exigences de certificat d’Azure Stack Hub.
+Les fichiers de certificat [obtenus auprès de l’autorité de certification](azure-stack-get-pki-certs.md) doivent être importés et exportés avec des propriétés correspondant aux exigences de certificat d’Azure Stack Hub.
 
-## <a name="prepare-certificates-for-deployment-with-azure-stack-readiness-checker"></a>Préparer les certificats pour un déploiement avec Azure Stack Readiness Checker
-
-Utilisez l’outil Azure Stack Hub Readiness Checker afin d’importer, de packager et de valider les certificats prêts pour un déploiement ou une rotation.
+Cet article explique comment importer, empaqueter et à valider des certificats afin de préparer le déploiement d’Azure Stack Hub ou la rotation des secrets. 
 
 ## <a name="prerequisites"></a>Prérequis
 
 Votre système doit respecter les prérequis suivants afin de permettre le packaging des certificats PKI pour un déploiement Azure Stack Hub :
 
-- Outil Microsoft Azure Stack Hub Readiness Checker
-- Certificats retournés par l’autorité de certification dans un seul répertoire au format .cer (autres formats configurables : .cert, .sst ou .pfx).
-- Windows 10 ou Windows Server 2016 (ou version ultérieure)
-- Utilisez le même système que celui qui a généré la demande de signature de certificat (sauf si vous ciblez un certificat prépackagé en PFX).
+- stockage des certificats retournés par l’autorité de certification dans un seul répertoire au format .cer (autres formats configurables : .cert, .sst ou .pfx) ;
+- Windows 10 ou Windows Server 2016 ou version ultérieure ;
+- utilisation du système qui a généré la demande de signature de certificat (sauf si vous ciblez un certificat prépackagé en PFX).
 
-## <a name="generate-certificate-signing-requests-for-new-deployments"></a>Générer des demandes de signature de certificat pour les nouveaux déploiements
+Passez à la section [Préparer les certificats (Azure Stack Readiness Checker)](#prepare-certificates-azure-stack-readiness-checker) ou [Préparer les certificats (étapes manuelles)](#prepare-certificates-manual-steps).
 
-Suivez les étapes ci-après afin de packager des certificats pour les nouveaux certificats PKI Azure Stack Hub :
+## <a name="prepare-certificates-azure-stack-readiness-checker"></a>Préparer les certificats (Azure Stack Readiness Checker)
 
-1. Installez AzsReadinessChecker à partir d’une invite PowerShell (5.1 ou version ultérieure) en exécutant l’applet de commande suivante :
+Suivez les étapes ci-après pour empaqueter des certificats à l’aide des cmdlets PowerShell d’Azure Stack Readiness Checker :
+
+1. Installez le module Azure Stack Readiness Checker à partir d’une invite PowerShell (5.1 ou version ultérieure) en exécutant la cmdlet suivante :
 
     ```powershell  
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
-2. Déclarez le **Path** où les certificats résident sur le disque. Par exemple :
+2. Spécifiez le **chemin d’accès** aux fichiers de certificat. Par exemple :
 
     ```powershell  
         $Path = "$env:USERPROFILE\Documents\AzureStack"
@@ -124,9 +123,9 @@ Suivez les étapes ci-après afin de packager des certificats pour les nouveaux 
 
     Après une validation réussie, les certificats peuvent être présentés pour un déploiement ou une rotation sans étapes supplémentaires.
 
-## <a name="prepare-certificates-for-deployment-manual-steps"></a>Préparer les certificats pour un déploiement (étapes manuelles)
+## <a name="prepare-certificates-manual-steps"></a>Préparer les certificats (étapes manuelles)
 
-Procédez comme suit pour préparer et valider les certificats PKI Azure Stack Hub à utiliser pour déployer un nouvel environnement Azure Stack Hub ou opérer la rotation de secrets dans un environnement Azure Stack Hub.
+Suivez les étapes ci-après pour packager les nouveaux certificats PKI Azure Stack Hub manuellement :
 
 ### <a name="import-the-certificate"></a>Importer le certificat
 
@@ -144,7 +143,7 @@ Procédez comme suit pour préparer et valider les certificats PKI Azure Stack 
 
    ![Configurer le magasin de certificats pour l’importation de certificats](./media/prepare-pki-certs/3.png)
 
-   a. Si vous importez un fichier PFX, une boîte de dialogue supplémentaire s’affiche. Sur la page **Protection de la clé privée**, entrez le mot de passe correspondant à vos fichiers de certificat, puis activez l’option **Marquer cette clé comme exportable. Cela vous permet de sauvegarder ou transporter vos clés ultérieurement**. Sélectionnez **Suivant**.
+   a. Si vous importez un fichier PFX, une boîte de dialogue supplémentaire s’affiche. Dans la page **Protection de la clé privée**, entrez le mot de passe de vos fichiers de certificat, puis activez l’option **Marquer cette clé comme exportable** qui vous permettra de sauvegarder ou de transporter vos clés ultérieurement. Sélectionnez **Suivant**.
 
    ![Marquer la clé comme exportable](./media/prepare-pki-certs/2.png)
 
@@ -181,14 +180,14 @@ Ouvrez la console MMC du Gestionnaire de certificats et connectez-vous au magasi
    - Sélectionnez **Inclure tous les certificats dans le certificat si possible**.  
    - Sélectionnez **Exporter toutes les propriétés étendues**.  
    - Sélectionnez **Activer la confidentialité de certificat**.  
-   - Cliquez sur **Suivant**.  
+   - Sélectionnez **Suivant**.  
     
      ![Assistant Exportation du certificat avec options sélectionnées](./media/prepare-pki-certs/azure-stack-save-cert.png)
 
 8. Sélectionnez **Mot de passe** et indiquez un mot de passe pour les certificats. Créez un mot de passe qui répond aux exigences suivantes de complexité des mots de passe :
 
     * Longueur minimale de huit caractères.
-    * Au moins trois des éléments suivants : lettres majuscules, lettres minuscules, chiffres de 0 à 9, caractères spéciaux, caractères alphabétiques autres que des majuscules ou des minuscules.
+    * Au moins trois des caractères suivants : majuscules, minuscules, chiffres de 0 à 9, caractères spéciaux, caractères alphabétiques autres que des majuscules ou des minuscules.
 
     Notez ce mot de passe. Vous allez l’utiliser en tant que paramètre de déploiement.
 
