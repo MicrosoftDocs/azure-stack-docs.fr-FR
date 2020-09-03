@@ -3,16 +3,16 @@ title: Infrastructure des rapports d’utilisation pour les fournisseurs de solu
 description: Découvrez plus d’informations sur l’infrastructure des rapports d’utilisation utilisée pour suivre l’utilisation des locataires gérés par un fournisseur de solutions cloud (CSP).
 author: sethmanheim
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 2a154390f3d3aef4af93d12899a6a658be41d884
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: f3d5ba6cfe8f8006de7dd11c03194ebf29ca698c
+ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742383"
+ms.lasthandoff: 08/29/2020
+ms.locfileid: "89089675"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Infrastructure des rapports d’utilisation pour les fournisseurs de solutions cloud
 

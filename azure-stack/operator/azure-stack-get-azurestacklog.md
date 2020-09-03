@@ -4,16 +4,16 @@ description: Découvrez comment collecter les journaux de diagnostic à la deman
 author: justinha
 ms.custom: conteperfq4
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 09/02/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 06/30/2020
-ms.openlocfilehash: b8be0f88b53bb599b716d50ac75e1d6d18515475
-ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
+ms.lastreviewed: 09/02/2020
+ms.openlocfilehash: 29f46fceab5e87bc7dff59a4e4c80a48fa8f34fc
+ms.sourcegitcommit: cf99d632ca2afccba4aaad5c8a013ba3443bcd54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85764586"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89410954"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>Envoyer des journaux de diagnostic Azure Stack Hub à l’aide du point de terminaison privilégié
 
@@ -83,25 +83,25 @@ if ($session) {
 * Collecter les journaux pour les fournisseurs de ressources à valeur ajoutée. La syntaxe générale est la suivante :
  
   ```powershell
-  Get-AzureStackLogs -FilterByResourceProvider <<value-add RP name>>
+  Get-AzureStackLog -FilterByResourceProvider <<value-add RP name>>
   ```
  
   Pour collecter les journaux pour IoT Hub : 
 
   ```powershell
-  Get-AzureStackLogs -FilterByResourceProvider IotHub
+  Get-AzureStackLog -FilterByResourceProvider IotHub
   ```
  
   Pour collecter les journaux pour Event Hubs :
 
   ```powershell
-  Get-AzureStackLogs -FilterByResourceProvider eventhub
+  Get-AzureStackLog -FilterByResourceProvider eventhub
   ```
  
   Pour collecter les journaux pour Azure Stack Edge :
 
   ```powershell
-  Get-AzureStackLogs -FilterByResourceProvide databoxedge
+  Get-AzureStackLog -FilterByResourceProvide databoxedge
   ```
 
 * Collectez les journaux et stockez-les dans le conteneur d’objets blob Stockage Azure spécifié. La syntaxe générale de cette opération est la suivante :

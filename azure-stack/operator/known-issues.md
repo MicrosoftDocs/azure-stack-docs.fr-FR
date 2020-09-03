@@ -3,16 +3,16 @@ title: Problèmes connus d’Azure Stack Hub
 description: Découvrez les problèmes connus des versions d’Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/25/2020
+ms.date: 09/02/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: d403128cfe2cfe34bb9f5ed188a8591656819e1e
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.openlocfilehash: 664d89ecfde65906bbda33d71d9adc24284a33ba
+ms.sourcegitcommit: cf99d632ca2afccba4aaad5c8a013ba3443bcd54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818332"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89410971"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Problèmes connus d’Azure Stack Hub
 
@@ -39,13 +39,6 @@ Pour accéder aux problèmes connus d'une autre version, utilisez le menu dérou
 Pour plus d’informations sur les problèmes connus de mise à jour d’Azure Stack Hub, consultez [Résolution des problèmes des mises à jour dans Azure Stack Hub](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates).
 
 ## <a name="portal"></a>Portail
-
-### <a name="subscription-permissions"></a>Autorisations d’abonnement
-
-- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Vous ne pouvez pas voir les autorisations définies pour votre abonnement à l’aide des portails Azure Stack Hub.
-- Correction : Utilisez [PowerShell pour vérifier les autorisations](/powershell/module/azurerm.resources/get-azurermroleassignment).
-- Occurrence : Courant
 
 ### <a name="administrative-subscriptions"></a>Abonnements d’administration
 
@@ -120,6 +113,12 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Cause : Lors de la création d’une machine virtuelle, vous pouvez recevoir une erreur telle que **Cet abonnement a atteint sa capacité maximale pour Total des processeurs virtuels régionaux à cet emplacement. Cet abonnement utilise l’ensemble des 50 Total des processeurs virtuels régionaux disponibles.** . Cela indique que le quota pour le nombre total de cœurs à votre disposition a été atteint.
 - Correction : Demandez à votre opérateur un plan additionnel avec un quota supplémentaire. La modification du quota du plan actuel ne fonctionne pas ou ne reflète pas l’augmentation du quota.
 - Occurrence : Rare
+
+### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Le panneau de vue d’ensemble de la machine virtuelle n’affiche pas le nom correct de l’ordinateur
+
+- Champ d’application : Ce problème concerne toutes les versions.
+- Cause : Quand vous affichez les détails d’une machine virtuelle dans le panneau de vue d’ensemble, le nom de l’ordinateur s’affiche comme **(non disponible)** . Cela est dû à la conception des machines virtuelles créées à partir de disques spécialisés/instantanés de disque.
+- Correction : Affichez le panneau **Propriétés** sous **Paramètres**.
 
 ### <a name="virtual-machine-scale-set"></a>Jeu de mise à l’échelle de machine virtuelle
 

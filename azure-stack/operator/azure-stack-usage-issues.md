@@ -3,16 +3,16 @@ title: Problèmes et erreurs de connectivité liés à l’utilisation d’Azure
 description: Résolution des problèmes et erreurs liés à l'utilisation d'Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: a2c7ed968eeb6cbe9245590c6c0a75479294c916
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 50dda23de11c9da1913231da780c1005520706a7
+ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742393"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89041585"
 ---
 # <a name="usage-connectivity-errors"></a>Erreurs de connectivité d’utilisation
 

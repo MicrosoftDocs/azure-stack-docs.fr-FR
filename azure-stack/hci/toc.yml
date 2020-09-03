@@ -98,6 +98,8 @@
       href: concepts/updates.md
     - name: Choisir des lecteurs
       href: concepts/choose-drives.md
+    - name: Considérations relatives à la symétrie des lecteurs
+      href: concepts/drive-symmetry-considerations.md
     - name: Planifier des volumes
       href: concepts/plan-volumes.md
     - name: SDN (Software Defined Network)
