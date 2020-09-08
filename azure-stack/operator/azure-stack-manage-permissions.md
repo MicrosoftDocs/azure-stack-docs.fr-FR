@@ -7,12 +7,12 @@ ms.date: 12/23/2019
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: c54e086ad8edefcb8e7a799c5153af6b7ce5b194
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 0960e2519fbeb476aa55fbb8a27a58a59ccb99c9
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488533"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965073"
 ---
 # <a name="set-access-permissions-using-role-based-access-control"></a>Définir des autorisations d’accès en utilisant le contrôle d’accès en fonction du rôle
 
@@ -28,7 +28,7 @@ Un utilisateur Azure Stack Hub peut être un lecteur, un propriétaire ou un col
 ## <a name="set-access-permissions-for-a-user"></a>Définir des autorisations d’accès pour un utilisateur
 
 1. Connectez-vous avec un compte disposant des autorisations de propriétaire sur la ressource que vous souhaitez gérer.
-2. Dans le panneau de la ressource, cliquez sur l’icône **Accès**![](media/azure-stack-manage-permissions/image1.png).
+2. Dans le panneau de la ressource, cliquez sur l’icône **Accès** ![L’icône Accès est représentée par deux personnes.](media/azure-stack-manage-permissions/image1.png)
 3. Dans le panneau **Utilisateurs**, cliquez sur **Rôles**.
 4. Dans le panneau **Rôles**, cliquez sur **Ajouter** pour ajouter des autorisations pour l’utilisateur.
 
@@ -38,7 +38,7 @@ Un utilisateur Azure Stack Hub peut être un lecteur, un propriétaire ou un col
 > Applicable uniquement aux services de fédération Active Directory (AD FS).
 
 1. Connectez-vous avec un compte disposant des autorisations de propriétaire sur la ressource que vous souhaitez gérer.
-2. Dans le panneau de la ressource, cliquez sur l’icône **Accès**![](media/azure-stack-manage-permissions/image1.png).
+2. Dans le panneau de la ressource, cliquez sur l’icône **Accès** ![L’icône Accès est représentée par deux personnes.](media/azure-stack-manage-permissions/image1.png)
 3. Dans le panneau **Utilisateurs**, cliquez sur **Rôles**.
 4. Dans le panneau **Rôles**, cliquez sur **Ajouter** pour ajouter des autorisations pour le groupe Active Directory universel.
 

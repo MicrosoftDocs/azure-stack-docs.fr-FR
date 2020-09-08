@@ -3,15 +3,15 @@ title: Déployer une machine virtuelle avec un certificat stocké de façon séc
 description: Découvrez comment déployer une machine virtuelle et y placer un certificat en utilisant un coffre de clés dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 09/01/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 7f193a0a58018217d8b68758546de269f799b90e
-ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
+ms.openlocfilehash: 0291245616570804f7f6ddb22ba619433566507e
+ms.sourcegitcommit: 0714ce748e20065b52f8283d5dbba7ab068978d1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84744865"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89285513"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Déployer une machine virtuelle avec un certificat stocké de façon sécurisée sur Azure Stack Hub
 
@@ -44,7 +44,7 @@ Les étapes suivantes décrivent le processus permettant de placer un certificat
 
 ## <a name="create-a-key-vault-secret"></a>Créer un secret Key Vault
 
-Le script suivant crée un certificat au format .pfx et un coffre de clés, puis stocke le certificat dans le coffre de clés en tant que secret.
+Le script suivant crée un certificat au format .pfx et un coffre de clés, puis stocke le certificat dans le coffre de clés en tant que secret. La propriété `contentType` du secret doit être définie sur `pfx`.
 
 > [!IMPORTANT]
 > Vous devez utiliser le paramètre `-EnabledForDeployment` lors de la création du coffre de clés. Il garantit que le coffre de clés peut être référencé à partir de modèles Azure Resource Manager.

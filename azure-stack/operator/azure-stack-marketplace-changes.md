@@ -3,16 +3,16 @@ title: Nouveautés de la Place de marché Azure Stack Hub
 description: Découvrez les nouveautés de la Place de marché Azure Stack Hub, dont les éléments nouveaux, dépréciés et mis à jour.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 09/01/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 5628758d54dc396fe9936dd0567838069f222d33
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 692f6ca51f2a0e241504914b5f687e172486912b
+ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764611"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89274022"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Changements sur la Place de marché Azure Stack Hub
 
@@ -69,6 +69,7 @@ L’article [Éléments de la Place de marché Azure Stack Hub](azure-stack-mark
 
 ## <a name="updated-marketplace-items"></a>Éléments mis à jour sur la Place de marché
 
+- 31/08/2020 : AKS Base Ubuntu 16.04-LTS Image Distro, août 2020 - version 2020.08.24
 - 21/08/2020 : Windows 10 Entreprise, Version 1903-Bring your own license - version 18362.959.2007101755
 - 21/08/2020 : Windows 10 Pro, Version 1903-Bring your own license - version 18362.959.2007101755
 - 21/08/2020 : Windows 10 Entreprise, Version 1909-Bring your own license - version 18363.959.2007101752

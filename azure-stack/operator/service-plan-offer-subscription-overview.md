@@ -7,12 +7,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 2ebbc1d7a2d6a159c4d35303c833875452c20c01
-ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
+ms.openlocfilehash: 076ea0efb7307ce9a87b04c19608a5b3c723d3f4
+ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85764610"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89274073"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Présentation des services, plans, offres et abonnements Azure Stack Hub
 
@@ -74,6 +74,9 @@ Les plans regroupent un ou plusieurs services. En tant qu’opérateur Azure Sta
 ### <a name="base-plan"></a>Plan de base
 
 Lors de la création d’une offre, l’administrateur de services fédérés peut inclure un plan de base. Ces plans de base sont inclus par défaut lorsqu’un utilisateur s’abonne à cette offre : il a alors accès à tous les fournisseurs de ressources spécifiés dans ces plans (avec les quotas correspondants).
+
+> [!NOTE]
+> Si une offre comporte plusieurs plans de base, la capacité de stockage combinée des plans ne doit pas dépasser le quota de stockage.
 
 ### <a name="add-on-plans"></a>Plans d’extension
 

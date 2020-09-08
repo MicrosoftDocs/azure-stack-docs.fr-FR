@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 3f826291ab387c6e9cb7c830e17104e959986386
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 4cec3da680072323d979aac7bbd6dfbbf7f37b22
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566326"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965192"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Automatisation de la gestion et de la mise à jour des machines virtuelles dans Azure Stack Hub
 Utilisez les fonctionnalités suivantes de la solution Azure Automation pour gérer des machines virtuelles Windows et Linux déployées avec Azure Stack Hub :
@@ -51,7 +51,7 @@ Vous devez ensuite [créer un compte Automation](/azure/automation/automation-cr
 
 5. Répétez les étapes 2 à 4 pour activer l’ensemble des trois solutions. 
 
-   [![](media//vm-update-management/1-sm.PNG "Enable Azure Automation account features")](media//vm-update-management/1-lg.PNG)
+   [![La fenêtre « Diagnostiquer et résoudre les problèmes » affiche deux listes avec trois options mises en surbrillance. Inventaire est sélectionné. Elle contient également une liste déroulante « Espace de travail Log Analytics » et un bouton Activer.](media//vm-update-management/1-sm.PNG "Activer les fonctionnalités de compte Azure Automation")](media//vm-update-management/1-lg.PNG)
 
 ### <a name="enable-azure-monitor-for-vms"></a>Activer Azure Monitor pour machines virtuelles
 
@@ -70,11 +70,11 @@ Une fois l'espace de travail Log Analytics créé, activez les compteurs de perf
 ### <a name="in-the-azure-stack-hub-administrator-portal"></a>Dans le portail administrateur Azure Stack Hub
 Après avoir activé les solutions Azure Automation sur le portail Azure, vous devez vous connecter au portail administrateur Azure Stack Hub en tant qu’administrateur cloud, puis télécharger les extensions **Azure Monitor, Update and Configuration Management** et **Azure Monitor, Update and Configuration Management for Linux** à partir de la Place de marché Azure Stack Hub.
 
-   ![Élément d’extension Azure Monitor, Update and Configuration Management de la Place de marché](media//vm-update-management/2.PNG) 
+   ![La boîte de dialogue « Accueil > Gestion de la Place de marché > Ajouter à partir d’Azure > Azure Monitor, Update and Configuration Management » décrit l’extension et contient un bouton Télécharger.](media//vm-update-management/2.PNG) 
 
 Pour activer la solution Map d’Azure Monitor pour machines virtuelles et obtenir des insights sur les dépendances avec le réseau, téléchargez l’extension **Azure Monitor Dependency Agent** :
 
-   ![Azure Monitor Dependency Agent](media//vm-update-management/2-dependency.PNG) 
+   ![La boîte de dialogue « Accueil > Gestion de la Place de marché > Ajouter à partir d’Azure > Azure Monitor Dependency Agent » décrit l’extension et contient un bouton Télécharger.](media//vm-update-management/2-dependency.PNG) 
 
 ## <a name="enable-update-management-for-azure-stack-hub-vms"></a>Activer Update Management pour les machines virtuelles Azure Stack Hub
 Pour activer la gestion des mises à jour des machines virtuelles Azure Stack Hub, procédez comme suit.
@@ -83,15 +83,15 @@ Pour activer la gestion des mises à jour des machines virtuelles Azure Stack Hu
 
 2. Dans le portail utilisateur Azure Stack Hub, accédez au panneau Extensions des machines virtuelles pour lesquelles vous voulez activer ces solutions, cliquez sur **+ Ajouter**, sélectionnez l’extension **Azure Update and Configuration Management**, puis cliquez sur **Créer** :
 
-   [![](media//vm-update-management/3-sm.PNG "VM extension blade")](media//vm-update-management/3-lg.PNG)
+   [![La boîte de dialogue « Azure Update and Configuration Management » contient des informations explicatives, un bouton Créer (mis en surbrillance) pour ajouter l’extension, ainsi qu’un lien vers plus d’informations.](media//vm-update-management/3-sm.PNG "Panneau Extension de machine virtuelle")](media//vm-update-management/3-lg.PNG)
 
 3. Indiquez la clé primaire et l'ID d’espace de travail précédemment créés pour lier l’agent à l’espace de travail Log Analytics. Cliquez ensuite sur **OK** pour déployer l’extension.
 
-   [![](media//vm-update-management/4-sm.PNG "Providing the WorkspaceID and Key")](media//vm-update-management/4-lg.PNG) 
+   [![La boîte de dialogue « Installer l’extension » contient des zones de texte pour Azure WorkspaceID et WorkspaceKey.](media//vm-update-management/4-sm.PNG "Indication de la clé et de l’ID d’espace de travail")](media//vm-update-management/4-lg.PNG) 
 
 4. Comme décrit dans la [documentation sur la gestion des mises à jour](/azure/automation/automation-update-management), vous devez activer la solution Update Management pour chaque machine virtuelle que vous souhaitez gérer. Pour activer la solution pour toutes les machines virtuelles associées à l’espace de travail, sélectionnez **Gestion des mises à jour**, cliquez sur **Gérer des machines**, puis sélectionnez l’option **Activer sur tous les ordinateurs disponibles et à venir**.
 
-   [![](media//vm-update-management/5-sm.PNG "Enable Update Management solution on all machines")](media//vm-update-management/5-lg.PNG) 
+   [![La boîte de dialogue Gérer les machines - Update Management affiche les machines sur lesquelles Update Management n’est pas activé. Trois options d’activation sont proposées, et l’option « Activer sur toutes les machines disponibles et à venir » est sélectionnée et mise en surbrillance. Un bouton Activer est également présent.](media//vm-update-management/5-sm.PNG "Activer la solution Update Management sur toutes les machines")](media//vm-update-management/5-lg.PNG) 
 
    > [!TIP]
    > Répétez cette étape pour activer chaque solution pour les machines virtuelles Azure Stack Hub associées à l’espace de travail. 
@@ -100,7 +100,7 @@ Une fois l’extension Azure Update and Configuration Management activée, une a
 
 Une fois les machines virtuelles analysées, elles s’affichent dans le compte Azure Automation de la solution Update Management : 
 
-   [![](media//vm-update-management/6-sm.PNG "Azure Automation account in Update Management")](media//vm-update-management/6-lg.PNG) 
+   [![Les machines analysées sont répertoriées. Pour chacune, l’état de conformité, la plateforme, le système d’exploitation et le nombre de mises à jour critiques manquantes sont fournis. Des totaux indiquent le nombre de machines nécessitant votre attention, le nombre de mises à jour manquantes, etc.](media//vm-update-management/6-sm.PNG "Compte Azure Automation dans Update Management")](media//vm-update-management/6-lg.PNG) 
 
 > [!IMPORTANT]
 > L’affichage sur le tableau de bord des données mises à jour provenant des ordinateurs gérés peut prendre entre 30 minutes et 6 heures.

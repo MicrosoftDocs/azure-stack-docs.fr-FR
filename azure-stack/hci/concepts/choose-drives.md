@@ -1,26 +1,28 @@
 ---
-title: Choix des lecteurs pour Azure Stack HCI
-description: Découvrez comment choisir des lecteurs pour les espaces de stockage direct dans Azure Stack HCI.
+title: Choisir des lecteurs pour Azure Stack HCI
+description: Comment choisir des lecteurs pour Azure Stack HCI
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/22/2020
-ms.openlocfilehash: ca2903e6d7680b38f21482076bf46e49097d444f
-ms.sourcegitcommit: cfc453689a5a2f2491ce00ab77a7c5bfddfe01d8
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 09/01/2020
+ms.openlocfilehash: c53ef48ab191a831a981c0a0c91b59efa766c948
+ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997751"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89364709"
 ---
-# <a name="choosing-drives-for-azure-stack-hci"></a>Choix des lecteurs pour Azure Stack HCI
+# <a name="choose-drives-for-azure-stack-hci"></a>Choisir des lecteurs pour Azure Stack HCI
 
 > S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
 
-Cette rubrique fournit des conseils sur le choix de lecteurs pour les [espaces de stockage direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) dans le but de répondre à vos besoins de performances et de capacité pour Azure Stack HCI.
+Cette rubrique fournit des conseils sur le choix de lecteurs répondant à vos besoins de performances et de capacité pour Azure Stack HCI.
 
 ## <a name="drive-types"></a>Types de lecteurs
 
-Pour l’heure, les espaces de stockage direct fonctionnent avec quatre types de lecteurs :
+Actuellement, Azure Stack HCI fonctionne avec quatre types de lecteurs :
 
 | Type de lecteur | Description |
 |----------------------|--------------------------|
@@ -31,15 +33,15 @@ Pour l’heure, les espaces de stockage direct fonctionnent avec quatre types de
 
 ## <a name="built-in-cache"></a>Cache intégré
 
-Les espaces de stockage direct intègrent un cache coté serveur. Il s’agit d’un cache en lecture et écriture volumineux, persistant et en temps réel. Dans les déploiements avec plusieurs types de lecteurs, les espaces de stockage direct utilisent automatiquement tous les lecteurs les plus rapides. Les lecteurs restants sont utilisés pour la capacité.
+Azure Stack HCI intègre un cache coté serveur. Il s’agit d’un cache en lecture et écriture volumineux, persistant et en temps réel. Dans les déploiements avec plusieurs types de lecteurs, les espaces de stockage direct utilisent automatiquement tous les lecteurs les plus rapides. Les lecteurs restants sont utilisés pour la capacité.
 
-Pour plus d’informations, consultez [Présentation du cache dans les espaces de stockage direct](/windows-server/storage/storage-spaces/understand-the-cache).
+Pour plus d’informations, consultez [Présentation du cache dans Azure Stack HCI](cache.md).
 
 ## <a name="option-1--maximizing-performance"></a>Option 1 : Maximisation des performances
 
 Vous devez opter pour une solution « 100 % flash » si vous souhaitez garantir une latence uniforme et prévisible inférieure à une milliseconde pour toutes les opérations aléatoires de lecture et d’écriture de données, ou si vous voulez obtenir un très grand nombre d’E/S par seconde (nous en avons réalisé [plus de 13 millions](https://techcommunity.microsoft.com/t5/storage-at-microsoft/the-new-hci-industry-record-13-7-million-iops-with-windows/ba-p/428314)) ou un débit d’E/S très élevé (nous avons effectué des lectures de plus de 500 Go/s).
 
-Il existe actuellement trois façons de le faire :
+Pour ce faire, plusieurs options s’offrent à vous :
 
 ![All-Flash-Deployment-Possibilities](media/choose-drives/All-Flash-Deployment-Possibilities.png)
 
@@ -96,8 +98,9 @@ Nous vous recommandons de limiter la capacité de stockage totale par serveur à
 
 Pour plus d'informations, consultez également :
 
-- [Fonctionnement du cache dans Azure Stack HCI](cache.md)
-- [Configuration matérielle requise pour les espaces de stockage direct](/windows-server/storage/storage-spaces/storage-spaces-direct-hardware-requirements)
-- [Planification de volumes dans Azure Stack HCI](plan-volumes.md)
+- [Fonctionnement du cache](cache.md)
+- [Déterminer la configuration matérielle requise](../deploy/before-you-start.md#determine-hardware-requirements)
+- [Considérations relatives à la symétrie des lecteurs](drive-symmetry-considerations.md)
+- [Planifier des volumes](plan-volumes.md)
 - [Tolérance de panne et efficacité du stockage](fault-tolerance.md)
 - [Comprendre et déployer la mémoire persistante](/windows-server/storage/storage-spaces/deploy-pmem)

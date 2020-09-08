@@ -4,13 +4,15 @@ description: Comment inscrire Azure Stack HCI auprès d’Azure.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/27/2020
-ms.openlocfilehash: f45d2ada3b9699688b69b8848490b19961c500ac
-ms.sourcegitcommit: f0c032b300d9c640653b1f795a6ea1439e049a6e
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 08/12/2020
+ms.openlocfilehash: aeed44bdc36036272e223cbc1cb740396ce1413e
+ms.sourcegitcommit: 750d8682261ac1a3c47fbeb331ac0b4e6f76a03e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87333822"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89219299"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Connecter Azure Stack HCI à Azure
 
@@ -46,53 +48,44 @@ Vous devez disposer d’autorisations Azure Active Directory pour effectuer le p
 
 ## <a name="register-using-powershell"></a>S’inscrire en utilisant PowerShell
 
-Installez le module PowerShell pour Azure Stack HCI en exécutant la commande PowerShell suivante sur un ou plusieurs serveurs d’un cluster exécutant le système d’exploitation Azure Stack HCI :
+Utilisez la procédure suivante pour inscrire un cluster Azure Stack HCI auprès d’Azure :
 
-```PowerShell
-Install-WindowsFeature RSAT-Azure-Stack-HCI -ComputerName Server1
-```
+1. Connectez-vous à l’un des nœuds de cluster en ouvrant une session PowerShell et en entrant la commande suivante :
 
-Installez les applets de commande requises sur un nœud de cluster ou un PC de gestion :
+   ```PowerShell
+   Enter-PSSession <server-name>
+   ```
 
-```PowerShell
-Install-Module Az.StackHCI
-```
+2. Installez le module PowerShell pour Azure Stack HCI :
+
+   ```PowerShell
+   Install-WindowsFeature RSAT-Azure-Stack-HCI
+   ```
+
+3. Installez les cmdlets nécessaires :
+
+   ```PowerShell
+   Install-Module Az.StackHCI
+   ```
+
    > [!NOTE]
    > 1. Vous pouvez voir une invite comme « Voulez-vous que PowerShellGet installe et importe le fournisseur NuGet maintenant ? ». à laquelle vous devez répondre Oui (Y).
    > 2. Vous pouvez après cela voir une invite « Voulez-vous vraiment installer les modules à partir de PSGallery ? », à laquelle vous devez répondre Oui (Y).
    > 3. Enfin, vous supposerez sans doute que l’installation de l’ensemble du module **Az** va inclure le sous-module **StackHCI** : ce sera le cas ultérieurement. Cependant, selon la convention standard d’Azure PowerShell, les sous-modules en préversion ne sont pas inclus automatiquement : vous devez les spécifier explicitement. Par conséquent pour l’instant, vous devez demander explicitement **Az.StackHCI** comme indiqué ci-dessus.
 
-Pour une expérience plus simple, exécutez la commande suivante sur un nœud de cluster Azure Stack HCI (vous êtes alors invité à vous connecter à Azure) :
+4. Effectuez l’inscription réelle :
 
-```PowerShell
-Register-AzStackHCI  -SubscriptionId "e569b8af-6ecc-47fd-a7d5-2ac7f23d8bfe" [-ResourceName] [-ResourceGroupName]
-```
+   ```PowerShell
+   Register-AzStackHCI  -SubscriptionId "<subscription_ID>" [-ResourceName] [-ResourceGroupName]
+   ```
 
-La syntaxe minimale nécessite seulement l’ID de votre abonnement Azure. Cette syntaxe inscrit le cluster local (dont le serveur local est membre), en tant qu’utilisateur actuel, auprès de l’environnement cloud et de la région Azure par défaut, et utilise des noms intelligents par défaut pour la ressource et le groupe de ressources Azure. 
+   Cette syntaxe inscrit le cluster local (dont le serveur local est membre), en tant qu’utilisateur actuel, auprès de l’environnement cloud et de la région Azure par défaut, et utilise des noms intelligents par défaut pour la ressource et le groupe de ressources Azure, mais vous pouvez ajouter des paramètres à cette commande pour spécifier ces valeurs, si vous le souhaitez.
 
-Si vous préférez inscrire le cluster à l’aide d’un PC de gestion, fournissez le paramètre **-ComputerName** avec le nom d’un serveur du cluster et vos informations d’identification, si nécessaire :
+   Gardez à l’esprit que l’utilisateur qui exécute l’applet de commande `Register-AzStackHCI` doit disposer des autorisations [Azure Active Directory](../manage/manage-azure-registration.md#azure-active-directory-permissions) ; sinon, le processus d’inscription ne se terminera pas et se fermera et l’inscription sera toujours en attente du consentement de l’administrateur. Une fois les autorisations accordées, réexécutez `Register-AzStackHCI` pour finaliser l’inscription.
 
-```PowerShell
-Register-AzStackHCI  -SubscriptionId "e569b8af-6ecc-47fd-a7d5-2ac7f23d8bfe" -ComputerName Server1 [–Credential] [-ResourceName] [-ResourceGroupName]
-```
+5. S’authentifier avec Azure
 
-Par défaut, la ressource Azure créée pour représenter le cluster Azure Stack HCI hérite du nom du cluster et elle est placée dans un nouveau groupe de ressources portant le même nom, plus le suffixe « -rg ». Vous pouvez spécifier un autre nom de ressource ou placer la ressource dans un groupe de ressources existant avec les paramètres facultatifs répertoriés ci-dessus.
-
-Gardez à l’esprit que l’utilisateur qui exécute l’applet de commande `Register-AzStackHCI` doit disposer des autorisations [Azure Active Directory](../manage/manage-azure-registration.md#azure-active-directory-permissions) ; sinon, le processus d’inscription ne se terminera pas et se fermera et l’inscription sera toujours en attente du consentement de l’administrateur. Une fois les autorisations accordées, réexécutez `Register-AzStackHCI` pour finaliser l’inscription.
-
-   > [!NOTE]
-   > Si après l’inscription vous recevez un message d’erreur similaire au message ci-dessous, **réessayez l’inscription dans les 24-48 heures**. L’intégration d’Azure est toujours en cours de déploiement dans toutes les régions. Vous pouvez néanmoins continuer votre évaluation : aucune des fonctionnalités n’en sera affectée. Veillez simplement à revenir et à vous inscrire ultérieurement !
-   >
-   > `Register-AzStackHCI : Azure Stack HCI is not yet available in region <regionName>`
-   >
-   > Pour vérifier si Azure Stack HCI est disponible dans votre région Azure, [utilisez cet outil](https://azure.microsoft.com/global-infrastructure/services/) et recherchez « hci ».
-
-## <a name="authenticate-with-azure"></a>S’authentifier avec Azure
-Une fois que les dépendances ont été installées et que les paramètres ont été validés, vous devez vous authentifier (vous connecter) en utilisant votre compte Azure. Votre compte doit avoir accès à l’abonnement Azure qui a été spécifié pour pouvoir procéder à l’inscription.
-
-Si vous avez exécuté `Register-AzStackHCI` localement sur le système d’exploitation Azure Stack HCI, qui ne peut pas afficher une fenêtre de connexion Azure interactive, vous êtes invité à visiter microsoft.com/devicelogin sur un autre appareil (comme votre PC ou votre téléphone), à entrer le code et à vous connecter. Il s’agit de la même expérience que celle que Microsoft utilise pour d’autres appareils avec des modalités d’entrée limitées, comme Xbox.
-
-Si vous avez exécuté `Register-AzStackHCI` à distance à partir d’un PC de gestion avec expérience de poste de travail, comme Windows 10, une fenêtre de connexion Azure interactive s’affiche. Les invites exactes que vous voyez varient en fonction de vos paramètres de sécurité (par exemple, l’authentification à 2 facteurs). Suivez les invites pour vous connecter.
+   Pour terminer le processus d’inscription, vous devez vous authentifier (vous connecter) à l’aide de votre compte Azure. Votre compte doit avoir accès à l’abonnement Azure, spécifié à l’étape 4 ci-dessus, pour pouvoir procéder à l’inscription. Copiez le code fourni, accédez à microsoft.com/devicelogin sur un autre appareil (comme votre PC ou téléphone), à entrer le code et à vous y connecter. Il s’agit de la même expérience que celle que Microsoft utilise pour d’autres appareils avec des modalités d’entrée limitées, comme Xbox.
 
 Le workflow d’inscription détecte que vous vous êtes connecté et effectue le processus. Vous devez alors être en mesure de voir votre cluster dans le portail Azure.
 

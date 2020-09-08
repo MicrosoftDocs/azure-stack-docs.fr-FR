@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: f719ec7404e19d5e32f87e6fb9bfd5e41146abb0
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 310d9a198c7fb6c9212ff15ff9b838a74bd342d1
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920064"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965294"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>Application multiniveau Windows sur Azure Stack Hub avec SQL Server
 
@@ -22,7 +22,7 @@ Cette architecture de référence montre comment déployer des machines virtuell
 
 L’architecture possède les composants suivants :
 
-![](./media/iaas-architecture-windows-sql-n-tier/image1.png)
+![Le schéma illustre un réseau virtuel composé de six sous-réseaux : Passerelle applicative, Gestion, Couche Web, Couche Entreprise, Couche Données et Active Directory. Le sous-réseau de la couche Données utilise le témoin de cloud. Trois équilibreurs de charge sont disponibles.](./media/iaas-architecture-windows-sql-n-tier/image1.png)
 
 ## <a name="general"></a>Général
 
@@ -40,7 +40,7 @@ L’architecture possède les composants suivants :
 
 -   **Groupes de sécurité réseau (NSG) :** Utilisez des groupes de sécurité réseau pour limiter le trafic réseau au sein du réseau virtuel. Par exemple, dans l’architecture à trois niveaux illustrée ici, le niveau base de données n’accepte pas le trafic en provenance du serveur web frontal, mais uniquement du niveau Business et du sous-réseau de gestion.
 
--   **DNS (Domain Name System)** . Azure Stack Hub ne disposant pas de son propre service d’hébergement DNS, utilisez le serveur DNS de votre service AD DS.
+-   **DNS (Domain Name System)**. Azure Stack Hub ne disposant pas de son propre service d’hébergement DNS, utilisez le serveur DNS de votre service AD DS.
 
 **Machines virtuelles**
 
@@ -55,7 +55,7 @@ Il peut se présenter comme suit :
 - Azure global :  
   `https://mywitness.blob.core.windows.net/`
 
-- Pour Azure Stack Hub :  
+- Azure Stack Hub :  
   `https://mywitness.blob.<region>.<FQDN>`
 
 -   **Jumpbox**. Également appelée [hôte bastion](https://en.wikipedia.org/wiki/Bastion_host). Machine virtuelle sécurisée sur le réseau, utilisée par les administrateurs pour se connecter aux autres machines virtuelles. La jumpbox a un groupe de sécurité réseau qui autorise le trafic distant provenant uniquement d’adresses IP publiques figurant sur une liste verte. Le groupe de sécurité réseau doit autoriser le trafic RDP (Bureau à distance).
@@ -127,7 +127,7 @@ Testez votre déploiement en [forçant un basculement manuel](/sql/database-engi
 
 Pour optimiser les performances de SQL, vous pouvez également consulter l’article [Meilleures pratiques SQL Server pour optimiser les performances dans Azure Stack Hub](./azure-stack-sql-server-vm-considerations.md).
 
-**Serveur de rebond (jumpbox)**
+**Serveur de rebond**
 
 N’autorisez pas l’accès RDP à partir de l’Internet public aux machines virtuelles qui exécutent la charge de travail d’application. Au lieu de cela, tous les accès RDP à ces machines virtuelles doivent transiter par le serveur de rebond. Un administrateur se connecte au serveur de rebond, puis se connecte à l’autre machine virtuelle à partir du serveur de rebond. Le serveur de rebond autorise le trafic SSH à partir d’Internet, mais uniquement à partir d’adresses IP connues et sûres.
 
@@ -139,7 +139,7 @@ Pour sécuriser le serveur de rebond, ajoutez une règle de groupe de sécurité
 
 ### <a name="scale-sets"></a>Groupes identiques
 
-Pour les couches Web et Entreprise, envisagez d'utiliser des [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview) au lieu de déployer des machines virtuelles distinctes. Un groupe identique facilite le déploiement et la gestion d'un ensemble de machines virtuelles identiques. Les groupes identiques sont parfaits si vous devez rapidement effectuer un scale-out des machines virtuelles.
+Pour les couches Web et Entreprise, envisagez d'utiliser des [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview) au lieu de déployer des machines virtuelles distinctes. Un groupe identique facilite le déploiement et la gestion d'un ensemble de machines virtuelles identiques. Les groupes identiques sont parfaits si vous devez rapidement faire monter en puissance des machines virtuelles.
 
 Il existe deux façons de configurer des machines virtuelles déployées dans un groupe identique :
 

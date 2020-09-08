@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 7021bf8bcc9a6a81ba625e2c9e88a6f5133b81be
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 6fc476b1f373c8f21481b979d1eefcdbe356766b
+ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487938"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89364828"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Opérations de maintenance du fournisseur de ressources SQL
 
@@ -44,6 +44,7 @@ Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèm
 - Certificat SSL externe [fourni au cours du déploiement](azure-stack-pki-certs.md).
 - Mot de passe de compte d’administrateur local des machines virtuelles du fournisseur de ressources fourni au cours du déploiement.
 - Mot de passe (dbadapterdiag) utilisateur de diagnostic du fournisseur de ressources.
+- (version >= 1.1.47.0) Certificat Key Vault généré pendant le déploiement.
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>Exemples PowerShell pour la rotation des secrets
 
@@ -57,7 +58,8 @@ Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèm
     -DiagnosticsUserPassword $passwd `
     -DependencyFilesLocalPath $certPath `
     -DefaultSSLCertificatePassword $certPasswd  `
-    -VMLocalCredential $localCreds
+    -VMLocalCredential $localCreds `
+    -KeyVaultPfxPassword $keyvaultCertPasswd
 ```
 
 **Changer le mot de passe utilisateur de diagnostic.**
@@ -91,25 +93,37 @@ Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèm
     -DefaultSSLCertificatePassword $certPasswd
 ```
 
+**Changer le mot de passe du certificat Key Vault.**
+
+```powershell
+.\SecretRotationSQLProvider.ps1 `
+    -Privilegedendpoint $Privilegedendpoint `
+    -CloudAdminCredential $cloudCreds `
+    -AzCredential $adminCreds `
+    -KeyVaultPfxPassword $keyvaultCertPasswd
+```
+
 ### <a name="secretrotationsqlproviderps1-parameters"></a>Paramètres SecretRotationSQLProvider.ps1
 
-|Paramètre|Description|
-|-----|-----|
-|AzCredential|Informations d’identification du compte d’administration de service Azure Stack Hub.|
-|CloudAdminCredential|Informations d’identification du compte de domaine d’administrateur cloud d’Azure Stack Hub.|
-|PrivilegedEndpoint|Point de terminaison privilégié pour accéder à Get-AzureStackStampInformation.|
-|DiagnosticsUserPassword|Diagnostique le mot de passe de compte d’utilisateur.|
-|VMLocalCredential|Compte d’administrateur local de la machine virtuelle MySQLAdapter.|
-|DefaultSSLCertificatePassword|Mot de passe du certificat SSL par défaut (*pfx).|
-|DependencyFilesLocalPath|Chemin local des fichiers de dépendances.|
-|     |     |
+|Paramètre|Description|Commentaire|
+|-----|-----|-----|
+|AzureEnvironment|Environnement Azure du compte administrateur de service utilisé pour déployer Azure Stack Hub. Nécessaire uniquement pour les déploiements Azure AD. Les noms d’environnement pris en charge sont **AzureCloud**, **AzureUSGovernment** ou, si vous utilisez Azure Active Directory en Chine, **AzureChinaCloud**.|Facultatif|
+|AzCredential|Informations d’identification du compte d’administration de service Azure Stack Hub.|Obligatoire|
+|CloudAdminCredential|Informations d’identification du compte de domaine d’administrateur cloud d’Azure Stack Hub.|Obligatoire|
+|PrivilegedEndpoint|Point de terminaison privilégié pour accéder à Get-AzureStackStampInformation.|Obligatoire|
+|DiagnosticsUserPassword|Diagnostique le mot de passe de compte d’utilisateur.|Facultatif|
+|VMLocalCredential|Compte d’administrateur local de la machine virtuelle MySQLAdapter.|Facultatif|
+|DefaultSSLCertificatePassword|Mot de passe du certificat SSL par défaut (*.pfx).|Facultatif|
+|DependencyFilesLocalPath|Chemin local des fichiers de dépendances.|Facultatif|
+|KeyVaultPfxPassword|Mot de passe utilisé pour générer le certificat Key Vault pour l’adaptateur de base de données.|Facultatif|
+|     |     |     |
 
 ### <a name="known-issues"></a>Problèmes connus
 
 **Problème** :<br>
 Journaux d’activité de rotation des secrets. Les journaux de la rotation des secrets ne sont pas automatiquement collectés en cas d’échec de l’exécution du script personnalisé de la rotation des secrets.
 
-**Solution de contournement** :<br>
+**Solution de contournement** :<br>
 Utilisez l’applet de commande Get-AzsDBAdapterLogs pour collecter tous les journaux d’activité du fournisseur de ressources, notamment AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log, enregistré sous C:\Logs.
 
 ## <a name="update-the-vm-operating-system"></a>Mettre à jour le système d’exploitation de la machine virtuelle

@@ -4,15 +4,15 @@ description: Découvrez comment planifier la capacité de calcul pour les déplo
 author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: d87014dfe5d09a6c41e5108b8ae10b26e23b62d8
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: bd1c6674bd125546526c1588f98f5b0d17a57fef
+ms.sourcegitcommit: cf99d632ca2afccba4aaad5c8a013ba3443bcd54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920183"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89410988"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Capacité de calcul Azure Stack Hub
 
@@ -27,7 +27,7 @@ Le moteur de placement Azure Stack Hub effectue le placement des machines virtue
 
 Azure Stack Hub détermine le placement des machines virtuelles selon deux critères. En premier lieu, y a-t-il suffisamment de mémoire sur l’hôte pour le type de machine virtuelle en question ? En second lieu, les machines virtuelles font-elles partie d’un [groupe à haute disponibilité](/azure/virtual-machines/windows/manage-availability) ou constituent-elles des [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/overview) ?
 
-Pour garantir la haute disponibilité d’un système de production à plusieurs machines virtuelles dans Azure Stack Hub, ces machines virtuelles sont placées dans un groupe à haute disponibilité qui les répartit entre plusieurs domaines d’erreur. Un domaine d’erreur au sein d’un groupe à haute disponibilité est défini comme un nœud unique dans l’unité d’échelle. Azure Stack Hub prend ne charge les groupes à haute disponibilité avec un maximum de trois domaines d’erreur, pour rester cohérent avec Azure. Les machines virtuelles placées dans un groupe à haute disponibilité sont physiquement isolées les unes des autres grâce à une répartition aussi équilibrée que possible sur plusieurs domaines d’erreur (hôtes Azure Stack Hub). En cas de défaillance matérielle, les machines virtuelles du domaine défaillant sont redémarrées dans d’autres domaines d’erreur. Dans la mesure du possible, elles sont conservées dans des domaines d’erreur distincts des autres machines virtuelles du même groupe à haute disponibilité. Une fois l’hôte rétabli, les machines virtuelles sont rééquilibrées de façon à maintenir une haute disponibilité.  
+Pour garantir la haute disponibilité d’une charge de travail de production à plusieurs machines virtuelles dans Azure Stack Hub, ces machines virtuelles sont placées dans un groupe à haute disponibilité qui les répartit entre plusieurs domaines d’erreur. Un domaine d’erreur au sein d’un groupe à haute disponibilité est défini comme un nœud unique dans l’unité d’échelle. Azure Stack Hub prend ne charge les groupes à haute disponibilité avec un maximum de trois domaines d’erreur, pour rester cohérent avec Azure. Les machines virtuelles placées dans un groupe à haute disponibilité sont physiquement isolées les unes des autres grâce à une répartition aussi équilibrée que possible sur plusieurs domaines d’erreur (nœuds Azure Stack Hub). En cas de défaillance matérielle, les machines virtuelles du domaine défaillant sont redémarrées dans d’autres domaines d’erreur. Dans la mesure du possible, elles sont conservées dans des domaines d’erreur distincts des autres machines virtuelles du même groupe à haute disponibilité. Une fois l’hôte rétabli, les machines virtuelles sont rééquilibrées de façon à maintenir une haute disponibilité.  
 
 Les groupes de machines virtuelles identiques utilisent des groupes à haute disponibilité sur le back-end et veillent à ce que chacune de leurs instances soient placées dans un domaine d’erreur différent. Cela signifie qu’ils utilisent des nœuds d’infrastructure Azure Stack Hub distincts. Par exemple, dans un système Azure Stack Hub à quatre nœuds, il peut arriver que la création d’un groupe de machines virtuelles identiques de trois instances échoue en raison de l’absence de la capacité de quatre nœuds pour placer trois instances du groupe de machines virtuelles identiques sur trois nœuds Azure Stack Hub distincts. De plus, les nœuds Azure Stack Hub peuvent être remplis à des niveaux variables avant la tentative de placement.
 
@@ -44,14 +44,6 @@ Si la limite de mise à l’échelle de la machine virtuelle a été atteinte, l
 ## <a name="consideration-for-batch-deployment-of-vms"></a>Considération pour le déploiement par lots de machines virtuelles
 
 Dans les versions antérieures à 2002, 2 à 5 machines virtuelles par lot avec un écart de 5 minutes entre les lots fournissaient des déploiements de machines virtuelles fiables pour atteindre une échelle de 700 machines virtuelles. Avec la version 2005 d’Azure Stack Hub, nous pouvons approvisionner de manière fiable des machines virtuelles au niveau de lots de 40 de taille avec un écart de 5 minutes entre les déploiements de lots.
-
-## <a name="considerations-for-deallocation"></a>Considérations relatives à la désallocation
-
-Quand une machine virtuelle est dans l’état _désalloué_, les ressources mémoire ne sont pas utilisées. Cela permet de placer d’autres machines virtuelles dans le système.
-
-Si la machine virtuelle désallouée est ensuite redémarrée, l’allocation ou l’utilisation de la mémoire est traitée comme une nouvelle machine virtuelle placée dans le système, et la mémoire disponible est consommée.
-
-Si aucune mémoire n’est disponible, la machine virtuelle ne démarre pas.
 
 ## <a name="azure-stack-hub-memory"></a>Mémoire Azure Stack Hub
 
@@ -90,6 +82,61 @@ Réserve de résilience = H + R * ((N-1) * H) + V * (N-2)
 <sup>2</sup> Réserve de système d’exploitation pour la surcharge = 15 % (0,15) de la mémoire de nœud. La valeur de la réserve de système d’exploitation est une estimation et varie en fonction de la capacité de mémoire physique du serveur et de la surcharge générale du système d’exploitation.
 
 La valeur V, à savoir la taille de la plus grande machine virtuelle dans l’unité d’échelle, est basée dynamiquement sur la plus grande taille de mémoire de machine virtuelle de locataire. Par exemple, la plus grande taille de machine virtuelle peut être 7 Go ou 112 Go, ou toute autre taille de mémoire de machine virtuelle prise en charge dans la solution Azure Stack Hub. Le changement de la plus grande machine virtuelle de l’infrastructure Azure Stack Hub entraîne une augmentation de la réserve de résilience ainsi qu’une augmentation de la mémoire de la machine virtuelle proprement dite.
+
+## <a name="considerations-for-deallocation"></a>Considérations relatives à la désallocation
+
+Quand une machine virtuelle est dans l’état _désalloué_, les ressources mémoire ne sont pas utilisées. Cela permet de placer d’autres machines virtuelles dans le système.
+
+Si la machine virtuelle désallouée est ensuite redémarrée, l’allocation ou l’utilisation de la mémoire est traitée comme une nouvelle machine virtuelle placée dans le système, et la mémoire disponible est consommée. Si aucune mémoire n’est disponible, la machine virtuelle ne démarre pas.
+
+Les machines virtuelles de grande taille actuellement déployées montrent que la mémoire allouée est de 112 Go alors que la demande de mémoire de ces machines virtuelles se situe entre 2 et 3 Go.
+    
+| Nom | Mémoire affectée (Go) | Demande de mémoire (Go) | ComputerName |  
+| ---- | -------------------- | ------------------ | ------------ |                                        
+| ca7ec2ea-40fd-4d41-9d9b-b11e7838d508 |                 112  |     2.2392578125  |  LISSA01P-NODE01 |
+| 10cd7b0f-68f4-40ee-9d98-b9637438ebf4  |                112  |     2.2392578125  |   LISSA01P-NODE01 |
+| 2e403868-ff81-4abb-b087-d9625ca01d84   |               112   |    2.2392578125  |   LISSA01P-NODE04 |
+
+Il existe trois façons de libérer de la mémoire pour la sélection élective d’une machine virtuelle à l’aide de la formule **Réserve de résilience = H + R * ((N-1) * H) + V * (N-2)**  :
+* Réduire la taille de la plus grande machine virtuelle
+* Augmenter la mémoire d’un nœud
+* Ajouter un nœud
+
+### <a name="reduce-the-size-of-the-largest-vm"></a>Réduire la taille de la plus grande machine virtuelle 
+
+Réduire la taille de la plus grande machine virtuelle à la plus petite machine virtuelle suivante dans le tampon (24 Go) réduit la taille de la réserve de résilience.
+
+![Réduire la taille de la machine virtuelle](media/azure-stack-capacity-planning/decrease-vm-size.png)        
+        
+ Réserve de résilience = 384 + 172,8 + 48 = 604,8 Go
+        
+| Mémoire totale | Infra - Go | Locataire - Go | Réserve de résilience | Mémoire totale réservée          | Total de Go disponibles pour la sélection élective |
+|--------------|--------------------|---------------------|--------------------|--------------------------------|----------------------------------|
+| 1536 Go      | 258 Go             | 329,25 Go           | 604,8 Go           | 258 + 329,25 + 604,8 = 1 168 Go | **~344 Go**                         |
+     
+### <a name="add-a-node"></a>Ajouter un nœud
+
+L’[ajout d’un nœud Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-scale-node) libère de la mémoire en répartissant équitablement la mémoire entre les deux nœuds.
+
+![Ajouter un nœud](media/azure-stack-capacity-planning/add-a-node.png)
+
+Réserve de résilience = 384 + (0,15) ((5)*384) + 112 * (3) = 1 008 Go
+    
+| Mémoire totale | Infra - Go | Locataire - Go | Réserve de résilience | Mémoire totale réservée          | Total de Go disponibles pour la sélection élective |
+|--------------|--------------------|---------------------|--------------------|--------------------------------|----------------------------------|
+| 1536 Go      | 258 Go             | 329,25 Go           | 604,8 Go           | 258 + 329,25 + 604,8 = 1 168 Go | **~ 344 Go**                         |
+
+### <a name="increase-memory-on-each-node-to-512-gb"></a>Augmenter la mémoire de chaque nœud jusqu’à 512 Go
+
+[Augmenter la mémoire de chaque nœud](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-storage-physical-memory-capacity) augmente la mémoire totale disponible.
+
+![Augmenter la taille du nœud](media/azure-stack-capacity-planning/increase-node-size.png)
+
+Réserve de résilience = 512 + 230.4 + 224 = 966,4 Go
+    
+| Mémoire totale    | Infra - Go | Locataire - Go | Réserve de résilience | Mémoire totale réservée | Total de Go disponibles pour la sélection élective |
+|-----------------|----------|-----------|--------------------|-----------------------|----------------------------------|
+| 2048 (4*512) Go | 258 Go   | 505,75 Go | 966,4 Go           | 1730,15 Go            | **~ 318 Go**                         |
 
 ## <a name="frequently-asked-questions"></a>Forum Aux Questions (FAQ)
 

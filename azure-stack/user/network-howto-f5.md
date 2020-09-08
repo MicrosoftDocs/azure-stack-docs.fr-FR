@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 29f23f30fd154da33e4a39ab306a4edd9d921b9b
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 8deb2905f0d151fb1a2ce196efd2ba8eb5748c85
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920200"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965209"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>Comment déployer F5 sur deux instances d’Azure Stack Hub
 
@@ -46,21 +46,21 @@ Procédez au déploiement sur les instances A et B d'Azure Stack Hub.
 
 4. Sélectionnez **F5 BIG-IP VE – ALL (BYOL, 2 Boot Locations)** .
 
-    ![](./media/network-howto-f5/image1.png)
+    ![La boîte de dialogue « Tableau de bord > Nouveau > Place du marché > Tout > F5 BIG-IP VE – ALL (BYOL, 2 Boot Locations) » affiche F5 dans la zone de recherche. Le résultat de la recherche unique est « F5 BIG-IP VE – ALL (BYOL, 2 Boot Locations) ».](./media/network-howto-f5/image1.png)
 
 5. En bas de la page suivante, sélectionnez **Créer**.
 
-    ![](./media/network-howto-f5/image2.png)
+    ![La boîte de dialogue « F5 BIG-IP VE – ALL (BYOL, 2 Boot Locations) » fournit des informations sur BIG-IP VE et les modules que vous pouvez déployer selon votre licence. Elle contient également un bouton Créer.](./media/network-howto-f5/image2.png)
 
 6. Créez un groupe de ressources nommé **F5-GSLB**.
 
 7. Utilisez les valeurs suivantes comme exemple pour effectuer le déploiement :
 
-    ![](./media/network-howto-f5/image3.png)
+    ![La page Entrées de la boîte de dialogue Microsoft.Template affiche 15 zones de texte, parmi lesquelles VIRTUALMACHINENAME et ADMINUSERNAME, contenant des valeurs pour un exemple de déploiement.](./media/network-howto-f5/image3.png)
 
 8. Vérifiez que le déploiement s’effectue correctement.
 
-    ![](./media/network-howto-f5/image4.png)
+    ![La page Vue d’ensemble de la boîte de dialogue Microsoft.Template indique « Votre déploiement a été effectué » et fournit les détails correspondants.](./media/network-howto-f5/image4.png)
 
     > [!NOTE]  
     > Chaque déploiement de BIG-IP doit prendre environ 20 minutes.
@@ -71,7 +71,7 @@ Suivez les étapes ci-dessous pour les instances A et B d'Azure Stack Hub.
 
 1. Connectez-vous au portail utilisateur Azure Stack Hub sur l'instance A pour voir les ressources créées à partir du déploiement du modèle BIG-IP.
 
-    ![](./media/network-howto-f5/image18.png)
+    ![La page Vue d’ensemble de la boîte de dialogue F5-GSLB répertorie les ressources déployées, ainsi que les informations associées.](./media/network-howto-f5/image18.png)
 
 2. Suivez les instructions de F5 concernant les [éléments de configuration de BIG-IP](https://clouddocs.f5.com/training/community/dns/html/class1/class1.html). 
 
@@ -93,9 +93,9 @@ Suivez les étapes ci-dessous pour les instances A et B d'Azure Stack Hub.
     > [!NOTE]  
     > Vous trouverez l’adresse IP locale de l’appliance BIG-IP dans votre groupe de ressources **F5-GSLB**. L’interface réseau est « f5stack1-ext » et vous souhaitez vous connecter à l’adresse IP publique ou privée (en fonction de l’accès).
 
-    ![](./media/network-howto-f5/image5.png)
+    ![La boîte de dialogue « DNS > GSLB : Centres de données : Liste des centres de données » répertorie les centres de données et l’état. Elle contient les boutons Activer, Désactiver et Supprimer à appliquer aux centres de données sélectionnés.](./media/network-howto-f5/image5.png)
           
-    ![](./media/network-howto-f5/image6.png)
+    ![La boîte de dialogue « DNS > GSLB : Serveurs : Liste de serveurs » répertorie les serveurs et l’état. Elle contient les boutons Activer, Désactiver, Supprimer et Reconnecter à appliquer aux serveurs sélectionnés.](./media/network-howto-f5/image6.png)
 
 1. Sélectionnez le nouveau groupe de ressources **F5-GSLB** et sélectionnez la machine virtuelle **f5stack1**. Sous **Settings**, sélectionnez **Networking**.
 
@@ -109,7 +109,7 @@ Au terme de l'installation, vous devez configurer les groupes de sécurité rés
 
 3. La règle GTM_DNS est définie pour autoriser le trafic entrant sur le port 53 (DNS), et le programme de résolution BIG-IP commencera à fonctionner une fois les écouteurs créés.
 
-    ![](./media/network-howto-f5/image7.png)
+    ![La page fStack1-ext de la boîte de dialogue Interface réseau affiche des informations sur l’interface fstack1-ext, et sur son groupe de sécurité réseau, fstack1-ext-nsg. Elle contient des onglets pour afficher les règles de port d’entrée ou les règles de port de sortie.](./media/network-howto-f5/image7.png)
 
 4. Déployez une charge de travail d'application web de base dans votre environnement Azure Stack Hub pour équilibrer les charges derrière BIG-IP. Vous trouverez un exemple d’utilisation du serveur NGINX dans [Deploying NGINX and NGINX Plus on Docker](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/).
 
@@ -118,11 +118,11 @@ Au terme de l'installation, vous devez configurer les groupes de sécurité rés
 
 5. Une fois NGINX déployé dans un conteneur Docker sur une machine virtuelle Ubuntu au sein de chaque instance d'Azure Stack Hub, vérifiez que vous avez accès à la page web par défaut sur les serveurs.
 
-    ![](./media/network-howto-f5/image8.png)
+    ![La page « Bienvenue dans nginx. » indique que le serveur web nginx a été correctement installé et qu’une configuration supplémentaire est requise. Elle contient deux liens menant aux informations de support.](./media/network-howto-f5/image8.png)
 
 6. Connectez-vous à l’interface de gestion de l’appliance BIG-IP. Dans cet exemple, utilisez l’adresse IP publique **f5-stack1-ext**.
 
-    ![](./media/network-howto-f5/image9.png)
+    ![L’écran de connexion de l’utilitaire de configuration BIG-IP requiert un nom d’utilisateur et un mot de passe.](./media/network-howto-f5/image9.png)
 
 7. Publiez l’accès à NGINX par le biais de l’appliance BIG-IP.
     
@@ -132,11 +132,11 @@ Au terme de l'installation, vous devez configurer les groupes de sécurité rés
 
 9. Sélectionnez votre interface réseau NGINX.
 
-    ![](./media/network-howto-f5/image10.png)
+    ![La page Vue d’ensemble de la boîte de dialogue « Tableau de bord > Groupes de ressources > NGINX > ubuntu2673 » affiche des informations sur l’interface réseau ubuntu2673.](./media/network-howto-f5/image10.png)
 
 10. À partir de la console BIG-IP, accédez à **Local traffic > Pools > Pool List** et sélectionnez **+** . Configurez le pool à l’aide des valeurs présentées dans le tableau. Laissez tous les autres champs sur leurs valeurs par défaut.
 
-    ![](./media/network-howto-f5/image11.png)
+    ![Le volet gauche permet de naviguer pour créer un nouveau pool. Le volet droit est intitulé « Local Traffic >> Pools : Pool List >> New Pool » et fournit des fonctionnalités pour spécifier les informations relatives au nouveau pool. Un bouton Terminé est présent.](./media/network-howto-f5/image11.png)
     
     | Clé | Valeur |
     | --- | --- |
@@ -148,13 +148,13 @@ Au terme de l'installation, vous devez configurer les groupes de sécurité rés
 
 11. Sélectionnez **Finished**. Quand la configuration est correcte, l’état du pool est vert.
 
-    ![](./media/network-howto-f5/image12.png)
+    ![Le volet droit est intitulé « Local Traffic >> Pools : Pool List », et le pool créé est la seule entrée de la liste.](./media/network-howto-f5/image12.png)
 
     Vous devez maintenant configurer le serveur virtuel. Pour cela, vous devez d’abord rechercher l’adresse IP privée de votre appliance F5 BIG-IP.
 
 12. À partir de la console BIG-IP, accédez à **Network > Self IPs** (Adresses Self IP).
 
-    ![](./media/network-howto-f5/image13.png)
+    ![Le volet gauche permet de naviguer pour afficher les adresses Self IP. Le volet droit est intitulé « Network >> Self IPs ». Deux adresses Self IP sont répertoriées, et la première, self_2nic, est mise en surbrillance.](./media/network-howto-f5/image13.png)
 
 13. Créez un serveur virtuel en accédant à **Local Traffic** > **Virtual Servers** > **Virtual Server List** et en sélectionnant **+** . Configurez le pool à l’aide des valeurs présentées dans le tableau. Laissez tous les autres champs sur leurs valeurs par défaut.
 
@@ -166,21 +166,21 @@ Au terme de l'installation, vous devez configurer les groupes de sécurité rés
     |SSL Profile (Client) | clientssl |
     |Source Address Translation | Auto Map |
         
-    ![](./media/network-howto-f5/image14.png)
+    ![Le volet gauche permet d’accéder au volet droit vers « Local Traffic >> Virtual Servers : Virtual Server List >> NGINX », où les informations requises sont entrées.](./media/network-howto-f5/image14.png)
 
-    ![](./media/network-howto-f5/image15.png)
+    ![Cette page permet d’entrer des informations supplémentaires. Elle contient également les boutons Mettre à jour et Supprimer.](./media/network-howto-f5/image15.png)
 
 14. Vous avez terminé la configuration BIG-IP pour l’application NGINX. Pour vérifier que tout fonctionne correctement, parcourez le site et consultez les statistiques de F5.
 
 15. Dans un navigateur accédez à `https://<F5-public-VIP-IP>` et assurez-vous que votre page NGINX par défaut s’affiche.
 
-    ![](./media/network-howto-f5/image16.png)
+    ![La page « Bienvenue dans nginx. » indique que le serveur web nginx a été correctement installé et qu’une configuration supplémentaire est requise. Elle contient deux liens menant aux informations de support.](./media/network-howto-f5/image16.png)
 
 16. À présent, consultez les statistiques de votre serveur virtuel pour vérifier le flux de trafic en accédant à **Statistics > Module Statistics > Local Traffic**.
 
 17. Sous **Statistics Type**, sélectionnez **Virtual Servers**.
 
-    ![](./media/network-howto-f5/image17.png)
+    ![Le volet gauche a accédé au volet droit « Statistics >> Module Statistics : Local Traffic >> Virtual Servers », et la liste affiche, entre autres, le serveur virtuel NGINX. NGINX est mis en surbrillance.](./media/network-howto-f5/image17.png)
 
 
 ## <a name="for-more-information"></a>Informations supplémentaires

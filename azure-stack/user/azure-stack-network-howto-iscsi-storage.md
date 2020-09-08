@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 17f768ddfeb2422c2e3f1c4d3947c6b142ac13bc
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.openlocfilehash: 214b1d2cd06f70e9787c36c974ae4d1d18225924
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818723"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965124"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Se connecter au stockage iSCSI avec Azure Stack Hub
 
@@ -24,7 +24,7 @@ Le modèle est disponible dans la branche **lucidqdreams** du dépôt [Azure Int
 
 Le schéma montre une machine virtuelle hébergée sur Azure Stack Hub avec un disque iSCSI monté à partir d’un ordinateur (physique ou virtuel) Windows local, ce qui permet le montage du stockage externe à Azure Stack Hub à l’intérieur de votre machine virtuelle hébergée par Azure Stack Hub via le protocole iSCSI.
 
-![texte de remplacement](./media/azure-stack-network-howto-iscsi-storage/overview-iscsi2.svg)
+![Le schéma montre une machine virtuelle hébergée sur Azure Stack Hub accédant à un disque monté sur iSCSI externe.](./media/azure-stack-network-howto-iscsi-storage/overview-iscsi2.svg)
 
 ### <a name="requirements"></a>Spécifications
 
@@ -57,7 +57,7 @@ Le schéma montre une machine virtuelle hébergée sur Azure Stack Hub avec un d
 
 Le schéma montre les ressources déployées à partir du modèle pour créer le client iSCSI que vous pouvez utiliser pour vous connecter à la cible iSCSI. Ce modèle déploie la machine virtuelle et d’autres ressources. De plus, il exécute prepare-iSCSIClient.ps1 et redémarre la machine virtuelle.
 
-![texte de remplacement](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.svg)
+![Le schéma montre les ressources déployées à partir du modèle pour créer le client iSCSI à des fins de connexion à la cible iSCSI. Il présente un serveur de fichiers avec un sous-réseau interne et une carte réseau, un PIP interne (Private Internet Protocol) et un groupe de sécurité réseau (NSG).](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.svg)
 
 ### <a name="the-deployment-process"></a>Processus de déploiement
 
@@ -68,7 +68,7 @@ Le modèle de groupe de ressources génère une sortie, qui est censée être l�
 3. Exécutez `Create-iSCSITarget.ps1` à l’aide des sorties d’adresse IP et de nom de serveur du modèle en tant que paramètres d’extraction du script sur la cible iSCSI, qui peut être une machine virtuelle ou un serveur physique.
 4. Utilisez l’adresse IP externe ou les adresses du serveur cible iSCSI comme entrées pour exécuter le script `Connect-toiSCSITarget.ps1`. 
 
-![texte de remplacement](./media/azure-stack-network-howto-iscsi-storage/process.svg)
+![Le shéma montre les trois premières étapes décrites ci-dessus, et comprend les entrées et les sorties. Les étapes à suivre sont les suivantes : Déployer l’infrastructure, créer une cible iSCSI et se connecter à iSCSI.](./media/azure-stack-network-howto-iscsi-storage/process.svg)
 
 ### <a name="inputs-for-azuredeployjson"></a>Entrées pour azuredeploy.json
 
@@ -97,7 +97,7 @@ Le modèle de groupe de ressources génère une sortie, qui est censée être l�
 
 Vous pouvez également exécuter les scripts sur une machine virtuelle existante pour vous connecter à partir du client iSCSI à une cible iSCSI. Ce flux est adapté si vous créez vous-même la cible iSCSI. Ce schéma illustre le déroulement de l’exécution des scripts PowerShell. Ces scripts se trouvent dans le répertoire Script :
 
-![texte de remplacement](./media/azure-stack-network-howto-iscsi-storage/script-flow.svg)
+![Le schéma montre les trois scripts qui sont décrits ci-dessous. Par ordre d’exécution, il s’agit des suivants : Prepare-iSCSIClient.ps1, (s’exécute sur le client), Create iSCSITarget.ps1 (s’exécute sur les cibles) et Connect-toiSCSITarget.ps1 (s’exécute sur le client).](./media/azure-stack-network-howto-iscsi-storage/script-flow.svg)
 
 ### <a name="prepare-iscsiclientps1"></a>Prepare-iSCSIClient.ps1
 
@@ -112,9 +112,9 @@ Il est important de redémarrer le système après l’installation de ces compo
 
 ### <a name="create-iscsitargetps1"></a>Create-iSCSITarget.ps1
 
-Le script `Create-iSCSITarget.ps1 ` doit être exécuté sur le système, qui sert le stockage. Vous pouvez créer plusieurs disques et cibles restreints par les initiateurs. Vous pouvez exécuter ce script plusieurs fois pour créer plusieurs disques virtuels que vous pouvez attacher à différentes cibles. Vous pouvez connecter plusieurs disques à une même cible. 
+Le script `Create-iSCSITarget.ps1` doit être exécuté sur le serveur de stockage. Vous pouvez créer plusieurs disques et cibles restreints par les initiateurs. Vous pouvez exécuter ce script plusieurs fois pour créer plusieurs disques virtuels que vous pouvez attacher à différentes cibles. Vous pouvez connecter plusieurs disques à une même cible. 
 
-|**Input**|**default**|**description**|
+|**Entrée**|**default**|**description**|
 |------------------|---------------|------------------------------|
 |RemoteServer         |FileServer               |Nom du serveur qui se connecte à la cible iSCSI.
 |RemoteServerIPs      |1.1.1.1                  |Adresse IP d’où vient le trafic iSCSI.
@@ -129,7 +129,7 @@ Le script `Create-iSCSITarget.ps1 ` doit être exécuté sur le système, qui se
 
 `Connect-toiSCSITarget.ps1` est le dernier script, qui est exécuté sur le client iSCSI et monte le disque présenté par la cible iSCSI sur le client iSCSI.
 
-|**Input**|**default**|**description**|
+|**Entrée**|**default**|**description**|
 |------------------|---------------|------------------------------|
 |TargetiSCSIAddresses   |"2.2.2.2","2.2.2.3"    |Adresses IP de la cible iSCSI.
 |LocalIPAddresses       |"10.10.1.4"            |Adresse IP interne d’où vient le trafic iSCSI.

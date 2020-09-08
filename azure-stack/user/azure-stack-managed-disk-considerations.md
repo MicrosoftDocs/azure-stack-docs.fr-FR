@@ -3,16 +3,16 @@ title: Différences et points à connaître sur les disques managés Azure Stack
 description: Découvrez les différences et considérations à prendre en compte lors de l’utilisation de disques et d’images managés dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/04/2020
+ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 0bb8ebeb46c0290a6e5d66f4aa8e9928f660598d
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: ededa6951727d20ec07a96229b41750b31bdc18c
+ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86490148"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89041449"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Disques managés Azure Stack Hub : différences et considérations
 
@@ -20,8 +20,7 @@ Cet article récapitule les différences entre les [*disques managés* dans Azur
 
 Les disques managés simplifient la gestion des disques des machines virtuelles IaaS, en gérant les [comptes de stockage](../operator/azure-stack-manage-storage-accounts.md) associés aux disques de machines virtuelles.
 
-> [!NOTE]  
-> Les disques managés sur Azure Stack Hub ont été disponibles à compter de la mise à jour 1808. À compter de la mise à jour 1811, la fonctionnalité est activée par défaut lors de la création de machines virtuelles par le biais du portail Azure Stack Hub.
+Les disques managés sont activés par défaut lors de la création de machines virtuelles à l'aide du portail Azure Stack Hub.
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>Aide-mémoire : différences entre les disques managés
 

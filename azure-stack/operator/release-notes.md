@@ -3,16 +3,16 @@ title: Notes de publication d’Azure Stack Hub
 description: Notes de publication des systèmes intégrés Azure Stack Hub, y compris les mises à jour et les correctifs de bogues.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/13/2020
+ms.date: 09/02/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: fd1e1fa5c6315932728764d65eb042c1d2e44e20
-ms.sourcegitcommit: 977c47a5587a747dbd67aa110381759ba39044b7
+ms.openlocfilehash: 14d41d920d9a91744c5cfa05d2d252a68146b4d1
+ms.sourcegitcommit: cf99d632ca2afccba4aaad5c8a013ba3443bcd54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88512459"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89410937"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Notes de publication d’Azure Stack Hub
 
@@ -115,6 +115,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 - Correction d’un problème dans lequel l’utilisation d’un serveur NTP Linux génère de façon erronée des alertes dans le portail d’administration.  
 - Correction d’un problème où le basculement de l’instance de service de contrôleur de sauvegarde entraînait la désactivation des sauvegardes automatiques.
 - Correction d’un problème où la rotation du secret interne échoue lorsque les services d’infrastructure n’ont pas de connectivité Internet.
+- Correction d’un problème empêchant les utilisateurs d’afficher les autorisations d’abonnement à l’aide des portails Azure Stack Hub.
 
 ## <a name="security-updates"></a>Mises à jour de sécurité
 

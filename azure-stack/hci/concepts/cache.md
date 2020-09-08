@@ -6,29 +6,28 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 08/11/2020
-ms.openlocfilehash: 39d67ffb49b8fa8ceb343038883602b3e940f8e1
-ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
+ms.date: 09/01/2020
+ms.openlocfilehash: 0c5ce6430ac44601b7e0a172203faabf2732e0a2
+ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88145615"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89364743"
 ---
 # <a name="understanding-the-cache-in-azure-stack-hci"></a>Compréhension du cache dans Azure Stack HCI
 
 > S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
 
-Les [espaces de stockage direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) se caractérisent par un cache coté serveur intégré destiné à maximiser les performances de stockage. Il s’agit d’un cache de lecture *et* d’écriture volumineux, persistant et en temps réel. Le cache est configuré automatiquement quand la fonctionnalité Espaces de stockage direct est activée. Dans la plupart des cas, aucune gestion manuelle n’est nécessaire.
-Le fonctionnement du cache varie en fonction des types de lecteur utilisés.
+Azure Stack HCI intègre un cache coté serveur intégré destiné à optimiser les performances de stockage. Il s’agit d’un cache de lecture *et* d’écriture volumineux, persistant et en temps réel. Le cache est automatiquement configuré lors du déploiement d’Azure Stack HCI. Dans la plupart des cas, aucune gestion manuelle n’est nécessaire. Le fonctionnement du cache varie en fonction des types de lecteur utilisés.
 
-La vidéo suivante explique en détail le fonctionnement de la mise en cache pour les espaces de stockage direct et évoque d’autres considérations de conception.
+La vidéo suivante explique en détail le fonctionnement de la mise en cache pour les espaces de stockage direct, la technologie de virtualisation du stockage sous-jacente derrière Azure Stack HCI, ainsi que d’autres considérations de conception.
 
 <strong>Considérations de conception avec les espaces de stockage direct</strong><br>(20 minutes)<br>
 <iframe src="https://channel9.msdn.com/Blogs/windowsserver/Design-Considerations-for-Storage-Spaces-Direct/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 ## <a name="drive-types-and-deployment-options"></a>Types de lecteur et options de déploiement
 
-Pour l’heure, les espaces de stockage direct fonctionnent avec quatre types de lecteurs :
+Actuellement, Azure Stack HCI fonctionne avec quatre types de lecteurs :
 
 | Type de lecteur | Description |
 |----------------------|--------------------------|
@@ -53,7 +52,7 @@ Les déploiements hybrides visent à équilibrer les performances et la capacit�
 
 ## <a name="cache-drives-are-selected-automatically"></a>Les lecteurs de cache sont sélectionnés automatiquement
 
-Dans les déploiements où cohabitent plusieurs types de lecteur, les espaces de stockage direct utilisent automatiquement tous les lecteurs dits « les plus rapides » pour la mise en cache. Les lecteurs restants sont utilisés pour la capacité.
+Dans les déploiements où cohabitent plusieurs types de lecteur, Azure Stack HCI utilise automatiquement tous les lecteurs dits « les plus rapides » pour la mise en cache. Les lecteurs restants sont utilisés pour la capacité.
 
 La rapidité des lecteurs est déterminée selon la hiérarchie suivante.
 
@@ -89,9 +88,9 @@ Par conséquent, les caractéristiques d'écriture, comme la latence, sont dict�
 
 Quand la mise en cache concerne les lecteurs de disque dur (HDD), à la fois les lectures *et* les écritures sont mises en cache pour offrir une latence comparable à celle de la technologie flash (souvent ~10 fois supérieure) pour les deux. Le cache de lecture stocke les données lues récemment et fréquemment pour permettre un accès rapide et limiter autant que possible le trafic aléatoire à destination des HDD. (En raison des délais de recherche et de rotation, la latence et le temps perdu causés par l'accès aléatoire à un disque dur sont considérables.) Les écritures sont mises en cache pour absorber les pics de trafic, et comme précédemment, vous pouvez regrouper les écritures et réécritures afin de réduire au maximum le trafic cumulatif sur les lecteurs de capacité.
 
-Les espaces de stockage direct font appel à un algorithme qui annule l'aspect aléatoire des écritures avant de les déstocker du cache. Cela permet d'émuler un schéma d'E/S d'apparence séquentielle au niveau du lecteur, même quand les E/S réelles provenant de la charge de travail (par exemple, des machines virtuelles) sont aléatoires. Cela optimise les IOPS et le débit à destination des HDD.
+Azure Stack HCI implémente un algorithme qui fait perdre aux écritures leur caractère aléatoire avant de les supprimer de leur stockage temporaire, le but étant d’émuler un modèle d’E/S sur le disque qui paraît séquentiel même quand les E/S réelles en provenance de la charge de travail (comme les machines virtuelles) sont aléatoires. Cela optimise les IOPS et le débit à destination des HDD.
 
-### <a name="caching-in-deployments-with-drives-of-all-three-types"></a>Mise en cache dans les déploiements avec les trois types de lecteur
+### <a name="caching-in-deployments-with-nvme-ssd-and-hdd"></a>Mise en cache dans les déploiements avec NVMe, SSD et HDD
 
 Quand les trois types de lecteur sont présents, les lecteurs NVMe assurent la mise en cache pour les disques SSD et les HDD. Le comportement est conforme à celui décrit précédemment : seules les écritures sont mises en cache pour les disques SSD, et aussi bien les lectures que les écritures sont mises en cache pour les HDD. La charge de la mise en cache pour les HDD est répartie de façon équitable entre les lecteurs de cache.
 
@@ -114,7 +113,7 @@ Le cache est mis en œuvre côté lecteur : les différents lecteurs formant le
 
 Étant donné que le cache est situé sous le reste de la pile de stockage à définition logicielle Windows, les concepts d'espaces de stockage et de tolérance de panne ne sont pas implémentés, ni nécessaires. Vous pouvez voir cela comme des lecteurs « hybrides » (en partie flash, en partie disque) qui sont créés, puis présentés à Windows. Comme avec un véritable lecteur hybride, le mouvement en temps réel des données à chaud et à froid entre les portions plus rapides et plus lentes du support physique est presque invisible de l'extérieur.
 
-Étant donné que la résilience dans les espaces de stockage direct relève au moins du niveau serveur (à savoir que les copies des données sont toujours écrites sur différents serveurs, avec au moins une copie par serveur), les données en cache bénéficient de la même résilience que les données qui ne sont pas en cache.
+Étant donné que la résilience dans Azure Stack HCI se situe au moins au niveau du serveur (ce qui signifie que les copies de données sont toujours écrites sur différents serveurs ; au maximum, une copie par serveur), les données situées dans le cache bénéficient de la même résilience que celles qui ne se trouvent pas dans le cache.
 
 ![Architecture-coté-serveur-du-cache](media/cache/Cache-Server-Side-Architecture.png)
 
@@ -147,9 +146,9 @@ Vous pouvez alors remplacer le lecteur de cache comme n’importe quel autre lec
 
 La pile de stockage à définition logicielle Windows compte plusieurs autres caches non liés. Tel est le cas du cache en écriture différée des espaces de stockage ou du cache de lecture en mémoire d’un volume partagé de cluster.
 
-Dans le cas des espaces de stockage direct, le comportement par défaut du cache en écriture différée des espaces de stockage ne doit pas être modifié. Par exemple, certains paramètres de l’applet de commande **New-volume**, comme **-WriteCacheSize**, ne doivent pas être utilisés.
+Avec Azure Stack HCI, le comportement par défaut du cache en écriture différée des espaces de stockage ne doit pas être modifié. Par exemple, certains paramètres de l’applet de commande **New-volume**, comme **-WriteCacheSize**, ne doivent pas être utilisés.
 
-En revanche, vous êtes libre de choisir d’utiliser ou non le cache d’un volume partagé de cluster. Il est désactivé par défaut dans les espaces de stockage direct, mais il n'entre pas en conflit avec le nouveau cache décrit dans cette rubrique. Dans certains scénarios, il peut offrir des gains de performances précieux. Pour plus d’informations, consultez [Guide pratique pour activer le cache de volume partagé de cluster](/windows-server/failover-clustering/failover-cluster-csvs#enable-the-csv-cache-for-read-intensive-workloads-optional).
+En revanche, vous êtes libre de choisir d’utiliser ou non le cache d’un volume partagé de cluster. Il est désactivé par défaut dans Windows Server 2019, mais il n’entre en rien en conflit avec le nouveau cache décrit dans cette rubrique. Dans certains scénarios, il peut offrir des gains de performances précieux. Pour plus d’informations, consultez [Guide pratique pour activer le cache de volume partagé de cluster](/windows-server/failover-clustering/failover-cluster-csvs#enable-the-csv-cache-for-read-intensive-workloads-optional).
 
 ## <a name="manual-configuration"></a>Configuration manuelle
 
@@ -161,7 +160,7 @@ Si vous devez apporter des modifications au modèle de dispositif de cache aprè
 
 Dans les déploiements où tous les lecteurs sont de même type (par exemple, uniquement NVMe ou uniquement SSD), aucun cache n'est configuré, car Windows ne distingue pas automatiquement les caractéristiques telles que l'endurance en écriture sur des lecteurs de même type.
 
-Pour utiliser les lecteurs les plus endurants pour la mise en cache et les lecteurs les moins endurants pour la capacité, vous pouvez spécifier le modèle de lecteur à utiliser avec le paramètre **-CacheDeviceModel** de l'applet de commande **Enable-ClusterS2D**. Dès lors que la fonctionnalité Espaces de stockage direct est activée, tous les lecteurs de ce modèle sont utilisés pour la mise en cache.
+Pour utiliser les lecteurs les plus endurants pour la mise en cache et les lecteurs les moins endurants pour la capacité, vous pouvez spécifier le modèle de lecteur à utiliser avec le paramètre **-CacheDeviceModel** de l'applet de commande **Enable-ClusterS2D**. Tous les lecteurs de ce modèle seront utilisés pour la mise en cache.
 
    >[!TIP]
    > Veillez à ce que la chaîne de modèle soit exactement la même que celle figurant dans la sortie de **Get-PhysicalDisk**.
@@ -201,7 +200,7 @@ La configuration manuelle offre les possibilités de déploiement suivantes :
 
 Il est possible de remplacer le comportement par défaut du cache. Par exemple, vous pouvez le configurer de façon à mettre en cache les lectures même dans un déploiement 100 % flash. Nous vous déconseillons de modifier le comportement par défaut, à moins que vous soyez certain qu’il n’est pas adapté à votre charge de travail.
 
-Pour remplacer le comportement, utilisez l’applet de commande **Set-ClusterStorageSpacesDirect** et ses paramètres **-CacheModeSSD** et **-CacheModeHDD**. Le paramètre **CacheModeSSD** définit le comportement du cache quand la mise en cache concerne des disques SSD. Le paramètre **CacheModeSSD** définit le comportement du cache quand la mise en cache concerne des lecteurs de disque dur (HDD). Cette opération peut être effectuée à tout moment dès lors que la fonctionnalité Espaces de stockage direct est activée.
+Pour remplacer le comportement, utilisez l’applet de commande **Set-ClusterStorageSpacesDirect** et ses paramètres **-CacheModeSSD** et **-CacheModeHDD**. Le paramètre **CacheModeSSD** définit le comportement du cache quand la mise en cache concerne des disques SSD. Le paramètre **CacheModeSSD** définit le comportement du cache quand la mise en cache concerne des lecteurs de disque dur (HDD).
 
 Vous pouvez utiliser **Get-ClusterStorageSpacesDirect** pour vérifier que le comportement est défini.
 

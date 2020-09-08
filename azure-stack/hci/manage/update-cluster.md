@@ -4,13 +4,13 @@ description: Comment appliquer les mises à jour de système d’exploitation et
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/21/2020
-ms.openlocfilehash: bf57a83c11737b1443762212f775c75eb17d6cfc
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.date: 08/31/2020
+ms.openlocfilehash: 94908514e85df153f69cbeea81a11d4468dfc7fe
+ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86867974"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89274056"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Mettre à jour les clusters Azure Stack HCI
 
@@ -21,6 +21,8 @@ Lors d’une mise à jour de clusters Azure Stack HCI, l’objectif poursuivi es
 ## <a name="update-a-cluster-using-windows-admin-center"></a>Mettre à jour un cluster à l’aide de Windows Admin Center
 
 Windows Admin Center facilite la mise à jour d’un cluster, et l’application des mises à jour du système d’exploitation et de la solution à l’aide d’une interface utilisateur simple. Si vous avez acheté un système intégré auprès d’un partenaire matériel Microsoft, il est facile d’obtenir les derniers pilotes, microprogrammes et autres mises à jour, directement à partir de Windows Admin Center, en installant les extensions de mise à jour de partenaire appropriées. Si votre matériel n’a pas été acheté comme système intégré, des mises à jour de microprogramme et de pilote devront éventuellement être effectuées séparément, conformément aux recommandations du fabricant du matériel.
+
+Windows Admin Center vérifiera si le cluster est correctement configuré pour exécuter la Mise à jour adaptée aux clusters et, si nécessaire, vous demandera si vous souhaitez que Windows Admin Center configure cette mise à jour pour vous, avec notamment l'installation du rôle de cluster Mise à jour adaptée aux clusters et l'activation des règles de pare-feu requises.
 
 1. Quand vous vous connectez à un cluster, le tableau de bord de Windows Admin Center vous avertit si un ou plusieurs serveurs disposent de mises à jour prêtes à être installées, et vous fournit un lien pour procéder à la mise à jour immédiatement. Vous pouvez également sélectionner **Mises à jour** dans le menu **Outils** sur la gauche.
 1. Pour utiliser l’outil de mise à jour adaptée aux clusters dans Windows Admin Center, vous devez activer CredSSP (Credential Security Service Provider) et fournir des informations d’identification explicites. Quand vous êtes invité à activer CredSSP, cliquez sur **Oui**.

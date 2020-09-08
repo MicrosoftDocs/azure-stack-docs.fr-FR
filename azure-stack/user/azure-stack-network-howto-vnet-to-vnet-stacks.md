@@ -7,18 +7,18 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 7580fed2c9b330e190b184cfc6a1fd02ad73caa8
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 62b2d6fc9daeb2f5d694ef4d5cb04eacb895a5aa
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920812"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965141"
 ---
 # <a name="establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>Établir une connexion de réseau virtuel à réseau virtuel dans Azure Stack Hub avec l’appliance virtuelle réseau Fortinet FortiGate
 
 Dans cet article, vous allez connecter un réseau virtuel dans un environnement Azure Stack Hub à un réseau virtuel dans un autre environnement Azure Stack Hub en utilisant l’appliance virtuelle réseau Fortinet FortiGate.
 
-Cet article traite de la limitation Azure Stack Hub actuelle, qui permet aux locataires de configurer uniquement une connexion VPN entre deux environnements. Les utilisateurs apprennent à configurer une passerelle personnalisée sur une machine virtuelle Linux qui autorise plusieurs connexions VPN entre différents environnements Azure Stack Hub. La procédure décrite dans cet article déploie deux réseaux virtuels avec une appliance virtuelle réseau FortiGate dans chaque réseau virtuel : un déploiement par environnement Azure Stack Hub. Il détaille également les modifications requises pour configurer un VPN IPSec entre les deux réseaux virtuels. Les étapes décrites dans cet article doivent être répétées pour chaque réseau virtuel dans chaque environnement Azure Stack Hub. 
+Cet article traite de la limitation actuelle d'Azure Stack Hub, qui permet aux locataires de configurer une seule connexion VPN entre deux environnements. Les utilisateurs apprennent à configurer une passerelle personnalisée sur une machine virtuelle Linux qui autorise plusieurs connexions VPN entre différents environnements Azure Stack Hub. La procédure décrite dans cet article déploie deux réseaux virtuels avec une appliance virtuelle réseau FortiGate dans chaque réseau virtuel : un déploiement par environnement Azure Stack Hub. Il détaille également les modifications requises pour configurer un VPN IPSec entre les deux réseaux virtuels. Les étapes décrites dans cet article doivent être répétées pour chaque réseau virtuel dans chaque environnement Azure Stack Hub. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -82,35 +82,35 @@ Répétez ces étapes pour les deux environnements Azure Stack Hub.
 
 1. Connectez-vous au portail utilisateur Azure Stack Hub. Veillez à utiliser des informations d’identification qui ont au moins des droits de collaborateur pour un abonnement.
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image5.png)
+    ![La capture d'écran montre le portail.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image5.png)
 
 1. Sélectionnez **Créer une ressource**, puis recherchez `FortiGate`.
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image6.png)
+    ![La capture d'écran montre la recherche de « fortigate » n'a renvoyé qu'une seule ligne de résultats. Le nom de l'élément trouvé est « Pare-feu Fortigate de nouvelle génération - Déploiement d'une seule machine virtuelle (BYOL) ».](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image6.png)
 
-2. Sélectionnez le **Pare-feu Fortigate de nouvelle génération**, puis **Créer**.
+1. Sélectionnez le **Pare-feu Fortigate de nouvelle génération**, puis **Créer**.
 
-3. Indiquez les **Informations de base** à l’aide des paramètres du tableau [Paramètres de déploiement](#deployment-parameters).
+1. Indiquez les **Informations de base** à l’aide des paramètres du tableau [Paramètres de déploiement](#deployment-parameters).
 
     Votre formulaire doit contenir les informations suivantes :
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image7.png)
+    ![Les zones de texte (telles que Nom de l'instance et Licence BYOL) de la boîte de dialogue De base ont été renseignées avec les valeurs de la table de déploiement.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image7.png)
 
-4. Sélectionnez **OK**.
+1. Sélectionnez **OK**.
 
-5. Indiquez les détails relatifs au réseau virtuel, aux sous-réseaux et à la taille de machine virtuelle à partir des [paramètres de déploiement](#deployment-parameters).
+1. Indiquez les détails relatifs au réseau virtuel, aux sous-réseaux et à la taille de machine virtuelle à partir des [paramètres de déploiement](#deployment-parameters).
 
     Si vous souhaitez utiliser des noms et des plages différents, veillez à ne pas utiliser de paramètres susceptibles d’entrer en conflit avec les autres ressources de réseau virtuel et FortiGate dans l’autre environnement Azure Stack Hub. Cela est particulièrement vrai lors de la définition de la plage d’adresses IP de réseau virtuel et des plages de sous-réseaux au sein du réseau virtuel. Vérifiez qu’elles ne chevauchent pas les plages d’adresses IP de l’autre réseau virtuel que vous créez.
 
-6. Sélectionnez **OK**.
+1. Sélectionnez **OK**.
 
-7. Configurez l’adresse IP publique qui sera utilisée pour l’appliance virtuelle réseau FortiGate :
+1. Configurez l’adresse IP publique qui sera utilisée pour l’appliance virtuelle réseau FortiGate :
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image8.png)
+    ![La zone de texte « Nom de l'adresse IP publique » de la boîte de dialogue Attribution IP affiche la valeur « forti1-publicip1 » (issue de la table de déploiement).](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image8.png)
 
-8. Sélectionnez **OK**, puis **OK**.
+1. Sélectionnez **OK**, puis **OK**.
 
-9. Sélectionnez **Create** (Créer).
+1. Sélectionnez **Create** (Créer).
 
 Le déploiement prendra environ 10 minutes. Vous pouvez maintenant répéter les étapes pour créer l’autre déploiement de réseau virtuel et d’appliance virtuelle réseau FortiGate dans l’autre environnement Azure Stack Hub.
 
@@ -120,17 +120,17 @@ Effectuez ces étapes pour les deux déploiements (forti1-rg1 et forti2-rg1).
 
 1. Accédez au groupe de ressources forti1-rg1 dans le portail Azure Stack Hub.
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image9.png)
+    ![Voici une capture d'écran de la liste des ressources du groupe de ressources forti1-rg1.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image9.png)
 
 2. Sélectionnez la ressource « forti1-forti1-InsideSubnet-routes-xxxx ».
 
 3. Sélectionnez **Routes** sous **Paramètres**.
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image10.png)
+    ![La capture d'écran montre l'élément Routes en surbrillance sous Paramètres.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image10.png)
 
 4. Supprimez la route **to-Internet**.
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image11.png)
+    ![La capture d'écran montre la route « to-Internet » en surbrillance. Un bouton Supprimer est disponible.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image11.png)
 
 5. Sélectionnez **Oui**.
 
@@ -138,7 +138,7 @@ Effectuez ces étapes pour les deux déploiements (forti1-rg1 et forti2-rg1).
 
 7. Nommez la **Route** `to-forti1` ou `to-forti2`. Utilisez votre plage d’adresses IP si vous utilisez une plage d’adresses IP différente.
 
-8. Entrez :
+8. Entrez :
     - forti1 : `172.17.0.0/16`  
     - forti2 : `172.16.0.0/16`  
 
@@ -150,7 +150,7 @@ Effectuez ces étapes pour les deux déploiements (forti1-rg1 et forti2-rg1).
 
     Utilisez votre plage d’adresses IP si vous utilisez une plage d’adresses IP différente.
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image12.png)
+    ![La boîte de dialogue Modifier l'itinéraire de to-forti2 comporte des zones de texte avec des valeurs. Le « Préfixe de l'adresse » est 172.17.0.0/16, le « Type de tronçon suivant » est « Appliance virtuelle » et l'« Adresse du tronçon suivant » est 172.16.1.4.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image12.png)
 
 10. Sélectionnez **Enregistrer**.
 
@@ -168,76 +168,76 @@ Une fois les appliances virtuelles réseau activées, procédez comme suit pour 
 
 Suivez les étapes ci-dessous pour les appliances virtuelles réseau forti1 et forti2 :
 
-1.  Pour obtenir l’adresse IP publique attribuée, accédez à la page de vue d’ensemble de la machine virtuelle fortiX :
+1. Pour obtenir l’adresse IP publique attribuée, accédez à la page de vue d’ensemble de la machine virtuelle fortiX :
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet/image13.png)
+    ![La page de présentation de forti1 affiche le groupe de ressources, l'état, etc.](./media/azure-stack-network-howto-vnet-to-vnet/image13.png)
 
-2.  Copiez l’adresse IP attribuée, ouvrez un navigateur, puis collez-la dans la barre d’adresses. Il est possible que votre navigateur vous avertisse que le certificat de sécurité n’est pas approuvé. Continuez quand même.
+1. Copiez l’adresse IP attribuée, ouvrez un navigateur, puis collez-la dans la barre d’adresses. Il est possible que votre navigateur vous avertisse que le certificat de sécurité n’est pas approuvé. Continuez quand même.
 
-4.  Entrez le nom d’utilisateur d’administration et le mot de passe FortiGate que vous avez fournis pendant le déploiement.
+1. Entrez le nom d’utilisateur d’administration et le mot de passe FortiGate que vous avez fournis pendant le déploiement.
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet/image14.png)
+    ![La capture d'écran montre l'écran de connexion, qui comporte un bouton de connexion et des zones de texte pour le nom d'utilisateur et le mot de passe.](./media/azure-stack-network-howto-vnet-to-vnet/image14.png)
 
-5.  Sélectionnez **System** (Système)  > **Firmware** (Microprogramme).
+1. Sélectionnez **System** (Système)  > **Firmware** (Microprogramme).
 
-6.  Cochez la case qui indique le microprogramme le plus récent, par exemple, `FortiOS v6.2.0 build0866`.
+1. Cochez la case qui indique le microprogramme le plus récent, par exemple, `FortiOS v6.2.0 build0866`.
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet/image15.png)
+    ![La capture d'écran du microprogramme « FortiOS v6.2.0 build0866 » contient un lien vers les notes de publication et deux boutons : « Sauvegarder la configuration et mettre à niveau » et « Mettre à niveau ».](./media/azure-stack-network-howto-vnet-to-vnet/image15.png)
 
-7.  Sélectionnez **Backup config and upgrade** (Configuration et mise à niveau de la sauvegarde) et Continue quand vous y êtes invité.
+1. Sélectionnez **Backup config and upgrade** (Configuration et mise à niveau de la sauvegarde) et Continue quand vous y êtes invité.
 
-8.  L’appliance virtuelle réseau met à jour son microprogramme avec la dernière build et redémarre. Le processus prend environ cinq minutes. Reconnectez-vous à la console web FortiGate.
+1. L’appliance virtuelle réseau met à jour son microprogramme avec la dernière build et redémarre. Le processus prend environ cinq minutes. Reconnectez-vous à la console web FortiGate.
 
-10.  Cliquez sur **VPN** > **IPSec Wizard** (Assistant IPSec).
+1. Cliquez sur **VPN** > **IPSec Wizard** (Assistant IPSec).
 
-11. Entrez un nom pour le VPN, par exemple, `conn1` dans **VPN Creation Wizard** (Assistant de création de VPN).
+1. Entrez un nom pour le VPN, par exemple, `conn1` dans **VPN Creation Wizard** (Assistant de création de VPN).
 
-12. Sélectionnez **This site is behind NAT** (Ce site est derrière NAT).
+1. Sélectionnez **This site is behind NAT** (Ce site est derrière NAT).
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet/image16.png)
+    ![La capture d'écran de l'Assistant Création d'un VPN montre qu'il se trouve à la première étape, Configuration du VPN. Les valeurs suivantes sont sélectionnées : « Site à site » pour le Type de modèle, « FortiGate » pour le Type de périphérique distant et « Ce site se trouve derrière NAT » pour la Configuration NAT.](./media/azure-stack-network-howto-vnet-to-vnet/image16.png)
 
-13. Sélectionnez **Suivant**.
+1. Sélectionnez **Suivant**.
 
-14. Entrez l’adresse IP distante du périphérique VPN local auquel vous allez vous connecter.
+1. Entrez l’adresse IP distante du périphérique VPN local auquel vous allez vous connecter.
 
-15. Sélectionnez **port1** pour **Outgoing Interface** (Interface sortante).
+1. Sélectionnez **port1** pour **Outgoing Interface** (Interface sortante).
 
-16. Sélectionnez **Pre-shared Key** (Clé prépartagée), puis entrez (et enregistrez) une clé prépartagée. 
+1. Sélectionnez **Pre-shared Key** (Clé prépartagée), puis entrez (et enregistrez) une clé prépartagée. 
 
     > [!NOTE]  
     > Vous aurez besoin de cette clé pour configurer la connexion sur le périphérique VPN local ; autrement dit, ils doivent correspondre *exactement*.
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet/image17.png)
+    ![La capture d'écran de l'Assistant Création d'un VPN montre qu'il se trouve à la deuxième étape, Authentification, et les valeurs sélectionnées sont en surbrillance.](./media/azure-stack-network-howto-vnet-to-vnet/image17.png)
 
-17. Sélectionnez **Suivant**.
+1. Sélectionnez **Suivant**.
 
-18. Sélectionnez **port2** pour **Local Interface** (Interface locale).
+1. Sélectionnez **port2** pour **Local Interface** (Interface locale).
 
-19. Entrez la plage de sous-réseau local :
+1. Entrez la plage de sous-réseau local :
     - forti1 : 172.16.0.0/16
     - forti2 : 172.17.0.0/16
 
     Utilisez votre plage d’adresses IP si vous utilisez une plage d’adresses IP différente.
 
-20. Entrez le ou les sous-réseaux distants appropriés qui représentent le réseau local, auquel vous vous connecterez via le périphérique VPN local.
+1. Entrez le ou les sous-réseaux distants appropriés qui représentent le réseau local, auquel vous vous connecterez via le périphérique VPN local.
     - forti1 : 172.16.0.0/16
     - forti2 : 172.17.0.0/16
 
     Utilisez votre plage d’adresses IP si vous utilisez une plage d’adresses IP différente.
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet/image18.png)
+    ![La capture d'écran de l'Assistant Création d'un VPN montre qu'il se trouve à la troisième étape, Stratégie et routage, et affiche les valeurs sélectionnées et entrées.](./media/azure-stack-network-howto-vnet-to-vnet/image18.png)
 
-21. Sélectionnez **Créer**
+1. Sélectionnez **Créer**
 
-22. Sélectionnez **Network** (Réseau)  > **Interfaces**.
+1. Sélectionnez **Network** (Réseau)  > **Interfaces**.  
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet/image19.png)
+    ![La liste des interfaces montre deux interfaces : le port1, qui a été configuré, et le port2, qui ne l'a pas été. Des boutons permettent de créer, de modifier et de supprimer des interfaces.](./media/azure-stack-network-howto-vnet-to-vnet/image19.png)
 
-23. Double-cliquez sur **port2**.
+1. Double-cliquez sur **port2**.
 
-24. Choisissez **LAN** dans la liste **Role** et **DHCP** pour le mode d’adressage.
+1. Choisissez **LAN** dans la liste **Role** et **DHCP** pour le mode d’adressage.
 
-25. Sélectionnez **OK**.
+1. Sélectionnez **OK**.
 
 Répétez ces étapes pour l’autre appliance virtuelle réseau.
 
@@ -248,11 +248,11 @@ Une fois l’opération ci-dessus effectuée pour les **deux** appliances virtue
 
 1.  Sur la console web FortiGate forti2, sélectionnez **Monitor** (Supervision)  > **IPsec Monitor** (Supervision IPsec). 
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet/image20.png)
+    ![La supervision de la connexion VPN conn1 est répertoriée. Il est indiqué qu'elle est désactivée, tout comme le sélecteur de phase 2 correspondant.](./media/azure-stack-network-howto-vnet-to-vnet/image20.png)
 
 2.  Mettez en surbrillance `conn1` et sélectionnez **Bring Up** (Afficher)  > **All Phase 2 Selectors** (Tous les sélecteurs de phase 2).
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet/image21.png)
+    ![La supervision et le sélecteur de phase 2 sont tous deux présentés comme activés.](./media/azure-stack-network-howto-vnet-to-vnet/image21.png)
 
 
 ## <a name="test-and-validate-connectivity"></a>Tester et valider la connectivité

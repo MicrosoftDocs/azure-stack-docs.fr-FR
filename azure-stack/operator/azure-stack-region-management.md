@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Vue d’ensemble de la gestion des régions dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/04/2020
+ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: e04f6a6baca7b834a248bc40835d05f0773fd5b4
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: e40d79dcac58035172d4e292461fd0950ee77979
+ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82777846"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89041636"
 ---
 # <a name="region-management-in-azure-stack-hub"></a>Gestion des régions dans Azure Stack Hub
 
@@ -23,7 +23,7 @@ Un déploiement de système intégré (appelé *cloud Azure Stack Hub*) constitu
 
 ## <a name="information-available-through-the-region-management-tile"></a>Informations disponibles par le biais de la vignette Gestion des régions
 
-Azure Stack Hub dispose d’un ensemble de fonctionnalités de gestion des régions disponibles dans la vignette **Gestion des régions**. Cette vignette est accessible à un opérateur Azure Stack Hub sur le tableau de bord par défaut du portail administrateur. Elle vous permet de surveiller et de mettre à jour votre région Azure Stack Hub et ses composants, qui sont propres à la région.
+Azure Stack Hub dispose d’un ensemble de fonctionnalités de gestion des régions disponibles dans la vignette **Gestion des régions**. Cette vignette est accessible à un opérateur Azure Stack Hub sur le tableau de bord par défaut du portail administrateur. Cet écran vous permet de surveiller et de mettre à jour votre région Azure Stack Hub et ses composants, qui sont propres à la région.
 
 ![Vignette Gestion des régions dans le portail administrateur Azure Stack Hub](media/azure-stack-region-management/image1.png)
 

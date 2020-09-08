@@ -3,16 +3,16 @@ title: Inscrire des locataires pour un suivi de l’utilisation dans Azure Stack
 description: Découvrez comment inscrire des locataires et comment l’utilisation des locataires est suivie dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 09/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: ac318c1352963a7ee0fb873adaae4b30fa58949b
-ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
+ms.openlocfilehash: 66a21943e19cef13aa7a3986b6a058f69cc85793
+ms.sourcegitcommit: 0714ce748e20065b52f8283d5dbba7ab068978d1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88857514"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89285496"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Inscrire des locataires pour un suivi de l’utilisation dans Azure Stack Hub
 
@@ -49,7 +49,7 @@ Pour plus d’informations sur Azure Stack Hub et les profils d’API, consultez
 
 ### <a name="powershell"></a>PowerShell
 
-Utilisez l’applet de commande **New-AzureRmResource** pour ajouter un locataire. [Connectez-vous à Azure Stack Hub](azure-stack-powershell-configure-admin.md), puis à partir d’une invite de commandes avec élévation de privilèges , exécutez l’applet de commande suivante :
+Utilisez l’applet de commande **New-AzureRmResource** pour ajouter un locataire. [Connectez-vous à Azure](/powershell/azure/get-started-azureps), puis à partir d'une invite avec élévation de privilèges, exécutez la commande suivante :
 
 ```powershell  
 New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01

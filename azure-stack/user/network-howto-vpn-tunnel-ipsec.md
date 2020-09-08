@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 4405ec29584904c24401b0fc6823078702ca1c7e
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: b81c9d759c6083a20e6e5124d74795260cc8d594
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86565935"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965243"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack-hub"></a>Créer un tunnel VPN utilisant IPsec dans Azure Stack Hub
 
@@ -22,7 +22,7 @@ Cette solution est la base qui permet de créer des tunnels VPN au sein d’une 
 
 Les modèles sont disponibles dans le référentiel GitHub [Azure intelligent Edge Patterns](https://github.com/Azure-Samples/azure-intelligent-edge-patterns). Le modèle se trouve dans le dossier **rras-gre-vnet-vnet**. 
 
-![texte de remplacement](./media/azure-stack-network-howto-vpn-tunnel-ipsec/overview.png)
+![Le schéma illustre une implémentation fournissant un tunnel VPN entre deux réseaux virtuels. Un serveur RRAS est présent sur chaque réseau virtuel, ainsi qu’un sous-réseau interne et un sous-réseau de tunnel.](./media/azure-stack-network-howto-vpn-tunnel-ipsec/overview.png)
 
 ## <a name="requirements"></a>Spécifications
 
@@ -50,7 +50,7 @@ Les modèles sont disponibles dans le référentiel GitHub [Azure intelligent Ed
 
 Ce modèle fournit des valeurs par défaut pour l’affectation de nom au réseau virtuel et l’adressage IP.  Il requiert un mot de passe pour l’administrateur (rrasadmin) et offre également la possibilité d’utiliser votre propre blob de stockage avec un jeton SAS.  Veillez à conserver ces valeurs dans les limites qui conviennent pour permettre au déploiement d'aboutir.  Le package PowerShell DSC est exécuté sur chaque machine virtuelle RRAS et installe le routage, ainsi que tous les services et fonctionnalités dépendants requis.  Ce DSC peut être davantage personnalisé, si besoin.  L’extension de script personnalisé exécute le script suivant et Add-Site2SiteIKE.ps1 configure le tunnel VPNS2S entre les deux serveurs RRAS avec une clé partagée.  Vous pouvez afficher la sortie détaillée de l’extension de script personnalisé pour consulter les résultats de la configuration du tunnel VPN.
 
-![texte de remplacement](./media/azure-stack-network-howto-vpn-tunnel-ipsec/s2svpntunnel.png)
+![Le schéma, intitulé S2SVPNTunnel, présente deux réseaux virtuels connectés par un tunnel VPN site à site.](./media/azure-stack-network-howto-vpn-tunnel-ipsec/s2svpntunnel.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 34e48ce402678a8fa2f1632e0431cfb38fb895e9
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: ac0ddc1ac4b93e236f29ff10dda9e32cf2b8dc32
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567278"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965039"
 ---
 # <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>VNET Peering dans Azure Stack Hub avec des machines virtuelles
 
@@ -23,7 +23,7 @@ Ce modèle de déploiement est la base qui permet de créer des tunnels VPN au s
 Vous trouverez les modèles dans le dépôt GitHub [Azure Intelligent Edge Patterns](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
 ). Le modèle se trouve dans le dossier **S2SVPNTunnel**.
 
-![texte de remplacement](./media/azure-stack-network-howto-vnet-peering/overview.svg)
+![Le schéma illustre une implémentation fournissant un tunnel VPN entre deux réseaux virtuels. Un serveur RRAS ainsi qu'un sous-réseau interne et un sous-réseau de tunnel sont disponibles sur chaque réseau virtuel.](./media/azure-stack-network-howto-vnet-peering/overview.svg)
 
 ## <a name="requirements"></a>Spécifications
 
@@ -51,7 +51,7 @@ Vous trouverez les modèles dans le dépôt GitHub [Azure Intelligent Edge Patte
 
 Le modèle fournit des valeurs par défaut pour l’affectation de noms et l’adressage IP au réseau virtuel. Il requiert un mot de passe pour l’administrateur (rrasadmin) et offre également la possibilité d’utiliser votre propre blob de stockage avec un jeton SAS. Veillez à conserver ces valeurs dans les limites qui conviennent pour permettre au déploiement d'aboutir. Le package PowerShell DSC est exécuté sur chaque machine virtuelle RRAS et installe le routage ainsi que tous les services et fonctionnalités dépendants requis. Ce DSC peut être davantage personnalisé, si besoin. L’extension de script personnalisé exécute le script suivant et `Add-Site2Site.ps1` configure le tunnel VPNS2S entre les deux serveurs RRAS avec une clé partagée. Vous pouvez afficher la sortie détaillée de l’extension de script personnalisé pour consulter les résultats de la configuration du tunnel VPN.
 
-![texte de remplacement](./media/azure-stack-network-howto-vnet-peering/s2svpntunnels2.svg)
+![Le schéma, intitulé S2SVPNTunnel, présente deux réseaux virtuels connectés par un tunnel VPN site à site.](./media/azure-stack-network-howto-vnet-peering/s2svpntunnels2.svg)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

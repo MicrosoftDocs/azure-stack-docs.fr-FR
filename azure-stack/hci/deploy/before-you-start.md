@@ -4,13 +4,13 @@ description: Guide pratique pour préparer le déploiement d’Azure Stack HCI.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 08/03/2020
-ms.openlocfilehash: fc12f638970e82c293a9143c398892a88049f6cd
-ms.sourcegitcommit: 952d26ad08fcc28ad3ad83e27644e61497623a44
+ms.date: 09/01/2020
+ms.openlocfilehash: 33e1e5b6c113f954a819cf6488f22a18f64d93c5
+ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87889184"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89364811"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>Avant le déploiement d’Azure Stack HCI
 
@@ -136,7 +136,7 @@ Il peut y avoir des ports supplémentaires non listés ci-dessus. Il s’agit de
 ### <a name="storage-requirements"></a>Exigences de stockage
 
 - Azure Stack HCI fonctionne avec les lecteurs SATA, SAS, NVMe ou à mémoire persistante en attachement direct qui sont physiquement attachés à un seul serveur chacun.
-- Chaque serveur du cluster doit avoir le même modèle, la même taille et le même nombre de lecteurs, avec les mêmes tailles de secteur sur tous les disques. Les lecteurs peuvent être internes au serveur ou dans un boîtier externe connecté à un seul serveur.
+- Chaque serveur de cluster doit présenter les mêmes types de lecteurs et le même nombre de chaque type. Il est également recommandé (mais pas obligatoire) d’opter pour des lecteurs de même taille et de même modèle. Les lecteurs peuvent être internes au serveur ou dans un boîtier externe connecté à un seul serveur.
 - Chaque serveur du cluster doit avoir des volumes dédiés pour les journaux, avec un stockage de journal au moins aussi rapide que le stockage de données. Les clusters étendus nécessitent au moins deux volumes : l’un pour les données répliquées et l’autre pour les données de journal.
 - SCSI Enclosure Services (SES) est requis pour le mappage et l’identification des emplacements. Chaque boîtier externe doit présenter un identificateur unique (ID unique). **NON PRIS EN CHARGE :** Les cartes de contrôleur RAID ou le stockage SAN (Fibre Channel, iSCSI, FCoE), les boîtiers SAS partagés connectés à plusieurs serveurs, ou toute forme de MPIO (Multipath IO) où les lecteurs sont accessibles par plusieurs chemins d’accès. Les cartes HBA doivent implémenter le mode de transfert simple.
 - Pour plus d’informations, consultez la rubrique sur le [choix des lecteurs](../concepts/choose-drives.md) ou la [configuration matérielle requise pour les espaces de stockage direct](/windows-server/storage/storage-spaces/storage-spaces-direct-hardware-requirements).
