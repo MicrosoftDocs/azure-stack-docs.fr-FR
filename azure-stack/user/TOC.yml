@@ -147,6 +147,16 @@
                   href: vm-update-management.md
                 - name: Considérations relatives aux machines virtuelles SQL Server
                   href: azure-stack-sql-server-vm-considerations.md
+                - name: Migrer des machines virtuelles
+                  items:
+                    - name: Vue d’ensemble de la migration de machines virtuelles
+                      href: vm-move-overview.md
+                    - name: Machine virtuelle à partir d’Azure
+                      href: vm-move-from-azure.md
+                    - name: Machine virtuelle spécialisée locale
+                      href: vm-move-specialized.md
+                    - name: Machine virtuelle généralisée locale
+                      href: vm-move-generalized.md
             - name: Stockage
               items:
                 - name: Vue d’ensemble
