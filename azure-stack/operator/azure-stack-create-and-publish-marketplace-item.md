@@ -7,12 +7,12 @@ ms.date: 08/18/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: db8a05c8a3f8d4c219cb37de018df46c60f39348
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 672071c93d5f227ae6ec9bfccedc043e6838ac61
+ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764543"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89621314"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Créer et publier un élément personnalisé de Place de marché Azure Stack Hub
 
@@ -45,7 +45,7 @@ Pour créer un élément de Place de marché personnalisé, procédez comme suit
 
    ![Capture d’écran de la structure des modèles de déploiement](media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png)
 
-4. Remplacez les valeurs en surbrillance suivantes (celles avec des numéros) dans le modèle Manifest.json par la valeur que vous avez fournie lors du [chargement de votre image personnalisée](azure-stack-add-vm-image.md).
+4. Remplacez les valeurs en surbrillance suivantes (celles avec des numéros) dans le modèle Manifest.json par la valeur que vous avez fournie lors du [chargement de votre image personnalisée](azure-stack-add-vm-image.md#add-a-platform-image).
 
    > [!NOTE]  
    > Ne codez jamais en dur des secrets tels que des clés de produit, des mots de passe ou des informations d’identification de client dans le modèle Azure Resource Manager. Les fichiers modèles JSON sont accessibles sans authentification une fois qu’ils sont publiés dans la galerie. Stockez tous les secrets dans [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) et appelez-les à partir du modèle.

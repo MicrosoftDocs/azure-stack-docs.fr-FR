@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ff36107a50a534dbb14b77747839bf1aabd0ebbb
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: d504f92db4a703252fb7ea623555624de27adc57
+ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920370"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89428615"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Connecter l’Explorateur de stockage à un compte de stockage ou un abonnement Azure Stack Hub
 
@@ -91,6 +91,7 @@ Suivez les étapes ci-après pour connecter l’Explorateur Stockage à un abonn
 
 > [!NOTE]  
 > L’expérience de connexion Azure Federated Services (AD FS) prend en charge l’explorateur de stockage 1.2.0 ou versions ultérieures avec Azure Stack Hub 1804 ou mise à jour plus récente.
+
 Suivez les étapes ci-après pour connecter l’Explorateur Stockage à un abonnement Azure Stack Hub, qui appartient à un compte AD FS.
 
 1. Sélectionnez **Gérer les comptes**. L’Explorateur répertorie les abonnements Microsoft auxquels vous vous êtes connecté.

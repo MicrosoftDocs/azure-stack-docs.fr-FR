@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 84a6f69eebb461d25cd9569f61d3dee22ec79a49
-ms.sourcegitcommit: b2b0fe629d840ca8d5b6353a90f1fcb392a73bd5
+ms.openlocfilehash: e4385f7b1ac22f36f069e9ac4d5b35011e290982
+ms.sourcegitcommit: 593a6c9cff741af24aac28a3328605fe071129ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85376814"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89510936"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>Résoudre les problèmes de connexion VPN de site à site
 
@@ -21,6 +21,9 @@ Cet article décrit les procédures de résolution de problèmes que vous pouvez
 Si le problème lié à Azure Stack Hub n’est pas traité dans cet article, vous pouvez consulter le [forum MSDN Azure Stack Hub](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack).
 
 Vous pouvez également envoyer une demande de support Azure. Consultez le [support technique Azure Stack Hub](../operator/azure-stack-manage-basics.md#where-to-get-support).
+
+> [!NOTE]
+> Vous ne pouvez créer qu’une seule connexion VPN site à site entre deux déploiements Azure Stack Hub. En effet, la plateforme n’autorise qu’une seule connexion VPN à la même adresse IP. Dans la mesure où Azure Stack exploite la passerelle mutualisée qui utilise une seule adresse IP publique pour toutes les passerelles VPN dans le système Azure Stack Hub, il ne peut y avoir qu’une seule connexion VPN entre deux systèmes Azure Stack Hub. Cette limitation s’applique également à la connexion de plusieurs connexions VPN de site à site à une passerelle VPN qui utilise une seule adresse IP. Azure Stack Hub n’autorise pas la création de plus d’une ressource de passerelle de réseau local à l’aide de la même adresse IP.
 
 ## <a name="initial-troubleshooting-steps"></a>Étapes de dépannage initiales
 

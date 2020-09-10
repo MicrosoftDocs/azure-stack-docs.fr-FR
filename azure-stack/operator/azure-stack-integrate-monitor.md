@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 0bc19bf584f482d2ec67758368afa11c91ae456e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 231e4ac3b0bc8e0d43c608ff252f7d4c274e84a8
+ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81243869"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89428547"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>Intégrer une solution de supervision externe à Azure Stack Hub
 
@@ -69,6 +69,9 @@ Le plug-in est écrit dans Python et s’appuie sur l’API REST du fournisseur 
 
 La version 1.2 du plug-in Nagios pour Azure Stack Hub s’appuie sur la bibliothèque Microsoft ADAL, et elle prend en charge l’authentification basée sur l’utilisation du principal de service avec un secret ou un certificat. Par ailleurs, la configuration a été simplifiée et s’effectue maintenant au moyen d’un seul fichier de configuration avec de nouveaux paramètres. Le plug-in prend désormais en charge les déploiements Azure Stack Hub avec Azure AD et AD FS comme système d’identité.
 
+> [!IMPORTANT]
+> AD FS prend en charge seulement les sessions de connexion interactives. Si vous avez besoin d’une connexion non interactive pour un scénario automatisé, vous devez utiliser un nom de principal du service (SPN).
+
 Le plug-in fonctionne avec Nagios 4x et XI. Pour télécharger le plug-in, consultez [Monitoring Azure Stack Hub Alerts](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details). Le site de téléchargement comporte également des informations sur l’installation et la configuration.
 
 ### <a name="requirements-for-nagios"></a>Configuration requise pour Nagios
@@ -114,7 +117,7 @@ Vous pouvez configurer les paramètres suivants dans le fichier azurestack.cfg. 
 
 Pour plus d’informations sur la création d’un SPN, consultez [Utiliser une identité d’application pour accéder à des ressources](azure-stack-create-service-principals.md).
 
-| Paramètre | Description | Authentication |
+| Paramètre | Description | Authentification |
 | --- | --- | --- |
 | **External_domain_fqdn ** | Nom de domaine complet externe |    |
 | **region: ** | Nom de la région |    |
@@ -122,7 +125,7 @@ Pour plus d’informations sur la création d’un SPN, consultez [Utiliser une 
 | client_id: | ID client | SPN avec un secret |
 | client_secret: | Mot de passe client | SPN avec un secret |
 | client_cert\*\*: | Chemin du certificat | SPN avec un certificat |
-| client_cert_thumbprint\*\*: | Empreinte du certificat | SPN avec un certificat |
+| client_cert_thumbprint\*\*: | Empreinte de certificat | SPN avec un certificat |
 
 \*L’ID du locataire n’est pas obligatoire dans les déploiements Azure Stack Hub avec AD FS.
 

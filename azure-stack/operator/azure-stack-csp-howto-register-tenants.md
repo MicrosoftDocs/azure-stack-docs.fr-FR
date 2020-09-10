@@ -3,16 +3,16 @@ title: Ajouter des locataires pour l’utilisation et la facturation sur Azure S
 description: Découvrez comment ajouter un locataire pour l’utilisation et la facturation sur Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 5/28/2020
+ms.date: 9/02/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 5/28/2020
-ms.openlocfilehash: 08185a25c608c735aa99ca7f7d2b060c8b67042b
-ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
+ms.openlocfilehash: e0d426ac19645cbbc318f66b827946534539d125
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84158382"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448569"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Ajouter un locataire pour l’utilisation et la facturation sur Azure Stack Hub
 
@@ -74,7 +74,7 @@ La section suivante décrit les paramètres de la cmdlet **New-AzureRmResource**
 |registrationSubscriptionID | L’abonnement Azure qui était utilisé au moment de l’inscription initiale d’Azure Stack Hub.|
 | customerSubscriptionID | L’abonnement Azure (pas Azure Stack Hub) appartenant au client à inscrire. Doit être créé dans l'offre CSP. En pratique, cela veut dire via l’Espace partenaires. Si un client dispose de plus d’un locataire Azure Active Directory, cet abonnement doit être créé dans le locataire qui sera utilisé pour se connecter à Azure Stack Hub. L’ID de l’abonnement client est sensible à la casse. |
 | resourceGroup | Le groupe de ressources Azure dans lequel est stockée votre inscription. |
-| registrationName | Le nom de l’inscription de votre compte Azure Stack Hub. Il s’agit d’un objet stocké dans Azure. 
+| registrationName | Le nom de l’inscription de votre compte Azure Stack Hub. Il s’agit d’un objet stocké dans Azure.
 
 > [!NOTE]  
 > Les locataires doivent être inscrits auprès de chaque Azure Stack Hub qu’ils utilisent. Si vous avez deux déploiements Azure Stack Hub utilisés par un client, vous devez mettre à jour les inscriptions initiales de chaque déploiement avec l’abonnement du locataire.
