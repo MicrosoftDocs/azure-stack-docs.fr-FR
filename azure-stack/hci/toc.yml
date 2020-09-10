@@ -108,7 +108,7 @@
       href: concepts/plan-volumes.md
     - name: SDN (Software Defined Network)
       href: concepts/software-defined-networking.md
-    - name: Comprendre le cache
+    - name: Comprendre le cache de pool de stockage
       href: concepts/cache.md
     - name: Tolérance aux pannes et efficacité du stockage
       href: concepts/fault-tolerance.md
