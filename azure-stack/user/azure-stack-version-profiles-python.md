@@ -3,16 +3,16 @@ title: Utiliser des profils de version d’API avec Python dans Azure Stack Hub
 description: Découvrez comment utiliser des profils de version d’API avec Python dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 09/03/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 42a00b997031850a61077ec59a92d5df5b6776ef
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 88c2ecd1448a210daddd1d7da34ffea03c67a6b1
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82835898"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448637"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Utiliser des profils de version d’API avec Python dans Azure Stack Hub
 
@@ -37,7 +37,7 @@ Le Kit de développement logiciel (SDK) Python prend en charge les profils d’A
 
 ## <a name="install-the-azure-python-sdk"></a>Installer le kit SDK Azure Python
 
-1. Installez Git à partir du [site officiel](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+1. [Installer Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 2. Pour des instructions sur l’installation du SDK Python, consultez [Azure pour développeurs Python](/python/azure/python-sdk-azure-install?view=azure-python).
 3. Si vous n’en avez pas de disponible, créez un abonnement et enregistrez l’ID d’abonnement pour l’utiliser plus tard. Pour des instructions sur la création d’un abonnement, voir [Créer des abonnements pour des offres dans Azure Stack Hub](../operator/azure-stack-subscribe-plan-provision-vm.md).
 4. Créez un principal de service et enregistrez son ID et son secret. Pour plus d’informations sur la création d’un principal de service pour Azure Stack Hub, voir [Fournir à des applications l’accès à Azure Stack Hub](../operator/azure-stack-create-service-principals.md).
@@ -187,6 +187,6 @@ Chaque opération est clairement commentée et présente une fonction d’impres
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Centre de développement Python pour Azure](https://azure.microsoft.com/develop/python/)
+- [Centre de développement Azure Python](https://azure.microsoft.com/develop/python/)
 - [Documentation sur les machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/)
 - [Parcours d’apprentissage des machines virtuelles](/learn/paths/deploy-a-website-with-azure-virtual-machines/)

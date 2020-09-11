@@ -3,16 +3,16 @@ title: Problèmes connus d’Azure Stack Hub
 description: Découvrez les problèmes connus des versions d’Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 09/04/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: 664d89ecfde65906bbda33d71d9adc24284a33ba
-ms.sourcegitcommit: cf99d632ca2afccba4aaad5c8a013ba3443bcd54
+ms.openlocfilehash: d7a9112955891a59e29bfe997888d3e444784494
+ms.sourcegitcommit: 01dcda15d88c8d44b4918e2f599daca462a8e3d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89410971"
+ms.lasthandoff: 09/05/2020
+ms.locfileid: "89493816"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Problèmes connus d’Azure Stack Hub
 
@@ -117,7 +117,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Le panneau de vue d’ensemble de la machine virtuelle n’affiche pas le nom correct de l’ordinateur
 
 - Champ d’application : Ce problème concerne toutes les versions.
-- Cause : Quand vous affichez les détails d’une machine virtuelle dans le panneau de vue d’ensemble, le nom de l’ordinateur s’affiche comme **(non disponible)** . Cela est dû à la conception des machines virtuelles créées à partir de disques spécialisés/instantanés de disque.
+- Cause : Quand vous affichez les détails d’une machine virtuelle dans le panneau de vue d’ensemble, le nom de l’ordinateur s’affiche comme **(non disponible)** . Il s’agit du paramètre par défaut pour les machines virtuelles créées à partir de disques spécialisés ou d’instantanés de disque, ainsi que pour les images de la Place de marché.
 - Correction : Affichez le panneau **Propriétés** sous **Paramètres**.
 
 ### <a name="virtual-machine-scale-set"></a>Jeu de mise à l’échelle de machine virtuelle
@@ -264,6 +264,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
   - [Spécifier des stratégies IPsec/IKE personnalisées](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
 ## <a name="compute"></a>Calcul
+
 ### <a name="cannot-create-a-vmss-with-standard_ds2_v2-vm-size-on-portal"></a>Impossible de créer un groupe identique de machines virtuelles avec la taille de machine virtuelle Standard_DS2_v2 sur le portail
 
 - Champ d’application : Ce problème s’applique à la version 2002.
@@ -273,7 +274,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Le panneau de vue d’ensemble de la machine virtuelle n’affiche pas le nom correct de l’ordinateur
 
 - Champ d’application : Ce problème concerne toutes les versions.
-- Cause : Quand vous affichez les détails d’une machine virtuelle dans le panneau de vue d’ensemble, le nom de l’ordinateur s’affiche comme **(non disponible)** . Cela est dû à la conception des machines virtuelles créées à partir de disques spécialisés/instantanés de disque.
+- Cause : Quand vous affichez les détails d’une machine virtuelle dans le panneau de vue d’ensemble, le nom de l’ordinateur s’affiche comme **(non disponible)** . Il s’agit du paramètre par défaut pour les machines virtuelles créées à partir de disques spécialisés ou d’instantanés de disque, ainsi que pour les images de la Place de marché.
 - Correction : Affichez le panneau **Propriétés** sous **Paramètres**.
 
 ### <a name="nvv4-vm-size-on-portal"></a>Taille de machine virtuelle NVv4 sur le portail

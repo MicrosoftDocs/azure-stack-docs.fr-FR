@@ -3,16 +3,16 @@ title: Ajouter des nœuds d’unité d’échelle dans Azure Stack Hub
 description: Découvrez comment ajouter des nœuds d’unité d’échelle à des unités d’échelle dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 08/03/2020
+ms.date: 09/09/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 08/03/2020
-ms.openlocfilehash: cc9023e6f7653d13d11a0a63cb65c59840f64ab7
-ms.sourcegitcommit: 952d26ad08fcc28ad3ad83e27644e61497623a44
+ms.openlocfilehash: bf1cbd3dc999a90fb53ef30b48dc6f06e82f4d5a
+ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87889260"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89621297"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Ajouter des nœuds d’unité d’échelle dans Azure Stack Hub
 
@@ -27,14 +27,14 @@ Le diagramme de flux suivant montre le processus général pour ajouter un nœud
 
 L’opération d’ajout de nouveau nœud peut prendre plusieurs heures ou plusieurs jours. Il n’y a aucun impact sur les charges de travail en cours d’exécution sur le système lors de l’ajout d’un nœud d’unité d’échelle supplémentaire.
 
-> [!Note]  
+> [!NOTE]  
 > N’essayez aucune des opérations suivantes si une opération d’ajout de nœud d’unité d’échelle est déjà en cours :
 >
 >  - Mettre à jour Azure Stack Hub
 >  - Effectuer une rotation des certificats
 >  - Arrêter Azure Stack Hub
 >  - Réparer un nœud d’unité d’échelle
-
+>  - Ajouter un autre nœud (l’échec précédent de l’action add-node est également considéré comme en cours)
 
 ## <a name="add-scale-unit-nodes"></a>Ajouter des nœuds d’unités d’échelle
 

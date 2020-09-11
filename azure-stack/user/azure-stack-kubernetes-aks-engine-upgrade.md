@@ -3,16 +3,16 @@ title: Mettre à niveau un cluster Kubernetes sur Azure Stack Hub
 description: Découvrez comment mettre à niveau un cluster Kubernetes sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: 4dd690fe5dc88c3edce02a09d594f9728297b4c9
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.lastreviewed: 09/02/2020
+ms.openlocfilehash: 7cfde51b5cfbdaf6d6ad752951ad4df3e4f95823
+ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920693"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89473042"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Mettre à niveau un cluster Kubernetes sur Azure Stack Hub
 
@@ -50,17 +50,16 @@ Les instructions suivantes utilisent les étapes minimales pour effectuer la mis
 1. Vous devez d’abord déterminer les versions que vous pouvez cibler pour la mise à niveau. Ces versions dépendent de celle dont vous disposez actuellement. Utilisez alors la valeur de version adéquate pour effectuer la mise à niveau. Les versions de Kubernetes prises en charge dans la dernière mise à jour sont 1.14.7 et 1.15.10. Aidez-vous de ce tableau pour connaître les mises à niveau disponibles :
 
 | Version actuelle | Mise à niveau disponible |
-| --- | --- |
-|1.14.7 | 1.15.10 |
-|1.14.8 | 1.15.10 |
-|1.15.4 | 1.15.10 |
-|1.15.5 | 1.15.10 |
+| ------------------------- | ----------------------- |
+| 1.15.10 | 1.15.12 |
+| 1.15.12, 1.16.8, 1.16.9 | 1.16.14 |
+| 1.16.8, 1.16.9, 1.16.14 | 1.17.11 |
 
 Pour un mappage complet des versions du moteur AKS, de l’image de base AKS et de Kubernetes, consultez [Versions du moteur AKS prises en charge](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions).
 
 2. Collectez les informations nécessaires à l’exécution de la commande `upgrade`. La mise à niveau utilise les paramètres suivants :
 
-    | Paramètre |  Exemple | Description |
+    | Paramètre | Exemple | Description |
     | --- | --- | --- |
     | azure-env | AzureStackCloud | Pour indiquer au moteur AKS que votre plateforme cible est Azure Stack Hub, utilisez `AzureStackCloud`. |
     | location | local | Nom de la région de votre Azure Stack Hub. Pour le kit de développement Azure Stack (ASDK), la région est définie sur `local`. |

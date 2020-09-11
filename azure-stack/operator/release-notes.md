@@ -3,16 +3,16 @@ title: Notes de publication d’Azure Stack Hub
 description: Notes de publication des systèmes intégrés Azure Stack Hub, y compris les mises à jour et les correctifs de bogues.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 09/04/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 14d41d920d9a91744c5cfa05d2d252a68146b4d1
-ms.sourcegitcommit: cf99d632ca2afccba4aaad5c8a013ba3443bcd54
+ms.openlocfilehash: 73cf9222b445164063c3dccfb1beb400913cea3e
+ms.sourcegitcommit: 50e2a81b255847fbd6288c70d60e7a080da372e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89410937"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89557477"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Notes de publication d’Azure Stack Hub
 
@@ -156,7 +156,7 @@ La version 2005 d’Azure Stack Hub doit être appliquée sur la version 2002 
 
 Après l’installation de 2005, si des correctifs 2005 sont mis en production par la suite, vous devez les installer :
 
-- Aucun correctif Azure Stack Hub n’est disponible pour 2005.
+- [Correctif logiciel Azure Stack Hub 1.2005.12.66](https://support.microsoft.com/help/4580968)
 ::: moniker-end
 
 ::: moniker range="azs-2002"

@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 699c9a32c316e183c5432308ca26239533f71c98
-ms.sourcegitcommit: 09fbc4e8fc53828647d515bfb556dfe42df28c19
+ms.openlocfilehash: 760f8680c20acdbd219cc4dd9e97e799a37598ea
+ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86419151"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89473110"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Déployer le fournisseur de ressources MySQL sur Azure Stack Hub
 
@@ -29,23 +29,17 @@ Plusieurs conditions préalables doivent être remplies avant de pouvoir déploy
 
 * Ajoutez la machine virtuelle Windows Server standard sur la Place de marché Azure Stack Hub en téléchargeant l'image de **Windows Server 2016 Datacenter Server Core**.
 
-* Téléchargez le binaire du fournisseur de ressources MySQL, puis exécutez le fichier auto-extracteur pour extraire le contenu dans un répertoire temporaire.
+* Téléchargez la version prise en charge du fichier binaire du fournisseur de ressources MySQL en fonction du tableau de mappage de versions ci-dessous. Exécutez l’auto-extracteur pour extraire le contenu téléchargé dans un répertoire temporaire. 
 
-  >[!NOTE]
-  >Pour déployer le fournisseur MySQL sur un système qui n’a pas accès à Internet, copiez le fichier [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) sur un chemin local. Fournissez le nom du chemin à l’aide du paramètre **DependencyFilesLocalPath**.
-
-* Le fournisseur de ressources dispose d'une build Azure Stack Hub minimale correspondante.
-
-  |Version minimale d'Azure Stack Hub|Version du fournisseur de ressources MySQL|
+  |Versions d’Azure Stack Hub prises en charge|Version du fournisseur de ressources MySQL|
   |-----|-----|
-  |Version 1910 (1.1910.0.58)|[MySQL RP version 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|
-  |Version 1808 (1.1808.0.97)|[MySQL RP version 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
-  |Version 1808 (1.1808.0.97)|[MySQL RP version 1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
-  |Version 1804 (1.0.180513.1)|[Version 1.1.24.0 du fournisseur de ressources MySQL](https://aka.ms/azurestackmysqlrp11240)
+  |2005, 2002, 1910|[MySQL RP version 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|
+  |1908|[MySQL RP version 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|
   |     |     |
-  
-> [!IMPORTANT]
-> Avant de déployer la version 1.1.47.0 du fournisseur de ressources MySQL, votre système Azure Stack Hub doit être mis à niveau vers la mise à jour 1910 ou ultérieure. Sur les versions antérieures d'Azure Stack Hub non prises en charge, la version 1.1.47.0 du fournisseur de ressources MySQL ne fonctionne pas.
+
+>[!NOTE]
+>Pour déployer le fournisseur MySQL sur un système qui n’a pas accès à Internet, copiez le fichier [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) sur un chemin local. Fournissez le nom du chemin à l’aide du paramètre **DependencyFilesLocalPath**.
+
 
 * Vérifiez que les conditions préalables d’intégration du centre de données sont remplies :
 
@@ -66,8 +60,8 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 # path to save the packages, c:\temp\azs1.6.0 as an example here
 $Path = "c:\temp\azs1.6.0"
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.2
 ```
 
 2. Copiez ensuite les packages téléchargés sur un périphérique USB.

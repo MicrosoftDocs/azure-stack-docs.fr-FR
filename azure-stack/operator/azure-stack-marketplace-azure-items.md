@@ -3,16 +3,16 @@ title: Éléments disponibles sur la Place de Marché Azure pour Azure Stack Hub
 description: Découvrez les éléments disponibles sur la Place de Marché Azure pouvant être utilisés dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/07/2020
+ms.date: 09/09/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: 1d1c297ca303b38a541bcd982df218444affbc71
-ms.sourcegitcommit: cfc453689a5a2f2491ce00ab77a7c5bfddfe01d8
+ms.openlocfilehash: 8a9eb556209e282efc760c475c1d0f5dd5d9e685
+ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997987"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89598548"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Éléments disponibles sur la Place de Marché Azure pour Azure Stack Hub
 
@@ -243,6 +243,7 @@ Microsoft Azure Stack Hub prend en charge les machines virtuelles et les modèle
 | ![Pare-feu Palo Alto VM-Series de nouvelle génération](media/azure-stack-marketplace-azure-items/paloalto.png) | [Pare-feu Palo Alto VM-Series de nouvelle génération](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | Le pare-feu VM-Series de nouvelle génération permet aux clients de migrer en toute sécurité leurs applications et données vers Azure Stack Hub, de les protéger contre les menaces connues et inconnues grâce à des stratégies de mise en liste verte des applications et de prévention des menaces. **Cette image requiert le déploiement d’un modèle ; consultez cet [article](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) pour obtenir des informations importantes.**| Palo Alto Networks, Inc. |
 | ![Pare-feu d’applications PT](media/azure-stack-marketplace-azure-items/pt.png) | [Pare-feu d’applications PT](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | Le pare-feu d’applications PT détecte les vulnérabilités connues et inconnues et empêche les attaques sur les applications Web. **Téléchargez les deux éléments de la Place de marché PT.** | Technologies positives |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-201818) | Puppet Enterprise vous permet d’automatiser tout le cycle de vie de votre infrastructure Azure Stack Hub. **Téléchargez les deux éléments de la Place de marché Puppet.** | Puppet |
+| ![Appliance de scanneur virtuel Qualys](media/azure-stack-marketplace-azure-items/qualys.png) | [Appliance de scanneur virtuel Qualys](https://azuremarketplace.microsoft.com/marketplace/apps/qualysguard.qualys-virtual-scanner-app) | L’appliance de scanneur virtuel enrichit la suite intégrée d’applications SaaS de conformité et de sécurité de la plateforme cloud Qualys. Les modules d’application incluent la gestion des vulnérabilités, la conformité aux stratégies et l’analyse des applications web. | Qualys, Inc. |
 | ![Quest Rapid Recovery](media/azure-stack-marketplace-azure-items/quest.png) | [Quest Rapid Recovery Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | La protection de données avancée de Rapid Recovery unifie la sauvegarde, la réplication et la restauration dans une solution simple à utiliser. | Quest Software |
 | ![SIOS DataKeeper Cluster Edition](media/azure-stack-marketplace-azure-items/sioslogo.png) | [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) | SIOS DataKeeper fournit des fonctionnalités de haute disponibilité et de récupération d’urgence dans Azure Stack Hub. Ajoutez simplement SIOS DataKeeper dans l’environnement de clustering de basculement Windows Server (WSFC) d’un déploiement Azure Stack Hub pour ne plus faire appel au stockage partagé. | SIOS Technology Corp. |
 | ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos) | Gestion d’infrastructure Open Source de haute qualité. | SUSE |

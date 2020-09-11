@@ -1,20 +1,20 @@
 ---
-title: Compréhension du cache dans Azure Stack HCI
+title: Présentation du cache de pool de stockage dans Azure Stack HCI
 description: Comment la mise en cache de lecture et d’écriture fonctionne dans les espaces de stockage direct et Azure Stack HCI.
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/01/2020
-ms.openlocfilehash: 0c5ce6430ac44601b7e0a172203faabf2732e0a2
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.date: 09/04/2020
+ms.openlocfilehash: 573cbe36fefecdc37394270fbeec6540d4369991
+ms.sourcegitcommit: 01dcda15d88c8d44b4918e2f599daca462a8e3d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364743"
+ms.lasthandoff: 09/05/2020
+ms.locfileid: "89493867"
 ---
-# <a name="understanding-the-cache-in-azure-stack-hci"></a>Compréhension du cache dans Azure Stack HCI
+# <a name="understanding-the-storage-pool-cache-in-azure-stack-hci"></a>Présentation du cache de pool de stockage dans Azure Stack HCI
 
 > S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
 
@@ -148,7 +148,7 @@ La pile de stockage à définition logicielle Windows compte plusieurs autres ca
 
 Avec Azure Stack HCI, le comportement par défaut du cache en écriture différée des espaces de stockage ne doit pas être modifié. Par exemple, certains paramètres de l’applet de commande **New-volume**, comme **-WriteCacheSize**, ne doivent pas être utilisés.
 
-En revanche, vous êtes libre de choisir d’utiliser ou non le cache d’un volume partagé de cluster. Il est désactivé par défaut dans Windows Server 2019, mais il n’entre en rien en conflit avec le nouveau cache décrit dans cette rubrique. Dans certains scénarios, il peut offrir des gains de performances précieux. Pour plus d’informations, consultez [Guide pratique pour activer le cache de volume partagé de cluster](/windows-server/failover-clustering/failover-cluster-csvs#enable-the-csv-cache-for-read-intensive-workloads-optional).
+En revanche, vous êtes libre de choisir d’utiliser ou non le cache d’un volume partagé de cluster. Il est activé par défaut dans Azure Stack HCI, mais il n’entre en rien en conflit avec le cache décrit dans cette rubrique. Dans certains scénarios, il peut offrir des gains de performances précieux. Pour plus d’informations, consultez [Utiliser le cache de lecture en mémoire CSV avec Azure Stack HCI](../manage/use-csv-cache.md).
 
 ## <a name="manual-configuration"></a>Configuration manuelle
 
