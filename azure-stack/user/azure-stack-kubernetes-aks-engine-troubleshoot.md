@@ -3,16 +3,16 @@ title: Résoudre des problèmes du moteur AKS sur Azure Stack Hub
 description: Cet article présente les étapes de résolution des problèmes liés au moteur AKS sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 09/08/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 4/17/2020
-ms.openlocfilehash: 794320af0595138e335c0b1cd3dad61a777251ff
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.lastreviewed: 09/08/2020
+ms.openlocfilehash: e9e1e09d40be623dfb973503295274790a86dfb8
+ms.sourcegitcommit: 2407498dc34158a49959d9f87f84d6a1cde0cca6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818760"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89560961"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Résoudre des problèmes du moteur AKS sur Azure Stack Hub
 
@@ -70,16 +70,16 @@ Pour plus d’informations, consultez l’article sur la [résolution des probl�
 
 ## <a name="collect-aks-engine-logs"></a>Collecter les journaux du moteur AKS
 
-Vous pouvez accéder aux informations de révision créées par le moteur AKS. Le moteur AKS signale l’état et les erreurs pendant l’exécution de l’application. Vous pouvez soit diriger la sortie vers un fichier texte, soit la copier directement à partir de la console de ligne de commande. Reportez-vous à la liste des codes d’erreur déclenchés par le moteur AKS dans [Examiner les codes d’erreur d’extension de script personnalisé](#review-custom-script-extension-error-codes).
+Vous pouvez passer en revue les informations créées par le moteur AKS. Le moteur AKS signale l’état et les erreurs pendant l’exécution de l’application. Vous pouvez soit diriger la sortie vers un fichier texte, soit la copier directement à partir de la console de ligne de commande. Reportez-vous à la liste des codes d’erreur déclenchés par le moteur AKS dans [Examiner les codes d’erreur d’extension de script personnalisé](#review-custom-script-extension-error-codes).
 
 1.  Collectez la sortie et l’erreur standard à partir des informations présentées dans l’outil en ligne de commande du moteur AKS.
 
-2. Obtenez les journaux à partir d’un fichier local. Vous pouvez définir le répertoire de sortie avec le paramètre **--output-directory**.
+2. Obtenez les journaux à partir d’un fichier local. Vous pouvez définir le répertoire de sortie à l’aide de la commande `get-logs` en définissant l’indicateur **--Output-Directory**.
 
     Pour définir le chemin local des journaux :
 
     ```bash  
-    aks-engine --output-directory <path to the directory>
+    aks-engine get-logs --output-directory <path to the directory>
     ```
 
 ## <a name="collect-kubernetes-logs"></a>Collecter des journaux Kubernetes
@@ -103,7 +103,7 @@ Conditions requises :
 
  - Une machine virtuelle Linux, Git Bash ou Bash sur Windows.
  - [Azure CLI](azure-stack-version-profiles-azurecli2.md) installé sur la machine à partir de laquelle le script sera exécuté.
- - Identité du principal du service connectée dans une session Azure CLI à Azure Stack Hub. Étant donné que le script a la possibilité de découvrir et de créer des ressources ARM pour effectuer son travail, il nécessite Azure CLI et une identité de principal du service.
+ - Identité du principal du service connectée dans une session Azure CLI à Azure Stack Hub. Étant donné que le script a la possibilité de découvrir et de créer des ressources Azure Stack Resource Manager pour effectuer son travail, il nécessite Azure CLI et une identité de principal du service.
  - Compte d’utilisateur (abonnement) dans lequel le cluster Kubernetes est déjà sélectionné dans l’environnement. 
 1. Téléchargez la dernière version du fichier tar du script sur votre machine virtuelle cliente, une machine qui a accès à votre cluster Kubernetes ou à la même machine que celle que vous avez utilisée pour déployer votre cluster avec le moteur AKS.
 

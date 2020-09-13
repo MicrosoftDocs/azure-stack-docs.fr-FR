@@ -3,26 +3,26 @@ title: Notes de publication du moteur AKS (Azure Kubernetes Service) sur Azure S
 description: Découvrez les étapes à suivre avec la mise à jour du moteur AKS sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 06/29/2020
+ms.date: 9/2/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 06/25/2020
-ms.openlocfilehash: 2764bd986cec4b5355c7fd6e9340ef3a1b6c8ce2
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.lastreviewed: 9/2/2020
+ms.openlocfilehash: 60e75b899ac66fae88e2e2e3f780c25ad0aac804
+ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920013"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89473246"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Notes de publication du moteur AKS sur Azure Stack Hub
 ::: moniker range=">=azs-2002"
-*S’applique à la version 0.51.0 du moteur ASK.*
+*S’applique à la version 0.55.0 du moteur ASK.*
 
 Cet article décrit le contenu du moteur Azure Kubernetes Service (AKS) sur la mise à jour d’Azure Stack Hub. La mise à jour inclut des améliorations et des correctifs pour la dernière version du moteur AKS ciblé sur la plateforme Azure Stack Hub. Notez que cette rubrique n’est pas destinée à documenter les informations de version relatives au moteur AKS pour Azure global.
 
 ## <a name="update-planning"></a>Planification des mises à jour
 
-La commande de mise à niveau du moteur AKS automatise entièrement le processus de mise à niveau de votre cluster. Elle se charge des tâches liées aux machines virtuelles, à la mise en réseau, au stockage, à Kubernetes et à l’orchestration. Avant d’appliquer la mise à jour, veillez à consulter les informations contenues dans cet article.
+La commande de mise à niveau du moteur AKS automatise entièrement le processus de mise à niveau de votre cluster. Elle se charge des tâches liées aux machines virtuelles, à la mise en réseau, au stockage, à Kubernetes et à l’orchestration. Avant d’appliquer la mise à jour, veillez à consulter les informations contenues dans la note de publication.
 
 ### <a name="upgrade-considerations"></a>Points importants relatifs à la mise à niveau
 
@@ -68,9 +68,9 @@ Les nouvelles versions de ces composants sont disponibles avec cette mise à jou
 
 -   L’opérateur Azure Stack Hub doit télécharger une nouvelle image de base AKS Ubuntu dans l’empreinte de la place de marché :
 
-    -   Nom : Distribution d’images de base AKS Ubuntu 16.04-LTS, mai 2020 (2020.05.13)
+    -   Nom : AKS base Ubuntu 16.04-LTS Image Distro, août 2020 (2020.08.24)
 
-    -   Version : 2020.05.13
+    -   Version : 2020.08.24
 
     -   Suivez les instructions de l’article [Ajouter les prérequis du moteur Azure Kubernetes Services (AKS) à la Place de marché Azure Stack Hub](../operator/azure-stack-aks-engine.md)
 
@@ -82,64 +82,56 @@ Les nouvelles versions de ces composants sont disponibles avec cette mise à jou
 | ----------------------------- | ------------------------ |
 | 1910 | 0.43.0, 0.43.1 |
 | 2002 | 0.48.0, 0.51.0 |
+| 2005 | 0.48.0, 0.51.0, 0.55.0 |
 
-## <a name="kubernetes-version-upgrade-path-in-aks-engine-0510"></a>Chemin de mise à niveau de la version de Kubernetes dans le moteur AKS 0.51.0
+## <a name="kubernetes-version-upgrade-path-in-aks-engine-0550"></a>Chemin de mise à niveau de la version de Kubernetes dans le moteur AKS 0.55.0
 
 La version actuelle et la version de mise à niveau sont indiquées dans le tableau suivant pour Azure Stack Hub. Ne suivez pas la commande aks-engine get-versions, car elle inclut également les versions prises en charge dans Azure global. Le tableau de versions et de mises à niveau suivant s’applique au cluster du moteur AKS dans Azure Stack Hub.
 
 | Version actuelle | Mise à niveau disponible |
 | ------------------------- | ----------------------- |
-| 1.14.7, 1.14.8 | 1.15.12 |
-| 1.15.4, 1.15.5, 1.15.10 | 1.15.12, 1.16.9 |
-| 1.15.12 | 1.16.9 |
-| 1.16.8 | 1.16.9 |
+| 1.15.10 | 1.15.12 |
+| 1.15.12, 1.16.8, 1.16.9 | 1.16.14 |
+| 1.16.8, 1.16.9, 1.16.14 | 1.17.11 |
 
-Dans le fichier JSON du modèle d’API, spécifiez les valeurs de version release et de version sous la section `orchestratorProfile` ; par exemple, si vous envisagez de déployer Kubernetes 1.16.9, vous devez définir les deux valeurs suivantes (Voir l’exemple [kubernetes-azurestack.json](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json)) :
+Dans le fichier JSON du modèle d’API, spécifiez les valeurs de release et de version sous la section `orchestratorProfile` ; par exemple, si vous envisagez de déployer Kubernetes 1.16.14, vous devez définir les deux valeurs suivantes (voir l’exemple [kubernetes-azurestack.json](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json)) :
 
 ```json  
     -   "orchestratorRelease": "1.16",
-    -   "orchestratorVersion": "1.16.9"
+    -   "orchestratorVersion": "1.16.14"
 ```
 
 ## <a name="whats-new"></a>Nouveautés
 
--   Ajout de la prise en charge de Kubernetes 1.15.12 ([#3212](https://github.com/Azure/aks-engine/issues/3212))
--   Ajout de la prise en charge de Kubernetes 1.16.8 & 1.16.9 ([#3157](https://github.com/Azure/aks-engine/issues/3157) et [#3087](https://github.com/Azure/aks-engine/issues/3087))
--   Module complémentaire du tableau de bord Kubernetes v2.0.0 ([#3140](https://github.com/Azure/aks-engine/issues/3140))
--   Amélioration de la fiabilité des opérations en supprimant l’instruction superflue **wait for no held apt locks** (attendre les verrous apt non maintenus) à la fin des opérations apt terminées ([#3049](https://github.com/Azure/aks-engine/issues/3049))
--   Amélioration de la fiabilité des opérations en procédant à l’exécution du script même après avoir obtenu une erreur lors de la connexion au serveur d’API K8s ([#3022](https://github.com/Azure/aks-engine/issues/3022))
--   Amélioration de la fiabilité des opérations en vérifiant l’état de la configuration DNS avant la connexion ([#3002](https://github.com/Azure/aks-engine/issues/3002))
--   Résolution du problème de provisionnement des nœuds Windows avec Kubernet ([#3300](https://github.com/Azure/aks-engine/issues/3300))
--   Correction du démarrage de systemD et etcd pour garantir le processus idempotent ([#3126](https://github.com/Azure/aks-engine/issues/3126))
--   Suppression de la prise en charge de Kubernetes 1.13 & 1.14 ([#3310](https://github.com/Azure/aks-engine/issues/3310) et [#3059](https://github.com/Azure/aks-engine/issues/3059))
--   Vérifiez que pod-security-policy est le premier module complémentaire chargé ([#3313](https://github.com/Azure/aks-engine/issues/3313))
--   Mise à jour d’Azure CNI vers la version 1.1.0 ([#3075](https://github.com/Azure/aks-engine/issues/3075)) (préversion)
--   Ajout de fonctionnalités et de correctifs pour prendre en charge les conteneurs Windows dans Azure Stack Hub (préversion) :
-    -   Correction de la collection de versions Windows ([#2954](https://github.com/Azure/aks-engine/pull/2954))
-    -   Mise à jour du nom de composant des fichiers binaires Windows dans Azure Stack ([#3231](https://github.com/Azure/aks-engine/issues/3231))
-    -   Mise à jour de la validation des images Windows sur Azure Stack Hub ([#3260](https://github.com/Azure/aks-engine/issues/3260))
-    -   Mise à jour les disques durs virtuels Windows pour inclure les correctifs de mai ([#3263](https://github.com/Azure/aks-engine/issues/3263))
-    -   Mise à jour les disques durs virtuels Windows avec les correctifs 4B ([#3115](https://github.com/Azure/aks-engine/issues/3115))
-    -   Mise à jour des disques durs virtuels Windows pour inclure les correctifs d’avril ([#3101](https://github.com/Azure/aks-engine/issues/3101))
+- Ajout de la prise en charge de K8s v1.17.11 sur Azure Stack [#3702](https://github.com/Azure/aks-engine/pull/3702)
+- Ajout de la prise en charge de K8s v1.16.14 sur Azure Stack [#3704](https://github.com/Azure/aks-engine/pull/3704)
+- Mise à jour du disque dur virtuel Linux vers 2020.08.24 [#3750](https://github.com/Azure/aks-engine/pull/3750)
+- Mise à jour du disque dur virtuel Windows en août [#3730](https://github.com/Azure/aks-engine/pull/3730)
+- Mise à niveau du serveur de métriques Kubernetes vers v0.3.7 [#3669](https://github.com/Azure/aks-engine/pull/3669)
+- Mise à niveau de la version de Docker pour résoudre le problème de rotation du journal [#3693](https://github.com/Azure/aks-engine/pull/3693)
+- Mise à niveau de CoreDNS vers v1.7.0 [#3608](https://github.com/Azure/aks-engine/pull/3608)
+- Utilisation des packages Moby 19.03.x [#3549](https://github.com/Azure/aks-engine/pull/3549)
+- Correctifs apportés à la stratégie de mise à jour Azure-CNI [#3571](https://github.com/Azure/aks-engine/pull/3571)
 
 ## <a name="known-issues"></a>Problèmes connus
 
 -   Le déploiement de plusieurs services Kubernetes en parallèle à l’intérieur d’un même cluster peut entraîner une erreur dans la configuration de l’équilibreur de charge de base. Déployez un service à la fois si possible.
--   Kubernetes 1.17 n’est pas pris en charge dans cette version. Même si des demandes de tirage (pull request) y font allusion, la version 1.17 n’est pas prise en charge.
 -   L’exécution de la commande aks-engine get-versions produit des informations applicables à Azure et à Azure Stack Hub. Toutefois, il n’existe pas de méthode explicite pour identifier ce qui correspond à Azure Stack Hub. N’utilisez pas cette commande pour déterminer quelles versions sont disponibles pour la mise à niveau. Utilisez le tableau de référence des mises à niveau décrit ci-dessus.
 -   Étant donné que l’outil aks-engine est un dépôt de code source de partage sur Azure et Azure Stack Hub. L’examen de nombreuses notes de version et demandes de tirage (pull request) vous incitera à croire que l’outil prend en charge d’autres versions de Kubernetes et de la plateforme de système d’exploitation en plus de celles listées ci-dessus. Ignorez-les et utiliser le tableau de versions ci-dessus comme guide officiel pour cette mise à jour.
-- Pendant la mise à niveau (aks-engine upgrade) d’un cluster Kubernetes de la version 1.15.x vers la version 1.16.x, le composant Kubernetes **kube-proxy** Kubernetes n’est pas mis à niveau :
-  - Dans les environnements connectés, ce problème peut passer inaperçu dans la mesure où rien n’indique que **kube-proxy** n’a pas été mis à niveau. Tout semble fonctionner comme prévu.
-  - Dans les environnements déconnectés, ce problème fait surface quand vous exécutez la requête suivante pour déterminer l’état des pods du système : `kubectl get pods -n kube-system`. Dans ce cas, les pods **kube-proxy** ne sont pas dans l’état **Ready**.
-  - Pour contourner ce problème, supprimez le deamonset **kube-proxy** afin que Kubernetes le redémarre avec la bonne version. Exécutez la commande suivante : `kubectl delete ds kube-proxy -n kube-system`.
+
+> [!NOTE]  
+> La prise en charge du conteneur Windows et d’Azure CNI est disponible dans la préversion privée. Si vous le souhaitez, vous pouvez demander à accéder à la préversion ici : [https://aka.ms/ash-k8s-win-azurecni](https://aka.ms/ash-k8s-win-azurecni)
 
 ## <a name="reference"></a>Informations de référence
 
 Voici l’ensemble complet des notes de version combinées d’Azure et d’Azure Stack Hub :
 
--   https://github.com/Azure/aks-engine/releases/tag/v0.49.0
--   https://github.com/Azure/aks-engine/releases/tag/v0.50.0
--   https://github.com/Azure/aks-engine/releases/tag/v0.51.0
+- https://github.com/Azure/aks-engine/releases/tag/v0.51.1
+- https://github.com/Azure/aks-engine/releases/tag/v0.52.1
+- https://github.com/Azure/aks-engine/releases/tag/v0.53.1
+- https://github.com/Azure/aks-engine/releases/tag/v0.54.1
+- https://github.com/Azure/aks-engine/releases/tag/v0.55.0
+
 ::: moniker-end
 ::: moniker range="<=azs-1910"
 *S’applique à la version 0.48.0 ou antérieure du moteur ASK.*
@@ -213,7 +205,7 @@ La version actuelle et la version de mise à niveau sont indiquées dans le tabl
 
 -   Prise en charge de Kubernetes version 1.15.10 ([\#2834](https://github.com/Azure/aks-engine/issues/2834)). Lors du déploiement d’un nouveau cluster, veillez à spécifier dans votre fichier JSON de modèle d’API (fichier de définition de cluster a.k.s.), le numéro de version release et le numéro de version mineure. Un exemple est disponible : [kubernetes-azurestack.json](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json) :
 
-    - `"orchestratorRelease": "1.15`
+    - `"orchestratorRelease": "1.15`,
 
     - `"orchestratorVersion": "1.15.10"`
 
