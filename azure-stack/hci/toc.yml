@@ -114,6 +114,8 @@
       href: concepts/fault-tolerance.md
     - name: Quorum du pool de stockage et du cluster
       href: concepts/quorum.md
+    - name: Planifier une infrastructure SDN
+      href: concepts/plan-software-defined-networking-infrastructure.md
     - name: Contrôleur réseau
       href: concepts/network-controller.md
     - name: Considérations relatives à la sécurité
