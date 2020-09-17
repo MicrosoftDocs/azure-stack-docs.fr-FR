@@ -1,18 +1,18 @@
 ---
 title: Redéployer l’ASDK
 description: En savoir plus sur le redéploiement du Kit de développement Azure Stack (ASDK).
-author: justinha
+author: myoungerman
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7e4c6668253e79a2fc04a6c4b0cf37c9025ccd3c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 55a35a509b4fe3fadbe9a58e705cc53cfd18a027
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695969"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572168"
 ---
 # <a name="redeploy-the-asdk"></a>Redéployer l’ASDK
 Dans cet article, vous allez découvrir comment redéployer le Kit de développement Azure Stack (ASDK) dans un environnement hors production. La mise à niveau de l’ASDK n’étant pas prise en charge, vous devez le redéployer complètement pour passer à une version plus récente. Vous pouvez également redéployer les ASDK chaque fois que vous souhaitez commencer de zéro.
@@ -43,6 +43,7 @@ Pour supprimer la ressource d’inscription, utilisez la cmdlet **Remove-AzsRegi
    Remove-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint AzS-ERCS01
+      -RegistrationName $RegistrationName
 
    # Remove the Azure Stack resource group
    Remove-AzureRmResourceGroup -Name azurestack -Force

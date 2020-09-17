@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: bd1c6674bd125546526c1588f98f5b0d17a57fef
-ms.sourcegitcommit: cf99d632ca2afccba4aaad5c8a013ba3443bcd54
+ms.openlocfilehash: 4577da446c11f1053372cdf3d6458cd7c90937be
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89410988"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742507"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Capacité de calcul Azure Stack Hub
 
@@ -148,7 +148,7 @@ Réserve de résilience = 512 + 230.4 + 224 = 966,4 Go
 
 **R** : Dans **PowerShell**, exécutez `test-azurestack -include AzsVmPlacement -debug`, qui génère une sortie semblable à celle-ci :
 
-    ```console
+```console
     Starting Test-AzureStack
     Launching AzsVmPlacement
      
@@ -162,7 +162,7 @@ Réserve de résilience = 512 + 230.4 + 224 = 966,4 Go
     LNV2-Node04     10       10          28            49               256             101              
     
     PASS : Azure Stack Scale Unit VM Placement Summary
-    ```
+```
 
 **Q** : Le nombre de machines virtuelles déployées sur mon infrastructure Azure Stack Hub n’a pas changé, mais la capacité fluctue. Pourquoi ?
 

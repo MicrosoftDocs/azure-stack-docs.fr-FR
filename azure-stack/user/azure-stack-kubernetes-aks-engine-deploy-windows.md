@@ -3,16 +3,16 @@ title: Déployer le moteur AKS sur Windows dans Azure Stack Hub
 description: Découvrez comment utiliser une machine Windows dans votre infrastructure Azure Stack Hub pour héberger le moteur AKS afin de déployer et de gérer un cluster Kubernetes.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 2c8f5c38c9cd6e5f8632e3abac75f51c2b71d481
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.lastreviewed: 09/16/2020
+ms.openlocfilehash: d3a16f92cb441a92a045721e477b3b10933d174d
+ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473229"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90717956"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Installer le moteur AKS sur Windows dans Azure Stack Hub
 
@@ -40,7 +40,7 @@ Vous pouvez installer la machine virtuelle cliente pour gérer votre cluster Kub
 5. Exécutez la commande suivante à partir d’une invite avec élévation de privilèges et incluez le numéro de version :
 
     ```PowerShell  
-        choco install aks-engine --version 0.55.0 -y
+        choco install aks-engine --version 0.55.4 -y
     ```
 
 > [!NOTE]  
@@ -65,7 +65,7 @@ Vous pouvez installer la machine virtuelle cliente pour gérer votre cluster Kub
 7.  Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges. Incluez le numéro de version approprié :
 
     ```PowerShell  
-        choco install aks-engine --version 0.55.0 -y
+        choco install aks-engine --version 0.55.4 -y
     ```
 
 ## <a name="verify-the-installation"></a>Vérifier l’installation

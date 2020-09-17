@@ -1,18 +1,18 @@
 ---
 title: Conditions requises et éléments à prendre en compte pour ASDK
 description: En savoir plus sur le matériel, le logiciel et la configuration requise de l’environnement pour le Kit de développement Azure Stack (ASDK).
-author: justinha
+author: myoungerman
 ms.topic: article
 ms.date: 05/13/2019
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: d9681a9245c856378a779a25ab3de2c051d97b0b
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: f74ffc103c53fa8cb1c317f42455c4063e1b0baa
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489842"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572100"
 ---
 # <a name="asdk-requirements-and-considerations"></a>Conditions requises et éléments à prendre en compte pour ASDK
 
@@ -20,18 +20,16 @@ Avant de déployer le Kit de développement Azure Stack (ASDK), vérifiez que l�
 
 ## <a name="hardware"></a>Matériel
 
-| Composant | Minimum | Recommandé |
-| --- | --- | --- |
-| Lecteurs de disque : Système d’exploitation |1 disque de système d’exploitation avec un minimum de 200 Go disponibles pour la partition système (SSD ou HDD). |1 disque de système d’exploitation avec un minimum de 200 Go disponibles pour la partition système (SSD ou HDD). |
-| Lecteurs de disque : données générales du kit de développement<sup>*</sup>  |4 disques. Chaque disque doit avoir une capacité d’au moins 240 Go (SSD ou HDD). Tous les disques disponibles sont utilisés. |4 disques. Chaque disque doit avoir une capacité d’au moins 400 Go (SSD ou HDD). Tous les disques disponibles sont utilisés. |
-| Calcul : UC |Double socket : 16 cœurs physiques (total). |Double socket : 20 cœurs physiques (total). |
-| Calcul : Mémoire |192 Go de RAM. |256 Go de RAM. |
-| Calcul : BIOS |Compatible Hyper-V (avec prise en charge de SLAT). |Compatible Hyper-V (avec prise en charge de SLAT). |
-| Réseau : Carte d’interface réseau |Certification Windows Server 2012 R2. Aucune fonctionnalité spécialisée requise. | Certification Windows Server 2012 R2. Aucune fonctionnalité spécialisée requise. |
-| Logo de certification du matériel |[Certifié pour Windows Server 2012 R2](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm). 
-|[Certifié pour Windows Server 2016](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm). 
-|
-
+| Composant                                             | Minimum                                                                                                 | Recommandé                                                                                             |
+|-------------------------------------------------------|---------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| Lecteurs de disque : Système d’exploitation                         | 1 disque de système d’exploitation avec un minimum de 200 Go disponibles pour la partition système (SSD ou HDD).             | 1 disque de système d’exploitation avec un minimum de 200 Go disponibles pour la partition système (SSD ou HDD).                           |
+| Lecteurs de disque : données générales du kit de développement<sup>*</sup> | 4 disques. Chaque disque doit avoir une capacité d’au moins 240 Go (SSD ou HDD). Tous les disques disponibles sont utilisés. | 4 disques. Chaque disque doit avoir une capacité d’au moins 400 Go (SSD ou HDD). Tous les disques disponibles sont utilisés. |
+| Calcul : UC                                          | Double socket : 16 cœurs physiques (total).                                                                 | Double socket : 20 cœurs physiques (total).                                                                 |
+| Calcul : Mémoire                                       | 192 Go de RAM.                                                                                             | 256 Go de RAM.                                                                                             |
+| Calcul : BIOS                                         | Compatible Hyper-V (avec prise en charge de SLAT).                                                                    | Compatible Hyper-V (avec prise en charge de SLAT).                                                                    |
+| Réseau : Carte d’interface réseau                                          | Certification Windows Server 2012 R2. Aucune fonctionnalité spécialisée requise.                                 | Certification Windows Server 2012 R2. Aucune fonctionnalité spécialisée requise.                                 |
+| Logo de certification du matériel                                 | [Certifié pour Windows Server 2012 R2](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm). | [Certifié pour Windows Server 2016](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm).    |
+  
 <sup>*</sup> Vous aurez besoin d’une plus grande capacité que celle recommandée si vous prévoyez d’ajouter de nombreux [éléments de la Place de marché](../operator/azure-stack-create-and-publish-marketplace-item.md) Azure.
 
 ### <a name="hardware-notes"></a>Remarques concernant le matériel

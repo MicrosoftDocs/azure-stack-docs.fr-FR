@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/08/2020
-ms.openlocfilehash: 721d1bcb14ba3595fa101919b1b02f41638ec91d
-ms.sourcegitcommit: 50e2a81b255847fbd6288c70d60e7a080da372e9
+ms.openlocfilehash: 9913b1976152f78078d78d0e807bff3348c3276f
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89557460"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573460"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Notes de publication pour la préversion publique Azure Stack HCI
 
@@ -24,18 +24,18 @@ Cet article décrit le contenu des packages de mise à jour de la préversion pu
 
 Cette mise à jour inclut les améliorations et les correctifs logiciels de la dernière version d’Azure Stack HCI.
 
-## <a name="improvements-and-fixes"></a>Améliorations et correctifs
+### <a name="improvements-and-fixes"></a>Améliorations et correctifs
 Cette mise à jour contient diverses améliorations de sécurité pour la fonctionnalité interne du système d’exploitation. Aucun autre problème n’a été documenté pour cette version.
 
 Pour plus d’informations sur les vulnérabilités de sécurité résolues, consultez le [Guide de mise à jour de sécurité](https://portal.msrc.microsoft.com/security-guidance).
 
-## <a name="known-issues-in-this-update"></a>Problèmes connus dans cette mise à jour
+### <a name="known-issues-in-this-update"></a>Problèmes connus dans cette mise à jour
 Microsoft ne connaît actuellement aucun problème avec cette mise à jour.
 
-## <a name="how-to-get-this-update"></a>Comment obtenir cette mise à jour
+### <a name="how-to-get-this-update"></a>Comment obtenir cette mise à jour
 La mise à jour de sécurité du 8 septembre 2020 (KB4577470) pour la [préversion d’Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) est fournie via Windows Update. Pour l’installer sur votre cluster Azure Stack HCI, consultez [Mettre à jour Azure Stack clusters HCI](manage/update-cluster.md).
 
-## <a name="file-information"></a>informations relatives aux fichiers
+### <a name="file-information"></a>informations relatives aux fichiers
 Pour obtenir la liste des fichiers fournis dans cette mise à jour (version 17784.1226 du système d’exploitation), téléchargez les [informations de fichier pour la mise à jour cumulative 4577470](https://download.microsoft.com/download/3/c/4/3c468525-5867-4cc3-8d34-dba88989adab/4577470.csv).
 
    > [!NOTE]
@@ -45,10 +45,10 @@ Pour obtenir la liste des fichiers fournis dans cette mise à jour (version 1778
 
 Cette mise à jour inclut les améliorations de qualité apportées à la dernière version d’Azure Stack HCI.
 
-## <a name="improvements-and-fixes"></a>Améliorations et correctifs
+### <a name="improvements-and-fixes"></a>Améliorations et correctifs
 Cette mise à jour apporte des améliorations en matière de qualité à la pile de maintenance, qui est le composant qui installe les mises à jour. Les mises à jour de la pile de maintenance vous permettent de disposer d’une pile de maintenance robuste et fiable afin que vos appareils puissent recevoir et installer les mises à jour Microsoft.
 
-## <a name="how-to-get-this-update"></a>Comment obtenir cette mise à jour
+### <a name="how-to-get-this-update"></a>Comment obtenir cette mise à jour
 La mise à jour de la pile de maintenance du 8 septembre 2020 (KB4577558) pour la [préversion d’Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) est fournie via Windows Update. Pour l’installer sur votre cluster Azure Stack HCI, consultez [Mettre à jour Azure Stack clusters HCI](manage/update-cluster.md).
 
 ### <a name="restart-information"></a>Informations sur le redémarrage 
@@ -57,10 +57,10 @@ Vous n’avez pas besoin de redémarrer l’ordinateur après l’application de
 ### <a name="removal-information"></a>Informations sur la suppression
 Les mises à jour de la pile de maintenance apportent des modifications à la façon dont les mises à jour sont installées et ne peuvent pas être désinstallées de l’appareil.
 
-## <a name="file-information"></a>informations relatives aux fichiers
+### <a name="file-information"></a>informations relatives aux fichiers
 Pour obtenir la liste des fichiers fournis dans cette mise à jour (version 17784,1220 du système d’exploitation), téléchargez les [informations de fichier pour la mise à jour cumulative 4577558](https://download.microsoft.com/download/8/f/6/8f612a9b-cb4e-4832-9397-156760848592/4577558.csv).
 
-## <a name="references"></a>References
+### <a name="references"></a>References
 
 Pour plus d’informations sur les mises à jour de la pile de maintenance, consultez les articles suivants :
 
@@ -73,18 +73,18 @@ Informez-vous sur la [terminologie](https://support.microsoft.com/help/824684) q
 
 Cette mise à jour inclut les améliorations et les correctifs logiciels de la dernière version d’Azure Stack HCI.
 
-## <a name="improvements-and-fixes"></a>Améliorations et correctifs
+### <a name="improvements-and-fixes"></a>Améliorations et correctifs
 Cette mise à jour contient diverses améliorations de sécurité pour la fonctionnalité interne du système d’exploitation. Aucun autre problème n’a été documenté pour cette version.
 
 Pour plus d’informations sur les vulnérabilités de sécurité résolues, consultez le [Guide de mise à jour de sécurité](https://portal.msrc.microsoft.com/security-guidance).
 
-## <a name="known-issues-in-this-update"></a>Problèmes connus dans cette mise à jour
+### <a name="known-issues-in-this-update"></a>Problèmes connus dans cette mise à jour
 Microsoft ne connaît actuellement aucun problème avec cette mise à jour.
 
-## <a name="how-to-get-this-update"></a>Comment obtenir cette mise à jour
+### <a name="how-to-get-this-update"></a>Comment obtenir cette mise à jour
 La mise à jour de sécurité du 11 août 2020 (KB4574585) pour la [préversion Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) est fournie via Windows Update. Pour l’installer sur votre cluster Azure Stack HCI, consultez [Mettre à jour Azure Stack clusters HCI](manage/update-cluster.md).
 
-## <a name="file-information"></a>informations relatives aux fichiers
+### <a name="file-information"></a>informations relatives aux fichiers
 Pour obtenir la liste des fichiers fournis dans cette mise à jour (version 17784,1162 du système d’exploitation), téléchargez les [informations de fichier pour la mise à jour cumulative 4574585](https://download.microsoft.com/download/7/f/4/7f451def-76c5-4cc0-9929-0c5efeb27d2f/4574585.csv).
 
    > [!NOTE]
