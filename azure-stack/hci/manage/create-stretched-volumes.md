@@ -5,12 +5,12 @@ author: v-dasis
 ms.author: v-dasis
 ms.topic: how-to
 ms.date: 07/24/2020
-ms.openlocfilehash: 9d6ba44da5da188f60f031bddab2e49190dbfee3
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 8c885f7a344ff9d34228bad76c79e65f1f345f25
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250705"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573681"
 ---
 # <a name="create-stretched-cluster-volumes-and-set-up-replication"></a>Créer des volumes de clusters étendus et configurer la réplication
 
@@ -22,7 +22,7 @@ En guise d’exemple, vous allez créer des volumes sur 4 serveurs dans 2 site
 
 ## <a name="stretched-volumes-and-replication-using-windows-admin-center"></a>Volumes étendus et réplication à l’aide de Windows Admin Center
 
-Commençons !
+Pour créer un volume et configurer la réplication :
 
 1. Dans Windows Admin Center, sous **Outils**, sélectionnez **Volumes**.
 1. Dans le volet droit, sélectionnez l’onglet **Inventaire**, puis sélectionnez **Créer**.

@@ -1,5 +1,5 @@
 ---
-title: Déployer un fichier WAR Java sur une machine virtuelle dans Azure Stack Hub
+title: Déployer Java WAR sur une machine virtuelle dans Azure Stack Hub
 description: Déployez un fichier WAR Java sur une machine virtuelle dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: how-to
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/05/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: bc1a7bd86b63a5399468f117395dfd4e29f83c2c
-ms.sourcegitcommit: e28821041b8111fdcd2c28d35a83ab0a8018455c
+ms.openlocfilehash: d3d7bd6cd90eb60ffae910115df475fd3186aa5a
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86033300"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573834"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Déployer une application web Java sur une machine virtuelle dans Azure Stack Hub
 

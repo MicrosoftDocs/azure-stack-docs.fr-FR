@@ -4,19 +4,21 @@ description: Vue d’ensemble d’Azure Stack HCI
 ms.topic: overview
 author: khdownie
 ms.author: v-kedow
-ms.date: 07/29/2020
-ms.openlocfilehash: e67b3191d10c65e9b78ed4915854dd1b6149ae08
-ms.sourcegitcommit: 3988d4c79bd3f7dd0b8c3d571f14c4a2e88371e6
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 09/09/2020
+ms.openlocfilehash: dfe33dbacc57fbdbb1c83a572202e5d1a325e898
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87411544"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742588"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Vue d’ensemble de la solution Azure Stack HCI
 
 Azure Stack HCI est une solution de cluster hyperconvergée qui exécute des charges de travail Windows et Linux virtualisées dans un environnement local hybride. Les services hybrides Azure améliorent le cluster avec des fonctionnalités telles que la supervision basée sur le cloud, Site Recovery et les sauvegardes de machines virtuelles ainsi qu’une vue centralisée de tous vos déploiements Azure Stack HCI dans le portail Azure. Vous pouvez gérer le cluster avec vos outils existants, notamment Windows Admin Center, System Center et PowerShell.
 
-Azure Stack HCI version 20H2 est un nouveau système d’exploitation désormais disponible en préversion publique. Il est destiné aux clusters locaux exécutant des charges de travail virtualisées, avec des connexions cloud hybrides intégrées. En tant que tel, Azure Stack HCI est fourni sous la forme d’un service Azure et facturé sur un abonnement Azure.
+Azure Stack HCI version 20H2 est un nouveau système d’exploitation désormais disponible en préversion publique et [téléchargeable ici](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/). Il est destiné aux clusters locaux exécutant des charges de travail virtualisées, avec des connexions cloud hybrides intégrées. En tant que tel, Azure Stack HCI est fourni sous la forme d’un service Azure et facturé sur un abonnement Azure.
 
 Prenez quelques minutes pour regarder la vidéo sur les fonctionnalités générales d’Azure Stack HCI :
 
@@ -303,4 +305,5 @@ Voici une vidéo Hybrid Cloud Virtual Event :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Télécharger Azure Stack HCI](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/)
 - [Utiliser Azure Stack HCI avec Windows Admin Center](get-started.md)

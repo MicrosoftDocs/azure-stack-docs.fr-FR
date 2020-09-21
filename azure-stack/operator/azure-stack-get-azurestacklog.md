@@ -1,5 +1,5 @@
 ---
-title: Utiliser le point de terminaison privilégié pour collecter les journaux de diagnostic
+title: Collecter des journaux de diagnostic via le point de terminaison privilégié (PEP)
 description: Découvrez comment collecter les journaux de diagnostic à la demande dans Azure Stack Hub en utilisant le portail administrateur ou un script PowerShell.
 author: justinha
 ms.custom: conteperfq4
@@ -8,12 +8,12 @@ ms.date: 09/02/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: a07904e1dde804398b55d61e7b1faa0b105aba22
-ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
+ms.openlocfilehash: 6eb6f55ab9836cfd78b2fdb72dff220837f1865a
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89621263"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572814"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>Envoyer des journaux de diagnostic Azure Stack Hub à l’aide du point de terminaison privilégié
 
@@ -137,12 +137,10 @@ if ($session) {
   9. Sélectionnez **Create** (Créer).
   10. Vous obtenez une signature d’accès partagé. Copiez la partie URL et spécifiez-la pour le paramètre `-OutputSasUri`.
 
-### <a name="parameter-considerations"></a>Considérations relatives aux paramètres 
+### <a name="parameter-considerations"></a>Considérations relatives aux paramètres
 
 * Les paramètres **OutputSharePath** et **OutputShareCredential** sont utilisés pour stocker les journaux d’activité dans un emplacement spécifié par l’utilisateur.
-
 * Vous pouvez utiliser les paramètres **FromDate** et **ToDate** pour collecter des journaux d’activité pour une période donnée. Si vous ne spécifiez pas ces paramètres, les journaux sont collectés par défaut pour les quatre dernières heures.
-
 * Utilisez le paramètre **FilterByNode** pour filtrer les journaux d’activité par nom d’ordinateur. Par exemple :
 
     ```powershell
@@ -159,28 +157,175 @@ if ($session) {
 * La collecte de journaux de fichiers de vidage est désactivée par défaut. Pour l’activer, utilisez le paramètre booléen **IncludeDumpFile**.
 * Actuellement, vous pouvez utiliser le paramètre **FilterByRole** pour filtrer la collecte de journaux en fonction des rôles suivants :
 
-  |   |   |   |    |     |
-  | - | - | - | -  |  -  |
-  |ACS                   |CA                             |HRP                            |OboService                |VirtualMachines|
-  |ACSBlob               |CacheService                   |IBC                            |OEM                       |WAS            |
-  |ACSDownloadService    |Calcul                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
-  |ACSFabric             |IPC                            |KeyVaultAdminResourceProvider  |PXE                       |         |
-  |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator   |         | 
-  |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker        |         |
-  |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing                  |         |
-  |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices          |         |
-  |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB                       |         |
-  |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL                       |         |
-  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP                       |         |
-  |ACSWac                |ExternalDNS                    |MetricsRP                      |Stockage                   |         |
-  |ADFS                  |FabricRing                     |MetricsServer                  |StorageController         |         |
-  |ApplicationController |FabricRingServices             |MetricsStoreService            |URP                       |         |
-  |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |SupportBridgeController   |         |
-  |AzureBridge           |FRP                            |MonRP                          |SupportRing               |         |
-  |AzureMonitor          |Passerelle                        |NC                             |SupportRingServices       |         |
-  |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |SupportBridgeRP           |         |
-  |BRP                   |HintingServiceV2               |NRP                            |UsageBridge               |         |
-  |   |   |   |    |     | 
+:::row:::
+   :::column span="":::
+
+      ACS
+
+      ACSBlob
+
+      ACSDownloadService
+
+      ACSFabric
+
+      ACSFrontEnd
+
+      ACSMetrics
+
+      ACSMigrationService
+
+      ACSMonitoringService
+
+      ACSSettingsService
+
+      ACSTableMaster
+
+      ACSTableServer
+
+      ACSWac
+
+      ADFS
+
+      ApplicationController
+
+      ASAppGateway
+
+      AzureBridge
+
+      AzureMonitor
+
+      BareMetal
+
+      BRP
+
+      CA
+
+      CacheService
+
+      Calcul
+
+      IPC
+
+      CRP
+
+      DeploymentMachine
+
+      DiskRP
+
+      Domain
+
+   :::column-end:::
+   :::column span="":::
+
+      ECE
+
+      EventAdminRP
+
+      EventRP
+
+      ExternalDNS
+
+      FabricRing
+
+      FabricRingServices
+
+      FirstTierAggregationService
+
+      FRP
+
+      Passerelle
+
+      HealthMonitoring
+
+      HintingServiceV2
+
+      HRP
+
+      IBC
+
+      InfraServiceController
+
+      KeyVaultAdminResourceProvider
+
+      KeyVaultControlPlane
+
+      KeyVaultDataPlane
+
+      KeyVaultInternalControlPlane
+
+      KeyVaultInternalDataPlane
+
+      KeyVaultNamingService
+
+      GESTION DES APPAREILS MOBILES
+
+      MetricsAdminRP
+
+      MetricsRP
+
+      MetricsServer
+
+      MetricsStoreService
+
+      MonAdminRP
+
+      MonRP
+
+   :::column-end:::
+   :::column span="":::
+
+      NC
+
+      NonPrivilegedAppGateway
+
+      NRP
+
+      OboService
+
+      OEM
+
+      OnboardRP
+
+      Environnement PXE
+
+      QueryServiceCoordinator
+
+      QueryServiceWorker
+
+      SeedRing
+
+      SeedRingServices
+
+      SLB
+
+      SQL
+
+      SRP
+
+      Stockage
+
+      StorageController
+
+      URP
+
+      SupportBridgeController
+
+      SupportRing
+
+      SupportRingServices
+
+      SupportBridgeRP
+
+      UsageBridge
+
+      VirtualMachines
+
+      WAS
+
+      WASPUBLIC
+   
+   :::column-end:::
+:::row-end:::
 
 ### <a name="additional-considerations-on-diagnostic-logs"></a>Considérations supplémentaires sur les journaux de diagnostic
 

@@ -1,16 +1,16 @@
 ---
 title: Valider un cluster Azure Stack HCI
-description: Cet article de procédure expose les raisons pour lesquelles la validation de cluster est si importante, et il explique à quel moment l’exécuter sur un cluster Azure Stack HCI existant. Cet article comprend des scénarios de validation pour la résolution de problèmes concernant un cluster de serveurs mis à jour.
+description: Comprendre l’importance de la validation du cluster et le moment auquel l’exécuter sur un cluster Azure Stack HCI existant. Explorez les scénarios de résolution des problèmes d’un cluster de serveurs mis à jour.
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: 8ef7364a15241fcfdf7dcd8af984227a30ac28f5
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.openlocfilehash: 8a096af308901669def134e0dd281490c5ed0294
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86947586"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572083"
 ---
 # <a name="validate-an-azure-stack-hci-cluster"></a>Valider un cluster Azure Stack HCI
 

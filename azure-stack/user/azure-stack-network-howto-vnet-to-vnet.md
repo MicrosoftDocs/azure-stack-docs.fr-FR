@@ -1,20 +1,20 @@
 ---
-title: Connecter deux infrastructures Azure Stack Hub à l’aide de VNet Peering
-description: Découvrez comment connecter deux infrastructures Azure Stack Hub à l’aide de VNet Peering.
+title: Connecter deux réseaux virtuels dans le même environnement Azure Stack
+description: Découvrez comment connecter deux réseaux virtuels au sein du même environnement Azure Stack Hub à l’aide de Fortinet FortiGate.
 author: mattbriggs
 ms.topic: how-to
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 5d8dcba27b1aaed79489b27a2dd6224f6211ac18
-ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
+ms.openlocfilehash: 4aeca3ba7630d05921578de7023359c042d74ffb
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88965107"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574106"
 ---
-# <a name="connect-two-vnets-through-peering"></a>Connecter deux réseaux virtuels via le peering
+# <a name="vnet-peering-with-fortigate"></a>Peering de réseaux virtuels avec FortiGate
 
 Cet article explique comment créer une connexion entre deux réseaux virtuels dans le même environnement. Pendant la configuration des connexions, vous allez découvrir le fonctionnement des passerelles VPN dans Azure Stack Hub. Connectez deux réseaux virtuels au sein du même environnement Azure Stack Hub à l’aide de Fortinet FortiGate. Cette procédure déploie deux réseaux virtuels avec une appliance virtuelle réseau FortiGate dans chaque réseau virtuel dans un groupe de ressources distinct. Il détaille également les modifications requises pour configurer un VPN IPSec entre les deux réseaux virtuels. Répétez les étapes de cet article pour chaque déploiement de réseau virtuel.
 
@@ -79,7 +79,7 @@ Le tableau suivant récapitule les paramètres utilisés dans ces déploiements 
 
 2.  Sélectionnez **Créer une ressource**, puis recherchez `FortiGate`.
 
-    ! La liste des résultats de la recherche affiche Pare-feu Fortigate de nouvelle génération - Déploiement d'une seule machine virtuelle.](./media/azure-stack-network-howto-vnet-to-onprem/image6.png)
+    ![La liste des résultats de la recherche affiche FortiGate NGFW - Single VM Deployment.](./media/azure-stack-network-howto-vnet-to-onprem/image6.png)
 
 3.  Sélectionnez le **Pare-feu Fortigate de nouvelle génération**, puis **Créer**.
 

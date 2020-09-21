@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 07/21/2020
-ms.openlocfilehash: bb4a72e28bd6126d12dbdb1f97d0579fb98bca8e
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: c6f874fb7bd8641933722631d9faac0dc513b5e3
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866589"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742287"
 ---
 # <a name="extending-volumes-in-azure-stack-hci"></a>Extension de volumes dans Azure Stack HCI
 
@@ -47,7 +47,7 @@ Avant de redimensionner un volume, vérifiez que vous disposez d’une capacité
 
 Dans les espaces de stockage direct, chaque volume est constitué de plusieurs objets empilés : le volume partagé de cluster (CSV), qui est un volume ; la partition ; le disque, qui est un disque virtuel ; un ou plusieurs niveaux de stockage (le cas échéant). Pour redimensionner un volume, vous devez redimensionner plusieurs de ces objets.
 
-![volumes-in-smapi](media/extend-volumes/volumes-in-smapi.png)
+![Le diagramme montre les couches d’un volume, à savoir un volume de partition de cluster, un volume, une partition, un disque, un disque virtuel et des niveaux de stockage.](media/extend-volumes/volumes-in-smapi.png)
 
 Pour vous familiariser avec eux, essayez d’exécuter **Get-** avec le nom correspondant dans PowerShell.
 
@@ -89,7 +89,7 @@ Get-VirtualDisk <FriendlyName> | Resize-VirtualDisk -Size <Size>
 
 Quand vous redimensionnez le **disque virtuel**, le **disque** suit automatiquement et est également redimensionné.
 
-![Resize-VirtualDisk](media/extend-volumes/Resize-VirtualDisk.gif)
+![Le diagramme animé montre le disque virtuel d’un volume qui grandit tandis que la couche de disque située immédiatement au-dessus grandit automatiquement.](media/extend-volumes/Resize-VirtualDisk.gif)
 
 #### <a name="with-storage-tiers"></a>Avec des niveaux de stockage
 
@@ -112,7 +112,7 @@ Get-StorageTier <FriendlyName> | Resize-StorageTier -Size <Size>
 
 Quand vous redimensionnez les **niveaux de stockage**, le **disque virtuel** et le **disque** suivent automatiquement et sont également redimensionnés.
 
-![Resize-StorageTier](media/extend-volumes/Resize-StorageTier.gif)
+![Le diagramme animé montre un niveau de stockage, puis un autre qui grandit tandis que la couche de disque virtuel et la couche de disque située au-dessus grandissent également.](media/extend-volumes/Resize-StorageTier.gif)
 
 ### <a name="step-2--resize-the-partition"></a>Étape 2 : Redimensionner la partition
 
@@ -133,7 +133,7 @@ $Partition | Resize-Partition -Size ($Partition | Get-PartitionSupportedSize).Si
 
 Quand vous redimensionnez la **partition**, le **volume** et le **volume partagé de cluster** suivent automatiquement et sont également redimensionnés.
 
-![Resize-Partition](media/extend-volumes/Resize-Partition.gif)
+![Le diagramme animé montre la couche de disque virtuel, au bas du volume, qui grandit tandis que chacune des couches situées au-dessus grandissent également.](media/extend-volumes/Resize-Partition.gif)
 
 Et voilà !
 

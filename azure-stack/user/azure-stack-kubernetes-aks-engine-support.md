@@ -3,16 +3,16 @@ title: Stratégies de support pour le moteur AKS sur Azure Stack Hub
 description: Cette rubrique contient les stratégies de support pour le moteur AKS sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 09/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 1b61cd32988ed314445105936155806f58dc46ba
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.lastreviewed: 09/0102020
+ms.openlocfilehash: 389dd7110bfc5b8b42d1594c947ad522f4fbab98
+ms.sourcegitcommit: f19aaf989d758f0712e1ef3cbc4abf90a1110554
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89472773"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90026215"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Stratégies de support pour le moteur AKS sur Azure Stack Hub
 
@@ -25,6 +25,10 @@ Les composants cloud infrastructure as a service (IaaS), tels que les composants
 Lors de la création d’un cluster, le client définit les maîtres et les nœuds Worker Kubernetes créés par le moteur AKS. Les charges de travail du client sont exécutées sur ces nœuds. Les clients possèdent et peuvent voir ou modifier le maître et les nœuds Worker. Apporter des modifications aux nœuds sans faire preuve de prudence peut conduire à la perte de données et de charges de travail, entravant ainsi le bon fonctionnement du cluster. En outre, les opérations du moteur AKS, comme une mise à niveau ou une mise à l’échelle, se substituent à toutes les modifications hors limites. Par exemple, si le cluster contient des pods statiques, ceux-ci ne sont pas conservés après une opération de mise à niveau du moteur AKS.
 
 Étant donné que les nœuds de cluster du client exécutent du code privé et stockent des données sensibles, le Support Microsoft peut y accéder de manière limitée uniquement. Le Support Microsoft ne peut pas se connecter, exécuter des commandes ou afficher les journaux de ces nœuds sans autorisation expresse du client ou de l’assistance.
+
+## <a name="version-support"></a>Prise en charge de la version
+
+La prise en charge de la version du moteur AKS suit le modèle établi par le reste de la stratégie de prise en charge d’Azure Stack Hub, à savoir que la prise en charge d’une version du moteur AKS sur Azure Stack Hub est basée sur la formule n-2. Par exemple, si la dernière version du moteur AKS est v0.55.0, les versions prises en charge sont : 0.48.0, 0.51.0, 0.55.0. Il est également important que la version suive la version de mise à jour d’Azure Stack Hub et le mappage correspondant à la version prise en charge du moteur AKS. Ces informations sont conservées dans les [notes de publication du moteur AKS](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping).
 
 ## <a name="aks-engine-supported-areas"></a>Domaines de prise en charge du moteur AKS
 

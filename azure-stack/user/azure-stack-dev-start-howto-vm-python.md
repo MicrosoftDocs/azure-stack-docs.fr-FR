@@ -7,12 +7,12 @@ ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: c72b08ca3e847a44a1270fb2b8e670a0b30a0929
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 59c6d473a3ac07d82ae40dedc0ff2b719ee51807
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250926"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90571811"
 ---
 # <a name="deploy-a-python-web-app-to-a-vm-in-azure-stack-hub"></a>Déployer une application web Python sur une machine virtuelle dans Azure Stack Hub
 

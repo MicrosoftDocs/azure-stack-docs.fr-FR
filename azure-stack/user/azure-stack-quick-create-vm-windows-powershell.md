@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 9366cfedee1be411ef6c61df58760b482381444a
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.openlocfilehash: 189f0b9472ed8f29b4cd3ee287d6c6630c850503
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88819114"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573868"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack-hub"></a>Démarrage rapide : Créer une machine virtuelle Windows Server avec PowerShell dans Azure Stack Hub
 

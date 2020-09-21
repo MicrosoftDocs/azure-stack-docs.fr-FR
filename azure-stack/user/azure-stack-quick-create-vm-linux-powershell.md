@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: dfb0311ab08093a309c7bee1d709d746fa8f0b52
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.openlocfilehash: af4cad0c4078fb117c6067300b14a2feb8f86729
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818366"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573919"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>Démarrage rapide : Créer une machine virtuelle serveur Linux à l’aide de PowerShell dans Azure Stack Hub
 

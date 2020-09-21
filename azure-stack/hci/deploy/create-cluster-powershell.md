@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: e92aa28deadbf334e3cd545e5cd9bc6b0e12e6c4
-ms.sourcegitcommit: 673d9b7cf723bc8ef6c04aee5017f539a815da51
+ms.openlocfilehash: c51a6296caac3c173650ee57af8e1d23b2473f26
+ms.sourcegitcommit: 877fe2207b569500aeefa6594eed990f15609776
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88110466"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90082492"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Créer un cluster Azure Stack HCI en utilisant Windows PowerShell
 
@@ -430,7 +430,7 @@ Pour les clusters étendus, l’applet de commande `Enable-ClusterStorageSpacesD
 - Déterminer quels nœuds sont dans quels sites
 - Détermine le stockage disponible pour chaque nœud
 - Vérifie si la fonctionnalité de réplica de stockage est installée sur chaque nœud
-- Crée un pool de stockage pour chaque site et l’identifie au même site
+- Crée un pool de stockage pour chaque site et l’identifie à l’aide du nom du site
 - Crée des volumes de données et de journaux dans chaque pool de stockage, un par site
 
 La commande suivante active les espaces de stockage direct. Vous pouvez aussi spécifier un nom convivial pour un pool de stockage, comme illustré ici :

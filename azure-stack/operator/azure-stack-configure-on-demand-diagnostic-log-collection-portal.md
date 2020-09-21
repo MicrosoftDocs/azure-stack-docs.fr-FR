@@ -1,18 +1,18 @@
 ---
 title: Envoyer les journaux de diagnostic Azure Stack Hub maintenant
 description: Découvrez comment collecter les journaux de diagnostic à la demande dans Azure Stack Hub en utilisant le portail administrateur ou un script PowerShell.
-author: justinha
+author: myoungerman
 ms.topic: article
 ms.date: 08/24/2020
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: shisab
 ms.lastreviewed: 08/24/2020
-ms.openlocfilehash: abcf70b6d714f9a759aeaa9a7f591a60e195594f
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 3d4725a832aa1ba88c0ecc5e2b435696cba3bbcd
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764645"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573154"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-now"></a>Envoyer les journaux de diagnostic Azure Stack Hub maintenant
 
@@ -47,7 +47,7 @@ Vous pouvez enregistrer des journaux dans un partage SMB local lorsque Azure Sta
 Pour résoudre un problème, le support Microsoft peut demander à un opérateur Azure Stack Hub de collecter les journaux de diagnostic à la demande pour une période donnée au cours de la semaine précédente. Dans ce cas, le support Microsoft fournira à l’opérateur une URL SAS pour le chargement de la collecte. 
 Procédez comme suit pour configurer la collecte des journaux à la demande à l’aide de l’URL SAS fournie par le support Microsoft :
 
-1. Ouvrez **Aide et support - Vue d’ensemble**, puis cliquez sur **Collecter les journaux maintenant**. 
+1. Ouvrez **Aide + Support > Collecte de journaux > Collecter les journaux maintenant**. 
 1. Choisissez une fenêtre de 1à 4 heures sur les sept derniers jours. 
 1. Choisissez le fuseau horaire local.
 1. Entrez l’URL SAS fournie par le support Microsoft.

@@ -1,5 +1,5 @@
 ---
-title: Bonnes pratiques concernant le service Infrastructure Backup pour Azure Stack Hub
+title: Meilleures pratiques concernant le service Infrastructure Backup – Azure Stack Hub
 description: Adoptez ces bonnes pratiques lors du déploiement et de la gestion d'Azure Stack Hub afin de limiter les pertes de données en cas de défaillance catastrophique.
 author: justinha
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 6ea6d73e14b5c164691ed42deab298109b1c1ad8
-ms.sourcegitcommit: a5bb340c5689f7dcf1ef3a340416f7f337782170
+ms.openlocfilehash: fe0fa50ca2dfd69475fe2726042332c6ce9f51ad
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85937947"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573120"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Meilleures pratiques concernant le service de sauvegarde de l’infrastructure
 
@@ -66,20 +66,23 @@ Par exemple, le partage de sauvegarde est AzSBackups hébergé sur fileserver01.
 FQDN : contoso.com  
 Région : nyc
 
-
+```console
     \\fileserver01.contoso.com\AzSBackups
     \\fileserver01.contoso.com\AzSBackups\contoso.com
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\MASBackup
+```
 
 Le dossier MASBackup se trouve à l'emplacement où Azure Stack Hub stocke ses données de sauvegarde. N’utilisez pas ce dossier pour y stocker vos propres données. Les fabricants d’ordinateurs (OEM) ne devraient pas non plus utiliser ce dossier pour stocker des données de sauvegarde.
 
 Les fabricants d’ordinateurs (OEM) sont encouragés à stocker les données de sauvegarde de leurs composants sous le dossier de la région. Chaque commutateur réseau, hôte de cycle de vie du matériel (HLH) et ainsi de suite, peuvent être stockés dans leur propre sous-dossier. Par exemple :
 
+```console
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\DeploymentData
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Registration
+```
 
 ### <a name="monitoring"></a>Surveillance
 

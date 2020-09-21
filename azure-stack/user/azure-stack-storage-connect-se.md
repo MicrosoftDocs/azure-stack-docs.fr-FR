@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: d504f92db4a703252fb7ea623555624de27adc57
-ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
+ms.openlocfilehash: 440e48470a11de10ad9cae4d32a1449781cb2c84
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428615"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573851"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Connecter l’Explorateur de stockage à un compte de stockage ou un abonnement Azure Stack Hub
 

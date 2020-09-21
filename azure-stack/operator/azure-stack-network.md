@@ -3,16 +3,16 @@ title: Planification de l’intégration réseau pour Azure Stack Hub
 description: Découvrez comment planifier l’intégration réseau du centre de données avec des systèmes intégrés Azure Stack Hub.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 09/09/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 75e5aa169a0ea04050a96b3f4db41d4ebfade994
-ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
+ms.openlocfilehash: 915c0ec4a661bbc039a7dc4d40f72ed83d135915
+ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89041568"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90010864"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Planification de l’intégration réseau pour Azure Stack
 
@@ -26,6 +26,13 @@ Cet article fournit des informations sur l’infrastructure réseau d’Azure St
 La solution Azure Stack requiert une infrastructure physique robuste et hautement disponible pour prendre en charge ses opérations et services. Pour intégrer Azure Stack au réseau, elle nécessite des liaisons montantes entre les commutateurs TDR (Top-of-Rack) et le commutateur ou routeur le plus proche, ce qui est appelé « bordure » dans cette documentation. Les commutateurs TDR peuvent avoir une liaison montante à une seule bordure ou à deux bordures. Le commutateur TDR est préconfiguré par notre outil d’automatisation. Il attend au moins une connexion entre le TDR et la bordure lors de l’utilisation du routage BGP et au moins deux connexions (une par TDR) entre le TDR et la bordure en cas d’utilisation du routage statique, avec un maximum de quatre connexions sur l’une ou l’autre des options de routage. Ces connexions sont limitées à un média SFP+ ou SFP28 et à une vitesse minimale de 1 Go. Vérifiez la disponibilité auprès de votre fournisseur de matériel OEM. Le diagramme suivant représente la conception recommandée :
 
 ![Conception de réseau Azure Stack recommandée](media/azure-stack-network/physical-network.svg)
+
+## <a name="bandwidth-allocation"></a>Allocation de bande passante
+
+Azure Stack Hub est basé sur un cluster de basculement Windows Server 2019 et les technologies Spaces Direct. Une partie de la configuration du réseau physique Azure Stack Hub utilise une séparation du trafic et des garanties de bande passante pour s’assurer que les communications de stockage Spaces Direct puissent offrir les performances et l’échelle requises de la solution. La configuration réseau utilise des classes de trafic pour séparer les communications Spaces Direct basées sur RDMA, de celles dédiées à l’utilisation du réseau par l’infrastructure et/ou le locataire Azure Stack Hub.
+
+> [!NOTE]
+> La prochaine mise à jour d’Azure Stack Hub comprend une classe de trafic supplémentaire. En vue de ce changement, Microsoft vous recommande de contacter votre OEM pour demander l’apport des modifications requises aux commutateurs réseau ToR. Cette modification des commutateurs ToR peut être effectuée tant avant qu’après la mise à jour vers la version suivant.
 
 ## <a name="logical-networks"></a>Réseaux logiques
 
@@ -43,7 +50,7 @@ Le tableau suivant montre les réseaux logiques et les plages de sous-réseau IP
 | | | |
 
 > [!NOTE]
-> Quand le système sera mis à jour vers la version 1910, une alerte sur le portail rappellera à l’opérateur d’exécuter la nouvelle applet de commande PEP **Set-AzsPrivateNetwork** pour ajouter un nouvel espace d’adressage IP privé /20. Consultez les [notes de publication de la version 1910](release-notes.md) pour obtenir des instructions sur l’exécution de cette applet de commande. Pour plus d’informations et de conseils sur la sélection de l’espace d’adressage IP privé /20, consultez la section [Réseau privé](#private-network) de cet article.
+> Quand le système sera mis à jour vers la version 1910, une alerte sur le portail rappellera à l’opérateur d’exécuter la nouvelle applet de commande PEP **Set-AzsPrivateNetwork** pour ajouter un nouvel espace d’adressage IP privé /20. Consultez les [notes de publication de la version 1910](release-notes.md?view=azs-1910&preserve-view=true) pour obtenir des instructions sur l’exécution de cette applet de commande. Pour plus d’informations et de conseils sur la sélection de l’espace d’adressage IP privé /20, consultez la section [Réseau privé](#private-network) de cet article.
 
 ## <a name="network-infrastructure"></a>Infrastructure réseau
 
@@ -65,7 +72,7 @@ Ce réseau /20 (4096 adresses IP) est privé pour la région Azure Stack (ne rou
 - **Réseau IP virtuel interne** : Réseau /25 dédié aux adresses IP virtuelles internes uniquement pour l’équilibrage de charge logicielle.
 - **Réseau de conteneurs** : Réseau/23 (512 adresses IP) dédié au trafic interne uniquement entre les conteneurs exécutant des services d’infrastructure.
 
-Depuis la version 1910, le système Azure Stack Hub **nécessite** un espace IP interne privé /20 supplémentaire. Ce réseau sera privé pour le système Azure Stack (ne route pas au-delà des appareils de commutation frontière du système Azure Stack) et peut être réutilisé sur plusieurs systèmes Azure Stack au sein de votre centre de données. Ce réseau est privé pour Azure Stack, mais il ne doit pas empiéter sur d’autres réseaux dans le centre de données. L’espace IP privé /20 est divisé en plusieurs réseaux qui permettent d’exécuter l’infrastructure Azure Stack Hub sur des conteneurs (comme indiqué dans les [notes de publication de la version 1905](release-notes.md?view=azs-1905)). De plus, ce nouvel espace d’adressage IP privé favorise les efforts en cours visant à réduire l’espace IP routable nécessaire avant le déploiement. L’objectif de l’exécution de l’infrastructure Azure Stack Hub dans des conteneurs est d’optimiser l’utilisation et d’améliorer le niveau de performance. L’espace IP privé /20 est également utilisé pour favoriser les efforts en cours qui réduiront l’espace IP routable nécessaire avant le déploiement. Pour obtenir des conseils sur l’espace d’adressage IP privé, nous vous recommandons de suivre le document [RFC 1918](https://tools.ietf.org/html/rfc1918).
+Depuis la version 1910, le système Azure Stack Hub **nécessite** un espace IP interne privé /20 supplémentaire. Ce réseau sera privé pour le système Azure Stack (ne route pas au-delà des appareils de commutation frontière du système Azure Stack) et peut être réutilisé sur plusieurs systèmes Azure Stack au sein de votre centre de données. Ce réseau est privé pour Azure Stack, mais il ne doit pas empiéter sur d’autres réseaux dans le centre de données. L’espace d’adressage IP privé /20 est divisé en plusieurs réseaux qui permettent d’exécuter l’infrastructure Azure Stack Hub sur des conteneurs. De plus, ce nouvel espace d’adressage IP privé favorise les efforts en cours visant à réduire l’espace IP routable nécessaire avant le déploiement. L’objectif de l’exécution de l’infrastructure Azure Stack Hub dans des conteneurs est d’optimiser l’utilisation et d’améliorer le niveau de performance. L’espace IP privé /20 est également utilisé pour favoriser les efforts en cours qui réduiront l’espace IP routable nécessaire avant le déploiement. Pour obtenir des conseils sur l’espace d’adressage IP privé, nous vous recommandons de suivre le document [RFC 1918](https://tools.ietf.org/html/rfc1918).
 
 Pour les systèmes déployés avant la version 1910, ce sous-réseau /20 est un réseau supplémentaire à entrer dans les systèmes après la mise à jour vers 1910. Le réseau supplémentaire doit être fourni au système via l’applet de commande PEP **Set-AzsPrivateNetwork**.
 
@@ -75,6 +82,7 @@ Pour les systèmes déployés avant la version 1910, ce sous-réseau /20 est un 
 **Étapes de correction** : pour corriger, suivez les instructions permettant d’[ouvrir une session PEP](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Préparez une [plage d’adresses IP internes privées](azure-stack-network.md#logical-networks) de taille /20 et exécutez l’applet de commande suivante (disponible uniquement à partir de la version 1910) dans la session du point de terminaison privilégié, en utilisant l’exemple suivant : `Set-AzsPrivateNetwork -UserSubnet 10.87.0.0/20`. Si l’opération réussit, vous recevez le message **Azs Internal Network range added to the config** (La plage du réseau interne AZS a été ajoutée à la configuration). L’alerte disparaît alors du portail d’administration. Le système Azure Stack Hub peut maintenant être mis à jour vers la prochaine version.
 
 ### <a name="azure-stack-infrastructure-network"></a>Réseau d’infrastructure Azure Stack
+
 Ce réseau /24 est dédié aux composants Azure Stack internes afin qu’ils puissent communiquer et échanger des données entre eux. Ce sous-réseau peut être routable à l’extérieur de la solution Azure Stack vers votre centre de données. Nous déconseillons l’utilisation d’adresses IP routables publiques ou Internet sur ce sous-réseau. Ce réseau est publié dans la bordure, mais la plupart de ses adresses IP sont protégées par des listes de contrôle d’accès (ACL). Les adresses IP pour lesquelles l’accès est autorisé se trouvent dans une plage de petite taille équivalente à un réseau/27 et à des services hôtes tels que le [ PEP (Privileged End Point)](azure-stack-privileged-endpoint.md) et le [stockage de sauvegarde Azure Stack](azure-stack-backup-reference.md).
 
 ### <a name="public-vip-network"></a>Réseau d’adresse IP virtuelle publique

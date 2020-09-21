@@ -1,5 +1,5 @@
 ---
-title: Infrastructure des rapports d’utilisation pour les fournisseurs de solutions cloud dans Azure Stack Hub
+title: Infrastructure des rapports d’utilisation pour les fournisseurs de solutions cloud – Azure Stack Hub
 description: Découvrez plus d’informations sur l’infrastructure des rapports d’utilisation utilisée pour suivre l’utilisation des locataires gérés par un fournisseur de solutions cloud (CSP).
 author: sethmanheim
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: f3d5ba6cfe8f8006de7dd11c03194ebf29ca698c
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.openlocfilehash: 51e747b5670a3e7eb58316069567e83e9ed9fc82
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089675"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573048"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Infrastructure des rapports d’utilisation pour les fournisseurs de solutions cloud
 

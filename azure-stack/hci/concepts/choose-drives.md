@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/01/2020
-ms.openlocfilehash: c53ef48ab191a831a981c0a0c91b59efa766c948
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.openlocfilehash: a1283982ba04acd8de0b54c02fbc0bb88da9ebc6
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364709"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742299"
 ---
 # <a name="choose-drives-for-azure-stack-hci"></a>Choisir des lecteurs pour Azure Stack HCI
 
@@ -43,7 +43,7 @@ Vous devez opter pour une solution « 100 % flash » si vous souhaitez garant
 
 Pour ce faire, plusieurs options s’offrent à vous :
 
-![All-Flash-Deployment-Possibilities](media/choose-drives/All-Flash-Deployment-Possibilities.png)
+![Le diagramme montre les options de déploiement, à savoir les NVMe pour la capacité, les NVMe pour le cache avec les SSD pour la capacité, et les SSD pour la capacité.](media/choose-drives/All-Flash-Deployment-Possibilities.png)
 
 1. **NVMe uniquement**. L’utilisation de disques exclusivement NVMe offre des performances sans égal, en plus d’une faible latence hautement prévisible. Si tous vos lecteurs sont du même modèle, il n’y a pas de cache. Vous pouvez également combiner des modèles NVMe plus ou moins endurants, en configurant les modèles plus endurants pour mettre en cache les écritures sur les modèles moins endurants (ce qui [nécessite une configuration](/windows-server/storage/storage-spaces/understand-the-cache#manual-configuration)).
 
@@ -58,7 +58,7 @@ Pour ce faire, plusieurs options s’offrent à vous :
 
 Pour les environnements avec des applications et des charges de travail variées, certaines étant assorties d’exigences strictes en termes de performances et d’autres nécessitant une importante capacité de stockage, vous devez opter pour une solution « hybride » avec des NVMe ou des SSD assurant la mise en cache pour les HDD plus importants.
 
-![Hybrid-Deployment-Possibilities](media/choose-drives/Hybrid-Deployment-Possibilities.png)
+![Le diagramme montre des possibilités de déploiement, à savoir NVMe pour le cache avec HDD pour la capacité, SSD pour le cache avec HDD pour la capacité, et NVMe pour le cache, avec HDD et SSD pour la capacité.](media/choose-drives/Hybrid-Deployment-Possibilities.png)
 
 1. **NVMe + HDD**. Les lecteurs NVMe accélèrent les opérations de lecture et d’écriture en les mettant toutes en cache. La mise en cache des lectures permet aux HDD de se concentrer sur les écritures. La mise en cache des écritures absorbe les pics d’opérations et permet de fusionner les écritures et de les déstocker uniquement si nécessaire, d’une manière sérialisée artificielle qui optimise le débit d’E/S par seconde et d’E/S des lecteurs HDD. Les caractéristiques d’écriture sont similaires à celles de NVMe. Pour les données lues récemment ou fréquemment, les caractéristiques de lecture sont également similaires à celles de NVMe.
 

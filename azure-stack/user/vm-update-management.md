@@ -1,18 +1,18 @@
 ---
 title: Automatisation de la gestion et de la mise à jour des machines virtuelles dans Azure Stack Hub
-description: Découvrez comment utiliser les solutions Azure Monitor pour machines virtuelles, Update Management, Change Tracking, et Inventory dans Azure Automation, afin de gérer les machines virtuelles Windows et Linux déployées dans Azure Stack Hub.
+description: Utiliser les solutions Azure Monitor pour machines virtuelles, Update Management, Change Tracking, et Inventory dans Azure Automation, afin de gérer les machines virtuelles Windows et Linux déployées dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 4cec3da680072323d979aac7bbd6dfbbf7f37b22
-ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
+ms.openlocfilehash: f0d1ecb2f5ad2313894cb15998f43f2bfd257c77
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88965192"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572440"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Automatisation de la gestion et de la mise à jour des machines virtuelles dans Azure Stack Hub
 Utilisez les fonctionnalités suivantes de la solution Azure Automation pour gérer des machines virtuelles Windows et Linux déployées avec Azure Stack Hub :

@@ -1,16 +1,16 @@
 ---
-title: Utiliser la fonctionnalité de carte réseau Azure pour connecter un serveur à un réseau virtuel Azure
+title: Connecter un serveur à un réseau virtuel Azure – Carte réseau Azure
 description: Cet article présente les exigences et les étapes à respecter pour utiliser la fonctionnalité de carte réseau Azure afin de connecter un serveur à un réseau virtuel Azure.
 ms.topic: article
 author: thomasmaurer
 ms.author: thmaure
 ms.date: 07/14/2020
-ms.openlocfilehash: 8e383024dd61b2fd16a38ab475f8eea0c82a9655
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.openlocfilehash: 523ee87a5673a79dbb17c18251fc8837b9d2f7e4
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86947382"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573647"
 ---
 # <a name="use-azure-network-adapter-to-connect-a-server-to-an-azure-virtual-network"></a>Utiliser la fonctionnalité de carte réseau Azure pour connecter un serveur à un réseau virtuel Azure
 

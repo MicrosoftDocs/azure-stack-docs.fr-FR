@@ -1,18 +1,18 @@
 ---
 title: Utiliser une identité d’application pour accéder aux ressources
-description: Découvrez comment utiliser une identité d’application pour accéder aux ressources Azure Stack Hub. Vous pouvez utiliser le contrôle d’accès en fonction du rôle avec une identité d’application pour la connexion et l’accès aux ressources.
+description: Découvrez comment accéder aux ressources Azure Stack Hub à l’aide d’une identité d’application que pouvez utiliser avec un contrôle d’accès en fonction du rôle pour la connexion et l’accès aux ressources.
 author: BryanLa
 ms.author: bryanla
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 4b1a3e41be03eec55c84731ac220521376fc16d2
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 5842ac27969a136ceaace4647ed5791bc3260b1c
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489213"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573137"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Utiliser une identité d’application pour accéder aux ressources Azure Stack Hub
 

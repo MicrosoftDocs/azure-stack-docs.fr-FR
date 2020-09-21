@@ -3,20 +3,23 @@ title: Ajouter les prérequis du moteur Azure Kubernetes Services (AKS) à la Pl
 description: Découvrez comment ajouter les prérequis du moteur AKS à la Place de marché Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 60f291c089e28b4afb574d5a0d7a2d37ac304e88
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.lastreviewed: 09/16/2020
+ms.openlocfilehash: 810aa253eb4872a58ea2e52070bb42eaaa1f6aaa
+ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89472821"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90717986"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Ajouter les prérequis du moteur Azure Kubernetes Services (AKS) à la Place de marché Azure Stack Hub
 
-Vous pouvez configurer le moteur Azure Kubernetes Service (AKS) pour vos utilisateurs. Ajoutez les éléments décrits dans cet article à votre instance Azure Stack Hub. Vos utilisateurs peuvent alors déployer un cluster Kubernetes en une seule opération coordonnée. Cet article vous guide tout au long des étapes nécessaires pour mettre le moteur AKS à la disposition de vos utilisateurs dans des environnements connectés et déconnectés. Le moteur AKS s’appuie sur une identité du principal de service, et sur la Place de marché, d’une extension de script personnalisé et de l’image de base AKS. Le moteur AKS vous demande d’exécuter [Azure Stack Hub 1910](release-notes.md?view=azs-1910) ou ultérieur.
+Vous pouvez configurer le moteur Azure Kubernetes Service (AKS) pour vos utilisateurs. Ajoutez les éléments décrits dans cet article à votre instance Azure Stack Hub. Vos utilisateurs peuvent alors déployer un cluster Kubernetes en une seule opération coordonnée. Cet article vous guide tout au long des étapes nécessaires pour mettre le moteur AKS à la disposition de vos utilisateurs dans des environnements connectés et déconnectés. Le moteur AKS s’appuie sur une identité du principal de service, et sur la Place de marché, d’une extension de script personnalisé et de l’image de base AKS. Le moteur AKS vous demande d’exécuter [Azure Stack Hub 1910](release-notes.md?view=azs-1910&preserve-view=true) ou ultérieur.
+
+> [!NOTE]  
+> Vous pouvez trouver le mappage d’Azure Stack Hub au numéro de version du moteur AKS dans les [notes de publication du moteur AKS](/azure-stack/user/kubernetes-aks-engine-release-notes#aks-engine-and-azure-stack-version-mapping).
 
 ## <a name="check-your-users-service-offering"></a>Vérifier l'offre de services de votre utilisateur
 
@@ -55,8 +58,8 @@ Ajoutez l'élément suivant à la Place de marché :
     Dans la liste, sélectionnez :
     - **Éditeur** : Azure Kubernetes Service
     - **Offre** : aks
-    - **Name** : Distribution d’images de base AKS Ubuntu 16.04-LTS, août 2020 (2020.08.24 ou version mappée au moteur AKS)
-    - **Version** : 2020.08.24
+    - **Name** : Distribution d’images de base AKS Ubuntu 16.04-LTS, août 2020 (2020.09.14 ou version mappée au moteur AKS)
+    - **Version** : 2020.09.14
 
 1. Sélectionnez **Télécharger**.
 

@@ -1,5 +1,5 @@
 ---
-title: Opérations de maintenance sur le fournisseur de ressources MySQL dans Azure Stack Hub
+title: Opérations de maintenance sur le fournisseur de ressources MySQL – Azure Stack Hub
 description: Découvrez comment gérer le service de fournisseur de ressources MySQL dans Azure Stack Hub.
 author: bryanla
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: f5f0c15f4e445536f7eff4fa9a73555eda7cddd9
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.openlocfilehash: d372015038fa11df75e22ac83b3beec08fe25d98
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364845"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572661"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Opérations de maintenance sur le fournisseur de ressources MySQL dans Azure Stack Hub
 

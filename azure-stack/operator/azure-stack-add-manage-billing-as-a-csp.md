@@ -7,12 +7,12 @@ ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 400ae8a487d18b37efdfc52c087019183702a638
-ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
+ms.openlocfilehash: 03206007c60d438149baad267117e447bd5b0a14
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88857569"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573477"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Gérer l’utilisation et la facturation d’Azure Stack Hub en tant que fournisseur de solutions cloud
 

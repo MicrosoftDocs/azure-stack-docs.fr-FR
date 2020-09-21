@@ -1,5 +1,5 @@
 ---
-title: Résolution des problèmes connus liés aux machines virtuelles sur Azure Stack Hub
+title: Résolution des problèmes connus des machines virtuelles sur Azure Stack Hub
 description: Découvrez comment résoudre les problèmes connus liés aux machines virtuelles sur Azure Stack Hub
 author: mattbriggs
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ ms.date: 07/09/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/09/2020
-ms.openlocfilehash: a33c732309d2b74ef341f248a7e89dcbd35a4221
-ms.sourcegitcommit: 77f53d8f4188feea7dd2197650ee860104b1e2aa
+ms.openlocfilehash: 2f08ffe8e5b3bf89cf8b59991f36fd8b165e1800
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88501039"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573715"
 ---
 # <a name="known-issues-vms-on-azure-stack-hub"></a>Problèmes connus : Machines virtuelles sur Azure Stack Hub
 

@@ -8,12 +8,12 @@ ms.date: 08/28/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 8756b1fce06582411e321ab5015d6f14da43c6d1
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.openlocfilehash: 3ddc8a44d59a373f5dfe340860a5dcf195668cac
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089590"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742574"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Préparation d’une machine virtuelle Red Hat pour Azure Stack Hub
 
@@ -351,7 +351,7 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
         subscription-manager repos --enable=rhel-7-server-extras-rpms
         ```
 
-        1.Installez l’agent linux Azure en exécutant la commande suivante :
+    1. Installez l’agent linux Azure en exécutant les commandes suivantes :
 
         ```bash
         sudo yum install WALinuxAgent
@@ -552,17 +552,17 @@ Cette section part de l’hypothèse que vous avez déjà installé une machine 
     
     1. Le package WALinuxAgent, `WALinuxAgent-<version>`, a fait l’objet d’une transmission de type push vers le référentiel Red Hat « extras ». Activez le référentiel extras en exécutant la commande suivante :
 
-    ```bash
-    subscription-manager repos --enable=rhel-7-server-extras-rpms
-    ```
+        ```bash
+        subscription-manager repos --enable=rhel-7-server-extras-rpms
+        ```
 
-    1.Installez l’agent linux Azure en exécutant la commande suivante :
-
-    ```bash
-    sudo yum install WALinuxAgent
-    sudo systemctl enable waagent.service
-    ```
-        
+    1. Installez l'agent linux Azure en exécutant la commande suivante :
+    
+        ```bash
+        sudo yum install WALinuxAgent
+        sudo systemctl enable waagent.service
+        ```
+git        
 1. Ne créez pas d’espace d’échange sur le disque du système d’exploitation.
 
     L’agent Linux Azure peut configurer automatiquement l’espace d’échange à l’aide du disque de ressources local attaché à la machine virtuelle après l'approvisionnement de celle-ci sur Azure. Notez que le disque de ressources local est un disque temporaire qui peut être vidé lorsque la machine virtuelle est déprovisionnée. Après avoir installé l’agent Linux Azure lors de l’étape précédente, modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :

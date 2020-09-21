@@ -10,12 +10,12 @@ ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 334c32fa9522831f74d924b16797dea85cbe30d5
-ms.sourcegitcommit: 9c3339e0e3c3a953d64feff9ae08d94300c351ff
+ms.openlocfilehash: dab71944ecc46fdaa92f7ca65d3ba5c848b24762
+ms.sourcegitcommit: dbc6739584aa407b26e4ad4921d967b7b608de38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85449869"
+ms.lasthandoff: 09/12/2020
+ms.locfileid: "90038826"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Inscrire Azure Stack Hub auprès d’Azure
 
@@ -99,12 +99,7 @@ Quand vous exécutez le script d’inscription, vous devez fournir un nom d’in
 > [!NOTE]
 > Pour les inscriptions Azure Stack Hub basées sur le modèle de facturation par capacité, vous devez changer le nom unique lors de la réinscription après l’expiration des abonnements annuels, sauf si vous [supprimez l’inscription expirée](#renew-or-change-registration) et que vous vous réinscrivez à Azure.
 
-Pour déterminer l’ID de cloud associé à votre déploiement Azure Stack Hub, ouvrez PowerShell en tant qu’administrateur sur un ordinateur qui a accès au point de terminaison privilégié, exécutez les commandes suivantes, puis notez la valeur de **CloudID** :
-
-```powershell
-Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
-Run: Get-AzureStackStampInformation
-```
+Pour déterminer l’ID de cloud de votre déploiement d’Azure Stack Hub, consultez [Rechercher votre ID Cloud](azure-stack-find-cloud-id.md).
 
 ::: zone pivot="state-connected"
 ## <a name="register-with-pay-as-you-use-billing"></a>Inscrire avec facturation de paiement à l’utilisation

@@ -1,16 +1,16 @@
 ---
-title: Présentation du quorum de cluster et de pool dans Azure Stack HCI
+title: Comprendre le quorum de cluster et de pool – Azure Stack HCI
 description: Découvrez le quorum de cluster et de pool dans les espaces de stockage direct sur Azure Stack HCI, avec des exemples précis permettant de saisir toutes les subtilités.
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: cf9ecc42ed839fc133eb64b38b314816f19aecd7
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: d60ec2edb4247c72d35e69e199bf3fc28259e2ce
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866907"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572121"
 ---
 # <a name="understanding-cluster-and-pool-quorum-on-azure-stack-hci"></a>Présentation du quorum de cluster et de pool dans Azure Stack HCI
 

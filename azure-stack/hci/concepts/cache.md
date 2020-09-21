@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/04/2020
-ms.openlocfilehash: 573cbe36fefecdc37394270fbeec6540d4369991
-ms.sourcegitcommit: 01dcda15d88c8d44b4918e2f599daca462a8e3d9
+ms.openlocfilehash: 9a15b953ffe2229d7f92bea998392b8570f481de
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2020
-ms.locfileid: "89493867"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742521"
 ---
 # <a name="understanding-the-storage-pool-cache-in-azure-stack-hci"></a>Présentation du cache de pool de stockage dans Azure Stack HCI
 
@@ -42,13 +42,13 @@ Ceux-ci peuvent être combinés de différentes façons, que nous regroupons dan
 
 L’objectif des déploiements 100 % flash est d’optimiser les performances de stockage. Ils n’incluent pas de lecteurs de disques durs rotatifs (HDD).
 
-![Possibilités-de-déploiement-100 %-flash](media/cache/All-Flash-Deployment-Possibilities.png)
+![Le diagramme montre des déploiements 100 % Flash, à savoir NVMe pour la capacité, NVMe pour le cache, et SSD pour la capacité.](media/cache/All-Flash-Deployment-Possibilities.png)
 
 ### <a name="hybrid-deployment-possibilities"></a>Possibilités de déploiement hybride
 
 Les déploiements hybrides visent à équilibrer les performances et la capacité ou à optimiser la capacité. Ils incluent des lecteurs de disques durs rotatifs (HDD).
 
-![Possibilités-de-déploiement-hybride](media/cache/Hybrid-Deployment-Possibilities.png)
+![Le diagramme montre des déploiements hybrides, à savoir NVMe pour le cache avec HDD pour la capacité, SSD pour le cache avec HDD pour la capacité, et NVMe pour le cache, avec HDD et SSD pour la capacité.](media/cache/Hybrid-Deployment-Possibilities.png)
 
 ## <a name="cache-drives-are-selected-automatically"></a>Les lecteurs de cache sont sélectionnés automatiquement
 
@@ -56,7 +56,7 @@ Dans les déploiements où cohabitent plusieurs types de lecteur, Azure Stack HC
 
 La rapidité des lecteurs est déterminée selon la hiérarchie suivante.
 
-![Hiérarchie-Types-Lecteur](media/cache/Drive-Type-Hierarchy.png)
+![Le diagramme montre des types de disques, du plus rapide au plus lent, dans l’ordre NVMe, SSD, disque non étiqueté représentant un HDD.](media/cache/Drive-Type-Hierarchy.png)
 
 Par exemple, si vous avez des lecteurs NVMe et des disques SSD, les NVMe assureront la mise en cache pour les disques SSD.
 
@@ -74,7 +74,7 @@ Quand tous les lecteurs sont du même type, aucun cache n’est configuré autom
 
 Le comportement du cache est déterminé automatiquement selon le ou les types de lecteurs pour lesquels s’effectue la mise en cache. Lors de la mise en cache pour les disques SSD (par exemple, NVMe mettant en cache pour des disques SSD), seules les écritures sont mises en cache. Quand la mise en cache concerne des lecteurs de disque dur (par exemple, disques SSD assurant la mise en cache pour des HDD), aussi bien les lectures que les écritures sont mises en cache.
 
-![Comportement-lecture-écriture-cache](media/cache/Cache-Read-Write-Behavior.png)
+![Diagramme comparant la mise en cache pour le 100 % Flash, où les écritures sont mises en cache et les lectures ne le sont pas, au mode hybride, où les lectures et les écritures sont mises en cache.](media/cache/Cache-Read-Write-Behavior.png)
 
 ### <a name="write-only-caching-for-all-flash-deployments"></a>Mise en cache d’écriture seule pour les déploiements 100 % flash
 
@@ -115,7 +115,7 @@ Le cache est mis en œuvre côté lecteur : les différents lecteurs formant le
 
 Étant donné que la résilience dans Azure Stack HCI se situe au moins au niveau du serveur (ce qui signifie que les copies de données sont toujours écrites sur différents serveurs ; au maximum, une copie par serveur), les données situées dans le cache bénéficient de la même résilience que celles qui ne se trouvent pas dans le cache.
 
-![Architecture-coté-serveur-du-cache](media/cache/Cache-Server-Side-Architecture.png)
+![Le diagramme représente trois serveurs joints par un miroir triple dans une couche d’espace de stockage qui accède à une couche de cache de lecteurs NVMe qui accèdent à des lecteurs de capacité non étiquetés.](media/cache/Cache-Server-Side-Architecture.png)
 
 Par exemple, dans le cas d’une mise en miroir triple, les données sont écrites en trois exemplaires sur différents serveurs, où elles sont placées dans le cache. Qu’elles soient par la suite supprimées du stockage temporaire ou non, il existe toujours trois copies.
 
@@ -123,7 +123,7 @@ Par exemple, dans le cas d’une mise en miroir triple, les données sont écrit
 
 La liaison entre un lecteur de cache et un lecteur de capacité peut avoir un ratio allant de 1:1 à 1:12 et au-delà. Il s’ajuste dynamiquement chaque fois que des lecteurs sont ajoutés ou supprimés, notamment en cas de scale-up ou à la suite de défaillances. Cela signifie que vous pouvez ajouter des lecteurs de cache ou des lecteurs de capacité de façon indépendante, quand vous le souhaitez.
 
-![Liaison-dynamique](media/cache/Dynamic-Binding.gif)
+![Le diagramme animé montre deux lecteurs de cache NVMe mappés de façon dynamique aux quatre premiers, puis à six, puis à huit lecteurs de capacité.](media/cache/Dynamic-Binding.gif)
 
 Pour des raisons de symétrie, nous vous recommandons de faire en sorte que le nombre de lecteurs de capacité soit un multiple du nombre de lecteurs de cache. Par exemple, si vous avez quatre lecteurs de cache, vous obtiendrez des performances plus équilibrées avec huit lecteurs de capacité plutôt qu'avec sept ou neuf.
 
@@ -135,7 +135,7 @@ Pendant une courte période, les lecteurs de capacité qui étaient liés au lec
 
 Ce scénario souligne l’importance de disposer d’au moins deux lecteurs de cache par serveur pour préserver le niveau de performance.
 
-![Gestion-défaillances](media/cache/Handling-Failure.gif)
+![Le diagramme animé montre deux lecteurs de cache SDD mappés à six lecteurs de capacité jusqu’à ce qu’un lecteur de cache présente une défaillance, ce qui a pour effet que six lecteurs sont mappés au lecteur de cache restant.](media/cache/Handling-Failure.gif)
 
 Vous pouvez alors remplacer le lecteur de cache comme n’importe quel autre lecteur.
 
@@ -194,7 +194,7 @@ Vous pouvez vérifier que les lecteurs que vous avez choisis sont utilisés pour
 
 La configuration manuelle offre les possibilités de déploiement suivantes :
 
-![Possibilités-de-déploiement-inhabituelles](media/cache/Exotic-Deployment-Possibilities.png)
+![Le diagramme montre les possibilités de déploiement, à savoir NVMe pour le cache et la capacité, SSD pour le cache et la capacité, et SDD pour le cache avec une combinaison de SDD et de HDD pour la capacité.](media/cache/Exotic-Deployment-Possibilities.png)
 
 ### <a name="set-cache-behavior"></a>Définir le comportement du cache
 

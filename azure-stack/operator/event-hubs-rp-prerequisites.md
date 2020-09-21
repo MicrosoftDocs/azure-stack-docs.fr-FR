@@ -1,5 +1,5 @@
 ---
-title: Prérequis pour l’installation d’Event Hubs sur Azure Stack Hub
+title: Conditions préalables à l’installation d’Event Hubs sur Azure Stack Hub
 description: Découvrez les prérequis nécessaires avant d’installer le fournisseur de ressources Event Hubs sur Azure Stack Hub.
 author: BryanLa
 ms.author: bryanla
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 515fa11758ef3e3c9a07cc47951450da65129970
-ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
+ms.openlocfilehash: 6b081f5285daf5f6963c7626a62993f9ea8587c4
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88074279"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572202"
 ---
 # <a name="prerequisites-for-installing-event-hubs-on-azure-stack-hub"></a>Prérequis pour l’installation d’Event Hubs sur Azure Stack Hub
 

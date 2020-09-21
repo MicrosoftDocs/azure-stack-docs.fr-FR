@@ -1,5 +1,5 @@
 ---
-title: Gérer l’accès aux ressources dans Azure Stack Hub avec le contrôle d’accès en fonction du rôle
+title: Gérer l’accès aux ressources dans Azure Stack Hub avec un contrôle d’accès en fonction du rôle
 description: Découvrez comment gérer les autorisations de contrôle d’accès en fonction du rôle (RBAC) en tant qu’administrateur ou abonné dans Azure Stack Hub.
 author: bryanla
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 09/13/2019
 ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 2f633e44b4646659a888df85e51450147104710e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1002f45b51f4a70ddbadb8230df6e98f591fcbb6
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703976"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573749"
 ---
 # <a name="manage-access-to-resources-in-azure-stack-hub-with-role-based-access-control"></a>Gérer l’accès aux ressources dans Azure Stack Hub avec le contrôle d’accès en fonction du rôle
 
@@ -41,14 +41,14 @@ Dans Azure Stack Hub, la hiérarchie des ressources est la suivante :
 * Chaque groupe de ressources est membre d’un seul abonnement.
 * Chaque ressource est membre d’un seul groupe de ressources.
 
-L’accès que vous accordez dans une étendue parente est hérité dans les étendues enfants. Par exemple :
+L’accès que vous accordez dans une étendue parente est hérité dans les étendues enfants. Exemple :
 
 * Vous attribuez le rôle de **lecteur** à un groupe Azure AD dans l’étendue de l’abonnement. Les membres de ce groupe peuvent consulter tous les groupes de ressources et les ressources de l’abonnement.
 * Vous attribuez le rôle de **Contributeur** à une application dans l’étendue du groupe de ressources. L’application peut gérer tous les types de ressources dans ce groupe de ressources, mais pas d’autres groupes de ressources de l’abonnement.
 
 ### <a name="assigning-roles"></a>Attribution de rôles
 
-Vous pouvez attribuer plusieurs rôles à un utilisateur et associer chaque rôle à une étendue différente. Par exemple :
+Vous pouvez attribuer plusieurs rôles à un utilisateur et associer chaque rôle à une étendue différente. Exemple :
 
 * Vous attribuez le rôle **Lecteur** au TestUser-A pour l’Abonnement-1.
 * Vous attribuez le rôle **Propriétaire** au TestUser-A pour TestVM-1.
@@ -62,7 +62,7 @@ Les étapes suivantes permettent de configurer des autorisations pour un utilisa
 1. Connectez-vous avec un compte disposant des autorisations de propriétaire sur la ressource que vous souhaitez gérer.
 2. Dans le volet de navigation de gauche, sélectionnez **Groupes de ressources**.
 3. Choisissez le nom du groupe de ressources sur lequel vous souhaitez définir des autorisations.
-4. Dans le volet de navigation du groupe de ressources, choisissez **Contrôle d’accès (IAM)** .<BR> La vue **Attributions de rôles** liste les éléments qui ont accès au groupe de ressources. Vous pouvez regrouper et filtrer les résultats.
+4. Dans le volet de navigation du groupe de ressources, choisissez **Contrôle d’accès (IAM)**.<BR> La vue **Attributions de rôles** liste les éléments qui ont accès au groupe de ressources. Vous pouvez regrouper et filtrer les résultats.
 5. Dans la barre de menus **Contrôle d’accès**, choisissez **Ajouter**.
 6. Sur le volet **Ajouter des autorisations** :
 
@@ -74,4 +74,4 @@ Les étapes suivantes permettent de configurer des autorisations pour un utilisa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créer les principaux du service](../operator/azure-stack-create-service-principals.md)
+[Créer des principaux de service](../operator/azure-stack-create-service-principals.md)

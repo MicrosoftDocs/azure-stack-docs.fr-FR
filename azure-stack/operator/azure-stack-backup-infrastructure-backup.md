@@ -1,5 +1,5 @@
 ---
-title: Récupérer des données dans Azure Stack Hub avec le service Infrastructure Backup
+title: Récupérer des données d’Azure Stack Hub avec le service Infrastructure Backup
 description: Découvrez comment sauvegarder et restaurer la configuration et les données du service dans Azure Stack Hub en utilisant le service Infrastructure Backup.
 author: justinha
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 05/16/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 96d1062b7b6b4c30d1d635965b51de27c0b49269
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: a6017b6bdf1a7075ae01726ddfd1513adaa4ed63
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703279"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573069"
 ---
 # <a name="recover-data-in-azure-stack-hub-with-the-infrastructure-backup-service"></a>Récupérer des données dans Azure Stack Hub avec le service Infrastructure Backup
 

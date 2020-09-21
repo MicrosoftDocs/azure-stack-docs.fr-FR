@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/01/2020
-ms.openlocfilehash: d4d10d7a2470f474130b3a14758b608b7ac2ad34
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.openlocfilehash: 545a0b90ad938a172a184748780974ba7403f19f
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89365068"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742406"
 ---
 # <a name="drive-symmetry-considerations-for-azure-stack-hci"></a>Considérations relatives à la symétrie des lecteurs pour Azure Stack HCI
 
@@ -90,7 +90,7 @@ Toutefois, l’utilisation de lecteurs de cache de taille différente peut ne pa
 
 Vous trouverez ci-dessous plusieurs configurations prises en charge et non prises en charge :
 
-### <a name="supported-supported-different-models-between-servers"></a>![pris en charge](media/drive-symmetry-considerations/supported.png) Pris en charge : différents modèles entre les serveurs
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationssupportedpng-borderfalse-supported-different-models-between-servers"></a>:::image type="icon" source="media/drive-symmetry-considerations/supported.png" border="false"::: Pris en charge : différents modèles entre les serveurs
 
 Les deux premiers serveurs utilisent le modèle NVMe « X », tandis que le troisième utilise le modèle NVMe « Z », qui est très similaire.
 
@@ -101,7 +101,7 @@ Les deux premiers serveurs utilisent le modèle NVMe « X », tandis que le tr
 
 Cette topologie est prise en charge.
 
-### <a name="supported-supported-different-models-within-server"></a>![pris en charge](media/drive-symmetry-considerations/supported.png) Pris en charge : différents modèles dans le serveur
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationssupportedpng-borderfalse-supported-different-models-within-server"></a>:::image type="icon" source="media/drive-symmetry-considerations/supported.png" border="false"::: Pris en charge : différents modèles dans le serveur
 
 Chaque serveur utilise une combinaison différente de modèles HDD « Y » et « Z », qui sont très similaires. Chaque serveur dispose d’un total de 10 disques HDD.
 
@@ -113,7 +113,7 @@ Chaque serveur utilise une combinaison différente de modèles HDD « Y » et 
 
 Cette topologie est prise en charge.
 
-### <a name="supported-supported-different-sizes-across-servers"></a>![pris en charge](media/drive-symmetry-considerations/supported.png) Pris en charge : différentes tailles sur plusieurs serveurs
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationssupportedpng-borderfalse-supported-different-sizes-across-servers"></a>:::image type="icon" source="media/drive-symmetry-considerations/supported.png" border="false"::: Pris en charge : différentes tailles de serveurs
 
 Les deux premiers serveurs utilisent un disque HDD 4 To, tandis que le troisième utilise un disque HDD6 To très similaire.
 
@@ -124,7 +124,7 @@ Les deux premiers serveurs utilisent un disque HDD 4 To, tandis que le troisiè
 
 Bien qu’elle entraîne une capacité bloquée, cette configuration est prise en charge.
 
-### <a name="supported-supported-different-sizes-within-server"></a>![pris en charge](media/drive-symmetry-considerations/supported.png) Pris en charge : différentes tailles dans le serveur
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationssupportedpng-borderfalse-supported-different-sizes-within-server"></a>:::image type="icon" source="media/drive-symmetry-considerations/supported.png" border="false"::: Pris en charge : différentes tailles au sein d’un serveur
 
 Chaque serveur utilise une combinaison différente de disques SSD 1.2 To et 1.6 To très similaires. Chaque serveur possède un total de 4 disques SSD.
 
@@ -136,7 +136,7 @@ Chaque serveur utilise une combinaison différente de disques SSD 1.2 To et 1.6
 
 Cette topologie est prise en charge.
 
-### <a name="unsupported-not-supported-different-types-of-drives-across-servers"></a>![absence de prise en charge](media/drive-symmetry-considerations/unsupported.png) Non pris en charge : différents types de lecteurs sur les serveurs
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationsunsupportedpng-borderfalse-not-supported-different-types-of-drives-across-servers"></a>:::image type="icon" source="media/drive-symmetry-considerations/unsupported.png" border="false"::: Non pris en charge : différents types de lecteurs sur les serveurs
 
 Le Serveur 1 possède un NVMe, mais pas les autres.
 
@@ -148,7 +148,7 @@ Le Serveur 1 possède un NVMe, mais pas les autres.
 
 Ceci n’est pas pris en charge. Les types de lecteurs doivent être identiques sur chaque serveur.
 
-### <a name="unsupported-not-supported-different-number-of-each-type-across-servers"></a>![absence de prise en charge](media/drive-symmetry-considerations/unsupported.png) Non pris en charge : nombre différent de chaque type sur plusieurs serveurs
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationsunsupportedpng-borderfalse-not-supported-different-number-of-each-type-across-servers"></a>:::image type="icon" source="media/drive-symmetry-considerations/unsupported.png" border="false"::: Non pris en charge : nombre différent de chaque type sur les serveurs
 
 Le Serveur 3 possède plus de lecteurs que les autres.
 
@@ -159,7 +159,7 @@ Le Serveur 3 possède plus de lecteurs que les autres.
 
 Ceci n’est pas pris en charge. Le nombre de lecteurs de chaque type doit être identique sur chaque serveur.
 
-### <a name="unsupported-not-supported-only-hdd-drives"></a>![absence de prise en charge](media/drive-symmetry-considerations/unsupported.png) Non pris en charge : disques HDD uniquement
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationsunsupportedpng-borderfalse-not-supported-only-hdd-drives"></a>:::image type="icon" source="media/drive-symmetry-considerations/unsupported.png" border="false"::: Non pris en charge : disques HDD uniquement
 
 Seuls des disques HDD sont connectés aux serveurs.
 

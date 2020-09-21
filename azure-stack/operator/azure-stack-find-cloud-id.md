@@ -7,32 +7,32 @@ ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 09b22541ed77915a2a28c4abf5212ccbbbf5fb81
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 647f731d1d82c41d26142ff88e56b8ec0717f5ef
+ms.sourcegitcommit: dbc6739584aa407b26e4ad4921d967b7b608de38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488958"
+ms.lasthandoff: 09/12/2020
+ms.locfileid: "90038809"
 ---
 # <a name="find-your-cloud-id"></a>Rechercher votre ID cloud
 
-Cette rubrique explique comment vous procurer l’ID cloud à l’aide du portail administrateur ou du point de terminaison privilégié (PEP). 
+Cette rubrique explique comment obtenir votre ID de cloud à l’aide du portail Administrateur ou du point de terminaison privilégié (PEP). L’ID de cloud est l’ID unique pour le suivi des données de support chargées à partir d’une unité d’échelle spécifique. Lorsque les journaux de diagnostic sont chargés à des fins d’analyse de support, l’ID de cloud indique la façon dont les journaux sont associés à cette unité d’échelle.
 
 ## <a name="use-the-administrator-portal"></a>Utiliser le portail d’administration
 
 1. Ouvrez le portail administrateur. 
-1. Cliquez sur **Region management** (Gestion des régions).
+1. Sélectionnez **Region management** (Gestion des régions).
 
    ![Capture d’écran du tableau de bord](./media/azure-stack-automatic-log-collection/dashboard.png)
 
-1. Cliquez sur **Properties** (Propriétés) et copiez l’**ID cloud de l’empreinte**.
+1. Sélectionnez **Properties** (Propriétés) et copiez l’**ID de cloud de l’empreinte**.
 
    ![Capture d’écran des propriétés d’une région avec mise en évidence de l’ID cloud de l’empreinte](media/azure-stack-automatic-log-collection/region-properties-blade-with-stamp-cloud-id.png)
 
 
 ## <a name="use-the-privileged-endpoint"></a>Utiliser le point de terminaison privilégié
 
-1. Ouvrez une session PowerShell avec élévation de privilèges et exécutez le script suivant. Remplacez l’adresse IP de la machine virtuelle PEP et les informations d’identification d’administrateur cloud en fonction des besoins de votre environnement. 
+1. Ouvrez une session PowerShell avec élévation de privilèges et exécutez le script suivant. Remplacez l’adresse IP de la machine virtuelle PEP et les informations d’identification d’administrateur de cloud en fonction des besoins de votre environnement. 
 
    ```powershell
    $ipAddress = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
@@ -51,5 +51,5 @@ Cette rubrique explique comment vous procurer l’ID cloud à l’aide du portai
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Send logs proactively](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002) (Envoyer les journaux de manière proactive)
-* [Send logs now](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) (Envoyer les journaux maintenant)
+* [Send logs proactively (Envoyer les journaux de manière proactive)](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002)
+* [Envoyer des journaux maintenant](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002)

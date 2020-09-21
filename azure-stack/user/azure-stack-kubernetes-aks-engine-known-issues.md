@@ -3,22 +3,29 @@ title: Problèmes connus avec le moteur AKS sur Azure Stack Hub
 description: Découvrez les problèmes connus de l’utilisation du moteur AKS sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 09/11/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 106aafd33441c2961cf933606cc8f48cbe4fc60d
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.lastreviewed: 09/11/2020
+ms.openlocfilehash: 685cf02aed8e6e485d596531c37653f496a4bc5f
+ms.sourcegitcommit: a845ae0d3794b5d845b2ae712baa7e38f3011a7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473210"
+ms.lasthandoff: 09/12/2020
+ms.locfileid: "90045276"
 ---
 # <a name="known-issues-with-the-aks-engine-on-azure-stack-hub"></a>Problèmes connus avec le moteur AKS sur Azure Stack Hub
 
 Cette rubrique décrit les problèmes connus pour le moteur AKS sur Azure Stack Hub.
 
-## <a name="upgrade-issues-in-aks-engine-0510"></a>Problèmes de mise à niveau dans le moteur AKS 0.51.0
+## <a name="disk-detach-operation-fails-in-aks-engine-0550"></a>L’opération de détachement du disque échoue dans un moteur AKS 0.55.0
+
+- **S’applique à** : Azure Stack Hub (mise à jour 2005), moteur AKS 0.55.0
+- **Description** : Lorsque vous essayez de supprimer un déploiement contenant des volumes de persistance, l’opération de suppression déclenche une série d’erreurs d’attachement/détachement. Cela est dû à un bogue dans le fournisseur de cloud du moteur AKS v0.55.0. Le fournisseur de cloud appelle Azure Resource Manager à l’aide d’une version plus récente de l’API que celle qu’Azure Resource Manager prend actuellement en charge dans Azure Stack Hub (mise à jour 2005).
+- **Correction** : Vous trouverez les détails et les étapes d’atténuation dans [le dépôt GitHub du moteur AKS (problème 3817)](https://github.com/Azure/aks-engine/issues/3817#issuecomment-691329443). Effectuez une mise à niveau dès qu’une nouvelle build du moteur AKS et de l’image correspondante sont disponibles.
+- **Occurrence** : Lors de la suppression d’un déploiement contenant des volumes de persistance.
+
+## <a name="upgrade-issues-in-aks-engine-0510"></a>Problèmes de mise à niveau dans le moteur AKS 0.51.0
 
 * Pendant la mise à niveau (aks-engine upgrade) d’un cluster Kubernetes de la version 1.15.x à 1.16.x, la mise à niveau des composants Kubernetes suivants nécessite des étapes manuelles supplémentaires : **kube-proxy**, **azure-cni-networkmonitor**, **csi-secrets-store**, **kubernetes-dashboard**. Voici une description de ce que vous pouvez observer et de comment contourner les problèmes.
 

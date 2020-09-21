@@ -1,16 +1,16 @@
 ---
-title: Activer le chiffrement, la déduplication et la compression des volumes dans Azure Stack HCI
+title: Activer le chiffrement, la déduplication et la compression des volumes – Azure Stack HCI
 description: Cette rubrique explique comment utiliser le chiffrement, la déduplication et la compression de volume dans Azure Stack HCI à l’aide de Windows Admin Center.
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
 ms.date: 09/03/2020
-ms.openlocfilehash: af5eb68af12e831f310e96ba27a348e8c615d4fe
-ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
+ms.openlocfilehash: 9599a4d24d93e545c964de91ad10b905c79b42a1
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89449009"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573494"
 ---
 # <a name="enable-volume-encryption-deduplication-and-compression-in-azure-stack-hci"></a>Activer le chiffrement, la déduplication et la compression des volumes dans Azure Stack HCI
 

@@ -1,5 +1,5 @@
 ---
-title: Configurer les prérequis pour le moteur AKS sur Azure Stack Hub
+title: Configurer les conditions préalables à l’utilisation du moteur AKS sur Azure Stack Hub
 description: Établissez les conditions d’exécution du moteur AKS sur votre infrastructure Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 09/08/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/08/2020
-ms.openlocfilehash: 9dbe60bfbc9b15f75b31e423bf08c988d9e168be
-ms.sourcegitcommit: 2407498dc34158a49959d9f87f84d6a1cde0cca6
+ms.openlocfilehash: 6b3443b64dae560451d4d04d653e097d055fa5c1
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89560944"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573800"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Configurer les prérequis pour le moteur AKS sur Azure Stack Hub
 
@@ -30,9 +30,9 @@ Votre opérateur cloud doit avoir les éléments suivants en place.
 
 | Configuration requise | Description | Obligatoire | Instructions |
 | --- | --- | --- | --- | --- |
-| Azure Stack Hub 2002 ou ultérieur | Le moteur AKS nécessite Azure Stack Hub 2002 ou ultérieur. | Obligatoire | Si vous ne connaissez pas votre version d’Azure Stack Hub, prenez contact avec votre opérateur cloud. |
+| Azure Stack Hub 1910 ou ultérieur | Le moteur AKS nécessite Azure Stack Hub 1910 ou ultérieur. | Obligatoire | Si vous ne connaissez pas votre version d’Azure Stack Hub, prenez contact avec votre opérateur cloud. |
 | Extension de script personnalisé Linux | Extension de script personnalisé Linux 2.0<br>Offre : Script personnalisé pour Linux 2.0<br>Version : 2.0.6 (ou la dernière version)<br>Éditeur : Microsoft Corp | Obligatoire | Si vous n’avez pas cet élément dans votre abonnement, contactez votre opérateur cloud. |
-| Image Ubuntu de base AKS | Image de base AKS Ubuntu 16.04-LTS, août 2020 (2020.08.24) | Obligatoire | Si vous n’avez pas cet élément dans votre abonnement, contactez votre opérateur cloud. Pour plus d’informations sur la dépendance de version, consultez [Correspondance du moteur avec la version de l’image de base](#matching-engine-to-base-image-version).<br> Si vous êtes l’opérateur cloud pour Azure Stack Hub et souhaitez proposer le moteur AKS, suivez les instructions de la rubrique [Ajouter le moteur AKS à la Place de marché Azure Stack Hub](../operator/azure-stack-aks-engine.md). |
+| Image Ubuntu de base AKS | Image de base AKS Ubuntu 16.04-LTS<br>Pour plus d’informations sur la dépendance de version, consultez [Correspondance du moteur avec la version de l’image de base](#matching-engine-to-base-image-version). | Obligatoire | Si vous n’avez pas cet élément dans votre abonnement, contactez votre opérateur cloud.<br> Si vous êtes l’opérateur cloud pour Azure Stack Hub et souhaitez proposer le moteur AKS, suivez les instructions de la rubrique [Ajouter le moteur AKS à la Place de marché Azure Stack Hub](../operator/azure-stack-aks-engine.md). |
 | Identité de principal du service (SPN) |  Une application qui a besoin pour déployer ou configurer des ressources via Azure Resource Manager doit être représentée par un principal de service. | Obligatoire | Vous devrez peut-être contacter votre opérateur Azure Stack Hub pour cet élément.<br>Si vous utilisez une identité de principal de service Azure Active Directory (Azure AD), un accès à Internet est exigé par les machines virtuelles du cluster Kubernetes afin que le principal de service puisse s’authentifier auprès d’Azure AD. Sans accès Internet, le cluster Kubernetes ne sera pas fonctionnel.<br>Pour obtenir des instructions, consultez [Utiliser une identité d’application pour accéder à des ressources](../operator/azure-stack-create-service-principals.md). |
 | Rôle de **contributeur** attribué (SPN) | Pour autoriser une application à accéder aux ressources de votre abonnement en utilisant son principal du service, vous devez attribuer à ce dernier un rôle pour une ressource spécifique. | Obligatoire | Pour obtenir des instructions, consultez [Attribuer un rôle](../operator/azure-stack-create-service-principals.md#assign-a-role). |
 

@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: c40d1ca54bfe71088b18413371b90bd26f8b7386
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 49124c0112d2ecba8c621520cfb1b6c293418401
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250450"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742547"
 ---
 # <a name="plan-volumes-in-azure-stack-hci"></a>Planifier des volumes dans Azure Stack HCI
 
@@ -25,11 +25,11 @@ Vous utilisez des volumes pour placer les fichiers nécessaires à vos charges d
    >[!NOTE]
    > Dans toute la documentation relative aux espaces de stockage direct, nous utilisons le terme « volume » pour désigner à la fois le volume et le disque virtuel sous-jacent, notamment les fonctionnalités offertes par d’autres fonctions Windows intégrées comme les volumes partagés de cluster (CSV) et ReFS. Il n’est pas nécessaire de comprendre toutes les subtilités au niveau de l’implémentation pour planifier et déployer avec succès des espaces de stockage direct.
 
-![what-are-volumes](media/plan-volumes/what-are-volumes.png)
+![Le diagramme montre trois dossiers étiquetés en tant que volumes, associés à un disque virtuel et étiqueté en tant que volume, tous associés à un pool de disques de stockage commun.](media/plan-volumes/what-are-volumes.png)
 
 Tous les volumes sont accessibles à tous les serveurs du cluster en même temps. Une fois créés, ils apparaissent dans **C:\ClusterStorage\\** sur tous les serveurs.
 
-![csv-folder-screenshot](media/plan-volumes/csv-folder-screenshot.png)
+![La capture d’écran montre une fenêtre de l’Explorateur de fichiers intitulée ClusterStorage contenant les volumes nommés Volume1, Volume2 et Volume3.](media/plan-volumes/csv-folder-screenshot.png)
 
 ## <a name="choosing-how-many-volumes-to-create"></a>Choix du nombre de volumes à créer
 
@@ -59,17 +59,17 @@ Avec deux serveurs dans le cluster, vous pouvez utiliser la mise en miroir bidir
 
 La mise en miroir double conserve deux copies de toutes les données, une copie sur les lecteurs de chaque serveur. L’efficacité du stockage est de 50% : pour écrire 1 To de données, vous devez disposer d’au moins 2 To de capacité de stockage physique dans le pool de stockage. La mise en miroir double peut tolérer en toute sécurité une défaillance matérielle à la fois (un serveur ou un lecteur).
 
-![two-way-mirror](media/plan-volumes/two-way-mirror.png)
+![Le diagramme montre deux volumes étiquetés Données et Copie connectés par des flèches circulaires, associés à une banque de disques dans des serveurs.](media/plan-volumes/two-way-mirror.png)
 
 La résilience imbriquée assure la résilience des données entre les serveurs avec mise en miroir double, puis ajoute la résilience au sein d’un serveur avec une mise en miroir bidirectionnelle ou une parité avec accélération par miroir. L’imbrication assure la résilience des données même quand un serveur est en cours de redémarrage ou indisponible. L’efficacité du stockage est de 25 % pour la mise en miroir double imbriquée et d’environ 35-40 % pour la parité imbriquée avec accélération par miroir. La résilience imbriquée peut tolérer en toute sécurité deux défaillances matérielles à la fois (deux lecteurs, ou un serveur et un lecteur sur le serveur restant). En raison de cette résilience des données accrue, nous vous recommandons d’utiliser la résilience imbriquée sur les déploiements de production de clusters à deux serveurs. Pour plus d’informations, consultez [Résilience imbriquée](/windows-server/storage/storage-spaces/nested-resiliency).
 
-![Parité imbriquée avec accélération par miroir](media/plan-volumes/nested-mirror-accelerated-parity.png)
+![Le diagramme montre une parité miroir accélérée imbriquée avec un miroir bidirectionnel entre les serveurs, associé à un miroir bidirectionnel au sein de chaque serveur correspondant à une couche de parité au sein de chaque serveur.](media/plan-volumes/nested-mirror-accelerated-parity.png)
 
 ### <a name="with-three-servers"></a>Avec trois serveurs
 
 Avec trois serveurs, il est préférable d’utiliser la mise en miroir triple pour améliorer la tolérance de panne et les performances. La mise en miroir triple conserve trois copies de toutes les données, une copie sur les lecteurs de chaque serveur. L’efficacité du stockage est de 33,3% : pour écrire 1 To de données, vous devez disposer d’au moins 3 To de capacité de stockage physique dans le pool de stockage. La mise en miroir triple peut tolérer en toute sécurité [au moins deux problèmes de matériel (lecteur ou serveur) à la fois](/windows-server/storage/storage-spaces/storage-spaces-fault-tolerance#examples). En cas d’indisponibilité de 2 nœuds, le pool de stockage perd le quorum puisque 2/3 des disques ne sont pas disponibles et que les disques virtuels ne sont pas accessibles. Toutefois, un nœud peut être en panne et un ou plusieurs disques sur un autre nœud peuvent échouer, mais les disques virtuels restent en ligne. Par exemple, si vous redémarrez un serveur et qu’un autre lecteur ou serveur échoue, toutes les données restent protégées et accessibles en continu.
 
-![three-way-mirror](media/plan-volumes/three-way-mirror.png)
+![Le diagramme montre un volume étiqueté Données et deux volumes étiquetés Copie connectés par des flèches circulaires, chaque volume étant associé à un serveur contenant des disques physiques.](media/plan-volumes/three-way-mirror.png)
 
 ### <a name="with-four-or-more-servers"></a>Avec quatre serveurs ou plus
 
@@ -77,7 +77,7 @@ Avec quatre serveurs ou plus, vous pouvez choisir pour chaque volume d’utilise
 
 La parité double offre la même tolérance de panne que la mise en miroir triple, mais avec une meilleure efficacité de stockage. Avec quatre serveurs, l’efficacité du stockage est de 50,0% : pour stocker 2 To de données, vous devez disposer de 4 To de capacité de stockage physique dans le pool de stockage. L’efficacité du stockage passe à 66,7 % avec sept serveurs et peut atteindre 80,0 %. La contrepartie est que l’encodage de parité est plus gourmand en ressources système, ce qui peut limiter les performances.
 
-![dual-parity](media/plan-volumes/dual-parity.png)
+![Le diagramme montre deux volumes étiquetés Données et deux volumes étiquetés Parité connectés par des flèches circulaires, chaque volume étant associé à un serveur contenant des disques physiques.](media/plan-volumes/dual-parity.png)
 
 Le choix du type de résilience que vous utilisez dépend des besoins de votre charge de travail. Voici un tableau qui récapitule les charges de travail adaptées à chaque type de résilience, ainsi que les performances et l’efficacité du stockage pour chaque type de résilience.
 
@@ -131,7 +131,7 @@ La taille est différente de l’*empreinte* du volume, à savoir la capacité d
 
 Les empreintes de vos volumes doivent tenir dans le pool de stockage.
 
-![size-versus-footprint](media/plan-volumes/size-versus-footprint.png)
+![Le diagramme montre un volume de 2 To comparé une empreinte de 6 To dans le pool de stockage, avec un multiplicateur de trois spécifié.](media/plan-volumes/size-versus-footprint.png)
 
 ### <a name="reserve-capacity"></a>Capacité de réserve
 
@@ -139,7 +139,7 @@ Le fait de conserver une certaine capacité non allouée dans le pool de stockag
 
 Nous vous recommandons de réserver l’équivalent d’un lecteur de capacité par serveur, jusqu’à 4 lecteurs. Vous pouvez réserver davantage de capacité, à votre convenance, mais cette recommandation minimale vous donne l’assurance qu’une réparation parallèle, immédiate et sur place pourra être effectuée si un lecteur quelconque tombe en panne.
 
-![reserve](media/plan-volumes/reserve.png)
+![Le diagramme montre un volume associé à plusieurs disques dans un pool de stockage, et des disques non associés marqués comme étant en réserve.](media/plan-volumes/reserve.png)
 
 Par exemple, si vous disposez de 2 serveurs et que vous utilisez des lecteurs de capacité de 1 To, mettez 2 x 1 = 2 To du pool en réserve. Si vous disposez de 3 serveurs et que vous utilisez des lecteurs de capacité de 1 To, mettez 3 x 1 = 3 To en réserve. Si vous disposez de 4 serveurs ou plus et que vous utilisez des lecteurs de capacité de 1 To, mettez 4 x 1 = 4 To en réserve.
 
@@ -176,7 +176,7 @@ Tous les volumes ne doivent pas nécessairement être de la même taille, mais p
 
 Nos quatre volumes correspondent exactement à la capacité de stockage physique disponible dans notre pool. Parfait !
 
-![exemple](media/plan-volumes/example.png)
+![Le diagramme montre deux volumes en miroir triple de 12 To associés chacun à 36 To de stockage, et deux volumes de parité double de 12 To, associés chacun à 24 To, l’ensemble occupant 120 To dans un pool de stockage.](media/plan-volumes/example.png)
 
    >[!TIP]
    > Vous n’êtes pas obligé de créer tous vos volumes en une seule fois. Vous avez toujours la possibilité d’étendre les volumes ou d’en créer d’autres par la suite.

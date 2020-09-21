@@ -1,17 +1,17 @@
 ---
-title: Gérer des clusters Azure Stack HCI avec Windows Admin Center
+title: Gérer des clusters Azure Stack HCI – Windows Admin Center
 description: Découvrez comment gérer vos clusters sur Azure Stack HCI à l’aide de Windows Admin Center.
 ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
 ms.date: 07/21/2020
-ms.openlocfilehash: ef528e23c9b6de9df0a6f5ea399e3337960dabf2
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.openlocfilehash: d1b8556908da268bbd99c7aa9341128c9dc5be36
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86947552"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573783"
 ---
 # <a name="manage-azure-stack-hci-clusters-using-windows-admin-center"></a>Gérer des clusters Azure Stack HCI avec Windows Admin Center
 
@@ -42,8 +42,8 @@ Pour afficher ces informations, sélectionnez le nom du cluster sous **Toutes le
 
 Vous pouvez modifier deux paramètres relatifs aux espaces de stockage direct qui peuvent être appliqués à votre cluster.
 
-1. Dans Windows Admin Center, cliquez sur **Gestionnaire de cluster** à partir de la flèche déroulante supérieure.
-1. Sous **Outils**, cliquez sur **Paramètres** en bas.
+1. Dans Windows Admin Center, sélectionnez **Gestionnaire de cluster** à partir de la flèche déroulante du haut.
+1. Sous **Outils**, sélectionnez **Paramètres** en bas.
 1. Pour configurer le cache de stockage, sélectionnez **Espaces de stockage direct**, puis configurez les éléments suivants :
 
    - Pour le **cache persistant**, sélectionnez **Activé** ou **Désactivé**
@@ -62,8 +62,8 @@ Vous pouvez modifier deux paramètres relatifs aux espaces de stockage direct qu
 
 Cinq paramètres généraux peuvent être appliqués à votre cluster. Ici, vous pouvez définir et gérer des points d’accès, le comportement d’arrêt du nœud, le chiffrement du trafic, l’équilibrage de charge de la machine virtuelle et le témoin de cluster.
 
-1. Dans Windows Admin Center, cliquez sur **Gestionnaire de cluster** à partir de la flèche déroulante supérieure.
-1. Sous **Outils**, cliquez sur **Paramètres**.
+1. Dans Windows Admin Center, sélectionnez **Gestionnaire de cluster** à partir de la flèche déroulante du haut.
+1. Sous **Outils**, sélectionnez **Paramètres**.
 1. Pour changer le nom du cluster, sélectionnez **Point d’accès** et entrez le nouveau nom.
 
     :::image type="content" source="media/manage-cluster/cluster-settings-access.png" alt-text="Scénario de cluster étendu actif/actif" lightbox="media/manage-cluster/cluster-settings-access.png":::
@@ -103,8 +103,8 @@ Cinq paramètres généraux peuvent être appliqués à votre cluster. Ici, vous
 
 Cinq paramètres d’hôte Hyper-V peuvent être appliqués à votre cluster.
 
-1. Dans Windows Admin Center, cliquez sur **Gestionnaire de cluster** à partir de la flèche déroulante supérieure.
-1. Sous **Outils**, cliquez sur **Paramètres**.
+1. Dans Windows Admin Center, sélectionnez **Gestionnaire de cluster** à partir de la flèche déroulante du haut.
+1. Sous **Outils**, sélectionnez **Paramètres**.
 1. Sélectionnez **Général**, puis utilisez les paramètres suivants :
 
    - **Chemin du disque dur virtuel** : spécifiez le dossier par défaut pour le stockage des fichiers de disque dur virtuel.

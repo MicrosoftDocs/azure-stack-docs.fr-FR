@@ -3,22 +3,22 @@ title: Résoudre les problèmes d’appliance virtuelle réseau sur Azure Stack 
 description: Résolvez les problèmes de connectivité de machines virtuelles ou de réseau privé virtuel (VPN) lors de l’utilisation d’une appliance virtuelle réseau dans Microsoft Azure Stack Hub.
 author: sethmanheim
 ms.author: sethm
-ms.date: 05/12/2020
+ms.date: 09/08/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 04c381bfefa40cc04f59e4b5f6641c2a227d14b8
-ms.sourcegitcommit: b2b0fe629d840ca8d5b6353a90f1fcb392a73bd5
+ms.openlocfilehash: 293e445343acfe13a0be2cabab6cb1577c3941a2
+ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85376797"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90010881"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>Résoudre les problèmes d’appliance virtuelle réseau
 
 Vous pouvez rencontrer des problèmes de connectivité avec les machines virtuelles ou les réseaux privés virtuels qui utilisent une appliance virtuelle réseau dans Azure Stack Hub.
 
-Cet article illustre les étapes vous permettant de valider les exigences de plateforme de base d’Azure Stack Hub pour des configurations d’appliance virtuelle réseau.
+Cet article explique comment valider les exigences de plateforme de base d’Azure Stack Hub pour des configurations d’appliance virtuelle réseau (NVA).
 
 Le fournisseur d’une appliance virtuelle réseau assure le support technique pour celle-ci ainsi que son intégration à la plateforme Azure Stack Hub.
 
@@ -39,8 +39,8 @@ Si cet article ne traite pas votre problème d’appliance virtuelle réseau ave
 ## <a name="basic-troubleshooting-steps"></a>Étapes de dépannage de base
 
 1. Vérification de la configuration de base.
-1. Vérification des performances de l’appliance virtuelle réseau.
-1. Résolution des problèmes réseau avancée.
+2. Vérification des performances de l’appliance virtuelle réseau.
+3. Résolution des problèmes réseau avancée.
 
 ## <a name="check-the-minimum-configuration-requirements-for-nvas-on-azure"></a>Vérifiez la configuration minimale requise pour les appliances virtuelles réseau sur Azure
 
@@ -58,8 +58,8 @@ Chaque appliance virtuelle réseau doit respecter les configurations de base req
 #### <a name="use-the-azure-stack-hub-portal"></a>Utiliser le portail Azure Stack Hub
 
 1. Localisez la ressource d’appliance virtuelle réseau sur le portail Azure Stack Hub, sélectionnez **Mise en réseau**, puis sélectionnez l’interface réseau.
-1. Dans la page **Interface réseau**, sélectionnez **Configuration IP**.
-1. Assurez-vous que le transfert IP est activé.
+2. Dans la page **Interface réseau**, sélectionnez **Configuration IP**.
+3. Assurez-vous que le transfert IP est activé.
 
 #### <a name="use-powershell"></a>Utiliser PowerShell
 
@@ -69,8 +69,9 @@ Chaque appliance virtuelle réseau doit respecter les configurations de base req
    Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
    ```
 
-1. Vérifiez la propriété **EnableIPForwarding**.
-1. Si le transfert IP n’est pas activé, exécutez les commandes suivantes pour l’activer :
+2. Vérifiez la propriété **EnableIPForwarding**.
+
+3. Si le transfert IP n’est pas activé, exécutez les commandes suivantes pour l’activer :
 
    ```powershell
    $nic2 = Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
@@ -84,7 +85,7 @@ Chaque appliance virtuelle réseau doit respecter les configurations de base req
 ### <a name="check-whether-traffic-can-be-routed-to-the-nva"></a>Vérifier si le trafic peut être routé vers l’appliance virtuelle réseau
 
 1. Localisez une machine virtuelle qui est configurée pour rediriger le trafic vers l’appliance virtuelle réseau.
-1. Pour vérifier que l’appliance virtuelle réseau est le tronçon suivant, exécutez **Tracert \<Private IP of NVA\>** pour Windows ou **Traceroute \<Private IP of NVA\>** .
+1. Pour vérifier que l’appliance virtuelle réseau est le tronçon suivant, exécutez `Tracert <Private IP of NVA>` pour Windows ou `Traceroute <Private IP of NVA>`.
 1. Si l’appliance virtuelle réseau n’est pas listée comme tronçon suivant, vérifiez et mettez à jour les tables de routage Azure Stack Hub.
 
 Certains systèmes d’exploitation de niveau invité peuvent mettre en place des stratégies de pare-feu pour bloquer le trafic ICMP. Mettez à jour ces règles de pare-feu pour que les commandes précédentes fonctionnent.
@@ -92,7 +93,7 @@ Certains systèmes d’exploitation de niveau invité peuvent mettre en place de
 ### <a name="check-whether-traffic-can-reach-the-nva"></a>Vérifier si le trafic peut atteindre l’appliance virtuelle réseau
 
 1. Localisez une machine virtuelle qui devrait être connectée à l’appliance virtuelle réseau.
-1. Vérifiez si des groupes de sécurité réseau bloquent le trafic. Pour Windows, exécutez **ping** (ICMP) ou **Test-NetConnection \<Private IP of NVA\>** (TCP). Pour Linux, exécutez **Tcpping \<Private IP of NVA\>** .
+1. Vérifiez si des groupes de sécurité réseau bloquent le trafic. Pour Windows, exécutez `ping` (ICMP) ou `Test-NetConnection <Private IP of NVA>` (TCP). Pour Linux, exécutez `Tcpping <Private IP of NVA>`.
 1. Si vos groupes de sécurité réseau bloquent le trafic, modifiez-les pour autoriser le trafic.
 
 ### <a name="check-whether-the-nva-and-vms-are-listening-for-expected-traffic"></a>Vérifier si l’appliance virtuelle réseau et les machines virtuelles écoutent le trafic attendu
@@ -133,7 +134,7 @@ Si l’utilisation du réseau de machines virtuelles présente des pics ou des p
 
 ### <a name="capture-a-network-trace"></a>Capturer une trace réseau
 
-Pendant que vous exécutez [**PsPing**](/sysinternals/downloads/psping) ou **Nmap**, capturez une trace réseau simultanée sur les machines virtuelles source et de destination ainsi que sur l’appliance virtuelle réseau. Arrêtez ensuite la trace.
+Pendant que vous exécutez [`PsPing`](/sysinternals/downloads/psping) ou `Nmap`, capturez une trace réseau simultanée sur les machines virtuelles source et de destination ainsi que sur l’appliance virtuelle réseau. Arrêtez ensuite la trace.
 
 1. Pour capturer une trace réseau simultanée, exécutez la commande suivante :
 
@@ -149,9 +150,9 @@ Pendant que vous exécutez [**PsPing**](/sysinternals/downloads/psping) ou **Nma
    sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap
    ```
 
-2. Utilisez **PsPing** ou **Nmap** à partir de la machine virtuelle source vers la machine virtuelle de destination. **PsPing 10.0.0.4:80** ou **Nmap -p 80 10.0.0.4** en sont des exemples.
+2. Utilisez `PsPing` ou `Nmap` à partir de la machine virtuelle source vers la machine virtuelle de destination. `PsPing 10.0.0.4:80` ou `Nmap -p 80 10.0.0.4` en sont des exemples.
 
-3. Ouvrez le suivi réseau à partir de la machine virtuelle de destination en utilisant **tcpdump** ou un analyseur de paquets de votre choix. Appliquez un filtre d’affichage pour l’adresse IP de la machine virtuelle source à partir de laquelle vous avez exécuté **PsPing** ou **Nmap**. Un exemple Windows **netmon** est **IPv4.address==10.0.0.4**. Des exemples Linux sont **tcpdump -nn -r vmtrace.cap src** et **dst host 10.0.0.4**.
+3. Ouvrez le suivi réseau à partir de la machine virtuelle de destination en utilisant **tcpdump** ou un analyseur de paquets de votre choix. Appliquez un filtre d’affichage pour l’adresse IP de la machine virtuelle source à partir de laquelle vous avez exécuté `PsPing` ou `Nmap`. Un exemple Windows **netmon** est `IPv4.address==10.0.0.4`. `tcpdump -nn -r vmtrace.cap src` et `dst host 10.0.0.4` dont des exemples Linux.
 
 ### <a name="analyze-traces"></a>Analyser les traces
 

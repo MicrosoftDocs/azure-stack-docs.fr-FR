@@ -4,13 +4,13 @@ description: Cette rubrique explique comment planifier le déploiement du contr�
 author: AnirbanPaul
 ms.author: anpaul
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: 58ae46591e2119bbfc9269440f36e9c37fd0e7b9
-ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
+ms.date: 09/10/2020
+ms.openlocfilehash: 785665c9edc3af3230b4813e6da6bceddc43bd0a
+ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89643935"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90010830"
 ---
 # <a name="plan-to-deploy-the-network-controller"></a>Planifier le déploiement du contrôleur de réseau
 
@@ -21,7 +21,7 @@ Planifier le déploiement du contrôleur de réseau via Windows Admin Center req
    >[!NOTE]
    > Nous vous recommandons de déployer le contrôleur de réseau sur ses propres machines virtuelles dédiées.
 
-## <a name="network-controller-requirements-for-azure-stack-hci"></a>Configuration requise du contrôleur de réseau pour Azure Stack HCI
+## <a name="network-controller-requirements"></a>Configuration requise pour le contrôleur de réseau
 Les éléments suivants sont requis pour déployer le contrôleur de réseau :
 - Un disque dur virtuel pour le système d’exploitation Azure Stack HCI afin de créer les machines virtuelles du contrôleur de réseau.
 - Un nom de domaine et des informations d’identification pour joindre les machines virtuelles du contrôleur de réseau à un domaine.

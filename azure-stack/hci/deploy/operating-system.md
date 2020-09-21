@@ -1,22 +1,24 @@
 ---
 title: Déployer le système d’exploitation Azure Stack HCI
-description: Cet article décrit les différentes façons de déployer le système d’exploitation Azure Stack HCI et l’utilisation de Windows Admin Center pour se connecter à vos serveurs. Vous trouverez des informations de référence sur la création d’un cluster de serveurs ainsi que des étapes facultatives pour obtenir les mises à jour et le microprogramme Windows les plus récents pour vos serveurs.
+description: Découvrez comment déployer le système d’exploitation Azure Stack HCI, puis utiliser Windows Admin Center pour vous connecter à vos serveurs. Découvrez comment créer un cluster de serveurs, et comment obtenir les mises à jour Windows et les microprogrammes les plus récents pour vos serveurs.
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: tutorial
-ms.date: 07/21/2020
-ms.openlocfilehash: bfdd1a85afa9da48e785beab45991fe5ccdeca6e
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 09/09/2020
+ms.openlocfilehash: ec39d00d1cf9fef1e41977009c17d51de3ba95ba
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86867043"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572014"
 ---
 # <a name="deploy-the-azure-stack-hci-operating-system"></a>Déployer le système d’exploitation Azure Stack HCI
 
 > S’applique à : Azure Stack HCI, version 20H2
 
-Après avoir effectué les étapes indiquées dans [Avant de déployer Azure Stack HCI](before-you-start.md#install-windows-admin-center), la première étape du déploiement d’Azure Stack HCI consiste à installer le système d’exploitation Azure Stack HCI sur chaque serveur que vous souhaitez mettre en cluster. Cet article décrit les différentes façons de déployer le système d’exploitation et l’utilisation de Windows Admin Center pour se connecter aux serveurs.
+Après avoir effectué les étapes indiquées dans [Avant de déployer Azure Stack HCI](before-you-start.md#install-windows-admin-center), la première étape du déploiement d’Azure Stack HCI consiste à [télécharger Azure Stack HCI](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/) et à installer le système d’exploitation sur chaque serveur que vous souhaitez mettre en cluster. Cet article décrit les différentes façons de déployer le système d’exploitation et l’utilisation de Windows Admin Center pour se connecter aux serveurs.
 
 Une fois le système d’exploitation déployé, vous pouvez utiliser les conseils associés à la création d’un cluster de serveurs et à l’obtention des dernières mises à jour Windows et de microprogramme pour vos serveurs, comme décrit dans [Créer un cluster Azure Stack HCI](create-cluster.md).
 

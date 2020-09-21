@@ -1,5 +1,5 @@
 ---
-title: Utiliser l’outil de validation Azure Stack Hub pour valider l’état du système
+title: Valider l’état d’un système avec l’outil de validation d’Azure Stack Hub
 description: Découvrez comment utiliser l’outil de validation Azure Stack Hub pour valider l’état du système.
 author: justinha
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: c2133c85e9bae8c4f1bdf1e13b84ed6e79fb28ae
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 40a916a282f4808d9897cc5c23ea953739b0a0cf
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488907"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572933"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Valider l’état du système Azure Stack Hub
 
