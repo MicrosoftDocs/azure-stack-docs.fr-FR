@@ -1,0 +1,63 @@
+### YamlMime:Landing
+title: Documentation Azure Kubernetes Service sur Azure Stack HCI
+summary: Azure Kubernetes Service sur Azure Stack HCI est une implémentation locale du célèbre orchestrateur Azure Kubernetes Service (AKS), qui automatise l’exécution d’applications conteneurisées à grande échelle. Azure Kubernetes Service est maintenant en préversion sur Azure Stack HCI, ce qui vous permet de commencer à héberger des conteneurs Linux et Windows dans votre centre de données plus rapidement.
+metadata:
+  title: Documentation Azure Kubernetes Service sur Azure Stack HCI
+  description: Azure Kubernetes Service sur Azure Stack HCI est une implémentation locale du célèbre orchestrateur Azure Kubernetes Service (AKS), qui automatise l’exécution d’applications conteneurisées à grande échelle. Azure Kubernetes Service est maintenant en préversion sur Azure Stack HCI, ce qui vous permet de commencer à héberger des conteneurs Linux et Windows dans votre centre de données plus rapidement.
+  ms.topic: landing-page
+  author: jasongerend
+  ms.author: jgerend
+  ms.date: 09/22/2020
+  ms.openlocfilehash: 25ac5eecb2f198613c3402a269c1aeafd7df4cc0
+  ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90949432"
+landingContent:
+- title: À propos d’Azure Kubernetes Service
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Azure Kubernetes Service sur Azure Stack HCI ?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Concepts de base Kubernetes pour AKS
+      url: kubernetes-concepts.md
+- title: Bien démarrer
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Configuration système requise
+      url: system-requirements.md
+  - linkListType: quickstart
+    links:
+    - text: Configurer AKS avec Windows Admin Center
+      url: setup.md
+    - text: Configurer AKS avec PowerShell
+      url: setup-powershell.md
+    - text: Créer un cluster Kubernetes avec Windows Admin Center
+      url: create-kubernetes-cluster.md
+    - text: Créer un cluster Kubernetes avec PowerShell
+      url: create-kubernetes-cluster-powershell.md
+- title: Déployer des applications Windows et Linux
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Utiliser des conteneurs Windows Server
+      url: deploy-windows-application.md
+    - text: Utilisation de conteneurs Linux
+      url: deploy-linux-application.md
+  - linkListType: how-to-guide
+    links:
+    - text: Adapter des applications à des clusters Kubernetes à système d’exploitation mixte
+      url: adapt-apps-mixed-os-clusters.md
+    - text: Utiliser le stockage persistant dans un conteneur Windows et préparer un compte gMSA
+      url: persistent-storage-windows-nodes.md
+- title: Intégrer à Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Se connecter à Azure Arc pour Kubernetes
+      url: connect-to-arc.md
