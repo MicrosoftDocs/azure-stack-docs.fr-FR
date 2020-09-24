@@ -3,16 +3,16 @@ title: Conditions requises et éléments à prendre en compte pour ASDK
 description: En savoir plus sur le matériel, le logiciel et la configuration requise de l’environnement pour le Kit de développement Azure Stack (ASDK).
 author: myoungerman
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 09/23/2020
 ms.author: v-myoung
 ms.reviewer: misainat
-ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: f74ffc103c53fa8cb1c317f42455c4063e1b0baa
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 09/23/2020
+ms.openlocfilehash: b16247c53ea0677573573c827f68e56081a9de5e
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572100"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106973"
 ---
 # <a name="asdk-requirements-and-considerations"></a>Conditions requises et éléments à prendre en compte pour ASDK
 
@@ -78,9 +78,6 @@ Exemple de configuration en miroir bidirectionnelle :
 |  | **Configuration requise** |
 | --- | --- |
 | **Version du SE** |Windows Server 2016 ou version ultérieure. La version du système d’exploitation n’est pas critique avant le démarrage du déploiement, car vous démarrez l’ordinateur hôte sur le disque dur virtuel VHD qui est fourni dans l’installation Azure Stack. Le système d’exploitation et tous les correctifs nécessaires sont déjà intégrés dans l’image. N’utilisez pas de clés pour activer les instances Windows Server utilisées dans le kit ASDK. |
-
-> [!TIP]
-> Après avoir installé le système d’exploitation, vous pouvez utiliser le [vérificateur de déploiement Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) pour vérifier que votre matériel a la configuration requise.
 
 ## <a name="account-requirements"></a>Exigences pour les comptes
 En général, vous déployez le kit ASDK avec une connexion Internet pour pouvoir vous connecter à Microsoft Azure. Dans ce cas, configurez un compte Azure Active Directory (Azure AD) pour déployer le kit ASDK.
