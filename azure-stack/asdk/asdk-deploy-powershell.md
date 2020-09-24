@@ -3,16 +3,16 @@ title: Déployer ASDK à partir de la ligne de commande à l’aide de PowerShel
 description: Découvrez comment déployer le kit ASDK à partir de la ligne de commande à l’aide de PowerShell.
 author: justinha
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 09/23/2020
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: d6c7e29f83700eb2eb897bcd4b8bfdd65c7dfb4c
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.lastreviewed: 09/23/2020
+ms.openlocfilehash: c9931654b6c217d0c9f06bf51b37460046c47c2c
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847144"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106936"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>Déployer ASDK à partir de la ligne de commande à l’aide de PowerShell
 
@@ -26,8 +26,6 @@ Avant de déployer l’ASDK, assurez-vous que le matériel de l’ordinateur hô
 
 **[Consultez la configuration requise et les considérations à prendre en compte concernant le déploiement du kit ASDK](asdk-deploy-considerations.md)** .
 
-> [!TIP]
-> Vous pouvez utiliser l’[outil de vérification des exigences de déploiement Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) après l’installation du système d’exploitation pour confirmer que votre matériel réponde à toutes les exigences.
 
 ## <a name="download-and-extract-the-deployment-package"></a>Téléchargez et extrayez le package de déploiement
 Après vous être assuré que votre ordinateur hôte du kit ASDK répond aux exigences de base pour l’installation du kit de développement Azure Stack, il vous faut télécharger et extraire le package de déploiement du Kit de développement Azure Stack. Le package de déploiement contient le fichier Cloudbuilder.vhdx, un disque dur virtuel qui contient un système d’exploitation démarrable et les fichiers d’installation d’Azure Stack.
