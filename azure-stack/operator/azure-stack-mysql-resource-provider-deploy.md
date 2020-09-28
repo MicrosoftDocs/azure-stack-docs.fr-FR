@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 760f8680c20acdbd219cc4dd9e97e799a37598ea
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: 82ad67557ae0fb84e072aa760b6fd8cc1f016e03
+ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473110"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90946479"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Déployer le fournisseur de ressources MySQL sur Azure Stack Hub
 
@@ -95,7 +95,10 @@ Une fois que tous les prérequis sont remplis, exécutez le script **DeployMySql
  > [!IMPORTANT]
  > Avant de déployer le fournisseur de ressources, passez en revue les notes de publication pour en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.
 
-Pour déployer le fournisseur de ressources mySQL, ouvrez une nouvelle fenêtre PowerShell (pas PowerShell ISE) avec élévation de privilèges et basculez vers le répertoire où vous avez extrait les fichiers binaires du fournisseur de ressources mySQL. Nous vous recommandons d’utiliser une nouvelle fenêtre PowerShell pour éviter les problèmes potentiels engendrés par les modules PowerShell qui sont déjà chargés.
+Pour déployer le fournisseur de ressources mySQL, ouvrez une nouvelle fenêtre PowerShell (pas PowerShell ISE) avec élévation de privilèges et basculez vers le répertoire où vous avez extrait les fichiers binaires du fournisseur de ressources mySQL. 
+
+> [!IMPORTANT]
+> Nous vous recommandons d’utiliser une nouvelle fenêtre PowerShell pour éviter les problèmes potentiels engendrés par les modules PowerShell qui sont déjà chargés. Vous pouvez utiliser clear-azurermcontext pour effacer le cache avant d’exécuter le script de mise à jour.
 
 Exécutez le script **DeployMySqlProvider.ps1**, qui complète les tâches suivantes :
 

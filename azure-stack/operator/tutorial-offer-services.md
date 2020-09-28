@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: e0c152f3c541b3bc2dad042ae88f162b539cec60
-ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
+ms.openlocfilehash: f2716bfbdab58c90401e3c6b10908c35f774feed
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88564800"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107180"
 ---
 # <a name="create-a-service-offering-for-users-in-azure-stack-hub"></a>Créer une offre de service pour les utilisateurs dans Azure Stack Hub
 
@@ -80,23 +80,23 @@ Pendant le processus de création de l’offre, vous créez à la fois une offre
 
     Sélectionnez ensuite **+ Créer une ressource** > **Offres + plans** > **Offre**.
 
-    ![Nouvelle offre dans le portail d’administration Azure Stack Hub](media/tutorial-offer-services/1-create-resource-offer.png)
+    ![Capture d’écran montrant comment créer une offre dans le portail d’administration Azure Stack Hub.](media/tutorial-offer-services/1-create-resource-offer.png)
 
 1. Dans **Créer une offre** sous l'onglet **Concepts de base**, entrez un **Nom d'affichage**, **Nom de ressource**, et sélectionnez ou créez un **Groupe de ressources**. Le nom d’affichage correspond au nom convivial de l’offre. Seul l’opérateur cloud peut voir le nom de la ressource qui est utilisé par les administrateurs pour travailler avec une offre comme ressource Azure Resource Manager.
 
-   ![Nom d’affichage dans le portail d’administration Azure Stack Hub](media/tutorial-offer-services/2-create-new-offer.png)
+   ![Capture d’écran montrant où ajouter des informations de base dans le portail d’administration Azure Stack Hub.](media/tutorial-offer-services/2-create-new-offer.png)
 
 1. Sélectionnez l’onglet **Plans de base**, puis **Créer un plan** pour créer un nouveau plan. Le plan est également ajouté à l’offre en tant que plan de base.
 
-   ![Ajouter un plan dans le portail d’administration Azure Stack Hub](media/tutorial-offer-services/3-create-new-offer-base-plans.png)
+   ![Capture d’écran montrant comment ajouter un plan dans le portail d’administration Azure Stack Hub.](media/tutorial-offer-services/3-create-new-offer-base-plans.png)
 
 1. Dans **Nouveau plan** sous l'onglet **Concepts de base**, entrez un **Nom d'affichage** et un **Nom de ressource**. Le nom d’affichage correspond au nom convivial du plan, que les utilisateurs voient. Seul l’opérateur cloud peut voir le nom de la ressource qui est utilisé par les opérateurs cloud pour travailler avec le plan comme ressource Azure Resource Manager. **Groupe de ressources** sera défini sur le groupe de ressources spécifié pour l’offre.
 
-   ![Nom d’affichage des plans dans le portail d’administration Azure Stack Hub](media/tutorial-offer-services/4-create-new-plan-basics.png)
+   ![Capture d’écran représentant le nom complet des plans dans le portail d’administration Azure Stack Hub.](media/tutorial-offer-services/4-create-new-plan-basics.png)
 
 1. Sélectionnez l'onglet **Services** : la liste des services disponibles auprès des fournisseurs de ressources installés s'affiche. Sélectionnez **Microsoft.Compute**, **Microsoft.Network** et **Microsoft.Storage**.
 
-   ![Services des plans dans le portail d’administration Azure Stack Hub](media/tutorial-offer-services/5-create-new-plan-services.png)
+   ![Capture d’écran représentant les services du plan dans le portail d’administration Azure Stack Hub.](media/tutorial-offer-services/5-create-new-plan-services.png)
 
 1. Sélectionnez l'onglet **Quotas** et la liste des services que vous avez activés pour ce plan apparaît. Sélectionnez **Créer nouveau** pour spécifier un quota personnalisé pour **Microsoft.Compute**. **Nom du quota** est obligatoire ; vous pouvez accepter ou modifier chaque valeur de quota. Sélectionnez **OK** lorsque vous avez terminé, puis répétez ces étapes pour les autres services.
 

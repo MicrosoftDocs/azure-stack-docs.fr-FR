@@ -8,12 +8,12 @@ ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 2c502a80d5253b90200d3829a6167b419d711bd2
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 685a448fd8fdc06edc0ffa92890ce9eaea2c39e6
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764526"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107026"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Télécharger des éléments de la Place de marché vers Azure Stack Hub
 
@@ -52,7 +52,7 @@ Votre déploiement Azure Stack Hub doit disposer d’une connectivité à Intern
 
 4. Chaque élément de ligne affiche également la version actuellement disponible. Si plusieurs versions d’un élément de la Place de marché sont disponibles, la colonne **Version** affiche **Multiple**. Vous pouvez cliquer sur chaque élément pour voir sa description et d’autres informations, notamment sa taille de téléchargement :
 
-   ![Ajout à partir d’Azure](media/azure-stack-download-azure-marketplace-item/add-from-azure1.png)
+   ![Capture d’écran montrant les versions disponibles d’un élément de la place de marché.](media/azure-stack-download-azure-marketplace-item/add-from-azure1.png)
 
 5. Si la version d’un élément est affichée comme **Multiple**, vous pouvez sélectionner cet élément, puis choisir une version spécifique dans la liste déroulante du sélecteur de version qui en résulte. Notez que Microsoft a désormais la possibilité d’ajouter des attributs qui empêchent les administrateurs de télécharger des produits de la Place de marché qui ne sont pas compatibles avec leurs environnements Azure Stack, en raison de différents propriétés, comme la version Azure Stack ou le modèle de facturation. Seul Microsoft peut ajouter ces attributs :
 
@@ -137,10 +137,10 @@ Une fois que vous avez inscrit Azure Stack, vous pouvez ignorer le message suiva
 
    Cela permet d’afficher un tableau contenant toutes les inscriptions d’Azure Stack qui sont disponibles dans l’abonnement sélectionné. Choisissez l’inscription qui correspond à l’environnement Azure Stack dans lequel vous téléchargez les éléments de la Place de marché, puis sélectionnez **OK**.
 
-     ![Sélectionner des inscriptions Azure Stack](media/azure-stack-download-azure-marketplace-item/select-registration.png)
+     ![Capture d’écran montrant une liste de toutes les inscriptions d’Azure Stack disponibles dans l’abonnement sélectionné.](media/azure-stack-download-azure-marketplace-item/select-registration.png)
 
    Vous devez maintenant voir un deuxième tableau qui liste tous les éléments de la Place de marché qui peuvent être téléchargés. Sélectionnez l’élément que vous voulez télécharger, puis notez la **version**. Vous pouvez maintenir la touche **Ctrl** enfoncée pour sélectionner plusieurs images.
-     ![Sélectionner des inscriptions Azure Stack](media/azure-stack-download-azure-marketplace-item/select-products.png)
+     ![Capture d’écran montrant une autre liste de toutes les inscriptions d’Azure Stack disponibles dans l’abonnement sélectionné.](media/azure-stack-download-azure-marketplace-item/select-products.png)
   
    Vous pouvez également filtrer la liste des images à l’aide de l’option **Ajouter des critères**.
    ![Sélectionner des inscriptions Azure Stack](media/azure-stack-download-azure-marketplace-item/select-products-with-filter.png)

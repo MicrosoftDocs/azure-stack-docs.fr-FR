@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ab90c0e9ef0f873fbed44932e9ffc418077fee4a
-ms.sourcegitcommit: 1ab1293b594fe8ffc00dc800c663cf1323dc41ce
+ms.openlocfilehash: 7f57336cdb15be2f55fdcd3756f5f3714f51b1af
+ms.sourcegitcommit: d197e8d3c3b69c20d09de4c43d8089ec0a993baf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87939575"
+ms.lasthandoff: 09/21/2020
+ms.locfileid: "90836503"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Récupérer des données suite à une perte catastrophique
 
@@ -24,7 +24,7 @@ Ce scénario concerne la récupération de toute votre installation en cas de d�
 
 | Scénario                                                           | Perte de données                            | Considérations                                                             |
 |--------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------|
-| Récupérer après une grave perte de données due à un sinistre ou à un bogue produit | Toutes les données relatives à l’infrastructure, à l’utilisateur et aux applications | Les applications et données utilisateur sont protégées séparément des données d’infrastructure. |
+| Récupérer après une grave perte de données due à un sinistre ou à un bogue produit | Toutes les données relatives à l’infrastructure, à l’utilisateur et aux applications | Peut effectuer une restauration vers différents OEM.<br/> Peut effectuer une restauration sur différentes générations de matériel.<br/> Peut effectuer une restauration sur un nombre différent de nœuds d’unité d’échelle.<br/> Les applications et données utilisateur sont protégées séparément des données d’infrastructure. |
 
 ## <a name="workflows"></a>Workflows
 

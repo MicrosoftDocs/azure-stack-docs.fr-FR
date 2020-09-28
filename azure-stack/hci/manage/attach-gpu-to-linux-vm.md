@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 07/01/2020
-ms.openlocfilehash: 55016910a5092414d7d2dff47c07b4f25634cf41
-ms.sourcegitcommit: b69c8334571094721b26e6bdebd639f4fd294dd0
+ms.openlocfilehash: 1d881db2d8802e93611437cbc14fe9782540be16
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87839247"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106944"
 ---
 # <a name="attaching-a-gpu-to-an-ubuntu-linux-vm-on-azure-stack-hci"></a>Attachement d’un GPU à une machine virtuelle Ubuntu Linux sur Azure Stack HCI
 
@@ -94,7 +94,7 @@ Ce document suppose que le cluster Azure Stack HCI est déployé et que les mach
 11. Dans la machine virtuelle, recherchez et ouvrez **Software & Updates**. Accédez à **Additional Drivers**, puis choisissez les pilotes GPU NVIDIA listés les plus récents. Terminez l’installation du pilote en cliquant sur le bouton **Apply Changes**.
     :::image type="content" source="media/attach-gpu-to-linux-vm/driver-install.png" alt-text="Capture d’écran - Installation du pilote":::
 
-12. Redémarrez la machine virtuelle Ubuntu après l’installation du pilote. Après le démarrage de la machine virtuelle, connectez-vous par le biais du client SSH et exécutez la commande **nvidia-smi** pour vérifier que l’installation du pilote GPU NVIDIA s’est correctement déroulée. La sortie doit ressembler à la capture d’écran ci-dessous : :::image type="content" source="media/attach-gpu-to-linux-vm/nvidia-smi.png" alt-text="capture d’écran nvidia-smi":::
+12. Redémarrez la machine virtuelle Ubuntu après l’installation du pilote. Après le démarrage de la machine virtuelle, connectez-vous par le biais du client SSH et exécutez la commande **nvidia-smi** pour vérifier que l’installation du pilote GPU NVIDIA s’est correctement déroulée. La sortie doit ressembler à la capture d’écran ci-dessous : :::image type="content" source="media/attach-gpu-to-linux-vm/nvidia-smi.png" alt-text="Capture d’écran montrant la sortie de la commande nvidia-smi.":::
 
 13. À l’aide du client SSH, configurez le référentiel et installez le moteur Docker CE :
 
@@ -486,7 +486,7 @@ Pour vous préparer à effectuer cette configuration, consultez les questions fr
     sudo iotedge list
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify-modules-sudo.png" alt-text="Capture d’écran - iotedge list":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify-modules-sudo.png" alt-text="Capture d’écran montrant la sortie de la liste iotedge.":::
 
     ```shell
     nvidia-smi
@@ -503,19 +503,19 @@ Pour vous préparer à effectuer cette configuration, consultez les questions fr
     sudo iotedge list
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify1.png" alt-text="Capture d’écran - iotedge list":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify1.png" alt-text="Capture d’écran de la sortie montrant que le conteneur NvdiaDeepStreem est opérationnel.":::
 
     ```shell
     sudo iotedge logs -f NVIDIADeepStreamSDK
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify2.png" alt-text="Capture d’écran - iotedge list":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify2.png" alt-text="Capture d’écran montrant la sortie de la commande iotedge logs -f NVIDIADeepStreamSDK.":::
 
     ```shell
     nvidia-smi
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify3.png" alt-text="Capture d’écran - iotedge list":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify3.png" alt-text="Capture d’écran montrant la sortie supplémentaire de la commande nvidia-smi.":::
 
 21. Vérifiez l’adresse TCP/IP de votre machine virtuelle Ubuntu à l’aide de la commande **ifconfig** et recherchez l’adresse TCP/IP en regard de l’interface **eth0**.
 

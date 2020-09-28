@@ -3,15 +3,15 @@ title: Différences entre Azure Stack Hub et Azure quand vous utilisez des servi
 description: Comprendre les différences entre Azure et Azure Stack Hub quand vous utilisez des services et créez des applications.
 author: sethmanheim
 ms.topic: overview
-ms.date: 06/11/2020
+ms.date: 09/21/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: fb5f30d97d1c12a94b5366a358dc21450965fd93
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: 25d836bece262f881901df6c62b5dc8f4aeaf11d
+ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819528"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90946453"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Différences entre Azure Stack Hub et Azure quand vous utilisez des services et créez des applications
 
@@ -84,3 +84,4 @@ Pour plus d’informations sur les différences au niveau du service, consultez�
 * [Considérations relatives aux machines virtuelles dans Azure Stack Hub](azure-stack-vm-considerations.md)
 * [Considérations relatives au stockage dans Azure Stack Hub](azure-stack-acs-differences.md)
 * [Considérations relatives aux réseaux Azure Stack Hub](azure-stack-network-differences.md)
+* [Considérations pour le fournisseur de ressources SQL Azure Stack Hub](../operator/azure-stack-sql-resource-provider.md)

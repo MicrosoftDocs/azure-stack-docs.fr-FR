@@ -7,12 +7,12 @@ ms.date: 07/22/2020
 ms.author: sethm
 ms.lastreviewed: 09/10/2019
 ms.reviewer: sranthar
-ms.openlocfilehash: e46bc4258883e01b80b78a96bf95cfe8012934d9
-ms.sourcegitcommit: 16ff77f7157e5b04a8cd401b095f7b71f51d5a11
+ms.openlocfilehash: d0222de6db809fcbb73d31ac1ef4298e18895643
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86949540"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106576"
 ---
 # <a name="install-azure-stack-hub-updates"></a>Installer des mises à jour d’Azure Stack Hub
 
@@ -48,7 +48,7 @@ Vous pouvez voir la version actuelle d’Azure Stack Hub dans le panneau **Mises
 
 4. Sélectionnez **Mettre à jour maintenant**.
 
-    ![Détails de l’exécution de la mise à jour d’Azure Stack Hub](./media/azure-stack-update-apply/image2.png)
+    ![Capture d’écran montrant comment démarrer une mise à jour dans Azure Stack Hub.](./media/azure-stack-update-apply/image2.png)
 
 5. Vous pouvez afficher l’état général à mesure que le processus de mise à jour effectue une itération dans les différents sous-systèmes d’Azure Stack Hub. Exemples de sous-systèmes : hôtes physiques, Service Fabric, machines virtuelles d’infrastructure et services fournissant des portails administrateur et utilisateur. Tout au long du processus de mise à jour, le fournisseur de ressources de mise à jour transmet des détails supplémentaires sur la mise à jour, notamment le nombre d’étapes réussies et le nombre d’étapes en cours.
 

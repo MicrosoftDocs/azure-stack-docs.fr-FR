@@ -7,12 +7,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: ab12123410971dcbff3a4750650dd5508ca93efe
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 8371b23da292400087def86fc6a18bbee90a0217
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631148"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107072"
 ---
 # <a name="create-an-offer-in-azure-stack-hub"></a>Créer une offre dans Azure Stack Hub
 
@@ -23,17 +23,17 @@ Les [offres](azure-stack-overview.md) sont des groupes d’un ou plusieurs plans
 
 1. Connectez-vous au portail administrateur Azure Stack Hub `https://adminportal.local.azurestack.external` et sélectionnez **+ Créer une ressource**, puis **Offres + plans** et **Offre**.
 
-   ![Créer une offre dans Azure Stack Hub](media/azure-stack-create-offer/offers.png)
+   ![Capture d’écran montrant comment créer une offre dans Azure Stack Hub.](media/azure-stack-create-offer/offers.png)
 
 2. Une interface utilisateur à onglets apparaît et vous permet de définir le nom de l'offre. Vous pouvez également ajouter des plans de base et des plans complémentaires existants ou en créer de nouveaux. Plus important encore, vous pouvez consulter les détails de l’offre que vous créez, avant de décider de la créer.
 
    Sous l’onglet **De base**, entrez un **Nom d’affichage** et le **Nom de la ressource**, puis sous **Groupe de ressources**, sélectionnez **Créer nouveau** ou **Utiliser existant**. Le nom d’affichage correspond au nom convivial de l’offre. Ce nom convivial est la seule information sur l’offre que les utilisateurs verront au moment de l’abonnement à l’offre dans le portail utilisateur. Utilisez un nom intuitif qui aide les utilisateurs à comprendre en quoi elle consiste. Seul l’administrateur peut voir le nom de la ressource. Il s’agit du nom que les administrateurs utilisent pour gérer l’offre en tant que ressource Azure Resource Manager. Dans cet onglet, vous pouvez également choisir de rendre cette offre publique ou de la garder privée. Le paramètre par défaut est « privée ». Vous pouvez à tout moment [modifier l’état public ou privé de l’offre](#change-the-state-of-an-offer).
 
-   ![Nouvelle offre dans Azure Stack Hub](media/azure-stack-create-offer/new-offer.png)
+   ![Capture d’écran montrant où ajouter des informations de base sur la nouvelle offre dans Azure Stack Hub.](media/azure-stack-create-offer/new-offer.png)
   
 3. Sélectionnez l’onglet **Plans de base** ou cliquez sur le bouton **Suivant : Plans de base >** . Sélectionnez le(s) plan(s) que vous souhaitez inclure dans l’offre.
 
-   ![Sélectionner le plan à inclure dans votre offre Azure Stack Hub](media/azure-stack-create-offer/select-plan.png)
+   ![Capture d’écran montrant comment sélectionner un plan à inclure dans votre offre Azure Stack Hub.](media/azure-stack-create-offer/select-plan.png)
 
 4. À ce stade, vous pouvez créer un plan complémentaire pour modifier le plan de base, mais cette étape est facultative. Vous aurez l’occasion de créer un plan additionnel dans l’article suivant intitulé [Plans additionnels Azure Stack Hub](create-add-on-plan.md).
 
@@ -58,7 +58,7 @@ Il existe deux façons de changer l’état d’une offre :
 
 1. Dans **Toutes les ressources**, sélectionnez le nom de l’offre. Dans l’écran **Vue d’ensemble** de l’offre, sélectionnez **Changer l’état**. Choisissez l’état à utiliser (par exemple, **Public**).
 
-   ![Changer l’état de votre offre Azure Stack Hub](media/azure-stack-create-offer/change-state.png)
+   ![Capture d’écran montrant comment modifier l’état de votre offre Azure Stack Hub.](media/azure-stack-create-offer/change-state.png)
 
 2. Sélectionnez **Paramètres de l’offre**. Choisissez l’état à utiliser (par exemple, **Public**), puis sélectionnez **Enregistrer**.
 
@@ -70,15 +70,15 @@ Il existe deux façons de changer l’état d’une offre :
 
 1. Connectez-vous au portail administrateur Azure Stack Hub `https://adminportal.local.azurestack.external` et sélectionnez **+ Créer une ressource**, puis **Offres + plans de locataire** et **Offre**.
 
-   ![Créer une offre dans Azure Stack Hub](media/azure-stack-create-offer/image01.png)
+   ![Capture d’écran montrant comment créer une offre.](media/azure-stack-create-offer/image01.png)
   
 2. Sous **Nouvelle offre**, renseignez le **Nom d’affichage** et le **Nom de la ressource**, puis sélectionnez un **Groupe de ressources**, sélectionnez **Créer nouveau** ou **Utiliser existant**. Le nom d’affichage correspond au nom convivial de l’offre. Ce nom convivial est la seule information sur l’offre que les utilisateurs verront au moment de l’abonnement à l’offre. Utilisez un nom intuitif qui aide les utilisateurs à comprendre en quoi elle consiste. Seul l’administrateur peut voir le nom de la ressource. Il s’agit du nom que les administrateurs utilisent pour gérer l’offre en tant que ressource Azure Resource Manager.
 
-   ![Nouvelle offre dans Azure Stack Hub](media/azure-stack-create-offer/image01a.png)
+   ![Capture d’écran montrant comment créer une ressource pour une nouvelle offre dans Azure Stack Hub.](media/azure-stack-create-offer/image01a.png)
   
 3. Sélectionnez **Plans de base** pour ouvrir le **Plan**. Sélectionnez les plans que vous souhaitez inclure dans l’offre, puis choisissez **Sélectionner**. Pour créer l’offre, sélectionnez **Créer**.
 
-   ![Sélectionner le plan à inclure dans votre offre Azure Stack Hub](media/azure-stack-create-offer/image02.png)
+   ![Capture d’écran montrant comment sélectionner le plan à inclure dans votre offre Azure Stack Hub.](media/azure-stack-create-offer/image02.png)
   
 4. Après avoir créé l’offre, vous pouvez modifier son état. Les offres doivent être rendues **publiques** pour permettre aux utilisateurs d’avoir une vue d’ensemble lorsqu’ils s’abonnent. Les offres peuvent être :
 
@@ -91,7 +91,7 @@ Il existe deux façons de changer l’état d’une offre :
 
    Dans l’écran de vue d’ensemble de l’offre, sélectionnez **État de l’accessibilité**. Choisissez l’état à utiliser (par exemple, **Public**), puis sélectionnez **Enregistrer**.
 
-     ![Changer l’état de votre offre Azure Stack Hub](media/azure-stack-create-offer/change-stage-1807.png)
+     ![Capture d’écran montrant où modifier l’état de votre offre Azure Stack Hub.](media/azure-stack-create-offer/change-stage-1807.png)
 
      Une autre possibilité consiste à sélectionner l’option**Changer l’état**, puis à choisir un état.
 

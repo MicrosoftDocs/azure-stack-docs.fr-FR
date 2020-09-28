@@ -8,12 +8,12 @@ ms.date: 10/05/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 2fd22acfe6f47d3a12502d5528e1f3fd96294460
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 29ae7acf1954dfafad1583bf037603f8ccac7514
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696479"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106803"
 ---
 # <a name="create-add-on-plans-in-azure-stack-hub"></a>Créer des plans d’extension dans Azure Stack Hub
 
@@ -35,19 +35,19 @@ Les plans additionnels sont [créés de la même façon ](azure-stack-create-pla
 2. Suivez les étapes décrites pour [créer un nouveau plan de base](azure-stack-create-plan.md) afin de créer un plan offrant des services qui n’étaient pas proposés auparavant.
 3. Dans le portail de l’administrateur, sélectionnez **Offres** , puis sélectionnez l’offre à mettre à jour avec un plan d’extension.
 
-   ![Sélectionner l’offre à mettre à jour avec le plan d’extension dans le portail d’administration Azure Stack](media/create-add-on-plan/add-on1.png)
+   ![Capture d’écran montrant comment sélectionner une offre à mettre à jour avec le plan d’extension dans le portail d’administration Azure Stack.](media/create-add-on-plan/add-on1.png)
 
 4. En bas des propriétés de l’offre, sélectionnez **Plans d’extension**. Sélectionnez **Ajouter**.
 
-    ![Sélectionner les plans d’extension dans le portail d’administration Azure Stack](media/create-add-on-plan/add-on2.png)
+    ![Capture d’écran montrant comment sélectionner des plans d’extension dans le portail d’administration Azure Stack.](media/create-add-on-plan/add-on2.png)
 
 5. Sélectionnez le plan à ajouter. Dans cet exemple, le plan s’intitule **20-storageaccounts**. Après avoir sélectionné le plan, cliquez sur **Sélectionnez** pour ajouter le plan à l’offre. Vous devriez recevoir une notification vous indiquant que le plan a été ajouté à l’offre.
 
-    ![Sélectionner le plan d’extension à ajouter dans le portail d’administration Azure Stack](media/create-add-on-plan/add-on3.png)
+    ![Capture d’écran montrant comment sélectionner le plan d’extension à ajouter dans le portail d’administration Azure Stack.](media/create-add-on-plan/add-on3.png)
 
 6. Passez en revue la liste des plans d’extension inclus dans l’offre pour vérifier que le nouveau y figure.
 
-    ![[Passer en revue la liste des plans additionnels dans le portail administrateur Azure Stack]\(media/create-add-on-plan/add-on4.png "Créer un plan additionnel")](media/create-add-on-plan/add-on4lg.png#lightbox)
+    ![Capture d’écran montrant une liste des plans d’extension dans le portail d’administration Azure Stack.](media/create-add-on-plan/add-on4.png "Créer un plan d’extension")](media/create-add-on-plan/add-on4lg.png#lightbox)
 ::: moniker-end
 
 ::: moniker range="<=azs-1901"

@@ -3,16 +3,16 @@ title: Problèmes connus d’Azure Stack Hub
 description: Découvrez les problèmes connus des versions d’Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/04/2020
+ms.date: 09/18/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: d7a9112955891a59e29bfe997888d3e444784494
-ms.sourcegitcommit: 01dcda15d88c8d44b4918e2f599daca462a8e3d9
+ms.openlocfilehash: d86149b041abd3737ed03696e2c041bbd24f0392
+ms.sourcegitcommit: d197e8d3c3b69c20d09de4c43d8089ec0a993baf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2020
-ms.locfileid: "89493816"
+ms.lasthandoff: 09/21/2020
+ms.locfileid: "90836486"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Problèmes connus d’Azure Stack Hub
 
@@ -94,6 +94,12 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Occurrence : Courant
 
 ## <a name="compute"></a>Calcul
+
+### <a name="issues-deploying-virtual-machine-scale-set-with-standard_ds2_v2-size-using-the-portal"></a>Problèmes de déploiement du groupe de machines virtuelles identiques avec la taille Standard_DS2_v2 à l’aide du portail
+
+- Champ d’application : Ce problème s’applique à la version 2005.
+- Cause : Un bogue de portail entraîne l’échec de la création de groupes identiques avec la taille Standard_DS2_v2.
+- Correction : Utilisez PowerShell ou l’interface CLI pour déployer la taille de machine virtuelle du groupe de machines virtuelles identiques.
 
 ### <a name="issues-using-vm-extensions-in-ubuntu-server-2004"></a>Problèmes d’utilisation d’extensions de machine virtuelle dans le Serveur Ubuntu 20.04
 
@@ -265,11 +271,11 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 ## <a name="compute"></a>Calcul
 
-### <a name="cannot-create-a-vmss-with-standard_ds2_v2-vm-size-on-portal"></a>Impossible de créer un groupe identique de machines virtuelles avec la taille de machine virtuelle Standard_DS2_v2 sur le portail
+### <a name="cannot-create-a-virtual-machine-scale-set-with-standard_ds2_v2-vm-size-on-portal"></a>Impossible de créer un groupe identique de machines virtuelles avec la taille de machine virtuelle Standard_DS2_v2 sur le portail
 
 - Champ d’application : Ce problème s’applique à la version 2002.
 - Cause : Il existe un bogue de portail qui empêche la création du groupe identique de machines virtuelles avec la taille de machine virtuelle Standard_DS2_v2. La création de celui-ci génère une erreur avec : "{"code":"DeploymentFailed","message": « Au moins une opération de déploiement de ressource n’a pas réussi. Dressez la liste des opérations de déploiement pour plus d’informations. Pour plus d’informations sur l’utilisation, consultez https://aka.ms/arm-debug.","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\": \" NetworkProfileValidationError\" ,\r\n \" message\": \" La taille de machine virtuelle Standard_DS2_v2 ne figure pas dans la liste autorisée de tailles de machine virtuelle pour que la mise en réseau accélérée soit activée sur la machine virtuelle à l’index 0 pour le groupe identique de machines virtuelles /subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss. Tailles autorisées : .\"\r\n }\r\n}"}]}"
-- Correction : Créez un groupe identique de machines virtuelles avec PowerShell ou un modèle Resource Manager.
+- Correction : Créer un groupe de machines virtuelles identiques avec PowerShell ou un modèle de gestionnaire des ressources.
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Le panneau de vue d’ensemble de la machine virtuelle n’affiche pas le nom correct de l’ordinateur
 

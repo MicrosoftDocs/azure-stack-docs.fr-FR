@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 440e48470a11de10ad9cae4d32a1449781cb2c84
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 773d80909c167f328e6e3eb0868cb99c7d52ffd7
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573851"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107137"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Connecter l’Explorateur de stockage à un compte de stockage ou un abonnement Azure Stack Hub
 
@@ -97,7 +97,7 @@ Suivez les étapes ci-après pour connecter l’Explorateur Stockage à un abonn
 1. Sélectionnez **Gérer les comptes**. L’Explorateur répertorie les abonnements Microsoft auxquels vous vous êtes connecté.
 2. Pour vous connecter à l’abonnement Azure Stack Hub, sélectionnez **Ajouter un compte**.
 
-    ![Ajouter un compte - Explorateur Stockage](media/azure-stack-storage-connect-se/add-an-account.png)
+    ![Capture d’écran montrant comment ajouter un compte dans Explorateur Stockage.](media/azure-stack-storage-connect-se/add-an-account.png)
 
 3. Sélectionnez **Suivant**. Dans la boîte de dialogue Connexion au stockage Azure, sous **Environnement Azure**, sélectionnez **Use Custom Environment** (Utiliser un environnement personnalisé), puis cliquez sur **Suivant**.
 

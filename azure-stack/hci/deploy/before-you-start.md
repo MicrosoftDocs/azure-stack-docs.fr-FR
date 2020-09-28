@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/03/2020
-ms.openlocfilehash: b780dad569f1f2bdb2488505ecb2e12b0aaf2b3f
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.date: 09/23/2020
+ms.openlocfilehash: 64303a9d923bc001a67259cf48d4e55cb8429087
+ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742181"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91134710"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>Avant le déploiement d’Azure Stack HCI
 
@@ -48,7 +48,6 @@ Un cluster Azure Stack HCI requiert une connexion réseau fiable à bande passan
 - Vérifiez qu’au moins une carte réseau est disponible et dédiée à la gestion du cluster.
 - Vérifiez que les commutateurs physiques de votre réseau sont configurés pour autoriser le trafic sur tous les réseaux locaux virtuels que vous allez utiliser.
 
-
 Il existe plusieurs types de communication qui transitent entre les nœuds serveur :
 
 - Communication entre les clusters (jointures de nœuds, mises à jour de cluster, mises à jour du registre)
@@ -62,6 +61,16 @@ Avec les espaces de stockage direct, il existe un trafic réseau supplémentaire
 - Intégrité : surveillance et gestion des objets (nœuds, lecteurs, cartes réseau, service de cluster)
 
 Pour les clusters étendus, le trafic du réplica de stockage supplémentaire est également transmis entre les sites. Le trafic Storage Bus Layer (SBL) et de Volume partagé de cluster (CSV) ne passe pas entre les sites, uniquement entre les nœuds serveur de chaque site.
+
+### <a name="software-defined-networking-requirements"></a>Exigences Software Defined Networking
+
+Lorsque vous créez un cluster Azure Stack HCI à l’aide de Windows Admin Center, vous avez la possibilité de déployer le contrôleur de réseau pour activer la mise en réseau SDN (Software Defined Networking). Si vous envisagez d’utiliser SDN sur Azure Stack HCI :
+
+- Assurez-vous que les serveurs hôtes disposent d’au moins 50-100 Go d’espace libre pour créer les machines virtuelles du contrôleur de réseau.
+
+- Vous devez copier un disque dur virtuel (VHD) du système d’exploitation Azure Stack HCI sur le premier nœud du cluster afin de créer les machines virtuelles du contrôleur de réseau. Vous pouvez préparer le disque dur virtuel à l’aide de [Sysprep](/windows-hardware/manufacture/desktop/sysprep-process-overview) ou en exécutant le script [Convert-WindowsImage](https://gallery.technet.microsoft.com/scriptcenter/Convert-WindowsImageps1-0fe23a8f) pour convertir un fichier .iso en un disque dur virtuel.
+
+Pour plus d’informations sur la préparation de l’utilisation de SDN dans Azure Stack HCI, consultez [Planifier une infrastructure réseau à définition logicielle](../concepts/plan-software-defined-networking-infrastructure.md) et [Planifier le déploiement de contrôleur de réseau](../concepts/network-controller.md).
 
 ### <a name="domain-requirements"></a>Exigences relatives aux domaines
 

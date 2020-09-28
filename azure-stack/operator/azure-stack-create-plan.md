@@ -7,12 +7,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: c762f4c8c75fbfd6755c25877c52fbb68c88f7ca
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 12de836d74382f26efd49ec8873aaa99a919ecd5
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631118"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107091"
 ---
 # <a name="create-a-plan-in-azure-stack-hub"></a>Créer un plan dans Azure Stack Hub
 
@@ -25,37 +25,37 @@ Les [plans Azure Stack Hub](azure-stack-overview.md) regroupent un ou plusieurs 
 
 2. Pour créer un plan et une offre auxquels les utilisateurs peuvent s’abonner, sélectionnez **+ Créer une ressource**, puis **Offres + plans** et **Plan**.
   
-   ![Sélectionner un plan dans le portail d'administration Azure Stack Hub](media/azure-stack-create-plan/select-plan.png)
+   ![Capture d’écran montrant comment sélectionner un plan dans le portail d’administration Azure Stack Hub.](media/azure-stack-create-plan/select-plan.png)
 
 3. Une interface utilisateur à onglets s’affiche qui vous permet de spécifier le nom du plan, d’ajouter des services et de définir les quotas pour chaque service sélectionné. Plus important encore, vous pouvez consulter les détails de l’offre que vous créez, avant de décider de la créer.
 
    Sous l’onglet **Concepts de base** de la fenêtre **Nouveau plan**, entrez un **Nom d’affichage** et un **Nom de ressource**. Le nom d’affichage correspond au nom convivial du plan tel qu’il s’affiche pour les opérateurs. Dans le portail d’administration, seuls les opérateurs peuvent voir les détails du plan.
 
-   ![Spécifier les détails d’un nouveau plan dans Azure Stack Hub](media/azure-stack-create-plan/plan-name.png)
+   ![Capture d’écran montrant comment spécifier les détails d’un nouveau plan dans Azure Stack Hub.](media/azure-stack-create-plan/plan-name.png)
 
 4. Créez un **Groupe de ressources** ou sélectionnez-en un qui servira de conteneur pour le plan.
 
-   ![Spécifier le groupe de ressources d’un nouveau plan dans Azure Stack Hub](media/azure-stack-create-plan/resource-group.png)
+   ![Capture d’écran montrant comment spécifier le groupe de ressources d’un nouveau plan dans Azure Stack Hub.](media/azure-stack-create-plan/resource-group.png)
 
 5. Sélectionnez l’onglet **Services** ou cliquez sur le bouton **Suivant : Services >** , puis cochez la case pour **Microsoft.Compute**, **Microsoft.Network** et **Microsoft.Storage**.
   
-   ![Sélectionner les services d’un nouveau plan dans Azure Stack Hub](media/azure-stack-create-plan/services.png)
+   ![Capture d’écran montrant comment sélectionner des services pour un nouveau plan dans Azure Stack Hub.](media/azure-stack-create-plan/services.png)
 
 6. Sélectionnez l’onglet **Quotas** ou cliquez sur le bouton **Suivant : Quotas >** . En regard de **Microsoft.Storage**, choisissez le quota par défaut dans la liste déroulante ou sélectionnez **Créer un quota** pour créer un quota personnalisé.
   
-   ![Spécifier les quotas d’un nouveau plan dans Azure Stack Hub](media/azure-stack-create-plan/quotas.png)
+   ![Capture d’écran montrant comment spécifier des quotas pour un nouveau plan dans Azure Stack Hub](media/azure-stack-create-plan/quotas.png)
 
 7. Si vous créez un quota, entrez un **Nom** pour le quota, puis spécifiez ses valeurs. Sélectionnez **OK** pour créer le quota.
 
-   ![Créer un quota pour un nouveau plan dans Azure Stack Hub](media/azure-stack-create-plan/new-quota.png)
+   ![Capture d’écran montrant comment créer de nouveaux quotas pour un nouveau plan dans Azure Stack Hub.](media/azure-stack-create-plan/new-quota.png)
 
 8. Répétez les étapes 6 et 7 pour créer et assigner des quotas pour **Microsoft.Network** et **Microsoft.Compute**. Une fois que des quotas ont été assignés aux trois services, ces derniers ressemblent à l’exemple suivant.
 
-   ![Terminer l'affectation des quotas d’un nouveau plan dans Azure Stack Hub](media/azure-stack-create-plan/all-quotas-assigned.png)
+   ![Capture d’écran montrant comment finaliser des affectations de quota pour un nouveau plan dans Azure Stack Hub.](media/azure-stack-create-plan/all-quotas-assigned.png)
 
 9. Sélectionnez **Examiner + créer** pour passer en revue le plan. Passez en revue toutes les valeurs et les quotas pour vous assurer qu’ils sont corrects. L’interface vous permet d’étendre les quotas dans les plans choisis, un à la fois, pour afficher les détails de chaque quota dans un plan. Vous pouvez également revenir en arrière pour effectuer toutes les modifications nécessaires.
 
-   ![Créer le plan dans Azure Stack Hub](media/azure-stack-create-plan/create.png)
+   ![Capture d’écran montrant comment créer le plan dans Azure Stack Hub.](media/azure-stack-create-plan/create.png)
 
 10. Quand vous êtes prêt, sélectionnez **Créer** pour créer le plan.
 

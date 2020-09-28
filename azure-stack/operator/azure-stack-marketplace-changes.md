@@ -3,16 +3,16 @@ title: Nouveautés de la Place de marché Azure Stack Hub
 description: Découvrez les nouveautés de la Place de marché Azure Stack Hub, dont les éléments nouveaux, dépréciés et mis à jour.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/10/2020
+ms.date: 09/23/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: f16d432d67244bf4152f49d103014e94abcfe777
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 1647c49115cb9f27c1485e59d1b85eb9a9bc1146
+ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572722"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91134761"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Changements sur la Place de marché Azure Stack Hub
 
@@ -70,6 +70,7 @@ L’article [Éléments de la Place de marché Azure Stack Hub](azure-stack-mark
 
 ## <a name="updated-marketplace-items"></a>Éléments mis à jour sur la Place de marché
 
+- 21/09/2020 : Passerelle de connexion d’application CentOS, version 7.2.0
 - 09/09/2020 : FortiGate NGFW – Déploiement de machine virtuelle unique (BYOL) – Version 1.0.2
 - 04/09/2020 : CentOS 6.10 - version 6.10.2020042900
 - 04/09/2020 : CentOS 7.4 - version 7.4.20200220

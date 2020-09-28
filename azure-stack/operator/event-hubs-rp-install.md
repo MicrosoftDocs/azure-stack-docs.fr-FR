@@ -9,12 +9,12 @@ ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: d92c8c8514020d3b33e236232aa07b95ade9f798
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: f7eb790506c5dbbb7d49fc469dd61d394fb1f0fc
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848198"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106850"
 ---
 # <a name="how-to-install-event-hubs-on-azure-stack-hub"></a>Guide pratique pour installer Event Hubs sur Azure Stack Hub
 
@@ -62,12 +62,12 @@ Pour un scénario déconnecté ou partiellement connecté, vous devez téléchar
    [![Packages téléchargés dans Gestion de la Place de marché](media/event-hubs-rp-install/2-marketplace-management-downloaded.png)](media/event-hubs-rp-install/2-marketplace-management-downloaded.png#lightbox)
  
 3. Une bannière bleue apparaît en haut de la page d'installation des packages Event Hubs. Sélectionnez la bannière pour démarrer l’installation d’Event Hubs.
-   [![Event Hubs dans Gestion de la Place de marché - démarrer l’installation](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
+   [![Capture d’écran montrant comment démarrer l’installation dans les Event Hubs de la gestion de la place de marché.](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
 
 ### <a name="install-prerequisites"></a>Prérequis à installer
 
 1. Vous êtes ensuite dirigé vers la page d’installation. Sélectionnez **Prérequis pour l’installation** pour commencer le processus d’installation.
-   ![Event Hubs dans Gestion de la Place de marché - prérequis](media/event-hubs-rp-install/4-marketplace-management-install-prereqs-start.png)
+   ![Capture d’écran montrant comment installer les composants requis dans les Event hubs de la gestion de la place de marché .](media/event-hubs-rp-install/4-marketplace-management-install-prereqs-start.png)
  
 2. Attendez la fin de l’installation des prérequis. Vous devez voir une coche verte en regard de **Prérequis pour l’installation** avant de passer à l’étape suivante.
 

@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 1c80f8d0d83ab734be98d8e26d4c3abe803ae514
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: f2b51ad2bff721c2a8be6490902cf3bb07559fb2
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488703"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106806"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Gérer la capacité de stockage pour Azure Stack Hub
 
@@ -222,7 +222,7 @@ La migration consolide tous les objets blob d’un conteneur du nouveau partage.
    Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
    ```
 
-   ![Exemple : état de la migration](media/azure-stack-manage-storage-shares/migration-status1.png)
+   ![Capture d’écran montrant l’état de migration.](media/azure-stack-manage-storage-shares/migration-status1.png)
 
 6. Vous pouvez annuler une tâche de migration en cours d’exécution. Les travaux de migration annulés sont traités de façon asynchrone. Vous pouvez suivre les annulations à l’aide de $jobid :
 
@@ -234,7 +234,7 @@ La migration consolide tous les objets blob d’un conteneur du nouveau partage.
 
 7. Vous pouvez réexécuter la commande de l’étape 6 jusqu’à ce que l’état de la migration soit *Annulé* :  
 
-    ![Exemple : état Annulé](media/azure-stack-manage-storage-shares/cancelled.png)
+    ![Capture d’écran montrant un exemple d’état de migration annulé.](media/azure-stack-manage-storage-shares/cancelled.png)
 
 ### <a name="move-vm-disks"></a>Déplacer des disques de machine virtuelle
 *Cette option s’applique uniquement aux systèmes intégrés Azure Stack Hub.*

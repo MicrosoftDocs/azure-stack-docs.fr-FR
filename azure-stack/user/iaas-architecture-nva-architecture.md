@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 6fdb1a5ff99b125b513bd4afc39570ee73c1c5b6
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 31635f6ecfefc0c513fddec5ec00da1006b44f44
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920404"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107004"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>Déployer des appliances virtuelles réseau hautement disponibles sur Azure Stack Hub
 
@@ -40,7 +40,7 @@ Cet article suppose une connaissance élémentaire de la mise en réseau Azure S
 
 Une appliance virtuelle réseau peut être déployée sur un réseau de périmètre dans de nombreuses architectures différentes. Par exemple, la figure suivante illustre l'utilisation d'une seule appliance virtuelle réseau pour l'entrée.
 
-![Capture d'écran d'une description de publication sur les réseaux sociaux générée automatiquement](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image1.svg)
+![Capture d’écran illustrant l’utilisation d’une appliance virtuelle réseau unique pour l’entrée.](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image1.svg)
 
 Dans cette architecture, l’appliance virtuelle réseau assure une limite réseau sécurisée par la vérification de l’ensemble du trafic réseau entrant et sortant et la transmission uniquement du trafic répondant aux règles de sécurité du réseau. Le fait que tout le trafic réseau doive traverser l'appliance virtuelle réseau signifie que cette dernière est un point de défaillance unique au sein du réseau. Si celle-ci échoue, il n’existe aucun autre chemin d’accès pour le trafic réseau et tous les sous-réseaux principaux sont indisponibles.
 

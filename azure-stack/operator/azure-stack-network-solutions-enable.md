@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 12dc8715b90aa257953b5dc13bf671c9264aea8d
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: a145a95207fb923d736582f79a315ae625d7223b
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111167"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107015"
 ---
 # <a name="offer-a-network-solution-in-azure-stack-hub-with-fortinet-fortigate"></a>Proposer une solution réseau dans Azure Stack Hub avec Fortinet FortiGate
 
@@ -30,7 +30,7 @@ Pour plus d’informations sur FortiGate dans la Place de marché Azure, consult
     - Fortinet FortiGate-VM For Azure BYOL
     - FortiGate NGFW - Single VM Deployment (BYOL)
 
-    ![FortiGate Fortinet Azure Stack Hub](./media/azure-stack-network-solutions-enable/azure-stack-marketplace-FortiGate-fortinet.png)
+    ![Capture d’écran montrant les éléments téléchargés disponibles.](./media/azure-stack-network-solutions-enable/azure-stack-marketplace-FortiGate-fortinet.png)
 
 4. Attendez que les éléments de votre Place de marché aient l’état **Downloaded** (Téléchargé). Le téléchargement des éléments peut prendre plusieurs minutes.
 

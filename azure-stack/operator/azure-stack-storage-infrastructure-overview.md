@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.lastreviewed: 5/5/2020
 ms.reviewer: jiaha
 ms.custom: contperfq4
-ms.openlocfilehash: 86809f68e488f077b0a8125d92db325b40dc5452
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: a60de3bf059522b980d7a3e74295736118334773
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487817"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106437"
 ---
 # <a name="azure-stack-hub-storage-infrastructure-overview"></a>Vue d'ensemble de l'infrastructure de stockage Azure Stack Hub
 
@@ -50,12 +50,12 @@ Les lecteurs peuvent être regroupés dans un déploiement « tout flash » ou
 
 L’objectif des déploiements 100 % flash est d’optimiser les performances de stockage. Ils n’incluent pas de lecteurs de disques durs rotatifs.
 
-![Infrastructure de stockage Azure Stack Hub](media/azure-stack-storage-infrastructure-overview/image1.png)
+![Diagramme montrant un regroupement de déploiement 100 % flash.](media/azure-stack-storage-infrastructure-overview/image1.png)
 
 
 Les déploiements hybrides visent à équilibrer les performances et la capacité ou à optimiser la capacité. Ils incluent des lecteurs de disques durs rotatifs.
 
-![Infrastructure de stockage Azure Stack Hub](media/azure-stack-storage-infrastructure-overview/image2.png)
+![Diagramme montrant un regroupement de déploiement hybride.](media/azure-stack-storage-infrastructure-overview/image2.png)
 
 ### <a name="caching-behavior"></a>Comportement de mise en cache
 
@@ -65,7 +65,7 @@ Les lectures ne sont pas mises en cache. En effet, elles n’affectent pas de ma
 
 Lors de la mise en cache pour les lecteurs de disque dur (par exemple, disques SSD mettant en cache pour des HDD), les lectures et les écritures sont mises en cache pour fournir une latence similaire à la technologie flash (souvent /~10 fois supérieure) pour les deux.
 
-![Infrastructure de stockage Azure Stack Hub](media/azure-stack-storage-infrastructure-overview/image3.svg)
+![Diagramme montrant le comportement de mise en cache du stockage Azure Stack Hub.](media/azure-stack-storage-infrastructure-overview/image3.svg)
 
 Pour la configuration de stockage disponible, vous pouvez consulter les spécifications détaillées des partenaires OEM Azure Stack Hub OEM (https://azure.microsoft.com/overview/azure-stack/partners/) ).
 
@@ -76,7 +76,7 @@ Pour la configuration de stockage disponible, vous pouvez consulter les spécifi
 
 Le *service de stockage* partitionne le stockage disponible en volumes distincts qui sont alloués pour stocker des données système et de locataire. Les volumes combinent les lecteurs du pool de stockage en vue de fournir la tolérance de panne, l’extensibilité et les performances supérieures des espaces de stockage direct.
 
-![Infrastructure de stockage Azure Stack Hub](media/azure-stack-storage-infrastructure-overview/image4.svg)
+![Diagramme montrant des partitions de service de stockage Azure Stack Hub.](media/azure-stack-storage-infrastructure-overview/image4.svg)
 
 ### <a name="volume-types"></a>Types de volume
 
@@ -111,7 +111,7 @@ Le déploiement Azure Stack Hub utilise la mise en miroir triple pour garantir l
 
 Trois copies des données de locataire sont écrites sur différents serveurs, où elles arrivent dans le cache :
 
-![Infrastructure de stockage Azure Stack Hub](media/azure-stack-storage-infrastructure-overview/image5.png)
+![Diagramme montrant comment trois copies des données de locataire sont écrites sur différents serveurs.](media/azure-stack-storage-infrastructure-overview/image5.png)
 
 ## <a name="next-step"></a>Étape suivante
 

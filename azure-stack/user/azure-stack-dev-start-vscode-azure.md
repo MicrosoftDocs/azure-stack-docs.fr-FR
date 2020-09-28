@@ -3,16 +3,16 @@ title: Se connecter à Azure Stack Hub en utilisant une extension de compte Azur
 description: En tant que développeur, connectez-vous à Azure Stack Hub en utilisant une extension de compte Azure dans Visual Studio Code
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: a3cd09d7138029ba578648e1599916fd71b42292
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.lastreviewed: 09/21/2020
+ms.openlocfilehash: bedb015cb799619933510745e5bc3292a722cf14
+ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920608"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91019603"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Se connecter à Azure Stack Hub en utilisant une extension de compte Azure dans Visual Studio Code
 
@@ -81,7 +81,8 @@ VS Code est un éditeur léger permettant de générer et de déboguer des appli
         | `tenant-ID` | La valeur de votre [ID de locataire](../operator/azure-stack-identity-overview.md) Azure Stack Hub. |
         | `activeDirectoryEndpointUrl` | Il s’agit de l’URL de la propriété loginEndpoint. |
         | `activeDirectoryResourceId` | Il s’agit de l’URL de la propriété audiences.
-        | `resourceManagerEndpointUrl` | Il s’agit de l’URL racine pour Azure Resource Manager pour Azure Stack Hub. | 
+        | `resourceManagerEndpointUrl` | Il s’agit de l’URL racine pour Azure Resource Manager pour Azure Stack Hub. |
+        | `validateAuthority` | Vous pouvez ignorer ce paramètre si vous utilisez Azure AD comme gestionnaire d’identité. Ajoutez le paramètre avec une valeur de `false` si vous utilisez AD FS. |
 
     - Extrait de code JSON :
 
@@ -91,6 +92,7 @@ VS Code est un éditeur léger permettant de générer et de déboguer des appli
           "activeDirectoryEndpointUrl": "Login endpoint",
           "activeDirectoryResourceId": "This is the URL from the audiences property.",
           "resourceManagerEndpointUrl": "Aure Resource Management Endpoint",
+          "validateAuthority" : false, 
       },
       "azure.cloud": "AzurePPE"
       ```

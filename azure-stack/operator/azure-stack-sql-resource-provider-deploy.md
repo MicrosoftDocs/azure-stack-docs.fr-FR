@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 5b38c407b6e4aba60b0c810ffad4db531627820f
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: adc2288d8886c5b952f26da4798fccd731738733
+ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89472974"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90946401"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Déployer le fournisseur de ressources SQL Server sur Azure Stack Hub
 
@@ -92,7 +92,10 @@ Une fois que tous les prérequis sont remplis, exécutez le script **DeploySqlPr
  > [!IMPORTANT]
  > Avant de déployer le fournisseur de ressources, passez en revue les notes de publication pour en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.
 
-Pour déployer le fournisseur de ressources SQL, ouvrez une **nouvelle** fenêtre PowerShell (pas PowerShell ISE) avec élévation de privilèges et basculez vers le répertoire où vous avez extrait les fichiers binaires du fournisseur de ressources SQL. Nous vous recommandons d’utiliser une nouvelle fenêtre PowerShell pour éviter les problèmes potentiels engendrés par les modules PowerShell qui sont déjà chargés.
+Pour déployer le fournisseur de ressources SQL, ouvrez une **nouvelle** fenêtre PowerShell (pas PowerShell ISE) avec élévation de privilèges et basculez vers le répertoire où vous avez extrait les fichiers binaires du fournisseur de ressources SQL. 
+
+> [!IMPORTANT]
+> Nous vous recommandons d’utiliser une nouvelle fenêtre PowerShell pour éviter les problèmes potentiels engendrés par les modules PowerShell qui sont déjà chargés. Vous pouvez utiliser clear-azurermcontext pour effacer le cache avant d’exécuter le script de mise à jour.
 
 Exécutez le script DeploySqlProvider.ps1, qui complète les tâches suivantes :
 
@@ -191,15 +194,10 @@ Au terme du script d'installation du fournisseur de ressources, actualisez votre
 
 ## <a name="verify-the-deployment-using-the-azure-stack-hub-portal"></a>Vérifier le déploiement à l'aide du portail Azure Stack Hub
 
-Vous pouvez utiliser les étapes suivantes pour vérifier que le fournisseur de ressources SQL est correctement déployé.
-
 1. Connectez-vous au portail d’administration en tant qu’administrateur de service.
 2. Sélectionnez **Groupes de ressources**.
 3. Sélectionnez le groupe de ressources **system.\<location\>.sqladapter**.
 4. La page de la vue d’ensemble du groupe de ressources ne doit pas indiquer que des déploiements ont échoué.
-
-    ![Vérifier le déploiement du fournisseur de ressources SQL sur le portail administrateur Azure Stack Hub](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
-
 5. Enfin, sélectionnez **Machines virtuelles** dans le portail administrateur pour vérifier que la machine virtuelle du fournisseur de ressources SQL a été correctement créée et est en cours d’exécution.
 
 ## <a name="next-steps"></a>Étapes suivantes

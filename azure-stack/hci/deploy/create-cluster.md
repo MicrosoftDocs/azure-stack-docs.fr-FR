@@ -3,15 +3,15 @@ title: Créer un cluster Azure Stack HCI en utilisant Windows Admin Center
 description: Découvrez comment créer une batterie de serveurs pour Azure Stack HCI en utilisant Windows Admin Center
 author: v-dasis
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 09/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 75c4da1ab4e03bae4f9beb2a5d1c170933c6b985
-ms.sourcegitcommit: 673d9b7cf723bc8ef6c04aee5017f539a815da51
+ms.openlocfilehash: b7c6c76353ff29f01eca458ca563517807ca0cd3
+ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88110522"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91019528"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Créer un cluster Azure Stack HCI en utilisant Windows Admin Center
 
@@ -96,7 +96,10 @@ L’étape 1 de l’Assistant vous guide tout au long de la vérification de la
 
 ## <a name="step-2-networking"></a>Étape 2 : Réseau
 
-L’étape 2 de l’Assistant vous guide dans la configuration de différents éléments de mise en réseau pour votre cluster. Commençons !
+L’étape 2 de l’Assistant vous guide dans la configuration de commutateurs virtuels et d’autres éléments de mise en réseau pour votre cluster.
+
+> [!NOTE]
+> Si vous voyez des erreurs figurant dans les étapes de mise en réseau ou de commutateur virtuel, essayez de cliquer sur **Appliquer et tester** à nouveau.
 
 1. Sélectionnez **Suivant : Mise en réseau**.
 1. Sous **Verify the network adapters (Vérifier les cartes réseau)** , attendez que les cases à cocher vertes s’affichent en regard de chaque carte, puis sélectionnez **Suivant**.
@@ -105,9 +108,9 @@ L’étape 2 de l’Assistant vous guide dans la configuration de différents é
 
     Les cartes de gestion ont deux options de configuration :
 
-    - Adaptateur physique unique utilisé pour la gestion. Les deux affectations d’adresses IP statiques et DHCP sont prises en charge.
+    - **Une carte réseau physique pour la gestion**. Pour cette option, les deux affectations d’adresses IP statiques et DHCP sont prises en charge.
 
-    - Deux adaptateurs physiques sont utilisés et associés. Quand une paire d’adaptateurs est associée, seule l’attribution d’adresses IP statiques est prise en charge. Si les adaptateurs sélectionnés utilisent l’adressage DHCP (pour l’une ou les deux), l’adresse IP DHCP est converti en adresses IP statiques avant la création du commutateur virtuel.
+    - **Deux cartes réseau physique associées pour la gestion**. Quand une paire d’adaptateurs est associée, seule l’attribution d’adresses IP statiques est prise en charge. Si les adaptateurs sélectionnés utilisent l’adressage DHCP (pour l’une ou les deux), l’adresse IP DHCP est converti en adresses IP statiques avant la création du commutateur virtuel.
 
     En utilisant des adaptateurs associés, vous disposez d’une seule connexion à plusieurs commutateurs physiques, mais vous n’utilisez qu’une seule adresse IP. L’équilibrage de charge devient disponible et la tolérance de panne est instantanée au lieu d’attendre la mise à jour des enregistrements DNS.
 
@@ -129,10 +132,13 @@ L’étape 2 de l’Assistant vous guide dans la configuration de différents é
 
 1. Sous **Commutateur virtuel**, sélectionnez l’une des options suivantes, le cas échéant. En fonction du nombre d’adaptateurs présents, il se peut que certaines options ne s’affichent pas :
 
-    - Create one virtual switch for both Hyper-V and storage use (Créer un commutateur virtuel unique pour Hyper-V et l’utilisation du stockage)
-    - Create one virtual switch for Hyper-V use only (Créer un commutateur virtuel pour l’utilisation de Hyper-V uniquement)
-    - Create two virtual switches, one for Hyper-V and one for storage use (Créer deux commutateurs virtuels, un pour Hyper-V et un pour l’utilisation du stockage)
-    - Don't create a virtual switch (Ne pas créer de commutateur virtuel)
+    - **Ignorer la création du commutateur virtuel**
+    - **Créer un commutateur virtuel unique pour le calcul et l’utilisation du stockage**
+    - **Créer un commutateur virtuel pour le calcul uniquement**
+    - **Créer deux commutateurs virtuels**
+
+    > [!NOTE]
+    > Si vous envisagez de déployer le contrôleur de réseau pour SDN (dans **étape 5 : SDN** de l’Assistant), vous aurez besoin d’un commutateur virtuel. Par conséquent, si vous désactivez la création d’un commutateur virtuel ici et que vous n’en créez aucun en dehors de l’Assistant, ce dernier ne déploiera pas le contrôleur de réseau.
 
     Le tableau suivant affiche les configurations de commutateur virtuel prises en charge et activées pour différentes configurations de cartes réseau :
 
@@ -143,9 +149,6 @@ L’étape 2 de l’Assistant vous guide dans la configuration de différents é
     | deux commutateurs | non pris en charge | enabled | enabled |
 
 1. Modifiez le nom d’un commutateur et d’autres paramètres de configuration si nécessaire, puis cliquez sur **Apply and test (Appliquer et tester)** . La colonne **Status (État)** doit maintenant indiquer **Passed (Réussi)** pour chaque serveur après la création des commutateurs virtuels.
-
-> [!NOTE]
-> Si vous voyez des erreurs figurant dans les étapes de mise en réseau ou de commutateur virtuel, essayez de cliquer sur **Appliquer et tester** à nouveau. Les vérifications de la connectivité réseau peuvent échouer de façon intermittente, ce qui peut entraîner des défaillances du test Ping du serveur par l’Assistant lors de la tentative initiale.
 
 ## <a name="step-3-clustering"></a>Étape 3 : Clustering
 
@@ -170,7 +173,6 @@ L’étape 3 de l’Assistant vous permet de vérifier que tout a été correct
 
 L’étape 4 de l’Assistant vous guide dans la configuration des espaces de stockage direct pour votre cluster.
 
-
 1. Sélectionnez **Suivant : Stockage**.
 1. Sous **Verify drives (Vérifier les lecteurs)** , cliquez sur l’icône **>** en regard de chaque serveur pour vérifier que les disques fonctionnent et sont connectés, puis cliquez sur **Suivant**.
 1. Sous **Clean drives (Nettoyer les lecteurs)** , cliquez sur **Clean drives (Nettoyer les lecteurs)** pour vider les lecteurs de données. Lorsque vous êtes prêt, cliquez sur **Suivant**.
@@ -185,7 +187,42 @@ Une fois le cluster créé, la réplication du nom du cluster sur votre domaine 
 
 Si la résolution du cluster échoue au bout d’un certain temps, dans la plupart des cas, vous pouvez remplacer un nom du serveur dans le cluster plutôt que le nom du cluster.
 
-## <a name="after-you-run-the-wizard"></a>Après l’exécution de l’Assistant
+## <a name="step-5-sdn-optional"></a>Étape 5 : SDN (facultatif)
+
+L’étape 5 de l’Assistant vous guide dans la configuration du contrôleur de réseau sur votre cluster pour la mise en réseau SDN (Software Defined Networking). Une fois le contrôleur de réseau configuré, il peut être utilisé pour configurer d’autres composants de SDN, tels que le logiciel Software Load Balancer et la passerelle RAS.
+
+> [!NOTE]
+> Cette étape de l’Assistant est facultative.
+
+:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Assistant Création d’un cluster : contrôleur de réseau SDN" lightbox="media/cluster/create-cluster-network-controller.png":::
+
+1. Sélectionnez **Suivant : SDN**.
+1. Sous l’**hôte**, entrez un nom pour le contrôleur de réseau.
+1. Spécifiez un chemin d’accès au fichier de disque dur virtuel Azure Stack HCI. Utilisez **Parcourir** pour le trouver plus rapidement.
+1. Spécifiez le nombre de machines virtuelles à consacrer au contrôleur de réseau. Trois à cinq machines virtuelles sont recommandées pour la haute disponibilité.
+1. Sous **Réseau**, entrez l’ID du VLAN.
+1. Pour l’**Adressage réseau de la machine virtuelle**, sélectionnez **DHCP** ou **Statique**.
+1. Si vous avez sélectionné **DHCP**, entrez le nom et l’adresse IP des machines virtuelles du contrôleur de réseau.
+1. Si vous avez sélectionné **Statique**, procédez comme suit :
+    1. Spécifier un préfixe de sous-réseau.
+    1. Spécifiez le passerelle par défaut.
+    1. Spécifiez un ou plusieurs serveurs DNS. Cliquez sur **Ajouter** pour ajouter des serveurs DNS supplémentaires.
+1. Sous **Informations de connexion**, entrez le nom d’utilisateur et le mot de passe utilisés pour joindre les machines virtuelles du contrôleur de réseau au domaine du cluster.
+1. Entrez le mot de passe d’administrateur local pour ces machines virtuelles.
+1. Sous **Avancé**, entrez le chemin d’accès aux machines virtuelles.
+1. Entrez des valeurs pour le **Démarrage du pool d’adresses MAC** et la **Fin du pool d’adresses MAC**.
+1. Une fois que vous avez terminé, cliquez sur **Suivant**.
+1. Attendez que l’Assistant termine son travail. Restez sur cette page jusqu’à ce que toutes les tâches de progression soient terminées. Puis, cliquez sur **Terminer**.
+ 
+Si le déploiement du contrôleur de réseau échoue, procédez comme suit avant de réessayer :
+
+- Arrêtez et supprimez toutes les machines virtuelles de contrôleur de réseau que l’Assistant a créées.  
+
+- Nettoyez les points de montage de disque dur virtuel que l’Assistant a créés.  
+
+- Vérifiez que vous disposez d’au moins 50-100 Go d’espace libre sur vos ordinateurs hôtes Hyper-V.  
+
+## <a name="after-you-complete-the-wizard"></a>Après avoir terminé l’Assistant
 
 Une fois que vous avez terminé d’exécuter l’Assistant, il y a encore des tâches importantes à effectuer.
 
@@ -208,4 +245,5 @@ Voici d’autres tâches à effectuer :
 - Inscrire votre cluster auprès d’Azure. Consultez [Gérer une inscription Azure](../manage/manage-azure-registration.md).
 - Effectuer une validation finale du cluster. Consultez [Valider un cluster Azure Stack HCI](validate.md).
 - Provisionner vos machines virtuelles. Consultez [Gérer des machines virtuelles sur Azure Stack HCI avec Windows Admin Center](../manage/vm.md).
-- Vous pouvez également créer un cluster à l’aide de PowerShell. Consultez [Créer un cluster Azure Stack HCI à l’aide de PowerShell](create-cluster-powershell.md).
+- Vous pouvez également déployer un cluster à l’aide de PowerShell. Consultez [Créer un cluster Azure Stack HCI à l’aide de PowerShell](create-cluster-powershell.md).
+- Vous pouvez également déployer un contrôleur de réseau à l’aide de PowerShell. Consultez [Déployer un contrôleur de réseau à l’aide de PowerShell](network-controller-powershell.md).

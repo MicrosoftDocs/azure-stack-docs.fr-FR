@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 001514995d13c63ecf697769e0fc71e2155b7382
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 3a14c50413ddd431f6a8db8815d0147ef9d173e7
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574157"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107214"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>Sauvegarder vos comptes de stockage sur Azure Stack Hub
 
@@ -22,7 +22,7 @@ Cet article présente la protection et la récupération des comptes de stockage
 
 Cette section présente la structure globale de la solution et les principales parties.
 
-![Sauvegarde de stockage Azure Stack Hub](./media/azure-stack-network-howto-backup-storage/azure-stack-storage-backup.png)
+![Diagramme montrant la structure globale de la sauvegarde de stockage Azure Stack Hub.](./media/azure-stack-network-howto-backup-storage/azure-stack-storage-backup.png)
 
 ### <a name="application-layer"></a>Couche Application
 
@@ -60,7 +60,7 @@ Une fois que vous avez configuré votre serveur Windows, vous devez installer [A
 
 1. Récupérez le point de terminaison de blob pour les comptes de stockage source et cible.
 
-    ![Sauvegarde de stockage Azure Stack Hub](./media/azure-stack-network-howto-backup-storage/back-up-step1.png)
+    ![Capture d’écran montrant le point de terminaison de blob pour les comptes de stockage source et cible.](./media/azure-stack-network-howto-backup-storage/back-up-step1.png)
 
 2. Créez et enregistrez des jetons SAS pour les comptes de stockage source et cible.
 

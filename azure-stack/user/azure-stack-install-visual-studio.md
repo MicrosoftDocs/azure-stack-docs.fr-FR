@@ -7,12 +7,12 @@ ms.date: 06/11/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2020
-ms.openlocfilehash: c9d8ad6293735db1a65d6f24e7a53a869535af6d
-ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
+ms.openlocfilehash: 686a2b1a976df23e91cd38df61267b95008f993a
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84744927"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107110"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack-hub"></a>Installer Visual Studio et se connecter à Azure Stack Hub
 
@@ -42,7 +42,7 @@ Vous pouvez utiliser Visual Studio pour écrire et déployer des [modèles](azur
 
 3. Sélectionnez **Gérer les comptes** et, dans le nouveau volet, connectez-vous avec vos informations d’identification Azure Active Directory (Azure AD).  
 
-    ![Capture d’écran de Cloud Explorer, une fois connecté à Azure Stack Hub](./media/azure-stack-install-visual-studio/image2.png)
+    ![Capture d’écran montrant Cloud Explorer une fois connecté à Azure Stack Hub](./media/azure-stack-install-visual-studio/image2.png)
 
 Une fois connecté, vous pouvez [déployer des modèles](azure-stack-deploy-template-visual-studio.md) ou parcourir les types de ressources et les groupes de ressources disponibles pour créer vos propres modèles.  
 
@@ -62,7 +62,7 @@ Une fois connecté, vous pouvez [déployer des modèles](azure-stack-deploy-temp
 
     Visual Studio appelle Azure Resource Manager et découvre les points de terminaison, notamment le point de terminaison d’authentification pour les services AD FS (Active Directory Federated Services).
 
-    ![Capture d’écran de Cloud Explorer, une fois connecté à Azure Stack Hub](./media/azure-stack-install-visual-studio/image6.png)
+    ![Capture d’écran montrant les points de terminaison pour les services fédérés Azure Directory.](./media/azure-stack-install-visual-studio/image6.png)
 
 6. Dans le menu **Affichage**, sélectionnez **Cloud Explorer**.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/18/2019
-ms.openlocfilehash: b27d0389d3bfa6a67e261857f1320b6991bf8e26
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: ff1a6258e682d3230ea7968a97b9e392991ca72b
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90571862"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107113"
 ---
 # <a name="how-to-update-an-azure-stack-hub-resource-provider"></a>Comment mettre à jour un fournisseur de ressources Azure Stack Hub
 
@@ -32,7 +32,7 @@ Les fournisseurs de ressources sont mis à jour à l’aide de la même fonction
 
 3. Dans la page **Mises à jour**, vous trouvez des mises à jour pour les fournisseurs de ressources dans la section **Fournisseur de ressources**.
 
-   [![Page des mises à jour disponibles](media/resource-provider-apply-updates/3-update-available.png)](media/resource-provider-apply-updates/3-update-available.png#lightbox)
+   [![Capture d’écran montrant la section du fournisseur de ressources.](media/resource-provider-apply-updates/3-update-available.png)](media/resource-provider-apply-updates/3-update-available.png#lightbox)
 
 ## <a name="apply-an-update"></a>Appliquer une mise à jour
 

@@ -7,12 +7,12 @@ ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: 60a0c26fd6be2399be5f00a8d5bdc3b989e0b441
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 97b2cfc5a595c23bdd12d6ce4519606218bb4687
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920642"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106642"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Déployer Kubernetes sur Azure Stack Hub à l’aide d’Azure Active Directory
 
@@ -91,13 +91,13 @@ Accordez l’accès à votre abonnement au principal de service afin qu’il pui
 
 1. Sélectionnez **Créer une ressource** > **Calcul** > **Cluster Kubernetes**. Cliquez sur **Créer**.
 
-    ![Déployer un modèle de solution](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
+    ![Capture d’écran montrant comment créer un cluster Kubernetes.](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
 ### <a name="1-basics"></a>1. Concepts de base
 
 1. Dans le volet Créer un cluster Kubernetes, sélectionnez **Bases**.
 
-    ![Déployer un modèle de solution](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
+    ![Capture d’écran montrant comment ajouter des informations de base sur votre cluster Kubernetes.](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
 1. Sélectionnez votre ID **d’abonnement**.
 
@@ -109,7 +109,7 @@ Accordez l’accès à votre abonnement au principal de service afin qu’il pui
 
 1. Dans le volet Créer un cluster Kubernetes, sélectionnez **Kubernetes Cluster Settings** (Paramètres de cluster Kubernetes).
 
-    ![Déployer un modèle de solution](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-aad.png)
+    ![Capture d’écran montrant où fournir des informations sur les paramètres de votre cluster Kubernetes.](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-aad.png)
 
 1. Entrez le **nom de l’utilisateur administrateur de la machine virtuelle Linux**. Nom d’utilisateur pour les machines virtuelles Linux qui font partie du cluster Kubernetes et de DVM.
 

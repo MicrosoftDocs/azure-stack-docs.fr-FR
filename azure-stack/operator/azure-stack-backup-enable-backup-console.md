@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: d071b9457388d4f282fad0f0532ce71dc9304f13
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: ba942571d804ec221ee9c25d1b78ddfa1e3a52de
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573188"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106630"
 ---
 # <a name="enable-backup-for-azure-stack-hub-from-the-administrator-portal"></a>Activer la sauvegarde d’Azure Stack Hub à partir du portail administrateur
 
@@ -77,7 +77,7 @@ Les administrateurs et les utilisateurs sont en charge de sauvegarder et de rest
 ## <a name="start-backup"></a>Démarrer la sauvegarde
 Pour démarrer une sauvegarde, cliquez sur **Sauvegarder maintenant** afin de démarrer une sauvegarde à la demande. Le fait d’effectuer une sauvegarde à la demande ne modifie pas la date et l’heure de la prochaine sauvegarde planifiée. Une fois la tâche terminée, vous pouvez confirmer les paramètres dans **Éléments principaux** :
 
-![Azure Stack Hub – Sauvegarde à la demande](media/azure-stack-backup/scheduled-backup.png)
+![Capture d’écran montrant comment démarrer une sauvegarde à la demande.](media/azure-stack-backup/scheduled-backup.png)
 
 Vous pouvez également exécuter l’applet de commande PowerShell **Start-AzsBackup** sur votre ordinateur d’administration Azure Stack Hub. Pour plus d’informations, voir [Sauvegarder Azure Stack Hub](azure-stack-backup-back-up-azure-stack.md).
 
