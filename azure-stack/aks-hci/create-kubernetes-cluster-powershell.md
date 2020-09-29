@@ -16,7 +16,7 @@ ms.locfileid: "90949360"
 
 > S’applique à : Azure Stack HCI
 
-Dans ce guide de démarrage rapide, vous allez apprendre à utiliser Windows PowerShell pour créer un cluster Kubernetes sur Azure Stack HCI. Si vous préférez utiliser le centre d’administration Windows, consultez [Configurer Azure Kubernetes Service sur Azure Stack HCI à l’aide du centre d’administration Windows](setup.md).
+Dans ce guide de démarrage rapide, vous allez apprendre à utiliser Windows PowerShell pour créer un cluster Kubernetes sur Azure Stack HCI. Si vous préférez utiliser Windows Admin Center, consultez [Configurer Azure Kubernetes Service sur Azure Stack HCI à l’aide de Windows Admin Center](setup.md).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
