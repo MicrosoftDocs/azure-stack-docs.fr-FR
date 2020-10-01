@@ -5,12 +5,12 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: 6a8a0c3068061c599ac18e160ebd32c7b5cc8eda
-ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
+ms.openlocfilehash: 181eb53d4b0e5c95065371e6b87e470a5e413d06
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90010813"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572668"
 ---
 # <a name="azure-stack-hci-security-considerations"></a>Considérations en matière de sécurité pour Azure Stack HCI
 
@@ -41,7 +41,7 @@ Cette section explique comment protéger les services et les machines virtuelles
 
 - **Device Guard** et **Credential Guard**. Device Guard offre une protection contre les programmes malveillants sans signature connue, le code non signé et les logiciels malveillants qui accèdent au noyau pour capturer des informations sensibles ou endommager le système. Windows Defender Credential Guard utilise la sécurité basée sur la virtualisation pour isoler les secrets afin que seuls les logiciels système privilégiés puissent y accéder.
 
-    Pour plus d’informations, consultez [Gérer Windows Defender Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard-manage) et téléchargez l’[outil de préparation du matériel de Device Guard et Credential Guard](https://www.microsoft.com/en-us/download/details.aspx?id=53337).
+    Pour plus d’informations, consultez [Gérer Windows Defender Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard-manage) et téléchargez l’[outil de préparation du matériel de Device Guard et Credential Guard](https://www.microsoft.com/download/details.aspx?id=53337).
 
 - Les mises à jour de **Windows** et du **microprogramme** sont essentielles sur les clusters, les serveurs (y compris les machines virtuelles invitées) et les PC pour garantir la protection du système d’exploitation et du matériel système contre les attaquants. Vous pouvez utiliser l’outil **Mises à jour** de Windows Admin Center pour appliquer des mises à jour à des systèmes individuels. Si votre fournisseur de matériel inclut la prise en charge de Windows Admin Center pour obtenir les mises à jour des pilotes, des microprogrammes et des solutions, vous pouvez obtenir ces mises à jour en même temps que les mises à jour de Windows. Sinon, vous pouvez les obtenir directement auprès de votre fournisseur.
 
@@ -88,7 +88,7 @@ Cette section explique comment utiliser Windows Admin Center pour protéger les 
 
 - Le **contrôle d’accès en fonction du rôle (RBAC)** dans Windows Admin Center permet aux utilisateurs de disposer d’un accès limité aux serveurs qu’ils doivent gérer, au lieu d’en faire des administrateurs locaux complets. Pour utiliser RBAC dans Windows Admin Center, vous configurez chaque serveur managé avec un point de terminaison JEA (Just Enough Administration) PowerShell.
 
-    Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle](/windows-server/manage/windows-admin-center/plan/user-access-options#role-based-access-control) et [Just Enough Administration](/powershell/scripting/learn/remoting/jea/overview?view=powershell-7).
+    Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle](/windows-server/manage/windows-admin-center/plan/user-access-options#role-based-access-control) et [Just Enough Administration](/powershell/scripting/learn/remoting/jea/overview).
 
 - Les **outils de sécurité** dans Windows Admin Center que vous pouvez utiliser pour gérer et protéger les identités incluent Active Directory, Certificats, Pare-feu, Utilisateurs et groupes locaux, et bien plus encore.
 
@@ -126,7 +126,7 @@ Les sections suivantes recommandent des outils de sécurité avancée et des tec
      
      - Le module **vTPM (Virtual Trusted Platform Module)** dans Windows Server prend en charge le module de plateforme sécurisée pour les machines virtuelles, qui vous permet d’utiliser des technologies de sécurité avancée telles que BitLocker dans des machines virtuelles. Vous pouvez activer la prise en charge du module de plateforme sécurisée sur n’importe quelle machine virtuelle Hyper-V de Génération 2 à l’aide du Gestionnaire Hyper-V ou de l’applet de commande Windows PowerShell `Enable-VMTPM`.
      
-        Pour plus d’informations, consultez [Enable-VMTPM](/powershell/module/hyper-v/enable-vmtpm?view=win10-ps).
+        Pour plus d’informations, consultez [Enable-VMTPM](/powershell/module/hyper-v/enable-vmtpm).
      
      - **SDN (Software Defined Networking)** dans Azure Stack HCI et Windows Server centralise la configuration et la gestion des périphériques réseau physiques et virtuels, tels que les routeurs, les commutateurs et les passerelles, dans votre centre de données. Les éléments de réseau virtuel, tels que le commutateur virtuel Hyper-V, la virtualisation de réseau Hyper-V et la passerelle RAS, sont conçus pour être des éléments intégraux de votre infrastructure SDN.
 

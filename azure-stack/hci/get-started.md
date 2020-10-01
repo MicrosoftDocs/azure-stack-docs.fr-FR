@@ -7,18 +7,18 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/09/2020
-ms.openlocfilehash: 67ba53d7daf5bb335283f328579439f192d0020b
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 19c04e7e7783403250c6e43de6912d1ca0780b56
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742428"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572719"
 ---
 # <a name="get-started-with-azure-stack-hci-and-windows-admin-center"></a>Bien démarrer avec Azure Stack HCI et Windows Admin Center
 
 > S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
 
-Cette rubrique indique comment se connecter à un cluster Azure Stack HCI et superviser les performances du cluster et du stockage. Si vous n’avez pas encore configuré de cluster, [téléchargez Azure Stack HCI](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/), puis consultez la [Présentation du déploiement](deploy/deployment-overview.md) pour savoir comment procéder.
+Cette rubrique indique comment se connecter à un cluster Azure Stack HCI et superviser les performances du cluster et du stockage. Si vous n’avez pas encore configuré de cluster, [téléchargez Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/), puis consultez la [Présentation du déploiement](deploy/deployment-overview.md) pour savoir comment procéder.
 
 ## <a name="install-windows-admin-center"></a>Installer Windows Admin Center
 
@@ -36,7 +36,7 @@ Une fois que vous avez terminé l’installation de Windows Admin Center, vous p
 
 2. Choisissez d’ajouter un cluster Windows Server :
 
-    :::image type="content" source="media/get-started/chooseconnectiontype.png" alt-text="Capture d’écran du choix d’un type de connexion":::
+    :::image type="content" source="media/get-started/chooseconnectiontype.png" alt-text="Capture d’écran d’ajout de cluster":::
 
 3. Tapez le nom du cluster à gérer, puis cliquez sur **Ajouter**. Le cluster est ajouté à votre liste de connexions dans la page de présentation.
 
@@ -46,7 +46,7 @@ Une fois que vous avez terminé l’installation de Windows Admin Center, vous p
 
 Le tableau de bord Windows Admin Center fournit des alertes et des informations d’intégrité sur les serveurs, les lecteurs et les volumes ainsi que des détails sur l’utilisation du processeur, de la mémoire et du stockage. Le bas du tableau de bord affiche des informations sur les performances du cluster, telles que les IOPS et la latence par heure, jour, semaine, mois ou année.
 
-:::image type="content" source="media/get-started/dashboard.png" alt-text="Capture d’écran du tableau de bord Windows Admin Center":::
+:::image type="content" source="media/get-started/dashboard.png" alt-text="Capture d’écran d’ajout de cluster":::
 
 ## <a name="monitor-performance-of-individual-components"></a>Superviser les performances de composants individuels
 
@@ -56,47 +56,47 @@ Le menu **Outils** à gauche du tableau de bord vous permet d’accéder à n’
 
 Pour voir une synthèse des machines virtuelles en cours d’exécution sur le cluster, cliquez sur **Machines virtuelles** dans le menu **Outils** à gauche.
 
-:::image type="content" source="media/get-started/vms-summary.png" alt-text="Synthèse des machines virtuelles":::
+:::image type="content" source="media/get-started/vms-summary.png" alt-text="Capture d’écran d’ajout de cluster":::
 
 Pour un inventaire complet des machines virtuelles en cours d’exécution sur le cluster comprenant leur état, serveur hôte, utilisation du processeur, sollicitation de la mémoire, demande de mémoire, mémoire affectée et temps d’activité, cliquez sur **Inventaire** en haut de la page.
 
-:::image type="content" source="media/get-started/vms-inventory.png" alt-text="Inventaire des machines virtuelles":::
+:::image type="content" source="media/get-started/vms-inventory.png" alt-text="Capture d’écran d’ajout de cluster":::
 
 ### <a name="servers"></a>Serveurs
 
 Pour voir une synthèse des serveurs dans le cluster, cliquez sur **Serveurs** dans le menu **Outils** à gauche.
 
-:::image type="content" source="media/get-started/servers-summary.png" alt-text="Synthèse des serveurs":::
+:::image type="content" source="media/get-started/servers-summary.png" alt-text="Capture d’écran d’ajout de cluster":::
 
 Pour un inventaire complet des serveurs dans le cluster, notamment leur état, le temps d’activité, le fabricant, le modèle et le numéro de série, cliquez sur **Inventaire** en haut de la page.
 
-:::image type="content" source="media/get-started/servers-inventory.png" alt-text="Inventaire des serveurs":::
+:::image type="content" source="media/get-started/servers-inventory.png" alt-text="Capture d’écran d’ajout de cluster":::
 
 ### <a name="volumes"></a>Volumes
 
 Pour voir une synthèse des volumes sur le cluster, cliquez sur **Volumes** dans le menu **Outils** à gauche.
 
-:::image type="content" source="media/get-started/volumes-summary.png" alt-text="Synthèse des volumes":::
+:::image type="content" source="media/get-started/volumes-summary.png" alt-text="Capture d’écran d’ajout de cluster":::
 
 Pour un inventaire complet des volumes sur le cluster, notamment leur état, système de fichiers, résilience, taille, utilisation du stockage et IOPS, cliquez sur **Inventaire** en haut de la page.
 
-:::image type="content" source="media/get-started/volumes-inventory.png" alt-text="Inventaire des volumes":::
+:::image type="content" source="media/get-started/volumes-inventory.png" alt-text="Capture d’écran d’ajout de cluster":::
 
 ### <a name="drives"></a>Lecteurs
 
 Pour voir une synthèse des lecteurs dans le cluster, cliquez sur **Lecteurs** dans le menu **Outils** à gauche.
 
-:::image type="content" source="media/get-started/drives-summary.png" alt-text="Synthèse des lecteurs":::
+:::image type="content" source="media/get-started/drives-summary.png" alt-text="Capture d’écran d’ajout de cluster":::
 
 Pour un inventaire complet des lecteurs du cluster, comprenant leur numéro de série, état, modèle, taille, type, utilisation, emplacement, serveur et capacité, cliquez sur **Inventaire** en haut de la page.
 
-:::image type="content" source="media/get-started/drives-inventory.png" alt-text="Inventaire des lecteurs":::
+:::image type="content" source="media/get-started/drives-inventory.png" alt-text="Capture d’écran d’ajout de cluster":::
 
 ### <a name="virtual-switches"></a>Commutateurs virtuels
 
 Pour voir les paramètres d’un commutateur virtuel dans le cluster, cliquez sur **Commutateurs virtuels** dans le menu **Outils** à gauche, puis cliquez sur le nom du commutateur virtuel concerné. Windows Admin Center affiche les cartes réseau associées au commutateur virtuel, notamment leurs adresses IP, état de la connexion, vitesse de liaison et adresse MAC.
 
-:::image type="content" source="media/get-started/virtual-switch-settings.png" alt-text="Paramètres du commutateur virtuel":::
+:::image type="content" source="media/get-started/virtual-switch-settings.png" alt-text="Capture d’écran d’ajout de cluster":::
 
 ## <a name="add-counters-with-the-performance-monitor-tool"></a>Ajouter des compteurs avec l’outil Analyseur de performances
 
@@ -104,10 +104,10 @@ Utilisez l’outil Analyseur de performances afin d’afficher et comparer des c
 
 1. Sélectionnez **Analyseur de performances** dans le menu **Outils** à gauche.
 2. Cliquez sur **Espace de travail vide** pour démarrer un nouvel espace de travail, ou sur **Restaurer précédent** pour restaurer un espace de travail précédent.
-    :::image type="content" source="media/get-started/performance-monitor.png" alt-text="Capture d’écran de l’Analyseur de performances":::
+    :::image type="content" source="media/get-started/performance-monitor.png" alt-text="Capture d’écran d’ajout de cluster":::
 3. Si vous créez un espace de travail, cliquez sur le bouton **Ajouter un compteur** et sélectionnez un ou plusieurs serveurs sources à superviser, ou sélectionnez l’ensemble du cluster.
 4. Sélectionnez l’objet et l’instance que vous souhaitez superviser ainsi que le type de compteur et de graphique à utiliser pour l’affichage des informations de performances dynamiques.
-    :::image type="content" source="media/get-started/example-counter.png" alt-text="Capture d’écran de l’exemple de compteur":::
+    :::image type="content" source="media/get-started/example-counter.png" alt-text="Capture d’écran d’ajout de cluster":::
 5. Enregistrez l’espace de travail en choisissant **Enregistrer > Enregistrer sous** dans le menu supérieur.
 
 ## <a name="use-azure-monitor-for-monitoring-and-alerts"></a>Utiliser Azure Monitor pour la supervision et les alertes

@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 08/31/2020
-ms.openlocfilehash: 94908514e85df153f69cbeea81a11d4468dfc7fe
-ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
+ms.openlocfilehash: 06a5a1ccf59b5d5c34ef1d2e36feeb1000b49776
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89274056"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572634"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Mettre à jour les clusters Azure Stack HCI
 
@@ -87,9 +87,8 @@ L’outil de mise à jour adaptée aux clusters peut coordonner l’intégralit�
   
 -   **Mode de mise à jour à distance** Pour ce mode, un ordinateur de gestion à distance (généralement un PC Windows 10) disposant d’une connectivité réseau au cluster de basculement, mais qui n’est pas membre du cluster de basculement, est configuré avec les Outils de clustering avec basculement. À partir de l’ordinateur de gestion à distance, appelé « coordinateur de mise à jour », l’administrateur déclenche une exécution de mise à jour à la demande, en utilisant un profil d’exécution de mise à jour par défaut ou personnalisé. Le mode de mise à jour à distance est utile pour superviser en temps réel la progression lors de l’exécution de mise à jour, et pour les clusters qui s’exécutent sur des installations Server Core.  
 
-
    > [!NOTE]
-   > À compter de la mise à jour d’octobre 2018 de Windows 10, la fonctionnalité Outils d’administration de serveur distant est incluse en tant qu’ensemble de « Fonctionnalités à la demande » directement dans Windows 10. Accédez simplement à **Paramètres > Applications > Applications et fonctionnalités > Fonctionnalités facultatives > Ajouter une fonctionnalité > Outils d’administration de serveur distant : Outils de clustering avec basculement**, puis sélectionnez **Installer**. Pour voir la progression de l’installation, cliquez sur le bouton Précédent pour en afficher l’état dans la page « Gérer les fonctionnalités facultatives ». La fonctionnalité installée est conservée à l’issue des mises à niveau des versions de Windows 10. Si vous voulez installer les Outils d’administration de serveur distant pour Windows 10 avant la mise à jour d’octobre 2018, [téléchargez un package Outils d’administration de serveur distant](https://www.microsoft.com/en-us/download/details.aspx?id=45520).
+   > À compter de la mise à jour d’octobre 2018 de Windows 10, la fonctionnalité Outils d’administration de serveur distant est incluse en tant qu’ensemble de « Fonctionnalités à la demande » directement dans Windows 10. Accédez simplement à **Paramètres > Applications > Applications et fonctionnalités > Fonctionnalités facultatives > Ajouter une fonctionnalité > Outils d’administration de serveur distant : Outils de clustering avec basculement**, puis sélectionnez **Installer**. Pour voir la progression de l’installation, cliquez sur le bouton Précédent pour en afficher l’état dans la page « Gérer les fonctionnalités facultatives ». La fonctionnalité installée est conservée à l’issue des mises à niveau des versions de Windows 10. Si vous voulez installer les Outils d’administration de serveur distant pour Windows 10 avant la mise à jour d’octobre 2018, [téléchargez un package Outils d’administration de serveur distant](https://www.microsoft.com/download/details.aspx?id=45520).
 
 ### <a name="add-cau-cluster-role-to-the-cluster"></a>Ajouter au cluster le rôle de cluster Mise à jour adaptée aux clusters
 
@@ -105,7 +104,7 @@ Si le rôle n’est pas encore configuré sur le cluster, le message d’erreur 
 
 ```Get-CauClusterRole : The current cluster is not configured with a Cluster-Aware Updating clustered role.```
 
-Si vous voulez ajouter le rôle de cluster Mise à jour adaptée aux clusters pour le mode de mise à jour automatique à l’aide de PowerShell, utilisez l’applet de commande **`Add-CauClusterRole`** et fournissez les [paramètres](/powershell/module/clusterawareupdating/add-cauclusterrole?view=win10-ps#parameters) appropriés, comme dans l’exemple suivant :
+Si vous voulez ajouter le rôle de cluster Mise à jour adaptée aux clusters pour le mode de mise à jour automatique à l’aide de PowerShell, utilisez l’applet de commande **`Add-CauClusterRole`** et fournissez les [paramètres](/powershell/module/clusterawareupdating/add-cauclusterrole#parameters) appropriés, comme dans l’exemple suivant :
 
 ```PowerShell
 Add-CauClusterRole -ClusterName Cluster1 -MaxFailedNodes 0 -RequireAllNodesOnline -EnableFirewallRules -VirtualComputerObjectName Cluster1-CAU -Force -CauPluginName Microsoft.WindowsUpdatePlugin -MaxRetriesPerNode 3 -CauPluginArguments @{ 'IncludeRecommendedUpdates' = 'False' } -StartDate "3/2/2020 3:00:00 AM" -DaysOfWeek 4 -WeeksOfMonth @(3) -verbose

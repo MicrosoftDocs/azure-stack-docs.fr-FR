@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 49124c0112d2ecba8c621520cfb1b6c293418401
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 8125ff0432b16f254f8660e8c5f755f7f4916b12
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742547"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572770"
 ---
 # <a name="plan-volumes-in-azure-stack-hci"></a>Planifier des volumes dans Azure Stack HCI
 
@@ -39,7 +39,7 @@ Nous vous recommandons de limiter le nombre total de volumes à 64 volumes par 
 
 ## <a name="choosing-the-filesystem"></a>Choix du système de fichiers
 
-Nous vous recommandons d’utiliser le nouveau [système ReFS](/en-us/windows-server/storage/refs/refs-overview) (Resilient File System) pour les espaces de stockage direct. ReFS est le premier système de fichiers conçu spécialement pour la virtualisation. Il offre de nombreux avantages, notamment une accélération considérable des performances et une protection intégrée contre la corruption des données. Il prend également en charge presque toutes les principales fonctionnalités de NTFS, notamment la déduplication des données dans Windows Server version 1709 ou ultérieure. Pour plus d’informations, consultez le [tableau de comparaison des fonctionnalités](/windows-server/storage/refs/refs-overview#feature-comparison) de ReFS.
+Nous vous recommandons d’utiliser le nouveau [système ReFS](/windows-server/storage/refs/refs-overview) (Resilient File System) pour les espaces de stockage direct. ReFS est le premier système de fichiers conçu spécialement pour la virtualisation. Il offre de nombreux avantages, notamment une accélération considérable des performances et une protection intégrée contre la corruption des données. Il prend également en charge presque toutes les principales fonctionnalités de NTFS, notamment la déduplication des données dans Windows Server version 1709 ou ultérieure. Pour plus d’informations, consultez le [tableau de comparaison des fonctionnalités](/windows-server/storage/refs/refs-overview#feature-comparison) de ReFS.
 
 Si votre charge de travail nécessite une fonctionnalité que ReFS ne prend pas encore en charge, vous pouvez utiliser NTFS à la place.
 

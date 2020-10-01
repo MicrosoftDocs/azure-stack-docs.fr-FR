@@ -7,12 +7,12 @@ ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/09/2020
-ms.openlocfilehash: 9b851b59093a85f7ddd5f9df47359784f41fe24e
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 34a93a65d45861c7c7ff1727347cc95465968151
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742156"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572515"
 ---
 # <a name="what-is-the-deployment-process-for-azure-stack-hci"></a>Quel est le processus de déploiement pour Azure Stack HCI ?
 
@@ -44,7 +44,7 @@ Avant de commencer, [déterminez si votre matériel répond aux exigences de bas
 
 ### <a name="2-deploy-azure-stack-hci"></a>2. Déployer Azure Stack HCI
 
-[Téléchargez Azure Stack HCI](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/) et déployez le [système d’exploitation](operating-system.md) Azure Stack HCI sur chacun des serveurs que vous souhaitez mettre en cluster.
+[Téléchargez Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) et déployez le [système d’exploitation](operating-system.md) Azure Stack HCI sur chacun des serveurs que vous souhaitez mettre en cluster.
 
 ### <a name="3-create-the-cluster"></a>3. Créer le cluster
 

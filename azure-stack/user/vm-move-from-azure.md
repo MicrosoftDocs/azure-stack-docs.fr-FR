@@ -7,12 +7,12 @@ ms.date: 9/8/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: bcd4d3e2255a839efe3ef4075d81042e241d00f3
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: c8c68a64f7a05e03c70e138cb4d8c95da7417ec9
+ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609897"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91519413"
 ---
 # <a name="move-a-vm-from-azure-to-azure-stack-hub"></a>Déplacer une machine virtuelle d’Azure vers Azure Stack Hub
 
@@ -48,7 +48,7 @@ Suivez les instructions de la rubrique [Télécharger un disque dur virtuel Wind
 
 - Avant de télécharger votre machine virtuelle Linux, suivez les instructions de la section « Préparer la machine virtuelle » de l’article [Créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI](/azure/virtual-machines/linux/upload-vhd#prepare-the-vm)
 - Suivez les étapes décrites dans l’article [Télécharger un disque dur virtuel Linux à partir d’Azure](/azure//virtual-machines/windows/download-vhd) pour préparer et télécharger le disque dur virtuel.
-- Pour un disque dur virtuel spécialisé, veillez à utiliser la sémantique « attach » à l’aide de `-CreateOption Attach`. Un exemple est disponible dans l’article [Créer une machine virtuelle en utilisant un disque de système d’exploitation managé existant avec PowerShell (Windows)](/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks).
+- Pour un disque dur virtuel spécialisé, veillez à utiliser la sémantique « attach » à l’aide de `-CreateOption Attach`. Un exemple est disponible dans l’article [Créer une machine virtuelle en utilisant un disque de système d’exploitation managé existant avec PowerShell (Windows)](/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks).
 
 #### <a name="linux---generalized"></a>[Linux - Généralisé](#tab/lin-gen)
 

@@ -1,18 +1,18 @@
 ---
 title: Station de travail d’accès à l’opérateur Azure Stack Hub
 description: Découvrez comment télécharger et configurer une station de travail d’accès à l’opérateur Azure Stack Hub.
-author: asganesh
+author: ashika789
 ms.topic: article
-ms.date: 09/22/2020
+ms.date: 09/24/2020
 ms.author: justinha
 ms.reviewer: asganesh
-ms.lastreviewed: 09/22/2020
-ms.openlocfilehash: b4da01ee67e08f21fbcdcc4f3a9370ee18acdbf8
-ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
+ms.lastreviewed: 09/24/2020
+ms.openlocfilehash: ee292a3461b591a042c0847bd11bb63285a4faf4
+ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91134727"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91230612"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Station de travail d’accès à l’opérateur Azure Stack Hub 
 
