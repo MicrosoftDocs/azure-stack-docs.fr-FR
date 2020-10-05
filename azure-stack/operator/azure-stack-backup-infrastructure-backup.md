@@ -1,18 +1,18 @@
 ---
 title: Récupérer des données d’Azure Stack Hub avec le service Infrastructure Backup
 description: Découvrez comment sauvegarder et restaurer la configuration et les données du service dans Azure Stack Hub en utilisant le service Infrastructure Backup.
-author: justinha
+author: myoungerman
 ms.topic: article
 ms.date: 05/16/2019
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: hectorl
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: a6017b6bdf1a7075ae01726ddfd1513adaa4ed63
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: c73e95677bb1666fb315ad73e1dd6d62f73c68b7
+ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573069"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91367238"
 ---
 # <a name="recover-data-in-azure-stack-hub-with-the-infrastructure-backup-service"></a>Récupérer des données dans Azure Stack Hub avec le service Infrastructure Backup
 
@@ -40,7 +40,7 @@ Le service contient les fonctionnalités suivantes :
 ## <a name="verify-requirements-for-the-infrastructure-backup-service"></a>Vérifier la configuration requise pour le service Infrastructure Backup
 
 - **Emplacement de stockage**  
-  Vous avez besoin d’un partage de fichiers accessible depuis Azure Stack Hub et pouvant contenir sept sauvegardes. Chaque sauvegarde est d’environ 10 Go. Votre partage doit pouvoir stocker 140 Go de sauvegardes. Pour plus d’informations sur la sélection d’un emplacement de stockage pour le service Infrastructure Backup, consultez [Configuration requise pour le contrôleur de sauvegarde](azure-stack-backup-reference.md#backup-controller-requirements).
+  Vous avez besoin d’un partage de fichiers accessible depuis Azure Stack Hub qui peut contenir 14 sauvegardes. Chaque sauvegarde est d’environ 10 Go. Votre partage de fichier doit pouvoir stocker 140 Go de sauvegardes. Pour plus d’informations sur la sélection d’un emplacement de stockage pour le service Infrastructure Backup, consultez [Configuration requise pour le contrôleur de sauvegarde](azure-stack-backup-reference.md#backup-controller-requirements).
 - **Informations d'identification**  
   Vous avez besoin d’un compte d’utilisateur de domaine et d’informations d’identification. Par exemple, vous pouvez utiliser vos informations d’identification d’administrateur Azure Stack Hub.
 - **Certificat de chiffrement**  

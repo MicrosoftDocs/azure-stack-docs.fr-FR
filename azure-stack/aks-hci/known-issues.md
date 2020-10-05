@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 89324bbfe2c1f28e268a22a9b31c880daaddecd6
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 21c511521837eff83d31784db3cf59bcfe25cb2f
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949301"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592818"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Problèmes connus liés à Azure Kubernetes Service sur Azure Stack HCI - Préversion publique
 Cet article décrit les problèmes connus avec la préversion publique d’Azure Kubernetes Service sur Azure Stack HCI.
@@ -41,8 +41,8 @@ Avec les clusters de grande taille, la commande Get-AksHciLogs peut lever une ex
 Cela est dû au fait que la commande PowerShell pour compresser un fichier `Compress-Archive` a une limite de taille de fichier de sortie de 2 Go. Ce problème sera résolu dans une version ultérieure.
 
 ## <a name="azure-kubernetes-service-powershell-deployment-doesnt-check-for-available-memory-before-creating-a-new-target-cluster"></a>Le déploiement PowerShell d’Azure Kubernetes Service ne vérifie pas la mémoire disponible avant de créer un nouveau cluster cible
-Les commandes PowerShell Aks-Hci ne valident pas la mémoire disponible sur le serveur hôte avant de créer des nœuds Kubernetes. Cela peut entraîner un épuisement de la mémoire et au non démarrage des machines virtuelles. Cette défaillance n’est actuellement pas gérée correctement et le déploiement bloquera sans message d’erreur explicite.
-Si vous avez un déploiement qui semble bloqué, ouvrez `Eventviewer` et recherchez les messages d’erreur associés à Hyper-V indiquant que la mémoire est insuffisante pour démarrer la machine virtuelle.
+Les commandes PowerShell Aks-Hci ne valident pas la mémoire disponible sur le serveur hôte avant de créer des nœuds Kubernetes. Cela peut entraîner un épuisement de la mémoire et au non démarrage des machines virtuelles. Cette défaillance n’est actuellement pas gérée correctement et le déploiement cessera de répondre sans message d’erreur explicite.
+Si le déploiement cesse de répondre, ouvrez `Eventviewer` et recherchez les messages d’erreur associés à Hyper-V indiquant que la mémoire est insuffisante pour démarrer la machine virtuelle.
 Ce problème sera résolu dans une version ultérieure
 
 ## <a name="azure-kubernetes-service-deployment-fails-on-an-azure-stack-hci-configured-with-static-ips-vlans-sdn-or-proxies"></a>Le déploiement d’Azure Kubernetes Service échoue sur un Azure Stack HCI configuré avec des adresses IP statiques, des VLAN, des SDN ou des proxies.
@@ -67,3 +67,12 @@ Ce problème sera résolu dans une version ultérieure.
 ## <a name="cannot-deploy-azure-kubernetes-service-to-an-environment-that-has-separate-storage-and-compute-clusters"></a>Impossible de déployer Azure Kubernetes Service dans un environnement disposant de clusters de stockage et de calcul distincts
 Windows Admin Center ne déploiera pas Azure Kubernetes Service dans un environnement avec des clusters de stockage et de calcul distincts, car il s’attend à ce que les ressources de calcul et de stockage soient fournies par le même cluster. Dans la plupart des cas, il ne trouve pas les CSV exposés par le cluster de calcul et refuse de poursuivre le déploiement.
 Ce problème sera résolu dans une version ultérieure.
+
+## <a name="windows-admin-center-only-supports-azure-kubernetes-service-for-azure-stack-hci-in-desktop-mode"></a>Windows Admin Center ne prend en charge Azure Kubernetes Service pour Azure Stack HCI qu’en mode bureau
+En préversion, toutes les fonctionnalité d’Azure Kubernetes Service pour Azure Stack HCI sont prises en charge uniquement en mode bureau de Windows Admin Center. La passerelle Windows Admin Center doit être installée sur un PC Windows 10. Pour plus d’informations sur les options d’installation de Windows Admin Center, consultez le [la documentation de Windows Admin Center](https://docs.microsoft.com/windows-server/manage/windows-admin-center/plan/installation-options). Ces scénarios supplémentaires seront pris en charge dans une future version.
+
+## <a name="azure-kubernetes-service-host-setup-fails-in-windows-admin-center-if-reboots-are-required"></a>Le programme d’installation de l’hôte Azure Kubernetes Service échoue dans Windows Admin Center si des redémarrages sont requis
+L’Assistant Installation de l’hôte Azure Kubernetes Service échoue si un ou plusieurs serveurs que vous utilisez doivent être redémarrés pour installer des rôles comme PowerShell ou Hyper-V. La solution de contournement actuelle consiste à quitter l’Assistant et à réessayer sur le même système une fois que les serveurs sont de nouveau en ligne. Ce problème sera résolu dans une version ultérieure.
+
+## <a name="azure-registration-step-in-azure-kubernetes-service-host-setup-asks-to-try-again"></a>L’étape d’inscription d’Azure dans le programme d’installation de l’hôte d’Azure Kubernetes Service vous demande de réessayer
+Lorsque vous utilisez Windows Admin Center pour configurer l’hôte Azure Kubernetes Service, vous pouvez être invité à réessayer après avoir entré les informations requises sur la page d’inscription d’Azure. Vous devrez peut-être vous reconnecter à Azure sur la passerelle Windows Admin Center pour poursuivre cette étape. Ce problème sera résolu dans une version ultérieure.

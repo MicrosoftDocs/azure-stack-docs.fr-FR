@@ -7,12 +7,12 @@ ms.date: 09/09/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: cc038d24f59527ca10e397848d47e02098dfe0ba
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 27929b0464c011164b6aa762cd0afcc2f6fbc508
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742749"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592943"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Éléments disponibles sur la Place de Marché Azure pour Azure Stack Hub
 
@@ -240,7 +240,7 @@ Microsoft Azure Stack Hub prend en charge les machines virtuelles et les modèle
 | ![NRI mPLAT Suite - Multi-Cloud Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite - Multi-Cloud Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | Une interface unique pour surveiller, configurer, provisionner, automatiser et régir toute charge de travail ou cloud. | NRI |
 | ![Compatible NooBaa Hybrid AWS S3 - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [Compatible NooBaa Hybrid AWS S3 - Community Edition](https://www.noobaa.io/hybrid-cloud) | Service de stockage compatible S3 couvrant les ressources de capacité publiques et locales. | NooBaa |
 | ![Passerelle NetFoundry pour des connexions Multipoint et Zero Trust avec Azure Stack Hub](media/azure-stack-marketplace-azure-items/netfoundry.png) | [Passerelle NetFoundry pour des connexions Multipoint et Zero Trust avec Azure Stack Hub](https://azuremarketplace.microsoft.com/marketplace/apps/netfoundryinc.centos) | Solution de connexion logicielle multipoint entre Azure Stack Hub et n’importe quel point via une connexion réseau, qui offre la meilleure sécurité Zero Trust du marché, un débit cinq fois supérieur à celui d’un réseau VPN et un nombre illimité d’utilisateurs simultanés. | NetFoundry |
-| ![Pare-feu Palo Alto VM-Series de nouvelle génération](media/azure-stack-marketplace-azure-items/paloalto.png) | [Pare-feu Palo Alto VM-Series de nouvelle génération](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | Le pare-feu VM-Series de nouvelle génération permet aux clients de migrer en toute sécurité leurs applications et données vers Azure Stack Hub, de les protéger contre les menaces connues et inconnues grâce à des stratégies de mise en liste verte des applications et de prévention des menaces. **Cette image requiert le déploiement d’un modèle ; consultez cet [article](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) pour obtenir des informations importantes.**| Palo Alto Networks, Inc. |
+| ![Pare-feu Palo Alto VM-Series de nouvelle génération](media/azure-stack-marketplace-azure-items/paloalto.png) | [Pare-feu Palo Alto VM-Series de nouvelle génération](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | Le pare-feu VM-Series de nouvelle génération permet aux clients de migrer en toute sécurité leurs applications et données vers Azure Stack Hub, de les protéger contre les menaces connues et inconnues grâce à des stratégies de filtrage des applications et de prévention des menaces. **Cette image requiert le déploiement d’un modèle ; consultez cet [article](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) pour obtenir des informations importantes.**| Palo Alto Networks, Inc. |
 | ![Pare-feu d’applications PT](media/azure-stack-marketplace-azure-items/pt.png) | [Pare-feu d’applications PT](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | Le pare-feu d’applications PT détecte les vulnérabilités connues et inconnues et empêche les attaques sur les applications Web. **Téléchargez les deux éléments de la Place de marché PT.** | Technologies positives |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-201818) | Puppet Enterprise vous permet d’automatiser tout le cycle de vie de votre infrastructure Azure Stack Hub. **Téléchargez les deux éléments de la Place de marché Puppet.** | Puppet |
 | ![Appliance de scanneur virtuel Qualys](media/azure-stack-marketplace-azure-items/qualys.png) | [Appliance de scanneur virtuel Qualys](https://azuremarketplace.microsoft.com/marketplace/apps/qualysguard.qualys-virtual-scanner-app) | L’appliance de scanneur virtuel enrichit la suite intégrée d’applications SaaS de conformité et de sécurité de la plateforme cloud Qualys. Les modules d’application incluent la gestion des vulnérabilités, la conformité aux stratégies et l’analyse des applications web. | Qualys, Inc. |

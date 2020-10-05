@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: 327b63e2b21ea545fd6e0d175d531862ceeac0d6
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 52dee37571715f6093609609b4f31a45739df1f7
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696921"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572906"
 ---
 # <a name="create-highly-available-mysql-databases"></a>Créer des bases de données MySQL hautement disponibles
 
@@ -28,7 +28,7 @@ Ce que vous allez apprendre :
 
 > [!div class="checklist"]
 > * Créer un cluster MySQL Server à partir d’éléments de la Place de marché.
-> * Créer un serveur d’hébergement MySQL Azure Stack Hub.
+> * Configurer le cluster MySQL Server en tant que serveur d’hébergement MySQL Azure Stack Hub.
 > * Créer une base de données MySQL à haute disponibilité.
 
 Un cluster MySQL Server de trois machines virtuelles est créé et configuré avec des éléments disponibles dans la Place de marché Azure Stack.
@@ -139,7 +139,7 @@ Avant de pouvoir ajouter le cluster MySQL comme hôte de serveur MySQL Azure Sta
 
 3. Créez un compte d’utilisateur d’accès à distance à utiliser par le serveur d’hébergement MySQL Azure Stack Hub pour vous connecter à MySQL, puis quittez le client SSH.
 
-    Exécutez les commandes suivantes pour vous connecter à MySQL en tant qu’utilisateur racine, en utilisant le mot de passe racine créé précédemment. Créez un utilisateur administrateur et remplacez *\<nom d’utilisateur\>* et *\<mot de passe\>* par les valeurs appropriées pour votre environnement. Dans cet exemple, l’utilisateur créé est nommé **sqlsa** et un mot de passe fort est utilisé :
+    Exécutez les commandes suivantes pour vous connecter à MySQL en tant qu’utilisateur racine, en utilisant le mot de passe racine créé précédemment. Créez un utilisateur administrateur et remplacez *\<username\>* et *\<password\>* par les valeurs appropriées pour votre environnement. Dans cet exemple, l’utilisateur créé est nommé **sqlsa** et un mot de passe fort est utilisé :
 
    ```mysql
    mysql -u root -p
@@ -154,9 +154,9 @@ Avant de pouvoir ajouter le cluster MySQL comme hôte de serveur MySQL Azure Sta
 
     Vous devrez fournir ce nom d’utilisateur et ce mot de passe, ainsi que l’adresse IP publique ou le nom de domaine complet de l’adresse IP publique du cluster, à un opérateur Azure Stack Hub pour lui permettre de créer un serveur d’hébergement MySQL avec ce cluster MySQL.
 
-## <a name="create-an-azure-stack-hub-mysql-hosting-server"></a>Créer un serveur d’hébergement MySQL Azure Stack Hub
+## <a name="configure-an-azure-stack-hub-mysql-hosting-server"></a>Configurer un serveur d’hébergement MySQL Azure Stack Hub
 
-Une fois le cluster MySQL Server créé et correctement configuré, un opérateur Azure Stack Hub doit créer un serveur d’hébergement MySQL Azure Stack Hub pour rendre la capacité supplémentaire permettant de créer des bases de données disponible pour les utilisateurs.
+Une fois le cluster MySQL Server créé et correctement configuré, un opérateur Azure Stack Hub doit l’ajouter en tant que serveur d’hébergement MySQL Azure Stack Hub.
 
 Veillez à utiliser l’adresse IP publique ou le nom de domaine complet pour l’adresse IP publique de la machine virtuelle principale du cluster MySQL que vous avez enregistré précédemment lors de la création du groupe de ressources du cluster MySQL (**mysqlip**). En outre, l’opérateur doit connaître les informations d’identification d’authentification de MySQL Server que vous avez créées pour accéder à distance à la base de données du cluster MySQL.
 

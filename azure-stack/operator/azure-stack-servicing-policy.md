@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Découvrez la stratégie de maintenance Azure Stack Hub et comment conserver un système intégré dans un état de prise en charge.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/11/2020
+ms.date: 09/25/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 7cf6420069dbc8589722aab38658206a482632e0
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: 9ae3d2a145b04c9f1e3fa6b926eb657a4af83ebf
+ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89472957"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91367255"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Stratégie de maintenance Azure Stack Hub
 
@@ -39,7 +39,9 @@ Il existe deux types de packages de mises à jour pour les systèmes intégrés 
 
 ## <a name="update-package-release-cadence"></a>Cadence de publication des packages de mise à jour
 
-Microsoft prévoie de publier des packages de mise à jour logicielle chaque mois. Toutefois, il est possible d’avoir plusieurs mises à jour durant un mois donné ou d’en avoir aucune. Les fabricants de matériel OEM publient leurs mises à jour en fonction des besoins.
+Microsoft prévoit de publier des packages de mise à jour logicielle chaque mois.
+
+Les fabricants de matériel OEM publient leurs mises à jour en fonction des besoins. Contactez votre fabricant de matériel OEM pour obtenir les dernières mises à jour du matériel.
 
 Pour lire la documentation relative à la planification et à la gestion des mises à jour, et pour savoir comment déterminer la version que vous utilisez, consultez [Gérer les mises à jour dans Azure Stack - Vue d’ensemble](azure-stack-updates.md).
 

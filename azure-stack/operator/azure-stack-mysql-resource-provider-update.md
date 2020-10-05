@@ -3,16 +3,16 @@ title: Mettre à jour le fournisseur de ressources MySQL dans Azure Stack Hub
 description: Découvrez comment mettre à jour le fournisseur de ressources MySQL dans Azure Stack Hub.
 author: bryanla
 ms.topic: article
-ms.date: 8/19/2020
+ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 3f19dc4c3fd398d55f2570d9636b3c46df17490b
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: 93fcbd61003164a959a15c8c6108bc81dabe2b8a
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89472991"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572889"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>Mettre à jour le fournisseur de ressources MySQL dans Azure Stack Hub
 
@@ -21,25 +21,31 @@ ms.locfileid: "89472991"
 
 Un nouvel adaptateur de fournisseur de ressources MySQL peut être publié lors de la mise à jour de builds Azure Stack Hub. Même si l’adaptateur existant continue de fonctionner, nous vous recommandons d’effectuer une mise à jour dès que possible vers la build la plus récente.
 
-  |Versions d’Azure Stack Hub prises en charge|Version du fournisseur de ressources MySQL|
-  |-----|-----|
-  |2005, 2002, 1910|[MySQL RP version 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|
-  |1908|[MySQL RP version 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|
-  |     |     |
+  |Versions d’Azure Stack Hub prises en charge|Version du fournisseur de ressources MySQL|Windows Server sur lequel le service RP s’exécute
+  |-----|-----|-----|
+  |2005|[MySQL RP version 1.1.93.0](https://aka.ms/azshmysqlrp11930)|Microsoft AzureStack Add-On RP Windows Server INTERNE UNIQUEMENT
+  |2005, 2002, 1910|[MySQL RP version 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|Windows Server 2016 Datacenter - Server Core|
+  |1908|[MySQL RP version 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|Windows Server 2016 Datacenter - Server Core|
+  |     |     |     |
 
-À compter de la publication de la version 1.1.33.0 du fournisseur de ressources MySQL, les mises à jour sont cumulatives et ne doivent pas être installées dans l’ordre où elles ont été publiées dès lors que vous démarrez par la version 1.1.24.0 ou ultérieure. Par exemple, si vous exécutez la version 1.1.24.0 du fournisseur de ressources MySQL, vous pouvez mettre à niveau vers la version 1.1.33.0 ou ultérieure sans devoir d’abord installer la version 1.1.30.0. Pour passer en revue les versions disponibles du fournisseur de ressources et la version d’Azure Stack Hub sur laquelle elles sont prises en charge, consultez la liste des versions dans [Conditions préalables pour le déploiement du fournisseur de ressources](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+La mise à jour du fournisseur de ressources MySQL est cumulative. Lors de la mise à jour à partir d’une ancienne version, vous pouvez effectuer directement la mise à jour vers la version la plus récente. 
 
-Pour mettre à jour le fournisseur de ressources, vous utilisez le script **UpdateMySQLProvider.ps1**. Le processus est semblable au processus utilisé pour installer un fournisseur de ressources, comme décrit dans la section Déployer le fournisseur de ressources de cet article. Le script est inclus avec le téléchargement du fournisseur de ressources. 
+Pour mettre à jour le fournisseur de ressources, vous utilisez le script **UpdateMySQLProvider.ps1**. Vous devez utiliser votre compte de service avec des droits d’administrateur local et être **propriétaire** de l’abonnement. Le script de mise à jour est inclus avec le téléchargement du fournisseur de ressources. 
+
+Le processus de mise à jour est similaire au processus utilisé pour [déployer le fournisseur de ressources](./azure-stack-mysql-resource-provider-deploy.md). Le script de mise à jour utilise les mêmes arguments que le script DeployMySqlProvider.ps1. Vous devrez fournir les informations de certificat.
 
 ## <a name="update-script-processes"></a>Processus du script de mise à jour
 
-Le script **UpdateMySQLProvider.ps1** crée une machine virtuelle avec le dernier code de fournisseur de ressources et migre les paramètres de l’ancienne machine virtuelle vers la nouvelle. Les paramètres qui migrent incluent des informations sur la base de données et le serveur d’hébergement ainsi que l’enregistrement DNS nécessaire.
+Le script **UpdateMySQLProvider.ps1** crée une machine virtuelle avec la dernière image du système d’exploitation, déploie le dernier code de fournisseur de ressources et migre les paramètres de l’ancien fournisseur de ressources vers le nouveau.
 
 >[!NOTE]
->Nous vous conseillons de télécharger la dernière image Windows Server 2016 Core à partir de la Gestion de la Place de marché. Si vous devez installer une mise à jour, vous pouvez placer un **seul** package MSU dans le chemin de dépendance local. Le script échoue s’il existe plusieurs fichiers MSU à cet emplacement.
+>Nous vous conseillons de télécharger la dernière image de Windows Server 2016 Core ou de Microsoft AzureStack Add-on RP Windows Server à partir de la Gestion de la Place de marché. Si vous devez installer une mise à jour, vous pouvez placer un **seul** package MSU dans le chemin de dépendance local. Le script échoue s’il existe plusieurs fichiers MSU à cet emplacement.
 
-Le script exige d’utiliser les mêmes arguments que ceux décrits pour le script DeployMySqlProvider.ps1. Fournissez également le certificat ici.  
+Une fois que le script *UpdateMySQLProvider.ps1* a créé une machine virtuelle, il migre les paramètres suivants depuis la machine virtuelle de l’ancien fournisseur de ressources :
 
+* les informations de base de données
+* les informations sur le serveur d’hébergement
+* l’enregistrement DNS requis
 
 ## <a name="update-script-parameters"></a>Paramètres du script de mise à jour 
 Spécifiez les paramètres suivants à partir de la ligne de commande quand vous exécutez le script PowerShell **UpdateMySQLProvider.ps1**. Si vous ne le faites pas, ou si la validation d’un paramètre échoue, vous êtes invité à fournir les paramètres requis.
@@ -47,7 +53,7 @@ Spécifiez les paramètres suivants à partir de la ligne de commande quand vous
 | Nom du paramètre | Description | Commentaire ou valeur par défaut | 
 | --- | --- | --- | 
 | **CloudAdminCredential** | Informations d’identification de l’administrateur du cloud, nécessaires pour accéder au point de terminaison privilégié. | _Obligatoire_ | 
-| **AzCredential** | Informations d’identification du compte administrateur de service Azure Stack Hub. Utilisez les mêmes informations d’identification que celles utilisées pour le déploiement d’Azure Stack Hub. | _Obligatoire_ | 
+| **AzCredential** | Informations d'identification du compte administrateur de service Azure Stack Hub. Utilisez les mêmes informations d'identification que celles utilisées pour le déploiement d'Azure Stack Hub. Le script échoue si le compte que vous utilisez avec AzCredential nécessite l’authentification multifacteur (MFA). | _Obligatoire_ | 
 | **VMLocalCredential** |Informations d’identification du compte d’administrateur local de la machine virtuelle du fournisseur de ressources SQL. | _Obligatoire_ | 
 | **PrivilegedEndpoint** | Adresse IP ou nom DNS du point de terminaison privilégié. |  _Obligatoire_ | 
 | **AzureEnvironment** | Environnement Azure du compte administrateur de service utilisé pour déployer Azure Stack Hub. Nécessaire uniquement pour les déploiements Azure AD. Les noms d’environnement pris en charge sont **AzureCloud**, **AzureUSGovernment**, ou, si vous utilisez un compte Azure AD en Chine, **AzureChinaCloud**. | AzureCloud |
@@ -61,17 +67,20 @@ Spécifiez les paramètres suivants à partir de la ligne de commande quand vous
 
 ## <a name="update-script-example"></a>Exemple de script de mise à jour
 
-> [!NOTE] 
-> Le processus de mise à jour s’applique uniquement aux systèmes intégrés.
+Si vous mettez à jour le fournisseur de ressources MySQL vers la version 1.1.33.0 ou une version antérieure, vous devez installer des versions spécifiques des modules Azure Stack Hub et AzureRm.Bootstrapper dans PowerShell. 
 
-Si vous mettez à jour le fournisseur de ressources MySQL vers la version 1.1.33.0 ou une version antérieure, vous devez installer des versions spécifiques des modules Azure Stack Hub et AzureRm.Bootstrapper dans PowerShell. Si vous mettez à jour le fournisseur de ressources MySQL vers la version 1.1.47.0, le script de déploiement télécharge et installe automatiquement les modules PowerShell nécessaires dans le chemin C:\Program Files\SqlMySqlPsh.
+Si vous mettez à jour le fournisseur de ressources MySQL vers la version 1.1.47.0 ou ultérieure, vous pouvez ignorer cette étape. Le script de déploiement télécharge et installe automatiquement les modules PowerShell nécessaires sous C:\Program Files\SqlMySqlPsh. 
+
+>[!NOTE]
+>Si le dossier C:\Program Files\SqlMySqlPsh existe déjà avec le module PowerShell téléchargé, il est recommandé de nettoyer ce dossier avant d’exécuter le script de mise à jour. Cela permet de s’assurer que la version appropriée du module PowerShell est téléchargée et utilisée.
 
 ```powershell 
-# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
+# Run the following scripts when updating to version 1.1.33.0 only.
+# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module.
 # Note that this might not be the most currently available version of Azure Stack Hub PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.8.2
+Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
 
 > [!NOTE]
@@ -108,7 +117,7 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
 
-# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
+# For version 1.1.47.0 or later, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
 # The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
 $rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
 $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath 

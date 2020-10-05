@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: 312431b1ae36debc79b1a9bd3a874b648dfc9cd9
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: e30d5ba784efc6453ce161bc2a87db7c728d3fce
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949308"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592926"
 ---
 # <a name="troubleshooting-azure-kubernetes-service-on-azure-stack-hci"></a>Résolution des problèmes d’Azure Kubernetes Service sur Azure Stack HCI
 
@@ -24,7 +24,7 @@ Pour résoudre les problèmes liés à CredSSP, consultez [Résoudre les problè
 ## <a name="troubleshooting-windows-admin-center"></a>Résolution des problèmes de Windows Admin Center
 Ce produit est actuellement en préversion publique, ce qui signifie qu’il est toujours en cours de développement. Il existe actuellement plusieurs problèmes liés à l’extension Azure Kubernetes Service de Windows Admin Center : 
 * Actuellement, chaque serveur du cluster du système que vous utilisez pour configurer Azure Kubernetes Service sur Azure Stack HCI doit être un serveur approuvé. Cela signifie que Windows Admin Center doit être en mesure d’effectuer des opérations CredSSP sur chaque serveur du cluster, et pas seulement sur un ou plusieurs d’entre eux. 
-* Si vous rencontrez une erreur indiquant `msft.sme.aks couldn't load`, et que l’erreur indique que le chargement de blocs a échoué, utilisez la version la plus récente d’Edge ou de Google Chrome, puis réessayez.
+* Si vous rencontrez une erreur indiquant `msft.sme.aks couldn't load`, et que l’erreur indique que le chargement de blocs a échoué, utilisez la version la plus récente de Microsoft Edge ou de Google Chrome, puis réessayez.
 * Avant de démarrer l’Assistant de configuration de l’hôte d’Azure Kubernetes Service ou l’Assistant de création d’un cluster Kubernetes, vous devez vous connecter à Azure via Windows Admin Center. Une nouvelle signature peut être nécessaire pendant le flux de travail. Si vous rencontrez des difficultés lors de la connexion à Azure via Windows Admin Center, essayez de vous connecter à votre compte Azure à partir d’une autre source, comme le [Portail Azure](https://portal.azure.com/). Si vous continuez à rencontrer des problèmes, consultez l’article [Problèmes connus de Windows Admin Center](/windows-server/manage/windows-admin-center/support/known-issues) avant de contacter le support.
 * Dans l’itération actuelle du déploiement Azure Kubernetes Service sur Azure Stack HCI via Windows Admin Center, seul l’utilisateur qui a configuré l’hôte d’Azure Kubernetes Service peut créer des clusters Kubernetes sur le système. Pour contourner ce problème, copiez le dossier `.wssd` à partir du profil utilisateur qui configure l’hôte d’Azure Kubernetes Service sur le profil utilisateur qui lancera le nouveau cluster Kubernetes.
 * Si vous recevez une erreur de configuration incorrecte dans l’un des Assistants, effectuez des opérations de nettoyage du cluster. Cela peut impliquer la suppression du fichier `C:\Program Files\AksHci\mocctl.exe`.

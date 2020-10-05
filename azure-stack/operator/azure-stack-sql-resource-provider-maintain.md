@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Apprenez-en davantage sur les opérations de maintenance du fournisseur de ressources SQL dans Azure Stack Hub.
 author: bryanla
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 6fc476b1f373c8f21481b979d1eefcdbe356766b
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.openlocfilehash: 0de06d7bf13919be95b3d97aa1113221f4378625
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364828"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572821"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Opérations de maintenance du fournisseur de ressources SQL
 
@@ -130,7 +130,7 @@ Utilisez l’applet de commande Get-AzsDBAdapterLogs pour collecter tous les jou
 
 Utilisez l’une des méthodes suivantes pour mettre à jour le système d’exploitation de la machine virtuelle.
 
-- Installer le package de fournisseur de ressources le plus récent à l’aide d’une image corrigée de Windows Server 2016 Core.
+- Installer le package de fournisseur de ressources le plus récent à l’aide d’une image corrigée de la machine virtuelle.
 - Installer un package Windows Update pendant l’installation ou la mise à jour du fournisseur de ressources.
 
 ## <a name="update-the-vm-windows-defender-definitions"></a>Mettre à jour les définitions Windows Defender

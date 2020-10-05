@@ -1,20 +1,20 @@
 ---
 title: Mise en réseau SDN (Software Defined Networking) dans Azure Stack HCI
-description: Vue d’ensemble des rubriques SDN qui s’appliquent aux fonctionnalités d’Azure Stack HCI.
+description: La mise en réseau SDN (Software Defined Networking) permet de configurer et de gérer de manière centralisée des réseaux et des services réseau tels que le basculement, le routage et l’équilibrage de charge dans votre centre de données.
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 08/18/2020
-ms.openlocfilehash: 5a2820de2c681ad5a49d0e4ee3e4973736e1169b
-ms.sourcegitcommit: fb89c3d837e2673b28784fd997099c825deb32f0
+ms.date: 09/29/2020
+ms.openlocfilehash: e14d0475c941f568f08a027de9e71eb25f00a999
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88591793"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572651"
 ---
-# <a name="sdn-in-azure-stack-hci"></a>SDN dans Azure Stack HCI
+# <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Mise en réseau SDN (Software Defined Networking) dans Azure Stack HCI
 
 > S’applique à Azure Stack HCI, version 20H2 ; Windows Server 2019
 
@@ -35,7 +35,7 @@ Le déploiement du contrôleur de réseau active les fonctionnalités suivantes�
 - joindre des appliances virtuelles à vos réseaux virtuels
 - configurer des stratégies de qualité de service (QoS) pour les machines virtuelles jointes à des réseaux virtuels ou à des réseaux VLAN traditionnels.
 
-Nous vous recommandons de [déployer le contrôleur de réseau à l’aide de PowerShell](../deploy/network-controller-powershell.md) après la création d’un cluster Azure Stack HCI.
+Nous vous recommandons de [déployer le contrôleur de réseau pendant la création d’un cluster](../deploy/create-cluster.md#step-5-sdn-optional). Sinon, vous pouvez [déployer le contrôleur de réseau à l’aide de PowerShell](../deploy/network-controller-powershell.md) après la création d’un cluster Azure Stack HCI.
 
 ## <a name="software-load-balancing"></a>Équilibrage de charge logicielle
 
@@ -55,5 +55,6 @@ Les passerelles utilisent [Border Gateway Protocol](/windows-server/remote/remot
 
 Pour consulter des informations connexes, reportez-vous également à :
 
+- [Planifier une infrastructure de réseau défini par logiciel](plan-software-defined-networking-infrastructure.md)
 - [Vue d’ensemble du SDN dans Windows Server](/windows-server/networking/sdn/software-defined-networking)
 - [Déployer une infrastructure SDN (Software Defined Networking) avec des scripts](/windows-server/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts)

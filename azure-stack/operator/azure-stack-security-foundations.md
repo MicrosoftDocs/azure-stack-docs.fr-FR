@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: 27ba6098755d93ef1de902a9a4e052f1ff6b53d5
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 2f276149e3998e5483ae4289ae6793d4b3ea86df
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487870"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592881"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Contrôles de sécurité de l’infrastructure Azure Stack Hub
 
@@ -54,7 +54,7 @@ L’infrastructure Azure Stack Hub utilise des clés RSA 4 096 bits pour tous 
 
 ## <a name="windows-defender-application-control"></a>Windows Defender Application Control
 
-Azure Stack Hub se sert des dernières fonctionnalités de sécurité de Windows Server. L’une d’elles se nomme WDAC (Windows Defender Application Control, anciennement appelée Code Integrity). Elle fournit une liste verte des exécutables et garantit que seul du code autorisé peut s’exécuter dans l’infrastructure Azure Stack Hub.
+Azure Stack Hub se sert des dernières fonctionnalités de sécurité de Windows Server. L’une d’elles se nomme Windows Defender Application Control (WDAC, anciennement appelée Code Integrity). Elle fournit un filtrage des exécutables et garantit que seul du code autorisé peut s’exécuter dans l’infrastructure Azure Stack Hub.
 
 Le code autorisé est signé par Microsoft ou le partenaire OEM. Le code autorisé signé est inclus dans la liste des logiciels autorisés, spécifiée dans une stratégie définie par Microsoft. En d’autres termes, seuls les logiciels approuvés pour s’exécuter dans l’infrastructure Azure Stack Hub peuvent être exécutés. Toute tentative d’exécution de code non autorisé est bloquée, et une alerte est générée. Azure Stack Hub applique à la fois l’intégrité du code du mode utilisateur (UMCI) et l’intégrité du code de l’hyperviseur (HVCI).
 

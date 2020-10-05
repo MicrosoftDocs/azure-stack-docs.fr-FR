@@ -3,16 +3,16 @@ title: Opérations de maintenance sur le fournisseur de ressources MySQL – Azu
 description: Découvrez comment gérer le service de fournisseur de ressources MySQL dans Azure Stack Hub.
 author: bryanla
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: d372015038fa11df75e22ac83b3beec08fe25d98
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: ff9c1054f505625e51426fca70bbb2ae7d9115a5
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572661"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572940"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Opérations de maintenance sur le fournisseur de ressources MySQL dans Azure Stack Hub
 
@@ -24,7 +24,7 @@ Le fournisseur de ressources MySQL s’exécute sur une machine virtuelle verrou
 
 Mettez à jour la machine virtuelle du fournisseur à l’aide de l’une des méthodes suivantes :
 
-- Installer le package de fournisseur de ressources le plus récent à l’aide d’une image corrigée de Windows Server 2016 Core.
+- Installer le package de fournisseur de ressources le plus récent à l’aide d’une image corrigée de la machine virtuelle.
 - Installer un package Windows Update pendant l’installation ou la mise à jour du fournisseur de ressources.
 
 ## <a name="update-the-vm-windows-defender-definitions"></a>Mettre à jour les définitions Windows Defender

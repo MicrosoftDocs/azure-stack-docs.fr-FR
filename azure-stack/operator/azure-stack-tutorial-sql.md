@@ -8,24 +8,24 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: ce3f6e0542678fe2d399e101a90a916cf412599f
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: b30126bcfbbe57cd36a54ce1f5fc487014fe7a03
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487717"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572872"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Créer des bases de données SQL à haute disponibilité avec Azure Stack Hub
 
 En tant qu’opérateur Azure Stack Hub, vous pouvez configurer des machines virtuelles serveurs pour héberger des bases de données SQL Server. Une fois qu’un serveur d’hébergement SQL est créé et managé par Azure Stack Hub, les utilisateurs qui se sont abonnés aux services SQL peuvent facilement créer des bases de données SQL.
 
-Cet article montre comment utiliser un modèle de démarrage rapide Azure Stack Hub pour créer un [groupe de disponibilité SQL Server AlwaysOn](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017), l’ajouter en tant que serveur d’hébergement SQL Azure Stack Hub, puis créer une base de données SQL à haut niveau de disponibilité.
+Cet article montre comment utiliser un modèle de démarrage rapide Azure Stack Hub pour créer un [groupe de disponibilité SQL Server AlwaysOn](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server), l’ajouter en tant que serveur d’hébergement SQL Azure Stack Hub, puis créer une base de données SQL à haut niveau de disponibilité.
 
 Ce que vous allez apprendre :
 
 > [!div class="checklist"]
 > * Créer un groupe de disponibilité SQL Server AlwaysOn à partir d’un modèle.
-> * Créer un serveur d’hébergement SQL Azure Stack Hub.
+> * Configurez le groupe de disponibilité SQL Server Always On en tant que serveur d’hébergement SQL Azure Stack Hub.
 > * Créer une base de données SQL à haute disponibilité.
 
 Un groupe de disponibilité SQL Server AlwaysOn composé de deux machines virtuelles est créé et configuré avec des éléments disponibles sur la Place de marché Azure Stack.
@@ -124,7 +124,7 @@ Sur les instances SQL secondaires :
 
 ### <a name="configure-contained-database-authentication"></a>Configurer l’option contained database authentication
 
-Avant d’ajouter une base de données autonome à un groupe de disponibilité, vérifiez que l’option de serveur contained database authentication est définie sur 1 sur chaque instance de serveur qui héberge un réplica de disponibilité pour le groupe de disponibilité. Pour plus d’informations, consultez [contained database authentication](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Avant d’ajouter une base de données autonome à un groupe de disponibilité, vérifiez que l’option de serveur contained database authentication est définie sur 1 sur chaque instance de serveur qui héberge un réplica de disponibilité pour le groupe de disponibilité. Pour plus d’informations, consultez [contained database authentication](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option).
 
 Utilisez ces commandes pour définir l’option du serveur « contained database authentication » pour chaque instance SQL Server du groupe de disponibilité :
 
@@ -137,9 +137,9 @@ Utilisez ces commandes pour définir l’option du serveur « contained database
 
 ![Définir l’option « contained database authentication »](./media/azure-stack-tutorial-sqlrp/sql3.png)
 
-## <a name="create-an-azure-stack-hub-sql-hosting-server"></a>Créer un serveur d’hébergement SQL Azure Stack Hub
+## <a name="configure-an-azure-stack-hub-sql-hosting-server"></a>Configurer un serveur d’hébergement SQL Azure Stack Hub
 
-Une fois le groupe de disponibilité SQL Server AlwaysOn créé et configuré, un opérateur Azure Stack Hub doit créer un serveur d’hébergement SQL Azure Stack Hub. Ce serveur fournit aux utilisateurs des capacités supplémentaires pour la création de bases de données.
+Une fois le groupe de disponibilité SQL Server AlwaysOn créé et correctement configuré, un opérateur Azure Stack Hub doit le configurer en tant que serveur d’hébergement SQL Azure Stack Hub. 
 
 Veillez à utiliser l’adresse IP publique ou le nom de domaine complet pour l’adresse IP publique de l’équilibreur de charge SQL que vous avez enregistré précédemment lors de la création du groupe de ressources du groupe de disponibilité SQL AlwaysOn (**SQLPIPsql\<resource group name\>** ). En outre, vous devez connaître les informations d’identification SQL Server permettant d’accéder aux instances SQL du groupe de disponibilité AlwaysOn.
 

@@ -7,12 +7,12 @@ ms.date: 08/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 93712c3eedb3045d99b9c2ed46a066b8505771dd
-ms.sourcegitcommit: e72145ebb5eac17a47ba1c9119fd31de545fdace
+ms.openlocfilehash: a5ccf4ecd9ab6f70f54af22c343f28eb692f9c54
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724878"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592897"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Exigences de certificat pour infrastructure à clé publique (PKI) Azure Stack Hub
 
@@ -23,7 +23,7 @@ Azure Stack Hub inclut un réseau d’infrastructure publique utilisant des adre
 - certificats facultatifs pour le déploiement de fournisseurs de ressources à valeur ajoutée.
 
 > [!NOTE]
-> Par défaut, Azure Stack Hub utilise également des certificats émis par une autorité de certification interne intégrée à Active Directory pour l’authentification entre les nœuds. Pour valider le certificat, toutes les machines d’infrastructure Azure Stack Hub approuvent le certificat racine de l’autorité de certification interne en ajoutant ce certificat à leur magasin de certificats local. Azure Stack Hub ne permet pas d’épingler les certificats ou de les ajouter à une liste verte. Le réseau SAN de chaque certificat de serveur est validé par rapport au nom de domaine complet de la cible. La totalité de la chaîne d’approbation est également validée, ainsi que la date d’expiration du certificat (authentification de serveur TLS standard sans épinglage du certificat).
+> Par défaut, Azure Stack Hub utilise également des certificats émis par une autorité de certification interne intégrée à Active Directory pour l’authentification entre les nœuds. Pour valider le certificat, toutes les machines d’infrastructure Azure Stack Hub approuvent le certificat racine de l’autorité de certification interne en ajoutant ce certificat à leur magasin de certificats local. Azure Stack Hub ne permet pas d’épingler les certificats ni de les filtrer. Le réseau SAN de chaque certificat de serveur est validé par rapport au nom de domaine complet de la cible. La totalité de la chaîne d’approbation est également validée, ainsi que la date d’expiration du certificat (authentification de serveur TLS standard sans épinglage du certificat).
 
 ## <a name="certificate-requirements"></a>Configuration requise des certificats
 La liste suivante décrit les exigences générales en matière d’émission, de sécurité et de mise en forme des certificats :

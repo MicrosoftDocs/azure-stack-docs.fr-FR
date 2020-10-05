@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: b7c6c76353ff29f01eca458ca563517807ca0cd3
-ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
+ms.openlocfilehash: 992b06b652dbac306570e0f58e274cec7735d14a
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91019528"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572685"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Créer un cluster Azure Stack HCI en utilisant Windows Admin Center
 
@@ -66,7 +66,7 @@ Commençons !
 
 1. Lorsque vous avez terminé, cliquez sur **Créer**. L’Assistant Création d’un cluster s’affiche à présent, comme indiqué ci-dessous.
 
-    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="Assistant Création d’un cluster - Prise en main" lightbox="media/cluster/create-cluster-wizard.png":::
+    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="Assistant Création d’un cluster - Option HCI" lightbox="media/cluster/create-cluster-wizard.png":::
 
 ## <a name="step-1-get-started"></a>Étape 1 : Bien démarrer
 
@@ -189,12 +189,9 @@ Si la résolution du cluster échoue au bout d’un certain temps, dans la plupa
 
 ## <a name="step-5-sdn-optional"></a>Étape 5 : SDN (facultatif)
 
-L’étape 5 de l’Assistant vous guide dans la configuration du contrôleur de réseau sur votre cluster pour la mise en réseau SDN (Software Defined Networking). Une fois le contrôleur de réseau configuré, il peut être utilisé pour configurer d’autres composants de SDN, tels que le logiciel Software Load Balancer et la passerelle RAS.
+Cette étape facultative vous guide tout au long de la configuration du composant de contrôleur du réseau de [SDN (Software Defined Networking)](../concepts/software-defined-networking.md). Une fois le contrôleur de réseau configuré, il peut être utilisé pour configurer d’autres composants de SDN, tels que l’équilibrage de charge Azure et la passerelle RAS.
 
-> [!NOTE]
-> Cette étape de l’Assistant est facultative.
-
-:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Assistant Création d’un cluster : contrôleur de réseau SDN" lightbox="media/cluster/create-cluster-network-controller.png":::
+:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Assistant Création d’un cluster - Option HCI" lightbox="media/cluster/create-cluster-network-controller.png":::
 
 1. Sélectionnez **Suivant : SDN**.
 1. Sous l’**hôte**, entrez un nom pour le contrôleur de réseau.
@@ -213,7 +210,7 @@ L’étape 5 de l’Assistant vous guide dans la configuration du contrôleur de
 1. Entrez des valeurs pour le **Démarrage du pool d’adresses MAC** et la **Fin du pool d’adresses MAC**.
 1. Une fois que vous avez terminé, cliquez sur **Suivant**.
 1. Attendez que l’Assistant termine son travail. Restez sur cette page jusqu’à ce que toutes les tâches de progression soient terminées. Puis, cliquez sur **Terminer**.
- 
+
 Si le déploiement du contrôleur de réseau échoue, procédez comme suit avant de réessayer :
 
 - Arrêtez et supprimez toutes les machines virtuelles de contrôleur de réseau que l’Assistant a créées.  

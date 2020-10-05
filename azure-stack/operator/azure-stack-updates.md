@@ -3,16 +3,16 @@ title: Gérer les mises à jour
 description: Découvrez comment gérer les mises à jour dans Azure Stack Hub
 author: sethmanheim
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 09/25/2020
 ms.author: sethm
 ms.lastreviewed: 07/16/2020
 ms.reviewer: niy
-ms.openlocfilehash: b5aa356cfdb77cac5609b7e835add0d32a8e26cf
-ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
+ms.openlocfilehash: e769999ce24e1571b93c94a707c62df757460705
+ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88073854"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91367221"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Gérer les mises à jour dans Azure Stack Hub
 
@@ -43,7 +43,7 @@ Il existe trois types de packages de mises à jour pour les systèmes intégrés
 
 Les trois types de mises à jour sont publiés à la cadence suivante :
 
-- **Mises à jour logicielles Azure Stack Hub**. Microsoft publie généralement des packages de mises à jour logicielles chaque mois.
+- **Mises à jour logicielles Azure Stack Hub**. Microsoft publie plusieurs packages de mises à jour logicielles complets et rapides par an.
 
 - **Correctifs logiciels Azure Stack Hub**. Les correctifs sont des versions urgentes qui peuvent être publiées à tout moment. Si vous effectuez une mise à niveau d’une version principale à une autre, (par exemple, 1.2002.x vers 1.2005.x), les derniers correctifs (le cas échéant) de la nouvelle version principale sont installés automatiquement.
 

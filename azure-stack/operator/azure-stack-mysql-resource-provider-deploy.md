@@ -3,20 +3,20 @@ title: Déployer le fournisseur de ressources MySQL sur Azure Stack Hub
 description: Découvrez comment déployer l’adaptateur du fournisseur de ressources MySQL et des bases de données MySQL en tant que service sur Azure Stack Hub.
 author: bryanla
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 9/22/2020
 ms.author: bryanla
-ms.reviewer: xiaofmao
-ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 82ad67557ae0fb84e072aa760b6fd8cc1f016e03
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.reviewer: caoyang
+ms.lastreviewed: 9/22/2020
+ms.openlocfilehash: e2f3c523dfcbd9c1ceec53bdf5fd55300752fd1f
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946479"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572923"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Déployer le fournisseur de ressources MySQL sur Azure Stack Hub
 
-Utilisez le fournisseur de ressources MySQL Server pour exposer des bases de données MySQL en tant que service Azure Stack Hub. Le fournisseur de ressources MySQL s’exécute en tant que service sur une machine virtuelle Windows Server 2016 Server Core.
+Utilisez le fournisseur de ressources MySQL Server pour exposer des bases de données MySQL en tant que service Azure Stack Hub. Le fournisseur de ressources MySQL s’exécute en tant que service sur une machine virtuelle Windows Server 2016 Server Core (pour version de carte < = 1.1.47.0 >) ou sur un un Add-on RP Windows Server spécial (pour version de carte > = 1.1.93.0).
 
 > [!IMPORTANT]
 > Seul le fournisseur de ressources est pris en charge pour créer des éléments sur des serveurs qui hébergent SQL ou MySQL. Les éléments créés sur un serveur hôte qui ne sont pas créés par le fournisseur de ressources peuvent entraîner un état qui ne correspond pas.
@@ -27,15 +27,18 @@ Plusieurs conditions préalables doivent être remplies avant de pouvoir déploy
 
 * Si ce n'est déjà fait, [inscrivez Azure Stack Hub](./azure-stack-registration.md) auprès d'Azure pour pouvoir télécharger des éléments de la Place de marché Azure.
 
-* Ajoutez la machine virtuelle Windows Server standard sur la Place de marché Azure Stack Hub en téléchargeant l'image de **Windows Server 2016 Datacenter Server Core**.
+* Ajoutez la machine virtuelle Windows Server requise à la Place de marché Azure Stack Hub.
+  * Pour la version MySQL RP < = 1.1.47.0, téléchargez l’image **Windows Server 2016 Datacenter-Server Core**.
+  * Pour la version MySQL RP > = 1.1.93.0, téléchargez l’image **Microsoft AzureStack Add-on RP Windows Server INTERNE UNIQUEMENT**. Cette version de Windows Server est conçue pour l’infrastructure d’Azure Stack Add-On RP et n’est pas visible sur la place de marché du client.
 
 * Téléchargez la version prise en charge du fichier binaire du fournisseur de ressources MySQL en fonction du tableau de mappage de versions ci-dessous. Exécutez l’auto-extracteur pour extraire le contenu téléchargé dans un répertoire temporaire. 
 
-  |Versions d’Azure Stack Hub prises en charge|Version du fournisseur de ressources MySQL|
-  |-----|-----|
-  |2005, 2002, 1910|[MySQL RP version 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|
-  |1908|[MySQL RP version 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|
-  |     |     |
+  |Versions d’Azure Stack Hub prises en charge|Version du fournisseur de ressources MySQL|Windows Server sur lequel le service RP s’exécute
+  |-----|-----|-----|
+  |2005|[MySQL RP version 1.1.93.0](https://aka.ms/azshmysqlrp11930)|Microsoft AzureStack Add-On RP Windows Server INTERNE UNIQUEMENT
+  |2005, 2002, 1910|[MySQL RP version 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|Windows Server 2016 Datacenter - Server Core|
+  |1908|[MySQL RP version 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|Windows Server 2016 Datacenter - Server Core|
+  |     |     |     |
 
 >[!NOTE]
 >Pour déployer le fournisseur MySQL sur un système qui n’a pas accès à Internet, copiez le fichier [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) sur un chemin local. Fournissez le nom du chemin à l’aide du paramètre **DependencyFilesLocalPath**.
@@ -60,15 +63,26 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 # path to save the packages, c:\temp\azs1.6.0 as an example here
 $Path = "c:\temp\azs1.6.0"
+```
+
+2. Selon la version du fournisseur de ressources que vous déployez, exécutez l’un des scripts.
+
+```powershell
+# for resource provider version >= 1.1.93.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.2
 ```
+```powershell
+# for resource provider version <= 1.1.47.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+```
 
-2. Copiez ensuite les packages téléchargés sur un périphérique USB.
+3. Copiez ensuite les packages téléchargés sur un périphérique USB.
 
-3. Connectez-vous à la station de travail déconnectée, puis copiez les packages du périphérique USB vers un emplacement sur la station de travail.
+4. Connectez-vous à la station de travail déconnectée, puis copiez les packages du périphérique USB vers un emplacement sur la station de travail.
 
-4. Enregistrez cet emplacement en tant que référentiel local.
+5. Enregistrez cet emplacement en tant que référentiel local.
 
 ```powershell
 # requires -Version 5
@@ -95,7 +109,7 @@ Une fois que tous les prérequis sont remplis, exécutez le script **DeployMySql
  > [!IMPORTANT]
  > Avant de déployer le fournisseur de ressources, passez en revue les notes de publication pour en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.
 
-Pour déployer le fournisseur de ressources mySQL, ouvrez une nouvelle fenêtre PowerShell (pas PowerShell ISE) avec élévation de privilèges et basculez vers le répertoire où vous avez extrait les fichiers binaires du fournisseur de ressources mySQL. 
+Pour déployer le fournisseur de ressources MySQL, ouvrez une **nouvelle** fenêtre PowerShell (pas PowerShell ISE) avec élévation de privilèges et basculez vers le répertoire où vous avez extrait les fichiers binaires du fournisseur de ressources MySQL. 
 
 > [!IMPORTANT]
 > Nous vous recommandons d’utiliser une nouvelle fenêtre PowerShell pour éviter les problèmes potentiels engendrés par les modules PowerShell qui sont déjà chargés. Vous pouvez utiliser clear-azurermcontext pour effacer le cache avant d’exécuter le script de mise à jour.
@@ -105,7 +119,7 @@ Exécutez le script **DeployMySqlProvider.ps1**, qui complète les tâches suiva
 * Chargement des certificats et autres artefacts sur un compte de stockage d'Azure Stack Hub.
 * Publication des packages de la galerie afin que vous puissiez déployer des bases de données MySQL par le biais de la galerie.
 * Publication d’un package de galerie pour déployer des serveurs d’hébergement.
-* Déploiement d’une machine virtuelle à l’aide de l’image Windows Server 2016 Core que vous avez téléchargée, puis installation du fournisseur de ressources MySQL.
+* Déploiement d’une machine virtuelle à l’aide de l’image Windows Server 2016 Core ou de l’image Microsoft AzureStack Add-on RP Windows Server que vous avez téléchargée, puis installation du fournisseur de ressources MySQL.
 * Inscription d’un enregistrement DNS local mappé à la machine virtuelle de votre fournisseur de ressources.
 * Inscription de votre fournisseur de ressources auprès de l’Azure Resource Manager local pour le compte d’opérateur.
 
@@ -133,7 +147,7 @@ Vous pouvez spécifier ces paramètres à partir de la ligne de commande. Si vou
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>Déployer le fournisseur de ressources MySQL à l’aide d’un script personnalisé
 
-Si vous déployez le fournisseur de ressources MySQL version 1.1.33.0 ou antérieure, vous devez installer des versions spécifiques des modules Azure Stack Hub et AzureRm.Bootstrapper dans PowerShell. Si vous déployez le fournisseur de ressources MySQL version 1.1.47.0, le script de déploiement télécharge et installe automatiquement les modules PowerShell nécessaires sous C:\Program Files\SqlMySqlPsh.
+Si vous déployez le fournisseur de ressources MySQL version 1.1.33.0 ou antérieure, vous devez installer des versions spécifiques des modules Azure Stack Hub et AzureRm.Bootstrapper dans PowerShell. Si vous déployez le fournisseur de ressources MySQL version 1.1.47.0 ou ultérieure, le script de déploiement télécharge et installe automatiquement les modules PowerShell nécessaires sous C:\Program Files\SqlMySqlPsh.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -177,7 +191,7 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 
-# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh,
+# For version 1.1.47.0 or later, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh,
 # The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
 $rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
 $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath

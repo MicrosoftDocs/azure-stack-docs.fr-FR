@@ -3,16 +3,16 @@ title: Notes de publication du moteur AKS (Azure Kubernetes Service) sur Azure S
 description: Découvrez les étapes à suivre avec la mise à jour du moteur AKS sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 09/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 5207fa80a97581847d309a460a31039695183e1c
-ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
+ms.lastreviewed: 09/28/2020
+ms.openlocfilehash: 03824b30d3d5d5c8982b1295a5999c299d14cf08
+ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90717935"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91495760"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Notes de publication du moteur AKS sur Azure Stack Hub
 ::: moniker range=">=azs-2002"
@@ -103,6 +103,7 @@ Dans le fichier JSON du modèle d’API, spécifiez les valeurs de release et de
 
 ## <a name="whats-new"></a>Nouveautés
 
+- Mise à jour du disque dur virtuel Linux d’Azure Stack vers 2020.09.14 #[3828](https://github.com/Azure/aks-engine/pull/3828)
 - Ajout de la prise en charge de K8s v1.17.11 sur Azure Stack [#3702](https://github.com/Azure/aks-engine/pull/3702)
 - Ajout de la prise en charge de K8s v1.16.14 sur Azure Stack [#3704](https://github.com/Azure/aks-engine/pull/3704)
 - Mise à jour du disque dur virtuel Linux vers 2020.09.14 [#3750](https://github.com/Azure/aks-engine/pull/3750)
