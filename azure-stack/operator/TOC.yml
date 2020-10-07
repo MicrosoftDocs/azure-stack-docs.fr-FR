@@ -461,7 +461,7 @@
           href: operator-access-workstation.md
         - name: Portail Aide et support
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: azure-stack-help-and-support-overview.md
             - name: Rechercher votre ID cloud
               href: azure-stack-find-cloud-id.md
@@ -469,14 +469,6 @@
               items:
                 - name: Vue d’ensemble
                   href: azure-stack-diagnostic-log-collection-overview.md
-                - name: Envoyer des journaux de manière proactive
-                  href: azure-stack-configure-automatic-diagnostic-log-collection.md
-                - name: Envoyer des journaux maintenant
-                  items:
-                    - name: Utiliser le portail des administrateurs
-                      href: azure-stack-configure-on-demand-diagnostic-log-collection-portal.md
-                    - name: Utiliser PowerShell
-                      href: azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md
                 - name: Get-AzureStackLog (PEP)
                   href: azure-stack-get-azurestacklog.md
         - name: Validation pour Azure Stack Hub
