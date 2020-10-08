@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: e4d167a6600f8bf4c921acb640af3ab606f67c59
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: c0cf805773100e2f265c2e088a6f6cd442553ec2
+ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107051"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91778286"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Aide et support d’Azure Stack Hub
 
@@ -66,8 +66,8 @@ Cette série de tutoriels est personnalisée selon que vous exécutez le Kit ASD
 
 Vous pouvez envoyer des journaux de diagnostic à Microsoft de deux manières :
 
-- [Send logs proactively](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002) (Envoyer les journaux de manière proactive) : si cette option est activée, la collecte des journaux est déclenchée par des alertes d’intégrité spécifiques.
-- [Send logs now](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) (Envoyer les journaux maintenant) : vous pouvez choisir manuellement une fenêtre glissante spécifique comme délai d’exécution pour la collecte des journaux.
+- [Send logs proactively](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively) (Envoyer les journaux de manière proactive) : si cette option est activée, la collecte des journaux est déclenchée par des alertes d’intégrité spécifiques.
+- [Send logs now](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now) (Envoyer les journaux maintenant) : vous pouvez choisir manuellement une fenêtre glissante spécifique comme délai d’exécution pour la collecte des journaux.
 
 ![Capture d’écran montrant comment démarrer la collecte des journaux de diagnostic.](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
 

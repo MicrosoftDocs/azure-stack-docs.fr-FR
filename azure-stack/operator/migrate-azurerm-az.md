@@ -4,15 +4,15 @@ description: Découvrez les étapes et les outils pour effectuer une migration d
 author: mattbriggs
 ms.author: mabrigg
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 10/05/2020
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: 9b41f2f25e2c9c727d397dedd3f95e9683080e25
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: ea3ec5389aa00d0b606d86e483a8ca5a2607aa1a
+ms.sourcegitcommit: af21e3097e833bcb0670733a5e92d6fc3deaa53b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764747"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729234"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>Effectuer une migration depuis AzureRM vers Azure PowerShell Az dans Azure Stack Hub
 
@@ -23,7 +23,7 @@ Pour obtenir la liste complète des changements cassants entre AzureRM et Az, co
 
 ## <a name="check-for-installed-versions-of-azurerm"></a>Rechercher les versions installées d’AzureRM
 
-Le module Az peut être installé côte à côte avec le module AzureRM, mais cela n’est pas recommandé. Avant d’effectuer toutes les étapes de migration, vérifiez les versions d’AzureRM installées sur votre système. Vous pouvez ainsi vous assurer que les scripts s’exécutent déjà sur la dernière version et savoir si vous pouvez activer des alias de commande sans désinstaller AzureRM.
+Avant d’effectuer toutes les étapes de migration, vérifiez les versions d’AzureRM installées sur votre système. Vous pouvez ainsi vous assurer que les scripts s’exécutent déjà sur la dernière version et savoir si vous pouvez activer des alias de commande sans désinstaller AzureRM.
 
 Pour vérifier quelles sont les versions d’AzureRM que vous avez installées, exécutez la commande :
 
@@ -80,7 +80,7 @@ Il existe des exceptions à cette modification de dénomination que vous devez c
 | AzureRM.UsageAggregates | Az.Billing | Non |
 | AzureRM.Consumption | Az.Billing | Non |
 
-## <a name="summary"></a>Résumé
+## <a name="summary"></a>Récapitulatif
 
 Suivez les étapes suivantes pour mettre à jour tous vos scripts existants et utiliser le nouveau module. Si vous avez des questions concernant ces étapes ou rencontrez des problèmes rendant la migration difficile, veuillez laisser un commentaire sur cet article afin que nous puissions améliorer les instructions.
 

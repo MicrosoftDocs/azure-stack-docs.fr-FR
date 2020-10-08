@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 4aeca3ba7630d05921578de7023359c042d74ffb
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 9d9bf332c71bbafd78a235cf0257283738e5a304
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574106"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815510"
 ---
 # <a name="vnet-peering-with-fortigate"></a>Peering de réseaux virtuels avec FortiGate
 
@@ -74,8 +74,6 @@ Le tableau suivant récapitule les paramètres utilisés dans ces déploiements 
 ## <a name="deploy-the-fortigate-ngfw"></a>Déployer le Pare-feu Fortigate de nouvelle génération
 
 1.  Connectez-vous au portail utilisateur Azure Stack Hub.
-
-    ![L'écran d'accueil s'affiche, avec son bouton « + Créer une ressource ».](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
 
 2.  Sélectionnez **Créer une ressource**, puis recherchez `FortiGate`.
 

@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.author: inhenkel
 ms.lastreviewed: 11/11/2019
 ms.reviewer: efemm
-ms.openlocfilehash: bbf668cf509fcc2ccde4d0a60f20d3f74a935a1e
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: a1fa7c9ee34532857a8968a286c2248947115acd
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487615"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815357"
 ---
 # <a name="azure-stack-hub-training-and-certification"></a>Formation et certification Azure Stack Hub
 
@@ -22,10 +22,6 @@ ms.locfileid: "86487615"
 Vous souhaitez apprendre à utiliser Azure Stack Hub et démontrer votre maîtrise de l’infrastructure ? Découvrez les possibilités de formation et de certification suivantes.
 
 ## <a name="training"></a>Entrainement
-
-- Cours officiels de Microsoft à la demande :
-   - [ODX20537 : configuration et utilisation d’un cloud hybride avec Microsoft Azure Stack Hub (180 jours)](https://www.microsoft.com/learning/course.aspx?cid=ODX20537)
-   - [OD20537 : configuration et utilisation d’un cloud hybride avec Microsoft Azure Stack Hub (90 jours)](https://www.microsoft.com/learning/course.aspx?cid=OD20537)
 
 - Cours de formation informatique de Microsoft :
    - [Cours 20537A : configuration et utilisation d’un cloud hybride avec Microsoft Azure Stack Hub](https://aka.ms/azsmoc)

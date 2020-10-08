@@ -3,16 +3,16 @@ title: Créer une machine virtuelle Windows avec le portail Azure Stack Hub
 description: Découvrez comment créer une machine virtuelle Windows Server 2016 avec le portail Azure Stack Hub.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 08/24/2020
+ms.date: 10/06/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: bbf0ad658100457c9d7b6b47e9f89b2af48e0e1f
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.lastreviewed: 10/06/2020
+ms.openlocfilehash: 77c7e3484186a0bea1f6220330338128aad72fad
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88819165"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815409"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>Démarrage rapide : Créer une machine virtuelle Windows Server avec le portail Azure Stack Hub
 
@@ -31,10 +31,10 @@ Connectez-vous au portail Azure Stack Hub. L’adresse du portail Azure Stack Hu
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
-1. Sélectionnez **Créer une ressource** > **Calcul**. Recherchez ` Windows Server 2016 Datacenter – Pay as you use`.
+1. Sélectionnez **Créer une ressource** > **Calcul**. Recherchez ` Windows Server 2016 Datacenter - Pay as you use`.
     Si l’entrée **Windows Server 2016 Datacenter – Paiement à l’utilisation** n’apparaît pas, contactez votre opérateur cloud Azure Stack Hub et demandez-lui d’ajouter l’image à la Place de marché Azure Stack Hub. Pour obtenir des instructions, votre opérateur cloud peut se référer à [Créer et publier un élément personnalisé de Place de marché Azure Stack Hub](../operator/azure-stack-create-and-publish-marketplace-item.md).
 
-    ![Windows Server 2016 Datacenter – Paiement à l’utilisation](./media/azure-stack-quick-windows-portal/image1.png)
+    ![Windows Server 2016 Datacenter - Paiement à l’utilisation](./media/azure-stack-quick-windows-portal/image1.png)
 
 1. Sélectionnez **Create** (Créer).
 

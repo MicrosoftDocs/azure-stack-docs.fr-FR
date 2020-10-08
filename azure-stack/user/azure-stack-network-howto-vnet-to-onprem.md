@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 75138fa2b74666fee4149bf444558c98c250b4c8
-ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
+ms.openlocfilehash: 81c2db63471e8943c201d1b6979ab0a9b0da6e85
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88965158"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815340"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Configurer une passerelle VPN pour Azure Stack Hub avec l’appliance virtuelle réseau FortiGate
 
@@ -65,8 +65,6 @@ Le tableau suivant récapitule les paramètres utilisés dans ces déploiements 
 
 1. Connectez-vous au portail utilisateur Azure Stack Hub.
 
-    ![L’écran d’accueil s’affiche, avec la sélection « + Créer une ressource » dans le volet gauche.](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
-
 1. Sélectionnez **Créer une ressource**, puis recherchez `FortiGate`.
 
     ![La liste des résultats de la recherche affiche FortiGate NGFW - Single VM Deployment.](./media/azure-stack-network-howto-vnet-to-onprem/image6.png)
@@ -112,7 +110,7 @@ Le tableau suivant récapitule les paramètres utilisés dans ces déploiements 
 
 4. Supprimez la route **to-Internet**.
 
-    ![La route to-Internet, seule route répertoriée, est sélectionnée. Un bouton Supprimer est présent.](./media/azure-stack-network-howto-vnet-to-onprem/image11.png)
+    ![La route to-Internet, seule route répertoriée, est sélectionnée. Un bouton Supprimer est disponible.](./media/azure-stack-network-howto-vnet-to-onprem/image11.png)
 
 5. Sélectionnez *Oui*.
 
@@ -148,7 +146,7 @@ Une fois que vous avez activé les appliances virtuelles réseau, créez un tunn
 
 5. Entrez le nom d’utilisateur d’administration et le mot de passe FortiGate que vous avez fournis pendant le déploiement.
 
-    ![La boîte de dialogue Connexion contient les zones de texte Utilisateur et Mot de passe, ainsi qu’un bouton Connexion.](./media/azure-stack-network-howto-vnet-to-onprem/image14.png)
+    ![La boîte de dialogue Connexion contient les zones de texte Utilisateur et Mot de passe, ainsi qu'un bouton Connexion.](./media/azure-stack-network-howto-vnet-to-onprem/image14.png)
 
 6. Sélectionnez **System** (Système)  > **Firmware** (Microprogramme).
 

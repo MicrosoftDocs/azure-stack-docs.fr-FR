@@ -3,16 +3,16 @@ title: Résoudre des problèmes du moteur AKS sur Azure Stack Hub
 description: Cet article présente les étapes de résolution des problèmes liés au moteur AKS sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/08/2020
+ms.date: 10/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/08/2020
-ms.openlocfilehash: e9e1e09d40be623dfb973503295274790a86dfb8
-ms.sourcegitcommit: 2407498dc34158a49959d9f87f84d6a1cde0cca6
+ms.lastreviewed: 10/02/2020
+ms.openlocfilehash: d9e862386e76c9bf44638a58432b58b409e9c2df
+ms.sourcegitcommit: af21e3097e833bcb0670733a5e92d6fc3deaa53b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89560961"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729217"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Résoudre des problèmes du moteur AKS sur Azure Stack Hub
 
@@ -84,7 +84,7 @@ Vous pouvez passer en revue les informations créées par le moteur AKS. Le mote
 
 ## <a name="collect-kubernetes-logs"></a>Collecter des journaux Kubernetes
 
-Outre les journaux du moteur AKS, les composants Kubernetes génèrent des messages d’état et d’erreur. Vous pouvez collecter ces journaux à l’aide du script Bash [getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/diagnosis-v0.1.3).
+Outre les journaux du moteur AKS, les composants Kubernetes génèrent des messages d’état et d’erreur. Vous pouvez collecter ces journaux à l’aide du script Bash [getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/diagnosis-v0.1.5).
 
 Ce script automatise le processus de collecte des journaux suivants : 
 
@@ -112,8 +112,8 @@ Conditions requises :
     ```bash  
     mkdir -p $HOME/kuberneteslogs
     cd $HOME/kuberneteslogs
-    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.1/diagnosis-v0.1.1.tar.gz
-    tar xvf diagnosis-v0.1.1.tar.gz -C ./
+    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.5/diagnosis-v0.1.5.tar.gz
+    tar xvf diagnosis-v0.1.5.tar.gz -C ./
     ```
 
 2. Recherchez les paramètres exigés par le script `getkuberneteslogs.sh`. Le script utilise les paramètres suivants :

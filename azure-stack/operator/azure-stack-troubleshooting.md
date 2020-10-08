@@ -2,18 +2,18 @@
 title: Résoudre les problèmes d'Azure Stack Hub
 titleSuffix: Azure Stack
 description: Découvrez comment résoudre les problèmes Azure Stack Hub, y compris les problèmes liés aux machines virtuelles, stockage et App Service.
-author: justinha
+author: myoungerman
 ms.topic: article
 ms.date: 07/21/2020
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: prchint
 ms.lastreviewed: 07/21/2020
-ms.openlocfilehash: 8072a868106de26be3cbb2b2918d97696647df77
-ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
+ms.openlocfilehash: 403335a81a5ac02f2e32432f54df584baf7c2a02
+ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89041619"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91778146"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Résoudre les problèmes dans Azure Stack Hub
 
@@ -30,7 +30,7 @@ Ces sections contiennent des liens vers des documents qui abordent les questions
 
 ### <a name="updates-and-diagnostics"></a>Mises à jour et diagnostics
 
-* [Utiliser les outils de diagnostic dans Azure Stack Hub](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002)
+* [Utiliser les outils de diagnostic dans Azure Stack Hub](./azure-stack-diagnostic-log-collection-overview.md)
 * [Valider l’état du système Azure Stack Hub](azure-stack-diagnostic-test.md)
 * [Cadence de publication des packages de mises à jour](azure-stack-servicing-policy.md#update-package-release-cadence)
 * [Vérifier et résoudre les problèmes liés à l'état du nœud](azure-stack-node-actions.md)
@@ -199,11 +199,11 @@ Si le script Create-AADIdentityApp.ps1 nécessaire pour App Service échoue, vei
 
 Le processus relatif aux mises à jour et aux correctifs logiciels Azure Stack Hub est conçu pour permettre aux opérateurs d’appliquer les mises à jour de manière cohérente et rationalisée. Bien que cela soit rare, certains problèmes peuvent se produire pendant l’application des correctifs logiciels et des mises à jour. Les étapes suivantes sont recommandées si vous rencontrez un problème pendant le processus d’application des correctifs logiciels et des mises à jour :
 
-0. **Prérequis** : Veillez à suivre la [check-list des activités de mise à jour](release-notes-checklist.md) et à [activer la collecte proactive des journaux](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002).
+0. **Prérequis** : Veillez à suivre la [check-list des activités de mise à jour](release-notes-checklist.md) et à [activer la collecte proactive des journaux](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively).
 
 1. Suivez les étapes de correction indiquées dans l’alerte d’échec créée au moment de l’échec de votre mise à jour.
 
-2. Si vous n’êtes pas parvenu à résoudre votre problème, créez un [ticket de support Azure Stack Hub](./azure-stack-help-and-support-overview.md?view=azs-2002). Veillez à disposer des [journaux collectés](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) pour la période pendant laquelle le problème s’est produit.
+2. Si vous n’êtes pas parvenu à résoudre votre problème, créez un [ticket de support Azure Stack Hub](./azure-stack-help-and-support-overview.md?view=azs-2002). Veillez à disposer des [journaux collectés](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now) pour la période pendant laquelle le problème s’est produit.
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Problèmes usuels liés aux correctifs logiciels et mises à jour Azure Stack Hub
 
