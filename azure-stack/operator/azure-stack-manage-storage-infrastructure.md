@@ -1,19 +1,19 @@
 ---
 title: Gérer l’infrastructure de stockage pour Azure Stack Hub
 titleSuffix: Azure Stack
-description: Découvrez comment gérer l’infrastructure de stockage pour Azure Stack Hub.
+description: Découvrez comment gérer l’infrastructure de stockage pour Azure Stack Hub. Découvrez comment superviser des volumes et des lecteurs. Consultez les conseils sur la résolution des problèmes relatifs à l’ajout de lecteurs à des pools.
 author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 5/4/2020
 ms.author: inhenkel
 ms.lastreviewed: 5/4/2020
 ms.reviewer: jiaha
-ms.openlocfilehash: 3fff3c9c7742d22c24ab540d4bf523ade3e7a227
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: a267c0bf5429bdd97b5a722f45f2fd188b63efb2
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848335"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623198"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Gérer l’infrastructure de stockage pour Azure Stack Hub
 Cet article décrit l’intégrité et l’état opérationnel des ressources de l’infrastructure de stockage Azure Stack Hub. Ces ressources incluent les lecteurs et les volumes de stockage. Les informations contenues dans cette rubrique peuvent vous aider à résoudre différents problèmes, par exemple l’impossibilité d’ajouter un lecteur à un pool.

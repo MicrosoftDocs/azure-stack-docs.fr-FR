@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 7436498ea993281f803d7ff8a0c4108728570f59
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 91f7249beb34e5afee808d299df48611a5ce26bb
+ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949313"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91778128"
 ---
 # <a name="use-persistent-storage-in-a-windows-container-and-prepare-windows-nodes-for-group-managed-service-accounts"></a>Utiliser le stockage persistant dans un conteneur Windows et préparer des nœuds Windows pour des comptes de service administrés de groupe
 
@@ -146,7 +146,7 @@ kubectl get nodes -o wide
 
 Vous pouvez ensuite utiliser SSH dans le nœud à l’aide de `ssh Administrator@ip`. 
 
-Une fois que vous êtes connecté à votre nœud Worker Windows, exécutez la commande PowerShell suivante pour joindre le nœud au domaine. Vous serez invité à entrer vos informations d’identification de **compte d’administrateur de domaine**. Vous pouvez également utiliser des informations d’identification de l’utilisateur avec élévation de privilèges qui ont reçu des droits pour joindre des ordinateurs au domaine donné. Vous devez ensuite redémarrer votre nœud Worker Windows.
+Une fois que vous êtes connecté à votre nœud Worker Windows, exécutez la commande PowerShell suivante pour joindre le nœud à un domaine. Vous serez invité à entrer vos informations d’identification de **compte d’administrateur de domaine**. Vous pouvez également utiliser des informations d’identification de l’utilisateur avec élévation de privilèges qui ont reçu des droits pour joindre des ordinateurs au domaine donné. Vous devez ensuite redémarrer votre nœud Worker Windows.
 
 ```PowerShell
 add-computer --domainame "YourDomainName" -restart

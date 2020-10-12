@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/24/2020
-ms.openlocfilehash: d4dc446f5d58f25ba6183cf4415b5f4e2d34df9a
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.date: 10/01/2020
+ms.openlocfilehash: 8a4c8557fe708535bfdde383ef30dd78395b1c01
+ms.sourcegitcommit: 09572e1442c96a5a1c52fac8ee6b0395e42ab77d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230459"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91625870"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>Avant le déploiement d’Azure Stack HCI
 
@@ -145,6 +145,57 @@ Lorsque vous utilisez l’Assistant Création d’un cluster dans Windows Admin 
 - ICMPv4 et ICMPv6 (si vous utilisez Test-SRTopology)
 
 Il peut y avoir des ports supplémentaires non listés ci-dessus. Il s’agit des ports pour le fonctionnement de base d’Azure Stack HCI.
+
+### <a name="network-switch-requirements"></a>Exigences concernant les commutateurs réseau
+
+Cette section définit les exigences concernant les commutateurs physiques utilisés avec Azure Stack HCI. Ces exigences listent les spécifications du secteur, les normes de l’organisation et les protocoles qui sont obligatoires pour tous les déploiements Azure Stack HCI. Sauf mention contraire, la dernière version active (non remplacée) de la norme est exigée.
+
+Ces exigences permettent de garantir des communications fiables entre les nœuds dans les déploiements de cluster Azure Stack HCI. Il est essentiel que les communications entre les nœuds soient fiables. Pour fournir le niveau de fiabilité requis pour Azure Stack HCI, les commutateurs doivent nécessairement :
+
+- Être conformes aux spécifications, normes et protocoles applicables au secteur
+- Fournir une visibilité sur les spécifications, les normes et les protocoles pris en charge par le commutateur
+- Fournir des informations sur les fonctionnalités qui sont activées
+
+Veillez à demander à votre fournisseur de commutateur si votre commutateur prend en charge les normes suivantes :
+
+#### <a name="standard-ieee-8021q"></a>Standard : IEEE 802.1Q
+
+Les commutateurs Ethernet doivent respecter la spécification IEEE 802.1Q qui définit les réseaux locaux virtuels. Ces deniers sont nécessaires pour plusieurs aspects d’Azure Stack HCI et sont exigés dans tous les scénarios.
+
+#### <a name="standard-ieee-8021qbb"></a>Standard : IEEE 802.1Qbb
+
+Les commutateurs Ethernet doivent respecter la spécification IEEE 802.1Qbb qui définit PFC (Priority Flow Control). PFC est exigé en cas d’utilisation de Data Center Bridging (DCB). Comme DCB peut être utilisé dans les scénarios RDMA RoCE et iWARP, 802.1Qbb est exigé dans tous les scénarios. Un minimum de trois priorités de classe de service (CoS) sont nécessaires sans rétrograder les capacités du commutateur ou la vitesse du port.
+
+#### <a name="standard-ieee-8021qaz"></a>Standard : IEEE 802.1Qaz
+
+Les commutateurs Ethernet doivent respecter la spécification IEEE 802.1Qaz qui définit ETS (Enhanced Transmission Selection). ETS est obligatoire en cas d’utilisation de DCB. Comme DCB peut être utilisé dans les scénarios RDMA RoCE et iWARP, 802.1Qaz est exigé dans tous les scénarios. Un minimum de trois priorités CoS sont nécessaires sans rétrograder les capacités du commutateur ou la vitesse du port.
+
+#### <a name="standard-ieee-8021ab"></a>Standard : IEEE 802.1AB
+
+Les commutateurs Ethernet doivent respecter la spécification IEEE 802.1AB qui définit le protocole LLDP (Link Layer Discovery Protocol). LLDP est nécessaire pour que Windows détecte la configuration du commutateur. La configuration des valeurs TLV (Type-Length-Values) LLDP doit être activée de manière dynamique. Ces commutateurs ne doivent pas nécessiter une configuration supplémentaire.
+
+Par exemple, l’activation du sous-type 3 de la spécification 802.1 doit être automatiquement annoncée à tous les réseaux locaux virtuels disponibles sur les ports de commutateur.
+
+#### <a name="tlv-requirements"></a>Spécifications TLV
+
+LLDP permet aux organisations de définir et d’encoder leurs propres valeurs TLV personnalisés. Celles-ci sont appelées TLV spécifiques à l’organisation. Toutes les valeurs TLV spécifiques à l’organisation commencent par la valeur TLV LLDP de Type 127. Le tableau suivant indique les sous-types de TLV personnalisés spécifiques à l’organisation (Type de TLV 127) qui sont obligatoires et ceux qui sont facultatifs :
+
+|Condition|Organisation|Sous-type TLV|
+|-|-|-|
+|Obligatoire|IEEE 802.1|Nom du réseau local virtuel (Sous-type = 3)|
+|Obligatoire|IEEE 802.3|Taille de trame maximale (Sous-type = 4)|
+|Facultatif|IEEE 802.1|ID de port de réseau local virtuel (Sous-type = 1)|
+|Facultatif|IEEE 802.1|ID de port et de protocole de réseau local virtuel (Sous-type = 2)|
+|Facultatif|IEEE 802.1|Agrégation de liens (Sous-type = 7)|
+|Facultatif|IEEE 802.1|Notification de congestion (Sous-type = 8)|
+|Facultatif|IEEE 802.1|Configuration ETS (Sous-type = 9)|
+|Facultatif|IEEE 802.1|Recommandation ETS (Sous-type = A)|
+|Facultatif|IEEE 802.1|Configuration PFC (Sous-type = B)|
+|Facultatif|IEEE 802.1|EVB (Sous-type = D)|
+|Facultatif|IEEE 802.3|Agrégation de liens (Sous-type = 3)|
+
+> [!NOTE]
+> Certaines des fonctionnalités facultatives listées peuvent s’avérer obligatoires dans le futur.
 
 ### <a name="storage-requirements"></a>Exigences de stockage
 

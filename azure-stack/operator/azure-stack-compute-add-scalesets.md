@@ -3,16 +3,16 @@ title: Rendre les groupes identiques de machines virtuelles disponibles dans Azu
 description: Découvrez comment un opérateur cloud peut ajouter des groupes de machines virtuelles identiques à la Place de marché Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 10/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 3714b69e2a65baeb0a5b0ba9a029a5b3144bee1a
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.openlocfilehash: a69f29a168853a2cb2bc1c757f90185e0b56636e
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089692"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91814992"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>Rendre les groupes identiques de machines virtuelles disponibles dans Azure Stack Hub
 
@@ -35,16 +35,17 @@ Sur Azure Stack Hub, les groupes de machines virtuelles identiques ne prennent p
 ## <a name="use-the-azure-stack-hub-portal"></a>Utiliser le portail Azure Stack Hub
 
 1. Connectez-vous au portail Azure Stack Hub. Ensuite, accédez à **Tous les services**, **Groupes de machines virtuelles identiques**, puis, sous **COMPUTE**, sélectionnez les **groupes de machines virtuelles identiques**.
-   ![Sélectionner des groupes de machines virtuelles identiques](media/azure-stack-compute-add-scalesets/all-services.png)
+   [![Sélectionner des groupes de machines virtuelles identiques](media/azure-stack-compute-add-scalesets/all-services-small.png)](media/azure-stack-compute-add-scalesets/all-services.png#lightbox)
 
-2. Sélectionnez ***Créer des groupes de machines virtuelles identiques***.
+2. Sélectionnez **Ajouter**.
+
    ![Créer un groupe de machines virtuelles identiques](media/azure-stack-compute-add-scalesets/create-scale-set.png)
 
-3. Renseignez les champs vides en choisissant dans les menus déroulants les options appropriées pour **Image du disque du système d’exploitation**, **Abonnement** et **Taille d’Instance**. Sélectionnez **Oui** pour **Utiliser des disques managés**. Cliquez sur **Créer**.
-    ![Configurer et créer des groupes de machines virtuelles identiques](media/azure-stack-compute-add-scalesets/create.png)
+3. Renseignez les champs vides en choisissant dans les menus déroulants les options appropriées pour **Image du disque du système d’exploitation**, **Abonnement** et **Taille d’Instance**. Sélectionnez **Oui** pour **Utiliser des disques managés**. Sélectionnez ensuite **Create** (Créer).
+    [![Configurer et créer des groupes de machines virtuelles identiques](media/azure-stack-compute-add-scalesets/create-small.png)](media/azure-stack-compute-add-scalesets/create.png#lightbox)
 
 4. Pour voir votre nouveau groupe de machines virtuelles identiques, accédez à **Toutes les ressources**, recherchez le nom du groupe de machines virtuelles identiques, puis sélectionnez son nom dans les résultats de la recherche.
-   ![Afficher le groupe de machines virtuelles identiques](media/azure-stack-compute-add-scalesets/search.png)
+   [![Afficher le groupe de machines virtuelles identiques](media/azure-stack-compute-add-scalesets/search-small.png)](media/azure-stack-compute-add-scalesets/search.png#lightbox)
 
 ## <a name="update-images-in-a-virtual-machine-scale-set"></a>Mettre à jour des images dans un groupe de machines virtuelles identiques
 
@@ -79,7 +80,7 @@ Vous pouvez augmenter ou réduire la taille d'un groupe de machines virtuelles i
 
 2. Utilisez la barre de défilement pour définir la nouvelle échelle pour ce groupe identique de machines virtuelles, puis cliquez sur **Enregistrer**.
 
-     ![Mettre à l’échelle le groupe de machines virtuelles identiques](media/azure-stack-compute-add-scalesets/scale.png)
+     [![Mettre à l’échelle le groupe de machines virtuelles identiques](media/azure-stack-compute-add-scalesets/scale-small.png)](media/azure-stack-compute-add-scalesets/scale.png#lightbox)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
