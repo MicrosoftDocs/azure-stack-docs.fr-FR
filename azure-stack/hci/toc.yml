@@ -118,12 +118,20 @@
           href: concepts/quorum.md
     - name: Mise en réseau
       items:
-        - name: SDN (Software Defined Network)
+        - name: Mise en réseau SDN (Software Defined Networking)
           href: concepts/software-defined-networking.md
         - name: Planifier une infrastructure SDN
           href: concepts/plan-software-defined-networking-infrastructure.md
+        - name: Vue d’ensemble du contrôleur de réseau
+          href: concepts/network-controller-overview.md
         - name: Planifier un contrôleur de réseau
           href: concepts/network-controller.md
+        - name: Vue d’ensemble d’un équilibreur de charge logicielle
+          href: concepts/software-load-balancer.md
+        - name: Vue d’ensemble de la passerelle RAS
+          href: concepts/gateway-overview.md
+        - name: Vue d’ensemble du réflecteur de route
+          href: concepts/route-reflector-overview.md
     - name: Maintenance et sécurité
       items:
         - name: Facturation

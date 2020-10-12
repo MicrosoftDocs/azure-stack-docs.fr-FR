@@ -7,13 +7,13 @@ metadata:
   ms.topic: landing-page
   author: khdownie
   ms.author: v-kedow
-  ms.date: 07/21/2020
-  ms.openlocfilehash: 439e41651800ddb6ee478bfad083890193aef5da
-  ms.sourcegitcommit: e675eafd12b044a6d8ae3790d1874e935f80f7cb
+  ms.date: 10/5/2020
+  ms.openlocfilehash: f66164d37b0e5fa1fab243f73b81df3b732205bc
+  ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/22/2020
-  ms.locfileid: "86891966"
+  ms.lasthandoff: 10/08/2020
+  ms.locfileid: "91853140"
 landingContent:
 - title: À propos d’Azure Stack HCI
   linkLists:
@@ -39,7 +39,7 @@ landingContent:
       url: deploy/witness.md
     - text: Inscription auprès d’Azure
       url: deploy/register-with-azure.md
-    - text: Valider un cluster Azure Stack HCI
+    - text: Valider un cluster
       url: deploy/validate.md
 - title: Gérer le stockage
   linkLists:
@@ -49,22 +49,18 @@ landingContent:
       url: manage/create-volumes.md
     - text: Créer des volumes étendus
       url: manage/create-stretched-volumes.md
+    - text: Protéger les volumes
+      url: manage/volume-encryption-deduplication.md
     - text: Étendre des volumes
       url: manage/extend-volumes.md
     - text: Supprimer des volumes
       url: manage/delete-volumes.md
     - text: Remplacer des lecteurs
       url: manage/replace-drives.md
-- title: Gérer les machines virtuelles
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Gérer des machines virtuelles avec Windows Admin Center
-      url: manage/vm.md
-    - text: Gérer les machines virtuelles avec PowerShell
-      url: manage/vm-powershell.md
-    - text: Configurer des règles d’affinité de machine virtuelle
-      url: deploy/before-you-start.md
+    - text: Utiliser le cache CSV
+      url: manage/use-csv-cache.md
+    - text: Gérer SMB Multichannel
+      url: manage/manage-smb-multichannel.md
 - title: Gérer le cluster
   linkLists:
   - linkListType: how-to-guide
@@ -75,10 +71,22 @@ landingContent:
       url: manage/cluster-powershell.md
     - text: Ajouter ou supprimer des serveurs
       url: manage/add-cluster.md
+    - text: Superviser un cluster
+      url: manage/monitor-cluster.md
     - text: Mettre à jour un cluster
       url: manage/update-cluster.md
     - text: Changer de langue
       url: manage/vm-powershell.md
+- title: Gérer les machines virtuelles
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gérer des machines virtuelles avec Windows Admin Center
+      url: manage/vm.md
+    - text: Gérer les machines virtuelles avec PowerShell
+      url: manage/vm-powershell.md
+    - text: Configurer des règles d’affinité de machine virtuelle
+      url: deploy/before-you-start.md
 - title: Concepts Azure Stack HCI
   linkLists:
   - linkListType: concept
@@ -91,16 +99,24 @@ landingContent:
       url: concepts/updates.md
     - text: Choisir des lecteurs
       url: concepts/choose-drives.md
+    - text: Considérations relatives à la symétrie des lecteurs
+      url: concepts/drive-symmetry-considerations.md
     - text: Planifier des volumes
       url: concepts/plan-volumes.md
     - text: Tolérance aux pannes et efficacité du stockage
       url: concepts/fault-tolerance.md
     - text: Considérations relatives à la sécurité
       url: concepts/security.md
+    - text: Cache de pool de stockage
+      url: concepts/cache.md
+    - text: Quorum du pool de stockage et du cluster
+      url: concepts/quorum.md
 - title: Connexion à Azure
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Gérer une inscription Azure
+      url: manage/manage-azure-registration.md
     - text: Inscrire Windows Admin Center avec Azure
       url: manage/register-windows-admin-center.md
     - text: Utiliser Azure Site Recovery
@@ -111,3 +127,21 @@ landingContent:
       url: manage/use-azure-network-adapter.md
     - text: Utiliser la Sauvegarde Azure
       url: manage/use-azure-backup.md
+- title: SDN (Software Defined Network)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vue d’ensemble de la mise en réseau SDN (Software Defined Networking)
+      url: concepts/software-defined-networking.md
+    - text: Planifier une infrastructure SDN
+      url: concepts/plan-software-defined-networking-infrastructure.md
+    - text: Vue d’ensemble du contrôleur de réseau
+      url: concepts/network-controller-overview.md
+    - text: Planifier un contrôleur de réseau
+      url: concepts/network-controller.md
+    - text: Vue d’ensemble d’un équilibreur de charge logicielle
+      url: concepts/software-load-balancer.md
+    - text: Vue d’ensemble de la passerelle RAS
+      url: concepts/gateway-overview.md
+    - text: Vue d’ensemble du réflecteur de route
+      url: concepts/route-reflector-overview.md
