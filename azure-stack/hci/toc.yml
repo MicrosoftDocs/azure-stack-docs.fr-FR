@@ -118,6 +118,8 @@
           href: concepts/quorum.md
     - name: Mise en réseau
       items:
+        - name: Planifier le réseau hôte
+          href: concepts/plan-host-networking.md
         - name: Mise en réseau SDN (Software Defined Networking)
           href: concepts/software-defined-networking.md
         - name: Planifier une infrastructure SDN
