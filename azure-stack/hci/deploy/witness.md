@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 43d63e4e565a36c30837e2a8b460e0d73a35c0a5
-ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
+ms.openlocfilehash: 075198e9045ac2d735f2113164e7fc4e24b7934f
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88145530"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899514"
 ---
 # <a name="set-up-a-cluster-witness"></a>Configurer un témoin de cluster
 
@@ -84,7 +84,7 @@ Le témoin cloud utilise toujours **Blob** comme type de stockage. Azure utilise
 
 Dans le Portail Azure, accédez à votre compte de stockage, cliquez sur **Tous les paramètres**, puis sur **Propriétés** pour afficher et copier les URL de votre point de terminaison.  
 
-:::image type="content" source="media/witness/cloud-witness-2.png" alt-text="URL du point de terminaison témoin cloud" lightbox="media/witness/cloud-witness-2.png":::  
+:::image type="content" source="media/witness/cloud-witness-2.png" alt-text="Clés d’accès témoin cloud" lightbox="media/witness/cloud-witness-2.png":::  
 
 ## <a name="set-up-a-witness-using-windows-powershell"></a>Configurer un témoin en utilisant Windows PowerShell
 
@@ -106,4 +106,4 @@ Set-ClusterQuorum -FileShareWitness "\\fileserver\share" -Credential (Get-Creden
 
 - Pour plus d’informations sur le quorum du cluster, consultez [Présentation du quorum de cluster et de pool dans Azure Stack HCI](../concepts/quorum.md).
 
-- Pour plus d'informations sur la création et la gestion des comptes de stockage, consultez [À propos des comptes de stockage Azure](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/).
+- Pour plus d'informations sur la création et la gestion des comptes de stockage, consultez [À propos des comptes de stockage Azure](/azure/storage/common/storage-account-create).

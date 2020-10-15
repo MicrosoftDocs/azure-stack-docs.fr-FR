@@ -7,12 +7,12 @@ ms.date: 10/06/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/06/2020
-ms.openlocfilehash: 77c7e3484186a0bea1f6220330338128aad72fad
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: 68a28c28c02565c996c3bbc6742554cc78090846
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91815409"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853230"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>Démarrage rapide : Créer une machine virtuelle Windows Server avec le portail Azure Stack Hub
 
@@ -58,7 +58,7 @@ Connectez-vous au portail Azure Stack Hub. L’adresse du portail Azure Stack Hu
 
 1. Sélectionnez **Machines virtuelles** pour passer en revue votre nouvelle machine virtuelle. Recherchez le nom de la machine virtuelle, puis sélectionnez la machine virtuelle dans les résultats de la recherche.
 
-![Créer une machine virtuelle – Rechercher une machine virtuelle](./media/azure-stack-quick-windows-portal/image7.png)
+:::image type="content" source="./media/azure-stack-quick-windows-portal/image7-inline.png" alt-text="Créer une machine virtuelle – Rechercher une machine virtuelle" lightbox="./media/azure-stack-quick-windows-portal/image7.png":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

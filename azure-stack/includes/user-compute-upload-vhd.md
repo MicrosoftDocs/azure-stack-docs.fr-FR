@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: 8b8f26eefd70e54629a1505a01e1306cab2eda1d
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: 28fe06ca182b2df8104c2d8b23ce9f5c27448064
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609891"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91936073"
 ---
 Vous pouvez charger votre disque dur virtuel avec le portail. Ou, avec le conteneur que vous avez créé dans le portail, utilisez AzCopy.
 
@@ -33,7 +33,7 @@ Vous pouvez charger votre disque dur virtuel avec le portail. Ou, avec le conten
 
 Utilisez Explorateur Stockage Azure ou AzCopy pour réduire les risques de corruption de votre disque dur virtuel dans le processus de chargement et accélérer le chargement. Les étapes suivantes utilisent AzCopy sur un ordinateur Windows 10. AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copier des blobs ou des fichiers vers ou depuis un compte de stockage.
 
-1. Si ce n’est pas déjà fait, installez AzCopy. Vous trouverez des instructions sur le téléchargement et la prise en main d’AzCopy dans l’article [Bien démarrer avec AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10). Prenez note de l’emplacement où vous stockez le fichier binaire. Vous pouvez [ajouter AzCopy à votre chemin](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) pour l’utiliser à partir de la ligne de commande PowerShell.
+1. Si ce n’est pas déjà fait, installez AzCopy. Vous trouverez des instructions sur le téléchargement et la prise en main d’AzCopy dans l’article [Bien démarrer avec AzCopy](/azure/storage/common/storage-use-azcopy-v10). Prenez note de l’emplacement où vous stockez le fichier binaire. Vous pouvez [ajouter AzCopy à votre chemin](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) pour l’utiliser à partir de la ligne de commande PowerShell.
 
 2. Ouvrez PowerShell pour utiliser AzCopy à partir de l’interpréteur de commandes.
 
@@ -47,4 +47,4 @@ Utilisez Explorateur Stockage Azure ou AzCopy pour réduire les risques de corru
 > [!NOTE]  
 > Chargez votre disque dur virtuel à l’aide d’une syntaxe similaire à celle du chargement d’un fichier unique dans un répertoire virtuel. Ajoutez `--blob-type=PageBlob` pour vous assurer que le disque dur virtuel est chargé en tant qu’**objet blob de pages**, au lieu d’**objet blob de blocs** par défaut.
 
-Pour plus d’informations sur l’utilisation d’AzCopy et d’autres outils de stockage, consultez [Utiliser les outils de transfert de données dans le stockage Azure Stack Hub](/azure-stack/user/azure-stack-storage-transfer).
+Pour plus d’informations sur l’utilisation d’AzCopy et d’autres outils de stockage, consultez [Utiliser les outils de transfert de données dans le stockage Azure Stack Hub](../user/azure-stack-storage-transfer.md).

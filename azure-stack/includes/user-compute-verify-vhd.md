@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: c8f336f48fd5ef584d826c27fef52b2560fe17fe
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: 4c0e9fd823b7b932ec11c61e24ce650df1cf9cc9
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609898"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91936125"
 ---
 Avant de charger votre disque dur virtuel, vous devez vérifier qu’il répond à la configuration requise. Les disques durs virtuels qui ne satisfont pas à la configuration requise ne sont pas chargés dans Azure Stack Hub.
 
@@ -21,7 +21,7 @@ Avant de charger votre disque dur virtuel, vous devez vérifier qu’il répond 
     Get-Command -Module hyper-v
     ```
 
-    Si vous ne disposez pas des commandes Hyper-V, consultez [Utilisation d’Hyper-V et de Windows PowerShell](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/try-hyper-v-powershell). 
+    Si vous ne disposez pas des commandes Hyper-V, consultez [Utilisation d’Hyper-V et de Windows PowerShell](/virtualization/hyper-v-on-windows/quick-start/try-hyper-v-powershell). 
 
 2. Récupérez le chemin d’accès à votre disque dur virtuel sur votre ordinateur. Exécutez l’applet de commande suivante :
 

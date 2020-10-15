@@ -3,16 +3,16 @@ title: Automatisation de la gestion et de la mise à jour des machines virtuelle
 description: Utiliser les solutions Azure Monitor pour machines virtuelles, Update Management, Change Tracking, et Inventory dans Azure Automation, afin de gérer les machines virtuelles Windows et Linux déployées dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 10/08/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: f0d1ecb2f5ad2313894cb15998f43f2bfd257c77
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 10/08/2020
+ms.openlocfilehash: b9a37df9404de01bd9b094ae259c8c62637cb369
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572440"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853259"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Automatisation de la gestion et de la mise à jour des machines virtuelles dans Azure Stack Hub
 Utilisez les fonctionnalités suivantes de la solution Azure Automation pour gérer des machines virtuelles Windows et Linux déployées avec Azure Stack Hub :
@@ -83,7 +83,7 @@ Pour activer la gestion des mises à jour des machines virtuelles Azure Stack Hu
 
 2. Dans le portail utilisateur Azure Stack Hub, accédez au panneau Extensions des machines virtuelles pour lesquelles vous voulez activer ces solutions, cliquez sur **+ Ajouter**, sélectionnez l’extension **Azure Update and Configuration Management**, puis cliquez sur **Créer** :
 
-   [![La boîte de dialogue « Azure Update and Configuration Management » contient des informations explicatives, un bouton Créer (mis en surbrillance) pour ajouter l’extension, ainsi qu’un lien vers plus d’informations.](media//vm-update-management/3-sm.PNG "Panneau Extension de machine virtuelle")](media//vm-update-management/3-lg.PNG)
+    ![La boîte de dialogue « Azure Update and Configuration Management » contient des informations explicatives, un bouton Créer (mis en surbrillance) pour ajouter l’extension, ainsi qu’un lien vers plus d’informations.](media//vm-update-management/3-sm.PNG "Panneau Extension de machine virtuelle")
 
 3. Indiquez la clé primaire et l'ID d’espace de travail précédemment créés pour lier l’agent à l’espace de travail Log Analytics. Cliquez ensuite sur **OK** pour déployer l’extension.
 

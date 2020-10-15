@@ -7,12 +7,12 @@ ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 09/11/2020
-ms.openlocfilehash: 7d7eeaec5f82e08cf33a307f429389f03e712987
-ms.sourcegitcommit: a845ae0d3794b5d845b2ae712baa7e38f3011a7b
+ms.openlocfilehash: 986aba8f7591239abfa5502dc2c335177df2eed1
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2020
-ms.locfileid: "90045542"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899531"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Planifier une infrastructure de réseau défini par logiciel
 
@@ -175,7 +175,7 @@ Rôle|Configuration requise pour les processeurs virtuels|Besoins en mémoire|Co
 |Passerelle du serveur d’accès à distance<br> (un seul pool de trois passerelles<br> de nœud, deux actives et une passive)|8 processeurs virtuels|8 Go recommandés|75 Go pour le lecteur de système d’exploitation
 |Routeur BGP de passerelle RAS<br> pour l’homologation SLB/MUX<br> (vous pouvez également utiliser le commutateur TOR<br> en tant que routeur BGP)|2 processeurs virtuels|2 Go|75 Go pour le lecteur de système d’exploitation|
 
-Si vous utilisez System Center – Virtual Machine Manager (VMM) pour le déploiement, des ressources de machine virtuelle d’infrastructure supplémentaires sont requises pour VMM et des infrastructures autres que de réseau défini par logiciel. Pour en savoir plus, consultez [Configuration système requise pour System Center Virtual Machine Manager](https://docs.microsoft.com/system-center/vmm/system-requirements?view=sc-vmm-2019&preserve-view=true).
+Si vous utilisez System Center – Virtual Machine Manager (VMM) pour le déploiement, des ressources de machine virtuelle d’infrastructure supplémentaires sont requises pour VMM et des infrastructures autres que de réseau défini par logiciel. Pour en savoir plus, consultez [Configuration système requise pour System Center Virtual Machine Manager](/system-center/vmm/system-requirements?preserve-view=true&view=sc-vmm-2019).
 
 ## <a name="extending-your-infrastructure"></a>Extension de votre infrastructure
 La configuration requise en termes de dimensionnement et de ressources de votre infrastructure dépend des machines virtuelles de charge de travail du locataire que vous envisagez d’héberger. La configuration requise pour le processeur, la mémoire et le disque pour les machines virtuelles d’infrastructure (par exemple : contrôleur de réseau, SLB, passerelle, etc.) est définie dans le tableau précédent. Vous pouvez ajouter des machines virtuelles d’infrastructure pour la mise à l’échelle en fonction des besoins. Toutefois, les machines virtuelles de locataire s’exécutant sur des hôtes Hyper-V ont leurs propres exigences en matière de processeur, de mémoire et de disque que vous devez prendre en considération.
@@ -197,4 +197,4 @@ Fonctionnalité|Conditions requises pour le déploiement|Conditions requises en 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour consulter des informations connexes, reportez-vous également à :
 - [Configuration requise pour le déploiement du contrôleur de réseau](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller)
-- [SDN dans Azure Stack HCI](https://docs.microsoft.com/azure-stack/hci/concepts/software-defined-networking)
+- [SDN dans Azure Stack HCI](./software-defined-networking.md)

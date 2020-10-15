@@ -8,12 +8,12 @@ ms.date: 09/25/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 9ae3d2a145b04c9f1e3fa6b926eb657a4af83ebf
-ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
+ms.openlocfilehash: ac110a3ee90cd0b1439e34a418bf7473b8487502
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91367255"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899786"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Stratégie de maintenance Azure Stack Hub
 
@@ -47,9 +47,9 @@ Pour lire la documentation relative à la planification et à la gestion des mis
 
 Pour en savoir plus sur une mise à jour, notamment comment la télécharger, consultez les notes de publication qui s’y rapportent :
 
-- [Mise à jour Azure Stack Hub 2005](/azure-stack/operator/release-notes?view=azs-2005)
-- [Mise à jour Azure Stack Hub 2002](/azure-stack/operator/release-notes?view=azs-2002)
-- [Mise à jour Azure Stack Hub 1910](/azure-stack/operator/release-notes?view=azs-1910)
+- [Mise à jour Azure Stack Hub 2005](./release-notes.md?view=azs-2005)
+- [Mise à jour Azure Stack Hub 2002](./release-notes.md?view=azs-2002)
+- [Mise à jour Azure Stack Hub 1910](./release-notes.md?view=azs-1910)
 
 ## <a name="hotfixes"></a>Correctifs logiciels
 
@@ -61,9 +61,9 @@ Les correctifs logiciels sont téléchargés et installés comme les packages de
 
 Pour plus d’informations sur les correctifs logiciels actuellement disponibles, consultez les notes de publication de cette mise à jour :
 
-- [Correctif logiciel Azure Stack Hub 2005](/azure-stack/operator/release-notes?view=azs-2005#hotfixes)
-- [Correctif logiciel Azure Stack Hub 2002](/azure-stack/operator/release-notes?view=azs-2002#hotfixes-1)
-- [Correctif logiciel Azure Stack Hub 1910](/azure-stack/operator/release-notes?view=azs-1910#hotfixes-2)
+- [Correctif logiciel Azure Stack Hub 2005](./release-notes.md?view=azs-2005#hotfixes)
+- [Correctif logiciel Azure Stack Hub 2002](./release-notes.md?view=azs-2002#hotfixes-1)
+- [Correctif logiciel Azure Stack Hub 1910](./release-notes.md?view=azs-1910#hotfixes-2)
 
 ## <a name="keep-your-system-under-support"></a>Conserver votre système dans un état de prise en charge
 

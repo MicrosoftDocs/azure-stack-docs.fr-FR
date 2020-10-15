@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 4577da446c11f1053372cdf3d6458cd7c90937be
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 67e1961a0f1f739e550cc55d100900190892bb5e
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742507"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899752"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Capacité de calcul Azure Stack Hub
 
@@ -116,7 +116,7 @@ Réduire la taille de la plus grande machine virtuelle à la plus petite machine
      
 ### <a name="add-a-node"></a>Ajouter un nœud
 
-L’[ajout d’un nœud Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-scale-node) libère de la mémoire en répartissant équitablement la mémoire entre les deux nœuds.
+L’[ajout d’un nœud Azure Stack Hub](./azure-stack-add-scale-node.md) libère de la mémoire en répartissant équitablement la mémoire entre les deux nœuds.
 
 ![Ajouter un nœud](media/azure-stack-capacity-planning/add-a-node.png)
 
@@ -128,7 +128,7 @@ Réserve de résilience = 384 + (0,15) ((5)*384) + 112 * (3) = 1 008 Go
 
 ### <a name="increase-memory-on-each-node-to-512-gb"></a>Augmenter la mémoire de chaque nœud jusqu’à 512 Go
 
-[Augmenter la mémoire de chaque nœud](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-storage-physical-memory-capacity) augmente la mémoire totale disponible.
+[Augmenter la mémoire de chaque nœud](./azure-stack-manage-storage-physical-memory-capacity.md) augmente la mémoire totale disponible.
 
 ![Augmenter la taille du nœud](media/azure-stack-capacity-planning/increase-node-size.png)
 

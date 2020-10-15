@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 07/07/2020
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 4d1b6df185225a244996246b3e6883b09ac32d8e
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: bb945f69a972214823f366456967b71a013d98bf
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574225"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899837"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Machine virtuelle du processeur graphique (GPU) sur Azure Stack Hub
 
@@ -22,8 +22,8 @@ ms.locfileid: "90574225"
 Dans cet article, vous pouvez découvrir les modèles de processeurs graphiques (GPU) pris en charge sur le système multi-nœud Azure Stack Hub. Vous y trouverez également des instructions sur l’installation des pilotes utilisés avec les GPU. Le support GPU dans Azure Stack Hub permet de fournir des solutions telles que l’intelligence artificielle, la formation, l’inférence et la visualisation des données. L’accélérateur graphique AMD Radeon Instinct Mi25 peut être utilisé pour prendre en charge des applications gourmandes en graphiques, telles qu’Autodesk AutoCAD.
 
 Vous pouvez choisir parmi trois modèles GPU dans la période de préversion publique. Ils sont disponibles dans les processeurs graphiques NVIDIA V100, NVIDIA T4 et AMD Mi25. Ces GPU physiques s’alignent sur les types de machines virtuelles de la série N Azure suivants, comme suit :
-- [NCv3](https://docs.microsoft.com/azure/virtual-machines/ncv3-series)
-- [NVv4 (AMD MI25)](https://docs.microsoft.com/azure/virtual-machines/nvv4-series)
+- [NCv3](/azure/virtual-machines/ncv3-series)
+- [NVv4 (AMD MI25)](/azure/virtual-machines/nvv4-series)
 - NCas_v4
 
 > [!IMPORTANT]  
@@ -73,7 +73,7 @@ Les machines virtuelles GPU subissent des temps d’arrêt pendant les opératio
 ## <a name="guest-driver-installation"></a>Installation du pilote invité 
 
 ### <a name="amd-mi25"></a>Mi25 AMD
-L’article [Installer des pilotes GPU AMD sur des machines virtuelles série N exécutant Windows](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup) fournit des instructions sur l’installation du pilote pour l’AMD Radeon Instinct Mi25 à l’intérieur de la machine virtuelle compatible GPU-P NVv4, ainsi que les étapes de vérification de l’installation du pilote. Cette extension fonctionne uniquement en mode connecté.
+L’article [Installer des pilotes GPU AMD sur des machines virtuelles série N exécutant Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup) fournit des instructions sur l’installation du pilote pour l’AMD Radeon Instinct Mi25 à l’intérieur de la machine virtuelle compatible GPU-P NVv4, ainsi que les étapes de vérification de l’installation du pilote. Cette extension fonctionne uniquement en mode connecté.
 
 ### <a name="nvidia"></a>NVIDIA
 
@@ -83,4 +83,4 @@ Les pilotes GRID et NVIDIA CUDA doivent être installés manuellement sur la mac
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
-[Fonctionnalités des machines virtuelles Azure Stack](azure-stack-vm-considerations.md) 
+[Fonctionnalités des machines virtuelles Azure Stack](azure-stack-vm-considerations.md)

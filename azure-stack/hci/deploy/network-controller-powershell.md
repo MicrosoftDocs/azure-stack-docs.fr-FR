@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: b9f86e715835ac52bbc34782e4f9eb41ca8b4851
-ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
+ms.openlocfilehash: e217c8b3e2a67dafa121fe752b66af9f24f888a1
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91019569"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899548"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Déployer le contrôleur de réseau à l’aide de Windows PowerShell
 
@@ -40,7 +40,7 @@ Utilisez cette procédure pour installer le rôle de serveur du contrôleur de r
 Pour effectuer cette procédure, il est nécessaire d’appartenir au groupe **Administrateurs** ou à un groupe équivalent.  
 
 >[!NOTE]
->Si vous souhaitez utiliser Gestionnaire de serveur au lieu de Windows PowerShell pour installer le contrôleur de réseau, consultez [Installer le rôle serveur du contrôleur de réseau à l’aide du Gestionnaire de serveur](https://technet.microsoft.com/library/mt403348.aspx)
+>Si vous souhaitez utiliser Gestionnaire de serveur au lieu de Windows PowerShell pour installer le contrôleur de réseau, consultez [Installer le rôle serveur du contrôleur de réseau à l’aide du Gestionnaire de serveur](/windows-server/networking/sdn/technologies/network-controller/install-the-network-controller-server-role-using-server-manager)
 
 Pour installer le contrôleur de réseau, saisissez les commandes suivantes :
 
@@ -218,4 +218,4 @@ Install-NetworkController -Node @($a,$b,$c) -ClientAuthentication Kerberos -Clie
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous n’utilisez pas Kerberos avec votre déploiement de contrôleur de réseau, vous devez déployer des certificats. Pour plus d’informations, consultez [Étapes de post-déploiement pour le contrôleur de réseau](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-controller/post-deploy-steps-nc).
+Si vous n’utilisez pas Kerberos avec votre déploiement de contrôleur de réseau, vous devez déployer des certificats. Pour plus d’informations, consultez [Étapes de post-déploiement pour le contrôleur de réseau](/windows-server/networking/sdn/technologies/network-controller/post-deploy-steps-nc).

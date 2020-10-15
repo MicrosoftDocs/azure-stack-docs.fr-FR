@@ -8,12 +8,12 @@ ms.date: 07/21/2020
 ms.author: v-myoung
 ms.reviewer: prchint
 ms.lastreviewed: 07/21/2020
-ms.openlocfilehash: 403335a81a5ac02f2e32432f54df584baf7c2a02
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: 290f6ba7a8f3c53aafe131dd5c8de5186b88d752
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778146"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899769"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Résoudre les problèmes dans Azure Stack Hub
 
@@ -226,5 +226,5 @@ Le processus relatif aux mises à jour et aux correctifs logiciels Azure Stack H
 
 **Cause** : Lors de la tentative de mise à jour 2002, cette dernière peut échouer et afficher le message suivant : `The private network parameter is missing from cloud parameters. Please use set-azsprivatenetwork cmdlet to set private networkTrace`.
 
-**Correction** : [Configurez un réseau interne privé](https://docs.microsoft.com/azure-stack/operator/azure-stack-network?view=azs-2002#private-network).
+**Correction** : [Configurez un réseau interne privé](./azure-stack-network.md?view=azs-2002#private-network).
 ::: moniker-end

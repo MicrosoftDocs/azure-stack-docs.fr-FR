@@ -6,16 +6,16 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: ac28bcee33cbe7cd54d8f94408620f6f4b0d9d11
-ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
+ms.openlocfilehash: f0aee3ea85db7cf95555ad5f54e8ffb4e3352f5d
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91519412"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91936159"
 ---
 1. Connectez-vous au portail utilisateur Azure Stack Hub.
 
-    Si vous êtes un opérateur cloud qui crée une image de plateforme, suivez les instructions de la rubrique [Ajouter une image de plateforme](/azure-stack/operator/azure-stack-add-vm-image#add-a-platform-image) pour ajouter le disque dur virtuel via le portail d’administration ou avec les points de terminaison d’administrateur.
+    Si vous êtes un opérateur cloud qui crée une image de plateforme, suivez les instructions de la rubrique [Ajouter une image de plateforme](../operator/azure-stack-add-vm-image.md#add-a-platform-image) pour ajouter le disque dur virtuel via le portail d’administration ou avec les points de terminaison d’administrateur.
 
 2. Dans le portail utilisateur, sélectionnez **Tous les services** > **Images** > **Ajouter**.
 

@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: ee292a3461b591a042c0847bd11bb63285a4faf4
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.openlocfilehash: 46946f72fe22345ee60c620ba2cf0283e056ae99
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230612"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899820"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Station de travail d’accès à l’opérateur Azure Stack Hub 
 
@@ -26,14 +26,14 @@ Les tableaux suivants répertorient les scénarios courants pour l’OAW, mais c
 
 |Scénario                                                                                                                          |Description                 |
 |----------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
-|[Accès au portail d’administration](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-portals)                     |Effectuer des opérations administratives                                                                           |
-|[Accès au PEP](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)                                     |Collecte des journaux et téléchargement :<br>-[Créer un partage SMB](#transfer-files-between-the-hlh-and-oaw) sur le HLH pour le transfert de fichiers à partir d’Azure Stack Hub<br>\- Utiliser l’Explorateur Stockage Azure pour charger les journaux enregistrés dans le partage SMB |
-|[Inscrire Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-registration#renew-or-change-registration) |Pour la réinscription, obtenez le nom d’inscription précédent et le groupe de ressources à partir du portail d’administration                               |
-|[Syndication de Place de marché](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item)            |[Créer un partage SMB](#transfer-files-between-the-hlh-and-oaw) sur le HLH pour stocker l’image ou l’extension téléchargée                                                        |
+|[Accès au portail d’administration](./azure-stack-manage-portals.md)                     |Effectuer des opérations administratives                                                                           |
+|[Accès au PEP](./azure-stack-privileged-endpoint.md)                                     |Collecte des journaux et téléchargement :<br>-[Créer un partage SMB](#transfer-files-between-the-hlh-and-oaw) sur le HLH pour le transfert de fichiers à partir d’Azure Stack Hub<br>\- Utiliser l’Explorateur Stockage Azure pour charger les journaux enregistrés dans le partage SMB |
+|[Inscrire Azure Stack Hub](./azure-stack-registration.md#renew-or-change-registration) |Pour la réinscription, obtenez le nom d’inscription précédent et le groupe de ressources à partir du portail d’administration                               |
+|[Syndication de Place de marché](./azure-stack-download-azure-marketplace-item.md)            |[Créer un partage SMB](#transfer-files-between-the-hlh-and-oaw) sur le HLH pour stocker l’image ou l’extension téléchargée                                                        |
 
 ## <a name="download-files"></a>Télécharger les fichiers
 
-Pour obtenir les fichiers et créer la machine virtuelle de l’OAW, [**téléchargez ici**](https://aka.ms/OAWDownload). Veillez à consulter la [Déclaration de confidentialité Microsoft](https://privacy.microsoft.com/privacystatement) et les [Conditions juridiques](https://docs.microsoft.com/legal/azure-stack-hub/azure-stack-operator-access-workstation-legal-terms) avant le téléchargement.
+Pour obtenir les fichiers et créer la machine virtuelle de l’OAW, [**téléchargez ici**](https://aka.ms/OAWDownload). Veillez à consulter la [Déclaration de confidentialité Microsoft](https://privacy.microsoft.com/privacystatement) et les [Conditions juridiques](/legal/azure-stack-hub/azure-stack-operator-access-workstation-legal-terms) avant le téléchargement.
 
 En raison de la nature sans état de la solution, aucune mise à jour n’est apportée à la machine virtuelle de l’OAW. Pour chaque jalon, une nouvelle version du fichier image de la machine virtuelle sera publiée. Utilisez la dernière version pour créer une machine virtuelle de l’OAW. Le fichier image est basé sur la dernière version de Windows Server 2019. Après l’installation, vous pouvez appliquer des mises à jour, y compris des mises à jour critiques, à l’aide de Windows Update. 
 
@@ -80,11 +80,11 @@ Le tableau suivant répertorie les logiciels préinstallés sur la machine virtu
 | Nom du logiciel           | Emplacement                                                                                       |
 |--------------------------|------------------------------------------------------------------------------------------------|
 | [Microsoft Skype Entreprise](https://www.microsoft.com/edge/business/)                                            | \[SystemDrive\]\Program Files (x86)\Microsoft\Edge\Application                                                                                        |
-| [Modules Az](https://docs.microsoft.com/azure-stack/operator/powershell-install-az-module)                         | \[SystemDrive\]\ProgramFiles\WindowsPowerShell\Modules                                         |  
+| [Modules Az](./powershell-install-az-module.md)                         | \[SystemDrive\]\ProgramFiles\WindowsPowerShell\Modules                                         |  
 | [PowerShell 7](https://devblogs.microsoft.com/powershell/announcing-PowerShell-7-0/)| \[SystemDrive\]\Program Files\PowerShell\7                                                                       |
-| [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | \[SystemDrive\]\Program Files (x86)\Microsoft SDKs\Azure\CLI2 |
+| [Azure CLI](/cli/azure/?view=azure-cli-latest) | \[SystemDrive\]\Program Files (x86)\Microsoft SDKs\Azure\CLI2 |
 | [Explorateur Stockage Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/)   | \[SystemDrive\]\Program Files (x86)\Microsoft Azure Storage Explorer                                                                       |
-| [AZCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)                             | \[SystemDrive\]\VMSoftware\azcopy_windows_amd64_10.3.4                                         |
+| [AZCopy](/azure/storage/common/storage-use-azcopy-v10)                             | \[SystemDrive\]\VMSoftware\azcopy_windows_amd64_10.3.4                                         |
 | [Outils AzureStack](https://github.com/Azure/AzureStack-Tools/tree/az)                  | \[SystemDrive\]\VMSoftware\AzureStack-Tools                                                    |
 
 ## <a name="check-hlh-version"></a>Vérifier la version de HLH
@@ -227,9 +227,9 @@ SkipNetworkConfiguration     | Facultatif | Ignore la configuration réseau de l
 
 ## <a name="transfer-files-between-the-hlh-and-oaw"></a>Transfert de fichiers entre HLH et l'OAW
 
-Si vous avez besoin de transférer des fichiers entre le HLH et l'OAW, créez un partage SMB à l’aide de l’applet de commande [New-SmbShare](https://docs.microsoft.com/powershell/module/smbshare/new-smbshare?view=win10-ps). New-SmbShare expose un dossier de système de fichiers aux clients distants en tant que partage de protocole SMB (Server Message Block). Par exemple :
+Si vous avez besoin de transférer des fichiers entre le HLH et l'OAW, créez un partage SMB à l’aide de l’applet de commande [New-SmbShare](/powershell/module/smbshare/new-smbshare?view=win10-ps). New-SmbShare expose un dossier de système de fichiers aux clients distants en tant que partage de protocole SMB (Server Message Block). Par exemple :
 
-Pour supprimer un partage qui a été créé par cette applet de commande, utilisez l’applet de commande [Remove-SmbShare](https://docs.microsoft.com/powershell/module/smbshare/remove-smbshare?view=win10-ps). Par exemple :
+Pour supprimer un partage qui a été créé par cette applet de commande, utilisez l’applet de commande [Remove-SmbShare](/powershell/module/smbshare/remove-smbshare?view=win10-ps). Par exemple :
 
 ## <a name="remove-the-oaw-vm"></a>Supprimer la machine virtuelle de l’OAW
 
