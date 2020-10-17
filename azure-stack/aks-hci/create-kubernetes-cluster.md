@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: ddaac062a147440b4ce290ad988629c417a5932a
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 7ef2f0e0532ee342e8821b362b16433f755bc072
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949362"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623266"
 ---
 # <a name="quickstart-create-a-kubernetes-cluster-on-azure-stack-hci-using-windows-admin-center"></a>Démarrage rapide : Créer un cluster Kubernetes sur Azure Stack HCI à l’aide de Windows Admin Center
 
@@ -31,7 +31,7 @@ C’est parti :
 
     ![Représente la page des informations de base de l’Assistant cluster Kubernetes.](.\media\create-kubernetes-cluster\basics.png)
 
-5. Vous pouvez configurer des pools de nœuds supplémentaires pour exécuter vos charges de travail sur la page **Pools de nœuds**. Pendant la préversion publique, vous pouvez ajouter jusqu’à un pool de nœuds Windows et un pool de nœuds Linux (en plus du pool de nœuds système). Quand vous avez terminé, cliquez sur **Suivant**.
+5. Vous pouvez configurer des pools de nœuds supplémentaires pour exécuter vos charges de travail sur la page **Pools de nœuds**. Pendant la préversion publique, vous pouvez ajouter jusqu’à un pool de nœuds Windows et un pool de nœuds Linux (en plus du pool de nœuds système). Si vous souhaitez activer l’intégration d’Azure Arc plus tard dans cet Assistant, vous aurez besoin d’au moins un pool de nœuds Linux qui n’est pas le pool de nœuds principal. Quand vous avez terminé, cliquez sur **Suivant**.
 6. Spécifiez votre configuration réseau sur la page **Mise en réseau**. Si vous sélectionnez « Avancé », vous pouvez personnaliser la plage d’adresses utilisée lors de la création d’un réseau virtuel pour les nœuds du cluster. Si vous sélectionnez « De base », les réseaux virtuels des nœuds du cluster sont créés avec une plage d’adresses par défaut. Les paramètres réseau (équilibrage de charge, stratégie réseau et routage d’application HTTP) ne peuvent pas être modifiés dans la préversion publique. Quand vous avez terminé, sélectionnez **Suivant**.
 
     ![Représente la page Mise en réseau de l’Assistant cluster Kubernetes.](.\media\create-kubernetes-cluster\networking.png)
