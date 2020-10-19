@@ -3,20 +3,20 @@ title: Présentation des machines virtuelles Azure Stack Hub
 description: Apprenez-en davantage sur les machines virtuelles Azure Stack Hub.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 10/01/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2020
-ms.openlocfilehash: 9dda1268962952e4828b292a472ba342f1fadd23
-ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
+ms.openlocfilehash: 01ee528229e52a66174c3b4d1dbba49eea6a5318
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84813735"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623130"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Présentation des machines virtuelles Azure Stack Hub
 
-Azure Stack Hub propose des machines virtuelles en tant que type de ressource informatique évolutive à la demande. Une machine virtuelle est mieux adaptée à vos besoins si vous devez surtout améliorer le contrôle de votre environnement informatique. Cet article fournit des informations préalables à la création de votre première machine virtuelle.
+Azure Stack Hub propose des machines virtuelles en tant que type de ressource informatique évolutive à la demande. Une machine virtuelle est mieux adaptée à vos besoins si vous devez surtout améliorer le contrôle de votre environnement informatique. Cet article fournit des informations sur la création de votre première machine virtuelle.
 
 Une machine virtuelle Azure Stack Hub vous offre la souplesse de la virtualisation, sans devoir gérer des clusters ou des machines individuelles. Vous devez cependant toujours assurer la maintenance de la machine virtuelle en effectuant des tâches comme la configuration, la mise à jour corrective/mise à jour et l’installation des logiciels qui s’exécutent sur celle-ci.
 
@@ -41,7 +41,7 @@ Différentes considérations liées à la conception sont à prendre en compte l
 - La configuration de la machine virtuelle après son démarrage.
 - Les ressources liées nécessaires à la machine virtuelle.
 
-### <a name="naming"></a>Dénomination
+### <a name="names"></a>Noms
 
 Une machine virtuelle a un nom qui lui est assigné et a un nom d’ordinateur configuré dans le cadre du système d’exploitation. Le nom d’une machine virtuelle peut comprendre jusqu’à 15 caractères.
 
@@ -107,10 +107,10 @@ Il existe plusieurs façons de créer une machine virtuelle. Votre choix dépend
 
 Vous pouvez gérer les machines virtuelles via un portail basé sur un navigateur, via des outils en ligne de commande avec prise en charge des scripts ou directement via des API. Voici quelques tâches de gestion classiques :
 
-- Obtenir des informations sur une machine virtuelle
-- Se connecter à une machine virtuelle
-- Gérer la disponibilité
-- Faire des sauvegardes
+- Obtention d’informations sur une machine virtuelle.
+- Connexion à une machine virtuelle.
+- Gestion de la disponibilité.
+- Réalisation de sauvegardes.
 
 ### <a name="get-information-about-your-vm"></a>Obtenir des informations sur votre machine virtuelle
 

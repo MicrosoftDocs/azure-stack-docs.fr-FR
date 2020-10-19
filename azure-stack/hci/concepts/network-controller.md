@@ -1,60 +1,66 @@
 ---
-title: Planifier le déploiement du contrôleur de réseau
-description: Cette rubrique explique comment planifier le déploiement du contrôleur de réseau par le biais de Windows Admin Center sur un groupe de machines virtuelles exécutant le système d’exploitation Azure Stack HCI.
+title: Planifier le déploiement d’un contrôleur de réseau
+description: Cette rubrique explique comment planifier le déploiement d’un contrôleur de réseau par le biais de Windows Admin Center sur un ensemble de machines virtuelles exécutant le système d’exploitation Azure Stack HCI.
 author: AnirbanPaul
 ms.author: anpaul
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.openlocfilehash: 785665c9edc3af3230b4813e6da6bceddc43bd0a
-ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
+ms.date: 10/7/2020
+ms.openlocfilehash: ec9ddb62dc876fbd4b99ebc2c8e2a3af4a54e8a7
+ms.sourcegitcommit: 9a91dbdaa556725f51bcf3d8e79a4ed2dd5a209f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90010830"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91847667"
 ---
-# <a name="plan-to-deploy-the-network-controller"></a>Planifier le déploiement du contrôleur de réseau
+# <a name="plan-to-deploy-network-controller"></a>Planifier le déploiement d’un contrôleur de réseau
 
->S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019 
+>S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
 
-Planifier le déploiement du contrôleur de réseau via Windows Admin Center requiert un groupe de machines virtuelles exécutant le système d’exploitation Azure Stack HCI. Le contrôleur de réseau est un rôle serveur hautement disponible et scalable qui requiert un minimum de trois machines virtuelles pour fournir une haute disponibilité sur votre réseau.
+La planification du déploiement d’un contrôleur de réseau via Windows Admin Center nécessite un ensemble de machines virtuelles exécutant le système d’exploitation Azure Stack HCI. Un contrôleur de réseau est un rôle serveur hautement disponible et scalable qui requiert un minimum de trois machines virtuelles pour fournir une haute disponibilité sur votre réseau.
 
    >[!NOTE]
-   > Nous vous recommandons de déployer le contrôleur de réseau sur ses propres machines virtuelles dédiées.
+   > Nous vous recommandons de déployer un contrôleur de réseau sur ses propres machines virtuelles dédiées.
 
 ## <a name="network-controller-requirements"></a>Configuration requise pour le contrôleur de réseau
-Les éléments suivants sont requis pour déployer le contrôleur de réseau :
+Les éléments suivants sont requis pour déployer un contrôleur de réseau :
 - Un disque dur virtuel pour le système d’exploitation Azure Stack HCI afin de créer les machines virtuelles du contrôleur de réseau.
 - Un nom de domaine et des informations d’identification pour joindre les machines virtuelles du contrôleur de réseau à un domaine.
-- Une configuration de réseau physique qui correspond à l’une des deux options de topologie de cette section.
+- Au moins un commutateur virtuel que vous configurez à l’aide de l’Assistant Création de cluster dans Windows Admin Center.
+- Une configuration de réseau physique qui correspond à l’une des options de topologie de cette section.
 
-    Windows Admin Center crée la configuration au sein de l’hôte Hyper-V. Toutefois, le réseau de gestion doit se connecter aux cartes physiques de l’ordinateur hôte selon l’une des deux options suivantes :
+    Windows Admin Center crée la configuration au sein de l’hôte Hyper-V. Toutefois, le réseau de gestion doit se connecter aux cartes physiques d’hôte selon l’une des trois options suivantes :
 
-    **Option 1** : Un commutateur physique unique connecte le réseau de gestion à une carte de gestion physique sur l’ordinateur hôte et une jonction sur les cartes physiques utilisées par le commutateur virtuel :
+    **Option 1** : Le réseau de gestion est physiquement séparé des réseaux de charges de travail. Cette option utilise un seul commutateur virtuel pour le calcul et le stockage :
 
     :::image type="content" source="./media/network-controller/topology-option-1.png" alt-text="Option 1 pour créer un réseau physique pour le contrôleur de réseau." lightbox="./media/network-controller/topology-option-1.png":::
 
-    **Option 2** : Si le réseau de gestion est physiquement séparé des réseaux de charges de travail, deux commutateurs virtuels sont nécessaires :
+    **Option 2** : Le réseau de gestion est physiquement séparé des réseaux de charges de travail. Cette option utilise un seul commutateur virtuel pour le calcul uniquement :
 
-    :::image type="content" source="./media/network-controller/topology-option-2.png" alt-text="Option 2 pour créer un réseau physique pour le contrôleur de réseau." lightbox="./media/network-controller/topology-option-1.png":::
+    :::image type="content" source="./media/network-controller/topology-option-2.png" alt-text="Option 1 pour créer un réseau physique pour le contrôleur de réseau." lightbox="./media/network-controller/topology-option-2.png":::
 
+    **Option 3** : Le réseau de gestion est physiquement séparé des réseaux de charges de travail. Cette option utilise deux commutateurs virtuels, un pour le calcul et un pour le stockage :
+
+    :::image type="content" source="./media/network-controller/topology-option-3.png" alt-text="Option 1 pour créer un réseau physique pour le contrôleur de réseau." lightbox="./media/network-controller/topology-option-3.png":::
+
+- Vous pouvez également associer les cartes physiques de gestion afin d’utiliser le même commutateur de gestion. Dans ce cas, nous vous recommandons encore d’utiliser l’une des options de cette section.
 - Informations sur le réseau de gestion que le contrôleur de réseau utilise pour communiquer avec Windows Admin Center et les hôtes Hyper-V.
-- Adressage basé sur un réseau DHCP ou statique pour les machines virtuelles du contrôleur de réseau.
-- Nom de domaine complet (FQDN) Representational State Transfer (REST) du contrôleur de réseau utilisé par les clients de gestion pour communiquer avec le contrôleur de réseau.
+- Adressage basé sur DHCP ou sur un réseau statique pour les machines virtuelles du contrôleur de réseau.
+- Nom de domaine complet (FQDN) REST (Representational State Transfer) du contrôleur de réseau utilisé par les clients de gestion pour communiquer avec le contrôleur de réseau.
 
    >[!NOTE]
-   > Actuellement, Windows Admin Center ne prend pas en charge l’authentification du contrôleur de réseau pour la communication avec les clients REST ni pour la communication entre les machines virtuelles du contrôleur de réseau. Vous pouvez utiliser l’authentification Kerberos si vous utilisez PowerShell pour la déployer et la gérer.
+   > Actuellement, Windows Admin Center ne prend pas en charge l’authentification du contrôleur de réseau pour la communication avec les clients REST ou la communication entre les machines virtuelles du contrôleur de réseau. Vous pouvez utiliser l’authentification Kerberos si vous utilisez PowerShell pour la déployer et la gérer.
 
 ## <a name="configuration-requirements"></a>Exigences de configuration
-Vous pouvez déployer les nœuds de cluster du contrôleur de réseau sur le même sous-réseau ou sur des sous-réseaux différents. Si vous envisagez de déployer les nœuds de cluster du contrôleur de réseau sur des sous-réseaux différents, vous devez fournir le nom DNS REST du contrôleur de réseau pendant le processus de déploiement.
+Vous pouvez déployer les nœuds de cluster du contrôleur de réseau sur le même sous-réseau ou sur des sous-réseaux différents. Si vous envisagez de déployer les nœuds de cluster du contrôleur de réseau sur des sous-réseaux différents, vous devez fournir le nom DNS REST du contrôleur de réseau au cours du processus de déploiement.
 
 Pour plus d’informations, consultez [Configurer l’inscription DNS dynamique pour le contrôleur de réseau](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller).
 
-
 ## <a name="next-steps"></a>Étapes suivantes
-Vous êtes maintenant prêt à déployer le contrôleur de réseau sur des machines virtuelles exécutant le système d’exploitation Azure Stack HCI.
+Vous êtes maintenant prêt à déployer le contrôleur de réseau sur les machines virtuelles qui exécutent le système d’exploitation.
 
 Pour plus d'informations, consultez les rubriques suivantes :
 - [Créer un cluster Azure Stack HCI](../deploy/create-cluster.md)
+- [Déployer le contrôleur de réseau à l’aide de Windows PowerShell](../deploy/network-controller-powershell.md)
 
 ## <a name="see-also"></a>Voir aussi
 - [Contrôleur de réseau](/windows-server/networking/sdn/technologies/network-controller/network-controller)

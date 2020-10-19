@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble d’Event Hubs sur Azure Stack Hub
-description: Découvrez le fournisseur de ressources Event Hubs sur Azure Stack Hub.
+description: Découvrez Event Hubs sur Azure Stack Hub. Découvrez comment générer des solutions hybrides. Comparez les fonctionnalités d’Azure Event Hubs et d’Event Hubs sur Azure Stack Hub.
 author: BryanLa
 ms.author: bryanla
 ms.service: azure-stack
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: b2e03617b8409e321edb3b2d924f5f0762ad9b9f
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 117fd4cd1d688b9ace109f6c2038cd3ffe0d9e6f
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566411"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623147"
 ---
-# <a name="event-hubs-on-azure-stack-hub-overview"></a>Vue d’ensemble d’Event Hubs sur Azure Stack Hub
+# <a name="overview-of-event-hubs-on-azure-stack-hub"></a>Vue d’ensemble d’Event Hubs sur Azure Stack Hub
 
 [!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
@@ -42,7 +42,7 @@ Générez des solutions hybrides qui ingèrent et traitent les données Edge loc
 
 Les éditions Event Hubs (sur Azure Stack Hub et sur Azure) offrent un degré élevé de parité des fonctionnalités. Cette parité signifie que les SDK, les exemples, PowerShell, l’interface CLI et les portails offrent une expérience similaire, avec quelques différences. Le tableau suivant récapitule les principales différences en matière de disponibilité des fonctionnalités entre les éditions.  
 
-| Fonctionnalité | Event Hubs sur Azure Stack Hub | Hubs d'événements Azure |
+| Fonctionnalité | Event Hubs sur Azure Stack Hub | Azure Event Hubs |
 |-|-|-|-|
 | Expérience de l’administrateur d’opérateur | ✔ | ✘ |
 | Prise en charge de Kafka | ✔ | ✔ |

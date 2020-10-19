@@ -3,20 +3,20 @@ title: Utiliser l’outil de validation de modèles dans Azure Stack Hub
 description: Vérifiez vos modèles pour le déploiement vers Azure Stack Hub avec l’outil de validation de modèles.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/09/2020
+ms.date: 10/01/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 69df3da5b5769be9ee9d9bd3234c53de177fd9e2
-ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
+ms.openlocfilehash: 82eb8ce8b8ddc1b4d357b784814c95809924fc15
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84744864"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623249"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>Utiliser l’outil de validation de modèles dans Azure Stack Hub
 
-Utilisez l’outil de validation de modèles pour vérifier si vos [modèles](azure-stack-arm-templates.md) Azure Resource Manager sont prêts pour un déploiement vers Azure Stack Hub. L’outil de validation de modèles est disponible avec le dépôt GitHub des outils Azure Stack Hub. Pour téléchargez les outils Azure Stack Hub, suivez la procédure décrite dans [Télécharger des outils à partir de GitHub](../operator/azure-stack-powershell-download.md).
+Utilisez l’outil de validation de modèles pour vérifier si vos [modèles](azure-stack-arm-templates.md) Azure Resource Manager sont prêts pour un déploiement vers Azure Stack Hub. L’outil de validation de modèles est disponible dans le dépôt GitHub des outils Azure Stack Hub. Pour téléchargez les outils Azure Stack Hub, suivez la procédure décrite dans [Télécharger des outils à partir de GitHub](../operator/azure-stack-powershell-download.md).
 
 ## <a name="overview"></a>Vue d’ensemble
 

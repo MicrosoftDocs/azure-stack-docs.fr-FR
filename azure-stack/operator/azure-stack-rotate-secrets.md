@@ -9,12 +9,12 @@ ms.reviewer: ppacent
 ms.author: bryanla
 ms.lastreviewed: 08/15/2020
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 463fc8fbee16aa7eddc78cee7c3868f1526fad21
-ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
+ms.openlocfilehash: aca163df1026193933ffb9d09dbdf4a854638a75
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91134744"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899803"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Effectuer la rotation des secrets dans Azure Stack Hub
 
@@ -106,7 +106,7 @@ Pour la rotation des secrets internes et externes :
 
 Pour la rotation des secrets externes, vous devez remplir les conditions préalables supplémentaires suivantes :
 
-1. Exécutez **[Test-AzureStack](azure-stack-diagnostic-test.md)** et vérifiez que toutes les sorties de test sont saines avant de procéder à la rotation des secrets.
+1. Exécutez l’applet de commande PowerShell **[`Test-AzureStack`](azure-stack-diagnostic-test.md)** en utilisant le paramètre `-group SecretRotationReadiness`, pour confirmer que toutes les sorties de test sont intègres avant d’effectuer la rotation des secrets.
 2. Préparez un nouveau jeu de certificats externes de remplacement :
     - Le nouveau jeu doit répondre aux spécifications de certificat décrites dans la page [Exigences de certificat d’infrastructure de clés publiques Azure Stack Hub](azure-stack-pki-certs.md). 
     - Vous pouvez générer une demande de signature de certificat (CSR) à soumettre à votre autorité de certification en suivant la procédure décrite dans [Générer les demandes de signature de certificat](azure-stack-get-pki-certs.md), puis préparer les demandes en vue d’une utilisation dans votre environnement Azure Stack Hub en procédant de la manière décrite dans [Préparer des certificats PKI](azure-stack-prepare-pki-certs.md). 
@@ -200,7 +200,7 @@ Pour effectuer une rotation des secrets externes, procédez comme suit :
 
     - Crée une session PowerShell avec le [point de terminaison privilégié](azure-stack-privileged-endpoint.md) en utilisant le compte **CloudAdmin**, et stocke la session en tant que variable. Cette variable est utilisée en tant que paramètre à l’étape suivante. 
 
-    - Exécute la commande [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1) en passant la variable de session PEP en tant que paramètre `-Session`.
+    - Exécute la commande [Invoke-Command](/powershell/module/microsoft.powershell.core/Invoke-Command) en passant la variable de session PEP en tant que paramètre `-Session`.
 
     - Exécute `Start-SecretRotation` dans la session PEP, en utilisant les paramètres suivants :
         - `-PfxFilesPath`: chemin d’accès réseau de votre répertoire de certificats créé précédemment.  
@@ -224,7 +224,7 @@ Une rotation de secret interne n’est requise que si vous soupçonnez que quelq
 
 Reportez-vous au script PowerShell de l’étape 2 [Effectuer une rotation des secrets externes](#rotate-external-secrets). Le script fournit un exemple que vous pouvez adapter pour une rotation de secret interne en apportant quelques modifications afin d’exécuter les étapes suivantes :
 
-1. Dans la section « Effectuer une rotation de secrets », ajoutez le paramètre `-Internal` à la [cmdlet Start-SecretRotation](/azure-stack/reference/pep-2002/start-secretrotation), par exemple :
+1. Dans la section « Effectuer une rotation de secrets », ajoutez le paramètre `-Internal` à la [cmdlet Start-SecretRotation](../reference/pep-2002/start-secretrotation.md), par exemple :
 
     ```powershell
     # Run Secret Rotation
@@ -268,7 +268,7 @@ Le contrôleur de gestion de la carte de base (BMC) analyse l’état physique d
 
 2. Ouvrez un point de terminaison privilégié dans des sessions Azure Stack Hub. Pour obtenir des instructions, voir [Utilisation du point de terminaison privilégié dans Azure Stack Hub](azure-stack-privileged-endpoint.md). 
 
-3. Après que votre invite PowerShell est devenue `[IP address or ERCS VM name]: PS>` ou `[azs-ercs01]: PS>`, en fonction de l’environnement, exécutez `Set-BmcCredential` en exécutant `Invoke-Command`. Si vous utilisez le paramètre facultatif `-BypassBMCUpdate` avec `Set-BMCCredential`, les informations d’identification dans le BMC ne sont pas mises à jour. Seul le magasin de données interne Azure Stack Hub est mis à jour. Transmettez votre variable de session de point de terminaison privilégié en tant que paramètre. 
+3. Après avoir ouvert une session de point de terminaison privilégié, exécutez l’un des scripts PowerShell ci-dessous, qui utilisent Invoke-Command pour exécuter Set-BmcCredential. Si vous utilisez le paramètre facultatif -BypassBMCUpdate avec Set-BMCCredential, les informations d’identification dans le BMC ne sont pas mises à jour. Seul le magasin de données interne Azure Stack Hub est mis à jour. Transmettez votre variable de session de point de terminaison privilégié en tant que paramètre.
 
     Voici un exemple de script PowerShell qui vous invite à entrer le nom d’utilisateur et le mot de passe : 
 
@@ -310,7 +310,7 @@ Le contrôleur de gestion de la carte de base (BMC) analyse l’état physique d
 
 ## <a name="reference-start-secretrotation-cmdlet"></a>Référence : Cmdlet Start-SecretRotation
 
-La [cmdlet Start-SecretRotation](/azure-stack/reference/pep-2002/start-secretrotation) effectue la rotation des secrets d’infrastructure d’un système Azure Stack Hub. Cette cmdlet ne peut être exécutée que sur le point de terminaison privilégié Azure Stack Hub, à l’aide d’un bloc de script  `Invoke-Command` passant la session PEP dans le paramètre `-Session`. Par défaut, elle effectue uniquement la rotation des certificats de tous les points de terminaison de l’infrastructure réseau externe.
+La [cmdlet Start-SecretRotation](../reference/pep-2002/start-secretrotation.md) effectue la rotation des secrets d’infrastructure d’un système Azure Stack Hub. Cette cmdlet ne peut être exécutée que sur le point de terminaison privilégié Azure Stack Hub, à l’aide d’un bloc de script  `Invoke-Command` passant la session PEP dans le paramètre `-Session`. Par défaut, elle effectue uniquement la rotation des certificats de tous les points de terminaison de l’infrastructure réseau externe.
 
 | Paramètre | Type | Obligatoire | Position | Default | Description |
 |--|--|--|--|--|--|

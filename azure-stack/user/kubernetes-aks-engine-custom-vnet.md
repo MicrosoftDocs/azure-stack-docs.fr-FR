@@ -7,12 +7,12 @@ ms.date: 9/2/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: 976f7b84df4084776f8b7f94d8903efdb1c06d6c
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 588adfc39dc6ff3eec26e67283a7f51a28655fd2
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574004"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853208"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Déployer un cluster Kubernetes sur un réseau virtuel personnalisé sur Azure Stack Hub 
 
@@ -46,6 +46,13 @@ Créez un sous-réseau dans votre réseau virtuel. Vous devez obtenir l’ID de 
     ![Bloc CIDR du réseau virtuel](media/kubernetes-aks-engine-custom-vnet/virtual-network-cidr-block.png)
     
 6. Dans le panneau du sous-réseau, prenez note de la plage d’adresses et du bloc CIDR du réseau virtuel, par exemple : `10.1.0.0 - 10.1.0.255 (256 addresses)` et `10.1.0.0/24`.
+
+## <a name="considerations-for-selecting-an-address-space"></a>Considérations relatives à la sélection d’un espace d’adressage
+
+Lorsque vous créez un réseau virtuel personnalisé, vous spécifiez l’espace d’adressage IP de votre réseau et une plage d’adresses IP pour chaque sous-réseau. Tenez compte des facteurs suivants lorsque vous choisissez les espaces d’adressage et les plages d’adresses à utiliser dans votre cluster Kubernetes :
+-  Le chevauchement des espaces d’adressage peut entraîner des erreurs de communication ou des conflits d’adresses IP. Pour réduire le risque de chevauchement des adresses IP, choisissez un espace d’adressage unique pour votre nouveau réseau virtuel.
+-  Les espaces d’adressage dans les plages `10.` et `172.` sont souvent utilisés pour les réseaux privés et peuvent être utilisés par votre infrastructure de centre de données existante. Si vos applications Kubernetes utilisent des ressources dans votre centre de données, réduisez les risques de conflit en choisissant un espace d’adressage pour votre réseau virtuel personnalisé, qui soit différent de l’espace d’adressage de votre centre de données.
+-  Nous vous recommandons d’utiliser un sous-réseau dédié pour votre cluster Kubernetes.
 
 ## <a name="get-the-ip-address-block"></a>Obtenir le bloc d’adresses IP
 

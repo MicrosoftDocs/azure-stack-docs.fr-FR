@@ -7,12 +7,12 @@ ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 68acf1fa04762d8288e621c5087d501c464912fd
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: b90b7c61e5eeed1265bf258b6ba3ce7b042b6897
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573953"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853191"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub
 
@@ -226,6 +226,22 @@ Vérifiez votre cluster en déployant MySql avec Helm pour contrôler votre clus
     ```bash
     kubectl delete deployment -l app=redis
     ```
+
+## <a name="rotate-your-service-principle-secret"></a>Effectuer la rotation du secret du principal du service
+
+Après le déploiement du cluster Kubernetes avec le moteur AKS, le principal du service (SPN) est utilisé pour gérer les interactions avec Azure Resource Manager sur votre instance Azure Stack Hub. À un certain stade, le secret pour ce principal de service peut expirer. Si votre secret expire, vous pouvez actualiser les informations d’identification en :
+
+- Mettant à jour chaque nœud avec le nouveau secret du principal du service.
+- Ou en mettant à jour les informations d’identification du modèle d’API et en exécutant la mise à niveau.
+
+### <a name="update-each-node-manually"></a>Mettre à jour chaque nœud manuellement
+
+1. Obtenez un nouveau secret pour votre principal de service auprès de votre opérateur cloud. Pour obtenir des instructions pour Azure Stack Hub, consultez [Utiliser une identité d’application pour accéder aux ressources Azure Stack Hub](/azure-stack/operator/azure-stack-create-service-principals).
+2. Utilisez les nouvelles informations d’identification fournies par votre opérateur cloud pour mettre à jour `/etc/kubernetes/azure.json` sur chaque nœud. Après avoir effectué la mise à jour, redémarrez **kubelet** et **kube-controller-manager**.
+
+### <a name="update-the-cluster-with-aks-engine-update"></a>Mettre à jour le cluster avec la mise à jour du moteur AKS
+
+Vous pouvez également remplacer les informations d’identification dans le fichier `apimodel.json` et exécuter la mise à niveau à l’aide du code JSON mis à jour vers la même version Kubernetes ou une version plus récente. Pour obtenir des instructions de mise à niveau du modèle, consultez [Mettre à niveau un cluster Kubernetes sur Azure Stack Hub](azure-stack-kubernetes-aks-engine-upgrade.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

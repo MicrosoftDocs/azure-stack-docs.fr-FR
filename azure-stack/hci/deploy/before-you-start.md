@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/01/2020
-ms.openlocfilehash: 8a4c8557fe708535bfdde383ef30dd78395b1c01
-ms.sourcegitcommit: 09572e1442c96a5a1c52fac8ee6b0395e42ab77d
+ms.date: 10/14/2020
+ms.openlocfilehash: 4ff495aba1f46824a6ab47c95601687402d24edb
+ms.sourcegitcommit: 8122672409954815e472a5b251bb7319fab8f951
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91625870"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92060104"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>Avant le déploiement d’Azure Stack HCI
 
@@ -64,6 +64,8 @@ Avec les espaces de stockage direct, il existe un trafic réseau supplémentaire
 
 Pour les clusters étendus, le trafic du réplica de stockage supplémentaire est également transmis entre les sites. Le trafic Storage Bus Layer (SBL) et de Volume partagé de cluster (CSV) ne passe pas entre les sites, uniquement entre les nœuds serveur de chaque site.
 
+Pour découvrir les considérations et les exigences relatives à la planification du réseau hôte, consultez [Planifier le réseau hôte pour Azure Stack HCI](../concepts/plan-host-networking.md).
+
 ### <a name="software-defined-networking-requirements"></a>Exigences Software Defined Networking
 
 Lorsque vous créez un cluster Azure Stack HCI à l’aide de Windows Admin Center, vous avez la possibilité de déployer le contrôleur de réseau pour activer la mise en réseau SDN (Software Defined Networking). Si vous envisagez d’utiliser SDN sur Azure Stack HCI :
@@ -77,125 +79,6 @@ Pour plus d’informations sur la préparation de l’utilisation de SDN dans Az
 ### <a name="domain-requirements"></a>Exigences relatives aux domaines
 
 Il n’existe aucune exigence particulière au niveau fonctionnel du domaine pour Azure Stack HCI : il suffit d’une version du système d’exploitation pour votre contrôleur de domaine qui est toujours prise en charge. Si vous ne l’avez pas déjà fait, nous vous recommandons d’activer la fonctionnalité de Corbeille Active Directory.
-
-### <a name="interconnect-requirements-between-nodes"></a>Exigences d’interconnexion entre les nœuds
-
-Cette section traite des exigences de mise en réseau spécifiques entre les nœuds serveur d’un site, appelées interconnexions. Des interconnexions de nœuds commutées ou non peuvent être utilisées et sont prises en charge :
-
-- **Commutées :** les nœuds serveur sont généralement connectés les uns aux autres via des réseaux Ethernet qui utilisent des commutateurs réseau. Les commutateurs doivent être correctement configurés pour gérer la bande passante et le type de mise en réseau. Si vous utilisez RDMA qui implémente le protocole RoCE, le périphérique réseau et la configuration du commutateur sont importants.
-- **Absence de commutateur :** les nœuds serveur peuvent également être interconnectés à l’aide de connexions Ethernet directes sans commutateur. Dans ce cas, chaque nœud serveur doit disposer d’une connexion directe avec tous les autres nœuds de cluster dans le même site.
-
-#### <a name="interconnects-for-2-3-node-clusters"></a>Interconnexions pour les clusters à 2-3 nœuds
-
-Il s’agit des *configurations minimales requises pour l’interconnexion* pour les clusters à site unique comportant deux ou trois nœuds. Celles-ci s’appliquent à chaque nœud serveur :
-
-- Une ou plusieurs cartes réseau 1 Gb à utiliser pour les fonctions de gestion
-- Une ou plusieurs cartes réseau 10 Gb (ou plus) pour le trafic lié au stockage et à la charge de travail
-- Plusieurs connexions réseau entre chaque nœud sont recommandées pour des questions de redondance et de performances
-
-#### <a name="interconnects-for-4-node-and-greater-clusters"></a>Interconnexions pour les clusters à 4 nœuds et plus
-
-Il s’agit des *configurations minimales requises pour l’interconnexion* pour les clusters comportant au moins quatre nœuds, et pour les clusters hautes performances. Celles-ci s’appliquent à chaque nœud serveur :
-
-- Une ou plusieurs cartes réseau 1 Gb à utiliser pour les fonctions de gestion.
-- Une ou plusieurs cartes réseau 25 Gb (ou plus) pour le trafic lié au stockage et à la charge de travail. Nous vous recommandons d’utiliser au moins deux connexions réseau pour la redondance et les performances.
-- Cartes réseau prenant en charge l’accès direct à la mémoire à distance (RDMA) : iWARP (recommandé) ou RoCE.
-
-### <a name="site-to-site-requirements-stretched-cluster"></a>Exigences de site à site (cluster étendu)
-
-Lors de la connexion entre des sites pour les clusters étendus, les exigences d’interconnexion au sein de chaque site s’appliquent toujours et des exigences supplémentaires concernant le trafic de réplica de stockage et la migration dynamique Hyper-V doivent être prises en compte :
-
-- Au moins une connexion RDMA 1 Gb ou Ethernet/TCP entre les sites pour la réplication synchrone. Une connexion RDMA 25 Gb est recommandée.
-- Un réseau entre les sites disposant de suffisamment de bande passante pour contenir votre charge de travail d’écriture d’E/S et une latence moyenne des allers-retour de 5 ms ou moins pour la réplication synchrone. La réplication asynchrone n’a pas de recommandation de latence.
-- Si vous utilisez une connexion unique entre des sites, définissez des limites de bande passante SMB pour le réplica de stockage à l’aide de PowerShell. Pour plus d’informations, consultez [Set-SmbBandwidthLimit](/powershell/module/smbshare/set-smbbandwidthlimit).
-- Si vous utilisez plusieurs connexions entre les sites, séparez le trafic entre les connexions. Par exemple, placez le trafic du réplica de stockage sur un réseau distinct du trafic de migration dynamique Hyper-V à l’aide de PowerShell. Pour plus d’informations, consultez [Set-SRNetworkConstraint](/powershell/module/storagereplica/set-srnetworkconstraint).
-
-### <a name="network-port-requirements"></a>Configuration requise des ports réseau
-
-Vérifiez que les ports réseau appropriés sont ouverts entre tous les nœuds serveur au sein d’un site et entre les sites (pour les clusters étendus). Vous avez besoin de règles de pare-feu et de routeur appropriées pour autoriser les protocoles ICMP, SMB (port 445, plus port 5445 pour SMB Direct) et WS-MAN (port 5985) à trafic bidirectionnel entre tous les serveurs du cluster.
-
-Lorsque vous utilisez l’Assistant Création d’un cluster dans Windows Admin Center pour créer le cluster, l’Assistant ouvre automatiquement les ports de pare-feu appropriés sur chaque serveur du cluster pour le clustering de basculement, Hyper-V et le réplica de stockage. Si vous utilisez un pare-feu logiciel différent sur chaque serveur, ouvrez les ports suivants :
-
-#### <a name="failover-clustering-ports"></a>Ports de clustering de basculement
-
-- ICMPv4 et ICMPv6
-- Port TCP 445
-- Ports dynamiques RPC
-- Port TCP 135
-- Port TCP 137
-- Port TCP 3343
-- Port UDP 3343
-
-#### <a name="hyper-v-ports"></a>Ports Hyper-V
-
-- Port TCP 135
-- Port TCP 80 (connectivité HTTP)
-- Port TCP 443 (connectivité HTTPS)
-- Port TCP 6600
-- Port TCP 2179
-- Ports dynamiques RPC
-- Mappeur de point de terminaison RPC
-- Port TCP 445
-
-#### <a name="storage-replica-ports-stretched-cluster"></a>Ports de réplica de stockage (cluster étendu)
-
-- Port TCP 445
-- TCP 5445 (si vous utilisez iWarp RDMA)
-- Port TCP 5985
-- ICMPv4 et ICMPv6 (si vous utilisez Test-SRTopology)
-
-Il peut y avoir des ports supplémentaires non listés ci-dessus. Il s’agit des ports pour le fonctionnement de base d’Azure Stack HCI.
-
-### <a name="network-switch-requirements"></a>Exigences concernant les commutateurs réseau
-
-Cette section définit les exigences concernant les commutateurs physiques utilisés avec Azure Stack HCI. Ces exigences listent les spécifications du secteur, les normes de l’organisation et les protocoles qui sont obligatoires pour tous les déploiements Azure Stack HCI. Sauf mention contraire, la dernière version active (non remplacée) de la norme est exigée.
-
-Ces exigences permettent de garantir des communications fiables entre les nœuds dans les déploiements de cluster Azure Stack HCI. Il est essentiel que les communications entre les nœuds soient fiables. Pour fournir le niveau de fiabilité requis pour Azure Stack HCI, les commutateurs doivent nécessairement :
-
-- Être conformes aux spécifications, normes et protocoles applicables au secteur
-- Fournir une visibilité sur les spécifications, les normes et les protocoles pris en charge par le commutateur
-- Fournir des informations sur les fonctionnalités qui sont activées
-
-Veillez à demander à votre fournisseur de commutateur si votre commutateur prend en charge les normes suivantes :
-
-#### <a name="standard-ieee-8021q"></a>Standard : IEEE 802.1Q
-
-Les commutateurs Ethernet doivent respecter la spécification IEEE 802.1Q qui définit les réseaux locaux virtuels. Ces deniers sont nécessaires pour plusieurs aspects d’Azure Stack HCI et sont exigés dans tous les scénarios.
-
-#### <a name="standard-ieee-8021qbb"></a>Standard : IEEE 802.1Qbb
-
-Les commutateurs Ethernet doivent respecter la spécification IEEE 802.1Qbb qui définit PFC (Priority Flow Control). PFC est exigé en cas d’utilisation de Data Center Bridging (DCB). Comme DCB peut être utilisé dans les scénarios RDMA RoCE et iWARP, 802.1Qbb est exigé dans tous les scénarios. Un minimum de trois priorités de classe de service (CoS) sont nécessaires sans rétrograder les capacités du commutateur ou la vitesse du port.
-
-#### <a name="standard-ieee-8021qaz"></a>Standard : IEEE 802.1Qaz
-
-Les commutateurs Ethernet doivent respecter la spécification IEEE 802.1Qaz qui définit ETS (Enhanced Transmission Selection). ETS est obligatoire en cas d’utilisation de DCB. Comme DCB peut être utilisé dans les scénarios RDMA RoCE et iWARP, 802.1Qaz est exigé dans tous les scénarios. Un minimum de trois priorités CoS sont nécessaires sans rétrograder les capacités du commutateur ou la vitesse du port.
-
-#### <a name="standard-ieee-8021ab"></a>Standard : IEEE 802.1AB
-
-Les commutateurs Ethernet doivent respecter la spécification IEEE 802.1AB qui définit le protocole LLDP (Link Layer Discovery Protocol). LLDP est nécessaire pour que Windows détecte la configuration du commutateur. La configuration des valeurs TLV (Type-Length-Values) LLDP doit être activée de manière dynamique. Ces commutateurs ne doivent pas nécessiter une configuration supplémentaire.
-
-Par exemple, l’activation du sous-type 3 de la spécification 802.1 doit être automatiquement annoncée à tous les réseaux locaux virtuels disponibles sur les ports de commutateur.
-
-#### <a name="tlv-requirements"></a>Spécifications TLV
-
-LLDP permet aux organisations de définir et d’encoder leurs propres valeurs TLV personnalisés. Celles-ci sont appelées TLV spécifiques à l’organisation. Toutes les valeurs TLV spécifiques à l’organisation commencent par la valeur TLV LLDP de Type 127. Le tableau suivant indique les sous-types de TLV personnalisés spécifiques à l’organisation (Type de TLV 127) qui sont obligatoires et ceux qui sont facultatifs :
-
-|Condition|Organisation|Sous-type TLV|
-|-|-|-|
-|Obligatoire|IEEE 802.1|Nom du réseau local virtuel (Sous-type = 3)|
-|Obligatoire|IEEE 802.3|Taille de trame maximale (Sous-type = 4)|
-|Facultatif|IEEE 802.1|ID de port de réseau local virtuel (Sous-type = 1)|
-|Facultatif|IEEE 802.1|ID de port et de protocole de réseau local virtuel (Sous-type = 2)|
-|Facultatif|IEEE 802.1|Agrégation de liens (Sous-type = 7)|
-|Facultatif|IEEE 802.1|Notification de congestion (Sous-type = 8)|
-|Facultatif|IEEE 802.1|Configuration ETS (Sous-type = 9)|
-|Facultatif|IEEE 802.1|Recommandation ETS (Sous-type = A)|
-|Facultatif|IEEE 802.1|Configuration PFC (Sous-type = B)|
-|Facultatif|IEEE 802.1|EVB (Sous-type = D)|
-|Facultatif|IEEE 802.3|Agrégation de liens (Sous-type = 3)|
-
-> [!NOTE]
-> Certaines des fonctionnalités facultatives listées peuvent s’avérer obligatoires dans le futur.
 
 ### <a name="storage-requirements"></a>Exigences de stockage
 

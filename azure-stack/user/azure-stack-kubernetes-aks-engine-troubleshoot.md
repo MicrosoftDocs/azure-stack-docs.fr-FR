@@ -3,16 +3,16 @@ title: Résoudre des problèmes du moteur AKS sur Azure Stack Hub
 description: Cet article présente les étapes de résolution des problèmes liés au moteur AKS sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/02/2020
+ms.date: 10/07/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/02/2020
-ms.openlocfilehash: d9e862386e76c9bf44638a58432b58b409e9c2df
-ms.sourcegitcommit: af21e3097e833bcb0670733a5e92d6fc3deaa53b
+ms.lastreviewed: 10/07/2020
+ms.openlocfilehash: ae82bb1c07ec8f466eb29fe8c610af09e01e233a
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729217"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853174"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Résoudre des problèmes du moteur AKS sur Azure Stack Hub
 
@@ -88,14 +88,27 @@ Outre les journaux du moteur AKS, les composants Kubernetes génèrent des messa
 
 Ce script automatise le processus de collecte des journaux suivants : 
 
- - Journaux de l’agent Linux Microsoft Azure (waagent)
- - Journaux d’extension de script personnalisé
- - Métadonnées de conteneur kube-system en cours d’exécution
- - Journaux de conteneur kube-system en cours d’exécution
- - État et journal du service Kubelet
- - État et journal du service Etcd
- - Journaux DVM de l’élément de la galerie
- - Instantané kube-system
+- Fichiers journaux dans le répertoire `/var/log/azure/`
+- Fichiers journaux dans le répertoire `/var/log/kubeaudit` (journaux d’audit kube)
+- Fichier journal `/var/log/waagent.log` (waagent)
+- Fichier journal `/var/log/azure/deploy-script-dvm.log` (en cas de déploiement à l’aide de l’élément de la place de marché Cluster Kubernetes d’Azure Stack Hub)
+- Manifestes statiques dans le répertoire `/etc/kubernetes/manifests`
+- Modules complémentaires statiques dans le répertoire ` /etc/kubernetes/addons`
+- Métadonnées et journaux des conteneurs kube-system
+- État et journal kubelet
+- État et journal etcd
+- État et journal Docker
+- Instantané de kube-system
+- Fichiers de configuration Azure CNI
+
+Certains journaux supplémentaires sont récupérés pour les nœuds Windows :
+
+- Fichier journal `c:\Azure\CustomDataSetupScript.log`
+- État et journal kube-proxy
+- État et journal containerd
+- Journal azure-vnet et journal azure-vnet-telemetry
+- Événements ETW pour Docker
+- Événements ETW pour Hyper-V
 
 Sans ce script, vous devez vous connecter à chaque nœud du cluster pour rechercher et télécharger les journaux manuellement. De plus, le script peut éventuellement charger les journaux collectés dans un compte de stockage que vous pouvez utiliser pour partager les journaux avec d’autres utilisateurs.
 
