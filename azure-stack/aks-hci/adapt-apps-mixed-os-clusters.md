@@ -3,15 +3,15 @@ title: Adapter les applications pour une utilisation dans les clusters Kubernete
 description: Comment utiliser des sélecteurs de nœuds ou des teintes et des tolérances sur Azure Kubernetes Service pour garantir que les applications dans des clusters Kubernetes de système d’exploitation mixte s’exécutant sur Azure Stack HCI sont planifiées sur le système d’exploitation du nœud Worker approprié
 author: abha
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 10/20/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: e70ac456929b5c8402e49c969ca8b9c87a703311
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 04b103fee921cf8bdab82a4004c6c80afd54d687
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949307"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253942"
 ---
 # <a name="adapt-apps-for-mixed-os-kubernetes-clusters-using-node-selectors-or-taints-and-tolerations"></a>Adapter des applications pour les clusters Kubernetes de système d’exploitation mixte à l’aide de sélecteurs de nœuds ou de teintes et de tolérances
 
@@ -41,7 +41,7 @@ Les *teintes* et les *tolérances* fonctionnent ensemble pour s’assurer que le
 Les nœuds de système d’exploitation Windows dans Azure Kubernetes Service sur Azure Stack HCI peuvent être souillés avec la paire clé-valeur suivante. Les utilisateurs ne doivent pas en utiliser une autre.
 
 ```yaml
-node.kubernetes.io/os=Windowss:NoSchedule
+node.kubernetes.io/os=Windows:NoSchedule
 ```
 Exécutez `kubectl get` et identifiez les nœuds Worker Windows que vous souhaitez souiller.
 

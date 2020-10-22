@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 81c2db63471e8943c201d1b6979ab0a9b0da6e85
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: 3363870fe1a2a487883a3fdc59fb90f017237b56
+ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91815340"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92355169"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Configurer une passerelle VPN pour Azure Stack Hub avec l’appliance virtuelle réseau FortiGate
 
@@ -67,13 +67,13 @@ Le tableau suivant récapitule les paramètres utilisés dans ces déploiements 
 
 1. Sélectionnez **Créer une ressource**, puis recherchez `FortiGate`.
 
-    ![La liste des résultats de la recherche affiche FortiGate NGFW - Single VM Deployment.](./media/azure-stack-network-howto-vnet-to-onprem/image6.png)
+    ![La liste des résultats de la recherche affiche FortiGate NGFW - Single VM Deployment.](./media/azure-stack-network-howto-vnet-to-onprem/image6a.png)
 
 1. Sélectionnez le **Pare-feu Fortigate de nouvelle génération**, puis **Créer**.
 
 1. Indiquez les **Informations de base** à l’aide des paramètres du tableau [Paramètres de déploiement](#deployment-parameters).
 
-    ![L’écran Informations de base présente les valeurs de la table des paramètres de déploiement entrées dans les zones de liste et de texte.](./media/azure-stack-network-howto-vnet-to-onprem/image7.png)
+    ![L’écran Informations de base présente les valeurs de la table des paramètres de déploiement entrées dans les zones de liste et de texte.](./media/azure-stack-network-howto-vnet-to-onprem/image7a.png)
 
 1. Sélectionnez **OK**.
 
@@ -86,7 +86,7 @@ Le tableau suivant récapitule les paramètres utilisés dans ces déploiements 
 
 1. Configurez l’adresse IP publique pour l’appliance virtuelle réseau FortiGate :
 
-    ![La boîte de dialogue Attribution d’adresse IP affiche la valeur forti1-publicip1 pour « Nom de l’adresse IP publique » et Statique pour « Type d’adresse IP publique ».](./media/azure-stack-network-howto-vnet-to-onprem/image8.png)
+    ![La boîte de dialogue Attribution d’adresse IP affiche la valeur forti1-publicip1 pour « Nom de l’adresse IP publique » et Statique pour « Type d’adresse IP publique ».](./media/azure-stack-network-howto-vnet-to-onprem/image8a.png)
 
 1. Sélectionnez **OK**. Et enfin sélectionner **OK**.
 
@@ -100,17 +100,17 @@ Le tableau suivant récapitule les paramètres utilisés dans ces déploiements 
 
 2. Sélectionnez Groupes de ressources. Tapez `forti1-rg1` dans le filtre, puis double-cliquez sur le groupe de ressources forti1-rg1.
 
-    ![Dix ressources sont répertoriées pour le groupe de ressources forti1-rg1.](./media/azure-stack-network-howto-vnet-to-onprem/image9.png)
+    ![Dix ressources sont répertoriées pour le groupe de ressources forti1-rg1.](./media/azure-stack-network-howto-vnet-to-onprem/image9a.png)
 
 2. Sélectionnez la ressource « forti1-forti1-InsideSubnet-routes-xxxx ».
 
 3. Sélectionnez **Routes** sous **Paramètres**.
 
-    ![Le bouton Routes est sélectionné dans la boîte de dialogue Paramètres.](./media/azure-stack-network-howto-vnet-to-onprem/image10.png)
+    ![Le bouton Routes est sélectionné dans la boîte de dialogue Paramètres.](./media/azure-stack-network-howto-vnet-to-onprem/image10a.png)
 
 4. Supprimez la route **to-Internet**.
 
-    ![La route to-Internet, seule route répertoriée, est sélectionnée. Un bouton Supprimer est disponible.](./media/azure-stack-network-howto-vnet-to-onprem/image11.png)
+    ![La route to-Internet, seule route répertoriée, est sélectionnée. Un bouton Supprimer est disponible.](./media/azure-stack-network-howto-vnet-to-onprem/image11a.png)
 
 5. Sélectionnez *Oui*.
 
@@ -122,7 +122,7 @@ Le tableau suivant récapitule les paramètres utilisés dans ces déploiements 
 
 9. Sélectionnez **Appliance virtuelle** pour **Type de tronçon suivant** et `172.16.1.4`. Utilisez votre plage d’adresses IP si vous utilisez une plage d’adresses IP différente.
 
-    ![La boîte de dialogue Ajouter une route affiche les quatre valeurs qui ont été entrées dans les zones de texte.](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
+    ![La boîte de dialogue Ajouter une route affiche les quatre valeurs qui ont été entrées dans les zones de texte.](./media/azure-stack-network-howto-vnet-to-onprem/image12a.png)
 
 10. Sélectionnez **Enregistrer**.
 
@@ -140,19 +140,19 @@ Une fois que vous avez activé les appliances virtuelles réseau, créez un tunn
 
 3. Double-cliquez sur la machine virtuelle **forti1** dans la liste des types de ressources dans le panneau du groupe de ressources.
 
-    ![La page Vue d’ensemble de la machine virtuelle forti1 affiche les valeurs pour forti1, telles que le « Groupe de ressources » et l’État.](./media/azure-stack-network-howto-vnet-to-onprem/image13.png)
+    ![La page Vue d’ensemble de la machine virtuelle forti1 affiche les valeurs pour forti1, telles que le « Groupe de ressources » et l’État.](./media/azure-stack-network-howto-vnet-to-onprem/image13a.png)
 
 4. Copiez l’adresse IP attribuée, ouvrez un navigateur, puis collez-la dans la barre d’adresses. Le site peut déclencher un avertissement indiquant que le certificat de sécurité n’est pas approuvé. Continuez quand même.
 
 5. Entrez le nom d’utilisateur d’administration et le mot de passe FortiGate que vous avez fournis pendant le déploiement.
 
-    ![La boîte de dialogue Connexion contient les zones de texte Utilisateur et Mot de passe, ainsi qu'un bouton Connexion.](./media/azure-stack-network-howto-vnet-to-onprem/image14.png)
+    ![La boîte de dialogue Connexion contient les zones de texte Utilisateur et Mot de passe, ainsi qu'un bouton Connexion.](./media/azure-stack-network-howto-vnet-to-onprem/image14a.png)
 
 6. Sélectionnez **System** (Système)  > **Firmware** (Microprogramme).
 
 7. Cochez la case qui indique le microprogramme le plus récent, par exemple, `FortiOS v6.2.0 build0866`.
 
-    ![La boîte de dialogue Microprogramme contient l’identificateur du microprogramme « FortiOS v6.2.0 build0866 ». Elle contient également un lien vers les notes de publication et deux boutons : « Configuration et mise à niveau de la sauvegarde » et Mettre à niveau.](./media/azure-stack-network-howto-vnet-to-onprem/image15.png)
+    ![La boîte de dialogue Microprogramme contient l’identificateur du microprogramme « FortiOS v6.2.0 build0866 ». Elle contient également un lien vers les notes de publication et deux boutons : « Configuration et mise à niveau de la sauvegarde » et Mettre à niveau.](./media/azure-stack-network-howto-vnet-to-onprem/image15a.png)
 
 8. Sélectionnez **Backup config and upgrade** (Configuration et mise à niveau de la sauvegarde)  > **Continue**.
 
@@ -164,7 +164,7 @@ Une fois que vous avez activé les appliances virtuelles réseau, créez un tunn
 
 12. Sélectionnez **This site is behind NAT** (Ce site est derrière NAT).
 
-    ![La capture d'écran de l'Assistant Création d'un VPN montre qu'il se trouve à la première étape, Configuration du VPN. Les valeurs suivantes sont sélectionnées : « Site à site » pour le Type de modèle, « FortiGate » pour le Type de périphérique distant et « Ce site se trouve derrière NAT » pour la Configuration NAT.](./media/azure-stack-network-howto-vnet-to-onprem/image16.png)
+    ![La capture d'écran de l'Assistant Création d'un VPN montre qu'il se trouve à la première étape, Configuration du VPN. Les valeurs suivantes sont sélectionnées : « Site à site » pour le Type de modèle, « FortiGate » pour le Type de périphérique distant et « Ce site se trouve derrière NAT » pour la Configuration NAT.](./media/azure-stack-network-howto-vnet-to-onprem/image16a.png)
 
 13. Sélectionnez **Suivant**.
 
@@ -177,7 +177,7 @@ Une fois que vous avez activé les appliances virtuelles réseau, créez un tunn
     > [!NOTE]  
     > Vous aurez besoin de cette clé pour configurer la connexion sur le périphérique VPN local ; autrement dit, ils doivent correspondre *exactement*.
 
-    ![La capture d'écran de l'Assistant Création d'un VPN montre qu'il se trouve à la deuxième étape, Authentification, et les valeurs sélectionnées sont en surbrillance.](./media/azure-stack-network-howto-vnet-to-onprem/image17.png)
+    ![La capture d'écran de l'Assistant Création d'un VPN montre qu'il se trouve à la deuxième étape, Authentification, et les valeurs sélectionnées sont en surbrillance.](./media/azure-stack-network-howto-vnet-to-onprem/image17a.png)
 
 17. Sélectionnez **Suivant**.
 
@@ -191,13 +191,13 @@ Une fois que vous avez activé les appliances virtuelles réseau, créez un tunn
 
 20. Entrez le ou les sous-réseaux distants appropriés qui représentent le réseau local, auquel vous vous connecterez via le périphérique VPN local.
 
-    ![La capture d'écran de l'Assistant Création d'un VPN montre qu'il se trouve à la troisième étape, Stratégie et routage. Elle affiche les valeurs sélectionnées et entrées.](./media/azure-stack-network-howto-vnet-to-onprem/image18.png)
+    ![La capture d'écran de l'Assistant Création d'un VPN montre qu'il se trouve à la troisième étape, Stratégie et routage. Elle affiche les valeurs sélectionnées et entrées.](./media/azure-stack-network-howto-vnet-to-onprem/image18a.png)
 
 21. Sélectionnez **Créer**
 
 22. Sélectionnez **Network** (Réseau)  > **Interfaces**.
 
-    ![La liste des interfaces montre deux interfaces : le port1, qui a été configuré, et le port2, qui ne l'a pas été. Des boutons permettent de créer, de modifier et de supprimer des interfaces.](./media/azure-stack-network-howto-vnet-to-onprem/image19.png)
+    ![La liste des interfaces montre deux interfaces : le port1, qui a été configuré, et le port2, qui ne l'a pas été. Des boutons permettent de créer, de modifier et de supprimer des interfaces.](./media/azure-stack-network-howto-vnet-to-onprem/image19a.png)
 
 23. Double-cliquez sur **port2**.
 
@@ -227,11 +227,11 @@ Une fois le périphérique VPN local correctement configuré, le tunnel VPN peut
 
 1. Sur la console web FortiGate forti1, accédez à **Monitor** (Supervision)  > **IPsec Monitor** (Supervision IPsec).
 
-    ![La supervision de la connexion VPN conn1 est répertoriée. Il est indiqué qu'elle est désactivée, tout comme le sélecteur de phase 2 correspondant.](./media/azure-stack-network-howto-vnet-to-onprem/image20.png)
+    ![La supervision de la connexion VPN conn1 est répertoriée. Il est indiqué qu'elle est désactivée, tout comme le sélecteur de phase 2 correspondant.](./media/azure-stack-network-howto-vnet-to-onprem/image20a.png)
 
 2. Mettez en surbrillance **conn1** et sélectionnez **Bring Up** (Afficher)  > **All Phase 2 Selectors** (Tous les sélecteurs de phase 2).
 
-    ![La supervision et le sélecteur de phase 2 sont tous deux présentés comme activés.](./media/azure-stack-network-howto-vnet-to-onprem/image21.png)
+    ![La supervision et le sélecteur de phase 2 sont tous deux présentés comme activés.](./media/azure-stack-network-howto-vnet-to-onprem/image21a.png)
 
 ## <a name="test-and-validate-connectivity"></a>Tester et valider la connectivité
 

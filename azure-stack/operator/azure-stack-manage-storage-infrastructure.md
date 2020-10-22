@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Découvrez comment gérer l’infrastructure de stockage pour Azure Stack Hub. Découvrez comment superviser des volumes et des lecteurs. Consultez les conseils sur la résolution des problèmes relatifs à l’ajout de lecteurs à des pools.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 5/4/2020
+ms.date: 10/19/2020
 ms.author: inhenkel
 ms.lastreviewed: 5/4/2020
 ms.reviewer: jiaha
-ms.openlocfilehash: a267c0bf5429bdd97b5a722f45f2fd188b63efb2
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: 7141d52e100ce465a20637da2a40cbb75b417939
+ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623198"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92179449"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Gérer l’infrastructure de stockage pour Azure Stack Hub
 Cet article décrit l’intégrité et l’état opérationnel des ressources de l’infrastructure de stockage Azure Stack Hub. Ces ressources incluent les lecteurs et les volumes de stockage. Les informations contenues dans cette rubrique peuvent vous aider à résoudre différents problèmes, par exemple l’impossibilité d’ajouter un lecteur à un pool.
@@ -93,7 +93,7 @@ Les sections suivantes décrivent les états d’intégrité d’un lecteur :
 | OK | Le volume est intègre. |
 | En service | Le lecteur effectue certaines opérations de nettoyage interne. Une fois l’opération terminée, le lecteur doit revenir à l’état d’intégrité OK. |
 
-### <a name="drive-health-state-healthy"></a>État d’intégrité du lecteur : Healthy
+### <a name="drive-health-state-warning"></a>État d’intégrité du lecteur : Avertissement
 
 Un lecteur en état Avertissement peut lire et écrire des données, mais il a un problème.
 

@@ -7,12 +7,12 @@ ms.date: 10/06/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/06/2020
-ms.openlocfilehash: 026eca2d69dfbbcebbdba00b52f8d8ec57f3c2a5
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: 4d41519e7ac3b99705c066919b88b7e4bb5d3934
+ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91815196"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92354235"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>Démarrage rapide : Créer une machine virtuelle serveur Linux sur le portail Azure Stack Hub
 
@@ -49,7 +49,7 @@ Pour créer une paire de clés SSH :
 
 1. Dans la fenêtre **PuTTY Key Generator**, choisissez **RSA** comme type de clé à générer (**Type of key to generate**) et **2048** comme nombre de bits dans une clé générée (**Number of bits in a generated key**).
 
-   ![Configuration du générateur de clé PuTTY](media/azure-stack-quick-linux-portal/Putty01a.png)
+   ![Configuration du générateur de clé PuTTY](media/azure-stack-quick-linux-portal/Putty01aa.png)
 
 1. Sélectionnez **Générer**.
 
@@ -57,7 +57,7 @@ Pour créer une paire de clés SSH :
 
 1. Une fois la clé générée, sélectionnez **Save public key** (Enregistrer la clé publique), puis sélectionnez **Save private key** (Enregistrer la clé privée) pour enregistrer vos clés dans des fichiers.
 
-   ![Résultats du générateur de clé PuTTY](media/azure-stack-quick-linux-portal/Putty02a.png)
+   ![Résultats du générateur de clé PuTTY](media/azure-stack-quick-linux-portal/Putty02aa.png)
 
 ## <a name="sign-in-to-the-azure-stack-hub-portal"></a>Connexion au portail Azure Stack Hub
 
@@ -71,30 +71,30 @@ L’adresse du portail Azure Stack Hub varie en fonction du produit Azure Stack 
 
 1. Sélectionnez **Créer une ressource** > **Calcul**. Recherchez `Ubuntu Server 16.04 LTS`. Sélectionnez le nom.
 
-   ![Création d’un serveur Linux](media/azure-stack-quick-linux-portal/image1.png)
+   ![Création d’un serveur Linux](media/azure-stack-quick-linux-portal/image1a.png)
 
 1. Sélectionnez **Create** (Créer).
 
-   ![Création d’un serveur Linux – Créer](media/azure-stack-quick-linux-portal/image2.png)
+   ![Création d’un serveur Linux – Créer](media/azure-stack-quick-linux-portal/image2a.png)
 
 1. Entrez les informations de la machine virtuelle. Sélectionnez **Clé publique SSH** comme type d’authentification, puis collez la clé publique SSH que vous avez enregistrée et sélectionnez **OK**.
 
     > [!NOTE]  
     > Veillez à supprimer tout espace blanc au début ou la fin de la clé.
 
-   ![Authentification](media/azure-stack-quick-linux-portal/image3.png)
+   ![Authentification](media/azure-stack-quick-linux-portal/image3a.png)
 
 1. Sélectionnez **D1_v2** comme taille de machine virtuelle.
 
-   ![Création d’un serveur Linux – Taille](media/azure-stack-quick-linux-portal/image4.png)
+   ![Création d’un serveur Linux – Taille](media/azure-stack-quick-linux-portal/image4a.png)
 
 1. Entrez vos modifications pour les valeurs par défaut dans le panneau **Paramètres**, Utiliser des disques managés. Si vous avez besoin d’autoriser l’accès SSH, sélectionnez **SSH (22)** pour ouvrir le port. Lorsque vos configurations sont prêtes, sélectionnez **OK**.
 
-   ![Création d’un serveur Linux – Paramètres](media/azure-stack-quick-linux-portal/image5.png)
+   ![Création d’un serveur Linux – Paramètres](media/azure-stack-quick-linux-portal/image5a.png)
 
 1. Sélectionnez **OK** dans la page Résumé pour démarrer le déploiement de la machine virtuelle. Pour voir votre nouvelle machine virtuelle, sélectionnez **Machines virtuelles**, recherchez le nom de la machine virtuelle, puis sélectionnez-la dans les résultats de la recherche.
 
-![Création d’un serveur Linux – Résumé](media/azure-stack-quick-linux-portal/image5.png)
+![Création d’un serveur Linux – Résumé](media/azure-stack-quick-linux-portal/image5a.png)
 
 ## <a name="connect-to-the-vm"></a>Connexion à la machine virtuelle
 
@@ -102,7 +102,7 @@ L’adresse du portail Azure Stack Hub varie en fonction du produit Azure Stack 
 
 1. Dans la page **PuTTY Configuration** (Configuration PuTTY), dans le volet **Category** (Catégorie), faites défiler jusqu’à **SSH**, puis développez-le et sélectionnez **Auth**. 
 
-   ![Connecter une machine virtuelle](media/azure-stack-quick-linux-portal/putty03a.png)
+   ![Connecter une machine virtuelle](media/azure-stack-quick-linux-portal/putty03aa.png)
 
 1. Sélectionnez **Browse** (Parcourir), puis sélectionnez le fichier de clé privée que vous avez enregistré.
 
@@ -112,7 +112,7 @@ L’adresse du portail Azure Stack Hub varie en fonction du produit Azure Stack 
 
 1. Sélectionnez **Open** afin d’ouvrir une session pour la machine virtuelle.
 
-   ![Session Linux](media/azure-stack-quick-linux-portal/Putty05a.png)
+   ![Session Linux](media/azure-stack-quick-linux-portal/Putty05aa.png)
 
 ## <a name="install-the-nginx-web-server"></a>Installer le serveur web NGINX
 
@@ -154,7 +154,7 @@ Une fois NGINX installé et le port 80 ouvert sur votre machine virtuelle, vous
 
 Ouvrez un navigateur web et accédez à *http://\<public IP address>* .
 
-![Page d’accueil du serveur web NGINX](media/azure-stack-quick-linux-portal/linux-05a.png)
+![Page d’accueil du serveur web NGINX](media/azure-stack-quick-linux-portal/linux-05aa.png)
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

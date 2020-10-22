@@ -3,16 +3,16 @@ title: Connecter Azure Stack Hub à Azure à l’aide d’ExpressRoute
 description: Découvrez comment connecter des réseaux virtuels dans Azure Stack Hub à des réseaux virtuels dans Azure à l’aide d’ExpressRoute.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 10/20/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 04efed21fad37888c6c0be0a92d9da35af1e1b56
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: f736f95105b12bdb51fe452c2749e6331c390065
+ms.sourcegitcommit: 81e2d627c9dc4cc365deb4a0e0674b5ab3a7efbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250399"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297929"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Connecter Azure Stack Hub à Azure à l'aide d’Azure ExpressRoute
 
@@ -596,8 +596,6 @@ Si vous souhaitez connaître le volume de trafic qui transite via votre connexio
 1. Accédez au groupe de ressources pour lequel votre passerelle VPN a été créée et sélectionnez le type d’objet **Connexions**.
 1. Sélectionnez la connexion **ConnectToAzure** dans la liste.
 1. Dans **Connexions** > **Vue d’ensemble**, vous pouvez visualiser les statistiques de **données entrantes** et de **données sortantes**. Vous devriez voir des valeurs non nulles.
-
-   ![Données entrantes et Données sortantes](media/azure-stack-connect-expressroute/DataInDataOut.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
