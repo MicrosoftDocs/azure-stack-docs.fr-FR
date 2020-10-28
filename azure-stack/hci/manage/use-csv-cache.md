@@ -6,19 +6,19 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/04/2020
-ms.openlocfilehash: 84d5292c3f812402027b310954a021752276a799
-ms.sourcegitcommit: 01dcda15d88c8d44b4918e2f599daca462a8e3d9
+ms.date: 10/16/2020
+ms.openlocfilehash: 47bfa8c656a2581c9dc125b1bd99379b9012e448
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2020
-ms.locfileid: "89493799"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157629"
 ---
 # <a name="use-the-csv-in-memory-read-cache-with-azure-stack-hci"></a>Utiliser le cache de lecture en mémoire du volume partagé de cluster (CSV) avec Azure Stack HCI
 
 > S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
 
-Cette rubrique explique comment utiliser la mémoire système pour booster les performances d’Azure Stack HCI.
+Cette rubrique explique comment utiliser la mémoire système pour booster les performances d’Azure Stack HCI en mettant en cache des lectures fréquentes. Les écritures ne peuvent pas être mises en cache dans la mémoire.
 
 Azure Stack HCI est compatible avec le cache de lecture en mémoire du volume partagé de cluster (CSV). L’utilisation de la mémoire système pour mettre en cache les lectures peut améliorer les performances des applications comme Hyper-V, qui utilisent des E/S non mises en mémoire tampon pour accéder aux fichiers VHD ou VHDX. (Les E/S non mises en mémoire tampon sont des opérations qui ne sont pas mises en cache par le gestionnaire de cache Windows.)
 
@@ -33,7 +33,7 @@ Le cache de lecture en mémoire est plus efficace pour les charges de travail n�
 Vous pouvez utiliser jusqu’à 80 % de la mémoire physique totale pour le cache de lecture en mémoire du volume partagé de cluster. Veillez à conserver suffisamment de mémoire pour vos machines virtuelles.
 
   > [!NOTE]
-  > Certains outils de microtest tels que DISKSPD et [VM Fleet](https://github.com/Microsoft/diskspd/tree/master/Frameworks/VMFleet) peuvent produire de plus mauvais résultats lorsque le cache de lecture en mémoire du volume partagé de cluster est activé. Par défaut, VM Fleet crée 1 VHDX de 10 Gio par machine virtuelle : environ 1 Tio en tout pour 100 machines virtuelles, puis effectue des lectures et écritures *uniformément aléatoires*. Contrairement aux charges de travail réelles, les lectures ne suivent pas un modèle prévisible ou répétitif, de sorte que le cache en mémoire n’est pas efficace et crée uniquement une surcharge.
+  > Certains outils de microtest tels que DISKSPD et [VM Fleet](https://github.com/Microsoft/diskspd/tree/master/Frameworks/VMFleet) peuvent produire de plus mauvais résultats lorsque le cache de lecture en mémoire du volume partagé de cluster est activé. Par défaut, VM Fleet crée 1 VHDX de 10 Gio par machine virtuelle : environ 1 Tio en tout pour 100 machines virtuelles, puis effectue des lectures et écritures *uniformément aléatoires* . Contrairement aux charges de travail réelles, les lectures ne suivent pas un modèle prévisible ou répétitif, de sorte que le cache en mémoire n’est pas efficace et crée uniquement une surcharge.
 
 ## <a name="configuring-the-in-memory-read-cache"></a>Configuration du cache de lecture en mémoire
 
@@ -44,6 +44,8 @@ Le cache de lecture en mémoire du volume partagé de cluster (CSV) est disponib
 | Azure Stack HCI     | 1 Gio                  |
 | Windows Server 2019 | 1 Gio                  |
 | Windows Server 2016 | 0 (désactivé)           |
+
+Pour configurer le cache à l’aide de Windows Admin Center, sélectionnez **Paramètres** tout en bas du menu **Outils** sur la gauche. Accédez ensuite à **Stockage > Cache en mémoire** . Une case à cocher active ou désactive le cache et vous pouvez également spécifier la mémoire maximale par serveur à allouer au cache. Assurez-vous de cliquer sur **Enregistrer** en bas de la page après avoir apporté vos modifications.
 
 Pour voir la quantité de mémoire allouée à l’aide de PowerShell, exécutez :
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 8f18cd223faca91bc490b659e0a25fce1add3fea
-ms.sourcegitcommit: 4b1a4ec0ac0283faea9438e6617fcb3cfc6fee6d
+ms.openlocfilehash: 46f98ba8f5d2f33e0b5d9d85ee9c2469a098c17d
+ms.sourcegitcommit: d835e211fe65dc54a0d49dfb21ca2465ced42aa4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041223"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92200482"
 ---
 # <a name="plan-host-networking-for-azure-stack-hci"></a>Planifier le réseau hôte pour Azure Stack HCI
 
@@ -35,7 +35,6 @@ Le trafic SMB peut transiter via les protocoles suivants :
 
 - Protocole TCP (Transport Control Protocol) – utilisé entre les sites
 - Accès direct à la mémoire à distance (RDMA)
-- QUIC – à l’avenir
 
 ## <a name="traffic-bandwidth-allocation"></a>Allocation de bande passante au trafic
 
@@ -50,7 +49,7 @@ Le tableau suivant présente les allocations de bande passante pour différents 
 - Le trafic de pulsation (HB) obtient 1 % des 50 % d’allocation restants
 - *= doit utiliser la compression plutôt que RDMA si l’allocation de bande passante pour le trafic LM est < 5 Gbits/s
 
-|Vitesse de la carte réseau|Vitesse des cartes réseau associées|Réservation SMB de 50 %|% SBL/CSV|Bande passante SBL/CSV|% LM|Bande passante LM|% SR |Bande passante SR|% HB|Bande passante HB|
+|Vitesse de la carte réseau|Bande passante associée|Réservation SMB de 50 %|% SBL/CSV|Bande passante SBL/CSV|% LM|Bande passante LM|% SR |Bande passante SR|% HB|Bande passante HB|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 |10|20|10|70 %|7|14 %*|1,4*|14 %|1.4|2 %|0.2|
 |25|50|25|70 %|17.5|15 %*|3,75*|14 %|3,5|1%|0,25|
@@ -77,7 +76,7 @@ Les exigences pour l’accès RDMA pour Azure Stack HCI sont les suivantes :
     - Une ou plusieurs cartes réseau virtuelles supplémentaires doivent être provisionnées pour le réplica de stockage.
     - L’accès RDMA des cartes réseau virtuelles du réplica de stockage doit être désactivé à l’aide de l’applet de commande PowerShell [Disable-NetAdapterRDMA](https://docs.microsoft.com/powershell/module/netadapter/disable-netadapterrdma), car il est par définition entre sites et entre sous-réseaux.
     - Les adaptateurs RDMA natifs nécessitent un vSwitch et des cartes réseau virtuelles pour la prise en charge du réplica de stockage, afin de répondre aux conditions de site/sous-réseau ci-dessus.
-    - Les exigences en bande passante de l’accès RDMA intra-site exigent de connaître les pourcentages de bande passante par type de trafic, tels qu’indiqués dans la section **Allocation de bande passante au trafic**. Cela garantit que des réservations et des limites de bande passante appropriées peuvent être appliquées pour le trafic est/ouest (de nœud à nœud).
+    - Les exigences en bande passante de l’accès RDMA intra-site exigent de connaître les pourcentages de bande passante par type de trafic, tels qu’indiqués dans la section **Allocation de bande passante au trafic** . Cela garantit que des réservations et des limites de bande passante appropriées peuvent être appliquées pour le trafic est/ouest (de nœud à nœud).
 - Le trafic de réplica de stockage et de migration dynamique doit avoir une bande passante SMB limitée. Sinon, il pourrait consommer toute la bande passante et en priver le trafic de stockage de haute priorité. Pour plus d’informations, reportez-vous aux applets de commande PowerShell [Set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) et [Set-SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint).
 
 > [!NOTE]

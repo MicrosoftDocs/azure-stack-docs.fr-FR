@@ -4,13 +4,13 @@ description: Comprendre l’importance de la validation du cluster et le moment 
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: article
-ms.date: 10/2/2020
-ms.openlocfilehash: 682e9063f6f04f5298e7cab4053af179e1c90cd7
-ms.sourcegitcommit: 6ed6db8e393aace41586a0fba925dc297159d45e
+ms.date: 10/16/2020
+ms.openlocfilehash: fe49df76ccb2a90849587acd5d4df7a41e329efb
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91663939"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157697"
 ---
 # <a name="validate-an-azure-stack-hci-cluster"></a>Valider un cluster Azure Stack HCI
 
@@ -43,14 +43,14 @@ Cette section aborde d’autres scénarios dans lesquels la validation est égal
   
   - **Lors de l’ajout de lecteurs :** Lorsque vous ajoutez des lecteurs au cluster (ce qui n’est pas la même chose que remplacer des lecteurs défaillants ou créer des disques virtuels ou des volumes qui reposent sur les lecteurs existants), exécutez la validation de cluster pour être sûr que le nouveau stockage fonctionnera correctement.
 
-  - **Lors de l’apport de modifications qui affectent le microprogramme ou les pilotes** : Si vous effectuez une mise à niveau ou si vous apportez des modifications au cluster qui affectent le microprogramme ou les pilotes, vous devez exécuter la validation de cluster afin de vérifier que la nouvelle combinaison de matériel, microprogramme, pilotes et logiciels prend en charge la fonctionnalité de cluster de basculement.
+  - **Lors de l’apport de modifications qui affectent le microprogramme ou les pilotes**  : Si vous effectuez une mise à niveau ou si vous apportez des modifications au cluster qui affectent le microprogramme ou les pilotes, vous devez exécuter la validation de cluster afin de vérifier que la nouvelle combinaison de matériel, microprogramme, pilotes et logiciels prend en charge la fonctionnalité de cluster de basculement.
 
-  - **Après la restauration d’un système à partir d’une sauvegarde** : Après avoir restauré un système à partir d’une sauvegarde, exécutez la validation de cluster pour vérifier que le système fonctionne correctement au sein d’un cluster.
+  - **Après la restauration d’un système à partir d’une sauvegarde**  : Après avoir restauré un système à partir d’une sauvegarde, exécutez la validation de cluster pour vérifier que le système fonctionne correctement au sein d’un cluster.
 
 ## <a name="validate-networking"></a>Vérifier le réseau
 L’outil Validate-DCB de Microsoft est conçu pour valider la configuration DCB (Data Center Bridging) sur le cluster. Pour cela, l’outil utilise comme entrée une configuration prévue, puis teste chaque serveur du cluster. Cette section explique comment installer et exécuter l’outil Validate-DCB, comment passer en revue les résultats et comment résoudre les erreurs de réseau détectées par l’outil.
 
-Sur le réseau, l’accès direct à la mémoire à distance (RDMA) sur l’Ethernet convergé (RoCE) nécessite des technologies DCB pour que la structure fabric réseau ne connaisse pas de pertes. Même si iWARP n’a pas besoin de DCB, celui-ci reste recommandé. Toutefois, la configuration de DCB peut être complexe, en exigeant notamment une configuration exacte sur :
+Sur le réseau, l’accès direct à la mémoire à distance (RDMA) sur l’Ethernet convergé (RoCE) nécessite des technologies DCB pour que la structure fabric réseau ne connaisse pas de pertes. Avec iWARP, DCB est facultatif. Toutefois, la configuration de DCB peut être complexe, en exigeant notamment une configuration exacte sur :
 - Chaque serveur du cluster
 - Chaque port réseau que le trafic RDMA traverse dans la structure fabric
 
@@ -76,22 +76,22 @@ Pour installer et exécuter l’outil Validate-DCB :
     > [!NOTE]
     > Si vous ne pouvez pas exécuter le script de l’outil Validate-DCB, vous devrez peut-être ajuster vos stratégies d’exécution PowerShell. Utilisez l’applet de commande Get-ExecutionPolicy pour afficher vos paramètres de stratégie d’exécution de script actuels. Pour plus d’informations sur la configuration des stratégies d’exécution dans PowerShell, consultez [À propos des stratégies d’exécution](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7).
 
-1. Dans la page Welcome to the Validate-DCB configuration wizard (Bienvenue dans l’Assistant Configuration de Validate-DCB), sélectionnez **Suivant**.
+1. Dans la page Welcome to the Validate-DCB configuration wizard (Bienvenue dans l’Assistant Configuration de Validate-DCB), sélectionnez **Suivant** .
 1. Dans la page Clusters and Nodes (Clusters et nœuds), tapez le nom du cluster de serveurs que vous souhaitez valider, sélectionnez **Resolve** (Résoudre) pour le lister dans la page, puis sélectionnez **Next** (Suivant).
 
     :::image type="content" source="../media/validate/clusters-and-nodes.png" alt-text="Page Clusters and Nodes de l’Assistant Configuration de Validate-DCB":::
 
 1. Dans la page Adapters (Cartes réseau) :
    1. Cochez la case **vSwitch attached** (Commutateur virtuel attaché), puis tapez le nom du commutateur virtuel.
-   1. Sous **Adapter Name** (Nom de la carte réseau), tapez le nom de chaque carte réseau physique. Ensuite, sous **Host vNIC Name** (Nom de la carte réseau virtuelle hôte), tapez le nom de chaque carte réseau virtuelle. Enfin, sous **VLAN**, tapez l’ID de réseau local virtuel (VLAN) qui est utilisé pour chaque carte réseau.
-   1. Développez la zone de liste déroulante **RDMA Type**, puis sélectionnez le protocole approprié : **RoCE** ou **iWARP**. Configurez également **Jumbo Frames** (Trames Jumbo) sur la valeur qui convient à votre réseau, puis sélectionnez **Next**.
+   1. Sous **Adapter Name** (Nom de la carte réseau), tapez le nom de chaque carte réseau physique. Ensuite, sous **Host vNIC Name** (Nom de la carte réseau virtuelle hôte), tapez le nom de chaque carte réseau virtuelle. Enfin, sous **VLAN** , tapez l’ID de réseau local virtuel (VLAN) qui est utilisé pour chaque carte réseau.
+   1. Développez la zone de liste déroulante **RDMA Type** , puis sélectionnez le protocole approprié : **RoCE** ou **iWARP** . Configurez également **Jumbo Frames** (Trames Jumbo) sur la valeur qui convient à votre réseau, puis sélectionnez **Next** .
 
     :::image type="content" source="../media/validate/adapters.png" alt-text="Page Clusters and Nodes de l’Assistant Configuration de Validate-DCB" lightbox="../media/validate/adapters.png":::
 
     > [!NOTE]
     > - Pour en savoir plus sur la façon dont SR-IOV améliore les performances du réseau, consultez [Vue d’ensemble de la virtualisation d’E/S d’une racine unique (SR-IOV)](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-).
 
-1. Dans la page Data Center Bridging, modifiez les valeurs pour qu’elles correspondent aux paramètres de votre organisation concernant la priorité (**Priority**), le nom de la stratégie (**Policy Name**) et la réservation de bande passante (**Bandwidth Reservation**), puis sélectionnez **Next**.
+1. Dans la page Data Center Bridging, modifiez les valeurs pour qu’elles correspondent aux paramètres de votre organisation concernant la priorité ( **Priority** ), le nom de la stratégie ( **Policy Name** ) et la réservation de bande passante ( **Bandwidth Reservation** ), puis sélectionnez **Next** .
 
     :::image type="content" source="../media/validate/data-center-bridging.png" alt-text="Page Clusters and Nodes de l’Assistant Configuration de Validate-DCB" lightbox="../media/validate/data-center-bridging.png":::
 
@@ -122,7 +122,7 @@ Les étapes suivantes montrent comment identifier une erreur de paquet Jumbo à 
 
     :::image type="content" source="../media/validate/jumbo-packet-setting-error.png" alt-text="Page Clusters and Nodes de l’Assistant Configuration de Validate-DCB":::
 
-1. Quand vous consultez les propriétés avancées (**Advanced**) de la carte réseau virtuelle SMB02 sur l’ordinateur hôte S046036, vous voyez que le paquet Jumbo est défini sur la valeur par défaut **Disabled** (Désactivé).
+1. Quand vous consultez les propriétés avancées ( **Advanced** ) de la carte réseau virtuelle SMB02 sur l’ordinateur hôte S046036, vous voyez que le paquet Jumbo est défini sur la valeur par défaut **Disabled** (Désactivé).
 
     :::image type="content" source="../media/validate/hyper-v-advanced-properties-jumbo-packet-setting.png" alt-text="Page Clusters and Nodes de l’Assistant Configuration de Validate-DCB":::
 
@@ -137,18 +137,18 @@ Pour savoir comment résoudre les erreurs détectées par l’outil Validate-DCB
 ## <a name="validate-the-cluster"></a>Valider le cluster
 Effectuez les étapes suivantes pour valider les serveurs présents dans un cluster existant dans Windows Admin Center.
 
-1. Dans Windows Admin Center, sous **All connections** (Toutes les connexions), sélectionnez le cluster Azure Stack HCI que vous souhaitez valider, puis sélectionnez **Connect**.
+1. Dans Windows Admin Center, sous **All connections** (Toutes les connexions), sélectionnez le cluster Azure Stack HCI que vous souhaitez valider, puis sélectionnez **Connect** .
 
-    Le tableau de bord du Gestionnaire de clusters (**Cluster Manager Dashboard**) affiche des informations générales sur le cluster.
+    Le tableau de bord du Gestionnaire de clusters ( **Cluster Manager Dashboard** ) affiche des informations générales sur le cluster.
 
-1. Dans **Cluster Manager Dashboard**, sous **Tools** (Outils), sélectionnez **Servers** (Serveurs).
-1. Dans la page **Inventory** (Inventaire), sélectionnez les serveurs du cluster, développez le sous-menu **More**, puis sélectionnez **Validate cluster** (Valider le cluster).
-1. Dans la fenêtre contextuelle **Validate Cluster** (Valider le cluster), sélectionnez **Yes**.
+1. Dans **Cluster Manager Dashboard** , sous **Tools** (Outils), sélectionnez **Servers** (Serveurs).
+1. Dans la page **Inventory** (Inventaire), sélectionnez les serveurs du cluster, développez le sous-menu **More** , puis sélectionnez **Validate cluster** (Valider le cluster).
+1. Dans la fenêtre contextuelle **Validate Cluster** (Valider le cluster), sélectionnez **Yes** .
 
     :::image type="content" source="../media/validate/validate-cluster-pop-up.png" alt-text="Page Clusters and Nodes de l’Assistant Configuration de Validate-DCB":::
 
-1. Dans la fenêtre contextuelle **Credential Security Service Provider (CredSSP)** , sélectionnez **Yes**.
-1. Indiquez vos informations d’identification pour activer **CredSSP**, puis sélectionnez **Continue**.<br> La validation de cluster s’exécute en arrière-plan, et une notification s’affiche lorsque celle-ci est terminée. Vous pouvez alors voir le rapport de validation, comme décrit dans la section suivante.
+1. Dans la fenêtre contextuelle **Credential Security Service Provider (CredSSP)** , sélectionnez **Yes** .
+1. Indiquez vos informations d’identification pour activer **CredSSP** , puis sélectionnez **Continue** .<br> La validation de cluster s’exécute en arrière-plan, et une notification s’affiche lorsque celle-ci est terminée. Vous pouvez alors voir le rapport de validation, comme décrit dans la section suivante.
 
 > [!NOTE]
 > Une fois que vos serveurs de cluster ont été validés, vous devez désactiver CredSSP pour des raisons de sécurité.
@@ -156,8 +156,8 @@ Effectuez les étapes suivantes pour valider les serveurs présents dans un clus
 ### <a name="disable-credssp"></a>Désactiver CredSSP
 Une fois votre cluster de serveurs correctement validé, vous devez désactiver le protocole CredSSP sur chaque serveur pour des raisons de sécurité. Pour plus d’informations, consultez [CVE-2018-0886](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-0886).
 
-1. Dans Windows Admin Center, sous **All connections** (Toutes les connexions), sélectionnez le premier serveur de votre cluster, puis sélectionnez **Connect**.
-1. Dans la page **Overview** (Vue d’ensemble), sélectionnez **Disable CredSSP** (Désactiver CredSSP), puis, dans la fenêtre contextuelle **Disable CredSSP**, sélectionnez **Yes**.
+1. Dans Windows Admin Center, sous **All connections** (Toutes les connexions), sélectionnez le premier serveur de votre cluster, puis sélectionnez **Connect** .
+1. Dans la page **Overview** (Vue d’ensemble), sélectionnez **Disable CredSSP** (Désactiver CredSSP), puis, dans la fenêtre contextuelle **Disable CredSSP** , sélectionnez **Yes** .
 
     Le résultat de l’étape 2 supprime la bannière rouge **CredSSP ENABLED** située en haut de la page **Overview** du serveur, et désactive CredSSP sur les autres serveurs.
 
@@ -165,14 +165,14 @@ Une fois votre cluster de serveurs correctement validé, vous devez désactiver 
 Vous êtes maintenant prêt à afficher le rapport de validation de votre cluster.
 
 Il existe plusieurs façons d’accéder aux rapports de validation :
-- Dans la page **Inventory** (Inventaire), développez le sous-menu **More**, puis sélectionnez **View validation reports** (Afficher les rapports de validation).
+- Dans la page **Inventory** (Inventaire), développez le sous-menu **More** , puis sélectionnez **View validation reports** (Afficher les rapports de validation).
 
 
-- En haut à droite de **Windows Admin Center**, sélectionnez l’icône des **Notifications** représentant une cloche afin d’afficher le volet **Notifications**.
+- En haut à droite de **Windows Admin Center** , sélectionnez l’icône des **Notifications** représentant une cloche afin d’afficher le volet **Notifications** .
 Sélectionnez la notification **Successfully validated cluster** (Cluster validé), puis sélectionnez **Go to Failover Cluster validation report** (Accéder au rapport de validation du cluster de basculement).
 
 > [!NOTE]
-> Le processus de validation du cluster de serveurs peut prendre un certain temps. Ne passez pas à un autre outil dans Windows Admin Center pendant l’exécution du processus. Dans le volet **Notifications**, une barre d’état située sous la notification **Validate cluster** (valider le cluster) indique quand le processus est terminé.
+> Le processus de validation du cluster de serveurs peut prendre un certain temps. Ne passez pas à un autre outil dans Windows Admin Center pendant l’exécution du processus. Dans le volet **Notifications** , une barre d’état située sous la notification **Validate cluster** (valider le cluster) indique quand le processus est terminé.
 
 ## <a name="validate-the-cluster-using-powershell"></a>Valider le cluster à l’aide de PowerShell
 Vous pouvez également utiliser Windows PowerShell pour exécuter des tests de validation sur votre cluster de serveurs et afficher les résultats. Vous pouvez exécuter des tests avant et après avoir configuré un cluster.

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/24/2020
-ms.openlocfilehash: 621662110b2e842a432183dfb7415f3c8365907b
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.openlocfilehash: 8e5f1a07425224c8e343d4193cee2d721ae1f0b6
+ms.sourcegitcommit: 81e2d627c9dc4cc365deb4a0e0674b5ab3a7efbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230493"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297888"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Connecter Azure Stack HCI à Azure
 
@@ -71,7 +71,7 @@ Utilisez la procédure suivante pour inscrire un cluster Azure Stack HCI auprès
    > [!NOTE]
    > 1. Vous pouvez voir une invite comme « Voulez-vous que PowerShellGet installe et importe le fournisseur NuGet maintenant ? ». à laquelle vous devez répondre Oui (Y).
    > 2. Vous pouvez après cela voir une invite « Voulez-vous vraiment installer les modules à partir de PSGallery ? », à laquelle vous devez répondre Oui (Y).
-   > 3. Enfin, vous supposerez sans doute que l’installation de l’ensemble du module **Az** va inclure le sous-module **StackHCI** : ce sera le cas ultérieurement. Cependant, selon la convention standard d’Azure PowerShell, les sous-modules en préversion ne sont pas inclus automatiquement : vous devez les spécifier explicitement. Par conséquent pour l’instant, vous devez demander explicitement **Az.StackHCI** comme indiqué ci-dessus.
+   > 3. Enfin, vous supposerez sans doute que l’installation de l’ensemble du module **Az** va inclure le sous-module **StackHCI** , mais ce n’est pas le cas. Les sous-modules en Préversion ne sont pas inclus automatiquement selon la convention Azure PowerShel, vous devez donc demander explicitement **Az.StackHCI** , comme indiqué ci-dessous.
 
 4. Effectuez l’inscription réelle :
 

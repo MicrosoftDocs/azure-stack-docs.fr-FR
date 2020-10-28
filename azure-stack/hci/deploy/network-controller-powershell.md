@@ -3,24 +3,26 @@ title: Déployer le contrôleur de réseau à l’aide de Windows PowerShell
 description: Découvrir comment déployer le contrôleur de réseau à l’aide de Windows PowerShell
 author: v-dasis
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 10/16/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: e217c8b3e2a67dafa121fe752b66af9f24f888a1
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: e53206ae6ae5039d00cbe4bf82b6fb5b773a5270
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899548"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157646"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Déployer le contrôleur de réseau à l’aide de Windows PowerShell
 
 > S’applique à Azure Stack HCI, version 20H2 ; Windows Server 2019
 
-Cette rubrique fournit des instructions sur l’utilisation de Windows PowerShell pour déployer un contrôleur de réseau sur une ou plusieurs machines virtuelles qui s’exécutent sur un cluster Azure Stack HCI. Le contrôleur de réseau est un composant de SDN (Software Defined Networking).
+Cette rubrique fournit des instructions sur l’utilisation de Windows PowerShell pour déployer la fonctionnalité Contrôleur de réseau sur une ou plusieurs machines virtuelles qui s’exécutent sur un cluster Azure Stack HCI. Le contrôleur de réseau est un composant de SDN (Software Defined Networking).
 
->[!NOTE]
->Vous pouvez également déployer le contrôleur de réseau à l’aide de l’Assistant Création d’un cluster dans Windows Admin Center. Pour plus d’informations, consultez [Créer un cluster Azure Stack HCI en utilisant Windows Admin Center](create-cluster.md).
+Vous pouvez également déployer le contrôleur de réseau à l’aide de l’Assistant Création d’un cluster dans Windows Admin Center. Pour plus d’informations, consultez [Créer un cluster Azure Stack HCI en utilisant Windows Admin Center](create-cluster.md).
+
+> [!NOTE]
+> SDN n’est pas pris en charge ou n’est pas disponible pour les clusters étendus.
 
 ## <a name="using-windows-powershell"></a>Utilisation de Windows PowerShell
 
@@ -59,7 +61,7 @@ Restart-Computer
 Le cluster du contrôleur de réseau offre une haute disponibilité et une évolutivité élevée à l’application du contrôleur de réseau, que vous pouvez configurer après avoir créé le cluster et qui est hébergé au-dessus du cluster.
 
 >[!NOTE]
->Vous pouvez effectuer les procédures décrites dans les sections suivantes soit directement sur la machine virtuelle sur laquelle vous avez installé le contrôleur de réseau, soit à partir d’un ordinateur distant qui exécute Windows Admin Center. En outre, pour effectuer cette procédure, il est nécessaire d’appartenir au groupe **Administrateurs** ou à un groupe équivalent. Si l’ordinateur ou la machine virtuelle sur lequel vous avez installé le contrôleur de réseau est joint à un domaine, votre compte d’utilisateur doit être membre du groupe **Utilisateurs du domaine**.
+>Vous pouvez effectuer les procédures décrites dans les sections suivantes soit directement sur la machine virtuelle sur laquelle vous avez installé le contrôleur de réseau, soit à partir d’un ordinateur distant qui exécute Windows Admin Center. En outre, pour effectuer cette procédure, il est nécessaire d’appartenir au groupe **Administrateurs** ou à un groupe équivalent. Si l’ordinateur ou la machine virtuelle sur lequel vous avez installé le contrôleur de réseau est joint à un domaine, votre compte d’utilisateur doit être membre du groupe **Utilisateurs du domaine** .
 
 Vous pouvez créer un cluster du contrôleur de réseau en créant un objet de nœud, puis en configurant le cluster.
 
@@ -95,12 +97,12 @@ La table suivante fournit des descriptions de chaque paramètre de la commande `
   
 |Paramètre|Description|
 |-------------|---------------|
-|ClusterAuthentication|Le paramètre **ClusterAuthentication** spécifie le type d’authentification utilisé pour sécuriser la communication entre les nœuds et est également utilisé pour le chiffrement du trafic entre les services du contrôleur de réseau. Les valeurs prises en charge sont **Kerberos**, **x509** et **Aucun**. L’authentification Kerberos utilise des comptes de domaine et peut uniquement être utilisée si les nœuds du contrôleur de réseau sont joints à un domaine. Si vous spécifiez l’authentification basée sur x509, vous devez fournir un certificat dans l’objet NetworkControllerNode. En outre, vous devez configurer manuellement le certificat avant d’exécuter cette commande.|
+|ClusterAuthentication|Le paramètre **ClusterAuthentication** spécifie le type d’authentification utilisé pour sécuriser la communication entre les nœuds et est également utilisé pour le chiffrement du trafic entre les services du contrôleur de réseau. Les valeurs prises en charge sont **Kerberos** , **x509** et **Aucun** . L’authentification Kerberos utilise des comptes de domaine et peut uniquement être utilisée si les nœuds du contrôleur de réseau sont joints à un domaine. Si vous spécifiez l’authentification basée sur x509, vous devez fournir un certificat dans l’objet NetworkControllerNode. En outre, vous devez configurer manuellement le certificat avant d’exécuter cette commande.|
 |ManagementSecurityGroup|Le paramètre **ManagementSecurityGroup** spécifie le nom du groupe de sécurité qui contient les utilisateurs autorisés à exécuter les cmdlets de gestion à partir d’un ordinateur distant. Cela s’applique uniquement si ClusterAuthentication est Kerberos. Vous devez spécifier un groupe de sécurité de domaine et non un groupe de sécurité sur l’ordinateur local.|
-|Nœud|Le paramètre **Nœud** spécifie la liste des nœuds de contrôleur de réseau que vous avez créés à l’aide de la commande **New-NetworkControllerNodeObject**.|
+|Nœud|Le paramètre **Nœud** spécifie la liste des nœuds de contrôleur de réseau que vous avez créés à l’aide de la commande **New-NetworkControllerNodeObject** .|
 |DiagnosticLogLocation|Le paramètre **DiagnosticLogLocation** spécifie l’emplacement du partage dans lequel les journaux de diagnostic sont régulièrement chargés. Si vous ne spécifiez pas de valeur pour ce paramètre, les journaux sont stockés localement sur chaque nœud. Les journaux sont stockés localement dans le dossier %systemdrive%\Windows\tracing\SDNDiagnostics. Les journaux de cluster sont stockés localement dans le dossier %systemdrive%\ProgramData\Microsoft\Service Fabric\log\Traces.|
 |LogLocationCredential|Le paramètre **LogLocationCredential** spécifie les informations d’identification requises pour accéder à l’emplacement de partage où les journaux sont stockés.|
-|CredentialEncryptionCertificate|Le paramètre **CredentialEncryptionCertificate** spécifie le certificat utilisé par le contrôleur de réseau pour chiffrer les informations d’identification utilisées pour accéder aux fichiers binaires du contrôleur de réseau et au paramètre **LogLocationCredential**, le cas échéant. Le certificat doit être approvisionné sur tous les nœuds du contrôleur de réseau avant d’exécuter cette commande et le même certificat doit être inscrit sur tous les nœuds du cluster. L’utilisation de ce paramètre pour protéger les fichiers binaires et les journaux du contrôleur de réseau est recommandée dans les environnements de production. Sans ce paramètre, les informations d’identification sont stockées en texte clair et peuvent être utilisées de façon incorrecte par tout utilisateur non autorisé.|
+|CredentialEncryptionCertificate|Le paramètre **CredentialEncryptionCertificate** spécifie le certificat utilisé par le contrôleur de réseau pour chiffrer les informations d’identification utilisées pour accéder aux fichiers binaires du contrôleur de réseau et au paramètre **LogLocationCredential** , le cas échéant. Le certificat doit être approvisionné sur tous les nœuds du contrôleur de réseau avant d’exécuter cette commande et le même certificat doit être inscrit sur tous les nœuds du cluster. L’utilisation de ce paramètre pour protéger les fichiers binaires et les journaux du contrôleur de réseau est recommandée dans les environnements de production. Sans ce paramètre, les informations d’identification sont stockées en texte clair et peuvent être utilisées de façon incorrecte par tout utilisateur non autorisé.|
 |Informations d'identification|Ce paramètre est obligatoire uniquement si vous exécutez cette commande à partir d’un ordinateur distant. Le paramètre **Informations d’identification** spécifie un compte d’utilisateur qui a l’autorisation d’exécuter cette commande sur l’ordinateur cible.|
 |CertificateThumbprint|Ce paramètre est obligatoire uniquement si vous exécutez cette commande à partir d’un ordinateur distant. Le paramètre **CertificateThumbprint** spécifie le certificat de clé publique numérique (x509) d’un compte d’utilisateur qui a l’autorisation d’exécuter cette commande sur l’ordinateur cible.|
 |UseSSL|Ce paramètre est obligatoire uniquement si vous exécutez cette commande à partir d’un ordinateur distant. Le paramètre **UseSSL** spécifie que le protocole SSL (Secure Sockets Layer) utilisé pour établir une connexion à l'ordinateur distant. Par défaut, SSL n'est pas utilisé.|
@@ -120,13 +122,13 @@ La table suivante fournit des descriptions de chaque paramètre de la commande `
 
 |Paramètre|Description|
 |-------------|---------------|
-|ClientAuthentication|Le paramètre **ClientAuthentication** spécifie le type d’authentification utilisé pour sécuriser la communication entre REST et le contrôleur de réseau. Les valeurs prises en charge sont **Kerberos**, **x509** et **Aucun**. L’authentification Kerberos utilise des comptes de domaine et peut uniquement être utilisée si les nœuds du contrôleur de réseau sont joints à un domaine. Si vous spécifiez l’authentification basée sur x509, vous devez fournir un certificat dans l’objet NetworkControllerNode. En outre, vous devez configurer manuellement le certificat avant d’exécuter cette commande.|
-|Nœud|Le paramètre **Nœud** spécifie la liste des nœuds de contrôleur de réseau que vous avez créés à l’aide de la commande **New-NetworkControllerNodeObject**.|
+|ClientAuthentication|Le paramètre **ClientAuthentication** spécifie le type d’authentification utilisé pour sécuriser la communication entre REST et le contrôleur de réseau. Les valeurs prises en charge sont **Kerberos** , **x509** et **Aucun** . L’authentification Kerberos utilise des comptes de domaine et peut uniquement être utilisée si les nœuds du contrôleur de réseau sont joints à un domaine. Si vous spécifiez l’authentification basée sur x509, vous devez fournir un certificat dans l’objet NetworkControllerNode. En outre, vous devez configurer manuellement le certificat avant d’exécuter cette commande.|
+|Nœud|Le paramètre **Nœud** spécifie la liste des nœuds de contrôleur de réseau que vous avez créés à l’aide de la commande **New-NetworkControllerNodeObject** .|
 |ClientCertificateThumbprint|Ce paramètre est requis uniquement lorsque vous utilisez l’authentification basée sur les certificats pour les clients du contrôleur de réseau. Le paramètre **ClientCertificateThumbprint** spécifie l’empreinte numérique du certificat qui est inscrit aux clients sur la couche Northbound.|
 |ServerCertificate|Le paramètre **ServerCertificate** spécifie le certificat utilisé par le contrôleur de réseau pour prouver son identité aux clients. Le certificat de serveur doit inclure l’objectif d’authentification du serveur dans les extensions d’utilisation améliorée de la clé et doit être délivré au contrôleur de réseau par une autorité de certification approuvée par les clients.|
-|RESTIPAddress|Vous n’avez pas besoin de spécifier une valeur pour **RESTIPAddress** avec un déploiement à un seul nœud du contrôleur de réseau. Pour les déploiements à plusieurs nœuds, le paramètre **RESTIPAddress** spécifie l’adresse IP du point de terminaison REST en notation CIDR. Par exemple, 192.168.1.10/24. La valeur du nom d’objet de **ServerCertificate** doit résoudre la valeur du paramètre **RESTIPAddress**. Ce paramètre doit être spécifié pour tous les déploiements de contrôleur de réseau à plusieurs nœuds lorsque tous les nœuds se trouvent sur le même sous-réseau. Si les nœuds se trouvent sur des sous-réseaux différents, vous devez utiliser le paramètre **Restname** au lieu d’utiliser **RESTIPAddress**.|
+|RESTIPAddress|Vous n’avez pas besoin de spécifier une valeur pour **RESTIPAddress** avec un déploiement à un seul nœud du contrôleur de réseau. Pour les déploiements à plusieurs nœuds, le paramètre **RESTIPAddress** spécifie l’adresse IP du point de terminaison REST en notation CIDR. Par exemple, 192.168.1.10/24. La valeur du nom d’objet de **ServerCertificate** doit résoudre la valeur du paramètre **RESTIPAddress** . Ce paramètre doit être spécifié pour tous les déploiements de contrôleur de réseau à plusieurs nœuds lorsque tous les nœuds se trouvent sur le même sous-réseau. Si les nœuds se trouvent sur des sous-réseaux différents, vous devez utiliser le paramètre **Restname** au lieu d’utiliser **RESTIPAddress** .|
 |RestName|Vous n’avez pas besoin de spécifier une valeur pour **RESTName** avec un déploiement à un seul nœud du contrôleur de réseau. La seule fois où vous devez spécifier une valeur pour **Restname** est lorsque les déploiements à plusieurs nœuds ont des nœuds qui se trouvent sur des sous-réseaux différents. Pour les déploiements à plusieurs nœuds, le paramètre **Restname** spécifie le nom de domaine complet du cluster du contrôleur de réseau.|
-|ClientSecurityGroup|Le paramètre **ClientSecurityGroup** spécifie le nom du groupe de sécurité Active Directory dont les membres sont des clients du contrôleur de réseau. Ce paramètre est obligatoire uniquement si vous utilisez l’authentification Kerberos pour **ClientAuthentication**. Le groupe de sécurité doit contenir les comptes à partir desquels les API REST sont accessibles et vous devez créer le groupe de sécurité et ajouter des membres avant d’exécuter cette commande.|
+|ClientSecurityGroup|Le paramètre **ClientSecurityGroup** spécifie le nom du groupe de sécurité Active Directory dont les membres sont des clients du contrôleur de réseau. Ce paramètre est obligatoire uniquement si vous utilisez l’authentification Kerberos pour **ClientAuthentication** . Le groupe de sécurité doit contenir les comptes à partir desquels les API REST sont accessibles et vous devez créer le groupe de sécurité et ajouter des membres avant d’exécuter cette commande.|
 |Informations d'identification|Ce paramètre est obligatoire uniquement si vous exécutez cette commande à partir d’un ordinateur distant. Le paramètre **Informations d’identification** spécifie un compte d’utilisateur qui a l’autorisation d’exécuter cette commande sur l’ordinateur cible.|
 |CertificateThumbprint|Ce paramètre est obligatoire uniquement si vous exécutez cette commande à partir d’un ordinateur distant. Le paramètre **CertificateThumbprint** spécifie le certificat de clé publique numérique (x509) d’un compte d’utilisateur qui a l’autorisation d’exécuter cette commande sur l’ordinateur cible.|
 |UseSSL|Ce paramètre est obligatoire uniquement si vous exécutez cette commande à partir d’un ordinateur distant. Le paramètre **UseSSL** spécifie que le protocole SSL (Secure Sockets Layer) utilisé pour établir une connexion à l'ordinateur distant. Par défaut, SSL n'est pas utilisé.|
@@ -139,7 +141,7 @@ Pour valider votre déploiement du contrôleur de réseau, vous pouvez ajouter d
 
 Si vous utilisez Kerberos comme type `ClientAuthentication`, l’appartenance au groupe **ClientSecurityGroup** que vous avez créé est requise pour effectuer cette procédure.
 
-1. Sur un ordinateur client, si vous utilisez Kerberos comme type `ClientAuthentication`, connectez-vous à l’aide d’un compte d’utilisateur membre de votre groupe **ClientSecurityGroup**.
+1. Sur un ordinateur client, si vous utilisez Kerberos comme type `ClientAuthentication`, connectez-vous à l’aide d’un compte d’utilisateur membre de votre groupe **ClientSecurityGroup** .
 
 1. Dans PowerShell, tapez les commandes suivantes. Veillez à utiliser des valeurs pour chaque paramètre qui conviennent à votre déploiement.
 
@@ -199,7 +201,7 @@ La table suivante fournit la syntaxe des commandes PowerShell que vous pouvez ut
 |Activer le nœud de cluster du contrôleur de réseau|Enable-NetworkControllerNode|`Enable-NetworkControllerNode -Name <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-PassThru] [-UseSsl]`
 |Supprimer un nœud de contrôleur de réseau d’un cluster|Remove-NetworkControllerNode|`Remove-NetworkControllerNode [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-Force] [-Name <String> ] [-PassThru] [-UseSsl]`
 
-Pour plus d’informations, consultez la documentation de référence de Windows PowerShell pour le contrôleur de réseau sur [NetworkController](/powershell/module/networkcontroller/?view=win10-ps).
+Pour plus d’informations, consultez la documentation de référence de Windows PowerShell pour le contrôleur de réseau sur [NetworkController](/powershell/module/networkcontroller).
 
 ## <a name="sample-network-controller-configuration-script"></a>Exemple de script de configuration du contrôleur de réseau
 

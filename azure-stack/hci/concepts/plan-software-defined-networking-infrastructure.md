@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
 ms.author: anpaul
 author: AnirbanPaul
-ms.date: 09/11/2020
-ms.openlocfilehash: 986aba8f7591239abfa5502dc2c335177df2eed1
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.date: 10/16/2020
+ms.openlocfilehash: 6df469fcc6997b1f56a552bc141692c7a8a49808
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899531"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157680"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Planifier une infrastructure de réseau défini par logiciel
 
@@ -20,15 +20,18 @@ ms.locfileid: "91899531"
 
 Apprenez-en davantage sur la planification du déploiement d’une infrastructure de réseau défini par logiciel, notamment sur les conditions matérielles et logicielles préalables requises. Cette rubrique décrit les exigences de planification pour la configuration physique et logique du réseau, le routage, les passerelles, le matériel réseau, et bien plus. Elle aborde également des considérations relatives à l’extension d’une infrastructure de réseau défini par logiciel et à l’utilisation d’un déploiement par phases.
 
+   > [!NOTE]
+   > SDN n’est pas pris en charge sur les clusters étirés (sur plusieurs sites).
+
 ## <a name="prerequisites"></a>Prérequis
 Une infrastructure de réseau défini par logiciel requiert plusieurs conditions matérielles et logicielles préalables, à savoir :
-- **Groupes de sécurité et inscription dynamique de réseau défini par logiciel**. Vous devez préparer votre centre de données au déploiement du contrôleur de réseau qui nécessite un ensemble de machines virtuelles. Avant de déployer le contrôleur de réseau, vous devez configurer des groupes de sécurité et une inscription dynamique de réseau défini par logiciel.
+- **Groupes de sécurité et inscription dynamique de réseau défini par logiciel** . Vous devez préparer votre centre de données au déploiement du contrôleur de réseau qui nécessite un ensemble de machines virtuelles. Avant de déployer le contrôleur de réseau, vous devez configurer des groupes de sécurité et une inscription dynamique de réseau défini par logiciel.
 
     Pour en savoir plus sur le déploiement du contrôleur de réseau pour votre centre de données, consultez [Configuration requise pour le déploiement du contrôleur de réseau](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller).
 
-- **Réseau physique**. Pour configurer les réseaux locaux virtuels (VLAN), le routage et le protocole BGP (Border Gateway Protocol), vous devez avoir accès à vos périphériques réseau physiques. Cette rubrique contient des instructions pour la configuration manuelle du commutateur, et le choix entre une homologation BGP via des commutateurs/routeurs de couche 3 et une machine virtuelle faisant office de serveur de routage et d’accès distant (RRAS).
+- **Réseau physique** . Pour configurer les réseaux locaux virtuels (VLAN), le routage et le protocole BGP (Border Gateway Protocol), vous devez avoir accès à vos périphériques réseau physiques. Cette rubrique contient des instructions pour la configuration manuelle du commutateur, et le choix entre une homologation BGP via des commutateurs/routeurs de couche 3 et une machine virtuelle faisant office de serveur de routage et d’accès distant (RRAS).
 
-- **Ordinateurs hôtes de calcul physique**. Ces ordinateurs hôtes exécutent la technologie Hyper-V, et sont requis pour héberger l’infrastructure de réseau défini par logiciel et les machines virtuelles de locataire. Pour permettre à ces ordinateurs hôtes de produire des performances optimales, un matériel réseau spécifique est requis, comme décrit dans la section [Matériel réseau](#network-hardware).
+- **Ordinateurs hôtes de calcul physique** . Ces ordinateurs hôtes exécutent la technologie Hyper-V, et sont requis pour héberger l’infrastructure de réseau défini par logiciel et les machines virtuelles de locataire. Pour permettre à ces ordinateurs hôtes de produire des performances optimales, un matériel réseau spécifique est requis, comme décrit dans la section [Matériel réseau](#network-hardware).
 
 ## <a name="physical-and-logical-network-configuration"></a>Configuration physique et logique du réseau
 Chaque hôte de calcul physique requiert une connexion réseau via une ou plusieurs cartes réseau connectées à un port commuté physique. Un [réseau local virtuel (VLAN)](https://en.wikipedia.org/wiki/Virtual_LAN) de couche 2 prend en charge des réseaux divisés en plusieurs segments de réseau logique.

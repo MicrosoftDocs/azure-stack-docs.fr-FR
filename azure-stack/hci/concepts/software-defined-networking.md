@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/29/2020
-ms.openlocfilehash: e14d0475c941f568f08a027de9e71eb25f00a999
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.date: 10/16/2020
+ms.openlocfilehash: 3aaee084c30dd8d6b3f6514d18951fd604bd75aa
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572651"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157663"
 ---
 # <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Mise en réseau SDN (Software Defined Networking) dans Azure Stack HCI
 
@@ -23,6 +23,9 @@ La mise en réseau SDN (Software Defined Networking) permet de configurer et de 
 Les éléments de réseau virtuel, tels que le [Commutateur virtuel Hyper-V](/windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch), la [Virtualisation de réseau Hyper-V](/windows-server/networking/sdn/technologies/hyper-v-network-virtualization/hyper-v-network-virtualization), [l’équilibrage de charge logiciel](/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn) et la [Passerelle RAS](/windows-server/networking/sdn/technologies/network-function-virtualization/ras-gateway-for-sdn) sont conçus pour être des éléments intégraux de votre infrastructure SDN. Vous pouvez également utiliser vos appareils existants compatibles SDN pour bénéficier d’une intégration plus poussée entre vos charges de travail exécutées dans des réseaux virtuels et le réseau physique.
 
 Il existe trois principaux composants SDN sur Azure Stack HCI et vous pouvez choisir celui que vous souhaitez déployer : Contrôleur de réseau, équilibreur de charge logiciel et passerelle.
+
+   > [!NOTE]
+   > SDN n’est pas pris en charge sur les clusters étirés (sur plusieurs sites).
 
 ## <a name="network-controller"></a>Contrôleur réseau
 
