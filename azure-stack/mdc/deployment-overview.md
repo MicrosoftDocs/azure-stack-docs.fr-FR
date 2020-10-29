@@ -16,12 +16,12 @@ ms.date: 10/20/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: 60361a3e44b5ad54c63e6a94223d75a7b5106b9e
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.openlocfilehash: aa5d67405ff471cecf147256d4b2109e94d993ef
+ms.sourcegitcommit: 716ca50bd198fd51a4eec5b40d5247f6f8c16530
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92253925"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92898585"
 ---
 # <a name="mdc-deployment-overview"></a>Vue d’ensemble du déploiement de MDC
 
@@ -58,10 +58,6 @@ Le tableau suivant répertorie certains des termes utilisés dans ce guide.
 |Unité d'échelle    |Composant principal d’Azure Stack Hub qui fournit des ressources de calcul et de stockage à l’infrastructure de structure et aux charges de travail Azure Stack Hub. Chaque pod comprend huit serveurs MDC R840 également appelés nœuds.|
 |Stockage Isilon |    Composant Azure Stack Hub spécifique à la solution MDC. Isilon fournit un stockage Blob et de fichiers supplémentaire pour les charges de travail Azure Stack Hub. Chaque pod comprend 48 nœuds de stockage Isilon.|
 |Pod    |Dans le contexte de MDC, un pod est une unité logique indépendante constituée de deux racks physiques interconnectés. Une solution complète comprend trois pods installés dans un seul conteneur.|
-
-
-
-
 
 ## <a name="deployment-workflow"></a>Workflow du déploiement
 
