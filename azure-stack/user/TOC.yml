@@ -250,6 +250,8 @@
                       href: azure-stack-kubernetes-aks-engine-scale.md
                     - name: Mettre à niveau un cluster
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
+                    - name: Activer la projection du volume de jeton de compte de service
+                      href: kubernetes-aks-engine-service-account.md
                     - name: Résoudre les problèmes du moteur AKS
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
                     - name: Utiliser Azure Monitor pour conteneurs
