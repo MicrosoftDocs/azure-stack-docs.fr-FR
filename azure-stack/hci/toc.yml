@@ -16,22 +16,22 @@
   items:
     - name: Vue d’ensemble du déploiement
       href: deploy/deployment-overview.md
-    - name: Avant de commencer
-      href: deploy/before-you-start.md
     - name: Déployer le système d’exploitation Azure Stack HCI
       href: deploy/operating-system.md
     - name: Créer le cluster
       href: deploy/create-cluster.md
-    - name: Créer le cluster avec PowerShell
-      href: deploy/create-cluster-powershell.md
     - name: Configurer un témoin de cluster
       href: deploy/witness.md
     - name: Inscription auprès d’Azure
       href: deploy/register-with-azure.md
     - name: Valider le cluster
       href: deploy/validate.md
-    - name: Déployer un contrôleur de réseau
-      href: deploy/network-controller-powershell.md
+    - name: Déployer avec PowerShell
+      items:
+        - name: Créer un cluster avec PowerShell
+          href: deploy/create-cluster-powershell.md
+        - name: Déployer un contrôleur de réseau avec PowerShell
+          href: deploy/network-controller-powershell.md
 - name: Gérer
   items:
     - name: Gérer les machines virtuelles
@@ -104,6 +104,8 @@
   items:
     - name: Stockage et clusters
       items:
+        - name: Configuration requise
+          href: concepts/system-requirements.md
         - name: Choisir des lecteurs
           href: concepts/choose-drives.md
         - name: Considérations relatives à la symétrie des lecteurs

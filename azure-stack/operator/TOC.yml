@@ -351,6 +351,32 @@
                   href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
             - name: Supprimer
               href: event-hubs-rp-remove.md
+        - name: IoT Hub sur Azure Stack Hub
+          items:
+            - name: Vue d’ensemble
+              href: iot-hub-rp-overview.md
+            - name: Prérequis
+              href: iot-hub-rp-prerequisites.md
+            - name: Installer
+              href: iot-hub-rp-install.md
+            - name: Gestion du cycle de vie
+              items:
+                - name: Appliquer des mises à jour
+                  href: resource-provider-apply-updates.md
+                - name: Sauvegarde et restauration
+                  href: azure-stack-backup-infrastructure-backup.md
+                - name: Collecter les journaux d’activité
+                  href: azure-stack-diagnostic-log-collection-overview.md
+                - name: Intégrité et alertes
+                  href: azure-stack-monitor-health.md
+                - name: Gérer
+                  href: iot-hub-rp-manage.md
+                - name: Faire pivoter les clés secrètes
+                  href: iot-hub-rp-rotate-secrets.md
+                - name: Annonces de mise à jour du service
+                  href: 'https://azure.microsoft.com/updates/?query=IoT%20Hub'
+            - name: Supprimer
+              href: iot-hub-rp-remove.md
         - name: MySQL sur Azure Stack Hub
           items:
             - name: Vue d’ensemble
@@ -467,7 +493,7 @@
               href: azure-stack-find-cloud-id.md
             - name: Collecte des journaux de diagnostic
               items:
-                - name: Vue d’ensemble
+                - name: Vue d'ensemble
                   href: azure-stack-diagnostic-log-collection-overview.md
                 - name: Get-AzureStackLog (PEP)
                   href: azure-stack-get-azurestacklog.md
