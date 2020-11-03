@@ -340,7 +340,7 @@
                 - name: Sauvegarde et restauration
                   href: azure-stack-backup-infrastructure-backup.md
                 - name: Collecter les journaux d’activité
-                  href: azure-stack-diagnostic-log-collection-overview.md
+                  href: diagnostic-log-collection.md
                 - name: Intégrité et alertes
                   href: azure-stack-monitor-health.md
                 - name: Gérer
@@ -487,16 +487,14 @@
           href: operator-access-workstation.md
         - name: Portail Aide et support
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: azure-stack-help-and-support-overview.md
             - name: Rechercher votre ID cloud
               href: azure-stack-find-cloud-id.md
             - name: Collecte des journaux de diagnostic
-              items:
-                - name: Vue d'ensemble
-                  href: azure-stack-diagnostic-log-collection-overview.md
-                - name: Get-AzureStackLog (PEP)
-                  href: azure-stack-get-azurestacklog.md
+              href: diagnostic-log-collection.md
+            - name: Get-AzureStackLog (PEP)
+              href: azure-stack-get-azurestacklog.md
         - name: Validation pour Azure Stack Hub
           href: azure-stack-diagnostic-test.md
         - name: Dépannage
