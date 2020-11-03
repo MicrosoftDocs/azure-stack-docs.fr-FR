@@ -7,12 +7,12 @@ ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: cfa531c42ebcc191461d4a801d0c17ce9526b912
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: 16ffbd474886d477f37b7e2d39695e896984eb30
+ms.sourcegitcommit: 74b3e14abfa33c8136eccdd4677868eb622c843e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473144"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92523539"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack-hub"></a>Mettre à l’échelle un cluster Kubernetes sur Azure Stack Hub
 
@@ -35,8 +35,8 @@ Les paramètres suivants sont utilisés par la commande scale pour rechercher vo
 | client-id |  | ID client du principal du service utilisé lors de la création de votre cluster à partir du moteur AKS. | 
 | client-secret |  | Secret du principal du service utilisé lors de la création de votre cluster. | 
 | api-model | kube-rg/apimodel.json | Chemin de votre fichier de définition de cluster (apimodel.json). Exemple : _output/\<dnsPrefix>/apimodel.json | 
-| -new-node-count | 9 | Nombre de nœuds souhaité. | 
-| -master-FQDN |  | Nom de domaine complet maître. Nécessaire lors d’un scale-down. |
+| new-node-count | 9 | Nombre de nœuds souhaité. | 
+| apiserver |  | Nom de domaine complet maître. Nécessaire lors d’un scale-down. |
 | identity-system | adfs | facultatif. Spécifiez votre solution de gestion des identités si vous utilisez Active Directory Federated Services (AD FS). |
 
 Vous devez spécifier le paramètre **--azure-env** lors de la mise à l’échelle d’un cluster dans Azure Stack Hub. Pour plus d’informations sur les paramètres et leurs valeurs utilisées dans la commande **scale** pour le moteur AKS, consultez [Échelle : paramètres](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters).
@@ -55,7 +55,7 @@ aks-engine scale \
     --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
     --api-model <path to your apomodel.json file>
     --new-node-count <desired node count> \
-    --master-FQDN <master FQDN> \
+    --apiserver <master FQDN> \
     --identity-system adfs # required if using AD FS
 ```
 

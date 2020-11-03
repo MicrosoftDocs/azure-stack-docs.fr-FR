@@ -3,16 +3,16 @@ title: Récupérer des données après une grave perte de données dans Azure St
 description: Apprenez à récupérer et restaurer les données de votre infrastructure dans Azure Stack Hub après une grave perte de données.
 author: justinha
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 10/23/2020
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7f57336cdb15be2f55fdcd3756f5f3714f51b1af
-ms.sourcegitcommit: d197e8d3c3b69c20d09de4c43d8089ec0a993baf
+ms.lastreviewed: 10/23/2020
+ms.openlocfilehash: 35d55eec6c1311c39014f94f94fb04d39c7acb3b
+ms.sourcegitcommit: 25f6211aa16308d50315872f647d840f402fa62e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/21/2020
-ms.locfileid: "90836503"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496412"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Récupérer des données suite à une perte catastrophique
 
@@ -60,6 +60,10 @@ Azure Stack Hub prend en charge un type de déploiement appelé mode de récupé
  - Les attributions de stratégies RBAC et les attributions de rôles
 
 Aucune ressource Infrastructure as a Service (IaaS) ou Platform as a Service (PaaS) n’est récupérée lors du déploiement. Ces pertes incluent les machines virtuelles IaaS, les comptes de stockage, les objets blob, les tables, la configuration réseau, etc. L’objectif d’une récupération cloud est de garantir que les opérateurs et utilisateurs pourront se reconnecter au portail une fois le déploiement terminé. Les utilisateurs qui se reconnectent ne verront aucune de leurs ressources. Les abonnements des utilisateurs sont restaurés, ainsi que les plans, les offres et les stratégies d’origine définies par l’administrateur. Les utilisateurs qui se reconnectent au système sont soumis aux mêmes contraintes que celles imposées par la solution d’origine avant le sinistre. Une fois la récupération cloud effectuée, l’opérateur peut restaurer manuellement les données à forte valeur ajoutée et tierces des fournisseurs de ressources, ainsi que les données associées.
+
+## <a name="validate-backups"></a>Valider les sauvegardes 
+
+Vous pouvez utiliser ASDK pour tester une sauvegarde afin de vérifier que les données sont valides et utilisables. Pour plus d’informations, consultez [Utiliser l’ASDK pour valider une sauvegarde Azure Stack](../asdk/asdk-validate-backup.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

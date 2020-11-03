@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2020
+ms.date: 10/27/2020
 ms.author: justinha
 ms.reviewer: asganesh
-ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 7c98b382988e0f462261bc453ebadb07d9c9a7d7
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.lastreviewed: 10/27/2020
+ms.openlocfilehash: f170ab6025effe394c891aa4fb3ad7111bac7133
+ms.sourcegitcommit: 716ca50bd198fd51a4eec5b40d5247f6f8c16530
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183411"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92898622"
 ---
-# <a name="customer-journey"></a>Parcours client
+# <a name="mdc-integration-overview"></a>Vue d’ensemble de l’intégration d’un centre de données MDC
 
-Cet article décrit le processus de bout en bout relatif à l’intégration du centre de données Azure Stack Hub, de l’achat au post-déploiement. L’intégration est un projet collaboratif entre le client et Microsoft. Les sections suivantes couvrent différentes phases de la chronologie du projet et des étapes spécifiques pour les membres du projet.
+Cet article décrit le processus de bout en bout relatif à l’intégration d’un centre de données MDC, de l’achat au post-déploiement. L’intégration est un projet collaboratif entre le client et Microsoft. Les sections suivantes couvrent différentes phases de la chronologie du projet et des étapes spécifiques pour les membres du projet.
 
 ## <a name="introduction"></a>Introduction
 
@@ -33,52 +33,14 @@ La table suivante décrit ce que vous pouvez attendre au cours des différentes 
 
 |   |Processus de commande  |Prédéploiement |Intégration, validation, transport |Déploiement local  |Post déploiement |
 |---|---------------|---------------|-----------------------------------|--------------------|----------------|
-|Microsoft  |- Signal à la livraison à l’emplacement des États-Unis<br>- Modular Data Center (MDC) = 15 jours   |Fournir les outils et la documentation requis pour recueillir les exigences de centre de données.  |- Valider les artefacts de configuration et vérifier les résultats de validation<br>- Vérifier que le matériel est remis  |- Installation et intégration<br>- Intégration réseau<br>- Déploiement Azure Stack Hub<br>- Transfert au client    |Syndication d’inscription et de Place de marché|
+|Microsoft  |- Signal à la livraison à l’emplacement des États-Unis    |Fournir les outils et la documentation requis pour recueillir les exigences de centre de données.  |- Valider les artefacts de configuration et vérifier les résultats de validation<br>- Vérifier que le matériel est remis  |- Installation et intégration<br>- Intégration réseau<br>- Déploiement Azure Stack Hub<br>- Transfert au client    |Syndication d’inscription et de Place de marché|
 |Customer   |Achat de signaux   |- Renseigne les détails du réseau dans la feuille de travail de déploiement<br>- Collecte les certificats<br>- Invite pour les comptes Azure AD<br>- Exécute tous les outils de validation fournis    |Assurez-vous que le site dispose des composants requis réseau, d’alimentation et de refroidissement    |- Soyez prêt pour les artefacts de configuration de déploiement<br>- Ingénieur réseau du client disponible   |     |
 
 
 ## <a name="order-process"></a>Processus de commande
 
-Votre organisation utilise Microsoft pour passer une commande pour un nombre de systèmes alloués. Une fois que votre commande passée, Microsoft disposera de 15 jours pour fournir MDC à votre emplacement aux États-Unis. Microsoft s’assure que toutes les exigences de la chaîne d’approvisionnement sécurisée sont respectées. 
+Votre organisation utilise Microsoft pour passer une commande pour un nombre de systèmes alloués. Une fois votre commande passée, Microsoft fournit le centre de données MDC dans votre emplacement aux États-Unis. Microsoft s’assure que toutes les exigences de la chaîne d’approvisionnement sécurisée sont respectées. 
 
->[!NOTE] 
->La facturation commence 14 jours après la livraison du matériel.
-
-Pour créer une ressource Azure Stack Hub, suivez ces étapes dans le Portail Azure.
-
-1. Utilisez vos informations d’identification Microsoft Azure pour vous connecter au portail Azure en suivant cette URL : [https://portal.azure.com](https://portal.azure.com).
-1. Dans le volet de gauche, sélectionnez **+ Créer une ressource** . Recherchez et sélectionnez **Modular Data Center** . Sélectionnez **Create** (Créer).
-1. Sélectionnez l’abonnement que vous souhaitez utiliser pour l’appareil Azure Stack Hub. Sélectionnez le pays où vous souhaitez expédier cet appareil physique. Sélectionnez **Afficher les appareils** .
-1. Un formulaire abrégé s’affiche. Remplissez le formulaire et sélectionnez **Envoyer** . Microsoft activera votre abonnement.
-1. Une fois l’abonnement activé, vous devriez être en mesure de procéder à la création de la ressource. Dans le panneau **Sélectionner le type d'appareil** , choisissez **Sélectionner** . 
-1. Sous l’onglet **Bases** , entrez ou sélectionnez les **détails du projet** suivants.
-    
-    |Paramètre  |Value  |
-    |---------|---------|
-    |Abonnement    |Ce champ est automatiquement renseigné en fonction de la sélection antérieure. L’abonnement est lié à votre compte de facturation. |
-    |Resource group  |Sélectionnez un groupe existant ou créez-en un.   |
-
-1. Entrez ou sélectionnez les **détails de l’instance** suivants.
-
-    |Paramètre  |Value  |
-    |---------|---------|
-    |Nom   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom doit être compris entre 2 et 50 caractères, et se composer uniquement de lettres, de chiffres et de traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |
-    |Région     |Pour obtenir la liste complète des régions où la ressource Azure Stack Hub est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Si vous utilisez Azure Government, toutes les régions administratives sont disponibles, comme indiqué dans [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil.|
-
-
-1. Sélectionnez **Suivant : Adresse de livraison** .
-
-    - Si vous disposez déjà d’un appareil, sélectionnez la zone de liste modifiable **J’ai un appareil Azure Stack Hub** .
-
-    - Si vous commandez un nouvel appareil, entrez le nom du contact, la société, l’adresse de livraison de l’appareil et les informations de contact.
-
-1. Sélectionnez **Suivant : Vérifier + créer** .
-1. Sous l’onglet **Vérifier + créer** , passez en revue les **Détails de la tarification** , les **Conditions d’utilisation** et les détails de votre ressource. Cochez la case **J’ai pris connaissance des conditions de confidentialité** .
-1. Sélectionnez **Create** (Créer).
-
-La création de la ressource prend quelques minutes. Un message vous informe que la ressource a été créée et déployée. Sélectionnez **Accéder à la ressource** .
-
-Une fois la commande passée, Microsoft l’examine et vous communique (par e-mail) les détails de l’expédition.
 
 ## <a name="pre-deployment"></a>Prédéploiement
 
@@ -95,6 +57,10 @@ Vous allez choisir les éléments suivants :
 - **Conditions requises des certificats.** Il est essentiel que tous les [certificats nécessaires ](../operator/azure-stack-pki-certs.md) soient disponibles avant qu’un ingénieur sur site accède à votre centre de données pour le déploiement.
 
 Une fois que toutes les informations prérequises sont rassemblées par le biais de la feuille de travail de déploiement, Microsoft s’assure que nous vérifions que tous les outils de validation aient été exécutés et répondons à toute autre question posée. 
+
+## <a name="site-preparation"></a>Préparation du site
+
+Pour plus d’informations sur les spécifications relatives à la préparation du site, consultez le Guide de démarrage rapide.
 
 ## <a name="hardware-delivery"></a>Livraison de matériel
 
@@ -119,12 +85,12 @@ L’ingénieur sur site doit normalement vérifier les points suivants durant l�
 - Conversion unboxing et inventaire du matériel
 - Connexion de l’alimentation et de la mise sous tension à la solution
 - Validation de l'intégrité du matériel physique
-- Vérification du câblage et de la connectivité de frontières pour s’assurer que la solution est correctement mise en place et répond à vos besoins.
-- Configurez la solution HLH (Hardware Lifecycle Host).
+- Vérification du câblage et de la connectivité de frontières pour s’assurer que la solution est correctement mise en place et répond à vos besoins
+- Configuration de la solution HLH (Hardware Lifecycle Host)
 - Intégration du réseau du centre de données
-- Vérifiez que tous les paramètres du matériel physique sont corrects.
-- Vérification du fait que la version du microprogramme de tous les composants est la dernière version approuvée par la solution.
-- Démarrage du déploiement. 
+- Vérifier que tous les paramètres du matériel physique sont corrects
+- Vérifier que la version du microprogramme de tous les composants est la dernière version approuvée par la solution
+- Démarrage du déploiement
 
 ## <a name="post-deployment"></a>Après le déploiement
 
@@ -132,15 +98,15 @@ L’ingénieur de déploiement Microsoft doit effectuer plusieurs étapes avant 
 
 Actions qui doivent être effectuées par l’ingénieur de déploiement Microsoft :
 
-- Activer les fournisseurs de ressources à valeur ajoutée.
-- Exécuter [test-azurestack](../operator/azure-stack-diagnostic-test.md).
-- [Inscription](../operator/azure-stack-registration-role.md) auprès d’Azure.
-- [Syndication de la Place de marché](../operator/azure-stack-marketplace.md).
-- Sauvegarder les fichiers de configuration du commutateur et de configuration HLH.
-- Préparer une synthèse client pour le déploiement.
-- [Vérifier les mises à jour](../operator/azure-stack-updates.md) pour garantir que les logiciels de la solution sont mis à jour vers la dernière version.
+- Activer les fournisseurs de ressources à valeur ajoutée
+- Exécuter [test-azurestack](../operator/azure-stack-diagnostic-test.md)
+- [Inscription](../operator/azure-stack-registration-role.md) auprès d’Azure
+- [Syndication de Place de marché](../operator/azure-stack-marketplace.md)
+- Sauvegarder les fichiers de configuration du commutateur et de configuration de l’hôte du cycle de vie du matériel (HLH)
+- Préparation d’une synthèse client pour le déploiement
+- [Vérifier les mises à jour](../operator/azure-stack-updates.md) pour garantir que les logiciels de la solution sont mis à jour vers la dernière version
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les [étapes pour installer et configurer Modular Data Center](deployment-overview.md).
+Découvrez-en plus sur les [étapes à suivre pour installer et configurer un centre de données Modular Data Center](deployment-overview.md).
 

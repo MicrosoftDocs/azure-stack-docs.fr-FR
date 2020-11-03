@@ -4,19 +4,24 @@ description: Comment appliquer les mises à jour de système d’exploitation et
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 08/31/2020
-ms.openlocfilehash: 06a5a1ccf59b5d5c34ef1d2e36feeb1000b49776
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.date: 10/27/2020
+ms.openlocfilehash: acb3b9c8c0db738d04bba44ccec799a5f9c0939b
+ms.sourcegitcommit: 75603007badd566f65d01ac2eacfe48ea4392e58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572634"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92688311"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Mettre à jour les clusters Azure Stack HCI
 
 > S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
 
-Lors d’une mise à jour de clusters Azure Stack HCI, l’objectif poursuivi est de maintenir la disponibilité en ne mettant à jour qu’un seul serveur du cluster à la fois. De nombreuses mises à jour de système d’exploitation nécessitent la mise hors connexion du serveur, par exemple pour effectuer un redémarrage ou mettre à jour un logiciel tel que la pile réseau. Nous vous conseillons d’utiliser la [Mise à jour adaptée aux clusters (CAU)](/windows-server/failover-clustering/cluster-aware-updating), une fonctionnalité qui facilite l’installation des mises à jour Windows sur chaque serveur de votre cluster tout en conservant l’exécution de vos applications par l’automatisation du processus de mise à jour logicielle. La mise à jour adaptée aux clusters peut être utilisée sur toutes les éditions de Windows Server, y compris les installations Server Core ; elle peut être lancée via Windows Admin Center ou au moyen de PowerShell.
+Lors d’une mise à jour de clusters Azure Stack HCI, l’objectif poursuivi est de maintenir la disponibilité en ne mettant à jour qu’un seul serveur du cluster à la fois. De nombreuses mises à jour de système d’exploitation nécessitent la mise hors connexion du serveur, par exemple pour effectuer un redémarrage ou mettre à jour un logiciel tel que la pile réseau. Nous vous conseillons d’utiliser la Mise à jour adaptée aux clusters, une fonctionnalité qui facilite l’installation des mises à jour sur chaque serveur de votre cluster tout en conservant l’exécution de vos applications. La Mise à jour adaptée aux clusters automatise l’entrée et la sortie du serveur en mode maintenance lors de l’installation de mises à jour et du redémarrage du serveur, si nécessaire. La Mise à jour adaptée aux clusters est la méthode de mise à jour par défaut utilisée par Windows Admin Center et peut également être lancée à l’aide de PowerShell.
+
+   > [!IMPORTANT]
+   > La mise à jour de la préversion du 20 octobre 2020 (KB4580388) d’Azure Stack HCI peut entraîner l’échec d’une opération de Mise à jour adaptée aux clusters si l’une des machines virtuelles est supposée effectuer une Migration dynamique pendant cette opération. Pour obtenir une solution de contournement, consultez les [Notes de publication](../release-notes.md#october-20-2020-preview-update-kb4580388).
+
+Cette rubrique décrit en particulier le système d’exploitation et les mises à jour logicielles. Si vous devez mettre un serveur hors connexion pour effectuer la maintenance sur le matériel, consultez [Mettre un serveur hors connexion pour maintenance](maintain-servers.md).
 
 ## <a name="update-a-cluster-using-windows-admin-center"></a>Mettre à jour un cluster à l’aide de Windows Admin Center
 
@@ -30,14 +35,14 @@ Windows Admin Center vérifiera si le cluster est correctement configuré pour e
 1. Toutes les mises à jour disponibles seront affichées ; cliquez sur **Vérifier les mises à jour disponibles** pour actualiser la liste.
 1. Sélectionnez les mises à jour que vous souhaitez installer, puis cliquez sur **Appliquer toutes les mises à jour**. Cette opération installe les mises à jour sur chaque serveur du cluster. Si un redémarrage est nécessaire, les rôles de cluster, tels que les machines virtuelles, seront d’abord déplacés sur un autre serveur pour éviter toute interruption.
 1. Pour améliorer la sécurité, désactivez CredSSP dès que vous avez terminé l’installation des mises à jour :
-    - Dans Windows Admin Center, sous **Toutes les connexions**, sélectionnez le premier serveur de votre cluster, puis sélectionnez **Se connecter**.
-    - Sur la page **Vue d’ensemble**, sélectionnez **Désactiver CredSSP**, puis, dans la fenêtre contextuelle de **désactivation de CredSSP**, sélectionnez **Oui**.
+    - Dans Windows Admin Center, sous **Toutes les connexions** , sélectionnez le premier serveur de votre cluster, puis sélectionnez **Se connecter**.
+    - Sur la page **Vue d’ensemble** , sélectionnez **Désactiver CredSSP** , puis, dans la fenêtre contextuelle de **désactivation de CredSSP** , sélectionnez **Oui**.
 
 ## <a name="update-a-cluster-using-powershell"></a>Mettre à jour un cluster à l’aide de PowerShell
 
 Avant de pouvoir mettre à jour un cluster avec la mise à jour adaptée aux clusters, vous devez d’abord installer les **Outils de clustering avec basculement** qui font partie des **Outils d’administration de serveur distant (RSAT)** et incluent le logiciel de mise à jour adaptée aux clusters. Si vous mettez à jour un cluster existant, ces outils sont peut-être déjà installés.
 
-Pour déterminer si un cluster de basculement est correctement configuré pour appliquer des mises à jour logicielles au moyen de la mise à jour adaptée aux clusters, exécutez l’applet de commande PowerShell **Test-CauSetup** ; elle effectue une analyse Best Practices Analyzer (BPA) du cluster de basculement et de l’environnement réseau, et vous alerte en cas d’avertissement ou d’erreur :
+Pour déterminer si un cluster de basculement est correctement configuré pour appliquer des mises à jour logicielles au moyen de la mise à jour adaptée aux clusters, exécutez l’applet de commande PowerShell **Test-CauSetup**  ; elle effectue une analyse Best Practices Analyzer (BPA) du cluster de basculement et de l’environnement réseau, et vous alerte en cas d’avertissement ou d’erreur :
 
 ```PowerShell
 Test-CauSetup -ClusterName Cluster1
@@ -73,7 +78,7 @@ Install-WindowsFeature –Name Failover-Clustering -IncludeAllSubFeature –Incl
 
 Cette commande installe également le module de cluster de basculement pour PowerShell ; il comprend des applets de commande PowerShell pour la gestion des clusters de basculement, et le module de mise à jour adaptée aux clusters pour PowerShell, qui permet l’installation des mises à jour logicielles sur les clusters de basculement.
 
-Si la fonctionnalité de clustering de basculement est déjà installée, mais que le module de cluster de basculement pour Windows PowerShell ne l’est pas, il vous suffit de l’installer sur chaque serveur du cluster avec l’applet de commande **Install-WindowsFeature** :
+Si la fonctionnalité de clustering de basculement est déjà installée, mais que le module de cluster de basculement pour Windows PowerShell ne l’est pas, il vous suffit de l’installer sur chaque serveur du cluster avec l’applet de commande **Install-WindowsFeature**  :
 
 ```PowerShell
 Install-WindowsFeature –Name RSAT-Clustering-PowerShell -ComputerName Server1
@@ -83,12 +88,12 @@ Install-WindowsFeature –Name RSAT-Clustering-PowerShell -ComputerName Server1
 
 L’outil de mise à jour adaptée aux clusters peut coordonner l’intégralité de l’opération de mise à jour des clusters selon deux modes distincts :  
   
--   **Mode de mise à jour automatique** Pour ce mode, le rôle en cluster Mise à jour adaptée aux clusters est configuré sous la forme d’une charge de travail sur le cluster de basculement qui doit être mis à jour, et une planification de mise à jour associée est définie. Le cluster effectue ses propres mises à jour aux moments planifiés, en utilisant un profil d’exécution de mise à jour par défaut ou personnalisé. Lors de l’exécution de mise à jour, le coordinateur de la mise à jour adaptée aux clusters commence par mettre à jour le nœud qui détient à ce moment-là le rôle en cluster Mise à jour adaptée aux clusters, puis il met à jour les nœuds suivants du cluster, à tour de rôle. Pour mettre à jour le nœud de cluster en cours, le rôle en cluster Mise à jour adaptée aux clusters bascule sur un autre nœud de cluster, et un nouveau coordinateur de mise à jour sur ce nœud prend le contrôle de l’exécution de mise à jour. En mode de mise à jour automatique, la mise à jour adaptée aux clusters peut mettre à jour le cluster de basculement à l’aide d’un processus de mise à jour de bout en bout entièrement automatisé. Un administrateur peut également déclencher des mises à jour à la demande dans ce mode, ou simplement utiliser l’approche de mise à jour à distance, si vous le souhaitez.
+-   **Mode de mise à jour automatique**  Pour ce mode, le rôle en cluster Mise à jour adaptée aux clusters est configuré sous la forme d’une charge de travail sur le cluster de basculement qui doit être mis à jour, et une planification de mise à jour associée est définie. Le cluster effectue ses propres mises à jour aux moments planifiés, en utilisant un profil d’exécution de mise à jour par défaut ou personnalisé. Lors de l’exécution de mise à jour, le coordinateur de la mise à jour adaptée aux clusters commence par mettre à jour le nœud qui détient à ce moment-là le rôle en cluster Mise à jour adaptée aux clusters, puis il met à jour les nœuds suivants du cluster, à tour de rôle. Pour mettre à jour le nœud de cluster en cours, le rôle en cluster Mise à jour adaptée aux clusters bascule sur un autre nœud de cluster, et un nouveau coordinateur de mise à jour sur ce nœud prend le contrôle de l’exécution de mise à jour. En mode de mise à jour automatique, la mise à jour adaptée aux clusters peut mettre à jour le cluster de basculement à l’aide d’un processus de mise à jour de bout en bout entièrement automatisé. Un administrateur peut également déclencher des mises à jour à la demande dans ce mode, ou simplement utiliser l’approche de mise à jour à distance, si vous le souhaitez.
   
 -   **Mode de mise à jour à distance** Pour ce mode, un ordinateur de gestion à distance (généralement un PC Windows 10) disposant d’une connectivité réseau au cluster de basculement, mais qui n’est pas membre du cluster de basculement, est configuré avec les Outils de clustering avec basculement. À partir de l’ordinateur de gestion à distance, appelé « coordinateur de mise à jour », l’administrateur déclenche une exécution de mise à jour à la demande, en utilisant un profil d’exécution de mise à jour par défaut ou personnalisé. Le mode de mise à jour à distance est utile pour superviser en temps réel la progression lors de l’exécution de mise à jour, et pour les clusters qui s’exécutent sur des installations Server Core.  
 
    > [!NOTE]
-   > À compter de la mise à jour d’octobre 2018 de Windows 10, la fonctionnalité Outils d’administration de serveur distant est incluse en tant qu’ensemble de « Fonctionnalités à la demande » directement dans Windows 10. Accédez simplement à **Paramètres > Applications > Applications et fonctionnalités > Fonctionnalités facultatives > Ajouter une fonctionnalité > Outils d’administration de serveur distant : Outils de clustering avec basculement**, puis sélectionnez **Installer**. Pour voir la progression de l’installation, cliquez sur le bouton Précédent pour en afficher l’état dans la page « Gérer les fonctionnalités facultatives ». La fonctionnalité installée est conservée à l’issue des mises à niveau des versions de Windows 10. Si vous voulez installer les Outils d’administration de serveur distant pour Windows 10 avant la mise à jour d’octobre 2018, [téléchargez un package Outils d’administration de serveur distant](https://www.microsoft.com/download/details.aspx?id=45520).
+   > À compter de la mise à jour d’octobre 2018 de Windows 10, la fonctionnalité Outils d’administration de serveur distant est incluse en tant qu’ensemble de « Fonctionnalités à la demande » directement dans Windows 10. Accédez simplement à **Paramètres > Applications > Applications et fonctionnalités > Fonctionnalités facultatives > Ajouter une fonctionnalité > Outils d’administration de serveur distant : Outils de clustering avec basculement** , puis sélectionnez **Installer**. Pour voir la progression de l’installation, cliquez sur le bouton Précédent pour en afficher l’état dans la page « Gérer les fonctionnalités facultatives ». La fonctionnalité installée est conservée à l’issue des mises à niveau des versions de Windows 10. Si vous voulez installer les Outils d’administration de serveur distant pour Windows 10 avant la mise à jour d’octobre 2018, [téléchargez un package Outils d’administration de serveur distant](https://www.microsoft.com/download/details.aspx?id=45520).
 
 ### <a name="add-cau-cluster-role-to-the-cluster"></a>Ajouter au cluster le rôle de cluster Mise à jour adaptée aux clusters
 
@@ -175,9 +180,30 @@ InstallResults           : Microsoft.ClusterAwareUpdating.UpdateInstallResult[]
 }
 ```
 
+## <a name="perform-a-fast-offline-update-of-all-servers-in-a-cluster"></a>Effectuer une mise à jour rapide et hors connexion de tous les serveurs d’un cluster
+
+Cette méthode vous permet d’arrêter simultanément tous les serveurs d’un cluster et de les mettre tous à jour en même temps. Cela permet de gagner du temps pendant le processus de mise à jour, mais l’inconvénient est que l’interruption des serveurs affecte les ressources hébergées.
+
+Si vous devez appliquer rapidement une mise à jour de sécurité critique, ou si vous devez garantir que les mises à jour s’effectuent dans votre fenêtre de maintenance, cette méthode peut vous être utile. Ce processus interrompt le cluster Azure Stack HCI, met à jour les serveurs, puis les réactive.
+
+1. Planifiez votre fenêtre de maintenance.
+2. Mettez les disques virtuels hors connexion.
+3. Arrêtez le cluster pour mettre le pool de stockage hors connexion. Exécutez l’applet de commande **Stop-Cluster** ou utilisez Windows Admin Center pour arrêter le cluster.
+4. Définissez le service de cluster sur **Désactivé** dans Services.msc sur chaque serveur. Cela empêche le service de cluster de démarrer pendant sa mise à jour.
+5. Appliquez la mise à jour cumulative de Windows Server et toutes les mises à jour de la pile de maintenance nécessaires sur tous les serveurs. Vous pouvez mettre à jour tous les serveurs en même temps : il n’est pas nécessaire d’attendre, car le cluster est arrêté.
+6. Redémarrez les serveurs, puis vérifiez que tout semble correct.
+7. Redéfinissez le service de cluster sur **Automatique** sur chaque serveur.
+8. Démarrez le cluster. Exécutez l’applet de commande **Start-Cluster** ou utilisez Windows Admin Center.
+
+   Patientez quelques minutes.  Vérifiez que le pool de stockage est intègre.
+
+9. Remettez les disques virtuels en ligne.
+10. Supervisez l’état des disques virtuels en exécutant les applets de commande **Get-Volume** et **Get-VirtualDisk**.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour consulter des informations connexes, reportez-vous également à :
 
+- [Mise à jour adaptée aux clusters](/windows-server/failover-clustering/cluster-aware-updating)
 - [Mise à jour du microprogramme de lecteur dans les espaces de stockage direct](/windows-server/storage/update-firmware)
 - [Valider un cluster Azure Stack HCI](../deploy/validate.md)
