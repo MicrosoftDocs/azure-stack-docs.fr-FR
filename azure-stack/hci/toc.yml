@@ -8,6 +8,8 @@
       href: known-issues.md
     - name: Notes de publication
       href: release-notes.md
+    - name: Questions fréquentes (FAQ)
+      href: faq.md
 - name: Bien démarrer
   items:
     - name: Utiliser Azure Stack HCI avec Windows Admin Center

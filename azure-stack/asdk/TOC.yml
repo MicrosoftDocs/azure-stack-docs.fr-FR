@@ -43,7 +43,9 @@
       href: asdk-validate-backup.md
     - name: Se connecter à l’ASDK
       href: asdk-connect.md
-    - name: Dépannage
+    - name: Configuration de l’interface de ligne de commande Azure CLI
+      href: asdk-cli.md
+    - name: Résolution des problèmes
       href: asdk-troubleshooting.md
 - name: Informations de référence
   items:
