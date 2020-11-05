@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 5842ac27969a136ceaace4647ed5791bc3260b1c
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+zone_pivot_groups: state-connected-disconnected
+ms.openlocfilehash: cc73e0cd735c12a15d45efec080c7861d9ea9f00
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573137"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363994"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Utiliser une identité d’application pour accéder aux ressources Azure Stack Hub
 
@@ -24,12 +25,12 @@ Par exemple, vous avez peut-être une application de gestion de la configuration
 
 À l’instar d’un utilisateur, une application doit présenter des informations d’identification lors de l’authentification. Cette authentification se compose de deux éléments :
 
-- Un **ID d’application**, parfois appelé ID client. Un GUID qui identifie de façon unique l’inscription de l’application dans votre locataire Active Directory.
+- Un **ID d’application** , parfois appelé ID client. Un GUID qui identifie de façon unique l’inscription de l’application dans votre locataire Active Directory.
 - Un **secret** associé à l’ID d’application. Vous pouvez générer une clé secrète client (similaire à un mot de passe) ou spécifier un certificat X509 (qui utilise sa clé publique).
 
 L’exécution d’une application sous sa propre identité est préférable à son exécution sous l’identité de l’utilisateur pour les raisons suivantes :
 
- - **Informations d’identification plus fortes** : une application peut se connecter à l’aide d’un certificat X509 au lieu d’un mot de passe/secret partagé textuel.  
+ - **Informations d’identification plus fortes**  : une application peut se connecter à l’aide d’un certificat X509 au lieu d’un mot de passe/secret partagé textuel.  
  - **Des autorisations plus restrictives** peuvent être attribuées à une application. En règle générale, ces autorisations sont limitées à ce que l’application doit faire, conformément au *principe de privilège minimum*.
  - Les **informations d’identification et autorisations ne changent pas aussi fréquemment** pour une application que les informations d’identification de l’utilisateur. Par exemple, lorsque les responsabilités d’un utilisateur changent, les exigences de mot de passe dictent un changement, ou lorsque l’utilisateur quitte l’entreprise.
 
@@ -42,6 +43,7 @@ Cet article commence par le processus de création et de gestion d’un principa
 
 Vous apprenez ensuite à affecter le principal de service à un rôle en limitant l’accès de celui-ci aux ressources.
 
+::: zone pivot="state-connected"
 ## <a name="manage-an-azure-ad-app-identity"></a>Gérer une identité d’application Azure AD
 
 Si vous avez déployé Azure Stack Hub avec Azure AD en tant que service de gestion des identités, vous créez des principaux de service, comme vous le faites pour Azure. Cette rubrique explique comment procéder via le portail Azure. Vérifiez que vous disposez des [autorisations Azure AD requises](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) avant de commencer.
@@ -54,17 +56,18 @@ Dans cette section, vous inscrivez votre application en utilisant le portail Azu
 2. Sélectionnez **Azure Active Directory** > **Inscriptions d’applications** > **Nouvelle inscription**.
 3. Donnez un **nom** à l’application.
 4. Sélectionnez les **Types de comptes pris en charge** appropriés.
-5. Sous **URI de redirection**, sélectionnez **Web** comme type d’application, et spécifiez (éventuellement) un URI de redirection si votre application l’exige.
+5. Sous **URI de redirection** , sélectionnez **Web** comme type d’application, et spécifiez (éventuellement) un URI de redirection si votre application l’exige.
 6. Après avoir défini les valeurs, sélectionnez **S’inscrire**. L’inscription d’application est créée et la page **Vue d’ensemble** s’affiche.
-7. Copiez l’**ID d’application** pour l’utiliser dans le code de votre application. Cette valeur est également appelée ID client.
+7. Copiez l’ **ID d’application** pour l’utiliser dans le code de votre application. Cette valeur est également appelée ID client.
 8. Pour générer une clé secrète client, sélectionnez la page **Certificats et secrets**. Sélectionnez **Nouveau secret client**.
-9. Fournissez une **description** et un délai d’**expiration** pour le secret.
+9. Fournissez une **description** et un délai d’ **expiration** pour le secret.
 10. Quand vous avez terminé, sélectionnez **Ajouter**.
 11. La valeur du secret s’affiche. Copiez et enregistrez cette valeur dans un autre emplacement, car vous ne pourrez pas la récupérer ultérieurement. Vous fournissez le secret avec l’ID d’application dans votre application cliente pour la connexion.
 
     ![Clé enregistrée dans les secrets du client](./media/azure-stack-create-service-principal/create-service-principal-in-azure-stack-secret.png)
 
 À présent, passez à [Attribuer un rôle](#assign-a-role) pour apprendre à établir un contrôle d’accès en fonction du rôle pour l’identité de l’application.
+::: zone-end
 
 ## <a name="manage-an-ad-fs-app-identity"></a>Gérer une identité d’application AD FS
 
@@ -254,7 +257,7 @@ Gardez votre session de console PowerShell ouverte, car vous aller l’utiliser 
 
 ### <a name="update-a-client-secret"></a>Mettre à jour un secret client
 
-Mettez à jour les informations d’identification de la clé secrète client dans PowerShell à l’aide du paramètre **ResetClientSecret**, ce qui a pour effet de modifier immédiatement la clé secrète client. Substituez vos propres valeurs aux espaces réservés suivants :
+Mettez à jour les informations d’identification de la clé secrète client dans PowerShell à l’aide du paramètre **ResetClientSecret** , ce qui a pour effet de modifier immédiatement la clé secrète client. Substituez vos propres valeurs aux espaces réservés suivants :
 
 | Espace réservé | Description | Exemple |
 | ----------- | ----------- | ------- |
@@ -325,20 +328,20 @@ VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint con
 
 Les utilisateurs et applications sont autorisés à accéder aux ressources Azure au travers d’un contrôle d’accès en fonction du rôle (RBAC). Pour autoriser une application à accéder aux ressources de votre abonnement, vous devez *attribuer* à son principal de service un *rôle* pour une *ressource* spécifique. Commencez par décider du rôle représentant les *autorisations* appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, voir [Rôles intégrés pour les ressources Azure](/azure/role-based-access-control/built-in-roles).
 
-Le type de ressource que vous choisissez établit également l’*étendue d’accès* pour l’application. Vous pouvez définir l’étendue d’accès au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue (par exemple, l’ajout d’une application au rôle « Lecteur » pour un groupe de ressources signifie qu’elle peut lire le groupe de ressources et toutes les ressources qu’il contient).
+Le type de ressource que vous choisissez établit également l’ *étendue d’accès* pour l’application. Vous pouvez définir l’étendue d’accès au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue (par exemple, l’ajout d’une application au rôle « Lecteur » pour un groupe de ressources signifie qu’elle peut lire le groupe de ressources et toutes les ressources qu’il contient).
 
 1. Connectez-vous au portail approprié, en fonction de l’annuaire que vous avez spécifié durant l’installation d’Azure Stack Hub (par exemple le portail Azure pour Azure AD ou le portail utilisateur Azure Stack Hub pour AD FS). Dans cet exemple, nous montrons un utilisateur connecté au portail utilisateur Azure Stack Hub.
 
    > [!NOTE]
    > Pour pouvoir ajouter des attributions de rôle pour une ressource donnée, votre compte d’utilisateur doit appartenir à un rôle qui déclare l’autorisation `Microsoft.Authorization/roleAssignments/write`. Par exemple, l’un des rôles intégrés [Propriétaire](/azure/role-based-access-control/built-in-roles#owner) ou [Administrateur de l’accès utilisateur](/azure/role-based-access-control/built-in-roles#user-access-administrator).  
-2. Accédez à la ressource à laquelle vous voulez que l’application soit autorisée à accéder. Dans cet exemple, affectez le principal de service de l’application à un rôle dans l’étendue de l’abonnement en sélectionnant **Abonnements**, puis un abonnement spécifique. Vous pouvez également sélectionner un groupe de ressources ou une ressource spécifique telle qu’une machine virtuelle.
+2. Accédez à la ressource à laquelle vous voulez que l’application soit autorisée à accéder. Dans cet exemple, affectez le principal de service de l’application à un rôle dans l’étendue de l’abonnement en sélectionnant **Abonnements** , puis un abonnement spécifique. Vous pouvez également sélectionner un groupe de ressources ou une ressource spécifique telle qu’une machine virtuelle.
 
      ![Sélectionner l’abonnement pour l’assignation](./media/azure-stack-create-service-principal/select-subscription.png)
 
 3. Sélectionnez la page **Contrôle d’accès (IAM)** qui est universelle pour toutes les ressources qui prennent en charge le contrôle d’accès en fonction du rôle.
 4. Sélectionnez **+ Ajouter**
-5. Sous **Rôle**, sélectionnez le rôle que vous souhaitez attribuer à l’application.
-6. Sous **Sélectionner**, recherchez votre application en utilisant un nom d’application partiel ou complet. Pendant l’inscription, le nom de l’application est généré en tant que *Azurestack-\<YourAppName\>-\<ClientId\>* . Par exemple, si vous avez utilisé le nom d’application *App2* et que le ClientId *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* a été attribué lors de la création, le nom complet est  *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Vous pouvez rechercher la chaîne exacte ou une portion, par exemple *Azurestack* ou *Azurestack-App2*.
+5. Sous **Rôle** , sélectionnez le rôle que vous souhaitez attribuer à l’application.
+6. Sous **Sélectionner** , recherchez votre application en utilisant un nom d’application partiel ou complet. Pendant l’inscription, le nom de l’application est généré en tant que *Azurestack-\<YourAppName\>-\<ClientId\>* . Par exemple, si vous avez utilisé le nom d’application *App2* et que le ClientId *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* a été attribué lors de la création, le nom complet est  *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Vous pouvez rechercher la chaîne exacte ou une portion, par exemple *Azurestack* ou *Azurestack-App2*.
 7. Après avoir trouvé l’application, sélectionnez-la pour la faire apparaître sous **Membres sélectionnés**.
 8. Sélectionnez **Enregistrer** pour finaliser l’attribution du rôle.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/01/2020
-ms.openlocfilehash: a1283982ba04acd8de0b54c02fbc0bb88da9ebc6
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: e5069745a1ada76f37a9dea78eeeafa18a481cff
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742299"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064648"
 ---
 # <a name="choose-drives-for-azure-stack-hci"></a>Choisir des lecteurs pour Azure Stack HCI
 
@@ -99,7 +99,7 @@ Nous vous recommandons de limiter la capacité de stockage totale par serveur à
 Pour plus d'informations, consultez également :
 
 - [Fonctionnement du cache](cache.md)
-- [Déterminer la configuration matérielle requise](../deploy/before-you-start.md#determine-hardware-requirements)
+- [Configuration système requise](system-requirements.md)
 - [Considérations relatives à la symétrie des lecteurs](drive-symmetry-considerations.md)
 - [Planifier des volumes](plan-volumes.md)
 - [Tolérance de panne et efficacité du stockage](fault-tolerance.md)

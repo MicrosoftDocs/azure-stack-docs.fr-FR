@@ -7,12 +7,12 @@ ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: d7951500afe21ec0800328230d6b5f1653934c40
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: 4c79d8a9c9aa5877dd2dfb264257f2a7cfaaa46f
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819194"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363977"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>Utiliser le portail administrateur dans Azure Stack Hub
 
@@ -25,11 +25,13 @@ Pour accéder au portail administrateur, accédez à l’URL du portail, puis co
 | Environnement | URL du portail administrateur |   
 | -- | -- | 
 | ASDK| `https://adminportal.local.azurestack.external`  |
-| Systèmes intégrés | https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt; | 
+| Systèmes intégrés | https://adminportal.&lt; *region*&gt;.&lt;*FQDN*&gt; | 
 | | |
 
 > [!TIP]
 > Dans un environnement ASDK, vous devez d’abord vérifier que vous pouvez [vous connecter à l’hôte du Kit de développement](../asdk/asdk-connect.md) via Connexion Bureau à distance ou un réseau privé virtuel (VPN).
+
+[!INCLUDE [Azure Stack Hub Operator Access Workstation](../includes/operator-note-owa.md)]
 
  ![Portail administrateur Azure Stack Hub](media/azure-stack-manage-portals/admin-portal.png)
 
@@ -52,11 +54,11 @@ Bien qu’un opérateur puisse créer des ressources telles que des machines vir
 
 ## <a name="understand-subscription-behavior"></a>Comprendre le comportement de l’abonnement
 
-Il existe trois abonnements créés par défaut dans le portail administrateur : consommation, fournisseur par défaut et contrôle. En tant qu’opérateur, vous utiliserez principalement l’*abonnement Fournisseur par défaut*. Vous ne pouvez pas ajouter d’autres abonnements et les utiliser dans le portail administrateur.
+Il existe trois abonnements créés par défaut dans le portail administrateur : consommation, fournisseur par défaut et contrôle. En tant qu’opérateur, vous utiliserez principalement l’ *abonnement Fournisseur par défaut*. Vous ne pouvez pas ajouter d’autres abonnements et les utiliser dans le portail administrateur.
 
 Les autres abonnements sont créés par les utilisateurs dans le portail utilisateur en fonction des plans et des offres qui leur sont proposés. Toutefois, le portail utilisateur ne fournit pas d’accès aux fonctionnalités d’administration ou d’exploitation du portail administrateur.
 
-Les portails administrateur et utilisateur sont secondés par des instances distinctes d’Azure Resource Manager. En raison de cette séparation d’Azure Resource Manager, les abonnements ne sont pas partagés entre les portails. Par exemple, si vous-même, en tant qu’opérateur Azure Stack Hub, vous vous connectez au portail utilisateur, vous ne pouvez pas accéder à l’*abonnement Fournisseur par défaut*. Bien que vous n’ayez accès à aucune fonction d’administration, vous pouvez créer des abonnements pour vous-même à partir d’offres publiques disponibles. Tant que vous êtes connecté au portail utilisateur, vous êtes considéré comme un utilisateur de locataire.
+Les portails administrateur et utilisateur sont secondés par des instances distinctes d’Azure Resource Manager. En raison de cette séparation d’Azure Resource Manager, les abonnements ne sont pas partagés entre les portails. Par exemple, si vous-même, en tant qu’opérateur Azure Stack Hub, vous vous connectez au portail utilisateur, vous ne pouvez pas accéder à l’ *abonnement Fournisseur par défaut*. Bien que vous n’ayez accès à aucune fonction d’administration, vous pouvez créer des abonnements pour vous-même à partir d’offres publiques disponibles. Tant que vous êtes connecté au portail utilisateur, vous êtes considéré comme un utilisateur de locataire.
 
   >[!NOTE]
   >Dans un environnement ASDK, si un utilisateur appartient au même annuaire de locataire que l’opérateur Azure Stack Hub, il peut en théorie se connecter au portail administrateur. Cependant, il ne pourra pas accéder aux fonctions administratives ni ajouter d’abonnements pour accéder aux offres mises à sa disposition dans le portail utilisateur.
@@ -67,7 +69,7 @@ Les portails administrateur et utilisateur sont secondés par des instances dist
 
 Le tableau de bord contient une série de vignettes par défaut. Vous pouvez sélectionner **Modifier le tableau de bord** pour modifier le tableau de bord par défaut, ou **Nouveau tableau de bord** pour ajouter un tableau de bord personnalisé. Vous pouvez également ajouter des vignettes à un tableau de bord. Par exemple, sélectionnez **+ Create a resource** (+ Créer une ressource), cliquez avec le bouton droit sur **Offers + Plans** (Offres + plans), puis sélectionnez **Pin to dashboard** (Épingler au tableau de bord).
 
-Parfois, il se peut qu’un tableau de bord vide s’affiche dans le portail. Pour récupérer le tableau de bord, cliquez sur **Modifier le tableau de bord**, puis cliquez avec le bouton droit sur **Rétablir l’état par défaut**.
+Parfois, il se peut qu’un tableau de bord vide s’affiche dans le portail. Pour récupérer le tableau de bord, cliquez sur **Modifier le tableau de bord** , puis cliquez avec le bouton droit sur **Rétablir l’état par défaut**.
 
 ### <a name="quick-access-to-online-documentation"></a>Accès rapide à la documentation en ligne
 
@@ -75,14 +77,14 @@ Pour accéder à la documentation de l’opérateur Azure Stack Hub, utilisez l�
 
 ### <a name="quick-access-to-help-and-support"></a>Accès rapide à l’aide et au support
 
-Si vous cliquez successivement sur l’icône d’aide (point d’interrogation) dans le coin supérieur droit du portail d’administration, sur **Aide + support**, puis sur **Nouvelle demande de support** sous **Support**, vous obtenez l’un des résultats suivants :
+Si vous cliquez successivement sur l’icône d’aide (point d’interrogation) dans le coin supérieur droit du portail d’administration, sur **Aide + support** , puis sur **Nouvelle demande de support** sous **Support** , vous obtenez l’un des résultats suivants :
 
 - Si vous utilisez un système intégré, cette action ouvre un site sur lequel vous pouvez ouvrir directement un ticket de support auprès du support Microsoft. Reportez-vous à la section [Où obtenir un support technique ?](azure-stack-manage-basics.md#where-to-get-support) pour comprendre quand vous devez vous adresser au support technique Microsoft ou au support technique de votre fournisseur de matériel OEM.
 - Si vous utilisez le Kit ASDK, cette action ouvre directement le [site des forums Azure Stack Hub](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack). Ces forums sont consultés régulièrement. Le Kit ASDK étant un environnement d’évaluation, le support Microsoft n’offre aucun support officiel.
 
 ### <a name="quick-access-to-the-azure-roadmap"></a>Accès rapide à la feuille de route Azure
 
-Si vous sélectionnez **Aide et support** (le point d’interrogation) dans le coin supérieur droit du portail de l’administrateur et que vous sélectionnez **Feuille de route Azure**, un nouvel onglet de navigateur s’ouvre et vous amène à la feuille de route Azure. En tapant **Azure Stack Hub** dans la zone de recherche **Produits**, vous pouvez voir toutes les mises à jour de feuille de route Azure Stack Hub.
+Si vous sélectionnez **Aide et support** (le point d’interrogation) dans le coin supérieur droit du portail de l’administrateur et que vous sélectionnez **Feuille de route Azure** , un nouvel onglet de navigateur s’ouvre et vous amène à la feuille de route Azure. En tapant **Azure Stack Hub** dans la zone de recherche **Produits** , vous pouvez voir toutes les mises à jour de feuille de route Azure Stack Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

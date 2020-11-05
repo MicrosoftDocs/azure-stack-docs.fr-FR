@@ -7,12 +7,12 @@ ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: d3a16f92cb441a92a045721e477b3b10933d174d
-ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
+ms.openlocfilehash: 29255d706edcb052711b2ed42e65fd3dc0b6412b
+ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90717956"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93291225"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Installer le moteur AKS sur Windows dans Azure Stack Hub
 
@@ -88,8 +88,8 @@ Vous devrez ajouter un certificat, lors de l’exécution de la machine virtuell
 
 Quand vous utilisez un ASDK et que votre point de terminaison Azure Resource Manager utilise un certificat auto-signé, vous devez ajouter explicitement ce certificat au magasin de certificats approuvé de la machine. Vous pouvez trouver le certificat racine ASDK sur toutes les machines virtuelles que vous déployez sur l’ASDK.
 
-1. Exportez le certificat racine de l’autorité de certification. Pour obtenir des instructions, consultez [Exporter le certificat racine de l’autorité de certification Azure Stack Hub](./azure-stack-version-profiles-azurecli2.md#export-the-azure-stack-hub-ca-root-certificate).
-2. Approuvez le certificat d'autorité de certification racine Azure Stack Hub. Pour obtenir des instructions, consultez [Approuver le certificat racine de l’autorité de certification Azure Stack Hub](./azure-stack-version-profiles-azurecli2.md#trust-the-azure-stack-hub-ca-root-certificate).
+1. Exportez le certificat racine de l’autorité de certification. Pour obtenir des instructions, consultez [Exporter le certificat racine de l’autorité de certification Azure Stack Hub](../asdk/asdk-cli.md#export-the-azure-stack-hub-ca-root-certificate).
+2. Approuvez le certificat d'autorité de certification racine Azure Stack Hub. Pour obtenir des instructions, consultez [Approuver le certificat racine de l’autorité de certification Azure Stack Hub](../asdk/asdk-cli.md#trust-the-certificate).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

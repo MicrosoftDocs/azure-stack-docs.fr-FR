@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: 46946f72fe22345ee60c620ba2cf0283e056ae99
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: cc83edf05e9b63a8d1e09ed6bf960959b9f7f673
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899820"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363943"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Station de travail d’accès à l’opérateur Azure Stack Hub 
 
@@ -48,7 +48,7 @@ param(
     $DownloadedOAWZipFilePath
 )
 
-$expectedHash = '97022E2FB06D4448A78E987ED3513831741BA89100B5972ABDAD629A93E01648'
+$expectedHash = 'CADAD42A1316C3E19819B8E197CEC279964805677D528F4CCFE2FC16D3119136'
 $actualHash = (Get-FileHash -Path $DownloadedOAWZipFilePath).Hash
 
 Write-Host "Expected hash: $expectedHash"
@@ -110,7 +110,7 @@ Le script suivant prépare la machine virtuelle en tant que station de travail d
 1. Accédez au contenu extrait du fichier OAW.zip.
 1. Exécutez le script New-OAW.ps1. 
 
-Par exemple, pour créer la machine virtuelle de l’OAW sur le HLH sans aucune personnalisation à l’aide d’Azure Stack Hub version 2005 ou ultérieure, exécutez le script New-OAW.ps1 uniquement avec le paramètre **-LocalAdministratorPassword** :
+Par exemple, pour créer la machine virtuelle de l’OAW sur le HLH sans aucune personnalisation à l’aide d’Azure Stack Hub version 2005 ou ultérieure, exécutez le script New-OAW.ps1 uniquement avec le paramètre **-LocalAdministratorPassword**  :
 
 ```powershell
 $securePassword = Read-Host -Prompt "Enter password for Azure Stack OAW's local administrator" -AsSecureString
