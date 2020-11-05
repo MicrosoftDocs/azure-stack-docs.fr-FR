@@ -10,7 +10,7 @@
       items:
         - name: Utiliser le portail d’administration
           href: ../operator/azure-stack-manage-portals.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-    - name: Tutoriels
+    - name: Didacticiels
       items:
         - name: Offrir un service aux utilisateurs
           href: ../operator/tutorial-offer-services.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -152,7 +152,7 @@
               href: ../operator/azure-stack-azsreadiness-cmdlet.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Afficher l’état de préparation
               href: ../operator/azure-stack-validation-report.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-        - name: Intégration du centre de données
+        - name: Configuration du centre de données
           items:
             - name: Configurer le redirecteur DNS
               href: ../operator/azure-stack-configure-dns.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
