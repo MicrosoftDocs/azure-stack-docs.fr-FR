@@ -5,12 +5,12 @@ ms.topic: overview
 author: jasongerend
 ms.author: jgerend
 ms.date: 09/22/2020
-ms.openlocfilehash: fad630d143fee31c4b63b4008c02bef697475155
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: ef2cc07ca9c228b9d427d11f8065e2d943e1626b
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949372"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064614"
 ---
 # <a name="what-is-azure-kubernetes-service-on-azure-stack-hci"></a>Qu’est-ce qu’Azure Kubernetes Service sur Azure Stack HCI ?
 
@@ -53,8 +53,8 @@ Azure Kubernetes Service simplifie le processus de configuration de Kubernetes s
 
 Après que vous avez configuré Azure Kubernetes Service sur votre cluster Azure Stack HCI et créé un cluster Kubernetes, nous vous proposons deux méthodes pour gérer et surveiller votre infrastructure Kubernetes :
 
-- **Localement à l’aide d’outils populaires tels que Kubectl et Kubernetes Dashboard** : utilisez une interface web open source pour déployer des applications sur un cluster Kubernetes, gérer des ressources de cluster, dépanner et afficher des applications en cours d’exécution.
-- **Dans le Portail Azure à l’aide d’Azure Arc** : utilisez un service Azure pour gérer Azure Kubernetes Service et les clusters Kubernetes déployés dans vos environnements cloud et locaux. Vous pouvez utiliser Azure Arc pour ajouter et supprimer des clusters Kubernetes, ainsi que des nœuds dans un cluster Kubernetes, modifier les paramètres réseau et installer des modules complémentaires.
+- **Localement à l’aide d’outils populaires tels que Kubectl et Kubernetes Dashboard**  : utilisez une interface web open source pour déployer des applications sur un cluster Kubernetes, gérer des ressources de cluster, dépanner et afficher des applications en cours d’exécution.
+- **Dans le Portail Azure à l’aide d’Azure Arc**  : utilisez un service Azure pour gérer Azure Kubernetes Service et les clusters Kubernetes déployés dans vos environnements cloud et locaux. Vous pouvez utiliser Azure Arc pour ajouter et supprimer des clusters Kubernetes, ainsi que des nœuds dans un cluster Kubernetes, modifier les paramètres réseau et installer des modules complémentaires.
 <br>Azure Arc vous permet également de gérer vos clusters Kubernetes avec d’autres services Azure, notamment :
 
   - Azure Monitor
@@ -71,8 +71,8 @@ Azure Container Service crée les machines virtuelles Linux et Windows afin que 
 
 Azure Kubernetes Service comprend un certain nombre de fonctionnalités pour vous aider à sécuriser votre infrastructure de conteneur :
 
-- **Isolement basé sur l’hyperviseur pour les nœuds Worker** : chaque cluster Kubernetes s’exécute sur son propre ensemble de machines virtuelles dédiées et isolées de sorte que les locataires puissent partager la même infrastructure physique.
-- **Images Linux et Windows gérées par Microsoft pour les nœuds Worker** : les nœuds Worker exécutent des images de machines virtuelles Linux et Windows créées par Microsoft pour adhérer aux meilleures pratiques en matière de sécurité. Microsoft actualise également ces images tous les mois avec les dernières mises à jour de sécurité.
+- **Isolement basé sur l’hyperviseur pour les nœuds Worker**  : chaque cluster Kubernetes s’exécute sur son propre ensemble de machines virtuelles dédiées et isolées de sorte que les locataires puissent partager la même infrastructure physique.
+- **Images Linux et Windows gérées par Microsoft pour les nœuds Worker**  : les nœuds Worker exécutent des images de machines virtuelles Linux et Windows créées par Microsoft pour adhérer aux meilleures pratiques en matière de sécurité. Microsoft actualise également ces images tous les mois avec les dernières mises à jour de sécurité.
 
 Restez informé car la sécurité est un domaine d’investissement permanent pour la préversion d’Azure Kubernetes Service sur Azure Stack HCI.
 
@@ -97,7 +97,7 @@ Voici quelques diagrammes simplifiés montrant comment les architectures Azure K
 
 :::image type="content" source="media\overview\aks-azure-architecture.png" alt-text="Architecture d’Azure Kubernetes Service hébergé dans Azure, montrant comment les services de la plateforme et la majeure partie du plan de contrôle sont gérés par Azure, tandis que les clusters Kubernetes qui exécutent vos applications en conteneur sont gérés par le client." lightbox="media\overview\aks-azure-architecture.png":::
 
-:::image type="content" source="media\overview\aks-hci-architecture.png" alt-text="Architecture d’Azure Kubernetes Service hébergé dans Azure, montrant comment les services de la plateforme et la majeure partie du plan de contrôle sont gérés par Azure, tandis que les clusters Kubernetes qui exécutent vos applications en conteneur sont gérés par le client." lightbox="media\overview\aks-hci-architecture.png":::
+:::image type="content" source="media\overview\aks-hci-architecture.png" alt-text="Architecture d’Azure Kubernetes Service sur Azure Stack HCI, montrant comment tout fonctionne au sommet du cluster Azure Stack HCI, notamment la plateforme Azure Kubernetes Service, le plan de contrôle et les clusters Kubernetes qui permettent l’exécution de vos applications en conteneur." lightbox="media\overview\aks-hci-architecture.png":::
 
 ## <a name="what-you-need-to-get-started"></a>Ce dont vous avez besoin pour commencer
 
@@ -121,7 +121,7 @@ Le cluster exécutant Azure Stack HCI, version 20H2 ou ultérieure présente les
 - Au moins 30 Go de mémoire disponible pour l’exécution des machines virtuelles Azure Kubernetes Service
 - Tous les serveurs du cluster doivent utiliser la région EN-US et la sélection de la langue pour cette préversion
 
-Pour en savoir plus sur les conditions générales requises d’Azure Stack HCI, consultez [Avant de déployer Azure Stack HCI](../hci/deploy/before-you-start.md).
+Pour connaître la configuration système requise d’Azure Stack HCI, consultez [Configuration système requise d’Azure Stack HCI](../hci/concepts/system-requirements.md).
 
 ### <a name="the-network-configuration-for-azure-stack-hci"></a>Configuration réseau pour Azure Stack HCI
 

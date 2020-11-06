@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/09/2020
-ms.openlocfilehash: 34a93a65d45861c7c7ff1727347cc95465968151
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.date: 10/28/2020
+ms.openlocfilehash: 61cd03f7c4b381a434b5f99175b57b99169cb058
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572515"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064461"
 ---
 # <a name="what-is-the-deployment-process-for-azure-stack-hci"></a>Quel est le processus de déploiement pour Azure Stack HCI ?
 
@@ -38,41 +38,39 @@ Si votre déploiement d’Azure Stack HCI s’étend sur plusieurs sites, déter
 
 ## <a name="deploy"></a>Déployer
 
-### <a name="1-before-you-begin"></a>1. Avant de commencer
+Avant de déployer le système d’exploitation, déterminez si votre matériel répond à la [configuration système requise](../concepts/system-requirements.md) pour Azure Stack HCI. Ensuite, [installez Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install) pour gérer votre cluster Azure Stack HCI.
 
-Avant de commencer, [déterminez si votre matériel répond aux exigences de base et collectez les informations nécessaires](before-you-start.md) pour le déploiement d’Azure Stack HCI. Ensuite, [installez Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install) pour gérer votre cluster Azure Stack HCI.
+### <a name="1-deploy-azure-stack-hci"></a>1. Déployer Azure Stack HCI
 
-### <a name="2-deploy-azure-stack-hci"></a>2. Déployer Azure Stack HCI
+[Téléchargez Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) et déployez le [système d’exploitation](operating-system.md) Azure Stack HCI sur chacun des serveurs que vous souhaitez mettre en cluster. Si vous avez acheté le matériel de la solution de système intégré Azure Stack HCI sur le [catalogue Azure Stack HCI](https://azure.microsoft.com/en-us/products/azure-stack/hci/catalog/) via votre partenaire matériel Microsoft préféré, le système d’exploitation Azure Stack HCI doit être préinstallé. Dans ce cas, vous pouvez ignorer cette étape et passer à l’étape 2.
 
-[Téléchargez Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) et déployez le [système d’exploitation](operating-system.md) Azure Stack HCI sur chacun des serveurs que vous souhaitez mettre en cluster.
-
-### <a name="3-create-the-cluster"></a>3. Créer le cluster
+### <a name="2-create-the-cluster"></a>2. Créer le cluster
 
 Créez un cluster de basculement à l’aide de [Windows Admin Center](create-cluster.md) ou [PowerShell](create-cluster-powershell.md). Pour la reprise d’activité et la continuité de l’activité natives, vous pouvez déployer un [cluster étendu](../concepts/stretched-clusters.md) qui englobe deux sites géographiquement distincts.
 
-### <a name="4-set-up-a-cluster-witness"></a>4. Configurer un témoin de cluster
+### <a name="3-set-up-a-cluster-witness"></a>3. Configurer un témoin de cluster
 
 La [configuration d’une ressource témoin](witness.md) est obligatoire pour tous les clusters. Dans les clusters à deux nœuds, un témoin est nécessaire pour que l’un des deux nœuds demeure disponible en cas de mise hors connexion de l’autre serveur. Dans les clusters à trois nœuds et davantage, un témoin est nécessaire pour pallier la défaillance ou la mise hors connexion de deux serveurs. 
 
-### <a name="5-register-with-azure"></a>5. Inscription auprès d’Azure
+### <a name="4-register-with-azure"></a>4. Inscription auprès d’Azure
 
 Azure Stack HCI nécessite une connexion à Azure. Pour connecter votre cluster à Azure, consultez [Inscrire Azure Stack HCI auprès d’Azure](register-with-azure.md). Une fois inscrit, le cluster se connecte automatiquement en arrière-plan.
 
-### <a name="6-validate-the-cluster"></a>6. Valider le cluster
+### <a name="5-validate-the-cluster"></a>5. Valider le cluster
 
 Après avoir créé et inscrit le cluster, [exécutez les tests de validation du cluster](validate.md) pour détecter les problèmes de configuration ou matériels avant que le cluster ne passe en production.
 
-### <a name="7-deploy-storage"></a>7. Déployer le stockage
+### <a name="6-deploy-storage"></a>6. Déployer le stockage
 
 [Créez des volumes](../manage/create-volumes.md) sur un cluster à site unique, ou [créez des volumes et configurez la réplication sur un cluster étendu](../manage/create-stretched-volumes.md).
 
-### <a name="8-deploy-workloads"></a>8. Déployer les charges de travail
+### <a name="7-deploy-workloads"></a>7. Déployer les charges de travail
 
 Vous êtes maintenant prêt à [créer des machines virtuelles](../manage/vm.md) et à déployer des charges de travail sur Azure Stack HCI à l’aide de Windows Admin Center.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez ce que vous devez faire avant de déployer Azure Stack HCI.
+Découvrez comment déployer le système d’exploitation Azure Stack HCI.
 
 > [!div class="nextstepaction"]
-> [Avant de commencer](before-you-start.md)
+> [Déployer le système d’exploitation Azure Stack HCI](operating-system.md)
