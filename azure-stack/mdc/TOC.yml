@@ -10,7 +10,7 @@
       items:
         - name: Utiliser le portail d’administration
           href: ../operator/azure-stack-manage-portals.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-    - name: Didacticiels
+    - name: Tutoriels
       items:
         - name: Offrir un service aux utilisateurs
           href: ../operator/tutorial-offer-services.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -102,12 +102,12 @@
                   href: ../operator/azure-stack-validate-pki-certs.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Corriger des certificats d’infrastructure à clé publique
                   href: ../operator/azure-stack-remediate-certs.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-        - name: Approvisionnement
+        - name: Inscription et préparation
           items:
-            - name: Valider l’inscription auprès d’Azure
-              href: ../operator/azure-stack-validate-registration.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Inscrire
               href: operator/registration-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Valider l’inscription auprès d’Azure
+              href: ../operator/azure-stack-validate-registration.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Fournisseurs de ressources à valeur ajoutée
               items:
                 - name: App Service
