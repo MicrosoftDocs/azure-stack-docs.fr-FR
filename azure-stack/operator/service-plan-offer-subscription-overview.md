@@ -7,12 +7,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 076ea0efb7307ce9a87b04c19608a5b3c723d3f4
-ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
+ms.openlocfilehash: 00a44e66563bbb038928c55f1f643f2ca0ffbd37
+ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89274073"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93327481"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Présentation des services, plans, offres et abonnements Azure Stack Hub
 
@@ -63,7 +63,7 @@ Pour mieux gérer votre capacité cloud, vous pouvez utiliser des *quotas* préc
 Vous pouvez définir les quotas par région. Par exemple, un plan fournissant des services de calcul pour la région A peut avoir un quota de deux machines virtuelles.
 
 >[!NOTE]
->Dans le Kit de développement Azure Stack, une seule région (nommée *local*) est disponible.
+>Dans le Kit de développement Azure Stack, une seule région (nommée *local* ) est disponible.
 
 Apprenez-en plus sur les [types de quotas dans Azure Stack Hub](azure-stack-quota-types.md).
 
@@ -90,11 +90,11 @@ Lorsque vous [créez une offre](azure-stack-create-offer.md), vous devez inclure
 
 Quand vous planifiez vos offres, gardez à l’esprit les points suivants :
 
-**Offres d'évaluation** : Vous utilisez des offres d’évaluation pour attirer de nouveaux utilisateurs, qui peuvent ensuite effectuer une mise à niveau vers des services supplémentaires. Pour créer une offre d’évaluation, créez un petit [plan de base](service-plan-offer-subscription-overview.md#base-plan) avec un plan complémentaire facultatif plus important. Vous pouvez aussi créer une offre d’essai composée d’un petit plan de base et d’une offre distincte avec un plan « paiement à l’utilisation » plus étendu.
+**Offres d'évaluation**  : Vous utilisez des offres d’évaluation pour attirer de nouveaux utilisateurs, qui peuvent ensuite effectuer une mise à niveau vers des services supplémentaires. Pour créer une offre d’évaluation, créez un petit [plan de base](service-plan-offer-subscription-overview.md#base-plan) avec un plan complémentaire facultatif plus important. Vous pouvez aussi créer une offre d’essai composée d’un petit plan de base et d’une offre distincte avec un plan « paiement à l’utilisation » plus étendu.
 
-**Planification de la capacité** : peut-être craignez-vous que des utilisateurs s’accaparent de grandes quantités de ressources et encombrent le système pour tous les autres utilisateurs. Pour améliorer les performances, vous pouvez [configurer vos plans avec des quotas](service-plan-offer-subscription-overview.md#plans) afin de limiter l’utilisation.
+**Planification de la capacité**  : peut-être craignez-vous que des utilisateurs s’accaparent de grandes quantités de ressources et encombrent le système pour tous les autres utilisateurs. Pour améliorer les performances, vous pouvez [configurer vos plans avec des quotas](service-plan-offer-subscription-overview.md#plans) afin de limiter l’utilisation.
 
-**Fournisseurs délégués** : vous pouvez donner à d'autres personnes la possibilité de créer des offres dans votre environnement. Par exemple, si vous êtes fournisseur de services, vous pouvez [déléguer](azure-stack-delegated-provider.md) cette capacité à vos revendeurs. Si vous êtes une entreprise, vous pouvez déléguer à d’autres divisions/filiales.
+**Fournisseurs délégués**  : vous pouvez donner à d'autres personnes la possibilité de créer des offres dans votre environnement. Par exemple, si vous êtes fournisseur de services, vous pouvez [déléguer](azure-stack-delegated-provider.md) cette capacité à vos revendeurs. Si vous êtes une entreprise, vous pouvez déléguer à d’autres divisions/filiales.
 
 ## <a name="subscriptions"></a>Abonnements
 
@@ -105,6 +105,8 @@ Les utilisateurs créent des abonnements et obtiennent l’accès aux abonnement
 En tant qu’opérateur Azure Stack Hub, vous pouvez voir des informations sur les abonnements des locataires, mais vous ne pouvez pas accéder au contenu de ces abonnements, sauf si un administrateur de locataires vous ajoute explicitement à cet abonnement au moyen de RBAC. Les locataires peuvent ainsi appliquer la séparation des pouvoirs et des responsabilités entre l’opérateur Azure Stack Hub et les espaces des locataires. 
 
 L’exception à cette règle est quand le propriétaire de l’abonnement ne peut pas octroyer à l’opérateur l’accès à l’abonnement. L’administrateur doit alors s’approprier l’abonnement, comme indiqué dans [Changer le propriétaire de facturation d’un abonnement utilisateur Azure Stack Hub](azure-stack-change-subscription-owner.md).
+
+Si votre instance d'Azure Stack Hub est déconnectée et que vous disposez de deux domaines différents dans lesquels les utilisateurs du domaine 1 créent des abonnements que les utilisateurs du domaine 2 utilisent, certains abonnements peuvent apparaître sur le portail administrateur mais pas sur le portail utilisateur. Pour résoudre ce problème, demandez aux utilisateurs du domaine 1 de définir le rôle RBAC qui convient pour les abonnements du domaine 2.
 
 ### <a name="default-provider-subscription"></a>Abonnement au fournisseur par défaut
 

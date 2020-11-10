@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.author: v-myoung
 ms.reviewer: TBD
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: f3839c9191a5b96c9a489d7c13b83b1f8f13fdf9
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: aa8755b2cd8b7161eee8c7c60375c2b799df2e80
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778163"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064784"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Liste de contrôle des activités de mise à jour Azure Stack Hub
 
@@ -45,7 +45,10 @@ Passez en revue cette liste de contrôle pour préparer une mise à jour Azure S
 | Reprendre les mises à jour | Après avoir corrigé une mise à jour non réussie, [reprenez les mises à jour dans Azure Stack Hub à l’aide du point de terminaison privilégié](azure-stack-monitor-update.md). |
 
 > [!IMPORTANT]  
-> N’exécutez pas **Test-AzureStack** pendant une mise à jour, sinon celle-ci se bloque.
+> N'exécutez pas **Test-AzureStack** pendant une mise à jour car celle-ci se bloquera.
+>
+>N'exécutez aucune réparation de nœud pendant une mise à jour, quel que soit son état.
+>Veuillez contacter le Support Microsoft si une réparation de nœud est nécessaire pendant la mise à jour.
 
 ## <a name="after-azure-stack-hub-update"></a>Après l’application de la mise à jour Azure Stack Hub
 

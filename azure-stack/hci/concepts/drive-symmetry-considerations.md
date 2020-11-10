@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/01/2020
-ms.openlocfilehash: 545a0b90ad938a172a184748780974ba7403f19f
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.date: 10/29/2020
+ms.openlocfilehash: 6cf983d6cf64b0b41bb9710bdf720dd1777c9ad6
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742406"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064801"
 ---
 # <a name="drive-symmetry-considerations-for-azure-stack-hci"></a>Considérations relatives à la symétrie des lecteurs pour Azure Stack HCI
 
@@ -25,6 +25,8 @@ Dans la réalité, nous savons que cela n’est pas toujours évident, car Azure
 Cette rubrique décrit les contraintes et propose des exemples de configurations prises en charge et non prises en charge.
 
 ## <a name="constraints"></a>Contraintes
+
+Cette section décrit les contraintes en termes de type, de modèle, de taille et de nombre de lecteurs.
 
 ### <a name="type"></a>Type
 
@@ -184,5 +186,5 @@ Pour résumer, chaque serveur du cluster doit présenter les mêmes types de lec
 
 Pour consulter des informations connexes, reportez-vous également à :
 
-- [Avant le déploiement d’Azure Stack HCI](../deploy/before-you-start.md)
+- [Configuration système requise](system-requirements.md)
 - [Choisir des lecteurs](choose-drives.md)
