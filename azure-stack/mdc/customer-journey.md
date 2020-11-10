@@ -3,7 +3,7 @@ title: Parcours utilisateur de l’achat au post-déploiement Azure Stack Hub | 
 description: Découvrez comment réussir un déploiement local d’un Modular Data Center, de la planification au post-déploiement.
 services: azure-stack
 documentationcenter: ''
-author: asganesh
+author: ashika789
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,24 +12,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2020
+ms.date: 11/04/2020
 ms.author: justinha
 ms.reviewer: asganesh
-ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: f170ab6025effe394c891aa4fb3ad7111bac7133
-ms.sourcegitcommit: 716ca50bd198fd51a4eec5b40d5247f6f8c16530
+ms.lastreviewed: 11/04/2020
+ms.openlocfilehash: 12631a118600e67611294c87636cd2fa62bfaaea
+ms.sourcegitcommit: ecd98662194d2cdb15c22f8b1f99812fc5f4c15a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92898622"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93344777"
 ---
-# <a name="mdc-integration-overview"></a>Vue d’ensemble de l’intégration d’un centre de données MDC
+# <a name="modular-data-center-integration-overview"></a>Présentation de l’intégration du MDC (Modular Data Center)
 
 Cet article décrit le processus de bout en bout relatif à l’intégration d’un centre de données MDC, de l’achat au post-déploiement. L’intégration est un projet collaboratif entre le client et Microsoft. Les sections suivantes couvrent différentes phases de la chronologie du projet et des étapes spécifiques pour les membres du projet.
 
 ## <a name="introduction"></a>Introduction
 
-La table suivante décrit ce que vous pouvez attendre au cours des différentes phases du déploiement.
+La table suivante répertorie ce que vous pouvez attendre au cours des différentes phases du déploiement.
 
 |   |Processus de commande  |Prédéploiement |Intégration, validation, transport |Déploiement local  |Post déploiement |
 |---|---------------|---------------|-----------------------------------|--------------------|----------------|
@@ -37,10 +37,23 @@ La table suivante décrit ce que vous pouvez attendre au cours des différentes 
 |Customer   |Achat de signaux   |- Renseigne les détails du réseau dans la feuille de travail de déploiement<br>- Collecte les certificats<br>- Invite pour les comptes Azure AD<br>- Exécute tous les outils de validation fournis    |Assurez-vous que le site dispose des composants requis réseau, d’alimentation et de refroidissement    |- Soyez prêt pour les artefacts de configuration de déploiement<br>- Ingénieur réseau du client disponible   |     |
 
 
-## <a name="order-process"></a>Processus de commande
+## <a name="order-process"></a>Traitement des commandes
 
 Votre organisation utilise Microsoft pour passer une commande pour un nombre de systèmes alloués. Une fois votre commande passée, Microsoft fournit le centre de données MDC dans votre emplacement aux États-Unis. Microsoft s’assure que toutes les exigences de la chaîne d’approvisionnement sécurisée sont respectées. 
 
+## <a name="hardware-delivery"></a>Livraison de matériel
+
+Microsoft travaillera avec vous pour s’assurer que tous le matériel requis arrive à l’emplacement des États-Unis dans le temps imparti.  
+
+Il est **essentiel** que toutes les données prérequises soient verrouillées et disponibles *avant que l’ingénieur arrive pour déployer la solution.*
+
+- La feuille de calcul de déploiement contient toutes les données renseignées. 
+- Tous les certificats doivent être validés et prêts.
+- Le nom de région doit être choisi.
+- Tous les paramètres d’intégration réseau sont finalisés.
+
+>[!Tip]
+>Si l’une de ces informations a changé, veillez à utiliser votre organisation interne pour vous assurer que les informations sont mises à jour avant l’arrivée de l’ingénieur de déploiement sur site. Cela permet d’éviter les retards dans le processus de déploiement.
 
 ## <a name="pre-deployment"></a>Prédéploiement
 
@@ -58,24 +71,6 @@ Vous allez choisir les éléments suivants :
 
 Une fois que toutes les informations prérequises sont rassemblées par le biais de la feuille de travail de déploiement, Microsoft s’assure que nous vérifions que tous les outils de validation aient été exécutés et répondons à toute autre question posée. 
 
-## <a name="site-preparation"></a>Préparation du site
-
-Pour plus d’informations sur les spécifications relatives à la préparation du site, consultez le Guide de démarrage rapide.
-
-## <a name="hardware-delivery"></a>Livraison de matériel
-
-Microsoft travaillera avec vous pour s’assurer que tous le matériel requis arrive à l’emplacement des États-Unis dans le temps imparti.  
-
-Il est **essentiel** que toutes les données prérequises soient verrouillées et disponibles *avant que l’ingénieur arrive pour déployer la solution.*
-
-- La feuille de calcul de déploiement contient toutes les données renseignées. 
-- Tous les certificats doivent être validés et prêts.
-- Le nom de région doit être choisi.
-- Tous les paramètres d’intégration réseau sont finalisés.
-
->[!Tip]
->Si l’une de ces informations a changé, veillez à utiliser votre organisation interne pour vous assurer que les informations sont mises à jour avant l’arrivée de l’ingénieur de déploiement sur site. Cela permet d’éviter les retards dans le processus de déploiement.
-
 ## <a name="onsite-deployment"></a>Déploiement local
 
 Pour déployer Azure Stack Hub, un ingénieur de déploiement Microsoft sera présent pour lancer le déploiement. Un ingénieur réseau de votre organisation doit également être disponible pendant la période de déploiement sur site.
@@ -92,7 +87,7 @@ L’ingénieur sur site doit normalement vérifier les points suivants durant l�
 - Vérifier que la version du microprogramme de tous les composants est la dernière version approuvée par la solution
 - Démarrage du déploiement
 
-## <a name="post-deployment"></a>Après le déploiement
+## <a name="post-deployment"></a>Postdéploiement
 
 L’ingénieur de déploiement Microsoft doit effectuer plusieurs étapes avant que la solution soit remise au client. Lors de cette phase, la validation est importante afin de s’assurer que le système est déployé et fonctionne correctement.
 
@@ -108,5 +103,5 @@ Actions qui doivent être effectuées par l’ingénieur de déploiement Microso
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez-en plus sur les [étapes à suivre pour installer et configurer un centre de données Modular Data Center](deployment-overview.md).
+[Présentation du déploiement de Modular Data Center](deployment-overview.md).
 

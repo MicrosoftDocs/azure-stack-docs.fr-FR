@@ -7,12 +7,12 @@ ms.date: 08/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: a5ccf4ecd9ab6f70f54af22c343f28eb692f9c54
-ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
+ms.openlocfilehash: ee0ef7119dfb2255cd97e343f8e7339ab715ed7d
+ms.sourcegitcommit: 0e3296fb27b9dabbc2569bf85656c4c7b1d58ba9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91592897"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93049600"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Exigences de certificat pour infrastructure à clé publique (PKI) Azure Stack Hub
 
@@ -63,7 +63,7 @@ Le tableau de cette section décrit les certificats d’infrastructure de clés 
 
 Des certificats avec des noms de DNS appropriés pour chaque point de terminaison d’infrastructure publique Azure Stack Hub sont requis. Le nom DNS de chaque point de terminaison est exprimé au format : *&lt;prefix>.&lt;region>.&lt;fqdn>* .
 
-Pour votre déploiement, les valeurs [region] et [externalfqdn] doivent correspondre à la région et aux noms de domaines externes que vous avez choisis pour votre système Azure Stack Hub. Par exemple, si le nom de la région était *Redmond* et le nom de domaine externe *contoso.com*, les noms DNS aurait le format *&lt;prefix>.redmond.contoso.com*. Les valeurs *&lt;prefix>* sont prédéfinies par Microsoft pour décrire le point de terminaison sécurisé par le certificat. De plus, les valeurs *&lt;prefix>* des points de terminaison d’infrastructure externe dépendent du service Azure Stack Hub qui utilise le point de terminaison spécifique.
+Pour votre déploiement, les valeurs [region] et [externalfqdn] doivent correspondre à la région et aux noms de domaines externes que vous avez choisis pour votre système Azure Stack Hub. Par exemple, si le nom de la région était *Redmond* et le nom de domaine externe *contoso.com* , les noms DNS aurait le format *&lt;prefix>.redmond.contoso.com*. Les valeurs *&lt;prefix>* sont prédéfinies par Microsoft pour décrire le point de terminaison sécurisé par le certificat. De plus, les valeurs *&lt;prefix>* des points de terminaison d’infrastructure externe dépendent du service Azure Stack Hub qui utilise le point de terminaison spécifique.
 
 Pour les environnements de production, nous recommandons de générer des certificats individuels pour chaque point de terminaison et de les copier dans le répertoire correspondant. Pour les environnements de développement, les certificats peuvent être fournis sous la forme d’un certificat unique avec caractères génériques couvrant tous les espaces de noms dans les champs Sujet et Autre nom de l’objet (SAN) copiés dans tous les répertoires. Un certificat unique couvrant tous les points de terminaison et services pose des problèmes de sécurité ; cette approche est donc destinée aux équipes de développement uniquement. N’oubliez pas que les deux options requièrent l’utilisation de certificats avec caractères génériques pour les points de terminaison tels que **acs** et le coffre de clés lorsqu’ils sont requis.
 
@@ -105,12 +105,13 @@ Le tableau suivant décrit les points de terminaison et les certificats requis p
 
 |Étendue (par région)|Certificat|Objet et autres noms de l’objet (SAN) du certificat requis|Espace de noms de sous-domaine|
 |-----|-----|-----|-----|
-|SQL, MySQL|SQL et MySQL|&#42;.dbadapter. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL générique)|dbadapter. *&lt;region>.&lt;fqdn>*|
 |App Service|Certificat SSL par défaut de trafic web|&#42;.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL générique à plusieurs domaines<sup>1</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|API|api.appservice. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|FTP|ftp.appservice. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|SSO|sso.appservice. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
-|Event Hubs|Event Hubs|&#42;.eventhub. *&lt;region>.&lt;fqdn>* (SAN)| eventhub. *&lt;region>.&lt;fqdn>* |
+|Event Hubs|SSL|&#42;.eventhub. *&lt;region>.&lt;fqdn>* | eventhub. *&lt;region>.&lt;fqdn>* |
+|IoT Hub|SSL|&#42;.mgmtiothub. *&lt;region>.&lt;fqdn>* | mgmtiothub. *&lt;region>.&lt;fqdn>* |
+|SQL, MySQL|SQL et MySQL|&#42;.dbadapter. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL générique)|dbadapter. *&lt;region>.&lt;fqdn>*|
 
 <sup>1</sup> Requiert un certificat avec plusieurs autres noms de l’objet génériques. Plusieurs SAN génériques sur un même certificat peuvent ne pas être pris en charge par toutes les autorités de certification publiques.
 

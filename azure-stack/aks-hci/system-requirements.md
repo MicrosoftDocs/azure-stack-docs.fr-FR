@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
 ms.date: 09/22/2020
-ms.openlocfilehash: 4c91dad12e4d6680ca0887da2e6ca314cdbd64ee
-ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
+ms.openlocfilehash: 62b1b2983b2e41b5c6d991b4d53338a67bc5aeab
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91519384"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064665"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Configuration requise pour Azure Kubernetes Service sur Azure Stack HCI
 
@@ -40,7 +40,7 @@ Pour que le service Azure Kubernetes Service sur Azure Stack HCI fonctionne de f
 
  - Bien que vous puissiez techniquement exécuter le service Azure Kubernetes Service sur un seul nœud Azure Stack HCI Server, nous vous déconseillons de le faire.
 
- - Les autres exigences de calcul pour le service Azure Kubernetes Service sur Azure Stack HCI sont conformes aux exigences de Azure Stack HCI. Pour plus d’informations sur les exigences pour le serveur Azure Stack HCI, visitez [Exigences Azure Stack HCI](../hci/deploy/before-you-start.md) .  
+ - Les autres exigences de calcul pour le service Azure Kubernetes Service sur Azure Stack HCI sont conformes aux exigences de Azure Stack HCI. Pour plus d’informations sur les exigences relatives au serveur Azure Stack HCI, consultez [Configuration requise pour Azure Stack HCI](../hci/concepts/system-requirements.md#server-requirements).
 
  - Pour cette version préliminaire, vous devez installer le système d’exploitation Azure Stack HCI sur chaque serveur dans le cluster à l’aide des sélections de la région en-US et de la langue. Leur modification après l’installation n’est pas suffisante pour l’instant.
 
@@ -119,8 +119,8 @@ Windows Admin Center est l’interface utilisateur permettant de créer et de g�
 L’ordinateur qui exécute la passerelle Windows Admin Center doit : 
 
  - Windows 10 (nous ne prenons pas en charge les serveurs Windows Admin Center pour le moment)
- - 60 Go d’espace libre
- - Inscrite auprès d’Azure
+ - 60 Go d’espace libre
+ - Inscription auprès d’Azure
  - Dans le même domaine que le cluster Azure Stack HCI
 
 ## <a name="next-steps"></a>Étapes suivantes 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: c51a6296caac3c173650ee57af8e1d23b2473f26
-ms.sourcegitcommit: 877fe2207b569500aeefa6594eed990f15609776
+ms.openlocfilehash: 4bd669e04f2b4b4e1ef173a3a44e52d8c6067a60
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90082492"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064512"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Créer un cluster Azure Stack HCI en utilisant Windows PowerShell
 
@@ -36,7 +36,7 @@ Si vous êtes intéressé par les tests Azure Stack HCI, mais que vous disposez 
 
 Avant de commencer, vérifiez que :
 
-- Vous avez lu la configuration matérielle requise et les autres exigences dans [Avant de déployer Azure Stack HCI](before-you-start.md).
+- Vous avez consulté [Configuration système requise d’Azure Stack HCI](../concepts/system-requirements.md).
 - Vous avez installé le système d’exploitation Azure Stack HCI sur chaque serveur du cluster. Consultez [Déployer le système d’exploitation Azure Stack HCI](operating-system.md).
 - Vous avez un compte qui est membre du groupe Administrateurs local sur chaque serveur.
 - Vous disposez des droits dans Active Directory pour créer des objets.
@@ -401,7 +401,7 @@ Vous pouvez aussi définir un site *préféré* global, ce qui signifie que les 
 
 La spécification d’un site préféré pour les clusters étendus a les avantages suivants :
 
-- **Démarrage à froid** : lors d’un démarrage à froid, les machines virtuelles sont placées dans le site préféré
+- **Démarrage à froid**  : lors d’un démarrage à froid, les machines virtuelles sont placées dans le site préféré
 
 - **Vote du quorum**
   - Avec un quorum dynamique, la pondération est d’abord réduite sur le site passif (répliqué) pour garantir que le site préféré survit si toutes les autres choses sont égales. En outre, les nœuds de serveur sont d’abord nettoyés du site passif lors du regroupement après des événements comme des défaillances de connectivité réseau asymétrique.

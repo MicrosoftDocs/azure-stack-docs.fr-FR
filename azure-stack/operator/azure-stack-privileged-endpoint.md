@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: 19e2bf9ef9d11f1975881fd064b86004422190de
-ms.sourcegitcommit: 6a51687a98c417a004cd4295ad06ae813e1978cc
+ms.openlocfilehash: 9009064b2664d09a677ad1b2e21b2a3e5b17b57f
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638833"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363926"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Utiliser le point de terminaison privilégié dans Azure Stack Hub
 
@@ -29,6 +29,8 @@ Le point de terminaison privilégié journalise chaque action (et sa sortie corr
 
 > [!NOTE]
 > Dans le Kit de développement Azure Stack (ASDK), vous pouvez exécuter certaines commandes disponibles dans le point de terminaison privilégié directement à partir d’une session PowerShell sur l’hôte du Kit de développement. Toutefois, vous pouvez être amené à tester certaines opérations à l’aide du point de terminaison privilégié, telles que la collecte de journaux, car c’est la seule méthode disponible pour effectuer certaines opérations dans un environnement de systèmes intégrés.
+
+[!INCLUDE [Azure Stack Hub Operator Access Workstation](../includes/operator-note-owa.md)]
 
 ## <a name="access-the-privileged-endpoint"></a>Accéder au point de terminaison privilégié
 
@@ -199,12 +201,12 @@ Une fois les fichiers journaux de transcription correctement transférés vers l
 
 ## <a name="unlocking-the-privileged-endpoint-for-support-scenarios"></a>Déverrouillage du point de terminaison privilégié pour les scénarios de support
 
- Dans le cadre d’un scénario de support, l’ingénieur du support Microsoft peut être amené à élever la session PowerShell de point de terminaison privilégié pour accéder aux éléments internes de l’infrastructure Azure Stack Hub. Ce processus est parfois désigné par la formule « briser la vitre » ou « déverrouiller le point de terminaison privilégié » (PEP). Le processus d’élévation de session de point de terminaison privilégié est un processus d’authentification comprenant deux étapes, deux personnes et deux organisations. La procédure de déverrouillage est lancée par l’opérateur Azure Stack Hub, qui conserve en permanence le contrôle de son environnement. L’opérateur accède au point de terminaison privilégié et exécute cette applet de commande :
+ Dans le cadre d’un scénario de support, l’ingénieur du support Microsoft peut être amené à élever la session PowerShell de point de terminaison privilégié pour accéder aux éléments internes de l’infrastructure Azure Stack Hub. Ce processus est parfois désigné par la formule « briser la vitre » ou « déverrouiller le point de terminaison privilégié » (PEP). Le processus d’élévation de session de point de terminaison privilégié est un processus d’authentification comprenant deux étapes, deux personnes et deux organisations. La procédure de déverrouillage est lancée par l’opérateur Azure Stack Hub, qui conserve en permanence le contrôle de son environnement. L’opérateur accède au point de terminaison privilégié et exécute cette cmdlet :
  
  ```powershell  
       Get-SupportSessionToken
   ```
- L’applet de commande retourne le jeton de demande de session de support, qui est une chaîne alphanumérique très longue. L’opérateur transmet ensuite le jeton de demande à l’ingénieur du support Microsoft par le biais du moyen de son choix (par exemple, un chat, un e-mail, etc.). L’ingénieur du support Microsoft utilise le jeton de demande pour générer, s’il est valide, un jeton d’autorisation de session de support et le renvoie à l’opérateur Azure Stack Hub. Dans la même session PowerShell de point de terminaison privilégié, l’opérateur transmet ensuite le jeton d’autorisation comme entrée à cette applet de commande :
+ L’applet de commande retourne le jeton de demande de session de support, qui est une chaîne alphanumérique très longue. L’opérateur transmet ensuite le jeton de demande à l’ingénieur du support Microsoft par le biais du moyen de son choix (par exemple, un chat, un e-mail). L’ingénieur du support Microsoft utilise le jeton de demande pour générer, s’il est valide, un jeton d’autorisation de session de support et le renvoie à l’opérateur Azure Stack Hub. Dans la même session PowerShell de point de terminaison privilégié, l’opérateur transmet ensuite le jeton d’autorisation comme entrée à cette applet de commande :
 
  ```powershell  
       unlock-supportsession

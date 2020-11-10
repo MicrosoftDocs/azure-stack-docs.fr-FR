@@ -10,12 +10,12 @@ ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: f6d307b7fe165681e93c842596007ca1fde3a152
-ms.sourcegitcommit: 8122672409954815e472a5b251bb7319fab8f951
+ms.openlocfilehash: 5f2067bed0b6efea8a19e921c2cb4c59caabd505
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92060182"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93364011"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Inscrire Azure Stack Hub auprès d’Azure
 
@@ -41,10 +41,16 @@ Avant de vous inscrire, veillez à respecter les prérequis suivants :
 
 Avant d’inscrire Azure Stack Hub auprès d’Azure, vous devez disposer des éléments suivants :
 
-- L’ID d’abonnement d’un abonnement Azure. L’inscription est prise en charge uniquement pour les abonnements aux services partagés EA, CSP et CSP. Les CSP ont le choix d’[utiliser un abonnement CSP ou APSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>Pour obtenir l’ID, connectez-vous à Azure et cliquez sur **Tous les services**. Ensuite, sous la catégorie **GÉNÉRAL**, sélectionnez **Abonnements** et cliquez sur l’abonnement que vous voulez utiliser. Sous **Éléments principaux**, vous trouverez alors l’ID d’abonnement. Au titre de bonne pratique, utilisez des abonnements distincts pour les environnements de production et pour les environnements de développement ou de test. 
+::: zone pivot="state-connected"
+- L’ID d’abonnement d’un abonnement Azure. L’inscription est prise en charge uniquement pour les abonnements aux services partagés EA, CSP et CSP. Les CSP ont le choix d’[utiliser un abonnement CSP ou APSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>Pour obtenir l’ID, connectez-vous à Azure et cliquez sur **Tous les services**. Ensuite, sous la catégorie **GÉNÉRAL** , sélectionnez **Abonnements** et cliquez sur l’abonnement que vous voulez utiliser. Sous **Éléments principaux** , vous trouverez alors l’ID d’abonnement. Au titre de bonne pratique, utilisez des abonnements distincts pour les environnements de production et pour les environnements de développement ou de test. 
+::: zone-end
+::: zone pivot="state-disconnected"
+- L’ID d’abonnement d’un abonnement Azure. Seuls les abonnements EA sont pris en charge pour l’inscription. 
 
-  > [!Note]  
-  > Les abonnements au cloud en Allemagne ne sont actuellement pas pris en charge.
+    Pour obtenir l’ID, connectez-vous à Azure et cliquez sur **Tous les services**. Ensuite, sous la catégorie **GÉNÉRAL** , sélectionnez **Abonnements** et cliquez sur l’abonnement que vous voulez utiliser. Sous **Éléments principaux** , vous trouverez alors l’ID d’abonnement. Au titre de bonne pratique, utilisez des abonnements distincts pour les environnements de production et pour les environnements de développement ou de test. 
+::: zone-end
+   > [!Note]  
+   > Les abonnements au cloud en Allemagne ne sont actuellement pas pris en charge.  
 
 - Le nom d’utilisateur et le mot de passe d’un compte propriétaire de l’abonnement.
 
@@ -82,6 +88,8 @@ Si la dernière version n’est pas déjà installée, consultez [Installer Powe
 Le dépôt GitHub des outils Azure Stack Hub contient des modules PowerShell qui prennent en charge les fonctionnalités Azure Stack Hub, notamment les fonctionnalités d’inscription. Pendant le processus d’inscription, vous devez importer et utiliser le module PowerShell **RegisterWithAzure.psm1** (disponible dans le dépôt des outils Azure Stack Hub) pour inscrire votre instance Azure Stack Hub auprès d’Azure.
 
 Pour garantir que vous utilisez la version la plus récente, supprimez toutes les versions existantes des outils Azure Stack Hub et [téléchargez la dernière version à partir de GitHub](azure-stack-powershell-download.md) avant d’effectuer l’inscription auprès d’Azure.
+
+[!INCLUDE [Azure Stack Hub Operator Access Workstation](../includes/operator-note-owa.md)]
 
 ### <a name="determine-your-billing-model"></a>Déterminer votre modèle de facturation
 ::: zone pivot="state-connected"
@@ -121,7 +129,7 @@ Les environnements connectés peuvent accéder à Internet et à Azure. Pour ces
 
    | Paramètre | Description |  
    |-----|-----|
-   | EnvironmentName | Le nom de l’environnement d’abonnement cloud Azure. Les noms d’environnement pris en charge sont **AzureCloud**, **AzureUSGovernment**, ou, si vous utilisez un abonnement Azure en Chine, **AzureChinaCloud**.  |
+   | EnvironmentName | Le nom de l’environnement d’abonnement cloud Azure. Les noms d’environnement pris en charge sont **AzureCloud** , **AzureUSGovernment** , ou, si vous utilisez un abonnement Azure en Chine, **AzureChinaCloud**.  |
 
    >[!Note]
    > Si votre session expire, si votre mot de passe a changé ou si vous souhaitez simplement changer de compte, exécutez l’applet de commande suivante avant de vous connecter en utilisant Add-AzureRmAccount : `Remove-AzureRmAccount-Scope Process`
@@ -152,7 +160,7 @@ Les environnements connectés peuvent accéder à Internet et à Azure. Pour ces
 
    | Paramètre | Description |  
    |-----|-----|
-   | EnvironmentName | Le nom de l’environnement d’abonnement cloud Azure. Les noms d’environnement pris en charge sont **AzureCloud**, **AzureUSGovernment**, ou, si vous utilisez un abonnement Azure en Chine, **AzureChinaCloud**.  |
+   | EnvironmentName | Le nom de l’environnement d’abonnement cloud Azure. Les noms d’environnement pris en charge sont **AzureCloud** , **AzureUSGovernment** , ou, si vous utilisez un abonnement Azure en Chine, **AzureChinaCloud**.  |
 
 7. Dans la même session PowerShell, exécutez l’applet de commande **Set-AzsRegistration**. PowerShell pour :  
 
@@ -188,7 +196,7 @@ Les environnements connectés peuvent accéder à Internet et à Azure. Pour ces
 
    | Paramètre | Description |  
    |-----|-----|
-   | EnvironmentName | Le nom de l’environnement d’abonnement cloud Azure. Les noms d’environnement pris en charge sont **AzureCloud**, **AzureUSGovernment**, ou, si vous utilisez un abonnement Azure en Chine, **AzureChinaCloud**.  |
+   | EnvironmentName | Le nom de l’environnement d’abonnement cloud Azure. Les noms d’environnement pris en charge sont **AzureCloud** , **AzureUSGovernment** , ou, si vous utilisez un abonnement Azure en Chine, **AzureChinaCloud**.  |
 
 3. Si vous avez plusieurs abonnements, exécutez la commande suivante pour sélectionner celui que vous souhaitez utiliser :  
 
@@ -326,16 +334,16 @@ Vous pouvez utiliser la vignette **Gestion des régions** pour vérifier que l�
 
 2. Dans le tableau de bord, sélectionnez **Gestion des régions**.
 
-3. Sélectionner **Propriétés**. Ce panneau affiche l’état et les détails de votre environnement. L’état peut être **Inscrit**, **Non inscrit** ou **Expiré**.
+3. Sélectionner **Propriétés**. Ce panneau affiche l’état et les détails de votre environnement. L’état peut être **Inscrit** , **Non inscrit** ou **Expiré**.
 
     [![Vignette Gestion des régions dans le portail administrateur Azure Stack Hub](media/azure-stack-registration/admin1sm.png "Vignette Gestion des régions")](media/azure-stack-registration/admin1.png#lightbox)
 
     Si l’état est Inscrit, les propriétés sont les suivantes :
     
-    - **ID d’abonnement de l’inscription** : ID d’abonnement Azure inscrit et associé à Azure Stack Hub.
-    - **Groupe de ressources de l’inscription** : Groupe de ressources Azure dans l’abonnement associé contenant les ressources Azure Stack Hub.
+    - **ID d’abonnement de l’inscription**  : ID d’abonnement Azure inscrit et associé à Azure Stack Hub.
+    - **Groupe de ressources de l’inscription**  : Groupe de ressources Azure dans l’abonnement associé contenant les ressources Azure Stack Hub.
 
-4. Vous pouvez utiliser le portail Azure pour voir les ressources d'inscription Azure Stack Hub puis vérifier que l’inscription a réussi. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte associé à l’abonnement que vous avez utilisé pour inscrire Azure Stack Hub. Cochez **Toutes les ressources**, activez la case **Afficher les types masqués**, puis sélectionnez le nom d’inscription.
+4. Vous pouvez utiliser le portail Azure pour voir les ressources d'inscription Azure Stack Hub puis vérifier que l’inscription a réussi. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte associé à l’abonnement que vous avez utilisé pour inscrire Azure Stack Hub. Cochez **Toutes les ressources** , activez la case **Afficher les types masqués** , puis sélectionnez le nom d’inscription.
 
 5. Si l’inscription a échoué, vous devez vous réinscrire en suivant [ces étapes](#change-the-subscription-you-use) pour résoudre le problème.  
 
@@ -365,7 +373,7 @@ Vous avez besoin d’obtenir les informations suivantes à partir du [portail ad
 
 ### <a name="change-the-subscription-you-use"></a>Modifier l’abonnement que vous utilisez
 
-Pour modifier l’abonnement que vous utilisez, vous devez d’abord exécuter l’applet de commande **Remove-AzsRegistration**, puis vous assurer d’être connecté au contexte Azure PowerShell correct. Ensuite, exécutez **Set-AzsRegistration** avec les paramètres modifiés, y compris `<billing model>`. Lors de l’exécution de **Remove-AzsRegistration**, vous devez être connecté à l’abonnement utilisé pendant l’inscription et vous servir des valeurs des paramètres `RegistrationName` et `ResourceGroupName`, comme indiqué dans le [portail administrateur](#verify-azure-stack-hub-registration) :
+Pour modifier l’abonnement que vous utilisez, vous devez d’abord exécuter l’applet de commande **Remove-AzsRegistration** , puis vous assurer d’être connecté au contexte Azure PowerShell correct. Ensuite, exécutez **Set-AzsRegistration** avec les paramètres modifiés, y compris `<billing model>`. Lors de l’exécution de **Remove-AzsRegistration** , vous devez être connecté à l’abonnement utilisé pendant l’inscription et vous servir des valeurs des paramètres `RegistrationName` et `ResourceGroupName`, comme indiqué dans le [portail administrateur](#verify-azure-stack-hub-registration) :
 
   ```powershell  
   # select the subscription used during the registration (shown in portal)

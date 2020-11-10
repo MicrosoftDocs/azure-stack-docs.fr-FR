@@ -3,16 +3,16 @@ title: Problèmes connus d’Azure Stack Hub
 description: Découvrez les problèmes connus des versions d’Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/28/2020
+ms.date: 11/02/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: b52944255569197e9390db879f690f9e5d5a21d5
-ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
+ms.openlocfilehash: 50b80df35ceed77242e7deb45c54664fb5a9563f
+ms.sourcegitcommit: 62fc0592fdec706ade2b14e685448256ad0b4fe9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91495777"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93239595"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Problèmes connus d’Azure Stack Hub
 
@@ -37,6 +37,13 @@ Pour accéder aux problèmes connus d'une autre version, utilisez le menu dérou
 ## <a name="update"></a>Update
 
 Pour plus d’informations sur les problèmes connus de mise à jour d’Azure Stack Hub, consultez [Résolution des problèmes des mises à jour dans Azure Stack Hub](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates).
+
+### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>Échec de la mise à jour visant à installer Microsoft.AzureStack.Compute.Installer sur une machine virtuelle d’autorité de certification
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Lors de la mise à jour, un processus acquiert un verrou sur du nouveau contenu qui doit être copié sur une machine virtuelle d’autorité de certification. En cas d’échec de la mise à jour, le verrou est libéré.
+- Correction : Reprenez la mise à jour.
+- Occurrence : Rare
 
 ## <a name="portal"></a>Portail
 
@@ -83,7 +90,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 #### <a name="load-balancer-directing-traffic-to-one-backend-vm-in-specific-scenarios"></a>Load Balancer dirigeant le trafic vers une machine virtuelle back-end dans des scénarios spécifiques
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge. 
-- Cause : Lors de l’activation de l’**affinité de session** sur un équilibreur de charge, le hachage à 2 tuples utilise l’adresse IP physique au lieu des adresses IP privées affectées aux machines virtuelles. Dans les scénarios où le trafic dirigé vers l’équilibreur de charge arrive via un VPN, ou si toutes les machines virtuelles clientes (adresses IP sources) se trouvent sur le même nœud et que l’affinité de session est activée, tout le trafic est dirigé vers une seule machine virtuelle back-end.
+- Cause : Lors de l’activation de l’ **affinité de session** sur un équilibreur de charge, le hachage à 2 tuples utilise l’adresse IP physique au lieu des adresses IP privées affectées aux machines virtuelles. Dans les scénarios où le trafic dirigé vers l’équilibreur de charge arrive via un VPN, ou si toutes les machines virtuelles clientes (adresses IP sources) se trouvent sur le même nœud et que l’affinité de session est activée, tout le trafic est dirigé vers une seule machine virtuelle back-end.
 - Occurrence : Courant
 
 #### <a name="public-ip"></a>Adresse IP publique
@@ -171,6 +178,13 @@ Après l’application de la mise à jour 2002, une alerte pour une « source 
 
 Pour plus d’informations sur les problèmes connus de mise à jour d’Azure Stack Hub, consultez [Résolution des problèmes des mises à jour dans Azure Stack Hub](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates).
 
+### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>Échec de la mise à jour visant à installer Microsoft.AzureStack.Compute.Installer sur une machine virtuelle d’autorité de certification
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Lors de la mise à jour, un processus acquiert un verrou sur du nouveau contenu qui doit être copié sur une machine virtuelle d’autorité de certification. En cas d’échec de la mise à jour, le verrou est libéré.
+- Correction : Reprenez la mise à jour.
+- Occurrence : Rare
+
 ## <a name="portal"></a>Portail
 
 ### <a name="administrative-subscriptions"></a>Abonnements d’administration
@@ -197,7 +211,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 - Champ d’application : Ce problème concerne la version 2002.
 - Cause : Dans le portail de l’utilisateur, lors de la création d’un instantané de disque managé, la zone **Type de compte** est vide. Quand vous sélectionnez le bouton **Créer** avec un type de compte vide, la création de l’instantané échoue.
-- Correction : Sélectionnez un type de compte dans la liste déroulante **Type de compte**, puis créez l’instantané.
+- Correction : Sélectionnez un type de compte dans la liste déroulante **Type de compte** , puis créez l’instantané.
 - Occurrence : Courant
 
 ### <a name="alert-for-network-interface-disconnected"></a>Alerte relative à l’interface réseau déconnectée
@@ -231,7 +245,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="load-balancer-directing-traffic-to-one-backend-vm-in-specific-scenarios"></a>Load Balancer dirigeant le trafic vers une machine virtuelle back-end dans des scénarios spécifiques 
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge. 
-- Cause : Lors de l’activation de l’**affinité de session** sur un équilibreur de charge, le hachage à 2 tuples utilise l’adresse IP physique au lieu des adresses IP privées affectées aux machines virtuelles. Dans les scénarios où le trafic dirigé vers l’équilibreur de charge arrive via un VPN, ou si toutes les machines virtuelles clientes (adresses IP sources) se trouvent sur le même nœud et que l’affinité de session est activée, tout le trafic est dirigé vers une seule machine virtuelle back-end.
+- Cause : Lors de l’activation de l’ **affinité de session** sur un équilibreur de charge, le hachage à 2 tuples utilise l’adresse IP physique au lieu des adresses IP privées affectées aux machines virtuelles. Dans les scénarios où le trafic dirigé vers l’équilibreur de charge arrive via un VPN, ou si toutes les machines virtuelles clientes (adresses IP sources) se trouvent sur le même nœud et que l’affinité de session est activée, tout le trafic est dirigé vers une seule machine virtuelle back-end.
 - Occurrence : Courant
 
 ### <a name="network-interface"></a>interface réseau
@@ -367,6 +381,13 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 Pour plus d’informations sur les problèmes connus de mise à jour d’Azure Stack Hub, consultez [Résolution des problèmes des mises à jour dans Azure Stack Hub](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates).
 
+### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>Échec de la mise à jour visant à installer Microsoft.AzureStack.Compute.Installer sur une machine virtuelle d’autorité de certification
+
+- Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
+- Cause : Lors de la mise à jour, un processus acquiert un verrou sur du nouveau contenu qui doit être copié sur une machine virtuelle d’autorité de certification. En cas d’échec de la mise à jour, le verrou est libéré.
+- Correction : Reprenez la mise à jour.
+- Occurrence : Rare
+
 ## <a name="portal"></a>Portail
 
 ### <a name="administrative-subscriptions"></a>Abonnements d’administration
@@ -417,7 +438,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="incorrect-tooltip-when-creating-vm"></a>Info-bulle incorrecte lors de la création d’une machine virtuelle
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, lorsque vous sélectionnez un disque managé de type SSD Premium, la liste déroulante affiche **Disque du système d’exploitation**. L’info-bulle en regard de cette option indique **Certaines tailles de disque de système d’exploitation peuvent être disponibles gratuitement avec le compte Azure gratuit**. Toutefois, cela est non valide pour Azure Stack Hub. De plus, la liste inclut **Compte gratuit éligible**, ce qui est également non valide pour Azure Stack Hub.
+- Cause : Dans le portail utilisateur, lorsque vous sélectionnez un disque managé de type SSD Premium, la liste déroulante affiche **Disque du système d’exploitation**. L’info-bulle en regard de cette option indique **Certaines tailles de disque de système d’exploitation peuvent être disponibles gratuitement avec le compte Azure gratuit**. Toutefois, cela est non valide pour Azure Stack Hub. De plus, la liste inclut **Compte gratuit éligible** , ce qui est également non valide pour Azure Stack Hub.
 - Occurrence : Courant
 
 ### <a name="delete-a-storage-container"></a>Supprimer un conteneur de stockage
@@ -443,7 +464,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="storage-account-configuration"></a>Configuration du compte de stockage
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, lorsque vous créez un compte de stockage et que vous affichez sa **configuration**, vous ne pouvez pas enregistrer les modifications de configuration, car cela génère une erreur AJAX.
+- Cause : Dans le portail utilisateur, lorsque vous créez un compte de stockage et que vous affichez sa **configuration** , vous ne pouvez pas enregistrer les modifications de configuration, car cela génère une erreur AJAX.
 - Occurrence : Courant
 
 ### <a name="capacity-monitoring-in-sql-resource-provider-keeps-loading"></a>La supervision de la capacité dans le fournisseur de ressources SQL continue à se charger
@@ -456,8 +477,8 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="access-control-iam"></a>Contrôle d’accès (IAM)
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : L’extension IAM est obsolète. Le portail Ibiza fourni avec Azure Stack Hub introduit un nouveau comportement qui entraîne l’échec de l’extension RBAC si l’utilisateur ouvre le panneau **Contrôle d’accès (IAM)** pour un abonnement qui n’est pas sélectionné dans le sélecteur d’abonnement global (**Annuaire + abonnement** dans le portail utilisateur). Le panneau affiche **Chargement** en boucle, et l’utilisateur ne peut pas ajouter de nouveaux rôles à l’abonnement. Le panneau **Ajouter** affiche également **Chargement** en boucle.
-- Correction : Vérifiez que l’abonnement est coché dans le menu **Répertoire + abonnement**. Le menu est accessible dans le haut du portail, près du bouton **Notifications**, ou via le raccourci du panneau **Toutes les ressources** qui affiche **Vous ne voyez pas d’abonnement ? Ouvrir les paramètres de répertoire et d’abonnement**. L’abonnement doit être sélectionné dans ce menu.
+- Cause : L’extension IAM est obsolète. Le portail Ibiza fourni avec Azure Stack Hub introduit un nouveau comportement qui entraîne l’échec de l’extension RBAC si l’utilisateur ouvre le panneau **Contrôle d’accès (IAM)** pour un abonnement qui n’est pas sélectionné dans le sélecteur d’abonnement global ( **Annuaire + abonnement** dans le portail utilisateur). Le panneau affiche **Chargement** en boucle, et l’utilisateur ne peut pas ajouter de nouveaux rôles à l’abonnement. Le panneau **Ajouter** affiche également **Chargement** en boucle.
+- Correction : Vérifiez que l’abonnement est coché dans le menu **Répertoire + abonnement**. Le menu est accessible dans le haut du portail, près du bouton **Notifications** , ou via le raccourci du panneau **Toutes les ressources** qui affiche **Vous ne voyez pas d’abonnement ? Ouvrir les paramètres de répertoire et d’abonnement**. L’abonnement doit être sélectionné dans ce menu.
 
 ### <a name="sql-resource-provider"></a>Fournisseur de ressources SQL
 
@@ -530,7 +551,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 #### <a name="active-active"></a>Actif/actif
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Dans le portail utilisateur, lors de la création, et dans le menu **Passerelle de réseau virtuel**, vous verrez une option permettant d’activer la configuration **Actif/actif**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
+- Cause : Dans le portail utilisateur, lors de la création, et dans le menu **Passerelle de réseau virtuel** , vous verrez une option permettant d’activer la configuration **Actif/actif**. Cette fonctionnalité n’est pas prise en charge dans Azure Stack Hub.
 - Occurrence : Courant
 
 #### <a name="vpn-troubleshooter"></a>Résolution des problèmes de VPN

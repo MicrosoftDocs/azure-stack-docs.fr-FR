@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
 ms.author: anpaul
 author: AnirbanPaul
-ms.date: 10/16/2020
-ms.openlocfilehash: 6df469fcc6997b1f56a552bc141692c7a8a49808
-ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
+ms.date: 10/28/2020
+ms.openlocfilehash: d75e22814afcb9610bdd1f9af3824d3e12e3199b
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92157680"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064563"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Planifier une infrastructure de réseau défini par logiciel
 
@@ -25,13 +25,13 @@ Apprenez-en davantage sur la planification du déploiement d’une infrastructur
 
 ## <a name="prerequisites"></a>Prérequis
 Une infrastructure de réseau défini par logiciel requiert plusieurs conditions matérielles et logicielles préalables, à savoir :
-- **Groupes de sécurité et inscription dynamique de réseau défini par logiciel** . Vous devez préparer votre centre de données au déploiement du contrôleur de réseau qui nécessite un ensemble de machines virtuelles. Avant de déployer le contrôleur de réseau, vous devez configurer des groupes de sécurité et une inscription dynamique de réseau défini par logiciel.
+- **Groupes de sécurité et inscription dynamique de réseau défini par logiciel**. Vous devez préparer votre centre de données au déploiement du contrôleur de réseau qui nécessite un ensemble de machines virtuelles. Avant de déployer le contrôleur de réseau, vous devez configurer des groupes de sécurité et une inscription dynamique de réseau défini par logiciel.
 
     Pour en savoir plus sur le déploiement du contrôleur de réseau pour votre centre de données, consultez [Configuration requise pour le déploiement du contrôleur de réseau](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller).
 
-- **Réseau physique** . Pour configurer les réseaux locaux virtuels (VLAN), le routage et le protocole BGP (Border Gateway Protocol), vous devez avoir accès à vos périphériques réseau physiques. Cette rubrique contient des instructions pour la configuration manuelle du commutateur, et le choix entre une homologation BGP via des commutateurs/routeurs de couche 3 et une machine virtuelle faisant office de serveur de routage et d’accès distant (RRAS).
+- **Réseau physique**. Pour configurer les réseaux locaux virtuels (VLAN), le routage et le protocole BGP (Border Gateway Protocol), vous devez avoir accès à vos périphériques réseau physiques. Cette rubrique contient des instructions pour la configuration manuelle du commutateur, et le choix entre une homologation BGP via des commutateurs/routeurs de couche 3 et une machine virtuelle faisant office de serveur de routage et d’accès distant (RRAS).
 
-- **Ordinateurs hôtes de calcul physique** . Ces ordinateurs hôtes exécutent la technologie Hyper-V, et sont requis pour héberger l’infrastructure de réseau défini par logiciel et les machines virtuelles de locataire. Pour permettre à ces ordinateurs hôtes de produire des performances optimales, un matériel réseau spécifique est requis, comme décrit dans la section [Matériel réseau](#network-hardware).
+- **Ordinateurs hôtes de calcul physique**. Ces ordinateurs hôtes exécutent la technologie Hyper-V, et sont requis pour héberger l’infrastructure de réseau défini par logiciel et les machines virtuelles de locataire. Pour permettre à ces ordinateurs hôtes de produire des performances optimales, un matériel réseau spécifique est requis, comme décrit dans [Configuration matérielle SDN](system-requirements.md#sdn-hardware-requirements).
 
 ## <a name="physical-and-logical-network-configuration"></a>Configuration physique et logique du réseau
 Chaque hôte de calcul physique requiert une connexion réseau via une ou plusieurs cartes réseau connectées à un port commuté physique. Un [réseau local virtuel (VLAN)](https://en.wikipedia.org/wiki/Virtual_LAN) de couche 2 prend en charge des réseaux divisés en plusieurs segments de réseau logique.
@@ -108,50 +108,10 @@ Les machines configurées pour se connecter à plusieurs réseaux, telles que le
 - Pour des machines virtuelles SLB/MUX, utilisez le réseau de gestion comme passerelle par défaut.
 - Pour des machines virtuelles de passerelle, utilisez le réseau du fournisseur de HNV comme passerelle par défaut. Cette valeur doit être définie sur la carte réseau frontale des machines virtuelles de passerelle.
 
-## <a name="network-hardware"></a>Matériel réseau
-Cette section décrit la configuration requise de déploiement de matériel réseau pour les cartes réseau et les commutateurs physiques.
+## <a name="switches-and-routers"></a>Commutateurs et routeurs
+Pour faciliter la configuration de votre commutateur ou routeur physique, un ensemble d’exemples de fichiers de configuration pour un éventail de modèles de commutateur et de fournisseurs est disponible dans le [Dépôt GitHub pour réseau défini par logiciel Microsoft](https://github.com/microsoft/SDN/tree/master/SwitchConfigExamples). Un fichier Lisez-moi et des commandes d’interface de ligne de commande (CLI) testées pour des commutateurs spécifiques sont fournis.
 
-### <a name="network-interface-cards-nics"></a>Cartes d’interface réseau (NIC)
-Les cartes réseau que vous utilisez dans vos ordinateurs hôtes Hyper-V et ordinateurs hôtes de stockage requièrent des fonctionnalités spécifiques pour atteindre des performances optimales.
-
-L’accès direct à la mémoire à distance (Remote Direct Memory Access, RDMA) est une technique de contournement du noyau qui permet de transférer de grandes quantités de données sans utiliser le processeur de l’ordinateur hôte, ce qui a pour effet de libérer celui-ci pour d’autres tâches. L’association commutée/intégrée (Switched-Embedded Teaming, SET) est une autre solution d’association de NIC que vous pouvez utiliser dans des environnements incluant Hyper-V et la pile de réseau défini par logiciel. La technologie SET intègre certaines fonctionnalités d’association de NIC dans le commutateur virtuel Hyper-V.
-
-Pour plus d’informations, consultez [Accès direct à la mémoire à distance (Remote Direct Memory Access, RDMA) et association commutée/intégrée (Switched-Embedded Teaming, SET)](/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
-
-Pour tenir compte de la surcharge de trafic de réseau virtuel du client occasionnée par les en-têtes d’encapsulation VXLAN ou NVGRE, l’unité de transmission maximale (MTU) du réseau de structure de couche 2 (commutateurs et hôtes) doit être définie sur une valeur supérieure ou égale à 1674 octets \(incluant les en-têtes Ethernet de couche 2\).
-
-Les NIC qui prennent en charge le nouveau mot clé de carte avancé *EncapOverhead* définissent automatiquement la MTU via l’agent hôte du contrôleur de réseau. Les cartes réseau qui ne prennent pas en charge le nouveau mot clé *EncapOverhead* doivent définir la taille de MTU manuellement sur chaque hôte physique à l’aide du mot clé *JumboPacket* \(ou de son équivalent\).
-
-### <a name="switches"></a>Commutateurs
-Lorsque vous sélectionnez un commutateur et un routeur physiques pour votre environnement, assurez-vous qu’il prennent en charge les fonctionnalités suivantes :
-- Paramètres de MTU de port commuté \(requis\)
-- MTU définie sur >= 1674 octets \(Y compris l’en-tête L2-Ethernet\)
-- Protocoles L3 \(requis\)
-- Routage multichemin à coût égal (Equal-Cost Multi-Path, ECMP)
-- ECMP basé sur BGP \(IETF RFC 4271\)\-
-
-Les implémentations doivent prendre en charge les instructions MUST dans les normes IETF suivantes :
-- RFC 2545 : [Extensions multiprotocoles BGP-4 pour le routage inter-domaines IPv6](https://tools.ietf.org/html/rfc2545)
-- RFC 4760 : [Extensions multiprotocoles pour BGP-4](https://tools.ietf.org/html/rfc4760)
-- RFC 4893 : [Prise en charge de BGP pour l’espace de numéro AS de quatre octets](https://tools.ietf.org/html/rfc4893)
-- RFC 4456 : [Réflexion d’itinéraire BGP : alternative au BGP interne de maille complète (Internal BGP, IBGP)](https://tools.ietf.org/html/rfc4456)
-- RFC 4724 : [Mécanisme de redémarrage correct pour BGP](https://tools.ietf.org/html/rfc4724)
-
-Les protocoles d’étiquetage suivants sont requis :
-- VLAN – Isolation des différents types de trafic
-- Tronc 802.1q
-
-Les éléments suivants fournissent un contrôle de lien :
-- Qualité de service \(QoS\) \(Contrôle de flux basé sur la priorité (Priority Flow Control, PFC) requis uniquement en cas d’utilisation de RoCE\)
-- Sélection du trafic améliorée \(802.1Qaz\)
-- Contrôle de flux basé sur la priorité (Priority Flow Control, PFC) \(802.1p/Q and 802.1Qbb\)
-
-Les éléments suivants assurent la disponibilité et la redondance :
-- Disponibilité du commutateur (obligatoire)
-- Un routeur hautement disponible est requis pour exécuter les fonctions de passerelle. Vous pouvez implémenter cela à l’aide d’un commutateur\routeur multichâssis ou de technologies telles que le protocole VRRP (Virtual Router Redundancy Protocol).
-
-### <a name="switch-configuration-examples"></a>Exemples de configuration de commutateur
-Pour faciliter la configuration de votre commutateur ou routeur physique, un ensemble d’exemples de fichiers de configuration pour un éventail de modèles de commutateur et de fournisseurs est disponible dans le [Dépôt GitHub pour réseau défini par logiciel Microsoft](https://github.com/microsoft/SDN/tree/master/SwitchConfigExamples). Un fichier Lisez-moi détaillé et des commandes d’interface de ligne de commande (CLI) testées pour des commutateurs spécifiques sont fournis.
+Pour plus d’informations sur la configuration matérielle requise pour les commutateurs et les routeurs, consultez [Configuration matérielle SDN](system-requirements.md#sdn-hardware-requirements).
 
 ## <a name="compute"></a>Calcul
 Le système d’exploitation approprié doit être installé sur tous les ordinateurs hôtes Hyper-V, être activé pour Hyper-V et utiliser un commutateur virtuel Hyper-V externe avec au moins une carte physique connectée au réseau logique de gestion. L’hôte doit être accessible via une adresse IP de gestion affectée à la vNIC de l’hôte de gestion.

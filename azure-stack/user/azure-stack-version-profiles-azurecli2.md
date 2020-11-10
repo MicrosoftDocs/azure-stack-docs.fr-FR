@@ -3,87 +3,28 @@ title: Gérer Azure Stack Hub avec Azure CLI
 description: Apprenez à utiliser l'interface de ligne de commande (CLI) multiplateforme pour gérer et déployer des ressources sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 10/26/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: 1fb17516e5ef0b4e3a670703a34e1e895c847b52
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.lastreviewed: 10/26/2020
+ms.openlocfilehash: 35378da825d9b2d9c7446148101f1d205a22b2c4
+ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818842"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93291253"
 ---
-# <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Gérer et déployer des ressources sur Azure Stack Hub à l'aide de l'interface Azure CLI
+# <a name="install-azure-cli-on-azure-stack-hub"></a>Installer Azure CLI sur Azure Stack Hub
 
-Suivez les étapes de cet article pour configurer l’interface de ligne de commande (CLI) Azure pour gérer les ressources du Kit de développement Azure Stack (ASDK) à partir des plateformes clientes Linux, Mac et Windows.
+Vous pouvez installer Azure CLI pour gérer Azure Stack Hub avec un ordinateur Windows ou Linux. Cet article vous guide tout au long de la procédure d’installation et de configuration d’Azure CLI.
 
-## <a name="prepare-for-azure-cli"></a>Préparation pour Azure CLI
+## <a name="install-azure-cli"></a>Installation de l’interface de ligne de commande Azure
 
-Si vous utilisez le kit ASDK, vous devez disposer du certificat d'autorité de certification racine Azure Stack Hub pour utiliser Azure CLI sur votre ordinateur de développement. Vous utilisez le certificat pour gérer des ressources via l’interface CLI.
+1. Connectez-vous à votre station de travail de développement et installez l’interface CLI. Azure Stack Hub nécessite la version 2.0 ou ultérieure d'Azure CLI. 
 
- - **Le certificat d'autorité de certification racine Azure Stack Hub** est obligatoire si vous utilisez l'interface CLI sur une station de travail qui se trouve en dehors du kit ASDK.  
+2. Vous pouvez l’installer en utilisant la procédure décrite dans l’article [Installer Azure CLI](/cli/azure/install-azure-cli). 
 
- - **Le point de terminaison des alias de la machine virtuelle** fournit un alias, par exemple « UbuntuLTS » ou « Win2012Datacenter ». Cet alias fait référence à un éditeur d'images, une offre, une référence SKU et une version en tant que paramètre unique lors du déploiement de machines virtuelles.  
-
-Les sections suivantes expliquent comment obtenir ces valeurs.
-
-### <a name="export-the-azure-stack-hub-ca-root-certificate"></a>Exporter le certificat de l'autorité de certification racine Azure Stack Hub
-
-Si vous utilisez un système intégré, vous n'avez pas besoin d'exporter le certificat racine de l'autorité de certification. Si vous utilisez l'ASDK, exportez le certificat racine de l’autorité de certification sur un ASDK.
-
-Pour exporter le certificat racine ASDK au format PEM :
-
-1. Obtenez le nom de votre certificat racine Azure Stack Hub :
-    - Connectez-vous au portail administrateur ou utilisateur Azure Stack Hub.
-    - Cliquez sur **Secure** (Sécurisé) près de la barre d’adresse.
-    - Dans la fenêtre indépendante, cliquez sur **Valid** (Valide).
-    - Dans la fenêtre Certificat, cliquez sur l’onglet **Chemin d’accès de certification**.
-    - Notez le nom de votre certificat racine Azure Stack Hub.
-
-    ![Certificat racine Azure Stack Hub](media/azure-stack-version-profiles-azurecli2/root-cert-name.png)
-
-2. [Créez une machine virtuelle Windows sur Azure Stack Hub](azure-stack-quick-windows-portal.md).
-
-3. Connectez-vous à la machine virtuelle, ouvrez une invite PowerShell avec élévation de privilèges et exécutez le script suivant :
-
-    ```powershell  
-      $label = "<the name of your Azure Stack Hub root cert from Step 1>"
-      Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
-      $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
-      if (-not $root)
-      {
-          Write-Error "Certificate with subject CN=$label not found"
-          return
-      }
-
-    Write-Host "Exporting certificate"
-    Export-Certificate -Type CERT -FilePath root.cer -Cert $root
-
-    Write-Host "Converting certificate to PEM format"
-    certutil -encode root.cer root.pem
-    ```
-
-4. Copiez le certificat sur votre machine locale.
-
-
-### <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Configurer le point de terminaison des alias de machines virtuelles
-
-Vous pouvez configurer un point de terminaison accessible publiquement qui héberge un fichier d’alias de machines virtuelles. Le fichier d’alias de machines virtuelles est un fichier JSON qui fournit un nom commun pour une image. Vous utiliserez ce nom lorsque vous déploierez une machine virtuelle en tant que paramètre Azure CLI.
-
-1. Si vous publiez une image personnalisée, prenez note des informations concernant l’éditeur, l’offre, la référence (SKU) et la version que vous avez spécifiées lors de la publication. S'il s'agit d'une image provenant de la Place de marché, vous pouvez afficher les informations en utilisant la cmdlet ```Get-AzureVMImage```.  
-
-2. Téléchargez l’[ exemple de fichier](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) à partir de GitHub.
-
-3. Créez un compte de stockage dans Azure Stack Hub. Puis créez un conteneur d'objets blob. Définissez la stratégie d’accès sur « publique ».  
-
-4. Chargez le fichier JSON dans le nouveau conteneur. Au terme de cette opération, vous pouvez afficher l'URL de l'objet blob. Sélectionnez le nom de l'objet blob, puis l'URL dans ses propriétés.
-
-### <a name="install-or-upgrade-cli"></a>Installer ou mettre à niveau l’interface CLI
-
-Connectez-vous à votre station de travail de développement et installez l’interface CLI. Azure Stack Hub nécessite la version 2.0 ou ultérieure d'Azure CLI. La dernière version des profils d’API nécessite une version actuelle de l’interface CLI. Vous l’installerez en utilisant la procédure décrite dans l’article [Installer Azure CLI](/cli/azure/install-azure-cli). 
-
-1. Pour vérifier que l’installation a réussi, ouvrez un terminal ou une fenêtre d’invite de commandes, puis exécutez la commande suivante :
+3. Pour vérifier que l’installation a réussi, ouvrez un terminal ou une fenêtre d’invite de commandes, puis exécutez la commande suivante :
 
     ```shell
     az --version
@@ -93,68 +34,21 @@ Connectez-vous à votre station de travail de développement et installez l’in
 
     ![Azure CLI sur l'emplacement Python Azure Stack Hub](media/azure-stack-version-profiles-azurecli2/cli-python-location.png)
 
-2. Prenez note de l’emplacement Python de l’interface CLI. Si vous exécutez ASDK, vous avez besoin de cet emplacement pour ajouter votre certificat.
+2. Prenez note de l’emplacement Python de l’interface CLI. Si vous exécutez ASDK, vous avez besoin de cet emplacement pour ajouter votre certificat. Pour obtenir des instructions sur la configuration des certificats afin d’installer l’interface CLI sur le kit ASDK, consultez [Configuration de certificats pour Azure CLI sur le Kit de développement Azure Stack](../asdk/asdk-cli.md).
 
+## <a name="set-up-azure-cli"></a>Configuration de l’interface de ligne de commande Azure CLI
 
-## <a name="windows-azure-ad"></a>Windows (Azure AD)
+### <a name="azure-ad-on-windows"></a>[Azure AD sur Windows](#tab/ad-win)
 
 Cette section vous guide dans la configuration de l’interface CLI si vous utilisez Azure AD comme service de gestion des identités et si vous utilisez l’interface CLI sur un ordinateur Windows.
 
-### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Approuver le certificat d'autorité de certification racine Azure Stack Hub
+#### <a name="connect-to-azure-stack-hub"></a>Se connecter à Azure Stack Hub
 
-Si vous utilisez l’ASDK, vous devez approuver le certificat racine de l’autorité de certification sur votre ordinateur distant. Cette étape n'est pas nécessaire avec les systèmes intégrés.
+1. Si vous utilisez le kit ASDK, approuvez le certificat racine de l’autorité de certification Azure Stack Hub. Pour obtenir des instructions, consultez [Approuver le certificat](../asdk/asdk-cli.md#trust-the-certificate).
 
-Pour approuver le certificat d'autorité de certification racine Azure Stack Hub, ajoutez-le au magasin de certificats Python existant pour la version de Python installée avec Azure CLI. Il se peut que vous exécutiez votre propre instance de Python. Azure CLI inclut sa propre version de Python.
+2. Inscrivez votre environnement Azure Stack Hub en exécutant la commande `az cloud register`.
 
-1. Trouvez l’emplacement du magasin de certificats sur votre machine.  Vous pouvez trouver l’emplacement en exécutant la commande `az --version`.
-
-2. Accédez au dossier qui contient votre app Python CLI. Vous devez exécuter cette version de Python. Si vous avez configuré Python dans votre chemin d’accès système, l’exécution de Python a pour effet d’exécuter votre propre version de Python. À la place, vous devez exécuter la version utilisée par l’interface CLI et ajouter votre certificat à cette version. Par exemple, votre instance Python CLI peut se trouver à l’emplacement suivant : `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`.
-
-    Utilisez les commandes suivantes :
-
-    ```powershell  
-    cd "c:\pathtoyourcliversionofpython"
-    .\python -c "import certifi; print(certifi.where())"
-    ```
-
-    Notez l’emplacement du certificat. Par exemple : `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`. Votre chemin d’accès particulier dépend de votre système d’exploitation et de votre installation de l’interface CLI.
-
-2. Pour approuver le certificat d'autorité de certification racine Azure Stack Hub, ajoutez-le au certificat Python existant.
-
-    ```powershell
-    $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
-
-    $root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
-    $root.Import($pemFile)
-
-    Write-Host "Extracting required information from the cert file"
-    $md5Hash    = (Get-FileHash -Path $pemFile -Algorithm MD5).Hash.ToLower()
-    $sha1Hash   = (Get-FileHash -Path $pemFile -Algorithm SHA1).Hash.ToLower()
-    $sha256Hash = (Get-FileHash -Path $pemFile -Algorithm SHA256).Hash.ToLower()
-
-    $issuerEntry  = [string]::Format("# Issuer: {0}", $root.Issuer)
-    $subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
-    $labelEntry   = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
-    $serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
-    $md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
-    $sha1Entry    = [string]::Format("# SHA1 Fingerprint: {0}", $sha1Hash)
-    $sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
-    $certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
-
-    $rootCertEntry = "`n" + $issuerEntry + "`n" + $subjectEntry + "`n" + $labelEntry + "`n" + `
-    $serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n" + $certText
-
-    Write-Host "Adding the certificate content to Python Cert store"
-    Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
-
-    Write-Host "Python Cert store was updated to allow the Azure Stack Hub CA root certificate"
-    ```
-
-### <a name="connect-to-azure-stack-hub"></a>Se connecter à Azure Stack Hub
-
-1. Inscrivez votre environnement Azure Stack Hub en exécutant la commande `az cloud register`.
-
-2. Inscrivez votre environnement. Utilisez les paramètres suivants lors de l’exécution de `az cloud register` :
+3. Inscrivez votre environnement. Utilisez les paramètres suivants lors de l’exécution de `az cloud register` :
 
     | Valeur | Exemple | Description |
     | --- | --- | --- |
@@ -162,19 +56,19 @@ Pour approuver le certificat d'autorité de certification racine Azure Stack Hub
     | Point de terminaison Resource Manager | `https://management.local.azurestack.external` | La propriété **ResourceManagerUrl** dans l’ASDK est : `https://management.local.azurestack.external/`**ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<region>.<fqdn>/` Si vous avez une question sur le point de terminaison du système intégré, contactez votre opérateur cloud. |
     | Point de terminaison de stockage | local.azurestack.external | `local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
     | Suffixe du coffre de clés | .vault.local.azurestack.external | `.vault.local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
-    | Point de terminaison du document d’alias d’image de machine virtuelle- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI du document, qui contient les alias d’images de machine virtuelle. Pour plus d’informations, consultez [Configurer le point de terminaison des alias de machines virtuelles](#set-up-the-virtual-machine-aliases-endpoint). |
+    | Point de terminaison du document d’alias d’image de machine virtuelle- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI du document, qui contient les alias d’images de machine virtuelle. Pour plus d’informations, consultez [Configurer le point de terminaison d’alias de machines virtuelles](../asdk/asdk-cli.md#set-up-the-virtual-machine-alias-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
-1. Définissez l’environnement actif avec les commandes suivantes.
+4. Définissez l’environnement actif avec les commandes suivantes.
 
       ```azurecli
       az cloud set -n <environmentname>
       ```
 
-1. Mettez à jour la configuration de votre environnement pour utiliser le profil de version des API propre à Azure Stack Hub. Pour mettre à jour la configuration, exécutez la commande suivante :
+5. Mettez à jour la configuration de votre environnement pour utiliser le profil de version des API propre à Azure Stack Hub. Pour mettre à jour la configuration, exécutez la commande suivante :
 
     ```azurecli
     az cloud update --profile 2019-03-01-hybrid
@@ -183,9 +77,9 @@ Pour approuver le certificat d'autorité de certification racine Azure Stack Hub
     >[!NOTE]  
     >Si vous exécutez une version d'Azure Stack Hub antérieure à la build 1808, vous devez utiliser le profil de version d'API **2017-03-09-profile** plutôt que le profil de version d'API **2019-03-01-hybrid**. Vous devez également utiliser une version récente de l’interface CLI.
  
-1. Connectez-vous à votre environnement Azure Stack Hub à l'aide de la commande `az login`. Connectez-vous à l'environnement Azure Stack Hub en tant qu'utilisateur ou que [principal de service](/azure/active-directory/develop/app-objects-and-service-principals). 
+6. Connectez-vous à votre environnement Azure Stack Hub à l'aide de la commande `az login`. Connectez-vous à l'environnement Azure Stack Hub en tant qu'utilisateur ou que [principal de service](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   - Connectez-vous en tant qu’*utilisateur* : 
+   - Connectez-vous en tant qu’ *utilisateur*  : 
 
      Vous pouvez spécifier directement le nom d’utilisateur et le mot de passe dans la commande `az login`, ou vous authentifier avec un navigateur. Vous devez choisir cette dernière solution si l’authentification multifacteur est activée sur votre compte :
 
@@ -196,7 +90,7 @@ Pour approuver le certificat d'autorité de certification racine Azure Stack Hub
      > [!NOTE]
      > Si l'authentification multifacteur est activée sur votre compte d'utilisateur, utilisez la commande `az login` sans fournir le paramètre `-u`. L’exécution de cette commande vous donne une URL et un code à utiliser pour vous authentifier.
 
-   - Connectez-vous en tant que *principal de service* : 
+   - Connectez-vous en tant que *principal de service*  : 
     
      avant de vous connecter, [créez un principal de service avec le portail Azure](../operator/azure-stack-create-service-principals.md?view=azs-2002) ou l’interface CLI, et attribuez-lui un rôle. Ensuite, connectez-vous avec la commande suivante :
 
@@ -204,7 +98,7 @@ Pour approuver le certificat d'autorité de certification racine Azure Stack Hub
      az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
      ```
 
-### <a name="test-the-connectivity"></a>Tester la connectivité
+#### <a name="test-the-connectivity"></a>Tester la connectivité
 
 Lorsque tout est configuré, utilisez l'interface CLI pour créer des ressources dans Azure Stack Hub. Par exemple, vous pouvez créer un groupe de ressources pour une app et ajouter une machine virtuelle. Utilisez la commande suivante pour créer le groupe de ressources nommé « myResourceGroup » :
 
@@ -216,58 +110,18 @@ Si la création du groupe de ressources réussit, la commande précédente affic
 
 ![Sortie de la création du groupe de ressources](media/azure-stack-connect-cli/image1.png)
 
-## <a name="windows-ad-fs"></a>Windows (AD FS)
+### <a name="ad-fs-on-windows"></a>[AD FS sur Windows](#tab/adfs-win)
 
 Cette section vous guide dans la configuration de l’interface CLI si vous utilisez Active Directory Federated Services (AD FS) comme service de gestion des identités et si vous utilisez l’interface CLI sur un ordinateur Windows.
 
-### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Approuver le certificat d'autorité de certification racine Azure Stack Hub
+#### <a name="connect-to-azure-stack-hub"></a>Se connecter à Azure Stack Hub
 
-Si vous utilisez l’ASDK, vous devez approuver le certificat racine de l’autorité de certification sur votre ordinateur distant. Cette étape n'est pas nécessaire avec les systèmes intégrés.
 
-1. Trouvez l’emplacement du certificat sur votre machine. L’emplacement peut varier en fonction de l’endroit où vous avez installé Python. Ouvrez une invite de commande ou une invite de PowerShell avec élévation de privilèges et tapez la commande suivante :
+1. Si vous utilisez le kit ASDK, approuvez le certificat racine de l’autorité de certification Azure Stack Hub. Pour obtenir des instructions, consultez [Approuver le certificat](../asdk/asdk-cli.md#trust-the-certificate).
 
-    ```powershell  
-      python -c "import certifi; print(certifi.where())"
-    ```
+2. Inscrivez votre environnement Azure Stack Hub en exécutant la commande `az cloud register`.
 
-    Notez l’emplacement du certificat. Par exemple : `~/lib/python3.5/site-packages/certifi/cacert.pem`. Votre chemin d’accès particulier dépend de votre système d’exploitation et de la version de Python que vous avez installée.
-
-2. Pour approuver le certificat d'autorité de certification racine Azure Stack Hub, ajoutez-le au certificat Python existant.
-
-    ```powershell
-    $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
-
-    $root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
-    $root.Import($pemFile)
-
-    Write-Host "Extracting required information from the cert file"
-    $md5Hash    = (Get-FileHash -Path $pemFile -Algorithm MD5).Hash.ToLower()
-    $sha1Hash   = (Get-FileHash -Path $pemFile -Algorithm SHA1).Hash.ToLower()
-    $sha256Hash = (Get-FileHash -Path $pemFile -Algorithm SHA256).Hash.ToLower()
-
-    $issuerEntry  = [string]::Format("# Issuer: {0}", $root.Issuer)
-    $subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
-    $labelEntry   = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
-    $serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
-    $md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
-    $sha1Entry    = [string]::Format("# SHA1 Fingerprint: {0}", $sha1Hash)
-    $sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
-    $certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
-
-    $rootCertEntry = "`n" + $issuerEntry + "`n" + $subjectEntry + "`n" + $labelEntry + "`n" + `
-    $serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n" + $certText
-
-    Write-Host "Adding the certificate content to Python Cert store"
-    Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
-
-    Write-Host "Python Cert store was updated to allow the Azure Stack Hub CA root certificate"
-    ```
-
-### <a name="connect-to-azure-stack-hub"></a>Se connecter à Azure Stack Hub
-
-1. Inscrivez votre environnement Azure Stack Hub en exécutant la commande `az cloud register`.
-
-2. Inscrivez votre environnement. Utilisez les paramètres suivants lors de l’exécution de `az cloud register` :
+3. Inscrivez votre environnement. Utilisez les paramètres suivants lors de l’exécution de `az cloud register` :
 
     | Valeur | Exemple | Description |
     | --- | --- | --- |
@@ -275,19 +129,19 @@ Si vous utilisez l’ASDK, vous devez approuver le certificat racine de l’auto
     | Point de terminaison Resource Manager | `https://management.local.azurestack.external` | La propriété **ResourceManagerUrl** dans l’ASDK est : `https://management.local.azurestack.external/`**ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<region>.<fqdn>/` Si vous avez une question sur le point de terminaison du système intégré, contactez votre opérateur cloud. |
     | Point de terminaison de stockage | local.azurestack.external | `local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
     | Suffixe du coffre de clés | .vault.local.azurestack.external | `.vault.local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
-    | Point de terminaison du document d’alias d’image de machine virtuelle- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI du document, qui contient les alias d’images de machine virtuelle. Pour plus d’informations, consultez [Configurer le point de terminaison des alias de machines virtuelles](#set-up-the-virtual-machine-aliases-endpoint). |
+    | Point de terminaison du document d’alias d’image de machine virtuelle- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI du document, qui contient les alias d’images de machine virtuelle. Pour plus d’informations, consultez [Configurer le point de terminaison d’alias de machines virtuelles](../asdk/asdk-cli.md#set-up-the-virtual-machine-alias-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
-1. Définissez l’environnement actif avec les commandes suivantes.
+4. Définissez l’environnement actif avec les commandes suivantes.
 
       ```azurecli
       az cloud set -n <environmentname>
       ```
 
-1. Mettez à jour la configuration de votre environnement pour utiliser le profil de version des API propre à Azure Stack Hub. Pour mettre à jour la configuration, exécutez la commande suivante :
+5. Mettez à jour la configuration de votre environnement pour utiliser le profil de version des API propre à Azure Stack Hub. Pour mettre à jour la configuration, exécutez la commande suivante :
 
     ```azurecli
     az cloud update --profile 2019-03-01-hybrid
@@ -296,9 +150,9 @@ Si vous utilisez l’ASDK, vous devez approuver le certificat racine de l’auto
     >[!NOTE]  
     >Si vous exécutez une version d'Azure Stack Hub antérieure à la build 1808, vous devez utiliser le profil de version d'API **2017-03-09-profile** plutôt que le profil de version d'API **2019-03-01-hybrid**. Vous devez également utiliser une version récente de l’interface CLI.
 
-1. Connectez-vous à votre environnement Azure Stack Hub à l'aide de la commande `az login`. Vous pouvez vous connecter à l'environnement Azure Stack Hub en tant qu'utilisateur ou que [principal de service](/azure/active-directory/develop/app-objects-and-service-principals). 
+6. Connectez-vous à votre environnement Azure Stack Hub à l'aide de la commande `az login`. Vous pouvez vous connecter à l'environnement Azure Stack Hub en tant qu'utilisateur ou que [principal de service](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   - Connectez-vous en tant qu’*utilisateur* :
+   - Connectez-vous en tant qu’ *utilisateur*  :
 
      Vous pouvez spécifier directement le nom d’utilisateur et le mot de passe dans la commande `az login`, ou vous authentifier avec un navigateur. Vous devez choisir cette dernière solution si l’authentification multifacteur est activée sur votre compte :
 
@@ -309,7 +163,7 @@ Si vous utilisez l’ASDK, vous devez approuver le certificat racine de l’auto
      > [!NOTE]
      > Si l'authentification multifacteur est activée sur votre compte d'utilisateur, utilisez la commande `az login` sans fournir le paramètre `-u`. L’exécution de cette commande vous donne une URL et un code à utiliser pour vous authentifier.
 
-   - Connectez-vous en tant que *principal de service* : 
+   - Connectez-vous en tant que *principal de service*  : 
     
      Préparez le fichier .pem à utiliser pour la connexion du principal de service.
 
@@ -327,7 +181,7 @@ Si vous utilisez l’ASDK, vous devez approuver le certificat racine de l’auto
       --debug 
      ```
 
-### <a name="test-the-connectivity"></a>Tester la connectivité
+#### <a name="test-the-connectivity"></a>Tester la connectivité
 
 Lorsque tout est configuré, utilisez l'interface CLI pour créer des ressources dans Azure Stack Hub. Par exemple, vous pouvez créer un groupe de ressources pour une app et ajouter une machine virtuelle. Utilisez la commande suivante pour créer le groupe de ressources nommé « myResourceGroup » :
 
@@ -339,46 +193,20 @@ Si la création du groupe de ressources réussit, la commande précédente affic
 
 ![Sortie de la création du groupe de ressources](media/azure-stack-connect-cli/image1.png)
 
-
-## <a name="linux-azure-ad"></a>Linux (Azure AD)
+### <a name="azure-ad-on-linux"></a>[Azure AD sur Linux](#tab/ad-lin)
 
 Cette section vous guide dans la configuration de l’interface CLI si vous utilisez Azure AD comme service de gestion des identités et si vous utilisez l’interface CLI sur un ordinateur Linux.
 
-### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Approuver le certificat d'autorité de certification racine Azure Stack Hub
-
-Si vous utilisez l’ASDK, vous devez approuver le certificat racine de l’autorité de certification sur votre ordinateur distant. Cette étape n'est pas nécessaire avec les systèmes intégrés.
-
-Pour approuver le certificat d'autorité de certification racine Azure Stack Hub, ajoutez-le au certificat Python existant.
-
-1. Trouvez l’emplacement du certificat sur votre machine. L’emplacement peut varier en fonction de l’endroit où vous avez installé Python. Vous devez avoir installé pip et le module certifi. Utilisez la commande Python suivante depuis l’invite de commandes bash :
-
-    ```bash  
-    az --version
-    ```
-
-    Notez l’emplacement du certificat. Par exemple : `~/lib/python3.5/site-packages/certifi/cacert.pem`. Votre chemin d’accès spécifique dépend de votre système d’exploitation et de la version de Python que vous avez installée.
-
-2. Exécutez la commande bash suivante avec le chemin d’accès à votre certificat.
-
-   - Pour un ordinateur Linux distant :
-
-     ```bash  
-     sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
-     ```
-
-   - Pour un ordinateur Linux situé dans l'environnement Azure Stack Hub :
-
-     ```bash  
-     sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
-     ```
-
-### <a name="connect-to-azure-stack-hub"></a>Se connecter à Azure Stack Hub
+#### <a name="connect-to-azure-stack-hub"></a>Se connecter à Azure Stack Hub
 
 Suivez les étapes ci-dessous pour vous connecter à Azure Stack Hub :
 
-1. Inscrivez votre environnement Azure Stack Hub en exécutant la commande `az cloud register`.
 
-2. Inscrivez votre environnement. Utilisez les paramètres suivants lors de l’exécution de `az cloud register` :
+1. Si vous utilisez le kit ASDK, approuvez le certificat racine de l’autorité de certification Azure Stack Hub. Pour obtenir des instructions, consultez [Approuver le certificat](../asdk/asdk-cli.md#trust-the-certificate).
+
+2. Inscrivez votre environnement Azure Stack Hub en exécutant la commande `az cloud register`.
+
+3. Inscrivez votre environnement. Utilisez les paramètres suivants lors de l’exécution de `az cloud register` :
 
     | Valeur | Exemple | Description |
     | --- | --- | --- |
@@ -386,19 +214,19 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack Hub :
     | Point de terminaison Resource Manager | `https://management.local.azurestack.external` | La propriété **ResourceManagerUrl** dans l’ASDK est : `https://management.local.azurestack.external/`**ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<region>.<fqdn>/` Si vous avez une question sur le point de terminaison du système intégré, contactez votre opérateur cloud. |
     | Point de terminaison de stockage | local.azurestack.external | `local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
     | Suffixe du coffre de clés | .vault.local.azurestack.external | `.vault.local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
-    | Point de terminaison du document d’alias d’image de machine virtuelle- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI du document, qui contient les alias d’images de machine virtuelle. Pour plus d’informations, consultez [Configurer le point de terminaison des alias de machines virtuelles](#set-up-the-virtual-machine-aliases-endpoint). |
+    | Point de terminaison du document d’alias d’image de machine virtuelle- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI du document, qui contient les alias d’images de machine virtuelle. Pour plus d’informations, consultez [Configurer le point de terminaison d’alias de machines virtuelles](../asdk/asdk-cli.md#set-up-the-virtual-machine-alias-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
-3. Définissez l’environnement actif. 
+4. Définissez l’environnement actif. 
 
       ```azurecli
         az cloud set -n <environmentname>
       ```
 
-4. Mettez à jour la configuration de votre environnement pour utiliser le profil de version des API propre à Azure Stack Hub. Pour mettre à jour la configuration, exécutez la commande suivante :
+5. Mettez à jour la configuration de votre environnement pour utiliser le profil de version des API propre à Azure Stack Hub. Pour mettre à jour la configuration, exécutez la commande suivante :
 
     ```azurecli
       az cloud update --profile 2019-03-01-hybrid
@@ -407,9 +235,9 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack Hub :
     >[!NOTE]  
     >Si vous exécutez une version d'Azure Stack Hub antérieure à la build 1808, vous devez utiliser le profil de version d'API **2017-03-09-profile** plutôt que le profil de version d'API **2019-03-01-hybrid**. Vous devez également utiliser une version récente de l’interface CLI.
 
-5. Connectez-vous à votre environnement Azure Stack Hub à l'aide de la commande `az login`. Vous pouvez vous connecter à l'environnement Azure Stack Hub en tant qu'utilisateur ou que [principal de service](/azure/active-directory/develop/app-objects-and-service-principals). 
+6. Connectez-vous à votre environnement Azure Stack Hub à l'aide de la commande `az login`. Vous pouvez vous connecter à l'environnement Azure Stack Hub en tant qu'utilisateur ou que [principal de service](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   * Connectez-vous en tant qu’*utilisateur* :
+   * Connectez-vous en tant qu’ *utilisateur*  :
 
      Vous pouvez spécifier directement le nom d’utilisateur et le mot de passe dans la commande `az login`, ou vous authentifier avec un navigateur. Vous devez choisir cette dernière solution si l’authentification multifacteur est activée sur votre compte :
 
@@ -434,7 +262,7 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack Hub :
        -p <Key generated for the Service Principal>
      ```
 
-### <a name="test-the-connectivity"></a>Tester la connectivité
+#### <a name="test-the-connectivity"></a>Tester la connectivité
 
 Lorsque tout est configuré, utilisez l'interface CLI pour créer des ressources dans Azure Stack Hub. Par exemple, vous pouvez créer un groupe de ressources pour une app et ajouter une machine virtuelle. Utilisez la commande suivante pour créer le groupe de ressources nommé « myResourceGroup » :
 
@@ -446,45 +274,19 @@ Si la création du groupe de ressources réussit, la commande précédente affic
 
 ![Sortie de la création du groupe de ressources](media/azure-stack-connect-cli/image1.png)
 
-## <a name="linux-ad-fs"></a>Linux (AD FS)
+### <a name="ad-fs-linux"></a>[AD FS sur Linux](#tab/adfs-lin)
 
 Cette section vous guide dans la configuration de l’interface CLI si vous utilisez Active Directory Federated Services (AD FS) comme service de gestion et si vous utilisez l’interface CLI sur un ordinateur Linux.
 
-### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Approuver le certificat d'autorité de certification racine Azure Stack Hub
-
-Si vous utilisez l’ASDK, vous devez approuver le certificat racine de l’autorité de certification sur votre ordinateur distant. Cette étape n'est pas nécessaire avec les systèmes intégrés.
-
-Pour approuver le certificat d'autorité de certification racine Azure Stack Hub, ajoutez-le au certificat Python existant.
-
-1. Trouvez l’emplacement du certificat sur votre machine. L’emplacement peut varier en fonction de l’endroit où vous avez installé Python. Vous devez avoir installé pip et le module certifi. Utilisez la commande Python suivante depuis l’invite de commandes bash :
-
-    ```bash  
-    az --version 
-    ```
-
-    Notez l’emplacement du certificat. Par exemple : `~/lib/python3.5/site-packages/certifi/cacert.pem`. Votre chemin d’accès spécifique dépend de votre système d’exploitation et de la version de Python que vous avez installée.
-
-2. Exécutez la commande bash suivante avec le chemin d’accès à votre certificat.
-
-   - Pour un ordinateur Linux distant :
-
-     ```bash  
-     sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
-     ```
-
-   - Pour un ordinateur Linux situé dans l'environnement Azure Stack Hub :
-
-     ```bash  
-     sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
-     ```
-
-### <a name="connect-to-azure-stack-hub"></a>Se connecter à Azure Stack Hub
+#### <a name="connect-to-azure-stack-hub"></a>Se connecter à Azure Stack Hub
 
 Suivez les étapes ci-dessous pour vous connecter à Azure Stack Hub :
 
-1. Inscrivez votre environnement Azure Stack Hub en exécutant la commande `az cloud register`.
+1. Si vous utilisez le kit ASDK, approuvez le certificat racine de l’autorité de certification Azure Stack Hub. Pour obtenir des instructions, consultez [Approuver le certificat](../asdk/asdk-cli.md#trust-the-certificate).
 
-2. Inscrivez votre environnement. Utilisez les paramètres suivants lors de l’exécution de `az cloud register`.
+2. Inscrivez votre environnement Azure Stack Hub en exécutant la commande `az cloud register`.
+
+3. Inscrivez votre environnement. Utilisez les paramètres suivants lors de l’exécution de `az cloud register`.
 
     | Valeur | Exemple | Description |
     | --- | --- | --- |
@@ -492,19 +294,19 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack Hub :
     | Point de terminaison Resource Manager | `https://management.local.azurestack.external` | La propriété **ResourceManagerUrl** dans l’ASDK est : `https://management.local.azurestack.external/`**ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<region>.<fqdn>/` Si vous avez une question sur le point de terminaison du système intégré, contactez votre opérateur cloud. |
     | Point de terminaison de stockage | local.azurestack.external | `local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
     | Suffixe du coffre de clés | .vault.local.azurestack.external | `.vault.local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
-    | Point de terminaison du document d’alias d’image de machine virtuelle- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI du document, qui contient les alias d’images de machine virtuelle. Pour plus d’informations, consultez [Configurer le point de terminaison des alias de machines virtuelles](#set-up-the-virtual-machine-aliases-endpoint). |
+    | Point de terminaison du document d’alias d’image de machine virtuelle- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI du document, qui contient les alias d’images de machine virtuelle. Pour plus d’informations, consultez [Configurer le point de terminaison d’alias de machines virtuelles](../asdk/asdk-cli.md#set-up-the-virtual-machine-alias-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
-3. Définissez l’environnement actif. 
+4. Définissez l’environnement actif. 
 
       ```azurecli
         az cloud set -n <environmentname>
       ```
 
-4. Mettez à jour la configuration de votre environnement pour utiliser le profil de version des API propre à Azure Stack Hub. Pour mettre à jour la configuration, exécutez la commande suivante :
+5. Mettez à jour la configuration de votre environnement pour utiliser le profil de version des API propre à Azure Stack Hub. Pour mettre à jour la configuration, exécutez la commande suivante :
 
     ```azurecli
       az cloud update --profile 2019-03-01-hybrid
@@ -513,9 +315,9 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack Hub :
     >[!NOTE]  
     >Si vous exécutez une version d'Azure Stack Hub antérieure à la build 1808, vous devez utiliser le profil de version d'API **2017-03-09-profile** plutôt que le profil de version d'API **2019-03-01-hybrid**. Vous devez également utiliser une version récente de l’interface CLI.
 
-5. Connectez-vous à votre environnement Azure Stack Hub à l'aide de la commande `az login`. Vous pouvez vous connecter à l'environnement Azure Stack Hub en tant qu'utilisateur ou que [principal de service](/azure/active-directory/develop/app-objects-and-service-principals). 
+6. Connectez-vous à votre environnement Azure Stack Hub à l'aide de la commande `az login`. Vous pouvez vous connecter à l'environnement Azure Stack Hub en tant qu'utilisateur ou que [principal de service](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-6. Connexion : 
+7. Connexion : 
 
    *  En tant **qu’utilisateur** à l’aide d’un navigateur web avec un code d’appareil :  
 
@@ -544,7 +346,7 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack Hub :
         --debug 
       ```
 
-### <a name="test-the-connectivity"></a>Tester la connectivité
+#### <a name="test-the-connectivity"></a>Tester la connectivité
 
 Lorsque tout est configuré, utilisez l'interface CLI pour créer des ressources dans Azure Stack Hub. Par exemple, vous pouvez créer un groupe de ressources pour une app et ajouter une machine virtuelle. Utilisez la commande suivante pour créer le groupe de ressources nommé « myResourceGroup » :
 
@@ -556,13 +358,15 @@ Si la création du groupe de ressources réussit, la commande précédente affic
 
 ![Sortie de la création du groupe de ressources](media/azure-stack-connect-cli/image1.png)
 
-## <a name="known-issues"></a>Problèmes connus
+### <a name="known-issues"></a>Problèmes connus
 
 Différents problèmes liés à l'utilisation de l'interface CLI dans Azure Stack Hub ont été identifiés :
 
  - Le mode interactif de l’interface CLI. Par exemple, la commande `az interactive` n'est pas encore prise en charge dans Azure Stack Hub.
  - Pour obtenir la liste des images de machines virtuelles disponibles dans Azure Stack Hub, utilisez la commande `az vm image list --all` au lieu de la commande `az vm image list`. En spécifiant l'option `--all`, vous êtes assuré que la réponse renverra uniquement les images disponibles dans votre environnement Azure Stack Hub.
  - Les alias d'images de machines virtuelles disponibles dans Azure ne s'appliquent pas forcément à Azure Stack Hub. Si vous utilisez des images de machines virtuelles, vous devez utiliser la totalité du paramètre URN (Canonical:UbuntuServer:14.04.3-LTS:1.0.0) plutôt que l’alias de l’image. Cet URN doit par ailleurs correspondre aux spécifications des images dérivées de la commande `az vm images list`.
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

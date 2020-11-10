@@ -3,16 +3,16 @@ title: Notes de publication d’Azure Stack Hub
 description: Notes de publication des systèmes intégrés Azure Stack Hub, y compris les mises à jour et les correctifs de bogues.
 author: sethmanheim
 ms.topic: article
-ms.date: 10/26/2020
+ms.date: 11/03/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 5fa0debb10152d94095d6ba79100e74c2116633e
-ms.sourcegitcommit: 61e616745cd20940eaeee6dfe90333ebe621e0ea
+ms.openlocfilehash: 07ad819985268ad88f86c3c2bf7b7b18e75d491f
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92763132"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363875"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Notes de publication d’Azure Stack Hub
 
@@ -96,6 +96,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 
 - Suppression des actions pour arrêter, interrompre et redémarrer une instance de rôle d’infrastructure à partir du portail d’administration. Les API correspondantes ont également été supprimées dans le fournisseur de ressources d’infrastructure. Les cmdlets PowerShell suivantes dans le module RM administrateur et préversion AZ pour Azure Stack Hub ne fonctionnent plus : **Stop-AzsInfrastructureRoleInstance** , **Disable-InfrastructureRoleInstance** et **Restart-InfrastructureRoleInstance**. Ces cmdlets seront supprimées de la prochaine version du module AZ administrateur pour Azure Stack Hub.
 - Azure Stack Hub 2005 prend désormais en charge uniquement [App Service sur Azure Stack Hub 2020 (versions 87. x)](app-service-release-notes-2020-Q2.md).
+- Le paramètre de chiffrement des utilisateurs requis pour la surveillance du matériel est passé de DES à AES afin de renforcer la sécurité. Contactez votre fournisseur de matériel pour savoir comment modifier le paramètre dans le contrôleur de gestion de la carte de base (BMC). Une fois la modification apportée dans le BMC, vous devrez peut-être réexécuter la commande **Set-BmcCredential** à l’aide du point de terminaison privilégié. Pour plus de détails, consultez [Effectuer la rotation des secrets dans Azure Stack Hub](azure-stack-rotate-secrets.md).
 
 ### <a name="fixes"></a>Correctifs
 
@@ -142,7 +143,7 @@ La version 2005 d’Azure Stack Hub doit être appliquée sur la version 2002 
 
 Après l’installation de 2005, si des correctifs 2005 sont mis en production par la suite, vous devez les installer :
 
-- [Correctif logiciel Azure Stack Hub 1.2005.19.80](https://support.microsoft.com/help/4591132)
+- [Correctif logiciel Azure Stack Hub 1.2005.20.82](https://support.microsoft.com/help/4592228)
 ::: moniker-end
 
 ::: moniker range="azs-2002"

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/17/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 927a57097eff9890dc8c546be9914e70dad5ec3c
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 508bf39e9cdeb55485bc2a517c412cee7f3dcd80
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92179540"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064767"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Créer un cluster Azure Stack HCI en utilisant Windows Admin Center
 
@@ -32,7 +32,7 @@ Si vous êtes intéressé par les tests Azure Stack HCI, mais que vous disposez 
 
 Avant d’exécuter l’Assistant Création d’un cluster, veillez à effectuer les opérations suivantes :
 
-- Vous avez lu la configuration matérielle requise et les autres exigences dans [Avant de déployer Azure Stack HCI](before-you-start.md).
+- Vous avez lu la configuration matérielle requise et les autres exigences dans [Configuration requise](../concepts/system-requirements.md).
 - Vous avez installé le système d’exploitation Azure Stack HCI sur chaque serveur du cluster. Consultez [Déployer le système d’exploitation Azure Stack HCI](operating-system.md).
 - Vous avez un compte qui est membre du groupe Administrateurs local sur chaque serveur.
 - Installer Windows Admin Center pour la gestion d’un PC ou d’un serveur. Consultez [Installer Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install).
@@ -55,7 +55,7 @@ Commençons !
 
 1. Dans Windows Admin Center, sous **All connections (Toutes les connexions)** , cliquez sur **Add (Ajouter)** .
 1. Dans le volet **Add resources (Ajouter des ressources)** , sous **Windows Server cluster (Cluster Windows Server)** , sélectionnez **Create new (Créer)** .
-1. Sous **Choose cluster type (Choisir le type de cluster)** , sélectionnez **Azure Stack HCI** .
+1. Sous **Choose cluster type (Choisir le type de cluster)** , sélectionnez **Azure Stack HCI**.
 
     :::image type="content" source="media/cluster/create-cluster-type.png" alt-text="Assistant Création d’un cluster - Option HCI" lightbox="media/cluster/create-cluster-type.png":::
 
@@ -64,20 +64,20 @@ Commençons !
     - **All servers in one site (Tous les serveurs d’un site)**
     - **Servers in two sites (Serveurs dans deux sites)** (pour un cluster étendu)
 
-1. Lorsque vous avez terminé, cliquez sur **Créer** . L’Assistant Création d’un cluster s’affiche à présent, comme indiqué ci-dessous.
+1. Lorsque vous avez terminé, cliquez sur **Créer**. L’Assistant Création d’un cluster s’affiche à présent, comme indiqué ci-dessous.
 
-    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="Assistant Création d’un cluster - Option HCI" lightbox="media/cluster/create-cluster-wizard.png":::
+    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="Assistant Création d’un cluster - Prise en main" lightbox="media/cluster/create-cluster-wizard.png":::
 
 ## <a name="step-1-get-started"></a>Étape 1 : Bien démarrer
 
 L’étape 1 de l’Assistant vous guide tout au long de la vérification de la configuration requise, l’ajout des nœuds serveur, l’installation des composants nécessaires, puis le redémarrage de chaque serveur si nécessaire.
 
-1. Passez en revue les prérequis indiqués dans l’Assistant pour vous assurer que chaque nœud serveur est prêt pour les clusters. Une fois que vous avez terminé, cliquez sur **Suivant** .
-1. Dans la page **Add servers to the cluster (Ajouter des serveurs au cluster)** , entrez le nom d’utilisateur et le mot de passe de votre compte, puis cliquez sur **Suivant** . Ce compte doit être membre du groupe Administrateurs local sur chaque serveur.
-1. Entrez le nom du premier serveur que vous souhaitez ajouter, puis cliquez sur **Ajouter** .
-1. Répétez l’étape 3 pour chaque serveur qui fera partie du cluster. Une fois que vous avez terminé, cliquez sur **Suivant** .
-1. Si nécessaire, dans la page **Join the servers to a domain (Joindre les serveurs à un domaine)** , spécifiez le domaine et un compte pour joindre les serveurs au domaine. Ensuite, si vous le souhaitez, renommez les serveurs avec des noms plus conviviaux, puis cliquez sur **Suivant** .
-1. Cliquez sur **Installer les composants** . Une fois que vous avez terminé, cliquez sur **Suivant** .
+1. Passez en revue les prérequis indiqués dans l’Assistant pour vous assurer que chaque nœud serveur est prêt pour les clusters. Une fois que vous avez terminé, cliquez sur **Suivant**.
+1. Dans la page **Add servers to the cluster (Ajouter des serveurs au cluster)** , entrez le nom d’utilisateur et le mot de passe de votre compte, puis cliquez sur **Suivant**. Ce compte doit être membre du groupe Administrateurs local sur chaque serveur.
+1. Entrez le nom du premier serveur que vous souhaitez ajouter, puis cliquez sur **Ajouter**.
+1. Répétez l’étape 3 pour chaque serveur qui fera partie du cluster. Une fois que vous avez terminé, cliquez sur **Suivant**.
+1. Si nécessaire, dans la page **Join the servers to a domain (Joindre les serveurs à un domaine)** , spécifiez le domaine et un compte pour joindre les serveurs au domaine. Ensuite, si vous le souhaitez, renommez les serveurs avec des noms plus conviviaux, puis cliquez sur **Suivant**.
+1. Cliquez sur **Installer les composants**. Une fois que vous avez terminé, cliquez sur **Suivant**.
 
     L’Assistant installe les composants requis suivants pour vous :
 
@@ -90,8 +90,8 @@ L’étape 1 de l’Assistant vous guide tout au long de la vérification de la
     - Module RSAT-AD-PowerShell
     - Réplica de stockage (installé uniquement pour les clusters étendus)
 
-1. Pour **Installer les mises à jour** , si nécessaire, cliquez sur **Installer les mises à jour** . Lorsque vous avez terminé, cliquez sur **Suivant** .
-1. Pour **Solution updates (Mises à jour de solution)** , si nécessaire, cliquez sur **Installer l’extension** . Lorsque vous avez terminé, cliquez sur **Suivant** .
+1. Pour **Installer les mises à jour** , si nécessaire, cliquez sur **Installer les mises à jour**. Lorsque vous avez terminé, cliquez sur **Suivant**.
+1. Pour **Solution updates (Mises à jour de solution)** , si nécessaire, cliquez sur **Installer l’extension**. Lorsque vous avez terminé, cliquez sur **Suivant**.
 1. Cliquez sur **Redémarrer les serveurs** , si nécessaire. Vérifiez que chaque serveur a bien démarré.
 
 ## <a name="step-2-networking"></a>Étape 2 : Réseau
@@ -101,22 +101,22 @@ L’étape 2 de l’Assistant vous guide dans la configuration de commutateurs v
 > [!NOTE]
 > Si vous voyez des erreurs figurant dans les étapes de mise en réseau ou de commutateur virtuel, essayez de cliquer sur **Appliquer et tester** à nouveau.
 
-1. Sélectionnez **Suivant : Mise en réseau** .
-1. Sous **Verify the network adapters (Vérifier les cartes réseau)** , attendez que les cases à cocher vertes s’affichent en regard de chaque carte, puis sélectionnez **Suivant** .
+1. Sélectionnez **Suivant : Mise en réseau**.
+1. Sous **Verify the network adapters (Vérifier les cartes réseau)** , attendez que les cases à cocher vertes s’affichent en regard de chaque carte, puis sélectionnez **Suivant**.
 
 1. Pour **Sélectionner les cartes de gestion** , sélectionnez une ou deux cartes de gestion à utiliser pour chaque serveur. Il est obligatoire de sélectionner au moins l’une des cartes à des fins de gestion, car l’Assistant a besoin d’au moins une carte réseau physique dédiée pour la gestion du cluster.  Une fois que la carte est désignée pour la gestion, elle est exclue du reste du workflow de l’Assistant.
 
     Les cartes de gestion ont deux options de configuration :
 
-    - **Une carte réseau physique pour la gestion** . Pour cette option, les deux affectations d’adresses IP statiques et DHCP sont prises en charge.
+    - **Une carte réseau physique pour la gestion**. Pour cette option, les deux affectations d’adresses IP statiques et DHCP sont prises en charge.
 
-    - **Deux cartes réseau physique associées pour la gestion** . Quand une paire d’adaptateurs est associée, seule l’attribution d’adresses IP statiques est prise en charge. Si les adaptateurs sélectionnés utilisent l’adressage DHCP (pour l’une ou les deux), l’adresse IP DHCP est converti en adresses IP statiques avant la création du commutateur virtuel.
+    - **Deux cartes réseau physique associées pour la gestion**. Quand une paire d’adaptateurs est associée, seule l’attribution d’adresses IP statiques est prise en charge. Si les adaptateurs sélectionnés utilisent l’adressage DHCP (pour l’une ou les deux), l’adresse IP DHCP est converti en adresses IP statiques avant la création du commutateur virtuel.
 
     En utilisant des adaptateurs associés, vous disposez d’une seule connexion à plusieurs commutateurs physiques, mais vous n’utilisez qu’une seule adresse IP. L’équilibrage de charge devient disponible et la tolérance de panne est instantanée au lieu d’attendre la mise à jour des enregistrements DNS.
 
     À présent, pour chaque serveur, procédez comme suit :
 
-    - Activez la case à cocher **Description** . Notez que toutes les cartes sont sélectionnées et que l’Assistant peut vous proposer une recommandation.
+    - Activez la case à cocher **Description**. Notez que toutes les cartes sont sélectionnées et que l’Assistant peut vous proposer une recommandation.
     - Désélectionnez les cases à cocher correspondant aux cartes que vous ne souhaitez pas utiliser pour la gestion du cluster.
 
     > [!NOTE]
@@ -128,7 +128,7 @@ L’étape 2 de l’Assistant vous guide dans la configuration de commutateurs v
     > [!NOTE]
     > Pour prendre en charge la configuration de l’ID VLAN pour le cluster, toutes les cartes réseau de tous les serveurs doivent prendre en charge la propriété VLANID.
 
-1. Attendez que la colonne **Status (État)** indique **Passed (Réussi)** pour chaque serveur, puis cliquez sur **Suivant** . Cette étape vérifie la connectivité réseau entre toutes les cartes ayant les mêmes sous-réseau et ID de réseau local virtuel. Les adresses IP fournies sont transférées de la carte physique vers les cartes virtuelles une fois que les commutateurs virtuels ont été créés (voir l’étape suivante). La réalisation de l’opération peut prendre plusieurs minutes en fonction du nombre de cartes configurées.
+1. Attendez que la colonne **Status (État)** indique **Passed (Réussi)** pour chaque serveur, puis cliquez sur **Suivant**. Cette étape vérifie la connectivité réseau entre toutes les cartes ayant les mêmes sous-réseau et ID de réseau local virtuel. Les adresses IP fournies sont transférées de la carte physique vers les cartes virtuelles une fois que les commutateurs virtuels ont été créés (voir l’étape suivante). La réalisation de l’opération peut prendre plusieurs minutes en fonction du nombre de cartes configurées.
 
 1. Sous **Commutateur virtuel** , sélectionnez l’une des options suivantes, le cas échéant. En fonction du nombre d’adaptateurs présents, il se peut que certaines options ne s’affichent pas :
 
@@ -154,7 +154,7 @@ L’étape 2 de l’Assistant vous guide dans la configuration de commutateurs v
 
 L’étape 3 de l’Assistant vous permet de vérifier que tout a été correctement configuré jusqu’à maintenant, configure automatiquement deux sites dans le cas de déploiements de cluster étendus, puis crée réellement le cluster. Vous pouvez également configurer vos sites à l’avance dans Active Directory.
 
-1. Sélectionnez **Suivant : Clustering** .
+1. Sélectionnez **Suivant : Clustering**.
 1. Sous **Validate the cluster (Valider le cluster)** , sélectionnez **Validate (Valider)** . La validation peut prendre plusieurs minutes.
 
     Si la fenêtre contextuelle **Credential Security Service Provider (CredSSP)** s’affiche, sélectionnez **Oui** pour activer temporairement CredSSP pour que l’Assistant continue. Une fois votre cluster créé et l’Assistant terminé, vous désactiverez CredSSP pour augmenter la sécurité. Si vous rencontrez des problèmes avec CredSSP, consultez [Résoudre les problèmes liés à CredSSP](../manage/troubleshoot-credssp.md) pour plus d’informations.
@@ -167,19 +167,19 @@ L’étape 3 de l’Assistant vous permet de vérifier que tout a été correct
 
 1. Pour les clusters étendus, sous **Assign servers to sites (Attribuer des serveurs à des sites)** , nommez les deux sites qui seront utilisés.
 
-1. Attribuez ensuite chaque serveur à un site. Vous allez configurer ultérieurement la réplication entre les sites. Lorsque vous avez terminé, cliquez sur **Appliquer** .
+1. Attribuez ensuite chaque serveur à un site. Vous allez configurer ultérieurement la réplication entre les sites. Lorsque vous avez terminé, cliquez sur **Appliquer**.
 
 ## <a name="step-4-storage"></a>Étape 4 : Stockage
 
 L’étape 4 de l’Assistant vous guide dans la configuration des espaces de stockage direct pour votre cluster.
 
-1. Sélectionnez **Suivant : Stockage** .
-1. Sous **Verify drives (Vérifier les lecteurs)** , cliquez sur l’icône **>** en regard de chaque serveur pour vérifier que les disques fonctionnent et sont connectés, puis cliquez sur **Suivant** .
-1. Sous **Clean drives (Nettoyer les lecteurs)** , cliquez sur **Clean drives (Nettoyer les lecteurs)** pour vider les lecteurs de données. Lorsque vous êtes prêt, cliquez sur **Suivant** .
-1. Sous **Validate storage (Valider le stockage)** , cliquez sur **Suivant** .
-1. Passez en revue les résultats de la validation. Si tout est bon, cliquez sur **Suivant** .
-1. Sous **Activer les espaces de stockage direct** , cliquez sur **Suivant** .
-1. Téléchargez le rapport et lisez-le. Si tout est bon, cliquez sur **Terminer** .
+1. Sélectionnez **Suivant : Stockage**.
+1. Sous **Verify drives (Vérifier les lecteurs)** , cliquez sur l’icône **>** en regard de chaque serveur pour vérifier que les disques fonctionnent et sont connectés, puis cliquez sur **Suivant**.
+1. Sous **Clean drives (Nettoyer les lecteurs)** , cliquez sur **Clean drives (Nettoyer les lecteurs)** pour vider les lecteurs de données. Lorsque vous êtes prêt, cliquez sur **Suivant**.
+1. Sous **Validate storage (Valider le stockage)** , cliquez sur **Suivant**.
+1. Passez en revue les résultats de la validation. Si tout est bon, cliquez sur **Suivant**.
+1. Sous **Activer les espaces de stockage direct** , cliquez sur **Suivant**.
+1. Téléchargez le rapport et lisez-le. Si tout est bon, cliquez sur **Terminer**.
 
 Félicitations, vous disposez maintenant d’un cluster.
 
@@ -194,14 +194,14 @@ Cette étape facultative vous guide tout au long de la configuration du composan
 > [!NOTE]
 > SDN n’est pas pris en charge ou n’est pas disponible pour les clusters étendus.
 
-:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Assistant Création d’un cluster - Option HCI" lightbox="media/cluster/create-cluster-network-controller.png":::
+:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Assistant Création d’un cluster : contrôleur de réseau SDN" lightbox="media/cluster/create-cluster-network-controller.png":::
 
-1. Sélectionnez **Suivant : SDN** .
+1. Sélectionnez **Suivant : SDN**.
 1. Sous l’ **hôte** , entrez un nom pour le contrôleur de réseau.
 1. Spécifiez un chemin d’accès au fichier de disque dur virtuel Azure Stack HCI. Utilisez **Parcourir** pour le trouver plus rapidement.
 1. Spécifiez le nombre de machines virtuelles à consacrer au contrôleur de réseau. Trois à cinq machines virtuelles sont recommandées pour la haute disponibilité.
 1. Sous **Réseau** , entrez l’ID du VLAN.
-1. Pour l’ **Adressage réseau de la machine virtuelle** , sélectionnez **DHCP** ou **Statique** .
+1. Pour l’ **Adressage réseau de la machine virtuelle** , sélectionnez **DHCP** ou **Statique**.
 1. Si vous avez sélectionné **DHCP** , entrez le nom et l’adresse IP des machines virtuelles du contrôleur de réseau.
 1. Si vous avez sélectionné **Statique** , procédez comme suit :
     1. Spécifier un préfixe de sous-réseau.
@@ -210,9 +210,9 @@ Cette étape facultative vous guide tout au long de la configuration du composan
 1. Sous **Informations de connexion** , entrez le nom d’utilisateur et le mot de passe utilisés pour joindre les machines virtuelles du contrôleur de réseau au domaine du cluster.
 1. Entrez le mot de passe d’administrateur local pour ces machines virtuelles.
 1. Sous **Avancé** , entrez le chemin d’accès aux machines virtuelles.
-1. Entrez des valeurs pour le **Démarrage du pool d’adresses MAC** et la **Fin du pool d’adresses MAC** .
-1. Une fois que vous avez terminé, cliquez sur **Suivant** .
-1. Attendez que l’Assistant termine son travail. Restez sur cette page jusqu’à ce que toutes les tâches de progression soient terminées. Puis, cliquez sur **Terminer** .
+1. Entrez des valeurs pour le **Démarrage du pool d’adresses MAC** et la **Fin du pool d’adresses MAC**.
+1. Une fois que vous avez terminé, cliquez sur **Suivant**.
+1. Attendez que l’Assistant termine son travail. Restez sur cette page jusqu’à ce que toutes les tâches de progression soient terminées. Puis, cliquez sur **Terminer**.
 
 Si le déploiement du contrôleur de réseau échoue, procédez comme suit avant de réessayer :
 
@@ -229,7 +229,7 @@ Une fois que vous avez terminé d’exécuter l’Assistant, il y a encore des t
 La première tâche consiste à désactiver le protocole CredSSP (Credential Security Support Provider) sur chaque serveur à des fins de sécurité. Gardez à l’esprit que CredSSP devait être activé pour l’Assistant. Si vous rencontrez des problèmes avec CredSSP, consultez [Résoudre les problèmes liés à CredSSP](../manage/troubleshoot-credssp.md) pour plus d’informations.
 
 1. Dans Windows Admin Center, sous **All connections (Toutes les connexions)** , sélectionnez le cluster que vous venez de créer.
-1. Sous **Outils** , sélectionnez **Serveurs** .
+1. Sous **Outils** , sélectionnez **Serveurs**.
 1. Dans le volet droit, sélectionnez le premier serveur du cluster.
 1. Sous **Overview (Présentation)** , sélectionnez **Disable CredSSP (Désactiver CredSSP)** . La bannière rouge **CredSSP ENABLED** en haut disparaît.
 1. Répétez les étapes 3 et 4 pour chaque serveur de votre cluster.

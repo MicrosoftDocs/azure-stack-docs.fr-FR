@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: bryanla
 ms.reviewer: efemmano
-ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 29ae7acf1954dfafad1583bf037603f8ccac7514
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.lastreviewed: 11/3/2020
+ms.openlocfilehash: a3cc9436ec0e3ec0c939760454b194bfec4a8c58
+ms.sourcegitcommit: ecd98662194d2cdb15c22f8b1f99812fc5f4c15a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106803"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93344879"
 ---
 # <a name="create-add-on-plans-in-azure-stack-hub"></a>Créer des plans d’extension dans Azure Stack Hub
 
-En tant qu'opérateur Azure Stack Hub, vous créez des plans additionnels pour modifier un [plan de base](azure-stack-create-plan.md) lorsque vous souhaitez proposer des services supplémentaires ou étendre vos quotas en matière d'*ordinateurs*, de *stockage* ou de *réseau* au-delà de l'offre initiale du plan de base. Les plans additionnels modifient le plan de base et sont des extensions facultatives que les utilisateurs peuvent choisir d’activer dans leur abonnement.
+En tant qu'opérateur Azure Stack Hub, vous créez des plans additionnels pour modifier un [plan de base](azure-stack-create-plan.md) lorsque vous souhaitez proposer des services supplémentaires ou étendre vos quotas en matière d' *ordinateurs* , de *stockage* ou de *réseau* au-delà de l'offre initiale du plan de base. Les plans additionnels modifient le plan de base et sont des extensions facultatives que les utilisateurs peuvent choisir d’activer dans leur abonnement.
 
 La meilleure solution est parfois de tout regrouper dans un seul plan. Mais vous pouvez aussi parfois préférer disposer d’un plan de base, puis proposer des services supplémentaires à l’aide de plans d’extension. Par exemple, vous pouvez choisir d’offrir des services IaaS dans le cadre d’un plan de base, avec tous les services PaaS traités comme des plans d’extension.
 
@@ -47,7 +47,7 @@ Les plans additionnels sont [créés de la même façon ](azure-stack-create-pla
 
 6. Passez en revue la liste des plans d’extension inclus dans l’offre pour vérifier que le nouveau y figure.
 
-    ![Capture d’écran montrant une liste des plans d’extension dans le portail d’administration Azure Stack.](media/create-add-on-plan/add-on4.png "Créer un plan d’extension")](media/create-add-on-plan/add-on4lg.png#lightbox)
+    [![Capture d’écran montrant une liste de plans d’extension à examiner dans le portail d’administration Azure Stack.](media/create-add-on-plan/add-on4.png)](media/create-add-on-plan/add-on4lg.png#lightbox)
 ::: moniker-end
 
 ::: moniker range="<=azs-1901"
@@ -55,7 +55,7 @@ Les plans additionnels sont [créés de la même façon ](azure-stack-create-pla
 ## <a name="create-an-add-on-plan-1901-and-earlier"></a>Créer un plan d’extension (versions 1901 et antérieures)
 
 1. Connectez-vous au portail d'administration Azure Stack Hub en tant qu'administrateur de cloud.
-2. Suivez les étapes décrites pour [créer un nouveau plan de base](azure-stack-create-plan.md) afin de créer un plan offrant des services qui n’étaient pas proposés auparavant. Dans cet exemple, les services Key Vault (**Microsoft.KeyVault**) seront inclus dans le nouveau plan.
+2. Suivez les étapes décrites pour [créer un nouveau plan de base](azure-stack-create-plan.md) afin de créer un plan offrant des services qui n’étaient pas proposés auparavant. Dans cet exemple, les services Key Vault ( **Microsoft.KeyVault** ) seront inclus dans le nouveau plan.
 3. Dans le portail de l’administrateur, sélectionnez **Offres** , puis sélectionnez l’offre à mettre à jour avec un plan d’extension.
 
    ![Sélectionner l’offre à mettre à jour avec le plan d’extension dans le portail d’administration Azure Stack](media/create-add-on-plan/1.PNG)

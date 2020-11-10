@@ -3,16 +3,16 @@ title: Nouveautés de la Place de marché Azure Stack Hub
 description: Découvrez les nouveautés de la Place de marché Azure Stack Hub, dont les éléments nouveaux, dépréciés et mis à jour.
 author: sethmanheim
 ms.topic: article
-ms.date: 10/23/2020
+ms.date: 11/02/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 37a90fc31a3ee89406eeea64fcd9549ef7ca98f4
-ms.sourcegitcommit: 74b3e14abfa33c8136eccdd4677868eb622c843e
+ms.openlocfilehash: aa5cbb7d631cdcf8fb5a27666bdedfd6ef3ab665
+ms.sourcegitcommit: 1e3a182d82cf01b64118647d6ab418651f83ad1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92523522"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93192236"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Changements sur la Place de marché Azure Stack Hub
 
@@ -70,6 +70,64 @@ L’article [Éléments de la Place de marché Azure Stack Hub](azure-stack-mark
 
 ## <a name="updated-marketplace-items"></a>Éléments mis à jour sur la Place de marché
 
+- 29/10/2020 : [smalldisk] Windows Server 2008 R2 SP1 - Paiement à l’utilisation - version 7601.24561.2010082056
+- 29/10/2020 : [smalldisk] Windows Server 2008 R2 SP1 - BYOL (apportez votre propre licence) - version 7601.24561.2010082056
+- 29/10/2020 Windows Server 2008 R2 SP1 - Paiement à l’utilisation - version 7601.24561.2010082056
+- 29/10/2020 Windows Server 2008 R2 SP1 - BYOL (apportez votre propre licence) - version 7601.24561.2010082056
+- 29/10/2020 Windows Server 2012 Datacenter - Paiement à l’utilisation - version 9200.23179.2010090042
+- 29/10/2020 Windows Server 2012 Datacenter - BYOL (apportez votre propre licence) - version 9200.23179.2010090042
+- 29/10/2020 : [smalldisk] Windows Server 2012 Datacenter - Paiement à l’utilisation - version 9200.23179.2010090042
+- 29/10/2020 : [smalldisk] Windows Server 2012 Datacenter - BYOL (apportez votre propre licence) - version 9200.23179.2010090042
+- 29/10/2020 : [smalldisk] Windows Server 2012 R2 Datacenter - Paiement à l’utilisation - version 9600.19847.2010090140
+- 29/10/2020 : [smalldisk] Windows Server 2012 R2 Datacenter - BYOL (apportez votre propre licence) - version 9600.19847.2010090140
+- 29/10/2020 Windows Server 2012 R2 Datacenter - Paiement à l’utilisation - version 9600.19847.2010090140
+- 29/10/2020 Windows Server 2012 R2 Datacenter - BYOL (apportez votre propre licence) - version 9600.19847.2010090140
+- 29/10/2020 Windows 10 Entreprise 2016 LTSB - BYOL (apportez votre propre licence) - version 14393.3986.2010070045
+- 29/10/2020 Windows 10 Entreprise N 2016 LTSB - BYOL (apportez votre propre licence) - version 14393.3986.2010070045
+- 29/10/2020 Windows Server 2016 Datacenter - Paiement à l’utilisation - version 14393.3986.2010070045
+- 29/10/2020 Windows Server 2016 Datacenter - BYOL (apportez votre propre licence) - version 14393.3986.2010070045
+- 29/10/2020 Windows Server 2016 Datacenter Server Core - Paiement à l’utilisation - version 14393.3986.2010070045
+- 29/10/2020 Windows Server 2016 Datacenter Server Core - BYOL (apportez votre propre licence) - version 14393.3986.2010070045
+- 29/10/2020 : [smalldisk] Windows Server 2016 Datacenter - Paiement à l’utilisation - version 14393.3986.2010070045
+- 29/10/2020 : [smalldisk] Windows Server 2016 Datacenter - BYOL (apportez votre propre licence) - version 14393.3986.2010070045
+- 29/10/2020 : [smalldisk] Windows Server 2016 Datacenter Server Core - Paiement à l’utilisation - version 14393.3986.2010070045
+- 29/10/2020 : [smalldisk] Windows Server 2016 Datacenter Server Core - BYOL (apportez votre propre licence) - version 14393.3986.2010070045
+- 29/10/2020 Windows Server 2019 Datacenter - Paiement à l’utilisation - version 17763.1518.2010132039
+- 29/10/2020 Windows Server 2019 Datacenter - BYOL (apportez votre propre licence) - version 17763.1518.2010132039
+- 29/10/2020 : [smalldisk] Windows Server 2019 Datacenter Server Core - Paiement à l’utilisation - version 17763.1518.2010132039
+- 29/10/2020 : [smalldisk] Windows Server 2019 Datacenter Server Core - BYOL (apportez votre propre licence) - version 17763.1518.2010132039
+- 29/10/2020 Windows Server 2019 Datacenter Server Core - Paiement à l’utilisation - version 17763.1518.2010132039
+- 29/10/2020 Windows Server 2019 Datacenter Server Core - BYOL (apportez votre propre licence) - version 17763.1518.2010132039
+- 29/10/2020 Windows Server 2019 Datacenter avec conteneurs - Paiement à l’utilisation - version 17763.1518.2010132039
+- 29/10/2020 Windows Server 2019 Datacenter avec conteneurs - BYOL (apportez votre propre licence) - version 17763.1518.2010132039
+- 29/10/2020 : [smalldisk] Windows Server 2019 Datacenter Server Core avec conteneurs - Paiement à l’utilisation - version 17763.1518.2010132039
+- 29/10/2020 : [smalldisk] Windows Server 2019 Datacenter Server Core avec conteneurs - BYOL (apportez votre propre licence) - version 17763.1518.2010132039
+- 29/10/2020 : [smalldisk] Windows Server 2019 Datacenter avec conteneurs - Paiement à l’utilisation - version 17763.1518.2010132039
+- 29/10/2020 : [smalldisk] Windows Server 2019 Datacenter avec conteneurs - BYOL (apportez votre propre licence) - version 17763.1518.2010132039
+- 29/10/2020 : [smalldisk] Windows Server 2019 Datacenter - Paiement à l’utilisation - version 17763.1518.2010132039
+- 29/10/2020 : [smalldisk] Windows Server 2019 Datacenter - BYOL (apportez votre propre licence) - version 17763.1518.2010132039
+- 29/10/2020 : [smalldisk] Windows Server, version 1809 avec conteneurs - Paiement à l’utilisation - version 17763.1518.2010132039
+- 29/10/2020 : [smalldisk] Windows Server, version 1809 avec conteneurs - BYOL (apportez votre propre licence) - version 17763.1518.2010132039
+- 29/10/2020 Windows Server 2019 Datacenter Server Core avec conteneurs - Paiement à l’utilisation - version 17763.1518.2010132039
+- 29/10/2020 Windows Server 2019 Datacenter Server Core avec conteneurs - BYOL (apportez votre propre licence) - version 17763.1518.2010132039
+- 29/10/2020 Windows 10 Professionnel, version 1903 - BYOL (apportez votre propre licence) - version 18362.1139.2010070045
+- 29/10/2020 Windows 10 Entreprise multi-session, Version 1903 - BYOL (apportez votre propre licence) - version 18362.1139.2010070045
+- 29/10/2020 Windows 10 Professionnel N, version 1903 - BYOL (apportez votre propre licence) - version 18362.1139.2010070045
+- 29/10/2020 Windows 10 Entreprise, version 1903 - BYOL (apportez votre propre licence) - version 18362.1139.2010070045
+- 29/10/2020 Windows 10 Entreprise N, version 1903 - BYOL (apportez votre propre licence) - version 18362.1139.2010070045
+- 29/10/2020 : [smalldisk] Windows Server, version 1903 avec conteneurs - Paiement à l’utilisation - version 18362.1139.2010070045
+- 29/10/2020 : [smalldisk] Windows Server, version 1903 avec conteneurs - BYOL (apportez votre propre licence) - version 18362.1139.2010070045
+- 29/10/2020 Windows 10 Entreprise, version 1909 - BYOL (apportez votre propre licence) - version 18363.1139.2010080514
+- 29/10/2020 Windows 10 Professionnel N, version 1909 - BYOL (apportez votre propre licence) - version 18363.1139.2010080514
+- 29/10/2020 Windows 10 Professionnel, version 1909 - BYOL (apportez votre propre licence) - version 18363.1139.2010080514
+- 29/10/2020 Windows 10 Entreprise multi-session, Version 1909 - BYOL (apportez votre propre licence) - version 18363.1139.2010080514
+- 29/10/2020 Windows 10 Entreprise N, version 1909 - BYOL (apportez votre propre licence) - version 18363.1139.2010080514
+- 29/10/2020 : [smalldisk] Windows Server, version 1909 avec conteneurs - Paiement à l’utilisation - version 18363.1139.2010080514
+- 29/10/2020 : [smalldisk] Windows Server, version 1909 avec conteneurs - BYOL (apportez votre propre licence) - version 18363.1139.2010080514
+- 29/10/2020 Windows 10 Entreprise, version 2004 - BYOL (apportez votre propre licence) - version 19041.572.2010091946
+- 29/10/2020 Windows 10 Entreprise multi-session, Version 2004 - BYOL (apportez votre propre licence) - version 19041.572.2010091946
+- 29/10/2020 : [smalldisk] Windows Server, version 2004 avec conteneurs - Paiement à l’utilisation - version 19041.572.2010091946
+- 29/10/2020 : [smalldisk] Windows Server, version 2004 avec conteneurs - BYOL (apportez votre propre licence) - version 19041.572.2010091946
 - 22/10/2020 : Azure Monitor, Update and Configuration Management - version 1.13.27
 - 22/10/2020 : Windows Server 2008 R2 SP1 - Paiement à l’utilisation - version 7601.24560.2009040118
 - 22/10/2020 : Windows Server 2008 R2 SP1 - BYOL (apportez votre propre licence) - version 7601.24560.2009040118
