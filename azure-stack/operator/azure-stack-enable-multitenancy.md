@@ -7,12 +7,12 @@ ms.date: 06/18/2020
 ms.author: bryanla
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: e99c1cc09f3dc6b0a04ff22f5b5dc96004ba305e
-ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
+ms.openlocfilehash: 6d6e6f3c28a4386a099727f132d28f97cf4dacbe
+ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88857506"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93291212"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Configurer l’architecture multilocataire dans Azure Stack Hub
 
@@ -169,7 +169,7 @@ $healthReport.directoryTenants | Where status -NE 'Healthy' | Select -Property t
 
 ### <a name="update-azure-ad-tenant-permissions"></a>Mettre à jour les autorisations de locataire Azure AD
 
-Cette action désactivera l’alerte dans Azure Stack Hub, indiquant qu’un annuaire a besoin d’une mise à jour. Exécutez la commande suivante à partir du dossier **Azurestack-tools-master/identity** :
+Cette action désactivera l'alerte dans Azure Stack Hub, indiquant qu'un annuaire a besoin d'une mise à jour. Exécutez la commande suivante à partir du dossier **Azurestack-tools-master/identity**  :
 
 ```powershell
 Import-Module ..\Identity\AzureStack.Identity.psm1

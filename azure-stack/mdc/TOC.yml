@@ -10,7 +10,7 @@
       items:
         - name: Utiliser le portail d’administration
           href: ../operator/azure-stack-manage-portals.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-    - name: Tutoriels
+    - name: Didacticiels
       items:
         - name: Offrir un service aux utilisateurs
           href: ../operator/tutorial-offer-services.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -178,12 +178,8 @@
                   href: ../operator/azure-stack-enable-multitenancy.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
     - name: Guides pratiques
       items:
-        - name: Stockage étendu
-          items:
-            - name: Mises à jour de OneFS et des microprogrammes
-              href: extended-storage-firmware-updates.md
-            - name: Contrôles d’intégrité
-              href: extended-storage-health-checks.md
+        - name: Contrôles d’intégrité du stockage étendu
+          href: extended-storage-health-checks.md
         - name: Gérer
           items:
             - name: Informations de base sur l’administration

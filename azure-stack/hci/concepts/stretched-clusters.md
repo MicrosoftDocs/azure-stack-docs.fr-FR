@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ecf7974cec80888b149454c0a2ff90eb48c2e9e3
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: 611f76491f6edd5cb8700a13e79c0769c02c4fad
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86868013"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064750"
 ---
 # <a name="stretched-clusters-overview"></a>Vue d’ensemble des clusters étendus
 
@@ -44,7 +44,7 @@ Dans le diagramme suivant, le site 1 et le site 2 sont actifs et la réplicati
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez le matériel et les autres exigences des clusters étendus. Consultez [Avant de commencer](../deploy/before-you-start.md).
+- Découvrez le matériel et les autres exigences des clusters étendus. Voir [Configuration requise](system-requirements.md).
 - Découvrez comment déployer un cluster étendu à l’aide de Windows Admin Center. Consultez [Créer un cluster à l’aide de Windows Admin Center](../deploy/create-cluster.md).
 - Découvrez comment déployer un cluster étendu à l’aide de PowerShell. Consultez [Créer un cluster à l’aide de PowerShell](../deploy/create-cluster-powershell.md).
 - Découvrez comment créer des volumes et configurer la réplication pour des clusters étendus. Consultez [Créer des volumes et configurer la réplication pour des clusters étendus](../manage/create-stretched-volumes.md).
