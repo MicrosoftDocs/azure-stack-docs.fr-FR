@@ -55,7 +55,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 ```
 #### <a name="cmdlets-parameters"></a>Paramètres des applets de commande
 
-Paramètres pour l’applet de commande *Set-SyslogServer* :
+Paramètres pour l’applet de commande *Set-SyslogServer*  :
 
 | Paramètre | Description | Type | Obligatoire |
 |---------|---------|---------|---------|
@@ -67,7 +67,7 @@ Paramètres pour l’applet de commande *Set-SyslogServer* :
 |*UseUDP*| Utiliser Syslog avec le protocole de transport UDP. |indicateur | non|
 |*Remove*| Supprimer du client la configuration du serveur et arrêter le transfert Syslog.| indicateur | non|
 
-Paramètres pour l’applet de commande *Set-SyslogClient* :
+Paramètres pour l’applet de commande *Set-SyslogClient*  :
 
 | Paramètre | Description | Type |
 |---------|---------| ---------|
