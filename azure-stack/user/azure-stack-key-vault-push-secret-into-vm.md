@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 5f99d816470649366703da5de4bf68ebdbe26a61
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 245658359db8b55a455fa653f4b97bbf6d1737d8
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90571828"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546240"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Déployer une machine virtuelle avec un certificat stocké de façon sécurisée sur Azure Stack Hub
 
@@ -39,7 +39,7 @@ Les étapes suivantes décrivent le processus permettant de placer un certificat
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 * Les utilisateurs doivent s’abonner à une offre qui inclut le service Key Vault.
-* [Installez PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md).
+* [Installez PowerShell pour Azure Stack Hub](../operator/powershell-install-az-module.md).
 * [Configurez l’environnement PowerShell de l’utilisateur Azure Stack Hub.](azure-stack-powershell-configure-user.md)
 
 ## <a name="create-a-key-vault-secret"></a>Créer un secret Key Vault
@@ -87,11 +87,11 @@ $jsonObject = @"
 $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
 $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
 
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -Name $resourceGroup `
   -Location $location
 
-New-AzureRmKeyVault `
+New-AzKeyVault `
   -VaultName $vaultName `
   -ResourceGroupName $resourceGroup `
   -Location $location `
@@ -155,7 +155,7 @@ Déployez le modèle avec le script PowerShell suivant :
 
 ```powershell
 # Deploy a Resource Manager template to create a VM and push the secret to it
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -Name KVDeployment `
   -ResourceGroupName $resourceGroup `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
@@ -168,8 +168,8 @@ Une fois le modèle déployé, il affiche la sortie suivante :
 
 Azure Stack Hub envoie (push) le certificat à la machine virtuelle lors du déploiement. L’emplacement du certificat dépend du système d’exploitation de la machine virtuelle :
 
-* Sous Windows, le certificat est ajouté à l’emplacement de certificat **LocalMachine**, avec le magasin de certificats fourni par l’utilisateur.
-* Sous Linux, le certificat est placé dans le répertoire **/var/lib/waagent**, avec le nom de fichier **UppercaseThumbprint.crt** pour le fichier de certificat X509 et **UppercaseThumbprint.prv** pour la clé privée.
+* Sous Windows, le certificat est ajouté à l’emplacement de certificat **LocalMachine** , avec le magasin de certificats fourni par l’utilisateur.
+* Sous Linux, le certificat est placé dans le répertoire **/var/lib/waagent** , avec le nom de fichier **UppercaseThumbprint.crt** pour le fichier de certificat X509 et **UppercaseThumbprint.prv** pour la clé privée.
 
 ## <a name="retire-certificates"></a>Mettre hors service des certificats
 

@@ -7,12 +7,12 @@ ms.date: 09/08/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 293e445343acfe13a0be2cabab6cb1577c3941a2
-ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
+ms.openlocfilehash: 0facc0cc06ad3ff672531f1eeb7e31eee2f56ee0
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90010881"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546886"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>Résoudre les problèmes d’appliance virtuelle réseau
 
@@ -57,8 +57,8 @@ Chaque appliance virtuelle réseau doit respecter les configurations de base req
 
 #### <a name="use-the-azure-stack-hub-portal"></a>Utiliser le portail Azure Stack Hub
 
-1. Localisez la ressource d’appliance virtuelle réseau sur le portail Azure Stack Hub, sélectionnez **Mise en réseau**, puis sélectionnez l’interface réseau.
-2. Dans la page **Interface réseau**, sélectionnez **Configuration IP**.
+1. Localisez la ressource d’appliance virtuelle réseau sur le portail Azure Stack Hub, sélectionnez **Mise en réseau** , puis sélectionnez l’interface réseau.
+2. Dans la page **Interface réseau** , sélectionnez **Configuration IP**.
 3. Assurez-vous que le transfert IP est activé.
 
 #### <a name="use-powershell"></a>Utiliser PowerShell
@@ -66,7 +66,7 @@ Chaque appliance virtuelle réseau doit respecter les configurations de base req
 1. Exécutez la commande suivante : Remplacez les valeurs figurant entre crochets pointus par vos informations.
 
    ```powershell
-   Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
+   Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
    ```
 
 2. Vérifiez la propriété **EnableIPForwarding**.
@@ -74,9 +74,9 @@ Chaque appliance virtuelle réseau doit respecter les configurations de base req
 3. Si le transfert IP n’est pas activé, exécutez les commandes suivantes pour l’activer :
 
    ```powershell
-   $nic2 = Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
+   $nic2 = Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
    $nic2.EnableIPForwarding = 1
-   Set-AzureRMNetworkInterface -NetworkInterface $nic2
+   Set-AzNetworkInterface -NetworkInterface $nic2
    Execute: $nic2 #and check for an expected output:
    EnableIPForwarding   : True
    NetworkSecurityGroup : null

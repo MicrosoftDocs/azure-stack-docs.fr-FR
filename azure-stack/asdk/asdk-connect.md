@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: 44fa05f5841952d581a35d8394300e96333bfc4f
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: a5250e18ab253a6c1a2b184ba1f261b5837bc879
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847076"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543475"
 ---
 # <a name="connect-to-the-asdk"></a>Se connecter à l’ASDK
 
@@ -31,7 +31,7 @@ Un seul utilisateur simultané peut gérer les ressources dans le portail d’ad
 
 1. Ouvrez Connexion Bureau à distance (mstc.exe) et connectez-vous à l’adresse IP de l’ordinateur hôte ASDK. Veillez à utiliser un compte autorisé à se connecter à distance à l’ordinateur hôte ASDK. Par défaut, **AzureStack\AzureStackAdmin** dispose des autorisations de connexion à distance à l’ordinateur hôte ASDK.  
 
-2. Sur l’ordinateur hôte ASDK, ouvrez le gestionnaire de serveur (ServerManager.exe). Sélectionnez **Serveur local**, désactiver **Configuration de sécurité renforcée d’Internet Explorer**, puis fermez le Gestionnaire de serveur.
+2. Sur l’ordinateur hôte ASDK, ouvrez le gestionnaire de serveur (ServerManager.exe). Sélectionnez **Serveur local** , désactiver **Configuration de sécurité renforcée d’Internet Explorer** , puis fermez le Gestionnaire de serveur.
 
 3. Connectez-vous au portail d’administration en tant que **AzureStack\CloudAdmin** ou utilisez d’autres informations d’identification de l’opérateur d’Azure Stack. L’adresse du portail d’administration d’ASDK est `https://adminportal.local.azurestack.external`.
 
@@ -62,7 +62,7 @@ Pour créer une connexion VPN à l’ASDK, ouvrez Windows PowerShell en tant qu�
 
 ```powershell
 # Change directories to the default Azure Stack tools directory
-cd C:\AzureStack-Tools-master
+cd C:\AzureStack-Tools-az
 
 # Configure Windows Remote Management (WinRM), if it's not already configured.
 winrm quickconfig  
@@ -107,7 +107,7 @@ Si la configuration réussit, **Azure Stack** apparaît dans votre liste des con
       -Password $Password
     ```
 
-  * Sur votre ordinateur local, sélectionnez **Paramètres réseau** > **VPN** > **Azure Stack** > **Se connecter**. À l’invite de connexion, entrez le nom d’utilisateur (**AzureStack\AzureStackAdmin**) et votre mot de passe.
+  * Sur votre ordinateur local, sélectionnez **Paramètres réseau** > **VPN** > **Azure Stack** > **Se connecter**. À l’invite de connexion, entrez le nom d’utilisateur ( **AzureStack\AzureStackAdmin** ) et votre mot de passe.
 
 La première fois que vous vous connectez, vous êtes invité à installer le certificat racine Azure Stack à partir de **AzureStackCertificateAuthority** dans le magasin de certificats de votre ordinateur local. Cette étape ajoute l’autorité de certification ASDK à la liste des hôtes approuvés. Cliquez sur **Oui** pour installer le certificat.
 

@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: d94f9130825493ea521441a43a58aa053ff2cc05
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 8661666b4f953d07a96f1a2402782970e32c140b
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631398"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545743"
 ---
 # <a name="connect-to-azure-stack-hub"></a>Se connecter à Azure Stack Hub
 
@@ -24,9 +24,9 @@ Pour pouvoir gérer des ressources, vous devez vous connecter au Kit de dévelop
 ## <a name="connect-to-azure-stack-hub-with-remote-desktop"></a>Se connecter à Azure Stack Hub avec l’option Bureau à distance
 Avec une connexion Bureau à distance, un seul utilisateur à la fois peut se connecter au portail pour gérer des ressources.
 
-1. Ouvrez une connexion Bureau à distance et connectez-vous au kit de développement. Entrez le nom d’utilisateur **AzureStack\AzureStackAdmin**, ainsi que le mot de passe d’administration que vous avez fourni au moment de l’installation d’Azure Stack Hub.  
+1. Ouvrez une connexion Bureau à distance et connectez-vous au kit de développement. Entrez le nom d’utilisateur **AzureStack\AzureStackAdmin** , ainsi que le mot de passe d’administration que vous avez fourni au moment de l’installation d’Azure Stack Hub.  
 
-2. À partir de l’ordinateur du kit de développement, ouvrez le Gestionnaire de serveur, cliquez sur **Serveur local**, désactivez la sécurité renforcée d’Internet Explorer, puis fermez le Gestionnaire de serveur.
+2. À partir de l’ordinateur du kit de développement, ouvrez le Gestionnaire de serveur, cliquez sur **Serveur local** , désactivez la sécurité renforcée d’Internet Explorer, puis fermez le Gestionnaire de serveur.
 
 3. Pour ouvrir le portail, accédez à `https://portal.local.azurestack.external/` et connectez-vous à l’aide des informations d’identification utilisateur.
 
@@ -40,7 +40,7 @@ Vous pouvez établir une connexion VPN avec tunneling fractionné à un Kit de d
 
 ### <a name="prerequisites"></a>Prérequis
 
-* Installez [Azure PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md) sur votre ordinateur local.  
+* Installez [Azure PowerShell pour Azure Stack Hub](../operator/powershell-install-az-module.md) sur votre ordinateur local.  
 * Téléchargez les [outils nécessaires pour utiliser Azure Stack Hub](../operator/azure-stack-powershell-download.md). 
 
 ### <a name="configure-vpn-connectivity"></a>Configurer la connectivité VPN

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 2941adf109f9e8c142523f607bce969427127ec3
-ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
+ms.openlocfilehash: 1d12e1bf449a923e97d871d3971b97dbe19c2849
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84813789"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546223"
 ---
 # <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>Autoriser des applications à accéder aux secrets d’un Key Vault Azure Stack Hub
 
@@ -21,7 +21,7 @@ Les étapes de cet article décrivent comment exécuter l’exemple d’applicat
 
 Vous pouvez installer les prérequis suivants à partir du [Kit de développement Azure Stack](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) ou à partir d’un client externe Windows si vous êtes [connecté via un VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) :
 
-* Installez les [modules Azure PowerShell compatibles avec Azure Stack Hub](../operator/azure-stack-powershell-install.md).
+* Installez les [modules Azure PowerShell compatibles avec Azure Stack Hub](../operator/powershell-install-az-module.md).
 * Téléchargez les [outils nécessaires pour utiliser Azure Stack Hub](../operator/azure-stack-powershell-download.md).
 
 ## <a name="create-a-key-vault-and-register-an-app"></a>Créer un coffre de clés et inscrire une application
@@ -62,7 +62,7 @@ $tenantARM = "https://management.local.azurestack.external"
 $aadTenantName = "FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
 
 # Configure the Azure Stack Hub operator's PowerShell environment.
-Add-AzureRMEnvironment `
+Add-AzEnvironment `
   -Name "AzureStackUser" `
   -ArmEndpoint $tenantARM
 
@@ -71,7 +71,7 @@ $TenantID = Get-AzsDirectoryTenantId `
   -EnvironmentName AzureStackUser
 
 # Sign in to the user portal.
-Add-AzureRmAccount `
+Add-AzAccount `
   -EnvironmentName "AzureStackUser" `
   -TenantId $TenantID `
 
@@ -85,7 +85,7 @@ $identifierUri = [string]::Format("http://localhost:8080/{0}",[Guid]::NewGuid().
 $homePage = "https://contoso.com"
 
 Write-Host "Creating a new AAD Application"
-$ADApp = New-AzureRmADApplication `
+$ADApp = New-AzADApplication `
   -DisplayName $applicationName `
   -HomePage $homePage `
   -IdentifierUris $identifierUri `
@@ -94,23 +94,23 @@ $ADApp = New-AzureRmADApplication `
   -Password $applicationPassword
 
 Write-Host "Creating a new AAD service principal"
-$servicePrincipal = New-AzureRmADServicePrincipal `
+$servicePrincipal = New-AzADServicePrincipal `
   -ApplicationId $ADApp.ApplicationId
 
 # Create a new resource group and a key vault in that resource group.
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -Name $resourceGroupName `
   -Location $location
 
 Write-Host "Creating vault $vaultName"
-$vault = New-AzureRmKeyVault -VaultName $vaultName `
+$vault = New-AzKeyVault -VaultName $vaultName `
   -ResourceGroupName $resourceGroupName `
   -Sku standard `
   -Location $location
 
 # Specify full privileges to the vault for the application.
 Write-Host "Setting access policy"
-Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName `
+Set-AzKeyVaultAccessPolicy -VaultName $vaultName `
   -ObjectId $servicePrincipal.Id `
   -PermissionsToKeys all `
   -PermissionsToSecrets all
@@ -126,13 +126,13 @@ L’image suivante montre la sortie du script utilisé pour créer le coffre de 
 
 ![Coffre de clés avec des clés d’accès](media/azure-stack-key-vault-sample-app/settingsoutput.png)
 
-Prenez note des valeurs de **VaultUrl**, **AuthClientId** et **AuthClientSecret** renvoyées par le script précédent. Vous utiliserez ces valeurs pour exécuter l’application **HelloKeyVault**.
+Prenez note des valeurs de **VaultUrl** , **AuthClientId** et **AuthClientSecret** renvoyées par le script précédent. Vous utiliserez ces valeurs pour exécuter l’application **HelloKeyVault**.
 
 ## <a name="download-and-configure-the-sample-application"></a>Télécharger et configurer l’exemple d’application
 
 Téléchargez l’exemple de coffre de clés à partir de la page [Azure Key Vault client samples](https://www.microsoft.com/download/details.aspx?id=45343). Extrayez le contenu du fichier .zip sur votre station de travail de développement. Le dossier d’exemples contient deux applications : cet article utilise **HelloKeyVault**.
 
-Pour charger l’exemple **HelloKeyVault** :
+Pour charger l’exemple **HelloKeyVault**  :
 
 1. Accédez au dossier **Microsoft.Azure.KeyVault.Samples** > **samples** > **HelloKeyVault**.
 2. Ouvrez l’application **HelloKeyVault** dans Visual Studio.
@@ -142,7 +142,7 @@ Pour charger l’exemple **HelloKeyVault** :
 Dans Visual Studio :
 
 1. Ouvrez le fichier HelloKeyVault\App.config et accédez à l’élément `<appSettings>`.
-2. Mettez à jour les clés **VaultUrl**, **AuthClientId** et **AuthCertThumbprint** avec les valeurs retournées lors de la création du coffre de clés. Par défaut, le fichier App.config a un espace réservé pour `AuthCertThumbprint`. Remplacez cet espace réservé par `AuthClientSecret`.
+2. Mettez à jour les clés **VaultUrl** , **AuthClientId** et **AuthCertThumbprint** avec les valeurs retournées lors de la création du coffre de clés. Par défaut, le fichier App.config a un espace réservé pour `AuthCertThumbprint`. Remplacez cet espace réservé par `AuthClientSecret`.
 
    ```xml
    <appSettings>
@@ -158,12 +158,12 @@ Dans Visual Studio :
 
 ## <a name="run-the-app"></a>Exécuter l’application
 
-Quand vous exécutez **HelloKeyVault**, l’application se connecte à Azure AD, puis utilise le jeton `AuthClientSecret` pour s’authentifier auprès du coffre de clés dans Azure Stack Hub.
+Quand vous exécutez **HelloKeyVault** , l’application se connecte à Azure AD, puis utilise le jeton `AuthClientSecret` pour s’authentifier auprès du coffre de clés dans Azure Stack Hub.
 
 Vous pouvez utiliser l’exemple **HelloKeyVault** pour :
 
 * Effectuer des opérations de base comme créer, chiffrer, wrapper et supprimer des clés et des secrets.
-* Transmettre des paramètres comme `encrypt` et `decrypt` à **HelloKeyVault**, et appliquer les modifications spécifiées à un coffre de clés.
+* Transmettre des paramètres comme `encrypt` et `decrypt` à **HelloKeyVault** , et appliquer les modifications spécifiées à un coffre de clés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

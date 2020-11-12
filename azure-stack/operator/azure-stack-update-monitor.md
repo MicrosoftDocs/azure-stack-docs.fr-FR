@@ -7,16 +7,16 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 315cf773c63e3154ce92472c15d18b5e4bbbe019
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: bee3cbf3ab3faedbe54212c67dada1faa746071a
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487547"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545259"
 ---
 # <a name="monitor-updates-with-powershell-in-azure-stack-hub"></a>Superviser les mises à jour avec PowerShell dans Azure Stack Hub
 
-Vous pouvez utiliser les points de terminaison d’administration Azure Stack Hub pour superviser et gérer vos mises à jour. Ils sont accessibles avec PowerShell. Pour obtenir des instructions sur la configuration de PowerShell sur Azure Stack Hub, consultez [Installer PowerShell pour Azure Stack Hub](azure-stack-powershell-install.md).
+Vous pouvez utiliser les points de terminaison d’administration Azure Stack Hub pour superviser et gérer vos mises à jour. Ils sont accessibles avec PowerShell. Pour obtenir des instructions sur la configuration de PowerShell sur Azure Stack Hub, consultez [Installer PowerShell pour Azure Stack Hub](powershell-install-az-module.md).
 
 Vous pouvez utiliser les applets de commande PowerShell suivantes pour gérer vos mises à jour :
 

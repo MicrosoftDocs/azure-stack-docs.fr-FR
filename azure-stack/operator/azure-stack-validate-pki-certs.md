@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
-ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: c0a077d8278361370a1781260c3f9c2bb2b11f55
-ms.sourcegitcommit: c1f48c19c8a9c438fd22298bc570c12a9b19bb45
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 201acbad11011731a8e7017d14b39be120e460d3
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86410604"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545760"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Valider des certificats PKI Azure Stack Hub
 
@@ -63,7 +63,7 @@ Suivez les étapes ci-après afin de valider les certificats PKI Azure Stack Hub
 1. Installez **AzsReadinessChecker** à partir d’une invite PowerShell (5.1 ou ultérieur) en exécutant l’applet de commande suivante :
 
     ```powershell  
-        Install-Module Microsoft.AzureStack.ReadinessChecker -force 
+        Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
 2. Créez la structure de répertoires de certificat. Dans l’exemple ci-après, vous pouvez remplacer `<C:\Certificates\Deployment>` par un nouveau chemin d’accès de répertoire de votre choix.
@@ -211,9 +211,9 @@ Suivez les étapes ci-après afin de valider les certificats PKI Azure Stack Hub
 
 ### <a name="known-issues"></a>Problèmes connus
 
-**Symptôme** : les tests sont ignorés.
+**Symptôme**  : les tests sont ignorés.
 
-**Cause** : AzsReadinessChecker ignore certains tests si aucune dépendance n’est détectée :
+**Cause**  : AzsReadinessChecker ignore certains tests si aucune dépendance n’est détectée :
 
  - Si la chaîne d’approbation échoue, les autres certificats sont ignorés.
 
@@ -237,7 +237,7 @@ Suivez les étapes ci-après afin de valider les certificats PKI Azure Stack Hub
     Invoke-AzsCertificateValidation Completed
     ```
 
-**Résolution** : suivez les instructions de l’outil dans la section des détails sous chaque ensemble de tests de chacun des certificats.
+**Résolution**  : suivez les instructions de l’outil dans la section des détails sous chaque ensemble de tests de chacun des certificats.
 
 ## <a name="certificates"></a>Certificats
 

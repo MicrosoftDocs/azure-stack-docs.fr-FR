@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 03dcd58562aaa0bc65bbc545e19c9e3a24c52a4b
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 0497cf3b457276df9fc6c4938e7a1c1370eaa4a3
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920489"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383647"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Accéder au tableau de bord Kubernetes dans Azure Stack Hub 
 
@@ -29,7 +29,7 @@ Kubernetes comprend un tableau de bord web qui peut être utilisé pour les opé
 
 * Client SSH
 
-    Vous avez besoin d’un client SSH pour vous connecter en toute sécurité à votre nœud maître dans le cluster. Si vous utilisez Windows, vous pouvez employer [PuTTY](/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm). Vous avez besoin de la clé privée utilisée quand vous avez déployé votre cluster Kubernetes.
+    Vous avez besoin d’un client SSH pour vous connecter en toute sécurité à votre nœud maître dans le cluster. Si vous utilisez Windows, vous pouvez employer [PuTTY](https://www.ssh.com/ssh/putty/download). Vous avez besoin de la clé privée utilisée quand vous avez déployé votre cluster Kubernetes.
 
 * FTP (PSCP)
 
@@ -50,9 +50,9 @@ Vous pouvez récupérer l’URL du tableau de bord à partir du nœud maître da
     - Connectez-vous au portail Azure Stack Hub `https://portal.local.azurestack.external/`.
     - Sélectionnez **Tous les services** > **Toutes les ressources**. Recherchez le maître dans votre groupe de ressources de cluster. Le maître se nomme `k8s-master-<sequence-of-numbers>`. 
 
-2. Ouvrez le nœud maître dans le portail. Copiez l’**adresse IP publique**. Cliquez sur **Se connecter** pour obtenir votre nom d’utilisateur dans la zone **Connexion avec un compte local de machine virtuelle**. Il s’agit du même nom d’utilisateur que vous avez défini lors de la création de votre cluster. Utilisez l’adresse IP publique plutôt que l’adresse IP privée listée dans le panneau de connexion.
+2. Ouvrez le nœud maître dans le portail. Copiez l’ **adresse IP publique**. Cliquez sur **Se connecter** pour obtenir votre nom d’utilisateur dans la zone **Connexion avec un compte local de machine virtuelle**. Il s’agit du même nom d’utilisateur que vous avez défini lors de la création de votre cluster. Utilisez l’adresse IP publique plutôt que l’adresse IP privée listée dans le panneau de connexion.
 
-3.  Ouvrez un client SSH pour vous connecter au maître. Si vous travaillez sur Windows, vous pouvez utiliser [Putty](/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) pour créer la connexion. Vous utilisez l’adresse IP publique pour le nœud maître, le nom d’utilisateur, puis ajoutez la clé privée utilisée lors de la création du cluster.
+3.  Ouvrez un client SSH pour vous connecter au maître. Si vous travaillez sur Windows, vous pouvez utiliser [Putty](https://www.ssh.com/ssh/putty/download) pour créer la connexion. Vous utilisez l’adresse IP publique pour le nœud maître, le nom d’utilisateur, puis ajoutez la clé privée utilisée lors de la création du cluster.
 
 4.  Quand le terminal se connecte, tapez `kubectl` pour ouvrir le client de ligne de commande Kubernetes.
 

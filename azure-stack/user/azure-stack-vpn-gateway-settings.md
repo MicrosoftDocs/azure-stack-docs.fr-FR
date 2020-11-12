@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 6ff4822e3093dd636bdd5b83fb3150eb9036d9ec
-ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
+ms.openlocfilehash: 55f62550521e6b57d08852eb6d3f0c14da735fec
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82967775"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546801"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>Configurer les paramètres de passerelle VPN pour Azure Stack Hub
 
@@ -28,7 +28,7 @@ Chaque réseau virtuel Azure Stack Hub prend en charge une passerelle de réseau
 Lorsque vous créez une passerelle de réseau virtuel, vous devez vous assurer que le type de passerelle est adapté à votre configuration. Une passerelle VPN nécessite l’indicateur `-GatewayType Vpn`, par exemple :
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased
 ```
@@ -49,7 +49,7 @@ Azure Stack Hub propose les références (SKU) de passerelle VPN indiquées dans
 
 Azure Stack Hub ne prend pas en charge le redimensionnement de références (SKU) entre les références (SKU) héritées prises en charge.
 
-De même, Azure Stack Hub ne prend pas en charge le redimensionnement d’une référence (SKU) héritée prise en charge (**De base**, **Standard** et **Hautes performances**) vers une référence (SKU) plus récente prise en charge par Azure (**VpnGw1**, **VpnGw2** et **VpnGw3**).
+De même, Azure Stack Hub ne prend pas en charge le redimensionnement d’une référence (SKU) héritée prise en charge ( **De base** , **Standard** et **Hautes performances** ) vers une référence (SKU) plus récente prise en charge par Azure ( **VpnGw1** , **VpnGw2** et **VpnGw3** ).
 
 ### <a name="configure-the-gateway-sku"></a>Configuration de la référence SKU de passerelle
 
@@ -59,10 +59,10 @@ Si vous utilisez le portail Azure Stack Hub pour créer une passerelle de résea
 
 #### <a name="powershell"></a>PowerShell
 
-L’exemple PowerShell suivant spécifie le paramètre `-GatewaySku`**Standard** :
+L’exemple PowerShell suivant spécifie le paramètre `-GatewaySku`**Standard**  :
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
 -GatewayType Vpn -VpnType RouteBased
 ```
@@ -74,7 +74,7 @@ Dans le modèle de déploiement de Resource Manager, chaque configuration néces
 L’exemple PowerShell ci-après crée une connexion S2S qui nécessite le type de connexion IPsec :
 
 ```powershell
-New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
+New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
 -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
 -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 ```
@@ -98,7 +98,7 @@ Lorsque vous créez la passerelle de réseau virtuel d’une configuration de pa
 L’exemple PowerShell suivant spécifie la `-VpnType` en tant que **RouteBased**. Lorsque vous créez une passerelle, vous devez vous assurer que le type `-VpnType` est adapté à votre configuration.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig `
 -GatewayType Vpn -VpnType RouteBased
 ```
@@ -128,7 +128,7 @@ En outre, vous devez vous assurer que votre sous-réseau de passerelle dispose d
 L’exemple PowerShell Resource Manager suivant montre un sous-réseau de passerelle nommé **GatewaySubnet**. Vous pouvez voir que la notation CIDR spécifie une taille /27, ce qui permet d’avoir un nombre suffisamment élevé d’adresses IP pour la plupart des configurations actuelles.
 
 ```powershell
-Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
 > [!IMPORTANT]
@@ -143,7 +143,7 @@ Vous donnez un nom à la passerelle de réseau local (l’adresse IP publique de
 Cet exemple PowerShell crée une passerelle de réseau local :
 
 ```powershell
-New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
+New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
@@ -156,7 +156,7 @@ Lorsque vous configurez une connexion VPN dans Azure Stack Hub, vous devez la co
 Contrairement à Azure qui prend en charge plusieurs offres en tant qu’initiateur et répondeur, Azure Stack Hub ne prend en charge qu’une seule offre par défaut. Si vous devez utiliser différents paramètres IPSec/IKE pour travailler avec votre appareil VPN, d’autres paramètres sont disponibles pour vous permettre de configurer votre connexion manuellement. Pour plus d’informations, consultez [Configurer la stratégie IPsec/IKE pour des connexions VPN site à site](azure-stack-vpn-s2s.md).
 
 > [!IMPORTANT] 
-> Lorsque vous utilisez le tunnel S2S, les paquets sont encapsulés avec des en-têtes supplémentaires, ce qui augmente la taille globale du paquet. Dans ces scénarios, vous devez définir TCP **MSS** sur **1350**. Dans le cas où vos appareils VPN ne prendraient pas en charge le réglage de la taille maximale de segment, vous pouvez à la place définir l’**unité de transmission maximale** dans l’interface de tunnel sur **1400** octets. Pour plus d’informations, consultez [Réglage des performances TCPIP des réseaux virtuels](/azure/virtual-network/virtual-network-tcpip-performance-tuning).
+> Lorsque vous utilisez le tunnel S2S, les paquets sont encapsulés avec des en-têtes supplémentaires, ce qui augmente la taille globale du paquet. Dans ces scénarios, vous devez définir TCP **MSS** sur **1350**. Dans le cas où vos appareils VPN ne prendraient pas en charge le réglage de la taille maximale de segment, vous pouvez à la place définir l’ **unité de transmission maximale** dans l’interface de tunnel sur **1400** octets. Pour plus d’informations, consultez [Réglage des performances TCPIP des réseaux virtuels](/azure/virtual-network/virtual-network-tcpip-performance-tuning).
 >
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Paramètres IKE Phase 1 (Mode principal)

@@ -7,12 +7,12 @@ ms.date: 09/21/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/21/2020
-ms.openlocfilehash: 66a4a8f846002cc126d4861e1acc52b672e78dc5
-ms.sourcegitcommit: 68c00d9ee7c5a9e7da6d41e2f753c0f93d26238e
+ms.openlocfilehash: fc07b78253a19d8a7f459aecacd699338a129ea7
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91211157"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546699"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Se connecter à Azure Stack Hub en utilisant une extension de compte Azure dans Visual Studio Code
 
@@ -34,7 +34,7 @@ VS Code est un éditeur léger permettant de générer et de déboguer des appli
 
 1. Exécutez le script **Identity** disponible dans Azure Stack Hub Tools sur GitHub.
 
-    - Avant d’exécuter le script, vous devrez avoir installé et configuré PowerShell pour votre environnement. Pour obtenir des instructions, voir [Installer PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md).
+    - Avant d’exécuter le script, vous devrez avoir installé et configuré PowerShell pour votre environnement. Pour obtenir des instructions, voir [Installer PowerShell pour Azure Stack Hub](../operator/powershell-install-az-module.md).
 
     - Pour le script **Identity** et des instructions concernant son utilisation, voir [AzureStack-Tools/Identity](https://aka.ms/aa6z611).
 
@@ -97,11 +97,11 @@ VS Code est un éditeur léger permettant de générer et de déboguer des appli
       "azure.cloud": "AzurePPE"
       ```
 
-10. Enregistrez les paramètres utilisateur et utilisez **Ctrl+Maj+P** une nouvelle fois. Sélectionnez **Azure : Sign in to Azure Cloud** (Se connecter au cloud Azure). La nouvelle option, **AzurePPE**, apparaît dans la liste des cibles.
+10. Enregistrez les paramètres utilisateur et utilisez **Ctrl+Maj+P** une nouvelle fois. Sélectionnez **Azure : Sign in to Azure Cloud** (Se connecter au cloud Azure). La nouvelle option, **AzurePPE** , apparaît dans la liste des cibles.
 
 11. Sélectionnez **AzurePPE**. La page d’authentification se charge dans votre navigateur. Connectez-vous à votre point de terminaison.
 
-12. Pour tester que vous êtes correctement connecté à votre abonnement Azure Stack Hub, utilisez **Ctrl+Maj+P** et sélectionnez **Azure : Sélectionner un abonnement**, puis regardez si l’abonnement que vous avez est disponible.
+12. Pour tester que vous êtes correctement connecté à votre abonnement Azure Stack Hub, utilisez **Ctrl+Maj+P** et sélectionnez **Azure : Sélectionner un abonnement** , puis regardez si l’abonnement que vous avez est disponible.
 
 ## <a name="commands"></a>Commandes
 

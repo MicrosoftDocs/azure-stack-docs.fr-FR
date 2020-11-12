@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: BryanLa
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 10/19/2020
 ms.author: bryanla
 ms.reviewer: jerskine
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: a8809c9f3a041d6bb4812c58d614693ce2d5431a
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 0b032929496646de763336a630f22782bd03091c
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173996"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545679"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>Valider l’intégration d’AD FS pour Azure Stack Hub
 
@@ -58,7 +58,7 @@ Vous avez besoin au minimum d’une des formes de métadonnées suivantes :
 1. Sur un ordinateur qui répond aux prérequis, ouvrez une invite PowerShell d’administration, puis exécutez la commande suivante pour installer AzsReadinessChecker :
 
     ```powershell
-    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
 1. À l’invite PowerShell, exécutez la commande suivante pour démarrer la validation. Spécifiez la valeur de **-CustomADFSFederationMetadataEndpointUri** comme étant l’URI pour les métadonnées de fédération.
@@ -117,9 +117,9 @@ Les exemples suivants donnent des conseils sur la façon de résoudre les échec
 Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 ```
 
-**Cause** : La fonctionnalité de chargement automatique PowerShell n’a pas pu charger le module Readiness Checker correctement.
+**Cause**  : La fonctionnalité de chargement automatique PowerShell n’a pas pu charger le module Readiness Checker correctement.
 
-**Résolution** : Importez le module Readiness Checker de façon explicite. Copiez et collez le code suivant dans PowerShell et mettez à jour `<version>` avec le numéro de la version actuellement installée.
+**Résolution**  : Importez le module Readiness Checker de façon explicite. Copiez et collez le code suivant dans PowerShell et mettez à jour `<version>` avec le numéro de la version actuellement installée.
 
 ```powershell
 Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force

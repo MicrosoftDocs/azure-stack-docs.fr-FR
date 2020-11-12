@@ -7,16 +7,16 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2019
-ms.openlocfilehash: 10a7c60a18faa5528fb9c1917c62994b43bee51a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2090471cee6fa36a32b9e2147de7941cd4abed54
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701035"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544273"
 ---
 # <a name="back-up-azure-stack-hub"></a>Sauvegarder Azure Stack Hub
 
-Cet article explique comment effectuer une sauvegarde à la demande sur Azure Stack Hub. Pour obtenir des instructions sur la configuration de l’environnement PowerShell, voir [Installer PowerShell pour Azure Stack Hub](azure-stack-powershell-install.md). Pour vous connecter à Azure Stack Hub, voir [Utilisation du portail administrateur dans Azure Stack Hub](azure-stack-manage-portals.md).
+Cet article explique comment effectuer une sauvegarde à la demande sur Azure Stack Hub. Pour obtenir des instructions sur la configuration de l’environnement PowerShell, voir [Installer PowerShell pour Azure Stack Hub](powershell-install-az-module.md). Pour vous connecter à Azure Stack Hub, voir [Utilisation du portail administrateur dans Azure Stack Hub](azure-stack-manage-portals.md).
 
 ## <a name="start-azure-stack-hub-backup"></a>Démarrer une sauvegarde d’Azure Stack Hub
 
@@ -104,9 +104,9 @@ Le résultat doit ressembler à la sortie suivante :
 Dans le portail administrateur Azure Stack Hub, vérifiez que la sauvegarde a abouti en procédant comme suit :
 
 1. Ouvrez le [portail administrateur Azure Stack Hub](azure-stack-manage-portals.md).
-2. Sélectionnez **Tous les services** et, sous la catégorie **ADMINISTRATION**, sélectionnez > **Sauvegarde d’infrastructure**. Choisissez **Configuration** dans le panneau **Sauvegarde d’infrastructure**.
+2. Sélectionnez **Tous les services** et, sous la catégorie **ADMINISTRATION** , sélectionnez > **Sauvegarde d’infrastructure**. Choisissez **Configuration** dans le panneau **Sauvegarde d’infrastructure**.
 3. Recherchez le **nom** et la **date d’exécution** de la sauvegarde dans la liste des **sauvegardes disponibles**.
-4. Vérifiez que l’**état** indique une **réussite**.
+4. Vérifiez que l’ **état** indique une **réussite**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

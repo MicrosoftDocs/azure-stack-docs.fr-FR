@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Utilisez Azure Stack Hub Readiness Checker pour valider l’intégration des graphes pour Azure Stack Hub.
 author: BryanLa
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 10/19/2020
 ms.author: bryanla
 ms.reviewer: jerskine
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: e4af68d1d4f9a44bb957f318f0f13ec1d2c9ecdd
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 1abb44838e0c70764d08a4aa47a0fdf73660072d
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173839"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545599"
 ---
 # <a name="validate-graph-integration-for-azure-stack-hub"></a>Valider l’intégration des graphes pour Azure Stack Hub
 
@@ -56,7 +56,7 @@ Vérifiez les prérequis suivants.
 1. Sur un ordinateur qui répond aux prérequis, ouvrez une invite PowerShell d’administration, puis exécutez la commande suivante pour installer AzsReadinessChecker :
 
     ```powershell
-    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
 1. À l’invite PowerShell, exécutez la commande suivante pour définir la variable *$graphCredential* sur le compte de graphique. Remplacez `contoso\graphservice` par votre compte en utilisant le format `domain\username`.

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: d81f7bc0894ea204b9cd956f30e3f302747a6de6
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 39cb4e97c0a73b1299df3f84ce45d7f4db820262
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111434"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544256"
 ---
 # <a name="enable-azure-cli-for-azure-stack-hub-users"></a>Activer Azure CLI pour les utilisateurs d’Azure Stack Hub
 
@@ -61,5 +61,5 @@ Un [exemple de fichier d’alias](https://raw.githubusercontent.com/Azure/azure-
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Déployer des modèles avec l’interface de ligne de commande Azure](../user/azure-stack-deploy-template-command-line.md )
-- [Se connecter avec PowerShell](azure-stack-powershell-install.md)
+- [Se connecter avec PowerShell](powershell-install-az-module.md)
 - [Gérer les autorisations utilisateur](azure-stack-manage-permissions.md)

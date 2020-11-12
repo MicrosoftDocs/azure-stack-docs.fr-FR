@@ -7,12 +7,12 @@ ms.date: 09/02/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 3b8df9de2975c7ba0e6eefdb10a2731cd5d47ca6
-ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
+ms.openlocfilehash: 3d263759763d1c845365fd5d8d89e7006cedbddc
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89448671"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546495"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>Utiliser des profils de version d’API avec Go dans Azure Stack Hub
 
@@ -23,7 +23,7 @@ Un profil est une combinaison de différents types de ressources dans différent
 - La stabilité de votre app en verrouillant sur des versions d’API spécifiques.
 - La compatibilité de votre app avec Azure Stack Hub et les centres de données régionaux Azure.
 
-Dans le SDK Go, les profils sont disponibles sous le chemin des profils. Les numéros de version de profil sont étiquetés au format **AAAA-MM-JJ**. La dernière version du profil d’API Azure Stack Hub est la version **2019-03-01** pour Azure Stack Hub versions 1904 ou ultérieures. Pour importer un service donné à partir d’un profil, importez son module correspondant à partir du profil. Par exemple, pour importer le service **Compute** à partir du profil **2019-03-01**, utilisez le code suivant :
+Dans le SDK Go, les profils sont disponibles sous le chemin des profils. Les numéros de version de profil sont étiquetés au format **AAAA-MM-JJ**. La dernière version du profil d’API Azure Stack Hub est la version **2019-03-01** pour Azure Stack Hub versions 1904 ou ultérieures. Pour importer un service donné à partir d’un profil, importez son module correspondant à partir du profil. Par exemple, pour importer le service **Compute** à partir du profil **2019-03-01** , utilisez le code suivant :
 
 ```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"
@@ -79,7 +79,7 @@ Pour exécuter un exemple de code Go sur Azure Stack Hub, procédez comme suit 
 
 4. Créez un principal de service utilisant une clé secrète client, avec l’étendue **Abonnement** et le rôle **Propriétaire**. Enregistrez l’ID et le secret du principal de service. Pour plus d’informations sur la création d’un principal de service pour Azure Stack Hub, voir [Utiliser une identité d’application pour accéder aux ressources](../operator/azure-stack-create-service-principals.md). Votre environnement Azure Stack Hub est désormais configuré.
 
-5. Importez un module de service à partir du profil de kit SDK Go dans votre code. La version actuelle du profil Azure Stack Hub est **2019-03-01**. Par exemple, pour importer un module réseau à partir du type de profil **2019-03-01**, utilisez le code suivant :
+5. Importez un module de service à partir du profil de kit SDK Go dans votre code. La version actuelle du profil Azure Stack Hub est **2019-03-01**. Par exemple, pour importer un module réseau à partir du type de profil **2019-03-01** , utilisez le code suivant :
 
    ```go
    package main
@@ -147,7 +147,7 @@ L’agent d’autorisation doit être défini comme l’agent d’autorisation p
 
    Affectez à `<activeDirectoryEndpoint>` la valeur de la propriété `loginEndpoint` provenant des métadonnées `ResourceManagerUrl` récupérées dans la section précédente de ce document. Définissez la valeur `<tenantID>` sur votre ID de locataire Azure Stack Hub.
 
-4. Enfin, créez un jeton de principal de service à l’aide de la méthode `NewServicePrincipalToken` du module **adal** :
+4. Enfin, créez un jeton de principal de service à l’aide de la méthode `NewServicePrincipalToken` du module **adal**  :
 
    ```go
    package main
@@ -299,5 +299,5 @@ Parmi les exemples de code disponibles pour Azure Stack Hub utilisant le Kit de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Installer PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md)
+- [Installer PowerShell pour Azure Stack Hub](../operator/powershell-install-az-module.md)
 - [Configurez l’environnement PowerShell de l’utilisateur Azure Stack Hub.](azure-stack-powershell-configure-user.md)

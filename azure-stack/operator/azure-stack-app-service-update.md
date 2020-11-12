@@ -3,17 +3,17 @@ title: Mettre à jour Azure App Service sur Azure Stack Hub
 description: Apprenez à mettre à jour Azure App Service sur Azure Stack Hub.
 author: BryanLa
 ms.topic: article
-ms.date: 05/05/2019
+ms.date: 10/28/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/13/2019
+ms.lastreviewed: 10/28/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 5dc8599a62c4b9e10d603bf2f02f18bf5024e203
-ms.sourcegitcommit: edb60c948b445537e9411d6261c6c78359b71d0b
+ms.openlocfilehash: ffb53d2fd70c90f10c2f3856ec6471257982fb58
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91810658"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544777"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>Mettre à jour Azure App Service sur Azure Stack Hub
 
@@ -41,7 +41,7 @@ Au cours de ce processus, la mise à niveau va :
 
 Pour mettre à niveau votre déploiement d'Azure App Service sur Azure Stack Hub, procédez comme suit :
 
-1. Téléchargez le [programme d'installation d'Azure App Service](https://aka.ms/appsvcupdateQ2installer).
+1. Téléchargez le [programme d'installation d'Azure App Service](https://aka.ms/appsvcupdateQ3installer).
 
 2. Exécutez appservice.exe en tant qu’administrateur.
 
@@ -53,7 +53,7 @@ Pour mettre à niveau votre déploiement d'Azure App Service sur Azure Stack Hub
 
 5. Consultez et acceptez les termes du contrat de licence tiers, puis cliquez sur **Suivant**.
 
-6. Vérifiez que le point de terminaison Azure Stack Hub Azure Resource Manager et les informations relatives au locataire Active Directory sont corrects. Si vous avez utilisé les paramètres par défaut durant le déploiement de l’ASDK, vous pouvez accepter les valeurs par défaut. Toutefois, si vous avez personnalisé les options lors du déploiement d'Azure Stack Hub, vous devez modifier les valeurs dans cette fenêtre. Par exemple, si vous utilisez le suffixe de domaine *mycloud.com*, vous devez modifier votre point de terminaison Azure Stack Hub Azure Resource Manager en le définissant sur *management.region.mycloud.com*. Après avoir vérifié vos informations, cliquez sur **Suivant**.
+6. Vérifiez que le point de terminaison Azure Stack Hub Azure Resource Manager et les informations relatives au locataire Active Directory sont corrects. Si vous avez utilisé les paramètres par défaut durant le déploiement de l’ASDK, vous pouvez accepter les valeurs par défaut. Toutefois, si vous avez personnalisé les options lors du déploiement d'Azure Stack Hub, vous devez modifier les valeurs dans cette fenêtre. Par exemple, si vous utilisez le suffixe de domaine *mycloud.com* , vous devez modifier votre point de terminaison Azure Stack Hub Azure Resource Manager en le définissant sur *management.region.mycloud.com*. Après avoir vérifié vos informations, cliquez sur **Suivant**.
 
     ![Capture d’écran montrant où configurer les points de terminaison ARM dans le programme d’installation App Service.][2]
 
@@ -64,12 +64,12 @@ Pour mettre à niveau votre déploiement d'Azure App Service sur Azure Stack Hub
             - Si vous utilisez Azure Active Directory (Azure AD), entrez le compte et le mot de passe d'administrateur Azure AD que vous avez indiqués lors du déploiement d'Azure Stack Hub. Sélectionnez **Connecter**.
             - Si vous utilisez Active Directory Federation Services (AD FS), fournissez votre compte d’administrateur. Par exemple : cloudadmin@azurestack.local. Entrez votre mot de passe, puis sélectionnez **Se connecter**.
         - **Principal du service**
-            - Le principal de service que vous utilisez **doit** disposer de droits de **propriétaire** sur l'**abonnement fournisseur par défaut**
-            - Fournissez l'**ID du principal de service**, le **Fichier de certificat** et le **Mot de passe**, puis sélectionnez **Se connecter**.
+            - Le principal de service que vous utilisez **doit** disposer de droits de **propriétaire** sur l' **abonnement fournisseur par défaut**
+            - Fournissez l' **ID du principal de service** , le **Fichier de certificat** et le **Mot de passe** , puis sélectionnez **Se connecter**.
 
-    1. Dans **Abonnements Azure Stack Hub**, sélectionnez **Abonnement au fournisseur par défaut**.    Azure App Service sur Azure Stack Hub **doit** être déployé dans l'**abonnement au fournisseur par défaut**.
+    1. Dans **Abonnements Azure Stack Hub** , sélectionnez **Abonnement au fournisseur par défaut**.    Azure App Service sur Azure Stack Hub **doit** être déployé dans l' **abonnement au fournisseur par défaut**.
 
-    1. Dans **Emplacements Azure Stack Hub**, sélectionnez l'emplacement qui correspond à la région où vous effectuez le déploiement. Par exemple, sélectionnez **local** si vous effectuez le déploiement sur ASDK.
+    1. Dans **Emplacements Azure Stack Hub** , sélectionnez l'emplacement qui correspond à la région où vous effectuez le déploiement. Par exemple, sélectionnez **local** si vous effectuez le déploiement sur ASDK.
 
     1. Si un déploiement Azure App Service est détecté, le groupe de ressources et le compte de stockage sont déjà renseignés et ne sont pas disponibles.
 
@@ -96,7 +96,7 @@ Cet article explique comment mettre à niveau le [fournisseur de ressources Azur
 * est sécurisé par les services de fédération Active Directory (AD FS).
 
 > [!IMPORTANT]
-> Avant d'exécuter la mise à niveau, vous devez procéder au [déploiement d'Azure App Service sur Azure Stack Hub dans un environnement déconnecté](./azure-stack-app-service-deploy.md?pivots=state-disconnected&view=azs-2002). 
+> Avant d'exécuter la mise à niveau, vous devez procéder au [déploiement d'Azure App Service sur Azure Stack Hub dans un environnement déconnecté](./azure-stack-app-service-deploy.md?pivots=state-disconnected). 
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Exécuter le programme d’installation du fournisseur de ressources App Service
 
@@ -120,11 +120,11 @@ Pour mettre à niveau App Service dans un environnement déconnecté, vous devez
 
 1. Exécutez appservice.exe en tant qu’administrateur
 
-    ![Capture d’écran montrant comment démarrer une mise à jour dans un environnement de déconnexion.][11]
+    ![Programme d’installation Azure App Service][6]
 
 2. Cliquez sur **Avancé** > **Créer un package hors connexion**.
 
-    ![Capture d’écran montrant comment créer un package hors connexion dans le programme d’installation App Service.][12]
+    ![Programme d’installation Azure App Service, option Avancé][7]
 
 3. Le programme d’installation Azure App Service crée un package de mise à niveau hors connexion et affiche le chemin pour y accéder.  Vous pouvez cliquer sur **Ouvrir le dossier** pour ouvrir le dossier dans l’Explorateur de fichiers.
 
@@ -137,11 +137,11 @@ Pour mettre à niveau App Service dans un environnement déconnecté, vous devez
 
 1. Exécutez appservice.exe en tant qu’administrateur.
 
-    ![Capture d’écran montrant comment démarrer une mise à jour.][11]
+    ![Programme d’installation Azure App Service][6]
 
 2. Cliquez sur **Avancé** > **Effectuer l’installation ou la mise à niveau hors connexion**.
 
-    ![Capture d’écran montrant comment effectuer une installation ou une mise à jour hors connexion dans le programme d’installation App Service.][12]
+    ![Programme d’installation Azure App Service, option Avancé][7]
 
 3. Accédez à l’emplacement du package de mise à niveau hors connexion que vous avez créé, puis cliquez sur **Suivant**.
 
@@ -149,9 +149,9 @@ Pour mettre à niveau App Service dans un environnement déconnecté, vous devez
 
 5. Consultez et acceptez les termes du contrat de licence tiers, puis cliquez sur **Suivant**.
 
-6. Assurez-vous que le point de terminaison Azure Stack Hub Azure Resource Manager et les informations sur le locataire Active Directory sont corrects. Si vous avez utilisé les paramètres par défaut au cours du déploiement du Kit de développement Azure Stack, vous pouvez accepter les valeurs par défaut ici. Toutefois, si vous avez personnalisé les options lors du déploiement d'Azure Stack Hub, vous devez modifier les valeurs dans cette fenêtre. Par exemple, si vous utilisez le suffixe de domaine *mycloud.com*, vous devez modifier votre point de terminaison Azure Stack Hub Azure Resource Manager en le définissant sur *management.region.mycloud.com*. Après avoir confirmé vos informations, cliquez sur **suivant**.
+6. Assurez-vous que le point de terminaison Azure Stack Hub Azure Resource Manager et les informations sur le locataire Active Directory sont corrects. Si vous avez utilisé les paramètres par défaut au cours du déploiement du Kit de développement Azure Stack, vous pouvez accepter les valeurs par défaut ici. Toutefois, si vous avez personnalisé les options lors du déploiement d'Azure Stack Hub, vous devez modifier les valeurs dans cette fenêtre. Par exemple, si vous utilisez le suffixe de domaine *mycloud.com* , vous devez modifier votre point de terminaison Azure Stack Hub Azure Resource Manager en le définissant sur *management.region.mycloud.com*. Après avoir confirmé vos informations, cliquez sur **suivant**.
 
-    ![Capture d’écran montrant où configurer les points de terminaison ARM dans le programme d’installation.][13]
+    ![Informations sur Azure Stack Hub Cloud][2]
 
 7. Sur la page suivante :
 
@@ -160,28 +160,28 @@ Pour mettre à niveau App Service dans un environnement déconnecté, vous devez
             - Si vous utilisez Azure Active Directory (Azure AD), entrez le compte et le mot de passe d'administrateur Azure AD que vous avez indiqués lors du déploiement d'Azure Stack Hub. Sélectionnez **Connecter**.
             - Si vous utilisez Active Directory Federation Services (AD FS), fournissez votre compte d’administrateur. Par exemple : cloudadmin@azurestack.local. Entrez votre mot de passe, puis sélectionnez **Se connecter**.
         - **Principal du service**
-            - Le principal de service que vous utilisez **doit** disposer de droits de **propriétaire** sur l'**abonnement fournisseur par défaut**
-            - Fournissez l'**ID du principal de service**, le **Fichier de certificat** et le **Mot de passe**, puis sélectionnez **Se connecter**.
+            - Le principal de service que vous utilisez **doit** disposer de droits de **propriétaire** sur l' **abonnement fournisseur par défaut**
+            - Fournissez l' **ID du principal de service** , le **Fichier de certificat** et le **Mot de passe** , puis sélectionnez **Se connecter**.
 
-   1. Dans **Abonnements Azure Stack Hub**, sélectionnez **Abonnement au fournisseur par défaut**.  Azure App Service sur Azure Stack Hub **doit** être déployé dans l'**abonnement au fournisseur par défaut**.
+   1. Dans **Abonnements Azure Stack Hub** , sélectionnez **Abonnement au fournisseur par défaut**.  Azure App Service sur Azure Stack Hub **doit** être déployé dans l' **abonnement au fournisseur par défaut**.
 
-   1. Dans **Emplacements Azure Stack Hub**, sélectionnez l'emplacement qui correspond à la région où vous effectuez le déploiement. Par exemple, sélectionnez **local** si vous effectuez le déploiement sur ASDK.
+   1. Dans **Emplacements Azure Stack Hub** , sélectionnez l'emplacement qui correspond à la région où vous effectuez le déploiement. Par exemple, sélectionnez **local** si vous effectuez le déploiement sur ASDK.
    
    1. Si un déploiement App Service existant est détecté, le groupe de ressources et le compte de stockage sont renseignés et grisés.
 
-      ![Capture d’écran montrant où configurer les abonnements Azure Stack Hub dans le programme d’installation.][14]
+      ![Installation d’Azure App Service détectée][3]
 8. Sur la page de résumé :
    1. Vérifiez les choix effectués. Pour apporter des modifications, utilisez les boutons **Précédent** pour visiter les pages précédentes.
    2. Si les configurations sont correctes, cochez la case.
    3. Pour lancer la mise à niveau, cliquez sur **Suivant**.
 
-       ![Capture d’écran montrant le résumé des informations collectées dans le programme d’installation.][15]
+       ![Résumé de la mise à niveau d'Azure App Service][4]
 
 9. Page de progression de la mise à niveau :
     1. Suivez la progression de la mise à niveau. La durée de la mise à niveau d’App Service sur Azure Stack Hub varie en fonction du nombre d’instances de rôle déployées.
     2. Une fois la mise à niveau terminée avec succès, cliquez sur **Quitter**.
 
-        ![Capture d’écran montrant que la mise à jour s’est terminée avec succès.][16]
+        ![Progression de la mise à niveau d'Azure App Service][5]
 ::: zone-end
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -192,15 +192,12 @@ Anticipez les opérations d'administration supplémentaires pour Azure App Servi
 * [Ajouter de la capacité supplémentaire](azure-stack-app-service-add-worker-roles.md)
 
 <!--Image references-->
-[1]: ./media/azure-stack-app-service-update/app-service-exe.png
-[2]: ./media/azure-stack-app-service-update/app-service-azure-resource-manager-endpoints.png
-[3]: ./media/azure-stack-app-service-update/app-service-installation-detected.png
-[4]: ./media/azure-stack-app-service-update/app-service-upgrade-summary.png
-[5]: ./media/azure-stack-app-service-update/app-service-upgrade-complete.png
+[1]: ./media/azure-stack-app-service-update/app-service-installer.png
+[2]: ./media/azure-stack-app-service-update/app-service-azure-stack-arm-endpoints.png
+[3]: ./media/azure-stack-app-service-update/app-service-azure-stack-subscription-information.png
+[4]: ./media/azure-stack-app-service-update/app-service-azure-stack-deployment-summary.png
+[5]: ./media/azure-stack-app-service-update/app-service-upgrade-summary-complete.png
 
-[11]: ./media/azure-stack-app-service-update-offline/app-service-exe.png
-[12]: ./media/azure-stack-app-service-update-offline/app-service-exe-advanced.png
-[13]: ./media/azure-stack-app-service-update-offline/app-service-azure-resource-manager-endpoints.png
-[14]: ./media/azure-stack-app-service-update-offline/app-service-installation-detected.png
-[15]: ./media/azure-stack-app-service-update-offline/app-service-upgrade-summary.png
-[16]: ./media/azure-stack-app-service-update-offline/app-service-upgrade-complete.png
+[6]: ./media/azure-stack-app-service-update/app-service-installer-exe.png
+[7]: ./media/azure-stack-app-service-update/app-service-exe-advanced-create-package.png
+[8]: ./media/azure-stack-app-service-update/app-service-exe-advanced-complete-offline.png

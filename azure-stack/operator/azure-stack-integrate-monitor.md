@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 1a8e4618f81f157ff05117505bf5b76922bd4c35
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: 10af23001cd3b7e12aa080a2dbecc136be0acfc8
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91815136"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543593"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>Intégrer une solution de supervision externe à Azure Stack Hub
 
@@ -201,16 +201,16 @@ Pour résoudre des problèmes liés au plug-in, vous pouvez appeler le plug-in m
 
 Si vous n’utilisez pas Operations Manager, Nagios ou une solution s’appuyant sur Nagios, vous pouvez utiliser PowerShell pour activer un large éventail de solutions de surveillance à intégrer à Azure Stack Hub.
 
-1. Si vous voulez utiliser PowerShell, assurez-vous que [PowerShell est installé et configuré](azure-stack-powershell-install.md) pour un environnement d’opérateur Azure Stack Hub. Installez PowerShell sur un ordinateur local qui peut atteindre le point de terminaison Resource Manager (administrateur) (https://adminmanagement.[région].[FQDN_externe]).
+1. Si vous voulez utiliser PowerShell, assurez-vous que [PowerShell est installé et configuré](powershell-install-az-module.md) pour un environnement d’opérateur Azure Stack Hub. Installez PowerShell sur un ordinateur local qui peut atteindre le point de terminaison Resource Manager (administrateur) (https://adminmanagement.[région].[FQDN_externe]).
 
 2. Exécutez les commandes suivantes pour vous connecter à l’environnement Azure Stack Hub en tant qu’opérateur Azure Stack Hub :
 
    ```powershell
-   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN] `
+   Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN] `
       -AzureKeyVaultDnsSuffix adminvault.[Region].[External_FQDN] `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.[Region].[External_FQDN]
 
-   Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+   Connect-AzAccount -EnvironmentName "AzureStackAdmin"
    ```
 
 3. Utilisez les commandes telles que les exemples suivants pour les alertes :

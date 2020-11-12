@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/16/2020
 ms.author: justinha
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: bacaccd664996af7dafa7fd6b7b3518b7dcaa851
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: b277eb9dcb1ac66af870db68c919e711aadc1ac7
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488550"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543508"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Principes de bases de l’administration d’Azure Stack Hub
 
@@ -114,7 +114,7 @@ Dans un environnement ASDK, si les utilisateurs se connectent à l’hôte ASDK 
 
 Vos utilisateurs souhaiteront savoir comment [accéder au portail utilisateur](../user/azure-stack-use-portal.md) ou comment se connecter par le biais de PowerShell. Dans un environnement de systèmes intégrés, l’adresse du portail utilisateur varie selon le déploiement. Vous devrez fournir à vos utilisateurs l’URL correcte.
 
-S’ils utilisent PowerShell, les utilisateurs devront peut-être inscrire des fournisseurs de ressources avant de pouvoir utiliser des services. Un fournisseur de ressources gère un service. Par exemple, le fournisseur de ressources réseau gère des ressources comme des réseaux virtuels, des interfaces réseau et des équilibreurs de charge. Ils doivent [installer](azure-stack-powershell-install.md) PowerShell, [télécharger](azure-stack-powershell-download.md) des modules complémentaires et [configurer](../user/azure-stack-powershell-configure-user.md) PowerShell (qui inclut l’inscription des fournisseurs de ressources).
+S’ils utilisent PowerShell, les utilisateurs devront peut-être inscrire des fournisseurs de ressources avant de pouvoir utiliser des services. Un fournisseur de ressources gère un service. Par exemple, le fournisseur de ressources réseau gère des ressources comme des réseaux virtuels, des interfaces réseau et des équilibreurs de charge. Ils doivent [installer](powershell-install-az-module.md) PowerShell, [télécharger](azure-stack-powershell-download.md) des modules complémentaires et [configurer](../user/azure-stack-powershell-configure-user.md) PowerShell (qui inclut l’inscription des fournisseurs de ressources).
 
 **S’abonner à une offre**
 
@@ -137,7 +137,7 @@ Pour tout autre problème, contactez le support Microsoft.
 
 ### <a name="azure-stack-development-kit-asdk"></a>Kit de développement Azure Stack (ASDK)
 
-En ce qui concerne le Kit ASDK, vous pouvez poser des questions de support technique sur les [forums Microsoft](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Pour accéder aux forums, sélectionnez l’icône Aide et support (le point d’interrogation) dans le coin supérieur droit du portail d’administration, sélectionnez **Aide + support**, puis sélectionnez **Forums MSDN** sous la section **Support**. Ces forums sont consultés régulièrement. Le Kit ASDK étant un environnement d’évaluation, les services de support technique Microsoft n’assurent aucun support officiel.
+En ce qui concerne le Kit ASDK, vous pouvez poser des questions de support technique sur les [forums Microsoft](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Pour accéder aux forums, sélectionnez l’icône Aide et support (le point d’interrogation) dans le coin supérieur droit du portail d’administration, sélectionnez **Aide + support** , puis sélectionnez **Forums MSDN** sous la section **Support**. Ces forums sont consultés régulièrement. ASDK étant un environnement d’évaluation, le support Microsoft n’offre aucun support officiel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

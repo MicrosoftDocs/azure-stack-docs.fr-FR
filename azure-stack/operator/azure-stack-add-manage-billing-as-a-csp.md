@@ -3,16 +3,16 @@ title: Gérer l’utilisation et la facturation d’Azure Stack Hub en tant que 
 description: Découvrez comment inscrire Azure Stack Hub en tant fournisseur de solutions cloud, et ajouter des clients pour la facturation.
 author: sethmanheim
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 03206007c60d438149baad267117e447bd5b0a14
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 0c3e82753835adfb70be13f43a14c20701881885
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573477"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414076"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Gérer l’utilisation et la facturation d’Azure Stack Hub en tant que fournisseur de solutions cloud
 

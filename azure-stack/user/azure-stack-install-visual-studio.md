@@ -7,12 +7,12 @@ ms.date: 06/11/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2020
-ms.openlocfilehash: 686a2b1a976df23e91cd38df61267b95008f993a
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 89a6b4da29796cd29d988ea5869330a1486ce420
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107110"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546512"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack-hub"></a>Installer Visual Studio et se connecter à Azure Stack Hub
 
@@ -30,7 +30,7 @@ Vous pouvez utiliser Visual Studio pour écrire et déployer des [modèles](azur
 
     ![Capture d’écran des étapes d’installation de WebPI](./media/azure-stack-install-visual-studio/image1.png)
 
-5. [Installez PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md).
+5. [Installez PowerShell pour Azure Stack Hub](../operator/powershell-install-az-module.md).
 
 6. Redémarrez l’ordinateur une fois l’installation terminée.
 
@@ -38,7 +38,7 @@ Vous pouvez utiliser Visual Studio pour écrire et déployer des [modèles](azur
 
 1. Lancez Visual Studio.
 
-2. Dans le menu **Affichage**, sélectionnez **Cloud Explorer**.
+2. Dans le menu **Affichage** , sélectionnez **Cloud Explorer**.
 
 3. Sélectionnez **Gérer les comptes** et, dans le nouveau volet, connectez-vous avec vos informations d’identification Azure Active Directory (Azure AD).  
 
@@ -50,11 +50,11 @@ Une fois connecté, vous pouvez [déployer des modèles](azure-stack-deploy-temp
 
 1. Lancez Visual Studio.
 
-2. Dans **Outils**, sélectionnez **Options**.
+2. Dans **Outils** , sélectionnez **Options**.
 
 3. Développez **Environnement** dans le volet de navigation et sélectionnez **Comptes**.
 
-4. Sélectionnez **Ajouter**, puis entrez le point de terminaison Azure Resource Manager utilisateur. Pour le kit de développement Azure Stack (ASDK), l’URL est : `https://management.local.azurestack/external`.  Pour les systèmes intégrés Azure Stack Hub, l’URL est : `https://management.[Region}.[External FQDN]`.
+4. Sélectionnez **Ajouter** , puis entrez le point de terminaison Azure Resource Manager utilisateur. Pour le kit de développement Azure Stack (ASDK), l’URL est : `https://management.local.azurestack/external`.  Pour les systèmes intégrés Azure Stack Hub, l’URL est : `https://management.[Region}.[External FQDN]`.
 
     ![Ajouter un nouveau point de terminaison de découverte Cloud Azure](./media/azure-stack-install-visual-studio/image5.png)
 
@@ -64,7 +64,7 @@ Une fois connecté, vous pouvez [déployer des modèles](azure-stack-deploy-temp
 
     ![Capture d’écran montrant les points de terminaison pour les services fédérés Azure Directory.](./media/azure-stack-install-visual-studio/image6.png)
 
-6. Dans le menu **Affichage**, sélectionnez **Cloud Explorer**.
+6. Dans le menu **Affichage** , sélectionnez **Cloud Explorer**.
 
 7. Sélectionnez **Ajouter un compte** et connectez-vous avec vos informations d’identification AD FS.  
 

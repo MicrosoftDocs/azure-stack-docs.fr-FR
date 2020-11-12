@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 455ad320466d1306b1bded888ff8ff0c0fbb52c7
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 34995d8e1d5525e242a0b0919e7b3927c37507ca
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489961"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415145"
 ---
 # <a name="azure-stack-telemetry"></a>Télémétrie Azure Stack
 
@@ -23,7 +23,7 @@ En tant qu’opérateur Azure Stack, les données de télémétrie peuvent fourn
 > [!NOTE]
 > Azure Stack peut également être configuré pour transmettre certaines informations sur l’utilisation à Azure à des fins de facturation. Cela est requis pour les clients Azure Stack à plusieurs nœuds qui choisissent une facturation du paiement à l’utilisation. Les rapports d’utilisation sont contrôlés indépendamment des données de télémétrie et ne sont pas requis pour les clients à plusieurs nœuds qui choisissent le modèle de capacité ou pour les utilisateurs du Kit de développement Azure Stack (ASDK). Pour ces scénarios, les rapports d’utilisation peuvent être désactivés [à l’aide du script d’enregistrement](../operator/azure-stack-usage-reporting.md).
 
-Les données de télémétrie Azure Stack reposent sur le composant Expériences des utilisateurs connectés et télémétrie de *Windows Server 2016*, qui utilise la technologie de [suivi d'événements pour Windows (ETW)](/windows/win32/tracelogging/trace-logging-about) pour collecter et stocker des événements et des données de télémétrie. Les composants Azure Stack utilisent la même technologie de journalisation pour publier les événements et les données recueillies à l’aide des API de suivi et de journalisation des événements du système d’exploitation publiques. Parmi les composants Azure Stack figurent le fournisseur de ressources réseau, le fournisseur de ressources de stockage, le fournisseur de ressources de surveillance et le fournisseur de ressources de mise à jour. Le composant Expériences des utilisateurs connectés et télémétrie chiffre les données à l’aide du protocole SSL et utilise l’épinglage de certificat pour transmettre les données de télémétrie via HTTPS vers le service de gestion des données Microsoft.
+Les données de télémétrie Azure Stack reposent sur le composant Expériences des utilisateurs connectés et télémétrie de *Windows Server 2016* , qui utilise la technologie de [suivi d'événements pour Windows (ETW)](/windows/win32/tracelogging/trace-logging-about) pour collecter et stocker des événements et des données de télémétrie. Les composants Azure Stack utilisent la même technologie de journalisation pour publier les événements et les données recueillies à l’aide des API de suivi et de journalisation des événements du système d’exploitation publiques. Parmi les composants Azure Stack figurent le fournisseur de ressources réseau, le fournisseur de ressources de stockage, le fournisseur de ressources de surveillance et le fournisseur de ressources de mise à jour. Le composant Expériences des utilisateurs connectés et télémétrie chiffre les données à l’aide du protocole SSL et utilise l’épinglage de certificat pour transmettre les données de télémétrie via HTTPS vers le service de gestion des données Microsoft.
 
 > [!NOTE]
 > Pour prendre en charge le flux des données de télémétrie, le port 443 (HTTPS) doit être ouvert sur votre réseau. Le composant Expériences des utilisateurs connectés et télémétrie se connecte au service de gestion des données de Microsoft à l’adresse `https://v10.vortex-win.data.microsoft.com` et à `https://settings-win.data.microsoft.com` pour télécharger les informations de configuration.
@@ -81,7 +81,7 @@ Les niveaux de télémétrie sont cumulés et répartis dans quatre niveaux (0 �
   - Les attributs du réseau, tels que le nombre et la vitesse des adaptateurs réseau.
   - Les attributs du processeur et de la mémoire, tels que le nombre de cœurs et la taille de la mémoire.
   - Les attributs du stockage, tels que le nombre de disques, le type et la taille.
-- Une **fonction de télémétrie**, y compris le pourcentage d’événements chargés, supprimés et la dernière heure de chargement.
+- Une **fonction de télémétrie** , y compris le pourcentage d’événements chargés, supprimés et la dernière heure de chargement.
 - Des **informations relatives à la qualité** qui permettent à Microsoft de comprendre les performances d’Azure Stack. Par exemple, le nombre d’alertes critiques sur une configuration matérielle spécifique.
 - **Données de compatibilité** qui permet d’identifier les fournisseurs de ressources installés sur un système ou une machine virtuelle, ainsi que d’identifier les problèmes de compatibilité potentiels.
 
@@ -92,7 +92,7 @@ Les niveaux de télémétrie sont cumulés et répartis dans quatre niveaux (0 �
 > [!NOTE]
 > La valeur du niveau de télémétrie par défaut est 2 (avancé).
 
-La désactivation de la télémétrie Windows et Azure Stack désactive la télémétrie SQL. Pour plus d’informations sur les implications des paramètres de télémétrie Windows Server, reportez-vous au [Livre blanc sur la télémétrie Windows](https://aka.ms/winservtelemetry).
+La désactivation de la télémétrie Windows et Azure Stack désactive la télémétrie SQL. Pour plus d’informations sur les implications des paramètres de télémétrie Windows Server, reportez-vous au [Livre blanc sur la télémétrie Windows](/windows/privacy/configure-windows-diagnostic-data-in-your-organization).
 
 > [!IMPORTANT]
 > Ces niveaux de télémétrie s’appliquent uniquement aux composants Microsoft Azure Stack. Les composants logiciels et services non Microsoft s’exécutant dans l’hôte de cycle de vie du matériel issus de partenaires fabricants de matériel Azure Stack peuvent communiquer avec leurs services cloud en dehors de ces niveaux de télémétrie. Vous devez collaborer avec votre fournisseur de solutions matérielles Azure Stack afin de comprendre leur stratégie de télémétrie, et comment s’y abonner ou annuler votre abonnement.

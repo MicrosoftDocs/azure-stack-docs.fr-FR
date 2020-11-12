@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 46b76402695131a6bb099a9dc55c15d1066d4c84
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 1232a3ea585cbab53daf905ad0f4707f6df156c8
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573817"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546444"
 ---
 # <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>Déployer une machine virtuelle Azure Stack Hub en utilisant un mot de passe stocké dans Key Vault
 
@@ -28,7 +28,7 @@ Vous pouvez stocker des valeurs, comme des mots de passe, en tant que secrets da
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 * Les utilisateurs doivent s’abonner à une offre qui inclut le service Key Vault.
-* [Installer PowerShell pour Azure Stack Hub.](../operator/azure-stack-powershell-install.md)
+* [Installer PowerShell pour Azure Stack Hub.](../operator/powershell-install-az-module.md)
 * [Configurer votre environnement PowerShell.](azure-stack-powershell-configure-user.md)
 
 Les étapes suivantes décrivent le processus nécessaire pour créer une machine virtuelle en récupérant le mot de passe stocké dans un coffre de clés :
@@ -51,11 +51,11 @@ $resourceGroup = "contosovaultrg"
 $location = "local"
 $secretName = "MySecret"
 
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -Name $resourceGroup `
   -Location $location
 
-New-AzureRmKeyVault `
+New-AzKeyVault `
   -VaultName $vaultName `
   -ResourceGroupName $resourceGroup `
   -Location $location
@@ -110,7 +110,7 @@ Mettez à jour le fichier `azuredeploy.parameters.json` avec les valeurs de la m
 Déployez maintenant le modèle avec le script PowerShell suivant :
 
 ```powershell  
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -Name KVPwdDeployment `
   -ResourceGroupName $resourceGroup `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `

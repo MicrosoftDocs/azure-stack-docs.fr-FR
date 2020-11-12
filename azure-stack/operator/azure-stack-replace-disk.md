@@ -8,12 +8,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 12/02/2019
-ms.openlocfilehash: ec161fd296785f42049b7b2917142f08b47ac910
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 172512b35e4f13a7ad86011162fe7ca9ebb825e5
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367844"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545378"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack-hub"></a>Remplacer un disque physique dans Azure Stack Hub
 
@@ -48,7 +48,7 @@ Une fois le disque remplacé, Azure Stack Hub détecte automatiquement le nouvea
 
 Après avoir remplacé le disque, vous pouvez superviser l’état d’intégrité du disque virtuel et la progression de l'opération de réparation à l’aide d’Azure Stack Hub PowerShell.
 
-1. Vérifiez qu’Azure Stack Hub PowerShell est installé. Pour plus d’informations, consultez [Installer PowerShell pour Azure Stack Hub](azure-stack-powershell-install.md).
+1. Vérifiez qu’Azure Stack Hub PowerShell est installé. Pour plus d’informations, consultez [Installer PowerShell pour Azure Stack Hub](powershell-install-az-module.md).
 2. Connectez-vous à Azure Stack Hub en tant qu’opérateur à l’aide de PowerShell. Pour plus d’informations, consultez [Se connecter à Azure Stack Hub en tant qu’opérateur à l’aide de PowerShell](azure-stack-powershell-configure-admin.md).
 3. Exécutez les applets de commande suivantes pour vérifier l’intégrité du disque virtuel et l’état de la réparation :
 

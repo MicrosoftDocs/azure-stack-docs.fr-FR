@@ -7,12 +7,12 @@ ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: b90b7c61e5eeed1265bf258b6ba3ce7b042b6897
-ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+ms.openlocfilehash: 213e7a0d3a0ad8e395729749e68466a3a4dbab42
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91853191"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415264"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub
 
@@ -236,7 +236,7 @@ Après le déploiement du cluster Kubernetes avec le moteur AKS, le principal du
 
 ### <a name="update-each-node-manually"></a>Mettre à jour chaque nœud manuellement
 
-1. Obtenez un nouveau secret pour votre principal de service auprès de votre opérateur cloud. Pour obtenir des instructions pour Azure Stack Hub, consultez [Utiliser une identité d’application pour accéder aux ressources Azure Stack Hub](/azure-stack/operator/azure-stack-create-service-principals).
+1. Obtenez un nouveau secret pour votre principal de service auprès de votre opérateur cloud. Pour obtenir des instructions pour Azure Stack Hub, consultez [Utiliser une identité d’application pour accéder aux ressources Azure Stack Hub](../operator/azure-stack-create-service-principals.md).
 2. Utilisez les nouvelles informations d’identification fournies par votre opérateur cloud pour mettre à jour `/etc/kubernetes/azure.json` sur chaque nœud. Après avoir effectué la mise à jour, redémarrez **kubelet** et **kube-controller-manager**.
 
 ### <a name="update-the-cluster-with-aks-engine-update"></a>Mettre à jour le cluster avec la mise à jour du moteur AKS

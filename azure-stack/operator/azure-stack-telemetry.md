@@ -8,12 +8,12 @@ ms.date: 1/16/2020
 ms.author: inhenkel
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: afaf8f4716443631ae0d2bbe1b82cd84b9d0e424
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 66bd65158222cad224ea1673de666bd4c464dab4
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487734"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415128"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>Configurer la télémétrie Azure Stack Hub
 
@@ -78,7 +78,7 @@ Données de sécurité, données de base relatives à l’intégrité et donnée
   - les attributs du processeur et de la mémoire, tels que le nombre de cœurs et la taille de la mémoire installée ;
   - les attributs du stockage, tels que le nombre de disques, leur type et leur taille.
 
-- Une *fonction de télémétrie*, y compris le pourcentage d’événements chargés et supprimés, et la dernière heure de chargement de données.
+- Une *fonction de télémétrie* , y compris le pourcentage d’événements chargés et supprimés, et la dernière heure de chargement de données.
 - Des *informations relatives à la qualité* qui permettent à Microsoft de comprendre les performances d’Azure Stack Hub. Par exemple, le nombre d’alertes critiques sur une configuration matérielle spécifique.
 - Des *données de compatibilité* qui aident à identifier les fournisseurs de ressources installés sur un système et une machine virtuelle. Cela permet d’identifier les éventuels problèmes de compatibilité.
 
@@ -89,12 +89,12 @@ Des informations supplémentaires, à savoir : mode d’utilisation du système
 > Il s’agit du paramètre de télémétrie par défaut.
 
 **3 (Complet)**</br>
-Toutes les données nécessaires pour identifier et vous aider à résoudre les problèmes, ainsi que les données issues des niveaux **Sécurité**, **De base**, et **Avancé**.
+Toutes les données nécessaires pour identifier et vous aider à résoudre les problèmes, ainsi que les données issues des niveaux **Sécurité** , **De base** , et **Avancé**.
 
 > [!IMPORTANT]
 > Ces niveaux de télémétrie s’appliquent uniquement aux composants Microsoft Azure Stack Hub. Des composants logiciels et services non Microsoft s’exécutant dans l’hôte de cycle de vie du matériel issus de partenaires fabricants de matériel Azure Stack Hub peuvent communiquer avec leurs services cloud en dehors de ces niveaux de télémétrie. Vous devez collaborer avec votre fournisseur de solutions matérielles Azure Stack Hub afin de comprendre sa stratégie de télémétrie, et comment vous y abonner ou annuler votre abonnement.
 
-La désactivation de la télémétrie Windows et Azure Stack Hub désactive également les données de télémétrie SQL. Pour plus d’informations sur les conséquences des paramètres de télémétrie de Windows Server, consultez le [Livre blanc sur la télémétrie Windows](https://aka.ms/winservtelemetry).
+La désactivation de la télémétrie Windows et Azure Stack Hub désactive également les données de télémétrie SQL. Pour plus d’informations sur les conséquences des paramètres de télémétrie de Windows Server, consultez le [Livre blanc sur la télémétrie Windows](/windows/privacy/configure-windows-diagnostic-data-in-your-organization).
 
 ### <a name="asdk-set-the-telemetry-level-in-the-windows-registry"></a>ASDK : définir le niveau de télémétrie au sein du registre Windows
 

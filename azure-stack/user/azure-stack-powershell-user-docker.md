@@ -3,16 +3,16 @@ title: Utiliser Docker pour exécuter PowerShell dans Azure Stack Hub
 description: Utiliser Docker pour exécuter PowerShell dans Azure Stack Hub
 author: mattbriggs
 ms.topic: how-to
-ms.date: 8/17/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 8/17/2020
-ms.openlocfilehash: c05f35a9ef5ad059bdf50d721acd2811fa908370
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 54e0c53c666ae6d936ed34baea43f708f4a262da
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573732"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546784"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>Utiliser Docker pour exécuter PowerShell pour Azure Stack Hub
 
@@ -39,6 +39,63 @@ Pour utiliser PowerShell afin d’accéder aux ressources dans Azure Stack Hub, 
 2. Notez l’ID d’application, le secret, votre ID de locataire et l’ID d’objet pour les utiliser ultérieurement.
 
 ## <a name="run-powershell-in-docker"></a>Exécuter PowerShell dans Docker
+
+### <a name="az-modules"></a>[Modules Az](#tab/az)
+
+Dans ces instructions, vous allez exécuter une image de conteneur Linux qui contient PowerShell et les modules nécessaires pour Azure Stack Hub.
+
+1. Vous devez exécuter Docker au moyen d’un conteneur Linux. Lors de l’exécution de Docker, basculez vers les conteneurs Linux.
+
+1. Exécutez Docker depuis une machine jointe au même domaine qu’Azure Stack Hub. Si vous utilisez le kit de développement Azure Stack (ASDK), vous devez installer [le VPN sur votre machine distante](azure-stack-connect-azure-stack.md#connect-to-azure-stack-hub-with-vpn).
+
+
+## <a name="install-azure-stack-hub-az-module-on-a-linux-container"></a>Installer le module Az d’Azure Stack Hub sur un conteneur Linux
+
+1. À partir de votre ligne de commande, exécutez la commande Docker suivante pour exécuter PowerShell dans un conteneur Ubuntu :
+
+    ```bash
+    docker run -it mcr.microsoft.com/azurestack/powershell
+    ```
+
+    Vous pouvez exécuter Ubuntu, Debian ou Centos. Les fichiers Docker suivants sont disponibles dans le dépôt GitHub, [azurestack-powershell](https://github.com/Azure/azurestack-powershell). Consultez le dépôt GitHub pour obtenir les dernières modifications apportées aux fichiers Docker. Chaque système d’exploitation est marqué. Remplacez l’étiquette, la partie après les deux-points, par l’étiquette du système d’exploitation souhaité.
+
+    | Linux | Image Docker |
+    | --- | --- |
+    | Ubuntu | `docker run -it mcr.microsoft.com/azurestack/powershell:ubuntu-18.04` |
+    | Debian | `docker run -it mcr.microsoft.com/azurestack/powershell:debian-9` |
+    | Centos | `docker run -it mcr.microsoft.com/azurestack/powershell:centos-7` |
+
+2. L’interpréteur de commandes est prêt pour vos applets de commande. Testez la connectivité de l’interpréteur de commandes en vous connectant, puis en exécutant `Test-AzureStack.ps1`.
+
+    Tout d’abord, créez les informations d’identification du principal de service. Vous aurez besoin du **secret** et de l’ **ID d’application**. Vous aurez également besoin de l’ **ID d’objet** lors de l’exécution de `Test-AzureStack.ps1` pour vérifier votre conteneur. Vous devrez peut-être demander un principal de service à votre opérateur cloud.
+
+    Tapez les applets de commande suivantes pour créer un objet principal de service :
+
+    ```powershell  
+    $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
+    $pscredential = New-Object System.Management.Automation.PSCredential('<ApplicationID>', $passwd)
+    ```
+
+5. Connectez-vous à votre environnement en exécutant le script ci-après avec les valeurs suivantes, depuis votre instance Azure Stack Hub.
+
+    | Valeur | Description |
+    | --- | --- |
+    | Nom de l’environnement. | Nom de votre environnement Azure Stack Hub. |
+    | Point de terminaison Resource Manager | URL pour Resource Manager. Contactez votre opérateur cloud si vous ne la connaissez pas. Elle ressemble à ceci : `https://management.region.domain.com` | 
+    | ID d’annuaire du locataire | ID de votre annuaire de locataire Azure Stack Hub. | 
+    | Informations d'identification | Objet contenant votre principal de service. En l’occurrence, `$pscredential`.  |
+
+    ```powershell
+    ./Login-Environment.ps1 -Name <String> -ResourceManagerEndpoint <resource manager endpoint> -DirectoryTenantId <String> -Credential $pscredential
+    ```
+
+   PowerShell retourne votre objet de compte.
+
+7. Testez votre environnement en exécutant le script `Test-AzureStack.ps1` dans le conteneur. Spécifiez l’ **ID d’objet** du principal de service. Si vous n’indiquez pas l’ID d’objet, le script s’exécutera malgré tout, mais il testera uniquement les modules (utilisateur) du locataire et échouera sur les modules qui nécessitent des privilèges d’administrateur.
+
+    ```powershell  
+    ./Test-AzureStack.ps1 <Object ID>
+    ```
 
 ### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/rm)
 
@@ -104,63 +161,6 @@ Le fichier Dockerfile ouvre l’image Microsoft *microsoft/windowsservercore* da
 
     ```powershell  
     New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
-    ```
-
-### <a name="az-modules"></a>[Modules Az](#tab/az)
-
-Dans ces instructions, vous allez exécuter une image de conteneur Linux qui contient PowerShell et les modules nécessaires pour Azure Stack Hub.
-
-1. Vous devez exécuter Docker au moyen d’un conteneur Linux. Lors de l’exécution de Docker, basculez vers les conteneurs Linux.
-
-1. Exécutez Docker depuis une machine jointe au même domaine qu’Azure Stack Hub. Si vous utilisez le kit de développement Azure Stack (ASDK), vous devez installer [le VPN sur votre machine distante](azure-stack-connect-azure-stack.md#connect-to-azure-stack-hub-with-vpn).
-
-
-## <a name="install-azure-stack-hub-az-module-on-a-linux-container"></a>Installer le module Az d’Azure Stack Hub sur un conteneur Linux
-
-1. À partir de votre ligne de commande, exécutez la commande Docker suivante pour exécuter PowerShell dans un conteneur Ubuntu :
-
-    ```bash
-    docker run -it mcr.microsoft.com/azurestack/powershell
-    ```
-
-    Vous pouvez exécuter Ubuntu, Debian ou Centos. Les fichiers Docker suivants sont disponibles dans le dépôt GitHub, [azurestack-powershell](https://github.com/Azure/azurestack-powershell). Consultez le dépôt GitHub pour obtenir les dernières modifications apportées aux fichiers Docker. Chaque système d’exploitation est marqué. Remplacez l’étiquette, la partie après les deux-points, par l’étiquette du système d’exploitation souhaité.
-
-    | Linux | Image Docker |
-    | --- | --- |
-    | Ubuntu | `docker run -it mcr.microsoft.com/azurestack/powershell:ubuntu-18.04` |
-    | Debian | `docker run -it mcr.microsoft.com/azurestack/powershell:debian-9` |
-    | Centos | `docker run -it mcr.microsoft.com/azurestack/powershell:centos-7` |
-
-2. L’interpréteur de commandes est prêt pour vos applets de commande. Testez la connectivité de l’interpréteur de commandes en vous connectant, puis en exécutant `Test-AzureStack.ps1`.
-
-    Tout d’abord, créez les informations d’identification du principal de service. Vous aurez besoin du **secret** et de l’**ID d’application**. Vous aurez également besoin de l’**ID d’objet** lors de l’exécution de `Test-AzureStack.ps1` pour vérifier votre conteneur. Vous devrez peut-être demander un principal de service à votre opérateur cloud.
-
-    Tapez les applets de commande suivantes pour créer un objet principal de service :
-
-    ```powershell  
-    $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
-    $pscredential = New-Object System.Management.Automation.PSCredential('<ApplicationID>', $passwd)
-    ```
-
-5. Connectez-vous à votre environnement en exécutant le script ci-après avec les valeurs suivantes, depuis votre instance Azure Stack Hub.
-
-    | Valeur | Description |
-    | --- | --- |
-    | Nom de l’environnement. | Nom de votre environnement Azure Stack Hub. |
-    | Point de terminaison Resource Manager | URL pour Resource Manager. Contactez votre opérateur cloud si vous ne la connaissez pas. Elle ressemble à ceci : `https://management.region.domain.com` | 
-    | ID d’annuaire du locataire | ID de votre annuaire de locataire Azure Stack Hub. | 
-    | Informations d'identification | Objet contenant votre principal de service. En l’occurrence, `$pscredential`.  |
-
-    ```powershell
-    ./Login-Environment.ps1 -Name <String> -ResourceManagerEndpoint <resource manager endpoint> -DirectoryTenantId <String> -Credential $pscredential
-    ```
-
-   PowerShell retourne votre objet de compte.
-
-7. Testez votre environnement en exécutant le script `Test-AzureStack.ps1` dans le conteneur. Spécifiez l’**ID d’objet** du principal de service. Si vous n’indiquez pas l’ID d’objet, le script s’exécutera malgré tout, mais il testera uniquement les modules (utilisateur) du locataire et échouera sur les modules qui nécessitent des privilèges d’administrateur.
-
-    ```powershell  
-    ./Test-AzureStack.ps1 <Object ID>
     ```
 
 ---

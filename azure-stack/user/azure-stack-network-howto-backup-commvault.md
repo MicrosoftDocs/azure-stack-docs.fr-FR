@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 5e46d9ee2f23aa58ec3be3735c29f1dfb104c9ee
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 9308e8b017201119a7179c78dbeb99006f4ebfff
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90571879"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547090"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Sauvegarder votre machine virtuelle sur Azure Stack Hub avec CommVault
 
@@ -51,7 +51,7 @@ Le schéma suivant présente la topologie de cette approche :
 
     ![Créer une machine virtuelle](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-01.png)
 
-3. Configurez les paramètres de base dans **Créer une machine virtuelle, 1 De base** :
+3. Configurez les paramètres de base dans **Créer une machine virtuelle, 1 De base**  :
 
     a. Saisissez un **Nom**.
 
@@ -67,7 +67,7 @@ Le schéma suivant présente la topologie de cette approche :
     
     g. Sélectionnez un **groupe de ressources**.
     
-    h. Sélectionnez l’**emplacement** de l’infrastructure Azure Stack Hub. Si vous utilisez un ASDK, sélectionnez **local**.
+    h. Sélectionnez l’ **emplacement** de l’infrastructure Azure Stack Hub. Si vous utilisez un ASDK, sélectionnez **local**.
     
     i. Sélectionnez **OK**.
 
@@ -87,7 +87,7 @@ Le schéma suivant présente la topologie de cette approche :
     
     d. Sélectionnez le **sous-réseau** par défaut.
     
-    e. Sélectionnez l’**adresse IP publique** par défaut.
+    e. Sélectionnez l’ **adresse IP publique** par défaut.
     
     f. Laissez la machine virtuelle dans le groupe de sécurité réseau **De base**.
     
@@ -124,7 +124,7 @@ Vous devez savoir si votre gestionnaire d’identité est Azure AD ou ADFS. Le t
 
 2. Installez Azure Stack Hub PowerShell et les outils Azure Stack Hub sur la machine virtuelle CommVault.
 
-    a. Pour obtenir des instructions sur l’installation d’Azure Stack Hub PowerShell, voir [Installer PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).  
+    a. Pour obtenir des instructions sur l’installation d’Azure Stack Hub PowerShell, voir [Installer PowerShell pour Azure Stack Hub](../operator/powershell-install-az-module.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).  
     b. Pour obtenir des instructions sur l’installation des outils Azure Stack Hub, voir [Télécharger les outils Azure Stack Hub à partir de GitHub](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908).
 
 3. Après l’installation de CommVault sur votre machine virtuelle CommVault, ouvrez la console CommCell. Dans Démarrer, sélectionnez **CommVault** > **Console CommVault CommCell**.
@@ -145,15 +145,15 @@ Vous devez savoir si votre gestionnaire d’identité est Azure AD ou ADFS. Le t
 
 9. Entrez les informations d’accès à votre compte de stockage. Vous trouverez des instructions sur la configuration d’un compte de stockage Azure ici. Informations d’accès :
 
-    -  **Hôte de service** : Récupérez le nom de l’URL à partir des propriétés du conteneur de blobs dans votre ressource. Par exemple, mon URL était https:\//backuptest.blob.westus.stackpoc.com/mybackups et j’ai utilisé blob.westus.stackpoc.com dans l’hôte Service.
+    -  **Hôte de service**  : Récupérez le nom de l’URL à partir des propriétés du conteneur de blobs dans votre ressource. Par exemple, mon URL était https:\//backuptest.blob.westus.stackpoc.com/mybackups et j’ai utilisé blob.westus.stackpoc.com dans l’hôte Service.
     
-    -   **Nom du compte** : utilisez le nom du compte de stockage. Vous pouvez le trouver dans le panneau Clés d’accès de la ressource de stockage.
+    -   **Nom du compte**  : utilisez le nom du compte de stockage. Vous pouvez le trouver dans le panneau Clés d’accès de la ressource de stockage.
     
     -   **Clé d’accès** : Obtenez la clé d’accès dans le panneau Clés d’accès de la ressource de stockage.
     
-    -   **Conteneur** : nom du conteneur. Dans le cas présent, mybackups.
+    -   **Conteneur**  : nom du conteneur. Dans le cas présent, mybackups.
     
-    -   **Classe de stockage** : conservez la classe de stockage par défaut du conteneur Utilisateur.
+    -   **Classe de stockage**  : conservez la classe de stockage par défaut du conteneur Utilisateur.
 
 10. Créez un client Microsoft Azure Stack Hub en suivant les instructions fournies dans [Création d’un client Microsoft Azure Stack Hub](https://documentation.commvault.com/commvault/v11_sp13/article?p=86495.htm)
 

@@ -3,16 +3,16 @@ title: Configurer les conditions préalables à l’utilisation du moteur AKS su
 description: Établissez les conditions d’exécution du moteur AKS sur votre infrastructure Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/08/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/08/2020
-ms.openlocfilehash: 6b3443b64dae560451d4d04d653e097d055fa5c1
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: c703d9cd9c20e48dec6172e3e0e3c12fcc3a7e2a
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573800"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543525"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Configurer les prérequis pour le moteur AKS sur Azure Stack Hub
 
@@ -46,8 +46,8 @@ Vous pouvez définir les éléments suivants.
 | Clé publique privée | Pour utiliser une connexion SSH ouverte entre la machine de développement et la machine virtuelle serveur dans votre instance Azure Stack Hub qui héberge votre application web, il est parfois nécessaire de créer une paire clé privée-clé publique SSH (Secure Shell). | Obligatoire | Pour obtenir des instructions sur la génération d’une clé, voir [Génération d’une clé SSH](./azure-stack-dev-start-howto-ssh-public-key.md).|
 
 
-> [!NOTE]  
-> Vous pouvez également créer les prérequis pour le moteur AKS avec [Azure CLI pour Azure Stack Hub](./azure-stack-version-profiles-azurecli2.md) ou [Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md).
+> [!Note]  
+> Vous pouvez également créer les prérequis pour le moteur AKS avec [Azure CLI pour Azure Stack Hub](./azure-stack-version-profiles-azurecli2.md) ou [Azure Stack Hub PowerShell](../operator/powershell-install-az-module.md).
 
 ## <a name="matching-engine-to-base-image-version"></a>Correspondance du moteur avec la version de l’image de base
 

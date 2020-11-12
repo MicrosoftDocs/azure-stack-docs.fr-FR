@@ -3,16 +3,16 @@ title: Générer des demandes de signature de certificat pour Azure Stack Hub
 description: Découvrez comment générer des demandes de signature de certificat pour des certificats PKI Azure Stack Hub dans les systèmes intégrés Azure Stack Hub.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
-ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: e72d00d7a0a5f1a9299d3d279e3b7ee8dd779b30
-ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 1b7737f387ea1ea3afc913116642605fa54818a6
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428564"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543713"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Générer des demandes de signature de certificat pour Azure Stack Hub
 
@@ -111,7 +111,7 @@ Suivez les étapes ci-après afin de préparer des demandes de signature de cert
     New-AzsHubIoTHubCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
     ```
 
-7. Pour les environnements Dev/Test, afin de générer une requête de certificat unique avec plusieurs autres noms d’objets, vous pouvez ajouter le paramètre **-RequestType SingleCSR** et la valeur (**non** recommandé pour les environnements de production) :
+7. Pour les environnements Dev/Test, afin de générer une requête de certificat unique avec plusieurs autres noms d’objets, vous pouvez ajouter le paramètre **-RequestType SingleCSR** et la valeur ( **non** recommandé pour les environnements de production) :
 
     ```powershell  
     New-AzsHubDeploymentCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -RequestType SingleCSR -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
@@ -135,7 +135,7 @@ Suivez les étapes ci-après afin de préparer des demandes de signature de cert
 1. Installez AzsReadinessChecker à partir d’une invite PowerShell (5.1 ou version ultérieure) en exécutant l’applet de commande suivante :
 
     ```powershell  
-        Install-Module Microsoft.AzureStack.ReadinessChecker
+        Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
 2. Déclarez le point de terminaison d’horodatage **stampEndpoint** sous la forme de regionname.domain.com du système Azure Stack Hub. Par exemple (si l’adresse du portail du locataire Azure Stack Hub est <code> https://</code><code>portal.east.azurestack.contoso.com</code>) :
@@ -176,7 +176,7 @@ Suivez les étapes ci-après afin de préparer des demandes de signature de cert
     New-AzsHubIotHubCertificateSigningRequest -StampEndpoint $stampEndpoint -OutputRequestPath $OutputDirectory
     ```
 
-5. Pour les environnements Dev/Test, afin de générer une requête de certificat unique avec plusieurs autres noms d’objets, vous pouvez ajouter le paramètre **-RequestType SingleCSR** et la valeur (**non** recommandé pour les environnements de production) :
+5. Pour les environnements Dev/Test, afin de générer une requête de certificat unique avec plusieurs autres noms d’objets, vous pouvez ajouter le paramètre **-RequestType SingleCSR** et la valeur ( **non** recommandé pour les environnements de production) :
 
     ```powershell  
     New-AzsHubDeploymentCertificateSigningRequest -StampEndpoint $stampendpoint -OutputRequestPath $OutputDirectory -RequestType SingleCSR

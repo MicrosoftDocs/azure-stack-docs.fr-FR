@@ -7,12 +7,12 @@ ms.date: 8/4/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 8/4/2020
-ms.openlocfilehash: 0539bd452db54b298f681fc47ba7b9183ba75202
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 717eb2cf7ea9ee15c528059462a6f7553bba53e2
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574021"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547039"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>Se connecter à Azure Stack Hub en tant qu’utilisateur avec PowerShell
 
@@ -28,7 +28,7 @@ Pour l’installation :
 
 Configurez les prérequis suivants à partir du [kit de développement](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) ou à partir d’un client externe Windows si vous êtes [connecté via un VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) :
 
-* Installez les [modules Azure PowerShell compatibles avec Azure Stack Hub](../operator/azure-stack-powershell-install.md).
+* Installez les [modules Azure PowerShell compatibles avec Azure Stack Hub](../operator/powershell-install-az-module.md).
 * Téléchargez les [outils nécessaires pour utiliser Azure Stack Hub](../operator/azure-stack-powershell-download.md).
 
 Veillez à remplacer les variables de script suivantes par des valeurs de votre configuration Azure Stack Hub :
@@ -41,25 +41,25 @@ Veillez à remplacer les variables de script suivantes par des valeurs de votre 
 ## <a name="connect-to-azure-stack-hub-with-azure-ad"></a>Se connecter à Azure Stack Hub avec Azure AD
 
 ```powershell  
-    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
+    Add-AzEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
     # Set your tenant name
-    $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
+    $AuthEndpoint = (Get-AzEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
     $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
     $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
 
     # After signing in to your environment, Azure Stack Hub cmdlets
     # can be easily targeted at your Azure Stack Hub instance.
-    Add-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $TenantId
+    Add-AzAccount -EnvironmentName "AzureStackUser" -TenantId $TenantId
 ```
 
 ## <a name="connect-to-azure-stack-hub-with-ad-fs"></a>Se connecter à Azure Stack Hub avec AD FS
 
   ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance
-  Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
+  Add-AzEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
 
   # Sign in to your environment
-  Login-AzureRmAccount -EnvironmentName "AzureStackUser"
+  Login-AzAccount -EnvironmentName "AzureStackUser"
   ```
 
 ## <a name="register-resource-providers"></a>Inscrire des fournisseurs de ressources
@@ -67,10 +67,10 @@ Veillez à remplacer les variables de script suivantes par des valeurs de votre 
 Les fournisseurs de ressources ne sont pas automatiquement inscrits pour les nouveaux abonnements utilisateur qui n’ont aucune ressource déployée par le biais du portail. Vous pouvez inscrire explicitement un fournisseur de ressources en exécutant le script suivant :
 
 ```powershell  
-foreach($s in (Get-AzureRmSubscription)) {
-        Select-AzureRmSubscription -SubscriptionId $s.SubscriptionId | Out-Null
+foreach($s in (Get-AzSubscription)) {
+        Select-AzSubscription -SubscriptionId $s.SubscriptionId | Out-Null
         Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)
-Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider
+Get-AzResourceProvider -ListAvailable | Register-AzResourceProvider
     }
 ```
 
@@ -81,7 +81,7 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider
 Une fois que tout est configuré, testez la connectivité à l’aide de PowerShell pour créer des ressources dans Azure Stack Hub. À des fins de test, créez un groupe de ressources pour une application et ajoutez une machine virtuelle. Utilisez la commande suivante pour créer le groupe de ressources nommé « MyResourceGroup » :
 
 ```powershell  
-New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
+New-AzResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

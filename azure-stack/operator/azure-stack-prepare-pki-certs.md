@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Découvrez comment préparer des certificats PKI pour le déploiement d’Azure Stack Hub ou la rotation des secrets.
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
-ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: 3d129c3ed588fbaaa2ca234d19890c88b2dad364
-ms.sourcegitcommit: e72145ebb5eac17a47ba1c9119fd31de545fdace
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 86e3a87bf869d6bd9980746742a7ba03d142d5fe
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724895"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545021"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>Préparer des certificats PKI Azure Stack Hub pour un déploiement ou une rotation
 
@@ -38,7 +38,7 @@ Suivez les étapes ci-après pour empaqueter des certificats à l’aide des cmd
 1. Installez le module Azure Stack Readiness Checker à partir d’une invite PowerShell (5.1 ou version ultérieure) en exécutant la cmdlet suivante :
 
     ```powershell  
-        Install-Module Microsoft.AzureStack.ReadinessChecker
+        Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 2. Spécifiez le **chemin d’accès** aux fichiers de certificat. Par exemple :
 
@@ -133,17 +133,17 @@ Suivez les étapes ci-après pour packager les nouveaux certificats PKI Azure St
    > [!WARNING]
    > Ne copiez pas les fichiers importés, exportés ou modifiés d’une façon ou d’une autre, à partir des fichiers fournis directement par l’autorité de certification.
 
-1. Cliquez avec le bouton droit sur le certificat, puis sélectionnez **Installer le certificat** ou **Installer PFX**, selon la façon dont le certificat a été remis par votre autorité de certification.
+1. Cliquez avec le bouton droit sur le certificat, puis sélectionnez **Installer le certificat** ou **Installer PFX** , selon la façon dont le certificat a été remis par votre autorité de certification.
 
-1. Dans **l’Assistant Importation de certificat**, sélectionnez **Ordinateur local** en tant qu’emplacement d’importation. Sélectionnez **Suivant**. Sur l’écran suivant, sélectionnez à nouveau Suivant.
+1. Dans **l’Assistant Importation de certificat** , sélectionnez **Ordinateur local** en tant qu’emplacement d’importation. Sélectionnez **Suivant**. Sur l’écran suivant, sélectionnez à nouveau Suivant.
 
     ![Emplacement d’importation du certificat sur la machine locale](./media/prepare-pki-certs/1.png)
 
-1. Sélectionnez **Placer tous les certificats dans le magasin suivant**, puis sélectionnez **Approbation de l’entreprise** comme emplacement. Sélectionnez **OK** pour fermer la boîte de dialogue de sélection du magasin de certificats, puis sélectionnez **Suivant**.
+1. Sélectionnez **Placer tous les certificats dans le magasin suivant** , puis sélectionnez **Approbation de l’entreprise** comme emplacement. Sélectionnez **OK** pour fermer la boîte de dialogue de sélection du magasin de certificats, puis sélectionnez **Suivant**.
 
    ![Configurer le magasin de certificats pour l’importation de certificats](./media/prepare-pki-certs/3.png)
 
-   a. Si vous importez un fichier PFX, une boîte de dialogue supplémentaire s’affiche. Dans la page **Protection de la clé privée**, entrez le mot de passe de vos fichiers de certificat, puis activez l’option **Marquer cette clé comme exportable** qui vous permettra de sauvegarder ou de transporter vos clés ultérieurement. Sélectionnez **Suivant**.
+   a. Si vous importez un fichier PFX, une boîte de dialogue supplémentaire s’affiche. Dans la page **Protection de la clé privée** , entrez le mot de passe de vos fichiers de certificat, puis activez l’option **Marquer cette clé comme exportable** qui vous permettra de sauvegarder ou de transporter vos clés ultérieurement. Sélectionnez **Suivant**.
 
    ![Marquer la clé comme exportable](./media/prepare-pki-certs/2.png)
 
@@ -156,13 +156,13 @@ Suivez les étapes ci-après pour packager les nouveaux certificats PKI Azure St
 
 Ouvrez la console MMC du Gestionnaire de certificats et connectez-vous au magasin de certificats de l’ordinateur Local.
 
-1. Ouvrez la console MMC (Microsoft Management Console). Pour ouvrir la console dans Windows 10, cliquez avec le bouton droit sur le **menu Démarrer**, sélectionnez **Exécuter**, tapez **mmc**, puis appuyez sur Entrée.
+1. Ouvrez la console MMC (Microsoft Management Console). Pour ouvrir la console dans Windows 10, cliquez avec le bouton droit sur le **menu Démarrer** , sélectionnez **Exécuter** , tapez **mmc** , puis appuyez sur Entrée.
 
-2. Sélectionnez **Fichier** > **Ajouter/supprimer un composant logiciel enfichable**, sélectionnez **Certificats**, puis **Ajouter**.
+2. Sélectionnez **Fichier** > **Ajouter/supprimer un composant logiciel enfichable** , sélectionnez **Certificats** , puis **Ajouter**.
 
     ![Ajouter le composant logiciel enfichable Certificats dans la console MMC](./media/prepare-pki-certs/mmc-2.png)
 
-3. Sélectionnez **Compte d’ordinateur**, puis **Suivant**. Sélectionnez **Ordinateur local**, puis **Terminer**. Sélectionnez **OK** pour fermer la page Ajouter/Supprimer un composant logiciel enfichable.
+3. Sélectionnez **Compte d’ordinateur** , puis **Suivant**. Sélectionnez **Ordinateur local** , puis **Terminer**. Sélectionnez **OK** pour fermer la page Ajouter/Supprimer un composant logiciel enfichable.
 
     ![Sélectionner un compte pour l’ajout du composant logiciel enfichable Certificats dans la console MMC](./media/prepare-pki-certs/mmc-3.png)
 
@@ -173,7 +173,7 @@ Ouvrez la console MMC du Gestionnaire de certificats et connectez-vous au magasi
    > [!NOTE]
    > Selon le nombre de certificats Azure Stack Hub que vous avez, il se peut que vous deviez effectuer ce processus plusieurs fois.
 
-6. Sélectionnez **Oui, exporter la clé privée**, puis cliquez sur **Suivant**.
+6. Sélectionnez **Oui, exporter la clé privée** , puis cliquez sur **Suivant**.
 
 7. Dans la section Format du fichier d’exportation :
     

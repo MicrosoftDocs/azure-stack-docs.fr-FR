@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: 9a04f99df8093f0f37d68137dfbe9ff18664d385
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: c5e6ac0a2a500cf43cf94cbc40b2a95c58784d28
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489740"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544715"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q2-release-notes"></a>Notes de publication App Service sur Azure Stack Hub 2020 T2
 
@@ -45,7 +45,7 @@ Avant de commencer à mettre à niveau Azure App Service sur Azure Stack vers l
   > [!Important]
   > Les opérateurs cloud sont responsables de la maintenance et du fonctionnement du serveur de fichiers et de SQL Server.  Le fournisseur de ressources ne gère pas ces ressources.  L'opérateur cloud est responsable de la sauvegarde des bases de données App Service et du partage des fichiers de contenu des locataires.
 
-- Syndiquez l’**extension de script personnalisé** version **1.9.3** à partir de la Place de marché Azure
+- Syndiquez l’ **extension de script personnalisé** version **1.9.3** à partir de la Place de marché Azure
 
 
 
@@ -82,7 +82,7 @@ La mise à jour T2 d’Azure App Service sur Azure Stack contient les améliora
 
 - **Les mises à jour cumulatives pour Windows Server sont désormais appliquées aux rôles de contrôleur dans le cadre du déploiement et de la mise à niveau**
 
-- **Mise à jour des références SKU par défaut des machines virtuelles et des groupes identiques pour les nouveaux déploiements** : Afin d'assurer la cohérence avec notre service cloud public, les nouveaux déploiements d'Azure App Service sur Azure Stack Hub utiliseront les références SKU suivantes pour les machines et groupes identiques sous-jacents destinés au fournisseur de ressources
+- **Mise à jour des références SKU par défaut des machines virtuelles et des groupes identiques pour les nouveaux déploiements**  : Afin d'assurer la cohérence avec notre service cloud public, les nouveaux déploiements d'Azure App Service sur Azure Stack Hub utiliseront les références SKU suivantes pour les machines et groupes identiques sous-jacents destinés au fournisseur de ressources
   
   | Role | Nombre minimal de références (SKU) |
   | --- | --- |
@@ -131,8 +131,9 @@ Les clients doivent exécuter le script suivant sur l'instance SQL Server héber
 
 Ce script doit être exécuté dans les conditions suivantes
 
-1. Par un utilisateur disposant des privilèges d’administrateur système, par exemple le compte d'administrateur système (SA) SQL ;
-1. Si vous utilisez SQL Always On, assurez-vous que le script est exécuté à partir de l’instance SQL contenant toutes les connexions App Service sous la forme :
+- Par un utilisateur disposant des privilèges d’administrateur système, par exemple le compte d'administrateur système (SA) SQL ;
+- Si vous utilisez SQL Always On, assurez-vous que le script est exécuté à partir de l’instance SQL contenant toutes les connexions App Service sous la forme :
+
     - appservice_hosting_FileServer
     - appservice_hosting_HostingAdmin
     - appservice_hosting_LoadBalancer

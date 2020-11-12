@@ -3,16 +3,16 @@ title: Configurer l’architecture multilocataire dans Azure Stack Hub
 description: Découvrez comment activer et désactiver plusieurs locataires Azure Active Directory dans Azure Stack Hub.
 author: BryanLa
 ms.topic: how-to
-ms.date: 06/18/2020
+ms.date: 10/16/2020
 ms.author: bryanla
 ms.reviewer: bryanr
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 6d6e6f3c28a4386a099727f132d28f97cf4dacbe
-ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 923c430291c742069a29806449b45d4fc9cdef07
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93291212"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544222"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Configurer l’architecture multilocataire dans Azure Stack Hub
 
@@ -31,8 +31,8 @@ Si vous êtes un fournisseur de solutions cloud (CSP), vous pouvez [configurer e
 Il existe quelques prérequis à prendre en compte avant de configurer une architecture multilocataire Azure Stack Hub :
   
  - Marie et vous-même devez coordonner les étapes administratives dans l’annuaire où Azure Stack Hub est installé (Contoso) et dans l’annuaire invité (Fabrikam).
- - Vérifiez que vous avez [installé](azure-stack-powershell-install.md) et [configuré](azure-stack-powershell-configure-admin.md) PowerShell pour Azure Stack Hub.
- - [Téléchargez les outils Azure Stack Hub](azure-stack-powershell-download.md) et importez les modules de d’identité :
+ - Vérifiez que vous avez [installé](powershell-install-az-module.md) et [configuré](azure-stack-powershell-configure-admin.md) PowerShell pour Azure Stack Hub.
+ - [Téléchargez les outils Azure Stack Hub](azure-stack-powershell-download.md) et importez les modules de connexion et d’identité :
 
     ```powershell
     Import-Module .\Identity\AzureStack.Identity.psm1

@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 3f3f39a03220150a71fddc090cc6aeb84525bab9
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.openlocfilehash: 55041cb4072fc0156a4b3769eede40a21b1aed3c
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818978"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546546"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>Utiliser des outils de transfert de données pour le stockage Azure Stack Hub
 
@@ -111,15 +111,15 @@ Le module Azure PowerShell fournit des cmdlets pour gérer des services sur Azur
 
 ### <a name="install-and-configure-powershell-for-azure-stack-hub"></a>Installer et configurer PowerShell pour Azure Stack Hub
 
-Des modules Azure PowerShell compatibles avec Azure Stack Hub sont nécessaires pour utiliser Azure Stack Hub. Pour plus d’informations, consultez [Installer PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md) et [Configurer l’environnement PowerShell de l’utilisateur Azure Stack Hub](azure-stack-powershell-configure-user.md).
+Des modules Azure PowerShell compatibles avec Azure Stack Hub sont nécessaires pour utiliser Azure Stack Hub. Pour plus d’informations, consultez [Installer PowerShell pour Azure Stack Hub](../operator/powershell-install-az-module.md) et [Configurer l’environnement PowerShell de l’utilisateur Azure Stack Hub](azure-stack-powershell-configure-user.md).
 
 ### <a name="powershell-sample-script-for-azure-stack-hub"></a>Exemple de script PowerShell pour Azure Stack Hub 
 
-Cet exemple suppose que vous avez [installé PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md). Ce script vous permet d’effectuer la configuration et de demander à votre locataire Azure Stack Hub des informations d’identification pour ajouter votre compte à l’environnement PowerShell local. Ensuite, le script définit l’abonnement Azure par défaut, crée un nouveau compte de stockage dans Azure, crée un conteneur dans ce nouveau compte de stockage et charge un fichier image existant (blob) dans ce conteneur. Une fois que le script répertorie tous les objets blob de ce conteneur, il crée un répertoire de destination sur votre ordinateur local et télécharge le fichier image.
+Cet exemple suppose que vous avez [installé PowerShell pour Azure Stack Hub](../operator/powershell-install-az-module.md). Ce script vous permet d’effectuer la configuration et de demander à votre locataire Azure Stack Hub des informations d’identification pour ajouter votre compte à l’environnement PowerShell local. Ensuite, le script définit l’abonnement Azure par défaut, crée un nouveau compte de stockage dans Azure, crée un conteneur dans ce nouveau compte de stockage et charge un fichier image existant (blob) dans ce conteneur. Une fois que le script répertorie tous les objets blob de ce conteneur, il crée un répertoire de destination sur votre ordinateur local et télécharge le fichier image.
 
-1. Installez les [modules Azure PowerShell compatibles avec Azure Stack Hub](../operator/azure-stack-powershell-install.md).
+1. Installez les [modules Azure PowerShell compatibles avec Azure Stack Hub](../operator/powershell-install-az-module.md).
 2. Téléchargez les [outils nécessaires pour utiliser Azure Stack Hub](../operator/azure-stack-powershell-download.md).
-3. Ouvrez **Windows PowerShell ISE** et **Exécuter en tant qu’administrateur**, puis cliquez sur **Fichier** > **Nouveau** pour créer un nouveau fichier script.
+3. Ouvrez **Windows PowerShell ISE** et **Exécuter en tant qu’administrateur** , puis cliquez sur **Fichier** > **Nouveau** pour créer un nouveau fichier script.
 4. Copiez le script ci-dessous et collez-le sur le nouveau fichier script.
 5. Mettez à jour les variables du script en fonction de vos paramètres de configuration.
    > [!NOTE]
@@ -146,24 +146,24 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 Import-Module .\Connect\AzureStack.Connect.psm1
 
 # Configure the PowerShell environment
-# Register an AzureRM environment that targets your Azure Stack Hub instance
-Add-AzureRmEnvironment -Name $ARMEvnName -ARMEndpoint $ARMEndPoint 
+# Register an Az environment that targets your Azure Stack Hub instance
+Add-AzEnvironment -Name $ARMEvnName -ARMEndpoint $ARMEndPoint 
 
 # Login
 $TenantID = Get-AzsDirectoryTenantId -AADTenantName $AADTenantName -EnvironmentName $ARMEvnName
-Add-AzureRmAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
+Add-AzAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
 
 # Set a default Azure subscription.
-Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+Select-AzSubscription -SubscriptionName $SubscriptionName
 
 # Create a new Resource Group 
-New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
+New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 
 # Create a new storage account.
-New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS
+New-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS
 
 # Set a default storage account.
-Set-AzureRmCurrentStorageAccount -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName 
+Set-AzCurrentStorageAccount -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName 
 
 # Create a new container.
 New-AzureStorageContainer -Name $ContainerName -Permission Off
@@ -191,21 +191,21 @@ $blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder
 
 La version actuelle du module Azure PowerShell compatible avec Azure Stack Hub est 1.2.11 pour les opérations utilisateur. Elle est différente de la dernière version d’Azure PowerShell. Cette différence impacte l’opération de service de stockage de la manière suivante :
 
-Le format de la valeur renvoyée de `Get-AzureRmStorageAccountKey` dans la version 1.2.11 comporte deux propriétés, `Key1` et `Key2`, alors que la version actuelle d’Azure renvoie un tableau contenant toutes les clés de compte.
+Le format de la valeur renvoyée de `Get-AzStorageAccountKey` dans la version 1.2.11 comporte deux propriétés, `Key1` et `Key2`, alors que la version actuelle d’Azure renvoie un tableau contenant toutes les clés de compte.
 
 ```powershell
 # This command gets a specific key for a storage account, 
 # and works for Azure PowerShell version 1.4, and later versions.
-(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+(Get-AzStorageAccountKey -ResourceGroupName "RG01" `
 -AccountName "MyStorageAccount").Value[0]
 
 # This command gets a specific key for a storage account, 
 # and works for Azure PowerShell version 1.3.2, and previous versions.
-(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+(Get-AzStorageAccountKey -ResourceGroupName "RG01" `
 -AccountName "MyStorageAccount").Key1
 ```
 
-Pour plus d’informations, consultez [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey).
+Pour plus d’informations, consultez [Get-AzureRmStorageAccountKey](/powershell/module/Az.storage/Get-AzStorageAccountKey).
 
 ## <a name="azure-cli"></a>Azure CLI
 

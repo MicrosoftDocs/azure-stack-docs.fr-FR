@@ -7,17 +7,17 @@ ms.date: 10/08/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 10/08/2020
-ms.openlocfilehash: b9a37df9404de01bd9b094ae259c8c62637cb369
-ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+ms.openlocfilehash: 7b3c69b26ef1fee21e652c70f0ca9a9ddc156460
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91853259"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383664"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Automatisation de la gestion et de la mise à jour des machines virtuelles dans Azure Stack Hub
 Utilisez les fonctionnalités suivantes de la solution Azure Automation pour gérer des machines virtuelles Windows et Linux déployées avec Azure Stack Hub :
 
-- **[Update Management](/azure/automation/automation-update-management)**  : La solution Update Management vous permet d’évaluer rapidement l’état des mises à jour disponibles sur tous les ordinateurs d’agent et de gérer le processus d’installation des mises à jour obligatoires pour les machines virtuelles Windows et Linux.
+- **[Update Management](/azure/automation/update-management/overview)**  : La solution Update Management vous permet d’évaluer rapidement l’état des mises à jour disponibles sur tous les ordinateurs d’agent et de gérer le processus d’installation des mises à jour obligatoires pour les machines virtuelles Windows et Linux.
 
 - **[Change Tracking](/azure/automation/automation-change-tracking)**  : Les modifications apportées aux logiciels installés, aux services Windows, aux fichiers et au Registre Windows ainsi qu’aux démons Linux sur les serveurs supervisés sont envoyées au service cloud Azure Monitor pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données. En utilisant les informations du tableau de bord Change Tracking, vous pouvez facilement voir les modifications apportées à votre infrastructure de serveur.
 
@@ -43,7 +43,7 @@ Vous devez ensuite [créer un compte Automation](/azure/automation/automation-cr
 
 1. Dans le portail Azure, accédez au compte Automation que vous souhaitez utiliser.
 
-2. Sélectionnez la solution à activer (**Inventory**, **Change Tracking**, ou **Update Management**).
+2. Sélectionnez la solution à activer ( **Inventory** , **Change Tracking** , ou **Update Management** ).
 
 3. Utilisez la liste déroulante **Sélectionner un espace de travail...** pour sélectionner l’espace de travail Log Analytics à utiliser.
 
@@ -72,7 +72,7 @@ Après avoir activé les solutions Azure Automation sur le portail Azure, vous d
 
    ![La boîte de dialogue « Accueil > Gestion de la Place de marché > Ajouter à partir d’Azure > Azure Monitor, Update and Configuration Management » décrit l’extension et contient un bouton Télécharger.](media//vm-update-management/2.PNG) 
 
-Pour activer la solution Map d’Azure Monitor pour machines virtuelles et obtenir des insights sur les dépendances avec le réseau, téléchargez l’extension **Azure Monitor Dependency Agent** :
+Pour activer la solution Map d’Azure Monitor pour machines virtuelles et obtenir des insights sur les dépendances avec le réseau, téléchargez l’extension **Azure Monitor Dependency Agent**  :
 
    ![La boîte de dialogue « Accueil > Gestion de la Place de marché > Ajouter à partir d’Azure > Azure Monitor Dependency Agent » décrit l’extension et contient un bouton Télécharger.](media//vm-update-management/2-dependency.PNG) 
 
@@ -81,7 +81,7 @@ Pour activer la gestion des mises à jour des machines virtuelles Azure Stack Hu
 
 1. Connectez-vous au portail utilisateur Azure Stack Hub.
 
-2. Dans le portail utilisateur Azure Stack Hub, accédez au panneau Extensions des machines virtuelles pour lesquelles vous voulez activer ces solutions, cliquez sur **+ Ajouter**, sélectionnez l’extension **Azure Update and Configuration Management**, puis cliquez sur **Créer** :
+2. Dans le portail utilisateur Azure Stack Hub, accédez au panneau Extensions des machines virtuelles pour lesquelles vous voulez activer ces solutions, cliquez sur **+ Ajouter** , sélectionnez l’extension **Azure Update and Configuration Management** , puis cliquez sur **Créer**  :
 
     ![La boîte de dialogue « Azure Update and Configuration Management » contient des informations explicatives, un bouton Créer (mis en surbrillance) pour ajouter l’extension, ainsi qu’un lien vers plus d’informations.](media//vm-update-management/3-sm.PNG "Panneau Extension de machine virtuelle")
 
@@ -89,7 +89,7 @@ Pour activer la gestion des mises à jour des machines virtuelles Azure Stack Hu
 
    [![La boîte de dialogue « Installer l’extension » contient des zones de texte pour Azure WorkspaceID et WorkspaceKey.](media//vm-update-management/4-sm.PNG "Indication de la clé et de l’ID d’espace de travail")](media//vm-update-management/4-lg.PNG) 
 
-4. Comme décrit dans la [documentation sur la gestion des mises à jour](/azure/automation/automation-update-management), vous devez activer la solution Update Management pour chaque machine virtuelle que vous souhaitez gérer. Pour activer la solution pour toutes les machines virtuelles associées à l’espace de travail, sélectionnez **Gestion des mises à jour**, cliquez sur **Gérer des machines**, puis sélectionnez l’option **Activer sur tous les ordinateurs disponibles et à venir**.
+4. Comme décrit dans la [documentation sur la gestion des mises à jour](/azure/automation/update-management/overview), vous devez activer la solution Update Management pour chaque machine virtuelle que vous souhaitez gérer. Pour activer la solution pour toutes les machines virtuelles associées à l’espace de travail, sélectionnez **Gestion des mises à jour** , cliquez sur **Gérer des machines** , puis sélectionnez l’option **Activer sur tous les ordinateurs disponibles et à venir**.
 
    [![La boîte de dialogue Gérer les machines - Update Management affiche les machines sur lesquelles Update Management n’est pas activé. Trois options d’activation sont proposées, et l’option « Activer sur toutes les machines disponibles et à venir » est sélectionnée et mise en surbrillance. Un bouton Activer est également présent.](media//vm-update-management/5-sm.PNG "Activer la solution Update Management sur toutes les machines")](media//vm-update-management/5-lg.PNG) 
 
