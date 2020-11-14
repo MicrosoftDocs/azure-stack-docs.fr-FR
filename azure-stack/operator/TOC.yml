@@ -137,10 +137,10 @@
           href: azure-stack-cli-admin.md
         - name: Configurer l’environnement de gestion
           items:
-            - name: Installer PowerShell AzureRM
-              href: azure-stack-powershell-install.md
             - name: Installer PowerShell Az
               href: powershell-install-az-module.md
+            - name: Installer PowerShell AzureRM
+              href: azure-stack-powershell-install.md
             - name: Migrer PowerShell AzureRM vers Az
               href: migrate-azurerm-az.md
             - name: Télécharger des outils
@@ -319,6 +319,8 @@
                   href: app-service-remove.md
             - name: Notes de publication
               items:
+                - name: "Notes de publication\_2020\_T3 [Septembre\_2020]"
+                  href: app-service-release-notes-2020-Q3.md
                 - name: 'Notes de publication 2020 T2 [Mai2020]'
                   href: app-service-release-notes-2020-Q2.md
                 - name: 'Notes de publication Update 8 [Jan2020]'

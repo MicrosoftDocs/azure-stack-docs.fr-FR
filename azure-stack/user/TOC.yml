@@ -48,7 +48,7 @@
                 - name: Vue d’ensemble d’Azure Stack Hub PowerShell
                   href: azure-stack-powershell-overview.md
                 - name: Installer Azure Stack Hub PowerShell
-                  href: ../operator/azure-stack-powershell-install.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/powershell-install-az-module.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: Se connecter avec PowerShell
                   href: azure-stack-powershell-configure-user.md
@@ -189,6 +189,8 @@
                       href: network-virtual-appliance.md
                     - name: Résoudre les problèmes des connexions de site à site
                       href: site-to-site.md
+                - name: Appairage de réseaux virtuels
+                  href: virtual-network-peering.md
                 - name: iDNS pour Azure Stack Hub
                   href: azure-stack-understanding-dns.md
                 - name: DNS dans Azure Stack Hub
@@ -301,19 +303,19 @@
       items:
         - name: Modèles réseau
           items:
-            - name: Peering de réseaux virtuels avec des machines virtuelles
-              href: azure-stack-network-howto-vnet-peering.md
             - name: Utiliser des appliances virtuelles réseau tierces (Fortinet FortiGate)
               items:
-                - name: Peering de réseaux virtuels avec FortiGate
+                - name: Connectivité de réseau virtuel à réseau virtuel avec Fortigate
                   href: azure-stack-network-howto-vnet-to-vnet.md
                 - name: Configurer un VPN en local
                   href: azure-stack-network-howto-vnet-to-onprem.md
-                - name: Connexion de réseau virtuel à réseau virtuel
+                - name: Connectivité de réseau virtuel à réseau virtuel entre les instances Azure Stack Hub
                   href: azure-stack-network-howto-vnet-to-vnet-stacks.md
             - name: Utiliser RRAS
               items:
-                - name: Configurer un VPN site à site multiple
+                - name: Connectivité de réseau virtuel à réseau virtuel avec RRAS
+                  href: azure-stack-network-howto-vnet-peering.md
+                - name: Configurer plusieurs tunnels VPN site à site
                   href: network-howto-vpn-tunnel.md
                 - name: Créer un tunnel VPN (GRE)
                   href: network-howto-vpn-tunnel-gre.md

@@ -10,44 +10,92 @@ metadata:
   author: justinha
   ms.author: justinha
   ms.date: 07/23/2020
-  ms.openlocfilehash: d02096ea41e17172f553efc3a92a5908845e03cd
-  ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+  ms.openlocfilehash: 37446262243a4f5247d21e5fce94b473444938e5
+  ms.sourcegitcommit: f51d396e4822961162a0caf7fbed18b5760e137b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/19/2020
-  ms.locfileid: "92183545"
+  ms.lasthandoff: 11/11/2020
+  ms.locfileid: "94518846"
 landingContent:
-- title: Déployer MDC
+- title: À propos d’Azure Modular Data Center
   linkLists:
-  - linkListType: deploy
+  - linkListType: overview
     links:
-    - text: Vue d’ensemble du déploiement de MDC
-      url: deployment-overview.md
-  - linkListType: deploy
+    - text: Qu’est-ce qu’un Modular Data Center ?
+      url: mdc-overview.md
+    - text: Spécifications de modèle
+      url: azure-stack-capacity-planning-overview.md
+  - linkListType: whats-new
     links:
-    - text: Capacity Planner
-      url: azure-stack-capacity-planner.md
-- title: Bien démarrer
+    - text: Mises à jour de sécurité
+      url: ../operator/release-notes-security-updates.md
+    - text: Notes de publication
+      url: ../operator/release-notes.md
+- title: Bien démarrer avec Azure Modular Data Center
   linkLists:
-  - linkListType: get-started
+  - linkListType: learn
     links:
-    - text: Ajouter un élément de la Place de marché Azure Stack Hub
-      url: ../operator/azure-stack-create-and-publish-marketplace-item.md
+    - text: Utiliser le portail des administrateurs
+      url: ../operator/azure-stack-manage-portals.md
+    - text: Offrir un service aux utilisateurs
+      url: ../operator/tutorial-offer-services.md
+    - text: Tester une offre de service
+      url: ../operator/tutorial-test-offer.md
+  - linkListType: concept
+    links:
+    - text: Comparer les modèles de connexion
+      url: ../operator/azure-stack-connection-models.md
+    - text: Déploiement connecté
+      url: ../operator/azure-stack-connected-deployment.md
+    - text: Déploiement déconnecté
+      url: ../operator/azure-stack-disconnected-deployment.md
+- title: Gérer une instance Azure Modular Data Center
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Surveiller l’intégrité et les alertes
+      url: operator/azure-stack-monitor-health-tzl.md
+    - text: Installer des mises à jour et surveiller la progression
+      url: ../operator/azure-stack-apply-updates.md
+    - text: Bonnes pratiques pour la sauvegarde et la restauration
+      url: operator/azure-stack-backup-best-practices-tzl.md
+- title: Outils Azure Stack Hub
+  linkLists:
+  - linkListType: download
+    links:
+    - text: Télécharger les outils Azure Stack Hub à partir de GitHub
+      url: ../operator/azure-stack-powershell-download.md
+    - text: Installer Azure Stack PowerShell
+      url: ../operator/azure-stack-powershell-install.md
+    - text: Utiliser Docker pour exécuter PowerShell
+      url: ../user/azure-stack-powershell-user-docker.md
+    - text: Se connecter avec Azure Stack PowerShell
+      url: ../operator/azure-stack-powershell-configure-admin.md
+- title: Infrastructure en tant que service (IaaS) sur Azure Stack Hub
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Démarrage rapide - Créer une machine virtuelle
+      url: ../user/azure-stack-quick-linux-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: Migrer des machines virtuelles
+      url: ../user/vm-move-overview.md
+    - text: Déployer une machine virtuelle dans IaaS avec un modèle
+      url: ../user/azure-stack-create-vm-template.md
+    - text: Configurer un réseau virtuel
+      url: ../user/deploy-foundational-patterns.md
+    - text: Héberger des applications écrites dans votre code
+      url: ../user/azure-stack-dev-start-deploy-app.md
+- title: Offrir des services Azure Stack Hub
+  linkLists:
   - linkListType: tutorial
     links:
-    - text: Proposer des services IaaS
+    - text: Créer une offre pour une machine virtuelle
       url: ../operator/tutorial-offer-services.md
-- title: Utilisation
-  linkLists:
   - linkListType: how-to-guide
     links:
-    - text: S’abonner à une offre
-      url: ../user/azure-stack-subscribe-services.md
-    - text: Créer une machine virtuelle à partir d’un modèle
-      url: ../user/azure-stack-create-vm-template.md
-  - linkListType: how-to-guide
-    links:
-    - text: Mise à jour du microprogramme
-      url: extended-storage-firmware-updates.md
-    - text: Vérifier l'intégrité
-      url: extended-storage-health-checks.md
+    - text: Créer une base de données MySQL à haute disponibilité
+      url: ../operator/azure-stack-tutorial-mysql.md
+    - text: Créer des applications pour toutes les plateformes
+      url: ../operator/azure-stack-app-service-overview.md
