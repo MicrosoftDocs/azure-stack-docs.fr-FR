@@ -7,14 +7,14 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: dc74c40611dd680b8b0d893e06b6935beae7a5f6
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: e401e1897af63ede0a3f7dcdd924dc00df39f941
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573902"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547073"
 ---
-# <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>Configurer un tunnel VPN site à site multiple dans Azure Stack Hub
+# <a name="how-to-set-up-multiple-site-to-site-vpn-tunnels-in-azure-stack-hub"></a>Configurer plusieurs tunnels VPN site à site dans Azure Stack Hub
 
 Cet article explique comment utiliser un modèle Resource Manager Azure Stack Hub pour déployer la solution. La solution crée plusieurs groupes de ressources avec des réseaux virtuels associés et permet de connecter ces systèmes.
 
@@ -36,7 +36,7 @@ Les modèles sont disponibles dans le référentiel GitHub [Azure intelligent Ed
 
 -  Connectez **WebTier** et **AppTier** à l’aide d’un tunnel IKE.
 
--  Connectez **AppTier** à un système local que vous appellerez**DBTier**.
+-  Connectez **AppTier** à un système local que vous appellerez **DBTier**.
 
 ## <a name="steps-to-deploy-multiple-vpns"></a>Procédure de déploiement de plusieurs VPN
 

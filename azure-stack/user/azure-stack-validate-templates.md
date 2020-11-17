@@ -7,12 +7,12 @@ ms.date: 10/01/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 82eb8ce8b8ddc1b4d357b784814c95809924fc15
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: 35fe7fbd2a3d7004d70e343ca763ea49563f2597
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623249"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546563"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>Utiliser l’outil de validation de modèles dans Azure Stack Hub
 
@@ -22,44 +22,44 @@ Utilisez l’outil de validation de modèles pour vérifier si vos [modèles](az
 
 Pour valider un modèle, vous devez d’abord générer un fichier des fonctionnalités du cloud, puis exécuter l’outil de validation. Utilisez les modules PowerShell suivants à partir des outils Azure Stack Hub :
 
-- Dans le dossier **CloudCapabilities** : **AzureRM.CloudCapabilities.psm1** crée un fichier JSON des fonctionnalités du cloud représentant les services et versions présentes dans un cloud Azure Stack Hub.
-- Dans le dossier **TemplateValidator** : **AzureRM.TemplateValidator.psm1** utilise un fichier JSON des fonctionnalités du cloud pour tester des modèles en vue d’un déploiement dans Azure Stack Hub.
+- Dans le dossier **CloudCapabilities** : **Az.CloudCapabilities.psm1** crée un fichier JSON des fonctionnalités du cloud représentant les services et versions présentes dans un cloud Azure Stack Hub.
+- Dans le dossier **TemplateValidator** : **Az.TemplateValidator.psm1** utilise un fichier JSON des fonctionnalités du cloud pour tester des modèles en vue d’un déploiement dans Azure Stack Hub.
 
 ## <a name="build-the-cloud-capabilities-file"></a>Générer le fichier des fonctionnalités du cloud
 
-Avant d’utiliser le validateur de modèle, exécutez le module PowerShell **AzureRM.CloudCapabilities** pour générer un fichier JSON.
+Avant d’utiliser le validateur de modèle, exécutez le module PowerShell **Az.CloudCapabilities** pour générer un fichier JSON.
 
 > [!NOTE]
 > Si vous mettez à jour votre système intégré ou que vous ajoutez de nouveaux services ou de nouvelles extensions virtuelles, vous devez exécuter à nouveau ce module.
 
 1. Vérifiez que vous disposez d’une connectivité à Azure Stack Hub. Cette procédure peut être effectuée à partir de l’hôte du Kit de développement Azure Stack, ou vous pouvez utiliser un [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) pour vous connecter à partir de votre station de travail.
-2. Importez le module PowerShell **AzureRM.CloudCapabilities** :
+2. Importez le module PowerShell **Az.CloudCapabilities** :
 
     ```powershell
-    Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
+    Import-Module .\CloudCapabilities\Az.CloudCapabilities.psm1
     ```
 
 3. Utilisez l’applet de commande **Get-CloudCapabilities** pour récupérer des versions de service et créer un fichier JSON de fonctionnalités cloud. Si vous ne spécifiez pas `-OutputPath`, le fichier **AzureCloudCapabilities.json** est créé dans le répertoire actif. Utilisez votre emplacement Azure réel :
 
     ```powershell
-    Get-AzureRMCloudCapability -Location <your location> -Verbose
+    Get-AzCloudCapability -Location <your location> -Verbose
     ```
 
 ## <a name="validate-templates"></a>Valider des modèles
 
-Utilisez cette procédure pour valider des modèles à l’aide du module PowerShell **AzureRM.TemplateValidator**. Vous pouvez utiliser vos propres modèles ou les [modèles de démarrage rapide Azure Stack Hub](https://github.com/Azure/AzureStack-QuickStart-Templates).
+Utilisez cette procédure pour valider des modèles à l’aide du module PowerShell **Az.TemplateValidator**. Vous pouvez utiliser vos propres modèles ou les [modèles de démarrage rapide Azure Stack Hub](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
-1. Importez le module PowerShell **AzureRM.TemplateValidator.psm1** :
+1. Importez le module PowerShell **Az.TemplateValidator.psm1** :
 
     ```powershell
-    cd "c:\AzureStack-Tools-master\TemplateValidator"
-    Import-Module .\AzureRM.TemplateValidator.psm1
+    cd "c:\AzureStack-Tools-az\TemplateValidator"
+    Import-Module .\Az.TemplateValidator.psm1
     ```
 
 2. Exécutez le validateur de modèle :
 
     ```powershell
-    Test-AzureRMTemplate -TemplatePath <path to template.json or template folder> `
+    Test-AzTemplate -TemplatePath <path to template.json or template folder> `
     -CapabilitiesPath <path to cloudcapabilities.json> `
     -Verbose
     ```
@@ -87,7 +87,7 @@ La cmdlet du validateur de modèle prend en charge les paramètres suivants.
 Cet exemple valide tous les [modèles de démarrage rapide Azure Stack Hub](https://github.com/Azure/AzureStack-QuickStart-Templates) téléchargés dans le stockage local. L’exemple valide également les tailles et extensions de machines virtuelles par rapport aux fonctionnalités de l’ASDK :
 
 ```powershell
-test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
+test-AzTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 -CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json `
 -TemplatePattern MyStandardTemplateName.json `
 -IncludeComputeCapabilities `

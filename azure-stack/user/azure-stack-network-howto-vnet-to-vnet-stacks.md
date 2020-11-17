@@ -7,14 +7,14 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: d9d76b848ed30521fb5a7ba983ef930e19b93866
-ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
+ms.openlocfilehash: d8c20d3fe7b80a7ace90422a622c4f067f631954
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92355102"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547107"
 ---
-# <a name="establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>Établir une connexion de réseau virtuel à réseau virtuel dans Azure Stack Hub avec l’appliance virtuelle réseau Fortinet FortiGate
+# <a name="vnet-to-vnet-connectivity-between-azure-stack-hub-instances-with-fortinet-fortigate-nva"></a>Connectivité de réseau virtuel à réseau virtuel entre les instances Azure Stack Hub avec Fortinet FortiGate NVA
 
 Dans cet article, vous allez connecter un réseau virtuel dans un environnement Azure Stack Hub à un réseau virtuel dans un autre environnement Azure Stack Hub en utilisant l’appliance virtuelle réseau Fortinet FortiGate.
 

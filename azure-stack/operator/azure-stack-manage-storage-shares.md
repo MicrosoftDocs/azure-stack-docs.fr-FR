@@ -3,16 +3,16 @@ title: Gérer la capacité de stockage dans Azure Stack Hub
 description: Découvrez comment surveiller et gérer la capacité de stockage et la disponibilité dans Azure Stack Hub.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
-ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 21a8d4f5238af436474cb33a41e6e35fbab3afb7
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: bbced92ca9eb275ed1599ff7422bde1601be11c0
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899735"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545497"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Gérer la capacité de stockage pour Azure Stack Hub
 
@@ -189,7 +189,7 @@ La migration consolide tous les objets blob d’un conteneur du nouveau partage.
 
 #### <a name="migrate-containers-by-using-powershell"></a>Migrer des conteneurs en utilisant PowerShell
 
-1. Vérifiez qu’[Azure PowerShell est installé et configuré](/powershell/azure/). Pour plus d’informations, consultez [Gérer les ressources Azure à l’aide d’Azure PowerShell](https://go.microsoft.com/fwlink/?LinkId=394767).
+1. Vérifiez qu’[Azure PowerShell est installé et configuré](/powershell/azure/). Pour plus d’informations, consultez [Gérer les ressources Azure à l’aide d’Azure PowerShell](/azure/azure-resource-manager/management/manage-resources-powershell).
 2. Examinez le conteneur pour connaître les données du partage que vous envisagez de migrer. Afin d’identifier les meilleurs conteneurs candidats pour la migration d’un volume, utilisez l’applet de commande `Get-AzsStorageContainer` :
 
    ```powershell  

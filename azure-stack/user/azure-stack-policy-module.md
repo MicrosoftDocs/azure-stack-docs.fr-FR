@@ -6,20 +6,20 @@ ms.topic: article
 ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: f39bbf689cd3b847b29c2d5b046721029078a5dd
-ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
+ms.openlocfilehash: ca96de45f50f48b91dbb2e6e8679df5dedab8d8f
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84666479"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547056"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-hub-policy-module"></a>Gérer la stratégie Azure à l’aide du module de stratégie Azure Stack Hub
 
-Le module de stratégie Azure Stack Hub vous permet de configurer un abonnement Azure avec la même gestion de versions et la même disponibilité de service qu’Azure Stack Hub. Le module utilise l’applet de commande PowerShell [**New-AzureRmPolicyDefinition**](/powershell/module/azurerm.resources/new-azurermpolicydefinition) pour créer une stratégie Azure, ce qui limite les types de ressource et les services disponibles dans un abonnement. Vous créez ensuite une affectation de stratégie dans l’étendue appropriée à l’aide de l’applet de commande [**New-AzureRmPolicyAssignment**](/powershell/module/azurerm.resources/new-azurermpolicyassignment). Après avoir configuré la stratégie, vous pouvez utiliser votre abonnement Azure pour développer des applications ciblées pour Azure Stack Hub.
+Le module de stratégie Azure Stack Hub vous permet de configurer un abonnement Azure avec la même gestion de versions et la même disponibilité de service qu’Azure Stack Hub. Le module utilise la cmdlet PowerShell [**New-AzPolicyDefinition**](/powershell/module/Az.resources/new-Azpolicydefinition) pour créer une stratégie Azure, ce qui limite les types de ressource et les services disponibles dans un abonnement. Vous créez ensuite une affectation de stratégie dans l’étendue appropriée à l’aide de la cmdlet [**New-AzPolicyAssignment**](/powershell/module/Az.resources/new-Azpolicyassignment). Après avoir configuré la stratégie, vous pouvez utiliser votre abonnement Azure pour développer des applications ciblées pour Azure Stack Hub.
 
 ## <a name="install-the-module"></a>Installer le module
 
-1. Installez la version nécessaire du module PowerShell AzureRM, comme indiqué à l’étape 1 de l’article [Installer PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md).
+1. Installez la version nécessaire du module PowerShell Az, comme indiqué à l’étape 1 de l’article [Installer PowerShell pour Azure Stack Hub](../operator/powershell-install-az-module.md).
 2. [Téléchargez les outils Azure Stack Hub à partir de GitHub](../operator/azure-stack-powershell-download.md).
 3. [Configurez PowerShell pour une utilisation avec Azure Stack Hub](azure-stack-powershell-configure-user.md).
 4. Importez le module **AzureStack.Policy.psm1** :
@@ -33,11 +33,11 @@ Le module de stratégie Azure Stack Hub vous permet de configurer un abonnement 
 Vous pouvez utiliser les commandes suivantes pour appliquer une stratégie Azure Stack Hub par défaut à votre abonnement Azure. Avant d’exécuter ces commandes, remplacez `Azure subscription name` par le nom de votre abonnement Azure :
 
 ```powershell
-Add-AzureRmAccount
-$s = Select-AzureRmSubscription -SubscriptionName "Azure subscription name"
-$policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
+Add-AzAccount
+$s = Select-AzSubscription -SubscriptionName "Azure subscription name"
+$policy = New-AzPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
-New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
+New-AzPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
 ```
 
 ## <a name="apply-policy-to-a-resource-group"></a>Appliquer la stratégie à un groupe de ressources
@@ -45,12 +45,12 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 Vous souhaiterez peut-être appliquer des stratégies plus granulaires. Par exemple, vous pourriez avoir d’autres ressources en cours d’exécution dans le même abonnement. Vous pouvez délimiter l’application de la stratégie à un groupe de ressources spécifique, ce qui vous permet de tester vos applications pour Azure Stack Hub à l’aide de ressources Azure. Avant d’exécuter les commandes suivantes, remplacez `Azure subscription name` par le nom de votre abonnement Azure :
 
 ```powershell
-Add-AzureRmAccount
+Add-AzAccount
 $rgName = 'myRG01'
-$s = Select-AzureRmSubscription -SubscriptionName "Azure subscription name"
-$policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
+$s = Select-AzSubscription -SubscriptionName "Azure subscription name"
+$policy = New-AzPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
-New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
+New-AzPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
 ```
 
 ## <a name="policy-in-action"></a>Stratégie en action

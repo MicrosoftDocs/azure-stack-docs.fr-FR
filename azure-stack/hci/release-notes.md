@@ -6,19 +6,68 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/20/2020
-ms.openlocfilehash: 6d480f1229fb0c38cb3241c4a9de5bc53eadf87c
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.date: 11/10/2020
+ms.openlocfilehash: eaa9417abd41828495d3cd685ecc1f56c42c92e1
+ms.sourcegitcommit: 96bc36a203954622be411fdb038d601e49f97d4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92254010"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441172"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Notes de publication pour la préversion publique Azure Stack HCI
 
 > S’applique à : Azure Stack HCI, version 20H2
 
 Cet article décrit le contenu des packages de mise à jour de la préversion publique Azure Stack HCI.
+
+## <a name="november-10-2020-security-update-kb4586811"></a>Mise à jour de sécurité du 10 novembre 2020 (KB4586811)
+
+Cette mise à jour inclut les améliorations et les correctifs logiciels de la dernière version d’Azure Stack HCI.
+
+### <a name="improvements-and-fixes"></a>Améliorations et correctifs
+Cette mise à jour contient diverses améliorations de sécurité pour la fonctionnalité interne du système d’exploitation. Aucun autre problème n’a été documenté pour cette version.
+
+Pour plus d’informations sur les vulnérabilités de sécurité résolues, consultez le [Guide de mise à jour de sécurité](https://portal.msrc.microsoft.com/security-guidance).
+
+### <a name="known-issues-in-this-update"></a>Problèmes connus dans cette mise à jour
+Microsoft ne connaît actuellement aucun problème avec cette mise à jour.
+
+### <a name="how-to-get-this-update"></a>Comment obtenir cette mise à jour
+La mise à jour de sécurité du 10 novembre 2020 (KB4586811) pour la [préversion d’Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) est fournie via Windows Update. Pour l’installer sur votre cluster Azure Stack HCI, consultez [Mettre à jour Azure Stack clusters HCI](manage/update-cluster.md).
+
+### <a name="file-information"></a>informations relatives aux fichiers
+Pour obtenir la liste des fichiers fournis dans cette mise à jour (Build 17784.1345 du système d’exploitation), téléchargez les [informations de fichier pour la mise à jour cumulative 4586811](https://download.microsoft.com/download/8/f/2/8f2ce4bb-e113-4abc-b3ff-f0f4c4c71403/4586811.csv).
+
+   > [!NOTE]
+   > Certains fichiers affichent par erreur « Non applicable » dans la colonne « Version de fichier » du fichier CSV. Cela peut entraîner des faux positifs ou des faux négatifs lors de l’utilisation d’outils de détection d’analyse tiers pour valider la build.
+
+## <a name="november-10-2020-servicing-stack-update-kb4590242"></a>Mise à jour de la pile de maintenance du 10 novembre 2020 (KB4590242)
+
+Cette mise à jour inclut les améliorations de qualité apportées à la dernière version d’Azure Stack HCI.
+
+### <a name="improvements-and-fixes"></a>Améliorations et correctifs
+Cette mise à jour apporte des améliorations en matière de qualité à la pile de maintenance, qui est le composant qui installe les mises à jour. Les mises à jour de la pile de maintenance vous permettent de disposer d’une pile de maintenance robuste et fiable afin que vos appareils puissent recevoir et installer les mises à jour Microsoft.
+
+### <a name="how-to-get-this-update"></a>Comment obtenir cette mise à jour
+La mise à jour de la pile de maintenance du 2020 novembre 2020 (KB4590242) pour la [préversion d’Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) est fournie via Windows Update. Pour l’installer sur votre cluster Azure Stack HCI, consultez [Mettre à jour Azure Stack clusters HCI](manage/update-cluster.md).
+
+### <a name="restart-information"></a>Informations sur le redémarrage
+Vous n’avez pas besoin de redémarrer l’ordinateur après l’application de cette mise à jour.
+
+### <a name="removal-information"></a>Informations sur la suppression
+Les mises à jour de la pile de maintenance apportent des modifications à la façon dont les mises à jour sont installées et ne peuvent pas être désinstallées de l’appareil.
+
+### <a name="file-information"></a>informations relatives aux fichiers
+Pour obtenir la liste des fichiers fournis dans cette mise à jour (Build 17784.1342 du système d’exploitation), téléchargez les [informations de fichier pour la mise à jour cumulative 4590242](https://download.microsoft.com/download/b/b/4/bb4fb4f5-c0ba-4e55-bada-d72310857982/4590242.csv).
+
+### <a name="references"></a>References
+
+Pour plus d’informations sur les mises à jour de la pile de maintenance, consultez les articles suivants :
+
+- [Mises à jour de la pile de maintenance](/windows/deployment/update/servicing-stack-updates)
+- [Mises à jour de la pile de maintenance : Forum Aux Questions](https://support.microsoft.com/help/4535697)
+
+Informez-vous sur la [terminologie](https://support.microsoft.com/help/824684) que Microsoft utilise pour décrire les mises à jour logicielles.
 
 ## <a name="october-20-2020-preview-update-kb4580388"></a>Mise à jour de la préversion 20 octobre 2020 (KB4580388)
 

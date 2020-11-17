@@ -7,12 +7,12 @@ ms.date: 11/06/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 90b20ddcc129b8077cf28fa1a1a758054795de60
-ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
+ms.openlocfilehash: bbf96c0716d6bb9fdfca7ce0b52268281e6169c6
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202500"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414161"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>Ajouter des serveurs d’hébergement MySQL dans Azure Stack Hub
 
@@ -72,7 +72,7 @@ Avant de pouvoir ajouter le serveur MySQL comme hôte de serveur MySQL Azure Sta
 
 4. Créez un compte d’utilisateur d’accès à distance à utiliser par le serveur d’hébergement MySQL Azure Stack Hub pour vous connecter à MySQL.
 
-    Exécutez les commandes suivantes pour vous connecter à MySQL en tant qu’utilisateur racine, en utilisant le mot de passe racine qui a été enregistré précédemment dans *~/bitnami_credentials*. Créez un utilisateur administrateur et remplacez *\<nom d’utilisateur\>* et *\<mot de passe\>* par les valeurs appropriées pour votre environnement. Dans cet exemple, l’utilisateur créé est nommé **sqlsa** et un mot de passe fort est utilisé :
+    Exécutez les commandes suivantes pour vous connecter à MySQL en tant qu’utilisateur racine, en utilisant le mot de passe racine qui a été enregistré précédemment dans *~/bitnami_credentials*. Créez un utilisateur administrateur et remplacez *\<username\>* et *\<password\>* par les valeurs appropriées pour votre environnement. Dans cet exemple, l’utilisateur créé est nommé **sqlsa** et un mot de passe fort est utilisé :
 
    ```sql
    mysql -u root -p

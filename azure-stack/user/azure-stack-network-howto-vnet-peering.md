@@ -1,20 +1,20 @@
 ---
-title: Connecter deux infrastructures Azure Stack Hub à l’aide de VNet Peering
-description: Découvrez comment connecter deux infrastructures Azure Stack Hub à l’aide de VNet Peering.
+title: Connecter deux réseaux virtuels Azure Stack Hub
+description: Découvrez comment connecter deux instances Azure Stack Hub.
 author: mattbriggs
 ms.topic: how-to
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 6ce27df08aeb885c6a04f97bb2b16292a6ffca96
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: b6488b98317decf6b592339bfa66d15834f1f55d
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572525"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543389"
 ---
-# <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>VNET Peering dans Azure Stack Hub avec des machines virtuelles
+# <a name="vnet-to-vnet-connectivity-with-rras"></a>Connectivité de réseau virtuel à réseau virtuel avec RRAS
 
 Vous pouvez connecter deux réseaux virtuels Azure Stack Hub l’un à l’autre au sein du même environnement Azure Stack Hub. Il n’est actuellement pas possible de connecter des réseaux virtuels Azure Stack Hub à l’aide de la [passerelle de réseau virtuel](./azure-stack-network-differences.md) intégrée. Vous devez utiliser des appliances virtuelles réseau pour créer un tunnel VPN entre deux réseaux virtuels Azure Stack Hub. Dans les références de modèle de cet article, deux machines virtuelles Windows Server 2016 sont déployées et RRAS y est installé. Les deux serveurs RRAS sont configurés pour implémenter un tunnel IKEv2 S2SVPN entre deux réseaux virtuels. Les règles de groupe de sécurité réseau et de route définie par l’utilisateur appropriées sont créées pour permettre le routage entre les sous-réseaux sur chaque réseau virtuel désigné comme **interne**. 
 

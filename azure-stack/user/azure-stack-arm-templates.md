@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 41f83e1e7f1432e182473c3b090171d3c426d340
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 9d5bf245a78bfd2ec77578701c4727c40b98f9e6
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111912"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545715"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack-hub"></a>Utiliser les modèles Azure Resource Manager dans Azure Stack Hub
 
@@ -66,7 +66,7 @@ Utilisez l’extension PowerShell DSC pour configurer un gestionnaire local de 
 
 ## <a name="cancel-a-running-template-deployment"></a>Annuler le déploiement d’un modèle en cours d’exécution
 
-Pour annuler le déploiement d’un modèle en cours d’exécution, utilisez l’[applet de commande](/powershell/scripting/developer/cmdlet/cmdlet-overview) PowerShell [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment).
+Pour annuler le déploiement d’un modèle en cours d’exécution, utilisez l’[applet de commande](/powershell/scripting/developer/cmdlet/cmdlet-overview) PowerShell [Stop-AzResourceGroupDeployment](/powershell/module/Az.resources/stop-Azresourcegroupdeployment).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

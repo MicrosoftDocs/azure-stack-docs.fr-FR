@@ -3,15 +3,15 @@ title: Planifier le réseau hôte pour Azure Stack HCI
 description: Découvrez comment planifier le réseau hôte pour les clusters Azure Stack HCI
 author: v-dasis
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 11/09/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 46f98ba8f5d2f33e0b5d9d85ee9c2469a098c17d
-ms.sourcegitcommit: d835e211fe65dc54a0d49dfb21ca2465ced42aa4
+ms.openlocfilehash: b6cfbfcff408483d7086c311dff41fdab59c9524
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92200482"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414059"
 ---
 # <a name="plan-host-networking-for-azure-stack-hci"></a>Planifier le réseau hôte pour Azure Stack HCI
 
@@ -19,72 +19,9 @@ ms.locfileid: "92200482"
 
 Cette rubrique décrit les points à prendre en compte et les conditions requises lors de la planification du réseau hôte dans les environnements de cluster Azure Stack HCI étendus et non étendus.
 
-## <a name="traffic-types-supported"></a>Types de trafic pris en charge
-
-Azure Stack HCI utilise le protocole SMB (Server Message Block). Le protocole SMB sur Azure Stack HCI prend en charge les types de trafic suivants :
-
-- Couche de bus de stockage (SBL) – utilisée par les espaces de stockage direct ; trafic de priorité la plus élevée
-- Volumes de cluster partagés (Cluster Shared Volumes)
-- Migration dynamique (LM)
-- Réplica de stockage (SR) – utilisé dans les clusters étendus
-- Partages de fichiers (FS) – FS traditionnel et serveur de fichiers avec montée en puissance parallèle (SOFS)
-- Pulsation (HB) du cluster
-- Communication entre les clusters (jointures de nœuds, mises à jour de cluster, mises à jour du registre)
-
-Le trafic SMB peut transiter via les protocoles suivants :
-
-- Protocole TCP (Transport Control Protocol) – utilisé entre les sites
-- Accès direct à la mémoire à distance (RDMA)
-
-## <a name="traffic-bandwidth-allocation"></a>Allocation de bande passante au trafic
-
-Le tableau suivant présente les allocations de bande passante pour différents types de trafic, où :
-
-- Toutes les unités sont en Gbits/s
-- Les valeurs s’appliquent aux clusters étendus et non étendus
-- Le trafic SMB obtient 50 % de l’allocation de bande passante totale
-- Le trafic de couche de bus de stockage/volume partagé de cluster (SBL/CSV) obtient 70 % des 50 % d’allocation restants
-- Le trafic de migration dynamique (LM) obtient 15 % des 50 % d’allocation restants
-- Le trafic de réplica de stockage (SR) obtient 14 % des 50 % d’allocation restants
-- Le trafic de pulsation (HB) obtient 1 % des 50 % d’allocation restants
-- *= doit utiliser la compression plutôt que RDMA si l’allocation de bande passante pour le trafic LM est < 5 Gbits/s
-
-|Vitesse de la carte réseau|Bande passante associée|Réservation SMB de 50 %|% SBL/CSV|Bande passante SBL/CSV|% LM|Bande passante LM|% SR |Bande passante SR|% HB|Bande passante HB|
-|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-|10|20|10|70 %|7|14 %*|1,4*|14 %|1.4|2 %|0.2|
-|25|50|25|70 %|17.5|15 %*|3,75*|14 %|3,5|1%|0,25|
-|40|80| 40|70 %|28|15 %|6|14 %|5.6|1%|0.4|
-|50|100|50|70 %|35|15 %|7.5|14 %|7|1%|0.5|
-|100|200|100|70 %|70|15 %|15|14 %|14|1%|1|
-|200|400|200|70 %|140|15 %|30|14 %|28|1%|2|
-
-## <a name="rdma-considerations"></a>Considérations relatives à RDMA
-
-L’accès direct à la mémoire à distance (RDMA) est un accès mémoire direct à partir de la mémoire d’un ordinateur à celle d’un autre ordinateur, sans impliquer le système d’exploitation d’aucun des ordinateurs. Il favorise un réseau à débit élevé et faible latence tout en réduisant au maximum l’utilisation du processeur, ce qui est particulièrement utile dans les clusters.
-
-Tout le trafic RDMA hôte tire parti de SMB Direct. SMB Direct correspond au trafic SMB 3.0 envoyé via RDMA et il est multiplexé via le port 445. Au moins deux classes de trafic (TC) prenant en charge le contrôle de flux basé sur les priorités (PFC) doivent être utilisées pour que le trafic RDMA reste compatible avec la majorité des commutateurs physiques actuels et futurs du marché.
-
-Le protocole iWARP (Internet Wide Area RDMA Protocol) exécute RDMA via TCP, tandis que RoCE (RDMA sur Ethernet convergé) évite l’utilisation du protocole TCP, mais nécessite des cartes réseau et des commutateurs physiques qui le prennent en charge. Pour les exigences de réseau convergé pour l’accès RDMA via RoCE, consultez le [Guide de déploiement Windows Server 2016 et 2019 avec RDMA](https://github.com/Microsoft/SDN/blob/master/Diagnostics/S2D%20WS2016_ConvergedNIC_Configuration.docx).
-
-L’accès RDMA est activé par défaut pour tout le trafic est/ouest entre les nœuds de cluster d’un site sur le même sous-réseau. L’accès RDMA est désactivé et n’est pas pris en charge pour le trafic de cluster étendu nord/sud entre des sites situés sur des sous-réseaux différents.
-
-Les exigences pour l’accès RDMA pour Azure Stack HCI sont les suivantes :
-
-- Tout le trafic entre les sous-réseaux et entre les sites (clusters étendus) doit utiliser WinSock TCP. Tous les tronçons réseau intermédiaires se trouvent en dehors de la vue et du contrôle d’Azure Stack HCI.
-- L’accès RDMA entre les sous-réseaux et entre les sites (clusters étendus) n’est pas pris en charge. L’utilisation de liaisons montantes et de plusieurs appareils réseau signifie l’existence de plusieurs points d’échec où cela peut devenir instable et affecter la prise en charge.
-- Aucune carte réseau virtuelle supplémentaire n’est nécessaire pour le trafic de réplica de stockage pour les clusters étendus. Toutefois, à des fins de dépannage, il peut être utile de maintenir le trafic entre sites et le trafic entre sous-réseaux séparés du trafic RDMA est-ouest. Si SMB Direct ne peut pas être désactivé en mode natif entre sites ou entre sous-réseaux par flux, alors :
-    - Une ou plusieurs cartes réseau virtuelles supplémentaires doivent être provisionnées pour le réplica de stockage.
-    - L’accès RDMA des cartes réseau virtuelles du réplica de stockage doit être désactivé à l’aide de l’applet de commande PowerShell [Disable-NetAdapterRDMA](https://docs.microsoft.com/powershell/module/netadapter/disable-netadapterrdma), car il est par définition entre sites et entre sous-réseaux.
-    - Les adaptateurs RDMA natifs nécessitent un vSwitch et des cartes réseau virtuelles pour la prise en charge du réplica de stockage, afin de répondre aux conditions de site/sous-réseau ci-dessus.
-    - Les exigences en bande passante de l’accès RDMA intra-site exigent de connaître les pourcentages de bande passante par type de trafic, tels qu’indiqués dans la section **Allocation de bande passante au trafic** . Cela garantit que des réservations et des limites de bande passante appropriées peuvent être appliquées pour le trafic est/ouest (de nœud à nœud).
-- Le trafic de réplica de stockage et de migration dynamique doit avoir une bande passante SMB limitée. Sinon, il pourrait consommer toute la bande passante et en priver le trafic de stockage de haute priorité. Pour plus d’informations, reportez-vous aux applets de commande PowerShell [Set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) et [Set-SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint).
-
-> [!NOTE]
-> Vous devez convertir les bits en octets quand vous utilisez l’applet de commande `Set-SmbBandwidthLimit`.
-
 ## <a name="node-interconnect-requirements"></a>Exigences d’interconnexion des nœuds
 
-Cette section traite des exigences de mise en réseau spécifiques entre les nœuds serveur d’un site, appelées interconnexions. Des interconnexions de nœuds commutées ou non peuvent être utilisées et sont prises en charge :
+Cette section traite des exigences de mise en réseau spécifiques entre les serveurs d’un site, appelées interconnexions. Des interconnexions de nœuds commutées ou non peuvent être utilisées et sont prises en charge :
 
 - **Commutées :** les nœuds serveur sont généralement connectés les uns aux autres via des réseaux Ethernet qui utilisent des commutateurs réseau. Les commutateurs doivent être correctement configurés pour gérer la bande passante et le type de mise en réseau. Si vous utilisez RDMA qui implémente le protocole RoCE, le périphérique réseau et la configuration du commutateur sont importants.
 - **Absence de commutateur :** les nœuds serveur peuvent également être interconnectés à l’aide de connexions Ethernet directes sans commutateur. Dans ce cas, chaque nœud serveur doit disposer d’une connexion directe avec tous les autres nœuds de cluster dans le même site.
@@ -113,6 +50,52 @@ Lors de la connexion entre des sites pour les clusters étendus, les exigences d
 - Un réseau entre les sites disposant de suffisamment de bande passante pour contenir votre charge de travail d’écriture d’E/S et une latence moyenne des allers-retour de 5 ms ou moins pour la réplication synchrone. La réplication asynchrone n’a pas de recommandation de latence.
 - Si vous utilisez une connexion unique entre des sites, définissez des limites de bande passante SMB pour le réplica de stockage à l’aide de PowerShell. Pour plus d’informations, consultez [Set-SmbBandwidthLimit](/powershell/module/smbshare/set-smbbandwidthlimit).
 - Si vous utilisez plusieurs connexions entre les sites, séparez le trafic entre les connexions. Par exemple, placez le trafic du réplica de stockage sur un réseau distinct du trafic de migration dynamique Hyper-V à l’aide de PowerShell. Pour plus d’informations, consultez [Set-SRNetworkConstraint](/powershell/module/storagereplica/set-srnetworkconstraint).
+
+## <a name="rdma-considerations"></a>Considérations relatives à RDMA
+
+L’accès direct à la mémoire à distance (RDMA) est un accès mémoire direct à partir de la mémoire d’un ordinateur à celle d’un autre ordinateur, sans impliquer le système d’exploitation d’aucun des ordinateurs. Il favorise un réseau à débit élevé et faible latence tout en réduisant au maximum l’utilisation du processeur, ce qui est particulièrement utile dans les clusters.
+
+Tout le trafic RDMA hôte tire parti de SMB Direct. SMB Direct correspond au trafic SMB 3.0 envoyé via RDMA et il est multiplexé via le port 445. Au moins deux classes de trafic (TC) prenant en charge le contrôle de flux basé sur les priorités (PFC) doivent être utilisées pour que le trafic RDMA reste compatible avec la majorité des commutateurs physiques actuels et futurs du marché.
+
+Le protocole iWARP (Internet Wide Area RDMA Protocol) exécute RDMA via TCP, tandis que RoCE (RDMA sur Ethernet convergé) évite l’utilisation du protocole TCP, mais nécessite des cartes réseau et des commutateurs physiques qui le prennent en charge. Pour les exigences de réseau convergé pour l’accès RDMA via RoCE, consultez le [Guide de déploiement Windows Server 2016 et 2019 avec RDMA](https://github.com/Microsoft/SDN/blob/master/Diagnostics/S2D%20WS2016_ConvergedNIC_Configuration.docx).
+
+L’accès RDMA est activé par défaut pour tout le trafic est/ouest entre les nœuds de cluster d’un site sur le même sous-réseau. L’accès RDMA est désactivé et n’est pas pris en charge pour le trafic de cluster étendu nord/sud entre des sites situés sur des sous-réseaux différents.
+
+Les exigences pour l’accès RDMA pour Azure Stack HCI sont les suivantes :
+
+- Tout le trafic entre les sous-réseaux et entre les sites (clusters étendus) doit utiliser WinSock TCP. Tous les tronçons réseau intermédiaires se trouvent en dehors de la vue et du contrôle d’Azure Stack HCI.
+- L’accès RDMA entre les sous-réseaux et entre les sites (clusters étendus) n’est pas pris en charge. L’utilisation de liaisons montantes et de plusieurs appareils réseau signifie l’existence de plusieurs points d’échec où cela peut devenir instable et affecter la prise en charge.
+- Aucune carte réseau virtuelle supplémentaire n’est nécessaire pour le trafic de réplica de stockage pour les clusters étendus. Toutefois, à des fins de dépannage, il peut être utile de maintenir le trafic entre sites et le trafic entre sous-réseaux séparés du trafic RDMA est-ouest. Si SMB Direct ne peut pas être désactivé en mode natif entre sites ou entre sous-réseaux par flux, alors :
+    - Une ou plusieurs cartes réseau virtuelles supplémentaires doivent être provisionnées pour le réplica de stockage.
+    - L’accès RDMA des cartes réseau virtuelles du réplica de stockage doit être désactivé à l’aide de l’applet de commande PowerShell [Disable-NetAdapterRDMA](https://docs.microsoft.com/powershell/module/netadapter/disable-netadapterrdma), car il est par définition entre sites et entre sous-réseaux.
+    - Les adaptateurs RDMA natifs nécessitent un vSwitch et des cartes réseau virtuelles pour la prise en charge du réplica de stockage, afin de répondre aux conditions de site/sous-réseau ci-dessus.
+    - Les exigences en bande passante de l’accès RDMA intra-site exigent de connaître les pourcentages de bande passante par type de trafic, tels qu’indiqués dans la section **Allocation de bande passante au trafic**. Cela garantit que des réservations et des limites de bande passante appropriées peuvent être appliquées pour le trafic est/ouest (de nœud à nœud).
+- Le trafic de réplica de stockage et de migration dynamique doit avoir une bande passante SMB limitée. Sinon, il pourrait consommer toute la bande passante et en priver le trafic de stockage de haute priorité. Pour plus d’informations, reportez-vous aux applets de commande PowerShell [Set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) et [Set-SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint).
+
+> [!NOTE]
+> Vous devez convertir les bits en octets quand vous utilisez l’applet de commande `Set-SmbBandwidthLimit`.
+
+## <a name="traffic-bandwidth-allocation"></a>Allocation de bande passante au trafic
+
+Le tableau suivant présente les allocations de bande passante pour différents types de trafic, où :
+
+- Toutes les unités sont en Gbits/s
+- Les valeurs s’appliquent aux clusters étendus et non étendus
+- Le trafic SMB obtient 50 % de l’allocation de bande passante totale
+- Le trafic de couche de bus de stockage/volume partagé de cluster (SBL/CSV) obtient 70 % des 50 % d’allocation restants
+- Le trafic de migration dynamique (LM) obtient 15 % des 50 % d’allocation restants
+- Le trafic de réplica de stockage (SR) obtient 14 % des 50 % d’allocation restants
+- Le trafic de pulsation (HB) obtient 1 % des 50 % d’allocation restants
+- *= doit utiliser la compression plutôt que RDMA si l’allocation de bande passante pour le trafic LM est < 5 Gbits/s
+
+|Vitesse de la carte réseau|Bande passante associée|Réservation SMB de 50 %|% SBL/CSV|Bande passante SBL/CSV|% LM|Bande passante LM|% SR |Bande passante SR|% HB|Bande passante HB|
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+|10|20|10|70 %|7|14 %*|1,4*|14 %|1.4|2 %|0.2|
+|25|50|25|70 %|17.5|15 %*|3,75*|14 %|3,5|1%|0,25|
+|40|80| 40|70 %|28|15 %|6|14 %|5.6|1%|0.4|
+|50|100|50|70 %|35|15 %|7.5|14 %|7|1%|0.5|
+|100|200|100|70 %|70|15 %|15|14 %|14|1%|1|
+|200|400|200|70 %|140|15 %|30|14 %|28|1%|2|
 
 ## <a name="network-port-requirements"></a>Configuration requise des ports réseau
 
@@ -200,6 +183,24 @@ LLDP permet aux organisations de définir et d’encoder leurs propres valeurs T
 
 > [!NOTE]
 > Certaines des fonctionnalités facultatives listées peuvent s’avérer obligatoires dans le futur.
+
+## <a name="traffic-types-supported"></a>Types de trafic pris en charge
+
+Azure Stack HCI utilise le protocole SMB (Server Message Block). Le protocole SMB sur Azure Stack HCI prend en charge les types de trafic suivants :
+
+- Couche de bus de stockage (SBL) – utilisée par les espaces de stockage direct ; trafic de priorité la plus élevée
+- Volumes de cluster partagés (Cluster Shared Volumes)
+- Migration dynamique (LM)
+- Réplica de stockage (SR) – utilisé dans les clusters étendus
+- Partages de fichiers (FS) – FS traditionnel et serveur de fichiers avec montée en puissance parallèle (SOFS)
+- Pulsation (HB) du cluster
+- Communication entre les clusters (jointures de nœuds, mises à jour de cluster, mises à jour du registre)
+
+Le trafic SMB peut transiter via les protocoles suivants :
+
+- Protocole TCP (Transport Control Protocol) – utilisé entre les sites
+- Accès direct à la mémoire à distance (RDMA)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

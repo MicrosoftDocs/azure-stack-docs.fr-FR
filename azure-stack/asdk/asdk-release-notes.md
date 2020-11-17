@@ -3,22 +3,33 @@ title: Notes de publication relatives à l’ASDK
 description: Améliorations, correctifs et problèmes connus pour le Kit de développement Azure Stack (ASDK).
 author: sethmanheim
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 11/11/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2020
-ms.openlocfilehash: 6bbbc76acd38984924c454c26204f1edb0d68142
-ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
+ms.openlocfilehash: f4e97cfaba4e3cde832a318647b72d96cbca8965
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88074126"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543406"
 ---
 # <a name="asdk-release-notes"></a>Notes de publication relatives à l’ASDK
 
 Cet article fournit des informations sur des modifications, des correctifs et des problèmes connus en lien avec le Kit de développement Azure Stack (ASDK). Si vous n’êtes pas sûr de la version que vous exécutez, consultez le [portail pour vérifier](../operator/azure-stack-updates.md).
 
 Tenez-vous informé des nouveautés concernant le kit ASDK en vous abonnant au [flux RSS](https://docs.microsoft.com/api/search/rss?search=ASDK+release+notes&locale=en-us#) ![RSS](./media/asdk-release-notes/feed-icon-14x14.png).
+
+::: moniker range="azs-2008"
+## <a name="build-120081388"></a>Build 1.2008.13.88
+
+### <a name="new-features"></a>Nouvelles fonctionnalités
+
+- Pour obtenir la liste des problèmes résolus, des modifications et des nouvelles fonctionnalités de cette version, consultez les sections correspondantes dans les [notes de publication Azure Stack](../operator/release-notes.md).
+
+### <a name="fixed-and-known-issues"></a>Problèmes connus et résolus
+
+::: moniker-end
 
 ::: moniker range="azs-2005"
 ## <a name="build-12005040"></a>Build 1.2005.0.40
@@ -73,7 +84,6 @@ Tenez-vous informé des nouveautés concernant le kit ASDK en vous abonnant au [
 ::: moniker-end
 
 ::: moniker range="azs-1910"
-
 ## <a name="build-11910058"></a>Build 1.1910.0.58
 
 ### <a name="new-features"></a>Nouvelles fonctionnalités

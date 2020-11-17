@@ -7,12 +7,12 @@ ms.date: 09/09/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 915c0ec4a661bbc039a7dc4d40f72ed83d135915
-ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
+ms.openlocfilehash: dc9273ba215c819595099aa35e6b3487623f6cd2
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90010864"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545242"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Planification de l’intégration réseau pour Azure Stack
 
@@ -27,12 +27,12 @@ La solution Azure Stack requiert une infrastructure physique robuste et hautemen
 
 ![Conception de réseau Azure Stack recommandée](media/azure-stack-network/physical-network.svg)
 
-## <a name="bandwidth-allocation"></a>Allocation de bande passante
+### <a name="bandwidth-allocation"></a>Allocation de bande passante
 
-Azure Stack Hub est basé sur un cluster de basculement Windows Server 2019 et les technologies Spaces Direct. Une partie de la configuration du réseau physique Azure Stack Hub utilise une séparation du trafic et des garanties de bande passante pour s’assurer que les communications de stockage Spaces Direct puissent offrir les performances et l’échelle requises de la solution. La configuration réseau utilise des classes de trafic pour séparer les communications Spaces Direct basées sur RDMA, de celles dédiées à l’utilisation du réseau par l’infrastructure et/ou le locataire Azure Stack Hub.
+Azure Stack Hub est basé sur un cluster de basculement Windows Server 2019 et les technologies Spaces Direct. Une partie de la configuration du réseau physique Azure Stack Hub vise à utiliser une séparation du trafic et des garanties de bande passante pour s’assurer que les communications de stockage Spaces Direct peuvent puissent offrir les performances et l’échelle requises de la solution. La configuration réseau utilise des classes de trafic pour séparer les communications Spaces Direct basées sur RDMA, de celles dédiées à l’utilisation du réseau par l’infrastructure et/ou le locataire Azure Stack Hub. Pour s’aligner sur les meilleures pratiques actuelles définies pour Windows Server 2019, Azure Stack Hub change de façon à utiliser une classe de trafic ou une priorité supplémentaires afin de séparer les communications de serveur à serveur dans la prise en charge de la communication de contrôle du clustering de basculement. Cette nouvelle définition de classe de trafic sera configurée pour réserver 2 % de la bande passante physique disponible. Cette configuration de réservation de bande passante et de classe de trafic est opérée par une modification des commutateurs ToR (top-of-rack) de la solution Azure Stack Hub, ainsi que sur l’ordinateur hôte ou les serveurs d’Azure Stack Hub. Notez qu’aucune modification n’est requise sur les périphériques réseau frontaliers du client. Ces modifications offrent une meilleure résilience pour la communication du cluster de basculement et visent à éviter des situations où la bande passante réseau est entièrement consommée de sorte que les messages de contrôle du cluster de basculement sont interrompus. Notez que la communication du cluster de basculement est un composant essentiel de l’infrastructure Azure Stack Hub et qu’en cas d’interruption pendant des périodes prolongées, elle peut entraîner une instabilité dans les espaces de stockage Spaces Direct ou d’autres services, susceptible d’affecter la stabilité de la charge de travail du locataire ou de l’utilisateur final.
 
 > [!NOTE]
-> La prochaine mise à jour d’Azure Stack Hub comprend une classe de trafic supplémentaire. En vue de ce changement, Microsoft vous recommande de contacter votre OEM pour demander l’apport des modifications requises aux commutateurs réseau ToR. Cette modification des commutateurs ToR peut être effectuée tant avant qu’après la mise à jour vers la version suivant.
+> Les modifications décrites sont ajoutées au niveau de l’hôte d’un système Azure Stack Hub dans la version 2008. Contactez votre fabricant OEM pour lui demander d’apporter les modifications nécessaires aux commutateurs réseau ToR. Cette modification des commutateurs ToR peut être effectuée tant avant qu’après la mise à jour vers la version 2008. La modification de la configuration des commutateurs ToR est requise pour améliorer les communications du cluster de basculement.
 
 ## <a name="logical-networks"></a>Réseaux logiques
 

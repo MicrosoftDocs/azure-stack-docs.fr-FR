@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 5ca8221d9a85a6dad874969525006f789e6b7084
-ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
+ms.openlocfilehash: f1cdb082accdef3590bd737a39add61b1ebbc8bb
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580165"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546308"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-powershell"></a>Gérer Key Vault dans Azure Stack Hub à l’aide de PowerShell
 
@@ -27,7 +27,7 @@ Cet article explique comment créer et gérer un coffre de clés dans Azure Stac
 ## <a name="prerequisites"></a>Prérequis
 
 * Vous devez vous abonner à une offre qui inclut le service Azure Key Vault.
-* [Installez PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md).
+* [Installez PowerShell pour Azure Stack Hub](../operator/powershell-install-az-module.md).
 * [Configurez l’environnement Azure Stack Hub PowerShell](azure-stack-powershell-configure-user.md).
 
 ## <a name="enable-your-tenant-subscription-for-key-vault-operations"></a>Activer votre abonnement de locataire pour les opérations Key Vault
@@ -35,7 +35,7 @@ Cet article explique comment créer et gérer un coffre de clés dans Azure Stac
 Avant de pouvoir exécuter des opérations sur un coffre de clés, vous devez vérifier que votre abonnement de locataire est activé pour les opérations de coffre. Pour vérifier que les opérations de coffre de clés sont activées, exécutez la commande suivante :
 
 ```powershell  
-Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
+Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 ```
 
 Si votre abonnement est activé pour les opérations de coffre, la sortie indique que **RegistrationState** est **Registered** pour tous les types de ressources d’un coffre de clés.
@@ -45,7 +45,7 @@ Si votre abonnement est activé pour les opérations de coffre, la sortie indiqu
 Si les opérations de coffre ne sont pas activées, exécutez la commande suivante pour inscrire le service Key Vault dans votre abonnement :
 
 ```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
+Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 ```
 
 Si l’inscription réussit, la sortie suivante est retournée :
@@ -59,17 +59,17 @@ Quand vous appelez les commandes Key Vault, vous pouvez obtenir une erreur simil
 Avant de créer un coffre de clés, créez un groupe de ressources pour que toutes les ressources associées au coffre de clés fassent partie d’un groupe de ressources. Utilisez la commande suivante pour créer un groupe de ressources :
 
 ```powershell
-New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
+New-AzResourceGroup -Name "VaultRG" -Location local -verbose -Force
 ```
 
 ![Nouveau groupe de ressources généré dans PowerShell](media/azure-stack-key-vault-manage-powershell/image3.png)
 
-Maintenant, utilisez la cmdlet **New-AzureRMKeyVault** pour créer un coffre de clés dans le groupe de ressources que vous avez créé plus tôt. Cette commande lit trois paramètres obligatoires : le nom du groupe de ressources, le nom du coffre de clés et l’emplacement géographique.
+Maintenant, utilisez la cmdlet **New-AzKeyVault** pour créer un coffre de clés dans le groupe de ressources que vous avez créé plus tôt. Cette commande lit trois paramètres obligatoires : le nom du groupe de ressources, le nom du coffre de clés et l’emplacement géographique.
 
 Exécutez la commande suivante pour créer un coffre de clés :
 
 ```powershell
-New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
+New-AzKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
 ```
 
 ![Nouveau coffre de clés généré dans PowerShell](media/azure-stack-key-vault-manage-powershell/image4.png)
@@ -78,7 +78,7 @@ La sortie de cette commande affiche les propriétés du coffre de clés que vous
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Déploiement Active Directory Federation Services (AD FS)
 
-Dans un déploiement AD FS, vous risquez d’obtenir cet avertissement : « La stratégie d’accès n’est pas définie. Aucun utilisateur ou application n’est autorisé à utiliser ce coffre ». Pour résoudre ce problème, définissez une stratégie d’accès au coffre à l’aide de la commande [**Set-AzureRmKeyVaultAccessPolicy**](#authorize-an-app-to-use-a-key-or-secret) :
+Dans un déploiement AD FS, vous risquez d’obtenir cet avertissement : « La stratégie d’accès n’est pas définie. Aucun utilisateur ou application n’est autorisé à utiliser ce coffre ». Pour résoudre ce problème, définissez une stratégie d’accès au coffre à l’aide de la commande [**Set-AzKeyVaultAccessPolicy**](#authorize-an-app-to-use-a-key-or-secret) :
 
 ```powershell
 # Obtain the security identifier(SID) of the active directory user
@@ -86,7 +86,7 @@ $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
 $objectSID = $adUser.SID.Value
 
 # Set the key vault access policy
-Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation
+Set-AzKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation
 ```
 
 ## <a name="manage-keys-and-secrets"></a>Gérer les clés et les secrets
@@ -141,20 +141,20 @@ Après avoir créé les clés et les secrets, vous pouvez autoriser des apps ext
 
 ## <a name="authorize-an-app-to-use-a-key-or-secret"></a>Autoriser une app à utiliser une clé ou un secret
 
-Utilisez l’applet de commande **Set-AzureRmKeyVaultAccessPolicy** pour autoriser une application à accéder à une clé ou un secret dans le coffre de clés.
+Utilisez la cmdlet **Set-AzKeyVaultAccessPolicy** pour autoriser une application à accéder à une clé ou un secret dans le coffre de clés.
 
 Dans l’exemple suivant, le nom du coffre est **ContosoKeyVault** et l’ID client de l’application que vous souhaitez autoriser est **8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed**. Pour autoriser l’app, exécutez la commande suivante. Vous pouvez également spécifier le paramètre **PermissionsToKeys** pour définir des autorisations pour un utilisateur, une app ou un groupe de sécurité.
 
-Quand vous utilisez Set-AzureRmKeyvaultAccessPolicy sur un environnement Azure Stack Hub configuré pour ADFS, le paramètre BypassObjectIdValidation doit être fourni.
+Quand vous utilisez Set-AzKeyvaultAccessPolicy sur un environnement Azure Stack Hub configuré pour ADFS, le paramètre BypassObjectIdValidation doit être fourni.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign -BypassObjectIdValidation
+Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign -BypassObjectIdValidation
 ```
 
 Si vous souhaitez autoriser cette même app à lire les secrets de votre coffre, exécutez l’applet de commande suivante :
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get -BypassObjectIdValidation
+Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get -BypassObjectIdValidation
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

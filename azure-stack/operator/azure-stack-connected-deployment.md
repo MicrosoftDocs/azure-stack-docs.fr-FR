@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: b8f8dfe95e50b81c7032e2e2348c2d4e6a6d888d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c9defcc7f569ba30628cb16632b52c00ae7f2bec
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78364766"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543866"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Décisions de la planification de déploiement connecté à Azure de systèmes intégrés Azure Stack Hub
 Une fois que vous avez décidé [comment intégrer Azure Stack Hub dans votre environnement de cloud hybride](azure-stack-connection-models.md), vous pouvez finaliser vos décisions de déploiement Azure Stack Hub.
@@ -33,6 +33,11 @@ Lorsque vous utilisez Azure AD comme magasin d’identités, vous avez besoin d
 
     - Approvisionner et déléguer des applications et principaux de service pour tous les services Azure Stack Hub qui interagissent avec Azure AD et l’API Graph.
     - Comme compte de l’administrateur de service. Ce compte est celui du propriétaire de l’abonnement du fournisseur par défaut (vous pouvez modifier ce paramètre ultérieurement). Vous pouvez vous connecter au portail d’administration Azure Stack Hub à l’aide de ce compte, et l’utiliser pour créer des offres et des plans, définir des quotas et effectuer d’autres fonctions d’administration dans Azure Stack Hub.
+
+> [!IMPORTANT]
+> - Le compte d’administrateur général n’est pas tenu d’exécuter Azure Stack Hub et peut être désactivé après le déploiement.
+> - Sécurisez le compte d’administrateur général en suivant les [meilleures pratiques documentées ici](/azure/security/fundamentals/identity-management-best-practices).
+
 
 2. **Compte de facturation** (requis pour les déploiements connectés et déconnectés). Ce compte Azure est utilisé pour établir la relation de facturation entre votre système intégré Azure Stack Hub et le serveur principal de commerce Azure. Il s’agit du compte auquel sont facturés les frais relatifs à Azure Stack Hub. Ce compte sera également utilisé pour offrir des éléments dans le Marketplace et d’autres scénarios hybrides.
 
@@ -66,4 +71,4 @@ La facturation selon la capacité nécessite un abonnement Azure EA (Enterprise 
 - Pour plus d’informations sur l’empaquetage et les tarifs de Microsoft Azure Stack Hub, [téléchargez le fichier PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Intégration au réseau du centre de données](azure-stack-network.md)
+[Intégration du réseau du centre de données](azure-stack-network.md)

@@ -3,22 +3,22 @@ title: Ajouter des nœuds d’unité d’échelle dans Azure Stack Hub
 description: Découvrez comment ajouter des nœuds d’unité d’échelle à des unités d’échelle dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/09/2020
+ms.date: 11/05/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 08/03/2020
-ms.openlocfilehash: bf1cbd3dc999a90fb53ef30b48dc6f06e82f4d5a
-ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
+ms.lastreviewed: 11/05/2020
+ms.openlocfilehash: 86672961ee2a02f858cfce73a895154c6eb1bcbe
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89621297"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544035"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Ajouter des nœuds d’unité d’échelle dans Azure Stack Hub
 
-Les opérateurs Azure Stack Hub peuvent augmenter la capacité globale d’une unité d’échelle existante en ajoutant un calculateur physique. Le calculateur physique s’appelle aussi un nœud d’unité d’échelle. Chaque nouveau nœud d’unité d’échelle que vous ajoutez doit être homogène en termes de type de CPU, de mémoire, de numéro de disque et de taille avec les nœuds déjà présents dans l’unité d’échelle.
+Vous pouvez augmenter la capacité globale d’une unité d’échelle existante en ajoutant un nouvel ordinateur physique. Le calculateur physique s’appelle aussi un nœud d’unité d’échelle. Chaque nouveau nœud d’unité d’échelle que vous ajoutez doit être homogène en termes de type de CPU, de mémoire, de numéro de disque et de taille avec les nœuds déjà présents dans l’unité d’échelle.
 
-Pour ajouter un nœud d’unité d’échelle, vous devez intervenir dans Azure Stack Hub et exécuter les outils de votre fabricant de matériel (OEM). Les outils du fabricant OEM s’exécutent sur l’hôte du cycle de vie matériel (HLH) pour s’assurer que le nouveau calculateur physique correspond au même niveau de microprogramme que les nœuds existants.
+Pour ajouter un nœud d’unité d’échelle, connectez-vous à Azure Stack Hub et exécuter les outils de votre fabricant de matériel (OEM). Les outils du fabricant OEM s’exécutent sur l’hôte du cycle de vie matériel (HLH) pour s’assurer que le nouveau calculateur physique correspond au même niveau de microprogramme que les nœuds existants.
 
 Le diagramme de flux suivant montre le processus général pour ajouter un nœud d’unité d’échelle :
 
@@ -60,6 +60,21 @@ Pour ajouter de nouveaux nœuds, vous pouvez vous servir du portail administrate
    ![Ajouter les détails du nœud](media/azure-stack-add-scale-node/select-node2.png)
  
 
+### <a name="powershell-az"></a>[PowerShell Az](#tab/Az)
+
+Utilisez la cmdlet **Add-AzsScaleUnitNodeObject** pour ajouter un nœud.  
+
+Avant d’utiliser l’un des exemples de scripts PowerShell suivants, remplacez les valeurs *nom_du_nouveau_noeud*, *nom_du_cluster_d’unité_d’échelle*, *adresse BMCIP_du_nouveau_code* par des valeurs de votre environnement Azure Stack Hub.
+
+  > [!Note]  
+  > Lorsque vous nommez un nœud, vous devez spécifier un nom comportant moins de 15 caractères. Vous ne pouvez pas utiliser un nom qui contient un espace ou les caractères suivants : `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
+
+**Ajouter un nœud :**
+  ```powershell
+  ## Add a single Node 
+    Add-AzsScaleUnitNode -BMCIPv4Address "<BMCIP_address_of_new_node>" -computername "<name_of_new_node>" -ScaleUnit "<name_of_scale_unit_cluster>" 
+  ```  
+
 ### <a name="powershell-azurerm"></a>[PowerShell AzureRM](#tab/AzureRM)
 
 Utilisez l’applet de commande **New-AzsScaleUnitNodeObject** pour ajouter un nœud.  
@@ -75,21 +90,6 @@ Avant d’utiliser l’un des exemples de scripts PowerShell suivants, remplacez
   $NewNode=New-AzsScaleUnitNodeObject -computername "<name_of_new_node>" -BMCIPv4Address "<BMCIP_address_of_new_node>" 
  
   Add-AzsScaleUnitNode -NodeList $NewNode -ScaleUnit "<name_of_scale_unit_cluster>" 
-  ```  
-
-### <a name="powershell-az"></a>[PowerShell Az](#tab/Az)
-
-Utilisez la cmdlet **Add-AzsScaleUnitNodeObject** pour ajouter un nœud.  
-
-Avant d’utiliser l’un des exemples de scripts PowerShell suivants, remplacez les valeurs *nom_du_nouveau_noeud*, *nom_du_cluster_d’unité_d’échelle*, *adresse BMCIP_du_nouveau_code* par des valeurs de votre environnement Azure Stack Hub.
-
-  > [!Note]  
-  > Lorsque vous nommez un nœud, vous devez spécifier un nom comportant moins de 15 caractères. Vous ne pouvez pas utiliser un nom qui contient un espace ou les caractères suivants : `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
-
-**Ajouter un nœud :**
-  ```powershell
-  ## Add a single Node 
-    Add-AzsScaleUnitNode -BMCIPv4Address "<BMCIP_address_of_new_node>" -computername "<name_of_new_node>" -ScaleUnit "<name_of_scale_unit_cluster>" 
   ```  
 
 ---

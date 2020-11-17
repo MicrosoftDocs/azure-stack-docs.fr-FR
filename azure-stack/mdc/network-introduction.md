@@ -7,12 +7,12 @@ ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 12/31/2019
 ms.lastreviewed: 12/31/2019
-ms.openlocfilehash: 511ea66e0f70041ffc237463e33fccdbf390360d
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 4aec8b6dde194590d0bc5cb00f42869462fc365e
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183400"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383545"
 ---
 # <a name="modular-data-center-mdc-network-introduction"></a>Présentation du réseau MDC (Modular Data Center)
 
@@ -79,9 +79,9 @@ Le HLH héberge également le déploiement de machines virtuelles (DVM). Le DVM 
 
 Le réseau /20 (adresses IP hôtes 4096) est privé pour la région MDC. Il ne s’étend pas au-delà des appareils de commutation de bordure de la région MDC. Ce réseau est divisé en plusieurs sous-réseaux, par exemple :
 
-- **Réseau de stockage**  : Réseau /25 (128 adresses IP) utilisé pour prendre en charge l’utilisation du trafic de stockage Spaces Direct et Server Message Block (SMB) ainsi que la migration dynamique de machine virtuelle.
+- **Réseau de stockage** : Réseau /25 (128 adresses IP) utilisé pour prendre en charge l’utilisation du trafic de stockage Spaces Direct et Server Message Block (SMB) ainsi que la migration dynamique de machine virtuelle.
 - Réseau d’adresse IP virtuelle interne : Réseau /25 dédié aux adresses IP virtuelles internes uniquement pour l’équilibrage de charge logicielle.
-- **Réseau de conteneurs**  : Réseau /23 (512 adresses IP) dédié au trafic interne uniquement entre les conteneurs exécutant des services d’infrastructure
+- **Réseau de conteneurs** : Réseau /23 (512 adresses IP) dédié au trafic interne uniquement entre les conteneurs exécutant des services d’infrastructure
 
 La taille du réseau privé passe à /20 (4 096 adresses IP) d’espace d’adresses IP privées. Ce réseau est privé pour le système MDC. Il n’est pas acheminé au-delà des appareils de commutation de bordure du système MDC et peut être réutilisé sur plusieurs systèmes MDC. Ce réseau est privé pour MDC, mais il ne doit pas empiéter sur d’autres réseaux dans le centre de données. Pour obtenir des conseils sur l’espace d’adressage IP privé, nous vous recommandons de suivre le document RFC 1918.
 
@@ -109,7 +109,7 @@ Il y a deux réseaux /25, l’un résidant sur le commutateur ToR et l’autre e
 
 ## <a name="dns-design-overview"></a>Vue d’ensemble de la conception DNS
 
-Pour accéder aux points de terminaison MDC ( *portail* ,  *adminportal* ,  *gestion* , *adminmanagement* , etc.) en dehors de MDC, vous devez intégrer les services DNS MDC aux serveurs DNS qui hébergent les zones DNS que vous souhaitez utiliser dans MDC.
+Pour accéder aux points de terminaison MDC (*portail*, *adminportal*, *management*, *adminmanagement*, etc.) en dehors de MDC, vous devez intégrer les services DNS MDC aux serveurs DNS qui hébergent les zones DNS que vous souhaitez utiliser dans MDC.
 
 ### <a name="mdc-dns-namespace"></a>Espace de noms DNS MDC
 
@@ -120,15 +120,15 @@ Vous devez fournir certaines informations importantes relatives à DNS quand vou
 | Région | Emplacement géographique de votre déploiement MDC. | *est* |
 | Nom du domaine externe | Nom de la zone à utiliser pour votre déploiement MDC. | *cloud.fabrikam.com* |
 | Nom de domaine interne | Nom de la zone interne utilisée pour les services d’infrastructure dans MDC. Elle est intégrée au service d’annuaire et privée (inaccessible en dehors du déploiement MDC). | *azurestack.local* |
-| Redirecteurs DNS | Serveurs DNS utilisés pour transférer des requêtes DNS, des zones DNS et des enregistrements hébergés en dehors de MDC, sur l’intranet d’entreprise ou sur l’Internet public. Vous pouvez modifier la valeur de Redirecteur DNS avec la cmdlet  **Set-AzSDnsForwarder**  après le déploiement. | |
-| Préfixe de nommage (facultatif) | Préfixe de nommage dont vous souhaitez doter les noms de machine d’instance de rôle de l’infrastructure MDC. S’il n’est pas fourni, la valeur par défaut est  *azs* . | *azs* |
+| Redirecteurs DNS | Serveurs DNS utilisés pour transférer des requêtes DNS, des zones DNS et des enregistrements hébergés en dehors de MDC, sur l’intranet d’entreprise ou sur l’Internet public. Vous pouvez modifier la valeur de Redirecteur DNS avec la cmdlet **Set-AzSDnsForwarder** après le déploiement. | |
+| Préfixe de nommage (facultatif) | Préfixe de nommage dont vous souhaitez doter les noms de machine d’instance de rôle de l’infrastructure MDC. S’il n’est pas fourni, la valeur par défaut est *azs*. | *azs* |
 
 Le nom de domaine complet (FQDN) de votre déploiement MDC et des points de terminaison est la combinaison du paramètre de la région et du paramètre du nom de domaine externe. En utilisant les valeurs des exemples du tableau précédent, le nom de domaine complet pour ce déploiement MDC serait le suivant : *east.cloud.fabrikam.com*
 
 Ainsi, certains des points de terminaison pour ce déploiement ressembleraient, par exemple, aux URL suivantes :
 
-- https://portal.east.cloud.fabrikam.com
-- https://adminportal.east.cloud.fabrikam.com
+- `https://portal.east.cloud.fabrikam.com`
+- `https://adminportal.east.cloud.fabrikam.com`
 
 Afin d’utiliser cet exemple d’espace de noms DNS pour un déploiement MDC, les conditions suivantes sont requises :
 
@@ -142,9 +142,9 @@ Pour résoudre les noms DNS des points de terminaison et des instances MDC en de
 
 #### <a name="dns-name-labels"></a>Étiquettes de nom DNS
 
-MDC prend en charge l’ajout d’une étiquette de nom DNS à une adresse IP publique pour permettre la résolution de noms pour les adresses IP publiques. Les étiquettes DNS permettent aux utilisateurs d’accéder aux applications et services hébergés dans MDC par nom. L’étiquette de nom DNS utilise un espace de noms légèrement différent que les points de terminaison d’infrastructure. Suivant l’exemple d’espace de noms précédent, l’espace de noms pour les étiquettes de nom DNS s’affiche comme suit : *\*.east.cloudapp.cloud.fabrikam.com* . 
+MDC prend en charge l’ajout d’une étiquette de nom DNS à une adresse IP publique pour permettre la résolution de noms pour les adresses IP publiques. Les étiquettes DNS permettent aux utilisateurs d’accéder aux applications et services hébergés dans MDC par nom. L’étiquette de nom DNS utilise un espace de noms légèrement différent que les points de terminaison d’infrastructure. Suivant l’exemple d’espace de noms précédent, l’espace de noms pour les étiquettes de nom DNS s’affiche comme suit : *\*.east.cloudapp.cloud.fabrikam.com*. 
 
-Si un abonné indique une valeur  **Myapp**  dans le champ d’étiquette de nom DNS d’une ressource d’adresse IP publique, il crée un enregistrement A pour myapp dans la zone  **east.cloudapp.cloud.fabrikam.com**  sur le serveur DNS externe MDC. Le nom de domaine complet obtenu est le suivant : *myapp.east.cloudapp.cloud.fabrikam.com* . 
+Si un abonné indique une valeur **MyApp** dans le champ d’étiquette de nom DNS d’une ressource d’adresse IP publique, il crée un enregistrement A pour myapp dans la zone **east.cloudapp.cloud.fabrikam.com** sur le serveur DNS externe MDC. Le nom de domaine complet obtenu est le suivant : *myapp.east.cloudapp.cloud.fabrikam.com*. 
 
 Si vous souhaitez tirer parti de cette fonctionnalité et utiliser cet espace de noms, vous devez intégrer les serveurs DNS. Les serveurs qui hébergent la zone DNS externe pour MDC sont inclus avec les serveurs DNS qui hébergent la zone parente que vous souhaitez utiliser. Comme il s’agit d’un espace de noms autre que celui pour les points de terminaison de service MDC, vous devez créer une délégation supplémentaire ou une règle de transfert conditionnelle.
 
@@ -162,7 +162,7 @@ MDC comprend à la fois des serveurs DNS faisant autorité et des serveurs DNS r
 
 ### <a name="resolving-external-dns-names-from-mdc"></a>Résolution des noms DNS externes à partir de MDC
 
-Afin de résoudre les noms DNS pour les points de terminaison en dehors de MDC (par exemple : www.bing.com), vous devez fournir des serveurs DNS que MDC peut utiliser pour transférer les requêtes DNS pour lesquelles MDC ne fait pas autorité. Les serveurs DNS vers lesquels MDC transfère les requêtes sont requis dans la feuille de calcul de déploiement (dans le champ du redirecteur DNS). Indiquez au moins deux serveurs dans ce champ à des fins de tolérance de panne. En l’absence de ces valeurs, le déploiement MDC échoue. Vous pouvez modifier les valeurs de Redirecteur DNS avec la cmdlet  **Set-AzSDnsForwarder** après le déploiement.
+Afin de résoudre les noms DNS pour les points de terminaison en dehors de MDC (par exemple : www.bing.com), vous devez fournir des serveurs DNS que MDC peut utiliser pour transférer les requêtes DNS pour lesquelles MDC ne fait pas autorité. Les serveurs DNS vers lesquels MDC transfère les requêtes sont requis dans la feuille de calcul de déploiement (dans le champ du redirecteur DNS). Indiquez au moins deux serveurs dans ce champ à des fins de tolérance de panne. En l’absence de ces valeurs, le déploiement MDC échoue. Vous pouvez modifier les valeurs de Redirecteur DNS avec la cmdlet **Set-AzSDnsForwarder** après le déploiement.
 
 ## <a name="firewall-design-overview"></a>Vue d’ensemble de conception du pare-feu
 
@@ -202,9 +202,9 @@ Les adresses IP routables publiques sont spécifiées pour le pool d'adresses 
 
 Dans un déploiement sur un réseau de périmètre ou intranet d’entreprise, MDC est déployé sur un pare-feu multizone ou entre le pare-feu de périmètre et le pare-feu de réseau d’entreprise interne. Le trafic est ensuite distribué entre le réseau de périmètre sécurisé (ou DMZ) et les zones non sécurisées, comme décrit ci-dessous :
 
-- **Zone sécurisée**  : Le réseau interne qui utilise des adresses IP routables de l’entreprise ou internes. Le réseau sécurisé peut être divisé. Il peut disposer d’un accès sortant à Internet via le pare-feu NAT. Il est normalement accessible à partir de votre centre de données via le réseau interne. Tous les réseaux MDC doivent résider dans la zone sécurisée, à l’exception du pool d’adresses IP virtuelles publiques du réseau externe.
-- **Zone du périmètre**  : Les applications externes ou accessibles sur Internet comme les serveurs web sont généralement déployées sur le réseau de périmètre. Celui-ci est normalement analysé par un pare-feu pour éviter les attaques de type DDoS et les intrusions (piratage), mais il autorise également le trafic entrant spécifié à partir d’internet. Seul le pool d’adresses IP virtuelles publiques de réseau externe MDC doit résider dans la zone DMZ. 
-- **Zone non sécurisée**  : Il s’agit du réseau externe, l’Internet. Le déploiement de MDC dans la zone non sécurisée **n’est pas** recommandé.
+- **Zone sécurisée** : Le réseau interne qui utilise des adresses IP routables de l’entreprise ou internes. Le réseau sécurisé peut être divisé. Il peut disposer d’un accès sortant à Internet via le pare-feu NAT. Il est normalement accessible à partir de votre centre de données via le réseau interne. Tous les réseaux MDC doivent résider dans la zone sécurisée, à l’exception du pool d’adresses IP virtuelles publiques du réseau externe.
+- **Zone du périmètre** : Les applications externes ou accessibles sur Internet comme les serveurs web sont généralement déployées sur le réseau de périmètre. Celui-ci est normalement analysé par un pare-feu pour éviter les attaques de type DDoS et les intrusions (piratage), mais il autorise également le trafic entrant spécifié à partir d’internet. Seul le pool d’adresses IP virtuelles publiques de réseau externe MDC doit résider dans la zone DMZ. 
+- **Zone non sécurisée** : Il s’agit du réseau externe, l’Internet. Le déploiement de MDC dans la zone non sécurisée **n’est pas** recommandé.
 
 ![Scénario du pare-feu du réseau de périmètre](media/network-introduction/perimeter-network-firewall-scenario-50.png) 
 
@@ -235,8 +235,8 @@ Lorsque vous créez la passerelle de réseau virtuel d’une configuration de pa
 >[!IMPORTANT]
 > Pour l’instant, MDC prend uniquement en charge le type de VPN basé sur le routage. Si votre appareil ne gère que les VPN basés sur les stratégies, les connexions à ces appareils à partir de MDC ne sont pas prises en charge. En outre, pour le moment, MDC ne prend pas en charge l’utilisation des sélecteurs de trafic reposant sur les stratégies pour les passerelles basées sur le routage, car les configurations de stratégies IPSec/IKE personnalisées ne sont pas prises en charge. 
 
-- **PolicyBased** : Les VPN basés sur des stratégies chiffrent et acheminent des paquets via les tunnels IPsec, en fonction des stratégies IPsec. Les stratégies sont configurées avec les combinaisons de préfixes d’adresses entre votre réseau local et le réseau virtuel MDC. La stratégie ou le sélecteur de trafic prennent généralement la forme d’une liste d’accès dans la configuration de périphérique VPN. **PolicyBased** est pris en charge dans Azure, mais non dans MDC. 
-- **RouteBased** : Les VPN basés sur l’itinéraire utilisent des itinéraires configurés dans le transfert IP ou la table de routage. Les itinéraires acheminent des paquets vers les interfaces de tunnel correspondantes. Les interfaces de tunnel chiffrent ou déchiffrent ensuite les paquets se trouvant dans et hors des tunnels. La stratégie ou le sélecteur de trafic, des VPN  **RouteBased** est configurée sous forme Any-to-Any (ou utilise des caractères génériques). Par défaut, ils ne sont pas modifiables. La valeur d’un type de VPN **RouteBased**  est **RouteBased** .
+- **PolicyBased** : Les VPN basés sur des stratégies chiffrent et acheminent des paquets via les tunnels IPsec, en fonction des stratégies IPsec. Les stratégies sont configurées avec les combinaisons de préfixes d’adresses entre votre réseau local et le réseau virtuel MDC. La stratégie ou le sélecteur de trafic prennent généralement la forme d’une liste d’accès dans la configuration de périphérique VPN. **PolicyBased** est pris en charge dans Azure, mais non dans MDC. 
+- **RouteBased** : Les VPN basés sur l’itinéraire utilisent des itinéraires configurés dans le transfert IP ou la table de routage. Les itinéraires acheminent des paquets vers les interfaces de tunnel correspondantes. Les interfaces de tunnel chiffrent ou déchiffrent ensuite les paquets se trouvant dans et hors des tunnels. La stratégie, ou sélecteur de trafic, des VPN **RouteBased** est configurée comme universelle (ou utilise des caractères génériques). Par défaut, ils ne sont pas modifiables. Le VPN **RouteBased** a pour valeur **RouteBased**.
 
 ### <a name="configuring-a-vpn-gateway"></a>Configuration d’une passerelle VPN
 
@@ -355,7 +355,7 @@ Cet article fournit des instructions sur la création et la configuration d’un
 Notez les points importants suivants concernant l’utilisation de ces stratégies :
 
 - La stratégie IPsec/IKE fonctionne uniquement sur les références SKU de passerelle Standard et HighPerformance (Basé sur itinéraires).
-- Vous pouvez uniquement spécifier une combinaison de stratégie pour une connexion donnée.
+- Vous ne pouvez spécifier qu’une seule combinaison de stratégies pour une connexion donnée.
 - Vous devez spécifier tous les algorithmes et paramètres pour IKE (mode principal) et IPsec (mode rapide). Vous n’êtes pas en droit de spécifier de stratégie partielle.
 - Consulter les spécifications de votre fournisseur de périphérique VPN pour vous assurer que la stratégie est prise en charge sur vos périphériques VPN locaux. Les connexions site à site ne peuvent pas être établies si les stratégies sont incompatibles.
 

@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: v-myoung
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 55a35a509b4fe3fadbe9a58e705cc53cfd18a027
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 7408bcb7317550d7093f97a4cfe10bbc17119467
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572168"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543627"
 ---
 # <a name="redeploy-the-asdk"></a>Redéployer l’ASDK
 Dans cet article, vous allez découvrir comment redéployer le Kit de développement Azure Stack (ASDK) dans un environnement hors production. La mise à niveau de l’ASDK n’étant pas prise en charge, vous devez le redéployer complètement pour passer à une version plus récente. Vous pouvez également redéployer les ASDK chaque fois que vous souhaitez commencer de zéro.
@@ -23,7 +23,7 @@ Dans cet article, vous allez découvrir comment redéployer le Kit de développe
 ## <a name="remove-azure-registration"></a>Supprimer l’inscription auprès d’Azure 
 Si vous avez précédemment inscrit votre installation ASDK auprès d’Azure, vous devez supprimer la ressource d’inscription avant de redéployer l’ASDK. Réinscrivez l’ASDK pour activer la syndication des éléments de marketplace lorsque vous redéployez l’ASDK. Si vous n’avez pas précédemment inscrit l’ASDK auprès de votre abonnement Azure, vous pouvez ignorer cette section.
 
-Pour supprimer la ressource d’inscription, utilisez la cmdlet **Remove-AzsRegistration** pour annuler l’inscription d’Azure Stack. Ensuite, utilisez la cmdlet **Remove-AzureRMResourceGroup** pour supprimer le groupe de ressources Azure Stack de votre abonnement Azure :
+Pour supprimer la ressource d’inscription, utilisez la cmdlet **Remove-AzsRegistration** pour annuler l’inscription d’Azure Stack. Ensuite, utilisez la cmdlet **Remove-AzResourceGroup** pour supprimer le groupe de ressources Azure Stack de votre abonnement Azure :
 
 1. Ouvrez une console PowerShell en tant qu’administrateur sur un ordinateur qui a accès au point de terminaison privilégié. Pour le kit ASDK, il s’agit de l’ordinateur hôte ASDK.
 
@@ -31,10 +31,10 @@ Pour supprimer la ressource d’inscription, utilisez la cmdlet **Remove-AzsRegi
 
    ```powershell    
    #Import the registration module that was downloaded with the GitHub tools
-   Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+   Import-Module C:\AzureStack-Tools-az\Registration\RegisterWithAzure.psm1
 
    # Provide Azure subscription admin credentials
-   Add-AzureRmAccount
+   Add-AzAccount
 
    # Provide ASDK admin credentials
    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
@@ -46,7 +46,7 @@ Pour supprimer la ressource d’inscription, utilisez la cmdlet **Remove-AzsRegi
       -RegistrationName $RegistrationName
 
    # Remove the Azure Stack resource group
-   Remove-AzureRmResourceGroup -Name azurestack -Force
+   Remove-AzResourceGroup -Name azurestack -Force
    ```
 
 3. Vous êtes invité à vous connecter à votre abonnement Azure et l’installation ASDK locale lors de l’exécution du script.

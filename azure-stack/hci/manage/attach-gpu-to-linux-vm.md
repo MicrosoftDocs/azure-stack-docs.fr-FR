@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 07/01/2020
-ms.openlocfilehash: 1d881db2d8802e93611437cbc14fe9782540be16
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 422f6984fad6218387673d2dc9292f0ae7cb1739
+ms.sourcegitcommit: 7b189e5317b8fe5f8ad825565da3607a39a1b899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106944"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94493650"
 ---
 # <a name="attaching-a-gpu-to-an-ubuntu-linux-vm-on-azure-stack-hci"></a>Attachement d’un GPU à une machine virtuelle Ubuntu Linux sur Azure Stack HCI
 
@@ -37,7 +37,7 @@ Ce document suppose que le cluster Azure Stack HCI est déployé et que les mach
 
 ## <a name="create-and-configure-an-ubuntu-virtual-machine"></a>Créer et configurer une machine virtuelle Ubuntu
 
-1. Téléchargez le [fichier ISO de la version 18.04.02 du bureau Ubuntu](http://cdimage.ubuntu.com/lubuntu/releases/18.04.2/release/lubuntu-18.04.2-desktop-amd64.iso).
+1. Téléchargez le [fichier ISO de la version 18.04.02 du bureau Ubuntu](http://old-releases.ubuntu.com/releases/18.04.2/).
 2. Ouvrez le **gestionnaire Hyper-V** sur le nœud du système sur lequel le GPU est installé.
    > [!NOTE]
    > [DDA ne prend pas en charge le basculement](/windows-server/virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment). Il s’agit d’une limitation des machines virtuelles avec DDA. Nous vous recommandons donc d’utiliser le **Gestionnaire Hyper-V** pour déployer la machine virtuelle sur le nœud au lieu du **Gestionnaire du cluster de basculement**. L’utilisation du **Gestionnaire du cluster de basculement** avec DDA échouera avec un message d’erreur indiquant que la machine virtuelle possède un appareil qui ne prend pas en charge la haute disponibilité.
@@ -426,13 +426,25 @@ Pour vous préparer à effectuer cette configuration, consultez les questions fr
 
     :::image type="content" source="media/attach-gpu-to-linux-vm/set-modules.png" alt-text="Capture d’écran - Définir des modules":::
 
-14. Sous Modules IoT Edge, sélectionnez Module de la Place de marché :
+14. Sous Modules IoT Edge, sélectionnez Module Azure IoT Edge :
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/marketplace-module.png" alt-text="Capture d’écran - Module de la Place de marché":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/marketplace-module.png" alt-text="Capture d’écran Ajouter un module IoT Edge":::
 
-15. Recherchez NVIDIA et choisissez le SDK DeepStream comme indiqué ci-dessous :
+15. Dans le volet **Ajouter un module IoT Edge**, sélectionnez l’onglet **Paramètres du module**, puis entrez ou sélectionnez les valeurs suivantes :
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/deepstream.png" alt-text="Capture d’écran - SDK DeepStream":::
+    - **Nom du module IoT Edge** : NVIDIADeepStreamSDK
+
+    - **URI de l’image** : marketplace.azurecr.io/nvidia/deepstream-iot2
+
+    - **Stratégie de redémarrage** : toujours
+
+    - **État souhaité** : en cours d’exécution
+
+    - **Stratégie de tirage d’image** : *vide*
+    
+    Sélectionnez **Ajouter**.
+
+    :::image type="content" source="media/attach-gpu-to-linux-vm/deepstream-module-settings.png" alt-text="Capture d’écran - SDK DeepStream":::
 
 16. Vérifiez que le module NvidiaDeepStreamSDK est listé sous Modules IoT Edge :
 

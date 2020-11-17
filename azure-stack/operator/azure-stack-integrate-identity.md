@@ -8,12 +8,12 @@ ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 8e6ec9fcb6428b9f8dad7c4f78acde54291b30f1
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 3087e7b4f84aa710a89a2f122e91bcfd643eed8d
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488618"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544188"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Intégrer l’identité AD FS avec votre centre de données Azure Stack Hub
 
@@ -87,13 +87,23 @@ Pour cette procédure, utilisez un ordinateur de votre réseau de centre de donn
 
    ```powershell  
    $creds = Get-Credential
-   Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+   $pep = New-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-2. Maintenant que vous êtes connecté au point de terminaison privilégié, exécutez la commande suivante : 
+2. Maintenant que vous avez une session avec le point de terminaison privilégié, exécutez la commande suivante : 
 
    ```powershell  
-   Register-DirectoryService -CustomADGlobalCatalog contoso.com
+    $i = @(
+           [pscustomobject]@{ 
+                     CustomADGlobalCatalog="fabrikam.com"
+                     CustomADAdminCredential= get-credential
+                     SkipRootDomainValidation = $false 
+                     ValidateParameters = $true
+                   }) 
+
+    Invoke-Command -Session $pep -ScriptBlock {Register-DirectoryService -customCatalog $using:i} 
+
+
    ```
 
    Lorsque vous y êtes invité, spécifiez les informations d’identification du compte d’utilisateur que vous souhaitez utiliser pour le service Graph (par exemple, graphservice). L’entrée de l’applet de commande Register-DirectoryService doit correspondre au nom de la forêt/racine du domaine dans la forêt plutôt que n’importe quel autre domaine dans la forêt.
@@ -105,8 +115,8 @@ Pour cette procédure, utilisez un ordinateur de votre réseau de centre de donn
 
    |Paramètre|Description|
    |---------|---------|
-   |`-SkipRootDomainValidation`|Spécifie qu’un domaine enfant doit être utilisé à la place du domaine racine recommandé.|
-   |`-Force`|Ignore tous les contrôles de validation.|
+   |`SkipRootDomainValidation`|Spécifie qu’un domaine enfant doit être utilisé à la place du domaine racine recommandé.|
+   |`ValidateParameters`|Ignore tous les contrôles de validation.|
 
 #### <a name="graph-protocols-and-ports"></a>Ports et protocoles Graph
 

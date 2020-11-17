@@ -5,30 +5,31 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: reference
-ms.date: 07/07/2020
+ms.date: 10/20/2020
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: bb945f69a972214823f366456967b71a013d98bf
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 9289b1c2ae3119a03898e2d9c361bde4976a16f7
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899837"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546920"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Machine virtuelle du processeur graphique (GPU) sur Azure Stack Hub
 
 *S’applique à : systèmes intégrés Azure Stack*
 
-Dans cet article, vous pouvez découvrir les modèles de processeurs graphiques (GPU) pris en charge sur le système multi-nœud Azure Stack Hub. Vous y trouverez également des instructions sur l’installation des pilotes utilisés avec les GPU. Le support GPU dans Azure Stack Hub permet de fournir des solutions telles que l’intelligence artificielle, la formation, l’inférence et la visualisation des données. L’accélérateur graphique AMD Radeon Instinct Mi25 peut être utilisé pour prendre en charge des applications gourmandes en graphiques, telles qu’Autodesk AutoCAD.
+Cet article décrit les modèles de processeurs graphiques (GPU) pris en charge sur un système multi-nœuds Azure Stack Hub. Vous y trouverez également des instructions sur l’installation des pilotes utilisés avec les GPU. Le support GPU dans Azure Stack Hub permet de fournir des solutions telles que l’intelligence artificielle, la formation, l’inférence et la visualisation des données. L’accélérateur graphique AMD Radeon Instinct Mi25 peut être utilisé pour prendre en charge des applications gourmandes en graphiques, telles qu’Autodesk AutoCAD.
 
 Vous pouvez choisir parmi trois modèles GPU dans la période de préversion publique. Ils sont disponibles dans les processeurs graphiques NVIDIA V100, NVIDIA T4 et AMD Mi25. Ces GPU physiques s’alignent sur les types de machines virtuelles de la série N Azure suivants, comme suit :
 - [NCv3](/azure/virtual-machines/ncv3-series)
 - [NVv4 (AMD MI25)](/azure/virtual-machines/nvv4-series)
-- NCas_v4
+- [NCasT4_v3](/azure/virtual-machines/nct4-v3-series)
 
 > [!IMPORTANT]  
 > Le support GPU Azure Stack Hub est actuellement disponible en préversion publique. Pour participer à la préversion, remplissez le formulaire sur [aka.ms/azurestackhubgpupreview](https://aka.ms/azurestackhubgpupreview).
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="ncv3"></a>NCv3
 
@@ -48,18 +49,14 @@ Les machines virtuelles de la série NVv4 sont alimentées par des GPU [AMD Rade
 | --- | --- | --- | --- | --- | --- | --- | --- |   
 | Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 | 
 
-## <a name="ncas_v4"></a>NCas_v4
-
-Cette nouvelle taille de machine virtuelle NVIDIA T4 permet l’exécution de charges de travail légères de Machine Learning, d’inférence et de visualisation sur Azure Stack Hub. Actuellement, cette taille de machine virtuelle n’est *pas* disponible sur le portail pour le déploiement et PowerShell/CLI doit être utilisé à la place.
-
+## <a name="ncast4_v3"></a>NCasT4_v3
 
 | Taille | Processeurs virtuels | Mémoire : Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Nombre max de cartes réseau | 
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC4as_v4 |4 |28 | 1 | 16 | 8 | 4 | 
-| Standard_NC8as_v4 |8 |56 | 1 | 16 | 16 | 8 | 
-| Standard_NC16as_v4 |16 |112 | 1 | 16 | 32 | 8 | 
-| Standard_NC64as_v4 |64 |448 | 4 | 64 | 32 | 8 | 
-
+| Standard_NC4as_T4_v3 |4 |28 | 1 | 16 | 8 | 4 | 
+| Standard_NC8as_T4_v3 |8 |56 | 1 | 16 | 16 | 8 | 
+| Standard_NC16as_T4_v3 |16 |112 | 1 | 16 | 32 | 8 | 
+| Standard_NC64as_T4_v3 |64 |448 | 4 | 64 | 32 | 8 |
 
 ## <a name="patch-and-update-fru-behavior-of-vms"></a>Correctif et mise à jour, comportement FRU des machines virtuelles 
 
@@ -70,17 +67,25 @@ Les machines virtuelles GPU subissent des temps d’arrêt pendant les opératio
 | État de la machine virtuelle  | Non disponible pendant et après la mise à jour sans opération de démarrage manuelle | Non disponible pendant la mise à jour. Disponible après le démarrage avec une opération manuelle | Non disponible pendant la mise à jour. Disponible après le démarrage avec une opération manuelle| 
 | Opération manuelle | Si la machine virtuelle doit être disponible pendant la mise à jour et si des partitions GPU sont disponibles, la machine virtuelle peut être redémarrée à partir du portail en cliquant sur le bouton **Redémarrer**. Redémarrez la machine virtuelle après la mise à jour à partir du portail à l’aide du bouton **Redémarrer** | Impossible de rendre la machine virtuelle disponible pendant la mise à jour. Après la fin de la mise à jour, la machine virtuelle doit être arrêtée-libérée à l’aide du bouton **Arrêter** et la sauvegarde doit être démarrée à l’aide du bouton « Démarrer » | Impossible de rendre la machine virtuelle disponible pendant la mise à jour. Après la fin de la mise à jour, la machine virtuelle doit être arrêtée-libérée à l’aide du bouton **Arrêter** et la sauvegarde doit être démarrée à l’aide du bouton **Démarrer**.| 
 
-## <a name="guest-driver-installation"></a>Installation du pilote invité 
+## <a name="guest-driver-installation"></a>Installation du pilote invité
 
 ### <a name="amd-mi25"></a>Mi25 AMD
+
 L’article [Installer des pilotes GPU AMD sur des machines virtuelles série N exécutant Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup) fournit des instructions sur l’installation du pilote pour l’AMD Radeon Instinct Mi25 à l’intérieur de la machine virtuelle compatible GPU-P NVv4, ainsi que les étapes de vérification de l’installation du pilote. Cette extension fonctionne uniquement en mode connecté.
 
 ### <a name="nvidia"></a>NVIDIA
 
-Les pilotes NVIDIA sont requis pour exécuter des charges de travail CUDA ou GRID sur la machine virtuelle. Assurez-vous que vous disposez des licences GRID appropriées, ainsi que d’un serveur de licences configuré avant d’utiliser l’extension pour installer les pilotes GRID sur la machine virtuelle. [Cette](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html) peut être utilisée pour apprendre à configurer le serveur de licences. Les pilotes CUDA n’ont pas besoin d’un serveur de licences.
+Les pilotes NVIDIA doivent être installés à l’intérieur de la machine virtuelle pour les charges de travail CUDA ou GRID à l’aide du GPU.
 
-Les pilotes GRID et NVIDIA CUDA doivent être installés manuellement sur la machine virtuelle. Les pilotes Tesla CUDA peuvent être obtenus à partir du [site web de téléchargement](https://www.nvidia.com/Download/index.aspx) NVIDIA. Les pilotes GRID peuvent être téléchargés via le Hub d’applications NVIDIA, à condition que vous disposiez des licences requises.
+#### <a name="use-case-graphicsvisualization"></a>Cas d’usage : graphiques/visualisation
 
-## <a name="next-steps"></a>Étapes suivantes 
+Ce scénario requiert l’utilisation de pilotes GRID. Les pilotes GRID peuvent être téléchargés via le Hub d’applications NVIDIA, à condition que vous disposiez des licences requises. Les pilotes GRID requièrent également un serveur de licences GRID avec les licences GRID appropriées avant d’utiliser les pilotes GRID sur la machine virtuelle. Cette peut être utilisée pour apprendre à configurer le serveur de licences.
 
-[Fonctionnalités des machines virtuelles Azure Stack](azure-stack-vm-considerations.md)
+#### <a name="use-case-computecuda"></a>Cas d’usage : calcul/CUDA
+
+Les pilotes GRID et NVIDIA CUDA doivent être installés manuellement sur la machine virtuelle. Les pilotes Tesla CUDA peuvent être obtenus à partir du [site web de téléchargement](https://www.nvidia.com/Download/index.aspx) NVIDIA. Les pilotes CUDA n’ont pas besoin d’un serveur de licences.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Installer les pilotes GPU NVIDIA sur les machines virtuelles série N exécutant Linux](/azure/virtual-machines/linux/n-series-driver-setup)
+- [Fonctionnalités des machines virtuelles Azure Stack](azure-stack-vm-considerations.md)

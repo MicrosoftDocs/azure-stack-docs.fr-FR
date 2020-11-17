@@ -16,31 +16,30 @@ ms.date: 10/20/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: aa5d67405ff471cecf147256d4b2109e94d993ef
-ms.sourcegitcommit: 716ca50bd198fd51a4eec5b40d5247f6f8c16530
+ms.openlocfilehash: 339927d28c2778a5c2953d8acf90e04931e3c815
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92898585"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383630"
 ---
-# <a name="mdc-deployment-overview"></a>Vue d’ensemble du déploiement de MDC
+# <a name="mdc-requirements-overview"></a>Présentation des exigences en lien avec un MDC
 
-Ce guide de déploiement décrit les étapes d’installation et de configuration d’un Modular Data Center (MDC). Ce guide décrit également le processus automatisé permettant de configurer le serveur d’administration HLH (Hardware cycle Host) Azure Stack Hub pour le déploiement de Azure Stack Hub.
+Ce guide décrit les exigences relatives à l’installation et à la configuration d’un Modular Data Center (MDC). 
 
 Les objectifs de ce guide sont les suivants :
 
 - fournir une liste de vérification de prédéploiement pour vérifier que toutes les conditions préalables ont été remplies avant l’installation des composants ;
 - présenter les composants clés MDC ;
-- décrire l’installation et la configuration des composants clés ;
 - valider le déploiement du client.
 
-L’expérience technique de la virtualisation, des serveurs, des systèmes d’exploitation, de la mise en réseau et des solutions de stockage est nécessaire pour bien comprendre le contenu de ce guide. L’ingénieur de déploiement doit connaitre Microsoft Windows Server 2019 avec Hyper-V, Azure Stack Hub, Azure et Microsoft PowerShell.
+L’expérience technique de la virtualisation, des serveurs, des systèmes d’exploitation, de la mise en réseau et des solutions de stockage est nécessaire pour bien comprendre le contenu de ce guide. 
 
-Ce guide se concentre sur le déploiement des composants de base de Microsoft Azure Stack Hub et les spécificités de la solution MDC. Ce guide n’explique pas les procédures de fonctionnement d’Azure Stack Hub et ne couvre pas toutes les fonctionnalités disponibles dans Azure Stack Hub. Pour plus d’informations, consultez [Guide de l’opérateur d’Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/).
+Ce guide se concentre sur le déploiement des composants de base de Microsoft Azure Stack Hub et les spécificités de la solution MDC. Ce guide n’explique pas les procédures de fonctionnement d’Azure Stack Hub et ne couvre pas toutes les fonctionnalités disponibles dans Azure Stack Hub. 
 
 ## <a name="introduction"></a>Introduction
 
-MDC est une offre intégrée à Azure Stack Hub, empaquetée dans un conteneur de transport métallique standard de 40 mètres. Le conteneur comprend une unité de contrôle climatique, un système d’éclairage et un système d’alerte. Les principaux composants Azure Stack Hub, tels que les serveurs et les commutateurs, sont installés dans six racks physiques qui sont organisés de façon logique dans trois pods indépendants.
+MDC est une offre intégrée à Azure Stack Hub, empaquetée dans un conteneur de transport métallique standard de 40 mètres. Le conteneur comprend une unité de contrôle climatique, un système d’éclairage et un système d’alerte. Les principaux composants Azure Stack Hub sont installés sous la forme de trois pods indépendants : Pod 1, Rack 1 et Rack 2, Pod 2, Rack 1 et Rack 2, et Pod 3, Rack 1 et Rack 2.
 
 Chaque pod est constitué de deux racks 42U. Un pod comprend les commutateurs ToR (Top of Rack), les commutateurs de périphérie et un commutateur du contrôleur de gestion de la carte de base (BMC). En outre, chaque pod comprend un hôte de cycle de vie du matériel (HLH) et un concentrateur de port série. La capacité de stockage et de calcul de base est fournie par les unités d’échelle Azure Stack Hub, composées de huit serveurs R840 de l’appliance Edge robuste. Une capacité de stockage supplémentaire est fournie par 48 nœuds de stockage Isilon. La configuration physique de tous les pods est identique.
 
@@ -87,6 +86,4 @@ Le tableau suivant répertorie certains des termes utilisés dans ce guide.
 1. Phase de validation – séparément pour chacun des trois pods :
    1. Validation de l’intégrité après le déploiement.
    1. Inscription d’Azure Stack Hub auprès de Microsoft.
-   1. Transfert des opérateurs Azure Stack Hub.
-  
-Chacun des sujets ci-dessus est expliqué en détail dans ce guide.
+   1. Transfert des clients Azure Stack Hub.

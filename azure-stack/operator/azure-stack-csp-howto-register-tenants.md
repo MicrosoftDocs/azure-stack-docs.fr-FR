@@ -7,12 +7,12 @@ ms.date: 9/02/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 5/28/2020
-ms.openlocfilehash: e0d426ac19645cbbc318f66b827946534539d125
-ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
+ms.openlocfilehash: 43ceccf55807367606bae5f3aa8fcdebf6f9aace
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89448569"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543814"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Ajouter un locataire pour l’utilisation et la facturation sur Azure Stack Hub
 
@@ -52,22 +52,22 @@ Mettez à jour votre inscription avec l’abonnement de nouveau client. Azure si
 1. Ouvrez Windows PowerShell dans une invite de commandes avec élévation des privilèges, puis exécutez la commande suivante :  
 
    ```powershell
-   Add-AzureRmAccount
+   Add-AzAccount
    ```
 
    >[!NOTE]
-   > Si votre session expire, si votre mot de passe a changé ou si vous souhaitez simplement changer de compte, exécutez l’applet de commande suivante avant de vous connecter en utilisant **Add-AzureRmAccount** : `Remove-AzureRmAccount-Scope Process`.
+   > Si votre session expire, si votre mot de passe a changé ou si vous souhaitez simplement changer de compte, exécutez la cmdlet suivante avant de vous connecter en utilisant **Add-AzAccount** : `Remove-AzAccount-Scope Process`.
 
 2. Entrez vos informations d’identification Azure.
 3. Dans la session PowerShell, exécutez :
 
    ```powershell
-   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
+   New-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
    ```
 
-### <a name="new-azurermresource-powershell-parameters"></a>Paramètres PowerShell New-AzureRmResource
+### <a name="new-azresource-powershell-parameters"></a>Paramètres PowerShell New-AzResource
 
-La section suivante décrit les paramètres de la cmdlet **New-AzureRmResource** :
+La section suivante décrit les paramètres de la cmdlet **New-AzResource** :
 
 | Paramètre | Description |
 | --- | --- |

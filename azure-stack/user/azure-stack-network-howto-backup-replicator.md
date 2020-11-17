@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 14f86b63e8089069d53e7b849d4bfea55007f34e
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 80200b283ba6ef0266513eefaa1fdcb8faf9faa8
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90571692"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546733"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Répliquer des ressources à l’aide du réplicateur d’abonnements Azure Stack Hub
 
@@ -54,7 +54,7 @@ Un processeur personnalisé dicte la manière dont une ressource doit être rép
 
 La structure de fichiers du réplicateur contient un dossier nommé **Standardized_ARM_Templates**. Selon l’environnement source, les déploiements utilisent un de ces modèles Azure Resource Manager normalisés, à défaut de quoi un modèle Azure Resource Manager personnalisé doit être généré. Dans ce cas, un processeur personnalisé doit appeler un générateur de modèles Azure Resource Manager. Dans l’exemple précédent, le nom d’un générateur de modèles Azure Resource Manager pour machines virtuelles serait **virtualMachines_ARM_Template_Generator. ps1**. Le générateur de modèles Azure Resource Manager est chargé de créer un modèle Azure Resource Manager personnalisé en fonction des informations contenues dans les métadonnées d’une ressource. Par exemple, si la ressource de machine virtuelle comporte des métadonnées spécifiant qu'elle appartient à un groupe à haute disponibilité, le générateur de modèles Azure Resource Manager crée un modèle Azure Resource Manager avec du code spécifiant l’ID du groupe à haute disponibilité dont fait partie la machine virtuelle. Ainsi, lors de son déploiement sur le nouvel abonnement, la machine virtuelle est automatiquement ajoutée au groupe à haute disponibilité. Ces modèles personnalisés Azure Resource Manager sont stockés dans le dossier **Custom_ARM_Templates** situé dans le dossier **Standardized_ARM_Templates**. Post_processor. ps1 doit déterminer si un déploiement est supposé utiliser un modèle Azure Resource Manager normalisé ou personnalisé, et générer le code de déploiement correspondant.
 
-Le script **post-Process. ps1** doit nettoyer les fichiers de paramètres et créer les scripts dont l'utilisateur se servira pour déployer les nouvelles ressources. Lors de la phase de nettoyage, le script remplace toutes les références à l’ID d’abonnement source, à l’ID de locataire et à l’emplacement par les valeurs cibles correspondantes. Il génère ensuite le fichier de paramètres dans le dossier **Parameter_Files**. Puis, il détermine si la ressource en cours de traitement utilise un modèle Azure Resource Manager personnalisé et génère le code de déploiement correspondant, qui utilise cmdlet **New-AzureRmResourceGroupDeployment**. Le code de déploiement est ensuite ajouté au fichier nommé **DeployResources. ps1** stocké dans le dossier **Deployment_Files**. Enfin, le script détermine le groupe de ressources auquel appartient la ressource et vérifie le script **DeployResourceGroups. ps1** pour vérifier si le code permettant de déployer ce groupe de ressources existe déjà. Si ce n’est pas le cas, il ajoute le code à ce script pour déployer le groupe de ressources, sinon il ne fait rien.
+Le script **post-Process. ps1** doit nettoyer les fichiers de paramètres et créer les scripts dont l'utilisateur se servira pour déployer les nouvelles ressources. Lors de la phase de nettoyage, le script remplace toutes les références à l’ID d’abonnement source, à l’ID de locataire et à l’emplacement par les valeurs cibles correspondantes. Il génère ensuite le fichier de paramètres dans le dossier **Parameter_Files**. Puis, il détermine si la ressource en cours de traitement utilise un modèle Azure Resource Manager personnalisé et génère le code de déploiement correspondant, qui utilise la cmdlet **New-AzResourceGroupDeployment**. Le code de déploiement est ensuite ajouté au fichier nommé **DeployResources. ps1** stocké dans le dossier **Deployment_Files**. Enfin, le script détermine le groupe de ressources auquel appartient la ressource et vérifie le script **DeployResourceGroups. ps1** pour vérifier si le code permettant de déployer ce groupe de ressources existe déjà. Si ce n’est pas le cas, il ajoute le code à ce script pour déployer le groupe de ressources, sinon il ne fait rien.
 
 ### <a name="dynamic-api-retrieval"></a>Récupération d'API dynamique
 
@@ -68,7 +68,7 @@ Il est toutefois possible que la version de l’API du fournisseur de ressources
 
 ### <a name="parallel-deployments"></a>Déploiements parallèles
 
-L’outil nécessite un paramètre nommé **parallel**. Ce paramètre utilise une valeur booléenne qui indique si les ressources récupérées doivent être ou non déployées en parallèle. Si cette valeur est définie sur **true**, chaque appel à **New-AzureRmResourceGroupDeployment** porte l'indicateur **-asJob** et des blocs de code visant à attendre la fin des travaux parallèles sont ajoutés entre les déploiements des ensembles de ressources en fonction du type de ces dernières. Ainsi, toutes les ressources d’un type donné sont déployées préalablement au déploiement du type de ressource suivant. Si la valeur du paramètre **parallel** est définie sur **false**, les ressources sont déployées en série.
+L’outil nécessite un paramètre nommé **parallel**. Ce paramètre utilise une valeur booléenne qui indique si les ressources récupérées doivent être ou non déployées en parallèle. Si cette valeur est définie sur **true**, chaque appel à **New-AzResourceGroupDeployment** porte l’indicateur **-asJob** et des blocs de code visant à attendre la fin des travaux parallèles sont ajoutés entre les déploiements des ensembles de ressources en fonction du type de ces dernières. Ainsi, toutes les ressources d’un type donné sont déployées préalablement au déploiement du type de ressource suivant. Si la valeur du paramètre **parallel** est définie sur **false**, les ressources sont déployées en série.
 
 ## <a name="add-additional-resource-types"></a>Ajout de types de ressources supplémentaires
 

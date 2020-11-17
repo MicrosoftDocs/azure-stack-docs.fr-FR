@@ -3,15 +3,15 @@ title: Vue d’ensemble des clusters étendus
 description: En savoir plus sur les clusters étendus
 author: v-dasis
 ms.topic: how-to
-ms.date: 07/21/2020
+ms.date: 11/05/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 611f76491f6edd5cb8700a13e79c0769c02c4fad
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: e9651111e82b3449823ec7d13135154e7f0a447e
+ms.sourcegitcommit: 96bc36a203954622be411fdb038d601e49f97d4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064750"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441138"
 ---
 # <a name="stretched-clusters-overview"></a>Vue d’ensemble des clusters étendus
 
@@ -29,6 +29,9 @@ Il existe deux types de clusters étendus : actif/passif et actif/actif. Dans u
 Pour faire simple, un site *actif* est doté de ressources et fournit des rôles et des charges de travail auxquelles les clients se connectent. Un site *passif* ne fournit aucun rôle ni aucune charge de travail aux clients et attend un basculement du site actif pour assurer la reprise d’activité.
 
 Les sites peuvent se trouver dans des régions différentes, des villes différentes, des étages différents ou des pièces différentes. Les clusters étendus utilisant deux sites assurent la reprise d’activité et la continuité de l’activité en cas de panne ou de défaillance d’un site.
+
+Prenez quelques minutes pour visionner la vidéo sur le clustering étendu avec Azure Stack HCI :
+> [!VIDEO https://www.youtube.com/embed/rYnZL1wMiqU]
 
 ## <a name="active-passive-stretched-cluster"></a>Cluster étendu actif-passif
 

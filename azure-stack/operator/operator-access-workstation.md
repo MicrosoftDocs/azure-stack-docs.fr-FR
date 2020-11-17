@@ -3,16 +3,16 @@ title: Station de travail d’accès à l’opérateur Azure Stack Hub
 description: Découvrez comment télécharger et configurer une station de travail d’accès à l’opérateur Azure Stack Hub.
 author: ashika789
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 11/04/2020
 ms.author: justinha
 ms.reviewer: asganesh
-ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: cc83edf05e9b63a8d1e09ed6bf960959b9f7f673
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.lastreviewed: 11/04/2020
+ms.openlocfilehash: c2e5e474555a9fb3a04c09fde495e4fe80c4378b
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363943"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546971"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Station de travail d’accès à l’opérateur Azure Stack Hub 
 
@@ -110,7 +110,7 @@ Le script suivant prépare la machine virtuelle en tant que station de travail d
 1. Accédez au contenu extrait du fichier OAW.zip.
 1. Exécutez le script New-OAW.ps1. 
 
-Par exemple, pour créer la machine virtuelle de l’OAW sur le HLH sans aucune personnalisation à l’aide d’Azure Stack Hub version 2005 ou ultérieure, exécutez le script New-OAW.ps1 uniquement avec le paramètre **-LocalAdministratorPassword**  :
+Par exemple, pour créer la machine virtuelle de l’OAW sur le HLH sans aucune personnalisation à l’aide d’Azure Stack Hub version 2005 ou ultérieure, exécutez le script New-OAW.ps1 uniquement avec le paramètre **-LocalAdministratorPassword** :
 
 ```powershell
 $securePassword = Read-Host -Prompt "Enter password for Azure Stack OAW's local administrator" -AsSecureString
@@ -126,6 +126,16 @@ New-OAW.ps1 -LocalAdministratorPassword $securePassword `
    -SubnetMask '255.255.255.0' `
    -DefaultGateway '192.168.0.1' `
    -DNS '192.168.0.10'
+```
+
+Pour récupérer l’adresse IP de la machine virtuelle ERCS à partir du fichier AzureStackStampInformation.json :
+
+```powershell
+$securePassword = Read-Host -Prompt "Enter password for Azure Stack OAW's local administrator" -AsSecureString
+New-OAW.ps1 -LocalAdministratorPassword $securePassword `
+   -AzureStackCertificatePath 'F:\certroot.cer' `
+   -DeploymentDataFilePath 'F:\DeploymentData.json' `
+   -AzSStampInfoFilePath 'F:\AzureStackStampInformation.json'
 ```
 
 Pour créer la machine virtuelle de l’OAW sur le HLH avec DeploymentData.json :
@@ -144,6 +154,7 @@ Deux jeux de paramètres sont disponibles pour New-OAW. Les paramètres facultat
 New-OAW 
 -LocalAdministratorPassword <Security.SecureString> `
 [-AzureStackCertificatePath <String>] `
+[-AzSStampInfoFilePath <String>] `
 [-CertificatePassword <Security.SecureString>] `
 [-ERCSVMIP <String[]>] `
 [-DNS <String[]>] `
@@ -172,6 +183,7 @@ New-OAW
 -DefaultGateway <String> `
 -DNS <String[]> `
 [-AzureStackCertificatePath <String>] `
+[-AzSStampInfoFilePath <String>] `
 [-CertificatePassword <Security.SecureString>] `
 [-ERCSVMIP <String[]>] `
 [-ImageFilePath <String>] `
@@ -204,6 +216,7 @@ Le tableau suivant répertorie la définition de chaque paramètre.
 | VirtualProcessorCount      | Facultatif | Nombre de processeurs virtuels à attribuer à la machine virtuelle. La valeur par défaut est **8**.        |
 | VirtualMachineDiffDiskPath | Facultatif | Chemin d’accès pour stocker les fichiers de disque diff temporaires pendant que la machine virtuelle de gestion était active. La valeur par défaut est le sous-répertoire **DiffDisks** sous le même dossier parent de ce script. |
 | AzureStackCertificatePath  | Facultatif | Chemin d’accès aux certificats à importer sur la machine virtuelle pour l’accès à Azure Stack Hub. |
+| AzSStampInfoFilePath       | Facultatif | Chemin d’accès du fichier AzureStackStampInformation.json dans lequel le script peut récupérer les adresses IP de la machine virtuelle ERCS. |
 | CertificatePassword        | Facultatif | Mot de passe du certificat à importer sur la machine virtuelle pour l’accès à Azure Stack Hub. |
 | ERCSVMIP                   | Facultatif | Adresse IP des machines virtuelles ERCS Azure Stack Hub à ajouter à la liste des hôtes approuvés de la machine virtuelle. Ne prend pas effet si **-SkipNetworkConfiguration** est défini. |
 SkipNetworkConfiguration     | Facultatif | Ignore la configuration réseau de la machine virtuelle afin que l’utilisateur puisse la configurer ultérieurement. |

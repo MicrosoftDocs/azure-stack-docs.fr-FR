@@ -7,12 +7,12 @@ ms.date: 09/03/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 6813bf18656e034688255bcdb46b9b943359ce9c
-ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
+ms.openlocfilehash: 93ede4373a2799551bc3091a6d9b3cd00cb9d578
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89448620"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546478"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Utiliser des profils de version d’API avec Ruby dans Azure Stack Hub
 
@@ -70,7 +70,7 @@ Le Kit de développement logiciel (SDK) Azure Resource Manager pour Ruby est en 
 
 ## <a name="use-the-azure_sdk-gem"></a>Utiliser la gemme azure_sdk
 
-La gemme **azure_sdk** est un cumul de toutes les gemmes prises en charge dans le Kit de développement logiciel (SDK) Ruby. Cette gemme se compose du profil  **Le plus récent** , qui prend en charge la version la plus récente de tous les services. Elle inclut les profils avec version  **V2017_03_09** et **V2019_03_01_Hybrid**, qui sont générés pour Azure Stack Hub.
+La gemme **azure_sdk** est un cumul de toutes les gemmes prises en charge dans le Kit de développement logiciel (SDK) Ruby. Cette gemme se compose du profil **Le plus récent**, qui prend en charge la version la plus récente de tous les services. Elle inclut les profils avec version **V2017_03_09** et **V2019_03_01_Hybrid**, qui sont générés pour Azure Stack Hub.
 
 Vous pouvez installer la gemme cumulative azure_sdk avec la commande suivante :  
 
@@ -306,5 +306,5 @@ Pour exécuter l’exemple, assurez-vous que vous avez installé Ruby. Si vous u
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Installer PowerShell pour Azure Stack Hub](../operator/azure-stack-powershell-install.md)
+- [Installer PowerShell pour Azure Stack Hub](../operator/powershell-install-az-module.md)
 - [Configurer l’environnement PowerShell de l’utilisateur Azure Stack Hub](azure-stack-powershell-configure-user.md)  

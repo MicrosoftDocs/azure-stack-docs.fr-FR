@@ -7,12 +7,12 @@ ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 7da3f2b488444e0868099cfe34e6ebfff56926ea
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: dba03ae9ce1a237bb7ca8ab5ee0f534ad13ebc6b
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107149"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546835"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Créer un stockage sur disque de machine virtuelle dans Azure Stack Hub
 
@@ -157,7 +157,7 @@ Pour plus d’informations sur l’utilisation des comptes de stockage dans Azur
 
 Vous pouvez utiliser PowerShell pour provisionner une machine virtuelle et ajouter de nouveaux disques de données, ou pour attacher un disque managé préexistant ou un fichier .vhd en tant que disque de données.
 
-La cmdlet **Add-AzureRmVMDataDisk** ajoute un disque de données à une machine virtuelle. Vous pouvez ajouter un disque de données lorsque vous créez une machine virtuelle. Vous pouvez également ajouter un disque de données à une machine virtuelle existante. Pour un disque non managé, spécifiez le paramètre **VhdUri** pour distribuer les disques sur différents conteneurs.
+La cmdlet **Add-AzVMDataDisk** ajoute un disque de données à une machine virtuelle. Vous pouvez ajouter un disque de données lorsque vous créez une machine virtuelle. Vous pouvez également ajouter un disque de données à une machine virtuelle existante. Pour un disque non managé, spécifiez le paramètre **VhdUri** pour distribuer les disques sur différents conteneurs.
 
 ### <a name="add-data-disks-to-a-new-vm"></a>Ajouter des disques de données à une **nouvelle** machine virtuelle
 
@@ -169,7 +169,7 @@ La première commande crée un objet de machine virtuelle, puis le stocke dans l
 
 ```powershell
 # Create new virtual machine configuration
-$VirtualMachine = New-AzureRmVMConfig -VMName "VirtualMachine" `
+$VirtualMachine = New-AzVMConfig -VMName "VirtualMachine" `
                                       -VMSize "Standard_A2"
 
 # Set variables
@@ -178,30 +178,30 @@ $location = "local"
 
 # Create a subnet configuration
 $subnetName = "mySubNet"
-$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+$singleSubnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
 
 # Create a vnet configuration
 $vnetName = "myVnetName"
-$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
+$vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
                                   -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
 
 # Create a public IP
 $ipName = "myIP"
-$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
+$pip = New-AzPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
                                   -AllocationMethod Dynamic
 
 # Create a network security group configuration
 $nsgName = "myNsg"
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
+$rdpRule = New-AzNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
                                                 -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
                                                 -SourceAddressPrefix Internet -SourcePortRange * `
                                                 -DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
                                        -Name $nsgName -SecurityRules $rdpRule
 
 # Create a NIC configuration
 $nicName = "myNicName"
-$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
+$nic = New-AzNetworkInterface -Name $nicName -ResourceGroupName $rgName `
                                    -Location $location -SubnetId $vnet.Subnets[0].Id `
                                    -NetworkSecurityGroupId $nsg.Id -PublicIpAddressId $pip.Id
 
@@ -212,19 +212,19 @@ $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
 Les trois commandes suivantes ajoutent des disques de données managés à la machine virtuelle stockée dans `$VirtualMachine`. Chaque commande spécifie le nom et d’autres propriétés du disque :
 
 ```powershell
-$VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk1' `
+$VirtualMachine = Add-AzVMDataDisk -VM $VirtualMachine -Name 'DataDisk1' `
                                         -Caching 'ReadOnly' -DiskSizeInGB 10 -Lun 0 `
                                         -CreateOption Empty
 ```
 
 ```powershell
-$VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk2' `
+$VirtualMachine = Add-AzVMDataDisk -VM $VirtualMachine -Name 'DataDisk2' `
                                         -Caching 'ReadOnly' -DiskSizeInGB 11 -Lun 1 `
                                         -CreateOption Empty
 ```
 
 ```powershell
-$VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
+$VirtualMachine = Add-AzVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
                                         -Caching 'ReadOnly' -DiskSizeInGB 12 -Lun 2 `
                                         -CreateOption Empty
 ```
@@ -234,7 +234,7 @@ La commande suivante ajoute un disque de système d’exploitation en tant que d
 ```powershell
 # Set OS Disk
 $osDiskName = "osDisk"
-$VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name $osDiskName  `
+$VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name $osDiskName  `
                                       -CreateOption FromImage -Windows
 ```
 
@@ -257,19 +257,19 @@ $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.
 Les trois commandes suivantes ajoutent des disques de données à la machine virtuelle stockée dans `$VirtualMachine`. Chaque commande spécifie le nom et d’autres propriétés du disque. L’URI de chaque disque est stocké dans `$DataDiskVhdUri01`, `$DataDiskVhdUri02` et `$DataDiskVhdUri03` :
 
 ```powershell
-$VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk1' `
+$VirtualMachine = Add-AzVMDataDisk -VM $VirtualMachine -Name 'DataDisk1' `
                                         -Caching 'ReadOnly' -DiskSizeInGB 10 -Lun 0 `
                                         -VhdUri $DataDiskVhdUri01 -CreateOption Empty
 ```
 
 ```powershell
-$VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk2' `
+$VirtualMachine = Add-AzVMDataDisk -VM $VirtualMachine -Name 'DataDisk2' `
                                         -Caching 'ReadOnly' -DiskSizeInGB 11 -Lun 1 `
                                         -VhdUri $DataDiskVhdUri02 -CreateOption Empty
 ```
 
 ```powershell
-$VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
+$VirtualMachine = Add-AzVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
                                         -Caching 'ReadOnly' -DiskSizeInGB 12 -Lun 2 `
                                         -VhdUri $DataDiskVhdUri03 -CreateOption Empty
 ```
@@ -280,7 +280,7 @@ Les commandes suivantes ajoutent des disques de système d’exploitation non ma
 # Set OS Disk
 $osDiskUri = "https://contoso.blob.local.azurestack.external/vhds/osDisk.vhd"
 $osDiskName = "osDisk"
-$VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name $osDiskName -VhdUri $osDiskUri `
+$VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name $osDiskName -VhdUri $osDiskUri `
                                       -CreateOption FromImage -Windows
 ```
 
@@ -290,11 +290,11 @@ Utilisez les commandes PowerShell suivantes pour définir une image de système 
 
 ```powershell
 #Create the new VM
-$VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName VirtualMachine -ProvisionVMAgent | `
-                  Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer `
-                  -Skus 2016-Datacenter -Version latest | Add-AzureRmVMNetworkInterface -Id $nic.Id
+$VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName VirtualMachine -ProvisionVMAgent | `
+                  Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer `
+                  -Skus 2016-Datacenter -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
 
-New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $VirtualMachine
+New-AzVM -ResourceGroupName $rgName -Location $location -VM $VirtualMachine
 ```
 
 ### <a name="add-data-disks-to-an-existing-vm"></a>Ajouter des disques de données à une machine virtuelle existante
@@ -303,10 +303,10 @@ Les exemples suivants utilisent des commandes PowerShell pour ajouter trois disq
 
 #### <a name="get-virtual-machine"></a>Obtenir une machine virtuelle
 
- La première commande récupère la machine virtuelle nommée **VirtualMachine** à l’aide de la cmdlet **Get-AzureRmVM**. La commande stocke la machine virtuelle dans la variable `$VirtualMachine` :
+ La première commande récupère la machine virtuelle nommée **VirtualMachine** à l’aide de la cmdlet **Get-AzVM**. La commande stocke la machine virtuelle dans la variable `$VirtualMachine` :
 
 ```powershell
-$VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" `
+$VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" `
                                 -Name "VirtualMachine"
 ```
 
@@ -315,17 +315,17 @@ $VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" `
 Les trois commandes suivantes ajoutent les disques de données managés à la machine virtuelle stockée dans la variable `$VirtualMachine`. Chaque commande spécifie le nom et d’autres propriétés du disque :
 
 ```powershell
-Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk1" -Lun 0 `
+Add-AzVMDataDisk -VM $VirtualMachine -Name "DataDisk1" -Lun 0 `
                       -Caching ReadOnly -DiskSizeinGB 10 -CreateOption Empty
 ```
 
 ```powershell
-Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk2" -Lun 1 `
+Add-AzVMDataDisk -VM $VirtualMachine -Name "DataDisk2" -Lun 1 `
                       -Caching ReadOnly -DiskSizeinGB 11 -CreateOption Empty
 ```
 
 ```powershell
-Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3" -Lun 2 `
+Add-AzVMDataDisk -VM $VirtualMachine -Name "DataDisk3" -Lun 2 `
                       -Caching ReadOnly -DiskSizeinGB 12 -CreateOption Empty
 ```
 
@@ -348,19 +348,19 @@ $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.
 Les trois commandes suivantes ajoutent les disques de données à la machine virtuelle stockée dans la variable `$VirtualMachine`. Chaque commande spécifie le nom, l’emplacement et des propriétés supplémentaires du disque. L’URI de chaque disque est stocké dans `$DataDiskVhdUri01`, `$DataDiskVhdUri02` et `$DataDiskVhdUri03` :
 
 ```powershell
-Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk1" `
+Add-AzVMDataDisk -VM $VirtualMachine -Name "DataDisk1" `
                       -VhdUri $DataDiskVhdUri01 -LUN 0 `
                       -Caching ReadOnly -DiskSizeinGB 10 -CreateOption Empty
 ```
 
 ```powershell
-Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk2" `
+Add-AzVMDataDisk -VM $VirtualMachine -Name "DataDisk2" `
                       -VhdUri $DataDiskVhdUri02 -LUN 1 `
                       -Caching ReadOnly -DiskSizeinGB 11 -CreateOption Empty
 ```
 
 ```powershell
-Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3" `
+Add-AzVMDataDisk -VM $VirtualMachine -Name "DataDisk3" `
                       -VhdUri $DataDiskVhdUri03 -LUN 2 `
                       -Caching ReadOnly -DiskSizeinGB 12 -CreateOption Empty
 ```
@@ -370,7 +370,7 @@ Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3" `
 Cette commande met à jour l’état de la machine virtuelle stockée dans `$VirtualMachine` dans `-ResourceGroupName` :
 
 ```powershell
-Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
+Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
