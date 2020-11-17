@@ -5,15 +5,15 @@ author: BryanLa
 ms.author: bryanla
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 01/13/2020
+ms.date: 11/06/2020
 ms.reviewer: prchint
-ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: d2803f1968be7a4a3e64f65f3d86a2dbb41aaf1c
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.lastreviewed: 11/06/2020
+ms.openlocfilehash: eaa84fb673863935dc4778f34a6fce592590a7a8
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183537"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383401"
 ---
 # <a name="modular-data-center-overview"></a>Vue d’ensemble de Modular Data Center 
 
@@ -27,7 +27,7 @@ Azure Stack remplit quatre principes fondamentaux qui sont cohérents avec les f
 
 ### <a name="develop-and-deliver-apps-with-a-common-devops-model-including-api-symmetry-with-azure"></a>Développer et proposer des applications avec un modèle DevOps commun, notamment la symétrie d’API avec Azure
 
-La cohérence entre Azure et Azure Stack signifie que les solutions pour le combattant sont développées une seule fois, déployées pour prendre en charge un large éventail de cas d’usage, puis sécurisées et soutenues à l’aide d’un ensemble commun d’outils comme Azure Key Vault pour la gestion des clés et Azure Monitor pour la supervision et la gestion des ressources. Azure Stack est interopérable avec les données, les applications et les outils locaux pour DevOps et les opérations sécurisées, par exemple la gestion des clés.
+La cohérence entre Azure et Azure Stack signifie que les solutions sont développées une seule fois, déployées pour prendre en charge un large éventail de cas d’usage, puis sécurisées et soutenues à l’aide d’un ensemble commun d’outils comme Azure Key Vault pour la gestion des clés et Azure Monitor pour la supervision et la gestion des ressources. Azure Stack est interopérable avec les données, les applications et les outils locaux pour DevOps et les opérations sécurisées, par exemple la gestion des clés.
 
 ### <a name="deliver-azure-services-on-premises"></a>Fournir des services Azure en local
 
@@ -35,7 +35,7 @@ Azure Stack s’exécute dans des environnements de communication défavorisés 
 
 ### <a name="use-integrated-hardware-and-software-delivery-experience"></a>Utiliser l’expérience intégrée de distribution de matériel et de logiciels
 
-La périphérie modulaire requiert une gamme de fonctionnalités qui fournissent non seulement des services de calcul et de stockage de base de référence, mais également des fonctionnalités avancées pour Machine Learning, l’intelligence artificielle et l’analytique. La possibilité de se connecter à votre cloud sécurisé à partir de la périphérie modulaire quand cela est possible ou, inversement, de fonctionner indépendamment de celui-ci dans des milieux austères est essentielle pour fournir aux combattants un accès aux données requis pour prendre des décisions.
+La périphérie modulaire requiert une gamme de fonctionnalités qui fournissent non seulement des services de calcul et de stockage de base de référence, mais également des fonctionnalités avancées pour Machine Learning, l’intelligence artificielle et l’analytique. La possibilité de se connecter à votre cloud sécurisé à partir de la périphérie modulaire quand cela est possible ou, inversement, de fonctionner indépendamment de celui-ci dans des milieux austères est essentielle pour fournir un accès aux données requis pour prendre des décisions.
 
 ### <a name="keep-your-datacenter-secure-and-available-with-hybrid-cloud-security-operations"></a>Assurer la sécurité et la disponibilité de votre centre de données avec les opérations de sécurité cloud hybrides
 
@@ -47,7 +47,7 @@ L’administration assistée à distance par Microsoft ou une offre gérée par 
 
 MDC prend en charge un environnement cohérent avec Azure dans des environnements de communication défavorisés :
  - Des centres de données statiques, modulaires et rapidement déployables avec Azure Cloud Services pour alimenter des applications analytiques volumineuses dans des centres d’opérations modulaires (TOC).
- - Les offres de périphérie modulaire d’Azure assurent la cohérence entre le cloud et la périphérie par le biais d’une approche singulière pour la prise en charge des primitives IaaS telles que les machines virtuelles, le stockage et la mise en réseau virtuelle
+ - Les offres de périphérie modulaire d’Azure assurent la cohérence entre le cloud et la périphérie par le biais d’une approche singulière pour la prise en charge des primitives IaaS telles que les machines virtuelles, le stockage et les réseaux virtuels.
  - Prise en charge d’Azure Active Directory et du contrôle d’accès en fonction du rôle (RBAC)
  - Interfaces d’administration courantes
  - Symétrie d’API et prise en charge des outils DevOps Microsoft, tiers et open source

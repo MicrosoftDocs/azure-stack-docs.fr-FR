@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/21/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 25d836bece262f881901df6c62b5dc8f4aeaf11d
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: f4a0ff18d8b96c6c92aa3020031e604d2775c893
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946453"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543559"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Différences entre Azure Stack Hub et Azure quand vous utilisez des services et créez des applications
 
@@ -54,7 +54,7 @@ Microsoft fournit des outils et des conseils qui vous aident dans votre dévelop
 
 | Recommandation | References |
 | -------- | ------------- |
-| Installez les outils appropriés sur votre station de travail du développeur. | - [Installer PowerShell](../operator/azure-stack-powershell-install.md)<br>- [Télécharger des outils](../operator/azure-stack-powershell-download.md)<br>- [Configurer PowerShell](azure-stack-powershell-configure-user.md)<br>- [Installer Visual Studio](azure-stack-install-visual-studio.md)
+| Installez les outils appropriés sur votre station de travail du développeur. | - [Installer PowerShell](../operator/powershell-install-az-module.md)<br>- [Télécharger des outils](../operator/azure-stack-powershell-download.md)<br>- [Configurer PowerShell](azure-stack-powershell-configure-user.md)<br>- [Installer Visual Studio](azure-stack-install-visual-studio.md)
 | Passez en revue les informations relatives aux éléments suivants :<br>- Considérations sur les modèles Azure Resource Manager.<br>- Comment trouver les modèles de démarrage rapide.<br>- Se servir d’un module de stratégie afin d’utiliser Azure et développer pour Azure Stack Hub. | [Développer pour Azure Stack Hub](azure-stack-developer.md) |
 | Passez en revue et appliquez les meilleures pratiques relatives aux modèles. | [Modèles de démarrage rapide Resource Manager](https://aka.ms/aa6yz42)
 | | |
@@ -68,14 +68,14 @@ Pour vous assurer que vous utilisez une version appropriée d’Azure PowerShell
 > [!NOTE]
 > Si vous utilisez le Kit de développement Azure Stack, et que vous disposez d’un accès administratif, consultez la section [Déterminer la version actuelle](../operator/azure-stack-updates.md) pour connaître la build Azure Stack Hub.
 
-Pour les autres API, exécutez la commande PowerShell suivante pour afficher les espaces de noms, les types de ressources et les versions d’API qui sont pris en charge dans votre abonnement Azure Stack Hub (des différences peuvent subsister au niveau des propriétés). Pour que cette commande fonctionne, vous devez avoir déjà [installé](../operator/azure-stack-powershell-install.md) et [configuré](azure-stack-powershell-configure-user.md) PowerShell pour un environnement Azure Stack Hub. Vous devez également disposer d’un abonnement à une offre Azure Stack Hub.
+Pour les autres API, exécutez la commande PowerShell suivante pour afficher les espaces de noms, les types de ressources et les versions d’API qui sont pris en charge dans votre abonnement Azure Stack Hub (des différences peuvent subsister au niveau des propriétés). Pour que cette commande fonctionne, vous devez avoir déjà [installé](../operator/powershell-install-az-module.md) et [configuré](azure-stack-powershell-configure-user.md) PowerShell pour un environnement Azure Stack Hub. Vous devez également disposer d’un abonnement à une offre Azure Stack Hub.
 
 ```powershell
-Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
+Get-AzResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```
 
-Exemple de sortie (tronquée) : ![Exemple de sortie de la commande Get-AzureRmResourceProvider](media/azure-stack-considerations/image1.png)
+Exemple de sortie (tronquée) : ![Exemple de sortie de la commande Get-AzResourceProvider](media/azure-stack-considerations/image1.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
