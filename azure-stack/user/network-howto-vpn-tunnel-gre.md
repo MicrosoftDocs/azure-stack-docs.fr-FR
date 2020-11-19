@@ -3,16 +3,16 @@ title: Créer un tunnel VPN à l’aide de GRE dans Azure Stack Hub
 description: Découvrez comment créer un tunnel VPN à l’aide de GRE dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 11/13/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: cf384a161ce603b9e357c0efa989d6f648a68dda
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 11/13/2020
+ms.openlocfilehash: 95c894e218b2776bab83f2bdde8435eac2826c1d
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572355"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674527"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-gre-in-azure-stack-hub"></a>Créer un tunnel VPN à l’aide de GRE dans Azure Stack Hub
 
@@ -48,9 +48,9 @@ Les modèles sont disponibles dans le référentiel GitHub [Azure intelligent Ed
 - Vous pouvez utiliser votre propre compte de stockage blob et votre propre jeton SAP à l’aide des paramètres _artifactsLocation et _artifactsLocationSasToken.
 - Il existe deux sorties sur ce modèle, INTERNALSUBNETREFVNET1 et INTERNALSUBNETREFVNET2, qui correspondent aux ID de ressource des sous-réseaux internes, si vous souhaitez utiliser ceci dans un modèle de déploiement de type pipeline.
 
-Ce modèle fournit des valeurs par défaut pour l’affectation de nom au réseau virtuel et l’adressage IP. Il requiert un mot de passe pour l’administrateur (rrasadmin) et offre également la possibilité d’utiliser votre propre blob de stockage avec un jeton SAS. Veillez à conserver ces valeurs dans les limites qui conviennent pour permettre au déploiement d'aboutir. Le package PowerShell DSC est exécuté sur chaque machine virtuelle RRAS et installe le routage, ainsi que tous les services et fonctionnalités dépendants requis. Ce DSC peut être davantage personnalisé, si besoin. L’extension de script personnalisé exécute le script suivant et Add-Site2SiteGRE.ps1 configure le tunnel VPNS2S entre les deux serveurs RRAS avec une clé partagée. Vous pouvez afficher la sortie détaillée de l’extension de script personnalisé pour consulter les résultats de la configuration du tunnel VPN.
+Ce modèle fournit des valeurs par défaut pour l’affectation de nom au réseau virtuel et l’adressage IP. Il requiert un mot de passe pour l’administrateur (rrasadmin) et offre également la possibilité d’utiliser votre propre blob de stockage avec un jeton SAS. Veillez à conserver ces valeurs dans les limites qui conviennent pour permettre au déploiement d'aboutir. Le package PowerShell DSC est exécuté sur chaque machine virtuelle RRAS et installe le routage ainsi que tous les services et fonctionnalités dépendants requis. Ce DSC peut être davantage personnalisé, si besoin. L’extension de script personnalisé exécute le script suivant et Add-Site2SiteGRE.ps1 configure le tunnel VPNS2S entre les deux serveurs RRAS avec une clé partagée. Vous pouvez afficher la sortie détaillée de l’extension de script personnalisé pour consulter les résultats de la configuration du tunnel VPN.
 
-![Le schéma, intitulé S2SVPNTunnel, présente deux réseaux virtuels connectés par un tunnel VPN site à site.](./media/azure-stack-network-howto-vpn-tunnel-gre/s2svpntunnel.png)
+![Le schéma, intitulé S2SVPNTunnel, présente deux réseaux virtuels connectés par un tunnel VPN site à site.](./media/azure-stack-network-howto-vpn-tunnel-gre/s2svpntunnel.svg)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,21 +1,21 @@
 ---
 title: Utiliser « Utiliser le stockage persistant » dans un conteneur Windows
 description: Utiliser le stockage persistant dans un conteneur Windows et préparer des nœuds Windows pour des comptes de service administrés de groupe
-author: abha
+author: abhilashaagarwala
 ms.topic: how-to
 ms.date: 09/21/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 91f7249beb34e5afee808d299df48611a5ce26bb
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: 19b934e4bdec9e0ab6f4e7808dfea6e6fb648245
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778128"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94784850"
 ---
 # <a name="use-persistent-storage-in-a-windows-container-and-prepare-windows-nodes-for-group-managed-service-accounts"></a>Utiliser le stockage persistant dans un conteneur Windows et préparer des nœuds Windows pour des comptes de service administrés de groupe
 
-Un volume persistant représente un élément de stockage provisionné pour une utilisation dans des pods Kubernetes. Un volume persistant peut être utilisé par un ou plusieurs pods et est destiné au stockage à long terme. Il est également indépendant du cycle de vie du pod ou du nœud.  Dans cette section, vous allez apprendre à créer un volume persistant et à utiliser ce volume dans votre application Windows.
+Un volume persistant représente un élément de stockage provisionné pour une utilisation dans des pods Kubernetes. Un volume persistant peut être utilisé par un ou plusieurs pods et est destiné au stockage à long terme. Il est également indépendant du cycle de vie du pod ou du nœud.    Dans cette section, vous allez apprendre à créer un volume persistant et à utiliser ce volume dans votre application Windows.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -27,7 +27,7 @@ Voici ce dont vous avez besoin pour commencer :
 
 ## <a name="create-a-persistent-volume-claim"></a>Créer une revendication de volume persistant
 
-Une revendication de volume persistant est utilisée pour approvisionner automatiquement le stockage basé sur une classe de stockage. Pour créer une revendication de volume, créez tout d’abord un fichier nommé `pvc-akshci-csi.yaml` et copiez-y la définition YAML suivante. La revendication demande un disque d’une taille de 10 Go avec un accès  *ReadWriteOnce* . La classe de stockage  *par défaut*  est spécifiée en tant que classe de stockage (vhdx).  
+Une revendication de volume persistant est utilisée pour approvisionner automatiquement le stockage basé sur une classe de stockage.  Pour créer une revendication de volume, créez tout d’abord un fichier nommé `pvc-akshci-csi.yaml` et copiez-y la définition YAML suivante. La revendication demande un disque d’une taille de 10 Go avec un accès  *ReadWriteOnce* . La classe de stockage  *par défaut*  est spécifiée en tant que classe de stockage (vhdx).  
 
 ```yaml
 apiVersion: v1
@@ -41,11 +41,11 @@ spec:
   requests:
    storage: 10Gi
 ```
-Créez le volume en exécutant les commandes suivantes dans une session PowerShell d’administration sur l’un des serveurs du cluster Azure Stack HCI (à l’aide d’une méthode telle que [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession) ou Bureau à distance pour la connexion au serveur) : 
+Créez le volume en exécutant les commandes suivantes dans une session PowerShell d’administration sur l’un des serveurs du cluster Azure Stack HCI (à l’aide d’une méthode telle que [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession) ou Bureau à distance pour la connexion au serveur) : 
 
 
 ```PowerShell
-kubectl create -f pvc-akshci-csi.yaml 
+kubectl create -f pvc-akshci-csi.yaml 
 ```
 La sortie suivante indique que votre revendication de volume persistant a été créée avec succès :
 
@@ -56,7 +56,7 @@ persistentvolumeclaim/pvc-akshci-csi created
 
 ## <a name="use-persistent-volume"></a>Utiliser le volume persistant
 
-Pour utiliser un volume persistant, créez un fichier nomméwinwebserver.yaml et copiez-y la définition YAML suivante. Vous allez ensuite créer un pod avec un accès à la revendication de volume persistant et à vhdx. 
+Pour utiliser un volume persistant, créez un fichier nomméwinwebserver.yaml et copiez-y la définition YAML suivante.  Vous allez ensuite créer un pod avec un accès à la revendication de volume persistant et à vhdx. 
 
 Dans la définition YAML ci-dessous, *mountPath* est le chemin d’accès pour monter un volume à l’intérieur d’un conteneur. Après la création de pod, vous verrez le sous-répertoire *mnt* créé dans *C:\\* et le sous-répertoire *akshciscsi* créé dans *mnt*.
 
@@ -98,24 +98,24 @@ spec:
 Pour créer un pod avec la définition YAML ci-dessus, exécutez :
 
 ```PowerShell
-Kubectl create -f winwebserver.yaml 
+Kubectl create -f winwebserver.yaml 
 ```
 
 Pour vous assurer que le pod est en cours d’exécution, exécutez la commande suivante. Patientez quelques minutes jusqu’à ce que le pod soit à l’état d’exécution en cours, dans la mesure où l’extraction de l’image prend du temps.
 
 ```PowerShell
-kubectl get pods -o wide 
+kubectl get pods -o wide 
 ```
-Lorsque votre pod est en cours d’exécution, affichez l’état du pod en exécutant la commande suivante : 
+Lorsque votre pod est en cours d’exécution, affichez l’état du pod en exécutant la commande suivante : 
 
 ```PowerShell
-kubectl.exe describe pod %podName% 
+kubectl.exe describe pod %podName% 
 ```
 
 Pour vérifier que votre volume a été monté dans le pod, exécutez la commande suivante :
 
 ```PowerShell
-kubectl exec -it %podname% cmd.exe 
+kubectl exec -it %podname% cmd.exe 
 ```
 
 ## <a name="delete-a-persistent-volume-claim"></a>Supprimer une revendication de volume persistant
@@ -154,7 +154,7 @@ add-computer --domainame "YourDomainName" -restart
 
 Une fois que tous les nœuds Worker Windows ont été joints à un domaine, suivez les étapes détaillées dans la [configuration de gMSA](https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa) pour appliquer les définitions de ressource personnalisée Kubernetes gMSA et les webhooks sur votre cluster Kubernetes.
 
-Pour plus d’informations sur le conteneur Windows avec gMSA, consultez [Conteneurs Windows et gMSA](/virtualization/windowscontainers/manage-containers/manage-serviceaccounts). 
+Pour plus d’informations sur le conteneur Windows avec gMSA, consultez [Conteneurs Windows et gMSA](/virtualization/windowscontainers/manage-containers/manage-serviceaccounts). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Déployer une application Windows sur votre cluster Kubernetes](./deploy-windows-application.md).

@@ -8,12 +8,12 @@ ms.date: 07/10/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 96730a5afb143d8a5198c07bdc5b5df14c6483bd
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: 4b6fe9434d7fbc0f62de4c22241300ad20170af2
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866154"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674492"
 ---
 # <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>Différences entre Azure international, Azure Stack Hub et Azure Stack HCI
 
@@ -21,7 +21,7 @@ Microsoft fournit Azure et la famille de services Azure Stack Hub dans un même 
 
 Cet article explique les différences de fonctionnalités qui existent entre Azure international, Azure Stack Hub et Azure Stack HCI. Il fournit des recommandations concernant les scénarios courants afin de vous aider à fournir les bons services cloud Microsoft à votre organisation.
 
-![Vue d’ensemble de l’écosystème Azure](./media/compare-azure-azure-stack/azure-family.svg)
+![Vue d’ensemble de l’écosystème Azure](./media/compare-azure-azure-stack/azure-family-updated.png)
 
 ## <a name="global-azure"></a>Azure global
 

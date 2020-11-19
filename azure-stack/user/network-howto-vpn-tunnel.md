@@ -3,16 +3,16 @@ title: Configurer un tunnel VPN site à site multiple dans Azure Stack Hub
 description: Découvrez comment configurer un tunnel VPN site à site multiple dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 11/13/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: e401e1897af63ede0a3f7dcdd924dc00df39f941
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/13/2020
+ms.openlocfilehash: ba0cf59417dfae96bd9c0ed137843eb69a08cc22
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547073"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674634"
 ---
 # <a name="how-to-set-up-multiple-site-to-site-vpn-tunnels-in-azure-stack-hub"></a>Configurer plusieurs tunnels VPN site à site dans Azure Stack Hub
 
@@ -22,11 +22,11 @@ Les modèles sont disponibles dans le référentiel GitHub [Azure intelligent Ed
 
 ## <a name="scenarios"></a>Scénarios
 
-![Cinq scénarios VPN sont présentés sous forme de schémas : entre deux groupes de ressources au sein d'un même abonnement ; entre deux groupes, chacun dans son propre abonnement ; entre deux groupes, dans des instances de pile distinctes ; entre un groupe et des ressources locales ; et plusieurs tunnels VPN.](./media/azure-stack-network-howto-vpn-tunnel/scenarios.png)
+![Cinq scénarios VPN sont présentés sous forme de schémas : entre deux groupes de ressources au sein d'un même abonnement ; entre deux groupes, chacun dans son propre abonnement ; entre deux groupes, dans des instances de pile distinctes ; entre un groupe et des ressources locales ; et plusieurs tunnels VPN.](./media/azure-stack-network-howto-vpn-tunnel/scenarios.svg)
 
 ## <a name="create-multiple-vpn-tunnels"></a>Créer plusieurs tunnels VPN
 
-![Le schéma montre deux groupes de ressources, chacun dans son propre abonnement et dans sa propre instance de pile, connectés par VPN ; et l'un de ces deux groupes est connecté aux ressources locales par VPN.](./media/azure-stack-network-howto-vpn-tunnel/image1.png)
+![Le schéma montre deux groupes de ressources, chacun dans son propre abonnement et dans sa propre instance de pile, connectés par VPN ; et l'un de ces deux groupes est connecté aux ressources locales par VPN.](./media/azure-stack-network-howto-vpn-tunnel/azure-stack-network-vpn-tunnel1.svg)
 
 -  Déployez une application à trois niveaux : Web, App et DB.
 
@@ -42,7 +42,7 @@ Les modèles sont disponibles dans le référentiel GitHub [Azure intelligent Ed
 
 Cette procédure comprend plusieurs étapes. Pour cette solution, vous allez utiliser le portail Azure Stack Hub. Vous pouvez cependant utiliser PowerShell, Azure CLI ou d’autres chaînes d’outils d’infrastructure en tant que code pour capturer les sorties et les utiliser en tant qu'entrées.
 
-![Le schéma illustre les cinq étapes à suivre pour déployer des tunnels VPN entre deux infrastructures. Les deux premières étapes créent deux infrastructures à partir d'un modèle. Les deux étapes suivantes créent deux tunnels VPN à partir d'un modèle, et la dernière étape connecte les tunnels.](./media/azure-stack-network-howto-vpn-tunnel/image2.png)
+![Le schéma illustre les cinq étapes à suivre pour déployer des tunnels VPN entre deux infrastructures. Les deux premières étapes créent deux infrastructures à partir d'un modèle. Les deux étapes suivantes créent deux tunnels VPN à partir d'un modèle, et la dernière étape connecte les tunnels.](./media/azure-stack-network-howto-vpn-tunnel/azure-stack-network-vpn-tunnel2.svg)
 
 ## <a name="walkthrough"></a>Procédure pas à pas
 
