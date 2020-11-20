@@ -74,6 +74,10 @@
           href: manage/update-cluster.md
         - name: Analyser le cluster
           href: manage/monitor-cluster.md
+        - name: Utiliser le Pare-feu Datacenter
+          href: manage/use-datacenter-firewall.md
+        - name: Utiliser DISKSPD pour tester les charges de travail
+          href: manage/diskspd-overview.md
         - name: Ajouter ou supprimer des serveurs
           href: manage/add-cluster.md
         - name: Prendre un serveur hors connexion pour maintenance
@@ -134,6 +138,8 @@
           href: concepts/network-controller-overview.md
         - name: Planifier un contrôleur de réseau
           href: concepts/network-controller.md
+        - name: Vue d’ensemble du Pare-feu Datacenter
+          href: concepts/datacenter-firewall-overview.md
         - name: Vue d’ensemble d’un équilibreur de charge logicielle
           href: concepts/software-load-balancer.md
         - name: Vue d’ensemble de la passerelle RAS

@@ -7,12 +7,12 @@ ms.date: 10/06/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/06/2020
-ms.openlocfilehash: 4d41519e7ac3b99705c066919b88b7e4bb5d3934
-ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
+ms.openlocfilehash: 2addd1c2e6c486afcdf3f5c6307653d65a9f545e
+ms.sourcegitcommit: 8187658b1d45dceed727aca3ae1b9b57aca04392
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92354235"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630802"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>Démarrage rapide : Créer une machine virtuelle serveur Linux sur le portail Azure Stack Hub
 
@@ -85,6 +85,9 @@ L’adresse du portail Azure Stack Hub varie en fonction du produit Azure Stack 
    ![Authentification](media/azure-stack-quick-linux-portal/image3a.png)
 
 1. Sélectionnez **D1_v2** comme taille de machine virtuelle.
+
+> [!Note]  
+> Si vous créez une machine virtuelle avec GPU, sélectionnez **NC_v3** ou **NC4as_T4_v3** pour la taille de machine virtuelle.
 
    ![Création d’un serveur Linux – Taille](media/azure-stack-quick-linux-portal/image4a.png)
 
