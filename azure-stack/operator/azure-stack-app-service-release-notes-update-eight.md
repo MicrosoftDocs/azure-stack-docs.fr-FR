@@ -4,16 +4,16 @@ description: Notes de publication de la mise à jour 8 d’App Service sur Azu
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 11/17/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: f19d64331e7ef64095bc91a04eb817e2f056d3a9
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 4c89f139c2fc0f80a80fc70ab6d5842a7ffffd4f
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489706"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785800"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>Notes de publication de la mise à jour 8 d’App Service sur Azure Stack Hub
 
@@ -298,7 +298,26 @@ Effectuez l’une des actions suivantes, puis sélectionnez Réessayer dans le p
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Problèmes connus pour les administrateurs cloud utilisant Azure App Service sur Azure Stack Hub
 
-Reportez-vous à la documentation fournie dans les [Notes de publication d’Azure Stack Hub 1907](./release-notes.md?view=azs-2002).
+Reportez-vous à la documentation fournie dans les [Notes de publication d’Azure Stack Hub 1907](./release-notes.md?view=azs-1907&preserve-view=true).
+
+- Les locataires ne peuvent pas créer de plan App Service à l’aide du nouvel affichage de plan App Service dans le portail locataire
+
+Lors de la création d’une application, les locataires peuvent créer des plans App Service lors du workflow de création d’application, lors de la modification du plan App Service pour une application en cours, ou via l'élément de Place de marché de plan App Service
+
+- Les domaines personnalisés ne sont pas pris en charge dans les environnements déconnectés
+
+App Service effectue une vérification de la propriété du domaine sur les points de terminaison DNS publics, car les domaines personnalisés ne sont pas pris en charge dans les scénarios déconnectés.
+
+- Dans certains cas, les Workers ne satisfont pas aux contrôles d'intégrité (espace disque insuffisant).
+
+Dans certains cas, lorsqu'un nombre élevé de sites est alloué à un Worker ou qu'un site traite beaucoup de requêtes, le Worker génère un grand nombre de fichiers journaux d'exécution sous C:\DWAS\LogFiles.  Cela est dû à un bogue au niveau de la logique de nettoyage de ces fichiers journaux.  
+
+Pour résoudre ce problème, accédez à distance au Worker et effacez le contenu du dossier.
+
+Ce problème a été résolu dans [App Service sur Azure Stack Hub 2020 Q3](app-service-release-notes-2020-Q3.md). Nous encourageons donc les clients procéder au plus vite à une mise à niveau vers la version 2020 Q3.
+
+> [!IMPORTANT]
+> Pour pouvoir effectuer la mise à jour vers Azure App Service sur Azure Stack Hub 2020 Q3, vous **devez** procéder à une mise à niveau vers Azure Stack Hub 2008.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

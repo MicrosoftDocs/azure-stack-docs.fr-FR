@@ -1,19 +1,19 @@
 ---
-title: Notes de publication App Service sur Azure Stack Hub 2002 T3
-description: Découvrez le contenu de la mise à jour 2002 T3 d’App Service sur Azure Stack Hub, les problèmes connus et où la télécharger.
+title: Notes de publication App Service sur Azure Stack Hub 2020 T3
+description: Découvrez ce qui contient la version 2020 Q3 d'App Service sur Azure Stack Hub, les problèmes connus liés à celle-ci et où la télécharger.
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 11/17/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/23/2020
-ms.openlocfilehash: 55c8e18f3bbd36a0fef4cfb745ab9d40651e7533
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: f9d575a91c55379326beaac2d76b3400172c8dd0
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94548708"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785870"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q3-release-notes"></a>Notes de publication App Service sur Azure Stack Hub 2020 T3
 
@@ -102,6 +102,8 @@ La mise à jour T3 d’Azure App Service sur Azure Stack contient les améliora
 - La surveillance des fonctions peut à présent récupérer des données à partir de points de terminaison de stockage appliquant TLS 1.2
 
 - Déplacement de l’étape d’attente Serveurs d’administration en dehors de l’étape de déploiement cloud pendant l’installation pour améliorer la fiabilité du déploiement et de la mise à niveau
+
+- Problème lié au fait que les Workers ne parviennent pas à effectuer l'exercice de contrôle d'intégrité car la taille du dossier du fichier journal du runtime du Worker ne respecte pas la limite de quota lorsqu'une erreur survient au niveau de la logique de nettoyage.  Le problème lié à la logique de nettoyage a été résolu dans cette mise à jour.
 
 ## <a name="pre-update-steps"></a>Étapes préalables à la mise à jour
 
