@@ -3,25 +3,25 @@ title: Notes de publication relatives à l’ASDK
 description: Améliorations, correctifs et problèmes connus pour le Kit de développement Azure Stack (ASDK).
 author: sethmanheim
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2020
-ms.openlocfilehash: f4e97cfaba4e3cde832a318647b72d96cbca8965
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 6eb124193f477eb4418909f6b8e79781e948d135
+ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543406"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885748"
 ---
 # <a name="asdk-release-notes"></a>Notes de publication relatives à l’ASDK
 
 Cet article fournit des informations sur des modifications, des correctifs et des problèmes connus en lien avec le Kit de développement Azure Stack (ASDK). Si vous n’êtes pas sûr de la version que vous exécutez, consultez le [portail pour vérifier](../operator/azure-stack-updates.md).
 
-Tenez-vous informé des nouveautés concernant le kit ASDK en vous abonnant au [flux RSS](https://docs.microsoft.com/api/search/rss?search=ASDK+release+notes&locale=en-us#) ![RSS](./media/asdk-release-notes/feed-icon-14x14.png).
+Tenez-vous informé des nouveautés concernant le kit ASDK en vous abonnant au [flux RSS](https://aka.ms/asdkrss) ![RSS](./media/asdk-release-notes/feed-icon-14x14.png).
 
 ::: moniker range="azs-2008"
-## <a name="build-120081388"></a>Build 1.2008.13.88
+## <a name="build-12008059"></a>Build 1.2008.0.59
 
 ### <a name="new-features"></a>Nouvelles fonctionnalités
 

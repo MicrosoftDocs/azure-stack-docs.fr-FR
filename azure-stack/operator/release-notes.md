@@ -3,16 +3,16 @@ title: Notes de publication d’Azure Stack Hub
 description: Notes de publication des systèmes intégrés Azure Stack Hub, y compris les mises à jour et les correctifs de bogues.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/18/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 74b1be3736d21d968fa45135034637d4ca3cd5eb
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 945dd42d0ed4b78f5572abbd679eb8fda7b12d96
+ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546053"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885799"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Notes de publication d’Azure Stack Hub
 
@@ -33,9 +33,10 @@ Pour accéder aux notes de publication d'une autre version, utilisez le menu dé
 
 Avant d’appliquer la mise à jour, veillez à consulter les informations suivantes :
 
-- [Problèmes connus](known-issues.md)
-- [Mises à jour de sécurité](release-notes-security-updates.md)
 - [Liste de vérification des activités avant et après l’application de la mise à jour](release-notes-checklist.md)
+- [Problèmes connus](known-issues.md)
+- [Correctifs logiciels](#hotfixes)
+- [Mises à jour de sécurité](release-notes-security-updates.md)
 
 Pour obtenir de l’aide sur la résolution des problèmes liés aux mises à jour et au processus de mise à jour, consultez [Résoudre les problèmes liés aux correctifs logiciels et aux mises à jour pour Azure Stack Hub](azure-stack-troubleshooting.md).
 
@@ -70,11 +71,17 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 - Le stockage d’objets blob Azure Stack Hub permet à présent aux utilisateurs d’utiliser un objet blob immuable. En définissant des stratégies immuables sur un conteneur, vous pouvez stocker les objets de données vitaux pour l’entreprise dans un état WORM (Write Once, Read Many). Dans cette version, les stratégies immuables ne peuvent être définies qu’à l’aide de l’API REST ou des SDK clients. Les écritures d’objets blob d’ajout ne sont pas non plus possibles dans cette version. Pour plus d’informations sur les objets blob immuables, consultez [Stocker des données blob critiques pour l’entreprise avec un stockage immuable](/azure/storage/blobs/storage-blob-immutable-storage).
 - Le stockage Azure Stack Hub prend maintenant en charge les API des services de stockage Azure version 2019-07-07. Pour les bibliothèques clientes Azure, compatibles avec la nouvelle version de l’API REST, consultez [Outils de développement de stockage Azure Stack Hub](../user/azure-stack-storage-dev.md#azure-client-libraries).
 - Azure Stack Hub Compute prend à présent en charge les API de calcul Azure version 2020-06-01, avec un sous-ensemble des fonctionnalités totales disponibles.
+- Les disques managés Azure Stack Hub prennent désormais en charge les API Azure Disk version **2019-03-01**, avec un sous-ensemble des fonctionnalités disponibles.
 - Préversion de Windows Admin Center qui peut maintenant se connecter à Azure Stack Hub pour fournir des insights approfondis sur l’infrastructure pendant les opérations de support (arrêt requis).
 - Possibilité d’ajouter une bannière de connexion au point de terminaison privilégié au moment du déploiement.
 - Publication de nouvelles bannières **Opérations exclusives**, qui améliorent la visibilité des opérations qui se produisent actuellement sur le système et qui permettent aux utilisateurs de lancer (et de faire échouer par la suite) toute autre opération exclusive.
 - Introduction de deux nouvelles bannières dans chaque page produit de l’élément de la Place de marché Azure Stack Hub. En cas de défaillance du téléchargement de la Place de marché, les opérateurs peuvent afficher les détails de l’erreur et tenter d’effectuer les étapes recommandées pour résoudre le problème.
 - Publication d’un outil de notation permettant aux clients de fournir des commentaires. Cela permet à l’équipe Azure Stack Hub de mesurer et d’optimiser l’expérience utilisateur.
+- Cette version d’Azure Stack Hub comprend une préversion privée d’Azure Kubernetes service (AKS) et d’Azure Container Registry (ACR). L’objectif de la préversion privée consiste à recueillir des commentaires en termes de qualité, de fonctionnalités et d’expérience utilisateur de AKS et ACR sur Azure Stack Hub.
+- Cette version comprend une préversion publique des conteneurs Azure CNI et Windows utilisant le [moteur AKS v0.55.4](../user/kubernetes-aks-engine-release-notes.md). Pour un exemple sur la manière de les utiliser dans votre modèle d’API, [consultez cet exemple sur GitHub](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-windows.json).
+- Il existe désormais une prise en charge du [déploiement Istio 1.3](https://github.com/Azure/aks-engine/tree/master/examples/service-mesh) sur les clusters déployés par le [moteur AKS v0.55.4](../user/kubernetes-aks-engine-release-notes.md). Pour plus d’informations, [consultez ces instructions](../user/kubernetes-aks-engine-service-account.md).
+- Il existe désormais une prise en charge du déploiement des [clusters privés](https://github.com/Azure/aks-engine/blob/master/docs/topics/features.md#private-cluster) utilisant le [moteur AKS v0.55.4](../user/kubernetes-aks-engine-release-notes.md).
+- Cette version prend en charge l’approvisionnement des [secrets de configuration Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/keyvault-secrets.md#use-key-vault-as-the-source-of-cluster-configuration-secrets) depuis Azure et Key Vault Azure Stack Hub Key.
 
 ### <a name="improvements"></a>Améliorations
 
@@ -84,6 +91,8 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 - Modifications apportées au processus de démarrage et d’arrêt sur les instances de rôle d’infrastructure et leurs dépendances sur les nœuds d’unité d’échelle. Cela augmente la fiabilité du démarrage et de l’arrêt d’Azure Stack Hub.
 - La suite **AzSScenarios** de l’outil de validation **Test-AzureStack** a été mise à jour pour permettre aux fournisseurs de services cloud d’exécuter correctement cette suite avec l’authentification multifacteur appliquée à tous les comptes clients.
 - Amélioration de la fiabilité des alertes en ajoutant une logique de suppression pour 29 alertes côté client pendant les opérations de cycle de vie.
+- Vous pouvez maintenant afficher un rapport HTML de collecte de journaux qui fournit des détails sur les rôles, la durée et l’état de la collecte de journaux. Ce rapport a pour objectif d’aider les utilisateurs à fournir un résumé des journaux collectés. Les services de support technique Microsoft peuvent ensuite rapidement examiner le rapport pour évaluer les données de journal et faciliter l’atténuation et la résolution des problèmes système.
+- La couverture de détection des défaillances d’infrastructure a été améliorée moyennant l’ajout de 7 nouvelles analyses dans des scénarios utilisateur, tels que l’utilisation du processeur et la consommation de mémoire, pour plus de fiabilité en matière de détection des défaillances.
 
 ### <a name="changes"></a>Modifications
 
@@ -109,7 +118,7 @@ Pour plus d’informations sur les mises à jour de sécurité dans cette mise �
 
 ## <a name="hotfixes"></a>Correctifs logiciels
 
-Azure Stack Hub publie régulièrement des correctifs logiciels. À partir de la version 2005, lorsque vous mettez à jour vers une nouvelle version principale (par exemple, 1.2002.x vers 1.2005.x), les derniers correctifs (le cas échéant) de la nouvelle version principale sont installés automatiquement. À partir de là, si un correctif est mis en production pour votre build, vous devez l’installer.
+Azure Stack Hub publie régulièrement des correctifs logiciels. À partir de la version 2005, lorsque vous mettez à jour vers une nouvelle version principale (par exemple, 1.2005.x vers 1.2008.x), les derniers correctifs (le cas échéant) de la nouvelle version principale sont installés automatiquement. À partir de là, si un correctif est mis en production pour votre build, vous devez l’installer.
 
 > [!NOTE]
 > Les versions des correctifs logiciels Azure Stack Hub sont cumulatives. Il vous suffit d’installer le dernier correctif logiciel afin d’obtenir l’ensemble des correctifs logiciels inclus dans les versions précédentes de correctifs logiciels pour cette version.
@@ -118,11 +127,14 @@ Pour plus d’informations, consultez notre [stratégie de maintenance](azure-st
 
 Les correctifs logiciels Azure Stack Hub s’appliquent uniquement aux systèmes intégrés Azure Stack Hub. N’essayez pas d’installer des correctifs logiciels sur l’ASDK.
 
-### <a name="prerequisites-before-applying-the-2008-update"></a>Configuration requise : Avant d’appliquer la mise à jour 2008
+### <a name="hotfix-prerequisites-before-applying-the-2008-update"></a>Prérequis des correctifs logiciels : avant d’appliquer la mise à jour 2008
 
-Lorsque vous mettez à jour vers une nouvelle version principale (par exemple, 1.2005.x vers 1.2008.x), les derniers correctifs (le cas échéant) de la nouvelle version principale sont installés automatiquement. À partir de là, si un correctif est mis en production pour votre build, vous devez l’installer.
+La version 2008 d’Azure Stack Hub doit être appliquée sur la version 2005 avec les correctifs logiciels suivants :
+- [Correctif logiciel Azure Stack Hub 1.2005.21.84](https://support.microsoft.com/help/4592779)
 
 ### <a name="after-successfully-applying-the-2008-update"></a>Après l’application réussie de la mise à jour 2008
+
+Lorsque vous mettez à jour vers une nouvelle version principale (par exemple, 1.2005.x vers 1.2008.x), les derniers correctifs (le cas échéant) de la nouvelle version principale sont installés automatiquement. À partir de là, si un correctif est mis en production pour votre build, vous devez l’installer.
 
 Après l’installation de 2008, si des correctifs 2008 sont mis en production par la suite, vous devez les installer :
 
@@ -226,7 +238,7 @@ La version 2005 d’Azure Stack Hub doit être appliquée sur la version 2002 
 
 Après l’installation de 2005, si des correctifs 2005 sont mis en production par la suite, vous devez les installer :
 
-- [Correctif logiciel Azure Stack Hub 1.2005.20.82](https://support.microsoft.com/help/4592228)
+- [Correctif logiciel Azure Stack Hub 1.2005.21.84](https://support.microsoft.com/help/4592779)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -355,7 +367,7 @@ La version 2002 d’Azure Stack Hub doit être appliquée sur la version 1910 
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables.
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack Hub 1.2002.61.163](https://support.microsoft.com/help/4592241)
+- [Correctif logiciel Azure Stack Hub 1.2002.62.165](https://support.microsoft.com/help/4594758)
 ::: moniker-end
 
 <!------------------------------------------------------------>

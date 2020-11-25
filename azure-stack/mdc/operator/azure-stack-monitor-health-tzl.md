@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/26/2020
 ms.author: mabrigg
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 4212aa524baf60b65eaca46e6750c7af78197135
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 4a14700a081e8c85f29a7edc69c471ba9bd3d249
+ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330131"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885782"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Surveiller l’intégrité et les alertes dans Azure Stack
 
@@ -53,12 +53,12 @@ Pour afficher l’état d’intégrité dans le portail, cliquez sur la région 
 Vous pouvez cliquer sur un fournisseur de ressources ou un rôle d’infrastructure pour afficher des informations plus détaillées.
 
 > [!WARNING]  
-> Si vous cliquez sur un rôle d’infrastructure, puis sur l’instance de rôle, les options **Démarrer** , **Redémarrer** ou **Arrêter** s’affichent. N’utilisez pas ces actions quand vous appliquez des mises à jour à un système intégré. <!-- TZLASDKFIXAlso, do **not** use these options in an Azure Stack Development Kit (ASDK) environment. These options are only designed for an integrated systems environment, where there's more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the ASDK causes system instability.--> Pour obtenir une assistance en cas de problème, postez votre problème sur le [Forum Azure Stack](https://aka.ms/azurestackforum).
+> Si vous cliquez sur un rôle d’infrastructure, puis sur l’instance de rôle, les options **Démarrer**, **Redémarrer** ou **Arrêter** s’affichent. N’utilisez pas ces actions quand vous appliquez des mises à jour à un système intégré. <!-- TZLASDKFIXAlso, do **not** use these options in an Azure Stack Development Kit (ASDK) environment. These options are only designed for an integrated systems environment, where there's more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the ASDK causes system instability.--> Pour obtenir une assistance en cas de problème, postez votre problème sur le [Forum Azure Stack](https://aka.ms/azurestackforum).
 >
 
 ## <a name="view-alerts"></a>Afficher les alertes
 
-La liste des alertes actives pour chaque région Azure Stack est disponible directement à partir du panneau **Gestion des régions**. La première vignette dans la configuration par défaut est la vignette **Alertes** , qui fournit un récapitulatif des alertes critiques et des avertissements pour la région. Vous pouvez épingler la vignette Alertes au tableau de bord (comme n’importe quelle autre vignette sur ce panneau) pour pouvoir y accéder rapidement.
+La liste des alertes actives pour chaque région Azure Stack est disponible directement à partir du panneau **Gestion des régions**. La première vignette dans la configuration par défaut est la vignette **Alertes**, qui fournit un récapitulatif des alertes critiques et des avertissements pour la région. Vous pouvez épingler la vignette Alertes au tableau de bord (comme n’importe quelle autre vignette sur ce panneau) pour pouvoir y accéder rapidement.
 
 ![Vignette Alertes qui montre un avertissement dans le portail d’administration Azure Stack](media/azure-stack-monitor-health/alerts.png)
 
@@ -73,7 +73,7 @@ Le panneau **Alertes** permet de filtrer à la fois sur le niveau de gravité (C
 
 L’action **API de vue** montre l’API REST utilisée pour générer la vue de liste. Cette action permet de se familiariser rapidement avec la syntaxe d’API REST que vous pouvez utiliser pour interroger les alertes. Vous pouvez utiliser cette API dans l’automation ou pour l’intégration avec vos solutions existantes de création de tickets, de création de rapports et de surveillance de centre de données.
 
-Vous pouvez cliquer sur une alerte spécifique pour en afficher les détails. Les détails d’une alerte montrent tous les champs associés à celle-ci, et permettent d’accéder rapidement au composant affecté et à la source de l’alerte. Par exemple, l’alerte suivante se produit si l’une des instances de rôle d’infrastructure bascule hors connexion ou est inaccessible. Vous pouvez rechercher les pointeurs des liens aka.ms sous la section de correction des détails de l'alerte dans [Liens de renvoi aka.ms des alertes](aks-refer-table-tzl.md).
+Vous pouvez cliquer sur une alerte spécifique pour en afficher les détails. Les détails d’une alerte montrent tous les champs associés à celle-ci, et permettent d’accéder rapidement au composant affecté et à la source de l’alerte. Par exemple, l’alerte suivante se produit si l’une des instances de rôle d’infrastructure bascule hors connexion ou est inaccessible. Vous pouvez rechercher le [lien de renvoi](aks-refer-table-tzl.md) dans la section **Correction** des détails de l’alerte pour afficher l’article.
 
 ![Panneau Détails de l’alerte dans le portail d’administration Azure Stack](media/azure-stack-monitor-health/alert-detail.png)
 

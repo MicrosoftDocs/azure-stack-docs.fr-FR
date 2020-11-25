@@ -3,16 +3,16 @@ title: Problèmes connus d’Azure Stack Hub
 description: Découvrez les problèmes connus des versions d’Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: f1f38d309814e40422783cd4903086c736d19978
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: da21b724e914527ef2a4d5065d1d83a30ad3bb85
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545763"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785767"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Problèmes connus d’Azure Stack Hub
 
@@ -20,11 +20,11 @@ Cet article liste les problèmes connus des versions d’Azure Stack Hub. La lis
 
 Pour accéder aux problèmes connus d'une autre version, utilisez le menu déroulant de sélection de la version, situé au-dessus de la table des matières à gauche.
 
-::: moniker range=">=azs-1910"
+::: moniker range=">=azs-2002"
 > [!IMPORTANT]  
 > Passez en revue cette section avant d’appliquer la mise à jour.
 ::: moniker-end
-::: moniker range="<azs-1910"
+::: moniker range="<azs-2002"
 > [!IMPORTANT]  
 > Si votre instance d’Azure Stack Hub a plus de deux mises à jour de retard, elle est considérée comme non conforme. Pour bénéficier de la prise en charge, vous devez [mettre à jour avec au moins la version minimale prise en charge](azure-stack-servicing-policy.md#keep-your-system-under-support). 
 ::: moniker-end
@@ -61,7 +61,8 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 #### <a name="denyalloutbound-rule-cannot-be-created"></a>Impossible de créer la règle DenyAllOutbound
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge.
-- Cause : Il n’est pas possible de créer une règle **DenyAllOutbound** explicite dans un groupe de sécurité réseau pendant la création d’une machine virtuelle. En effet, elle empêcherait toute communication nécessaire au bon déploiement de la machine virtuelle.
+- Cause : Il n’est pas possible de créer une règle **DenyAllOutbound** explicite dans un groupe de sécurité réseau pendant la création d’une machine virtuelle. En effet, elle empêcherait toute communication nécessaire au bon déploiement de la machine virtuelle. Elle refuserait également les deux adresses IP essentielles requises pour déployer des machines virtuelles : Adresse IP DHCP : 169.254.169.254 et adresse IP DNS : 168.63.129.16.
+
 - Correction : Autorisez le trafic sortant vers Internet lors de la création de la machine virtuelle, puis modifiez le groupe de sécurité réseau pour bloquer le trafic requis une fois la création de la machine virtuelle terminée.
 - Occurrence : Courant
 
@@ -86,7 +87,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Cause : Lors de l’activation de l’**affinité de session** sur un équilibreur de charge, le hachage à 2 tuples utilise l’adresse IP physique au lieu des adresses IP privées affectées aux machines virtuelles. Dans les scénarios où le trafic dirigé vers l’équilibreur de charge arrive via un VPN, ou si toutes les machines virtuelles clientes (adresses IP sources) se trouvent sur le même nœud et que l’affinité de session est activée, tout le trafic est dirigé vers une seule machine virtuelle back-end.
 - Occurrence : Courant
 
-## <a name="compute"></a>Calcul
+<!-- ## Compute -->
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

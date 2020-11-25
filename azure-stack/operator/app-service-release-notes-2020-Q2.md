@@ -1,19 +1,19 @@
 ---
-title: Notes de publication App Service sur Azure Stack Hub 2002 T2
-description: Découvrez le contenu de la mise à jour 2002 T2 d’App Service sur Azure Stack Hub, les problèmes connus et où la télécharger.
+title: Notes de publication App Service sur Azure Stack Hub 2020 T2
+description: Découvrez le contenu de la mise à jour 2020 T2 d’App Service sur Azure Stack Hub, les problèmes connus et où la télécharger.
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 11/17/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: c5e6ac0a2a500cf43cf94cbc40b2a95c58784d28
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 6534a4539fc4e0fd699b21e84490f1d25be1dfe1
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544715"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785853"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q2-release-notes"></a>Notes de publication App Service sur Azure Stack Hub 2020 T2
 
@@ -45,7 +45,7 @@ Avant de commencer à mettre à niveau Azure App Service sur Azure Stack vers l
   > [!Important]
   > Les opérateurs cloud sont responsables de la maintenance et du fonctionnement du serveur de fichiers et de SQL Server.  Le fournisseur de ressources ne gère pas ces ressources.  L'opérateur cloud est responsable de la sauvegarde des bases de données App Service et du partage des fichiers de contenu des locataires.
 
-- Syndiquez l’ **extension de script personnalisé** version **1.9.3** à partir de la Place de marché Azure
+- Syndiquez l’**extension de script personnalisé** version **1.9.3** à partir de la Place de marché Azure
 
 
 
@@ -82,7 +82,7 @@ La mise à jour T2 d’Azure App Service sur Azure Stack contient les améliora
 
 - **Les mises à jour cumulatives pour Windows Server sont désormais appliquées aux rôles de contrôleur dans le cadre du déploiement et de la mise à niveau**
 
-- **Mise à jour des références SKU par défaut des machines virtuelles et des groupes identiques pour les nouveaux déploiements**  : Afin d'assurer la cohérence avec notre service cloud public, les nouveaux déploiements d'Azure App Service sur Azure Stack Hub utiliseront les références SKU suivantes pour les machines et groupes identiques sous-jacents destinés au fournisseur de ressources
+- **Mise à jour des références SKU par défaut des machines virtuelles et des groupes identiques pour les nouveaux déploiements** : Afin d'assurer la cohérence avec notre service cloud public, les nouveaux déploiements d'Azure App Service sur Azure Stack Hub utiliseront les références SKU suivantes pour les machines et groupes identiques sous-jacents destinés au fournisseur de ressources
   
   | Role | Nombre minimal de références (SKU) |
   | --- | --- |
@@ -223,6 +223,17 @@ Lors de la création d’une application, les locataires peuvent créer des plan
 - Les domaines personnalisés ne sont pas pris en charge dans les environnements déconnectés
 
 App Service effectue une vérification de la propriété du domaine sur les points de terminaison DNS publics, car les domaines personnalisés ne sont pas pris en charge dans les scénarios déconnectés.
+
+- Dans certains cas, les Workers ne satisfont pas aux contrôles d'intégrité (espace disque insuffisant).
+
+Dans certains cas, lorsqu'un nombre élevé de sites est alloué à un Worker ou qu'un site traite beaucoup de requêtes, le Worker génère un grand nombre de fichiers journaux d'exécution sous C:\DWAS\LogFiles.  Cela est dû à un bogue au niveau de la logique de nettoyage de ces fichiers journaux.  
+
+Pour résoudre ce problème, accédez à distance au Worker et effacez le contenu du dossier.
+
+Ce problème a été résolu dans [App Service sur Azure Stack Hub 2020 Q3](app-service-release-notes-2020-Q3.md). Nous encourageons donc les clients procéder au plus vite à une mise à niveau vers la version 2020 Q3.
+
+> [!IMPORTANT]
+> Pour pouvoir effectuer la mise à jour vers Azure App Service sur Azure Stack Hub 2020 Q3, vous **devez** procéder à une mise à niveau vers Azure Stack Hub 2008.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

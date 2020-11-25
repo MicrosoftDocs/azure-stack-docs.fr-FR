@@ -16,12 +16,12 @@ ms.date: 1/10/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: d3f3c0b746049dfb5a34af17f4dc1d24d1b2246e
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: eed164504ce07bcc21ddde002173aaab8992abd1
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330040"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674555"
 ---
 # <a name="add-a-container-registry-to-azure-stack-hub"></a>Ajouter un registre de conteneurs à Azure Stack Hub
 
@@ -41,7 +41,7 @@ Vous devez disposer des éléments suivants avant d'ajouter l'élément Containe
 | --- | --- | --- |
 | Modules Azure Stack Hub PowerShell (Azs.Gallery.Admin) | Modules PowerShell | Uniquement requis en cas de sideloading de l'élément Modèle de registre de conteneurs de la galerie, les modules Azure Stack Hub PowerShell sont utilisés pour ajouter et supprimer des éléments de la galerie.<br>[Installer les modules Azure Stack PowerShell](../../operator/azure-stack-powershell-install.md) |
 | Modèle de registre de conteneurs | Article de la Place de marché | Pour déployer le registre de conteneurs en tant qu'utilisateur Azure Stack Hub, l'élément Modèle de registre de conteneurs de la Place de marché doit être disponible dans votre abonnement, ou être ajouté manuellement (par sideloading) sur votre Place de marché Azure Stack Hub. En cas de sideloading, suivez les instructions pour transférer le package contenu dans le fichier `readme.md` vers le [référentiel GitHub](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/registry-v1.0.1). |
-| Image de base AKS Ubuntu 16.04-LTS, version minimale de septembre 2019 | Article de la Place de marché | Pour permettre aux utilisateurs de votre instance d'Azure Stack Hub de déployer le registre de conteneurs, vous devez mettre l'image de base AKS à leur disposition sur la Place de marché. Le Modèle de registre de conteneurs utilise l'image lorsqu'une machine virtuelle Ubuntu héberge les binaires du service Docker Container Registry. |
+| Image de base AKS Ubuntu 16.04-LTS, version minimale de septembre 2019 | Article de la Place de marché | Pour permettre aux utilisateurs de votre instance d'Azure Stack Hub de déployer le registre de conteneurs, vous devez mettre l'image de base AKS à leur disposition sur la Place de marché. Le modèle de registre de conteneurs utilise l'image lors de l’installation d’une machine virtuelle Ubuntu à partir de l’abonnement hébergeant les binaires du registre de conteneurs Docker. |
 | Extension de script personnalisé Linux 2.0 | Article de la Place de marché | Pour permettre aux utilisateurs de votre instance d'Azure Stack Hub de déployer l'Extension de script personnalisé Linux, vous devez mettre l'image de base AKS à leur disposition sur la Place de marché. Le Modèle de registre de conteneurs utilise l'extension pour configurer le registre. |
 | Certificat SSL | Certificat | Les utilisateurs qui déploient le Modèle de registre de conteneurs doivent fournir un certificat PFX utilisé lors de la configuration du chiffrement SSL pour le service de registre. Si vous utilisez le script, vous devez exécuter la session PowerShell à partir d'une invite avec élévation de privilèges. Celle-ci ne doit pas être exécutée sur le DVM ou sur le HLH.<br>Pour obtenir des conseils d'ordre général sur les exigences relatives aux certificats PKI Azure Stack Hub utilisant des certificats publics ou privés/d'entreprise, consultez [Exigences de certificat pour infrastructure à clé publique (PKI) Azure Stack Hub](../../operator/azure-stack-pki-certs.md).<br>Le nom de domaine complet du certificat doit suivre le modèle `<vmname>.<location>.cloudapp.<fqdn>`, sauf en cas d'utilisation d'une entrée de domaine/DNS personnalisée pour le point de terminaison. Le nom doit commencer par une lettre, contenir au moins deux lettres, n'utiliser que des minuscules et comporter au moins trois caractères. |
 | Nom de principal du service (SPN) | Inscription d’application | Pour déployer et configurer le registre de conteneurs, une inscription d'application, également appelée Nom de principal de service (ou SPN), doit être créée. Ce SPN est utilisé lors de la configuration de la machine virtuelle et du registre pour accéder aux ressources de Microsoft Azure Key Vault et du compte de stockage créées avant le déploiement de l'élément de la Place de marché.<br>Dans Azure AD, le SPN doit être créé au sein du locataire auquel vous vous connectez sur le portail utilisateur d'Azure Stack Hub. Si vous utilisez AD FS, il sera créé dans le répertoire local.<br>Pour plus d'informations sur la création d'un SPN pour les méthodes d'authentification Azure AD et AD FS, reportez-vous aux [instructions suivantes](../../operator/azure-stack-create-service-principals.md).<br> **Important !** Vous devez enregistrer l'ID d'application et la clé secrète du SPN pour déployer les éventuelles mises à jour.<br> |
@@ -123,7 +123,7 @@ L'installation du Modèle de registre de conteneurs nécessite la création de p
 
     ![Sélectionner un abonnement](./media/container-registry-template-install-tzl/subscription.png)
 
-4. Renseignez les détails de la configuration de la machine virtuelle. Par défaut, la référence SKU de l'image est **aks-ubuntu-1604-201909** , mais la sortie de la fonction `Set-ContainerRegistryPrerequisites` comprend la liste des références SKU qui peuvent être utilisées pour le déploiement. En présence de plusieurs références SKU, choisissez la plus récente pour le déploiement.
+4. Renseignez les détails de la configuration de la machine virtuelle. Par défaut, la référence SKU de l'image est **aks-ubuntu-1604-201909**, mais la sortie de la fonction `Set-ContainerRegistryPrerequisites` comprend la liste des références SKU qui peuvent être utilisées pour le déploiement. En présence de plusieurs références SKU, choisissez la plus récente pour le déploiement.
 
     ![Détails de la configuration de la machine virtuelle](./media/container-registry-template-install-tzl/details.png)
 

@@ -3,16 +3,16 @@ title: Présentation de la gestion de réseau Azure Stack Hub
 description: En savoir plus sur la gestion de réseau Azure Stack Hub
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 5/27/2020
+ms.date: 11/16/2020
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 1e850e766300ff4d1b24328ba47c8458a903732a
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 2cb8ede31a91ba05102c55591a4942f512bce0c8
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111946"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674470"
 ---
 # <a name="introduction-to-azure-stack-hub-networking"></a>Présentation de la gestion de réseau Azure Stack Hub
 
@@ -23,7 +23,9 @@ Azure Stack Hub fournit plusieurs types de fonctionnalités de gestion de résea
 - **Connectivité Internet**  
     Communiquez vers et à partir de ressources Azure Stack Hub sur Internet.
 - **Connectivité locale**  
-    Connectez un réseau local à des ressources Azure Stack Hub via un réseau privé virtuel (VPN) sur Internet ou une connexion dédiée à Azure Stack Hub.
+    Connectez un réseau local à des ressources Azure Stack Hub via un réseau privé virtuel (VPN) sur Internet ou une connexion dédiée à Azure Stack Hub. 
+    > [!IMPORTANT]
+    > Vous devez créer une connexion de réseau privé virtuel ou d’adresse IP publique pour accéder aux ressources locales.
 - **Équilibrage de charge et direction de trafic**  
     Équilibrez la charge du trafic sur les serveurs dans le même emplacement et dirigez le trafic vers les serveurs dans différents emplacements.
 - **Sécurité**  

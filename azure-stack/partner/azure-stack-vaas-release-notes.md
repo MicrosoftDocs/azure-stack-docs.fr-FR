@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6f51b4720655159cc1b191c28b640daa74f71a6e
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 780c6a2e0f3235e2681ba4cf6cc01ce2f13eb3dc
+ms.sourcegitcommit: 75a2e1a52d7582e26ce8eaf37a470c62f99b4da0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764628"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94580808"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Notes de publication de Validation en tant que service
 
@@ -30,6 +30,38 @@ Cet article présente les notes de publication de la validation en tant que serv
 
 - Résolution des bogues
   - Correction des tests Test101LinuxEmptyAttachedDiskManagedDisk, Test101WindowsEmptyAttachedDiskManagedDisk.
+
+## <a name="version-4442"></a>Version 4.4.4.2
+
+2020 - Novembre 11
+
+- Le workflow de validation CSE a été mis à jour pour permettre l’installation automatique d’un package d’extension OEM signé de test avant une mise à jour AzureStack complète.
+  - Avant ce correctif, VaaS ne parvenait pas à installer un package d’extension OEM signé de test sur un tampon après une mise à jour AzureStack complète. VaaS appliquait la mise à jour AzureStack, mais quittait l’exécution.
+  - Ce problème a été résolu et vous devriez voir le workflow de validation CSE installer la mise à jour AzureStack et le package d’extension EOM signé de test fournis.
+- Ajout de l’extension de validation de package OEM au workflow de validation OEM
+  - Cette extension sera exécutée avant le lancement des mises à jour sur le tampon.
+  - L’extension valide le contenu du package d’extension OEM et les éléments du fichier oemMetadata.xml
+  - En cas d’erreurs ou de problèmes liés au package d’extension OEM, nous l’intercepterons avant le lancement des tests VaaS.
+  - Ces validations ont été exécutées préalablement à la signature du package, avant l’exécution du test VaaS.  
+- Prérequis VaaS mis à jour pour installer une version plus récente des modules AzureStack et AzureRM PowerShell
+  - Version 1.8.2 du module AzureStack PS
+  - Version 2.5.0 du module AzureRM PS
+- Mises à jour mineures de service
+
+## <a name="version-443112"></a>Version 4.4.3.112
+
+2020 - Août 23
+
+- Mises à jour de service.
+  - Mises à jour de déploiement de service.
+  - Méthodes d'authentification de service mises à jour.
+
+## <a name="version-44368"></a>Version 4.4.3.68
+
+2020 - Juin 30
+
+- Mises à jour de service.
+  - Déplacement du service pour s’exécuter dans Service Fabric.
 
 ## <a name="version-4421"></a>Version 4.4.2.1
 
@@ -55,7 +87,6 @@ Cet article présente les notes de publication de la validation en tant que serv
   - Contactez vaashelp@microsoft.com si les cas de test suivants ne s’exécutent pas pendant le workflow de validation OEM :
     - Test101LinuxEmptyAttachedDiskManagedDisk
     - Test101WindowsEmptyAttachedDiskManagedDisk
-
 
 ## <a name="version-4353"></a>Version 4.3.5.3
 
