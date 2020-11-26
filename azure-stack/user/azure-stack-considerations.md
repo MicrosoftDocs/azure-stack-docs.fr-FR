@@ -3,15 +3,15 @@ title: Différences entre Azure Stack Hub et Azure quand vous utilisez des servi
 description: Comprendre les différences entre Azure et Azure Stack Hub quand vous utilisez des services et créez des applications.
 author: sethmanheim
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 11/20/2020
 ms.author: sethm
-ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: f4a0ff18d8b96c6c92aa3020031e604d2775c893
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: 8d8cd26bc53deef5b2e23955b349cb68a0eb51f0
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543559"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95516985"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Différences entre Azure Stack Hub et Azure quand vous utilisez des services et créez des applications
 
@@ -70,10 +70,23 @@ Pour vous assurer que vous utilisez une version appropriée d’Azure PowerShell
 
 Pour les autres API, exécutez la commande PowerShell suivante pour afficher les espaces de noms, les types de ressources et les versions d’API qui sont pris en charge dans votre abonnement Azure Stack Hub (des différences peuvent subsister au niveau des propriétés). Pour que cette commande fonctionne, vous devez avoir déjà [installé](../operator/powershell-install-az-module.md) et [configuré](azure-stack-powershell-configure-user.md) PowerShell pour un environnement Azure Stack Hub. Vous devez également disposer d’un abonnement à une offre Azure Stack Hub.
 
+### <a name="az-modules"></a>[Modules Az](#tab/az)
+
 ```powershell
 Get-AzResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm)
+
+```powershell
+Get-AzureRMResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
+Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
+```
+
+---
+
+
+
 
 Exemple de sortie (tronquée) : ![Exemple de sortie de la commande Get-AzResourceProvider](media/azure-stack-considerations/image1.png)
 

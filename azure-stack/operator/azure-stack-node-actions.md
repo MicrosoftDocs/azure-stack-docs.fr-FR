@@ -3,16 +3,16 @@ title: Mettre à l’échelle des actions de nœud d’unité dans Azure Stack H
 description: Découvrez les actions de nœud d'unité d’échelle (mise sous tension, mise hors tension, désactivation et reprise) et la façon d’afficher l’état d’un nœud dans des systèmes intégrés Azure Stack Hub.
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 11/19/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ddfc8ad0ab6eccd10488f70873c7cefc0cf6668e
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/19/2020
+ms.openlocfilehash: ecca245124ce30597a535d8c2ca014821d471d67
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545191"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517682"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Mettre à l’échelle des actions de nœud d’unité dans Azure Stack Hub
 
@@ -27,10 +27,10 @@ Dans le portail d’administration, vous pouvez afficher l’état d’une unit�
 
 Pour afficher l’état d’une unité d’échelle :
 
-1. Dans la vignette **Gestion des régions** , sélectionnez la région.
-2. Sur la gauche, sous **Ressources d’infrastructure** , sélectionnez **Unités d’échelle**.
+1. Dans la vignette **Gestion des régions**, sélectionnez la région.
+2. Sur la gauche, sous **Ressources d’infrastructure**, sélectionnez **Unités d’échelle**.
 3. Dans les résultats, sélectionnez l’unité d’échelle.
-4. Sur la gauche, sous **Général** , sélectionnez **Nœuds**.
+4. Sur la gauche, sous **Général**, sélectionnez **Nœuds**.
 
    Examinez les informations suivantes :
 
@@ -62,12 +62,16 @@ Cela peut se produire lorsque le cache du rôle Fournisseur de ressources d'infr
 
 Avant de passer aux étapes suivantes, vérifiez qu'aucune opération n'est en cours. Mettez à jour le point de terminaison pour qu'il corresponde à votre environnement.
 
+
+
+### <a name="az-modules"></a>[Modules Az](#tab/az1)
+
 1. Ouvrez PowerShell et ajoutez votre environnement Azure Stack Hub. Pour cela, [Azure Stack Hub PowerShell doit être installé](./powershell-install-az-module.md) sur votre ordinateur.
 
-   ```powershell
-   Add-AzEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
-   Add-AzAccount -Environment AzureStack
-   ```
+    ```powershell
+    Add-AzEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
+    Add-AzAccount -Environment AzureStack
+    ```
 
 2. Exécutez la commande suivante pour redémarrer le rôle Fournisseur de ressources d'infrastructure.
 
@@ -81,7 +85,33 @@ Avant de passer aux étapes suivantes, vérifiez qu'aucune opération n'est en c
    Get-AzsScaleUnitNode |ft name,scaleunitnodestatus,powerstate
    ```
 
-4. Si l'état opérationnel du nœud est toujours **Ajout** , ouvrez un incident de support.
+4. Si l'état opérationnel du nœud est toujours **Ajout**, ouvrez un incident de support.
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm1)
+
+1. Ouvrez PowerShell et ajoutez votre environnement Azure Stack Hub. Pour cela, [Azure Stack Hub PowerShell doit être installé](./powershell-install-az-module.md) sur votre ordinateur.
+
+    ```powershell
+    Add-AzureRMEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
+    Add-AzureRMAccount -Environment AzureStack
+    ```
+
+2. Exécutez la commande suivante pour redémarrer le rôle Fournisseur de ressources d'infrastructure.
+
+   ```powershell
+   Restart-AzsInfrastructureRole -Name FabricResourceProvider
+   ```
+
+3. Vérifiez que l'état opérationnel du nœud de l'unité d'échelle impactée a été remplacé par **Exécution en cours**. Vous pouvez utiliser le portail d'administration ou la commande PowerShell suivante :
+
+   ```powershell
+   Get-AzsScaleUnitNode |ft name,scaleunitnodestatus,powerstate
+   ```
+
+4. Si l'état opérationnel du nœud est toujours **Ajout**, ouvrez un incident de support.
+
+---
+
 
 
 ## <a name="scale-unit-node-actions"></a>Actions de nœud d’unité d’échelle
@@ -190,7 +220,7 @@ Pour exécuter l’action de réparation, ouvrez une invite de commandes PowerSh
 
 ## <a name="shutdown"></a>Shutdown
 
-L’action d’ **arrêt** déplace d’abord toutes les charges de travail actives vers les nœuds restants de la même unité d’échelle. L’action arrête ensuite de manière appropriée le nœud d’unité d’échelle.
+L’action d’**arrêt** déplace d’abord toutes les charges de travail actives vers les nœuds restants de la même unité d’échelle. L’action arrête ensuite de manière appropriée le nœud d’unité d’échelle.
 
 Après avoir démarré un nœud arrêté, vous devez exécuter l’action de [reprise](#resume). Les charges de travail antérieures en cours d’exécution sur le nœud ne se restaurent pas automatiquement.
 
@@ -205,5 +235,5 @@ Pour exécuter l’action d’arrêt, ouvrez une invite PowerShell avec élévat
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Installer Azure Stack PowerShell](./powershell-install-az-module.md)
-- [Découvrir le module opérateur Azure Stack Hub Fabric](/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)
+- [Découvrir le module opérateur Azure Stack Hub Fabric](/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0&preserve-view=true)
 - [Surveiller les opérations d'ajout de nœud](./azure-stack-add-scale-node.md#monitor-add-node-operations)

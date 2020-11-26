@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 09/23/2020
 ms.author: jeguan
 ms.openlocfilehash: 089488e246bdb7c12bbd0808ef2e92a4c83b0fce
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "92253958"
 ---
 # <a name="quickstart-set-up-an-azure-kubernetes-service-host-on-azure-stack-hci-using-powershell"></a>Démarrage rapide : Configurer un hôte Azure Kubernetes Service sur Azure Stack HCI à l’aide de PowerShell
@@ -94,11 +94,11 @@ Type de déploiement. Valeurs acceptées : SingleNode, MultiNode. La valeur par
 
 `-wssdImageDir`
 
-Chemin d’accès au répertoire où Azure Kubernetes Service sur Azure Stack HCI stocke ses images VHD. Valeur par défaut `%systemdrive%\wssdimagestore` pour les déploiements à nœud unique. *Pour les déploiements multinœud, ce paramètre est obligatoire* . Le chemin d’accès doit pointer vers un chemin d’accès de stockage partagé, par exemple `C:\ClusterStorage\Volume2\ImageStore` ou un partage SMB tel que `\\FileShare\ImageStore`.
+Chemin d’accès au répertoire où Azure Kubernetes Service sur Azure Stack HCI stocke ses images VHD. Valeur par défaut `%systemdrive%\wssdimagestore` pour les déploiements à nœud unique. *Pour les déploiements multinœud, ce paramètre est obligatoire*. Le chemin d’accès doit pointer vers un chemin d’accès de stockage partagé, par exemple `C:\ClusterStorage\Volume2\ImageStore` ou un partage SMB tel que `\\FileShare\ImageStore`.
 
 `-cloudConfigLocation`
 
-Emplacement de stockage de la configuration de l’agent cloud. Valeur par défaut `%systemdrive%\wssdimagestore` pour les déploiements à nœud unique. L’emplacement peut être le même que le chemin d’accès de `-wssdImageDir` ci-dessus. Pour les *déploiements multinœud, ce paramètre est obligatoire* .
+Emplacement de stockage de la configuration de l’agent cloud. Valeur par défaut `%systemdrive%\wssdimagestore` pour les déploiements à nœud unique. L’emplacement peut être le même que le chemin d’accès de `-wssdImageDir` ci-dessus. Pour les *déploiements multinœud, ce paramètre est obligatoire*.
 
 `-nodeConfigLocation`
 

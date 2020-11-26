@@ -3,16 +3,16 @@ title: Se connecter à Azure Stack Hub avec PowerShell
 description: Apprenez à vous connecter à Azure Stack Hub avec PowerShell.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/19/2020
+ms.date: 11/19/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: d99212c63e33060fbbb8eb483dd32e7c01d54ba1
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/19/2020
+ms.openlocfilehash: 19438a56b487e4c5c167977fbc831bf64dc3695a
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545140"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96035315"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>Se connecter à Azure Stack Hub avec PowerShell
 
@@ -29,11 +29,32 @@ Effectuez les prérequis suivants à partir du [kit de développement Azure Stac
 
 Pour configurer l’environnement d’opérateur Azure Stack Hub avec PowerShell, exécutez l’un des scripts ci-dessous. Remplacez le tenantName Azure Active Directory (Azure AD) et les valeurs de point de terminaison Azure Resource Manager par la configuration de votre propre environnement.
 
-[!include[Remove Account](../../includes/remove-account.md)]
+### <a name="az-modules"></a>[Modules Az](#tab/az1)
+
+[!include[Remove Account](../includes/remove-account-az.md)]
 
 ```powershell  
     # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
     Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
+      -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
+      -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
+
+    # Set your tenant name.
+    $AuthEndpoint = (Get-AzEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
+    $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
+    $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
+
+    # After signing in to your environment, Azure Stack Hub cmdlets
+    # can be easily targeted at your Azure Stack Hub instance.
+    Add-AzAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantId
+```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm1)
+
+[!include[Remove Account](../includes/remove-account-azurerm.md)]
+
+```powershell  
+    # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
       -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
@@ -47,9 +68,14 @@ Pour configurer l’environnement d’opérateur Azure Stack Hub avec PowerShell
     Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantId
 ```
 
+---
+
+
 ## <a name="connect-with-ad-fs"></a>Connexion à AD FS
 
 Connectez-vous à l’environnement d’opérateur Azure Stack Hub à l’aide de PowerShell avec les services de fédération Active Directory (AD FS). Pour le Kit de développement Azure Stack, ce point de terminaison Azure Resource Manager est défini sur `https://adminmanagement.local.azurestack.external`. Pour obtenir le point de terminaison Azure Resource Manager pour des systèmes intégrés Azure Stack Hub, contactez votre fournisseur de services.
+
+### <a name="az-modules"></a>[Modules Az](#tab/az2)
 
   ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
@@ -58,8 +84,22 @@ Connectez-vous à l’environnement d’opérateur Azure Stack Hub à l’aide d
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
   # Sign in to your environment.
-  Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+  Login-AzAccount -EnvironmentName "AzureStackAdmin"
   ```
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm2)
+
+```powershell  
+# Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
+  Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
+    -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
+    -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
+
+# Sign in to your environment.
+Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+```
+
+---
 
 [!Include [AD FS only supports interactive authentication with user identities](../includes/note-powershell-adfs.md)]
 
@@ -67,9 +107,19 @@ Connectez-vous à l’environnement d’opérateur Azure Stack Hub à l’aide d
 
 Vous avez terminé l’installation. Utilisez PowerShell pour créer des ressources dans Azure Stack Hub. Par exemple, vous pouvez créer un groupe de ressources pour une application et ajouter une machine virtuelle. Utilisez la commande suivante pour créer le groupe de ressources nommé **myResourceGroup**.
 
+### <a name="az-modules"></a>[Modules Az](#tab/az3)
+```powershell  
+New-AzResourceGroup -Name "MyResourceGroup" -Location "Local"
+```
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm3)
+
 ```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
+
+---
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

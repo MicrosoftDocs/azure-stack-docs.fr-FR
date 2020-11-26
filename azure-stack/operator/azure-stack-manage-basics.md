@@ -7,10 +7,10 @@ ms.date: 06/16/2020
 ms.author: justinha
 ms.lastreviewed: 06/16/2020
 ms.openlocfilehash: b277eb9dcb1ac66af870db68c919e711aadc1ac7
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "94543508"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Principes de bases de l’administration d’Azure Stack Hub
@@ -137,7 +137,7 @@ Pour tout autre problème, contactez le support Microsoft.
 
 ### <a name="azure-stack-development-kit-asdk"></a>Kit de développement Azure Stack (ASDK)
 
-En ce qui concerne le Kit ASDK, vous pouvez poser des questions de support technique sur les [forums Microsoft](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Pour accéder aux forums, sélectionnez l’icône Aide et support (le point d’interrogation) dans le coin supérieur droit du portail d’administration, sélectionnez **Aide + support** , puis sélectionnez **Forums MSDN** sous la section **Support**. Ces forums sont consultés régulièrement. ASDK étant un environnement d’évaluation, le support Microsoft n’offre aucun support officiel.
+En ce qui concerne le Kit ASDK, vous pouvez poser des questions de support technique sur les [forums Microsoft](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Pour accéder aux forums, sélectionnez l’icône Aide et support (le point d’interrogation) dans le coin supérieur droit du portail d’administration, sélectionnez **Aide + support**, puis sélectionnez **Forums MSDN** sous la section **Support**. Ces forums sont consultés régulièrement. ASDK étant un environnement d’évaluation, le support Microsoft n’offre aucun support officiel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

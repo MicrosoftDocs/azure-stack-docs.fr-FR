@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Questions fréquentes (FAQ) sur Windows Server dans la Place de marché Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 11/19/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 0801f9530bc3f462e1ddfd0fbce15d193ea6343e
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/19/2020
+ms.openlocfilehash: 3c0022c49d7af3df7da6b3551bf1e51848e5506a
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545716"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517444"
 ---
 # <a name="azure-stack-hub-marketplace-faq"></a>Questions fréquentes (FAQ) sur la Place de marché Azure Stack Hub
 
@@ -44,41 +44,57 @@ Azure Hybrid Use Benefit (AHUB) n’est pas pris en charge sur Azure Stack Hub. 
 
 ### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>Que faire si je télécharge la mauvaise version et que j’offre celle-ci à mes clients/utilisateurs ?
 
-Commencez par supprimer la version incorrecte de la place de marché. Attendez que l’opération se termine (ce qui est indiqué dans une notification, et non dans le panneau **Gestion de la Place de marché** ). Téléchargez ensuite la bonne version.
+Commencez par supprimer la version incorrecte de la place de marché. Attendez que l’opération se termine (ce qui est indiqué dans une notification, et non dans le panneau **Gestion de la Place de marché**). Téléchargez ensuite la bonne version.
 
 Si vous téléchargez les deux versions de l’image, seule la dernière version est visible pour les clients finals dans la Place de marché Azure Stack Hub.
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>Que faire si l’un de mes utilisateurs a par erreur coché la case « J’ai une licence » dans les builds Windows précédentes alors qu’il n’a pas de licence ?
 
 Vous pouvez changer l’attribut de modèle de licence pour passer de la licence BYOL au modèle PAYG en exécutant le script suivant :
+### <a name="az-modules"></a>[Modules Az](#tab/az1)
 
 ```powershell
 $vm= Get-Azvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "None"
 Update-AzVM -ResourceGroupName "<your RG>" -VM $vm
 ```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm1)
+ ```powershell
+$vm= Get-AzureRMvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "None"
+Update-AzureRMVM -ResourceGroupName "<your RG>" -VM $vm
+```
+---
 
-Vous pouvez vérifier le type de licence de votre machine virtuelle en exécutant les commandes suivantes. Si le modèle de licence indique **Windows_Server** , vous êtes facturé selon le tarif BYOL. Sinon, vous êtes facturé sur la base du compteur Windows, conformément au modèle PAYG :
+Vous pouvez vérifier le type de licence de votre machine virtuelle en exécutant les commandes suivantes. Si le modèle de licence indique **Windows_Server**, vous êtes facturé selon le tarif BYOL. Sinon, vous êtes facturé sur la base du compteur Windows, conformément au modèle PAYG :
 
 ```powershell
 $vm | ft Name, VmId,LicenseType,ProvisioningState
 ```
-
 ### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>Que faire si j’ai une ancienne image et que l’un de mes utilisateurs a oublié de cocher la case « J’ai une licence » ou si j’utilise mes propres images et que je ne dispose pas du droit Contrat Entreprise ?
 
 Vous pouvez changer l’attribut de modèle de licence pour passer au modèle BYOL en exécutant les commandes suivantes :
+### <a name="az-modules"></a>[Modules Az](#tab/az2)
 
 ```powershell
 $vm= Get-Azvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "Windows_Server"
 Update-AzVM -ResourceGroupName "<your RG>" -VM $vm
 ```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm2)
+
+ ```powershell
+$vm= Get-AzureRMvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "Windows_Server"
+Update-AzureRMVM -ResourceGroupName "<your RG>" -VM $vm
+```
+---
 
 ### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>Qu’en est-il des autres machines virtuelles qui utilisent Windows Server, par exemple SQL ou Machine Learning Server ?
 
-Ces images appliquent le paramètre **licenseType** , elles sont donc PAYG. Vous pouvez définir ce paramètre (voir la réponse précédente). Ceci ne s’applique qu’aux logiciels Windows Server. Les produits en couche comme SQL, qui vous obligent à apporter votre propre licence, ne sont pas concernés. Les licences PAYG ne s’appliquent pas aux produits logiciels en couche.
+Ces images appliquent le paramètre **licenseType**, elles sont donc PAYG. Vous pouvez définir ce paramètre (voir la réponse précédente). Ceci ne s’applique qu’aux logiciels Windows Server. Les produits en couche comme SQL, qui vous obligent à apporter votre propre licence, ne sont pas concernés. Les licences PAYG ne s’appliquent pas aux produits logiciels en couche.
 
-Vous pouvez uniquement changer la propriété **licenseType** pour les images SQL Server de la Place de marché Azure Stack Hub si la version est  **XX.X.20190410** ou ultérieure. Si vous exécutez une version antérieure des images SQL Server de la Place de marché Azure Stack Hub, vous ne pouvez pas changer l’attribut **licenseType**. Vous devez effectuer un redéploiement à l’aide des dernières images SQL Server de la Place de marché Azure Stack Hub.
+Vous pouvez uniquement changer la propriété **licenseType** pour les images SQL Server de la Place de marché Azure Stack Hub si la version est **XX.X.20190410** ou ultérieure. Si vous exécutez une version antérieure des images SQL Server de la Place de marché Azure Stack Hub, vous ne pouvez pas changer l’attribut **licenseType**. Vous devez effectuer un redéploiement à l’aide des dernières images SQL Server de la Place de marché Azure Stack Hub.
 
 ### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>J’ai un Contrat Entreprise (EA) et je vais utiliser ma licence Windows Server EA. Comment m’assurer que les images sont facturées correctement ?
 

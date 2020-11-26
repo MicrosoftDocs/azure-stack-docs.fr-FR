@@ -3,16 +3,16 @@ title: Connecter Azure Stack Hub à Azure à l’aide d’un VPN
 description: Découvrez comment connecter des réseaux virtuels Azure Stack Hub à des réseaux virtuels Azure à l’aide d’un VPN.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 11/20/2020
 ms.author: sethm
 ms.reviewer: TBD
-ms.lastreviewed: 10/24/2019
-ms.openlocfilehash: 2ea7dfcccf2b2f4590e09f60db4530d7ebe6d319
-ms.sourcegitcommit: f2a5ce52fcf69e05fe89be8211b7360de46f4a94
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: e158d0d2cc9158ea3f4f0a09a666e765e4bd379d
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133756"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518379"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Connecter Azure Stack Hub à Azure à l’aide d’un VPN
 
@@ -75,7 +75,6 @@ Tout d’abord, créez les ressources réseau pour Azure. Les instructions ci-ap
 ### <a name="create-the-virtual-network-gateway"></a>Créer la passerelle de réseau virtuel
 
 1. Dans le Portail Azure, sélectionnez **+ Créer une ressource**.
-
 2. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 3. Dans la liste des ressources réseau, sélectionnez **Passerelle de réseau virtuel**.
 4. Dans le champ **Nom**, tapez **Azure-GW**.
@@ -116,6 +115,8 @@ Tout d’abord, créez les ressources réseau pour Azure. Les instructions ci-ap
 
 Comme les paramètres par défaut Azure Stack Hub pour les stratégies IPSec ont changé pour les [builds 1910 et ultérieures](azure-stack-vpn-gateway-settings.md#ipsecike-parameters), une stratégie IPSec personnalisée est nécessaire pour qu’Azure corresponde à Azure Stack Hub.
 
+### <a name="az-modules"></a>[Modules Az](#tab/az1)
+
 1. Créez une stratégie personnalisée :
 
    ```powershell
@@ -130,6 +131,25 @@ Comme les paramètres par défaut Azure Stack Hub pour les stratégies IPSec ont
    $Connection = Get-AzVirtualNetworkGatewayConnection -Name myTunnel -ResourceGroupName myRG
    Set-AzVirtualNetworkGatewayConnection -IpsecPolicies $IPSecPolicy -VirtualNetworkGatewayConnection $Connection
    ```
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm1)
+
+1. Créez une stratégie personnalisée :
+
+   ```powershell
+   $IPSecPolicy = New-AzureRMIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup ECP384  `
+   -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup ECP384 -SALifeTimeSeconds 27000 `
+   -SADataSizeKilobytes 102400000
+   ```
+
+2. Appliquez la stratégie à la connexion :
+
+   ```powershell
+   $Connection = Get-AzureRMVirtualNetworkGatewayConnection -Name myTunnel -ResourceGroupName myRG
+   Set-AzVirtualNetworkGatewayConnection -IpsecPolicies $IPSecPolicy -VirtualNetworkGatewayConnection $Connection
+   ```
+
+---
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 

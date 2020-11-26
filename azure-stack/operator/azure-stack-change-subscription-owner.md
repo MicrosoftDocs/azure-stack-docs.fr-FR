@@ -3,16 +3,16 @@ title: Changer le propriétaire de facturation d’un abonnement utilisateur Azu
 description: Découvrez comment changer le propriétaire de facturation d’un abonnement utilisateur Azure Stack Hub.
 author: justinha
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/16/2020
 ms.author: justinha
 ms.reviewer: shnatara
-ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 7b4d47d695287a2e2f544fc9e4c67ceab21527c8
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/16/2020
+ms.openlocfilehash: 0a455f7f902e76e61f5a7451e26219abf10b7622
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543899"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96035274"
 ---
 # <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>Changer le propriétaire de facturation d’un abonnement utilisateur Azure Stack Hub
 
@@ -20,11 +20,11 @@ Les opérateurs Azure Stack Hub peuvent utiliser PowerShell pour changer le prop
 
 Il existe deux types de *propriétaires* qui sont affectés à un abonnement :
 
-- **Propriétaire de facturation**  : par défaut, le propriétaire de facturation est le compte d’utilisateur qui obtient l’abonnement à partir d’une offre et qui possède donc la relation de facturation pour cet abonnement. Ce compte est également un administrateur de l’abonnement. Seul un compte d’utilisateur peut avoir cette désignation pour un abonnement. Un propriétaire de facturation est souvent un responsable d’équipe ou d’entreprise.
+- **Propriétaire de facturation** : par défaut, le propriétaire de facturation est le compte d’utilisateur qui obtient l’abonnement à partir d’une offre et qui possède donc la relation de facturation pour cet abonnement. Ce compte est également un administrateur de l’abonnement. Seul un compte d’utilisateur peut avoir cette désignation pour un abonnement. Un propriétaire de facturation est souvent un responsable d’équipe ou d’entreprise.
 
   Vous pouvez utiliser l’applet de commande PowerShell [Set-AzsUserSubscription](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) pour modifier le propriétaire de facturation.  
 
-- **Propriétaires ajoutés via des rôles RBAC**  : le rôle **Propriétaire** peut être attribué à d’autres utilisateurs par le biais du [contrôle d’accès en fonction du rôle](azure-stack-manage-permissions.md) (RBAC). Vous pouvez ajouter autant de comptes d’utilisateur que vous le souhaitez en tant que propriétaires pour assister le propriétaire de facturation. Les propriétaires supplémentaires deviennent également administrateurs de l’abonnement et ont tous les privilèges pour l’abonnement, sauf l’autorisation nécessaire pour supprimer le propriétaire de facturation.
+- **Propriétaires ajoutés via des rôles RBAC** : le rôle **Propriétaire** peut être attribué à d’autres utilisateurs par le biais du [contrôle d’accès en fonction du rôle](azure-stack-manage-permissions.md) (RBAC). Vous pouvez ajouter autant de comptes d’utilisateur que vous le souhaitez en tant que propriétaires pour assister le propriétaire de facturation. Les propriétaires supplémentaires deviennent également administrateurs de l’abonnement et ont tous les privilèges pour l’abonnement, sauf l’autorisation nécessaire pour supprimer le propriétaire de facturation.
 
   Vous pouvez utiliser PowerShell pour gérer des propriétaires supplémentaires. Pour plus d’informations, consultez [cet article](/azure/role-based-access-control/role-assignments-powershell).
 
@@ -37,10 +37,12 @@ Exécutez le script suivant pour modifier le propriétaire de facturation d’un
 
 Remplacez les valeurs suivantes dans le script avant de l’exécuter :
 
-- **$ArmEndpoint**  : Point de terminaison Resource Manager pour votre environnement.
-- **$TenantId**  : Votre ID de locataire.
-- **$SubscriptionId**  : Votre ID d’abonnement.
-- **$OwnerUpn**  : Compte, par exemple **user\@example.com** , à ajouter en tant que nouveau propriétaire de facturation.
+- **$ArmEndpoint** : Point de terminaison Resource Manager pour votre environnement.
+- **$TenantId** : Votre ID de locataire.
+- **$SubscriptionId** : Votre ID d’abonnement.
+- **$OwnerUpn** : Compte, par exemple **user\@example.com**, à ajouter en tant que nouveau propriétaire de facturation.
+
+### <a name="az-modules"></a>[Modules Az](#tab/az)
 
 ```powershell
 # Set up Azure Stack Hub admin environment
@@ -58,7 +60,30 @@ $Subscription.Owner = $OwnerUpn
 Set-AzsUserSubscription -InputObject $subscription
 ```
 
-[!include[Remove Account](../../includes/remove-account.md)]
+[!include[Remove Account](../includes/remove-account-az.md)]
+
+### <a name="az-modules"></a>[Modules Az](#tab/azurerm)
+
+```powershell
+# Set up AzureRMure Stack Hub admin environment
+Add-AzureRMEnvironment -ARMEndpoint $ArmEndpoint -Name AzureRMureStack-admin
+Add-AzureRMAccount -Environment AzureRMureStack-admin -TenantId $TenantId
+
+# Select admin subscription
+$providerSubscriptionId = (Get-AzureRMSubscription -SubscriptionName "Default Provider Subscription").Id
+Write-Output "Setting context to the Default Provider Subscription: $providerSubscriptionId"
+Set-AzureRMContext -Subscription $providerSubscriptionId
+
+# Change user subscription owner
+$subscription = Get-AzureRMsUserSubscription -SubscriptionId $SubscriptionId
+$Subscription.Owner = $OwnerUpn
+Set-AzureRMsUserSubscription -InputObject $subscription
+```
+[!include[Remove Account](../includes/remove-account-azurerm.md)]
+---
+
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

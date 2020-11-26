@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
 ms.openlocfilehash: ee0ef7119dfb2255cd97e343f8e7339ab715ed7d
-ms.sourcegitcommit: 0e3296fb27b9dabbc2569bf85656c4c7b1d58ba9
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "93049600"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Exigences de certificat pour infrastructure à clé publique (PKI) Azure Stack Hub
@@ -63,7 +63,7 @@ Le tableau de cette section décrit les certificats d’infrastructure de clés 
 
 Des certificats avec des noms de DNS appropriés pour chaque point de terminaison d’infrastructure publique Azure Stack Hub sont requis. Le nom DNS de chaque point de terminaison est exprimé au format : *&lt;prefix>.&lt;region>.&lt;fqdn>* .
 
-Pour votre déploiement, les valeurs [region] et [externalfqdn] doivent correspondre à la région et aux noms de domaines externes que vous avez choisis pour votre système Azure Stack Hub. Par exemple, si le nom de la région était *Redmond* et le nom de domaine externe *contoso.com* , les noms DNS aurait le format *&lt;prefix>.redmond.contoso.com*. Les valeurs *&lt;prefix>* sont prédéfinies par Microsoft pour décrire le point de terminaison sécurisé par le certificat. De plus, les valeurs *&lt;prefix>* des points de terminaison d’infrastructure externe dépendent du service Azure Stack Hub qui utilise le point de terminaison spécifique.
+Pour votre déploiement, les valeurs [region] et [externalfqdn] doivent correspondre à la région et aux noms de domaines externes que vous avez choisis pour votre système Azure Stack Hub. Par exemple, si le nom de la région était *Redmond* et le nom de domaine externe *contoso.com*, les noms DNS aurait le format *&lt;prefix>.redmond.contoso.com*. Les valeurs *&lt;prefix>* sont prédéfinies par Microsoft pour décrire le point de terminaison sécurisé par le certificat. De plus, les valeurs *&lt;prefix>* des points de terminaison d’infrastructure externe dépendent du service Azure Stack Hub qui utilise le point de terminaison spécifique.
 
 Pour les environnements de production, nous recommandons de générer des certificats individuels pour chaque point de terminaison et de les copier dans le répertoire correspondant. Pour les environnements de développement, les certificats peuvent être fournis sous la forme d’un certificat unique avec caractères génériques couvrant tous les espaces de noms dans les champs Sujet et Autre nom de l’objet (SAN) copiés dans tous les répertoires. Un certificat unique couvrant tous les points de terminaison et services pose des problèmes de sécurité ; cette approche est donc destinée aux équipes de développement uniquement. N’oubliez pas que les deux options requièrent l’utilisation de certificats avec caractères génériques pour les points de terminaison tels que **acs** et le coffre de clés lorsqu’ils sont requis.
 

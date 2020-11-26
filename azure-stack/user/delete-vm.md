@@ -3,16 +3,16 @@ title: Supprimer une machine virtuelle avec des dépendances sur Azure Stack Hub
 description: Comment supprimer une machine virtuelle avec des dépendances sur Azure Stack Hub
 author: mattbriggs
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 07/15/2020
-ms.openlocfilehash: 98b694f1965312462d9fbbe9d6e394f3b15867bf
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: f9e32351dbc73b42e51c485c8e2eb39d4226ea27
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572481"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518209"
 ---
 # <a name="how-to-delete-a-vm-virtual-machine-with-dependencies-on-azure-stack-hub"></a>Comment supprimer une machine virtuelle avec des dépendances sur Azure Stack Hub
 
@@ -52,7 +52,81 @@ Si vous ne pouvez pas supprimer le groupe de ressources, soit parce que les dép
     2. Attendez que la ressource soit complètement supprimée.
     3. Vous pouvez ensuite supprimer la dépendance suivante.
 
-### <a name="with-powershell"></a>À l’aide de [PowerShell](#tab/ps)
+### <a name="with-powershell"></a>À l’aide de [PowerShell](#tab/ps-az)
+
+Si vous ne pouvez pas supprimer le groupe de ressources, soit parce que les dépendances ne se trouvent pas dans le même groupe de ressources, soit parce qu’il existe d’autres ressources, suivez ces étapes.
+
+Connectez-vous à votre environnement Azure Stack Hub, puis mettez à jour les variables suivantes avec le nom de votre machine virtuelle et votre groupe de ressources. Pour obtenir des instructions sur la connexion à votre session PowerShell sur Azure Stack Hub, consultez [Se connecter à Azure Stack Hub en tant qu’utilisateur avec PowerShell](azure-stack-powershell-configure-user.md).
+
+```powershell
+$machineName = 'VM_TO_DELETE'
+$resGroupName = 'RESOURCE_GROUP'
+$machine = Get-AzVM -Name $machineName -ResourceGroupName $resGroupName
+```
+
+Récupérez les informations de machine virtuelle et le nom des dépendances. Dans la même session, exécutez les applets de commande suivantes :
+
+```powershell
+ $azResParams = @{
+ 'ResourceName' = $machineName
+ 'ResourceType' = 'Microsoft.Compute/virtualMachines'
+     'ResourceGroupName' = $resGroupName
+ }
+ $vmRes = Get-AzResource @azResParams
+ $vmId = $vmRes.Properties.VmId
+```
+
+Supprimez le conteneur de stockage des diagnostics de démarrage. Si la longueur du nom de votre machine est inférieure à 9 caractères, vous devez modifier l’index en spécifiant la longueur de la chaîne dans la sous-chaîne au moment de la création de la variable `$diagContainer`. 
+
+Dans la même session, exécutez les applets de commande suivantes :
+
+```powershell
+$container = [regex]::match($machine.DiagnosticsProfile.bootDiagnostics.storageUri, '^http[s]?://(.+?)\.').groups[1].value
+$diagContainer = ('bootdiagnostics-{0}-{1}' -f $machine.Name.ToLower().Substring(0, 9), $vmId)
+$containerRg = (Get-AzStorageAccount | where { $_.StorageAccountName -eq $container }).ResourceGroupName
+$storeParams = @{
+    'ResourceGroupName' = $containerRg
+    'Name' = $container }
+Get-AzStorageAccount @storeParams | Get-AzureStorageContainer | where { $_.Name-eq $diagContainer } | Remove-AzureStorageContainer -Force
+```
+
+Supprimez l’interface de réseau virtuel.
+
+```powershell
+$machine | Remove-AzNetworkInterface -Force
+```
+
+Supprimez le disque du système d’exploitation.
+
+```powershell
+$osVhdUri = $machine.StorageProfile.OSDisk.Vhd.Uri
+$osDiskConName = $osVhdUri.Split('/')[-2]
+$osDiskStorageAcct = Get-AzStorageAccount | where { $_.StorageAccountName -eq $osVhdUri.Split('/')[2].Split('.')[0] }
+$osDiskStorageAcct | Remove-AzureStorageBlob -Container $osDiskConName -Blob $osVhdUri.Split('/')[-1]
+```
+
+Supprimez les disques de données attachés à votre machine virtuelle.
+
+```powershell
+if ($machine.DataDiskNames.Count -gt 0)
+ {
+    Write-Verbose -Message 'Deleting disks...'
+        foreach ($uri in $machine.StorageProfile.DataDisks.Vhd.Uri )
+        {
+            $dataDiskStorageAcct = Get-AzStorageAccount -Name $uri.Split('/')[2].Split('.')[0]
+             $dataDiskStorageAcct | Remove-AzureStorageBlob -Container $uri.Split('/')[-2] -Blob $uri.Split('/')[-1] -ea Ignore
+        }
+ }
+```
+
+Pour terminer, supprimez la machine virtuelle. L’applet de commande prend un certain temps pour s’exécuter. Vous pouvez auditer les composants attachés à la machine virtuelle en examinant l’objet de machine virtuelle dans PowerShell. Pour examiner l’objet, il vous suffit de vous référer à la variable qui contient l’objet de machine virtuelle. Tapez `$machine`.
+
+Pour supprimer la machine virtuelle, dans la même session, exécutez les applets de commande suivantes :
+
+```powershell
+$machine | Remove-AzVM -Force
+```
+### <a name="with-powershell"></a>À l’aide de [PowerShell](#tab/ps-azureRM)
 
 Si vous ne pouvez pas supprimer le groupe de ressources, soit parce que les dépendances ne se trouvent pas dans le même groupe de ressources, soit parce qu’il existe d’autres ressources, suivez ces étapes.
 
@@ -126,7 +200,7 @@ Pour supprimer la machine virtuelle, dans la même session, exécutez les applet
 ```powershell
 $machine | Remove-AzureRmVM -Force
 ```
-
+---
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Fonctionnalités des machines virtuelles Azure Stack Hub](azure-stack-vm-considerations.md)

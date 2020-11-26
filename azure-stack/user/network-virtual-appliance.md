@@ -3,16 +3,16 @@ title: Résoudre les problèmes d’appliance virtuelle réseau sur Azure Stack 
 description: Résolvez les problèmes de connectivité de machines virtuelles ou de réseau privé virtuel (VPN) lors de l’utilisation d’une appliance virtuelle réseau dans Microsoft Azure Stack Hub.
 author: sethmanheim
 ms.author: sethm
-ms.date: 09/08/2020
+ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
-ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 0facc0cc06ad3ff672531f1eeb7e31eee2f56ee0
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 271587baa3890a7dbb02d7ac935ceb51e2e405b7
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546886"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517146"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>Résoudre les problèmes d’appliance virtuelle réseau
 
@@ -55,13 +55,13 @@ Chaque appliance virtuelle réseau doit respecter les configurations de base req
 
 ### <a name="check-whether-ip-forwarding-is-enabled-on-the-nva"></a>Vérifier si le transfert IP est activé sur l’appliance virtuelle réseau
 
-#### <a name="use-the-azure-stack-hub-portal"></a>Utiliser le portail Azure Stack Hub
+### <a name="portal"></a>[Portail](#tab/portal)
 
-1. Localisez la ressource d’appliance virtuelle réseau sur le portail Azure Stack Hub, sélectionnez **Mise en réseau** , puis sélectionnez l’interface réseau.
-2. Dans la page **Interface réseau** , sélectionnez **Configuration IP**.
+1. Localisez la ressource d’appliance virtuelle réseau sur le portail Azure Stack Hub, sélectionnez **Mise en réseau**, puis sélectionnez l’interface réseau.
+2. Dans la page **Interface réseau**, sélectionnez **Configuration IP**.
 3. Assurez-vous que le transfert IP est activé.
 
-#### <a name="use-powershell"></a>Utiliser PowerShell
+### <a name="powershell-az"></a>[PowerShell Az](#tab/az)
 
 1. Exécutez la commande suivante : Remplacez les valeurs figurant entre crochets pointus par vos informations.
 
@@ -81,6 +81,29 @@ Chaque appliance virtuelle réseau doit respecter les configurations de base req
    EnableIPForwarding   : True
    NetworkSecurityGroup : null
    ```
+
+### <a name="powershell-azurerm"></a>[PowerShell AzureRM](#tab/azurerm)
+
+1. Exécutez la commande suivante : Remplacez les valeurs figurant entre crochets pointus par vos informations.
+
+   ```powershell
+   Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
+   ```
+
+2. Vérifiez la propriété **EnableIPForwarding**.
+
+3. Si le transfert IP n’est pas activé, exécutez les commandes suivantes pour l’activer :
+
+   ```powershell
+   $nic2 = Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
+   $nic2.EnableIPForwarding = 1
+   Set-AzureRMNetworkInterface -NetworkInterface $nic2
+   Execute: $nic2 #and check for an expected output:
+   EnableIPForwarding   : True
+   NetworkSecurityGroup : null
+   ```
+
+---
 
 ### <a name="check-whether-traffic-can-be-routed-to-the-nva"></a>Vérifier si le trafic peut être routé vers l’appliance virtuelle réseau
 

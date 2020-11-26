@@ -3,15 +3,15 @@ title: Déployer une machine virtuelle avec un certificat stocké de façon séc
 description: Découvrez comment déployer une machine virtuelle et y placer un certificat en utilisant un coffre de clés dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/20/2020
 ms.author: sethm
-ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 245658359db8b55a455fa653f4b97bbf6d1737d8
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: a326004b5ed100b0fc7eeb841dd0fbc4ded9ee5a
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546240"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "95518158"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Déployer une machine virtuelle avec un certificat stocké de façon sécurisée sur Azure Stack Hub
 
@@ -48,6 +48,8 @@ Le script suivant crée un certificat au format .pfx et un coffre de clés, puis
 
 > [!IMPORTANT]
 > Vous devez utiliser le paramètre `-EnabledForDeployment` lors de la création du coffre de clés. Il garantit que le coffre de clés peut être référencé à partir de modèles Azure Resource Manager.
+
+### <a name="az-modules"></a>[Modules Az](#tab/az)
 
 ```powershell
 # Create a certificate in the .pfx format
@@ -107,6 +109,70 @@ Set-AzureKeyVaultSecret `
   -Name $secretName `
    -SecretValue $secret
 ```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm)
+
+```powershell
+# Create a certificate in the .pfx format
+New-SelfSignedCertificate `
+  -certstorelocation cert:\LocalMachine\My `
+  -dnsname contoso.microsoft.com
+
+$pwd = ConvertTo-SecureString `
+  -String "<Password used to export the certificate>" `
+  -Force `
+  -AsPlainText
+
+Export-PfxCertificate `
+  -cert "cert:\localMachine\my\<certificate thumbprint that was created in the previous step>" `
+  -FilePath "<Fully qualified path to where the exported certificate can be stored>" `
+  -Password $pwd
+
+# Create a key vault and upload the certificate into the key vault as a secret
+$vaultName = "contosovault"
+$resourceGroup = "contosovaultrg"
+$location = "local"
+$secretName = "servicecert"
+$fileName = "<Fully qualified path to where the exported certificate can be stored>"
+$certPassword = "<Password used to export the certificate>"
+
+$fileContentBytes = get-content $fileName `
+  -Encoding Byte
+
+$fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
+$jsonObject = @"
+{
+"data": "$filecontentencoded",
+"dataType" :"pfx",
+"password": "$certPassword"
+}
+"@
+$jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+$jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
+
+New-AzureRMResourceGroup `
+  -Name $resourceGroup `
+  -Location $location
+
+New-AzureRMKeyVault `
+  -VaultName $vaultName `
+  -ResourceGroupName $resourceGroup `
+  -Location $location `
+  -sku standard `
+  -EnabledForDeployment
+
+$secret = ConvertTo-SecureString `
+  -String $jsonEncoded `
+  -AsPlainText -Force
+
+Set-AzureKeyVaultSecret `
+  -VaultName $vaultName `
+  -Name $secretName `
+   -SecretValue $secret
+```
+
+---
+
+
 
 À l’exécution du script, la sortie inclut l’URI du secret. Notez cet URI, car vous devez le référencer dans le [modèle Placer le certificat dans Windows Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Téléchargez le dossier de modèles [vm-push-certificate-windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) sur votre ordinateur de développement. Ce dossier contient les fichiers **azuredeploy.json** et **azuredeploy.parameters.json** dont vous avez besoin dans les étapes suivantes.
 
@@ -153,6 +219,8 @@ Mettez à jour le fichier **azuredeploy.parameters.json** avec les paramètres `
 
 Déployez le modèle avec le script PowerShell suivant :
 
+### <a name="az-modules"></a>[Modules Az](#tab/az2)
+
 ```powershell
 # Deploy a Resource Manager template to create a VM and push the secret to it
 New-AzResourceGroupDeployment `
@@ -161,6 +229,19 @@ New-AzResourceGroupDeployment `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm2)
+
+```powershell
+# Deploy a Resource Manager template to create a VM and push the secret to it
+New-AzureRMResourceGroupDeployment `
+  -Name KVDeployment `
+  -ResourceGroupName $resourceGroup `
+  -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
+  -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
+```
+---
+
+
 
 Une fois le modèle déployé, il affiche la sortie suivante :
 
@@ -168,8 +249,8 @@ Une fois le modèle déployé, il affiche la sortie suivante :
 
 Azure Stack Hub envoie (push) le certificat à la machine virtuelle lors du déploiement. L’emplacement du certificat dépend du système d’exploitation de la machine virtuelle :
 
-* Sous Windows, le certificat est ajouté à l’emplacement de certificat **LocalMachine** , avec le magasin de certificats fourni par l’utilisateur.
-* Sous Linux, le certificat est placé dans le répertoire **/var/lib/waagent** , avec le nom de fichier **UppercaseThumbprint.crt** pour le fichier de certificat X509 et **UppercaseThumbprint.prv** pour la clé privée.
+* Sous Windows, le certificat est ajouté à l’emplacement de certificat **LocalMachine**, avec le magasin de certificats fourni par l’utilisateur.
+* Sous Linux, le certificat est placé dans le répertoire **/var/lib/waagent**, avec le nom de fichier **UppercaseThumbprint.crt** pour le fichier de certificat X509 et **UppercaseThumbprint.prv** pour la clé privée.
 
 ## <a name="retire-certificates"></a>Mettre hors service des certificats
 

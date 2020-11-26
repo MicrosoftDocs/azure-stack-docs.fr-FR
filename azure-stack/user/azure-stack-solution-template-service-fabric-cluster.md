@@ -3,16 +3,16 @@ title: Déployer un cluster Service Fabric sécurisé dans Azure Stack Hub
 description: Découvrez comment déployer un cluster Service Fabric sécurisé dans Azure Stack Hub
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 5/27/2020
+ms.date: 11/20/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 5fd3f9f3d4d13ccf2fa03d656ac76d9cab462103
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: cf8d4d7ea8e1a88bb8d162bb2c5fc5e4bc41d21a
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546274"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518311"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Déployer un cluster Service Fabric dans Azure Stack Hub
 
@@ -44,7 +44,7 @@ Le déploiement du cluster Service Fabric requiert les éléments suivants :
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Ajouter un secret au coffre de clés
-Pour déployer un cluster Service Fabric, vous devez spécifier l’ *identificateur de secret* du coffre de clés ou l’URL appropriés pour le cluster Service Fabric. Le modèle Azure Resource Manager utilise un coffre de clés comme entrée. Le modèle récupère ensuite le certificat du cluster lors de l’installation du cluster Service Fabric.
+Pour déployer un cluster Service Fabric, vous devez spécifier l’*identificateur de secret* du coffre de clés ou l’URL appropriés pour le cluster Service Fabric. Le modèle Azure Resource Manager utilise un coffre de clés comme entrée. Le modèle récupère ensuite le certificat du cluster lors de l’installation du cluster Service Fabric.
 
 > [!IMPORTANT]  
 > Vous devez utiliser PowerShell pour ajouter un secret au coffre de clés en vue d’une utilisation avec Service Fabric. N’utilisez pas le portail.  
@@ -54,62 +54,126 @@ Utilisez le script ci-après pour créer le coffre de clés et lui ajouter le *c
 > [!TIP]  
 > La réussite de l’exécution du script requiert l’existence préalable d’une offre publique incluant les services relatifs aux ressources de calcul, de réseau, de stockage et de coffre de clés. 
 
-  ```powershell
-    function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
-        {
-            return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
-        }
-    
-    function Publish-SecretToKeyVault ($PfxFilePath, $Password, $KeyVaultName)
-       {
-            $keyVaultSecretName = "ClusterCertificate"
-            $certContentInBytes = [io.file]::ReadAllBytes($PfxFilePath)
-            $pfxAsBase64EncodedString = [System.Convert]::ToBase64String($certContentInBytes)
-    
-            $jsonObject = ConvertTo-Json -Depth 10 ([pscustomobject]@{
-                data     = $pfxAsBase64EncodedString
-                dataType = 'pfx'
-                password = $Password
-            })
-    
-            $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
-            $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
-            $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
-            $keyVaultSecret = Set-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName -SecretValue $secret
-            
-            $pfxCertObject = Get-ThumbprintFromPfx -PfxFilePath $PfxFilePath -Password $Password
-    
-            Write-Host "KeyVault id: " -ForegroundColor Green
-            (Get-AzKeyVault -VaultName $KeyVaultName).ResourceId
-            
-            Write-Host "Secret Id: " -ForegroundColor Green
-            (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName).id
-    
-            Write-Host "Cluster Certificate Thumbprint: " -ForegroundColor Green
-            $pfxCertObject.Thumbprint
-       }
-    
-    #========================== CHANGE THESE VALUES ===============================
-    $armEndpoint = "https://management.local.azurestack.external"
-    $tenantId = "your_tenant_ID"
-    $location = "local"
-    $clusterCertPfxPath = "Your_path_to_ClusterCert.pfx"
-    $clusterCertPfxPassword = "Your_password_for_ClusterCert.pfx"
-    #==============================================================================
-    
-    Add-AzEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
-    Login-AzAccount -Environment AzureStack -TenantId $tenantId
-    
-    $rgName = "sfvaultrg"
-    Write-Host "Creating Resource Group..." -ForegroundColor Yellow
-    New-AzResourceGroup -Name $rgName -Location $location
-    
-    Write-Host "Creating Key Vault..." -ForegroundColor Yellow
-    $Vault = New-AzKeyVault -VaultName sfvault -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment -EnabledForDeployment -EnabledForDiskEncryption
-    
-    Write-Host "Publishing certificate to Vault..." -ForegroundColor Yellow
-    Publish-SecretToKeyVault -PfxFilePath $clusterCertPfxPath -Password $clusterCertPfxPassword -KeyVaultName $vault.VaultName
-   ``` 
+### <a name="az-modules"></a>[Modules Az](#tab/az1)
+
+```powershell
+   function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
+      {
+         return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
+      }
+   
+   function Publish-SecretToKeyVault ($PfxFilePath, $Password, $KeyVaultName)
+      {
+         $keyVaultSecretName = "ClusterCertificate"
+         $certContentInBytes = [io.file]::ReadAllBytes($PfxFilePath)
+         $pfxAsBase64EncodedString = [System.Convert]::ToBase64String($certContentInBytes)
+   
+         $jsonObject = ConvertTo-Json -Depth 10 ([pscustomobject]@{
+               data     = $pfxAsBase64EncodedString
+               dataType = 'pfx'
+               password = $Password
+         })
+   
+         $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+         $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
+         $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
+         $keyVaultSecret = Set-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName -SecretValue $secret
+         
+         $pfxCertObject = Get-ThumbprintFromPfx -PfxFilePath $PfxFilePath -Password $Password
+   
+         Write-Host "KeyVault id: " -ForegroundColor Green
+         (Get-AzKeyVault -VaultName $KeyVaultName).ResourceId
+         
+         Write-Host "Secret Id: " -ForegroundColor Green
+         (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName).id
+   
+         Write-Host "Cluster Certificate Thumbprint: " -ForegroundColor Green
+         $pfxCertObject.Thumbprint
+      }
+   
+   #========================== CHANGE THESE VALUES ===============================
+   $armEndpoint = "https://management.local.azurestack.external"
+   $tenantId = "your_tenant_ID"
+   $location = "local"
+   $clusterCertPfxPath = "Your_path_to_ClusterCert.pfx"
+   $clusterCertPfxPassword = "Your_password_for_ClusterCert.pfx"
+   #==============================================================================
+   
+   Add-AzEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
+   Login-AzAccount -Environment AzureStack -TenantId $tenantId
+   
+   $rgName = "sfvaultrg"
+   Write-Host "Creating Resource Group..." -ForegroundColor Yellow
+   New-AzResourceGroup -Name $rgName -Location $location
+   
+   Write-Host "Creating Key Vault..." -ForegroundColor Yellow
+   $Vault = New-AzKeyVault -VaultName sfvault -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment -EnabledForDeployment -EnabledForDiskEncryption
+   
+   Write-Host "Publishing certificate to Vault..." -ForegroundColor Yellow
+   Publish-SecretToKeyVault -PfxFilePath $clusterCertPfxPath -Password $clusterCertPfxPassword -KeyVaultName $vault.VaultName
+``` 
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm1)
+
+```powershell
+   function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
+      {
+         return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
+      }
+   
+   function Publish-SecretToKeyVault ($PfxFilePath, $Password, $KeyVaultName)
+      {
+         $keyVaultSecretName = "ClusterCertificate"
+         $certContentInBytes = [io.file]::ReadAllBytes($PfxFilePath)
+         $pfxAsBase64EncodedString = [System.Convert]::ToBase64String($certContentInBytes)
+   
+         $jsonObject = ConvertTo-Json -Depth 10 ([pscustomobject]@{
+               data     = $pfxAsBase64EncodedString
+               dataType = 'pfx'
+               password = $Password
+         })
+   
+         $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+         $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
+         $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
+         $keyVaultSecret = Set-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName -SecretValue $secret
+         
+         $pfxCertObject = Get-ThumbprintFromPfx -PfxFilePath $PfxFilePath -Password $Password
+   
+         Write-Host "KeyVault id: " -ForegroundColor Green
+         (Get-AzureRMKeyVault -VaultName $KeyVaultName).ResourceId
+         
+         Write-Host "Secret Id: " -ForegroundColor Green
+         (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName).id
+   
+         Write-Host "Cluster Certificate Thumbprint: " -ForegroundColor Green
+         $pfxCertObject.Thumbprint
+      }
+   
+   #========================== CHANGE THESE VALUES ===============================
+   $armEndpoint = "https://management.local.azurestack.external"
+   $tenantId = "your_tenant_ID"
+   $location = "local"
+   $clusterCertPfxPath = "Your_path_to_ClusterCert.pfx"
+   $clusterCertPfxPassword = "Your_password_for_ClusterCert.pfx"
+   #==============================================================================
+   
+   Add-AzureRMEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
+   Login-AzureRMAccount -Environment AzureStack -TenantId $tenantId
+   
+   $rgName = "sfvaultrg"
+   Write-Host "Creating Resource Group..." -ForegroundColor Yellow
+   New-AzureRMResourceGroup -Name $rgName -Location $location
+   
+   Write-Host "Creating Key Vault..." -ForegroundColor Yellow
+   $Vault = New-AzureRMKeyVault -VaultName sfvault -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment -EnabledForDeployment -EnabledForDiskEncryption
+   
+   Write-Host "Publishing certificate to Vault..." -ForegroundColor Yellow
+   Publish-SecretToKeyVault -PfxFilePath $clusterCertPfxPath -Password $clusterCertPfxPassword -KeyVaultName $vault.VaultName
+``` 
+
+---
+
+ 
 
 
 Pour plus d’informations, consultez l’article [Gérer Key Vault dans Azure Stack Hub avec PowerShell](azure-stack-key-vault-manage-powershell.md).
@@ -120,7 +184,7 @@ Pour plus d’informations, consultez l’article [Gérer Key Vault dans Azure S
 
    ![Sélection du cluster Service Fabric](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 
-2. Pour chaque page, telle que *De base* , remplissez le formulaire de déploiement. Si vous avez des doutes concernant une valeur, utilisez les valeurs par défaut.
+2. Pour chaque page, telle que *De base*, remplissez le formulaire de déploiement. Si vous avez des doutes concernant une valeur, utilisez les valeurs par défaut.
 
     Pour les déploiements sur une instance Azure Stack Hub déconnectée ou pour déployer une autre version de Service Fabric, téléchargez le package de déploiement Service Fabric et son package d’exécution correspondant et hébergez-les sur un objet blob Azure Stack Hub. Fournissez ces valeurs dans les champs **URL du package de déploiement Service Fabric** et **URL du package d’exécution Service Fabric**.
     > [!NOTE]  
@@ -133,11 +197,11 @@ Pour plus d’informations, consultez l’article [Gérer Key Vault dans Azure S
    ![Concepts de base](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
     
-3. Sur la page *Paramètres réseau* , vous pouvez spécifier les ports spécifiques à ouvrir pour vos applications :
+3. Sur la page *Paramètres réseau*, vous pouvez spécifier les ports spécifiques à ouvrir pour vos applications :
 
    ![Paramètres réseau](media/azure-stack-solution-template-service-fabric-cluster/image4.png)
 
-4. Dans la page *Sécurité* , ajoutez les valeurs que vous avez obtenues lors des étapes de [création du coffre de clés Azure Key Vault](#add-a-secret-to-key-vault) et du chargement du secret.
+4. Dans la page *Sécurité*, ajoutez les valeurs que vous avez obtenues lors des étapes de [création du coffre de clés Azure Key Vault](#add-a-secret-to-key-vault) et du chargement du secret.
 
    Pour le champ *Admin Client Certificate Thumbprints* (Empreinte du certificat client d’administration), entrez l’empreinte du *certificat client d’administration*. (Consultez les [prérequis](#prerequisites).)
    
@@ -146,7 +210,7 @@ Pour plus d’informations, consultez l’article [Gérer Key Vault dans Azure S
    - Cluster Certificate thumbprint (Empreinte numérique du certificat de cluster) : spécifiez la valeur *Cluster Certificate Thumbprint* obtenue dans les résultats du script.
    - URL du certificat de serveur : Si vous souhaitez utiliser un autre certificat que le certificat de cluster, chargez le certificat dans un coffre de clés et fournissez l’URL complète du secret. 
    - Empreinte numérique du certificat de serveur : Spécifier l’empreinte numérique du certificat de serveur
-   - Admin Client Certificate Thumbprints (Empreinte numérique du certificat client d’administration) : spécifiez la valeur de l’ *empreinte numérique du certificat client d’administration* que vous avez créée dans les prérequis. 
+   - Admin Client Certificate Thumbprints (Empreinte numérique du certificat client d’administration) : spécifiez la valeur de l’*empreinte numérique du certificat client d’administration* que vous avez créée dans les prérequis. 
 
    ![Sortie du script](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
@@ -165,7 +229,7 @@ Vous pouvez accéder au cluster Service Fabric en utilisant l’outil Service Fa
 
     a. Ouvrez Internet Explorer, puis accédez à **Options Internet** > **Contenu** > **Certificats**.
   
-    b. Sur la page Certificats, sélectionnez **Importer** pour démarrer *l’Assistant Importation de certificat* , puis cliquez sur **Suivant**. Sur la page *Fichier à importer* , cliquez sur **Parcourir** , puis sélectionnez le **Certificat client d’administration** que vous avez fourni au modèle Azure Resource Manager.
+    b. Sur la page Certificats, sélectionnez **Importer** pour démarrer *l’Assistant Importation de certificat*, puis cliquez sur **Suivant**. Sur la page *Fichier à importer*, cliquez sur **Parcourir**, puis sélectionnez le **Certificat client d’administration** que vous avez fourni au modèle Azure Resource Manager.
         
        > [!NOTE]  
        > Ce certificat ne correspond pas au certificat de cluster qui a été précédemment ajouté au coffre de clés.  
@@ -174,7 +238,7 @@ Vous pouvez accéder au cluster Service Fabric en utilisant l’outil Service Fa
 
        ![Échange d’informations personnelles](media/azure-stack-solution-template-service-fabric-cluster/image8.png)  
 
-    d. Sur la page *Magasin de certificats* , sélectionnez **Personnel** , puis terminez l’Assistant.  
+    d. Sur la page *Magasin de certificats*, sélectionnez **Personnel**, puis terminez l’Assistant.  
        ![Magasin de certificats](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
 1. Pour rechercher le FQDN de votre cluster Service Fabric :  
 
@@ -189,9 +253,9 @@ Vous pouvez accéder au cluster Service Fabric en utilisant l’outil Service Fa
 1. Pour rechercher l’URL de Service Fabric Explorer, ainsi que le point de terminaison de connexion du client, consultez les résultats de la solution Template deployment.
 
 1. Dans votre navigateur, accédez à `https://*FQDN*:19080`. Remplacez *FQDN* par le FQDN de votre cluster Service Fabric trouvé à l’étape 2.   
-   Si vous avez utilisé un certificat auto-signé, vous recevrez un avertissement signalant que la connexion n’est pas sécurisée. Pour accéder au site web, sélectionnez **Informations supplémentaires** , puis **Atteindre la page web**. 
+   Si vous avez utilisé un certificat auto-signé, vous recevrez un avertissement signalant que la connexion n’est pas sécurisée. Pour accéder au site web, sélectionnez **Informations supplémentaires**, puis **Atteindre la page web**. 
 
-1. Pour vous authentifier auprès du site, vous devez sélectionner un certificat à utiliser. Sélectionnez **Autres choix** , sélectionnez le certificat approprié, puis cliquez sur **OK** pour vous connecter à Service Fabric Explorer. 
+1. Pour vous authentifier auprès du site, vous devez sélectionner un certificat à utiliser. Sélectionnez **Autres choix**, sélectionnez le certificat approprié, puis cliquez sur **OK** pour vous connecter à Service Fabric Explorer. 
 
    ![Authenticate](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 
@@ -203,13 +267,13 @@ Vous pouvez accéder au cluster Service Fabric en utilisant l’outil Service Fa
 
 1. Une fois l’installation terminée, configurez les variables d’environnement système pour vous assurer que les cmdlets Service Fabric sont accessibles à partir de PowerShell.  
     
-    a. Accédez à **Panneau de configuration** > **Système et sécurité** > **Système** , puis sélectionnez **Paramètres système avancés**.  
+    a. Accédez à **Panneau de configuration** > **Système et sécurité** > **Système**, puis sélectionnez **Paramètres système avancés**.  
     
       ![Panneau de configuration](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 
-    b. Dans l’onglet **Avancé** de *Propriétés système* , sélectionnez **Variables d’environnement**.  
+    b. Dans l’onglet **Avancé** de *Propriétés système*, sélectionnez **Variables d’environnement**.  
 
-    c. Dans la zone *Variables système* , modifiez **Path** et assurez-vous que l’emplacement **C:\\Program Files\\Microsoft Service Fabric\\bin\\Fabric\\Fabric.Code** figure au début de la liste des variables d’environnement.  
+    c. Dans la zone *Variables système*, modifiez **Path** et assurez-vous que l’emplacement **C:\\Program Files\\Microsoft Service Fabric\\bin\\Fabric\\Fabric.Code** figure au début de la liste des variables d’environnement.  
 
       ![Liste de variables d’environnement](media/azure-stack-solution-template-service-fabric-cluster/image16.png)
 

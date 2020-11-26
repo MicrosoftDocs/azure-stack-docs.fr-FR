@@ -9,10 +9,10 @@ ms.date: 01/22/2020
 ms.reviewer: bryanla
 ms.lastreviewed: 01/22/2020
 ms.openlocfilehash: 7a2b8504a247048a4f90f7ec70772ff52b5ae9dc
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "91107245"
 ---
 # <a name="quickstart-create-an-event-hubs-cluster-using-the-azure-stack-hub-portal"></a>Démarrage rapide : Créer un cluster Event Hubs à l’aide du portail Azure Stack Hub
@@ -44,9 +44,9 @@ Dans ce guide de démarrage rapide, vous allez apprendre à utiliser le portail 
 Un cluster Event Hubs fournit un conteneur d’étendue unique dans laquelle vous pouvez créer un ou plusieurs espaces de noms. Pour créer un cluster Event Hubs, effectuez les étapes suivantes : 
 
 1. Connectez-vous au portail utilisateur Azure Stack Hub.
-2. Sélectionnez **Tous les services** dans le volet de navigation gauche, entrez « Clusters Event Hubs » dans la barre de recherche, puis sélectionnez l’élément **Clusters Event Hubs** dans la liste des résultats.
+2. Sélectionnez  **Tous les services** dans le volet de navigation gauche, entrez « Clusters Event Hubs » dans la barre de recherche, puis sélectionnez l’élément **Clusters Event Hubs** dans la liste des résultats.
 3. Une fois dans la page **Clusters Event Hubs**, sélectionnez **+ Ajouter** dans le menu supérieur. Le volet **Créer un cluster Event Hubs** s’ouvre à droite.
-4. Sous l’onglet **De base** de la page **Créer un cluster Event Hubs**  :  
+4. Sous l’onglet **De base** de la page  **Créer un cluster Event Hubs**  :  
    - **Nom de cluster** : Entrez un nom. Le système vérifie immédiatement si le nom est disponible. S’il est disponible, une coche apparaît à l’extrémité droite du champ. 
    - **Abonnement**: Sélectionnez l’abonnement dans lequel vous souhaitez créer le cluster. 
    - **Groupe de ressources** : Créez ou sélectionnez le groupe de ressources dans lequel vous souhaitez créer le cluster. 
@@ -76,7 +76,7 @@ Un cluster Event Hubs fournit un conteneur d’étendue unique dans laquelle vou
 
 Créez à présent un espace de noms dans votre nouveau cluster :
 
-1. Dans la page **Vue d’ensemble** de **Cluster Event Hubs**, sélectionnez **+ Espace de noms** dans le menu supérieur. 
+1. Dans la page **Vue d’ensemble** de **Cluster Event Hubs**, sélectionnez  **+ Espace de noms** dans le menu supérieur. 
 
    [![Clusters Event Hubs - Sélectionner le cluster](media/event-hubs-quickstart-cluster-portal/2-view-cluster.png)](media/event-hubs-quickstart-cluster-portal/2-view-cluster.png#lightbox)
 

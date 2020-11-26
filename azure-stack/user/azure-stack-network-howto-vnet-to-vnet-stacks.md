@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
 ms.openlocfilehash: d8c20d3fe7b80a7ace90422a622c4f067f631954
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "94547107"
 ---
 # <a name="vnet-to-vnet-connectivity-between-azure-stack-hub-instances-with-fortinet-fortigate-nva"></a>Connectivité de réseau virtuel à réseau virtuel entre les instances Azure Stack Hub avec Fortinet FortiGate NVA

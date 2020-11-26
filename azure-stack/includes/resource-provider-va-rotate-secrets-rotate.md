@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 10/10/2020
 ms.reviewer: bryanla
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: ff18909ef7586d8099f0e01f29d53f3dbc3677f1
-ms.sourcegitcommit: 81e2d627c9dc4cc365deb4a0e0674b5ab3a7efbf
+ms.openlocfilehash: 0df920ef0c8063332a290ca5e95e1c01d755e548
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "93050268"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517552"
 ---
 Enfin, déterminez les propriétés de déploiement les plus récentes du fournisseur de ressources et utilisez-les pour terminer le processus de rotation des secrets.
 
@@ -72,24 +72,24 @@ Ouvrez une console PowerShell avec élévation de privilèges et suivez les éta
 
    Dans l’exemple suivant, la collection de secrets renvoyée pour RP Event Hubs contient un secret `"Certificate"` nommé `aseh-ssl-gateway-pfx`. 
 
-   ```powershell
-   PS C:\WINDOWS\system32> Get-AzsProductSecret -PackageId 'microsoft.eventhub.1.2003.0.0' -AsJson
-   VERBOSE: GET
-   https://adminmanagement.myregion.mycompany.com/subscriptions/ze22ca96-z546-zbc6-z566-z35f68799816/providers/Microsoft.Deployment.Admin/locations/global/productPackages/microsoft.eventhub.1.2003.0.0/secrets?api-version=2019-01-01 with 0-char payload
-   VERBOSE: Received 617-char response, StatusCode = OK
-   {
-       "value":  [
-                     {
-                         "id":  "/subscriptions/ze22ca96-z546-zbc6-z566-z35f68799816/providers/Microsoft.Deployment.Admin/locations/global/productPackages/microsoft.eventhub.1.2003.0.0/secrets/aseh-ssl-gateway-pfx",
-                         "name":  "global/microsoft.eventhub.1.2003.0.0/aseh-ssl-gateway-pfx",
-                         "type":  "Microsoft.Deployment.Admin/locations/productPackages/secrets",
-                         "properties":  {
+    ```powershell
+    PS C:\WINDOWS\system32> Get-AzsProductSecret -PackageId 'microsoft.eventhub.1.2003.0.0' -AsJson
+    VERBOSE: GET
+    https://adminmanagement.myregion.mycompany.com/subscriptions/ze22ca96-z546-zbc6-z566-z35f68799816/providers/Microsoft.Deployment.Admin/locations/global/productPackages/microsoft.eventhub.1.2003.0.0/secrets?api-version=2019-01-01 with 0-char payload
+    VERBOSE: Received 617-char response, StatusCode = OK
+    {
+        "value":  [
+                        {
+                            "id":  "/subscriptions/ze22ca96-z546-zbc6-z566-z35f68799816/providers/Microsoft.Deployment.Admin/locations/global/productPackages/microsoft.eventhub.1.2003.0.0/secrets/aseh-ssl-gateway-pfx",
+                            "name":  "global/microsoft.eventhub.1.2003.0.0/aseh-ssl-gateway-pfx",
+                            "type":  "Microsoft.Deployment.Admin/locations/productPackages/secrets",
+                            "properties":  {
                                             "secretKind":  "Certificate",
                                             "description":  "Event Hubs gateway SSL certificate.",
                                             "expiresAfter":  "P730D",
                                             "secretDescriptor":  {
-   
-                                                                 },
+    
+                                                                    },
                                             "secretState":  {
                                                                 "status":  "Deployed",
                                                                 "rotationStatus":  "None",
@@ -97,11 +97,11 @@ Ouvrez une console PowerShell avec élévation de privilèges et suivez les éta
                                                             },
                                             "provisioningState":  "Succeeded"
                                         }
-                     },
-                     ...
-                 ]
-   }
-   ```
+                        },
+                        ...
+                    ]
+    }
+    ```
 
 ### <a name="rotate-the-secrets"></a>Effectuer la rotation des secrets
 

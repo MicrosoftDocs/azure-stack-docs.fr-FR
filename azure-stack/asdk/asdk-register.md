@@ -3,16 +3,16 @@ title: Inscrire le kit ASDK auprès d’Azure
 description: Découvrez comment inscrire le kit de développement Azure Stack (ASDK) auprès d’Azure pour activer la syndication de la Place de marché et les rapports d’utilisation.
 author: justinha
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 11/14/2020
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 34f165025fe96234f8faded5eefcf5f4ae78bbde
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/14/2020
+ms.openlocfilehash: 4fc89c86a2268c4648a7e90fa0f6e90cbc8b260e
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543610"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517240"
 ---
 # <a name="register-the-asdk-with-azure"></a>Inscrire le kit ASDK auprès d’Azure
 
@@ -41,6 +41,10 @@ Pour inscrire le kit ASDK auprès d’Azure, procédez aux étapes suivantes.
 > [!NOTE]
 > Toutes ces étapes doivent être exécutées à partir d’un ordinateur qui a accès au point de terminaison privilégié. Pour le kit ASDK, il s’agit de l’ordinateur hôte ASDK.
 
+
+
+### <a name="az-modules"></a>[Modules Az](#tab/az1)
+
 1. Ouvrez une console PowerShell en tant qu’administrateur.  
 
 2. Exécutez les commandes PowerShell suivantes pour inscrire votre installation ASDK auprès d’Azure. Connectez-vous à votre ID d'abonnement de facturation Azure et à l’installation ASDK locale. Si vous n’avez toujours pas d’ID d’abonnement de facturation Azure, vous pouvez créer un [compte Azure gratuit ici](https://azure.microsoft.com/free/?b=17.06). L’inscription d’Azure Stack n’entraîne aucun frais sur votre abonnement Azure.<br><br>Définissez un nom unique pour l'inscription au moment de l'exécution de la cmdlet **Set-AzsRegistration**. Par défaut, le paramètre **RegistrationName** a la valeur **AzureStackRegistration**. Cependant, si vous utilisez le même nom dans plusieurs instances Azure Stack, le script échoue.
@@ -49,13 +53,13 @@ Pour inscrire le kit ASDK auprès d’Azure, procédez aux étapes suivantes.
     # Add the Azure cloud subscription environment name. 
     # Supported environment names are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
     Add-AzAccount -EnvironmentName "<environment name>"
-
+    
     # Register the Azure Stack resource provider in your Azure subscription
     Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
-
+    
     # Import the registration module that was downloaded with the GitHub tools
     Import-Module C:\AzureStack-Tools-az\Registration\RegisterWithAzure.psm1
-
+    
     # If you have multiple subscriptions, run the following command to select the one you want to use:
     # Get-AzSubscription -SubscriptionID "<subscription ID>" | Select-AzSubscription
     
@@ -73,7 +77,45 @@ Pour inscrire le kit ASDK auprès d’Azure, procédez aux étapes suivantes.
 
 3. Une fois le script terminé, le message **Votre environnement est à présent enregistré et activé à l’aide des paramètres fournis.** s’affiche.
 
-    ![Votre environnement est maintenant inscrit](media/asdk-register/1.PNG)
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm1)
+
+1. Ouvrez une console PowerShell en tant qu’administrateur.  
+
+2. Exécutez les commandes PowerShell suivantes pour inscrire votre installation ASDK auprès d’Azure. Connectez-vous à votre ID d'abonnement de facturation Azure et à l’installation ASDK locale. Si vous n’avez toujours pas d’ID d’abonnement de facturation Azure, vous pouvez créer un [compte Azure gratuit ici](https://azure.microsoft.com/free/?b=17.06). L’inscription d’Azure Stack n’entraîne aucun frais sur votre abonnement Azure.<br><br>Définissez un nom unique pour l'inscription au moment de l'exécution de la cmdlet **Set-AzsRegistration**. Par défaut, le paramètre **RegistrationName** a la valeur **AzureStackRegistration**. Cependant, si vous utilisez le même nom dans plusieurs instances Azure Stack, le script échoue.
+
+    ```powershell  
+    # Add the AzureRMure cloud subscription environment name. 
+    # Supported environment names are AzureRMureCloud, AzureRMureChinaCloud, or AzureRMureUSGovernment depending which AzureRMure subscription you're using.
+    Add-AzureRMAccount -EnvironmentName "<environment name>"
+    
+    # Register the AzureRMure Stack resource provider in your AzureRMure subscription
+    Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureRMureStack
+    
+    # Import the registration module that was downloaded with the GitHub tools
+    Import-Module C:\zureRMureStack-Tools-AzureRM-master\Registration\RegisterWithAzureRMure.psm1
+    
+    # If you have multiple subscriptions, run the following command to select the one you want to use:
+    # Get-AzureRMSubscription -SubscriptionID "<subscription ID>" | Select-AzureRMSubscription
+    
+    # Register AzureRMure Stack
+    $AzureRMureContext = Get-AzureRMContext
+    $CloudAdminCred = Get-Credential -UserName AzureRMURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+    $RegistrationName = "<unique-registration-name>"
+    Set-AzureRMsRegistration `
+    -PrivilegedEndpointCredential $CloudAdminCred `
+    -PrivilegedEndpoint AzS-ERCS01 `
+    -BillingModel Development `
+    -RegistrationName $RegistrationName `
+    -UsageReportingEnabled:$true
+    ```
+
+3. Une fois le script terminé, le message **Votre environnement est à présent enregistré et activé à l’aide des paramètres fournis.** s’affiche.
+
+---
+
+
+
+![Votre environnement est maintenant inscrit](media/asdk-register/1.PNG)
 
 ## <a name="register-in-disconnected-environments"></a>Effectuer une inscription dans des environnements déconnectés
 
@@ -85,6 +127,8 @@ Si vous inscrivez Azure Stack dans un environnement déconnecté (sans connectiv
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Obtenir un jeton d’inscription à partir de l’environnement d’Azure Stack
 
 Sur l’ordinateur hôte ASDK, démarrez PowerShell en tant qu’administrateur et accédez au dossier **Inscription** dans le répertoire **AzureStack-Tools-az** créé quand vous avez téléchargé les outils Azure Stack. Utilisez les commandes PowerShell suivantes pour importer le module **RegisterWithAzure.psm1**, puis utilisez l’applet de commande **Get-AzsRegistrationToken** pour obtenir le jeton d’inscription :  
+
+### <a name="az-modules"></a>[Modules Az](#tab/az2)
 
    ```powershell  
    # Import the registration module that was downloaded with the GitHub tools
@@ -102,11 +146,33 @@ Sur l’ordinateur hôte ASDK, démarrez PowerShell en tant qu’administrateur 
    -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm2)
+
+  ```powershell  
+  # Import the registration module that was downloaded with the GitHub tools
+  Import-Module C:\zureRMureStack-Tools-AzureRM-master\Registration\RegisterWithAzureRMure.psm1
+
+  # Create registration token
+  $CloudAdminCred = Get-Credential -UserName AzureRMURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+  # File path to save the token. This example saves the file as C:\RegistrationToken.txt.
+  $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
+  $RegistrationToken = Get-AzureRMsRegistrationToken -PrivilegedEndpointCredential $CloudAdminCred `
+  -UsageReportingEnabled:$false `
+  -PrivilegedEndpoint AzureRMS-ERCS01 `
+  -BillingModel Development `
+  -MarketplaceSyndicationEnabled:$false `
+  -TokenOutputFilePath $FilePathForRegistrationToken
+  ```
+
+---
+
 Enregistrez ce jeton d’inscription pour l’utiliser sur l’ordinateur connecté à Internet. Vous pouvez copier le fichier ou le texte à partir du fichier créé par le paramètre `$FilePathForRegistrationToken`.
 
 ### <a name="connect-to-azure-and-register"></a>Se connecter à Azure et s’inscrire
 
 Sur l’ordinateur connecté à Internet, utilisez les commandes PowerShell suivantes pour importer le module **RegisterWithAzure.psm1**, puis utilisez l’applet de commande **Register-AzsEnvironment** pour vous inscrire auprès d’Azure à l’aide du jeton d’inscription que vous venez de créer et d’un nom d’inscription unique :  
+
+### <a name="az-modules"></a>[Modules Az](#tab/az3)
 
   ```powershell  
   # Add the Azure cloud subscription environment name. 
@@ -130,7 +196,36 @@ Sur l’ordinateur connecté à Internet, utilisez les commandes PowerShell suiv
   -RegistrationName $RegistrationName
   ```
 
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm3)
+
+  ```powershell  
+  # Add the AzureRMure cloud subscription environment name. 
+  # Supported environment names are AzureRMureCloud, AzureRMureChinaCloud or AzureRMureUSGovernment depending which AzureRMure subscription you are using.
+  Add-AzureRMAccount -EnvironmentName "<environment name>"
+
+  # If you have multiple subscriptions, run the following command to select the one you want to use:
+  # Get-AzureRMSubscription -SubscriptionID "<subscription ID>" | Select-AzureRMSubscription
+
+  # Register the AzureRMure Stack resource provider in your AzureRMure subscription
+  Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureRMureStack
+
+  # Import the registration module that was downloaded with the GitHub tools
+  Import-Module C:\zureRMureStack-Tools-AzureRM-master\Registration\RegisterWithAzureRMure.psm1
+
+  # Register with AzureRMure
+  # This example uses the C:\RegistrationToken.txt file.
+  $registrationToken = Get-Content -Path "$env:SystemDrive\RegistrationToken.txt"
+  $RegistrationName = "<unique-registration-name>"
+  Register-AzureRMsEnvironment -RegistrationToken $registrationToken `
+  -RegistrationName $RegistrationName
+  ```
+
+---
+
 Vous pouvez également utiliser l’applet de commande **Get-Content** pour pointer vers un fichier contenant votre jeton d’inscription :
+
+### <a name="az-modules"></a>[Modules Az](#tab/az4)
 
   ```powershell  
   # Add the Azure cloud subscription environment name. 
@@ -153,6 +248,31 @@ Vous pouvez également utiliser l’applet de commande **Get-Content** pour poin
   -RegistrationName $RegistrationName
   ```
 
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm4)
+
+  ```powershell  
+  # Add the AzureRMure cloud subscription environment name. 
+  # Supported environment names are AzureRMureCloud, AzureRMureChinaCloud or AzureRMureUSGovernment depending which AzureRMure subscription you are using.
+  Add-AzureRMAccount -EnvironmentName "<environment name>"
+
+  # If you have multiple subscriptions, run the following command to select the one you want to use:
+  # Get-AzureRMSubscription -SubscriptionID "<subscription ID>" | Select-AzureRMSubscription
+
+  # Register the AzureRMure Stack resource provider in your AzureRMure subscription
+  Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureRMureStack
+
+  # Import the registration module that was downloaded with the GitHub tools
+  Import-Module C:\zureRMureStack-Tools-AzureRM-master\Registration\RegisterWithAzureRMure.psm1
+
+  # Register with AzureRMure 
+  # This example uses the C:\RegistrationToken.txt file.
+  $registrationToken = Get-Content -Path "$env:SystemDrive\RegistrationToken.txt"
+  Register-AzureRMsEnvironment -RegistrationToken $registrationToken `
+  -RegistrationName $RegistrationName
+  ```
+
+---
+
 Une fois l’inscription terminée, un message semblable à celui-ci doit s’afficher : **Votre environnement Azure Stack est désormais inscrit auprès d’Azure.**
 
 > [!IMPORTANT]
@@ -166,6 +286,8 @@ Toujours sur l’ordinateur connecté à Internet, **et dans la même fenêtre d
 
 Pour obtenir la clé d’activation, exécutez les commandes PowerShell suivantes. Utilisez la même valeur de nom d’inscription unique que celle fournie lors de l’inscription auprès d’Azure à l’étape précédente :  
 
+### <a name="az-modules"></a>[Modules Az](#tab/az5)
+
   ```Powershell
   $RegistrationResourceName = "<unique-registration-name>"
   # File path to save the activation key. This example saves the file as C:\ActivationKey.txt.
@@ -174,9 +296,26 @@ Pour obtenir la clé d’activation, exécutez les commandes PowerShell suivante
   -KeyOutputFilePath $KeyOutputFilePath
   ```
 
+
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm5)
+
+  ```Powershell
+  $RegistrationResourceName = "<unique-registration-name>"
+  # File path to save the activation key. This example saves the file as C:\ActivationKey.txt.
+  $KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt"
+  $ActivationKey = Get-AzureRMsActivationKey -RegistrationName $RegistrationResourceName `
+  -KeyOutputFilePath $KeyOutputFilePath
+  ```
+
+---
+
+
 ### <a name="create-an-activation-resource-in-azure-stack"></a>Créer une ressource d’activation dans Azure Stack
 
 Retournez dans l’environnement Azure Stack avec le fichier ou le texte obtenu de la clé d’activation créée à partir de **Get-AzsActivationKey**. Exécutez les commandes PowerShell suivantes pour créer une ressource d’activation dans Azure Stack à l’aide de cette clé d’activation :   
+
+### <a name="az-modules"></a>[Modules Az](#tab/az6)
 
   ```Powershell
   # Import the registration module that was downloaded with the GitHub tools
@@ -189,7 +328,27 @@ Retournez dans l’environnement Azure Stack avec le fichier ou le texte obtenu 
   -ActivationKey $ActivationKey
   ```
 
+
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm6)
+
+  ```Powershell
+  # Import the registration module that was downloaded with the GitHub tools
+  Import-Module C:\AzureRMureStack-Tools-Master\Registration\RegisterWithAzureRMure.psm1
+  
+  $CloudAdminCred = Get-Credential -UserName AzureRMURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+  $ActivationKey = "<activation key>"
+  New-AzureRMsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
+  -PrivilegedEndpoint AzureRMS-ERCS01 `
+  -ActivationKey $ActivationKey
+  ```
+
+---
+
+
 Vous pouvez également utiliser l’applet de commande **Get-Content** pour pointer vers un fichier contenant votre jeton d’inscription :
+
+### <a name="az-modules"></a>[Modules Az](#tab/az7)
 
   ```Powershell
   # Import the registration module that was downloaded with the GitHub tools
@@ -202,6 +361,25 @@ Vous pouvez également utiliser l’applet de commande **Get-Content** pour poin
   -PrivilegedEndpoint AzS-ERCS01 `
   -ActivationKey $ActivationKey
   ```
+
+
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm7)
+
+  ```Powershell
+  # Import the registration module that was downloaded with the GitHub tools
+  Import-Module C:\zureRMureStack-Tools-AzureRM-master\Registration\RegisterWithAzureRMure.psm1
+
+  $CloudAdminCred = Get-Credential -UserName AzureRMURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+  # This example uses the C:\ActivationKey.txt file.
+  $ActivationKey = Get-Content -Path "$env:SystemDrive\Activationkey.txt"
+  New-AzureRMsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
+  -PrivilegedEndpoint AzureRMS-ERCS01 `
+  -ActivationKey $ActivationKey
+  ```
+
+---
+
 
 Une fois l’activation terminée, un message similaire à celui-ci doit s’afficher : **Votre environnement a terminé le processus d’inscription et d’activation.**
 
