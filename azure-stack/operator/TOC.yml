@@ -19,7 +19,7 @@
   items:
     - name: Utiliser le portail d’administration
       href: azure-stack-manage-portals.md
-- name: Tutoriels
+- name: Didacticiels
   items:
     - name: Offrir un service aux utilisateurs
       href: tutorial-offer-services.md
@@ -88,7 +88,7 @@
               href: azure-stack-validate-adfs.md
             - name: Valider l’intégration de graphiques
               href: azure-stack-validate-graph.md
-        - name: Exigences et processus des PKI
+        - name: Certificats PKI externes
           items:
             - name: Configuration requise des certificats PKI
               href: azure-stack-pki-certs.md

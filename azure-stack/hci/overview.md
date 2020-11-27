@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/3/2020
-ms.openlocfilehash: 5b54efc32bf62c0abeca97ecdee9bb4414cced9f
-ms.sourcegitcommit: ecd98662194d2cdb15c22f8b1f99812fc5f4c15a
+ms.date: 11/23/2020
+ms.openlocfilehash: d5e544f339d029eab693d48327abc8596d2f61fa
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93344862"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517070"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Vue d’ensemble de la solution Azure Stack HCI
 
@@ -69,8 +69,8 @@ Nous travaillons d’arrache-pied à la création d’autres fonctionnalités, d
 Vous pouvez également vous abonner à d’autres services hybrides Azure :
 
 - **Azure Site Recovery** pour la haute disponibilité et la reprise d’activité en tant que service (DRaaS).
-- **Azure Monitor** , hub centralisé permettant de suivre l’évolution de vos applications, de votre réseau et de votre infrastructure, avec des analyses avancées optimisées par l’IA.
-- **Témoin de cloud** , pour utiliser Azure en tant que système de départage léger pour le quorum du cluster.
+- **Azure Monitor**, hub centralisé permettant de suivre l’évolution de vos applications, de votre réseau et de votre infrastructure, avec des analyses avancées optimisées par l’IA.
+- **Témoin de cloud**, pour utiliser Azure en tant que système de départage léger pour le quorum du cluster.
 - **Sauvegarde Azure** pour la protection des données hors site et la protection contre les rançongiciels.
 - **Azure Update Management** pour l’évaluation des mises à jour et les déploiements de mises à jour destinées à des machines virtuelles Windows s’exécutant dans Azure et localement.
 - **Carte réseau Azure** pour connecter des ressources locales à vos machines virtuelles Azure via un réseau privé virtuel (VPN) point à site.
@@ -98,6 +98,7 @@ Pour commencer, voici ce dont vous avez besoin :
 - Un [abonnement Azure](https://azure.microsoft.com/)
 - Une connexion Internet pour chaque serveur du cluster qui peut se connecter via le trafic HTTPS sortant au point de terminaison suivant au moins tous les 30 jours : *-azurestackhci-usage.azurewebsites.net
 - Pour les clusters étendus sur plusieurs sites, vous devez disposer d’au moins une connexion de 1 Go entre les sites (une connexion RDMA de 25 Go est recommandée), avec une latence moyenne de 5 ms aller-retour si vous souhaitez effectuer une réplication synchrone dans laquelle les écritures se produisent simultanément sur les deux sites.
+- Si vous pensez utiliser SDN (Software Defined Networking), vous avez besoin d’un disque dur virtuel (VHD) pour le système d’exploitation Azure Stack HCI pour créer des machines virtuelles de contrôleur de réseau (voir [Planifier le déploiement du contrôleur de réseau](concepts/network-controller.md))
 
 Pour plus d’informations, consultez [Configuration système requise](concepts/system-requirements.md). Pour obtenir la configuration requise d’Azure Kubernetes Service sur Azure Stack HCI, consultez [Configuration requise d’AKS sur Azure Stack HCI](../aks-hci/overview.md#what-you-need-to-get-started).
 
@@ -199,20 +200,20 @@ Alors que votre organisation poursuit déjà sa transformation numérique, vous 
 
 Windows Admin Center version 2009 ajoute un nombre de fonctionnalités dans Azure Stack HCI, notamment :
 
-- **Fonctionnalités d’hébergement Azure Kubernetes Service** : Vous pouvez maintenant installer une préversion d’ [Azure Kubernetes Service sur Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/).
-- **Ajout du réseau SDN (software defined networking) dans l’Assistant de création de cluster**  : L’Assistant de création de cluster comprend maintenant l’option de déployer la fonctionnalité de contrôleur de réseau [SDN (Software Defined Networking)](concepts/software-defined-networking.md) pendant la [création du cluster](deploy/create-cluster.md#step-5-sdn-optional).
+- **Fonctionnalités d’hébergement Azure Kubernetes Service**: Vous pouvez maintenant installer une préversion d’[Azure Kubernetes Service sur Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/).
+- **Ajout du réseau SDN (software defined networking) dans l’Assistant de création de cluster** : L’Assistant de création de cluster comprend maintenant l’option de déployer la fonctionnalité de contrôleur de réseau [SDN (Software Defined Networking)](concepts/software-defined-networking.md) pendant la [création du cluster](deploy/create-cluster.md#step-5-sdn-optional).
 
 Pour plus d’informations sur les nouvelles fonctionnalités dans Windows Admin Center, consultez le [blog Windows Admin Center](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog).
 
 Les clusters qui exécutent Azure Stack HCI version 20H2 ont les nouvelles fonctionnalités suivantes par rapport aux solutions basées sur Windows Server 2019 :
 
-- **Nouvelles fonctionnalités dans Windows Admin Center**  : avec la possibilité de créer et de mettre à jour des clusters hyperconvergés par le biais d’une interface utilisateur intuitive, Azure Stack HCI est plus facile à utiliser que jamais.
-- **Clusters étendus pour le basculement automatique**  : le clustering multisite avec réplication du réplica de stockage et basculement automatique des machines virtuelles fournit une reprise d’activité et une continuité des activités natives pour les clusters qui utilisent des espaces de stockage direct.
-- **Règles d’affinité et d’anti-affinité**  : à l’image des zones de disponibilité dans Azure, ces règles permettent de conserver les machines virtuelles et le stockage ensemble ou séparés dans des clusters avec plusieurs domaines d’erreur, tels que les clusters étendus.
-- **Intégration du portail Azure**  : l’expérience du portail Azure pour Azure Stack HCI est conçue pour afficher tous vos clusters Azure Stack HCI du monde entier, avec de nouvelles fonctionnalités en développement.
-- **Accélération GPU pour des charges de travail hautes performances**  : les applications IA/ML peuvent tirer parti de l’amélioration des performances avec les GPU.
-- **Chiffrement BitLocker**  : vous pouvez désormais utiliser BitLocker pour chiffrer le contenu des volumes de données sur Azure Stack HCI, en aidant les administrations et les autres clients à respecter les normes telles que FIPS 140-2 et HIPAA.
-- **Amélioration de la vitesse de réparation des volumes des espaces de stockage direct**  : Réparez les volumes rapidement et de façon fluide.
+- **Nouvelles fonctionnalités dans Windows Admin Center** : avec la possibilité de créer et de mettre à jour des clusters hyperconvergés par le biais d’une interface utilisateur intuitive, Azure Stack HCI est plus facile à utiliser que jamais.
+- **Clusters étendus pour le basculement automatique** : le clustering multisite avec réplication du réplica de stockage et basculement automatique des machines virtuelles fournit une reprise d’activité et une continuité des activités natives pour les clusters qui utilisent des espaces de stockage direct.
+- **Règles d’affinité et d’anti-affinité** : à l’image des zones de disponibilité dans Azure, ces règles permettent de conserver les machines virtuelles et le stockage ensemble ou séparés dans des clusters avec plusieurs domaines d’erreur, tels que les clusters étendus.
+- **Intégration du portail Azure** : l’expérience du portail Azure pour Azure Stack HCI est conçue pour afficher tous vos clusters Azure Stack HCI du monde entier, avec de nouvelles fonctionnalités en développement.
+- **Accélération GPU pour des charges de travail hautes performances** : les applications IA/ML peuvent tirer parti de l’amélioration des performances avec les GPU.
+- **Chiffrement BitLocker** : vous pouvez désormais utiliser BitLocker pour chiffrer le contenu des volumes de données sur Azure Stack HCI, en aidant les administrations et les autres clients à respecter les normes telles que FIPS 140-2 et HIPAA.
+- **Amélioration de la vitesse de réparation des volumes des espaces de stockage direct** : Réparez les volumes rapidement et de façon fluide.
 
 Windows Admin Center version 20H2 fournit également une interface utilisateur de mise à jour de cluster pour les clusters basés sur Windows Server, y compris les solutions d’origine Azure Stack HCI. Et même si vous pouvez utiliser l’Assistant Création de cluster avec Windows Server, il ne peut pas créer de clusters Windows Server avec des espaces de stockage direct ; pour cela, vous avez besoin du système d’exploitation Azure Stack HCI.
 
