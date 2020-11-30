@@ -4,22 +4,22 @@ description: Découvrez et configurez la stratégie IPsec/IKE pour les connexion
 author: sethmanheim
 ms.custom: contperfq4
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 11/22/2020
 ms.author: sethm
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 071f8285d4a9f989f295b4d87e3203250763760f
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: cb835bba8bc35029fa7f0462cb68bb4e961e985c
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546818"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518243"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN site à site
 
 Cet article décrit les étapes de configuration d’une stratégie IPsec/IKE pour les connexions VPN site à site (S2S) dans Azure Stack Hub.
 
 >[!NOTE]
-> Pour pouvoir utiliser cette fonctionnalité, vous devez exécuter Azure Stack Hub build  **1809** ou une version ultérieure.  Si vous exécutez une build antérieure à la 1809, mettez à jour votre système Azure Stack Hub vers la dernière build avant de continuer à suivre les étapes de cet article.
+> Pour pouvoir utiliser cette fonctionnalité, vous devez exécuter Azure Stack Hub build **1809** ou une version ultérieure.  Si vous exécutez une build antérieure à la 1809, mettez à jour votre système Azure Stack Hub vers la dernière build avant de continuer à suivre les étapes de cet article.
 
 ## <a name="ipsec-and-ike-policy-parameters-for-vpn-gateways"></a>Paramètres de stratégie IPsec et IKE pour les passerelles VPN
 
@@ -162,15 +162,30 @@ Pour utiliser les applets de commande Resource Manager, passez au mode PowerShel
 
 Ouvrez votre console PowerShell, puis connectez-vous à votre compte. Exemple :
 
+### <a name="az-modules"></a>[Modules Az](#tab/az1)
+
 ```powershell
 Connect-AzAccount
 Select-AzSubscription -SubscriptionName $Sub1
 New-AzResourceGroup -Name $RG1 -Location $Location1
 ```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm1)
+
+```powershell
+Connect-AzureRMAccount
+Select-AzureRMSubscription -SubscriptionName $Sub1
+New-AzureRMResourceGroup -Name $RG1 -Location $Location1
+```
+
+---
+
+
 
 #### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. Créer le réseau virtuel, la passerelle VPN et la passerelle de réseau local
 
 L’exemple suivant crée le réseau virtuel **TestVNet1** avec trois sous-réseaux et la passerelle VPN. Quand vous substituez des valeurs, pensez toujours à nommer de manière spécifique votre sous-réseau de passerelle **GatewaySubnet**. Si vous le nommez autrement, la création de votre passerelle échoue.
+
+### <a name="az-modules"></a>[Modules Az](#tab/az2)
 
 ```powershell
 $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -198,6 +213,37 @@ New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 `
 $LNGPrefix61,$LNGPrefix62
 ```
 
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm2)
+
+```powershell
+$fesub1 = New-AzureRMVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
+$besub1 = New-AzureRMVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
+$gwsub1 = New-AzureRMVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
+
+New-AzureRMVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
+
+$gw1pip1 = New-AzureRMPublicIpAddress -Name $GW1IPName1 -ResourceGroupName $RG1 -Location $Location1 -AllocationMethod Dynamic
+
+$vnet1 = Get-AzureRMVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
+
+$subnet1 = Get-AzureRMVirtualNetworkSubnetConfig -Name "GatewaySubnet" `
+-VirtualNetwork $vnet1
+
+$gw1ipconf1 = New-AzureRMVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 `
+-Subnet $subnet1 -PublicIpAddress $gw1pip1
+
+New-AzureRMVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
+-Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn `
+-VpnType RouteBased -GatewaySku VpnGw1
+
+New-AzureRMLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 `
+-Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix `
+$LNGPrefix61,$LNGPrefix62
+```
+---
+
+
+
 ### <a name="step-2---create-a-site-to-site-vpn-connection-with-an-ipsecike-policy"></a>Étape 2 - Créer une connexion VPN site à site avec une stratégie IPsec/IKE
 
 #### <a name="1-create-an-ipsecike-policy"></a>1. Créez une stratégie IPsec/IKE.
@@ -207,9 +253,19 @@ Cet exemple de script crée une stratégie IPsec/IKE avec les algorithmes et les
 - IKEv2 : AES128, SHA1, DHGroup14
 - IPsec : AES256, SHA256, aucun, durée de vie de l’association de sécurité de 14 400 secondes et 102 400 000 Ko
 
+### <a name="az-modules"></a>[Modules Az](#tab/az3)
 ```powershell
 $ipsecpolicy6 = New-AzIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup none -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm3)
+
+```powershell
+$ipsecpolicy6 = New-AzureRMIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup none -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
+```
+---
+
+
 
 Si vous utilisez des algorithmes GCMAES pour IPsec, vous devez utiliser les mêmes algorithme GCMAES et longueur de clé pour le chiffrement IPsec et l’intégrité IPsec.
 
@@ -217,12 +273,25 @@ Si vous utilisez des algorithmes GCMAES pour IPsec, vous devez utiliser les mêm
 
 Créez une connexion VPN site à site et appliquez la stratégie IPsec/IKE que vous avez créée :
 
+### <a name="az-modules"></a>[Modules Az](#tab/az4)
+
 ```powershell
 $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
 $lng6 = Get-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1
 
 New-AzVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng6 -Location $Location1 -ConnectionType IPsec -IpsecPolicies $ipsecpolicy6 -SharedKey 'Azs123'
 ```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm4)
+
+```powershell
+$vnet1gw = Get-AzureRMVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
+$lng6 = Get-AzureRMLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1
+
+New-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng6 -Location $Location1 -ConnectionType IPsec -IpsecPolicies $ipsecpolicy6 -SharedKey 'Azs123'
+```
+---
+
+
 
 > [!IMPORTANT]
 > Une fois qu’une stratégie IPsec/IKE est spécifiée sur une connexion, la passerelle VPN Azure envoie ou accepte uniquement la proposition IPsec/IKE avec les algorithmes de chiffrement et forces de clés spécifiés sur cette connexion. Vérifiez que votre périphérique VPN local pour la connexion utilise ou accepte la combinaison de stratégies appropriée, sinon le tunnel VPN site à site ne pourra pas être établi.
@@ -240,7 +309,9 @@ La section précédente a expliqué comment gérer la stratégie IPsec/IKE pour 
 
 ### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1. Afficher la stratégie IPsec/IKE d’une connexion
 
-L’exemple suivant montre comment configurer la stratégie IPsec/IKE sur une connexion. Les scripts se poursuivent également à partir des exercices précédents :
+L’exemple suivant montre comment configurer la stratégie IPsec/IKE sur une connexion. Les scripts se poursuivent également à partir des exercices précédents.
+
+### <a name="az-modules"></a>[Modules Az](#tab/az5)
 
 ```powershell
 $RG1 = "TestPolicyRG1"
@@ -261,12 +332,39 @@ IkeIntegrity : SHA1
 DhGroup : DHGroup14
 PfsGroup : None
 ```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm5)
+
+```powershell
+$RG1 = "TestPolicyRG1"
+$Connection16 = "VNet1toSite6"
+$connection6 = Get-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
+$connection6.IpsecPolicies
+```
+
+La dernière commande liste la stratégie IPsec/IKE actuelle configurée sur la connexion, le cas échéant. L’exemple suivant est un exemple de sortie pour la connexion :
+
+```shell
+SALifeTimeSeconds : 14400
+SADataSizeKilobytes : 102400000
+IpsecEncryption : AES256
+IpsecIntegrity : SHA256
+IkeEncryption : AES128
+IkeIntegrity : SHA1
+DhGroup : DHGroup14
+PfsGroup : None
+```
+
+---
+
+
 
 Si aucune stratégie IPsec/IKE n’est configurée, la commande `$connection6.policy` obtient un retour vide. Cela ne signifie pas qu’IPsec/IKE n’est pas configuré sur la connexion. Cela signifie qu’il n’existe pas de stratégie IPsec/IKE personnalisée. La connexion réelle utilise la stratégie par défaut négociée entre votre périphérique VPN local et la passerelle VPN Azure.
 
 ### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. Ajouter ou mettre à jour une stratégie IPsec/IKE pour une connexion
 
 Les étapes qui permettent d’ajouter une nouvelle stratégie ou de mettre à jour une stratégie existante sur une connexion sont les mêmes. Créez une stratégie, puis appliquez-la à la connexion :
+
+### <a name="az-modules"></a>[Modules Az](#tab/az8)
 
 ```powershell
 $RG1 = "TestPolicyRG1"
@@ -279,8 +377,26 @@ $connection6.SharedKey = "AzS123"
 
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6
 ```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm8)
+
+```powershell
+$RG1 = "TestPolicyRG1"
+$Connection16 = "VNet1toSite6"
+$connection6 = Get-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
+
+$newpolicy6 = New-AzureRMIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
+
+$connection6.SharedKey = "AzS123"
+
+Set-AzureRMVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6
+```
+---
+
+
 
 Vous pouvez à nouveau établir la connexion pour vérifier si la stratégie est mise à jour :
+
+### <a name="az-modules"></a>[Modules Az](#tab/az6)
 
 ```powershell
 $connection6 = Get-AzVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
@@ -299,10 +415,34 @@ IkeIntegrity : SHA1
 DhGroup : DHGroup14
 PfsGroup : None
 ```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm6)
+
+```powershell
+$connection6 = Get-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
+$connection6.IpsecPolicies
+```
+
+La sortie de la dernière ligne devrait être celle illustrée dans l’exemple suivant :
+
+```shell
+SALifeTimeSeconds : 14400
+SADataSizeKilobytes : 102400000
+IpsecEncryption : AES256
+IpsecIntegrity : SHA256
+IkeEncryption : AES128
+IkeIntegrity : SHA1
+DhGroup : DHGroup14
+PfsGroup : None
+```
+---
+
+
 
 ### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3. Supprimer une stratégie IPsec/IKE d’une connexion
 
 Une fois que vous avez supprimé la stratégie personnalisée d’une connexion, la passerelle VPN Azure rétablit la [proposition IPsec/IKE par défaut](azure-stack-vpn-gateway-settings.md#ipsecike-parameters), puis renégocie avec votre périphérique VPN local.
+
+### <a name="az-modules"></a>[Modules Az](#tab/az7)
 
 ```powershell
 $RG1 = "TestPolicyRG1"
@@ -314,6 +454,21 @@ $connection6.IpsecPolicies.Remove($currentpolicy)
 
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6
 ```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm7)
+
+```powershell
+$RG1 = "TestPolicyRG1"
+$Connection16 = "VNet1toSite6"
+$connection6 = Get-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
+$connection6.SharedKey = "AzS123"
+$currentpolicy = $connection6.IpsecPolicies[0]
+$connection6.IpsecPolicies.Remove($currentpolicy)
+
+Set-AzureRMVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6
+```
+---
+
+
 
 Vous pouvez utiliser ce script pour vérifier si la stratégie a été supprimée de la connexion.
 

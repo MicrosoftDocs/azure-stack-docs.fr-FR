@@ -3,16 +3,16 @@ title: Créer et publier un élément de la Place de marché dans Azure Stack Hu
 description: Découvrez comment créer et publier un élément de la Place de marché Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/18/2020
+ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 6887e29cca09b6ff0e774bc5898d00f14684e76b
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/16/2020
+ms.openlocfilehash: db85757fd898d0b75ace50c8fe78ecaa31722bc2
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543933"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518039"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Créer et publier un élément personnalisé de Place de marché Azure Stack Hub
 
@@ -109,7 +109,7 @@ Pour créer un élément de Place de marché personnalisé, procédez comme suit
     - (4) : Nom que les clients voient.
     - (5) : Nom de l’éditeur que les clients voient.
     - (6) : Raison sociale de l’éditeur.
-    - (7) : Chemin et nom pour chaque icône.
+    - (7) : Chemin et nom de chaque icône.
 
 5. Pour tous les champs qui référencent **ms-resource**, vous devez changer les valeurs appropriées dans le fichier **strings/resources.json** :
 
@@ -150,6 +150,8 @@ Pour créer un élément de Place de marché personnalisé, procédez comme suit
 
 ## <a name="publish-a-marketplace-item"></a>Publier un élément du Marketplace
 
+### <a name="az-modules"></a>[Modules Az](#tab/az)
+
 1. Utilisez PowerShell ou l’Explorateur Stockage Azure pour charger votre article de Marketplace (.azpkg) sur le Stockage Blob Azure. Vous pouvez effectuer le chargement sur le stockage Azure Stack Hub local ou sur le Stockage Azure, qui est un emplacement temporaire pour le package. Assurez-vous que l’objet blob est accessible publiquement.
 
 2. Pour importer le package de galerie dans Azure Stack Hub, la première étape consiste à vous connecter à distance à la machine virtuelle cliente, afin de copier le fichier que vous venez de créer dans votre cloud Azure Stack Hub.
@@ -188,10 +190,53 @@ Pour créer un élément de Place de marché personnalisé, procédez comme suit
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
    ```
 
-   > [!NOTE]
-   > L’interface utilisateur Marketplace peut présenter une erreur après la suppression d’un élément. Pour résoudre le problème, cliquez sur **Paramètres** sur le portail. Sélectionnez ensuite **Ignorer les modifications** sous **Personnalisation du portail**.
-   >
-   >
+> [!Note]  
+> L’interface utilisateur Marketplace peut présenter une erreur après la suppression d’un élément. Pour résoudre le problème, cliquez sur **Paramètres** sur le portail. Sélectionnez ensuite **Ignorer les modifications** sous **Personnalisation du portail**.
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm)
+
+1. Utilisez PowerShell ou l’Explorateur Stockage Azure pour charger votre article de Marketplace (.azpkg) sur le Stockage Blob Azure. Vous pouvez effectuer le chargement sur le stockage Azure Stack Hub local ou sur le Stockage Azure, qui est un emplacement temporaire pour le package. Assurez-vous que l’objet blob est accessible publiquement.
+
+2. Pour importer le package de galerie dans Azure Stack Hub, la première étape consiste à vous connecter à distance à la machine virtuelle cliente, afin de copier le fichier que vous venez de créer dans votre cloud Azure Stack Hub.
+
+3. Ajoutez un contexte :
+
+    ```powershell
+    $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    Add-AzureRMAccount -EnvironmentName "AzureStackAdmin"
+    ```
+
+4. Exécutez le script suivant pour importer la ressource dans votre galerie :
+
+    ```powershell
+    Add-AzsGalleryItem -GalleryItemUri `
+    https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg -Verbose
+    ```
+
+5. Veillez à disposer d’un compte de stockage valide disponible pour stocker votre élément. Vous pouvez obtenir la valeur de `GalleryItemURI` auprès du portail d’administration Azure Stack Hub. Sélectionnez **Compte de stockage > Propriétés de l’objet blob -> URL**, avec l’extension .azpkg. Le compte de stockage est utilisé seulement de façon temporaire pour publier sur la Place de marché.
+
+   Une fois que vous avez terminé votre package de galerie et que vous l’avez chargé avec **Add-AzsGalleryItem**, votre machine virtuelle personnalisée doit maintenant apparaître dans la Place de marché ainsi que dans la vue **Créer une ressource**. Notez que le package de galerie personnalisé n’est pas visible dans **Gestion de la Place de marché**.
+
+   [![Élément de Place de marché personnalisé téléchargé](media/azure-stack-create-and-publish-marketplace-item/pkg6sm.png "Élément de Place de marché personnalisé téléchargé")](media/azure-stack-create-and-publish-marketplace-item/pkg6.png#lightbox)
+
+6. Une fois que votre élément a été publié sur la Place de marché, vous pouvez supprimer le contenu du compte de stockage.
+
+   Tous les artefacts par défaut et vos artefacts personnalisés de la galerie sont désormais accessibles sans authentification sous les URL suivantes :
+
+   - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+   - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+
+6. Vous pouvez supprimer un article de la Place de marché avec la cmdlet **Remove-AzGalleryItem**. Par exemple :
+
+   ```powershell
+   Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
+   ```
+
+> [!Note]  
+> L’interface utilisateur Marketplace peut présenter une erreur après la suppression d’un élément. Pour résoudre le problème, cliquez sur **Paramètres** sur le portail. Sélectionnez ensuite **Ignorer les modifications** sous **Personnalisation du portail**.
+
+---
 
 ## <a name="reference-marketplace-item-manifestjson"></a>Référence : manifest.json d’un article de Place de marché
 

@@ -3,16 +3,16 @@ title: Inscrire des locataires pour un suivi de l’utilisation dans Azure Stack
 description: Découvrez comment inscrire des locataires et comment l’utilisation des locataires est suivie dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/01/2020
+ms.date: 11/17/2020
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: c98893cb686ebb9edb2c6e7257507da4a688c52f
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/17/2020
+ms.openlocfilehash: 990ac200fdf36e951dbee9d2fed96f4918a9a8bd
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543797"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517801"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Inscrire des locataires pour un suivi de l’utilisation dans Azure Stack Hub
 
@@ -25,7 +25,7 @@ Cet article contient des détails sur les opérations d’inscription. Vous pouv
 
 Vous pouvez utiliser cette opération quand vous voulez ajouter un nouveau locataire à votre inscription. L’utilisation des locataires est signalée sous un abonnement Azure connecté avec le locataire Azure Active Directory (Azure AD).
 
-Vous pouvez aussi utiliser cette opération pour changer l’abonnement associé à un locataire. Appelez PUT ou la cmdlet PowerShell **New-AzResource** pour remplacer le mappage précédent.
+Vous pouvez aussi utiliser cette opération pour changer l’abonnement associé à un locataire. Appelez PUT ou la cmdlet PowerShell **New-AzResource** pour remplacer le mappage précédent. Si vous utilisez le module PowerShell AzureRM, utilisez l’applet de commande PowerShell **New-AzureResource**.
 
 Vous ne pouvez associer qu’un seul abonnement Azure à un locataire. Si vous essayez d’ajouter un deuxième abonnement à un locataire existant, le premier abonnement est remplacé.
 
@@ -47,7 +47,16 @@ Pour plus d’informations sur Azure Stack Hub et les profils d’API, consultez
 > [!NOTE]  
 > Les locataires doivent être inscrits auprès de chaque déploiement Azure Stack Hub qu’ils utilisent. Si un locataire utilise plusieurs comptes Azure Stack Hub, mettez à jour les inscriptions initiales de chaque déploiement avec l’abonnement du locataire.
 
+
 ### <a name="powershell"></a>PowerShell
+### <a name="az-modules"></a>[Modules Az](#tab/az1)
+
+Utilisez l’applet de commande **New-AzResource** pour ajouter un locataire. [Connectez-vous à Azure](/powershell/azure/get-started-azureps), puis à partir d'une invite avec élévation de privilèges, exécutez la commande suivante :
+
+```powershell  
+New-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
+```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm1)
 
 Utilisez l’applet de commande **New-AzureRmResource** pour ajouter un locataire. [Connectez-vous à Azure](/powershell/azure/get-started-azureps), puis à partir d'une invite avec élévation de privilèges, exécutez la commande suivante :
 
@@ -55,6 +64,7 @@ Utilisez l’applet de commande **New-AzureRmResource** pour ajouter un locatair
 New-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
 ```
 
+---
 ### <a name="api-call"></a>Appel d’API
 
 **Opération** : PUT  
@@ -79,12 +89,23 @@ Obtenez une liste de tous les locataires qui ont été ajoutés à une inscripti
 
 ### <a name="powershell"></a>PowerShell
 
+### <a name="az-modules"></a>[Modules Az](#tab/az2)
+
 Utilisez la cmdlet **Get-AzResource** pour lister tous les locataires inscrits. [Connectez-vous à Azure Stack Hub](azure-stack-powershell-configure-admin.md), puis à partir d’une invite de commandes avec élévation de privilèges , exécutez l’applet de commande suivante :
 
 ```powershell
 Get-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
 ```
 
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm2)
+
+Utilisez l’applet de commande **Get-AzureRMResource** pour lister tous les locataires inscrits. [Connectez-vous à Azure Stack Hub](azure-stack-powershell-configure-admin.md), puis à partir d’une invite de commandes avec élévation de privilèges , exécutez l’applet de commande suivante :
+
+```powershell
+Get-AzureRMResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
+```
+
+---
 ### <a name="api-call"></a>Appel d’API
 
 Vous pouvez obtenir une liste de tous les mappages de locataires à l’aide de l’opération GET.
@@ -128,11 +149,23 @@ Vous pouvez supprimer un locataire qui a été ajouté à une inscription. Si ce
 
 ### <a name="powershell"></a>PowerShell
 
+### <a name="az-modules"></a>[Modules Az](#tab/az3)
+
 Utilisez la cmdlet **Remove-AzResource** pour supprimer un abonné. [Connectez-vous à Azure Stack Hub](azure-stack-powershell-configure-admin.md), puis à partir d’une invite de commandes avec élévation de privilèges , exécutez l’applet de commande suivante :
 
 ```powershell
 Remove-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
 ```
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm3)
+
+Utilisez l’applet de commande **Remove-AzureRMResource** pour supprimer un locataire. [Connectez-vous à Azure Stack Hub](azure-stack-powershell-configure-admin.md), puis à partir d’une invite de commandes avec élévation de privilèges , exécutez l’applet de commande suivante :
+
+```powershell
+Remove-AzureRMResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
+```
+
+---
 
 ### <a name="api-call"></a>Appel d’API
 

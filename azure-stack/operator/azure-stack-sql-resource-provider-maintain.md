@@ -9,11 +9,11 @@ ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
 ms.openlocfilehash: 0de06d7bf13919be95b3d97aa1113221f4378625
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572821"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96035332"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Opérations de maintenance du fournisseur de ressources SQL
 
@@ -247,10 +247,10 @@ L’extension Azure Diagnostics est installée sur la machine virtuelle de l’a
 3. Dans les **Paramètres de diagnostic** de la machine virtuelle, accédez à l’onglet **Journaux** et choisissez **Personnalisé** pour personnaliser les journaux des événements à collecter.
 ![Accéder aux paramètres de diagnostic](media/azure-stack-sql-resource-provider-maintain/sqlrp-diagnostics-settings.png)
 
-4. Ajoutez **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** pour collecter les journaux des événements opérationnels du fournisseur de ressources SQL.
+4. Ajoutez **Microsoft-AzureStack-DatabaseAdapter/Operational!\** _ pour collecter les journaux des événements opérationnels du fournisseur de ressources SQL.
 ![Ajouter des journaux des événements](media/azure-stack-sql-resource-provider-maintain/sqlrp-event-logs.png)
 
-5. Pour activer la collecte des journaux IIS, cochez **Journaux IIS** et **Journaux des requêtes ayant échoué**.
+5. Pour activer la collecte des journaux IIS, cochez _ *Journaux IIS** et **Journaux des requêtes ayant échoué**.
 ![Ajouter des journaux IIS](media/azure-stack-sql-resource-provider-maintain/sqlrp-iis-logs.png)
 
 6. Enfin, sélectionnez **Enregistrer** pour enregistrer tous les paramètres de diagnostic.

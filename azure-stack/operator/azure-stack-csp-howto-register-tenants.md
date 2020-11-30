@@ -3,16 +3,16 @@ title: Ajouter des locataires pour l’utilisation et la facturation sur Azure S
 description: Découvrez comment ajouter un locataire pour l’utilisation et la facturation sur Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 9/02/2020
+ms.date: 11/17/2020
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 5/28/2020
-ms.openlocfilehash: 43ceccf55807367606bae5f3aa8fcdebf6f9aace
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/17/2020
+ms.openlocfilehash: 81cefb08d6fd0d1fc773221d52393c8a3ae6fddf
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543814"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517886"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Ajouter un locataire pour l’utilisation et la facturation sur Azure Stack Hub
 
@@ -49,6 +49,8 @@ Par défaut, en tant que CSP, vous n’avez pas accès à l’abonnement Azure S
 
 Mettez à jour votre inscription avec l’abonnement de nouveau client. Azure signale l’utilisation du client à l’aide de l’identité du client dans l’Espace partenaires. Cette étape garantit que l’utilisation de chaque client est signalée dans l’abonnement de fournisseur de services cloud individuel de ce client. Cela facilite le suivi de l’utilisation et de la facturation. Pour effectuer cette étape, vous devez d’abord [inscrire Azure Stack Hub](azure-stack-registration.md).
 
+### <a name="az-modules"></a>[Modules Az](#tab/az)
+
 1. Ouvrez Windows PowerShell dans une invite de commandes avec élévation des privilèges, puis exécutez la commande suivante :  
 
    ```powershell
@@ -65,7 +67,7 @@ Mettez à jour votre inscription avec l’abonnement de nouveau client. Azure si
    New-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
    ```
 
-### <a name="new-azresource-powershell-parameters"></a>Paramètres PowerShell New-AzResource
+**Paramètres PowerShell New-AzResource**
 
 La section suivante décrit les paramètres de la cmdlet **New-AzResource** :
 
@@ -75,6 +77,38 @@ La section suivante décrit les paramètres de la cmdlet **New-AzResource** :
 | customerSubscriptionID | L’abonnement Azure (pas Azure Stack Hub) appartenant au client à inscrire. Doit être créé dans l'offre CSP. En pratique, cela veut dire via l’Espace partenaires. Si un client dispose de plus d’un locataire Azure Active Directory, cet abonnement doit être créé dans le locataire qui sera utilisé pour se connecter à Azure Stack Hub. L’ID de l’abonnement client est sensible à la casse. |
 | resourceGroup | Le groupe de ressources Azure dans lequel est stockée votre inscription. |
 | registrationName | Le nom de l’inscription de votre compte Azure Stack Hub. Il s’agit d’un objet stocké dans Azure.
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm)
+
+1. Ouvrez Windows PowerShell dans une invite de commandes avec élévation des privilèges, puis exécutez la commande suivante :  
+
+   ```powershell
+   Add-AzureRMAccount
+   ```
+
+   >[!NOTE]
+   > Si votre session expire, si votre mot de passe a changé ou si vous souhaitez simplement changer de compte, exécutez la cmdlet suivante avant de vous connecter en utilisant **Add-AzAccount** : `Remove-AzAccount-Scope Process`.
+
+2. Entrez vos informations d’identification Azure.
+3. Dans la session PowerShell, exécutez :
+
+   ```powershell
+   New-AzureRMResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
+   ```
+
+**Paramètres PowerShell New-AzureRMResource**
+
+La section suivante décrit les paramètres de l’applet de commande **New-AzureRMResource** :
+
+| Paramètre | Description |
+| --- | --- |
+|registrationSubscriptionID | L’abonnement Azure qui était utilisé au moment de l’inscription initiale d’Azure Stack Hub.|
+| customerSubscriptionID | L’abonnement Azure (pas Azure Stack Hub) appartenant au client à inscrire. Doit être créé dans l'offre CSP. En pratique, cela veut dire via l’Espace partenaires. Si un client dispose de plus d’un locataire Azure Active Directory, cet abonnement doit être créé dans le locataire qui sera utilisé pour se connecter à Azure Stack Hub. L’ID de l’abonnement client est sensible à la casse. |
+| resourceGroup | Le groupe de ressources Azure dans lequel est stockée votre inscription. |
+| registrationName | Le nom de l’inscription de votre compte Azure Stack Hub. Il s’agit d’un objet stocké dans Azure.
+
+---
+
 
 > [!NOTE]  
 > Les locataires doivent être inscrits auprès de chaque Azure Stack Hub qu’ils utilisent. Si vous avez deux déploiements Azure Stack Hub utilisés par un client, vous devez mettre à jour les inscriptions initiales de chaque déploiement avec l’abonnement du locataire.

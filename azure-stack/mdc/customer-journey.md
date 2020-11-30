@@ -1,6 +1,6 @@
 ---
 title: Parcours utilisateur de l’achat au post-déploiement Azure Stack Hub | Microsoft Docs
-description: Découvrez comment réussir un déploiement local d’un Modular Data Center, de la planification au post-déploiement.
+description: Découvrez comment réussir un déploiement local d’Azure Modular Data Center (MDC), de la planification au post-déploiement.
 services: azure-stack
 documentationcenter: ''
 author: ashika789
@@ -16,92 +16,92 @@ ms.date: 11/04/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 11/04/2020
-ms.openlocfilehash: 12631a118600e67611294c87636cd2fa62bfaaea
-ms.sourcegitcommit: ecd98662194d2cdb15c22f8b1f99812fc5f4c15a
+ms.openlocfilehash: 2d65f96cb7e64b22949150a246326d620ea66f56
+ms.sourcegitcommit: 25b234330df4e753ed2dd480c208ec88cd90234c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93344777"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94924365"
 ---
-# <a name="modular-data-center-integration-overview"></a>Présentation de l’intégration du MDC (Modular Data Center)
+# <a name="modular-datacenter-integration-overview"></a>Vue d’ensemble de l’intégration de Modular Data Center
 
-Cet article décrit le processus de bout en bout relatif à l’intégration d’un centre de données MDC, de l’achat au post-déploiement. L’intégration est un projet collaboratif entre le client et Microsoft. Les sections suivantes couvrent différentes phases de la chronologie du projet et des étapes spécifiques pour les membres du projet.
+Cet article décrit le processus complet d’intégration d’Azure Modular Data Center, depuis l’achat jusqu’au post-déploiement. L’intégration est un projet collaboratif entre le client et Microsoft. Les sections suivantes couvrent différentes phases de la chronologie du projet et des étapes spécifiques pour les membres du projet.
 
 ## <a name="introduction"></a>Introduction
 
 La table suivante répertorie ce que vous pouvez attendre au cours des différentes phases du déploiement.
 
-|   |Processus de commande  |Prédéploiement |Intégration, validation, transport |Déploiement local  |Post déploiement |
+| Participant |Traitement des commandes |Prédéploiement |Intégration, validation, transport |Déploiement local |Après le déploiement |
 |---|---------------|---------------|-----------------------------------|--------------------|----------------|
-|Microsoft  |- Signal à la livraison à l’emplacement des États-Unis    |Fournir les outils et la documentation requis pour recueillir les exigences de centre de données.  |- Valider les artefacts de configuration et vérifier les résultats de validation<br>- Vérifier que le matériel est remis  |- Installation et intégration<br>- Intégration réseau<br>- Déploiement Azure Stack Hub<br>- Transfert au client    |Syndication d’inscription et de Place de marché|
-|Customer   |Achat de signaux   |- Renseigne les détails du réseau dans la feuille de travail de déploiement<br>- Collecte les certificats<br>- Invite pour les comptes Azure AD<br>- Exécute tous les outils de validation fournis    |Assurez-vous que le site dispose des composants requis réseau, d’alimentation et de refroidissement    |- Soyez prêt pour les artefacts de configuration de déploiement<br>- Ingénieur réseau du client disponible   |     |
+|Microsoft  | Signal de livraison aux États-Unis.    |Fournir les outils et documentation nécessaires pour recueillir les exigences de centre de données. |- Valider les artefacts de configuration et vérifier les résultats de validation.<br>- Vérifier que le matériel est livré.    |- Assembler le matériel.<br>- Intégration réseau.<br>- Déploiement d’Azure Stack Hub.<br>- Livraison au client.    |Inscription et syndication de la Place de marché Azure Stack Hub.|
+|Client   |Signal d’achat.   |- Renseigner les détails réseau dans la feuille de travail de déploiement.<br>- Collecter les certificats.<br>- Obtenir les comptes Azure Active Directory (Azure AD).<br>- Exécuter tous les outils de validation fournis.   |Vérifier que le site répond aux prérequis de réseau, d’alimentation et de refroidissement.   |- Être prêt au niveau des artefacts de configuration de déploiement.<br>- Vérifier que l’ingénieur réseau du client est disponible.   |     |
 
 
 ## <a name="order-process"></a>Traitement des commandes
 
-Votre organisation utilise Microsoft pour passer une commande pour un nombre de systèmes alloués. Une fois votre commande passée, Microsoft fournit le centre de données MDC dans votre emplacement aux États-Unis. Microsoft s’assure que toutes les exigences de la chaîne d’approvisionnement sécurisée sont respectées. 
+Votre organisation utilise Microsoft pour passer une commande pour un nombre de systèmes alloués. Une fois votre commande passée, Microsoft livre MDC à votre adresse aux États-Unis. Microsoft s’assure que toutes les exigences de la chaîne d’approvisionnement sécurisée sont respectées.
 
 ## <a name="hardware-delivery"></a>Livraison de matériel
 
-Microsoft travaillera avec vous pour s’assurer que tous le matériel requis arrive à l’emplacement des États-Unis dans le temps imparti.  
+Microsoft collaborera avec vous pour s’assurer que tous le matériel nécessaire arrive à l’adresse aux États-Unis dans le temps imparti.
 
-Il est **essentiel** que toutes les données prérequises soient verrouillées et disponibles *avant que l’ingénieur arrive pour déployer la solution.*
+Il est *essentiel* que toutes les données prérequises soient verrouillées et disponibles *avant que l’ingénieur arrive pour déployer la solution.*
 
-- La feuille de calcul de déploiement contient toutes les données renseignées. 
+- La feuille de travail de déploiement contient toutes les données renseignées.
 - Tous les certificats doivent être validés et prêts.
 - Le nom de région doit être choisi.
 - Tous les paramètres d’intégration réseau sont finalisés.
 
 >[!Tip]
->Si l’une de ces informations a changé, veillez à utiliser votre organisation interne pour vous assurer que les informations sont mises à jour avant l’arrivée de l’ingénieur de déploiement sur site. Cela permet d’éviter les retards dans le processus de déploiement.
+>Si l’une de ces informations a changé, veillez à utiliser votre organisation interne pour vous assurer que les informations sont mises à jour avant l’arrivée de l’ingénieur de déploiement sur site. La mise à jour de vos informations empêchera tout retard dans le processus de déploiement.
 
-## <a name="pre-deployment"></a>Prédéploiement
+## <a name="predeployment"></a>Prédéploiement
 
-Vous déterminez la façon d’intégrer Azure Stack Hub à votre centre de données. Microsoft a publié une [feuille de calcul de déploiement](../operator/azure-stack-deployment-worksheet.md) qui vous guide tout au long de la collecte de toutes les informations nécessaires pour une intégration correcte dans votre centre de données. En outre, un certain ensemble de certificats est requis au moment du déploiement. Pour vous aider à obtenir ces certificats, Microsoft met à votre disposition un outil appelé [Vérificateur de préparation Azure Stack Hub](../operator/azure-stack-validation-report.md). Cet outil vous permet de créer des demandes de signature de certificat (CSR) à fournir à votre autorité de certification interne. 
+Vous déterminez la façon d’intégrer Azure Stack Hub à votre centre de données. Microsoft a publié une [feuille de calcul de déploiement](../operator/azure-stack-deployment-worksheet.md) qui vous guide tout au long de la collecte de toutes les informations nécessaires pour une intégration correcte dans votre centre de données. De plus, un certain ensemble de certificats est nécessaire au moment du déploiement. Pour vous aider à obtenir ces certificats, Microsoft met à votre disposition [Azure Stack Hub Readiness Checker](../operator/azure-stack-validation-report.md). Cet outil vous permet de créer des demandes de signature de certificat (CSR) à fournir à votre autorité de certification interne.
 
 >[!Important]
 >Toutes les composants requis sont validés afin d’éviter les retards de déploiement. La vérification des prérequis peut prendre du temps. Elle peut nécessiter une coordination et une collecte de données auprès de différents services de votre organisation.
 
 Vous allez choisir les éléments suivants :
 
-- **Fournisseur d’identité et modèle de connexion Azure Stack Hub.** Vous pouvez choisir de déployer Azure Stack Hub [connecté à Internet (et à Azure)](../operator/azure-stack-connected-deployment.md) ou [déconnecté](../operator/azure-stack-disconnected-deployment.md). Pour tirer le meilleur parti d’Azure Stack Hub, y compris dans le cadre de scénarios hybrides, vous pouvez opérer le déploiement connecté à Azure. Vous devez sélectionner les services de fédération Active Directory (AD FS) ou Azure Active Directory (Azure AD) au moment du déploiement. **Vous ne pouvez pas changer de fournisseur d’identité ultérieurement sans redéployer l’intégralité du système.**
+- **Fournisseur d’identité et modèle de connexion Azure Stack Hub.** Vous pouvez choisir de déployer Azure Stack Hub [connecté à Internet (et à Azure)](../operator/azure-stack-connected-deployment.md) ou [déconnecté](../operator/azure-stack-disconnected-deployment.md). Pour tirer le meilleur parti d’Azure Stack Hub, y compris dans le cadre de scénarios hybrides, vous pouvez opérer le déploiement connecté à Azure. Vous devez sélectionner définitivement les services de fédération Active Directory (AD FS) ou Azure AD au moment du déploiement. *Vous ne pouvez pas changer de fournisseur d’identité ultérieurement sans redéployer l’intégralité du système.*
 - **Intégration réseau.** L’[intégration réseau](../operator/azure-stack-network.md) est cruciale pour le déploiement, les opérations et la gestion des systèmes Azure Stack Hub. Plusieurs facteurs permettent de s’assurer que la solution Azure Stack Hub est résiliente et dispose d’une infrastructure physique à haut niveau de disponibilité pour prendre en charge ses opérations.
-- **Intégration du pare-feu.** Nous vous recommandons d’[utiliser un pare-feu](../operator/azure-stack-firewall.md) pour sécuriser Azure Stack Hub. Les pare-feu peuvent aider à prévenir les attaques DDOS, la détection d’intrusion et l’inspection du contenu. Toutefois, il convient de noter qu’ils peuvent devenir un goulot d’étranglement du débit pour les services de stockage Azure.
+- **Intégration du pare-feu.** Nous vous recommandons d’[utiliser un pare-feu](../operator/azure-stack-firewall.md) pour sécuriser Azure Stack Hub. Les pare-feu permettent de prévenir les attaques DDoS, de détecter les intrusions et d’inspecter le contenu. Notez que les pare-feu peuvent devenir un goulot d’étranglement du débit nécessaire aux services de stockage Azure.
 - **Conditions requises des certificats.** Il est essentiel que tous les [certificats nécessaires ](../operator/azure-stack-pki-certs.md) soient disponibles avant qu’un ingénieur sur site accède à votre centre de données pour le déploiement.
 
-Une fois que toutes les informations prérequises sont rassemblées par le biais de la feuille de travail de déploiement, Microsoft s’assure que nous vérifions que tous les outils de validation aient été exécutés et répondons à toute autre question posée. 
+Une fois que toutes les informations prérequises sont recueillies dans la feuille de travail de déploiement, Microsoft s’assure que nous vérifions que tous les outils de validation ont été exécutés et répond à toute autre question que vous êtes susceptible d’avoir.
 
 ## <a name="onsite-deployment"></a>Déploiement local
 
-Pour déployer Azure Stack Hub, un ingénieur de déploiement Microsoft sera présent pour lancer le déploiement. Un ingénieur réseau de votre organisation doit également être disponible pendant la période de déploiement sur site.
+Pour déployer Azure Stack Hub, un ingénieur de déploiement Microsoft sera présent pour lancer le déploiement. Nous demandons aussi à un ingénieur réseau de votre organisation d’être disponible pendant la durée du déploiement local.
 
 L’ingénieur sur site doit normalement vérifier les points suivants durant l’expérience de déploiement :
 
-- Conversion unboxing et inventaire du matériel
-- Connexion de l’alimentation et de la mise sous tension à la solution
-- Validation de l'intégrité du matériel physique
-- Vérification du câblage et de la connectivité de frontières pour s’assurer que la solution est correctement mise en place et répond à vos besoins
-- Configuration de la solution HLH (Hardware Lifecycle Host)
-- Intégration du réseau du centre de données
-- Vérifier que tous les paramètres du matériel physique sont corrects
-- Vérifier que la version du microprogramme de tous les composants est la dernière version approuvée par la solution
-- Démarrage du déploiement
+- Déballage et inventaire du matériel.
+- Raccordement à l’alimentation et mise sous tension de la solution.
+- Validation de l’intégrité du matériel physique.
+- Vérification du câblage et de la connectivité de frontières pour s’assurer que la solution est correctement mise en place et répond à vos besoins.
+- Configuration de la solution HLH (Hardware Lifecycle Host).
+- Intégration du réseau du centre de données.
+- Vérifiez que tous les paramètres du matériel physique sont corrects.
+- Vérification du fait que la version du microprogramme de tous les composants est la dernière version approuvée par la solution.
+- Démarrage du déploiement.
 
-## <a name="post-deployment"></a>Postdéploiement
+## <a name="post-deployment"></a>Après le déploiement
 
 L’ingénieur de déploiement Microsoft doit effectuer plusieurs étapes avant que la solution soit remise au client. Lors de cette phase, la validation est importante afin de s’assurer que le système est déployé et fonctionne correctement.
 
 Actions qui doivent être effectuées par l’ingénieur de déploiement Microsoft :
 
-- Activer les fournisseurs de ressources à valeur ajoutée
-- Exécuter [test-azurestack](../operator/azure-stack-diagnostic-test.md)
-- [Inscription](../operator/azure-stack-registration-role.md) auprès d’Azure
-- [Syndication de Place de marché](../operator/azure-stack-marketplace.md)
-- Sauvegarder les fichiers de configuration du commutateur et de configuration de l’hôte du cycle de vie du matériel (HLH)
-- Préparation d’une synthèse client pour le déploiement
-- [Vérifier les mises à jour](../operator/azure-stack-updates.md) pour garantir que les logiciels de la solution sont mis à jour vers la dernière version
+- Activation des fournisseurs de ressources à valeur ajoutée.
+- Exécuter [test-azurestack](../operator/azure-stack-diagnostic-test.md).
+- [Inscription](../operator/azure-stack-registration-role.md) auprès d’Azure.
+- Vérification de la [syndication de la Place de marché Azure Stack Hub](../operator/azure-stack-marketplace.md).
+- Sauvegarde des fichiers de configuration de commutateur et des fichiers de configuration HLH.
+- Préparer une synthèse client pour le déploiement.
+- [Vérifier les mises à jour](../operator/azure-stack-updates.md) pour garantir que les logiciels de la solution sont mis à jour vers la dernière version.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Présentation du déploiement de Modular Data Center](deployment-overview.md).
+[Vue d’ensemble du déploiement de Modular Data Center](deployment-overview.md)
 

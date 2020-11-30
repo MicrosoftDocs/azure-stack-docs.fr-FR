@@ -3,16 +3,16 @@ title: Guide d’utilisation de l’outil de restauration automatique Azure Site
 description: Découvrez comment utiliser l’outil de restauration automatique Azure Site Recovery pour protéger les machines virtuelles.
 author: sethmanheim
 ms.author: sethm
-ms.date: 9/18/2020
+ms.date: 11/19/2020
 ms.topic: how-to
 ms.reviewer: rtiberiu
-ms.lastreviewed: 9/18/2020
-ms.openlocfilehash: 2b57527f3a65e97f5b83ada115faa63ace563ea4
-ms.sourcegitcommit: 0f2852c3302c6723e7afad637f55b80359182ae3
+ms.lastreviewed: 11/19/2020
+ms.openlocfilehash: 0cb3bccab11d337a8a8804578233edb95ac02dc6
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91366275"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517223"
 ---
 # <a name="azure-site-recovery-failback-tool"></a>Outil de restauration automatique Azure Site Recovery
 
@@ -20,13 +20,16 @@ Dans un environnement connecté, vous pouvez utiliser Azure Site Recovery pour p
 
 En cas de panne, l’opérateur Azure Stack Hub passe par la procédure de *basculement* une fois qu’Azure Stack Hub est de nouveau opérationnel, il passe par un processus de *restauration automatique*. La procédure de basculement est décrite dans [cet article sur la récupération de site](/azure/site-recovery/azure-stack-site-recovery), mais le processus de restauration automatique implique quelques étapes manuelles :
 
-- Arrêtez d’exécuter la machine virtuelle dans Azure.
-- Téléchargez les disques durs virtuels (VHD).
-- Chargez les VHD sur Azure Stack Hub.
-- Recréez les machines virtuelles.
-- Enfin, démarrez cette machine virtuelle s’exécutant sur Azure Stack Hub. 
+1. Arrêtez d’exécuter la machine virtuelle dans Azure.
+2. Téléchargez les disques durs virtuels (VHD).
+3. Chargez les VHD sur Azure Stack Hub.
+4. Recréez les machines virtuelles.
+5. Enfin, démarrez cette machine virtuelle s’exécutant sur Azure Stack Hub. 
 
 Étant donné que ce processus peut être source d’erreurs et fastidieux, nous avons créé des scripts pour accélérer et automatiser ce processus.
+
+> [!Note]  
+> L’outil Azure Site Recovery nécessite les modules Az d’Azure Azure Hub. Si vous exécutez les modules AzureRM d’Azure Stack Hub, vous devez mettre à niveau votre station de travail ou utiliser l’outil de restauration automatique Azure Site Recovery dans un environnement isolé avec les modules Az. Pour plus d’informations, consultez [Installer le module PowerShell Az pour Azure Stack Hub](powershell-install-az-module.md).
 
 ## <a name="failback-procedure"></a>Procédure de restauration automatique
 
@@ -83,7 +86,7 @@ Tenez compte des points suivants :
 
 - Le paramètre `-SourceVM` est un objet de machine virtuelle récupéré par `Get-AzVM`.
   - Il s’agit de la machine virtuelle protégée d’Azure Stack Hub qui a été basculée sur Azure.
-  - Peu importe si la machine virtuelle est en cours d’exécution, car le script arrête la machine virtuelle. Toutefois, il est recommandé de l’arrêter explicitement et d’arrêter les services à l’intérieur de la machine virtuelle en conséquence.
+  - Peu importe si la machine virtuelle est en cours d’exécution, car le script l’arrête. Toutefois, il est recommandé de l’arrêter explicitement et d’arrêter les services à l’intérieur de la machine virtuelle en conséquence.
 
 - Vous pouvez fournir une clé de compte (à l’aide de `TargetStorageAccountKey`) ou le jeton SAS (à l’aide de `TargetStorageAccountSasToken`) du compte de stockage côté Azure Stack Hub. Le jeton SAS doit être créé au niveau du compte de stockage, avec au moins les autorisations suivantes :
 

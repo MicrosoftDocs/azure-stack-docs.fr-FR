@@ -3,16 +3,16 @@ title: Utiliser l’outil de validation de modèles dans Azure Stack Hub
 description: Vérifiez vos modèles pour le déploiement vers Azure Stack Hub avec l’outil de validation de modèles.
 author: sethmanheim
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 11/22/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 35fe7fbd2a3d7004d70e343ca763ea49563f2597
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 0631058a3eade431769a5651bb37441b835eb3e6
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546563"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518056"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>Utiliser l’outil de validation de modèles dans Azure Stack Hub
 
@@ -32,6 +32,9 @@ Avant d’utiliser le validateur de modèle, exécutez le module PowerShell **Az
 > [!NOTE]
 > Si vous mettez à jour votre système intégré ou que vous ajoutez de nouveaux services ou de nouvelles extensions virtuelles, vous devez exécuter à nouveau ce module.
 
+
+### <a name="az-modules"></a>[Modules Az](#tab/az1)
+
 1. Vérifiez que vous disposez d’une connectivité à Azure Stack Hub. Cette procédure peut être effectuée à partir de l’hôte du Kit de développement Azure Stack, ou vous pouvez utiliser un [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) pour vous connecter à partir de votre station de travail.
 2. Importez le module PowerShell **Az.CloudCapabilities** :
 
@@ -41,13 +44,32 @@ Avant d’utiliser le validateur de modèle, exécutez le module PowerShell **Az
 
 3. Utilisez l’applet de commande **Get-CloudCapabilities** pour récupérer des versions de service et créer un fichier JSON de fonctionnalités cloud. Si vous ne spécifiez pas `-OutputPath`, le fichier **AzureCloudCapabilities.json** est créé dans le répertoire actif. Utilisez votre emplacement Azure réel :
 
+```powershell
+Get-AzCloudCapability -Location <your location> -Verbose
+```
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm1)
+
+1. Vérifiez que vous disposez d’une connectivité à Azure Stack Hub. Cette procédure peut être effectuée à partir de l’hôte du Kit de développement Azure Stack, ou vous pouvez utiliser un [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) pour vous connecter à partir de votre station de travail.
+2. Importez le module PowerShell **Az.CloudCapabilities** :
+
     ```powershell
-    Get-AzCloudCapability -Location <your location> -Verbose
+    Import-Module .\CloudCapabilities\Az.CloudCapabilities.psm1
     ```
+
+3. Utilisez l’applet de commande **Get-CloudCapabilities** pour récupérer des versions de service et créer un fichier JSON de fonctionnalités cloud. Si vous ne spécifiez pas `-OutputPath`, le fichier **AzureCloudCapabilities.json** est créé dans le répertoire actif. Utilisez votre emplacement Azure réel :
+
+```powershell
+Get-AzureRMCloudCapability -Location <your location> -Verbose
+```
+
+---
 
 ## <a name="validate-templates"></a>Valider des modèles
 
 Utilisez cette procédure pour valider des modèles à l’aide du module PowerShell **Az.TemplateValidator**. Vous pouvez utiliser vos propres modèles ou les [modèles de démarrage rapide Azure Stack Hub](https://github.com/Azure/AzureStack-QuickStart-Templates).
+
+### <a name="az-modules"></a>[Modules Az](#tab/az2)
 
 1. Importez le module PowerShell **Az.TemplateValidator.psm1** :
 
@@ -58,11 +80,30 @@ Utilisez cette procédure pour valider des modèles à l’aide du module PowerS
 
 2. Exécutez le validateur de modèle :
 
+```powershell
+Test-AzTemplate -TemplatePath <path to template.json or template folder> `
+-CapabilitiesPath <path to cloudcapabilities.json> `
+-Verbose
+```
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm2)
+
+1. Importez le module PowerShell **Az.TemplateValidator.psm1** :
+
     ```powershell
-    Test-AzTemplate -TemplatePath <path to template.json or template folder> `
-    -CapabilitiesPath <path to cloudcapabilities.json> `
-    -Verbose
+    cd "c:\AzureStack-Tools-az\TemplateValidator"
+    Import-Module .\Az.TemplateValidator.psm1
     ```
+
+2. Exécutez le validateur de modèle :
+
+```powershell
+Test-AzureRMTemplate -TemplatePath <path to template.json or template folder> `
+-CapabilitiesPath <path to cloudcapabilities.json> `
+-Verbose
+```
+
+---
 
 Les avertissements ou erreurs de validation de modèle sont affichés dans la console PowerShell et consignés dans un fichier HTML situé dans le répertoire source. La capture d’écran suivante montre un exemple de rapport de validation :
 
@@ -84,7 +125,9 @@ La cmdlet du validateur de modèle prend en charge les paramètres suivants.
 
 ### <a name="examples"></a>Exemples
 
-Cet exemple valide tous les [modèles de démarrage rapide Azure Stack Hub](https://github.com/Azure/AzureStack-QuickStart-Templates) téléchargés dans le stockage local. L’exemple valide également les tailles et extensions de machines virtuelles par rapport aux fonctionnalités de l’ASDK :
+Cet exemple valide tous les [modèles de démarrage rapide Azure Stack Hub](https://github.com/Azure/AzureStack-QuickStart-Templates) téléchargés dans le stockage local. L’exemple valide également les tailles et extensions de machines virtuelles par rapport aux fonctionnalités de l’ASDK.
+
+### <a name="az-modules"></a>[Modules Az](#tab/az3)
 
 ```powershell
 test-AzTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
@@ -93,6 +136,16 @@ test-AzTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 -IncludeComputeCapabilities `
 -Report TemplateReport.html
 ```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm3)
+
+```powershell
+test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
+-CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json `
+-TemplatePattern MyStandardTemplateName.json `
+-IncludeComputeCapabilities `
+-Report TemplateReport.html
+```
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

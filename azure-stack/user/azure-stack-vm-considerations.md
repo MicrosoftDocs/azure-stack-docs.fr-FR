@@ -3,16 +3,16 @@ title: Fonctionnalités des machines virtuelles Azure Stack Hub
 description: Découvrez les différentes fonctionnalités et les éléments à prendre en compte lors de l'utilisation de machines virtuelles dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 2fbdc058781b4aefbcf4a289e907bcbb4b63f301
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 6006d8f715a9a680301dfe64f7c02075ab9052ab
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546988"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518277"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Fonctionnalités des machines virtuelles Azure Stack Hub
 
@@ -72,7 +72,9 @@ Les tailles de machine virtuelle et les quantités de ressources associées sont
 
 Azure Stack Hub inclut un petit ensemble d'extensions. Des mises à jour et des extensions supplémentaires sont disponibles par le biais de la syndication de Place de marché.
 
-Utilisez le script PowerShell suivant pour obtenir la liste des extensions de machine virtuelle qui sont disponibles dans votre environnement Azure Stack Hub :
+Utilisez le script PowerShell suivant pour obtenir la liste des extensions de machine virtuelle disponibles dans votre environnement Azure Stack Hub.
+
+### <a name="az-modules"></a>[Modules Az](#tab/az1)
 
 ```powershell
 Get-AzVmImagePublisher -Location local | `
@@ -81,6 +83,16 @@ Get-AzVmImagePublisher -Location local | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm1)
+
+```powershell
+Get-AzureRMVmImagePublisher -Location local | `
+  Get-AzVMExtensionImageType | `
+  Get-AzVMExtensionImage | `
+  Select Type, Version | `
+  Format-Table -Property * -AutoSize
+``` 
+---
 
 Si l’approvisionnement d’une extension sur un déploiement de machine virtuelle prend trop de temps, laissez expirer le délai d’attente de l’approvisionnement au lieu d’essayer d’arrêter le processus pour désallouer ou supprimer la machine virtuelle.
 
@@ -92,6 +104,8 @@ Les fonctionnalités de machine virtuelle d'Azure Stack Hub prennent en charge l
 
 Utilisez le script PowerShell suivant pour obtenir la liste des versions d'API des fonctionnalités de machine virtuelle qui sont disponibles dans votre environnement Azure Stack Hub :
 
+### <a name="az-modules"></a>[Modules Az](#tab/az2)
+
 ```powershell
 Get-AzResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
@@ -99,6 +113,19 @@ Get-AzResourceProvider | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
   where-Object {$_.ProviderNamespace -like "Microsoft.compute"}
 ```
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm2)
+
+```powershell
+Get-AzureRMResourceProvider | `
+  Select ProviderNamespace -Expand ResourceTypes | `
+  Select * -Expand ApiVersions | `
+  Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
+  where-Object {$_.ProviderNamespace -like "Microsoft.compute"}
+```
+
+---
+
 
 La liste des types de ressources et des versions d'API pris en charge peut varier si l'opérateur de cloud met à jour votre environnement Azure Stack Hub avec une version plus récente.
 

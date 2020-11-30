@@ -3,15 +3,15 @@ title: Gérer Key Vault dans Azure Stack Hub à l’aide de PowerShell
 description: Découvrez comment gérer Key Vault dans Azure Stack Hub à l’aide de PowerShell.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/29/2020
+ms.date: 11/20/2020
 ms.author: sethm
-ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: f1cdb082accdef3590bd737a39add61b1ebbc8bb
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: 0d7ce96b1619c21c5f442ab4d5a240a9eed16397
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546308"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518345"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-powershell"></a>Gérer Key Vault dans Azure Stack Hub à l’aide de PowerShell
 
@@ -34,9 +34,19 @@ Cet article explique comment créer et gérer un coffre de clés dans Azure Stac
 
 Avant de pouvoir exécuter des opérations sur un coffre de clés, vous devez vérifier que votre abonnement de locataire est activé pour les opérations de coffre. Pour vérifier que les opérations de coffre de clés sont activées, exécutez la commande suivante :
 
+### <a name="az-modules"></a>[Modules Az](#tab/az1)
+
 ```powershell  
 Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 ```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm1)
+ 
+
+ ```powershell  
+Get-AzureRMResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
+```
+---
+
 
 Si votre abonnement est activé pour les opérations de coffre, la sortie indique que **RegistrationState** est **Registered** pour tous les types de ressources d’un coffre de clés.
 
@@ -44,9 +54,20 @@ Si votre abonnement est activé pour les opérations de coffre, la sortie indiqu
 
 Si les opérations de coffre ne sont pas activées, exécutez la commande suivante pour inscrire le service Key Vault dans votre abonnement :
 
+### <a name="az-modules"></a>[Modules Az](#tab/az2)
+
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 ```
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm2)
+ 
+ ```powershell
+Register-AzureRMResourceProvider -ProviderNamespace Microsoft.KeyVault
+```
+
+---
+
 
 Si l’inscription réussit, la sortie suivante est retournée :
 
@@ -58,19 +79,40 @@ Quand vous appelez les commandes Key Vault, vous pouvez obtenir une erreur simil
 
 Avant de créer un coffre de clés, créez un groupe de ressources pour que toutes les ressources associées au coffre de clés fassent partie d’un groupe de ressources. Utilisez la commande suivante pour créer un groupe de ressources :
 
+### <a name="az-modules"></a>[Modules Az](#tab/az3)
+
 ```powershell
 New-AzResourceGroup -Name "VaultRG" -Location local -verbose -Force
 ```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm3)
+ 
+ ```powershell
+New-AzureRMResourceGroup -Name "VaultRG" -Location local -verbose -Force
+```
+
+---
+
 
 ![Nouveau groupe de ressources généré dans PowerShell](media/azure-stack-key-vault-manage-powershell/image3.png)
 
-Maintenant, utilisez la cmdlet **New-AzKeyVault** pour créer un coffre de clés dans le groupe de ressources que vous avez créé plus tôt. Cette commande lit trois paramètres obligatoires : le nom du groupe de ressources, le nom du coffre de clés et l’emplacement géographique.
+Maintenant, utilisez l’applet de commande suivante pour créer un coffre de clés dans le groupe de ressources que vous avez créé plus tôt. Cette commande lit trois paramètres obligatoires : le nom du groupe de ressources, le nom du coffre de clés et l’emplacement géographique.
 
 Exécutez la commande suivante pour créer un coffre de clés :
+
+### <a name="az-modules"></a>[Modules Az](#tab/az4)
 
 ```powershell
 New-AzKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
 ```
+   
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm4)
+ 
+```powershell
+New-AzureRMKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
+```
+
+---
+
 
 ![Nouveau coffre de clés généré dans PowerShell](media/azure-stack-key-vault-manage-powershell/image4.png)
 
@@ -80,6 +122,8 @@ La sortie de cette commande affiche les propriétés du coffre de clés que vous
 
 Dans un déploiement AD FS, vous risquez d’obtenir cet avertissement : « La stratégie d’accès n’est pas définie. Aucun utilisateur ou application n’est autorisé à utiliser ce coffre ». Pour résoudre ce problème, définissez une stratégie d’accès au coffre à l’aide de la commande [**Set-AzKeyVaultAccessPolicy**](#authorize-an-app-to-use-a-key-or-secret) :
 
+### <a name="az-modules"></a>[Modules Az](#tab/az5)
+
 ```powershell
 # Obtain the security identifier(SID) of the active directory user
 $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
@@ -88,6 +132,20 @@ $objectSID = $adUser.SID.Value
 # Set the key vault access policy
 Set-AzKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation
 ```
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm5)
+
+```powershell
+# Obtain the security identifier(SID) of the active directory user
+$adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
+$objectSID = $adUser.SID.Value
+
+# Set the key vault access policy
+Set-AzureRMKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation
+```
+
+---
+
 
 ## <a name="manage-keys-and-secrets"></a>Gérer les clés et les secrets
 
@@ -100,6 +158,7 @@ Utilisez l’applet de commande **Add-AzureKeyVaultKey** pour créer ou importer
 ```powershell
 Add-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01" -verbose -Destination Software
 ```
+
 
 Le paramètre `-Destination` permet de spécifier que la clé est protégée par un logiciel. Une fois l’opération terminée, la commande affiche les détails de la clé créée.
 
@@ -141,21 +200,42 @@ Après avoir créé les clés et les secrets, vous pouvez autoriser des apps ext
 
 ## <a name="authorize-an-app-to-use-a-key-or-secret"></a>Autoriser une app à utiliser une clé ou un secret
 
-Utilisez la cmdlet **Set-AzKeyVaultAccessPolicy** pour autoriser une application à accéder à une clé ou un secret dans le coffre de clés.
+Utilisez l’applet de commande suivante pour autoriser une application à accéder à une clé ou à un secret dans le coffre de clés.
 
 Dans l’exemple suivant, le nom du coffre est **ContosoKeyVault** et l’ID client de l’application que vous souhaitez autoriser est **8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed**. Pour autoriser l’app, exécutez la commande suivante. Vous pouvez également spécifier le paramètre **PermissionsToKeys** pour définir des autorisations pour un utilisateur, une app ou un groupe de sécurité.
 
-Quand vous utilisez Set-AzKeyvaultAccessPolicy sur un environnement Azure Stack Hub configuré pour ADFS, le paramètre BypassObjectIdValidation doit être fourni.
+Quand vous utilisez l’applet de commande sur un environnement Azure Stack Hub configuré pour AD FS, le paramètre BypassObjectIdValidation doit être fourni.
+
+### <a name="az-modules"></a>[Modules Az](#tab/az6)
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign -BypassObjectIdValidation
 ```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm6)
+
+```powershell
+Set-AzureRMKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign -BypassObjectIdValidation
+```
+
+---
+
 
 Si vous souhaitez autoriser cette même app à lire les secrets de votre coffre, exécutez l’applet de commande suivante :
+
+### <a name="az-modules"></a>[Modules Az](#tab/az7)
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get -BypassObjectIdValidation
 ```
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm7)
+
+```powershell
+Set-AzureRMKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get -BypassObjectIdValidation
+```
+
+---
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

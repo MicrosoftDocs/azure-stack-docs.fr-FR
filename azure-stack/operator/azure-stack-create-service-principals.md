@@ -4,16 +4,16 @@ description: Découvrez comment accéder aux ressources Azure Stack Hub à l’a
 author: BryanLa
 ms.author: bryanla
 ms.topic: how-to
-ms.date: 05/07/2020
-ms.lastreviewed: 05/07/2020
+ms.date: 11/16/2020
+ms.lastreviewed: 11/16/2020
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 44d13890efa7b5150216569ec2ab0f45bac8e7fa
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 54e3064a472803a9957f082c5729e84861e33b12
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544375"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517954"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Utiliser une identité d’application pour accéder aux ressources Azure Stack Hub
 
@@ -25,12 +25,12 @@ Par exemple, vous avez peut-être une application de gestion de la configuration
 
 À l’instar d’un utilisateur, une application doit présenter des informations d’identification lors de l’authentification. Cette authentification se compose de deux éléments :
 
-- Un **ID d’application** , parfois appelé ID client. Un GUID qui identifie de façon unique l’inscription de l’application dans votre locataire Active Directory.
+- Un **ID d’application**, parfois appelé ID client. Un GUID qui identifie de façon unique l’inscription de l’application dans votre locataire Active Directory.
 - Un **secret** associé à l’ID d’application. Vous pouvez générer une clé secrète client (similaire à un mot de passe) ou spécifier un certificat X509 (qui utilise sa clé publique).
 
 L’exécution d’une application sous sa propre identité est préférable à son exécution sous l’identité de l’utilisateur pour les raisons suivantes :
 
- - **Informations d’identification plus fortes**  : une application peut se connecter à l’aide d’un certificat X509 au lieu d’un mot de passe/secret partagé textuel.  
+ - **Informations d’identification plus fortes** : une application peut se connecter à l’aide d’un certificat X509 au lieu d’un mot de passe/secret partagé textuel.  
  - **Des autorisations plus restrictives** peuvent être attribuées à une application. En règle générale, ces autorisations sont limitées à ce que l’application doit faire, conformément au *principe de privilège minimum*.
  - Les **informations d’identification et autorisations ne changent pas aussi fréquemment** pour une application que les informations d’identification de l’utilisateur. Par exemple, lorsque les responsabilités d’un utilisateur changent, les exigences de mot de passe dictent un changement, ou lorsque l’utilisateur quitte l’entreprise.
 
@@ -42,6 +42,10 @@ Cet article commence par le processus de création et de gestion d’un principa
 - **Services de fédération Active Directory (AD FS)** . AD FS simplifie et sécurise la fédération des identités et l’authentification unique (SSO) sur le Web. Vous pouvez utiliser AD FS avec des instances d’Azure Stack Hub connectées et déconnectées.
 
 Vous apprenez ensuite à affecter le principal de service à un rôle en limitant l’accès de celui-ci aux ressources.
+
+::: zone pivot="state-disconnected"
+<!-- this is intentionally a noop -->
+::: zone-end
 
 ::: zone pivot="state-connected"
 ## <a name="manage-an-azure-ad-app-identity"></a>Gérer une identité d’application Azure AD
@@ -56,11 +60,11 @@ Dans cette section, vous inscrivez votre application en utilisant le portail Azu
 2. Sélectionnez **Azure Active Directory** > **Inscriptions d’applications** > **Nouvelle inscription**.
 3. Donnez un **nom** à l’application.
 4. Sélectionnez les **Types de comptes pris en charge** appropriés.
-5. Sous **URI de redirection** , sélectionnez **Web** comme type d’application, et spécifiez (éventuellement) un URI de redirection si votre application l’exige.
+5. Sous **URI de redirection**, sélectionnez **Web** comme type d’application, et spécifiez (éventuellement) un URI de redirection si votre application l’exige.
 6. Après avoir défini les valeurs, sélectionnez **S’inscrire**. L’inscription d’application est créée et la page **Vue d’ensemble** s’affiche.
-7. Copiez l’ **ID d’application** pour l’utiliser dans le code de votre application. Cette valeur est également appelée ID client.
+7. Copiez l’**ID d’application** pour l’utiliser dans le code de votre application. Cette valeur est également appelée ID client.
 8. Pour générer une clé secrète client, sélectionnez la page **Certificats et secrets**. Sélectionnez **Nouveau secret client**.
-9. Fournissez une **description** et un délai d’ **expiration** pour le secret.
+9. Fournissez une **description** et un délai d’**expiration** pour le secret.
 10. Quand vous avez terminé, sélectionnez **Ajouter**.
 11. La valeur du secret s’affiche. Copiez et enregistrez cette valeur dans un autre emplacement, car vous ne pourrez pas la récupérer ultérieurement. Vous fournissez le secret avec l’ID d’application dans votre application cliente pour la connexion.
 
@@ -92,15 +96,17 @@ Une fois que vous avez un certificat, utilisez le script PowerShell ci-dessous p
 | \<YourCertificateLocation\> | Emplacement de votre certificat X509 dans le magasin de certificats local. | « Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34 » |
 | \<YourAppName\> | Nom descriptif pour la nouvelle inscription d’application. | « Mon outil de gestion » |
 
-1. Ouvrez une session Windows PowerShell privilégiée et exécutez le script suivants :
+### <a name="az-modules"></a>[Modules Az](#tab/az1)
 
-   ```powershell  
+1. Ouvrez une session Windows PowerShell avec élévation de privilèges, puis exécutez le script suivant.
+
+    ```powershell  
     # Sign in to PowerShell interactively, using credentials that have access to the VM running the Privileged Endpoint (typically <domain>\cloudadmin)
     $Creds = Get-Credential
-
+    
     # Create a PSSession to the Privileged Endpoint VM
     $Session = New-PSSession -ComputerName "<PepVm>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
-
+    
     # Use the Get-Item cmdlet to retrieve your certificate.
     # If you don't want to use a managed certificate, you can produce a self signed cert for testing purposes: 
     # $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
@@ -110,7 +116,7 @@ Une fois que vous avez un certificat, utilisez le script PowerShell ci-dessous p
     $SpObject = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name "<YourAppName>" -ClientCertificates $using:cert}
     $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
     $Session | Remove-PSSession
-
+    
     # Using the stamp info for your Azure Stack Hub instance, populate the following variables:
     # - Az endpoint used for Azure Resource Manager operations 
     # - Audience for acquiring an OAuth token used to access Graph API 
@@ -118,22 +124,22 @@ Une fois que vous avez un certificat, utilisez le script PowerShell ci-dessous p
     $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
     $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
     $TenantID = $AzureStackInfo.AADTenantID
-
+    
     # Register and set an Az environment that targets your Azure Stack Hub instance
     Add-AzEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
-
+    
     # Sign in using the new service principal
     $SpSignin = Connect-AzAccount -Environment "AzureStackUser" `
     -ServicePrincipal `
     -CertificateThumbprint $SpObject.Thumbprint `
     -ApplicationId $SpObject.ClientId `
     -TenantId $TenantID
-
+    
     # Output the service principal details
     $SpObject
+    
+    ```
 
-   ```
-   
 2. Une fois l’exécution du script terminée, les informations sur l’inscription de l’application s’affichent, incluant les informations d’identification du principal de service. Les `ClientID` et les `Thumbprint` sont authentifiés, puis autorisés ultérieurement à accéder aux ressources gérées par Azure Resource Manager.
 
    ```shell
@@ -148,6 +154,65 @@ Une fois que vous avez un certificat, utilisez le script PowerShell ci-dessous p
 
 Gardez votre session de console PowerShell ouverte, car vous aller l’utiliser avec la valeur `ApplicationIdentifier` dans la section suivante.
 
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm1)
+
+1. Ouvrez une session Windows PowerShell avec élévation de privilèges, puis exécutez le script suivant.
+
+    ```powershell  
+    # Sign in to PowerShell interactively, using credentials that have access to the VM running the Privileged Endpoint (typically <domain>\cloudadmin)
+    $Creds = Get-Credential
+    
+    # Create a PSSession to the Privileged Endpoint VM
+    $Session = New-PSSession -ComputerName "<PepVm>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
+    
+    # Use the Get-Item cmdlet to retrieve your certificate.
+    # If you don't want to use a managed certificate, you can produce a self signed cert for testing purposes: 
+    # $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
+    $Cert = Get-Item "<YourCertificateLocation>"
+    
+    # Use the privileged endpoint to create the new app registration (and service principal object)
+    $SpObject = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name "<YourAppName>" -ClientCertificates $using:cert}
+    $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
+    $Session | Remove-PSSession
+    
+    # Using the stamp info for your Azure Stack Hub instance, populate the following variables:
+    # - AzureRM endpoint used for Azure Resource Manager operations 
+    # - Audience for acquiring an OAuth token used to access Graph API 
+    # - GUID of the directory tenant
+    $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
+    $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
+    $TenantID = $AzureStackInfo.AADTenantID
+    
+    # Register and set an AzureRM environment that targets your Azure Stack Hub instance
+    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
+    
+    # Sign in using the new service principal
+    $SpSignin = Connect-AzureRMAccount -Environment "AzureStackUser" `
+    -ServicePrincipal `
+    -CertificateThumbprint $SpObject.Thumbprint `
+    -ApplicationId $SpObject.ClientId `
+    -TenantId $TenantID
+    
+    # Output the service principal details
+    $SpObject
+    ```
+
+2. Une fois l’exécution du script terminée, les informations sur l’inscription de l’application s’affichent, incluant les informations d’identification du principal de service. Les `ClientID` et les `Thumbprint` sont authentifiés, puis autorisés ultérieurement à accéder aux ressources gérées par Azure Resource Manager.
+
+   ```shell
+   ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
+   ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
+   Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
+   ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
+   ClientSecret          :
+   PSComputerName        : azs-ercs01
+   RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
+   ```
+
+Gardez votre session de console PowerShell ouverte, car vous aller l’utiliser avec la valeur `ApplicationIdentifier` dans la section suivante.
+
+---
+
 ### <a name="update-a-certificate-credential"></a>Mettre à jour les informations d’identification d’un certificat
 
 À présent que vous avez créé un principal de service, cette section vous montre comment :
@@ -157,7 +222,7 @@ Gardez votre session de console PowerShell ouverte, car vous aller l’utiliser 
 
 Mettre à jour les informations d’identification du certificat à l’aide de PowerShell, en substituant vos propres valeurs aux espaces réservés suivants :
 
-| Espace réservé | Description | Exemple |
+| Espace réservé | Description |  Exemple |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance d’Azure Stack Hub. | « AzS-ERCS01 » |
 | \<YourAppName\> | Nom descriptif pour la nouvelle inscription d’application. | « Mon outil de gestion » |
@@ -202,44 +267,95 @@ Mettre à jour les informations d’identification du certificat à l’aide de 
 
 À présent, vous créez une autre inscription d’application, mais spécifiez des informations d’identification de clé secrète client. Contrairement aux informations d’identification de certificat, l’annuaire est capable de générer des informations d’identification de clé secrète client. Au lieu de spécifier la clé secrète client, vous utilisez le commutateur `-GenerateClientSecret` pour demander qu’elle soit générée. Substituez vos propres valeurs aux espaces réservés suivants :
 
-| Espace réservé | Description | Exemple |
+| Espace réservé | Description |  Exemple |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance d’Azure Stack Hub. | « AzS-ERCS01 » |
 | \<YourAppName\> | Nom descriptif pour la nouvelle inscription d’application. | « Mon outil de gestion » |
 
+### <a name="az-modules"></a>[Modules Az](#tab/az2)
+
 1. Ouvrez une session Windows PowerShell avec élévation de privilèges et exécutez les applets de commande suivantes :
 
-     ```powershell  
-     # Sign in to PowerShell interactively, using credentials that have access to the VM running the Privileged Endpoint (typically <domain>\cloudadmin)
-     $Creds = Get-Credential
+    ```powershell  
+    # Sign in to PowerShell interactively, using credentials that have access to the VM running the Privileged Endpoint (typically <domain>\cloudadmin)
+    $Creds = Get-Credential
+    
+    # Create a PSSession to the Privileged Endpoint VM
+    $Session = New-PSSession -ComputerName "<PepVM>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
+    
+    # Use the privileged endpoint to create the new app registration (and service principal object)
+    $SpObject = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name "<YourAppName>" -GenerateClientSecret}
+    $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
+    $Session | Remove-PSSession
+    
+    # Using the stamp info for your Azure Stack Hub instance, populate the following variables:
+    # - Az endpoint used for Azure Resource Manager operations 
+    # - Audience for acquiring an OAuth token used to access Graph API 
+    # - GUID of the directory tenant
+    $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
+    $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
+    $TenantID = $AzureStackInfo.AADTenantID
+    
+    # Register and set an Az environment that targets your Azure Stack Hub instance
+    Add-AzEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
+    
+    # Sign in using the new service principal
+    $securePassword = $SpObject.ClientSecret | ConvertTo-SecureString -AsPlainText -Force
+    $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SpObject.ClientId, $securePassword
+    $SpSignin = Connect-AzAccount -Environment "AzureStackUser" -ServicePrincipal -Credential $credential -TenantId $TenantID
+    
+    # Output the service principal details
+    $SpObject
+    ```
 
-     # Create a PSSession to the Privileged Endpoint VM
-     $Session = New-PSSession -ComputerName "<PepVM>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
+2. Une fois l’exécution du script terminée, les informations sur l’inscription de l’application s’affichent, incluant les informations d’identification du principal de service. Les `ClientID` et les `ClientSecret` sont authentifiés, puis autorisés ultérieurement à accéder aux ressources gérées par Azure Resource Manager.
 
-     # Use the privileged endpoint to create the new app registration (and service principal object)
-     $SpObject = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name "<YourAppName>" -GenerateClientSecret}
-     $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
-     $Session | Remove-PSSession
-
-     # Using the stamp info for your Azure Stack Hub instance, populate the following variables:
-     # - Az endpoint used for Azure Resource Manager operations 
-     # - Audience for acquiring an OAuth token used to access Graph API 
-     # - GUID of the directory tenant
-     $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
-     $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
-     $TenantID = $AzureStackInfo.AADTenantID
-
-     # Register and set an Az environment that targets your Azure Stack Hub instance
-     Add-AzEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
-
-     # Sign in using the new service principal
-     $securePassword = $SpObject.ClientSecret | ConvertTo-SecureString -AsPlainText -Force
-     $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SpObject.ClientId, $securePassword
-     $SpSignin = Connect-AzAccount -Environment "AzureStackUser" -ServicePrincipal -Credential $credential -TenantId $TenantID
-
-     # Output the service principal details
-     $SpObject
+     ```shell  
+     ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
+     ClientId              : 8e0ffd12-26c8-4178-a74b-f26bd28db601
+     Thumbprint            : 
+     ApplicationName       : Azurestack-YourApp-6967581b-497e-4f5a-87b5-0c8d01a9f146
+     ClientSecret          : 6RUWLRoBw3EebBLgaWGiowCkoko5_j_ujIPjA8dS
+     PSComputerName        : azs-ercs01
+     RunspaceId            : 286daaa1-c9a6-4176-a1a8-03f543f90998
      ```
+
+Gardez votre session de console PowerShell ouverte, car vous aller l’utiliser avec la valeur `ApplicationIdentifier` dans la section suivante.
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm2)
+
+1. Ouvrez une session Windows PowerShell avec élévation de privilèges et exécutez les applets de commande suivantes :
+
+    ```powershell  
+    # Sign in to PowerShell interactively, using credentials that have access to the VM running the Privileged Endpoint (typically <domain>\cloudadmin)
+    $Creds = Get-Credential
+    
+    # Create a PSSession to the Privileged Endpoint VM
+    $Session = New-PSSession -ComputerName "<PepVM>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
+    
+    # Use the privileged endpoint to create the new app registration (and service principal object)
+    $SpObject = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name "<YourAppName>" -GenerateClientSecret}
+    $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
+    $Session | Remove-PSSession
+    
+    # Using the stamp info for your Azure Stack Hub instance, populate the following variables:
+    # - AzureRM endpoint used for Azure Resource Manager operations 
+    # - Audience for acquiring an OAuth token used to access Graph API 
+    # - GUID of the directory tenant
+    $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
+    $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
+    $TenantID = $AzureStackInfo.AADTenantID
+    
+    # Register and set an AzureRM environment that targets your Azure Stack Hub instance
+    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
+    
+    # Sign in using the new service principal
+    $securePassword = $SpObject.ClientSecret | ConvertTo-SecureString -AsPlainText -Force
+    $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SpObject.ClientId, $securePassword
+    $SpSignin = Connect-AzureRMAccount -Environment "AzureStackUser" -ServicePrincipal -Credential $credential -TenantId $TenantID
+    
+    # Output the service principal details
+    $SpObject
+    ```
 
 2. Une fois l’exécution du script terminée, les informations sur l’inscription de l’application s’affichent, incluant les informations d’identification du principal de service. Les `ClientID` et les `ClientSecret` sont authentifiés, puis autorisés ultérieurement à accéder aux ressources gérées par Azure Resource Manager.
 
@@ -255,9 +371,11 @@ Mettre à jour les informations d’identification du certificat à l’aide de 
 
 Gardez votre session de console PowerShell ouverte, car vous aller l’utiliser avec la valeur `ApplicationIdentifier` dans la section suivante.
 
+---
+
 ### <a name="update-a-client-secret"></a>Mettre à jour un secret client
 
-Mettez à jour les informations d’identification de la clé secrète client dans PowerShell à l’aide du paramètre **ResetClientSecret** , ce qui a pour effet de modifier immédiatement la clé secrète client. Substituez vos propres valeurs aux espaces réservés suivants :
+Mettez à jour les informations d’identification de la clé secrète client dans PowerShell à l’aide du paramètre **ResetClientSecret**, ce qui a pour effet de modifier immédiatement la clé secrète client. Substituez vos propres valeurs aux espaces réservés suivants :
 
 | Espace réservé | Description | Exemple |
 | ----------- | ----------- | ------- |
@@ -296,7 +414,7 @@ Nous allons maintenant voir comment retirer/supprimer une inscription d’applic
 
 Substituez vos propres valeurs aux espaces réservés suivants :
 
-| Espace réservé | Description | Exemple |
+| Espace réservé | Description |  Exemple |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance d’Azure Stack Hub. | « AzS-ERCS01 » |
 | \<AppIdentifier\> | Identificateur affecté à l’inscription de l’application. | « S-1-5-21-1634563105-1224503876-2692824315-2623 » |
@@ -328,20 +446,20 @@ VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint con
 
 Les utilisateurs et applications sont autorisés à accéder aux ressources Azure au travers d’un contrôle d’accès en fonction du rôle (RBAC). Pour autoriser une application à accéder aux ressources de votre abonnement, vous devez *attribuer* à son principal de service un *rôle* pour une *ressource* spécifique. Commencez par décider du rôle représentant les *autorisations* appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, voir [Rôles intégrés pour les ressources Azure](/azure/role-based-access-control/built-in-roles).
 
-Le type de ressource que vous choisissez établit également l’ *étendue d’accès* pour l’application. Vous pouvez définir l’étendue d’accès au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue (par exemple, l’ajout d’une application au rôle « Lecteur » pour un groupe de ressources signifie qu’elle peut lire le groupe de ressources et toutes les ressources qu’il contient).
+Le type de ressource que vous choisissez établit également l’*étendue d’accès* pour l’application. Vous pouvez définir l’étendue d’accès au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue (par exemple, l’ajout d’une application au rôle « Lecteur » pour un groupe de ressources signifie qu’elle peut lire le groupe de ressources et toutes les ressources qu’il contient).
 
 1. Connectez-vous au portail approprié, en fonction de l’annuaire que vous avez spécifié durant l’installation d’Azure Stack Hub (par exemple le portail Azure pour Azure AD ou le portail utilisateur Azure Stack Hub pour AD FS). Dans cet exemple, nous montrons un utilisateur connecté au portail utilisateur Azure Stack Hub.
 
    > [!NOTE]
    > Pour pouvoir ajouter des attributions de rôle pour une ressource donnée, votre compte d’utilisateur doit appartenir à un rôle qui déclare l’autorisation `Microsoft.Authorization/roleAssignments/write`. Par exemple, l’un des rôles intégrés [Propriétaire](/azure/role-based-access-control/built-in-roles#owner) ou [Administrateur de l’accès utilisateur](/azure/role-based-access-control/built-in-roles#user-access-administrator).  
-2. Accédez à la ressource à laquelle vous voulez que l’application soit autorisée à accéder. Dans cet exemple, affectez le principal de service de l’application à un rôle dans l’étendue de l’abonnement en sélectionnant **Abonnements** , puis un abonnement spécifique. Vous pouvez également sélectionner un groupe de ressources ou une ressource spécifique telle qu’une machine virtuelle.
+2. Accédez à la ressource à laquelle vous voulez que l’application soit autorisée à accéder. Dans cet exemple, affectez le principal de service de l’application à un rôle dans l’étendue de l’abonnement en sélectionnant **Abonnements**, puis un abonnement spécifique. Vous pouvez également sélectionner un groupe de ressources ou une ressource spécifique telle qu’une machine virtuelle.
 
      ![Sélectionner l’abonnement pour l’assignation](./media/azure-stack-create-service-principal/select-subscription.png)
 
 3. Sélectionnez la page **Contrôle d’accès (IAM)** qui est universelle pour toutes les ressources qui prennent en charge le contrôle d’accès en fonction du rôle.
 4. Sélectionnez **+ Ajouter**
-5. Sous **Rôle** , sélectionnez le rôle que vous souhaitez attribuer à l’application.
-6. Sous **Sélectionner** , recherchez votre application en utilisant un nom d’application partiel ou complet. Pendant l’inscription, le nom de l’application est généré en tant que *Azurestack-\<YourAppName\>-\<ClientId\>* . Par exemple, si vous avez utilisé le nom d’application *App2* et que le ClientId *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* a été attribué lors de la création, le nom complet est  *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Vous pouvez rechercher la chaîne exacte ou une portion, par exemple *Azurestack* ou *Azurestack-App2*.
+5. Sous **Rôle**, sélectionnez le rôle que vous souhaitez attribuer à l’application.
+6. Sous **Sélectionner**, recherchez votre application en utilisant un nom d’application partiel ou complet. Pendant l’inscription, le nom de l’application est généré en tant que *Azurestack-\<YourAppName\>-\<ClientId\>* . Par exemple, si vous avez utilisé le nom d’application *App2* et que le ClientId *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* a été attribué lors de la création, le nom complet est  *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Vous pouvez rechercher la chaîne exacte ou une portion, par exemple *Azurestack* ou *Azurestack-App2*.
 7. Après avoir trouvé l’application, sélectionnez-la pour la faire apparaître sous **Membres sélectionnés**.
 8. Sélectionnez **Enregistrer** pour finaliser l’attribution du rôle.
 

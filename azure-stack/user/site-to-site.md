@@ -3,16 +3,16 @@ title: Résoudre les problèmes de connexion VPN de site à site dans Azure Stac
 description: Procédures de résolution de problèmes à suivre après avoir configuré une connexion VPN de site à site entre un réseau local et un réseau virtuel Azure Stack Hub.
 author: sethmanheim
 ms.author: sethm
-ms.date: 10/01/2020
+ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
-ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 6d677d4b192cef17d44896ba5ef41387b1c95765
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 88f258f4700cd091f50dc3732fb7167be84d3954
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546869"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518192"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>Résoudre les problèmes de connexion VPN de site à site
 
@@ -30,7 +30,7 @@ Vous pouvez également envoyer une demande de support Azure. Consultez le [suppo
 Les paramètres par défaut d’Azure Stack Hub pour IPsec/IKEV2 ont changé [à partir de la build 1910](../user/azure-stack-vpn-gateway-settings.md#ike-phase-1-main-mode-parameters) ; veuillez contacter votre opérateur Azure Stack Hub pour plus d’informations sur la version de build.
 
 > [!IMPORTANT]
-> Lors de l’utilisation d’un tunnel S2S, les paquets sont davantage encapsulés avec des en-têtes supplémentaires. Cette encapsulation augmente la taille globale du paquet. Dans ces scénarios, vous devez définir TCP **MSS** sur **1350**. Dans le cas où vos appareils VPN ne prendraient pas en charge la limitation de la taille maximale de segment, vous pouvez à la place définir l’unité de transmission maximale dans l’interface de tunnel sur **1400**  octets. Pour plus d’informations, consultez [Réglage des performances TCPIP des réseaux virtuels](/azure/virtual-network/virtual-network-tcpip-performance-tuning).
+> Lors de l’utilisation d’un tunnel S2S, les paquets sont davantage encapsulés avec des en-têtes supplémentaires. Cette encapsulation augmente la taille globale du paquet. Dans ces scénarios, vous devez définir TCP **MSS** sur **1350**. Dans le cas où vos appareils VPN ne prendraient pas en charge la limitation de la taille maximale de segment, vous pouvez à la place définir l’unité de transmission maximale dans l’interface de tunnel sur **1400** octets. Pour plus d’informations, consultez [Réglage des performances TCPIP des réseaux virtuels](/azure/virtual-network/virtual-network-tcpip-performance-tuning).
 
 - Vérifiez que la configuration VPN est basée sur le routage (IKEv2). Azure Stack Hub ne prend pas en charge les configurations (IKEv1) basées sur des stratégies.
 
@@ -46,19 +46,37 @@ Les paramètres par défaut d’Azure Stack Hub pour IPsec/IKEV2 ont changé [à
 
 ## <a name="status-not-connected---intermittent-disconnects"></a>État « Non connecté » – Déconnexions intermittentes
 
+### <a name="az-modules"></a>[Modules Az](#tab/az)
+
 - Comparez la clé partagée de l’appareil VPN local et celle du VPN de réseau virtuel AzSH pour vous assurer que les clés correspondent. Pour afficher la clé partagée dans l’optique de la connexion VPN AzSH, utilisez l’une des méthodes suivantes :
 
-  - **Portail du locataire Azure Stack Hub**  : Accédez à la connexion de site à site de passerelle VPN que vous avez créée. Dans la section **Paramètres** , sélectionnez **Clés partagées**.
+  - **Portail du locataire Azure Stack Hub** : Accédez à la connexion de site à site de passerelle VPN que vous avez créée. Dans la section **Paramètres**, sélectionnez **Clés partagées**.
 
       :::image type="content" source="media/site-to-site/vpn-connection.png" alt-text="Connexion VPN":::
 
-  - **Azure PowerShell** : Utilisez la commande PowerShell suivante :
+  - **Azure PowerShell**: Utilisez la commande PowerShell suivante :
 
-      ```powershell
-      Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
-      ```
+```powershell
+Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
+```
 
-## <a name="status-connected--traffic-not-flowing"></a>État « connecté » – Le trafic ne s’écoule pas
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm)
+
+- Comparez la clé partagée de l’appareil VPN local et celle du VPN de réseau virtuel AzSH pour vous assurer que les clés correspondent. Pour afficher la clé partagée dans l’optique de la connexion VPN AzSH, utilisez l’une des méthodes suivantes :
+
+  - **Portail du locataire Azure Stack Hub** : Accédez à la connexion de site à site de passerelle VPN que vous avez créée. Dans la section **Paramètres**, sélectionnez **Clés partagées**.
+
+      :::image type="content" source="media/site-to-site/vpn-connection.png" alt-text="Connexion VPN":::
+
+  - **Azure PowerShell**: Utilisez la commande PowerShell suivante :
+
+```powershell
+Get-AzurerRMVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
+```
+
+---
+
+## <a name="status-connected---traffic-not-flowing"></a>État « connecté » – Le trafic ne s’écoule pas
 
 - Recherchez et supprimez le routage défini par l’utilisateur (UDR) ou les groupes de sécurité réseau (NSG) sur le sous-réseau de passerelle, puis testez le résultat. Si le problème est résolu, validez les paramètres de l’itinéraire défini par l’utilisateur ou des groupes de sécurité réseau appliqués.
 

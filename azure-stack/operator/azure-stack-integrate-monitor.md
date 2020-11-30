@@ -3,16 +3,16 @@ title: Intégrer une solution de supervision externe à Azure Stack Hub
 description: Découvrez comment intégrer Azure Stack Hub à une solution de supervision externe dans votre centre de données.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 04/10/2020
+ms.date: 11/18/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
-ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 10af23001cd3b7e12aa080a2dbecc136be0acfc8
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/18/2020
+ms.openlocfilehash: 28da3cf886219eab10fff32d24b62cb7db101cb5
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543593"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517699"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>Intégrer une solution de supervision externe à Azure Stack Hub
 
@@ -201,6 +201,8 @@ Pour résoudre des problèmes liés au plug-in, vous pouvez appeler le plug-in m
 
 Si vous n’utilisez pas Operations Manager, Nagios ou une solution s’appuyant sur Nagios, vous pouvez utiliser PowerShell pour activer un large éventail de solutions de surveillance à intégrer à Azure Stack Hub.
 
+### <a name="az-modules"></a>[Modules Az](#tab/az)
+
 1. Si vous voulez utiliser PowerShell, assurez-vous que [PowerShell est installé et configuré](powershell-install-az-module.md) pour un environnement d’opérateur Azure Stack Hub. Installez PowerShell sur un ordinateur local qui peut atteindre le point de terminaison Resource Manager (administrateur) (https://adminmanagement.[région].[FQDN_externe]).
 
 2. Exécutez les commandes suivantes pour vous connecter à l’environnement Azure Stack Hub en tant qu’opérateur Azure Stack Hub :
@@ -214,26 +216,66 @@ Si vous n’utilisez pas Operations Manager, Nagios ou une solution s’appuyant
    ```
 
 3. Utilisez les commandes telles que les exemples suivants pour les alertes :
+
+```powershell
+# Retrieve all alerts
+$Alerts = Get-AzsAlert
+$Alerts
+
+# Filter for active alerts
+$Active = $Alerts | Where-Object { $_.State -eq "active" }
+$Active
+
+# Close alert
+Close-AzsAlert -AlertID "ID"
+
+#Retrieve resource provider health
+$RPHealth = Get-AzsRPHealth
+$RPHealth
+
+# Retrieve infrastructure role instance health
+$FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
+   Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
+```
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm)
+
+1. Si vous voulez utiliser PowerShell, assurez-vous que [PowerShell est installé et configuré](powershell-install-az-module.md) pour un environnement d’opérateur Azure Stack Hub. Installez PowerShell sur un ordinateur local qui peut atteindre le point de terminaison Resource Manager (administrateur) (https://adminmanagement.[région].[FQDN_externe]).
+
+2. Exécutez les commandes suivantes pour vous connecter à l’environnement Azure Stack Hub en tant qu’opérateur Azure Stack Hub :
+
    ```powershell
-    # Retrieve all alerts
-    $Alerts = Get-AzsAlert
-    $Alerts
+   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN] `
+      -AzureKeyVaultDnsSuffix adminvault.[Region].[External_FQDN] `
+      -AzureKeyVaultServiceEndpointResourceId https://adminvault.[Region].[External_FQDN]
 
-    # Filter for active alerts
-    $Active = $Alerts | Where-Object { $_.State -eq "active" }
-    $Active
+   Connect-AzureRMAccount -EnvironmentName "AzureStackAdmin"
+   ```
 
-    # Close alert
-    Close-AzsAlert -AlertID "ID"
+3. Utilisez les commandes telles que les exemples suivants pour les alertes :
 
-    #Retrieve resource provider health
-    $RPHealth = Get-AzsRPHealth
-    $RPHealth
+```powershell
+# Retrieve all alerts
+$Alerts = Get-AzsAlert
+$Alerts
 
-    # Retrieve infrastructure role instance health
-    $FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
-    Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
-    ```
+# Filter for active alerts
+$Active = $Alerts | Where-Object { $_.State -eq "active" }
+$Active
+
+# Close alert
+Close-AzsAlert -AlertID "ID"
+
+#Retrieve resource provider health
+$RPHealth = Get-AzsRPHealth
+$RPHealth
+
+# Retrieve infrastructure role instance health
+$FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
+Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
+```
+
+---
 
 ## <a name="learn-more"></a>En savoir plus
 

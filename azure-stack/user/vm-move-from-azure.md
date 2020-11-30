@@ -7,12 +7,12 @@ ms.date: 9/8/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: c8c68a64f7a05e03c70e138cb4d8c95da7417ec9
-ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
+ms.openlocfilehash: cefc127efcdac2d1610803ef90b54c50e7280e97
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91519413"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95516934"
 ---
 # <a name="move-a-vm-from-azure-to-azure-stack-hub"></a>Déplacer une machine virtuelle d’Azure vers Azure Stack Hub
 
@@ -33,7 +33,15 @@ Recherchez la section propre à vos besoins lors de la préparation de votre dis
 ::: moniker range="<=azs-1910"
 - Suivez les instructions de la rubrique [Télécharger un disque dur virtuel Windows à partir d’Azure](/azure/virtual-machines/windows/download-vhd) pour généraliser et télécharger correctement le disque dur virtuel avant de le déplacer vers Azure Stack Hub.
 - Lorsque vous provisionnez la machine virtuelle sur Azure, utilisez PowerShell. Préparez-la sans l’indicateur `-ProvisionVMAgent`.
-- Supprimez toutes les extensions de machine virtuelle avec l’applet de commande **Remove-AzureRmVMExtension** de la machine virtuelle avant de généraliser la machine virtuelle dans Azure. Vous pouvez rechercher les extensions de machine virtuelle installées en accédant à `Windows (C:) > WindowsAzure > Logs > Plugins`.
+- Supprimez toutes les extensions de machine virtuelle avec l’applet de commande avant de généraliser la machine virtuelle dans Azure. Vous pouvez rechercher les extensions de machine virtuelle installées en accédant à `Windows (C:) > WindowsAzure > Logs > Plugins`.
+
+Utilisez le module PowerShell Az :
+
+```powershell  
+Remove-AzVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"
+```
+
+Utilisez le module PowerShell AzureRM :
 
 ```powershell  
 Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"

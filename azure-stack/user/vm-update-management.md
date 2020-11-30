@@ -3,16 +3,16 @@ title: Automatisation de la gestion et de la mise à jour des machines virtuelle
 description: Utiliser les solutions Azure Monitor pour machines virtuelles, Update Management, Change Tracking, et Inventory dans Azure Automation, afin de gérer les machines virtuelles Windows et Linux déployées dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/08/2020
+ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 10/08/2020
-ms.openlocfilehash: 7b3c69b26ef1fee21e652c70f0ca9a9ddc156460
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: c30d254e3b9e17fa817d778e8f43b9611cb390cf
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383664"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517359"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Automatisation de la gestion et de la mise à jour des machines virtuelles dans Azure Stack Hub
 Utilisez les fonctionnalités suivantes de la solution Azure Automation pour gérer des machines virtuelles Windows et Linux déployées avec Azure Stack Hub :
@@ -43,7 +43,7 @@ Vous devez ensuite [créer un compte Automation](/azure/automation/automation-cr
 
 1. Dans le portail Azure, accédez au compte Automation que vous souhaitez utiliser.
 
-2. Sélectionnez la solution à activer ( **Inventory** , **Change Tracking** , ou **Update Management** ).
+2. Sélectionnez la solution à activer (**Inventory**, **Change Tracking**, ou **Update Management**).
 
 3. Utilisez la liste déroulante **Sélectionner un espace de travail...** pour sélectionner l’espace de travail Log Analytics à utiliser.
 
@@ -72,7 +72,7 @@ Après avoir activé les solutions Azure Automation sur le portail Azure, vous d
 
    ![La boîte de dialogue « Accueil > Gestion de la Place de marché > Ajouter à partir d’Azure > Azure Monitor, Update and Configuration Management » décrit l’extension et contient un bouton Télécharger.](media//vm-update-management/2.PNG) 
 
-Pour activer la solution Map d’Azure Monitor pour machines virtuelles et obtenir des insights sur les dépendances avec le réseau, téléchargez l’extension **Azure Monitor Dependency Agent**  :
+Pour activer la solution Map d’Azure Monitor pour machines virtuelles et obtenir des insights sur les dépendances avec le réseau, téléchargez l’extension **Azure Monitor Dependency Agent** :
 
    ![La boîte de dialogue « Accueil > Gestion de la Place de marché > Ajouter à partir d’Azure > Azure Monitor Dependency Agent » décrit l’extension et contient un bouton Télécharger.](media//vm-update-management/2-dependency.PNG) 
 
@@ -81,7 +81,7 @@ Pour activer la gestion des mises à jour des machines virtuelles Azure Stack Hu
 
 1. Connectez-vous au portail utilisateur Azure Stack Hub.
 
-2. Dans le portail utilisateur Azure Stack Hub, accédez au panneau Extensions des machines virtuelles pour lesquelles vous voulez activer ces solutions, cliquez sur **+ Ajouter** , sélectionnez l’extension **Azure Update and Configuration Management** , puis cliquez sur **Créer**  :
+2. Dans le portail utilisateur Azure Stack Hub, accédez au panneau Extensions des machines virtuelles pour lesquelles vous voulez activer ces solutions, cliquez sur **+ Ajouter**, sélectionnez l’extension **Azure Update and Configuration Management**, puis cliquez sur **Créer** :
 
     ![La boîte de dialogue « Azure Update and Configuration Management » contient des informations explicatives, un bouton Créer (mis en surbrillance) pour ajouter l’extension, ainsi qu’un lien vers plus d’informations.](media//vm-update-management/3-sm.PNG "Panneau Extension de machine virtuelle")
 
@@ -89,7 +89,7 @@ Pour activer la gestion des mises à jour des machines virtuelles Azure Stack Hu
 
    [![La boîte de dialogue « Installer l’extension » contient des zones de texte pour Azure WorkspaceID et WorkspaceKey.](media//vm-update-management/4-sm.PNG "Indication de la clé et de l’ID d’espace de travail")](media//vm-update-management/4-lg.PNG) 
 
-4. Comme décrit dans la [documentation sur la gestion des mises à jour](/azure/automation/update-management/overview), vous devez activer la solution Update Management pour chaque machine virtuelle que vous souhaitez gérer. Pour activer la solution pour toutes les machines virtuelles associées à l’espace de travail, sélectionnez **Gestion des mises à jour** , cliquez sur **Gérer des machines** , puis sélectionnez l’option **Activer sur tous les ordinateurs disponibles et à venir**.
+4. Comme décrit dans la [documentation sur la gestion des mises à jour](/azure/automation/update-management/overview), vous devez activer la solution Update Management pour chaque machine virtuelle que vous souhaitez gérer. Pour activer la solution pour toutes les machines virtuelles associées à l’espace de travail, sélectionnez **Gestion des mises à jour**, cliquez sur **Gérer des machines**, puis sélectionnez l’option **Activer sur tous les ordinateurs disponibles et à venir**.
 
    [![La boîte de dialogue Gérer les machines - Update Management affiche les machines sur lesquelles Update Management n’est pas activé. Trois options d’activation sont proposées, et l’option « Activer sur toutes les machines disponibles et à venir » est sélectionnée et mise en surbrillance. Un bouton Activer est également présent.](media//vm-update-management/5-sm.PNG "Activer la solution Update Management sur toutes les machines")](media//vm-update-management/5-lg.PNG) 
 
@@ -113,6 +113,8 @@ Pour créer une planification de déploiement des mises à jour, vous devez util
 
 L’exemple suivant vous montre comment procéder :
 
+### <a name="az-modules"></a>[Modules Az](#tab/az)
+
 ```Powershell  
 $nonAzurecomputers = @("server-01", "server-02")
 
@@ -122,6 +124,21 @@ $s = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName 
 
 New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm)
+
+```Powershell  
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzureRMAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdateConfiguration
+
+New-AzureRMAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
+
+---
+
+
 
 ## <a name="enable-azure-monitor-for-vms-running-on-azure-stack-hub"></a>Activer Azure Monitor pour machines virtuelles s’exécutant sur Azure Stack Hub
 Une fois les extensions **Azure Monitor, Update and Configuration Management** et **Azure Monitor Dependency Agent** installées sur la machine virtuelle, celle-ci peut commencer à envoyer des rapports de données à la solution [Azure Monitor pour machines virtuelles](/azure/azure-monitor/insights/vminsights-overview). 
@@ -131,12 +148,12 @@ Une fois les extensions **Azure Monitor, Update and Configuration Management** e
 
 Azure Monitor pour machines virtuelles comprend un ensemble de graphiques de performances qui ciblent divers indicateurs de performance clés (KPI) pour vous aider à déterminer l’intégrité du fonctionnement d’une machine virtuelle. Les graphiques illustrent l’utilisation des ressources au cours d'une période donnée pour vous permettre d'identifier les goulots d’étranglement et anomalies. Vous pouvez également basculer sur une perspective répertoriant toutes les machines virtuelles pour afficher l’utilisation des ressources en fonction de la métrique sélectionnée. Il y a beaucoup d’autres éléments à prendre en compte dans la gestion des performances, mais la solution Azure Monitor pour machines virtuelles supervise des indicateurs de performances clés du système d’exploitation liés à l’utilisation du processeur, de la mémoire, de la carte réseau et du disque. Les graphiques de performances complètent la fonctionnalité de supervision de l’intégrité et permettent d’exposer les problèmes indiquant une panne éventuelle d’un composant système. Azure Monitor pour machines virtuelles prend également en charge la planification de la capacité, ainsi que les réglages et l’optimisation pour améliorer l’efficacité.
 
-   ![Onglet Performances Azure Monitor pour machines virtuelles](/azure/azure-monitor/insights/media/vminsights-performance/vminsights-performance-aggview-01.png)
+   ![Onglet Performances Azure Monitor pour machines virtuelles](http:/docs.microsoft.com/azure/azure-monitor/insights/media/vminsights-performance/vminsights-performance-aggview-01.png)
 
 Vous pouvez observer les composants d’application découverts sur des machines virtuelles Windows et Linux s’exécutant dans Azure Stack Hub de deux manières avec Azure Monitor pour machines virtuelles. La première intervient directement à partir d’une machine virtuelle et la seconde, dans les groupes de machines virtuelles à partir d'Azure Monitor.
 L’article [Utiliser la fonctionnalité Map d’Azure Monitor pour machines virtuelles pour comprendre les composants d’application](/azure/azure-monitor/insights/vminsights-maps) vous aide à comprendre ce que les deux perspectives apportent et comment utiliser la fonctionnalité Map.
 
-   ![Onglet Map d'Azure Monitor pour machines virtuelles](/azure/azure-monitor/insights/media/vminsights-maps/map-multivm-azure-monitor-01.png)
+   ![Onglet Map d’Azure Monitor pour machines virtuelles]((http:/docs.microsoft.com/azure/azure-monitor/insights/media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
 Dans le cas où [Azure Monitor pour machines virtuelles](/azure/azure-monitor/insights/vminsights-overview) n’affiche aucune donnée de performances, vous devez activer la collecte des données de performances pour Windows et Linux dans les paramètres avancés de votre [espace de travail LogAnalytics](/azure/azure-monitor/platform/data-sources-performance-counters).
 
