@@ -128,8 +128,10 @@
           href: concepts/quorum.md
     - name: Mise en réseau
       items:
-        - name: Planifier le réseau hôte
-          href: concepts/plan-host-networking.md
+        - name: Configuration requise des réseaux virtuels
+          href: concepts/physical-network-requirements.md
+        - name: Configuration requise des réseaux hôtes
+          href: concepts/host-network-requirements.md
         - name: Mise en réseau SDN (Software Defined Networking)
           href: concepts/software-defined-networking.md
         - name: Planifier une infrastructure SDN

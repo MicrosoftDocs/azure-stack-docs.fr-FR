@@ -51,7 +51,7 @@ Le schéma suivant présente la topologie de cette approche :
 
     ![Créer une machine virtuelle](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-01.png)
 
-3. Configurez les paramètres de base dans **Créer une machine virtuelle, 1 De base**  :
+3. Configurez les paramètres de base dans **Créer une machine virtuelle, 1 De base** :
 
     a. Saisissez un **Nom**.
 
@@ -67,7 +67,7 @@ Le schéma suivant présente la topologie de cette approche :
     
     g. Sélectionnez un **groupe de ressources**.
     
-    h. Sélectionnez l’ **emplacement** de l’infrastructure Azure Stack Hub. Si vous utilisez un ASDK, sélectionnez **local**.
+    h. Sélectionnez l’**emplacement** de l’infrastructure Azure Stack Hub. Si vous utilisez un ASDK, sélectionnez **local**.
     
     i. Sélectionnez **OK**.
 
@@ -87,7 +87,7 @@ Le schéma suivant présente la topologie de cette approche :
     
     d. Sélectionnez le **sous-réseau** par défaut.
     
-    e. Sélectionnez l’ **adresse IP publique** par défaut.
+    e. Sélectionnez l’**adresse IP publique** par défaut.
     
     f. Laissez la machine virtuelle dans le groupe de sécurité réseau **De base**.
     
@@ -145,15 +145,15 @@ Vous devez savoir si votre gestionnaire d’identité est Azure AD ou ADFS. Le t
 
 9. Entrez les informations d’accès à votre compte de stockage. Vous trouverez des instructions sur la configuration d’un compte de stockage Azure ici. Informations d’accès :
 
-    -  **Hôte de service**  : Récupérez le nom de l’URL à partir des propriétés du conteneur de blobs dans votre ressource. Par exemple, mon URL était https:\//backuptest.blob.westus.stackpoc.com/mybackups et j’ai utilisé blob.westus.stackpoc.com dans l’hôte Service.
+    -  **Hôte de service** : Récupérez le nom de l’URL à partir des propriétés du conteneur de blobs dans votre ressource. Par exemple, mon URL était https:\//backuptest.blob.westus.stackpoc.com/mybackups et j’ai utilisé blob.westus.stackpoc.com dans l’hôte Service.
     
-    -   **Nom du compte**  : utilisez le nom du compte de stockage. Vous pouvez le trouver dans le panneau Clés d’accès de la ressource de stockage.
+    -   **Nom du compte** : utilisez le nom du compte de stockage. Vous pouvez le trouver dans le panneau Clés d’accès de la ressource de stockage.
     
     -   **Clé d’accès** : Obtenez la clé d’accès dans le panneau Clés d’accès de la ressource de stockage.
     
-    -   **Conteneur**  : nom du conteneur. Dans le cas présent, mybackups.
+    -   **Conteneur** : nom du conteneur. Dans le cas présent, mybackups.
     
-    -   **Classe de stockage**  : conservez la classe de stockage par défaut du conteneur Utilisateur.
+    -   **Classe de stockage** : conservez la classe de stockage par défaut du conteneur Utilisateur.
 
 10. Créez un client Microsoft Azure Stack Hub en suivant les instructions fournies dans [Création d’un client Microsoft Azure Stack Hub](https://documentation.commvault.com/commvault/v11_sp13/article?p=86495.htm)
 
