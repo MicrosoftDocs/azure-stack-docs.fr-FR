@@ -3,16 +3,16 @@ title: Utiliser Docker pour exécuter PowerShell dans Azure Stack Hub
 description: Utiliser Docker pour exécuter PowerShell dans Azure Stack Hub
 author: mattbriggs
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: 54e0c53c666ae6d936ed34baea43f708f4a262da
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 802a173239534c6826e90a1d4d4c2095c1abcf9a
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546784"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525606"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>Utiliser Docker pour exécuter PowerShell pour Azure Stack Hub
 
@@ -67,7 +67,7 @@ Dans ces instructions, vous allez exécuter une image de conteneur Linux qui con
 
 2. L’interpréteur de commandes est prêt pour vos applets de commande. Testez la connectivité de l’interpréteur de commandes en vous connectant, puis en exécutant `Test-AzureStack.ps1`.
 
-    Tout d’abord, créez les informations d’identification du principal de service. Vous aurez besoin du **secret** et de l’ **ID d’application**. Vous aurez également besoin de l’ **ID d’objet** lors de l’exécution de `Test-AzureStack.ps1` pour vérifier votre conteneur. Vous devrez peut-être demander un principal de service à votre opérateur cloud.
+    Tout d’abord, créez les informations d’identification du principal de service. Vous aurez besoin du **secret** et de l’**ID d’application**. Vous aurez également besoin de l’**ID d’objet** lors de l’exécution de `Test-AzureStack.ps1` pour vérifier votre conteneur. Vous devrez peut-être demander un principal de service à votre opérateur cloud.
 
     Tapez les applets de commande suivantes pour créer un objet principal de service :
 
@@ -91,7 +91,7 @@ Dans ces instructions, vous allez exécuter une image de conteneur Linux qui con
 
    PowerShell retourne votre objet de compte.
 
-7. Testez votre environnement en exécutant le script `Test-AzureStack.ps1` dans le conteneur. Spécifiez l’ **ID d’objet** du principal de service. Si vous n’indiquez pas l’ID d’objet, le script s’exécutera malgré tout, mais il testera uniquement les modules (utilisateur) du locataire et échouera sur les modules qui nécessitent des privilèges d’administrateur.
+7. Testez votre environnement en exécutant le script `Test-AzureStack.ps1` dans le conteneur. Spécifiez l’**ID d’objet** du principal de service. Si vous n’indiquez pas l’ID d’objet, le script s’exécutera malgré tout, mais il testera uniquement les modules (utilisateur) du locataire et échouera sur les modules qui nécessitent des privilèges d’administrateur.
 
     ```powershell  
     ./Test-AzureStack.ps1 <Object ID>

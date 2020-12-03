@@ -4,16 +4,16 @@ description: Découvrez les versions des API Azure Resource Manager prises en ch
 author: sethmanheim
 ms.custom: contperfq4
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 56c35d1107f0c31c00c33f23dd1d8ba639fb9f46
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 5b558eb0abb0494cb75f2509e51f291b08bd29ef
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546767"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525538"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Versions des API du fournisseur de ressources prises en charge par les profils dans Azure Stack Hub
 

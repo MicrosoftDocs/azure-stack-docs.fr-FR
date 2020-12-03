@@ -3,16 +3,16 @@ title: Créer un tunnel VPN à l’aide d’IPsec dans Azure Stack Hub
 description: Découvrez comment créer un tunnel VPN utilisant IPsec dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/13/2020
-ms.openlocfilehash: 3ceab07ebb6743e0ece9e6cb3d33ee08588d8992
-ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 0e49ccaa66d10fbb20a285574980276ca07b20ca
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94674595"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525827"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack-hub"></a>Créer un tunnel VPN utilisant IPsec dans Azure Stack Hub
 

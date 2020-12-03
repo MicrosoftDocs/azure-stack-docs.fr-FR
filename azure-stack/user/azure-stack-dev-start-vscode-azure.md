@@ -3,16 +3,16 @@ title: Se connecter à Azure Stack Hub en utilisant une extension de compte Azur
 description: En tant que développeur, connectez-vous à Azure Stack Hub en utilisant une extension de compte Azure dans Visual Studio Code
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/21/2020
-ms.openlocfilehash: fc07b78253a19d8a7f459aecacd699338a129ea7
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 3a9603dd4521e63d00d281f8fcd1b8f1912d5836
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546699"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525997"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Se connecter à Azure Stack Hub en utilisant une extension de compte Azure dans Visual Studio Code
 
@@ -97,11 +97,11 @@ VS Code est un éditeur léger permettant de générer et de déboguer des appli
       "azure.cloud": "AzurePPE"
       ```
 
-10. Enregistrez les paramètres utilisateur et utilisez **Ctrl+Maj+P** une nouvelle fois. Sélectionnez **Azure : Sign in to Azure Cloud** (Se connecter au cloud Azure). La nouvelle option, **AzurePPE** , apparaît dans la liste des cibles.
+10. Enregistrez les paramètres utilisateur et utilisez **Ctrl+Maj+P** une nouvelle fois. Sélectionnez **Azure : Sign in to Azure Cloud** (Se connecter au cloud Azure). La nouvelle option, **AzurePPE**, apparaît dans la liste des cibles.
 
 11. Sélectionnez **AzurePPE**. La page d’authentification se charge dans votre navigateur. Connectez-vous à votre point de terminaison.
 
-12. Pour tester que vous êtes correctement connecté à votre abonnement Azure Stack Hub, utilisez **Ctrl+Maj+P** et sélectionnez **Azure : Sélectionner un abonnement** , puis regardez si l’abonnement que vous avez est disponible.
+12. Pour tester que vous êtes correctement connecté à votre abonnement Azure Stack Hub, utilisez **Ctrl+Maj+P** et sélectionnez **Azure : Sélectionner un abonnement**, puis regardez si l’abonnement que vous avez est disponible.
 
 ## <a name="commands"></a>Commandes
 

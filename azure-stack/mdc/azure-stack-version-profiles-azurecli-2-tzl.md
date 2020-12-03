@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 55a9c4ec924cc12a52199f00e77857b2813207cc
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: b9d40c83c31903a582d8130dcb249fa2fca0a49e
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330030"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525572"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Gérer et déployer des ressources sur Azure Stack Hub à l'aide de l'interface Azure CLI
 
@@ -96,7 +96,7 @@ Cette section vous guide dans la configuration de l’interface CLI si vous util
  
 1. Connectez-vous à votre environnement Azure Stack Hub à l'aide de la commande `az login`. Connectez-vous à l'environnement Azure Stack Hub en tant qu'utilisateur ou que principal de service. 
 
-   - Connectez-vous en tant qu’ *utilisateur*  : 
+   - Connectez-vous en tant qu’*utilisateur* : 
 
      Vous pouvez spécifier directement le nom d’utilisateur et le mot de passe dans la commande `az login`, ou vous authentifier avec un navigateur. Vous devez choisir cette dernière solution si l’authentification multifacteur est activée sur votre compte :
 
@@ -107,7 +107,7 @@ Cette section vous guide dans la configuration de l’interface CLI si vous util
      > [!NOTE]
      > Si l'authentification multifacteur est activée sur votre compte d'utilisateur, utilisez la commande `az login` sans fournir le paramètre `-u`. L’exécution de cette commande vous donne une URL et un code à utiliser pour vous authentifier.
 
-   - Connectez-vous en tant que *principal de service*  : 
+   - Connectez-vous en tant que *principal de service* : 
     
      avant de vous connecter, [créez un principal de service avec le portail Azure](../operator/azure-stack-create-service-principals.md) ou l’interface CLI, et attribuez-lui un rôle. Ensuite, connectez-vous avec la commande suivante :
 
@@ -164,7 +164,7 @@ Cette section vous guide dans la configuration de l’interface CLI si vous util
 
 1. Connectez-vous à votre environnement Azure Stack Hub à l'aide de la commande `az login`. Vous pouvez vous connecter à l'environnement Azure Stack Hub en tant qu'utilisateur ou que principal de service. 
 
-   - Connectez-vous en tant qu’ *utilisateur*  :
+   - Connectez-vous en tant qu’*utilisateur* :
 
      Vous pouvez spécifier directement le nom d’utilisateur et le mot de passe dans la commande `az login`, ou vous authentifier avec un navigateur. Vous devez choisir cette dernière solution si l’authentification multifacteur est activée sur votre compte :
 
@@ -175,7 +175,7 @@ Cette section vous guide dans la configuration de l’interface CLI si vous util
      > [!NOTE]
      > Si l'authentification multifacteur est activée sur votre compte d'utilisateur, utilisez la commande `az login` sans fournir le paramètre `-u`. L’exécution de cette commande vous donne une URL et un code à utiliser pour vous authentifier.
 
-   - Connectez-vous en tant que *principal de service*  : 
+   - Connectez-vous en tant que *principal de service* : 
     
      Préparez le fichier .pem à utiliser pour la connexion du principal de service.
 

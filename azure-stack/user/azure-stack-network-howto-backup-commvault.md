@@ -3,16 +3,16 @@ title: Sauvegarder une machine virtuelle sur Azure Stack Hub avec CommVault
 description: Découvrez comment sauvegarder votre machine virtuelle sur Azure Stack Hub avec CommVault.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 9308e8b017201119a7179c78dbeb99006f4ebfff
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: e9f6c41097085a0342b2c0a2fc5b5b995c2d9186
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547090"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96524790"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Sauvegarder votre machine virtuelle sur Azure Stack Hub avec CommVault
 

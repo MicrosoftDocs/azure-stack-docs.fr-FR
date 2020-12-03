@@ -3,16 +3,16 @@ title: Vous configurez des certificats pour Azure CLI sur le Kit de développeme
 description: Découvrez comment configurer des certificats pour Azure CLI sur le Kit de développement Azure Stack.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 8b55fea8ed9692da34234e2633bdb43e92de46eb
-ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 7b408e28ff70e66c0460473f54304cbf50fa2c92
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294423"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96524679"
 ---
 # <a name="setting-up-certificates-for-azure-cli-on-azure-stack-development-kit"></a>Configurer des certificats pour Azure CLI sur le Kit de développement Azure Stack
 

@@ -3,16 +3,16 @@ title: Étendre le centre de données sur Azure Stack Hub
 description: Découvrez comment étendre le centre de données sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 1c5ecd53aab4b6116b044585a1a46497cb46f827
-ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 0d8425fa11f6de0e909a697527074c779acd27da
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88965266"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525793"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>Extension du stockage sur Azure Stack Hub
 
@@ -254,7 +254,7 @@ Pour configurer l’initiateur iSCSI, reconnectez-vous au **portail utilisateur 
 
     ![La fenêtre Détecter un portail cible affiche 10.33.131.15 dans la zone de texte « Adresse IP ou nom DNS : » et 3260 (valeur par défaut) dans la zone de texte Port. Un bouton Avancé est disponible.](./media/azure-stack-network-howto-extend-datacenter/image17.png)
 
-13. Dans la fenêtre**Paramètres avancés**, sélectionnez les options suivantes, puis sélectionnez **OK**.
+13. Dans la fenêtre **Paramètres avancés**, sélectionnez les options suivantes, puis sélectionnez **OK**.
 
     a.  **Adaptateur local** : Initiateur Microsoft iSCSI.
 

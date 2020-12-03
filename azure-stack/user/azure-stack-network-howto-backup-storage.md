@@ -3,16 +3,16 @@ title: Sauvegarder vos comptes de stockage sur Azure Stack Hub
 description: Découvrez comment sauvegarder vos comptes de stockage sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: e77c05c6f13a3ee3cb23a13a466bb7e0e80394f7
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 40ec516f2f10f02716257077a4676c5724acf4ec
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546189"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525691"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>Sauvegarder vos comptes de stockage sur Azure Stack Hub
 
@@ -80,13 +80,13 @@ Une fois que vous avez configuré votre serveur Windows, vous devez installer [A
     export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09
     ```
 
-4. Sur votre serveur intermédiaire, créez un script. Mettez à jour cette commande avec votre **compte de stockage** , la **clé SAS** et le **chemin d’accès au répertoire local**. Vous exécutez le script pour copier des données de façon incrémentielle à partir du compte de stockage **source**.
+4. Sur votre serveur intermédiaire, créez un script. Mettez à jour cette commande avec votre **compte de stockage**, la **clé SAS** et le **chemin d’accès au répertoire local**. Vous exécutez le script pour copier des données de façon incrémentielle à partir du compte de stockage **source**.
 
     ```
     azcopy sync "https:/<storagaccount>/<container>?<SAS Key>" "C:\\myFolder" --recursive=true --delete-destination=true
     ```
 
-5.  Entrez le **compte de stockage** ,** la clé SAP** et le **chemin d’accès au répertoire local.  Vous allez les utiliser pour copier des données de façon incrémentielle vers le compte de stockage **cible**.
+5.  Entrez le **compte de stockage**,** la clé SAP** et le **chemin d’accès au répertoire local.  Vous allez les utiliser pour copier des données de façon incrémentielle vers le compte de stockage **cible**.
     
     ```
     azcopy sync "C:\\myFolder" "https:// <storagaccount>/<container>?<SAS Key>" --recursive=true --delete-destination=true

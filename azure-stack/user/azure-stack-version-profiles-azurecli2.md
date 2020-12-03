@@ -3,16 +3,16 @@ title: Gérer Azure Stack Hub avec Azure CLI
 description: Apprenez à utiliser l'interface de ligne de commande (CLI) multiplateforme pour gérer et déployer des ressources sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/26/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 35378da825d9b2d9c7446148101f1d205a22b2c4
-ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 5cd1c1b7dac9e05925488b3543461f3fbd8dd9e5
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93291253"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525878"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>Installer Azure CLI sur Azure Stack Hub
 
@@ -79,7 +79,7 @@ Cette section vous guide dans la configuration de l’interface CLI si vous util
  
 6. Connectez-vous à votre environnement Azure Stack Hub à l'aide de la commande `az login`. Connectez-vous à l'environnement Azure Stack Hub en tant qu'utilisateur ou que [principal de service](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   - Connectez-vous en tant qu’ *utilisateur*  : 
+   - Connectez-vous en tant qu’*utilisateur* : 
 
      Vous pouvez spécifier directement le nom d’utilisateur et le mot de passe dans la commande `az login`, ou vous authentifier avec un navigateur. Vous devez choisir cette dernière solution si l’authentification multifacteur est activée sur votre compte :
 
@@ -90,7 +90,7 @@ Cette section vous guide dans la configuration de l’interface CLI si vous util
      > [!NOTE]
      > Si l'authentification multifacteur est activée sur votre compte d'utilisateur, utilisez la commande `az login` sans fournir le paramètre `-u`. L’exécution de cette commande vous donne une URL et un code à utiliser pour vous authentifier.
 
-   - Connectez-vous en tant que *principal de service*  : 
+   - Connectez-vous en tant que *principal de service* : 
     
      avant de vous connecter, [créez un principal de service avec le portail Azure](../operator/azure-stack-create-service-principals.md?view=azs-2002) ou l’interface CLI, et attribuez-lui un rôle. Ensuite, connectez-vous avec la commande suivante :
 
@@ -152,7 +152,7 @@ Cette section vous guide dans la configuration de l’interface CLI si vous util
 
 6. Connectez-vous à votre environnement Azure Stack Hub à l'aide de la commande `az login`. Vous pouvez vous connecter à l'environnement Azure Stack Hub en tant qu'utilisateur ou que [principal de service](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   - Connectez-vous en tant qu’ *utilisateur*  :
+   - Connectez-vous en tant qu’*utilisateur* :
 
      Vous pouvez spécifier directement le nom d’utilisateur et le mot de passe dans la commande `az login`, ou vous authentifier avec un navigateur. Vous devez choisir cette dernière solution si l’authentification multifacteur est activée sur votre compte :
 
@@ -163,7 +163,7 @@ Cette section vous guide dans la configuration de l’interface CLI si vous util
      > [!NOTE]
      > Si l'authentification multifacteur est activée sur votre compte d'utilisateur, utilisez la commande `az login` sans fournir le paramètre `-u`. L’exécution de cette commande vous donne une URL et un code à utiliser pour vous authentifier.
 
-   - Connectez-vous en tant que *principal de service*  : 
+   - Connectez-vous en tant que *principal de service* : 
     
      Préparez le fichier .pem à utiliser pour la connexion du principal de service.
 
@@ -237,7 +237,7 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack Hub :
 
 6. Connectez-vous à votre environnement Azure Stack Hub à l'aide de la commande `az login`. Vous pouvez vous connecter à l'environnement Azure Stack Hub en tant qu'utilisateur ou que [principal de service](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   * Connectez-vous en tant qu’ *utilisateur*  :
+   * Connectez-vous en tant qu’*utilisateur* :
 
      Vous pouvez spécifier directement le nom d’utilisateur et le mot de passe dans la commande `az login`, ou vous authentifier avec un navigateur. Vous devez choisir cette dernière solution si l’authentification multifacteur est activée sur votre compte :
 

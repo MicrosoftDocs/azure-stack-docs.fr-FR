@@ -4,15 +4,15 @@ description: Découvrez les étapes et les outils pour effectuer une migration d
 author: mattbriggs
 ms.author: mabrigg
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 12/2/2020
 ms.reviewer: sijuman
-ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: bfb385e29a89ad8d47ace3b15776bd368e0cf521
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: a4196228856b776bb3712e26f237a1cb32f20e50
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546169"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525759"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>Effectuer une migration depuis AzureRM vers Azure PowerShell Az dans Azure Stack Hub
 
@@ -33,7 +33,7 @@ Get-InstalledModule -Name AzureRM -AllVersions
 
 ## <a name="check-current-scripts-work-with-azurerm"></a>Vérifier que les scripts actuels fonctionnent avec AzureRM
 
-Il s’agit de l’étape la plus importante. Exécutez vos scripts existants et assurez-vous qu’ils fonctionnent avec la _dernière_ version d’AzureRM ( __2.5.0__ ). Si vos scripts ne fonctionnent pas, veuillez lire le [guide de migration AzureRM](/powershell/azure/azurerm/migration-guide.6.0.0).
+Il s’agit de l’étape la plus importante. Exécutez vos scripts existants et assurez-vous qu’ils fonctionnent avec la _dernière_ version d’AzureRM (__2.5.0__). Si vos scripts ne fonctionnent pas, veuillez lire le [guide de migration AzureRM](/powershell/azure/azurerm/migration-guide.6.0.0).
 
 ## <a name="install-the-azure-powershell-az-module"></a>Installer le module Azure PowerShell Az
 
@@ -41,7 +41,7 @@ La première étape consiste à installer le module Az sur votre plateforme. Lor
 
 Pour installer le module Azure PowerShell Az, suivez les étapes suivantes :
 
-* __RECOMMANDÉ__  : [Désinstaller le module AzureRM](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module).
+* __RECOMMANDÉ__ : [Désinstaller le module AzureRM](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module).
   Assurez-vous de supprimer _toutes les_ versions installées d’AzureRM, et non pas simplement la plus récente.
 * [Installer le module Az](/powershell/azure/install-az-ps)
 

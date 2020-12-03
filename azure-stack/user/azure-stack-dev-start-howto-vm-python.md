@@ -3,16 +3,16 @@ title: Déployer une application web Python sur une machine virtuelle dans Azure
 description: Déployez une application web Python sur une machine virtuelle dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: overview
-ms.date: 07/24/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: 59c6d473a3ac07d82ae40dedc0ff2b719ee51807
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 88c6592c1ac99918b084b540eec7351f2f121b77
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90571811"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96524617"
 ---
 # <a name="deploy-a-python-web-app-to-a-vm-in-azure-stack-hub"></a>Déployer une application web Python sur une machine virtuelle dans Azure Stack Hub
 

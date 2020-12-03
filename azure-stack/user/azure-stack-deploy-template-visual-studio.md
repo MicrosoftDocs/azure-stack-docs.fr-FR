@@ -3,16 +3,16 @@ title: Déployer des modèles avec Visual Studio dans Azure Stack Hub
 description: Découvrez comment déployer des modèles avec Visual Studio dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: ea268d367ab529fabe8a8b363ed14ce17bc790aa
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 894e04e8e7b54d9e87d51af93c98f9abfd074aee
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146799"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525351"
 ---
 # <a name="deploy-templates-in-azure-stack-hub-using-visual-studio"></a>Déploiement de modèles dans Azure Stack Hub à l’aide de Visual Studio
 
