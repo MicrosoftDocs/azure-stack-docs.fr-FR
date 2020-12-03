@@ -3,16 +3,16 @@ title: Déployer une application web ASP.NET C# sur une machine virtuelle dans A
 description: Déployez une application web ASP.NET C# sur une machine virtuelle dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: overview
-ms.date: 08/24/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: c28a5bbb50b4694358eec4375db6c20a00ba9e99
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 1ff00f354f9ab451bbf9557c1d63b01980d78875
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574191"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525408"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>Déployer une application web ASP.NET C# sur une machine virtuelle dans Azure Stack Hub
 
@@ -65,9 +65,9 @@ Cet article utilise une application C# 6.0 qui utilise ASP.NET Core 2.2 sur un s
 
     a. Dans **Source**, sélectionnez **Any (Tous)** .
 
-    b. Pour **Plage de ports source**, entrez un astérisque ( **\*** ).
+    b. Pour **Plage de ports source**, entrez un astérisque (* *\** _).
 
-    c. Pour **Destination**, sélectionnez **Any (Tous)** .
+    c. Pour _*Destination**, sélectionnez **Toutes**.
 
     d. Pour **Plage de ports de destination**, ajoutez le port que vous souhaitez ouvrir.
 
