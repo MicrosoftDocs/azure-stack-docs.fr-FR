@@ -8,12 +8,12 @@ metadata:
   author: jasongerend
   ms.author: jgerend
   ms.date: 09/22/2020
-  ms.openlocfilehash: 25ac5eecb2f198613c3402a269c1aeafd7df4cc0
-  ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+  ms.openlocfilehash: 649e77bd470f723dbcf9c373f0bedebcf0a0786b
+  ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90949432"
+  ms.lasthandoff: 12/03/2020
+  ms.locfileid: "96557019"
 landingContent:
 - title: À propos d’Azure Kubernetes Service
   linkLists:
@@ -45,7 +45,7 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Utiliser des conteneurs Windows Server
+    - text: Déployer des applications Windows .NET
       url: deploy-windows-application.md
     - text: Utilisation de conteneurs Linux
       url: deploy-linux-application.md
@@ -53,8 +53,10 @@ landingContent:
     links:
     - text: Adapter des applications à des clusters Kubernetes à système d’exploitation mixte
       url: adapt-apps-mixed-os-clusters.md
-    - text: Utiliser le stockage persistant dans un conteneur Windows et préparer un compte gMSA
-      url: persistent-storage-windows-nodes.md
+    - text: Préparer des nœuds Windows pour la prise en charge de compte de service administré de groupe
+      url: prepare-windows-nodes-gmsa.md
+    - text: Utiliser un volume persistant dans un cluster AKS sur Azure Stack HCI
+      url: persistent-volume.md
 - title: Intégrer à Azure
   linkLists:
   - linkListType: how-to-guide
