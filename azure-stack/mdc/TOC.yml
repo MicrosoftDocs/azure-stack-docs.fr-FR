@@ -10,7 +10,7 @@
       items:
         - name: Utiliser le portail d’administration
           href: ../operator/azure-stack-manage-portals.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-    - name: Didacticiels
+    - name: Tutoriels
       items:
         - name: Offrir un service aux utilisateurs
           href: ../operator/tutorial-offer-services.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -31,7 +31,7 @@
             - name: Outil Capacity Planner
               href: azure-stack-capacity-planner.md
         - name: Vue d’ensemble de l’intégration
-          href: customer-journey.md
+          href: integration-overview.md
         - name: Modèles de connexion
           href: ../operator/azure-stack-connection-models.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Déploiement connecté
