@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentation Azure Kubernetes Service sur Azure Stack HCI
-summary: Azure Kubernetes Service sur Azure Stack HCI est une implémentation locale du célèbre orchestrateur Azure Kubernetes Service (AKS), qui automatise l’exécution d’applications conteneurisées à grande échelle. Azure Kubernetes Service est maintenant en préversion sur Azure Stack HCI, ce qui vous permet de commencer à héberger des conteneurs Linux et Windows dans votre centre de données plus rapidement.
+summary: Azure Kubernetes Service sur Azure Stack HCI est une implémentation locale du célèbre orchestrateur Azure Kubernetes Service (AKS), qui automatise l’exécution d’applications conteneurisées à grande échelle. Azure Kubernetes Service est maintenant en préversion sur Azure Stack HCI et Windows Server 2019 Datacenter, ce qui vous permet de commencer à héberger des conteneurs Linux et Windows dans votre centre de données plus rapidement.
 metadata:
   title: Documentation Azure Kubernetes Service sur Azure Stack HCI
   description: Azure Kubernetes Service sur Azure Stack HCI est une implémentation locale du célèbre orchestrateur Azure Kubernetes Service (AKS), qui automatise l’exécution d’applications conteneurisées à grande échelle. Azure Kubernetes Service est maintenant en préversion sur Azure Stack HCI, ce qui vous permet de commencer à héberger des conteneurs Linux et Windows dans votre centre de données plus rapidement.
@@ -8,12 +8,12 @@ metadata:
   author: jasongerend
   ms.author: jgerend
   ms.date: 09/22/2020
-  ms.openlocfilehash: 649e77bd470f723dbcf9c373f0bedebcf0a0786b
-  ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+  ms.openlocfilehash: 808debaa0953bc19939bc1ffbf02c96688496bca
+  ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/03/2020
-  ms.locfileid: "96557019"
+  ms.lasthandoff: 12/04/2020
+  ms.locfileid: "96612282"
 landingContent:
 - title: À propos d’Azure Kubernetes Service
   linkLists:
@@ -45,17 +45,17 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Déployer des applications Windows .NET
-      url: deploy-windows-application.md
     - text: Utilisation de conteneurs Linux
       url: deploy-linux-application.md
   - linkListType: how-to-guide
     links:
     - text: Adapter des applications à des clusters Kubernetes à système d’exploitation mixte
       url: adapt-apps-mixed-os-clusters.md
-    - text: Préparer des nœuds Windows pour la prise en charge de compte de service administré de groupe
+    - text: Déployer des applications Windows
+      url: deploy-windows-application.md
+    - text: Préparer les nœuds Windows pour la prise en charge de gMSA
       url: prepare-windows-nodes-gmsa.md
-    - text: Utiliser un volume persistant dans un cluster AKS sur Azure Stack HCI
+    - text: Utiliser des volumes persistants
       url: persistent-volume.md
 - title: Intégrer à Azure
   linkLists:
