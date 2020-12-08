@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 10/29/2020
-ms.openlocfilehash: 68ee5d0635d1ed9dbc62bece417f00430bf61de2
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: 2d4aebd0609dff744f4c8f6ae9113fba1b7b0ba9
+ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93065995"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96354154"
 ---
 # <a name="system-requirements-for-azure-stack-hci"></a>Configuration requise pour Azure Stack HCI
 
@@ -76,7 +76,7 @@ Avec les espaces de stockage direct, il existe un trafic réseau supplémentaire
 
 Pour les clusters étendus, le trafic du réplica de stockage supplémentaire est également transmis entre les sites. Le trafic Storage Bus Layer (SBL) et de Volume partagé de cluster (CSV) ne passe pas entre les sites, uniquement entre les nœuds serveur de chaque site.
 
-Pour découvrir les considérations et les exigences relatives à la planification du réseau hôte, consultez [Planifier le réseau hôte pour Azure Stack HCI](plan-host-networking.md).
+Pour plus d’informations sur la mise en réseau d’hôtes et les exigences associées, consultez [Exigences liées aux réseaux d’hôtes](host-network-requirements.md).
 
 ## <a name="software-defined-networking-sdn-requirements"></a>Configuration requise pour la mise en réseau SDN (Software Defined Networking)
 

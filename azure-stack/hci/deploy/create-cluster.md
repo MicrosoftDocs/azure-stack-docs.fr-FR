@@ -3,15 +3,15 @@ title: Créer un cluster Azure Stack HCI en utilisant Windows Admin Center
 description: Découvrez comment créer une batterie de serveurs pour Azure Stack HCI en utilisant Windows Admin Center
 author: v-dasis
 ms.topic: how-to
-ms.date: 10/17/2020
+ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 508bf39e9cdeb55485bc2a517c412cee7f3dcd80
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: 638ede26b1bc720c5975dc7bdf7e0b7f05d9d600
+ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064767"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96354171"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Créer un cluster Azure Stack HCI en utilisant Windows Admin Center
 
@@ -46,7 +46,7 @@ Voici les principales étapes de l’Assistant Création d’un cluster :
 
 1. **Get Started (Prise en main)**  : garantit que chaque serveur remplit les prérequis et les fonctionnalités nécessaires à la jonction de cluster.
 1. **Networking (Mise en réseau)**  : attribue et configure des cartes réseau et crée les commutateurs virtuels pour chaque serveur.
-1. **Clustering**  : valide que le cluster est configuré correctement. Pour les clusters étendus, installe également les deux sites.
+1. **Clustering** : valide que le cluster est configuré correctement. Pour les clusters étendus, installe également les deux sites.
 1. **Storage (Stockage)**  : configure les espaces de stockage direct.
 
 Une fois que l’Assistant est terminé, vous configurez le témoin de cluster, vous vous inscrivez auprès d’Azure et vous créez des volumes (ce qui permet également de configurer la réplication entre les sites si vous créez un cluster étendu).
@@ -90,9 +90,9 @@ L’étape 1 de l’Assistant vous guide tout au long de la vérification de la
     - Module RSAT-AD-PowerShell
     - Réplica de stockage (installé uniquement pour les clusters étendus)
 
-1. Pour **Installer les mises à jour** , si nécessaire, cliquez sur **Installer les mises à jour**. Lorsque vous avez terminé, cliquez sur **Suivant**.
+1. Pour **Installer les mises à jour**, si nécessaire, cliquez sur **Installer les mises à jour**. Lorsque vous avez terminé, cliquez sur **Suivant**.
 1. Pour **Solution updates (Mises à jour de solution)** , si nécessaire, cliquez sur **Installer l’extension**. Lorsque vous avez terminé, cliquez sur **Suivant**.
-1. Cliquez sur **Redémarrer les serveurs** , si nécessaire. Vérifiez que chaque serveur a bien démarré.
+1. Cliquez sur **Redémarrer les serveurs**, si nécessaire. Vérifiez que chaque serveur a bien démarré.
 
 ## <a name="step-2-networking"></a>Étape 2 : Réseau
 
@@ -104,7 +104,7 @@ L’étape 2 de l’Assistant vous guide dans la configuration de commutateurs v
 1. Sélectionnez **Suivant : Mise en réseau**.
 1. Sous **Verify the network adapters (Vérifier les cartes réseau)** , attendez que les cases à cocher vertes s’affichent en regard de chaque carte, puis sélectionnez **Suivant**.
 
-1. Pour **Sélectionner les cartes de gestion** , sélectionnez une ou deux cartes de gestion à utiliser pour chaque serveur. Il est obligatoire de sélectionner au moins l’une des cartes à des fins de gestion, car l’Assistant a besoin d’au moins une carte réseau physique dédiée pour la gestion du cluster.  Une fois que la carte est désignée pour la gestion, elle est exclue du reste du workflow de l’Assistant.
+1. Pour **Sélectionner les cartes de gestion**, sélectionnez une ou deux cartes de gestion à utiliser pour chaque serveur. Il est obligatoire de sélectionner au moins l’une des cartes à des fins de gestion, car l’Assistant a besoin d’au moins une carte réseau physique dédiée pour la gestion du cluster.  Une fois que la carte est désignée pour la gestion, elle est exclue du reste du workflow de l’Assistant.
 
     Les cartes de gestion ont deux options de configuration :
 
@@ -130,7 +130,7 @@ L’étape 2 de l’Assistant vous guide dans la configuration de commutateurs v
 
 1. Attendez que la colonne **Status (État)** indique **Passed (Réussi)** pour chaque serveur, puis cliquez sur **Suivant**. Cette étape vérifie la connectivité réseau entre toutes les cartes ayant les mêmes sous-réseau et ID de réseau local virtuel. Les adresses IP fournies sont transférées de la carte physique vers les cartes virtuelles une fois que les commutateurs virtuels ont été créés (voir l’étape suivante). La réalisation de l’opération peut prendre plusieurs minutes en fonction du nombre de cartes configurées.
 
-1. Sous **Commutateur virtuel** , sélectionnez l’une des options suivantes, le cas échéant. En fonction du nombre d’adaptateurs présents, il se peut que certaines options ne s’affichent pas :
+1. Sous **Commutateur virtuel**, sélectionnez l’une des options suivantes, le cas échéant. En fonction du nombre d’adaptateurs présents, il se peut que certaines options ne s’affichent pas :
 
     - **Ignorer la création du commutateur virtuel**
     - **Créer un commutateur virtuel unique pour le calcul et l’utilisation du stockage**
@@ -178,7 +178,7 @@ L’étape 4 de l’Assistant vous guide dans la configuration des espaces de s
 1. Sous **Clean drives (Nettoyer les lecteurs)** , cliquez sur **Clean drives (Nettoyer les lecteurs)** pour vider les lecteurs de données. Lorsque vous êtes prêt, cliquez sur **Suivant**.
 1. Sous **Validate storage (Valider le stockage)** , cliquez sur **Suivant**.
 1. Passez en revue les résultats de la validation. Si tout est bon, cliquez sur **Suivant**.
-1. Sous **Activer les espaces de stockage direct** , cliquez sur **Suivant**.
+1. Sous **Activer les espaces de stockage direct**, cliquez sur **Suivant**.
 1. Téléchargez le rapport et lisez-le. Si tout est bon, cliquez sur **Terminer**.
 
 Félicitations, vous disposez maintenant d’un cluster.
@@ -189,7 +189,10 @@ Si la résolution du cluster échoue au bout d’un certain temps, dans la plupa
 
 ## <a name="step-5-sdn-optional"></a>Étape 5 : SDN (facultatif)
 
-Cette étape facultative vous guide tout au long de la configuration du composant de contrôleur du réseau de [SDN (Software Defined Networking)](../concepts/software-defined-networking.md). Une fois le contrôleur de réseau configuré, il peut être utilisé pour configurer d’autres composants de SDN, tels que l’équilibrage de charge Azure et la passerelle RAS.
+Cette étape facultative vous guide tout au long de la configuration du composant de contrôleur du réseau de [SDN (Software Defined Networking)](../concepts/software-defined-networking.md). Une fois le contrôleur de réseau paramétré, vous pouvez configurer d’autres composants de SDN, notamment l’équilibreur de charge logiciel et la passerelle RAS en fonction de vos besoins.
+
+> [!NOTE]
+> L’Assistant ne prend pas en charge la configuration de l’équilibreur de charge logiciel ni de la passerelle RAS à l’heure actuelle. Vous pouvez utiliser des scripts SDNExpress pour configurer ces composants. Pour plus d’informations sur la façon de procéder, consultez le [référentiel GitHub SDNExpress](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts).
 
 > [!NOTE]
 > SDN n’est pas pris en charge ou n’est pas disponible pour les clusters étendus.
@@ -197,22 +200,25 @@ Cette étape facultative vous guide tout au long de la configuration du composan
 :::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Assistant Création d’un cluster : contrôleur de réseau SDN" lightbox="media/cluster/create-cluster-network-controller.png":::
 
 1. Sélectionnez **Suivant : SDN**.
-1. Sous l’ **hôte** , entrez un nom pour le contrôleur de réseau.
+1. Sous l’**hôte**, entrez un nom pour le contrôleur de réseau. Il s’agit du nom DNS utilisé par les clients de gestion (par exemple Windows Admin Center) pour communiquer avec le contrôleur de réseau.
 1. Spécifiez un chemin d’accès au fichier de disque dur virtuel Azure Stack HCI. Utilisez **Parcourir** pour le trouver plus rapidement.
-1. Spécifiez le nombre de machines virtuelles à consacrer au contrôleur de réseau. Trois à cinq machines virtuelles sont recommandées pour la haute disponibilité.
-1. Sous **Réseau** , entrez l’ID du VLAN.
-1. Pour l’ **Adressage réseau de la machine virtuelle** , sélectionnez **DHCP** ou **Statique**.
-1. Si vous avez sélectionné **DHCP** , entrez le nom et l’adresse IP des machines virtuelles du contrôleur de réseau.
-1. Si vous avez sélectionné **Statique** , procédez comme suit :
+1. Spécifiez le nombre de machines virtuelles à consacrer au contrôleur de réseau. Un minimum de trois machines virtuelles est recommandé pour la haute disponibilité.
+1. Sous **Réseau**, entrez l’ID VLAN du réseau de gestion. Le contrôleur de réseau a besoin d’une connectivité au même réseau de gestion que les hôtes pour communiquer avec eux et les configurer.
+1. Pour l’**Adressage réseau de la machine virtuelle**, sélectionnez **DHCP** ou **Statique**.
+1. Si vous avez sélectionné **DHCP**, entrez le nom des machines virtuelles du contrôleur de réseau.
+1. Si vous avez sélectionné **Statique**, procédez comme suit :
+    1. Spécifier une adresse IP
     1. Spécifier un préfixe de sous-réseau.
     1. Spécifiez le passerelle par défaut.
     1. Spécifiez un ou plusieurs serveurs DNS. Cliquez sur **Ajouter** pour ajouter des serveurs DNS supplémentaires.
-1. Sous **Informations de connexion** , entrez le nom d’utilisateur et le mot de passe utilisés pour joindre les machines virtuelles du contrôleur de réseau au domaine du cluster.
+1. Sous **Informations de connexion**, entrez le nom d’utilisateur et le mot de passe utilisés pour joindre les machines virtuelles du contrôleur de réseau au domaine du cluster.
 1. Entrez le mot de passe d’administrateur local pour ces machines virtuelles.
-1. Sous **Avancé** , entrez le chemin d’accès aux machines virtuelles.
+1. Sous **Avancé**, entrez le chemin d’accès aux machines virtuelles.
 1. Entrez des valeurs pour le **Démarrage du pool d’adresses MAC** et la **Fin du pool d’adresses MAC**.
 1. Une fois que vous avez terminé, cliquez sur **Suivant**.
 1. Attendez que l’Assistant termine son travail. Restez sur cette page jusqu’à ce que toutes les tâches de progression soient terminées. Puis, cliquez sur **Terminer**.
+
+1. Une fois les machines virtuelles du contrôleur de réseau créées, configurez les mises à jour DNS dynamiques pour le nom du cluster du contrôleur de réseau sur le serveur DNS. Pour plus d’informations sur la façon de procéder, consultez [Configuration de l’inscription DNS dynamique pour le contrôleur de réseau](https://docs.microsoft.com/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller).
 
 Si le déploiement du contrôleur de réseau échoue, procédez comme suit avant de réessayer :
 
@@ -229,7 +235,7 @@ Une fois que vous avez terminé d’exécuter l’Assistant, il y a encore des t
 La première tâche consiste à désactiver le protocole CredSSP (Credential Security Support Provider) sur chaque serveur à des fins de sécurité. Gardez à l’esprit que CredSSP devait être activé pour l’Assistant. Si vous rencontrez des problèmes avec CredSSP, consultez [Résoudre les problèmes liés à CredSSP](../manage/troubleshoot-credssp.md) pour plus d’informations.
 
 1. Dans Windows Admin Center, sous **All connections (Toutes les connexions)** , sélectionnez le cluster que vous venez de créer.
-1. Sous **Outils** , sélectionnez **Serveurs**.
+1. Sous **Outils**, sélectionnez **Serveurs**.
 1. Dans le volet droit, sélectionnez le premier serveur du cluster.
 1. Sous **Overview (Présentation)** , sélectionnez **Disable CredSSP (Désactiver CredSSP)** . La bannière rouge **CredSSP ENABLED** en haut disparaît.
 1. Répétez les étapes 3 et 4 pour chaque serveur de votre cluster.
