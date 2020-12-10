@@ -1,0 +1,848 @@
+- name: Documentation Azure Stack Hub renforcé
+  href: index.yml
+- name: Opérateur
+  items:
+    - name: Vue d’ensemble
+      items:
+        - name: "Qu’est-ce qu’Azure Stack Hub renforcé\_?"
+          href: ruggedized-overview.md
+        - name: Problèmes connus dans Azure Stack Hub renforcé
+          href: known-issues.md
+        - name: Notes de publication OEM
+          href: oem-release-notes-rca.md
+    - name: Démarrages rapides
+      items:
+        - name: Utiliser le portail d’administration
+          href: ../operator/azure-stack-manage-portals.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+    - name: Tutoriels
+      items:
+        - name: Offrir un service aux utilisateurs
+          href: ../operator/tutorial-offer-services.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Tester une offre de service
+          href: ../operator/tutorial-test-offer.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+    - name: Concepts
+      items:
+        - name: planification de la capacité
+          items:
+            - name: Vue d’ensemble
+              href: azure-stack-capacity-planning-overview.md
+            - name: Calcul
+              href: ../operator/azure-stack-capacity-planning-compute.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Stockage
+              href: ../operator/azure-stack-capacity-planning-storage.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: App Service
+              href: ../operator/azure-stack-app-service-capacity-planning.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Outil Capacity Planner
+              href: ../operator/azure-stack-capacity-planner.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Parcours client
+          href: customer-journey.md
+        - name: Modèles de connexion
+          href: ../operator/azure-stack-connection-models.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Déploiement connecté
+          href: ../operator/azure-stack-connected-deployment.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Déploiement déconnecté
+          href: ../operator/azure-stack-disconnected-deployment.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Présentation de la sécurité
+          href: ../operator/azure-stack-security-foundations.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Identité
+          items:
+            - name: Vue d’ensemble de l’identité
+              href: ../operator/azure-stack-identity-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Architecture d’identités
+              href: ../operator/azure-stack-identity-architecture.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Fournisseurs de ressources à valeur ajoutée
+          items:
+            - name: App Service
+              href: ../operator/azure-stack-app-service-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Event Hubs
+              href: ../operator/event-hubs-rp-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: IoT Hub
+              href: ../operator/iot-hub-rp-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: MySQL
+              href: ../operator/azure-stack-mysql-resource-provider.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: SQL Server
+              href: ../operator/azure-stack-sql-resource-provider.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+    - name: Déploiement
+      items:
+        - name: Vue d’ensemble
+          href: deployment-overview.md
+        - name: À propos des réseaux de déploiement
+          href: ../operator/deployment-networking.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Conditions préalables au déploiement
+          items:
+            - name: Préparation de site
+              href: site-readiness.md
+            - name: Feuille de calcul de déploiement
+              href: ../operator/azure-stack-deployment-worksheet.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Intégration du centre de données
+              items:
+                - name: Introduction
+                  href: network-introduction.md
+                - name: Déploiement réseau
+                  href: network-deployment.md
+                - name: Intégration réseau
+                  href: network-integration.md
+                - name: Cycle de vie d’une configuration réseau
+                  href: network-configuration-lifecycle-management.md
+                - name: Annexe
+                  href: network-appendix.md
+            - name: Intégration des identités
+              items:
+                - name: Choix d’un fournisseur d’identité
+                  href: ../operator/azure-stack-integrate-identity.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Créer un rôle d’inscription
+                  href: ../operator/azure-stack-registration-role.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Valider l’identité Azure
+                  href: ../operator/azure-stack-validate-identity.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Valider l’intégration d’AD FS
+                  href: ../operator/azure-stack-validate-adfs.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Valider l’intégration de graphiques
+                  href: ../operator/azure-stack-validate-graph.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Conditions requises d’une infrastructure à clé publique
+              items:
+                - name: Vue d’ensemble
+                  href: ../operator/azure-stack-pki-certs.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Générer des certificats d’infrastructure à clé publique
+                  href: ../operator/azure-stack-get-pki-certs.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Préparer des certificats d’infrastructure à clé publique
+                  href: ../operator/azure-stack-prepare-pki-certs.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Valider des certificats d’infrastructure à clé publique
+                  href: ../operator/azure-stack-validate-pki-certs.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Corriger des certificats d’infrastructure à clé publique
+                  href: ../operator/azure-stack-remediate-certs.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Approvisionnement
+          items:
+            - name: Valider l’inscription auprès d’Azure
+              href: ../operator/azure-stack-validate-registration.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Inscrire
+              href: operator/registration-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Fournisseurs de ressources à valeur ajoutée
+              items:
+                - name: App Service
+                  items:
+                    - name: Avant de commencer
+                      href: ../operator/azure-stack-app-service-before-you-get-started.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Déployer App Service
+                      href: ../operator/azure-stack-app-service-deploy.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Déployer App Service pour la haute disponibilité
+                      href: ../operator/app-service-deploy-ha.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Déployer App Service hors connexion
+                      href: ../operator/azure-stack-app-service-deploy-offline.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Event Hubs
+                  items:
+                    - name: planification de la capacité
+                      href: ../operator/event-hubs-rp-capacity-planning.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Prérequis
+                      href: ../operator/event-hubs-rp-prerequisites.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Installer
+                      href: ../operator/event-hubs-rp-install.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: IoT Hub
+                  items:
+                    - name: planification de la capacité
+                      href: ../operator/iot-hub-rp-manage.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json#capacity-management
+                    - name: Prérequis
+                      href: ../operator/iot-hub-rp-prerequisites.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Installer
+                      href: ../operator/iot-hub-rp-install.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: MySQL
+                  items:
+                    - name: Déployer le fournisseur de ressources MySQL Server
+                      href: ../operator/azure-stack-mysql-resource-provider-deploy.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Ajouter des serveurs d’hébergement MySQL
+                      href: ../operator/azure-stack-mysql-resource-provider-hosting-servers.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Créer des bases de données MySQL
+                      href: ../operator/azure-stack-mysql-resource-provider-databases.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Déployer des bases de données MySQL à haute disponibilité
+                      href: ../operator/azure-stack-tutorial-mysql.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: SQL Server
+                  items:
+                    - name: "Déployer le fournisseur de ressources SQL\_Server"
+                      href: ../operator/azure-stack-sql-resource-provider-deploy.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Ajouter des serveurs d’hébergement SQL
+                      href: ../operator/azure-stack-sql-resource-provider-hosting-servers.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Créer des bases de données SQL
+                      href: ../operator/azure-stack-sql-resource-provider-databases.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Déployer des bases de données SQL à haute disponibilité
+                      href: ../operator/azure-stack-tutorial-sql.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Référence sur les applets de commande Start-AzsReadiness
+              href: ../operator/azure-stack-azsreadiness-cmdlet.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Afficher l’état de préparation
+              href: ../operator/azure-stack-validation-report.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Intégration du centre de données
+          items:
+            - name: Configurer le redirecteur DNS
+              href: ../operator/azure-stack-configure-dns.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Configurer le serveur de temps
+              href: ../operator/azure-stack-configure-time.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Surveillance externe
+              href: ../operator/azure-stack-integrate-monitor.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Audit externe
+              items:
+                - name: Transfert de Syslog
+                  href: ../operator/azure-stack-integrate-security.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Audit d’appareils
+                  href: ../operator/azure-stack-integrate-physical-device-auditing.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Configurer une identité
+              items:
+                - name: Gérer RBAC
+                  href: ../operator/azure-stack-manage-permissions.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Ajouter des utilisateurs pour Azure AD
+                  href: ../operator/azure-stack-add-new-user-aad.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Utiliser une identité d’application pour accéder aux ressources
+                  href: ../operator/azure-stack-create-service-principals.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Activer l’architecture mutualisée
+                  href: ../operator/azure-stack-enable-multitenancy.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+    - name: Guides pratiques
+      items:
+        - name: Gérer
+          items:
+            - name: Informations de base sur l’administration
+              href: ../operator/azure-stack-manage-basics.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Configurer la collecte de données de télémétrie
+              href: ../operator/azure-stack-telemetry.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: S’inscrire
+              href: operator/registration-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Gestion des régions
+              href: ../operator/azure-stack-region-management.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Activer l’interface de ligne de commande pour les utilisateurs
+              href: ../operator/azure-stack-cli-admin.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Configurer l’environnement de gestion
+              items:
+                - name: Installer Azure Stack PowerShell
+                  href: ../operator/azure-stack-powershell-install.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Se connecter avec PowerShell
+                  href: ../operator/azure-stack-powershell-configure-admin.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Point de terminaison d’accès privilégié
+              href: ../operator/azure-stack-privileged-endpoint.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Gérer les mises à jour
+              items:
+                - name: Gérer la vue d’ensemble des mises à jour
+                  href: ../operator/azure-stack-updates.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Mises à jour et stratégie de maintenance
+                  href: ../operator/azure-stack-servicing-policy.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Check-list pour appliquer les mises à jour
+                  href: ../operator/release-notes-checklist.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Préparer le package de mise à jour
+                  href: ../operator/azure-stack-update-prepare-package.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Appliquer des mises à jour
+                  items:
+                    - name: Appliquer des mises à jour
+                      href: ../operator/azure-stack-apply-updates.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Appliquer les mises à jour OEM
+                      href: ../operator/azure-stack-update-oem.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Mettre à jour App Service
+                  href: ../operator/azure-stack-app-service-update.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Mettre à jour App Service hors connexion
+                  href: ../operator/azure-stack-app-service-update-offline.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Mettre à jour Event Hubs
+                  href: ../operator/resource-provider-apply-updates.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Mettre à jour MySQL Server
+                  href: ../operator/azure-stack-mysql-resource-provider-update.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: ' Mettre à jour SQL Server'
+                  href: ../operator/azure-stack-sql-resource-provider-update.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Surveiller le statut de mise à jour
+                  href: ../operator/azure-stack-update-monitor.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Surveiller l’intégrité et les alertes
+              href: operator/azure-stack-monitor-health-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Gérer des ressources réseau
+              href: ../operator/azure-stack-viewing-public-ip-address-consumption.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Changer d’utilisateur propriétaire de l’abonnement
+              href: ../operator/azure-stack-change-subscription-owner.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Démarrer et arrêter
+              href: ../operator/azure-stack-start-and-stop.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Gérer la capacité
+              items:
+                - name: Gérer les ressources de stockage
+                  href: ../operator/azure-stack-manage-storage-accounts.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Gérer la capacité de stockage
+                  href: ../operator/azure-stack-manage-storage-shares.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Gérer l’infrastructure de stockage
+                  href: ../operator/azure-stack-storage-infrastructure-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Gérer la capacité de mémoire physique
+                  href: ../operator/azure-stack-manage-storage-physical-memory-capacity.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Ajouter des nœuds d’unités d’échelle
+                  href: ../operator/azure-stack-add-scale-node.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Ajouter des adresses IP publiques
+                  href: ../operator/azure-stack-add-ips.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Remplacer le matériel
+              items:
+                - name: Actions de nœud
+                  href: ../operator/azure-stack-node-actions.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Security & Compliance
+          items:
+            - name: Configurer la sécurité
+              href: ../operator/azure-stack-security-configuration.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Chiffrement des données au repos
+              href: ../operator/azure-stack-security-bitlocker.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Faire pivoter les clés secrètes
+              href: ../operator/azure-stack-rotate-secrets.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Mettre à jour les informations d’identification iDRAC
+              href: operator/integrated-dell-remote-access-controller-credentials.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Mettre à jour les informations d’identification de commutateur
+              href: switch-credentials.md
+            - name: Mettre à jour l’antivirus
+              href: ../operator/azure-stack-security-av.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Collecte des journaux et gestion des données
+              href: ../operator/azure-stack-data-collection.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Renseigner le Marketplace
+          items:
+            - name: Présentation de la Place de marché
+              href: ../operator/azure-stack-marketplace.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Éléments de la Place de marché Azure
+              href: ../operator/azure-stack-marketplace-azure-items.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Télécharger des éléments du Marketplace
+              href: operator/azure-stack-download-azure-marketplace-item-tca.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Ajouter une image de machine virtuelle personnalisée
+              href: ../operator/azure-stack-add-vm-image.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Créer et publier un élément du Marketplace
+              href: ../operator/azure-stack-create-and-publish-marketplace-item.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Systèmes d’exploitation invités pris en charge
+              href: ../operator/azure-stack-supported-os.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Offrir un groupe de machines virtuelles identiques
+              href: ../operator/azure-stack-compute-add-scalesets.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: "FAQ sur Windows\_Server dans la Place de marché"
+              href: operator/azure-stack-windows-server-faq-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: "Offrir des machines virtuelles\_Linux"
+              href: ../operator/azure-stack-linux.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: "Ajouter une machine virtuelle Red\_Hat"
+              href: ../operator/azure-stack-redhat-create-upload-vhd.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Proposer le moteur AKS
+              href: ../operator/azure-stack-aks-engine.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Proposer des éléments Kubernetes de la place de marché
+              href: ../operator/azure-stack-solution-template-kubernetes-cluster-add.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Offrir un registre de conteneurs
+              items:
+                - name: Ajouter un registre de conteneurs
+                  href: operator/container-registry-template-install-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Mettre à jour le registre de conteneurs
+                  href: operator/container-registry-template-update-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Permuter les secrets du registre de conteneurs
+                  href: operator/container-registry-template-rotate-secrets-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Proposer un élément de la place de marché CommVault
+              href: operator/azure-stack-commvault-offer-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Proposer des services
+          items:
+            - name: 'Vue d’ensemble des services, des plans, des offres et des abonnements'
+              href: ../operator/service-plan-offer-subscription-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Créer un plan
+              href: ../operator/azure-stack-create-plan.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Créer une offre
+              href: ../operator/azure-stack-create-offer.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Créer un plan d’extension
+              href: ../operator/create-add-on-plan.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: S’abonner à une offre
+              href: ../operator/azure-stack-subscribe-plan-provision-vm.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Supprimer des offres
+              href: ../operator/azure-stack-delete-offer.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Déléguer des offres
+              href: ../operator/azure-stack-delegated-provider.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Types de quota
+              href: ../operator/azure-stack-quota-types.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Proposer des solutions réseau
+          href: ../operator/azure-stack-network-solutions-enable.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Gérer les fournisseurs de ressources à valeur ajoutée
+          items:
+            - name: App Service
+              items:
+                - name: Vue d’ensemble
+                  href: ../operator/azure-stack-app-service-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Planification de la capacité App Service
+                  href: ../operator/azure-stack-app-service-capacity-planning.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Avant de commencer
+                  href: ../operator/azure-stack-app-service-before-you-get-started.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Déployer App Service
+                  href: ../operator/azure-stack-app-service-deploy.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Déployer App Service pour la haute disponibilité
+                  href: ../operator/app-service-deploy-ha.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Déployer App Service hors connexion
+                  href: ../operator/azure-stack-app-service-deploy-offline.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Mettre à jour App Service
+                  href: ../operator/azure-stack-app-service-update.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Mettre à jour App Service hors connexion
+                  href: ../operator/azure-stack-app-service-update-offline.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Ajouter des rôles d’infrastructure App Service
+                  href: ../operator/azure-stack-app-service-add-worker-roles.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Configurer des sources de déploiement
+                  href: ../operator/azure-stack-app-service-configure-deployment-sources.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Effectuer une rotation des secrets et des certificats App Service
+                  href: ../operator/app-service-rotate-certificates.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: "Sauvegarder App\_Service"
+                  href: ../operator/app-service-back-up.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: "Récupérer App\_Service"
+                  href: ../operator/app-service-recover.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Questions fréquentes (FAQ) sur la facturation App Service
+                  href: ../operator/app-service-billing-faq.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: "Notes de publication de la mise à jour\_8 d’App Service"
+                  href: ../operator/azure-stack-app-service-release-notes-update-eight.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Event Hubs
+              items:
+                - name: Vue d’ensemble
+                  href: ../operator/event-hubs-rp-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: planification de la capacité
+                  href: ../operator/event-hubs-rp-capacity-planning.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Prérequis
+                  href: ../operator/event-hubs-rp-prerequisites.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Installer
+                  href: ../operator/event-hubs-rp-install.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Gestion du cycle de vie
+                  items:
+                    - name: Appliquer des mises à jour
+                      href: ../operator/resource-provider-apply-updates.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Sauvegarde et restauration
+                      href: operator/azure-stack-backup-infrastructure-backup-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Collecter les journaux d’activité
+                      href: ../operator/azure-stack-diagnostic-log-collection-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Intégrité et alertes
+                      href: operator/azure-stack-monitor-health-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Gérer
+                      href: ../operator/event-hubs-rp-manage.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Faire pivoter les clés secrètes
+                      href: ../operator/azure-stack-rotate-secrets.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Annonces de mise à jour du service
+                      href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
+                - name: Supprimer
+                  href: ../operator/event-hubs-rp-remove.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: IoT Hub sur Azure Stack Hub
+              items:
+                - name: Vue d’ensemble
+                  href: ../operator/iot-hub-rp-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Prérequis
+                  href: ../operator/iot-hub-rp-prerequisites.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Installer
+                  href: ../operator/iot-hub-rp-install.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Gestion du cycle de vie
+                  items:
+                    - name: Appliquer des mises à jour
+                      href: ../operator/resource-provider-apply-updates.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Sauvegarde et restauration
+                      href: ../operator/azure-stack-backup-infrastructure-backup.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Collecter les journaux d’activité
+                      href: ../operator/azure-stack-diagnostic-log-collection-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Intégrité et alertes
+                      href: ../operator/azure-stack-monitor-health.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Gérer
+                      href: ../operator/iot-hub-rp-manage.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Faire pivoter les clés secrètes
+                      href: ../operator/iot-hub-rp-rotate-secrets.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Annonces de mise à jour du service
+                      href: 'https://azure.microsoft.com/updates/?query=IoT%20Hub'
+                - name: Supprimer
+                  href: ../operator/iot-hub-rp-remove.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: MySQL
+              items:
+                - name: Vue d’ensemble
+                  href: ../operator/azure-stack-mysql-resource-provider.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Déployer le fournisseur de ressources MySQL Server
+                  href: ../operator/azure-stack-mysql-resource-provider-deploy.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Ajouter des serveurs d’hébergement MySQL
+                  href: ../operator/azure-stack-mysql-resource-provider-hosting-servers.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Créer des bases de données MySQL
+                  href: ../operator/azure-stack-mysql-resource-provider-databases.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Déployer des bases de données MySQL à haute disponibilité
+                  href: ../operator/azure-stack-tutorial-mysql.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Mettre à jour le fournisseur de ressources MySQL Server
+                  href: ../operator/azure-stack-mysql-resource-provider-update.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Maintenance du fournisseur de ressources MySQL Server
+                  href: ../operator/azure-stack-mysql-resource-provider-maintain.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Supprimer le fournisseur de ressources MySQL Server
+                  href: ../operator/azure-stack-mysql-resource-provider-remove.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: "Notes de publication de la version\_1.1.47.0 du fournisseur de ressources MySQL"
+                  href: ../operator/azure-stack-mysql-resource-provider-11470.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: SQL
+              items:
+                - name: Vue d’ensemble
+                  href: ../operator/azure-stack-sql-resource-provider.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: "Déployer le fournisseur de ressources SQL\_Server"
+                  href: ../operator/azure-stack-sql-resource-provider-deploy.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Ajouter des serveurs d’hébergement SQL
+                  href: ../operator/azure-stack-sql-resource-provider-hosting-servers.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Créer des bases de données SQL
+                  href: ../operator/azure-stack-sql-resource-provider-databases.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Déployer des bases de données SQL à haute disponibilité
+                  href: ../operator/azure-stack-tutorial-sql.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Mettre à jour le fournisseur de ressources SQL Server
+                  href: ../operator/azure-stack-sql-resource-provider-update.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Tenir à jour le fournisseur de ressources SQL Server
+                  href: ../operator/azure-stack-sql-resource-provider-maintain.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Supprimer le fournisseur de ressources SQL Server
+                  href: ../operator/azure-stack-sql-resource-provider-remove.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: "Notes de publication de la version\_1.1.47.0 du fournisseur de ressources SQL"
+                  href: ../operator/azure-stack-sql-resource-provider-11470.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Utilisation et facturation
+          items:
+            - name: Vue d’ensemble
+              href: operator/billing-model-overview-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Référence relative à l’utilisation et la facturation
+              items:
+                - name: Analyser les références d’utilisation et de facturation d’API
+                  href: operator/analyze-usage-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Compteurs locaux
+                  href: operator/billing-local-meters-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Sauvegarder
+          items:
+            - name: Vue d’ensemble
+              href: operator/azure-stack-backup-infrastructure-backup-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Configurer la sauvegarde en utilisant le portail
+              href: operator/azure-stack-backup-enable-backup-console-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Configurer la sauvegarde en utilisant PowerShell
+              href: operator/azure-stack-backup-enable-backup-powershell-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Sauvegarder
+              href: operator/azure-stack-backup-back-up-azure-stack-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Meilleures pratiques en matière de sauvegarde
+              href: operator/azure-stack-backup-best-practices-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Obtenir de l’aide
+          items:
+            - name: Portail Aide et support
+              items:
+                - name: Vue d’ensemble
+                  href: ../operator/azure-stack-help-and-support-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Collecte des journaux de diagnostic
+                  items:
+                    - name: Vue d’ensemble
+                      href: ../operator/azure-stack-diagnostic-log-collection-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Collecte proactive
+                      href: ../operator/azure-stack-configure-automatic-diagnostic-log-collection.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Collecte à la demande
+                      href: ../operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Obtenir l’état d’Azure Stack Hub
+              href: ../operator/azure-stack-diagnostic-test.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Dépannage
+              href: ../operator/azure-stack-troubleshooting.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Informations de référence sur les liens du support
+              href: operator/aks-refer-table-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+    - name: Informations de référence
+      items:
+        - name: Opérateur Azure Stack Hub
+          href: ../operator/index.yml
+        - name: Utilisateur Azure Stack Hub
+          href: ../user/index.yml
+        - name: Azure Stack PowerShell
+          href: /powershell/azure/azure-stack/overview
+    - name: Ressources
+      items:
+        - name: Formation et certification
+          href: ../operator/azure-stack-train-and-cert.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Commentaires sur la documentation Azure Stack
+          href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/azure-stack'
+- name: Utilisateur
+  items:
+    - name: Vue d’ensemble
+      items:
+        - name: Considérations relatives aux clés
+          href: ../user/azure-stack-considerations.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+    - name: Démarrages rapides
+      items:
+        - name: Créer une machine virtuelle Windows - Portail
+          href: ../user/azure-stack-quick-windows-portal.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Créer une machine virtuelle Windows - PowerShell
+          href: ../user/azure-stack-quick-create-vm-windows-powershell.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Créer une machine virtuelle Windows - CLI
+          href: ../user/azure-stack-quick-create-vm-windows-cli.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Créer une machine virtuelle Linux - Portail
+          href: ../user/azure-stack-quick-linux-portal.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Créer une machine virtuelle Linux - PowerShell
+          href: ../user/azure-stack-quick-create-vm-linux-powershell.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Créer une machine virtuelle Linux - CLI
+          href: ../user/azure-stack-quick-create-vm-linux-cli.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Créer un cluster Event Hubs - Portail
+          href: ../user/event-hubs-quickstart-cluster-portal.md?toc=/azure-stack/tdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+    - name: Tutoriels
+      items:
+        - name: S’abonner à une offre
+          href: ../user/azure-stack-subscribe-services.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Créer une machine virtuelle à partir d’un modèle
+          href: ../user/azure-stack-create-vm-template.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+    - name: Guides pratiques
+      items:
+        - name: Bien démarrer avec la création de solutions pour le cloud hybride
+          items:
+            - name: Activer un fournisseur de solutions Cloud
+              href: ../user/azure-stack-csp-enable-billing-usage-tracking.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Utiliser le portail
+              href: ../user/azure-stack-use-portal.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Configurer votre client
+              items:
+                - name: Configurer un environnement de développement
+                  href: ../user/azure-stack-dev-start.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Obtenir des informations d’autorisation
+                  href: ../user/authenticate-azure-stack-hub.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Utiliser PowerShell
+                  items:
+                    - name: Vue d’ensemble d’Azure Stack PowerShell
+                      href: ../user/azure-stack-powershell-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Installer Azure Stack PowerShell
+                      href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      maintainContext: true
+                    - name: Se connecter avec PowerShell
+                      href: ../user/azure-stack-powershell-configure-user.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Utiliser Docker pour exécuter PowerShell
+                      href: ../user/azure-stack-powershell-user-docker.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Utiliser le module de stratégie Azure Stack
+                      href: ../user/azure-stack-policy-module.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: "Utiliser l’interface de ligne de commande Microsoft\_Azure"
+                  href: user/azure-stack-version-profiles-azure-cli-2-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Utiliser Visual Studio Code
+                  href: ../user/azure-stack-dev-start-vscode-azure.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Utiliser Visual Studio
+                  href: ../user/azure-stack-install-visual-studio.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Utiliser Secure Shell
+                  href: ../user/azure-stack-dev-start-howto-ssh-public-key.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Utiliser un client REST avec l’API
+                  href: ../user/azure-stack-rest-api-use.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Utiliser les modèles Resource Manager Azure Stack
+              items:
+                - name: Présentation des modèles
+                  href: ../user/azure-stack-arm-templates.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Considérations relatives aux modèles
+                  href: ../user/azure-stack-develop-templates.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Développer des modèles dans Azure
+                  href: ../user/azure-stack-developer.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Vérifier des modèles
+                  href: ../user/azure-stack-validate-templates.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Déployer des modèles
+                  items:
+                    - name: Déployer avec le portail
+                      href: ../user/azure-stack-deploy-template-portal.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Déployer avec PowerShell
+                      href: ../user/azure-stack-deploy-template-powershell.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Déploiement avec la CLI
+                      href: ../user/azure-stack-deploy-template-command-line.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Déployer avec Visual Studio Code
+                      href: ../user/azure-stack-resource-manager-deploy-template-vscode.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Déployer avec Visual Studio
+                      href: ../user/azure-stack-deploy-template-visual-studio.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Utiliser les profils de version d’API
+              items:
+                - name: Vue d’ensemble
+                  href: ../user/azure-stack-version-profiles.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: .NET
+                  href: ../user/azure-stack-version-profiles-net.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Java
+                  href: ../user/azure-stack-version-profiles-java.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Go
+                  href: ../user/azure-stack-version-profiles-go.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Ruby
+                  href: ../user/azure-stack-version-profiles-ruby.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Python
+                  href: ../user/azure-stack-version-profiles-python.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: NodeJS
+                  href: ../user/azure-stack-version-profile-nodejs.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: API du fournisseur de ressources prises en charge par les profils
+                  href: ../user/azure-stack-profiles-azure-resource-manager-versions.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Utiliser des fournisseurs de ressources
+          items:
+            - name: 'Sécurité, conformité et identité'
+              items:
+                - name: Utiliser le contrôle d’accès en fonction du rôle
+                  href: ../user/azure-stack-manage-permissions.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Utiliser une identité d’application pour accéder aux ressources
+                  href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Utiliser les services
+              items:
+                - name: Calcul
+                  items:
+                    - name: Vue d’ensemble
+                      href: ../user/azure-stack-compute-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Considérations relatives à la machine virtuelle
+                      href: azure-stack-vm-considerations.md
+                    - name: Tailles de machine virtuelle
+                      href: azure-stack-vm-sizes.md
+                    - name: Gérer les disques de machine virtuelle
+                      href: ../user/azure-stack-manage-vm-disks.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Considérations relatives aux disques managés
+                      href: ../user/azure-stack-managed-disk-considerations.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Protéger les machines virtuelles
+                      href: user/azure-stack-manage-vm-protect-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Gestion et mise à jour de la machine virtuelle
+                      href: ../user/vm-update-management.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Considérations relatives aux machines virtuelles SQL Server
+                      href: ../user/azure-stack-sql-server-vm-considerations.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Stockage
+                  items:
+                    - name: Vue d’ensemble
+                      href: ../user/azure-stack-storage-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Considérations relatives au stockage
+                      href: ../user/azure-stack-acs-differences.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Outils de développement du stockage
+                      href: ../user/azure-stack-storage-dev.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Outils de transfert de données
+                      href: ../user/azure-stack-storage-transfer.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Connecter l’Explorateur de stockage
+                      href: ../user/azure-stack-storage-connect-se.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Réseau
+                  items:
+                    - name: Vue d’ensemble
+                      href: ../user/azure-stack-network-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Mise en réseau - Éléments à prendre en compte
+                      href: ../user/azure-stack-network-differences.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Passerelles VPN
+                      items:
+                        - name: Connexion à l’aide de VPN
+                          href: ../user/azure-stack-connect-vpn.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: À propos de la passerelle VPN
+                          href: ../user/azure-stack-vpn-gateway-about-vpn-gateways.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: "Configurer des stratégies de connexion\_IPSec/IKE"
+                          href: ../user/azure-stack-vpn-s2s.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Connexion à Azure à l’aide d’ExpressRoute
+                      href: ../operator/azure-stack-connect-expressroute.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Paramètres de la passerelle VPN
+                      href: ../user/azure-stack-vpn-gateway-settings.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: iDNS
+                      href: ../user/azure-stack-understanding-dns.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: DNS
+                      href: ../user/azure-stack-dns.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Key Vault
+                  items:
+                    - name: Vue d’ensemble
+                      href: ../user/azure-stack-key-vault-intro.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Gérer avec le portail
+                      href: ../user/azure-stack-key-vault-manage-portal.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Gérer avec PowerShell
+                      href: ../user/azure-stack-key-vault-manage-powershell.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Créer une machine virtuelle avec un secret
+                      href: ../user/azure-stack-key-vault-deploy-vm-with-secret.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Créer une machine virtuelle avec un certificat
+                      href: ../user/azure-stack-key-vault-push-secret-into-vm.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Stocker les informations d’identification dans le coffre de clés
+                      href: ../user/azure-stack-key-vault-store-credentials.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Exemple d’application Key Vault
+                      href: ../user/azure-stack-key-vault-sample-app.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Azure Monitor
+                  href: ../user/azure-stack-metrics-azure-data.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  items:
+                    - name: Mesures prises en charge
+                      href: ../user/azure-stack-metrics-supported.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Consommer des données de surveillance Azure
+                      href: ../user/azure-stack-metrics-monitor.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Déployer des services add-on
+              items:
+                - name: Déployer Ethereum
+                  href: ../user/azure-stack-ethereum.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: "Déployer un cluster Service\_Fabric"
+                  href: ../user/azure-stack-solution-template-service-fabric-cluster.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: "Déployer un cluster\_Kubernetes"
+                  items:
+                    - name: Moteur AKS
+                      items:
+                        - name: Vue d’ensemble
+                          href: ../user/azure-stack-kubernetes-aks-engine-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: Politique de support
+                          href: ../user/azure-stack-kubernetes-aks-engine-support.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: Configurer les prérequis
+                          href: ../user/azure-stack-kubernetes-aks-engine-set-up.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: Créer un client Linux
+                          href: ../user/azure-stack-kubernetes-aks-engine-deploy-linux.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: Créer un client Windows
+                          href: user/azure-stack-kubernetes-aks-engine-deploy-windows-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: Déployer un cluster
+                          href: ../user/azure-stack-kubernetes-aks-engine-deploy-cluster.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: Mettre à l’échelle un cluster
+                          href: ../user/azure-stack-kubernetes-aks-engine-scale.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: Mettre à niveau un cluster
+                          href: ../user/azure-stack-kubernetes-aks-engine-upgrade.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: Résoudre les problèmes du moteur AKS
+                          href: ../user/azure-stack-kubernetes-aks-engine-troubleshoot.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: Utiliser Azure Monitor pour conteneurs
+                          href: ../user/kubernetes-aks-engine-azure-monitor.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Article de la Place de marché
+                      items:
+                        - name: "Déployer un cluster\_Kubernetes"
+                          href: ../user/azure-stack-solution-template-kubernetes-deploy.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: Déployer Kubernetes avec Azure AD
+                          href: ../user/azure-stack-solution-template-kubernetes-azuread.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: Déployer Kubernetes avec AD FS
+                          href: ../user/azure-stack-solution-template-kubernetes-adfs.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: Activer le tableau de bord Kubernetes
+                          href: ../user/azure-stack-solution-template-kubernetes-dashboard.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: Déplacer le moteur AKS à partir d’un élément de la Place de marché
+                          href: ../user/azure-stack-kubernetes-aks-engine-dvm.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: Résoudre les problèmes du cluster Kubernetes
+                          href: ../user/azure-stack-solution-template-kubernetes-trouble.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Déployer Cognitive Services
+                  href: ../user/azure-stack-solution-template-cognitive-services.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Déployer des applications
+          items:
+            - name: Déployer une application web C# sur une machine virtuelle Windows
+              href: ../user/azure-stack-dev-start-howto-vm-dotnet.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Déployer une application web sur une machine virtuelle Linux
+              items:
+                - name: Déployer une machine virtuelle Linux pour une application web
+                  href: ../user/azure-stack-dev-start-howto-deploy-linux.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Déployer une application web Java
+                  href: ../user/azure-stack-dev-start-howto-vm-java.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Déployer une application web Go
+                  href: ../user/azure-stack-dev-start-howto-vm-go.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Déployer une application web Ruby
+                  href: ../user/azure-stack-dev-start-howto-vm-ruby.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Déployer une application web Python
+                  href: ../user/azure-stack-dev-start-howto-vm-python.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Déployer une application web NodeJS
+                  href: ../user/azure-stack-dev-start-howto-vm-nodejs.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Déployer des modèles fondamentaux
+          items:
+            - name: Peering de réseaux virtuels
+              items:
+                - name: Peering de réseaux virtuels avec FortiGate
+                  href: ../user/azure-stack-network-howto-vnet-to-vnet.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Peering de réseaux virtuels avec des machines virtuelles
+                  href: ../user/azure-stack-network-howto-vnet-peering.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Configurer un VPN à local
+              href: ../user/azure-stack-network-howto-vnet-to-onprem.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Connexion de réseau virtuel à réseau virtuel
+              href: ../user/azure-stack-network-howto-vnet-to-vnet-stacks.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Étendre le centre de données
+              href: ../user/azure-stack-network-howto-extend-datacenter.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Équilibreur de charge F5
+              href: ../user/network-howto-f5.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Se connecter au stockage iSCSI
+              href: ../user/azure-stack-network-howto-iscsi-storage.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Configurer les tunnels
+              items:
+                - name: Configurer un VPN site à site multiple
+                  href: ../user/network-howto-vpn-tunnel.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Créer un tunnel VPN (GRE)
+                  href: ../user/network-howto-vpn-tunnel-gre.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Créer un tunnel VPN (IPSEC)
+                  href: ../user/network-howto-vpn-tunnel-ipsec.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Sauvegarde et récupération
+              items:
+                - name: Sauvegarder votre machine virtuelle sur Azure Stack Hub renforcé avec CommVault
+                  href: ../user/azure-stack-network-howto-backup-commvault.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Sauvegarder vos comptes de stockage sur Azure Stack Hub renforcé
+                  href: ../user/azure-stack-network-howto-backup-storage.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Copier les ressources d’abonnement
+                  href: ../user/azure-stack-network-howto-backup-replicator.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+    - name: Concepts
+      items:
+        - name: Architectures IaaS
+          items:
+            - name: Machine virtuelle Linux
+              href: ../user/iaas-architecture-vm-linux.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Machine virtuelle Windows
+              href: ../user/iaas-architecture-vm-windows.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Application multiniveau avec SQL
+              href: ../user/iaas-architecture-windows-sql-n-tier.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Application multiniveau dans plusieurs régions
+              href: ../user/iaas-architecture-sql-n-tier-multi-region.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Appliances virtuelles réseau
+              href: ../user/iaas-architecture-nva-architecture.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+    - name: Informations de référence
+      items:
+        - name: Azure Stack PowerShell
+          href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
+        - name: Informations de référence sur les liens aka.ms des alertes
+          href: operator/aks-refer-table-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Navigateur d’API REST
+          href: /rest/api/
+        - name: Azure CLI
+          href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
+    - name: Ressources
+      items:
+        - name: Commentaires sur la documentation Azure Stack
+          href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/azure-stack'
+        - name: Formation et certification
+          href: ../operator/azure-stack-train-and-cert.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json

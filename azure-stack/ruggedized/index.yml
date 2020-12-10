@@ -1,0 +1,98 @@
+### YamlMime:Landing
+title: Documentation pour les utilisateurs et opérateurs d’Azure Stack Hub renforcé
+summary: Découvrez comment faire fonctionner et utiliser Azure Stack Hub renforcé, plateforme cloud hybride qui vous permet de fournir des services Azure à partir d’une appliance cloud renforcée polyvalente.
+metadata:
+  title: Documentation Azure Stack Hub renforcé - Tutoriels, informations de référence sur les API
+  description: Microsoft Azure Stack Hub renforcé est une plateforme cloud hybride qui vous permet de fournir des services Azure à partir de votre centre de données. Découvrez comment gérer l’infrastructure des systèmes intégrés Azure Stack Hub renforcé et comment offrir des services avec nos guides de démarrage rapide et nos tutoriels.
+  ms.service: azure-stack
+  ms.topic: landing-page
+  author: justinha
+  ms.author: justinha
+  ms.date: 10/14/2020
+  ms.openlocfilehash: 7e131f116ef28620cda1804782d38c14d5700bad
+  ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 12/09/2020
+  ms.locfileid: "96941490"
+landingContent:
+- title: À propos d’Azure Stack Hub renforcé
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Azure Stack Hub renforcé ?
+      url: ruggedized-overview.md
+    - text: Spécifications de modèle
+      url: azure-stack-capacity-planning-overview.md
+  - linkListType: whats-new
+    links:
+    - text: Mises à jour de sécurité
+      url: ../operator/release-notes-security-updates.md
+    - text: Notes de publication
+      url: ../operator/release-notes.md
+- title: Bien démarrer avec Azure Stack Hub renforcé
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Utiliser le portail des administrateurs
+      url: ../operator/azure-stack-manage-portals.md
+    - text: Offrir un service aux utilisateurs
+      url: ../operator/tutorial-offer-services.md
+    - text: Tester une offre de service
+      url: ../operator/tutorial-test-offer.md
+  - linkListType: concept
+    links:
+    - text: Comparer les modèles de connexion
+      url: ../operator/azure-stack-connection-models.md
+    - text: Déploiement connecté
+      url: ../operator/azure-stack-connected-deployment.md
+    - text: Déploiement déconnecté
+      url: ../operator/azure-stack-disconnected-deployment.md
+- title: Outils Azure Stack Hub
+  linkLists:
+  - linkListType: download
+    links:
+    - text: Télécharger les outils Azure Stack Hub à partir de GitHub
+      url: ../operator/azure-stack-powershell-download.md
+    - text: Installer Azure Stack PowerShell
+      url: ../operator/powershell-install-az-module.md
+    - text: Utiliser Docker pour exécuter PowerShell
+      url: ../user/azure-stack-powershell-user-docker.md
+    - text: Se connecter avec Azure Stack PowerShell
+      url: ../operator/azure-stack-powershell-configure-admin.md
+- title: Offrir des services Azure Stack Hub
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Créer une offre pour une machine virtuelle
+      url: ../operator/tutorial-offer-services.md
+    - text: Créer une base de données MySQL à haute disponibilité
+      url: ../operator/azure-stack-tutorial-mysql.md
+    - text: Créer des applications pour toutes les plateformes
+      url: ../operator/azure-stack-app-service-overview.md
+- title: Gérer Azure Stack Hub renforcé
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Surveiller l’intégrité et les alertes
+      url: operator/azure-stack-monitor-health-tzl.md
+    - text: Installer des mises à jour et surveiller la progression
+      url: ../operator/azure-stack-apply-updates.md
+    - text: Bonnes pratiques pour la sauvegarde et la restauration
+      url: operator/azure-stack-backup-best-practices-tzl.md
+- title: Infrastructure en tant que service (IaaS) sur Azure Stack Hub
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Démarrage rapide - Créer une machine virtuelle
+      url: ../user/azure-stack-quick-linux-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: Migrer des machines virtuelles
+      url: ../user/vm-move-overview.md
+    - text: Déployer une machine virtuelle dans IaaS avec un modèle
+      url: ../user/azure-stack-create-vm-template.md
+    - text: Configurer un réseau virtuel
+      url: ../user/deploy-foundational-patterns.md
+    - text: Héberger des applications écrites dans votre code
+      url: ../user/azure-stack-dev-start-deploy-app.md
