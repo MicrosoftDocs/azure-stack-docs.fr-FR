@@ -193,7 +193,7 @@
             - name: Configurer l’environnement de gestion
               items:
                 - name: Installer Azure Stack PowerShell
-                  href: ../operator/azure-stack-powershell-install.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/powershell-install-az-module.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Se connecter avec PowerShell
                   href: ../operator/azure-stack-powershell-configure-admin.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Point de terminaison d’accès privilégié
@@ -519,7 +519,7 @@
                     - name: Vue d’ensemble d’Azure Stack PowerShell
                       href: ../user/azure-stack-powershell-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Installer Azure Stack PowerShell
-                      href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: /azure-stack/operator/powershell-install-az-module?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                       maintainContext: true
                     - name: Se connecter avec PowerShell
                       href: ../user/azure-stack-powershell-configure-user.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
