@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/23/2020
-ms.openlocfilehash: d5e544f339d029eab693d48327abc8596d2f61fa
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.date: 12/7/2020
+ms.openlocfilehash: c6fe98d9f597f40d0a5cefde151eb36736b81d7a
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517070"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761692"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Vue d’ensemble de la solution Azure Stack HCI
 
@@ -94,7 +94,7 @@ Azure Stack HCI est une pile de virtualisation intégrée haut de gamme reposant
 
 Pour commencer, voici ce dont vous avez besoin :
 
-- Un cluster de deux serveurs ou plus référencés dans le [Catalogue Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/catalog/), acheté auprès du partenaire fournisseur de matériel Microsoft de votre choix
+- Un cluster de deux serveurs ou plus référencés dans le [Catalogue Azure Stack HCI](https://aka.ms/azurestackhcicatalog), acheté auprès du partenaire fournisseur de matériel Microsoft de votre choix
 - Un [abonnement Azure](https://azure.microsoft.com/)
 - Une connexion Internet pour chaque serveur du cluster qui peut se connecter via le trafic HTTPS sortant au point de terminaison suivant au moins tous les 30 jours : *-azurestackhci-usage.azurewebsites.net
 - Pour les clusters étendus sur plusieurs sites, vous devez disposer d’au moins une connexion de 1 Go entre les sites (une connexion RDMA de 25 Go est recommandée), avec une latence moyenne de 5 ms aller-retour si vous souhaitez effectuer une réplication synchrone dans laquelle les écritures se produisent simultanément sur les deux sites.
@@ -106,7 +106,7 @@ Pour plus d’informations, consultez [Configuration système requise](concepts/
 
 Vous pouvez acheter des solutions Azure Stack HCI validées auprès du partenaire Microsoft de votre choix pour être opérationnel sous un délai rapide de conception et de création. Les partenaires Microsoft offrent également un point de contact unique pour les services d’implémentation et de support technique. Vous pouvez acheter des nœuds validés ou un système intégré, qui comprend le système d’exploitation Azure Stack HCI préinstallé et les extensions partenaires pour les mises à jour du pilote et du microprogramme.
 
-Visitez la page [Solutions Azure Stack HCI](https://azure.microsoft.com/overview/azure-stack/hci) ou parcourez le [Catalogue Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/catalog/) pour voir plus de 70 solutions Azure Stack HCI disponibles auprès de partenaires Microsoft comme ASUS, Axellio, Blue Chip, DataON, Dell EMC, Fujitsu, HPE, Hitachi, Huawei, Lenovo, NEC, primeLine Solutions, QCT, SecureGUARD et Supermicro.
+Visitez la page [Solutions Azure Stack HCI](https://azure.microsoft.com/overview/azure-stack/hci) ou parcourez le [Catalogue Azure Stack HCI](https://aka.ms/azurestackhcicatalog) pour voir plus de 70 solutions Azure Stack HCI disponibles auprès de partenaires Microsoft comme ASUS, Axellio, Blue Chip, DataON, Dell EMC, Fujitsu, HPE, Hitachi, Huawei, Lenovo, NEC, primeLine Solutions, QCT, SecureGUARD et Supermicro.
 
 ## <a name="software-partners"></a>Partenaires logiciels
 

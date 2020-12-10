@@ -3,17 +3,17 @@ title: Télécharger des éléments de la Place de marché Azure et les publier 
 description: Découvrez comment télécharger des éléments de la Place de marché à partir d’Azure et les publier sur Azure Stack Hub.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 12/9/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 11/18/2020
+ms.lastreviewed: 12/9/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 1e6ef20bd1c04e8fd08af73370f2ed001b0be500
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: e66d49fc20a9cfbc70eeeb11a7817bd5bc75d7c0
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517920"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96934962"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Télécharger des éléments de la Place de marché vers Azure Stack Hub
 
@@ -88,14 +88,23 @@ Ce scénario comporte deux parties :
   - L’ordinateur qui est connecté à Internet doit disposer du **module PowerShell pour Azure Stack Hub version 1.2.11** ou une version ultérieure. S’ils ne sont pas déjà présents, vous devez [installer les modules PowerShell propres à Azure Stack Hub](powershell-install-az-module.md).
 
   - Pour permettre l’importation d’un élément de la Place de marché téléchargé, l’[environnement PowerShell pour l’opérateur Azure Stack Hub](azure-stack-powershell-configure-admin.md) doit être configuré.
+  - .NET Framework 4.7 ou version ultérieure.
 
-- Téléchargez le module **Azs.Syndication.Admin** à partir de PowerShell Gallery en utilisant la commande ci-dessous :
+Téléchargez le module **Azs.Syndication.Admin** à partir de PowerShell Gallery en utilisant la commande ci-dessous :
+
+### <a name="az-modules"></a>[Modules Az](#tab/az1)
 
   ```powershell
   Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
   ```
-  
-- .NET Framework 4.7 ou version ultérieure.
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm1)
+
+  ```powershell
+  Install-Module -Name Azs.Syndication.Admin -RequiredVersion 0.1.140
+  ```
+
+---
 
 Une fois que vous avez inscrit Azure Stack, vous pouvez ignorer le message suivant qui s’affiche dans le panneau Gestion de la Place de marché, car il ne concerne pas l’utilisation en mode déconnecté :
 
@@ -106,7 +115,7 @@ Une fois que vous avez inscrit Azure Stack, vous pouvez ignorer le message suiva
 > [!IMPORTANT]
 > Veillez à télécharger l’outil de syndication de la Place de marché chaque fois que vous téléchargez des éléments de Place de marché dans un scénario déconnecté. Des changements fréquents sont apportés à cet outil et la version la plus récente doit être utilisée pour chaque téléchargement.
 
-### <a name="az-modules"></a>[Modules Az](#tab/az)
+### <a name="az-modules"></a>[Modules Az](#tab/az2)
 
 1. Sur un ordinateur avec une connexion Internet, ouvrez une console PowerShell en tant qu’administrateur.
 
@@ -174,7 +183,7 @@ Une fois que vous avez inscrit Azure Stack, vous pouvez ignorer le message suiva
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azs.Syndication.Admin -Path "Destination folder path in quotes" -Force
     ```
 
-### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm)
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm2)
 
 1. Sur un ordinateur avec une connexion Internet, ouvrez une console PowerShell en tant qu’administrateur.
 
@@ -198,7 +207,7 @@ Une fois que vous avez inscrit Azure Stack, vous pouvez ignorer le message suiva
 4. Si vous ne l’avez pas déjà fait dans les prérequis, téléchargez la dernière version de l’outil de syndication de la Place de marché :
 
    ```powershell
-   Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
+   Install-Module -Name Azs.Syndication.Admin -RequiredVersion 0.1.140
    ```
 
 5. Pour sélectionner des éléments de la Place de marché, par exemple des images de machine virtuelle, des extensions ou des modèles de solution à télécharger, exécutez la commande suivante :

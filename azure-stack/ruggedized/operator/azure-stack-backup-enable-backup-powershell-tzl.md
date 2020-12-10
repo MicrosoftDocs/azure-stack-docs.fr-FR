@@ -11,16 +11,16 @@ ms.workload: tzl
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2020
+ms.date: 12/16/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: 9f50a6096f0fb7881d37a67df34bdcd6f2487eb9
+ms.lastreviewed: 12/16/2019
+ms.openlocfilehash: f0476f3ee331c014436e9ee2f879afcafb3320d7
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935047"
+ms.locfileid: "96940998"
 ---
 # <a name="configure-backup-for-azure-stack-with-powershell"></a>Configurer la sauvegarde d’Azure Stack avec PowerShell
 
@@ -30,7 +30,7 @@ Vous pouvez configurer le service Infrastructure Backup pour exporter les sauveg
 
 ## <a name="prepare-powershell-environment"></a>Préparer l’environnement PowerShell
 
-Pour obtenir des instructions sur la configuration de l’environnement PowerShell, consultez [Installer PowerShell pour Azure Stack](../../operator/powershell-install-az-module.md). Pour vous connecter à Azure Stack, consultez [Configurer l’environnement de l’opérateur et se connecter à Azure Stack](../../operator/azure-stack-powershell-configure-admin.md).
+Pour obtenir des instructions sur la configuration de l’environnement PowerShell, consultez [Installer PowerShell pour Azure Stack](../../operator/azure-stack-powershell-install.md). Pour vous connecter à Azure Stack, consultez [Configurer l’environnement de l’opérateur et se connecter à Azure Stack](../../operator/azure-stack-powershell-configure-admin.md).
 
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Indiquer le partage de sauvegarde, les informations d’identification et la clé de chiffrement pour activer la sauvegarde
 

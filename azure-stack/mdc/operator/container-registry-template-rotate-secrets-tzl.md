@@ -16,12 +16,12 @@ ms.date: 10/26/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 42d28b38c67384745974110f8ed7cbb185b04f0d
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: eb835552b8f7142878d03aa1bb3bb062cd2cf3f6
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330042"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96934980"
 ---
 # <a name="rotate-container-registry-secrets-in-azure-stack-hub"></a>Effectuer la rotation des secrets dans Azure Stack Hub
 
@@ -29,7 +29,7 @@ Vos utilisateurs Azure Stack Hub peuvent faire effectuer la rotation des secrets
 
 ## <a name="prerequisites-for-the-user"></a>Conditions préalables pour l’utilisateur
 
- - L’utilisateur doit avoir installé les modules Azure Stack Hub PowerShell. Pour plus d’informations, consultez [Installer PowerShell pour Azure Stack](../../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).
+ - L’utilisateur doit avoir installé les modules Azure Stack Hub PowerShell. Pour plus d’informations, consultez [Installer PowerShell pour Azure Stack](../../operator/powershell-install-az-module.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).
 
  - Procurez-vous les secrets mis à jour pour le modèle de registre de conteneurs. Vous pouvez utiliser un nouveau certificat SSL ou une nouvelle combinaison nom d’utilisateur/mot de passe pour accéder au registre Docker.
 
@@ -263,11 +263,11 @@ Suivez les instructions ci-dessous pour définir de nouveaux secrets dans Key Va
 
     ![Redeploy](./media/container-registry-template-rotating-secrets-tzl/redeploy.png)
 
-5.  Dans **Déployer un modèle de solution** , sélectionnez **Utiliser un groupe de ressources existant** , puis le groupe de ressources utilisé pour déployer initialement le modèle de registre de conteneurs. Pour qu’un redéploiement aboutisse, il doit utiliser le même groupe de ressources.
+5.  Dans **Déployer un modèle de solution**, sélectionnez **Utiliser un groupe de ressources existant**, puis le groupe de ressources utilisé pour déployer initialement le modèle de registre de conteneurs. Pour qu’un redéploiement aboutisse, il doit utiliser le même groupe de ressources.
 
     ![Déployer un modèle de solution](./media/container-registry-template-rotating-secrets-tzl/deploy-solution-template.png)
 
-6.  Dans **Paramètres** , vérifiez que les paramètres correspondent au déploiement d’origine. L’ID client et le secret du principal du service devront être ajoutés.
+6.  Dans **Paramètres**, vérifiez que les paramètres correspondent au déploiement d’origine. L’ID client et le secret du principal du service devront être ajoutés.
 
     - Si vous effectuez uniquement la rotation du nom d’utilisateur et du mot de passe pour le registre du service, vous devez juste ajouter les paramètres du principal du service.
 
@@ -275,7 +275,7 @@ Suivez les instructions ci-dessous pour définir de nouveaux secrets dans Key Va
 
     ![Paramètres](./media/container-registry-template-rotating-secrets-tzl/parameters.png)
 
-7.  Sélectionnez **OK** , puis **Créer**. Le redéploiement se poursuit. Le registre reste fonctionnel lors du redéploiement.
+7.  Sélectionnez **OK**, puis **Créer**. Le redéploiement se poursuit. Le registre reste fonctionnel lors du redéploiement.
 
     - Si vous effectuez la rotation du nom d’utilisateur et du mot de passe, vous devrez vous authentifier à nouveau dans le registre une fois le redéploiement terminé.
 

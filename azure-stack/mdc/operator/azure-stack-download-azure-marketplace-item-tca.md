@@ -15,12 +15,12 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 9aa49c7913817168ed05f29b40d6ec8cf26e85b8
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 32ba4c16d36622cbe2a9595c58e4ec2e2f46b481
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330064"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935030"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Télécharger des éléments de la Place de marché vers Azure Stack Hub 
 
@@ -28,8 +28,8 @@ En tant qu’opérateur cloud, vous pouvez télécharger des éléments vers Azu
 
 Il existe deux scénarios pour télécharger des produits de la Place de marché :
 
-- **Scénario connecté**  : votre environnement Azure Stack Hub doit être connecté à Internet. Vous utilisez le portail administrateur Azure Stack Hub pour localiser et télécharger des éléments.
-- **Scénario déconnecté ou partiellement connecté**  : vous devez accéder à Internet à l’aide de l’outil de syndication de la Place de marché pour télécharger des éléments de la Place de marché. Ensuite, vous transférez vos téléchargements pour votre installation déconnectée de Azure Stack. Ce scénario utilise PowerShell.
+- **Scénario connecté** : votre environnement Azure Stack Hub doit être connecté à Internet. Vous utilisez le portail administrateur Azure Stack Hub pour localiser et télécharger des éléments.
+- **Scénario déconnecté ou partiellement connecté** : vous devez accéder à Internet à l’aide de l’outil de syndication de la Place de marché pour télécharger des éléments de la Place de marché. Ensuite, vous transférez vos téléchargements pour votre installation déconnectée de Azure Stack. Ce scénario utilise PowerShell.
 
 Voir [Éléments Place de marché Azure pour Azure Stack](../../operator/azure-stack-marketplace-azure-items.md) pour obtenir la liste complète des éléments de la Place de marché que vous pouvez télécharger. Pour obtenir la liste des ajouts, suppressions et mises à jour récents de la Place de marché Azure Stack, consultez l’article [Modifications de la Place de marché Azure Stack](../../operator/azure-stack-marketplace-changes.md).
 
@@ -50,11 +50,11 @@ Votre déploiement Azure Stack Hub doit disposer d’une connectivité à Intern
 
 2. Vérifiez l’espace de stockage disponible avant de télécharger des éléments de la Place de marché. Plus tard, lorsque vous sélectionnez des éléments pour le téléchargement, vous pouvez comparer la taille du téléchargement avec votre capacité de stockage disponible. Si la capacité est limitée, envisagez des options pour [gérer l’espace disponible](../../operator/azure-stack-manage-storage-shares.md#manage-available-space).
 
-   Pour passer en revue l’espace disponible, dans **Gestion des régions** , sélectionnez la région que vous voulez explorer, puis accédez à **Fournisseurs de ressources** > **Stockage**  :
+   Pour passer en revue l’espace disponible, dans **Gestion des régions**, sélectionnez la région que vous voulez explorer, puis accédez à **Fournisseurs de ressources** > **Stockage** :
 
    ![Passer en revue l’espace de stockage dans le portail administrateur Azure Stack](media/azure-stack-download-azure-marketplace-item-tzl/storage.png)
 
-3. Ouvrez la Place de marché Azure Stack Hub, puis connectez-vous à Azure. Pour ce faire, sélectionnez le service **Gestion de la Place de marché** , sélectionnez **Éléments de la place de marché** , puis sélectionnez **Ajouter à partir d’Azure**  :
+3. Ouvrez la Place de marché Azure Stack Hub, puis connectez-vous à Azure. Pour ce faire, sélectionnez le service **Gestion de la Place de marché**, sélectionnez **Éléments de la place de marché**, puis sélectionnez **Ajouter à partir d’Azure** :
 
    ![Ajouter des éléments de la Place de marché à partir d’Azure](media/azure-stack-download-azure-marketplace-item-tzl/marketplace.png)
 
@@ -62,7 +62,7 @@ Votre déploiement Azure Stack Hub doit disposer d’une connectivité à Intern
 
    ![Ajout à partir d’Azure](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-1.png)
 
-5. Si la version d’un élément est affichée comme **Multiple** , vous pouvez sélectionner cet élément, puis choisir une version spécifique dans la liste déroulante du sélecteur de version qui en résulte :
+5. Si la version d’un élément est affichée comme **Multiple**, vous pouvez sélectionner cet élément, puis choisir une version spécifique dans la liste déroulante du sélecteur de version qui en résulte :
 
    ![Ajout à partir d’Azure](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-3.png)
 
@@ -90,9 +90,36 @@ Vous pouvez [télécharger les outils de syndication hors connexion ici](https:/
 
 #### <a name="download-items"></a>Télécharger des éléments
 
+
+
+### <a name="az-modules"></a>[Modules Az](#tab/az1)
+
 1. Ouvrez PowerShell et accédez au dossier extrait.
 
-2. Exécutez le script PowerShell **Invoke-AzSMarketplaceDownload.ps1**  :
+2. Exécutez le script PowerShell **Invoke-AzSMarketplaceDownload.ps1** :
+
+    ```powershell
+    .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationSubscriptionId '<subscription ID>' ` 
+       -RegistrationResourceGroup 'azurestack' -RegistrationName '<registration name>' `
+       -TenantName mytenant.onmicrosoft.com -DownloadFolder 'F:\offlineSyndication'
+    ```
+
+    Si vous êtes déjà connecté via Azure PowerShell, vous pouvez également transmettre le contexte Azure :
+
+    ```powershell
+    Add-AzAccount -Environment AzureCloud -Tenant mytenant.onmicrosoft.com 
+    .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationResourceGroup 'azurestack' -RegistrationName '<registration name>' -DownloadFolder 'F:\offlineSyndication' -AzureContext $(Get-AzureRMContext)
+    ```
+    Si vous ne transmettez pas le contexte Azure, vous êtes invité à vous connecter.
+
+3. Une fenêtre s’affiche pour vous permettre de sélectionner le produit que vous souhaitez télécharger. Utilisez Ctrl + clic pour sélectionner plusieurs éléments.
+
+4. Sélectionnez **OK**. Cela télécharge l’élément de la Place de marché, ainsi que ses dépendances, le cas échéant.
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm1)
+
+1. Ouvrez PowerShell et accédez au dossier extrait.
+
+2. Exécutez le script PowerShell **Invoke-AzSMarketplaceDownload.ps1** :
 
     ```powershell
     .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationSubscriptionId '<subscription ID>' ` 
@@ -106,12 +133,13 @@ Vous pouvez [télécharger les outils de syndication hors connexion ici](https:/
     Add-AzureRmAccount -Environment AzureCloud -Tenant mytenant.onmicrosoft.com 
     .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationResourceGroup 'azurestack' -RegistrationName '<registration name>' -DownloadFolder 'F:\offlineSyndication' -AzureContext $(Get-AzureRMContext)
     ```
-
     Si vous ne transmettez pas le contexte Azure, vous êtes invité à vous connecter.
 
 3. Une fenêtre s’affiche pour vous permettre de sélectionner le produit que vous souhaitez télécharger. Utilisez Ctrl + clic pour sélectionner plusieurs éléments.
 
 4. Sélectionnez **OK**. Cela télécharge l’élément de la Place de marché, ainsi que ses dépendances, le cas échéant.
+
+---
 
 ### <a name="upload-marketplace-items-to-azure-stack-hub"></a>Charger des éléments de la Place de marché vers Azure Stack Hub
 
@@ -123,9 +151,33 @@ Vous pouvez [télécharger les outils de syndication hors connexion ici](https:/
 
 #### <a name="upload-items"></a>Charger des éléments
 
+### <a name="az-modules"></a>[Modules Az](#tab/az2)
+
 1. Ouvrez PowerShell et accédez au dossier extrait.
 
-2. Exécutez le script PowerShell **Invoke-AzSMarketplaceUpload.ps1**  :
+2. Exécutez le script PowerShell **Invoke-AzSMarketplaceUpload.ps1** :
+
+    ```powershell
+    .\Invoke-AzsMarketplaceUpload.ps1 -AzureStackCloudName "AzureStack-Admin" -AzureStackAdminARMEndpoint https://adminmanagement.<region>.<fqdn> -TenantName mytenant.onmicrosoft.com -DownloadFolder F:\offlineSyndication
+    ```
+
+    Vous pouvez également configurer l’environnement Azure Stack dans Azure PowerShell, vous authentifier auprès du point de terminaison Resource Manager d’administrateur et transmettre le contexte au script :
+
+    ```powershell
+    Add-AzEnvironment -Name Redmond-Admin -ARMEndpoint https://adminmanagement.redmond.azurestack.corp.microsoft.com
+
+    Add-AzAccount -Environment Redmond-Admin
+
+    .\Invoke-AzsMarketplaceUpload.ps1 -DownloadFolder F:\Downloads\offlining -AzureContext $(GetAzContext)
+    ```
+
+    Cette procédure permet de charger les éléments de la Place de marché dans l’instance Azure Stack Hub spécifiée.
+
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm2)
+
+1. Ouvrez PowerShell et accédez au dossier extrait.
+
+2. Exécutez le script PowerShell **Invoke-AzSMarketplaceUpload.ps1** :
 
     ```powershell
     .\Invoke-AzsMarketplaceUpload.ps1 -AzureStackCloudName "AzureStack-Admin" -AzureStackAdminARMEndpoint https://adminmanagement.<region>.<fqdn> -TenantName mytenant.onmicrosoft.com -DownloadFolder F:\offlineSyndication
@@ -142,3 +194,5 @@ Vous pouvez [télécharger les outils de syndication hors connexion ici](https:/
     ```
 
     Cette procédure permet de charger les éléments de la Place de marché dans l’instance Azure Stack Hub spécifiée.
+
+---

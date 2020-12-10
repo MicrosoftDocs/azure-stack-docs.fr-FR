@@ -7,12 +7,12 @@ ms.date: 10/26/2020
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: fe5c8901f39c8f6c01c72a1af00c953f792920cf
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.openlocfilehash: f7bc89e42b315fea585a87d93795a0e1b0f574f3
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363909"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96934894"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Mettre à l’échelle des actions de nœud d’unité dans Azure Stack Hub
 
@@ -27,10 +27,10 @@ Dans le portail d’administration, vous pouvez afficher l’état d’une unit�
 
 Pour afficher l’état d’une unité d’échelle :
 
-1. Dans la vignette **Gestion des régions** , sélectionnez la région.
-2. Sur la gauche, sous **Ressources d’infrastructure** , sélectionnez **Unités d’échelle**.
+1. Dans la vignette **Gestion des régions**, sélectionnez la région.
+2. Sur la gauche, sous **Ressources d’infrastructure**, sélectionnez **Unités d’échelle**.
 3. Dans les résultats, sélectionnez l’unité d’échelle.
-4. Sur la gauche, sous **Général** , sélectionnez **Nœuds**.
+4. Sur la gauche, sous **Général**, sélectionnez **Nœuds**.
 
    Examinez les informations suivantes :
 
@@ -66,7 +66,7 @@ Lorsque vous affichez des informations relatives à un nœud d’unité d’éch
 
 L’état de fonctionnement du nœud détermine les options disponibles.
 
-Vous devez installer les modules Azure Stack Hub PowerShell. Ces applets de commande se trouvent dans le module **Azs.Fabric.Admin**. Pour installer ou vérifier votre installation de PowerShell pour Azure Stack Hub, consultez [Installer PowerShell pour Azure Stack Hub](../../operator/azure-stack-powershell-install.md).
+Vous devez installer les modules Azure Stack Hub PowerShell. Ces applets de commande se trouvent dans le module **Azs.Fabric.Admin**. Pour installer ou vérifier votre installation de PowerShell pour Azure Stack Hub, consultez [Installer PowerShell pour Azure Stack Hub](../../operator/powershell-install-az-module.md).
 
 ## <a name="stop"></a>Arrêter
 
@@ -147,7 +147,7 @@ Pour exécuter l’action de réparation, ouvrez une invite de commandes PowerSh
 
 ## <a name="shutdown"></a>Shutdown
 
-L’action d’ **arrêt** déplace d’abord toutes les charges de travail actives vers les nœuds restants de la même unité d’échelle. L’action arrête ensuite de manière appropriée le nœud d’unité d’échelle.
+L’action d’**arrêt** déplace d’abord toutes les charges de travail actives vers les nœuds restants de la même unité d’échelle. L’action arrête ensuite de manière appropriée le nœud d’unité d’échelle.
 
 Après avoir démarré un nœud arrêté, vous devez exécuter l’action de [reprise](#resume). Les charges de travail antérieures en cours d’exécution sur le nœud ne se restaurent pas automatiquement.
 

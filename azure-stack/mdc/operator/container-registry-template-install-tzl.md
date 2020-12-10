@@ -16,12 +16,12 @@ ms.date: 1/10/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: eed164504ce07bcc21ddde002173aaab8992abd1
-ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
+ms.openlocfilehash: 44cf8fe76ec203fb0a6260a92c4e47641d4f40f8
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94674555"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935000"
 ---
 # <a name="add-a-container-registry-to-azure-stack-hub"></a>Ajouter un registre de conteneurs à Azure Stack Hub
 
@@ -39,7 +39,7 @@ Vous devez disposer des éléments suivants avant d'ajouter l'élément Containe
 
 | Élément | Type | Détails |
 | --- | --- | --- |
-| Modules Azure Stack Hub PowerShell (Azs.Gallery.Admin) | Modules PowerShell | Uniquement requis en cas de sideloading de l'élément Modèle de registre de conteneurs de la galerie, les modules Azure Stack Hub PowerShell sont utilisés pour ajouter et supprimer des éléments de la galerie.<br>[Installer les modules Azure Stack PowerShell](../../operator/azure-stack-powershell-install.md) |
+| Modules Azure Stack Hub PowerShell (Azs.Gallery.Admin) | Modules PowerShell | Uniquement requis en cas de sideloading de l'élément Modèle de registre de conteneurs de la galerie, les modules Azure Stack Hub PowerShell sont utilisés pour ajouter et supprimer des éléments de la galerie.<br>[Installer les modules Azure Stack PowerShell](../../operator/powershell-install-az-module.md) |
 | Modèle de registre de conteneurs | Article de la Place de marché | Pour déployer le registre de conteneurs en tant qu'utilisateur Azure Stack Hub, l'élément Modèle de registre de conteneurs de la Place de marché doit être disponible dans votre abonnement, ou être ajouté manuellement (par sideloading) sur votre Place de marché Azure Stack Hub. En cas de sideloading, suivez les instructions pour transférer le package contenu dans le fichier `readme.md` vers le [référentiel GitHub](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/registry-v1.0.1). |
 | Image de base AKS Ubuntu 16.04-LTS, version minimale de septembre 2019 | Article de la Place de marché | Pour permettre aux utilisateurs de votre instance d'Azure Stack Hub de déployer le registre de conteneurs, vous devez mettre l'image de base AKS à leur disposition sur la Place de marché. Le modèle de registre de conteneurs utilise l'image lors de l’installation d’une machine virtuelle Ubuntu à partir de l’abonnement hébergeant les binaires du registre de conteneurs Docker. |
 | Extension de script personnalisé Linux 2.0 | Article de la Place de marché | Pour permettre aux utilisateurs de votre instance d'Azure Stack Hub de déployer l'Extension de script personnalisé Linux, vous devez mettre l'image de base AKS à leur disposition sur la Place de marché. Le Modèle de registre de conteneurs utilise l'extension pour configurer le registre. |

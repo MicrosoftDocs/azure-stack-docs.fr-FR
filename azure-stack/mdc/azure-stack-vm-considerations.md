@@ -15,12 +15,12 @@ ms.date: 12/20/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: a480f5fcafd6d40dbcb76dcad4c38c64ad9f6ff8
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.openlocfilehash: b8a5d2a0f08ac36b4f4ebc20e0dc3c9eea67218a
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383443"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935098"
 ---
 # <a name="azure-stack-vm-features"></a>Fonctionnalités des machines virtuelles Azure Stack
 
@@ -80,6 +80,17 @@ Azure Stack inclut un petit ensemble d’extensions. Des mises à jour et des ex
 
 Utilisez le script PowerShell suivant pour obtenir la liste des extensions de machine virtuelle qui sont disponibles dans votre environnement Azure Stack :
 
+### <a name="az-modules"></a>[Modules Az](#tab/az1)
+
+```powershell
+Get-AzVmImagePublisher -Location local | `
+  Get-AzVMExtensionImageType | `
+  Get-AzVMExtensionImage | `
+  Select Type, Version | `
+  Format-Table -Property * -AutoSize
+```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm1)
+
 ```powershell
 Get-AzureRmVmImagePublisher -Location local | `
   Get-AzureRmVMExtensionImageType | `
@@ -87,6 +98,8 @@ Get-AzureRmVmImagePublisher -Location local | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
+
+---
 
 Si l’approvisionnement d’une extension sur un déploiement de machine virtuelle prend trop de temps, laissez expirer le délai d’attente de l’approvisionnement au lieu d’essayer d’arrêter le processus pour désallouer ou supprimer la machine virtuelle.
 
@@ -98,6 +111,17 @@ Les fonctionnalités de machine virtuelle dans Azure Stack prennent en charge le
 
 Utilisez le script PowerShell suivant pour obtenir la liste des versions d’API des fonctionnalités de machine virtuelle qui sont disponibles dans votre environnement Azure Stack :
 
+### <a name="az-modules"></a>[Modules Az](#tab/az)
+
+```powershell
+Get-AzResourceProvider | `
+  Select ProviderNamespace -Expand ResourceTypes | `
+  Select * -Expand ApiVersions | `
+  Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
+  where-Object {$_.ProviderNamespace -like "Microsoft.compute"}
+```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm)
+
 ```powershell
 Get-AzureRmResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
@@ -105,6 +129,8 @@ Get-AzureRmResourceProvider | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
   where-Object {$_.ProviderNamespace -like "Microsoft.compute"}
 ```
+
+---
 
 La liste des types de ressources et des versions d’API pris en charge peut varier si l’opérateur du cloud met à jour votre environnement Azure Stack avec une version plus récente.
 

@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Découvrez les principes de bases de l’administration d’Azure Stack Hub.
 author: justinha
 ms.topic: article
-ms.date: 10/26/2020
+ms.date: 06/16/2020
 ms.author: justinha
 ms.reviewer: thoroet
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 9369f29d802350f71ac4a5a462009768dec5c2cb
+ms.lastreviewed: 06/16/2020
+ms.openlocfilehash: afbfbf5c1fe7149b4d12f1cd96af79b1116e4a3a
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934928"
+ms.locfileid: "96941018"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Principes de bases de l’administration d’Azure Stack Hub
 
@@ -151,7 +151,7 @@ Les informations contenues dans ces articles résument les différences entre un
 
 Vos utilisateurs souhaiteront savoir comment [accéder au portail utilisateur](../../user/azure-stack-use-portal.md) ou comment se connecter par le biais de PowerShell. Dans un environnement de systèmes intégrés, l’adresse du portail utilisateur varie selon le déploiement. Vous devrez fournir à vos utilisateurs l’URL correcte.
 
-S’ils utilisent PowerShell, les utilisateurs devront peut-être inscrire des fournisseurs de ressources avant de pouvoir utiliser des services. Un fournisseur de ressources gère un service. Par exemple, le fournisseur de ressources réseau gère des ressources comme des réseaux virtuels, des interfaces réseau et des équilibreurs de charge. Ils doivent [installer](../../operator/powershell-install-az-module.md) PowerShell, [télécharger](../../operator/azure-stack-powershell-download.md) des modules complémentaires et [configurer](../../user/azure-stack-powershell-configure-user.md) PowerShell (qui inclut l’inscription des fournisseurs de ressources).
+S’ils utilisent PowerShell, les utilisateurs devront peut-être inscrire des fournisseurs de ressources avant de pouvoir utiliser des services. Un fournisseur de ressources gère un service. Par exemple, le fournisseur de ressources réseau gère des ressources comme des réseaux virtuels, des interfaces réseau et des équilibreurs de charge. Ils doivent [installer](../../operator/azure-stack-powershell-install.md) PowerShell, [télécharger](../../operator/azure-stack-powershell-download.md) des modules complémentaires et [configurer](../../user/azure-stack-powershell-configure-user.md) PowerShell (qui inclut l’inscription des fournisseurs de ressources).
 
 ### <a name="subscribe-to-an-offer"></a>S’abonner à une offre
 
