@@ -6,13 +6,13 @@ ms.author: v-johcob
 ms.topic: tutorial
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/28/2020
-ms.openlocfilehash: ba063e4ebff85830ac50c25c2514bda443dce323
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.date: 12/7/2020
+ms.openlocfilehash: 51a4411e95207d2f7b544fdf507fe8bd8fc98f2e
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064733"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761709"
 ---
 # <a name="deploy-the-azure-stack-hci-operating-system"></a>Déployer le système d’exploitation Azure Stack HCI
 
@@ -21,7 +21,7 @@ ms.locfileid: "93064733"
 La première étape du déploiement d’Azure Stack HCI consiste à [télécharger Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) et à installer le système d’exploitation sur chaque serveur que vous souhaitez clusteriser. Cet article décrit les différentes façons de déployer le système d’exploitation et l’utilisation de Windows Admin Center pour se connecter aux serveurs.
 
 > [!NOTE]
-> Si vous avez acheté le matériel de la solution de système intégré Azure Stack HCI sur le [catalogue Azure Stack HCI](https://azure.microsoft.com/en-us/products/azure-stack/hci/catalog/) via votre partenaire matériel Microsoft préféré, le système d’exploitation Azure Stack HCI doit être préinstallé. Dans ce cas, vous pouvez ignorer cette étape et passer à [Créer un cluster Azure Stack HCI](create-cluster.md).
+> Si vous avez acheté le matériel de la solution de système intégré Azure Stack HCI sur le [catalogue Azure Stack HCI](https://aka.ms/azurestackhcicatalog) via votre partenaire matériel Microsoft préféré, le système d’exploitation Azure Stack HCI doit être préinstallé. Dans ce cas, vous pouvez ignorer cette étape et passer à [Créer un cluster Azure Stack HCI](create-cluster.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -49,7 +49,7 @@ Pour préparer le déploiement, rassemblez les informations suivantes sur votre 
 - **Nom de domaine :** familiarisez-vous avec les stratégies de votre organisation relatives à l’attribution de noms de domaine et à la jonction de domaine. Vous allez joindre les serveurs à votre domaine, et vous devrez spécifier le nom de domaine.
 - **Adresses IP statiques :** Azure Stack HCI requiert des adresses IP statiques pour le trafic de stockage et de charge de travail (VM) et ne prend pas en charge l’attribution d’adresses IP dynamiques via DHCP pour ce réseau à haut débit. Vous pouvez utiliser DHCP pour la carte réseau de gestion, sauf si vous en utilisez deux en équipe, auquel cas vous devez là encore utiliser des adresses IP statiques. Demandez à votre administrateur quelle adresse IP vous devez utiliser pour chaque serveur du cluster.
 - **Mise en réseau RDMA :** il existe deux types de protocoles RDMA : iWarp et RoCE. Notez lequel est utilisé par vos cartes réseau et, si RoCE est utilisé, notez également la version (v1 ou v2). Pour RoCE, notez également le modèle de votre commutateur « Top of the rack ».
-- **ID du réseau local virtuel**  : notez l’ID de réseau local virtuel à utiliser pour les cartes réseau sur les serveurs, le cas échéant. Pour l’obtenir, contactez votre administrateur réseau.
+- **ID du réseau local virtuel** : notez l’ID de réseau local virtuel à utiliser pour les cartes réseau sur les serveurs, le cas échéant. Pour l’obtenir, contactez votre administrateur réseau.
 - **Nom des sites :** Pour les clusters étendus, deux sites sont utilisés pour la récupération d’urgence. Vous pouvez configurer des sites avec [Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) ou l’Assistant Création d’un cluster peut les configurer automatiquement pour vous. Pour plus d’informations sur la configuration des sites, consultez votre administrateur de domaine.
 
 ### <a name="install-windows-admin-center"></a>Installer Windows Admin Center
@@ -109,7 +109,7 @@ Pour installer manuellement le système d’exploitation Azure Stack HCI :
 
     :::image type="content" source="../media/operating-system/azure-stack-hci-install-language.png" alt-text="Page de définition de la langue dans l’Assistant Installation d’Azure Stack HCI":::
 
-1. Dans la page Mentions et termes du contrat de licence applicables, passez en revue les termes du contrat de licence, cochez la case **J’accepte les termes du contrat de licence** , puis sélectionnez **Suivant**.
+1. Dans la page Mentions et termes du contrat de licence applicables, passez en revue les termes du contrat de licence, cochez la case **J’accepte les termes du contrat de licence**, puis sélectionnez **Suivant**.
 1. Dans la page « Quel type d’installation voulez-vous effectuer ? », sélectionnez **Personnalisé : installer la version la plus récente d’Azure Stack HCI uniquement (avancé)** .
 
     > [!NOTE]

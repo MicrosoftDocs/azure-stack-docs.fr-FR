@@ -8,12 +8,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 0de06d7bf13919be95b3d97aa1113221f4378625
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: ec2eebc7aa8195c0560beb8c61f0f98ce1689b07
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96035332"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011346"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Opérations de maintenance du fournisseur de ressources SQL
 
@@ -108,7 +108,7 @@ Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèm
 |Paramètre|Description|Commentaire|
 |-----|-----|-----|
 |AzureEnvironment|Environnement Azure du compte administrateur de service utilisé pour déployer Azure Stack Hub. Nécessaire uniquement pour les déploiements Azure AD. Les noms d’environnement pris en charge sont **AzureCloud**, **AzureUSGovernment** ou, si vous utilisez Azure Active Directory en Chine, **AzureChinaCloud**.|Facultatif|
-|AzCredential|Informations d’identification du compte d’administration de service Azure Stack Hub.|Obligatoire|
+|AzCredential|Informations d’identification du compte d’administration de service Azure Stack Hub. Le script échoue si le compte que vous utilisez avec AzCredential nécessite l’authentification multifacteur (MFA).|Obligatoire|
 |CloudAdminCredential|Informations d’identification du compte de domaine d’administrateur cloud d’Azure Stack Hub.|Obligatoire|
 |PrivilegedEndpoint|Point de terminaison privilégié pour accéder à Get-AzureStackStampInformation.|Obligatoire|
 |DiagnosticsUserPassword|Diagnostique le mot de passe de compte d’utilisateur.|Facultatif|
