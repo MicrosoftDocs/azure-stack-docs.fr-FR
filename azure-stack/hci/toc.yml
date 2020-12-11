@@ -4,26 +4,32 @@
   items:
     - name: "Qu’est-ce qu’Azure Stack HCI\_?"
       href: overview.md
-    - name: Problèmes connus
-      href: known-issues.md
+    - name: Informations de version
+      href: release-information.md
     - name: Notes de publication
-      href: release-notes.md
+      href: 'https://support.microsoft.com/help/4595086'
     - name: Questions fréquentes (FAQ)
       href: faq.md
-- name: Bien démarrer
+- name: Démarrages rapides
   items:
     - name: Utiliser Azure Stack HCI avec Windows Admin Center
       href: get-started.md
+    - name: Créer un cluster Azure Stack HCI
+      href: deploy/deployment-quickstart.md
 - name: Déployer
   items:
     - name: Vue d’ensemble du déploiement
       href: deploy/deployment-overview.md
     - name: Déployer le système d’exploitation Azure Stack HCI
       href: deploy/operating-system.md
-    - name: Créer le cluster
+    - name: Créer un cluster
       href: deploy/create-cluster.md
     - name: Configurer un témoin de cluster
       href: deploy/witness.md
+    - name: Migrer vers du nouveau matériel
+      href: deploy/migrate-cluster-new-hardware.md
+    - name: Migrer sur le même matériel
+      href: deploy/migrate-cluster-same-hardware.md
     - name: Inscription auprès d’Azure
       href: deploy/register-with-azure.md
     - name: Valider le cluster
@@ -154,6 +160,10 @@
           href: concepts/updates.md
         - name: Considérations relatives à la sécurité
           href: concepts/security.md
+        - name: Applications utilitaires
+          href: concepts/utility-applications.md
+        - name: Collecte de données
+          href: concepts/data-collection.md
 - name: Informations de référence
   items:
     - name: "Commandes Azure\_CLI d’inscription Azure"
@@ -210,3 +220,5 @@
       href: 'https://github.com/Azure/AzureStackHCI-EvalGuide/blob/main/README.md'
     - name: Tarifs Azure Stack HCI
       href: 'https://azure.microsoft.com/pricing/details/azure-stack/hci/'
+    - name: "Prise en charge d’Azure Stack\_HCI"
+      href: manage/get-support.md
