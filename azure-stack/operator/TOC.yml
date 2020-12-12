@@ -19,7 +19,7 @@
   items:
     - name: Utiliser le portail d’administration
       href: azure-stack-manage-portals.md
-- name: Didacticiels
+- name: Tutoriels
   items:
     - name: Offrir un service aux utilisateurs
       href: tutorial-offer-services.md
@@ -340,7 +340,7 @@
                 - name: Appliquer des mises à jour
                   href: resource-provider-apply-updates.md
                 - name: Sauvegarde et restauration
-                  href: azure-stack-backup-infrastructure-backup.md
+                  href: azure-stack-backup-enable-backup-console.md
                 - name: Collecter les journaux d’activité
                   href: diagnostic-log-collection.md
                 - name: Intégrité et alertes
@@ -348,7 +348,7 @@
                 - name: Gérer
                   href: event-hubs-rp-manage.md
                 - name: Faire pivoter les clés secrètes
-                  href: azure-stack-rotate-secrets.md
+                  href: event-hubs-rp-rotate-secrets.md
                 - name: Annonces de mise à jour du service
                   href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
             - name: Supprimer

@@ -8,12 +8,12 @@ metadata:
   author: khdownie
   ms.author: v-kedow
   ms.date: 12/10/2020
-  ms.openlocfilehash: 5ef9dbe63eb377664ad86b4aa5e9ac23e2615115
-  ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+  ms.openlocfilehash: e40fd475493f82a11f5d0b276133b2e939212bfa
+  ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/10/2020
-  ms.locfileid: "97011074"
+  ms.lasthandoff: 12/11/2020
+  ms.locfileid: "97343140"
 landingContent:
 - title: À propos d’Azure Stack HCI
   linkLists:
@@ -25,12 +25,12 @@ landingContent:
     links:
     - text: Utiliser Azure Stack HCI avec Windows Admin Center
       url: get-started.md
+    - text: Créer un cluster Azure Stack HCI
+      url: deploy/deployment-quickstart.md
 - title: Déployer Azure Stack HCI
   linkLists:
   - linkListType: deploy
     links:
-    - text: Démarrage rapide sur le déploiement
-      url: deploy/deployment-quickstart.md
     - text: Déployer le système d’exploitation Azure Stack HCI
       url: deploy/operating-system.md
     - text: Créer un cluster
