@@ -116,6 +116,8 @@
       items:
         - name: Configuration requise
           href: concepts/system-requirements.md
+        - name: Comparer avec Windows Server
+          href: concepts/compare-windows-server.md
         - name: Choisir des lecteurs
           href: concepts/choose-drives.md
         - name: Considérations relatives à la symétrie des lecteurs

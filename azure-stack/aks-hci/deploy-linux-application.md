@@ -3,17 +3,19 @@ title: 'Didacticiel : déployer une application Linux dans AKS sur Azure Stack 
 description: Dans le cadre de ce didacticiel, vous allez déployer une application Linux multiconteneur dans votre cluster à l’aide d’une image personnalisée stockée dans Azure Container Registry.
 author: abha
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 6fd907a44cdaad5f5dfe7ccb3a29f5fc6a0152b6
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: e5f7f96956248dc7cc2c92ae678970b40951ece4
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948731"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612299"
 ---
 # <a name="tutorial-deploy-linux-applications-in-azure-kubernetes-service-on-azure-stack-hci"></a>Tutoriel : Déployer des applications Linux dans Azure Kubernetes Service sur Azure Stack HCI
+
+> S’applique à : AKS sur Azure Stack HCI, AKS Runtime sur Windows Server 2019 Datacenter
 
 Dans ce didacticiel, vous déployez une application multiconteneur comprenant un serveur web frontal et une instance de base de données ReDim dans votre cluster Azure Kubernetes Service sur Azure Stack HCI. Vous voyez ensuite comment tester et mettre à l’échelle votre application. 
 
@@ -171,7 +173,7 @@ Nous avons créé un réplica unique de l’instance frontale Azure Vote et de l
 kubectl get pods -n default
 ```
 
-L’exemple de sortie suivant montre un pod de serveur frontal et un pod de serveur principal :
+L’exemple de sortie suivant montre un pod de serveur frontal et un pod de serveur principal :
 
 ```
 NAME                                READY     STATUS    RESTARTS   AGE
@@ -179,7 +181,7 @@ azure-vote-back-6bdcb87f89-g2pqg    1/1       Running   0          25m
 azure-vote-front-84c8bf64fc-cdq86   1/1       Running   0          25m
 ```
 
-Pour changer le nombre de pods dans le déploiement *azure-vote-front*, utilisez la commande `kubectl scale`. L’exemple suivant augmente le nombre de pods de serveur frontal à *5* :
+Pour changer le nombre de pods dans le déploiement *azure-vote-front*, utilisez la commande `kubectl scale`. L’exemple suivant augmente le nombre de pods de serveur frontal à *5* :
 
 ```console
 kubectl scale --replicas=5 deployment/azure-vote-front

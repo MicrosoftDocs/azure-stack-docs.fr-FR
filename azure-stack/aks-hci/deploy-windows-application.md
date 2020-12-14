@@ -1,21 +1,24 @@
 ---
-title: 'Didacticiel : déployer une application Windows dans AKS sur Azure Stack HCI'
-description: Dans le cadre de ce didacticiel, vous allez déployer une application Windows dans votre cluster à l’aide d’une image personnalisée stockée dans Azure Container Registry.
+title: Déployer une application Windows .NET dans AKS sur Azure Stack HCI
+description: Découvrez comment déployer une application Windows .NET dans votre cluster à l’aide d’une image personnalisée stockée dans Azure Container Registry.
 author: abha
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: f6bc0132dd7ce3ee9972b0aaff6d0718cab86843
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 844bafbb497228d2e4527a5e974574dadb95ee7d
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948730"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612316"
 ---
-# <a name="tutorial-deploy-windows-applications-in-azure-kubernetes-service-on-azure-stack-hci"></a>Tutoriel : Déployer des applications Windows dans Azure Kubernetes Service sur Azure Stack HCI
+# <a name="deploy-windows-applications-in-azure-kubernetes-service-on-azure-stack-hci"></a>Déployer des applications Windows dans Azure Kubernetes Service sur Azure Stack HCI
 
-Dans ce didacticiel, vous déployez un exemple d’application ASP.NET dans un conteneur Windows Server vers le cluster Kubernetes. Vous voyez ensuite comment tester et mettre à l’échelle votre application. Ce didacticiel suppose que vous disposez de connaissances de base sur les concepts de Kubernetes. Pour plus d’informations, consultez [Concepts de base d’Azure Kubernetes Service sur Azure Stack HCI](kubernetes-concepts.md).
+> S’applique à : AKS sur Azure Stack HCI, AKS Runtime sur Windows Server 2019 Datacenter
+
+Dans ce didacticiel, vous déployez un exemple d’application ASP.NET dans un conteneur Windows Server vers le cluster Kubernetes et découvrez comment tester votre application et la mettre à l’échelle. Vous allez également apprendre à joindre un nœud Windows à un domaine Active Directory.
+Ce didacticiel suppose que vous disposez de connaissances de base sur les concepts de Kubernetes. Pour plus d’informations, consultez [Concepts de base d’Azure Kubernetes Service sur Azure Stack HCI](kubernetes-concepts.md).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -149,4 +152,4 @@ kubectl get pods -n default
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Utilisez Azure Monitor pour surveiller votre cluster et votre application](/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters).
-* [Utilisez le stockage persistant et configurez la prise en charge de gMSA dans un conteneur Windows](persistent-storage-windows-nodes.md).
+* [Utilisez le volume persistant sur un cluster Kubernetes](persistent-volume.md).
