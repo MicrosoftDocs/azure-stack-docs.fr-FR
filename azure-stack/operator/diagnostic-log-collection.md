@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 10/30/2020
 ms.author: v-myoung
 ms.reviewer: shisab
-ms.lastreviewed: 10/30/2020
-ms.openlocfilehash: b5f182fcf76fe28855240931e3515d3c9a467ee1
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/08/2020
+ms.openlocfilehash: 6e2b00d80d600a0cdafa21455c9938e9df7af564
+ms.sourcegitcommit: b0a96f98f2871bd6be28d3f2461949e2237ddaf0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543304"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96872642"
 ---
 # <a name="diagnostic-log-collection"></a>Collecte des journaux de diagnostic
 
@@ -28,7 +28,7 @@ Différentes méthodes sont proposées par Azure Stack Hub pour collecter, enreg
 * [Envoyer des journaux maintenant](#send-logs-now)
 * [Enregistrer les journaux localement](#save-logs-locally)
 
-L'organigramme ci-dessous indique quelle option utiliser dans chaque cas pour l'envoi des journaux de diagnostic. Si Azure Stack Hub peut se connecter à Azure, nous vous recommandons d'activer l'option **Collecte proactive des journaux** , qui charge automatiquement les journaux de diagnostic vers un blob de stockage contrôlé par Microsoft dans Azure lorsqu'une alerte critique est déclenchée. Vous pouvez également collecter les journaux à la demande en utilisant l'option **Envoyer les journaux maintenant**. Si Azure Stack Hub est déconnecté d'Azure, vous pouvez utiliser l'option **Enregistrer les journaux localement**. 
+L'organigramme ci-dessous indique quelle option utiliser dans chaque cas pour l'envoi des journaux de diagnostic. Si Azure Stack Hub peut se connecter à Azure, nous vous recommandons d'activer l'option **Collecte proactive des journaux**, qui charge automatiquement les journaux de diagnostic vers un blob de stockage contrôlé par Microsoft dans Azure lorsqu'une alerte critique est déclenchée. Vous pouvez également collecter les journaux à la demande en utilisant l'option **Envoyer les journaux maintenant**. Si Azure Stack Hub est déconnecté d'Azure, vous pouvez utiliser l'option **Enregistrer les journaux localement**. 
 
 ![Organigramme montrant comment envoyer des journaux à Microsoft](media/azure-stack-help-and-support/send-logs-now-flowchart.png)
 
@@ -38,11 +38,17 @@ L'organigramme ci-dessous indique quelle option utiliser dans chaque cas pour l'
 
 La collecte proactive des journaux récupère et envoie automatiquement les journaux de diagnostic d’Azure Stack Hub à Microsoft avant que vous n’ouvriez un dossier de support. Ces journaux sont collectés uniquement quand une [alerte d’intégrité du système](#proactive-diagnostic-log-collection-alerts) est déclenchée et ne sont accessibles au support Microsoft que dans le contexte d’un cas de support.
 
+::: moniker range=">= azs-2008"
+
+Depuis Azure Stack Hub version 2008, la collecte proactive des journaux utilise un algorithme amélioré qui capture les journaux même dans des conditions d’erreur non visibles par un opérateur. Cela permet de garantir que les informations de diagnostic appropriées sont collectées au bon moment sans l’intervention d’un opérateur. Le Support Microsoft peut commencer à isoler et résoudre les problèmes plus tôt dans certains cas. Les améliorations initiales des algorithmes se concentrent sur les opérations de correction et de mise à jour. Il est recommandé d’activer la collecte de journaux proactive, car davantage d’opérations sont optimisées, et les avantages sont plus importants.
+
+::: moniker-end
+
 La collecte proactive des journaux peut être désactivée et réactivée à tout moment. Effectuez les étapes suivantes pour configurer la collecte proactive des journaux.
 
 1. Connectez-vous au portail d’administration Azure Stack Hub.
 1. Ouvrez **Aide et support - Vue d'ensemble**.
-1. Si la bannière apparaît, sélectionnez **Activer la collecte proactive des journaux**. Vous pouvez aussi sélectionner **Paramètres** , définir **Collecte proactive des journaux** sur **Activer** , puis sélectionner **Enregistrer**.
+1. Si la bannière apparaît, sélectionnez **Activer la collecte proactive des journaux**. Vous pouvez aussi sélectionner **Paramètres**, définir **Collecte proactive des journaux** sur **Activer**, puis sélectionner **Enregistrer**.
 
 > [!NOTE]
 > Si les paramètres d’emplacement des journaux sont configurés pour un partage de fichiers local, vérifiez que les stratégies de gestion du cycle de vie empêchent le stockage de partage d’atteindre son quota de taille. Azure Stack Hub n’analyse pas le partage de fichiers local ou n’applique aucune stratégie de rétention.   
@@ -56,6 +62,38 @@ Les données sont exclusivement utilisées à des fins de dépannage des alertes
 Les données déjà collectées avec votre consentement ne sont pas affectées par la révocation de votre autorisation.
 
 Les journaux collectés à l’aide de la **collecte proactive des journaux** sont chargés sur un compte de stockage Azure managé et contrôlé par Microsoft. Microsoft peut accéder à ces journaux dans le contexte d'un cas de support et pour améliorer l'intégrité d'Azure Stack Hub.
+
+### <a name="proactive-diagnostic-log-collection-alerts"></a>Alertes de collecte proactive des journaux de diagnostic
+
+Si elle est activée, la collecte de journaux proactive charge les journaux quand l’un des événements suivants se déclenche.
+
+Par exemple, **Échec de la mise à jour** est une alerte qui déclenche la collecte proactive des journaux de diagnostic. Si elle est activée, les journaux de diagnostic sont capturés de manière proactive au cours d’un échec de mise à jour pour aider le support Microsoft à résoudre le problème. Les journaux de diagnostic sont collectés uniquement quand l’alerte pour **Échec de la mise à jour** est déclenchée.
+
+| Titre de l’alerte | FaultIdType |
+|---|---|
+|Impossible de se connecter au service distant | UsageBridge.NetworkError|
+|Échec de la mise à jour | Urp.UpdateFailure |
+|Infrastructure du fournisseur de ressources de stockage/dépendances non disponibles |    StorageResourceProviderDependencyUnavailable |
+|Nœud non connecté au contrôleur| ServerHostNotConnectedToController |  
+|Échec de publication de route | SlbMuxRoutePublicationFailure |
+|Magasin de données interne du fournisseur de ressources de stockage non disponible |    StorageResourceProvider. DataStoreConnectionFail |
+|Défaillance d’unité de stockage | Microsoft.Health.FaultType.VirtualDisks.Detached |
+|Le contrôleur d'intégrité n'a pas accès au compte de stockage | Microsoft.Health.FaultType.StorageError |
+|La connectivité à un disque physique a été perdue | Microsoft.Health.FaultType.PhysicalDisk.LostCommunication |
+|Le service Blob n’est pas exécuté sur un nœud | StorageService.The.blob.service.is.not.running.on.a.node-Critical |
+|Rôle d’infrastructure défectueux | Microsoft.Health.FaultType.GenericExceptionFault |
+|Erreurs du service de Table | StorageService.Table.service.errors-Critical |
+|Un partage de fichiers est utilisé à plus de 80 % | Microsoft.Health.FaultType.FileShare.Capacity.Warning.Infra |
+|Nœud d’unité d’échelle hors ligne | FRP.Heartbeat.PhysicalNode |
+|Instance de rôle d’infrastructure non disponible | FRP.Heartbeat.InfraVM |
+|Instance de rôle d’infrastructure non disponible  | FRP.Heartbeat.NonHaVm |
+|Le rôle de l'infrastructure, Gestion de répertoires, a signalé des erreurs de synchronisation temporelle | DirectoryServiceTimeSynchronizationError |
+|Pending external certificate expiration (Expiration imminente du certificat externe) | CertificateExpiration.ExternalCert.Warning |
+|Pending external certificate expiration (Expiration imminente du certificat externe) | CertificateExpiration.ExternalCert.Critical |
+|Impossible de provisionner des machines virtuelles pour une classe et une taille spécifiques en raison d’une capacité de mémoire insuffisante | AzureStack.ComputeController.VmCreationFailure.LowMemory |
+|Nœud inaccessible pour la sélection élective d’ordinateur virtuel | AzureStack.ComputeController.HostUnresponsive |
+|Échec de la sauvegarde  | AzureStack.BackupController.BackupFailedGeneralFault |
+|La sauvegarde planifiée a été ignorée en raison d’un conflit avec des opérations qui ont échoué    | AzureStack.BackupController.BackupSkippedWithFailedOperationFault |
 
 ## <a name="send-logs-now"></a>Envoyer des journaux maintenant
 
@@ -152,7 +190,7 @@ En lançant la collecte des journaux de diagnostic à partir d’Azure Stack Hub
 
 ## <a name="save-logs-locally"></a>Enregistrer les journaux localement
 
-Vous pouvez enregistrer des journaux dans un partage SMB (Server Message Block) local quand Azure Stack Hub est déconnecté d’Azure. Dans le panneau **Paramètres** , entrez le chemin d’accès et un nom d’utilisateur et un mot de passe avec l’autorisation d’écrire sur le partage. Au cours d’un cas de support, le Support Microsoft fournit des étapes détaillées sur la façon dont ces journaux locaux doivent être transférés. Si le portail d’administration n’est pas disponible, vous pouvez utiliser la cmdlet [Get-AzureStackLog](azure-stack-get-azurestacklog.md) pour enregistrer les journaux localement.
+Vous pouvez enregistrer des journaux dans un partage SMB (Server Message Block) local quand Azure Stack Hub est déconnecté d’Azure. Dans le panneau **Paramètres**, entrez le chemin d’accès et un nom d’utilisateur et un mot de passe avec l’autorisation d’écrire sur le partage. Au cours d’un cas de support, le Support Microsoft fournit des étapes détaillées sur la façon dont ces journaux locaux doivent être transférés. Si le portail d’administration n’est pas disponible, vous pouvez utiliser la cmdlet [Get-AzureStackLog](azure-stack-get-azurestacklog.md) pour enregistrer les journaux localement.
 
 ![Capture d’écran des options de collecte des journaux de diagnostic](media/azure-stack-help-and-support/save-logs-locally.png)
 
@@ -172,47 +210,15 @@ Le tableau suivant répertorie les éléments à prendre en compte pour les envi
 
 ## <a name="view-log-collection"></a>Afficher la collecte des journaux
 
-L'historique des journaux collectés à partir d'Azure Stack Hub apparaît sur la page **Collecte des journaux** d' **Aide et support** , avec les dates et heures suivantes :
+L'historique des journaux collectés à partir d'Azure Stack Hub apparaît sur la page **Collecte des journaux** d'**Aide et support**, avec les dates et heures suivantes :
 
 - **Time collected** (Heure de la collecte) : heure à laquelle l'opération de collecte des journaux a commencé.
-- **État**  : En cours ou Terminé.
+- **État** : En cours ou Terminé.
 - **Logs start** (Début des journaux) : date à laquelle vous souhaitez commencer à collecter des journaux.
 - **Logs end** (Fin des journaux) : date de fin de la collecte.
-- **Type**  : s'il s'agit d'une collecte de journaux manuelle ou proactive.
+- **Type** : s'il s'agit d'une collecte de journaux manuelle ou proactive.
 
 ![Collecte des journaux dans Aide et support](media/azure-stack-help-and-support/azure-stack-log-collection.png)
-
-## <a name="proactive-diagnostic-log-collection-alerts"></a>Alertes de collecte proactive des journaux de diagnostic
-
-Si elle est activée, la collecte de journaux proactive charge les journaux uniquement quand l’un des événements suivants est déclenché.
-
-Par exemple, **Échec de la mise à jour** est une alerte qui déclenche la collecte proactive des journaux de diagnostic. Si elle est activée, les journaux de diagnostic sont capturés de manière proactive au cours d’un échec de mise à jour pour aider le support Microsoft à résoudre le problème. Les journaux de diagnostic sont collectés uniquement quand l’alerte pour **Échec de la mise à jour** est déclenchée.
-
-| Titre de l’alerte | FaultIdType |
-|---|---|
-|Impossible de se connecter au service distant | UsageBridge.NetworkError|
-|Échec de la mise à jour | Urp.UpdateFailure |
-|Infrastructure du fournisseur de ressources de stockage/dépendances non disponibles |    StorageResourceProviderDependencyUnavailable |
-|Nœud non connecté au contrôleur| ServerHostNotConnectedToController |  
-|Échec de publication de route | SlbMuxRoutePublicationFailure |
-|Magasin de données interne du fournisseur de ressources de stockage non disponible |    StorageResourceProvider. DataStoreConnectionFail |
-|Défaillance d’unité de stockage | Microsoft.Health.FaultType.VirtualDisks.Detached |
-|Le contrôleur d'intégrité n'a pas accès au compte de stockage | Microsoft.Health.FaultType.StorageError |
-|La connectivité à un disque physique a été perdue | Microsoft.Health.FaultType.PhysicalDisk.LostCommunication |
-|Le service Blob n’est pas exécuté sur un nœud | StorageService.The.blob.service.is.not.running.on.a.node-Critical |
-|Rôle d’infrastructure défectueux | Microsoft.Health.FaultType.GenericExceptionFault |
-|Erreurs du service de Table | StorageService.Table.service.errors-Critical |
-|Un partage de fichiers est utilisé à plus de 80 % | Microsoft.Health.FaultType.FileShare.Capacity.Warning.Infra |
-|Nœud d’unité d’échelle hors ligne | FRP.Heartbeat.PhysicalNode |
-|Instance de rôle d’infrastructure non disponible | FRP.Heartbeat.InfraVM |
-|Instance de rôle d’infrastructure non disponible  | FRP.Heartbeat.NonHaVm |
-|Le rôle de l'infrastructure, Gestion de répertoires, a signalé des erreurs de synchronisation temporelle | DirectoryServiceTimeSynchronizationError |
-|Pending external certificate expiration (Expiration imminente du certificat externe) | CertificateExpiration.ExternalCert.Warning |
-|Pending external certificate expiration (Expiration imminente du certificat externe) | CertificateExpiration.ExternalCert.Critical |
-|Impossible de provisionner des machines virtuelles pour une classe et une taille spécifiques en raison d’une capacité de mémoire insuffisante | AzureStack.ComputeController.VmCreationFailure.LowMemory |
-|Nœud inaccessible pour la sélection élective d’ordinateur virtuel | AzureStack.ComputeController.HostUnresponsive |
-|Échec de la sauvegarde  | AzureStack.BackupController.BackupFailedGeneralFault |
-|La sauvegarde planifiée a été ignorée en raison d’un conflit avec des opérations qui ont échoué    | AzureStack.BackupController.BackupSkippedWithFailedOperationFault |
 
 ## <a name="see-also"></a>Voir aussi
 

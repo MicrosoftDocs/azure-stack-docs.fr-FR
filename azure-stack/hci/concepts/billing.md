@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/01/2020
-ms.openlocfilehash: 22758f9a6b905e2c948a47c5870a05edcb63acdf
-ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
+ms.date: 11/19/2020
+ms.openlocfilehash: 0cdd8a7f6c0c59eddbe1e8dd93158eb7a280e8ab
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428479"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010717"
 ---
 # <a name="azure-stack-hci-billing-and-payment"></a>Facturation et paiement dans Azure Stack HCI
 
@@ -22,7 +22,7 @@ Azure Stack HCI est un service Azure qui apparaît sur la facture de votre abonn
 
 ## <a name="what-does-azure-stack-hci-charge-for"></a>Que facture Azure Stack HCI ?
 
-Pour les clients utilisant déjà Azure ou tout autre service cloud, le modèle de facturation de type cloud d’Azure Stack HCI est simple, cohérent et connu. Aucuns frais ne sont facturés pendant la préversion publique. Une fois la préversion terminée, la facturation est basée sur un taux forfaitaire par cœur de processeur physique dans un cluster Azure Stack HCI (des frais d’utilisation supplémentaires s’appliquent si vous utilisez d’autres services Azure).
+Pour les clients utilisant déjà Azure ou tout autre service cloud, le modèle de facturation de type cloud d’Azure Stack HCI est simple, cohérent et connu. La facturation est basée sur un taux forfaitaire par cœur de processeur physique dans un cluster Azure Stack HCI (des frais d’utilisation supplémentaires s’appliquent si vous utilisez d’autres services Azure).
 
 Le modèle de tarification est différent d’une facturation basée sur l’utilisation ou sur la consommation reposant sur le nombre de machines virtuelles. Bien que le nombre de cœurs de processeur virtuel (VCPU) puisse varier au cours du mois, il n’affecte pas le prix que vous payez pour Azure Stack HCI : votre facture reflète toujours le nombre de cœurs physiques présents dans le cluster.
 

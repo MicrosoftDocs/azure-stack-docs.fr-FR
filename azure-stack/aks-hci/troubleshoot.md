@@ -3,14 +3,14 @@ title: Résolution des problèmes AKS
 description: Cet article fournit des informations sur la résolution des problèmes liés à Azure Kubernetes Service (AKS) sur Azure Stack HCI.
 author: davannaw-msft
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: dawhite
-ms.openlocfilehash: 4f13aff85c1444197fce5a01c62319026f844fe6
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 53ee79628f63d4925cdf7c725d1c0ec4231b4ef3
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415043"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612452"
 ---
 # <a name="troubleshooting-azure-kubernetes-service-on-azure-stack-hci"></a>Résolution des problèmes d’Azure Kubernetes Service sur Azure Stack HCI
 
@@ -79,20 +79,46 @@ GetHelp .\Get-SMEUILogs.ps1 -Examples
 ```
 
 ## <a name="troubleshooting-windows-worker-nodes"></a>Résolution des problèmes des nœuds Worker Windows 
-Pour vous connecter à un nœud Worker Windows, commencez par obtenir l’adresse IP de votre nœud en exécutant `kubectl get`. Notez la valeur `EXTERNAL-IP`.
+Pour vous connecter à un nœud Worker Windows à l’aide de SSH, obtenez tout d’abord l’adresse IP du nœud en exécutant `kubectl get` et en capturant la valeur `EXTERNAL-IP`.
 
-```PowerShell
-kubectl get nodes -o wide
-``` 
-Connectez-vous avec SSH au nœud en utilisant `ssh Administrator@ip`. Une fois connecté avec SSH au nœud, vous pouvez exécuter `net user administrator *` pour mettre à jour votre mot de passe administrateur. 
+   > [!NOTE]
+   > Vous devez passer l’emplacement approprié à votre clé privée SSH. L’exemple suivant utilise l’emplacement par défaut %systemdrive%\akshci\.ssh\akshci_rsa. Toutefois, vous devrez peut-être changer cet emplacement si vous avez demandé un autre chemin en spécifiant le paramètre `-sshPublicKey` pour `Set-AksHciConfig`.
+
+Pour obtenir l’adresse IP du nœud Worker Windows :  
+
+```
+kubectl --kubeconfig=yourkubeconfig get nodes -o wide
+```  
+
+Utilisez `ssh Administrator@ip` pour vous connecter via SSH à un nœud Windows :  
+
+```
+ssh -i $env:SYSTEMDRIVE\AksHci\.ssh\akshci_rsa administrator@<IP Address of the Node>
+```
+  
+Une fois connecté en SSH au nœud, vous pouvez exécuter `net user administrator *` pour mettre à jour votre mot de passe administrateur. 
+
 
 ## <a name="troubleshooting-linux-worker-nodes"></a>Résolution des problèmes des nœuds Worker Linux 
-Pour vous connecter à un nœud Worker Linux, commencez par obtenir l’adresse IP de votre nœud en exécutant `kubectl get`. Notez la valeur `EXTERNAL-IP`.
+Pour vous connecter à un nœud Worker Linux à l’aide de SSH, obtenez tout d’abord l’adresse IP du nœud en exécutant `kubectl get`, puis capturez la valeur `EXTERNAL-IP`.
 
-```PowerShell
-kubectl get nodes -o wide
-``` 
-Connectez-vous avec SSH au nœud en utilisant `ssh clouduser@ip`. 
+
+   > [!NOTE]
+   > Vous devez passer l’emplacement approprié à votre clé privée SSH. L’exemple suivant utilise l’emplacement par défaut %systemdrive%\akshci\.ssh\akshci_rsa. Toutefois, vous devrez peut-être changer cet emplacement si vous avez demandé un autre chemin en spécifiant le paramètre `-sshPublicKey` pour `Set-AksHciConfig`.
+
+Pour obtenir l’adresse IP du nœud Worker Linux :  
+
+```
+kubectl --kubeconfig=yourkubeconfig get nodes -o wide
+```  
+
+Utilisez `ssh clouduser@ip` pour vous connecter via SSH au nœud Linux : 
+
+```
+ssh -i $env:SYSTEMDRIVE\AksHci\.ssh\akshci_rsa clouduser@<IP Address of the Node>
+```  
+
+Une fois connecté en SSH au nœud, vous pouvez exécuter `net user administrator *` pour mettre à jour votre mot de passe administrateur. 
 
 ## <a name="troubleshooting-azure-arc-kubernetes"></a>Résolution de problèmes liés à Azure Arc Kubernetes
 Pour découvrir comment dépanner certains scénarios courants liés à la connectivité, aux autorisations et aux agents Arc, consultez [Résolution des problèmes Kubernetes avec Azure Arc](/azure/azure-arc/kubernetes/troubleshooting).

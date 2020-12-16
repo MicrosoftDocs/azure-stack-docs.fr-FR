@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 7452437d7f760a688c2403cb4def735b2daaa105
-ms.sourcegitcommit: a7a2ac1b9be926134826dce03e348154fd212bc9
+ms.openlocfilehash: c8ea741534954235fc6de9e32d16602e0c369d6f
+ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96443284"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97051613"
 ---
 # <a name="physical-network-requirements-for-azure-stack-hci"></a>Exigences liées aux réseaux physiques pour Azure Stack HCI
 
@@ -69,9 +69,9 @@ Les commutateurs Ethernet doivent respecter la spécification IEEE 802.1Qaz qui 
 
 ### <a name="standard-ieee-8021ab"></a>Standard : IEEE 802.1AB
 
-Les commutateurs Ethernet doivent respecter la spécification IEEE 802.1AB qui définit le protocole LLDP (Link Layer Discovery Protocol). Le protocole LLDP est requis pour Azure Stack HCI. Il prend en charge l’association pour découvrir la configuration du commutateur.
+Les commutateurs Ethernet doivent respecter la spécification IEEE 802.1AB qui définit le protocole LLDP (Link Layer Discovery Protocol). LLDP est nécessaire à Azure Stack HCI et permet de résoudre les problèmes liés aux configurations des réseaux physiques.
 
-La configuration des valeurs TLV (Type-Length-Values) LLDP doit être activée de manière dynamique. Ces commutateurs ne doivent pas imposer de configuration supplémentaire en plus de l’activation d’une valeur TLV spécifique. Par exemple, l’activation du sous-type 3 de la spécification 802.1 doit être automatiquement annoncée à tous les réseaux locaux virtuels disponibles sur les ports de commutateur.
+La configuration des valeurs TLV (Type-Length-Values) LLDP doit être activée de manière dynamique. Les commutateurs ne doivent pas demander de configuration supplémentaire au-delà de l’activation d’une valeur TLV spécifique. Par exemple, l’activation du sous-type 3 de la spécification 802.1 doit être automatiquement annoncée à tous les réseaux locaux virtuels disponibles sur les ports de commutateur.
 
 ### <a name="custom-tlv-requirements"></a>Exigences TLV personnalisées
 

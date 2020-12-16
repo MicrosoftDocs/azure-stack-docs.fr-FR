@@ -15,12 +15,12 @@ ms.date: 10/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: ad354e6acc6f1ab1edc51a5927138b873875bec8
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 9e7bb8b8174423a21c4f08e09cdb10d2a37bf556
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330085"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935064"
 ---
 # <a name="analyze-azure-stack-usage-with-local-usage-meters"></a>Analyser l'utilisation d'Azure Stack avec des compteurs d'utilisation locaux
 
@@ -32,7 +32,7 @@ Les informations indiquant quels abonnements utilisent telles ou telles ressourc
 
 La requête obtient les détails de la consommation pour les abonnements demandés et pour la période demandée. Il n’existe aucun corps de requête.
 
-Cette API d’utilisation étant une API de fournisseur, un rôle **Propriétaire** , **Collaborateur** ou **Lecteur** doit être affecté à l’appelant dans l’abonnement du fournisseur.
+Cette API d’utilisation étant une API de fournisseur, un rôle **Propriétaire**, **Collaborateur** ou **Lecteur** doit être affecté à l’appelant dans l’abonnement du fournisseur.
 
 | Méthode | URI de demande |
 | --- | --- |
@@ -102,15 +102,28 @@ meterID1",
 
 ### <a name="powershell"></a>PowerShell
 
-Pour générer les données d’utilisation, vous devez disposer de ressources en cours d’exécution qui utilisent activement le système, par exemple une machine virtuelle active ou un compte de stockage contenant des données. Si vous ne savez pas si des ressources sont en cours d’exécution dans la Place de marché Azure Stack, déployez une machine virtuelle et consultez son panneau de supervision pour vérifier qu’elle est en cours d’exécution. Pour afficher les données d’utilisation, utilisez les cmdlets PowerShell suivantes :
+Pour générer les données d’utilisation, vous devez disposer de ressources en cours d’exécution qui utilisent activement le système, par exemple une machine virtuelle active ou un compte de stockage contenant des données. Si vous ne savez pas si des ressources sont en cours d’exécution dans la Place de marché Azure Stack, déployez une machine virtuelle et consultez son panneau de supervision pour vérifier qu’elle est en cours d’exécution. Pour voir les données d’utilisation, exécutez les applets de commande PowerShell suivantes.
 
-1. [Installez PowerShell pour Azure Stack](../../operator/azure-stack-powershell-install.md).
+### <a name="az-modules"></a>[Modules Az](#tab/az1)
+
+1. [Installez PowerShell pour Azure Stack](../../operator/powershell-install-az-module.md).
 2. Configurez l’environnement PowerShell [Utilisateur d’Azure Stack](../../user/azure-stack-powershell-configure-user.md) ou [Opérateur d’Azure Stack](../../operator/azure-stack-powershell-configure-admin.md).
 3. Pour récupérer les données d’utilisation, appelez l’applet de commande PowerShell [Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) :
 
    ```powershell
    Get-AzsSubscriberUsage -ReportedStartTime "2017-09-06T00:00:00Z" -ReportedEndTime "2017-09-07T00:00:00Z"
    ```
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm1)
+
+1. [Installez PowerShell pour Azure Stack](../../operator/powershell-install-az-module.md).
+2. Configurez l’environnement PowerShell [Utilisateur d’Azure Stack](../../user/azure-stack-powershell-configure-user.md) ou [Opérateur d’Azure Stack](../../operator/azure-stack-powershell-configure-admin.md).
+3. Pour récupérer les données d’utilisation, appelez l’applet de commande PowerShell [Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) :
+
+   ```powershell
+   Get-AzsSubscriberUsage -ReportedStartTime "2017-09-06T00:00:00Z" -ReportedEndTime "2017-09-07T00:00:00Z"
+   ```
+
+---
 
 ### <a name="rest-api"></a>API REST
 

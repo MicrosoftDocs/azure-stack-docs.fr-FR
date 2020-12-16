@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 201acbad11011731a8e7017d14b39be120e460d3
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: d260c8486090dbe94931c2527102c06cf4b98314
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545760"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761649"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Valider des certificats PKI Azure Stack Hub
 
@@ -211,9 +211,9 @@ Suivez les étapes ci-après afin de valider les certificats PKI Azure Stack Hub
 
 ### <a name="known-issues"></a>Problèmes connus
 
-**Symptôme**  : les tests sont ignorés.
+**Symptôme** : les tests sont ignorés.
 
-**Cause**  : AzsReadinessChecker ignore certains tests si aucune dépendance n’est détectée :
+**Cause** : AzsReadinessChecker ignore certains tests si aucune dépendance n’est détectée :
 
  - Si la chaîne d’approbation échoue, les autres certificats sont ignorés.
 
@@ -237,7 +237,13 @@ Suivez les étapes ci-après afin de valider les certificats PKI Azure Stack Hub
     Invoke-AzsCertificateValidation Completed
     ```
 
-**Résolution**  : suivez les instructions de l’outil dans la section des détails sous chaque ensemble de tests de chacun des certificats.
+**Résolution** : suivez les instructions de l’outil dans la section des détails sous chaque ensemble de tests de chacun des certificats.
+
+**Symptôme** : Échec de la vérification de la liste de révocation de certificats HTTP malgré l’écriture d’un CDP HTTP dans les extensions x509.
+
+**Cause** : Pour le moment, AzsReadinessChecker ne peut pas vérifier le CDP HTTP dans certaines langues.
+
+**Résolution** : Exécutez une validation avec la langue du système d’exploitation définie à EN-US.
 
 ## <a name="certificates"></a>Certificats
 

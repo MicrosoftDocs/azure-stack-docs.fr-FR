@@ -3,35 +3,41 @@ title: Déployer le fournisseur de ressources MySQL sur Azure Stack Hub
 description: Découvrez comment déployer l’adaptateur du fournisseur de ressources MySQL et des bases de données MySQL en tant que service sur Azure Stack Hub.
 author: bryanla
 ms.topic: article
-ms.date: 9/22/2020
+ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: caoyang
-ms.lastreviewed: 9/22/2020
-ms.openlocfilehash: 22377e80f52b2a8e3a7827ded6400b17cebdce9c
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.lastreviewed: 12/07/2020
+ms.openlocfilehash: b6d345ecfecaa3859420087bc7cff051b39fbb36
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812730"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778153"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Déployer le fournisseur de ressources MySQL sur Azure Stack Hub
 
-Utilisez le fournisseur de ressources MySQL Server pour exposer des bases de données MySQL en tant que service Azure Stack Hub. Le fournisseur de ressources MySQL s’exécute en tant que service sur une machine virtuelle Windows Server 2016 Server Core (pour version de carte < = 1.1.47.0 >) ou sur un un Add-on RP Windows Server spécial (pour version de carte > = 1.1.93.0).
+Utilisez le fournisseur de ressources MySQL Server pour exposer des bases de données MySQL en tant que service Azure Stack Hub. Le fournisseur de ressources MySQL s’exécute en tant que service sur une machine virtuelle Windows Server 2016 Server Core (pour la version de carte <= 1.1.47.0 >) ou sur un module complémentaire RP Windows Server spécial (pour la version de carte >= 1.1.93.0).
 
 > [!IMPORTANT]
-> Seul le fournisseur de ressources est pris en charge pour créer des éléments sur des serveurs qui hébergent SQL ou MySQL. Les éléments créés sur un serveur hôte qui ne sont pas créés par le fournisseur de ressources peuvent entraîner un état qui ne correspond pas.
+> Seul le fournisseur de ressources doit créer des éléments sur les serveurs qui hébergent SQL ou MySQL. Les éléments créés sur un serveur hôte, et qui ne sont pas créés par le fournisseur de ressources, ne sont pas pris en charge. Ils peuvent entraîner un état incompatible.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-Plusieurs conditions préalables doivent être remplies avant de pouvoir déployer le fournisseur de ressources MySQL Azure Stack Hub. Afin de répondre à ces exigences, complétez les étapes de cet article sur un ordinateur ayant accès à la machine virtuelle du point de terminaison privilégié.
+Plusieurs prérequis doivent être respectés pour permettre le déploiement du fournisseur de ressources MySQL d’Azure Stack Hub :
 
-* Si ce n'est déjà fait, [inscrivez Azure Stack Hub](./azure-stack-registration.md) auprès d'Azure pour pouvoir télécharger des éléments de la Place de marché Azure.
+- Vous avez besoin d’un ordinateur et d’un compte pouvant accéder :
+   - au [portail administrateur Azure Stack Hub](azure-stack-manage-portals.md)
+   - au [point de terminaison privilégié](azure-stack-privileged-endpoint.md)
+   - au point de terminaison d’administration Azure Resource Manager, `https://management.region.<fqdn>`, où `<fqdn>` représente votre nom de domaine complet (ou `https://management.local.azurestack.external` si vous utilisez le kit ASDK)
+   - à Internet, si Azure Stack Hub a été déployé pour l’utilisation d’Azure Active Directory (AD) en tant que fournisseur d’identité
 
-* Ajoutez la machine virtuelle Windows Server requise à la Place de marché Azure Stack Hub.
-  * Pour la version MySQL RP < = 1.1.47.0, téléchargez l’image **Windows Server 2016 Datacenter-Server Core**.
-  * Pour la version MySQL RP > = 1.1.93.0, téléchargez l’image **Microsoft AzureStack Add-on RP Windows Server INTERNE UNIQUEMENT**. Cette version de Windows Server est conçue pour l’infrastructure d’Azure Stack Add-On RP et n’est pas visible sur la place de marché du client.
+- Si ce n'est déjà fait, [inscrivez Azure Stack Hub](azure-stack-registration.md) auprès d'Azure pour pouvoir télécharger des éléments de la Place de marché Azure.
 
-* Téléchargez la version prise en charge du fichier binaire du fournisseur de ressources MySQL en fonction du tableau de mappage de versions ci-dessous. Exécutez l’auto-extracteur pour extraire le contenu téléchargé dans un répertoire temporaire. 
+- Ajoutez la machine virtuelle Windows Server requise à la Place de marché Azure Stack Hub.
+  - Pour la version MySQL RP < = 1.1.47.0, téléchargez l’image **Windows Server 2016 Datacenter-Server Core**.
+  - Pour la version MySQL RP > = 1.1.93.0, téléchargez l’image **Microsoft AzureStack Add-on RP Windows Server INTERNE UNIQUEMENT**. Cette version de Windows Server est conçue pour l’infrastructure d’Azure Stack Add-On RP et n’est pas visible sur la place de marché du client.
+
+- Téléchargez la version prise en charge du fichier binaire du fournisseur de ressources MySQL en fonction du tableau de mappage de versions ci-dessous. Exécutez l’auto-extracteur pour extraire le contenu téléchargé dans un répertoire temporaire. 
 
   |Versions d’Azure Stack Hub prises en charge|Version du fournisseur de ressources MySQL|Windows Server sur lequel le service RP s’exécute
   |-----|-----|-----|
@@ -44,7 +50,7 @@ Plusieurs conditions préalables doivent être remplies avant de pouvoir déploy
 >Pour déployer le fournisseur MySQL sur un système qui n’a pas accès à Internet, copiez le fichier [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) sur un chemin local. Fournissez le nom du chemin à l’aide du paramètre **DependencyFilesLocalPath**.
 
 
-* Vérifiez que les conditions préalables d’intégration du centre de données sont remplies :
+- Vérifiez que les conditions préalables d’intégration du centre de données sont remplies :
 
     |Configuration requise|Informations de référence|
     |-----|-----|
@@ -104,7 +110,7 @@ _Pour les installations de systèmes intégrés uniquement_. Vous devez fournir 
 
 ## <a name="deploy-the-resource-provider"></a>Déployer le fournisseur de ressources
 
-Une fois que tous les prérequis sont remplis, exécutez le script **DeployMySqlProvider.ps1** à partir d’un ordinateur qui a accès au point de terminaison de gestion des ressources Azure de l’administrateur Azure Stack Hub et au point de terminaison privilégié pour déployer le fournisseur de ressources MySQL. Le script DeployMySqlProvider.ps1 est extrait des fichiers d’installation du fournisseur de ressources MySQL que vous avez téléchargé pour votre version d’Azure Stack Hub.
+Une fois tous les prérequis respectés, exécutez le script **DeployMySqlProvider.ps1** à partir d’un ordinateur ayant accès au point de terminaison d’administration Azure Resource Manager d’Azure Stack Hub ainsi qu’au point de terminaison privilégié pour déployer le fournisseur de ressources MySQL. Le script DeployMySqlProvider.ps1 est extrait des fichiers d’installation du fournisseur de ressources MySQL que vous avez téléchargé pour votre version d’Azure Stack Hub.
 
  > [!IMPORTANT]
  > Avant de déployer le fournisseur de ressources, passez en revue les notes de publication pour en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.

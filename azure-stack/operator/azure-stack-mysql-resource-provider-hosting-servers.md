@@ -3,16 +3,16 @@ title: Ajouter des serveurs d’hébergement MySQL dans Azure Stack Hub
 description: Découvrez comment ajouter des serveurs d’hébergement MySQL pour l’approvisionnement via le fournisseur de ressources de l’adaptateur MySQL.
 author: bryanla
 ms.topic: article
-ms.date: 11/06/2019
+ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: bbf96c0716d6bb9fdfca7ce0b52268281e6169c6
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.lastreviewed: 12/07/2020
+ms.openlocfilehash: a5c965591a6eb7d11540bf63c298ffa2321e0014
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414161"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778425"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>Ajouter des serveurs d’hébergement MySQL dans Azure Stack Hub
 
@@ -116,6 +116,9 @@ Pour ajouter un serveur d’hébergement, procédez comme suit :
    * Une instance MySQL par défaut n’est pas fournie, donc vous devez spécifier la **taille du serveur d’hébergement en Go**. Entrez une taille qui est proche de la capacité du serveur de base de données.
    * Conservez la valeur par défaut pour **Abonnement**.
    * Pour **Groupe de ressources**, créez un groupe ou utilisez un groupe existant.
+
+   > [!IMPORTANT]
+   > Ne choisissez pas le **Groupe de ressources** `system.<region>.sqladapter`, qui a été créé par le programme d’installation du fournisseur de ressources MySQL durant le déploiement. Vous devez fournir un autre groupe de ressources pour le serveur d’hébergement.    
 
    > [!NOTE]
    > Si l’instance MySQL est accessible par le locataire et l’administrateur Azure Resource Manager, vous pouvez la placer sous le contrôle du fournisseur de ressources. Mais, l’instance MySQL **doit** être allouée exclusivement au fournisseur de ressources.

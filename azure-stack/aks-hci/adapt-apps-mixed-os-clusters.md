@@ -3,17 +3,19 @@ title: Adapter les applications pour une utilisation dans les clusters Kubernete
 description: Comment utiliser des sélecteurs de nœuds ou des teintes et des tolérances sur Azure Kubernetes Service pour garantir que les applications dans des clusters Kubernetes de système d’exploitation mixte s’exécutant sur Azure Stack HCI sont planifiées sur le système d’exploitation du nœud Worker approprié
 author: abha
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 04b103fee921cf8bdab82a4004c6c80afd54d687
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.openlocfilehash: 0d4fd0e62e10e4afc4a76c9cac2deaed97e23549
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92253942"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761556"
 ---
 # <a name="adapt-apps-for-mixed-os-kubernetes-clusters-using-node-selectors-or-taints-and-tolerations"></a>Adapter des applications pour les clusters Kubernetes de système d’exploitation mixte à l’aide de sélecteurs de nœuds ou de teintes et de tolérances
+
+> S’applique à : AKS sur Azure Stack HCI, AKS Runtime sur Windows Server 2019 Datacenter
 
 Azure Kubernetes Service sur Azure Stack HCI vous permet d’exécuter des clusters Kubernetes avec des nœuds Linux et Windows, mais vous oblige à apporter de petites modifications à vos applications pour les utiliser dans ces clusters de système d’exploitation mixte. Dans ce guide pratique, vous apprendrez à vous assurer que votre application est planifiée sur le système d’exploitation hôte approprié à l’aide de sélecteurs de nœuds ou de teintes et de tolérances.
 
@@ -45,7 +47,7 @@ node.kubernetes.io/os=Windows:NoSchedule
 ```
 Exécutez `kubectl get` et identifiez les nœuds Worker Windows que vous souhaitez souiller.
 
-```PowerShell
+```
 kubectl get nodes --all-namespaces -o=custom-columns=NAME:.metadata.name,OS:.status.nodeInfo.operatingSystem
 ```
 Sortie :
@@ -58,7 +60,7 @@ my-aks-hci-cluster-md-md-1-5xlwz         windows
 
 Souillez les nœuds Worker Windows Server à l’aide de `kubectl taint node`.
 
-```PowerShell
+```
 kubectl taint node my-aks-hci-cluster-md-md-1-5h4bl node.kubernetes.io/os=Windows:NoSchedule
 kubectl taint node my-aks-hci-cluster-md-md-1-5xlwz node.kubernetes.io/os=Windows:NoSchedule
 ```

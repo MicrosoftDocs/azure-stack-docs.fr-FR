@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: ff9c1054f505625e51426fca70bbb2ae7d9115a5
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: 681f02fa220331a93a59448cd1c15bc490ee4b24
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572940"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011176"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Opérations de maintenance sur le fournisseur de ressources MySQL dans Azure Stack Hub
 
@@ -156,14 +156,14 @@ Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèm
 |Paramètre|Description|Commentaire|
 |-----|-----|-----|
 |AzureEnvironment|Environnement Azure du compte administrateur de service utilisé pour déployer Azure Stack Hub. Nécessaire uniquement pour les déploiements Azure AD. Les noms d’environnement pris en charge sont **AzureCloud**, **AzureUSGovernment** ou, si vous utilisez Azure Active Directory en Chine, **AzureChinaCloud**.|Facultatif|
-|AzCredential|Informations d’identification du compte d’administration de service Azure Stack Hub.|Obligatoire|
+|AzCredential|Informations d’identification du compte d’administration de service Azure Stack Hub. Le script échoue si le compte que vous utilisez avec AzCredential nécessite l’authentification multifacteur (MFA).|Obligatoire|
 |CloudAdminCredential|Informations d’identification du compte de domaine d’administrateur cloud d’Azure Stack Hub.|Obligatoire|
 |PrivilegedEndpoint|Point de terminaison privilégié pour accéder à Get-AzureStackStampInformation.|Obligatoire|Facultatif|
 |DiagnosticsUserPassword|Diagnostique le mot de passe de compte d’utilisateur.|Facultatif|
 |VMLocalCredential|Le compte administrateur local de la machine virtuelle MySQLAdapter.|Facultatif|
 |DefaultSSLCertificatePassword|Mot de passe du certificat SSL par défaut (*.pfx).|Facultatif|
 |DependencyFilesLocalPath|Chemin local des fichiers de dépendances.|Facultatif|
-|KeyVaultPfxPassword|Mot de passe utilisé afin de générer le certificat Key Vault pour l'adaptateur de base de données.|Facultatif|
+|KeyVaultPfxPassword|Mot de passe utilisé pour générer le certificat Key Vault pour l’adaptateur de base de données.|Facultatif|
 |     |     |     |
 
 ### <a name="known-issues"></a>Problèmes connus
@@ -240,11 +240,11 @@ L’extension Azure Diagnostics est installée sur la machine virtuelle de l’a
    
    ![Accéder aux paramètres de diagnostic](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
 
-4. Ajoutez **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** pour collecter les journaux des événements opérationnels du fournisseur de ressources MySQL.
+4. Ajoutez **Microsoft-AzureStack-DatabaseAdapter/Operational!\** _ pour collecter les journaux des événements opérationnels du fournisseur de ressources MySQL.
 
    ![Ajouter des journaux des événements](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
 
-5. Pour activer la collecte des journaux IIS, cochez **Journaux IIS** et **Journaux des requêtes ayant échoué**.
+5. Pour activer la collecte des journaux IIS, cochez _ *Journaux IIS** et **Journaux des requêtes ayant échoué**.
 
    ![Ajouter des journaux IIS](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-iis-logs.png)
 

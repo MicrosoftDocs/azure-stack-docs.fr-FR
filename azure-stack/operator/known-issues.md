@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: da21b724e914527ef2a4d5065d1d83a30ad3bb85
-ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
+ms.openlocfilehash: 161869d04e036e5265ebceb5cab9e193091baa37
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94785767"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935142"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Problèmes connus d’Azure Stack Hub
 
@@ -227,6 +227,12 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Cause : Si l’empreinte contient les versions 1.7 et antérieures du fournisseur de ressources App Service, lors de la mise à jour de l’empreinte, les panneaux pour App Service ne sont pas chargés.
 - Correction : Mettez à jour le fournisseur de ressources avec la version 2002 Q2.
 
+## <a name="powershell"></a>PowerShell
+
+[!Include[Known issue for install - one](../includes/known-issue-az-install-1.md)]
+
+[!Include[Known issue for install - two](../includes/known-issue-az-install-2.md)]
+
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
 <!-- ## App Service -->
@@ -352,8 +358,8 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="cannot-create-a-virtual-machine-scale-set-with-standard_ds2_v2-vm-size-on-portal"></a>Impossible de créer un groupe identique de machines virtuelles avec la taille de machine virtuelle Standard_DS2_v2 sur le portail
 
 - Champ d’application : Ce problème s’applique à la version 2002.
-- Cause : Il existe un bogue de portail qui empêche la création du groupe identique de machines virtuelles avec la taille de machine virtuelle Standard_DS2_v2. La création de celui-ci génère une erreur avec : "{"code":"DeploymentFailed","message": « Au moins une opération de déploiement de ressource n’a pas réussi. Dressez la liste des opérations de déploiement pour plus d’informations. Pour plus d’informations sur l’utilisation, consultez https://aka.ms/arm-debug.","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\": \" NetworkProfileValidationError\" ,\r\n \" message\": \" La taille de machine virtuelle Standard_DS2_v2 ne figure pas dans la liste autorisée de tailles de machine virtuelle pour que la mise en réseau accélérée soit activée sur la machine virtuelle à l’index 0 pour le groupe identique de machines virtuelles /subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss. Tailles autorisées : .\"\r\n }\r\n}"}]}"
-- Correction : Créer un groupe de machines virtuelles identiques avec PowerShell ou un modèle de gestionnaire des ressources.
+- Cause : Il existe un bogue de portail qui empêche la création du groupe identique de machines virtuelles avec la taille de machine virtuelle Standard_DS2_v2. La création de celui-ci génère une erreur avec : "{"code":"DeploymentFailed","message": « Au moins une opération de déploiement de ressource n’a pas réussi. Dressez la liste des opérations de déploiement pour plus d’informations. Pour plus d’informations sur l’utilisation, consultez https://aka.ms/arm-debug.","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\": \" NetworkProfileValidationError\" ,\r\n \" message\": \" La taille de machine virtuelle Standard_DS2_v2 ne figure pas dans la liste des tailles de machine virtuelle autorisées permettant l’activation de l’accélération réseau sur la machine virtuelle à l’index 0 pour le groupe de machines virtuelles identiques /subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss. Tailles autorisées : .\"\r\n }\r\n}"}]}"
+- Correction : Créez un groupe de machines virtuelles identiques avec PowerShell ou un modèle Resource Manager.
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Le panneau de vue d’ensemble de la machine virtuelle n’affiche pas le nom correct de l’ordinateur
 
@@ -415,7 +421,7 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 ### <a name="retention-period-revert-to-0"></a>La période de rétention revient à 0
 
 - Champ d’application : Ce problème concerne les versions 2002 et 2005.
-- Cause : Si vous avez précédemment paramétré une période de rétention autre que 0, celle-ci est restaurée à 0 (valeur par défaut de ce paramètre) pendant les mises à jour 2002 et 2005. Et le paramètre 0 jour prend effet immédiatement après la fin de la mise à jour. Cela entraîne l’arrêt immédiat de la rétention de tous les comptes de stockage supprimés présents et à venir, et leur marquage pour le nettoyage périodique de la mémoire (exécuté toutes les heures). 
+- Cause : Si vous avez précédemment paramétré une période de rétention autre que 0, celle-ci est restaurée à 0 (valeur par défaut de ce paramètre) pendant les mises à jour 2002 et 2005. Le paramètre 0 jour prend effet immédiatement après la fin de la mise à jour. Cela entraîne l’arrêt immédiat de la conservation de tous les comptes de stockage supprimés, présents et à venir, et leur marquage pour le nettoyage périodique de la mémoire (exécuté toutes les heures). 
 - Correction : Spécifiez manuellement une période de rétention correcte. Cependant, tout compte de stockage collecté pour le nettoyage avant que la nouvelle période de rétention soit spécifiée n’est pas récupérable.  
 
 ## <a name="resource-providers"></a>Fournisseurs de ressources
@@ -431,6 +437,12 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 - Champ d’application : Ce problème concerne la version 2002.
 - Cause : Si l’empreinte contient les versions 1.7 et antérieures du fournisseur de ressources App Service, lors de la mise à jour de l’empreinte, les panneaux pour App Service ne sont pas chargés.
 - Correction : Mettez à jour le fournisseur de ressources avec la version [2020 Q2](azure-stack-app-service-update.md).
+
+## <a name="powershell"></a>PowerShell
+
+[!Include[Known issue for install - one](../includes/known-issue-az-install-1.md)]
+
+[!Include[Known issue for install - two](../includes/known-issue-az-install-2.md)]
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

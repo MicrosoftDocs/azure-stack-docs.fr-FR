@@ -16,12 +16,12 @@ ms.date: 10/20/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: 339927d28c2778a5c2953d8acf90e04931e3c815
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.openlocfilehash: d0bf712be8924cce59aa441161dfb39c090d1a2d
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383630"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612622"
 ---
 # <a name="mdc-requirements-overview"></a>Présentation des exigences en lien avec un MDC
 
@@ -60,30 +60,33 @@ Le tableau suivant répertorie certains des termes utilisés dans ce guide.
 
 ## <a name="deployment-workflow"></a>Workflow du déploiement
 
-À un niveau élevé, le processus de déploiement MDC comprend les quatre étapes suivantes :
+De manière générale, le processus de déploiement de MDC comprend les phases suivantes :
 
-1. Phase de planification :
-   1. Planification de la puissance du centre de données.
-   1. Planification de la configuration du réseau logique d’Azure Stack Hub.
-   1. Planification de l’intégration du réseau du centre de données.
-   1. Planification de l’intégration des identités et de la sécurité.
-   1. Vérification des certificats PKI.
-1. Phase de préparation :
-   1. Collecte d'inventaire.
-   1. Connexion de l’alimentation et mise sous tension de la solution.
-   1. Validation de l’intégrité du système HVAC.
-   1. Validation de l’intégrité du système de surveillance et d’alerte des incendies.
-   1. Validation de l'intégrité du matériel physique.
-1. Phase d’exécution – séparément pour chacun des trois pods :
-   1. Configuration de l’hôte du cycle de vie du matériel.
-   1. Configuration des commutateurs réseau.
-   1. Intégration du réseau du centre de données.
-   1. Configuration des paramètres matériels physiques.
-   1. Configuration du stockage Isilon.
-   1. Déploiement de l’infrastructure de la structure Azure Stack Hub.
-   1. Intégration des identités au centre de données.
-   1. Installation des modules complémentaires pour les fonctionnalités étendues.
-1. Phase de validation – séparément pour chacun des trois pods :
-   1. Validation de l’intégrité après le déploiement.
-   1. Inscription d’Azure Stack Hub auprès de Microsoft.
-   1. Transfert des clients Azure Stack Hub.
+### <a name="planning-phase"></a>Phase de planification
+1. Planification de la puissance du centre de données.
+1. Planification de la configuration du réseau logique d’Azure Stack Hub.
+1. Planification de l’[intégration du réseau du centre de données](https://docs.microsoft.com/azure-stack/operator/azure-stack-network).
+1. Planification de l’[intégration des identités et de la sécurité](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices).
+1. Planification des [certificats PKI](https://docs.microsoft.com/azure-stack/operator/azure-stack-pki-certs).
+
+### <a name="preparation-phase"></a>Phase de préparation
+1. Collecte d'inventaire.
+1. Connexion de l’alimentation et mise sous tension de la solution.
+1. Validation de l’intégrité du système HVAC.
+1. Validation de l’intégrité du système de surveillance et d’alerte des incendies.
+1. Validation de l'intégrité du matériel physique.
+
+### <a name="execution-phase--separately-for-each-of-the-three-pods"></a>Phase d’exécution (séparément pour chacun des trois pods)
+1. Configuration de l’hôte du cycle de vie du matériel.
+1. Configuration des commutateurs réseau.
+1. Intégration du réseau du centre de données.
+1. Configuration des paramètres matériels physiques.
+1. Configuration du stockage Isilon.
+1. Déploiement de l’infrastructure de la structure Azure Stack Hub.
+1. Intégration des identités au centre de données.
+1. Installation des modules complémentaires pour les fonctionnalités étendues.
+
+### <a name="validation-phase--separately-for-each-of-the-three-pods"></a>Phase de validation (séparément pour chacun des trois pods)
+1. Validation de l’intégrité après le déploiement.
+1. Inscription d’Azure Stack Hub auprès de Microsoft.
+1. Transfert des clients Azure Stack Hub.

@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Découvrez comment ajouter des serveurs d’hébergement pour le provisionnement via l’adaptateur du fournisseur de ressources SQL.
 author: bryanla
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 0345c3290b717385d8080dc6be771660ea22a2e1
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 12/07/2020
+ms.openlocfilehash: 146ce73bb28b70d44f6eff03a135e6a3a9f22249
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487904"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778204"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Ajouter des serveurs d’hébergement pour le fournisseur de ressources SQL
 
@@ -66,13 +66,13 @@ Les informations suivantes fournissent des conseils de sécurité supplémentair
 
 * Tout le stockage Azure Stack Hub étant chiffré à l’aide de BitLocker, toute instance SQL sur Azure Stack Hub utilise le stockage d’objets blob chiffré.
 * Le fournisseur de ressources SQL prend entièrement en charge TLS 1.2. Vérifiez que tout serveur SQL géré par le biais du fournisseur de ressources SQL est configuré pour TLS 1.2 _uniquement_ et que le fournisseur de ressources utilise ce dernier par défaut. Toutes les versions prises en charge de SQL Server prennent en charge TLS 1.2. Pour plus d’informations, consultez [Prise en charge de TLS 1.2 pour Microsoft SQL Server](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
-* Utilisez le Gestionnaire de configuration SQL Server pour définir l’option **ForceEncryption** afin que toutes les communications vers le serveur SQL soient toujours chiffrées. Pour plus d’informations, consultez [Pour configurer le serveur afin qu’il force les connexions chiffrées](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections).
+* Utilisez le Gestionnaire de configuration SQL Server pour définir l’option **ForceEncryption** afin que toutes les communications vers le serveur SQL soient toujours chiffrées. Pour plus d’informations, consultez [Pour configurer le serveur afin qu’il force les connexions chiffrées](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017&preserve-view=true#to-configure-the-server-to-force-encrypted-connections).
 * Vérifiez que toute application cliente communique également via une connexion chiffrée.
 * Le fournisseur de ressources est configuré pour approuver les certificats utilisés par les instances de SQL Server.
 
 ## <a name="provide-capacity-by-connecting-to-a-standalone-hosting-sql-server"></a>Fournir une capacité par le biais d’une connexion à un serveur SQL d’hébergement
 
-Vous pouvez utiliser des serveurs SQL (non-HA) autonomes à l’aide de n’importe quelle édition de SQL Server 2014 ou SQL Server 2016. Assurez-vous de détenir les informations d’identification d’un compte disposant de privilèges d’administrateur système.
+Vous pouvez utiliser des serveurs SQL (non-HA) autonomes à l’aide de n’importe quelle édition de SQL Server 2014 ou SQL Server 2016. Assurez-vous de détenir les informations d’identification d’un compte disposant de privilèges d’administrateur système. 
 
 Pour ajouter un serveur d’hébergement autonome déjà configuré, effectuez les étapes suivantes :
 
@@ -87,6 +87,9 @@ Pour ajouter un serveur d’hébergement autonome déjà configuré, effectuez l
    ![Tableau de bord de l’adaptateur SQL dans le portail administrateur Azure Stack Hub](./media/azure-stack-sql-rp-deploy/sql-rp-hosting-server.png)
 
 3. Cliquez sur **Ajouter**, puis fournissez les détails de la connexion pour votre instance SQL Server dans le panneau **Ajouter un serveur d’hébergement SQL**.
+
+   > [!IMPORTANT]
+   > Ne choisissez pas le **Groupe de ressources** `system.<region>.sqladapter`, qui a été créé par le programme d’installation du fournisseur de ressources SQL durant le déploiement. Vous devez fournir un autre groupe de ressources pour le serveur d’hébergement autonome. 
 
    ![Ajouter un serveur d’hébergement SQL dans le portail administrateur Azure Stack Hub](./media/azure-stack-sql-rp-deploy/sql-rp-new-hosting-server.png)
 
@@ -107,7 +110,7 @@ Pour ajouter un serveur d’hébergement autonome déjà configuré, effectuez l
 La configuration d’instances Always On SQL nécessite des étapes supplémentaires et exige trois machines virtuelles (ou machines physiques). Cet article suppose que vous disposiez déjà d’une connaissance approfondie des groupes de disponibilité Always On. Pour plus d’informations, consultez les articles suivants :
 
 * [Présentation des groupes de disponibilité SQL Server Always On sur des machines virtuelles Azure](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
-* [Groupes de disponibilité SQL Server Always On (SQL Server)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
+* [Groupes de disponibilité SQL Server Always On (SQL Server)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017&preserve-view=true)
 
 > [!NOTE]
 > Le fournisseur de ressources de l’adaptateur SQL prend en charge _uniquement_ SQL 2016 SP1 Enterprise ou les instances ultérieures pour les groupes de disponibilité Always On. Cette configuration de l’adaptateur requiert des nouvelles fonctionnalités SQL telles que l’amorçage automatique.
@@ -136,7 +139,7 @@ Sur les nœuds secondaires, exécutez la commande SQL suivante :
 
 ### <a name="configure-contained-database-authentication"></a>Configurer l’option contained database authentication
 
-Avant d’ajouter une base de données autonome à un groupe de disponibilité, vérifiez que l’option de serveur contained database authentication est définie sur 1 sur chaque instance de serveur qui héberge un réplica de disponibilité pour le groupe de disponibilité. Pour plus d’informations, consultez [contained database authentication (option de configuration de serveur)](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Avant d’ajouter une base de données autonome à un groupe de disponibilité, vérifiez que l’option de serveur contained database authentication est définie sur 1 sur chaque instance de serveur qui héberge un réplica de disponibilité pour le groupe de disponibilité. Pour plus d’informations, consultez [contained database authentication (option de configuration de serveur)](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017&preserve-view=true).
 
 Utilisez ces commandes pour définir l’option de serveur contained database authentication pour chaque instance :
 
@@ -156,6 +159,9 @@ Utilisez ces commandes pour définir l’option de serveur contained database au
    Sous **Serveurs d’hébergement SQL**, vous pouvez connecter le fournisseur de ressources SQL Server à des instances réelles de SQL Server qui font office de back-end du fournisseur de ressources.
 
 3. Remplissez le formulaire avec les détails de connexion de votre instance de SQL Server. Assurez-vous que vous utilisez l’adresse de nom de domaine complet de l’écouteur Always On (et les numéro de port et nom d’instance facultatifs). Fournissez les informations du compte que vous avez configuré avec des privilèges d’administrateur système.
+
+   > [!IMPORTANT]
+   > Ne choisissez pas le **Groupe de ressources** `system.<region>.sqladapter`, qui a été créé par le programme d’installation du fournisseur de ressources SQL durant le déploiement. Vous devez fournir un autre groupe de ressources pour le serveur d’hébergement autonome. 
 
 4. Cochez la case Groupe de disponibilité Always On pour activer la prise en charge des instances de groupe de disponibilité Always On SQL.
 

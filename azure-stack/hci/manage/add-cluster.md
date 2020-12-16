@@ -5,13 +5,13 @@ ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
-ms.date: 11/06/2020
-ms.openlocfilehash: 1caa5e6573137ec33680ea3a13e7beeda12de424
-ms.sourcegitcommit: 08ef9545316798c9a21c2f9bc1da8c15cb648982
+ms.date: 12/10/2020
+ms.openlocfilehash: fc52f53a31b8d7cdcb91dd93e0fbe97c94b7e846
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94360188"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010914"
 ---
 # <a name="add-or-remove-servers-for-an-azure-stack-hci-cluster"></a>Ajouter ou supprimer des serveurs pour un cluster Azure Stack HCI
 
@@ -67,7 +67,11 @@ Chaque fois que vous ajoutez ou supprimez des serveurs dans un cluster, vous dev
 
 Les clusters étendus nécessitent le même nombre de nœuds serveur et le même nombre de lecteurs dans chaque site. Lorsque vous ajoutez une paire de serveurs à un cluster étendu, leurs lecteurs sont immédiatement ajoutés au pool de stockage des deux sites dans le cluster étendu. Si le pool de stockage de chaque site n’a pas la même taille au moment de l’ajout, il est rejeté. Cela est dû au fait que la taille du pool de stockage doit être identique entre les sites.
 
-Contrairement aux clusters non étendus, vous pouvez uniquement ajouter ou supprimer des serveurs dans un cluster étendu à l’aide de Windows PowerShell. À l’aide des applets de commande [ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterfaultdomainxml) et [Set-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterfaultdomainxml), vous devez d’abord modifier les informations du site (domaine d’erreur) avant d’ajouter les serveurs.
+Prenez quelques minutes pour visionner la vidéo sur l’ajout de nœuds de serveur à un cluster étendu :
+
+> [!VIDEO https://www.youtube.com/embed/AVHPkRmsZ5Y]
+
+Vous ajoutez ou vous supprimez des serveurs dans un cluster étendu à l’aide de Windows PowerShell. À l’aide des applets de commande [ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterfaultdomainxml) et [Set-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterfaultdomainxml), vous devez d’abord modifier les informations du site (domaine d’erreur) avant d’ajouter les serveurs.
 
 Ensuite, vous pouvez ajouter la paire de serveurs à chaque site en même temps à l’aide de l’applet de commande [Add-ClusterNode](https://docs.microsoft.com/powershell/module/failoverclusters/add-clusternode), ce qui permet également d’ajouter les lecteurs de chaque nouveau serveur.
 

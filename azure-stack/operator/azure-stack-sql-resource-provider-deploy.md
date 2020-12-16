@@ -4,34 +4,39 @@ titleSuffix: Azure Stack Hub
 description: Apprenez à déployer le fournisseur de ressources SQL Server sur Azure Stack Hub.
 author: bryanla
 ms.topic: article
-ms.date: 10/02/2019
-ms.lastreviewed: 03/18/2019
+ms.date: 12/07/2020
+ms.lastreviewed: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 5759c0f43401fd27080b8872810e47af920da984
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: e7565634d026d0d9bca5162ed709d76f760685b1
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812664"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778170"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Déployer le fournisseur de ressources SQL Server sur Azure Stack Hub
 
-Utilisez le fournisseur de ressources SQL Server d'Azure Stack Hub pour exposer des bases de données SQL en tant que service d'Azure Stack Hub. Le fournisseur de ressources SQL s’exécute en tant que service sur une machine virtuelle Windows Server 2016 Server Core (pour version de carte < = 1.1.47.0 >) ou sur un Add-on RP Windows Server spécial (pour version de carte > = 1.1.93.0).
+Utilisez le fournisseur de ressources SQL Server d'Azure Stack Hub pour exposer des bases de données SQL en tant que service d'Azure Stack Hub. Le fournisseur de ressources SQL s’exécute en tant que service sur une machine virtuelle Windows Server 2016 Server Core (pour la version de carte <= 1.1.47.0 >) ou sur un module complémentaire RP Windows Server spécial (pour la version de carte >= 1.1.93.0).
 
 > [!IMPORTANT]
-> Seul le fournisseur de ressources est pris en charge pour créer des éléments sur des serveurs qui hébergent SQL ou MySQL. Les éléments créés sur un serveur hôte qui ne sont pas créés par le fournisseur de ressources peuvent entraîner un état qui ne correspond pas.
+> Seul le fournisseur de ressources doit créer des éléments sur les serveurs qui hébergent SQL ou MySQL. Les éléments créés sur un serveur hôte, et qui ne sont pas créés par le fournisseur de ressources, ne sont pas pris en charge. Ils peuvent entraîner un état incompatible.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-Plusieurs conditions préalables doivent être remplies avant de pouvoir déployer le fournisseur de ressources SQL d'Azure Stack Hub. Afin de répondre à ces exigences, complétez les étapes suivantes sur un ordinateur ayant accès à la machine virtuelle du point de terminaison privilégié :
+Plusieurs prérequis doivent être respectés pour permettre le déploiement du fournisseur de ressources SQL d’Azure Stack Hub :
+
+- Vous avez besoin d’un ordinateur et d’un compte pouvant accéder :
+   - au [portail administrateur Azure Stack Hub](azure-stack-manage-portals.md)
+   - au [point de terminaison privilégié](azure-stack-privileged-endpoint.md)
+   - au point de terminaison d’administration Azure Resource Manager, `https://management.region.<fqdn>`, où `<fqdn>` représente votre nom de domaine complet (ou `https://management.local.azurestack.external` si vous utilisez le kit ASDK)
+   - à Internet, si Azure Stack Hub a été déployé pour l’utilisation d’Azure Active Directory (AD) en tant que fournisseur d’identité
 
 - Si ce n'est déjà fait, [inscrivez Azure Stack Hub](azure-stack-registration.md) auprès d'Azure pour pouvoir télécharger des éléments de la Place de marché Azure.
 
 - Ajoutez la machine virtuelle Windows Server requise à la Place de marché Azure Stack Hub.
-  * Pour la version SQL RP < = 1.1.47.0, téléchargez l’image **Windows Server 2016 Datacenter-Server Core**.
-  * Pour la version SQL RP > = 1.1.93.0, téléchargez l’image **Microsoft AzureStack Add-on RP Windows Server INTERNE UNIQUEMENT**. Cette version de Windows Server est conçue pour l’infrastructure d’Azure Stack Add-On RP et n’est pas visible sur la place de marché du client.
-
+  - Pour la version SQL RP < = 1.1.47.0, téléchargez l’image **Windows Server 2016 Datacenter-Server Core**.
+  - Pour la version SQL RP > = 1.1.93.0, téléchargez l’image **Microsoft AzureStack Add-on RP Windows Server INTERNE UNIQUEMENT**. Cette version de Windows Server est conçue pour l’infrastructure d’Azure Stack Add-On RP et n’est pas visible sur la place de marché du client.
 
 - Téléchargez la version prise en charge du fichier binaire du fournisseur de ressources SQL en fonction du tableau de mappage de versions ci-dessous. Exécutez l’auto-extracteur pour extraire le contenu téléchargé dans un répertoire temporaire. 
 
@@ -102,7 +107,7 @@ _Pour les installations de systèmes intégrés uniquement_. Vous devez fournir 
 
 ## <a name="deploy-the-sql-resource-provider"></a>Déployer le fournisseur de ressources SQL
 
-Une fois que tous les prérequis sont remplis, exécutez le script **DeploySqlProvider.ps1** à partir d’un ordinateur qui a accès au point de terminaison de gestion des ressources Azure de l’administrateur Azure Stack Hub et au point de terminaison privilégié pour déployer le fournisseur de ressources SQL. Le script DeploySqlProvider.ps1 est extrait du binaire du fournisseur de ressources SQL que vous avez téléchargé pour votre version d'Azure Stack Hub.
+Une fois tous les prérequis respectés, exécutez le script **DeploySqlProvider.ps1** à partir d’un ordinateur ayant accès au point de terminaison d’administration Azure Resource Manager d’Azure Stack Hub ainsi qu’au point de terminaison privilégié pour déployer le fournisseur de ressources SQL. Le script DeploySqlProvider.ps1 est extrait du binaire du fournisseur de ressources SQL que vous avez téléchargé pour votre version d'Azure Stack Hub.
 
  > [!IMPORTANT]
  > Avant de déployer le fournisseur de ressources, passez en revue les notes de publication pour en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.
@@ -134,7 +139,7 @@ Vous pouvez spécifier les paramètres suivants à partir de la ligne de command
 | **AzCredential** | Informations d'identification du compte administrateur de service Azure Stack Hub. Utilisez les mêmes informations d'identification que celles utilisées pour le déploiement d'Azure Stack Hub. Le script échoue si le compte que vous utilisez avec AzCredential nécessite l’authentification multifacteur (MFA).| _Obligatoire_ |
 | **VMLocalCredential** | Informations d’identification du compte d’administrateur local de la machine virtuelle du fournisseur de ressources SQL. | _Obligatoire_ |
 | **PrivilegedEndpoint** | Adresse IP ou nom DNS du point de terminaison privilégié. |  _Obligatoire_ |
-| **AzureEnvironment** | Environnement Azure du compte administrateur de service utilisé pour déployer Azure Stack Hub. Nécessaire uniquement pour les déploiements Azure AD. Les noms d’environnement pris en charge sont **AzureCloud**, **AzureUSGovernment** ou, si vous utilisez Azure Active Directory en Chine, **AzureChinaCloud**. | AzureCloud |
+| **AzureEnvironment** | Environnement Azure du compte administrateur de service utilisé pour déployer Azure Stack Hub. Nécessaire uniquement pour les déploiements Azure AD. Les noms d’environnement pris en charge sont **AzureCloud**, **AzureUSGovernment**, ou, si vous utilisez un compte Azure AD en Chine, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Pour les systèmes intégrés uniquement, votre fichier de certificat .pfx doit être placé dans ce répertoire. Vous pouvez éventuellement copier un package MSU Windows Update ici. | _Facultatif_ (_obligatoire_ pour les systèmes intégrés) |
 | **DefaultSSLCertificatePassword** | Mot de passe pour le certificat .pfx. | _Obligatoire_ |
 | **MaxRetryCount** | Nombre de fois où vous souhaitez réessayer chaque opération en cas d’échec.| 2 |

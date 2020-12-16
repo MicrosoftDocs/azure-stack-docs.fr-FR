@@ -1,17 +1,17 @@
 ---
 title: Créer un cluster Azure Stack HCI en utilisant Windows PowerShell
-description: Découvrez comment créer un cluster hyperconvergé pour Azure Stack HCI en utilisant Windows PowerShell
+description: Découvrir comment créer un cluster pour Azure Stack HCI à l’aide de Windows PowerShell
 author: v-dasis
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 4bd669e04f2b4b4e1ef173a3a44e52d8c6067a60
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: fa020531067f74fba2609296672e347d6804cb6b
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064512"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010887"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Créer un cluster Azure Stack HCI en utilisant Windows PowerShell
 
@@ -110,12 +110,12 @@ L’étape suivante consiste à installer les rôles et fonctionnalités Windows
 - Module FS-Data-Deduplication
 - Hyper-V
 - Module RSAT-AD-PowerShell
-- Réplica de stockage (uniquement pour les clusters étendus)
+- Réplica de stockage (pour les clusters étendus)
 
 Utilisez la commande suivante pour chaque serveur :
 
 ```powershell
-Install-WindowsFeature -ComputerName "Server1" -Name "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica" -IncludeAllSubFeature -IncludeManagementTools
+Install-WindowsFeature -ComputerName "Server1" -Name "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-AD-Powershell", "RSAT-Clustering-PowerShell", "Storage-Replica" -IncludeAllSubFeature -IncludeManagementTools
 ```
 
 Pour exécuter la commande sur tous les serveurs du cluster en même temps, utilisez le script suivant, en modifiant la liste des variables au début pour les adapter à votre environnement.
@@ -123,7 +123,7 @@ Pour exécuter la commande sur tous les serveurs du cluster en même temps, util
 ```powershell
 # Fill in these variables with your values
 $ServerList = "Server1", "Server2", "Server3", "Server4"
-$FeatureList = "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica"
+$FeatureList = "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-AD-Powershell", "RSAT-Clustering-PowerShell", "Storage-Replica"
 
 # This part runs the Install-WindowsFeature cmdlet on all servers in $ServerList, passing the list of features in $FeatureList.
 Invoke-Command ($ServerList) {
@@ -401,7 +401,7 @@ Vous pouvez aussi définir un site *préféré* global, ce qui signifie que les 
 
 La spécification d’un site préféré pour les clusters étendus a les avantages suivants :
 
-- **Démarrage à froid**  : lors d’un démarrage à froid, les machines virtuelles sont placées dans le site préféré
+- **Démarrage à froid** : lors d’un démarrage à froid, les machines virtuelles sont placées dans le site préféré
 
 - **Vote du quorum**
   - Avec un quorum dynamique, la pondération est d’abord réduite sur le site passif (répliqué) pour garantir que le site préféré survit si toutes les autres choses sont égales. En outre, les nœuds de serveur sont d’abord nettoyés du site passif lors du regroupement après des événements comme des défaillances de connectivité réseau asymétrique.

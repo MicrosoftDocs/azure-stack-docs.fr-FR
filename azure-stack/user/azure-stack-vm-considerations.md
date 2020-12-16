@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 6006d8f715a9a680301dfe64f7c02075ab9052ab
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 0eb0c763b8ebd144576ac9ac773d17f191e30dc9
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518277"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778136"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Fonctionnalités des machines virtuelles Azure Stack Hub
 
@@ -70,7 +70,7 @@ Les tailles de machine virtuelle et les quantités de ressources associées sont
 
 ## <a name="vm-extensions"></a>Extensions de machine virtuelle
 
-Azure Stack Hub inclut un petit ensemble d'extensions. Des mises à jour et des extensions supplémentaires sont disponibles par le biais de la syndication de Place de marché.
+Azure Stack Hub inclut un petit ensemble d'extensions. Des mises à jour et des extensions supplémentaires sont disponibles par le biais de la syndication de Place de marché. L’intégration d’extensions personnalisées dans Azure Stack Hub n’est pas un scénario pris en charge. Une extension doit d’abord être intégrée à Azure pour pouvoir être disponible dans Azure Stack Hub.
 
 Utilisez le script PowerShell suivant pour obtenir la liste des extensions de machine virtuelle disponibles dans votre environnement Azure Stack Hub.
 

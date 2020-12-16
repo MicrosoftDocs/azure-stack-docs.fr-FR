@@ -3,17 +3,19 @@ title: Connecter un cluster Azure Kubernetes Service sur Azure Stack HCI à Azur
 description: Connecter un cluster Azure Kubernetes Service sur Azure Stack HCI à Azure Arc pour Kubernetes
 author: abha
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 24dc2efdc591404db1bbfc30cf9c1bc83e2ed356
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: e7a407e587918a6ee9648c51c2c218ab51e7132f
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949300"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612350"
 ---
 # <a name="connect-an-azure-kubernetes-service-on-azure-stack-hci-cluster-to-azure-arc-for-kubernetes"></a>Connecter un cluster Azure Kubernetes Service sur Azure Stack HCI à Azure Arc pour Kubernetes
+
+> S’applique à : AKS sur Azure Stack HCI, AKS Runtime sur Windows Server 2019 Datacenter
 
 Lorsqu’un cluster Azure Kubernetes Service sur Azure Stack HCI est attaché à Azure Arc, il s’affiche dans le Portail Azure. Il reçoit alors un ID Azure Resource Manager et une identité managée. Les clusters sont attachés à des abonnements Azure standard, sont situés dans un groupe de ressources et peuvent recevoir des étiquettes comme n’importe quelle autre ressource Azure.
 
@@ -31,7 +33,7 @@ Vérifiez que les exigences suivantes sont remplies :
 
 * Vous avez besoin d’un fichier kubeconfig pour accéder au cluster et au rôle d’administrateur de cluster sur le cluster pour le déploiement d’agents Kubernetes activés pour Arc.
 * Module PowerShell Azure Kubernetes Service sur Azure Stack HCI installé.
-* Pour installer les extensions CLI de Kubernetes activées d’Azure Arc, vous avez besoin de la version 2.3+ d’Azure CLI. [Installez l’interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Vous pouvez également mettre à jour vers la dernière version pour vous assurer d’avoir Azure CLI version 2.3+.
+* Pour installer les extensions CLI de Kubernetes activées d’Azure Arc, vous avez besoin de la version 2.3+ d’Azure CLI. [Installez l’interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Vous pouvez également mettre à jour vers la dernière version pour vous assurer d’avoir Azure CLI version 2.3+.
 * Un abonnement Azure sur lequel vous êtes propriétaire ou contributeur. 
 * Exécutez les commandes dans ce document dans une fenêtre d’administration PowerShell.
 
@@ -109,7 +111,7 @@ az ad sp create-for-RBAC --name "azure-arc-for-k8s" --scope /subscriptions/{Subs
 }
 ```
 ## <a name="step-5-save-service-principal-details"></a>Étape 5 : Enregistrer les détails du principal du service
-Enregistrez les valeurs d’appID, de mot de passe et de locataire du principal du service créé, ainsi que le nom du cluster, l’ID d’abonnement Azure, le nom du groupe de ressources et l’emplacement dans les variables PowerShell. Vous pourrez ainsi réutiliser ces détails dans d’autres tutoriels. Veillez également à enregistrer ces valeurs dans un bloc-notes au cas où vous souhaiteriez fermer votre session PowerShell.
+Enregistrez les valeurs d’appID, de mot de passe et de locataire du principal du service créé ainsi que le nom du cluster, l’ID d’abonnement Azure, le nom du groupe de ressources et l’emplacement dans les variables PowerShell. Vous pourrez ainsi réutiliser ces détails dans d’autres tutoriels. Veillez à enregistrer également ces valeurs dans un fichier Bloc-notes au cas où vous souhaiteriez fermer votre session PowerShell.
 
 ```PowerShell
 $clusterName = #<name of your Kubernetes cluster>

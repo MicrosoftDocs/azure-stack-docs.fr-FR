@@ -4,15 +4,18 @@ description: Découvrez les composants de charge de travail et de cluster de bas
 author: daschott
 ms.author: daschott
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: 49ecf74033b2b6c68de1fa5fdfba84136c845397
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.date: 12/02/2020
+ms.openlocfilehash: 9870f2921be561a8fef66f1bfc530b5c18f494b4
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949302"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612639"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-on-azure-stack-hci"></a>Concepts de base de Kubernetes pour Azure Kubernetes Service sur Azure Stack HCI
+
+> S’applique à : AKS sur Azure Stack HCI, AKS Runtime sur Windows Server 2019 Datacenter
+
 Azure Kubernetes Service sur Azure Stack HCI est une plateforme de conteneur Kubernetes d’entreprise alimentée par Azure Stack HCI. Il comprend le Kubernetes de base pris en charge par Microsoft, des modules complémentaires, un hôte de conteneur Windows spécialement conçu et un hôte de conteneur Linux pris en charge par Microsoft dans le but de bénéficier d’une  **expérience de déploiement et de gestion du cycle de vie simple**.
 
 Cet article présente les principaux composants de l’infrastructure Kubernetes, tels que le plan de contrôle, les nœuds et les pools de nœuds. Les ressources de charge de travail telles que les pods, les déploiements et les ensembles sont également présentées, ainsi que le regroupement de ressources dans des espaces de noms.

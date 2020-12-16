@@ -3,16 +3,16 @@ title: Notes de publication d’Azure Stack Hub
 description: Notes de publication des systèmes intégrés Azure Stack Hub, y compris les mises à jour et les correctifs de bogues.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/30/2020
+ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 3e74f1e77c5c30ec17bf021d95952ce7bb19426b
-ms.sourcegitcommit: a7a2ac1b9be926134826dce03e348154fd212bc9
+ms.openlocfilehash: aed3b9f5eb59ef440503625d807f8ef7b777f7b1
+ms.sourcegitcommit: 85827a2227eb2d1ed1ed44bb9f00e28d96818c84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96443329"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96869035"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Notes de publication d’Azure Stack Hub
 
@@ -69,8 +69,8 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 <!-- What's new, also net new experiences and features. -->
 - Azure Stack Hub prend à présent en charge la fonctionnalité VNET Peering, ce qui permet de connecter des réseaux virtuels sans appliance virtuelle réseau. Pour plus d’informations, consultez la [documentation sur la nouvelle fonctionnalité VNET Peering](../user/virtual-network-peering.md).
 - Le stockage d’objets blob Azure Stack Hub permet à présent aux utilisateurs d’utiliser un objet blob immuable. En définissant des stratégies immuables sur un conteneur, vous pouvez stocker les objets de données vitaux pour l’entreprise dans un état WORM (Write Once, Read Many). Dans cette version, les stratégies immuables ne peuvent être définies qu’à l’aide de l’API REST ou des SDK clients. Les écritures d’objets blob d’ajout ne sont pas non plus possibles dans cette version. Pour plus d’informations sur les objets blob immuables, consultez [Stocker des données blob critiques pour l’entreprise avec un stockage immuable](/azure/storage/blobs/storage-blob-immutable-storage).
-- Le stockage Azure Stack Hub prend maintenant en charge les API des services de stockage Azure version 2019-07-07. Pour les bibliothèques clientes Azure, compatibles avec la nouvelle version de l’API REST, consultez [Outils de développement de stockage Azure Stack Hub](../user/azure-stack-storage-dev.md#azure-client-libraries).
-- Azure Stack Hub Compute prend à présent en charge les API de calcul Azure version 2020-06-01, avec un sous-ensemble des fonctionnalités totales disponibles.
+- Le stockage Azure Stack Hub prend désormais en charge les API des services de stockage Azure version **2019-07-07**. Pour les bibliothèques clientes Azure, compatibles avec la nouvelle version de l’API REST, consultez [Outils de développement de stockage Azure Stack Hub](../user/azure-stack-storage-dev.md#azure-client-libraries). Pour les API de gestion des services de stockage Azure, la version **2018-02-01** a été ajoutée à la prise en charge, avec un sous-ensemble de fonctionnalités totales disponibles.
+- Le service de calcul Azure Stack Hub prend désormais en charge les API Azure Compute version **2020-06-01**, avec un sous-ensemble des fonctionnalités totales disponibles.
 - Les disques managés Azure Stack Hub prennent désormais en charge les API Azure Disk version **2019-03-01**, avec un sous-ensemble des fonctionnalités disponibles.
 - Préversion de Windows Admin Center qui peut maintenant se connecter à Azure Stack Hub pour fournir des insights approfondis sur l’infrastructure pendant les opérations de support (arrêt requis).
 - Possibilité d’ajouter une bannière de connexion au point de terminaison privilégié au moment du déploiement.
@@ -103,7 +103,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 
   Notez que ces modifications sont ajoutées au niveau de l’hôte d’un système Azure Stack Hub. Contactez votre fabricant OEM pour lui demander d’apporter les modifications nécessaires aux commutateurs réseau ToR (top-of-rack). Cette modification des commutateurs ToR peut être effectuée tant avant qu’après la mise à jour vers la version 2008. Pour plus d’informations, consultez la [documentation relative à l’intégration réseau](azure-stack-network.md).
 
-  - Les tailles de machines virtuelles compatibles GPU **NCas_v4 (NVIDIA T4)** ont été remplacées dans cette version par les tailles de machines virtuelles **NCasT4_v3**, à des fins de mise en cohérence avec Azure. Notez que celles-ci ne sont pas encore visibles dans le portail et peuvent être utilisées uniquement par le biais de modèles Azure Resource Manager.
+- Les tailles de machines virtuelles compatibles GPU **NCas_v4 (NVIDIA T4)** ont été remplacées dans cette version par les tailles de machines virtuelles **NCasT4_v3**, à des fins de mise en cohérence avec Azure. Notez que celles-ci ne sont pas encore visibles dans le portail et peuvent être utilisées uniquement par le biais de modèles Azure Resource Manager.
 
 ### <a name="fixes"></a>Correctifs
 
@@ -139,7 +139,7 @@ Lorsque vous mettez à jour vers une nouvelle version principale (par exemple, 1
 
 Après l’installation de 2008, si des correctifs 2008 sont mis en production par la suite, vous devez les installer :
 
-- [Correctif logiciel Azure Stack Hub 1.2008.16.94](https://support.microsoft.com/help/4595071)
+- [Correctif logiciel Azure Stack Hub 1.2008.19.100](https://support.microsoft.com/help/4595073)
 ::: moniker-end
 
 ::: moniker range="azs-2005"

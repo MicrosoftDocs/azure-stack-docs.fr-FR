@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: f5451a9d30f87c2f4b985e4ae82541b12de52461
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 36c2d735f3652f4f195b4b9e1dda30fe8bce858c
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899701"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557002"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Problèmes connus liés à Azure Kubernetes Service sur Azure Stack HCI - Préversion publique
 Cet article décrit les problèmes connus avec la préversion publique d’Azure Kubernetes Service sur Azure Stack HCI.
@@ -82,3 +82,6 @@ Actuellement, Windows Admin Center ne présente pas de processus permettant d’
 ```PowerShell
 az connectedk8s delete
 ```
+
+## <a name="when-setting-up-an-azure-kubernetes-service-host-using-windows-admin-center-setup-may-fail-if-file-explorer-is-open"></a>La configuration d’un hôte Azure Kubernetes Service à l’aide de Windows Admin Center risque de ne pas réussir, si l’Explorateur de fichiers est ouvert
+Si le répertoire **C:\Program Files\AksHci** est ouvert dans l’Explorateur de fichiers quand vous atteignez l’étape « Vérifier + créer », l’opération de création risque de se solder par un échec et l’affichage de l’erreur suivante : « Le processus n’a pas pu accéder au fichier C:\Program Files\AksHci\wssdcloudagent.exe ». Cela est dû au fait qu’il est utilisé par un autre processus. Pour éviter cette erreur, fermez l’Explorateur de fichiers, ou accédez à un autre répertoire avant d’atteindre cette étape. 
