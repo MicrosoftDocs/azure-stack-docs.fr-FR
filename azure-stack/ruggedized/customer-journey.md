@@ -16,12 +16,12 @@ ms.date: 10/14/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: fb9c323c57d608127c8f86e014f008c1d5a09a9e
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: f34a449490ab7b57beacc942584f9616fd6d543c
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96940987"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598315"
 ---
 # <a name="customer-journey"></a>Parcours client
 
@@ -33,8 +33,8 @@ La table suivante décrit ce que vous pouvez attendre au cours des différentes 
 
 |   |Processus de commande  |Prédéploiement |Intégration, validation, transport |Déploiement local  |Post déploiement |
 |---|---------------|---------------|-----------------------------------|--------------------|----------------|
-|Microsoft  |- Signal à la livraison à l’emplacement des États-Unis<br>- Azure Stack Hub renforcé = 10 jours |Fournir les outils et la documentation requis pour recueillir les exigences de centre de données.  |- Valider les artefacts de configuration et vérifier les résultats de validation<br>- Vérifier que le matériel est remis  |- Installation et intégration<br>- Intégration réseau<br>- Déploiement Azure Stack Hub<br>- Transfert au client    |Syndication d’inscription et de Place de marché|
-|Customer   |Achat de signaux   |- Renseigne les détails du réseau dans la feuille de travail de déploiement<br>- Collecte les certificats<br>- Invite pour les comptes Azure AD<br>- Exécute tous les outils de validation fournis    |Assurez-vous que le site dispose des composants requis réseau, d’alimentation et de refroidissement    |- Soyez prêt pour les artefacts de configuration de déploiement<br>- Ingénieur réseau du client disponible   |     |
+| **Microsoft** |- Signal à la livraison à l’emplacement des États-Unis<br>- Azure Stack Hub renforcé = 10 jours |Fournir les outils et la documentation requis pour recueillir les exigences de centre de données.  |- Valider les artefacts de configuration et vérifier les résultats de validation<br>- Vérifier que le matériel est remis  |- Installation et intégration<br>- Intégration réseau<br>- Déploiement Azure Stack Hub<br>- Transfert au client    |Syndication d’inscription et de Place de marché|
+| **Client** |Achat de signaux    |- Renseigne les détails du réseau dans la feuille de travail de déploiement<br>- Collecte les certificats<br>- Invite pour les comptes Azure AD<br>- Exécute tous les outils de validation fournis    |Assurez-vous que le site dispose des composants requis réseau, d’alimentation et de refroidissement    |- Soyez prêt pour les artefacts de configuration de déploiement<br>- Ingénieur réseau du client disponible   |     |
 
 
 ## <a name="order-process"></a>Processus de commande

@@ -8,12 +8,12 @@ ms.date: 01/17/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 01/17/2020
-ms.openlocfilehash: d57e4a276ea93a8be70eb2bba05bdb8b2a318924
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 8744ddd518094026afdba678d524ca981b138610
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183398"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598655"
 ---
 # <a name="network-deployment"></a>Déploiement réseau
 
@@ -31,8 +31,8 @@ Pour protéger la solution Azure Stack, nous avons implémenté des listes de co
 
 Le tableau ci-dessous met en corrélation les références des listes de contrôle d’accès avec les réseaux Azure Stack.
 
-| Gestion BMC interne                            | Le trafic est limité à l’usage interne uniquement.                                                                                                                                      |   |   |   |   |   |
-|----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|---|---|---|
+| Gestion BMC interne                            | Le trafic est limité à l’usage interne uniquement.                                                                                                                                      |
+|----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Gestion BMC externe                            | La liste de contrôle d’accès autorise l’accès au-delà du périphérique de bordure.                                                                                                                            |   |   |   |   |   |
 | Gestion du stockage étendu                        | Interfaces de gestion dédiées pour le système de stockage étendu                                                                                                           |   |   |   |   |   |
 | Gestion du commutateur                                  | Interfaces de gestion de commutateur dédiées.                                                                                                                                   |   |   |   |   |   |
@@ -289,7 +289,7 @@ Vous pouvez modifier quelques paramètres environnementaux de votre configuratio
 Pendant le déploiement de la solution Azure Stack, le fabricant d’ordinateurs (OEM) crée et applique la configuration du commutateur pour Tor et pour BMC. Le fabricant d’ordinateurs (OEM) utilise l’outil d’automatisation Azure Stack pour vérifier que les configurations requises sont correctement définies sur ces appareils. La configuration est basée sur les informations contenues dans votre feuille de calcul de déploiement Azure Stack. 
 
 >[!NOTE]
->Ne modifiez **pas**  la configuration sans le consentement de l’équipe d’ingénierie OEM ou Microsoft Azure Stack. Une modification de la configuration des périphériques réseau peut avoir un impact significatif sur le fonctionnement ou la résolution de problèmes réseau dans votre instance Azure Stack. Pour plus d’informations sur ces fonctions de votre périphérique réseau ou sur la manière d’effectuer ces modifications, contactez votre fournisseur de matériel OEM ou le support Microsoft. Votre OEM dispose du fichier de configuration créé par l’outil d’automatisation sur la base de votre feuille de déploiement Azure Stack. 
+>Ne modifiez **pas** la configuration sans le consentement de l’équipe d’ingénierie OEM ou Microsoft Azure Stack. Une modification de la configuration des périphériques réseau peut avoir un impact significatif sur le fonctionnement ou la résolution de problèmes réseau dans votre instance Azure Stack. Pour plus d’informations sur ces fonctions de votre périphérique réseau ou sur la manière d’effectuer ces modifications, contactez votre fournisseur de matériel OEM ou le support Microsoft. Votre OEM dispose du fichier de configuration créé par l’outil d’automatisation sur la base de votre feuille de déploiement Azure Stack. 
 
 Toutefois, certaines valeurs peuvent être ajoutées, supprimées ou modifiées dans la configuration des commutateurs réseau.
 

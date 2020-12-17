@@ -7,17 +7,15 @@ ms.service: azure-stack
 ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
-ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: ec369d8f01ed9dc5e6e5635af4922ef80736c4c5
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 08/15/2020
+ms.openlocfilehash: 41ce43c3eda27d3ede8e6a90175fb3042fa2bf68
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572151"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343567"
 ---
 # <a name="how-to-do-capacity-planning-for-event-hubs-on-azure-stack-hub"></a>Planification de la capacité pour Event Hubs sur Azure Stack Hub
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 En tant qu’opérateur, vous gérez votre capacité Azure Stack Hub en utilisant des [quotas](azure-stack-quota-types.md) sur les ressources. Vous contrôlez la consommation des ressources Event Hubs en définissant des quotas sur le nombre maximal de cœurs utilisés par les clusters Event Hubs. Les clusters Event Hubs sont créés par les utilisateurs lorsqu’ils déploient une ressource Event Hubs. Il existe également différentes exigences en matière de consommation des ressources pour le fournisseur de ressources, qui sont traitées dans cet article.
 
@@ -35,8 +33,7 @@ Vos utilisateurs devront créer des clusters Event Hubs avec des unités de capa
 
 Tous les clusters Event Hubs utilisent un type de machine virtuelle [D11_V2](../user/azure-stack-vm-sizes.md#mo-dv2) pour leurs nœuds. Un type de machine virtuelle D11_V2 se compose de 2 cœurs. Ainsi, un cluster Event Hubs de 1 unité de capacité utilise 5 machines virtuelles D11_V2, ce qui se traduit par 10 cœurs utilisés. Pour déterminer le nombre de cœurs à configurer pour un quota, utilisez un multiple du nombre total de cœurs utilisés par 1 unité de capacité. Ce calcul reflète le nombre maximal d’unités de capacité que vous autorisez les utilisateurs à utiliser lors de la création de clusters Event Hubs. Par exemple, pour configurer un quota qui permet aux utilisateurs de créer un cluster avec 2 unités de capacité, définissez votre quota sur 20 cœurs.
 
-> [!NOTE]
-> **Préversion publique uniquement** La version disponible d’Event Hubs sur Azure Stack Hub prend uniquement en charge la création de clusters de 1 unité de capacité. La version en disponibilité générale d’Event Hubs inclut la prise en charge de différentes options de configuration d’unités de capacité.
+[!INCLUDE [event-hubs-scale](../includes/event-hubs-scale.md)]
 
 ## <a name="resource-provider-resource-consumption"></a>Consommation des ressources du fournisseur de ressources  
 

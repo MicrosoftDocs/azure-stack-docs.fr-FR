@@ -3,16 +3,16 @@ title: Supprimer une machine virtuelle avec des dépendances sur Azure Stack Hub
 description: Comment supprimer une machine virtuelle avec des dépendances sur Azure Stack Hub
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/7/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 12/7/2020
-ms.openlocfilehash: aaedac367ab9bd12a75e09917acfa6b02dc4930e
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.lastreviewed: 12/16/2020
+ms.openlocfilehash: 63a4ed0c6f1d63b21e221713befa84b0d10c1a95
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778187"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620702"
 ---
 # <a name="how-to-delete-a-vm-virtual-machine-with-dependencies-on-azure-stack-hub"></a>Comment supprimer une machine virtuelle avec des dépendances sur Azure Stack Hub
 
@@ -52,7 +52,7 @@ Si vous ne pouvez pas supprimer le groupe de ressources, soit parce que les dép
     2. Attendez que la ressource soit complètement supprimée.
     3. Vous pouvez ensuite supprimer la dépendance suivante.
 
-### <a name="with-powershell"></a>À l’aide de [PowerShell](#tab/ps-az)
+### <a name="az-modules"></a>[Modules Az](#tab/ps-az)
 
 Si vous ne pouvez pas supprimer le groupe de ressources, soit parce que les dépendances ne se trouvent pas dans le même groupe de ressources, soit parce qu’il existe d’autres ressources, suivez ces étapes.
 
@@ -126,7 +126,7 @@ Pour supprimer la machine virtuelle, dans la même session, exécutez les applet
 ```powershell
 $machine | Remove-AzVM -Force
 ```
-### <a name="with-powershell"></a>À l’aide de [PowerShell](#tab/ps-azureRM)
+### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/ps-azureRM)
 
 Si vous ne pouvez pas supprimer le groupe de ressources, soit parce que les dépendances ne se trouvent pas dans le même groupe de ressources, soit parce qu’il existe d’autres ressources, suivez ces étapes.
 

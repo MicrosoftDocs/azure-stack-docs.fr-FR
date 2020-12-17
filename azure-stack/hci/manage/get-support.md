@@ -4,13 +4,13 @@ description: Cette rubrique fournit des conseils sur la façon d’obtenir du su
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
-ms.date: 12/10/2020
-ms.openlocfilehash: a2e679329acca6bcc03363c499d08deb78890b3d
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.date: 12/11/2020
+ms.openlocfilehash: 5b25fdcefd61cb8fa5a497a3477b1f33ab67ece5
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97053133"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343337"
 ---
 # <a name="get-support-for-azure-stack-hci"></a>Obtenir du support pour Azure Stack HCI
 
@@ -32,7 +32,7 @@ Pour plus d’informations sur les autres ressources de support Azure Stack HCI 
 ## <a name="partner-support-resources-for-azure-stack-hci"></a>Ressources de support de partenaires pour Azure Stack HCI
 La solution matérielle avec système Azure Stack HCI intégré du partenaire fournisseur de matériel de votre choix est fournie avec le système d’exploitation préinstallé. Vous bénéficiez de réparations matérielles, de support et de mises à jour de la sécurité fournies par votre partenaire fournisseur de matériel pendant au moins cinq ans. Pour plus d’informations, consultez [Mises à jour et mises à niveau](../concepts/updates.md). 
 
-Pour en savoir plus sur les partenaires système intégrés, leurs solutions et leurs offres de support, consultez le [Catalogue Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/catalog/).
+Pour en savoir plus sur les partenaires système intégrés, leurs solutions et leurs offres de support, consultez le [Catalogue Azure Stack HCI](https://hcicatalog.azurewebsites.net).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour consulter des informations connexes, reportez-vous également à :

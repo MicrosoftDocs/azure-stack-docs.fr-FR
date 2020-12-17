@@ -3,16 +3,16 @@ title: Infrastructure des rapports d’utilisation pour les fournisseurs de solu
 description: Découvrez plus d’informations sur l’infrastructure des rapports d’utilisation utilisée pour suivre l’utilisation des locataires gérés par un fournisseur de solutions cloud (CSP).
 author: sethmanheim
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 51e747b5670a3e7eb58316069567e83e9ed9fc82
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 820cd9db933ee017f4b7a1890c277870d1bd23bd
+ms.sourcegitcommit: a53ea4a28e715c80a99fa89e9d364bc4556558de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573048"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97576987"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Infrastructure des rapports d’utilisation pour les fournisseurs de solutions cloud
 
@@ -28,7 +28,7 @@ Vous trouverez plus d’informations sur les compteurs Azure Stack Hub utilisés
 
 1. Dans l’Espace partenaires, accédez au menu **Tableau de bord**, puis sélectionnez **Vente** et **Tarifs et offres**.
 2. Sous **Services basés sur l’utilisation**, sélectionnez **Actuelle**.
-3. Ouvrez la feuille de calcul**Liste des prix Azure dans l’environnement CSP global**.
+3. Ouvrez la feuille de calcul **Liste des prix Azure dans l’environnement CSP global**.
 4. Filtrez sur **Region = Azure Stack Hub**.
 
 ## <a name="terms-used-for-billing-and-usage"></a>Termes utilisés pour la facturation et l’utilisation

@@ -3,16 +3,16 @@ title: Délégation des offres dans Azure Stack Hub
 description: Découvrez comment déléguer des tâches comme la création d’offres et l’inscription des utilisateurs.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 8cbbf5f2694b714ff5fdf71786a91e6e03522f58
-ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
+ms.openlocfilehash: 806c4c565553fe76cb8347d763aa7ce20e000821
+ms.sourcegitcommit: a53ea4a28e715c80a99fa89e9d364bc4556558de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88857577"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97577072"
 ---
 # <a name="delegate-offers-in-azure-stack-hub"></a>Déléguer des offres dans Azure Stack Hub
 
