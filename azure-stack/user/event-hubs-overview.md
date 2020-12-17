@@ -5,19 +5,17 @@ author: BryanLa
 ms.author: bryanla
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 11/27/2019
+ms.date: 12/11/2020
 ms.reviewer: jfggdl
-ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: adb00ebbe3f5ea3cf233ebaa485913d48ea63e23
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/11/2020
+ms.openlocfilehash: c7b54121f826fb514590f39c92cde0e62972ce97
+ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546954"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97364147"
 ---
 # <a name="overview-of-event-hubs-on-azure-stack-hub"></a>Vue d’ensemble d’Event Hubs sur Azure Stack Hub
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 Event Hubs sur Azure Stack Hub vous permet de réaliser des scénarios de cloud hybride. Le streaming et les solutions basées sur les événements sont pris en charge pour le traitement par le cloud Azure et local. Que votre scénario soit hybride (connecté) ou déconnecté, votre solution peut prendre en charge le traitement des événements/flux à grande échelle. Votre scénario est limité uniquement par la taille du cluster Event Hubs, que vous pouvez provisionner en fonction de vos besoins. 
 
