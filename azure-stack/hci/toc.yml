@@ -158,6 +158,8 @@
       items:
         - name: Facturation
           href: concepts/billing.md
+        - name: Configurer des pare-feu
+          href: concepts/configure-firewalls.md
         - name: Mises à jour et mises à niveau
           href: concepts/updates.md
         - name: Considérations relatives à la sécurité
