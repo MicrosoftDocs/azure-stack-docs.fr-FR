@@ -6,14 +6,14 @@ ms.author: bryanla
 ms.topic: how-to
 ms.date: 11/16/2020
 ms.lastreviewed: 11/16/2020
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 54e3064a472803a9957f082c5729e84861e33b12
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: bd66c181aaafafeb34a2da1e56c4ab01ce27b9f1
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517954"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697711"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Utiliser une identité d’application pour accéder aux ressources Azure Stack Hub
 
@@ -222,7 +222,7 @@ Gardez votre session de console PowerShell ouverte, car vous aller l’utiliser 
 
 Mettre à jour les informations d’identification du certificat à l’aide de PowerShell, en substituant vos propres valeurs aux espaces réservés suivants :
 
-| Espace réservé | Description |  Exemple |
+| Espace réservé | Description | Exemple |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance d’Azure Stack Hub. | « AzS-ERCS01 » |
 | \<YourAppName\> | Nom descriptif pour la nouvelle inscription d’application. | « Mon outil de gestion » |
@@ -267,7 +267,7 @@ Mettre à jour les informations d’identification du certificat à l’aide de 
 
 À présent, vous créez une autre inscription d’application, mais spécifiez des informations d’identification de clé secrète client. Contrairement aux informations d’identification de certificat, l’annuaire est capable de générer des informations d’identification de clé secrète client. Au lieu de spécifier la clé secrète client, vous utilisez le commutateur `-GenerateClientSecret` pour demander qu’elle soit générée. Substituez vos propres valeurs aux espaces réservés suivants :
 
-| Espace réservé | Description |  Exemple |
+| Espace réservé | Description | Exemple |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance d’Azure Stack Hub. | « AzS-ERCS01 » |
 | \<YourAppName\> | Nom descriptif pour la nouvelle inscription d’application. | « Mon outil de gestion » |
@@ -414,7 +414,7 @@ Nous allons maintenant voir comment retirer/supprimer une inscription d’applic
 
 Substituez vos propres valeurs aux espaces réservés suivants :
 
-| Espace réservé | Description |  Exemple |
+| Espace réservé | Description | Exemple |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Nom de la machine virtuelle de point de terminaison privilégié sur votre instance d’Azure Stack Hub. | « AzS-ERCS01 » |
 | \<AppIdentifier\> | Identificateur affecté à l’inscription de l’application. | « S-1-5-21-1634563105-1224503876-2692824315-2623 » |

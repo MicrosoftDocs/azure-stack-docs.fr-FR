@@ -3,16 +3,16 @@ title: Notes de publication d’Azure Stack Hub
 description: Notes de publication des systèmes intégrés Azure Stack Hub, y compris les mises à jour et les correctifs de bogues.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/11/2020
+ms.date: 12/23/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: c94b91d2144248dd154da5b630b99470461dda67
-ms.sourcegitcommit: 56d7da84672261e2490138011bd8dd4eaf81851d
+ms.openlocfilehash: b2b72ce306d9a3801d7208a748e1bdb3720947ea
+ms.sourcegitcommit: 37e83d0b593d2d61156f4ffd4f8e1afd5f558465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97492770"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97766595"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Notes de publication d’Azure Stack Hub
 

@@ -7,12 +7,12 @@ ms.date: 12/03/2020
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 12/03/2020
-ms.openlocfilehash: 1d31bc40c77b68f43d48def1d4ce874dd69160b1
-ms.sourcegitcommit: 9bca59a53787a9884b4643eb760ad1b2c1feb57f
+ms.openlocfilehash: 3a9852cfa650df8d533b40508ceaf74b747e5c69
+ms.sourcegitcommit: 076ece88c3177db321f0ae32cba1d05179ffc393
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96579717"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97794173"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>Configurations post-déploiement pour ASDK
 
@@ -105,10 +105,10 @@ Si l’installation réussit, les modules AzureRM et AzureStack sont affichés d
   $Path = "<Path that is used to save the packages>"
 
   Save-Package `
-    -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+    -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
   
   Save-Package `
-    -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
+    -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.0
   ```
 
   Ensuite, copiez les packages téléchargés sur l’ordinateur du kit ASDK, inscrivez cet emplacement comme référentiel par défaut, puis installez les modules AzureRM et AzureStack à partir de ce référentiel :
