@@ -8,12 +8,12 @@ ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 3087e7b4f84aa710a89a2f122e91bcfd643eed8d
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 971bac83972664bbefe900f16aa2ab83c12aa3a1
+ms.sourcegitcommit: 32d77de1a554315f53473407279e464a72aa9aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544188"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515046"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Intégrer l’identité AD FS avec votre centre de données Azure Stack Hub
 
@@ -92,6 +92,8 @@ Pour cette procédure, utilisez un ordinateur de votre réseau de centre de donn
 
 2. Maintenant que vous avez une session avec le point de terminaison privilégié, exécutez la commande suivante : 
 
+   **Exécutez le script ci-dessous pour Azure Stack Hub build 2008 et ultérieures** <br>
+
    ```powershell  
     $i = @(
            [pscustomobject]@{ 
@@ -104,6 +106,14 @@ Pour cette procédure, utilisez un ordinateur de votre réseau de centre de donn
     Invoke-Command -Session $pep -ScriptBlock {Register-DirectoryService -customCatalog $using:i} 
 
 
+   ```
+
+   **Exécutez le script ci-dessous pour les builds d’Azure Stack Hub antérieures à 2008** <br>
+
+   ```powershell  
+   Invoke-Command -Session $pep -ScriptBlock {Register-DirectoryService -CustomADGlobalCatalog contoso.com} 
+   
+   
    ```
 
    Lorsque vous y êtes invité, spécifiez les informations d’identification du compte d’utilisateur que vous souhaitez utiliser pour le service Graph (par exemple, graphservice). L’entrée de l’applet de commande Register-DirectoryService doit correspondre au nom de la forêt/racine du domaine dans la forêt plutôt que n’importe quel autre domaine dans la forêt.

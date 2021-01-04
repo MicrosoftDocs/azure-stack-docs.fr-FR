@@ -9,12 +9,12 @@ ms.reviewer: ppacent
 ms.author: bryanla
 ms.lastreviewed: 08/15/2020
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 69e1aa757f0285cc39d8df16bbd3531af0d3ea51
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.openlocfilehash: 800e6f2173f409283a04259f29b4835e66ced075
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152843"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343157"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Effectuer la rotation des secrets dans Azure Stack Hub
 
@@ -108,7 +108,7 @@ Avant d’effectuer la rotation des secrets externes :
 3. Stockez une sauvegarde des certificats utilisés pour la rotation dans un emplacement de sauvegarde sécurisé. Si votre rotation s’exécute puis échoue, remplacez les certificats dans le partage de fichiers par les copies de sauvegarde avant d’exécuter à nouveau la rotation. Conservez des copies de sauvegarde dans l’emplacement de sauvegarde sécurisé.
 4. Créez un partage de fichiers auquel vous pouvez accéder depuis les machines virtuelles ERCS. Le partage de fichiers doit être accessible en lecture et en écriture pour l’identité **CloudAdmin**.
 5. Ouvrez une console PowerShell ISE à partir d’un ordinateur sur lequel vous avez accès au partage de fichiers. Accédez à votre partage de fichiers afin de créer des répertoires dans lesquels placer vos certificats externes.
-6. Téléchargez **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** sur un partage de fichiers réseau accessible pendant la rotation, puis exécutez le script. Le script crée une structure de dossiers conforme à **_.\Certificates\AAD_ *_ ou à _* _.\Certificates\ADFS_ *_, en fonction de votre fournisseur d’identité. Votre structure de dossiers doit commencer par un dossier _* \\Certificates**, suivi UNIQUEMENT d’un dossier **\\AAD** ou **\\ADFS**. Tous les sous-répertoires supplémentaires sont contenus dans la structure précédente. Par exemple :
+6. Téléchargez **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** sur votre partage de fichiers réseau, puis exécutez le script. Le script crée une structure de dossiers conforme à **_.\Certificates\AAD_ *_ ou à _* _.\Certificates\ADFS_ *_, en fonction de votre fournisseur d’identité. Votre structure de dossiers doit commencer par un dossier _* \\Certificates**, suivi UNIQUEMENT d’un dossier **\\AAD** ou **\\ADFS**. Tous les sous-répertoires supplémentaires sont contenus dans la structure précédente. Par exemple :
     - Partage de fichiers = **\\\\\<IPAddress>\\\<ShareName>**
     - Dossier racine de certificat pour le fournisseur Azure AD = **\\Certificates\AAD**
     - FullPath = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**

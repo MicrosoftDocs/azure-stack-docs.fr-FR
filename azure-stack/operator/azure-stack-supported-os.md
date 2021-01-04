@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Découvrez les systèmes d’exploitation invités pouvant être utilisés sur Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 2275f00f8df77b3822537ca73ec35b342b477617
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 3d535893b75cdaf49b4003fce2382ab092b328fe
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250297"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620583"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Systèmes d’exploitation invités pris en charge sur Azure Stack Hub
 
@@ -33,7 +33,7 @@ Azure Stack Hub prend en charge les systèmes d’exploitation invités Windows 
 | Windows 10 *(voir remarque 1)* | 64 bits, Professionnel et Entreprise | Apportez votre propre image |
 
 > [!NOTE]
-> Pour déployer des systèmes d’exploitation clients Windows 10 sur Azure Stack Hub, vous devez disposer de [licences Windows par utilisateur](https://www.microsoft.com/licensing/product-licensing/windows10.aspx) ou en acheter via le programme [QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx) (Qualified Multitenant Hoster).
+> Pour déployer des systèmes d’exploitation clients Windows 10 sur Azure Stack Hub, vous devez disposer de [licences Windows par utilisateur](https://www.microsoft.com/licensing/product-licensing/windows10.aspx) ou en acheter via le programme [QMTH (Qualified Multitenant Hoster)](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
 
 Les images de la Place de marché sont disponibles avec un système de licence de paiement à l’utilisation ou BYOL (apportez votre propre licence) (EA/SPLA). L’utilisation des deux sur une instance unique d'Azure Stack Hub n’est pas prise en charge. Au cours du déploiement, Azure Stack Hub injecte la version appropriée de l’agent invité dans l’image.
 

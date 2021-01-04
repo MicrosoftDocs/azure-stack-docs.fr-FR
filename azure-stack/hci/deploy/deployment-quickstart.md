@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/10/2020
-ms.openlocfilehash: 1787218c32feaa0e944946b6b36614432ea529f1
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.date: 12/11/2020
+ms.openlocfilehash: 2d2c122a2fd8a9e0be5d3ffd942f85f310845f2d
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011756"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343174"
 ---
 # <a name="quickstart-create-an-azure-stack-hci-cluster-and-register-it-with-azure"></a>Démarrage rapide : Créer un cluster Azure Stack HCI et l’inscrire auprès d’Azure
 
@@ -24,7 +24,7 @@ Dans ce guide de démarrage rapide, vous allez apprendre à déployer un cluster
 
 Avant de créer un cluster, effectuez les opérations suivantes :
 
-* Achetez deux serveurs à partir du [Catalogue Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/catalog/) par le biais du partenaire fournisseur de matériel Microsoft de votre choix avec le système d’exploitation Azure Stack HCI préinstallé. Passez en revue la [configuration système requise](../concepts/system-requirements.md) pour garantir que le matériel que vous sélectionnez prendra en charge les charges de travail que vous prévoyez d’exécuter sur le cluster.
+* Achetez deux serveurs à partir du [Catalogue Azure Stack HCI](https://hcicatalog.azurewebsites.net) par le biais du partenaire fournisseur de matériel Microsoft de votre choix avec le système d’exploitation Azure Stack HCI préinstallé. Passez en revue la [configuration système requise](../concepts/system-requirements.md) pour garantir que le matériel que vous sélectionnez prendra en charge les charges de travail que vous prévoyez d’exécuter sur le cluster. Pour simplifier la configuration, nous vous recommandons d’utiliser un système avec des cartes réseau à haut débit qui utilisent iWARP.
 * Créez un compte d’utilisateur qui est membre du groupe Administrateurs local sur chaque serveur.
 * [Obtenez un abonnement Azure](https://azure.microsoft.com/), si vous n’en avez pas déjà un.
 * [Installez Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install) sur un PC de gestion, puis [inscrivez Windows Admin Center auprès d’Azure](../manage/register-windows-admin-center.md). Notez que votre ordinateur de gestion doit être joint au même domaine Active Directory que celui dans lequel vous allez créer le cluster, ou à un domaine entièrement fiable.
@@ -43,7 +43,7 @@ Effectuez les étapes suivantes pour créer un cluster simple à deux nœuds et 
 L’Assistant Création d’un cluster comporte cinq sections, chacune avec plusieurs étapes.
 
 1. **Bien démarrer.** Dans cette section, vous allez vérifier les prérequis, ajouter des serveurs, joindre un domaine, installer les fonctionnalités et mises à jour nécessaires, puis redémarrer les serveurs. 
-2. **Réseaux.** Cette section de l’Assistant vérifie que les cartes réseau appropriées sont activées et désactive celles que vous n’utilisez pas. Vous allez sélectionner des cartes de gestion, configurer une configuration de commutateur virtuel et définir votre réseau en fournissant des adresses IP. Pour simplifier les choses, ne sélectionnez pas RDMA pour ce cluster. 
+2. **Réseaux.** Cette section de l’Assistant vérifie que les cartes réseau appropriées sont activées et désactive celles que vous n’utilisez pas. Vous allez sélectionner des cartes de gestion, configurer une configuration de commutateur virtuel et définir votre réseau en fournissant des adresses IP.
 3. **Clustering.** Cette section vérifie que vos serveurs ont une configuration cohérente et qu’ils sont adaptés au clustering, puis elle crée le cluster réel.
 4. **Stockage**. Ensuite, vous allez nettoyer et vérifier les lecteurs, valider votre stockage et activer les espaces de stockage direct.
 5. **SDN.** Vous pouvez ignorer la section 5, car nous n’allons pas utiliser SDN (Software Defined Networking) pour ce cluster.

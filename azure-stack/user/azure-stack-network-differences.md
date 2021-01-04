@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: f47e3c48bf6a43276f9e4b11c2e3f0f43a224f18
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: f081d0fa91e967ca00b46ac2a9ffaf4b56933e87
+ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567346"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97364113"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Différences et considérations de mise en réseau Azure Stack Hub
 
@@ -30,7 +30,7 @@ Cet article fournit une vue d’ensemble des considérations propres à la mise 
 |  | Jeux d’enregistrements DNS par zone | 5000 (par défaut)<br>Peut être augmenté à la demande. | 5 000 |
 |  | Serveurs de noms pour la délégation de zone | Azure fournit quatre serveurs de noms pour chaque zone utilisateur (locataire) créée. | Azure Stack Hub fournit deux serveurs de noms pour chaque zone utilisateur (locataire) créée. |
 | Pare-feu Azure | Service de sécurité réseau | Pare-feu Azure est un service de sécurité réseau informatique géré qui protège vos ressources Réseau virtuel Azure. | Pas encore pris en charge. |
-| Réseau virtuel | Peering de réseau virtuel | Connecter deux réseaux virtuels situés dans la même région par le biais du réseau principal Azure. | Pas encore pris en charge |
+| Réseau virtuel | Peering de réseau virtuel | Connecter deux réseaux virtuels situés dans la même région par le biais du réseau principal Azure. | Pris en charge depuis la version 2008 [Appairage de réseaux virtuels](virtual-network-peering.md) |
 |  | Adresses IPv6 | Vous pouvez affecter une adresse IPv6 dans le cadre de la [Configuration de l’interface réseau](/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions). | Seul le protocole IPv4 est pris en charge. |
 |  | Plan de protection DDoS | Prise en charge | Pas encore pris en charge. |
 |  | Mise à l’échelle de configurations d’adresses IP définies | Prise en charge | Pas encore pris en charge. |

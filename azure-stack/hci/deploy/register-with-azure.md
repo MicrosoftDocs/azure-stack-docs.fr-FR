@@ -1,18 +1,18 @@
 ---
 title: Connecter Azure Stack HCI à Azure
-description: Comment inscrire Azure Stack HCI auprès d’Azure.
+description: Découvrez comment inscrire des clusters Azure Stack HCI auprès d’Azure.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/10/2020
-ms.openlocfilehash: e56718e080638eb6349625f644c837798c001a1d
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.date: 12/16/2020
+ms.openlocfilehash: 95e0ed6b87fb501b31c024c5d2d886b4e1bce8ac
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97010853"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620634"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Connecter Azure Stack HCI à Azure
 
@@ -29,7 +29,7 @@ Vous ne pouvez pas vous inscrire auprès d’Azure tant que vous n’avez pas cr
 
 ### <a name="internet-access"></a>Accès à Internet
 
-Azure Stack HCI doit se connecter régulièrement au cloud public Azure. Si la connectivité sortante est limitée par votre pare-feu d’entreprise externe ou votre serveur proxy, ceux-ci doivent être configurés pour autoriser l’accès sortant vers le port 443 (HTTPS) sur un nombre limité d’adresses IP Azure connues. 
+Azure Stack HCI doit se connecter régulièrement au cloud public Azure. Si la connectivité sortante est limitée par votre pare-feu d’entreprise externe ou votre serveur proxy, ceux-ci doivent être configurés pour autoriser l’accès sortant vers le port 443 (HTTPS) sur un nombre limité d’adresses IP Azure connues. Pour plus d’informations sur la façon de préparer vos pare-feu, consultez [Configurer des pare-feu pour Azure Stack HCI](../concepts/configure-firewalls.md).
 
    > [!NOTE]
    > Le processus d’inscription tente de contacter PowerShell Gallery pour vérifier que vous disposez de la dernière version des modules PowerShell nécessaires, comme AZ et AzureAD. Même si PowerShell Gallery est hébergé sur Azure, il n’a actuellement pas d’étiquette de service. Si vous ne pouvez pas exécuter l’applet de commande ci-dessus à partir d’un ordinateur de gestion disposant d’un accès Internet sortant, nous vous recommandons de télécharger les modules et de les transférer manuellement vers un nœud de cluster où vous exécuterez la commande `Register-AzStackHCI`. Vous pouvez également [installer les modules dans un scénario déconnecté](/powershell/scripting/gallery/how-to/working-with-local-psrepositories?view=powershell-7.1#installing-powershellget-on-a-disconnected-system).
@@ -97,7 +97,7 @@ Vous devez également disposer d’autorisations Azure Active Directory appropri
 
 Utilisez la procédure suivante pour inscrire un cluster Azure Stack HCI auprès d’Azure à l’aide d’un PC de gestion.
 
-1. Installez les applets de commande nécessaires sur votre PC de gestion. Si vous inscrivez un cluster déployé à partir de l’image en disponibilité générale d’Azure Stack HCI, exécutez simplement la commande suivante. Si votre cluster a été déployé à partir de l’image en préversion publique, vérifiez que vous avez appliqué la mise à jour de la préversion du 23 novembre 2020 (KB4586852) à chaque serveur du cluster avant d’essayer de vous inscrire.
+1. Installez les applets de commande nécessaires sur votre PC de gestion. Si vous inscrivez un cluster déployé à partir de l’image en disponibilité générale actuelle d’Azure Stack HCI, exécutez simplement la commande suivante. Si votre cluster a été déployé à partir de l’image en préversion publique, vérifiez que vous avez appliqué la mise à jour de la préversion du 23 novembre 2020 (KB4586852) à chaque serveur du cluster avant d’essayer de vous inscrire auprès d’Azure.
 
    ```PowerShell
    Install-Module -Name Az.StackHCI
@@ -110,7 +110,7 @@ Utilisez la procédure suivante pour inscrire un cluster Azure Stack HCI auprès
 2. Effectuez l’inscription à l’aide du nom de n’importe quel serveur du cluster. Pour obtenir votre ID d’abonnement Azure, visitez [portal.azure.com](https://portal.azure.com), accédez à Abonnements, puis copiez/collez votre ID à partir de la liste.
 
    ```PowerShell
-   Register-AzStackHCI  -SubscriptionId "<subscription_ID>" -ComputerName Server1 [–Credential] [-ResourceName] [-ResourceGroupName]
+   Register-AzStackHCI  -SubscriptionId "<subscription_ID>" -ComputerName Server1 [–Credential] [-ResourceName] [-ResourceGroupName] [-Region]
    ```
 
    Cette syntaxe inscrit le cluster (dont Server1 est membre), en tant qu’utilisateur actuel, auprès de l’environnement cloud et de la région Azure par défaut, et utilise des noms intelligents par défaut pour la ressource et le groupe de ressources Azure, mais vous pouvez ajouter des paramètres à cette commande pour spécifier ces valeurs, si vous le souhaitez.

@@ -3,16 +3,16 @@ title: Codes d’erreur d’inscription de l’utilisation et de la facturation 
 description: Découvrez les codes d’erreur d’inscription de l’utilisation et de la facturation dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 0c143a2a997a044e102eef63018dba5a492a3e11
-ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
+ms.openlocfilehash: b229d4019e6e7ed99826e311fc62da341c1203dd
+ms.sourcegitcommit: a53ea4a28e715c80a99fa89e9d364bc4556558de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89041602"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97576936"
 ---
 # <a name="usage-and-billing-registration-error-codes"></a>Codes d’erreur d’inscription d’utilisation et de facturation
 

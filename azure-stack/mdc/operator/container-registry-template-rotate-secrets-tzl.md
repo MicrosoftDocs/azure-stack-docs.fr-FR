@@ -1,7 +1,7 @@
 ---
-title: Effectuer la rotation des secrets du registre de conteneurs dans Azure Stack Hub | Microsoft Docs
+title: Effectuer la rotation des secrets de registre de conteneurs dans Azure Stack Hub - MDC
 titleSuffix: Azure Stack Hub
-description: Découvrez comment effectuer la rotation des secrets dans Azure Stack Hub.
+description: Découvrez comment effectuer la rotation des secrets de registre de conteneurs dans Azure Stack Hub pour un centre de données modulaire.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,14 +16,14 @@ ms.date: 10/26/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: eb835552b8f7142878d03aa1bb3bb062cd2cf3f6
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 932f63ef4b442578baf9f217ae0f25a6fe29290e
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934980"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598213"
 ---
-# <a name="rotate-container-registry-secrets-in-azure-stack-hub"></a>Effectuer la rotation des secrets dans Azure Stack Hub
+# <a name="rotate-container-registry-secrets-in-azure-stack-hub---modular-data-center-mdc"></a>Effectuer la rotation des secrets de registre de conteneurs dans Azure Stack Hub - Modular Data Center (MDC)
 
 Vos utilisateurs Azure Stack Hub peuvent faire effectuer la rotation des secrets (certificats, nom d’utilisateur et mot de passe) pour un déploiement de modèle de registre de conteneurs. Vous pouvez exécuter un script pour renseigner de nouvelles valeurs secrètes dans Microsoft Azure Key Vault et **redéployer** l’instance de modèle de registre de conteneurs existante. La rotation des secrets à proprement parler ne requiert pas de nouveau déploiement.
 
@@ -257,11 +257,11 @@ Suivez les instructions ci-dessous pour définir de nouveaux secrets dans Key Va
 
 3. Sélectionnez les déploiements sous **Déploiements**.
 
-    ![Déploiements](./media/container-registry-template-rotating-secrets-tzl/deployments.png)
+    ![Capture d’écran qui montre la page « Déploiements ».](./media/container-registry-template-rotating-secrets-tzl/deployments.png)
 
 4.  Si vous effectuez la rotation des secrets pour la première fois, sélectionnez le déploiement d’origine. Si ce n’est pas le cas, sélectionnez le déploiement le plus récent, puis **Redéployer**.
 
-    ![Redeploy](./media/container-registry-template-rotating-secrets-tzl/redeploy.png)
+    ![Capture d’écran montrant la page Vue d’ensemble avec l’action « Redéployer » sélectionnée.](./media/container-registry-template-rotating-secrets-tzl/redeploy.png)
 
 5.  Dans **Déployer un modèle de solution**, sélectionnez **Utiliser un groupe de ressources existant**, puis le groupe de ressources utilisé pour déployer initialement le modèle de registre de conteneurs. Pour qu’un redéploiement aboutisse, il doit utiliser le même groupe de ressources.
 
@@ -273,7 +273,7 @@ Suivez les instructions ci-dessous pour définir de nouveaux secrets dans Key Va
 
     - Si vous effectuez la rotation du certificat, vous devez entrer les nouvelles valeurs pour PFXKeyVaultSecretURL et PFXThumbprint générées lors de la définition des nouveaux secrets.
 
-    ![Paramètres](./media/container-registry-template-rotating-secrets-tzl/parameters.png)
+    ![Capture d’écran montrant la fenêtre « Paramètres ».](./media/container-registry-template-rotating-secrets-tzl/parameters.png)
 
 7.  Sélectionnez **OK**, puis **Créer**. Le redéploiement se poursuit. Le registre reste fonctionnel lors du redéploiement.
 

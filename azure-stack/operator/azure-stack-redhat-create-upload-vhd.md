@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation Red Hat Linux.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 3ddc8a44d59a373f5dfe340860a5dcf195668cac
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: f0a408cdbd7b1c76a0a24f03537f20d1ae7b851e
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742574"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620600"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Préparation d’une machine virtuelle Red Hat pour Azure Stack Hub
 
@@ -40,16 +40,16 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
 
 1. Dans le Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
 
-1. Sélectionnez **Connecter** afin d’ouvrir une fenêtre de console pour la machine virtuelle.
+2. Sélectionnez **Connecter** afin d’ouvrir une fenêtre de console pour la machine virtuelle.
 
-1. Créez ou modifiez le fichier `/etc/sysconfig/network`, puis ajoutez le texte suivant :
+3. Créez ou modifiez le fichier `/etc/sysconfig/network`, puis ajoutez le texte suivant :
 
     ```shell
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
-1. Créez ou modifiez le fichier `/etc/sysconfig/network-scripts/ifcfg-eth0`, puis ajoutez le texte suivant selon vos besoins :
+4. Créez ou modifiez le fichier `/etc/sysconfig/network-scripts/ifcfg-eth0`, puis ajoutez le texte suivant selon vos besoins :
 
     ```shell
     DEVICE=eth0
@@ -62,19 +62,19 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
     NM_CONTROLLED=no
     ```
 
-1. Assurez-vous que le service réseau se lance au démarrage en exécutant la commande suivante :
+5. Assurez-vous que le service réseau se lance au démarrage en exécutant la commande suivante :
 
     ```bash
     sudo systemctl enable network
     ```
 
-1. Inscrivez votre abonnement Red Hat pour installer des packages à partir du référentiel RHEL en exécutant la commande suivante :
+6. Inscrivez votre abonnement Red Hat pour installer des packages à partir du référentiel RHEL en exécutant la commande suivante :
 
     ```bash
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour effectuer cette modification, ouvrez `/etc/default/grub` dans un éditeur de texte, puis modifiez le paramètre `GRUB_CMDLINE_LINUX`. Par exemple :
+7. Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour effectuer cette modification, ouvrez `/etc/default/grub` dans un éditeur de texte, puis modifiez le paramètre `GRUB_CMDLINE_LINUX`. Par exemple :
 
     ```shell
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -88,38 +88,38 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
     rhgb quiet crashkernel=auto
     ```
 
-1. Une fois que vous avez fini de modifier `/etc/default/grub`, exécutez la commande suivante pour regénérer la configuration de grub :
+8. Une fois que vous avez fini de modifier `/etc/default/grub`, exécutez la commande suivante pour regénérer la configuration de grub :
 
     ```bash
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-1. [Facultatif après la version 1910] Arrêtez et désinstallez cloud-init :
+9. Facultatif : arrêter et désinstaller `cloud-init` :
 
     ```bash
     systemctl stop cloud-init
     yum remove cloud-init
     ```
 
-1. Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu, ce qui est généralement le réglage par défaut. Modifiez `/etc/ssh/sshd_config` pour y inclure la ligne suivante :
+10. Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu, ce qui est généralement le réglage par défaut. Modifiez `/etc/ssh/sshd_config` pour y inclure la ligne suivante :
 
     ```shell
     ClientAliveInterval 180
     ```
 
-1. Durant la création d’un VHD (disque dur virtuel) personnalisé pour Azure Stack Hub, notez que la version de WALinuxAgent comprise entre les versions 2.2.20 et 2.2.35 (ces deux versions étant exclues) ne fonctionne pas dans les environnements Azure Stack Hub avant la version 1910. Vous pouvez utiliser les versions 2.2.20/2.2.35 pour préparer votre image. Pour utiliser les versions postérieures à la version 2.2.35 et préparer votre image personnalisée, mettez à jour votre infrastructure Azure Stack Hub vers la version 1903 ou ultérieure, ou appliquez le correctif logiciel 1901/1902.
-    
-    [Avant la version 1910] Suivez ces instructions pour télécharger une version compatible de WALinuxAgent :
-    
-    1. Téléchargez setuptools.
-        
+11. Durant la création d’un VHD (disque dur virtuel) personnalisé pour Azure Stack Hub, notez que les versions de **WALinuxAgent** comprises entre les versions 2.2.20 et 2.2.35 (ces deux versions étant exclues) ne fonctionnent pas dans les environnements Azure Stack Hub avant la mise en production 1910. Vous pouvez utiliser les versions 2.2.20/2.2.35 pour préparer votre image. Pour utiliser les versions ultérieures à la version 2.2.35 et préparer votre image personnalisée, mettez à jour votre infrastructure Azure Stack Hub vers la version 1903 ou ultérieure, ou appliquez le correctif logiciel 1901/1902.
+
+    Avant la mise en production 1910, suivez ces instructions pour télécharger une version compatible de **WALinuxAgent** :
+
+    1. Téléchargez les outils d’installation :
+
         ```bash
         wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
         tar xzf setuptools-7.0.tar.gz
         cd setuptools-7.0
         ```
-    
-    1. Téléchargez et décompressez la version 2.2.20 de l’agent à partir de GitHub.
+
+    2. Téléchargez et décompressez la version 2.2.20 de l’agent à partir de GitHub :
 
         ```bash
         wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
@@ -127,42 +127,42 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
         cd WALinuxAgent-2.2.20
         ```
 
-    1. Installez setup.py.
+    3. Installez **setup.py** :
 
         ```bash
         sudo python setup.py install
         ```
 
-    1. Redémarrez waagent.
-    
+    4. Redémarrez **waagent** :
+
         ```bash
         sudo systemctl restart waagent
         ```
 
-    1. Vérifiez si la version de l’agent correspond à celle que vous avez téléchargée. Pour cet exemple, la version devrait être 2.2.20.
+    5. Vérifiez si la version de l’agent correspond à celle que vous avez téléchargée. Pour cet exemple, la version devrait être 2.2.20 :
 
         ```bash
         waagent -version
         ```
 
-    Après la version 1910, suivez ces instructions pour télécharger une version compatible de WALinuxAgent :
-    
-    1. Le package WALinuxAgent, `WALinuxAgent-<version>`, a fait l’objet d’une transmission de type push vers le référentiel Red Hat « extras ». Activez le référentiel extras en exécutant la commande suivante :
+    Après la mise en production 1910, suivez ces instructions pour télécharger une version compatible de **WALinuxAgent** :
+
+    1. Le package **WALinuxAgent**, `WALinuxAgent-<version>`, a fait l’objet d’une transmission de type push vers le référentiel Red Hat « extras ». Activez le référentiel extras en exécutant la commande suivante :
 
         ```bash
         subscription-manager repos --enable=rhel-7-server-extras-rpms
         ```
 
-    1. Installez l'agent linux Azure en exécutant la commande suivante :
+    2. Installez l'agent linux Azure en exécutant la commande suivante :
 
         ```bash
         sudo yum install WALinuxAgent
         sudo systemctl enable waagent.service
         ```
 
-1. Ne créez pas d’espace d’échange sur le disque du système d’exploitation.
+12. Ne créez pas d’espace d’échange sur le disque du système d’exploitation.
 
-    L’agent Linux Azure peut configurer automatiquement l’espace d’échange à l’aide du disque de ressources local attaché à la machine virtuelle après le provisionnement de celle-ci sur Azure. Le disque de ressources local est un disque temporaire qui peut être vidé quand la machine virtuelle est déprovisionnée. Après avoir installé l’agent Linux Azure lors de l’étape précédente, modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
+    L’agent Linux Azure peut configurer automatiquement l’espace d’échange à l’aide du disque de ressources local attaché à la machine virtuelle après le provisionnement de celle-ci sur Azure. Le disque de ressources local est un disque temporaire qui peut être vidé lorsque la machine virtuelle est déprovisionnée. Après avoir installé l’agent Linux Azure lors de l’étape précédente, modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
 
     ```shell
     ResourceDisk.Format=y
@@ -172,15 +172,15 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
     ResourceDisk.SwapSizeMB=2048    #NOTE: set this to whatever you need it to be.
     ```
 
-1. Si vous souhaitez annuler l'inscription de l'abonnement, exécutez la commande suivante :
+13. Si vous souhaitez annuler l’inscription de l’abonnement, exécutez la commande suivante :
 
     ```bash
     sudo subscription-manager unregister
     ```
 
-1. Si vous utilisez un système déployé à l’aide d’une autorité de certification d’entreprise, la machine virtuelle RHEL n’approuve pas le certificat racine Azure Stack Hub. Vous devez placer ce certificat dans le magasin racine approuvé. Pour plus d’informations, consultez les instructions relatives à l’[ajout de certificats racine approuvés au serveur](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+14. Si vous utilisez un système déployé à l’aide d’une autorité de certification d’entreprise, la machine virtuelle RHEL n’approuve pas le certificat racine Azure Stack Hub. Vous devez placer ce certificat dans le magasin racine approuvé. Pour plus d’informations, consultez les instructions relatives à l’[ajout de certificats racine approuvés au serveur](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
-1. Exécutez les commandes suivantes pour déprovisionner la machine virtuelle et préparer son provisionnement sur Azure :
+15. Exécutez les commandes suivantes pour déprovisionner la machine virtuelle et préparer son provisionnement sur Azure :
 
     ```bash
     sudo waagent -force -deprovision
@@ -188,15 +188,15 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
     logout
     ```
 
-1. Sélectionnez **Action**, puis **Arrêter** dans le Gestionnaire Hyper-V.
+16. Sélectionnez **Action**, puis **Arrêter** dans le Gestionnaire Hyper-V.
 
-1. Convertissez le VHD en un VHD de taille fixe à l’aide de la fonctionnalité « Modifier le disque » du Gestionnaire Hyper-V ou de la commande PowerShell Convert-VHD. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
+17. Convertissez le VHD en un VHD de taille fixe à l’aide de la fonctionnalité **Modifier le disque** du Gestionnaire Hyper-V ou de la commande PowerShell `Convert-VHD`. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-kvm"></a>Préparer une machine virtuelle Red Hat à partir de KVM
 
 1. Téléchargez l'image KVM de RHEL 7 depuis le site web Red Hat. Cette procédure utilise RHEL 7 comme exemple.
 
-1. Définissez un mot de passe racine.
+2. Définissez un mot de passe racine.
 
     Générez un mot de passe chiffré et copiez la sortie de la commande :
 
@@ -217,16 +217,16 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
 
    Modifiez le second champ de l'utilisateur racine en remplaçant « !! » » par le mot de passe chiffré.
 
-1. Créez une machine virtuelle dans KVM à partir de l’image qcow2. Définissez le type de disque sur **qcow2**, puis définissez le modèle d’appareil de l’interface réseau virtuelle sur **virtio**. Démarrez ensuite cette machine virtuelle, puis connectez-vous en tant qu’utilisateur root.
+3. Créez une machine virtuelle dans KVM à partir de l’image **qcow2**. Définissez le type de disque sur **qcow2**, puis définissez le modèle d’appareil de l’interface réseau virtuelle sur **virtio**. Démarrez ensuite cette machine virtuelle, puis connectez-vous en tant qu’utilisateur root.
 
-1. Créez ou modifiez le fichier `/etc/sysconfig/network`, puis ajoutez le texte suivant :
+4. Créez ou modifiez le fichier `/etc/sysconfig/network`, puis ajoutez le texte suivant :
 
     ```shell
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
-1. Créez ou modifiez le fichier `/etc/sysconfig/network-scripts/ifcfg-eth0`, puis ajoutez le texte suivant :
+5. Créez ou modifiez le fichier `/etc/sysconfig/network-scripts/ifcfg-eth0`, puis ajoutez le texte suivant :
 
     ```shell
     DEVICE=eth0
@@ -239,19 +239,19 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
     NM_CONTROLLED=no
     ```
 
-1. Assurez-vous que le service réseau se lance au démarrage en exécutant la commande suivante :
+6. Assurez-vous que le service réseau se lance au démarrage en exécutant la commande suivante :
 
     ```bash
     sudo systemctl enable network
     ```
 
-1. Inscrivez votre abonnement Red Hat pour installer des packages à partir du référentiel RHEL en exécutant la commande suivante :
+7. Inscrivez votre abonnement Red Hat pour installer des packages à partir du référentiel RHEL en exécutant la commande suivante :
 
     ```bash
     subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour effectuer cette configuration, ouvrez le fichier `/etc/default/grub` dans un éditeur de texte et modifiez le paramètre `GRUB_CMDLINE_LINUX`. Par exemple :
+8. Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour effectuer cette configuration, ouvrez le fichier `/etc/default/grub` dans un éditeur de texte et modifiez le paramètre `GRUB_CMDLINE_LINUX`. Par exemple :
 
     ```shell
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -265,13 +265,13 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
     rhgb quiet crashkernel=auto
     ```
 
-1. Une fois que vous avez fini de modifier `/etc/default/grub`, exécutez la commande suivante pour regénérer la configuration de grub :
+9. Une fois que vous avez fini de modifier `/etc/default/grub`, exécutez la commande suivante pour regénérer la configuration de grub :
 
     ```bash
     grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-1. Ajoutez des modules de Hyper-V dans initramfs.
+10. Ajoutez des modules de Hyper-V dans **initramfs**.
 
     Modifiez `/etc/dracut.conf` en y ajoutant le contenu suivant :
 
@@ -285,14 +285,14 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
     dracut -f -v
     ```
 
-1. [Facultatif après la version 1910] Arrêtez et désinstallez cloud-init :
+11. Facultatif après la mise en production 1910 : arrêtez et désinstallez `cloud-init` :
 
     ```bash
     systemctl stop cloud-init
     yum remove cloud-init
     ```
 
-1. Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu :
+12. Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu :
 
     ```bash
     systemctl enable sshd
@@ -305,60 +305,60 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
     ClientAliveInterval 180
     ```
 
-1. Durant la création d’un VHD (disque dur virtuel) personnalisé pour Azure Stack Hub, notez que la version de WALinuxAgent comprise entre les versions 2.2.20 et 2.2.35 (ces deux versions étant exclues) ne fonctionne pas dans les environnements Azure Stack Hub avant la version 1910. Vous pouvez utiliser les versions 2.2.20/2.2.35 pour préparer votre image. Pour utiliser les versions ultérieures à la version 2.2.35 et préparer votre image personnalisée, mettez à jour votre infrastructure Azure Stack Hub vers la version 1903 ou ultérieure, ou appliquez le correctif logiciel 1901/1902.
+13. Durant la création d’un VHD personnalisé pour Azure Stack Hub, notez que les versions de **WALinuxAgent** comprises entre les versions 2.2.20 et 2.2.35 (ces deux versions étant exclues) ne fonctionnent pas dans les environnements Azure Stack Hub avant la mise en production 1910. Vous pouvez utiliser les versions 2.2.20/2.2.35 pour préparer votre image. Pour utiliser des versions ultérieures à la version 2.2.35 et préparer votre image personnalisée, mettez à jour votre infrastructure Azure Stack Hub vers la version 1903 ou ultérieure, ou appliquez le correctif logiciel 1901/1902.
 
-    [Avant la version 1910] Suivez ces instructions pour télécharger une version compatible de WALinuxAgent :
+    Après la mise en production 1910, suivez ces instructions pour télécharger une version compatible de **WALinuxAgent** :
 
-    1. Téléchargez setuptools.
-        
+    1. Téléchargez les outils d’installation :
+
         ```bash
         wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
         tar xzf setuptools-7.0.tar.gz
         cd setuptools-7.0
         ```
-        
-    1. Téléchargez et décompressez la version 2.2.20 de l’agent à partir de GitHub.
-        
+
+    2. Téléchargez et décompressez la version 2.2.20 de l’agent à partir de GitHub :
+
         ```bash
         wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
         unzip v2.2.20.zip
         cd WALinuxAgent-2.2.20
         ```
-        
-    1. Installez setup.py.
-        
+
+    3. Installez **setup.py** :
+
         ```bash
         sudo python setup.py install
         ```
-        
-    1. Redémarrez waagent.
-        
+
+    4. Redémarrez **waagent**.
+
         ```bash
         sudo systemctl restart waagent
         ```
-        
-    1. Vérifiez si la version de l’agent correspond à celle que vous avez téléchargée. Pour cet exemple, la version devrait être 2.2.20.
-        
+
+    5. Vérifiez si la version de l’agent correspond à celle que vous avez téléchargée. Pour cet exemple, la version devrait être 2.2.20 :
+
         ```bash
         waagent -version
         ```
-        
-    [Après la version 1910] Suivez ces instructions pour télécharger une version compatible de WALinuxAgent :
-    
-    1. Le package WALinuxAgent, `WALinuxAgent-<version>`, a fait l’objet d’une transmission de type push vers le référentiel Red Hat « extras ». Activez le référentiel extras en exécutant la commande suivante :
+
+    Après la mise en production 1910, suivez ces instructions pour télécharger une version compatible de **WALinuxAgent** :
+
+    1. Le package **WALinuxAgent**, `WALinuxAgent-<version>`, a fait l’objet d’une transmission de type push vers le référentiel Red Hat « extras ». Activez le référentiel extras en exécutant la commande suivante :
 
         ```bash
         subscription-manager repos --enable=rhel-7-server-extras-rpms
         ```
 
-    1. Installez l’agent linux Azure en exécutant les commandes suivantes :
+    2. Installez l’agent linux Azure en exécutant les commandes suivantes :
 
         ```bash
         sudo yum install WALinuxAgent
         sudo systemctl enable waagent.service
         ```
 
-1. Ne créez pas d’espace d’échange sur le disque du système d’exploitation.
+14. Ne créez pas d’espace d’échange sur le disque du système d’exploitation.
 
     L’agent Linux Azure peut configurer automatiquement l’espace d’échange à l’aide du disque de ressources local attaché à la machine virtuelle après le provisionnement de celle-ci sur Azure. Le disque de ressources local est un disque temporaire qui peut être vidé lorsque la machine virtuelle est déprovisionnée. Après avoir installé l’agent Linux Azure lors de l’étape précédente, modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
 
@@ -370,15 +370,15 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
     ResourceDisk.SwapSizeMB=2048    #NOTE: set this to whatever you need it to be.
     ```
 
-1. Annulez l'inscription de l'abonnement (le cas échéant) en exécutant la commande suivante :
+15. Annulez l’inscription de l’abonnement (si nécessaire) en exécutant la commande suivante :
 
     ```bash
     subscription-manager unregister
     ```
 
-1. Si vous utilisez un système déployé à l’aide d’une autorité de certification d’entreprise, la machine virtuelle RHEL n’approuve pas le certificat racine Azure Stack Hub. Vous devez placer ce certificat dans le magasin racine approuvé. Pour plus d’informations, consultez les instructions relatives à l’[ajout de certificats racine approuvés au serveur](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+16. Si vous utilisez un système déployé à l’aide d’une autorité de certification d’entreprise, la machine virtuelle RHEL n’approuve pas le certificat racine Azure Stack Hub. Vous devez placer ce certificat dans le magasin racine approuvé. Pour plus d’informations, consultez les instructions relatives à l’[ajout de certificats racine approuvés au serveur](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
-1. Exécutez les commandes suivantes pour déprovisionner la machine virtuelle et préparer son provisionnement sur Azure :
+17. Exécutez les commandes suivantes pour déprovisionner la machine virtuelle et préparer son provisionnement sur Azure :
 
     ```bash
     sudo waagent -force -deprovision
@@ -386,12 +386,12 @@ Cette section part de l’hypothèse que vous avez déjà un fichier ISO provena
     logout
     ```
 
-1. Arrêtez la machine virtuelle dans KVM.
+18. Arrêtez la machine virtuelle dans KVM.
 
-1. Convertissez l’image qcow2 au format VHD.
+19. Convertissez l’image qcow2 au format VHD.
 
     > [!NOTE]
-    > Il existe un bogue connu dans la version 2.2.1 de qemu-img, qui entraîne un formatage incorrect de disque dur virtuel. Ce problème a été résolu dans QEMU 2.6. Il est recommandé d’utiliser qemu-img version 2.2.0 ou antérieure, ou d’effectuer une mise à jour vers la version 2.6 ou supérieure. Référence : https://bugs.launchpad.net/qemu/+bug/1490611.
+    > Il existe un bogue connu dans les versions 2.2.1 et ultérieures de **qemu-img**, qui entraîne un formatage incorrect de disque dur virtuel. Ce problème a été résolu dans QEMU 2.6. Il est recommandé d’utiliser qemu-img version 2.2.0 ou antérieure, ou d’effectuer une mise à jour vers la version 2.6 ou supérieure. Pour plus d’informations, [consultez ce billet QEMU](https://bugs.launchpad.net/qemu/+bug/1490611).
 
     Convertissez tout d'abord l'image au format RAW :
 
@@ -438,7 +438,7 @@ Cette section part de l’hypothèse que vous avez déjà installé une machine 
     HOSTNAME=localhost.localdomain
     ```
 
-1. Créez ou modifiez le fichier `/etc/sysconfig/network-scripts/ifcfg-eth0`, puis ajoutez le texte suivant :
+2. Créez ou modifiez le fichier `/etc/sysconfig/network-scripts/ifcfg-eth0`, puis ajoutez le texte suivant :
 
     ```shell
     DEVICE=eth0
@@ -451,19 +451,19 @@ Cette section part de l’hypothèse que vous avez déjà installé une machine 
     NM_CONTROLLED=no
     ```
 
-1. Assurez-vous que le service réseau se lance au démarrage en exécutant la commande suivante :
+3. Assurez-vous que le service réseau se lance au démarrage en exécutant la commande suivante :
 
     ```bash
     sudo chkconfig network on
     ```
 
-1. Inscrivez votre abonnement Red Hat pour installer des packages à partir du référentiel RHEL en exécutant la commande suivante :
+4. Inscrivez votre abonnement Red Hat pour installer des packages à partir du référentiel RHEL en exécutant la commande suivante :
 
     ```bash
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour effectuer cette modification, ouvrez `/etc/default/grub` dans un éditeur de texte. Modifiez le paramètre `GRUB_CMDLINE_LINUX`. Par exemple :
+5. Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour effectuer cette modification, ouvrez `/etc/default/grub` dans un éditeur de texte. Modifiez le paramètre `GRUB_CMDLINE_LINUX`. Par exemple :
 
     ```shell
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -477,13 +477,13 @@ Cette section part de l’hypothèse que vous avez déjà installé une machine 
 
     Le démarrage graphique et transparent n’est pas utile dans un environnement cloud où nous voulons que tous les journaux d’activité soient envoyés au port série. Vous pouvez laisser l’option `crashkernel` configurée le cas échéant. Ce paramètre réduit la quantité de mémoire disponible sur la machine virtuelle de 128 Mo ou plus, ce qui peut poser un problème pour les machines virtuelles plus petites.
 
-1. Une fois que vous avez fini de modifier `/etc/default/grub`, exécutez la commande suivante pour regénérer la configuration de grub :
+6. Une fois que vous avez fini de modifier `/etc/default/grub`, exécutez la commande suivante pour regénérer la configuration de grub :
 
     ```bash
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-1. Ajoutez des modules de Hyper-V dans initramfs.
+7. Ajoutez des modules de Hyper-V dans initramfs.
 
     Modifiez `/etc/dracut.conf`, ajoutez le contenu :
 
@@ -497,73 +497,73 @@ Cette section part de l’hypothèse que vous avez déjà installé une machine 
     dracut -f -v
     ```
 
-1. [Facultatif après la version 1910] Arrêtez et désinstallez cloud-init :
+8. Facultatif après la mise en production 1910 : arrêtez et désinstallez `cloud-init` :
 
     ```bash
     systemctl stop cloud-init
     yum remove cloud-init
     ```
 
-1. Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. Ce paramètre est généralement la valeur par défaut. Modifiez `/etc/ssh/sshd_config` pour y inclure la ligne suivante :
+9. Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. Ce paramètre est généralement la valeur par défaut. Modifiez `/etc/ssh/sshd_config` pour y inclure la ligne suivante :
 
     ```shell
     ClientAliveInterval 180
     ```
 
-1. Durant la création d’un VHD (disque dur virtuel) personnalisé pour Azure Stack Hub, notez que la version de WALinuxAgent comprise entre les versions 2.2.20 et 2.2.35 (ces deux versions étant exclues) ne fonctionne pas dans les environnements Azure Stack Hub avant la version 1910. Vous pouvez utiliser les versions 2.2.20/2.2.35 pour préparer votre image. Pour utiliser les versions ultérieures à la version 2.2.35 et préparer votre image personnalisée, mettez à jour votre infrastructure Azure Stack Hub vers la version 1903 ou ultérieure, ou appliquez le correctif logiciel 1901/1902.
+10. Durant la création d’un VHD personnalisé pour Azure Stack Hub, notez que les versions de WALinuxAgent comprises entre les versions 2.2.20 et 2.2.35 (ces deux versions étant exclues) ne fonctionnent pas dans les environnements Azure Stack Hub avant la mise en production 1910. Vous pouvez utiliser les versions 2.2.20/2.2.35 pour préparer votre image. Pour utiliser les versions ultérieures à la version 2.2.35 et préparer votre image personnalisée, mettez à jour votre infrastructure Azure Stack Hub vers la version 1903 ou ultérieure, ou appliquez le correctif logiciel 1901/1902.
 
-    [Avant la version 1910] Suivez ces instructions pour télécharger une version compatible de WALinuxAgent :
+    Avant la mise en production 1910, suivez ces instructions pour télécharger une version compatible de **WALinuxAgent** :
 
-    1. Téléchargez setuptools.
-    
+    1. Téléchargez les outils d’installation :
+
         ```bash
         wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
         tar xzf setuptools-7.0.tar.gz
         cd setuptools-7.0
         ```
-        
-    1. Téléchargez et décompressez la version 2.2.20 de l’agent à partir de GitHub.
-        
+
+    2. Téléchargez et décompressez la version 2.2.20 de l’agent à partir de GitHub :
+
         ```bash
         wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
         unzip v2.2.20.zip
         cd WALinuxAgent-2.2.20
         ```
-        
-    1. Installez setup.py.
-        
+
+    3. Installez **setup.py** :
+
         ```bash
         sudo python setup.py install
         ```
-        
-    1. Redémarrez waagent.
-        
+
+    4. Redémarrez **waagent** :
+
         ```bash
         sudo systemctl restart waagent
         ```
-        
-    1. Vérifiez si la version de l’agent correspond à celle que vous avez téléchargée. Pour cet exemple, la version devrait être 2.2.20.
-        
+
+    5. Vérifiez si la version de l’agent correspond à celle que vous avez téléchargée. Pour cet exemple, la version devrait être 2.2.20 :
+
         ```bash
         waagent -version
         ```
-        
-    [Après la version 1910] Suivez ces instructions pour télécharger une version compatible de WALinuxAgent :
-    
-    1. Le package WALinuxAgent, `WALinuxAgent-<version>`, a fait l’objet d’une transmission de type push vers le référentiel Red Hat « extras ». Activez le référentiel extras en exécutant la commande suivante :
+
+    Après la mise en production 1910, suivez ces instructions pour télécharger une version compatible de **WALinuxAgent** :
+
+    1. Le package **WALinuxAgent**, `WALinuxAgent-<version>`, a fait l’objet d’une transmission de type push vers le référentiel Red Hat « extras ». Activez le référentiel extras en exécutant la commande suivante :
 
         ```bash
         subscription-manager repos --enable=rhel-7-server-extras-rpms
         ```
 
-    1. Installez l'agent linux Azure en exécutant la commande suivante :
-    
+    2. Installez l'agent linux Azure en exécutant la commande suivante :
+
         ```bash
         sudo yum install WALinuxAgent
         sudo systemctl enable waagent.service
         ```
-git        
-1. Ne créez pas d’espace d’échange sur le disque du système d’exploitation.
+
+11. Ne créez pas d’espace d’échange sur le disque du système d’exploitation.
 
     L’agent Linux Azure peut configurer automatiquement l’espace d’échange à l’aide du disque de ressources local attaché à la machine virtuelle après l'approvisionnement de celle-ci sur Azure. Notez que le disque de ressources local est un disque temporaire qui peut être vidé lorsque la machine virtuelle est déprovisionnée. Après avoir installé l’agent Linux Azure lors de l’étape précédente, modifiez en conséquence les paramètres suivants dans le fichier `/etc/waagent.conf` :
 
@@ -575,15 +575,15 @@ git
     ResourceDisk.SwapSizeMB=2048    NOTE: set this to whatever you need it to be.
     ```
 
-1. Si vous souhaitez annuler l'inscription de l'abonnement, exécutez la commande suivante :
+12. Si vous souhaitez annuler l’inscription de l’abonnement, exécutez la commande suivante :
 
     ```bash
     sudo subscription-manager unregister
     ```
 
-1. Si vous utilisez un système déployé à l’aide d’une autorité de certification d’entreprise, la machine virtuelle RHEL n’approuve pas le certificat racine Azure Stack Hub. Vous devez placer ce dernier dans le magasin racine approuvé. Pour plus d’informations, consultez les instructions relatives à l’[ajout de certificats racine approuvés au serveur](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+13. Si vous utilisez un système déployé à l’aide d’une autorité de certification d’entreprise, la machine virtuelle RHEL n’approuve pas le certificat racine Azure Stack Hub. Vous devez placer ce dernier dans le magasin racine approuvé. Pour plus d’informations, consultez les instructions relatives à l’[ajout de certificats racine approuvés au serveur](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
-1. Exécutez les commandes suivantes pour déprovisionner la machine virtuelle et préparer son provisionnement sur Azure :
+14. Exécutez les commandes suivantes pour déprovisionner la machine virtuelle et préparer son provisionnement sur Azure :
 
     ```bash
     sudo waagent -force -deprovision
@@ -591,10 +591,10 @@ git
     logout
     ```
 
-1. Arrêtez la machine virtuelle et convertissez le fichier VMDK au format VHD.
+15. Arrêtez la machine virtuelle et convertissez le fichier VMDK au format VHD.
 
     > [!NOTE]
-    > Il existe un bogue connu dans la version 2.2.1 de qemu-img, qui entraîne un formatage incorrect de disque dur virtuel. Ce problème a été résolu dans QEMU 2.6. Il est recommandé d’utiliser qemu-img version 2.2.0 ou antérieure, ou d’effectuer une mise à jour vers la version 2.6 ou supérieure.
+    > Il existe un bogue connu dans les versions 2.2.1 et ultérieures de `qemu-img`, qui entraîne un formatage incorrect de disque dur virtuel. Ce problème a été résolu dans QEMU 2.6. Il est recommandé d’utiliser qemu-img version 2.2.0 ou antérieure, ou d’effectuer une mise à jour vers la version 2.6 ou supérieure.
 
     Convertissez tout d'abord l'image au format RAW :
 
@@ -626,7 +626,7 @@ git
 
 ## <a name="prepare-a-red-hat-based-vm-from-an-iso-by-using-a-kickstart-file-automatically"></a>Préparer une machine virtuelle Red Hat à partir d’une image ISO via l’utilisation automatique d’un fichier kickstart
 
-1. Créez un fichier qui inclut le contenu suivant et enregistrez-le. L’arrêt et la désinstallation de cloud-init sont facultatifs (cloud-init est pris en charge sur Azure Stack Hub après la version 1910). Installez l’agent à partir du dépôt redhat uniquement après la version 1910. Avant la version 1910, utilisez le dépôt Azure comme dans la section précédente. Pour plus d’informations sur l’installation de Kickstart, voir le document [Kickstart Installation Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)(Guide d’installation Kickstart).
+1. Créez un fichier qui inclut le contenu suivant et enregistrez-le. L’arrêt et la désinstallation de **cloud-init** sont facultatifs (**cloud-init** est pris en charge sur Azure Stack Hub après la mise en production 1910). Installez l’agent à partir du dépôt redhat uniquement après la version 1910. Avant la version 1910, utilisez le dépôt Azure comme dans la section précédente. Pour plus d’informations sur l’installation de Kickstart, consultez le document [Kickstart Installation Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
     ```shell
     Kickstart for provisioning a RHEL 7 Azure VM
@@ -753,11 +753,11 @@ git
     %end
     ```
 
-1. Placez le fichier Kickstart à un emplacement auquel système d’installation peut accéder.
+2. Placez le fichier kickstart à un emplacement à partir duquel le système d’installation peut y accéder.
 
-1. Créez une machine virtuelle dans le Gestionnaire Hyper-V. Sur la page **Connecter un disque dur virtuel**, sélectionnez **Attacher un disque dur virtuel ultérieurement**, puis exécutez l’Assistant Nouvelle machine virtuelle.
+3. Créez une machine virtuelle dans le Gestionnaire Hyper-V. Sur la page **Connecter un disque dur virtuel**, sélectionnez **Attacher un disque dur virtuel ultérieurement**, puis exécutez l’Assistant Nouvelle machine virtuelle.
 
-1. Ouvrez les paramètres de la machine virtuelle :
+4. Ouvrez les paramètres de la machine virtuelle :
 
     a. Attachez un nouveau disque dur virtuel à la machine virtuelle. Veillez à sélectionner **Format VHD** et **Taille fixe**.
 
@@ -765,11 +765,11 @@ git
 
     c. Configurez le BIOS de manière à exécuter le démarrage à partir d’un CD.
 
-1. Démarrez la machine virtuelle. Lorsque le guide d’installation s’affiche, appuyez sur la touche **Tab** pour configurer les options de démarrage.
+5. Démarrez la machine virtuelle. Lorsque le guide d’installation s’affiche, appuyez sur la touche **Tab** pour configurer les options de démarrage.
 
-1. Entrez `inst.ks=<the location of the kickstart file>` à la fin des options de démarrage, puis appuyez sur **Entrée**.
+6. Entrez `inst.ks=<the location of the kickstart file>` à la fin des options de démarrage, puis appuyez sur **Entrée**.
 
-1. Attendez que l'installation se termine. Une fois l’opération effectuée, la machine virtuelle s’arrête automatiquement. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
+7. Attendez que l'installation se termine. Une fois l’opération effectuée, la machine virtuelle s’arrête automatiquement. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
 ## <a name="known-issues"></a>Problèmes connus
 

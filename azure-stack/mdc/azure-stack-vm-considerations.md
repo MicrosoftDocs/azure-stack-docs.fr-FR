@@ -1,6 +1,6 @@
 ---
 title: Fonctionnalités des machines virtuelles Azure Stack | Microsoft Docs
-description: Découvrez les différentes fonctionnalités et les éléments à prendre en compte lors de l’utilisation des machines virtuelles dans MDC.
+description: Découvrez les différentes fonctionnalités et les éléments à prendre en compte lors de l’utilisation des machines virtuelles dans un MDC.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 12/20/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: b8a5d2a0f08ac36b4f4ebc20e0dc3c9eea67218a
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 8bd1231c0a3e9ef7dc55349fb05c872666d47585
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935098"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598332"
 ---
-# <a name="azure-stack-vm-features"></a>Fonctionnalités des machines virtuelles Azure Stack
+# <a name="azure-stack-vm-features---modular-data-center-mdc"></a>Fonctionnalités des machines virtuelles Azure Stack - Modular Data Center (MDC)
 
 Les machines virtuelles Azure Stack fournissent des ressources de calcul scalables et à la demande. Avant de déployer des machines virtuelles, il est important de connaître les différences entre les fonctionnalités de machine virtuelle disponibles dans Azure Stack et Microsoft Azure. Cet article explique ces différences et identifie les points clés à prendre en compte lors de la planification des déploiements de machines virtuelles. Pour en savoir plus sur les principales différences entre Azure Stack et Azure, consultez l’article [Principales considérations](../user/azure-stack-considerations.md).
 

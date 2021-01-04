@@ -1,6 +1,6 @@
 ---
-title: Meilleures pratiques concernant le service de sauvegarde de l’infrastructure pour Azure Stack | Microsoft Docs
-description: Adoptez ces bonnes pratiques pour déployer et gérer Azure Stack afin de réduire la perte de données en cas d’une panne catastrophique.
+title: Bonnes pratiques concernant le service Infrastructure Backup pour Azure Stack - MDC | Microsoft Docs
+description: Adoptez ces bonnes pratiques lors du déploiement et de la gestion d’Azure Stack pour un MDC afin de limiter les pertes de données en cas de défaillance catastrophique.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: d2775627f9834a6410fcf2888bbb4abca66d958b
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 0bbe41c26861d2a407641e06a2298ec5d3badf0f
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330076"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598553"
 ---
-# <a name="infrastructure-backup-service-best-practices"></a>Meilleures pratiques concernant le service de sauvegarde de l’infrastructure
+# <a name="infrastructure-backup-service-best-practices---modular-data-center-mdc"></a>Bonnes pratiques concernant le service Infrastructure Backup – Modular Data Center (MDC)
 
 *S’applique à : Modular Data Center, Azure Stack Hub renforcé*
 
@@ -95,9 +95,9 @@ Les alertes suivantes sont prises en charge par le système :
 
 Le service Infrastructure Backup comprend les composants suivants :
 
-- **Contrôleur Infrastructure Backup**  : le contrôleur Infrastructure Backup est instancié avec chaque cloud Azure Stack et y réside.
+- **Contrôleur Infrastructure Backup** : le contrôleur Infrastructure Backup est instancié avec chaque cloud Azure Stack et y réside.
 
-- **Fournisseur de ressources de sauvegarde**  : le fournisseur de ressources de sauvegarde se compose de l'interface utilisateur et des API qui comprennent les fonctionnalités de sauvegarde de base pour l'infrastructure Azure Stack.
+- **Fournisseur de ressources de sauvegarde** : le fournisseur de ressources de sauvegarde se compose de l'interface utilisateur et des API qui comprennent les fonctionnalités de sauvegarde de base pour l'infrastructure Azure Stack.
 
 ### <a name="infrastructure-backup-controller"></a>Infrastructure Backup Controller
 
@@ -119,8 +119,8 @@ Cette section décrit la configuration requise pour le service Infrastructure Ba
 
 La configuration requise inclut :
 
-- **Configuration logicielle requise**  : décrit les emplacements de stockage pris en charge et contient une aide pour le dimensionnement.
-- **Configuration réseau requise**  : décrit la configuration réseau requise pour différents emplacements de stockage.
+- **Configuration logicielle requise** : décrit les emplacements de stockage pris en charge et contient une aide pour le dimensionnement.
+- **Configuration réseau requise** : décrit la configuration réseau requise pour différents emplacements de stockage.
 
 ### <a name="software-requirements"></a>Configuration logicielle requise
 

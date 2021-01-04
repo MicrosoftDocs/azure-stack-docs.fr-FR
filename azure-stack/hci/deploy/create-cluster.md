@@ -3,15 +3,15 @@ title: Créer un cluster Azure Stack HCI en utilisant Windows Admin Center
 description: Découvrez comment créer une batterie de serveurs pour Azure Stack HCI en utilisant Windows Admin Center
 author: v-dasis
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 12/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 011fa558f0e74d0456d9347d63edb6a064dcdcf2
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.openlocfilehash: e33096b2667ad9d620e942b66934f341982e619b
+ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051647"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97364215"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Créer un cluster Azure Stack HCI en utilisant Windows Admin Center
 
@@ -52,7 +52,14 @@ Voici les principales étapes de l’Assistant Création d’un cluster :
 
 Une fois que l’Assistant est terminé, vous configurez le témoin de cluster, vous vous inscrivez auprès d’Azure et vous créez des volumes (ce qui permet également de configurer la réplication entre les sites si vous créez un cluster étendu).
 
-Commençons !
+Avant de démarrer l’Assistant, vérifiez que les extensions Windows Admin Center les plus récentes sont installées, en particulier l’extension de création de cluster. Pour ce faire :
+
+1. Ouvrez Windows Admin Center, puis cliquez sur Paramètres (icône d’engrenage) en haut à droite.
+1. Sous **Paramètres**, sélectionnez **Extensions**.
+1. Sélectionnez **Cluster Creation**, puis cliquez sur **Install**.
+1. Sélectionnez **Cluster Manager**, puis cliquez également sur **Install** pendant que vous y êtes.
+
+Maintenant que vous êtes prêt, commençons :
 
 1. Dans Windows Admin Center, sous **All connections (Toutes les connexions)** , cliquez sur **Add (Ajouter)** .
 1. Dans le panneau **Add or create resources** (Ajouter ou créer des ressources), sous **Server clusters** (Clusters de serveurs), sélectionnez **Create new** (Créer nouveau).

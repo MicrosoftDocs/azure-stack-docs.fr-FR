@@ -1,7 +1,7 @@
 ---
-title: Mettre à jour le registre de conteneurs dans Azure Stack Hub | Microsoft Docs
+title: Mettre à jour le registre de conteneurs dans Azure Stack Hub - MDC
 titleSuffix: Azure Stack
-description: Découvrez comment mettre à jour le registre de conteneurs dans Azure Stack Hub.
+description: Découvrez comment mettre à jour le registre de conteneurs dans Azure Stack Hub pour des MDC (Modular Data Centers).
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,14 +16,14 @@ ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 1d014cfe855bc7e9bb3bdaae6ba7525d3df1e8c7
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: dafd9d485125d7c8da1524b71fddb75af7a4ebba
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330128"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598570"
 ---
-# <a name="update-the-container-registry-in-azure-stack-hub"></a>Mettre à jour le registre de conteneurs dans Azure Stack Hub
+# <a name="update-the-container-registry-in-azure-stack-hub---modular-data-center-mdc"></a>Mettre à jour le registre de conteneurs dans Azure Stack Hub - Modular Data Center (MDC)
 
 Les utilisateurs d’Azure Stack Hub peuvent mettre à jour leur déploiement de registre de conteneurs vers une référence SKU d’image de base AKS plus récente à l’aide des instructions ci-dessous. La machine virtuelle et le service du modèle de registre de conteneurs sont sans état, car toutes les images d’état et de conteneur sont stockées dans le stockage d’objets blob. Une mise à jour est aussi simple qu’un déploiement de modèle de registre de conteneurs avec une version plus récente du disque dur virtuel d’image de base AKS et un repointage DNS vers la nouvelle machine virtuelle. L’action de mise à jour de la valeur DNS des anciennes et nouvelles machines virtuelles de registre de conteneurs s’accompagne d’une petite fenêtre de connectivité de registre intermittente lors de la propagation des valeurs.
 
@@ -39,9 +39,9 @@ Les utilisateurs d’Azure Stack Hub peuvent mettre à jour leur déploiement de
 
 1.  Vérifiez la référence SKU de l’image de base AKS utilisée pour déployer le modèle de registre de conteneurs en accédant à l’enregistrement de déploiement dans le groupe de ressources, puis sélectionnez **Entrées**.
 
-    ![Entrées](./media/container-registry-template-updating-tzl/inputs.png)
+    ![Capture d’écran de la page « Entrées ».](./media/container-registry-template-updating-tzl/inputs.png)
 
-2.  Déterminez si des références SKU plus récentes de l’image de base AKS sont disponibles à l’aide de la fonction **Get-VMImageSku** , `Import-Module .\pre-reqs.ps1` à partir des scripts de modèle de registre de conteneurs.
+2.  Déterminez si des références SKU plus récentes de l’image de base AKS sont disponibles à l’aide de la fonction **Get-VMImageSku**, `Import-Module .\pre-reqs.ps1` à partir des scripts de modèle de registre de conteneurs.
 
     ```powershell  
     PS C:\azurestack-galler-master\registry\Scripts> Get-VMImageSku -Location Shanghai
@@ -89,7 +89,7 @@ Les utilisateurs d’Azure Stack Hub peuvent mettre à jour leur déploiement de
 
     ![Sélectionner IP](./media/container-registry-template-updating-tzl/ip.png)
 
-1.  Dans la ressource d’adresse IP publique, accédez à Configuration et modifiez l’étiquette du nom DNS afin de l’utiliser pour la ressource nouvellement déployée. Notez qu’après avoir modifié l’étiquette du nom DNS et sélectionné **Enregistrer** , les appels au registre de conteneurs commencent à échouer.
+1.  Dans la ressource d’adresse IP publique, accédez à Configuration et modifiez l’étiquette du nom DNS afin de l’utiliser pour la ressource nouvellement déployée. Notez qu’après avoir modifié l’étiquette du nom DNS et sélectionné **Enregistrer**, les appels au registre de conteneurs commencent à échouer.
 
     ![Modifier l’étiquette DNS](./media/container-registry-template-updating-tzl/dns.png)
     

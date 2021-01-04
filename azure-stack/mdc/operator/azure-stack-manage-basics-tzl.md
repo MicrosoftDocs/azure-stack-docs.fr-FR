@@ -1,21 +1,21 @@
 ---
-title: Principes de bases de l’administration d’Azure Stack Hub
+title: Principes de bases de l’administration d’Azure Stack Hub - MDC
 titleSuffix: Azure Stack Hub
-description: Découvrez les principes de bases de l’administration d’Azure Stack Hub.
+description: Découvrez les principes de bases de l’administration d’Azure Stack Hub. Consultez des informations de support supplémentaires et les étapes suivantes.
 author: justinha
 ms.topic: article
 ms.date: 10/26/2020
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 9369f29d802350f71ac4a5a462009768dec5c2cb
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 5124494511d1e9c28bddce5cb42ba8e253c53807
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934928"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598536"
 ---
-# <a name="azure-stack-hub-administration-basics"></a>Principes de bases de l’administration d’Azure Stack Hub
+# <a name="azure-stack-hub-administration-basics---modular-data-center-mdc"></a>Principes de bases de l’administration d’Azure Stack Hub - Modular Data Center (MDC)
 
 Si vous débutez dans l’administration d’Azure Stack Hub, vous devez avoir connaissance de plusieurs choses. Cet article fournit une vue d’ensemble de votre rôle en tant qu’opérateur Azure Stack Hub, et explique ce que vous devez dire aux utilisateurs pour les aider à gagner en productivité.
 

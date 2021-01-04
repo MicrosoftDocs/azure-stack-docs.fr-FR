@@ -3,16 +3,16 @@ title: Installer des mises à jour d’Azure Stack Hub
 description: Découvrez comment installer des mises à jour d’Azure Stack Hub.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 12/16/2020
 ms.author: sethm
 ms.lastreviewed: 09/10/2019
 ms.reviewer: sranthar
-ms.openlocfilehash: d0222de6db809fcbb73d31ac1ef4298e18895643
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: a54e47ff5788ca100e45be103e4d3d5192766f3b
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106576"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620790"
 ---
 # <a name="install-azure-stack-hub-updates"></a>Installer des mises à jour d’Azure Stack Hub
 
@@ -31,9 +31,9 @@ Vous pouvez voir la version actuelle d’Azure Stack Hub dans le panneau **Mises
 
 1. Ouvrez le portail administrateur Azure Stack Hub.
 
-2. Sélectionnez **Tableau de bord**. La version actuelle apparaît dans le panneau **Mise à jour**. Par exemple, dans cette image, la version est 1.1903.0.35 :
+2. Sélectionnez **Tableau de bord**. La version actuelle apparaît dans le volet **Mise à jour** :
 
-    ![Vignette Mises à jour sur le tableau de bord par défaut](./media/azure-stack-update-apply/image1.png)
+    ![Vignette Mises à jour sur le tableau de bord par défaut](./media/azure-stack-apply-updates/dashboard.png)
 
 ## <a name="install-updates-and-monitor-progress"></a>Installer des mises à jour et surveiller la progression
 
@@ -48,7 +48,7 @@ Vous pouvez voir la version actuelle d’Azure Stack Hub dans le panneau **Mises
 
 4. Sélectionnez **Mettre à jour maintenant**.
 
-    ![Capture d’écran montrant comment démarrer une mise à jour dans Azure Stack Hub.](./media/azure-stack-update-apply/image2.png)
+    ![Capture d’écran montrant comment démarrer une mise à jour dans Azure Stack Hub.](./media/azure-stack-apply-updates/image2.png)
 
 5. Vous pouvez afficher l’état général à mesure que le processus de mise à jour effectue une itération dans les différents sous-systèmes d’Azure Stack Hub. Exemples de sous-systèmes : hôtes physiques, Service Fabric, machines virtuelles d’infrastructure et services fournissant des portails administrateur et utilisateur. Tout au long du processus de mise à jour, le fournisseur de ressources de mise à jour transmet des détails supplémentaires sur la mise à jour, notamment le nombre d’étapes réussies et le nombre d’étapes en cours.
 
@@ -56,11 +56,11 @@ Vous pouvez voir la version actuelle d’Azure Stack Hub dans le panneau **Mises
 
     Si vous rencontrez un problème pendant la supervision de la mise à jour, vous pouvez utiliser le [point de terminaison privilégié](./azure-stack-privileged-endpoint.md) pour surveiller la progression de l’exécution d’une mise à jour Azure Stack Hub. Le point de terminaison privilégié vous permet également de reprendre l’exécution d’une mise à jour ayant échoué à partir de la dernière étape réussie, si vous n’avez plus accès au portail Azure Stack Hub. Pour obtenir des instructions, voir [Superviser les mises à jour dans Azure Stack Hub à l’aide de PowerShell](azure-stack-update-monitor.md).
 
-    ![Détails de l’exécution de la mise à jour d’Azure Stack Hub](./media/azure-stack-update-apply/image3.png)
+    ![Détails de l’exécution de la mise à jour d’Azure Stack Hub](./media/azure-stack-apply-updates/image3.png)
 
 7. À l’issue de l’opération, le fournisseur de ressources de mise à jour affiche une confirmation de **réussite** pour indiquer la fin du processus de mise à jour et sa durée. De là, vous pouvez afficher des informations sur la totalité des mises à jour, les mises à jour disponibles ou les mises à jour installées à l’aide du filtre.
 
-    ![azure-stack-update-apply](./media/azure-stack-update-apply/image4.png)
+    ![azure-stack-update-apply](./media/azure-stack-apply-updates/image4.png)
 
     Si la mise à jour échoue, le panneau **Mise à jour** affiche **Doit être surveillé**. Utilisez l’option **Télécharger les journaux d’activité complets** pour obtenir un état général de l’endroit où la mise à jour a échoué. La collecte des journaux Azure Stack Hub facilite les diagnostics et le dépannage.
 
@@ -72,7 +72,7 @@ Vous pouvez voir la version actuelle d’Azure Stack Hub dans le panneau **Mises
 
 3. Sélectionnez **Historique des mises à jour**.
 
-    ![Historique de mise à jour d’Azure Stack Hub](./media/azure-stack-update-apply/image7.png)
+    ![Historique de mise à jour d’Azure Stack Hub](./media/azure-stack-apply-updates/image5.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

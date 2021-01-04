@@ -3,16 +3,16 @@ title: Gérer Azure Stack Hub avec Azure CLI
 description: Apprenez à utiliser l'interface de ligne de commande (CLI) multiplateforme pour gérer et déployer des ressources sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 12/2/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 5cd1c1b7dac9e05925488b3543461f3fbd8dd9e5
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.lastreviewed: 12/16/2020
+ms.openlocfilehash: a1307ca10a2655e166b41d43da4ac83cbe601dc5
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525878"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620719"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>Installer Azure CLI sur Azure Stack Hub
 
@@ -36,7 +36,7 @@ Vous pouvez installer Azure CLI pour gérer Azure Stack Hub avec un ordinateur W
 
 2. Prenez note de l’emplacement Python de l’interface CLI. Si vous exécutez ASDK, vous avez besoin de cet emplacement pour ajouter votre certificat. Pour obtenir des instructions sur la configuration des certificats afin d’installer l’interface CLI sur le kit ASDK, consultez [Configuration de certificats pour Azure CLI sur le Kit de développement Azure Stack](../asdk/asdk-cli.md).
 
-## <a name="set-up-azure-cli"></a>Configuration de l’interface de ligne de commande Azure CLI
+## <a name="connect-with-azure-cli"></a>Se connecter avec Azure CLI
 
 ### <a name="azure-ad-on-windows"></a>[Azure AD sur Windows](#tab/ad-win)
 
@@ -50,17 +50,25 @@ Cette section vous guide dans la configuration de l’interface CLI si vous util
 
 3. Inscrivez votre environnement. Utilisez les paramètres suivants lors de l’exécution de `az cloud register` :
 
-    | Valeur | Exemple | Description |
-    | --- | --- | --- |
-    | Nom de l’environnement | AzureStackUser | Pour l’environnement utilisateur, utilisez `AzureStackUser`. Si vous êtes un opérateur, spécifiez `AzureStackAdmin`. |
-    | Point de terminaison Resource Manager | `https://management.local.azurestack.external` | La propriété **ResourceManagerUrl** dans l’ASDK est : `https://management.local.azurestack.external/`**ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<region>.<fqdn>/` Si vous avez une question sur le point de terminaison du système intégré, contactez votre opérateur cloud. |
-    | Point de terminaison de stockage | local.azurestack.external | `local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
-    | Suffixe du coffre de clés | .vault.local.azurestack.external | `.vault.local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
-    | Point de terminaison du document d’alias d’image de machine virtuelle- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI du document, qui contient les alias d’images de machine virtuelle. Pour plus d’informations, consultez [Configurer le point de terminaison d’alias de machines virtuelles](../asdk/asdk-cli.md#set-up-the-virtual-machine-alias-endpoint). |
+      | Valeur | Exemple | Description |
+      | --- | --- | --- |
+      | Nom de l’environnement | AzureStackUser | Pour l’environnement utilisateur, utilisez `AzureStackUser`. Si vous êtes un opérateur, spécifiez `AzureStackAdmin`. |
+      | Point de terminaison Resource Manager | `https://management.contoso.onmicrosoft.com` | La propriété **ResourceManagerUrl** dans l’ASDK est : `https://management.contoso.onmicrosoft.com/`**ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<region>.<fqdn>/` Si vous avez une question sur le point de terminaison du système intégré, contactez votre opérateur cloud. |
+      | Point de terminaison de stockage | local.contoso.onmicrosoft.com | `local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
+      | Suffixe du coffre de clés | .vault.contoso.onmicrosoft.com | `.vault.local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
+      | ID de ressource de graphique Active Directory du point de terminaison | https://graph.windows.net/ | L’ID de ressource Active Directory. |
+    
+      ```azurecli  
+      az cloud register `
+          -n <environmentname> `
+          --endpoint-resource-manager "https://management.<region>.<fqdn>" `
+          --suffix-storage-endpoint "<fqdn>" `
+          --suffix-keyvault-dns ".vault.<fqdn>" `
+          --endpoint-active-directory-graph-resource-id "https://graph.windows.net/"
+      ```
 
-    ```azurecli  
-    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
-    ```
+    Vous trouverez une référence pour la [commande register](https://docs.microsoft.com/cli/azure/cloud?view=azure-cli-latest#az_cloud_register) dans la documentation de référence d’Azure CLI.
+
 
 4. Définissez l’environnement actif avec les commandes suivantes.
 
@@ -73,18 +81,17 @@ Cette section vous guide dans la configuration de l’interface CLI si vous util
     ```azurecli
     az cloud update --profile 2019-03-01-hybrid
    ```
-
-    >[!NOTE]  
-    >Si vous exécutez une version d'Azure Stack Hub antérieure à la build 1808, vous devez utiliser le profil de version d'API **2017-03-09-profile** plutôt que le profil de version d'API **2019-03-01-hybrid**. Vous devez également utiliser une version récente de l’interface CLI.
  
-6. Connectez-vous à votre environnement Azure Stack Hub à l'aide de la commande `az login`. Connectez-vous à l'environnement Azure Stack Hub en tant qu'utilisateur ou que [principal de service](/azure/active-directory/develop/app-objects-and-service-principals). 
+6. Connectez-vous à votre environnement Azure Stack Hub à l'aide de la commande `az login`.
+
+    Vous pouvez vous connecter à l’environnement Azure Stack Hub à l’aide de vos informations d’identification de l’utilisateur ou avec un [principal de service (SPN)](/azure/active-directory/develop/app-objects-and-service-principals) qui vous est fourni par votre opérateur cloud. 
 
    - Connectez-vous en tant qu’*utilisateur* : 
 
      Vous pouvez spécifier directement le nom d’utilisateur et le mot de passe dans la commande `az login`, ou vous authentifier avec un navigateur. Vous devez choisir cette dernière solution si l’authentification multifacteur est activée sur votre compte :
 
      ```azurecli
-     az login -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
+     az login -u "user@contoso.onmicrosoft.com" -p 'Password123!' --tenant contoso.onmicrosoft.com
      ```
 
      > [!NOTE]
@@ -92,11 +99,34 @@ Cette section vous guide dans la configuration de l’interface CLI si vous util
 
    - Connectez-vous en tant que *principal de service* : 
     
-     avant de vous connecter, [créez un principal de service avec le portail Azure](../operator/azure-stack-create-service-principals.md?view=azs-2002) ou l’interface CLI, et attribuez-lui un rôle. Ensuite, connectez-vous avec la commande suivante :
+        avant de vous connecter, [créez un principal de service avec le portail Azure](../operator/azure-stack-create-service-principals.md?view=azs-2002) ou l’interface CLI, et attribuez-lui un rôle. Ensuite, connectez-vous avec la commande suivante :
+    
+        ```azurecli  
+        az login `
+          --tenant <Azure Active Directory Tenant name. `
+                    For example: myazurestack.onmicrosoft.com> `
+        --service-principal `
+          -u <Application Id of the Service Principal> `
+          -p <Key generated for the Service Principal>
+        ```
+    
+7. Vérifiez que votre environnement est correctement défini et que votre environnement est le cloud actif.
 
-     ```azurecli  
-     az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
-     ```
+      ```azurecli
+          az cloud list --output table
+      ```
+
+Votre environnement doit être listé et **IsActive** doit être `true`. Par exemple :
+
+```azurecli  
+IsActive    Name               Profile
+----------  -----------------  -----------------
+False       AzureCloud         2019-03-01-hybrid
+False       AzureChinaCloud    latest
+False       AzureUSGovernment  latest
+False       AzureGermanCloud   latest
+True        AzureStackUser     2019-03-01-hybrid
+```
 
 #### <a name="test-the-connectivity"></a>Tester la connectivité
 

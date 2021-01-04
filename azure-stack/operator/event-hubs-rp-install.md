@@ -5,32 +5,30 @@ author: BryanLa
 ms.author: bryanla
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 12/09/2019
+ms.date: 09/02/2020
 ms.reviewer: jfggdl
-ms.lastreviewed: 12/09/2019
+ms.lastreviewed: 09/02/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: f7eb790506c5dbbb7d49fc469dd61d394fb1f0fc
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 975ab63a6af9f895f01d4607f998bca9fc52cebf
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106850"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343816"
 ---
 # <a name="how-to-install-event-hubs-on-azure-stack-hub"></a>Guide pratique pour installer Event Hubs sur Azure Stack Hub
-
-[!INCLUDE [preview banner](../includes/event-hubs-preview.md)]
 
 Cet article vous montre comment télécharger et installer le fournisseur de ressources Event Hubs afin de pouvoir l’offrir aux clients dans le cadre de l’abonnement.
 
 ## <a name="download-packages"></a>Télécharger des packages
 
-Avant de pouvoir installer Event Hubs sur Azure Stack Hub, vous devez télécharger le fournisseur de ressources et les packages qui en dépendent à l'aide de la fonctionnalité Gestion de la Place de marché. Si vous ne connaissez pas la fonctionnalité Gestion de la Place de marché, consultez [Télécharger des éléments de la Place de marché Azure et les publier sur Azure Stack Hub](azure-stack-download-azure-marketplace-item.md). Cet article vous guide tout au long du processus de téléchargement des éléments à partir d’Azure vers la Place de marché Azure Stack Hub. Il couvre les deux scénarios, connecté et déconnecté. 
+Avant de pouvoir installer Event Hubs sur Azure Stack Hub, vous devez télécharger le fournisseur de ressources et les packages qui en dépendent à l'aide de la fonctionnalité Gestion de la Place de marché. Si vous ne connaissez pas la fonctionnalité Gestion de la Place de marché, consultez [Télécharger des éléments de la Place de marché Azure et les publier sur Azure Stack Hub](azure-stack-download-azure-marketplace-item.md). Cette section vous guide tout au long du processus de téléchargement d’éléments à partir de la Place de marché Azure. 
 
 > [!NOTE]
 > Le processus de téléchargement peut prendre entre 30 minutes et 2 heures, en fonction de la latence du réseau et des packages existants sur votre instance Azure Stack Hub. 
 
 ::: zone pivot="state-connected"
-Pour un scénario connecté, suivez les instructions ci-dessous :
+Pour un scénario connecté, vous téléchargez les éléments à partir de la Place de marché Azure directement vers la Place de marché Azure Stack Hub :
 
 1. Connectez-vous au portail d’administration Azure Stack Hub.
 2. Sélectionnez **Gestion de la Place de marché** sur la gauche.
@@ -48,7 +46,7 @@ Notez que d’autres packages logiciels sont téléchargés en même temps qu’
 ::: zone-end
 
 ::: zone pivot="state-disconnected"
-Pour un scénario déconnecté ou partiellement connecté, vous devez télécharger les packages sur votre ordinateur local, puis les importer sur votre instance d'Azure Stack Hub.
+Pour un scénario déconnecté ou partiellement connecté, vous devez télécharger les packages sur votre ordinateur local, puis les importer dans votre Place de marché Azure Stack Hub :
 
 1. Si ce n’est pas déjà fait, suivez les instructions de [Télécharger des éléments de la Place de marché - Scénario déconnecté ou partiellement connecté](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected). Ici, vous téléchargez et exécutez l’outil de syndication de la Place de marché, qui vous permet de télécharger les packages Event Hubs.
 2. Quand la fenêtre « Éléments de la Place de marché Azure » de l’outil de syndication s’ouvre, recherchez et sélectionnez « Event Hubs » pour télécharger les packages requis sur votre ordinateur local.
@@ -62,16 +60,16 @@ Pour un scénario déconnecté ou partiellement connecté, vous devez téléchar
    [![Packages téléchargés dans Gestion de la Place de marché](media/event-hubs-rp-install/2-marketplace-management-downloaded.png)](media/event-hubs-rp-install/2-marketplace-management-downloaded.png#lightbox)
  
 3. Une bannière bleue apparaît en haut de la page d'installation des packages Event Hubs. Sélectionnez la bannière pour démarrer l’installation d’Event Hubs.
-   [![Capture d’écran montrant comment démarrer l’installation dans les Event Hubs de la gestion de la place de marché.](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
+   [![Event Hubs dans Gestion de la Place de marché - démarrer l’installation](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
 
 ### <a name="install-prerequisites"></a>Prérequis à installer
 
 1. Vous êtes ensuite dirigé vers la page d’installation. Sélectionnez **Prérequis pour l’installation** pour commencer le processus d’installation.
-   ![Capture d’écran montrant comment installer les composants requis dans les Event hubs de la gestion de la place de marché .](media/event-hubs-rp-install/4-marketplace-management-install-prereqs-start.png)
+   ![Event Hubs dans Gestion de la Place de marché - prérequis à l’installation](media/event-hubs-rp-install/4-marketplace-management-install-prereqs-start.png)
  
 2. Attendez la fin de l’installation des prérequis. Vous devez voir une coche verte en regard de **Prérequis pour l’installation** avant de passer à l’étape suivante.
 
-   ![Event Hubs dans Gestion de la Place de marché - prérequis](media/event-hubs-rp-install/5-marketplace-management-install-prereqs-succeeded.png)
+   ![Event Hubs dans Gestion de la Place de marché - prérequis à l’installation - réussite](media/event-hubs-rp-install/5-marketplace-management-install-prereqs-succeeded.png)
 
 ### <a name="prepare-secrets"></a>Préparer les secrets 
 
@@ -87,39 +85,17 @@ Pour un scénario déconnecté ou partiellement connecté, vous devez téléchar
 ### <a name="install-resource-provider"></a>Installer le fournisseur de ressources
 
 1. Lorsque l’installation du certificat aboutit, vous devez voir une coche verte en regard de **Préparer les secrets** avant de passer à l’étape suivante. À présent, sélectionnez le bouton **Installer** en regard de **3 Installer le fournisseur de ressources**.
-   ![Event Hubs dans Gestion de la Place de marché - démarrer l’installation](media/event-hubs-rp-install/8-marketplace-management-install-start.png)
+   ![Event Hubs dans Gestion de la Place de marché - démarrer l’installation RP](media/event-hubs-rp-install/8-marketplace-management-install-start.png)
  
 2. La page suivante s’affiche, indiquant que le fournisseur de ressources Event Hubs est en cours d’installation.
-   [![Event Hubs dans Gestion de la Place de marché - installation](media/event-hubs-rp-install/9-marketplace-management-install-inprogress.png)](media/event-hubs-rp-install/9-marketplace-management-install-inprogress.png#lightbox)
+   [![Event Hubs dans Gestion de la Place de marché - installation RP](media/event-hubs-rp-install/9-marketplace-management-install-inprogress.png)](media/event-hubs-rp-install/9-marketplace-management-install-inprogress.png#lightbox)
  
 3. Attendez la notification de fin de l’installation. Ce processus prend généralement une ou plusieurs heures, en fonction de votre type Azure Stack Hub. 
-   [![Event Hubs dans Gestion de la Place de marché - installation terminée](media/event-hubs-rp-install/10-marketplace-management-install-complete.png)](media/event-hubs-rp-install/10-marketplace-management-install-complete.png#lightbox)
+   [![Event Hubs dans Gestion de la Place de marché - installation RP terminée](media/event-hubs-rp-install/10-marketplace-management-install-complete.png)](media/event-hubs-rp-install/10-marketplace-management-install-complete.png#lightbox)
 
 4. Vérifiez que l’installation d’Event Hubs a réussi, en revenant à la page **Gestion de la Place de marché**, **Fournisseurs de ressources**. L’état d’Event Hubs doit indiquer « Installé ».
    ![Event Hubs dans Gestion de la Place de marché disponible](media/event-hubs-rp-install/11-marketplace-management-rps-installed.png)
 
-## <a name="register-event-hubs"></a>Inscrire Event Hubs
-
-Vous devez maintenant inscrire le fournisseur de ressources Event Hubs. L’inscription vous permet d’utiliser la page d’administration Event Hubs pour gérer le service.
-
-1. Dans le portail administrateur, sélectionnez **Tous les services** en haut à gauche.
-2. Sélectionnez **Abonnements**. Vous voyez une liste d’abonnements. 
-   > [!NOTE]
-   > Veillez à ne pas sélectionner **Abonnements utilisateur**
-3. Sélectionnez **Abonnement Fournisseur par défaut** dans la page **Abonnements**.
-4. Sélectionnez **Fournisseurs de ressources** à gauche de la page **Abonnement Fournisseur par défaut**.
-5. Dans le champ **Filtrer par nom** en haut, recherchez la chaîne « EventHub ».
-6. Examinez la colonne **État** des lignes du fournisseur de ressources « Microsoft.EventHub » et « Microsoft.EventHub.Admin ».
-7. Si l’une d’elles présente l’état « Désinscrit », sélectionnez chaque fournisseur, puis **Inscrire**. 
-   ![Fournisseurs de ressources désinscrits](media/event-hubs-rp-install/12-default-subscription-rps-unregistered.png)
-8. Après quelques secondes, sélectionnez **Actualiser**. Vous devez maintenant voir le fournisseur de ressources avec l’état Inscrit. 
-9. Vous devez maintenant voir Microsoft.EventHub et Microsoft.EventHub.Admin avec l’état « Inscrit ».
-   ![Fournisseurs de ressources inscrits](media/event-hubs-rp-install/13-default-subscription-rps-registered.png)
-
-10. Revenez à la page **Tous les services**.
-11. Recherchez « Event Hubs ». Vous devez maintenant voir « Event Hubs », qui correspond à votre point d’entrée pour la page d’administration Event Hubs. 
-   ![Services disponibles - Event Hubs](media/event-hubs-rp-install/14-all-service-event-hubs.png)
- 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Avant que les utilisateurs ne puissent déployer des ressources Event Hubs, vous devez créer un ou plusieurs plans, offres et abonnements. 

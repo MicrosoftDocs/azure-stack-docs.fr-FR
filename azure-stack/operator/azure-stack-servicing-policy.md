@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Découvrez la stratégie de maintenance Azure Stack Hub et comment conserver un système intégré dans un état de prise en charge.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/25/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: cff03367985558bd5b9b6786455cf626993836db
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 126504ce42ba4c7567e15a6c19378ef2bf2c628b
+ms.sourcegitcommit: 32d77de1a554315f53473407279e464a72aa9aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545565"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515026"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Stratégie de maintenance Azure Stack Hub
 
@@ -67,6 +67,8 @@ Pour plus d’informations sur les correctifs logiciels actuellement disponibles
 ## <a name="keep-your-system-under-support"></a>Conserver votre système dans un état de prise en charge
 
 Pour que votre instance Azure Stack Hub continue d’être prise en charge, vous devez exécuter la version de mise à jour la plus récente ou exécuter les deux versions de mise à jour précédentes.
+
+Vous devez également disposer d’un contrat de support actif avec le partenaire matériel qui a fabriqué le système. Microsoft n’est pas en mesure de vous proposer un support si aucun contrat de support matériel n’est en vigueur.
 
 Les correctifs logiciels ne sont pas considérés comme des versions de mise à jour majeures. Si votre instance d’Azure Stack Hub a plus de deux mises à jour de retard, elle est considérée comme non conforme. Pour bénéficier de la prise en charge, vous devez mettre à jour avec au moins la version minimale prise en charge.
 

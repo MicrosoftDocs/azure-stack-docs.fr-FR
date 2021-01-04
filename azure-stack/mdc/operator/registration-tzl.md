@@ -1,20 +1,20 @@
 ---
-title: Inscrire Azure Stack Hub auprès d’Azure
-description: Découvrez comment inscrire Azure Stack Hub auprès d’Azure afin de pouvoir télécharger des éléments de la Place de marché Azure et configurer les rapports de données.
+title: Inscrire Azure Stack Hub auprès d’Azure (MDC)
+description: Découvrez comment inscrire Azure Stack Hub auprès d’Azure afin de pouvoir télécharger des éléments de la Place de marché Azure et configurer des rapports de données pour un MDC.
 author: sethmanheim
 ms.topic: article
 ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 68a89c3f3f2a15a23a21d2a1d6c6052727982941
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 69c33d41149937b286a528c7eef3c6e795cd7642
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934877"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598468"
 ---
-# <a name="register-azure-stack-hub-with-azure"></a>Inscrire Azure Stack Hub auprès d’Azure
+# <a name="register-azure-stack-hub-with-azure---modular-data-center-mdc"></a>Inscrire Azure Stack Hub auprès d’Azure - Modular Data Center (MDC)
 
 Pour configurer la syndication de la Place de marché et utiliser les services PaaS, vous devez inscrire et activer votre solution MDC (Modular Data Center) ou Azure Stack Hub renforcé, basée sur Azure Stack Hub, une fois le déploiement effectué. Avec la syndication de Place de marché, un administrateur renseigne la Place de marché Azure Stack Hub local avec les images téléchargées depuis la Place de marché Azure.
 

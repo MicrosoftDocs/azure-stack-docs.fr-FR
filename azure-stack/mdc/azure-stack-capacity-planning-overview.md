@@ -1,6 +1,6 @@
 ---
-title: Vue d’ensemble de la planification de la capacité pour Azure Stack Hub | Microsoft Docs
-description: Découvrez comment planifier la capacité pour des déploiements Azure Stack Hub.
+title: Vue d’ensemble - Planification de la capacité pour Azure Stack Hub | Microsoft Docs
+description: Apprenez-en davantage sur la planification de la capacité pour les déploiements Azure Stack Hub, notamment les informations de calcul et de stockage.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,14 +16,14 @@ ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: a608a64de28104513cb708ef350eb4db672f5f65
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 12862a71146606bfba81ea0de630a93181951c06
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183415"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598587"
 ---
-# <a name="overview-of-azure-stack-hub-capacity-planning"></a>Vue d’ensemble de la planification de la capacité pour Azure Stack Hub
+# <a name="overview-of-azure-stack-hub-capacity-planning---modular-data-center-mdc"></a>Vue d’ensemble de la planification de la capacité pour Azure Stack Hub - Modular Data Center (MDC)
 
 Lorsque vous évaluez une solution Azure Stack Hub, prenez en considération les choix de configuration matérielle qui ont une incidence directe sur la capacité globale du cloud Azure Stack Hub. 
 

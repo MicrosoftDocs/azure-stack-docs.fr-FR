@@ -1,6 +1,6 @@
 ---
-title: Tailles de machine virtuelle prises en charge dans Azure Stack | Microsoft Docs
-description: Référence pour les tailles de machine virtuelle prises en charge dans MDC.
+title: Tailles de machine virtuelle prises en charge dans Azure Stack pour un MDC | Microsoft Docs
+description: Référence pour les tailles de machine virtuelle prises en charge dans un MDC.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,14 +14,14 @@ ms.date: 12/20/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 80132bec125e6e8a9730d8c1fddf12f1163a0fe6
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 79245ddf40d2ab39f4bb8ed7548023b3df6ec556
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183417"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598604"
 ---
-# <a name="vm-sizes-supported-in-azure-stack"></a>Tailles de machine virtuelle prises en charge dans Azure Stack
+# <a name="vm-sizes-supported-in-azure-stack---modular-data-center-mdc"></a>Tailles de machines virtuelles prises en charge dans Azure Stack - Modular Data Center (MDC)
 
 Cet article répertorie les tailles de machine virtuelle disponibles dans Azure Stack. Cet article peut vous aider à choisir une machine virtuelle pour la prise en charge de votre solution Azure Stack.
 

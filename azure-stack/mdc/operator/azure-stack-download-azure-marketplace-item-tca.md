@@ -1,6 +1,6 @@
 ---
-title: Télécharger des éléments de la Place de marché Azure et les publier sur Azure Stack | Microsoft Docs
-description: Découvrez comment télécharger des éléments de la Place de marché à partir d’Azure et les publier sur Azure Stack.
+title: Télécharger des éléments de la Place de marché Azure et les publier sur Azure Stack
+description: Découvrez comment télécharger des éléments de la Place de marché à partir d’Azure et les publier sur Azure Stack Hub pour des MDC (Modular Data Centers).
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 32ba4c16d36622cbe2a9595c58e4ec2e2f46b481
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 2a3dec7699911988c4c9a958c31386c127f70694
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935030"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598230"
 ---
-# <a name="download-marketplace-items-to-azure-stack-hub"></a>Télécharger des éléments de la Place de marché vers Azure Stack Hub 
+# <a name="download-marketplace-items-to-azure-stack-hub---modular-data-center-mdc"></a>Télécharger des éléments de la Place de marché sur Azure Stack Hub - Modular Data Center (MDC) 
 
 En tant qu’opérateur cloud, vous pouvez télécharger des éléments vers Azure Stack Hub à partir de la Place de marché, et les rendre disponibles pour tous les utilisateurs dans l’environnement Azure Stack Hub. Les éléments que vous pouvez choisir font partie d’une liste d’éléments de la Place de marché Azure testés au préalable et prenant en charge le travail avec Azure Stack. De nouveaux éléments sont fréquemment ajoutés à cette liste, consultez-la régulièrement pour voir de nouveaux contenus.
 
@@ -60,11 +60,11 @@ Votre déploiement Azure Stack Hub doit disposer d’une connectivité à Intern
 
 4. Chaque élément de ligne affiche également la version actuellement disponible. Si plusieurs versions d’un élément de la Place de marché sont disponibles, la colonne **Version** affiche **Multiple**. Vous pouvez cliquer sur chaque élément pour voir sa description et d’autres informations, notamment sa taille de téléchargement :
 
-   ![Ajout à partir d’Azure](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-1.png)
+   ![Capture d’écran montrant la page « Ajouter à partir d’Azure ».](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-1.png)
 
 5. Si la version d’un élément est affichée comme **Multiple**, vous pouvez sélectionner cet élément, puis choisir une version spécifique dans la liste déroulante du sélecteur de version qui en résulte :
 
-   ![Ajout à partir d’Azure](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-3.png)
+   ![Capture montrant la page « Administration » avec la liste déroulante du sélecteur de version mise en évidence.](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-3.png)
 
 6. Sélectionnez les éléments que vous souhaitez, puis sélectionnez **Télécharger**. Les temps de téléchargement varient et dépendent de la connectivité réseau. Une fois le téléchargement terminé, vous pouvez déployer le nouvel élément de la Place de marché en tant qu’opérateur ou utilisateur Azure Stack.
 

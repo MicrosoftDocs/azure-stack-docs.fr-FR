@@ -1,20 +1,20 @@
 ---
-title: Mettre à l’échelle des actions de nœud d’unité dans Azure Stack Hub
-description: Découvrez les actions de nœud d'unité d’échelle (mise sous tension, mise hors tension, désactivation et reprise) et la façon d’afficher l’état d’un nœud dans des systèmes intégrés Azure Stack Hub.
+title: Actions de nœud d’unité d’échelle dans Azure Stack Hub pour un MDC
+description: Découvrez les actions de nœud d’unité d’échelle, notamment la mise sous tension, la mise hors tension, la désactivation, la reprise et l’affichage de l’état d’un nœud dans des systèmes intégrés Azure Stack Hub.
 author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 10/26/2020
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: f7bc89e42b315fea585a87d93795a0e1b0f574f3
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 6413cec9b2464d5295feab0f3a3983083b9d04ea
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934894"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598519"
 ---
-# <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Mettre à l’échelle des actions de nœud d’unité dans Azure Stack Hub
+# <a name="scale-unit-node-actions-in-azure-stack-hub---modular-data-center-mdc"></a>Actions de nœud d’unité d’échelle dans Azure Stack Hub - Modular Data Center (MDC)
 
 Cet article décrit comment afficher l’état d’une unité d’échelle. Vous pouvez afficher les nœuds de l’unité. Vous pouvez exécuter des actions de nœud comme la mise sous tension, la mise hors tension, l’arrêt, le vidage, la reprise et la réparation. En règle générale, vous utilisez ces actions de nœud durant le remplacement de pièces sur le terrain ou dans le but de récupérer un nœud.
 

@@ -6,18 +6,22 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 08ed2b7272fd8a4f9f28f2721b8aff6552131afc
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.openlocfilehash: ea19dbbdd85f29eb036a0220828bbbb7bca33ea7
+ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051562"
+ms.locfileid: "97069804"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>Migrer vers Azure Stack HCI sur le même matériel
 
 > S’applique à Azure Stack HCI version 20H2, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
 
 Cette rubrique explique comment migrer un cluster Windows Server 2016 ou Windows Server 2019 vers Azure Stack HCI à l’aide de votre matériel serveur existant. Ce processus installe le nouveau système d’exploitation Azure Stack HCI, conserve vos paramètres de cluster et votre stockage existants, et importe vos machines virtuelles.
+
+Le diagramme suivant illustre la migration de votre cluster Windows Server sur place à l’aide du même matériel de serveur. Après l’arrêt de votre cluster, Azure Stack HCI est installé, le stockage est rattaché et vos machines virtuelles sont importées et rendues hautement disponibles (HA).
+
+:::image type="content" source="media/migrate/migrate-cluster-same-hardware.png" alt-text="Migrer un cluster vers Azure Stack HCI sur le même matériel" lightbox="media/migrate/migrate-cluster-same-hardware.png":::
 
 Pour migrer vos machines virtuelles vers un nouveau matériel Azure Stack HCI, consultez [Migrer vers Azure Stack HCI sur du nouveau matériel](migrate-cluster-new-hardware.md).
 
@@ -26,13 +30,13 @@ Pour migrer vos machines virtuelles vers un nouveau matériel Azure Stack HCI, c
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Avant d’entreprendre la migration, il y a plusieurs exigences et éléments à prendre en considération :
+Avant d’entreprendre la migration, vous devez prendre en considération plusieurs éléments et exigences :
 
 - Toutes les commandes Windows PowerShell doivent être exécutées en tant qu’administrateur.
 
 - Vous devez disposer d’informations d’identification de domaine avec des autorisations d’administrateur pour Azure Stack HCI.
 
-- Sauvegardez toutes les machines virtuelles sur votre cluster source. Effectuez une sauvegarde cohérente en cas d’incident de l’ensemble des applications et des données, et une sauvegarde de cohérence des applications de toutes les bases de données.  Pour effectuer une sauvegarde sur Azure, consultez [Utiliser la Sauvegarde Azure](https://docs.microsoft.com/azure-stack/hci/manage/use-azure-backup).
+- Sauvegardez toutes les machines virtuelles sur votre cluster source. Effectuez une sauvegarde cohérente en cas d’incident de l’ensemble des applications et des données et une sauvegarde cohérente du point de vue des applications de toutes les bases de données.  Pour effectuer une sauvegarde sur Azure, consultez [Utiliser la Sauvegarde Azure](https://docs.microsoft.com/azure-stack/hci/manage/use-azure-backup).
 
 - Collectez l’inventaire et la configuration de tous les nœuds de cluster, le nommage des clusters, la configuration réseau, la résilience et de la capacité du volume partagé de cluster (CSV) et le témoin de quorum.
 
@@ -223,19 +227,19 @@ Ces améliorations nécessitent la création d’un volume ReFS à l’aide de l
 
 ## <a name="import-the-vms"></a>Importer les machines virtuelles
 
-Il est recommandé de créer au moins un volume partagé de cluster (CSV) par nœud de cluster pour pouvoir répartir équitablement les machines virtuelles entre les différents propriétaires de volumes CSV afin d’accroître la résilience, améliorer les performances et effectuer une mise à l’échelle des charges de travail de machine virtuelle. Par défaut, cet équilibre se fait automatiquement toutes les cinq minutes et doit être pris en compte quand Robocopy est utilisé entre un nœud de cluster source et le nœud de cluster de destination afin de garantir que les propriétaires de volumes partagés source et de destination soient en adéquation pour fournir un chemin et une vitesse de transfert optimaux.
+Il est recommandé de créer au moins un volume partagé de cluster (CSV) par nœud de cluster pour répartir équitablement le nombre de machines virtuelles entre les différents propriétaire de CSV pour optimiser la résilience, le niveau de performances et l’échelle des charges de machines virtuelles. Par défaut, cet équilibre se fait automatiquement toutes les cinq minutes et doit être pris en compte quand Robocopy est utilisé entre un nœud du cluster source et le nœud du cluster de destination pour faire en sorte que les propriétaires de CSV source et de destination soient en adéquation pour fournir le chemin et la vitesse de transfert optimaux.
 
 Effectuez les étapes suivantes sur votre cluster Azure Stack HCI pour importer les machines virtuelles, les rendre hautement disponibles et les démarrer :
 
-1. Exécutez l’applet de commande suivante pour afficher tous les nœuds de propriétaire de volume CSV :
+1. Exécutez l’applet de commande suivante pour afficher tous les nœuds de propriétaire de CSV :
 
     ```powershell
     Get-ClusterSharedVolume
     ```
 
-1. Pour chaque nœud de serveur, accédez à `C:\Clusterstorage\Volume`, puis définissez le chemin de toutes les machines virtuelles ; par exemple, `C:\Clusterstorage\volume01`.
+1. Pour chaque nœud de serveur, accédez à `C:\Clusterstorage\Volume` et définissez le chemin pour toutes les machines virtuelles, par exemple `C:\Clusterstorage\volume01`.
 
-1. Exécutez l’applet de commande suivante sur chaque nœud propriétaire de volume CSV pour afficher le chemin de tous les fichiers VMCX de machines virtuelles par volume avant l’importation des machines virtuelles. Modifiez le chemin en fonction de votre environnement :
+1. Exécutez l’applet de commande suivante sur chaque nœud de propriétaire de CSV pour afficher le chemin de tous les fichiers VMCX de machines virtuelles par volume avant l’importation des machines virtuelles. Modifiez le chemin en fonction de votre environnement :
 
     ```powershell
     Get-ChildItem -Path "C:\Clusterstorage\Volume01\*.vmcx" -Recurse

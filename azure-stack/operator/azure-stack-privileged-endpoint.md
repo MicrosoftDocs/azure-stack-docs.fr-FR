@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: 9009064b2664d09a677ad1b2e21b2a3e5b17b57f
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.openlocfilehash: a20e7bf62cf65d1fd7c5ffb0f4f4ddc7313c55b2
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363926"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598247"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Utiliser le point de terminaison privilégié dans Azure Stack Hub
 
@@ -34,7 +34,7 @@ Le point de terminaison privilégié journalise chaque action (et sa sortie corr
 
 ## <a name="access-the-privileged-endpoint"></a>Accéder au point de terminaison privilégié
 
-Vous accédez au point de terminaison privilégié via une session PowerShell distante sur la machine virtuelle qui héberge le point de terminaison privilégié. Dans ASDK, cette machine virtuelle est nommée **AzS-ERCS01**. Si vous utilisez un système intégré, il existe trois instances du point de terminaison privilégié, chacune s’exécutant à l’intérieur d’une machine virtuelle ( *Préfixe* -ERCS01, *Préfixe* -ERCS02 ou *Préfixe* -ERCS03) sur des hôtes différents à des fins de résilience.
+Vous accédez au point de terminaison privilégié via une session PowerShell distante sur la machine virtuelle qui héberge le point de terminaison privilégié. Dans ASDK, cette machine virtuelle est nommée **AzS-ERCS01**. Si vous utilisez un système intégré, il existe trois instances du point de terminaison privilégié, chacune s’exécutant à l’intérieur d’une machine virtuelle (*Préfixe*-ERCS01, *Préfixe*-ERCS02 ou *Préfixe*-ERCS03) sur des hôtes différents à des fins de résilience.
 
 Avant de commencer cette procédure pour un système intégré, vérifiez que vous pouvez accéder à un point de terminaison privilégié via une adresse IP ou via DNS. Après le déploiement initial d’Azure Stack Hub, vous pouvez accéder au point de terminaison privilégié seulement via une adresse IP, car l’intégration de DNS n’est pas encore configurée. Votre fournisseur de matériel OEM vous fournira un fichier JSON nommé **AzureStackStampDeploymentInfo** qui contient les adresses IP de point de terminaison privilégié.
 
@@ -47,51 +47,50 @@ Vous devez affecter la valeur `en-US` à votre paramètre de culture actuel au m
 
 1. Établir une relation de confiance.
 
-      - Sur un système intégré, exécutez la commande suivante à partir d’une session Windows PowerShell avec élévation de privilèges pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur la machine virtuelle renforcée, qui s’exécute sur l’hôte de cycle de vie du matériel ou sur la station de travail à accès privilégié.
+   - Sur un système intégré, exécutez la commande suivante à partir d’une session Windows PowerShell avec élévation de privilèges pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur la machine virtuelle renforcée, qui s’exécute sur l’hôte de cycle de vie du matériel ou sur la station de travail à accès privilégié.
 
       ```powershell  
-    Set-Item WSMan:\localhost\Client\TrustedHosts -Value '<IP Address of Privileged Endpoint>' -Concatenate
+      Set-Item WSMan:\localhost\Client\TrustedHosts -Value '<IP Address of Privileged Endpoint>' -Concatenate
       ```
+      
+   - Si vous exécutez le kit ASDK, connectez-vous à l’hôte du kit de développement.
 
-      - Si vous exécutez le kit ASDK, connectez-vous à l’hôte du kit de développement.
-
-2. Sur la machine virtuelle renforcée s’exécutant sur l’hôte de cycle de vie du matériel ou sur la station de travail à accès privilégié, ouvrez une session Windows PowerShell. Exécutez les commandes suivantes pour établir une session distante sur la machine virtuelle qui héberge le point de terminaison privilégié :
+1. Sur la machine virtuelle renforcée s’exécutant sur l’hôte de cycle de vie du matériel ou sur la station de travail à accès privilégié, ouvrez une session Windows PowerShell. Exécutez les commandes suivantes pour établir une session distante sur la machine virtuelle qui héberge le point de terminaison privilégié :
  
-  - Sur un système intégré :
+   - Sur un système intégré :
 
-    ```powershell  
-    $cred = Get-Credential
+      ```powershell  
+      $cred = Get-Credential
 
-    $pep = New-PSSession -ComputerName <IP_address_of_ERCS> -ConfigurationName PrivilegedEndpoint -Credential $cred -SessionOption (New-PSSessionOption -Culture en-US -UICulture en-US)
-    Enter-PSSession $pep
-    ```
+      $pep = New-PSSession -ComputerName <IP_address_of_ERCS> -ConfigurationName PrivilegedEndpoint -Credential $cred -SessionOption (New-PSSessionOption -Culture en-US -UICulture en-US)
+      Enter-PSSession $pep
+      ```
     
-    Le paramètre `ComputerName` peut être l’adresse IP ou le nom DNS de l’une des machines virtuelles qui héberge le point de terminaison privilégié.
+      Le paramètre `ComputerName` peut être l’adresse IP ou le nom DNS de l’une des machines virtuelles qui héberge le point de terminaison privilégié.
 
-    > [!NOTE]  
-    >Azure Stack Hub n’effectue pas d’appel à distance lors de la validation des informations d’identification du point de terminaison privilégié. Pour les valider, il s’appuie sur une clé publique RSA stockée localement.
+      > [!NOTE]  
+      > Azure Stack Hub n’effectue pas d’appel à distance lors de la validation des informations d’identification du point de terminaison privilégié. Pour les valider, il s’appuie sur une clé publique RSA stockée localement.
 
    - Si vous exécutez le kit ADSK :
 
-     ```powershell  
+      ```powershell  
       $cred = Get-Credential
     
       $pep = New-PSSession -ComputerName azs-ercs01 -ConfigurationName PrivilegedEndpoint -Credential $cred -SessionOption (New-PSSessionOption -Culture en-US -UICulture en-US)
       Enter-PSSession $pep
-     ```
+      ```
     
-   - Quand vous y êtes invité, utilisez les informations d’identification suivantes :
+   Quand vous y êtes invité, utilisez les informations d’identification suivantes :
    
-       - **Nom d’utilisateur**  : spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack Hub*&gt;\cloudadmin**. (Pour le Kit ASDK, le nom d’utilisateur est **azurestack\cloudadmin**.)
-  
-        - **Mot de passe**  : entrez le mot de passe du compte d'administrateur de domaine AzureStackAdmin tel qu'il vous a été fourni pendant l'installation.
+   -  **Nom d’utilisateur** : spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack Hub*&gt;\cloudadmin**. (Pour le Kit ASDK, le nom d’utilisateur est **azurestack\cloudadmin**)
+   - **Mot de passe** : entrez le mot de passe du compte d'administrateur de domaine AzureStackAdmin tel qu'il vous a été fourni pendant l'installation.
 
-      > [!NOTE]
-      > Si vous ne parvenez pas à vous connecter au point de terminaison ERCS, réessayez les étapes 1 et 2 avec l’adresse IP d’une autre machine virtuelle ERCS.
+   > [!NOTE]
+   > Si vous ne parvenez pas à vous connecter au point de terminaison ERCS, réessayez les étapes 1 et 2 avec l’adresse IP d’une autre machine virtuelle ERCS.
 
-3. Une fois connecté, l'invite devient **[ *adresse IP ou nom de la machine virtuelle ERCS* ]: PS>** ou à **[azs-ercs01]: PS>** , en fonction de l'environnement. Depuis cette invite, exécutez `Get-Command` pour afficher la liste des applets de commande disponibles.
+1. Une fois connecté, l'invite devient **[*adresse IP ou nom de la machine virtuelle ERCS*]: PS>** ou à **[azs-ercs01]: PS>** , en fonction de l'environnement. Depuis cette invite, exécutez `Get-Command` pour afficher la liste des applets de commande disponibles.
 
-    Vous trouverez une référence pour les applets de commande dans [Informations de référence sur le point de terminaison privilégié Azure Stack Hub](../reference/pep-2002/index.md)
+   Vous trouverez une référence pour les applets de commande dans [Informations de référence sur le point de terminaison privilégié Azure Stack Hub](../reference/pep-2002/index.md)
 
    Un grand nombre de ces applets de commande sont uniquement destinées aux environnements de système intégré (par exemple, les applets de commande associées à l’intégration au centre de données). Dans le Kit ASDK, les applets de commande suivantes ont été validées :
 
@@ -130,61 +129,63 @@ Pour importer la session du point de terminaison privilégié sur votre ordinate
 
 1. Établir une relation de confiance.
 
-    - Sur un système intégré, exécutez la commande suivante à partir d’une session Windows PowerShell avec élévation de privilèges pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur la machine virtuelle renforcée, qui s’exécute sur l’hôte de cycle de vie du matériel ou sur la station de travail à accès privilégié.
+   - Sur un système intégré, exécutez la commande suivante à partir d’une session Windows PowerShell avec élévation de privilèges pour ajouter le point de terminaison privilégié en tant qu’hôte approuvé sur la machine virtuelle renforcée, qui s’exécute sur l’hôte de cycle de vie du matériel ou sur la station de travail à accès privilégié.
 
-    ```powershell
-    winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
-    ```
+      ```powershell
+      winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
+      ```
 
-    - Si vous exécutez le kit ASDK, connectez-vous à l’hôte du kit de développement.
+   - Si vous exécutez le kit ASDK, connectez-vous à l’hôte du kit de développement.
 
-2. Sur la machine virtuelle renforcée s’exécutant sur l’hôte de cycle de vie du matériel ou sur la station de travail à accès privilégié, ouvrez une session Windows PowerShell. Exécutez les commandes suivantes pour établir une session distante sur la machine virtuelle qui héberge le point de terminaison privilégié :
+1. Sur la machine virtuelle renforcée s’exécutant sur l’hôte de cycle de vie du matériel ou sur la station de travail à accès privilégié, ouvrez une session Windows PowerShell. Exécutez les commandes suivantes pour établir une session distante sur la machine virtuelle qui héberge le point de terminaison privilégié :
 
-    - Sur un système intégré :
+   - Sur un système intégré :
     
       ```powershell  
-        $cred = Get-Credential
+      $cred = Get-Credential
       
-        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
-          -ConfigurationName PrivilegedEndpoint -Credential $cred
+      $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
+        -ConfigurationName PrivilegedEndpoint -Credential $cred
       ```
     
       Le paramètre `ComputerName` peut être l’adresse IP ou le nom DNS de l’une des machines virtuelles qui héberge le point de terminaison privilégié.
 
-    - Si vous exécutez le kit ADSK :
+   - Si vous exécutez le kit ADSK :
      
-        ```powershell  
-          $cred = Get-Credential
+      ```powershell  
+      $cred = Get-Credential
     
-          $session = New-PSSession -ComputerName azs-ercs01 `
-             -ConfigurationName PrivilegedEndpoint -Credential $cred
-        ```
+      $session = New-PSSession -ComputerName azs-ercs01 `
+        -ConfigurationName PrivilegedEndpoint -Credential $cred
+      ```
 
-     Quand vous y êtes invité, utilisez les informations d’identification suivantes :
+   Quand vous y êtes invité, utilisez les informations d’identification suivantes :
 
-     - **Nom d’utilisateur**  : spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack Hub*&gt;\cloudadmin**. (Pour le Kit ASDK, le nom d’utilisateur est **azurestack\cloudadmin**.)
-     - **Mot de passe**  : entrez le mot de passe du compte d'administrateur de domaine AzureStackAdmin tel qu'il vous a été fourni pendant l'installation.
+   - **Nom d’utilisateur** : spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack Hub*&gt;\cloudadmin**. (Pour le Kit ASDK, le nom d’utilisateur est **azurestack\cloudadmin**.)
+      
+   - **Mot de passe** : entrez le mot de passe du compte d'administrateur de domaine AzureStackAdmin tel qu'il vous a été fourni pendant l'installation.
 
-3. Importer la session du point de terminaison privilégié dans votre machine locale :
+1. Importer la session du point de terminaison privilégié dans votre machine locale :
 
-    ```powershell 
-      Import-PSSession $session
-    ```
+   ```powershell 
+   Import-PSSession $session
+   ```
 
-4. Vous pouvez désormais utiliser la saisie semi-automatique via la touche Tab pour écrire des scripts comme de coutume sur votre session locale PowerShell à l’aide de l’ensemble des fonctions et des applets de commande du point de terminaison privilégié, sans réduire la sécurité d’Azure Stack Hub. Vous n’avez plus qu’à l’utiliser !
+1. Vous pouvez désormais utiliser la saisie semi-automatique via la touche Tab pour écrire des scripts comme de coutume sur votre session locale PowerShell à l’aide de l’ensemble des fonctions et des applets de commande du point de terminaison privilégié, sans réduire la sécurité d’Azure Stack Hub. Vous n’avez plus qu’à l’utiliser !
+
 
 ## <a name="close-the-privileged-endpoint-session"></a>Fermer la session du point de terminaison privilégié
 
- Comme indiqué plus haut, le point de terminaison privilégié journalise chaque action (et sa sortie correspondante) que vous effectuez dans la session PowerShell. Vous devez fermer la session à l’aide de la cmdlet `Close-PrivilegedEndpoint`. Cette applet de commande ferme correctement le point de terminaison et transfère les fichiers journaux vers un partage de fichiers externe à des fins de rétention.
+Comme indiqué plus haut, le point de terminaison privilégié journalise chaque action (et sa sortie correspondante) que vous effectuez dans la session PowerShell. Vous devez fermer la session à l’aide de la cmdlet `Close-PrivilegedEndpoint`. Cette applet de commande ferme correctement le point de terminaison et transfère les fichiers journaux vers un partage de fichiers externe à des fins de rétention.
 
 Pour fermer la session du point de terminaison :
 
 1. Créez un partage de fichiers externe qui est accessible au point de terminaison privilégié. Dans un environnement avec Kit de développement, vous pouvez simplement créer un partage de fichiers sur l’hôte du Kit de développement.
-2. Exécutez l’applet de commande suivante :
+1. Exécutez l’applet de commande suivante :
 
-  ```powershell  
-     Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
-  ```
+   ```powershell  
+   Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
+   ```
 
    L’applet de commande utilise les paramètres du tableau suivant :
 
@@ -201,50 +202,51 @@ Une fois les fichiers journaux de transcription correctement transférés vers l
 
 ## <a name="unlocking-the-privileged-endpoint-for-support-scenarios"></a>Déverrouillage du point de terminaison privilégié pour les scénarios de support
 
- Dans le cadre d’un scénario de support, l’ingénieur du support Microsoft peut être amené à élever la session PowerShell de point de terminaison privilégié pour accéder aux éléments internes de l’infrastructure Azure Stack Hub. Ce processus est parfois désigné par la formule « briser la vitre » ou « déverrouiller le point de terminaison privilégié » (PEP). Le processus d’élévation de session de point de terminaison privilégié est un processus d’authentification comprenant deux étapes, deux personnes et deux organisations. La procédure de déverrouillage est lancée par l’opérateur Azure Stack Hub, qui conserve en permanence le contrôle de son environnement. L’opérateur accède au point de terminaison privilégié et exécute cette cmdlet :
+Dans le cadre d’un scénario de support, l’ingénieur du support Microsoft peut être amené à élever la session PowerShell de point de terminaison privilégié pour accéder aux éléments internes de l’infrastructure Azure Stack Hub. Ce processus est parfois désigné par la formule « briser la vitre » ou « déverrouiller le point de terminaison privilégié » (PEP). Le processus d’élévation de session de point de terminaison privilégié est un processus d’authentification comprenant deux étapes, deux personnes et deux organisations. La procédure de déverrouillage est lancée par l’opérateur Azure Stack Hub, qui conserve en permanence le contrôle de son environnement. L’opérateur accède au point de terminaison privilégié et exécute cette cmdlet :
  
  ```powershell  
       Get-SupportSessionToken
-  ```
- L’applet de commande retourne le jeton de demande de session de support, qui est une chaîne alphanumérique très longue. L’opérateur transmet ensuite le jeton de demande à l’ingénieur du support Microsoft par le biais du moyen de son choix (par exemple, un chat, un e-mail). L’ingénieur du support Microsoft utilise le jeton de demande pour générer, s’il est valide, un jeton d’autorisation de session de support et le renvoie à l’opérateur Azure Stack Hub. Dans la même session PowerShell de point de terminaison privilégié, l’opérateur transmet ensuite le jeton d’autorisation comme entrée à cette applet de commande :
+ ```
 
- ```powershell  
+L’applet de commande retourne le jeton de demande de session de support, qui est une chaîne alphanumérique très longue. L’opérateur transmet ensuite le jeton de demande à l’ingénieur du support Microsoft par le biais du moyen de son choix (par exemple, un chat, un e-mail). L’ingénieur du support Microsoft utilise le jeton de demande pour générer, s’il est valide, un jeton d’autorisation de session de support et le renvoie à l’opérateur Azure Stack Hub. Dans la même session PowerShell de point de terminaison privilégié, l’opérateur transmet ensuite le jeton d’autorisation comme entrée à cette applet de commande :
+
+```powershell  
       unlock-supportsession
       cmdlet Unlock-SupportSession at command pipeline position 1
       Supply values for the following parameters:
       ResponseToken:
-  ```
+ ```
 
 Si le jeton d’autorisation est valide, la session PowerShell de point de terminaison privilégié fait l’objet d’une élévation des privilèges en fournissant des fonctionnalités d’administration complètes et une accessibilité totale à l’infrastructure. 
 
 > [!NOTE]
 > Toutes les opérations et applets de commande exécutées dans une session de point de terminaison privilégié avec élévation des privilèges doivent être effectuées sous le strict contrôle de l’ingénieur du support Microsoft. Dans le cas contraire, vous risquez de provoquer des temps d’arrêt importants, de perdre des données et de devoir procéder à un redéploiement complet de l’environnement Azure Stack Hub.
 
- Une fois la session de support terminée, il est très important de refermer la session de point de terminaison privilégié avec élévation des privilèges à l’aide de l’applet de commande **Close-PrivilegedEndpoint** , comme expliqué dans la section ci-dessus. Une fois la session de point de terminaison privilégié terminée, le jeton de déverrouillage n’est plus valide et ne peut pas être réutilisé pour la déverrouiller à nouveau.
+Une fois la session de support terminée, il est très important de refermer la session de point de terminaison privilégié avec élévation des privilèges à l’aide de l’applet de commande **Close-PrivilegedEndpoint**, comme expliqué dans la section ci-dessus. Une fois la session de point de terminaison privilégié terminée, le jeton de déverrouillage n’est plus valide et ne peut pas être réutilisé pour la déverrouiller à nouveau.
 Une session de point de terminaison privilégié avec élévation de privilèges a une validité de 8 heures, après quoi, si elle n’est pas terminée, elle est automatiquement reverrouillée dans une session de point de terminaison privilégié normale.
 
 ## <a name="content-of-the-privileged-endpoint-tokens"></a>Contenu des jetons de point de terminaison privilégié
 
- Les jetons de demande de session de support d’un point de terminaison privilégié et les jetons d’autorisation mettent à profit le chiffrement pour protéger l’accès et garantir que seuls les jetons autorisés peuvent déverrouiller la session de point de terminaison privilégié. Les jetons sont conçus pour garantir par chiffrement qu’un jeton de réponse ne peut être accepté que par la session de point de terminaison privilégié qui a généré le jeton de demande. Les jetons de point de terminaison privilégié ne contiennent aucun type d’informations pouvant identifier de manière unique un environnement Azure Stack Hub ou un client. Ils sont entièrement anonymes. Vous trouverez ci-dessous les détails du contenu de chaque jeton.
+Les jetons de demande de session de support d’un point de terminaison privilégié et les jetons d’autorisation mettent à profit le chiffrement pour protéger l’accès et garantir que seuls les jetons autorisés peuvent déverrouiller la session de point de terminaison privilégié. Les jetons sont conçus pour garantir par chiffrement qu’un jeton de réponse ne peut être accepté que par la session de point de terminaison privilégié qui a généré le jeton de demande. Les jetons de point de terminaison privilégié ne contiennent aucun type d’informations pouvant identifier de manière unique un environnement Azure Stack Hub ou un client. Ils sont entièrement anonymes. Vous trouverez ci-dessous les détails du contenu de chaque jeton.
  
 ### <a name="support-session-request-token"></a>Jeton de demande de session de support
 
- Le jeton de demande de session de support de point de terminaison privilégié se compose de trois objets :
+Le jeton de demande de session de support de point de terminaison privilégié se compose de trois objets :
 
-      - A randomly generated Session ID.
-      - A self-signed certificate, generated for the purpose of having a one-time public/private key pair. The certificate does not contain any information on the environment. 
-      - A time stamp that indicates the request token expiration.
-      
-  Le jeton de demande est ensuite chiffré avec la clé publique du cloud Azure sur lequel l’environnement Azure Stack Hub est inscrit.
+- Un ID de session généré de manière aléatoire.
+- Un certificat auto-signé, généré dans le but d’avoir une paire de clés publique/privée ponctuelle. Le certificat ne contient aucune information sur l’environnement.
+- Un horodatage qui indique l’expiration du jeton de requête.
+
+Le jeton de demande est ensuite chiffré avec la clé publique du cloud Azure sur lequel l’environnement Azure Stack Hub est inscrit.
  
- ### <a name="support-session-authorization-response-token"></a>Jeton de réponse d’autorisation de session de support
+### <a name="support-session-authorization-response-token"></a>Jeton de réponse d’autorisation de session de support
 
 Le jeton de réponse d’autorisation de support d’un point de terminaison privilégié se compose de deux objets :
 
-      - The randomly generated session ID extracted from the request token.
-      - A time stamp that indicates the response token expiration.
+- L’ID de session généré de manière aléatoire extrait à partir du jeton de requête.
+- Un horodatage qui indique l’expiration du jeton de réponse.
       
- Le jeton de réponse est ensuite chiffré avec le certificat auto-signé contenu dans le jeton de demande. Le certificat auto-signé a été déchiffré avec la clé privée associée au cloud Azure sur lequel l’environnement Azure Stack Hub est inscrit.
+Le jeton de réponse est ensuite chiffré avec le certificat auto-signé contenu dans le jeton de demande. Le certificat auto-signé a été déchiffré avec la clé privée associée au cloud Azure sur lequel l’environnement Azure Stack Hub est inscrit.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

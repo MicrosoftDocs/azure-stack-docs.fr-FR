@@ -7,12 +7,12 @@ ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 12/30/2019
 ms.lastreviewed: 12/30/2019
-ms.openlocfilehash: 10de658f7e5f8621d44baaa16f2181f58f47811e
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: b18f962ce2348a6a0f90a2ad48c1ea84e01fe921
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183391"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598638"
 ---
 # <a name="mdc-network-appendix"></a>Annexe réseau MDC
 
@@ -53,25 +53,115 @@ L’annexe fournit des informations sur les paramètres et les identités des ap
 
 ### <a name="juniper-mx204"></a>Juniper MX204
 
-|  |  |  |
-|--|--|--|
-| Layout | Capacité du système | 3 Tbits/s |
-|        | Orientation d’emplacement | N/D |
-|        | Montage | Avant ou centre |
-| Spécification physique | Dimensions (L x H x P) | 17,45" x 8,71" x 24,5" (44,3 x 22,1 x 62,2 cm) |
-|                        | Poids complètement chargé | 130 lb (59 kg) |
-|                        | Poids déchargé | 52 lb (23,6 kg) |
-| Moteur de routage | Mémoire par défaut | Stockage flash NOR 2x16 Mo ; 64 Go de RAM DDR4 ; SSD 2x50 Go |
-|                | Nombre de mémoires à tores magnétiques | 6 cœurs |
-| Redondance | Composants | Alimentation, RES, ventilateurs |
-| Environnement | Écoulement de l’air | Côte à côte |
-|               | Température de fonctionnement | de 0° à 46° C au niveau de la mer |
-|               | Humidité de fonctionnement | de 5 % à 90 % |
-|               | Altitude de fonctionnement | 10 000 ft (3 048 m) |
-| Certifications | NEBS | • CEM GR-1089-Core et sécurité électrique |
-|                | | • Réseau de liaison commun (CBN) |
-|                | | • National Electrical Code (code national d'électricité NEC) |
-|                | | • Protection physique GR-63-Core |
+:::row:::
+    :::column:::
+        **Disposition**
+    :::column-end:::
+    :::column:::
+        Capacité du système
+
+        Orientation d’emplacement
+
+        Montage
+    :::column-end:::
+    :::column span="2":::
+        3 Tbits/s
+
+        N/D
+
+        Avant ou centre
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Spécification physique**
+    :::column-end:::
+    :::column:::
+        Dimensions (L x H x P)
+
+        Poids complètement chargé
+
+        Poids déchargé
+    :::column-end:::
+    :::column span="2":::
+        17,45" x 8,71" x 24,5" (44,3 x 22,1 x 62,2 cm)
+
+        130 lb (59 kg)
+
+        52 lb (23,6 kg)
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Moteur de routage**
+    :::column-end:::
+    :::column:::
+        Mémoire par défaut
+
+        Nombre de mémoires à tores magnétiques
+    :::column-end:::
+    :::column span="2":::
+        Stockage flash NOR 2x16 Mo ; 64 Go de RAM DDR4 ; SSD 2x50 Go
+
+        6 cœurs
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Redondance**
+    :::column-end:::
+    :::column:::
+        Composants
+    :::column-end:::
+    :::column span="2":::
+        Alimentation, RES, ventilateurs
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Environnement**
+    :::column-end:::
+    :::column:::
+        Écoulement de l’air
+
+        Température de fonctionnement
+
+        Humidité de fonctionnement
+
+        Altitude de fonctionnement
+    :::column-end:::
+    :::column span="2":::
+        Côte à côte
+
+        de 0° à 46° C au niveau de la mer
+
+        de 5 % à 90 %
+
+        10 000 ft (3 048 m)
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Certifications**
+    :::column-end:::
+    :::column:::
+        NEBS
+    :::column-end:::
+    :::column span="2":::
+        • CEM GR-1089-Core et sécurité électrique
+
+        • Réseau de liaison commun (CBN)
+
+        • National Electrical Code (code national d'électricité NEC)
+
+        • Protection physique GR-63-Core
+    :::column-end:::
+:::row-end:::
 
 ### <a name="dell-emc-s4148f-on"></a>Dell EMC S4148F-ON
 
