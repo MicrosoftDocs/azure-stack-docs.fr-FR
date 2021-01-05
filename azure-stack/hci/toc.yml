@@ -4,6 +4,8 @@
   items:
     - name: "Qu’est-ce qu’Azure Stack HCI\_?"
       href: overview.md
+    - name: Comparer avec Windows Server
+      href: concepts/compare-windows-server.md
     - name: Informations de version
       href: release-information.md
     - name: Notes de publication
@@ -118,8 +120,6 @@
       items:
         - name: Configuration requise
           href: concepts/system-requirements.md
-        - name: Comparer avec Windows Server
-          href: concepts/compare-windows-server.md
         - name: Choisir des lecteurs
           href: concepts/choose-drives.md
         - name: Considérations relatives à la symétrie des lecteurs
@@ -228,3 +228,5 @@
       href: 'https://azure.microsoft.com/pricing/details/azure-stack/hci/'
     - name: "Prise en charge d’Azure Stack\_HCI"
       href: manage/get-support.md
+    - name: "Notes de publication archivées Azure Stack\_HCI"
+      href: preview-release-notes.md
