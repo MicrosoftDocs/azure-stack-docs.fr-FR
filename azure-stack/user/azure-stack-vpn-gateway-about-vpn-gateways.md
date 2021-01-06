@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 2393a088e64ec0a3144fe7d5f4c5c3d2c8e25ab1
-ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
+ms.openlocfilehash: e21839e5333a03b1a36322f0c632a2b278da9665
+ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84813721"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802012"
 ---
 # <a name="create-vpn-gateways-for-azure-stack-hub"></a>Créer des passerelles VPN pour Azure Stack Hub
 
@@ -100,11 +100,11 @@ Les scénarios haute disponibilité ne peuvent être configurés que sur la conn
 
 Azure Stack Hub contient trois machines virtuelles d’infrastructure de passerelle mutualisée. Deux de ces machines virtuelles sont en mode actif et la troisième est en mode redondant. Les machines virtuelles actives permettent la création de connexions VPN et la machine virtuelle redondante accepte uniquement les connexions VPN en cas de basculement. Si une machine virtuelle de passerelle active n’est plus disponible, la connexion VPN bascule vers la machine virtuelle redondante quelques instants (quelques secondes) après la perte de la connexion.
 
-## <a name="estimated-aggregate-throughput-by-sku"></a>Débit agrégé estimé par SKU
+## <a name="estimated-aggregate-tunnel-throughput-by-sku"></a>Débit du tunnel total estimé par référence SKU
 
-Le tableau suivant présente les types de passerelle et le débit total estimé par référence SKU de passerelle :
+Le tableau suivant présente les différents types de passerelle et le débit total estimé pour chaque tunnel/connexion par référence SKU de passerelle :
 
-|| Débit de passerelle VPN (1) | Tunnels IPsec max de passerelle VPN (2) |
+|| Débit du tunnel (1) | Tunnels IPsec max de passerelle VPN (2) |
 |-------|-------|-------|
 |**Référence (SKU) de base** **(3)** | 100 Mbits/s | 20 |
 |**Référence Standard** | 100 Mbits/s | 20 |
@@ -112,7 +112,7 @@ Le tableau suivant présente les types de passerelle et le débit total estimé 
 
 ### <a name="table-notes"></a>Notes de la table
 
-**(1)** Le débit VPN n’est pas garanti pour les connexions intersites via Internet. Il s’agit de la mesure du débit maximal possible.  
+**(1)** - Le débit du tunnel n’est pas garanti pour les connexions intersites via Internet. Il s’agit de la mesure du débit maximal possible.  
 **(2)** Le nombre maximal de tunnels est le total par déploiement Azure Stack Hub pour tous les abonnements.  
 **(3)** Le routage BGP n’est pas pris en charge pour la référence SKU de base.
 

@@ -4,13 +4,13 @@ description: Cette rubrique présente les applications utilitaires des partenair
 author: burcuerdemir
 ms.author: burcue
 ms.topic: conceptual
-ms.date: 12/10/2020
-ms.openlocfilehash: cfc60f53ba14821dd1eb4089d59a23cdde31d40d
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.date: 12/18/2020
+ms.openlocfilehash: 7f18a85b30dad52a10d2fc63d9966b05cf0331ff
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051630"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697724"
 ---
 # <a name="utility-applications-for-azure-stack-hci"></a>Applications utilitaires pour Azure Stack HCI
 
@@ -58,7 +58,7 @@ Veritas Backup Exec est une solution de sauvegarde et de récupération simple d
 Datadog est une plateforme entièrement unifiée englobant la supervision d’infrastructure, la supervision du niveau de performance des applications, la gestion des journaux, la supervision de l’expérience utilisateur et bien plus encore.
 
 - Référencement de l’application : [Modern monitoring & security](https://www.datadoghq.com/)
-- Prise en charge de l’application : [Versions des systèmes d’exploitation prises en charge](https://docs.datadoghq.com/agent/basic_agent_usage/?tab=agentv6v7#supported-os-versions)
+- Prise en charge de l’application : [Superviser Microsoft Azure Stack HCI avec Datadog](https://www.datadoghq.com/blog/monitor-azure-stack-hci-datadog)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations, consultez également :

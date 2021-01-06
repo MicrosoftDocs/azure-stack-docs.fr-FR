@@ -3,16 +3,16 @@ title: Nouveautés de la Place de marché Azure Stack Hub
 description: Découvrez les nouveautés de la Place de marché Azure Stack Hub, dont les éléments nouveaux, dépréciés et mis à jour.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/07/2020
+ms.date: 12/22/2020
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: e8db7987b06270b239c04bdb9596094bb7f06d1c
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.openlocfilehash: ac442a5ad52c67fc23472dc54eac0cb52f1b1b50
+ms.sourcegitcommit: f4a1a7e9d0b64ca84105d48170a23e1f473e976c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778000"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97743571"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Changements sur la Place de marché Azure Stack Hub
 
@@ -166,6 +166,7 @@ L’article [Éléments de la Place de marché Azure Stack Hub](azure-stack-mark
 
 ## <a name="updated-marketplace-items"></a>Éléments mis à jour sur la Place de marché
 
+- 22/12/2020 : Rogue Wave Software Centos 7.8 – version 7.8.2020062400
 - 07/12/2020 : Bitnami Elasticsearch Cluster - Version 1.0.2
 - 07/12/2020 : Bitnami Cassandra Cluster - Version 1.0.21
 - 07/12/2020 : Bitnami etcd Cluster - Version 1.0.16

@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 61149b7eb89908b641fd995b10b22e3d05a5fb8d
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: 33c7d66b7a8b0d352bbf9227cec11adf7cd001fe
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812698"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737740"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>Mettre à jour le fournisseur de ressources MySQL dans Azure Stack Hub
 
@@ -23,7 +23,7 @@ Un nouvel adaptateur de fournisseur de ressources MySQL peut être publié lors 
 
   |Versions d’Azure Stack Hub prises en charge|Version du fournisseur de ressources MySQL|Windows Server sur lequel le service RP s’exécute
   |-----|-----|-----|
-  |2008, 2005|[MySQL RP version 1.1.93.0](https://aka.ms/azshmysqlrp11930)|Microsoft AzureStack Add-On RP Windows Server INTERNE UNIQUEMENT
+  |2008, 2005|[MySQL RP version 1.1.93.1](https://aka.ms/azshmysqlrp11931)|Microsoft AzureStack Add-On RP Windows Server
   |2005, 2002, 1910|[MySQL RP version 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|Windows Server 2016 Datacenter - Server Core|
   |1908|[MySQL RP version 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|Windows Server 2016 Datacenter - Server Core|
   |     |     |     |

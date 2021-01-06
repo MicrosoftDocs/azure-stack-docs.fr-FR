@@ -8,12 +8,12 @@ ms.date: 12/07/2020
 ms.lastreviewed: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: e7565634d026d0d9bca5162ed709d76f760685b1
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.openlocfilehash: 9a88620fa333bd55a99796f4de292555f6cfd159
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778170"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737859"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Déployer le fournisseur de ressources SQL Server sur Azure Stack Hub
 
@@ -36,13 +36,13 @@ Plusieurs prérequis doivent être respectés pour permettre le déploiement du 
 
 - Ajoutez la machine virtuelle Windows Server requise à la Place de marché Azure Stack Hub.
   - Pour la version SQL RP < = 1.1.47.0, téléchargez l’image **Windows Server 2016 Datacenter-Server Core**.
-  - Pour la version SQL RP > = 1.1.93.0, téléchargez l’image **Microsoft AzureStack Add-on RP Windows Server INTERNE UNIQUEMENT**. Cette version de Windows Server est conçue pour l’infrastructure d’Azure Stack Add-On RP et n’est pas visible sur la place de marché du client.
+  - Pour la version SQL RP > = 1.1.93.0, téléchargez l’image **Microsoft AzureStack Add-On RP Windows Server**. Cette version de Windows Server est conçue pour l’infrastructure d’Azure Stack Add-On RP et n’est pas visible sur la place de marché du client.
 
 - Téléchargez la version prise en charge du fichier binaire du fournisseur de ressources SQL en fonction du tableau de mappage de versions ci-dessous. Exécutez l’auto-extracteur pour extraire le contenu téléchargé dans un répertoire temporaire. 
 
   |Versions d’Azure Stack Hub prises en charge|Version SQL RP|Windows Server sur lequel le service RP s’exécute
   |-----|-----|-----|
-  |2008, 2005|[SQL RP version 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack Add-On RP Windows Server INTERNE UNIQUEMENT
+  |2008, 2005|[SQL RP version 1.1.93.1](https://aka.ms/azshsqlrp11931)|Microsoft AzureStack Add-On RP Windows Server
   |2005, 2002, 1910|[SQL RP version 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter - Server Core|
   |1908|[SQL RP version 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter - Server Core|
   |     |     |     |

@@ -8,12 +8,12 @@ ms.date: 09/02/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 95e12f2f90cd7e33fb3a2cc3a5f016f35ac0e54f
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: 48add21dfcbf5c83a525e1f0ebd6a9e2123f75e4
+ms.sourcegitcommit: 076ece88c3177db321f0ae32cba1d05179ffc393
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623215"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97794156"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>Envoyer des journaux de diagnostic Azure Stack Hub à l’aide du point de terminaison privilégié
 
@@ -86,6 +86,18 @@ if ($session) {
   Get-AzureStackLog -FilterByResourceProvider <<value-add RP name>>
   ```
  
+  Pour collecter les journaux pour SQL RP : 
+
+  ```powershell
+  Get-AzureStackLog -FilterByResourceProvider SQLAdapter
+  ```
+
+  Pour collecter les journaux pour MySQL RP : 
+
+  ```powershell
+  Get-AzureStackLog -FilterByResourceProvider MySQLAdapter
+  ```
+
   Pour collecter les journaux pour IoT Hub : 
 
   ```powershell

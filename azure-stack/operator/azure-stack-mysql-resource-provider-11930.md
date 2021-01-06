@@ -7,23 +7,23 @@ ms.date: 09/22/2020
 ms.author: caoyang
 ms.reviewer: xiaofmao
 ms.lastreviewed: 09/22/2020
-ms.openlocfilehash: f3e9e177e4d335c667754a308698ed362c6535b2
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: 2312219d67741b9485a6070c00418762e50fac73
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812746"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737830"
 ---
-# <a name="mysql-resource-provider-11930-release-notes"></a>Notes de publication de la version 1.1.93.0 du fournisseur de ressources MySQL
+# <a name="mysql-resource-provider-1193x-release-notes"></a>Notes de publication de la version 1.1.93.x du fournisseur de ressources MySQL
 
-Ces notes de publication décrivent les améliorations et les problèmes connus liés à la version 1.1.93.0 du fournisseur de ressources MySQL.
+Ces notes de publication décrivent les améliorations et les problèmes connus dans la version 1.1.93.x du fournisseur de ressources MySQL.
 
 ## <a name="build-reference"></a>Référence de build
 Téléchargez le binaire du fournisseur de ressources MySQL, puis exécutez le fichier auto-extracteur pour extraire le contenu dans un répertoire temporaire. Le fournisseur de ressources dispose d'une build Azure Stack Hub minimale correspondante. La version minimale d’Azure Stack Hub requise pour installer cette version du fournisseur de ressources MySQL est mentionnée ci-dessous :
 
 > |Versions d’Azure Stack Hub prises en charge|Version du fournisseur de ressources MySQL|
 > |-----|-----|
-> |Version 2008, 2005|[MySQL RP version 1.1.93.0](https://aka.ms/azshmysqlrp11930)|  
+> |Version 2008, 2005|[MySQL RP version 1.1.93.1](https://aka.ms/azshmysqlrp11931)|  
 > |     |     |
 
 > [!IMPORTANT]
@@ -33,15 +33,15 @@ Téléchargez le binaire du fournisseur de ressources MySQL, puis exécutez le f
 
 Cette version du fournisseur de ressources MySQL Azure Stack Hub inclut les améliorations et correctifs suivants :
 
-- **Mettez à jour la machine virtuelle de base sur un serveur Windows spécialisé.** Cette version de Windows Server est conçue pour l’infrastructure d’Azure Stack Hub Add-On RP et n’est pas visible sur la place de marché du client. Veillez à télécharger l’image de **Microsoft AzureStack Add-on RP Windows Server INTERNE UNIQUEMENT** avant le déploiement ou la mise à niveau vers cette version du fournisseur de ressources MySQL.
+- **Mettez à jour la machine virtuelle de base sur un serveur Windows spécialisé.** Cette version de Windows Server est conçue pour l’infrastructure d’Azure Stack Hub Add-On RP et n’est pas visible sur la place de marché du client. Veillez à télécharger l’image **Microsoft AzureStack Add-On RP Windows Server** avant le déploiement ou la mise à niveau vers cette version du fournisseur de ressources MySQL.
 - **Prendre en charge la suppression des métadonnées de base de données orphelines et héberger les métadonnées du serveur.** Lorsqu’un serveur d’hébergement ne peut plus être connecté, le locataire a la possibilité de supprimer les métadonnées de la base de données orpheline du portail. En l’absence de métadonnées de base de données orphelines liées au serveur d’hébergement, l’opérateur est en mesure de supprimer les métadonnées du serveur d’hébergement orphelin du portail d’administration.
 - **Définissez KeyVaultPfxPassword comme argument facultatif lors de la rotation des secrets.** Pour plus d’informations, consultez [ce document](azure-stack-sql-resource-provider-maintain.md#secrets-rotation).
 - **Correctifs de bogues mineurs.**
 
-Nous vous recommandons d’appliquer le correctif du fournisseur de ressources MySQL 1.1.93.0 après la mise à niveau d’Azure Stack Hub vers la version 2005.
+Nous vous recommandons d’appliquer le correctif 1.1.93.1 du fournisseur de ressources MySQL après la mise à niveau d’Azure Stack Hub vers la version 2005.
 
 ## <a name="known-issues"></a>Problèmes connus
-Aucun.
+Le déploiement de la version 1.1.93.0 peut échouer si le mauvais AzureRmContext est utilisé. Il est recommandé d’effectuer une mise à niveau directement vers la version 1.1.93.1. Si vous avez déjà effectué la mise à niveau vers 1.1.93.0, vous pouvez ignorer en toute sécurité la version 1.1.93.1.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

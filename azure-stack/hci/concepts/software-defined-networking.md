@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/16/2020
-ms.openlocfilehash: 3aaee084c30dd8d6b3f6514d18951fd604bd75aa
-ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
+ms.date: 12/21/2020
+ms.openlocfilehash: 20d42c6685bb1a2a2c8de36d04434d23a97f81e1
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92157663"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737876"
 ---
 # <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Mise en réseau SDN (Software Defined Networking) dans Azure Stack HCI
 
@@ -42,7 +42,7 @@ Nous vous recommandons de [déployer le contrôleur de réseau pendant la créat
 
 ## <a name="software-load-balancing"></a>Équilibrage de charge logicielle
 
-L’[équilibrage de charge logiciel](/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn) peut être utilisé pour distribuer uniformément le trafic réseau des clients entre plusieurs machines virtuelles. Il permet à plusieurs serveurs d’héberger la même charge de travail, offrant ainsi une haute disponibilité et une évolutivité supérieure. SLB utilise le [Border Gateway Protocol](/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) pour publier des adresses IP virtuelles sur le réseau physique.
+L’[équilibreur de charge logiciel (SLB)](software-load-balancer.md) peut être utilisé pour distribuer uniformément le trafic réseau des clients entre plusieurs machines virtuelles. Il permet à plusieurs serveurs d’héberger la même charge de travail, offrant ainsi une haute disponibilité et une évolutivité supérieure. SLB utilise le [Border Gateway Protocol](/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) pour publier des adresses IP virtuelles sur le réseau physique.
 
 ## <a name="gateway"></a>Passerelle
 

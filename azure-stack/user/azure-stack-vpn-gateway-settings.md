@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 55f62550521e6b57d08852eb6d3f0c14da735fec
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 178164148e9d7de069c4ab12dc3042899b83d16d
+ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546801"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97801944"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>Configurer les paramètres de passerelle VPN pour Azure Stack Hub
 
@@ -39,7 +39,7 @@ Lorsque vous créez une passerelle de réseau virtuel, vous devez spécifier la 
 
 Azure Stack Hub propose les références (SKU) de passerelle VPN indiquées dans le tableau suivant :
 
-| | Débit de passerelle VPN |Tunnels IPsec max de passerelle VPN |
+| | Débit du tunnel |Tunnels IPsec max de passerelle VPN |
 |-------|-------|-------|
 |**Référence De base**  | 100 Mbits/s    | 20    |
 |**Référence Standard**   | 100 Mbits/s  | 20 |
@@ -49,7 +49,7 @@ Azure Stack Hub propose les références (SKU) de passerelle VPN indiquées dans
 
 Azure Stack Hub ne prend pas en charge le redimensionnement de références (SKU) entre les références (SKU) héritées prises en charge.
 
-De même, Azure Stack Hub ne prend pas en charge le redimensionnement d’une référence (SKU) héritée prise en charge ( **De base** , **Standard** et **Hautes performances** ) vers une référence (SKU) plus récente prise en charge par Azure ( **VpnGw1** , **VpnGw2** et **VpnGw3** ).
+De même, Azure Stack Hub ne prend pas en charge le redimensionnement d’une référence (SKU) héritée prise en charge (**De base**, **Standard** et **Hautes performances**) vers une référence (SKU) plus récente prise en charge par Azure (**VpnGw1**, **VpnGw2** et **VpnGw3**).
 
 ### <a name="configure-the-gateway-sku"></a>Configuration de la référence SKU de passerelle
 
@@ -59,7 +59,7 @@ Si vous utilisez le portail Azure Stack Hub pour créer une passerelle de résea
 
 #### <a name="powershell"></a>PowerShell
 
-L’exemple PowerShell suivant spécifie le paramètre `-GatewaySku`**Standard**  :
+L’exemple PowerShell suivant spécifie le paramètre `-GatewaySku`**Standard** :
 
 ```powershell
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -156,7 +156,7 @@ Lorsque vous configurez une connexion VPN dans Azure Stack Hub, vous devez la co
 Contrairement à Azure qui prend en charge plusieurs offres en tant qu’initiateur et répondeur, Azure Stack Hub ne prend en charge qu’une seule offre par défaut. Si vous devez utiliser différents paramètres IPSec/IKE pour travailler avec votre appareil VPN, d’autres paramètres sont disponibles pour vous permettre de configurer votre connexion manuellement. Pour plus d’informations, consultez [Configurer la stratégie IPsec/IKE pour des connexions VPN site à site](azure-stack-vpn-s2s.md).
 
 > [!IMPORTANT] 
-> Lorsque vous utilisez le tunnel S2S, les paquets sont encapsulés avec des en-têtes supplémentaires, ce qui augmente la taille globale du paquet. Dans ces scénarios, vous devez définir TCP **MSS** sur **1350**. Dans le cas où vos appareils VPN ne prendraient pas en charge le réglage de la taille maximale de segment, vous pouvez à la place définir l’ **unité de transmission maximale** dans l’interface de tunnel sur **1400** octets. Pour plus d’informations, consultez [Réglage des performances TCPIP des réseaux virtuels](/azure/virtual-network/virtual-network-tcpip-performance-tuning).
+> Lorsque vous utilisez le tunnel S2S, les paquets sont encapsulés avec des en-têtes supplémentaires, ce qui augmente la taille globale du paquet. Dans ces scénarios, vous devez définir TCP **MSS** sur **1350**. Dans le cas où vos appareils VPN ne prendraient pas en charge le réglage de la taille maximale de segment, vous pouvez à la place définir l’**unité de transmission maximale** dans l’interface de tunnel sur **1400** octets. Pour plus d’informations, consultez [Réglage des performances TCPIP des réseaux virtuels](/azure/virtual-network/virtual-network-tcpip-performance-tuning).
 >
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Paramètres IKE Phase 1 (Mode principal)

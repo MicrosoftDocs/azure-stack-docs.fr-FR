@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/16/2020
-ms.openlocfilehash: 95e0ed6b87fb501b31c024c5d2d886b4e1bce8ac
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.date: 12/28/2020
+ms.openlocfilehash: de2ad8fecc2d79e8c8ff56e3a53a0769698a6fc1
+ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97620634"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97801961"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Connecter Azure Stack HCI à Azure
 
@@ -21,7 +21,11 @@ ms.locfileid: "97620634"
 Azure Stack HCI est fourni en tant que service Azure et doit être inscrit dans les 30 jours suivant l’installation, selon les conditions des services en ligne Azure. Cette rubrique explique comment inscrire votre cluster Azure Stack HCI à [Azure Arc](https://azure.microsoft.com/services/azure-arc/) pour la supervision, le support, la facturation et les services hybrides. Après l’inscription, une ressource Azure Resource Manager est créée pour représenter chaque cluster Azure Stack HCI local, étendant le plan de gestion Azure à Azure Stack HCI. Les informations sont régulièrement synchronisées entre la ressource Azure et le ou les clusters locaux.
 
    > [!IMPORTANT]
-   > L’inscription auprès d’Azure est obligatoire. Tant que votre cluster n’est pas inscrit auprès d’Azure, le système d’exploitation Azure Stack HCI n’est pas sous licence valide, n’est pas pris en charge et a des fonctionnalités réduites (par exemple, vous ne pouvez pas créer de machines virtuelles).
+   > L’inscription auprès d’Azure est requise, et votre cluster n’est pas entièrement pris en charge tant que votre inscription n’est pas activée. Si vous n’inscrivez pas votre cluster auprès d’Azure dans les 30 jours suivant le déploiement, ou si votre cluster est inscrit mais qu’il ne s’est pas connecté à Azure depuis plus de 30 jours, le système n’autorise pas la création ni l’ajout de nouvelles machines virtuelles. Dans de tels cas, le message d’erreur suivant s’affiche quand vous tentez de créer des machines virtuelles :
+   >
+   > *Échec lors de la configuration du rôle de machine virtuelle pour « nom_machine virtuelle ». le travail a échoué. Erreur lors de l’ouverture des rôles en cluster pour « nom_machine virtuelle ». Le service auquel vous accédez a une licence pour un nombre particulier de connexions. Il n’est plus possible d’établir des connexions au service pour le moment, car le nombre maximal de connexions autorisées est déjà atteint.*
+   >
+   > La solution consiste à autoriser la connectivité sortante vers Azure et à vérifier que votre cluster est bien inscrit comme cela est décrit dans cette rubrique.
 
 ## <a name="prerequisites-for-registration"></a>Prérequis pour l’inscription
 

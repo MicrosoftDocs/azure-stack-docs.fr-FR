@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 69c33d41149937b286a528c7eef3c6e795cd7642
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: 7726e16e497693db04ef859fbda316568d069c2b
+ms.sourcegitcommit: aef251d6771400b21a314bbfbea4591ab263f8fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598468"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97726167"
 ---
 # <a name="register-azure-stack-hub-with-azure---modular-data-center-mdc"></a>Inscrire Azure Stack Hub auprès d’Azure - Modular Data Center (MDC)
 
@@ -88,9 +88,9 @@ Pour installer l’outil Azure Stack Hub le plus récent :
 1. Ouvrez une invite PowerShell avec élévation de privilèges.
 2. Exécutez l’applet de commande suivante :
 
-    ```powershell  
-        Install-Module -Name Azs.Tools.Admin
-    ```
+   ```powershell  
+   Install-Module -Name Azs.Tools.Admin
+   ```
 
 ### <a name="determine-your-registration-scenario"></a>Déterminer votre scénario d’inscription
 
@@ -120,41 +120,37 @@ Pour inscrire un système Azure Stack Hub doté d’une connectivité à Azure, 
 
 Les environnements connectés peuvent accéder à Internet et à Azure. Pour ces environnements, inscrivez le fournisseur de ressources Azure Stack Hub auprès d’Azure, puis configurer votre modèle de facturation.
 
-
 ### <a name="az-modules"></a>[Modules Az](#tab/az1)
 
 1. Pour inscrire le fournisseur de ressources Azure Stack Hub auprès d’Azure, démarrez PowerShell ISE en tant qu’administrateur et utilisez les cmdlets PowerShell suivantes avec le paramètre **EnvironmentName** défini sur le type d’abonnement Azure qui convient (voir les paramètres ci-dessous).
 
-2. Ajoutez le compte Azure que vous avez utilisé pour inscrire Azure Stack Hub. Pour ajouter le compte, exécutez la cmdlet **Add-AzAccount**. Vous êtes invité à entrer vos informations d’identification de compte Azure et vous devrez peut-être utiliser l’authentification à deux facteurs en fonction de la configuration de votre compte.
-
-   ```powershell
-   Add-AzAccount -EnvironmentName "<environment name>"
-   ```
-
-   | Paramètre | Description |  
-   |-----|-----|
-   | EnvironmentName | Le nom de l’environnement d’abonnement cloud Azure. Les noms d’environnement pris en charge sont **AzureCloud** ou **AzureUSGovernment**.  |
-
-   >[!NOTE]
-   > Si votre session expire, si votre mot de passe a changé ou si vous souhaitez changer de compte, exécutez l’applet de commande suivante avant de vous connecter en utilisant **Add-AzAccount** : **Processus Remove-AzAccount-Scope**.
-
-3. Dans la même session PowerShell, vérifiez que vous êtes connecté au contexte Azure PowerShell approprié. Ce contexte correspond au compte Azure utilisé précédemment pour inscrire le fournisseur de ressources Azure Stack Hub :
+2. Dans la même session PowerShell, vérifiez que vous êtes connecté au contexte Azure PowerShell approprié. Ce contexte correspond au compte Azure utilisé précédemment pour inscrire le fournisseur de ressources Azure Stack Hub :
 
    ```powershell  
    Connect-AzAccount -Environment "<environment name>"
    ```
 
+   Pour **AzureUSSec**, vous devez d’abord initialiser l’environnement `CustomCloud`, puis appeler **Connect-AzureRmAccount** :
+
+   ```powershell
+   Initialize-AzureRmEnvironment -Name 'CustomCloud' -CloudManifestFilePath $CloudManifestFilePath
+   Connect-AzureRmAccount -Environment 'CustomCloud'
+   ```
+
    | Paramètre | Description |  
    |-----|-----|
-   | EnvironmentName | Le nom de l’environnement d’abonnement cloud Azure. Les noms d’environnement pris en charge sont **AzureCloud** ou **AzureUSGovernment**.  |
+   | EnvironmentName | Le nom de l’environnement d’abonnement cloud Azure. Les noms d’environnements pris en charge sont **AzureCloud**, **AzureUSGovernment** ou **AzureUSSec**.   |
 
-4. Si vous avez plusieurs abonnements, exécutez la commande suivante pour sélectionner celui que vous souhaitez utiliser :
+   >[!NOTE]
+   > Si votre session expire, si votre mot de passe a changé ou si vous souhaitez changer de compte, exécutez la cmdlet suivante avant de vous connecter en utilisant **Add-AzureRmAccount** : **Processus Remove-AzureRmAccount-Scope**.
 
-   ```powershell  
+3. Si vous avez plusieurs abonnements, exécutez la commande suivante pour sélectionner celui que vous souhaitez utiliser :
+
+   ```powershell
    Get-AzSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzSubscription
    ```
 
-5. Exécutez la commande suivante pour inscrire le fournisseur de ressources Azure Stack Hub auprès de votre abonnement Azure :
+4. Exécutez la commande suivante pour inscrire le fournisseur de ressources Azure Stack Hub auprès de votre abonnement Azure :
 
    ```powershell  
    Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
@@ -164,8 +160,7 @@ Les environnements connectés peuvent accéder à Internet et à Azure. Pour ces
 
    ![Inscrire le fournisseur de ressources Azure Stack Hub](./media/registration-tzl/register-azure-resource-provider-portal.png)
 
-
-6. Dans la même session PowerShell, exécutez la cmdlet **Set-AzsRegistration** :
+5. Dans la même session PowerShell, exécutez la cmdlet **Set-AzsRegistration** :
 
    ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -180,8 +175,9 @@ Les environnements connectés peuvent accéder à Internet et à Azure. Pour ces
       -msAssetTag $msAssetTagName `
       -UsageReportingEnabled: $false
    ```
+
    La balise MS Asset (`msAssetTag`) est obligatoire pour l’inscription personnalisée du modèle de facturation et imprimée sur le produit.
-    
+
    Le processus prend entre 10 et 15 minutes. Une fois la commande exécutée, un message s’affiche. **Votre environnement est à présent enregistré et activé à l’aide des paramètres fournis.** s’affiche.
 
 ### <a name="azurerm-modules"></a>[Modules AzureRM](#tab/azurerm1)
@@ -189,18 +185,18 @@ Les environnements connectés peuvent accéder à Internet et à Azure. Pour ces
 1. Pour inscrire le fournisseur de ressources Azure Stack Hub auprès d’Azure, démarrez PowerShell ISE en tant qu’administrateur et utilisez les cmdlets PowerShell suivantes avec le paramètre **EnvironmentName** défini sur le type d’abonnement Azure qui convient (voir les paramètres ci-dessous).
   
 2. Ajoutez le compte Azure que vous avez utilisé pour inscrire Azure Stack Hub. Pour ajouter le compte, exécutez la cmdlet **Add-AzureRmAccount**. Vous êtes invité à entrer vos informations d’identification de compte Azure et vous devrez peut-être utiliser l’authentification à deux facteurs en fonction de la configuration de votre compte.
-   
+
    ```powershell
    Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
-   
+
    | Paramètre | Description |  
    |-----|-----|
-   | EnvironmentName | Le nom de l’environnement d’abonnement cloud Azure. Les noms d’environnement pris en charge sont **AzureCloud** ou **AzureUSGovernment**.  |
-   
+   | EnvironmentName | Le nom de l’environnement d’abonnement cloud Azure. Les noms d’environnements pris en charge sont **AzureCloud**, **AzureUSGovernment** ou **AzureUSSec**. 
+
    >[!NOTE]
    > Si votre session expire, si votre mot de passe a changé ou si vous souhaitez changer de compte, exécutez la cmdlet suivante avant de vous connecter en utilisant **Add-AzureRmAccount** : **Processus Remove-AzureRmAccount-Scope**.
-   
+
 3. Dans la même session PowerShell, vérifiez que vous êtes connecté au contexte Azure PowerShell approprié. Ce contexte correspond au compte Azure utilisé précédemment pour inscrire le fournisseur de ressources Azure Stack Hub :
 
    ```powershell
