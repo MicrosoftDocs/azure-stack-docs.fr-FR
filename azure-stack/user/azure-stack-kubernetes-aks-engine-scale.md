@@ -3,16 +3,16 @@ title: Mettre à l’échelle un cluster Kubernetes sur Azure Stack Hub
 description: Découvrez comment mettre à l’échelle un cluster Kubernetes sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 16ffbd474886d477f37b7e2d39695e896984eb30
-ms.sourcegitcommit: 74b3e14abfa33c8136eccdd4677868eb622c843e
+ms.openlocfilehash: 459ab20333f34f8aa8f067bc8b8c1f8dfd27920a
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92523539"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874130"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack-hub"></a>Mettre à l’échelle un cluster Kubernetes sur Azure Stack Hub
 

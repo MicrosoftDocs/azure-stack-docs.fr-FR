@@ -5,15 +5,15 @@ description: Découvrez comment résoudre les problèmes Azure Stack Hub, y comp
 author: PatAltimore
 ms.topic: article
 ms.date: 12/10/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: 583c0e933e823b1ac0fcf11fd378e81515656099
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: ef2bbc0fe85b0d6a1db605af440eab2d0e80a805
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343653"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868979"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Résoudre les problèmes dans Azure Stack Hub
 

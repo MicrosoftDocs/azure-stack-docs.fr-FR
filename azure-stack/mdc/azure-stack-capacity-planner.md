@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 6928c301ae2c5985a9db52bff109c874024327cb
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: eabc000ad42ae8cb25853fb06f6cfba517e36af3
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598281"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872665"
 ---
 # <a name="azure-stack-hub-capacity-planner---modular-data-center-mdc"></a>Azure Stack Hub Capacity Planner - Modular Data Center (MDC)
 

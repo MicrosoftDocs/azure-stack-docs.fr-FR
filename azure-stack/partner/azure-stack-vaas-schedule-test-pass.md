@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Découvrez comment gérer un test dans le portail Validation Azure Stack Hub.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b4d94d7fca7f2d145a8dc7b19f1f9d7b6a68cd9b
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 3096797a847b4a4e84dc40a6c696061fc0249852
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764815"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874742"
 ---
 # <a name="scheduling-a-test"></a>Planification d’un test
 

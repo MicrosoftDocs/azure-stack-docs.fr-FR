@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Découvrez les paramètres de workflow communs pour la validation en tant que service Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f7932714642568c1d41a94d55a212af1bcc385ad
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 51821c70153f2b4f091b0e8ccb659dddf863bb5e
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112059"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97910855"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-hub-validation-as-a-service"></a>Paramètres de workflow communs pour la validation en tant que service Azure Stack Hub
 

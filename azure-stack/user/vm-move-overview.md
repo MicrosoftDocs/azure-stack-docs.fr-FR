@@ -3,16 +3,16 @@ title: Déplacer une machine virtuelle vers Azure Stack Hub
 description: Découvrez les différentes façons dont vous pouvez déplacer une machine virtuelle vers Azure Stack Hub.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 9/8/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 932fed2c6097fbbf41606f365b0c5a424bf1381b
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: 2ee1ae6405bd7216c65d328e2edc7d1606b2bddc
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609890"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867143"
 ---
 # <a name="move-a-vm-to-azure-stack-hub-overview"></a>Présentation de la procédure permettant de déplacer une machine virtuelle vers Azure Stack Hub
 

@@ -1,18 +1,18 @@
 ---
 title: Télécharger et extraire la solution
 description: Découvrez comment télécharger et extraire le Kit de développement Azure Stack (ASDK).
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2019
-ms.openlocfilehash: f582f6061ebc2bbce7a3605ed7795b9ab5562738
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 3f8a0615f18ddf9ba4a98c2af2b947c49cfdd550
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695901"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873263"
 ---
 # <a name="download-and-extract-the-asdk"></a>Télécharger et extraire la solution
 Après avoir vérifié que l’ordinateur hôte du Kit de développement répond bien aux exigences de base pour l’installation du Kit de développement Azure Stack (ASDK), vous devez télécharger puis extraire le package de déploiement du Kit de développement Azure Stack afin d’obtenir le fichier Cloudbuilder.vhdx.

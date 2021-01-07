@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: 0d788e1a41ed512a1d39c7a3e3680d193fdaecf2
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 0fd077f405256ff0a112dd9730cdc3e8fefb10f8
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941001"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867534"
 ---
 # <a name="azure-stack-hub-ruggedized-deployment-overview"></a>Vue d’ensemble du déploiement d’Azure Stack Hub renforcé
 

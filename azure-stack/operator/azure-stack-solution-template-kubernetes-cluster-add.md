@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Découvrez comment ajouter Kubernetes sur la Place de marché Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 07/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 03/24/2020v
-ms.openlocfilehash: e2edda983e6fd554b2ff76a526b476318b31a6f5
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: b96b8a2bed340201b9450b37b1aad166ebbdf26d
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250178"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869234"
 ---
 # <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>Ajouter Kubernetes sur la Place de marché Azure Stack Hub
 
@@ -34,7 +34,7 @@ Créez un plan, une offre et un abonnement pour le produit Kubernetes de la Plac
 
 1. Créez une offre. Pour obtenir des instructions, voir [Créer une offre dans Azure Stack Hub](azure-stack-create-offer.md).
 
-1. Sélectionnez **Offres**et recherchez l’offre que vous venez de créer.
+1. Sélectionnez **Offres** et recherchez l’offre que vous venez de créer.
 
 1. Sélectionnez **Vue d’ensemble** dans le panneau Offre.
 

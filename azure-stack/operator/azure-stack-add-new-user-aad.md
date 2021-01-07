@@ -1,18 +1,18 @@
 ---
 title: Ajouter un nouveau compte d’utilisateur Azure Stack Hub dans Azure Active Directory
 description: Découvrez comment créer un compte d’utilisateur dans Azure Active Directory, afin de pouvoir explorer le portail utilisateur.
-author: JustinHall
+author: PatAltimore
 ms.topic: article
 ms.date: 05/20/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 435b2bfdd2de9a232379190a0fe3db0dca642def
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9ada0a0c7731b92bc67f85545b5d9cd81e87cd36
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700559"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871971"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>Ajouter un nouveau compte d’utilisateur Azure Stack Hub dans Azure Active Directory (Azure AD)
 

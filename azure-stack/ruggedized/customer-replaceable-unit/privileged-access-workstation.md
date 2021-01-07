@@ -1,18 +1,18 @@
 ---
 title: Station de travail à accès privilégié et accès aux points de terminaison privilégiés
 description: Apprenez-en davantage sur l’accès à la station de travail à accès privilégié et aux points de terminaison privilégiés.
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: a186ef96c0ce35457fd9871a97ef4b5533813933
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 9eef242f6e422cdba3b64927d6bfda93fab530b3
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97392594"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874521"
 ---
 # <a name="privileged-access-workstation-and-privileged-endpoint-access"></a>Station de travail à accès privilégié et accès aux points de terminaison privilégiés
 

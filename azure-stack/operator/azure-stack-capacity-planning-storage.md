@@ -1,18 +1,18 @@
 ---
 title: Planification de la capacité de stockage Azure Stack Hub
 description: Découvrez comment planifier la capacité de stockage pour les déploiements Azure Stack Hub.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: d7776f07745a2f76bc447df3f29a54578624aca6
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 69248d5a81cf3d1017f221a57549d75b205f0fc3
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78935031"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871257"
 ---
 # <a name="azure-stack-hub-storage-capacity-planning"></a>Planification de la capacité de stockage Azure Stack Hub
 

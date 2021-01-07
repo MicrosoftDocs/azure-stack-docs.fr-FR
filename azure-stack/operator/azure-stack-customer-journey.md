@@ -1,18 +1,18 @@
 ---
 title: Procédure pas à pas d’intégration d’Azure Stack Hub dans un centre de données
 description: Découvrez comment réussir un déploiement local d’Azure Stack Hub dans votre centre de données, de la planification aux tâches post-déploiement.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: d55176266fc169b344e7bb43389a46657174b88e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 307a24fdf42ce5e007f74a9cf0072b5124d247b2
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78368830"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871427"
 ---
 # <a name="azure-stack-hub-datacenter-integration-walkthrough"></a>Procédure pas à pas d’intégration d’Azure Stack Hub dans un centre de données
 
@@ -91,7 +91,7 @@ Vous allez choisir les éléments suivants :
 
 - **Intégration du pare-feu**. Nous vous recommandons d’[utiliser un pare-feu](azure-stack-firewall.md) pour sécuriser Azure Stack Hub. Les pare-feu peuvent aider à prévenir les attaques DDOS, la détection d’intrusion et l’inspection du contenu. Toutefois, il convient de noter qu’ils peuvent devenir un goulot d’étranglement du débit pour les services de stockage Azure.
 
-- **Exigences en matière de certificats**. Il est essentiel que tous les [certificats nécessaires ](azure-stack-pki-certs.md) soient disponibles *avant* qu’un ingénieur sur site accède à votre centre de données pour le déploiement.
+- **Exigences en matière de certificats**. Il est essentiel que tous les [certificats nécessaires](azure-stack-pki-certs.md) soient disponibles *avant* qu’un ingénieur sur site accède à votre centre de données pour le déploiement.
 
 Une fois toutes les informations sur les condition préalables recueillies par le biais de la feuille de calcul de déploiement, le fournisseur de solutions lance le d’usine en fonction des données collectées, afin de garantir la réussite de l’intégration d’Azure Stack Hub dans votre centre de données.
 

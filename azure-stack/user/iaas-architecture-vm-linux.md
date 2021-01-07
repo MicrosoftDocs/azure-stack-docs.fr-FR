@@ -3,16 +3,16 @@ title: Exécuter une machine virtuelle Linux dans Azure Stack Hub
 description: Découvrez comment exécuter une machine virtuelle Linux sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 949bc2a89d485057d92e5c805fa63a7972ac1fb0
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 0803dc8332e296c0b92912967d34a6dfd885d4df
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920285"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873722"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Exécuter une machine virtuelle Linux dans Azure Stack Hub
 

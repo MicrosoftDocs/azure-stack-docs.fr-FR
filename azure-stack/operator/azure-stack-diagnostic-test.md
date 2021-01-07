@@ -1,22 +1,22 @@
 ---
 title: Valider l’état d’un système avec l’outil de validation d’Azure Stack Hub
 description: Découvrez comment utiliser l’outil de validation Azure Stack Hub pour valider l’état du système.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 01/10/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 4c91954e4a3a19640d519d16363c0d2742077d67
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: cd6eba86f75cffe3014ca954877ee4b39767bbf0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415162"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870832"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Valider l’état du système Azure Stack Hub
 
-En tant qu’opérateur Azure Stack Hub, il est essentiel de pouvoir déterminer à la demande l’intégrité et l’état de votre système. L’outil de validation Azure Stack Hub ( **Test-AzureStack** ) est une cmdlet PowerShell qui vous permet d’exécuter une série de tests sur votre système pour identifier d’éventuelles défaillances. Il vous sera généralement demandé d’exécuter cet outil via le [point de terminaison privilégié (PEP)](azure-stack-privileged-endpoint.md) quand vous contactez les services de support technique Microsoft (Support Microsoft) pour un problème. Avec toutes les informations sur l’état et l’intégrité du système à portée de main, le support Microsoft peut collecter et analyser des journaux détaillés, se concentrer sur la zone où l’erreur s’est produite et collaborer avec vous afin de résoudre le problème.
+En tant qu’opérateur Azure Stack Hub, il est essentiel de pouvoir déterminer à la demande l’intégrité et l’état de votre système. L’outil de validation Azure Stack Hub (**Test-AzureStack**) est une cmdlet PowerShell qui vous permet d’exécuter une série de tests sur votre système pour identifier d’éventuelles défaillances. Il vous sera généralement demandé d’exécuter cet outil via le [point de terminaison privilégié (PEP)](azure-stack-privileged-endpoint.md) quand vous contactez les services de support technique Microsoft (Support Microsoft) pour un problème. Avec toutes les informations sur l’état et l’intégrité du système à portée de main, le support Microsoft peut collecter et analyser des journaux détaillés, se concentrer sur la zone où l’erreur s’est produite et collaborer avec vous afin de résoudre le problème.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Exécution de l’outil de validation et accès aux résultats
 
@@ -47,7 +47,7 @@ Comme indiqué précédemment, l’outil de validation est exécuté via le poin
 
    Pour plus d’informations, consultez les sections [Considérations relatives aux paramètres](azure-stack-diagnostic-test.md#parameter-considerations) et [Exemples de cas d’usage](azure-stack-diagnostic-test.md#use-case-examples).
 
-1. Si un test retourne **FAIL** , exécutez `Get-AzureStackLog`. Pour obtenir des instructions sur un système intégré, découvrez comment exécuter [Get-AzureStackLog sur des systèmes intégrés Azure Stack Hub](azure-stack-get-azurestacklog.md).
+1. Si un test retourne **FAIL**, exécutez `Get-AzureStackLog`. Pour obtenir des instructions sur un système intégré, découvrez comment exécuter [Get-AzureStackLog sur des systèmes intégrés Azure Stack Hub](azure-stack-get-azurestacklog.md).
 
    L’applet de commande recueille des journaux d’activité générés par Test-AzureStack. Nous vous recommandons de ne pas collecter les journaux et de contacter le support Microsoft si des tests indiquent **WARN**.
 
@@ -145,14 +145,14 @@ Test-AzureStack
 
 ### <a name="run-validation-with-cloud-scenarios"></a>Exécuter la validation avec scénarios cloud
 
-Quand vous spécifiez le paramètre **ServiceAdminCredentials** , l’outil de validation exécute les tests de scénarios cloud par défaut : 
+Quand vous spécifiez le paramètre **ServiceAdminCredentials**, l’outil de validation exécute les tests de scénarios cloud par défaut : 
 
 ```powershell
 Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
 Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" 
 ```
 
-Si vous souhaitez exécuter UNIQUEMENT des scénarios cloud sans exécuter le reste des tests, vous pouvez utiliser le paramètre **Include**  : 
+Si vous souhaitez exécuter UNIQUEMENT des scénarios cloud sans exécuter le reste des tests, vous pouvez utiliser le paramètre **Include** : 
 
 ```powershell
 Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
@@ -163,16 +163,16 @@ Vous devez taper le nom d’utilisateur de l’administrateur cloud au format UP
 
 ### <a name="groups"></a>Groupes
 
-Afin d’améliorer l’expérience de l’opérateur, un paramètre **Group** a été activé pour exécuter plusieurs catégories de test en même temps. Actuellement, 3 groupes sont définis : **Default** , **UpdateReadiness** et **SecretRotationReadiness**.
+Afin d’améliorer l’expérience de l’opérateur, un paramètre **Group** a été activé pour exécuter plusieurs catégories de test en même temps. Actuellement, 3 groupes sont définis : **Default**, **UpdateReadiness** et **SecretRotationReadiness**.
 
 - **Par défaut** : considéré comme une exécution standard de **Test-AzureStack**. Ce groupe est exécuté par défaut si aucun autre groupe n’est sélectionné.
-- **UpdateReadiness**  : Vérification pour voir si l’instance Azure Stack Hub peut être mise à jour. Quand le groupe **UpdateReadiness** est exécuté, les avertissements sont affichés sous forme d’erreurs dans la sortie de la console ; ils doivent être considérés comme bloquants pour la mise à jour. À compter de la version 1910 d’Azure Stack Hub, les catégories suivantes font partie du groupe **UpdateReadiness**  :
+- **UpdateReadiness** : Vérification pour voir si l’instance Azure Stack Hub peut être mise à jour. Quand le groupe **UpdateReadiness** est exécuté, les avertissements sont affichés sous forme d’erreurs dans la sortie de la console ; ils doivent être considérés comme bloquants pour la mise à jour. À compter de la version 1910 d’Azure Stack Hub, les catégories suivantes font partie du groupe **UpdateReadiness** :
 
   - **AzsInfraFileValidation**
   - **AzsActionPlanStatus**
   - **AzsStampBMCSummary**
 
-- **SecretRotationReadiness**  : Vérification pour s’assurer que l’instance Azure Stack Hub est dans un état permettant une rotation des secrets. Quand le groupe **SecretRotationReadiness** est exécuté, les avertissements sont affichés sous forme d’erreurs dans la sortie de la console ; ils doivent être considérés comme bloquants pour la rotation des secrets. Les catégories suivantes font partie du groupe SecretRotationReadiness :
+- **SecretRotationReadiness** : Vérification pour s’assurer que l’instance Azure Stack Hub est dans un état permettant une rotation des secrets. Quand le groupe **SecretRotationReadiness** est exécuté, les avertissements sont affichés sous forme d’erreurs dans la sortie de la console ; ils doivent être considérés comme bloquants pour la rotation des secrets. Les catégories suivantes font partie du groupe SecretRotationReadiness :
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -192,7 +192,7 @@ L’exemple suivant exécute **Test-AzureStack** pour tester la disponibilité d
 Test-AzureStack -Group UpdateReadiness
 ```
 
-Si votre Azure Stack Hub exécute une version antérieure à 1811, utilisez les commandes PowerShell suivantes pour exécuter la cmdlet **Test-AzureStack**  :
+Si votre Azure Stack Hub exécute une version antérieure à 1811, utilisez les commandes PowerShell suivantes pour exécuter la cmdlet **Test-AzureStack** :
 
 ```powershell
 New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
@@ -201,7 +201,7 @@ Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSum
 
 ### <a name="run-validation-tool-to-test-infrastructure-backup-settings"></a>Exécuter l’outil de validation pour tester les paramètres de sauvegarde d’infrastructure
 
-*Avant* de configurer la sauvegarde de l’infrastructure, vous pouvez tester le chemin et les informations d’authentification du partage de sauvegarde à l’aide du test **AzsBackupShareAccessibility**  :
+*Avant* de configurer la sauvegarde de l’infrastructure, vous pouvez tester le chemin et les informations d’authentification du partage de sauvegarde à l’aide du test **AzsBackupShareAccessibility** :
 
   ```powershell
   Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 

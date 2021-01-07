@@ -3,16 +3,16 @@ title: Accéder au tableau de bord Kubernetes dans Azure Stack Hub
 description: Découvrez comment accéder au tableau de bord Kubernetes dans Azure Stack Hub
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 0497cf3b457276df9fc6c4938e7a1c1370eaa4a3
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.openlocfilehash: 1c68908a64fdff7c743563b6148e6636d24e276c
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383647"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873892"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Accéder au tableau de bord Kubernetes dans Azure Stack Hub 
 
@@ -50,7 +50,7 @@ Vous pouvez récupérer l’URL du tableau de bord à partir du nœud maître da
     - Connectez-vous au portail Azure Stack Hub `https://portal.local.azurestack.external/`.
     - Sélectionnez **Tous les services** > **Toutes les ressources**. Recherchez le maître dans votre groupe de ressources de cluster. Le maître se nomme `k8s-master-<sequence-of-numbers>`. 
 
-2. Ouvrez le nœud maître dans le portail. Copiez l’ **adresse IP publique**. Cliquez sur **Se connecter** pour obtenir votre nom d’utilisateur dans la zone **Connexion avec un compte local de machine virtuelle**. Il s’agit du même nom d’utilisateur que vous avez défini lors de la création de votre cluster. Utilisez l’adresse IP publique plutôt que l’adresse IP privée listée dans le panneau de connexion.
+2. Ouvrez le nœud maître dans le portail. Copiez l’**adresse IP publique**. Cliquez sur **Se connecter** pour obtenir votre nom d’utilisateur dans la zone **Connexion avec un compte local de machine virtuelle**. Il s’agit du même nom d’utilisateur que vous avez défini lors de la création de votre cluster. Utilisez l’adresse IP publique plutôt que l’adresse IP privée listée dans le panneau de connexion.
 
 3.  Ouvrez un client SSH pour vous connecter au maître. Si vous travaillez sur Windows, vous pouvez utiliser [Putty](https://www.ssh.com/ssh/putty/download) pour créer la connexion. Vous utilisez l’adresse IP publique pour le nœud maître, le nom d’utilisateur, puis ajoutez la clé privée utilisée lors de la création du cluster.
 

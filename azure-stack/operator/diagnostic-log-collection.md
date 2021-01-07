@@ -1,18 +1,18 @@
 ---
 title: Collecte des journaux de diagnostic
 description: Découvrez la collecte des journaux de diagnostic.
-author: myoungerman
+author: PatAltimore
 ms.topic: article
 ms.date: 10/30/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 12/08/2020
-ms.openlocfilehash: eaa265189769bf1f192ef6fce260a221935736cb
-ms.sourcegitcommit: 076ece88c3177db321f0ae32cba1d05179ffc393
+ms.openlocfilehash: c8913bd91b7d931baf47f249dd214dd6eea71e4a
+ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97794190"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97950737"
 ---
 # <a name="diagnostic-log-collection"></a>Collecte des journaux de diagnostic
 
@@ -142,6 +142,9 @@ Si vous utilisez la méthode **Envoyer les journaux maintenant** et que vous sou
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByResourceProvider <<value-add RP name>>
   ```
+
+  ::: moniker range=">= azs-2008"
+
   Pour envoyer les journaux de diagnostic pour SQL RP : 
 
   ```powershell
@@ -152,6 +155,8 @@ Si vous utilisez la méthode **Envoyer les journaux maintenant** et que vous sou
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByResourceProvider MySQLAdapter
   ```
+  
+  ::: moniker-end
 
   Pour envoyer les journaux de diagnostic pour IoT Hub : 
 

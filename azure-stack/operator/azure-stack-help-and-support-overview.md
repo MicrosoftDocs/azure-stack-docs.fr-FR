@@ -1,18 +1,18 @@
 ---
 title: Aide et support d’Azure Stack Hub
 description: Bénéficiez d’un support pour Microsoft Azure Stack Hub.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/26/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: db1a7919987803682ff0a9df84565fa7aef47620
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 7c4bb5f75118552d7f8379edac7083f8830082a5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415298"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870713"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Aide et support d’Azure Stack Hub
 
@@ -50,7 +50,7 @@ En cas de problème de déploiement, de correctif et de mise à jour, de matéri
 
 Pour le Kit de développement Azure Stack (ASDK), vous pouvez poser des questions de support technique sur le [Forum MSDN Azure Stack Hub](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack).
 
-Sélectionnez **Aide** (point d’interrogation) dans le coin supérieur droit du portail d’administration et sélectionnez ensuite **Aide + support** pour ouvrir **Aide + support - Vue d’ensemble** , où vous trouverez un lien vers le forum. Les forums MSDN sont consultés régulièrement. ASDK étant un environnement d’évaluation, le support Microsoft n’offre aucun support officiel.
+Sélectionnez **Aide** (point d’interrogation) dans le coin supérieur droit du portail d’administration et sélectionnez ensuite **Aide + support** pour ouvrir **Aide + support - Vue d’ensemble**, où vous trouverez un lien vers le forum. Les forums MSDN sont consultés régulièrement. ASDK étant un environnement d’évaluation, le support Microsoft n’offre aucun support officiel.
 
 Vous pouvez aussi contacter les forums MSDN pour trouver de l’aide concernant un problème, ou suivre une formation en ligne pour améliorer vos propres compétences.
 
@@ -76,10 +76,10 @@ Vous pouvez envoyer des journaux de diagnostic à Microsoft de deux manières :
 
 ## <a name="diagnostic-log-collection"></a>Collecte des journaux de diagnostic
 
-À partir de la version 1907, il existe deux nouvelles façons de collecter les journaux dans **Aide et support**  :
+À partir de la version 1907, il existe deux nouvelles façons de collecter les journaux dans **Aide et support** :
 
-- **Collecte automatique**  : si cette option est activée, la collecte des journaux est déclenchée par des alertes d’intégrité spécifiques.
-- **Collecter les journaux maintenant**  : vous pouvez choisir une fenêtre de 1 à 4 heures sur les sept derniers jours.
+- **Collecte automatique** : si cette option est activée, la collecte des journaux est déclenchée par des alertes d’intégrité spécifiques.
+- **Collecter les journaux maintenant** : vous pouvez choisir une fenêtre de 1 à 4 heures sur les sept derniers jours.
 
 ![Options de collecte des journaux de diagnostic](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
@@ -91,7 +91,7 @@ Dans les versions antérieures d’Azure Stack Hub, vous avez également un lien
 
 ![Obtenir des tutoriels de support](media/azure-stack-help-and-support/get-support-previous.png)
 
-En cas de problème avec des services cloud, le support est assuré par le support Microsoft. Vous pouvez sélectionner **Aide** (point d’interrogation) dans le coin supérieur droit du portail administrateur, **Aide et support** , puis **Nouvelle demande de support** pour envoyer une nouvelle demande de support directement au support Microsoft.
+En cas de problème avec des services cloud, le support est assuré par le support Microsoft. Vous pouvez sélectionner **Aide** (point d’interrogation) dans le coin supérieur droit du portail administrateur, **Aide et support**, puis **Nouvelle demande de support** pour envoyer une nouvelle demande de support directement au support Microsoft.
 
 Pour un système intégré, il existe un processus d’escalade et de résolution coordonné entre Microsoft et nos partenaires OEM. En cas de problème avec des services cloud, le support est assuré par le support Microsoft.
 

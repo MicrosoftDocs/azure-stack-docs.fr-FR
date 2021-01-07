@@ -1,18 +1,18 @@
 ---
 title: Ajouter des adresses IP publiques dans Azure Stack Hub
 description: Apprenez à ajouter des adresses IP publiques dans Azure Stack Hub.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 05/28/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 245817c62d2c5ddbd0856bdf4af869b7a66dbe18
-ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
+ms.openlocfilehash: 5f083e507689e7d24fa02060e63a9e6302ef3568
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97801995"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871937"
 ---
 # <a name="add-public-ip-addresses"></a>Ajouter des adresses IP publiques
 

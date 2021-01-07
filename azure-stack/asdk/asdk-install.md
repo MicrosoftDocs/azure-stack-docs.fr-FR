@@ -1,18 +1,18 @@
 ---
 title: Installer l’ASDK
 description: En savoir plus sur l’installation du Kit de développement Azure Stack (ASDK).
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: b85279aff5427e0f3dbdc15b979a00a41db43e57
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: fe485a3eebee3e44e19173fdf68440057de7d783
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695850"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873416"
 ---
 # <a name="install-the-asdk"></a>Installer l’ASDK
 Après la [préparation de l’ordinateur hôte ASDK](asdk-prepare-host.md), le Kit de développement Azure Stack (ASDK) peut être déployé dans l’image CloudBuilder.vhdx en suivant les étapes de cet article.

@@ -3,7 +3,7 @@ title: Azure Stack - Contrôles d’intégrité dans le stockage étendu pour le
 description: Cet article fournit une aide relative à l’exécution de contrôles d’intégrité dans le stockage étendu pour le stockage Blob Modular Data Center.
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: PatAltimore
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: karlt
 ms.lastreviewed: 10/01/2020
-ms.openlocfilehash: 9d8e7915cb5c1ca9d0a073c750f67a5688157e74
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: ebb39f3eab90b0f976e5fee2896cbe85d0d023f5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183389"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872396"
 ---
 # <a name="extended-storage-health-checks"></a>Contrôles d’intégrité du stockage étendu
 
@@ -73,7 +73,7 @@ La commande suivante contrôle l’intégrité globale du cluster, dans un affic
 isi status
 ```
 
-Si tout est correct, un **OK** s’affiche en vert, sinon des avertissements jaunes ou des erreurs rouges apparaissent soit sur la ligne **Intégrité du cluster** , soit sur une ou plusieurs des lignes ID du nœud de cluster dans le tableau suivant.
+Si tout est correct, un **OK** s’affiche en vert, sinon des avertissements jaunes ou des erreurs rouges apparaissent soit sur la ligne **Intégrité du cluster**, soit sur une ou plusieurs des lignes ID du nœud de cluster dans le tableau suivant.
 
 Si vous avez besoin d’informations supplémentaires sur l’intégrité du cluster, une commande plus détaillée peut être exécutée, dans un affichage développé :
 ```console
@@ -92,7 +92,7 @@ Pour obtenir une vue d’ensemble du déploiement Azure Stack intégré au syst�
 
 Les composants requis pour ce script sont les suivants :
 - Ficher de script .\Invoke-ExtendedStorageConfiguration.ps1, trouvé dans le dossier C:\OEMSoftware\ExtendedStorage\ de l’Hôte du cycle de vie matériel
-- Variable d’informations d’identification $AzScred, qui doit être remplie avec les informations d’identification *DOMAIN* \cloudadmin. Remplacez *DOMAIN* par le nom de domaine réel, par exemple CONTOSO.
+- Variable d’informations d’identification $AzScred, qui doit être remplie avec les informations d’identification *DOMAIN*\cloudadmin. Remplacez *DOMAIN* par le nom de domaine réel, par exemple CONTOSO.
 
 
 ```powershell

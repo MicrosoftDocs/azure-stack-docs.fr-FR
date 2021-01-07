@@ -3,16 +3,16 @@ title: Développer des modèles pour Azure Stack Hub
 description: Apprenez à développer des modèles Azure Resource Manager pour la portabilité des applications entre Azure et Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: dd43abbf1194aa4aaa3ca1cc75a3e2ff6262bbbc
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 2d449adc59be9051188c1d942ae54d6a0761d28e
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146748"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874215"
 ---
 # <a name="develop-templates-for-azure-stack-hub-with-azure-resource-manager"></a>Développer des modèles pour Azure Stack Hub avec Azure Resource Manager
 

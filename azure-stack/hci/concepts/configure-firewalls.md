@@ -4,13 +4,13 @@ description: Cette rubrique fournit des conseils sur la façon de configurer des
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
-ms.date: 12/10/2020
-ms.openlocfilehash: 374041b5472b20781f6c8648287d665925a8f227
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.date: 01/06/2020
+ms.openlocfilehash: 73e58c69295afc1a1bb106ea078e753647daa08d
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97623062"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965492"
 ---
 # <a name="configure-firewalls-for-azure-stack-hci"></a>Configurer des pare-feu pour Azure Stack HCI
 
@@ -46,7 +46,7 @@ Azure gère les adresses IP connues pour les services Azure qui sont organisés 
 | :-----------------------------| :-----------------------  | :---------------------------------------------------------------------------------- |
 | Azure Active Directory        | AzureActiveDirectory      | `https://login.microsoftonline.com`<br> `https://graph.microsoft.com`               |
 | Azure Resource Manager        | AzureResourceManager      | `https://management.azure.com`                        |
-| Service cloud Azure Stack HCI | AzureFrontDoor.Frontend   | Dépend de la région pour laquelle vous vous êtes inscrit :<br> USA Est : `https://eus-azurestackhci-usage.azurewebsites.net`<br> Europe Ouest : `https://weu-azurestackhci-usage.azurewebsites.net` |
+| Service cloud Azure Stack HCI | AzureFrontDoor.Frontend   | `https://azurestackhci.azurefd.net` |
 | Azure Arc                     | AzureArcInfrastructure<br> AzureTrafficManager | Dépend de la fonctionnalité que vous souhaitez utiliser :<br> Service d’identité hybride : `*.his.arc.azure.com`<br> Guest Configuration : `*.guestconfiguration.azure.com`<br> **Remarque :** D’autres URL seront ajoutées à mesure que nous activerons davantage de fonctionnalités. |
 
 ## <a name="update-microsoft-defender-firewall"></a>Mettre à jour le pare-feu Microsoft Defender

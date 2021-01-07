@@ -1,18 +1,18 @@
 ---
 title: Modifier des paramètres dans votre configuration de commutateur Azure Stack Hub
 description: Découvrez les paramètres que vous pouvez modifier dans votre configuration de commutateur Azure Stack Hub.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wamota
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 9fcbd0203684afbbae9d11ed00db12402d8040dd
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 0faedfb69b833312dbb334eb6fe5d72fafd2ca80
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836000"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871206"
 ---
 # <a name="change-settings-on-your-azure-stack-hub-switch-configuration"></a>Modifier des paramètres dans votre configuration de commutateur Azure Stack Hub
 

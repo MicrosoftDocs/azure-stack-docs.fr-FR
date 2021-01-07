@@ -1,18 +1,18 @@
 ---
 title: Remplacer un bloc d’alimentation
 description: Découvrez comment remplacer un bloc d’alimentation.
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 392ad424bfe6eba87d611ca669ab1c1469fdece7
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 03f2f79a1d849edb65da0097eb4135146ae7a16e
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97392685"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874470"
 ---
 # <a name="replacing-a-power-supply-unit"></a>Remplacement d’un bloc d’alimentation
 

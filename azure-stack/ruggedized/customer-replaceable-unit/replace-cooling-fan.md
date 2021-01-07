@@ -1,18 +1,18 @@
 ---
 title: Remplacer un ventilateur de refroidissement
 description: Découvrez comment remplacer un ventilateur de refroidissement.
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 6138dc5d1ca5b606893daf856a6cf23c525a06c7
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 418501e5ee6e2f14536ace5ea61f172d2736a31a
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97392591"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874504"
 ---
 # <a name="replacing-a-cooling-fan"></a>Remplacement d’un ventilateur de refroidissement
 

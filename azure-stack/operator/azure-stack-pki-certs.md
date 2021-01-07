@@ -1,18 +1,18 @@
 ---
 title: Exigences de certificat d’infrastructure de clés publiques Azure Stack Hub
 description: Découvrez les exigences de certificat d’infrastructure de clés publiques Azure Stack Hub pour les systèmes intégrés Azure Stack Hub.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: ee0ef7119dfb2255cd97e343f8e7339ab715ed7d
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.openlocfilehash: 8304ef3fe981545ac05de64b335c1edabdf32651
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "93049600"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965526"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Exigences de certificat pour infrastructure à clé publique (PKI) Azure Stack Hub
 
@@ -38,7 +38,6 @@ La liste suivante décrit les exigences générales en matière d’émission, d
 ::: moniker-end
 - L’utilisation des certificats auto-signés n’est pas prise en charge.
 - Pour le déploiement et la rotation, vous pouvez utiliser un certificat unique couvrant tous les espaces de noms dans les champs Nom de l’objet et Autre nom de l’objet du certificat, OU des certificats individuels pour chaque espace de noms ci-dessous dont ont besoin les services Azure Stack Hub que vous envisagez d’utiliser. Les deux approches requièrent l’utilisation de caractères génériques pour les points de terminaison où ils sont requis, comme **KeyVault** et **KeyVaultInternal**.
-- Le chiffrement PFX du certificat doit être 3DES.
 - L’algorithme de signature de certificat ne doit pas être SHA1.
 - Le format du certificat doit être PFX, car les clés tant publique que privée sont requises pour l’installation d’Azure Stack Hub. La clé privée doit être définie pour l’attribut de clé Ordinateur local.
 - Le chiffrement PFX doit être 3DES (chiffrement par défaut en cas d’exportation depuis un client Windows 10 ou un magasin de certificats Windows Server 2016).
@@ -109,8 +108,8 @@ Le tableau suivant décrit les points de terminaison et les certificats requis p
 |App Service|API|api.appservice. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|FTP|ftp.appservice. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|SSO|sso.appservice. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
-|Event Hubs|SSL|&#42;.eventhub. *&lt;region>.&lt;fqdn>* | eventhub. *&lt;region>.&lt;fqdn>* |
-|IoT Hub|SSL|&#42;.mgmtiothub. *&lt;region>.&lt;fqdn>* | mgmtiothub. *&lt;region>.&lt;fqdn>* |
+|Event Hubs|SSL|&#42;.eventhub. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL générique)|eventhub. *&lt;region>.&lt;fqdn>* |
+|IoT Hub|SSL|&#42;.mgmtiothub. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL générique)|mgmtiothub. *&lt;region>.&lt;fqdn>* |
 |SQL, MySQL|SQL et MySQL|&#42;.dbadapter. *&lt;region>.&lt;fqdn>*<br>(Certificat SSL générique)|dbadapter. *&lt;region>.&lt;fqdn>*|
 
 <sup>1</sup> Requiert un certificat avec plusieurs autres noms de l’objet génériques. Plusieurs SAN génériques sur un même certificat peuvent ne pas être pris en charge par toutes les autorités de certification publiques.

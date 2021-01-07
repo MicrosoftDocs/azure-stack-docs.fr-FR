@@ -3,16 +3,16 @@ title: Déployer un cluster Kubernetes sur un réseau virtuel personnalisé sur 
 description: Découvrez comment déployer un cluster Kubernetes sur un réseau virtuel personnalisé sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 9/2/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: 588adfc39dc6ff3eec26e67283a7f51a28655fd2
-ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+ms.openlocfilehash: 417d2cee37bc97f64de9b3d21f81ff60c075e74b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91853208"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873688"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Déployer un cluster Kubernetes sur un réseau virtuel personnalisé sur Azure Stack Hub 
 

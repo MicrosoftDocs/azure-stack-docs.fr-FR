@@ -1,18 +1,18 @@
 ---
 title: Gérer des comptes de stockage Azure Stack Hub
 description: Découvrez comment rechercher, gérer, restaurer et récupérer des comptes de stockage Azure Stack Hub.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 2e4882717b4dc708298df7b4ee9a8dc0ef2c1b9c
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 4a939cafccd91b29a324dd15e01b04be47074df8
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415315"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870101"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Gérer des comptes de stockage Azure Stack Hub
 
@@ -37,12 +37,12 @@ Si vous êtes intéressé par un compte de stockage particulier, vous pouvez **f
 **Pour filtrer les comptes :**
 
 1. Sélectionnez **Filtrer** en haut du volet.
-2. Dans le volet Filtrer, vous pouvez spécifier un **nom de compte** , un **ID d’abonnement** ou un **statut** pour affiner la liste des comptes de stockage à afficher. Utilisez-les pour filtrer selon vos besoins.
+2. Dans le volet Filtrer, vous pouvez spécifier un **nom de compte**, un **ID d’abonnement** ou un **statut** pour affiner la liste des comptes de stockage à afficher. Utilisez-les pour filtrer selon vos besoins.
 3. Lorsque vous tapez, la liste applique automatiquement le filtre.
 
     ![Filtrer des comptes de stockage Azure Stack Hub](media/azure-stack-manage-storage-accounts/image5.png)
 
-4. Pour réinitialiser le filtre, sélectionnez **Filtrer** , effacez les sélections, puis mettez à jour la liste.
+4. Pour réinitialiser le filtre, sélectionnez **Filtrer**, effacez les sélections, puis mettez à jour la liste.
 
 La zone de texte de recherche (en haut du volet de la liste de comptes de stockage) vous permet de mettre en surbrillance le texte sélectionné dans la liste des comptes. Vous pouvez l’utiliser lorsque le nom complet ou l’ID n’est pas facilement disponible.
 
@@ -62,7 +62,7 @@ Dans Azure Stack Hub, il existe un moyen simple de le faire :
 
 1. Accédez à la liste de comptes de stockage. Pour plus d’informations, consultez [Rechercher un compte de stockage](azure-stack-manage-storage-accounts.md) en haut de cet article.
 2. Localisez ce compte particulier dans la liste. Il peut être nécessaire de filtrer.
-3. Vérifiez l’ *état* du compte. Il doit être **Supprimé**.
+3. Vérifiez l’*état* du compte. Il doit être **Supprimé**.
 4. Sélectionnez le compte pour ouvrir le volet des détails du compte.
 5. En haut de ce volet, recherchez le bouton **Récupérer** et sélectionnez-le.
 6. Sélectionnez **Oui** pour confirmer.
@@ -92,7 +92,7 @@ Le paramètre de période de conservation permet à un opérateur cloud de spéc
 1. Connectez-vous au portail administrateur `https://adminportal.local.azurestack.external`.
 2. Sélectionnez **Tous les services** > **Gestion des régions** sous **Administration**.
 3. Sélectionnez **Fournisseurs de ressources** > **Stockage** > **Paramètres**. Votre chemin d’accès est Accueil > *région* - Fournisseurs de ressources > Stockage.
-4. Sélectionnez **Configuration** , puis modifiez la valeur de la période de conservation.
+4. Sélectionnez **Configuration**, puis modifiez la valeur de la période de conservation.
 
    Définissez le nombre de jours et enregistrez-le.
 

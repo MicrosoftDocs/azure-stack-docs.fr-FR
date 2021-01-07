@@ -3,16 +3,16 @@ title: Se connecter à Azure Stack Hub
 description: Découvrez comment vous connecter à Azure Stack Hub.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 8661666b4f953d07a96f1a2402782970e32c140b
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 9369f0d11ba8c39ce27134a85c93328ce2389833
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545743"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874249"
 ---
 # <a name="connect-to-azure-stack-hub"></a>Se connecter à Azure Stack Hub
 
@@ -24,9 +24,9 @@ Pour pouvoir gérer des ressources, vous devez vous connecter au Kit de dévelop
 ## <a name="connect-to-azure-stack-hub-with-remote-desktop"></a>Se connecter à Azure Stack Hub avec l’option Bureau à distance
 Avec une connexion Bureau à distance, un seul utilisateur à la fois peut se connecter au portail pour gérer des ressources.
 
-1. Ouvrez une connexion Bureau à distance et connectez-vous au kit de développement. Entrez le nom d’utilisateur **AzureStack\AzureStackAdmin** , ainsi que le mot de passe d’administration que vous avez fourni au moment de l’installation d’Azure Stack Hub.  
+1. Ouvrez une connexion Bureau à distance et connectez-vous au kit de développement. Entrez le nom d’utilisateur **AzureStack\AzureStackAdmin**, ainsi que le mot de passe d’administration que vous avez fourni au moment de l’installation d’Azure Stack Hub.  
 
-2. À partir de l’ordinateur du kit de développement, ouvrez le Gestionnaire de serveur, cliquez sur **Serveur local** , désactivez la sécurité renforcée d’Internet Explorer, puis fermez le Gestionnaire de serveur.
+2. À partir de l’ordinateur du kit de développement, ouvrez le Gestionnaire de serveur, cliquez sur **Serveur local**, désactivez la sécurité renforcée d’Internet Explorer, puis fermez le Gestionnaire de serveur.
 
 3. Pour ouvrir le portail, accédez à `https://portal.local.azurestack.external/` et connectez-vous à l’aide des informations d’identification utilisateur.
 

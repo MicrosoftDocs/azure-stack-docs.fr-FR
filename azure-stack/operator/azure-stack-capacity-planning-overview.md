@@ -2,18 +2,18 @@
 title: Vue d’ensemble de la planification de la capacité
 titleSuffix: Azure Stack Hub
 description: Découvrez comment planifier la capacité pour des déploiements Azure Stack Hub.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: e097904f990f76898253e2d56115b10ce230de36
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 4b3a6b58b6738c4248eaeb5d76b48fa9d1fdb442
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700984"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871348"
 ---
 # <a name="capacity-planning-for-azure-stack-hub-overview"></a>Vue d’ensemble de la planification de la capacité pour Azure Stack Hub
 
@@ -32,5 +32,5 @@ L’unité d’échelle simplifie l’acquisition et la gestion d’Azure Stack 
 Les rubriques suivantes fournissent plus de détails sur chaque composant :
 
 - [Calcul d’Azure Stack Hub](azure-stack-capacity-planning-compute.md)
-- [Stockage d’Azure Stack Hub](azure-stack-capacity-planning-storage.md)
-- [Capacity Planner d’Azure Stack Hub](azure-stack-capacity-planner.md)
+- [Stockage Azure Stack Hub](azure-stack-capacity-planning-storage.md)
+- [Azure Stack Hub Capacity Planner](azure-stack-capacity-planner.md)

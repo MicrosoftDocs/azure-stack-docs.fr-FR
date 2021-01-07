@@ -2,18 +2,18 @@
 title: Remplacer un disque physique
 titleSuffix: Azure Stack Hub
 description: Découvrez comment remplacer un disque physique dans Azure Stack Hub.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 12/02/2019
-ms.openlocfilehash: 172512b35e4f13a7ad86011162fe7ca9ebb825e5
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 17c8a963ec49ebefff08f56a3411e71ae9d68011
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545378"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869489"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack-hub"></a>Remplacer un disque physique dans Azure Stack Hub
 

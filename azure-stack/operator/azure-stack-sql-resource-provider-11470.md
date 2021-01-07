@@ -1,18 +1,18 @@
 ---
 title: Notes de publication de la version 1.1.47.0 du fournisseur de ressources SQL Azure Stack Hub
 description: Découvrez les nouveautés de la dernière mise à jour du fournisseur de ressources SQL Azure Stack Hub, notamment des fonctionnalités inédites, des correctifs et des problèmes connus.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 11/26/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: 9f86466ebacaebc74b7799ec1145cc405faf1b7d
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.openlocfilehash: d95be92f4cab37c41e1802fdcb18969e3276f459
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364692"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869217"
 ---
 # <a name="sql-resource-provider-11470-release-notes"></a>Notes de publication de la version 1.1.47.0 du fournisseur de ressources SQL
 

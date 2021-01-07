@@ -1,18 +1,18 @@
 ---
 title: Feuille de déploiement pour Azure Stack Hub
 description: Découvrez comment installer et utiliser l’outil de feuille de calcul de déploiement pour déployer Azure Stack Hub.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 04/19/2019
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wamota
 ms.lastreviewed: 04/19/2019
-ms.openlocfilehash: 1949d198c7d85e60c5a3195dfbd5e725cef834c7
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: afdad104cad67e928e1d6d988138ab1c8555631c
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836123"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870883"
 ---
 # <a name="deployment-worksheet-for-azure-stack-hub-integrated-systems"></a>Feuille de déploiement pour les systèmes intégrés Azure Stack Hub
 

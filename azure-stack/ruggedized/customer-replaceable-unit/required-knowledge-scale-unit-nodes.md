@@ -1,18 +1,18 @@
 ---
 title: Connaissances requises dans l’utilisation des nœuds d’unité d’échelle dans une appliance cloud tactique
 description: Apprenez-en davantage sur les connaissances requises pour l’utilisation des nœuds d’unité d’échelle dans une appliance cloud tactique.
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: f108559f191abd7a4d936f9f187384d150df8d62
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: a46ae218cbf4b041b836ad2f204093daa449c785
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97392659"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874555"
 ---
 # <a name="required-knowledge-for-working-with-scale-unit-nodes-in-a-tactical-cloud-appliance"></a>Connaissances requises dans l’utilisation des nœuds d’unité d’échelle dans une appliance cloud tactique
 

@@ -2,18 +2,18 @@
 title: Gérer des ressources réseau
 titleSuffix: Azure Stack Hub
 description: Découvrez comment gérer les ressources réseau, y compris le pool d’adresses MAC et la consommation d’adresses IP publiques dans une région.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 1/22/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: b96485e74286cbbbd2ff20f2378dc7c452849b52
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: f4fc98a7fae3a58d9467d8c1cafe46fcbef858fc
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487394"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868724"
 ---
 # <a name="manage-network-resources-in-azure-stack-hub"></a>Gérer les ressources réseau dans Azure Stack Hub
 
@@ -53,7 +53,7 @@ Pour afficher le nombre total d’adresses IP publiques qui ont été consommée
 
     ![Volet Fournisseur de ressources réseau dans le portail d’administration Azure Stack Hub](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-01.png)
 
-Le nombre**Utilisé** représente le nombre d’adresses IP publiques affectées à partir de pools d’adresses IP publiques. Le nombre sous **Libres** représente le nombre d’adresses IP publiques à partir de pools d’adresses IP publiques qui n’ont pas été affectées et sont encore disponibles. Le nombre sous **% utilisé** représente le nombre d’adresses utilisées ou affectées en pourcentage du nombre d’adresses IP publiques dans tous les pools d’adresses IP publiques de cet emplacement.
+Le nombre **Utilisé** représente le nombre d’adresses IP publiques affectées à partir de pools d’adresses IP publiques. Le nombre sous **Libres** représente le nombre d’adresses IP publiques à partir de pools d’adresses IP publiques qui n’ont pas été affectées et sont encore disponibles. Le nombre sous **% utilisé** représente le nombre d’adresses utilisées ou affectées en pourcentage du nombre d’adresses IP publiques dans tous les pools d’adresses IP publiques de cet emplacement.
 
 ### <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>Afficher les adresses IP publiques créées par des abonnements de locataire
 

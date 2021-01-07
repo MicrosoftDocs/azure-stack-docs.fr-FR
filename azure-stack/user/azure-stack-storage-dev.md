@@ -3,16 +3,16 @@ title: Découvrir les outils de développement du stockage Azure Stack Hub
 description: Guide de démarrage pour l’utilisation des outils de développement du stockage Azure Stack Hub
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.topic: conceptual
 ms.reviewer: jiahan
 ms.lastreviewed: 08/12/2020
-ms.openlocfilehash: fe3d1187ff51a9fa85aaab66186db294a8b25e42
-ms.sourcegitcommit: 85827a2227eb2d1ed1ed44bb9f00e28d96818c84
+ms.openlocfilehash: 452a572dfccaaa4c33a2630bd8459f89ba8b26d6
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96869018"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873841"
 ---
 # <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Bien démarrer avec les outils de développement du stockage Azure Stack Hub
 
