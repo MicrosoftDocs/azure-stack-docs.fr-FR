@@ -10,12 +10,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 04/13/2020
-  ms.openlocfilehash: e0a1695cbc5df9454671cd87f187ee71aee83c19
-  ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+  ms.openlocfilehash: b815aa8a669c59acdd40e7847f26dd66335fdea3
+  ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 01/05/2021
-  ms.locfileid: "97868622"
+  ms.lasthandoff: 01/07/2021
+  ms.locfileid: "97974181"
 landingContent:
 - title: À propos d’Azure Stack Hub
   linkLists:
@@ -28,9 +28,9 @@ landingContent:
   - linkListType: whats-new
     links:
     - text: Mises à jour de sécurité
-      url: ./release-notes-security-updates.md?view=azs-2002
+      url: ./release-notes-security-updates.md
     - text: Notes de publication
-      url: ./release-notes.md?view=azs-2002
+      url: ./release-notes.md
     - text: Azure Stack Hub Capacity Planner
       url: azure-stack-capacity-planning-overview.md
 - title: Bien démarrer
@@ -78,7 +78,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Créer une offre pour une machine virtuelle
-      url: ./tutorial-offer-services.md?view=azs-2002
+      url: ./tutorial-offer-services.md
     - text: Créer une base de données MySQL à haute disponibilité
       url: azure-stack-tutorial-mysql.md
     - text: Créer des applications pour toutes les plateformes
