@@ -42,6 +42,10 @@
       items:
         - name: Créer un cluster avec PowerShell
           href: deploy/create-cluster-powershell.md
+    - name: Déployer les charges de travail
+      items:
+        - name: Déployer une virtualisation d’entreprise approuvée
+          href: deploy/deploy-trusted-enterprise-virtualization.md
 - name: Gérer
   items:
     - name: Gérer les machines virtuelles
