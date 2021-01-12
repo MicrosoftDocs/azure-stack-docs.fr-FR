@@ -1,6 +1,6 @@
 ---
-title: Questions fréquentes (FAQ) sur Windows Server dans Azure Stack | Microsoft Docs
-description: Liste des questions fréquentes sur Windows Server dans la Place de marché Azure Stack
+title: Questions fréquentes (FAQ) sur Windows Server dans Azure Stack - MDC | Microsoft Docs
+description: Lisez les questions fréquentes (FAQ) sur la Place de marché Azure Stack pour Windows Server lors de l’exploitation d’un Modular Data Center (MDC).
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 3570eeb9edadd359081c429f821a09e3d9954439
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 64ccefb0a6644d2cd613a39d8beaaf1f82ee9fc0
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330046"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910786"
 ---
-# <a name="windows-server-in-azure-stack-marketplace-faq"></a>FAQ relative à Windows Server dans la Place de marché Azure Stack
+# <a name="windows-server-in-azure-stack-marketplace-faq---modular-data-center-mdc"></a>Questions fréquentes (FAQ) relatives à Windows Server dans la Place de marché Azure Stack - Modular Data Center (MDC)
 
 Cet article répond à certaines questions fréquentes sur les images Windows Server dans la [Place de marché Azure Stack Hub](../../operator/azure-stack-marketplace.md).
 
@@ -34,7 +34,7 @@ Les utilisateurs d’Azure Stack Hub renforcé et de MDC peuvent utiliser gratui
 
 Les images Windows Server proposées par Microsoft par le biais de la place de marché Azure Stack sont disponibles en deux versions. Une seule version de cette image à la fois peut être utilisée dans un environnement Azure Stack.
 
-- **Paiement à l’utilisation**  : Ces images ne doivent pas être utilisées sur Azure Stack Hub renforcé ou MDC.
+- **Paiement à l’utilisation** : Ces images ne doivent pas être utilisées sur Azure Stack Hub renforcé ou MDC.
 
 - **BYOL (apportez votre propre licence)**  : Ces images peuvent être utilisées sur Azure Stack Hub renforcé et MDC.
 
@@ -50,7 +50,7 @@ Ensuite, si des groupes de machines virtuelles identiques font référence à un
 
 **Que faire si je télécharge la mauvaise version et que j’offre celle-ci à utilisateurs ?**
 
-Commencez par supprimer la version incorrecte de la place de marché. Attendez que l’opération se termine (ce qui est indiqué dans une notification, et non dans le panneau **Gestion de la Place de marché** ). Téléchargez ensuite la bonne version.
+Commencez par supprimer la version incorrecte de la place de marché. Attendez que l’opération se termine (ce qui est indiqué dans une notification, et non dans le panneau **Gestion de la Place de marché**). Téléchargez ensuite la bonne version.
 
 Si vous téléchargez les deux versions de l’image, seule la dernière version est visible pour les clients finaux dans la galerie de la place de marché.
 

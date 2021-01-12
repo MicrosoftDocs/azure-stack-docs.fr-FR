@@ -1,6 +1,6 @@
 ---
-title: Surveiller l’intégrité et les alertes dans Azure Stack | Microsoft Docs
-description: Découvrez comment surveiller l’intégrité et les alertes dans Azure Stack.
+title: Surveiller l’intégrité et les alertes dans Azure Stack - MDC | Microsoft Docs
+description: Découvrez comment surveiller l’intégrité et les alertes dans Azure Stack pour un Modular Data Center (MDC).
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 10/26/2020
 ms.author: mabrigg
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 4a14700a081e8c85f29a7edc69c471ba9bd3d249
-ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
+ms.openlocfilehash: bdc027e8c61053fddddd5ad365eff8069acb840d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94885782"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910820"
 ---
-# <a name="monitor-health-and-alerts-in-azure-stack"></a>Surveiller l’intégrité et les alertes dans Azure Stack
+# <a name="monitor-health-and-alerts-in-azure-stack---modular-data-center-mdc"></a>Surveiller l’intégrité et les alertes dans Azure Stack - Modular Data Center (MDC)
 
 Azure Stack inclut des fonctionnalités de supervision d’infrastructure qui vous aident à visualiser les alertes et l’intégrité d’une région Azure Stack. La vignette **Gestion des régions** répertorie toutes les régions d’Azure Stack déployées. Elle est épinglée par défaut dans le portail d’administration pour l’abonnement fournisseur par défaut. La vignette montre le nombre d’alertes actives (critiques et d’avertissement) pour chaque région. La vignette est votre point d’entrée vers la fonctionnalité d’alerte et d’intégrité d’Azure Stack.
 
