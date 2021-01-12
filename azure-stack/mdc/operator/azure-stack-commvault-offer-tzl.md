@@ -1,6 +1,6 @@
 ---
-title: Proposer l'élément Commvault de la Place de marché dans Azure Stack | Microsoft Docs
-description: Déployer Commvault à partir de la Place de marché Azure Stack
+title: Proposer l'élément Commvault de la Place de marché dans Azure Stack - MDC
+description: Déployez Commvault à partir de la Place de marché Azure Stack pour un Modular Data Center (MDC).
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 6ece6792602d90fd43bc682d7547061180ea9289
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: c2f98725a93dbd471f257d8a038a989d9f892c68
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330072"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910837"
 ---
-# <a name="offer-commvault-marketplace-item-in-azure-stack"></a>Proposer l'élément Commvault de la Place de marché dans Azure Stack
+# <a name="offer-commvault-marketplace-item-in-azure-stack---modular-data-center-mdc"></a>Proposer l'élément Commvault de la Place de marché dans Azure Stack - Modular Data Center (MDC)
 
 *S’applique à : Modular Data Center, Azure Stack Hub renforcé*
 

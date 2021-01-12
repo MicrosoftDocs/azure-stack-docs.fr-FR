@@ -3,21 +3,23 @@ title: Résoudre les problèmes de rapport de validation de cluster
 description: Résoudre les problèmes de rapport de validation de cluster et valider la configuration des paramètres QoS pour les clusters HCI Azure Stack
 author: khdownie
 ms.topic: troubleshooting
-ms.date: 07/21/2020
+ms.date: 01/05/2021
 ms.author: v-kedow
 ms.reviewer: JasonGerend
-ms.openlocfilehash: c4da92a6d88a3d2046ee6136f2481ac23e5bd476
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: a5b6ef03701daf1c1f4115f88a2a4e44bac1bd61
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86867971"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97918634"
 ---
 # <a name="troubleshoot-cluster-validation-reporting"></a>Résoudre les problèmes de rapport de validation de cluster
 
 > S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
 
 Cette rubrique vous aide à résoudre les problèmes de rapports de validation de cluster pour les paramètres QoS (qualité de service) de réseau et de stockage sur les serveurs d’un cluster Azure Stack HCI, et à vérifier que les règles importantes sont définies. Pour des performances et une connectivité optimales, le processus de validation de cluster vérifie que la configuration QoS de Data Center Bridging (DCB) est cohérente et, si elles sont définies, qu’elle contient des règles appropriées pour les classes de trafic du clustering de basculement et de SMB/SMB Direct.
+
+DCB est requis pour les réseaux RDMA sur Ethernet convergé (RoCE) et est facultatif (bien que recommandé) pour les réseaux iWARP (Internet Area RDMA Protocol).
 
 ## <a name="install-data-center-bridging"></a>Installer Data Center Bridging
 

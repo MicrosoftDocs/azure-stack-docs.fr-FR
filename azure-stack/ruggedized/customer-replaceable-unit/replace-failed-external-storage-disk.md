@@ -1,18 +1,18 @@
 ---
 title: Remplacer un disque de stockage externe défectueux
 description: Découvrez comment remplacer un disque de stockage externe défectueux.
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 46320af2b4eeb6eddbca92a6749550eed05f6627
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: e53d81e7606c6440ce535726199af31a1dbfd950
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97392596"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910650"
 ---
 # <a name="replacing-a-failed-external-storage-disk"></a>Remplacement d’un disque de stockage externe défectueux
 
@@ -69,11 +69,11 @@ Appliquez la procédure suivante pour remplacer un disque externe défectueux.
 
     1.  Dans le menu supérieur, sélectionnez **Storage** :
 
-        ![](media/image-30.png)
+        ![Capture d’écran montrant la page iDRAC avec l’action « Stockage » sélectionnée.](media/image-30.png)
     
     1.  Localisez le disque remplacé et développez l’élément. Comparez la **révision** du disque à celle mentionnée dans la matrice de prise en charge. Si le disque ne figure pas dans la matrice de prise en charge, contactez le support afin de résoudre le problème.
 
-        ![](media/image-31.png)
+        ![Capture d’écran montrant la page « Propriétés avancées » iDRAC avec les options « Fabricant », « ID de produit » et « Révision » mises en surbrillance.](media/image-31.png)
         
 ## <a name="next-steps"></a>Étapes suivantes
 

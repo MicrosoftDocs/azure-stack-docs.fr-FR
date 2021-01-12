@@ -1,18 +1,18 @@
 ---
 title: Installer un microprogramme à l’aide de l’iDRAC
 description: Découvrez comment installer le microprogramme à l’aide de l’iDRAC
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 5b42b0a1f6be6e9fdf8110854e37f602d25b18ad
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 3b6a257d5f5f42c951313c2220559306577de15d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97392634"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910242"
 ---
 # <a name="installing-firmware-using-the-idrac-interface"></a>Installation du microprogramme à l’aide de l’interface de l’iDRAC
 
@@ -26,7 +26,7 @@ Appliquez la procédure suivante pour mettre à jour le microprogramme d’un se
 
 1.  Accédez à **Maintenance** \**System Update**. La page **Firmware Update** s’affiche.
 
-    ![](media/image-85.png)
+    ![Capture d’écran montrant la page « Maintenance » pour un « contrôleur d’accès à distance Dell intégré 9 | Entreprise ».](media/image-85.png)
 
 2.  Sous l’onglet **Update**, sélectionnez **Local** comme emplacement de fichier.
 

@@ -1,6 +1,6 @@
 ---
-title: Activer la sauvegarde d’Azure Stack avec PowerShell | Microsoft Docs
-description: Découvrez comment activer le service Infrastructure Backup avec PowerShell pour permettre la restauration d’Azure Stack en cas de panne.
+title: Activer la sauvegarde d’Azure Stack avec PowerShell - MDC
+description: Découvrez comment activer le service Infrastructure Backup avec PowerShell pour permettre la restauration d’Azure Stack en cas de panne. Pour un Modular Data Center (MDC).
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/27/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: 9f50a6096f0fb7881d37a67df34bdcd6f2487eb9
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: f3d28fa9f5610f91ab8b35ad017c836745f5117d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935047"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910872"
 ---
-# <a name="configure-backup-for-azure-stack-with-powershell"></a>Configurer la sauvegarde d’Azure Stack avec PowerShell
+# <a name="configure-backup-for-azure-stack-with-powershell---modular-data-center-mdc"></a>Configurer la sauvegarde d’Azure Stack avec PowerShell - Modular Data Center (MDC)
 
 *S’applique à : Modular Data Center, Azure Stack Hub renforcé*
 

@@ -2,17 +2,17 @@
 title: Différences propres à la mise en réseau Azure Stack Hub
 description: Découvrez les différences et considérations de mise en réseau dans Azure Stack Hub.
 author: mattbriggs
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: f081d0fa91e967ca00b46ac2a9ffaf4b56933e87
-ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
+ms.openlocfilehash: e93197f1906aba53097d5d7123ccc2e85aec0622
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97364113"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97918693"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Différences et considérations de mise en réseau Azure Stack Hub
 
@@ -53,7 +53,7 @@ Cet article fournit une vue d’ensemble des considérations propres à la mise 
 |  | Configuration de la disponibilité | actif/actif | Actif/passif |
 |  | UsePolicyBasedTrafficSelectors | Azure prend en charge les sélecteurs de trafic basés sur la stratégie (Policy-based) avec des connexions de passerelle basées sur l’itinéraire (Route-based). | Pas encore pris en charge. |
 |  | Supervision et alertes | Azure utilise Azure Monitor pour offrir la possibilité de configurer des alertes pour les ressources VPN. | Pas encore pris en charge.|
-| Équilibrage de charge | SKU | Les équilibreurs de charge de base et standard sont pris en charge | Seul l’équilibreur de charge de base est pris en charge.<br>Cette propriété de référence SKU n'est pas prise en charge.<br>Le chemin de l’équilibreur de charge de la référence SKU De base ne peut pas avoir plus de 5 configurations IP front-end.  |
+| Équilibrage de charge | SKU | Les équilibreurs de charge de base et standard sont pris en charge | Seul l’équilibreur de charge de base est pris en charge.<br>Cette propriété de référence SKU n'est pas prise en charge.<br>L’équilibreur de charge avec la référence SKU De base prend en charge 10 configurations IP frontales pour les versions 1807-1906 et 200 configurations IP frontales pour les versions 1907 et ultérieures par équilibreur de charge.  |
 |  | Zones | Les zones de disponibilité sont prises en charge. | Pas encore pris en charge |
 |  | Prise en charge des règles NAT pour les points de terminaison de service | Azure prend en charge les points de terminaison de service pour les règles NAT entrantes. | Azure Stack Hub ne prenant pas encore en charge les points de terminaison de service, vous ne pouvez pas les spécifier. |
 |  | Protocol | Azure prend en charge la spécification GRE ou ESP. | La classe de protocole n’est pas prise en charge dans Azure Stack Hub. |

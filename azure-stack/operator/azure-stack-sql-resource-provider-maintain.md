@@ -8,12 +8,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: ec2eebc7aa8195c0560beb8c61f0f98ce1689b07
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 3472cf330efb250f20eb66a5df50239a66293307
+ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011346"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97950703"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Opérations de maintenance du fournisseur de ressources SQL
 
@@ -186,6 +186,14 @@ $session | Remove-PSSession
 ```
 
 ## <a name="collect-diagnostic-logs"></a>Collecter des journaux de diagnostic
+
+::: moniker range=">= azs-2008"
+
+Différentes méthodes sont proposées par Azure Stack Hub pour collecter, enregistrer et envoyer les journaux de diagnostic au Support Microsoft. À partir de la version 1.1.93, le fournisseur de ressources SQL prend en charge le mode standard de collecte des journaux à partir de votre environnement Azure Stack Hub. Pour plus d’informations, consultez [Collecte des journaux de diagnostic](diagnostic-log-collection.md).
+
+::: moniker-end
+
+À partir de la version 1.1.93, le fournisseur de ressources SQL prend en charge le mode standard de collecte des journaux à partir de votre environnement Azure Stack Hub. Si vous utilisez une version antérieure, il est recommandé de mettre à jour votre fournisseur de ressources SQL vers la dernière version.
 
 Pour collecter les journaux de la machine virtuelle verrouillée, utilisez le point de terminaison PowerShell JEA (Just Enough Administration) *DBAdapterDiagnostics*. Ce point de terminaison propose les commandes suivantes :
 

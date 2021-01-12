@@ -1,6 +1,6 @@
 ---
-title: Présentation du modèle de facturation client dans Azure Stack | Microsoft Docs
-description: Découvrez comment l'utilisation des ressources est facturée aux utilisateurs d'Azure Stack.
+title: Présentation du modèle de facturation client dans Azure Stack - MDC | Microsoft Docs
+description: Découvrez comment l’utilisation des ressources est facturée aux utilisateurs d’Azure Stack dans un Modular Data Center (MDC).
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 12/04/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: bd20dee177ac1f061b954eb0285b3103747675d1
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 15f894a668374be5380f322d368b76d88bb93cba
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934843"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910752"
 ---
-# <a name="billing-model-overview"></a>Présentation du modèle de facturation
+# <a name="billing-model-overview---modular-data-center-mdc"></a>Présentation du modèle de facturation - Modular Data Center (MDC)
 
 En tant qu'utilisateur de MDC ou d'Azure Stack Hub renforcé, vous êtes facturé par Microsoft en fonction de la durée d'utilisation de chaque appliance. Les frais sont calculés par période et comprennent le droit d’utiliser les services de base liés au calcul, au stockage et à la gestion de réseau. Vous êtes facturé en fonction de l’utilisation d’App Service, d’Event Hubs et des autres services PaaS ainsi que des machines virtuelles PAYG Windows Server qui s’exécutent sur Azure Stack Hub renforcé et MDC. Si vous êtes complètement déconnecté et si vous ne pouvez pas rapporter les données d’utilisation, vous devez obtenir des licences de capacité pour les services PaaS et apporter vos propres licences pour les machines virtuelles Windows.
 

@@ -1,6 +1,6 @@
 ---
-title: Sauvegarde d’Azure Stack | Microsoft Docs
-description: Découvrez comment effectuer une sauvegarde à la demande sur Azure Stack.
+title: Sauvegarder Azure Stack - MDC | Microsoft Docs
+description: Découvrez comment effectuer une sauvegarde à la demande sur Azure Stack pour un Modular Data Center (MDC).
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 0455c96449d0547d94d8d904fe59f268145da3a8
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: f64b656b6a0a0d5310b6d6e2fbb8ff26d5206ad1
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330080"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910889"
 ---
-# <a name="back-up-azure-stack"></a>Sauvegarde d’Azure Stack
+# <a name="back-up-azure-stack---modular-data-center-mdc"></a>Sauvegarder Azure Stack - Modular Data Center (MDC)
 
 *S’applique à : Modular Data Center, Azure Stack Hub renforcé*
 
@@ -30,7 +30,7 @@ Cet article explique comment effectuer une sauvegarde à la demande d’Azure S
 
 ## <a name="start-backup"></a>Démarrer la sauvegarde
 
-Les sauvegardes sont automatiquement planifiées. Une sauvegarde à la demande est uniquement nécessaire si vous recevez une alerte pour déclencher la sauvegarde manuellement. Pour démarrer une sauvegarde à la demande, sélectionnez **Sauvegarder maintenant**. Le fait d’effectuer une sauvegarde à la demande ne modifie pas la date et l’heure de la prochaine sauvegarde planifiée. Une fois la tâche terminée, vous pouvez confirmer les paramètres dans le panneau **Éléments principaux**  :
+Les sauvegardes sont automatiquement planifiées. Une sauvegarde à la demande est uniquement nécessaire si vous recevez une alerte pour déclencher la sauvegarde manuellement. Pour démarrer une sauvegarde à la demande, sélectionnez **Sauvegarder maintenant**. Le fait d’effectuer une sauvegarde à la demande ne modifie pas la date et l’heure de la prochaine sauvegarde planifiée. Une fois la tâche terminée, vous pouvez confirmer les paramètres dans le panneau **Éléments principaux** :
 
 ![Paramètres de sauvegarde](media/azure-stack-backup-back-up-azure-stack-tzl/on-demand-backup.png)
 
@@ -126,11 +126,11 @@ Dans le portail d’administration Azure Stack, vérifiez que la sauvegarde s’
 
 1. Ouvrez le [portail d’administration Azure Stack](../../operator/azure-stack-manage-portals.md).
 
-2. Sélectionnez **Tous les services** puis, sous la catégorie **Administration** , sélectionnez **Sauvegarde d’infrastructure**. Choisissez **Configuration** dans le panneau **Sauvegarde d’infrastructure**.
+2. Sélectionnez **Tous les services** puis, sous la catégorie **Administration**, sélectionnez **Sauvegarde d’infrastructure**. Choisissez **Configuration** dans le panneau **Sauvegarde d’infrastructure**.
 
 3. Recherchez le **nom** et la **date d’exécution** de la sauvegarde dans la liste des **sauvegardes disponibles**.
 
-4. Vérifiez que l’ **état** indique une **réussite**.
+4. Vérifiez que l’**état** indique une **réussite**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

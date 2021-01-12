@@ -1,6 +1,6 @@
 ---
-title: Liens de renvoi vers l'aide d'Azure Stack Hub
-description: Recherchez les liens de renvoi relatifs à Azure Stack Hub sur le portail.
+title: Liens de renvoi vers l’aide d’Azure Stack Hub - MDC
+description: Recherchez les liens de renvoi vers le portail pour Azure Stack Hub lors de l’exploitation d’un Modular Data Center (MDC).
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: mabrigg
 ms.lastreviewed: 10/26/2020
 ms.reviewer: efemmano
-ms.openlocfilehash: dd52df36363e45868e586c0e980950b10b7c6836
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: bfc9c4aeb2e3dfb003d3cd1e1fc9dcc71b0caf82
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330032"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910923"
 ---
-# <a name="alerts-akams-link-reference-for-azure-stack-hub"></a>Liens de renvoi aka.ms des alertes pour Azure Stack Hub
+# <a name="alerts-akams-link-reference-for-azure-stack-hub---modular-data-center-mdc"></a>Liens de renvoi aka.ms des alertes pour Azure Stack Hub - Modular Data Center (MDC)
 
 Cette rubrique répertorie les liens de renvoi qui apparaissent dans les alertes sur le portail d'administration. 
 
@@ -53,4 +53,4 @@ Cette rubrique répertorie les liens de renvoi qui apparaissent dans les alertes
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d'informations sur **Aide + support** , consultez l'article [Aide et support de Microsoft Azure Stack](../../operator/azure-stack-help-and-support-overview.md).
+Pour plus d'informations sur **Aide + support**, consultez l'article [Aide et support de Microsoft Azure Stack](../../operator/azure-stack-help-and-support-overview.md).

@@ -1,6 +1,6 @@
 ---
-title: Informations d'identification iDRAC
-description: Explique comment mettre à jour les informations d'identification iDRAC
+title: Informations d’identification iDRAC - MDC
+description: Découvrez comment mettre à jour les informations d’identification iDRAC (Integrated Dell Remote Access Controller) dans un Modular Data Center (MDC).
 author: troettinger
 ms.author: thoroet
 ms.service: azure-stack
@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 10/27/2020
 ms.reviewer: justinha
 ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: 1525872e3c59ab7e5b0cd436ba5ab8e2e3836594
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: d0d2f522038d0788d4942db68b36e5bb21884619
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330039"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910735"
 ---
-# <a name="update-credentials-for-the-integrated-dell-remote-access-controller"></a>Mettre à jour les informations d'identification iDRAC
+# <a name="update-credentials-for-the-integrated-dell-remote-access-controller---modular-data-center-mdc"></a>Mettre à jour les informations d’identification iDRAC - Modular Data Center (MDC)
 
 Cette section explique comment modifier les informations d'identification du contrôleur iDRAC (integrated Dell Remote Access Controller). 
 
@@ -33,11 +33,11 @@ Pour mettre à jour les informations d'identification iDRAC de tous les serveurs
 1. Dans un navigateur web, connectez-vous à : https://<iDRAC_IP>. 
 1. Accédez à **Paramètres iDRAC** > **Utilisateurs**. 
 1. Sélectionnez l'utilisateur que vous souhaitez modifier, puis cliquez sur **Modifier**. 
-1. Dans la fenêtre **Modifier l'utilisateur** , entrez le nouveau mot de passe dans les champs **Mot de passe** et **Confirmer le mot de passe** , comme illustré ci-dessous : 
+1. Dans la fenêtre **Modifier l'utilisateur**, entrez le nouveau mot de passe dans les champs **Mot de passe** et **Confirmer le mot de passe**, comme illustré ci-dessous : 
 
    ![Capture d'écran montrant les informations utilisateur](../operator/media/idrac-credentials/enter-user.png)
 
-1. Cliquez sur **Enregistrer** , puis sur **OK**. 
+1. Cliquez sur **Enregistrer**, puis sur **OK**. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

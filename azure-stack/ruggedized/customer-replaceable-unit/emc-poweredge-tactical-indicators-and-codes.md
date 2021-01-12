@@ -1,18 +1,18 @@
 ---
 title: Codes et voyants EMC PowerEdge Tactical
 description: Apprenez-en davantage sur les codes et voyants EMC PowerEdge Tactical.
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 5b4920fb2ab174867092c44ca51a5193412a9a9a
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 8a820d02ef1832343ba5110a244793c70b73aed3
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97392836"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910276"
 ---
 # <a name="dell-emc-poweredge-tactical-indicators-and-codes"></a>Codes et voyants Dell EMC PowerEdge Tactical
 
@@ -25,7 +25,7 @@ L’illustration suivante montre l’étiquette d’informations système, qui s
 
 Figure 10. Comportement des voyants
 
-![](media/image-75.png)
+![Étiquette d’informations système pour le comportement de la LED.](media/image-75.png)
 
 ## <a name="idrac-direct-led-indicator-codes"></a>Codes du voyant iDRAC Direct
 
@@ -49,7 +49,7 @@ L’illustration suivante montre les voyants d’état et d’intégrité du pan
 
 Figure 11. Panneau de configuration gauche
 
-![](media/image-76.png)
+![Schéma montrant les voyants d’état et d’intégrité du panneau de commande de gauche.](media/image-76.png)
 
 Le tableau suivant décrit les caractéristiques du panneau de gauche.
 
@@ -58,7 +58,7 @@ Tableau 5. Voyants d’état et d’intégrité du panneau de commande de gauche
 |    <br>Élément       |    <br>Voyant ou bouton                       |    <br>Icône                                |    <br>Description                                                                                                  |
 |-------------------|--------------------------------------------------|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
 |    <br>1          |    <br>Voyants d’état                     |    <br>N/A                                 |    <br>Indique l'état du système. Pour plus d’informations, consultez Voyants d’état PowerEdge page 61.    |
-|    <br>2 et 3    |    <br>Voyants d’intégrité du système et d’ID système    | ![](media/image-77.png) |    <br>Indique l’intégrité du système.                                                                                 |
+|    <br>2 et 3    |    <br>Voyants d’intégrité du système et d’ID système    | ![Icône d’intégrité du système](media/image-77.png) |    <br>Indique l’intégrité du système.                                                                                 |
 
 Le tableau suivant liste les voyants d’état PowerEdge.
 
@@ -83,7 +83,7 @@ La figure suivante montre le bloc d’alimentation secteur AC.
 
 Figure 12 : BLOC D’ALIMENTATION SECTEUR AC
 
-![](media/image-83.png)
+![Schéma qui affiche le bloc d’alimentation CA, avec la LED indiquée.](media/image-83.png)
 
 Le tableau suivant fournit la signification des codes du voyant.
 
