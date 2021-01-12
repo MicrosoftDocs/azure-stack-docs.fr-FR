@@ -1,5 +1,5 @@
 ---
-title: Mettre à l’échelle des actions de nœud d’unité dans Azure Stack Hub
+title: Actions de nœud d’unité d’échelle dans Azure Stack Hub – Renforcé
 description: Découvrez les actions de nœud d'unité d’échelle (mise sous tension, mise hors tension, désactivation et reprise) et la façon d’afficher l’état d’un nœud dans des systèmes intégrés Azure Stack Hub.
 services: azure-stack
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.date: 12/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2020
-ms.openlocfilehash: 768d51257e1d70979c2ee0f43aad4db8430cf8cf
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 48cb9d6e659f8b6f3507f5c0b4d6b7e60622f025
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941003"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965475"
 ---
-# <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Mettre à l’échelle des actions de nœud d’unité dans Azure Stack Hub
+# <a name="scale-unit-node-actions-in-azure-stack-hub---ruggedized"></a>Actions de nœud d’unité d’échelle dans Azure Stack Hub – Renforcé
 
 Cet article décrit comment afficher l’état d’une unité d’échelle. Vous pouvez afficher les nœuds de l’unité. Vous pouvez exécuter des actions de nœud comme la mise sous tension, la mise hors tension, l’arrêt, le vidage, la reprise et la réparation. En règle générale, vous utilisez ces actions de nœud durant le remplacement de pièces sur le terrain ou dans le but de récupérer un nœud.
 
@@ -80,7 +80,7 @@ Vous devez installer les modules Azure Stack Hub PowerShell. Ces applets de comm
 
 L’action **Arrêter** désactive le nœud. Cela revient à appuyer sur le bouton d’alimentation. Aucun signal d’arrêt n’est envoyé au système d’exploitation. Pour les opérations d’arrêt planifiées, commencez toujours par l’opération d’arrêt.
 
-Cette action est généralement utilisée lorsqu’un nœud est dans un état suspendu et ne répond plus aux demandes.
+Cette action est généralement utilisée lorsqu’un nœud ne répond plus aux requêtes.
 
 Pour exécuter l’action d’arrêt, ouvrez une invite de commandes PowerShell avec élévation de privilèges et exécutez l’applet de commande suivante :
 
@@ -169,4 +169,4 @@ Pour exécuter l’action d’arrêt, ouvrez une invite PowerShell avec élévat
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Découvrez le module opérateur Azure Stack Hub Fabric](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0).
+[Découvrez le module opérateur Azure Stack Hub Fabric](https://docs.microsoft.com/powershell/module/azs.fabric.admin/).

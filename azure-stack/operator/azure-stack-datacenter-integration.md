@@ -1,18 +1,18 @@
 ---
 title: Planifier l’intégration du centre de données pour les systèmes intégrés Azure Stack Hub
 description: Découvrez comment planifier et préparer l’intégration du centre de données avec des systèmes intégrés Azure Stack Hub.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
-ms.openlocfilehash: 825db573a614d1a1dd9b54cd87d8894c981fce4b
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 89cb7fe7ee0f8e19c2774d5ebfef988ec0933e03
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573031"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871019"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Considérations relatives à la planification de l’intégration d’un centre de données pour systèmes intégrés Azure Stack Hub
 

@@ -1,17 +1,17 @@
 ---
 title: Principes de bases de l’administration d’Azure Stack Hub
 description: Découvrez les principes de bases de l’administration d’Azure Stack Hub.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 06/16/2020
-ms.author: justinha
+ms.author: patricka
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: b277eb9dcb1ac66af870db68c919e711aadc1ac7
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.openlocfilehash: da6e4d78d2464468b75ab2bd22d9bb81dd01e33b
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "94543508"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965509"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Principes de bases de l’administration d’Azure Stack Hub
 
@@ -51,13 +51,15 @@ Actuellement, nous prenons en charge les services PaaS (Platform-as-a-Service) s
 - App Service
 - Azure Functions
 - Bases de données SQL et MySQL
+- Event Hubs
+- IoT Hub (en préversion)
 - Kubernetes (en préversion)
 
 Ces services nécessitent une configuration supplémentaire avant de pouvoir être mis à disposition des utilisateurs. Pour plus d’informations, voir les « Didacticiels » et les sections « Guides pratiques/Services d’offres » de notre documentation pour opérateur Azure Stack Hub.
 
 **Feuille de route des services**
 
-Azure Stack Hub continuera à prendre en charge de nouveaux services Azure. Pour obtenir la feuille de route prévue, voir le livre blanc [Azure Stack Hub: An extension of Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409). Vous pouvez également consulter les nouvelles annonces dans les [billets de blog Azure Stack Hub](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview).
+Azure Stack Hub continuera à prendre en charge de nouveaux services Azure. Pour obtenir la feuille de route prévue, voir le livre blanc [Azure Stack Hub: An extension of Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409). Vous pouvez également consulter les nouvelles annonces dans les [billets de blog Azure Stack Hub](https://techcommunity.microsoft.com/t5/azure-stack-blog/bg-p/AzureStackBlog).
 
 ## <a name="what-account-should-i-use"></a>Quel compte dois-je utiliser ?
 

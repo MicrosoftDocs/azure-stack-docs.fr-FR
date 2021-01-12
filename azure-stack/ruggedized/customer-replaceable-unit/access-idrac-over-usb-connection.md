@@ -1,18 +1,18 @@
 ---
 title: Accéder à l’iDRAC par le biais d’une connexion USB
 description: Découvrez comment accéder à l’iDRAC par le biais d’une connexion USB.
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 7381aae6b7b08de01e27f895d79519a024a1955a
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 5c270de88d78bb8cb7ba1f7b9216c4a160a4aae8
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97392833"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910055"
 ---
 # <a name="accessing-the-idrac-interface-over-a-direct-usb-connection"></a>Accès à l’interface iDRAC par le biais d’une connexion USB directe.
 
@@ -29,7 +29,7 @@ Pour accéder à l’interface iDRAC par le biais du port USB, effectuez les ét
 2.  Connectez un câble micro USB de votre ordinateur portable au port iDRAC Direct, situé à l’avant du serveur.
     Reportez-vous à l’élément 4 dans le diagramme.
 
-    ![](media/image-67.png)
+    ![Schéma qui montre un bouton d’alimentation, ainsi que des ports USB et micro-USB.](media/image-67.png)
 
 3.  Attendez que l’ordinateur portable obtienne l’adresse IP 169.254.0.4.
 

@@ -1,18 +1,18 @@
 ---
 title: Conditions requises et éléments à prendre en compte pour ASDK
 description: En savoir plus sur le matériel, le logiciel et la configuration requise de l’environnement pour le Kit de développement Azure Stack (ASDK).
-author: myoungerman
+author: PatAltimore
 ms.topic: article
 ms.date: 09/23/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 09/23/2020
-ms.openlocfilehash: dbd0398b7f6582c12288c2ae72137c4a673ddfcc
-ms.sourcegitcommit: 950dbc793b3498173923d0bc9fe56662a349abf1
+ms.openlocfilehash: 64b0209ad669c42b7a792498369ca0f48bfcca52
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92082086"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873280"
 ---
 # <a name="asdk-requirements-and-considerations"></a>Conditions requises et éléments à prendre en compte pour ASDK
 

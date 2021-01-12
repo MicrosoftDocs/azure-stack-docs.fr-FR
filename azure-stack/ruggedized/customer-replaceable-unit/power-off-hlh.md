@@ -1,18 +1,18 @@
 ---
 title: Éteindre l’hôte de cycle de vie du matériel
 description: Découvrez comment mettre hors tension l’hôte de cycle de vie du matériel
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: bfef2c08d1dcd42d74a97a59f5ad59210228acc5
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 28ac5a9de578d6ff7580ddad86a887f71889f5eb
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97392816"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910684"
 ---
 # <a name="powering-off-the-hardware-lifecycle-host"></a>Mise hors tension de l’hôte de cycle de vie du matériel
 
@@ -24,7 +24,7 @@ Vous pouvez mettre hors tension l’hôte de cycle de vie du matériel (HLH) une
 
 2.  Sélectionnez le **bouton Start** et sélectionnez **Shut down** pour arrêter le HLH.
 
-    ![](media/image-22.png)
+    ![Capture d’écran montrant le bouton Windows et l’option Arrêter sélectionnée.](media/image-22.png)
 
     L’arrêt complet doit prendre quelques minutes.
     

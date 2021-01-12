@@ -1,18 +1,18 @@
 ---
 title: Préparer l’hôte d’extension dans Azure Stack Hub
 description: Découvrez comment préparer l’hôte d’extension dans Azure Stack Hub, qui est automatiquement activé via un package de mise à jour Azure Stack Hub après la version 1808.
-author: IngridAtMicrosoft
-ms.author: inhenkel
+author: PatAltimore
+ms.author: patricka
 ms.date: 1/22/2020
 ms.topic: article
 ms.reviewer: thoroet
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 69c7d14bef07e3664299c7e78ed1e8bf555f19dd
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 43cb091b3076f26880599e35a770383182e944d0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77699896"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870611"
 ---
 # <a name="prepare-for-extension-host-in-azure-stack-hub"></a>Préparer l’hôte d’extension dans Azure Stack Hub
 
@@ -26,8 +26,8 @@ Le tableau présente les nouveaux espaces de noms et les certificats associés 
 
 | Dossier de déploiement | Objet et autres noms de l’objet (SAN) du certificat requis | Étendue (par région) | Espace de noms de sous-domaine |
 |-----------------------|------------------------------------------------------------------|-----------------------|------------------------------|
-| Hôte d'extension d’administration | *.adminhosting.\<region>.\<fqdn> (Certificats SSL génériques) | Hôte d'extension d’administration | adminhosting.\<region>.\<fqdn> |
-| Hôte d'extension public | *.hosting.\<region>.\<fqdn> (Certificats SSL génériques) | Hôte d'extension public | hosting.\<region>.\<fqdn> |
+| Hôte d'extension d’administration | *.adminhosting.\<region>.\<fqdn> (Certificat SSL générique) | Hôte d'extension d’administration | adminhosting.\<region>.\<fqdn> |
+| Hôte d'extension public | *.hosting.\<region>.\<fqdn> (Certificat SSL générique) | Hôte d'extension public | hosting.\<region>.\<fqdn> |
 
 Pour connaître le détail des conditions requises, consultez [Exigences de certificat pour infrastructure à clé publique Azure Stack Hub](azure-stack-pki-certs.md).
 
