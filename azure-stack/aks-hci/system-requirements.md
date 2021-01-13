@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
 ms.date: 12/02/2020
-ms.openlocfilehash: 2bbd32a8117955a18c525a4a0483d152c5a3ed0c
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 3a4ad6203ba14188ff24629f07775285417c306b
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612469"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97918662"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Configuration requise pour Azure Kubernetes Service sur Azure Stack HCI
 
@@ -32,7 +32,7 @@ Pour qu’Azure Kubernetes Service sur Azure Stack HCI ou Windows Server 2019 D
 
  - Nous vous recommandons d’utiliser une UO distincte pour les serveurs et les services auxquels vous ajoutez vos clusters Azure Kubernetes Service sur Azure Stack HCI ou Windows Server 2019 Datacenter. Cela vous permettra de contrôler l’accès et les autorisations avec plus de granularité.
 
- - Si vous utilisez des modèles GPO sur des conteneurs dans Active Directory, assurez-vous que le déploiement de AKS-HCI est exempté de cette stratégie. La sécurisation renforcée des serveurs sera disponible dans une version préliminaire ultérieure.
+ - Si vous utilisez des modèles GPO sur des conteneurs dans Active Directory, assurez-vous que le déploiement de AKS-HCI est exempté de la stratégie. La sécurisation renforcée des serveurs sera disponible dans une version préliminaire ultérieure.
 
 ## <a name="compute-requirements"></a>Exigences de calcul
 
@@ -52,20 +52,14 @@ Les impératifs suivants s’appliquent à un cluster Azure Stack HCI ainsi qu�
 
  - Vérifiez que vous avez désactivé IPv6 sur toutes les cartes réseau. 
 
- - Le réseau doit disposer d’un serveur DHCP disponible pour fournir des adresses TCP/IP aux machines virtuelles et aux ordinateurs hôtes de machines virtuelles. Le serveur DHCP doit également contenir des informations sur l’hôte NTP et DNS. 
-
- - Nous vous recommandons également de disposer d’un serveur DHCP avec une étendue dédiée d’adresses IPv4 accessibles par le cluster Azure Stack HCI. Par exemple, vous pouvez réserver 10.0.1.1 pour la passerelle par défaut, réserver la plage allant de 10.0.1.2 à 10.0.1.102 pour les services Kubernetes (à l’aide de -vipPoolStartIp et -vipPoolEndIp dans Set-AksHciConfig), et utiliser 10.0.1.103-10.0.1.254 pour les machines virtuelles du cluster Kubernetes. 
-
- - Pour un déploiement réussi, les nœuds de cluster Azure Stack HCI et les machines virtuelles du cluster Kubernetes doivent disposer d’une connectivité Internet externe.
-
- - Les adresses IPv4 fournies par le serveur DHCP doivent être routables. De plus, le délai d’expiration du bail de ces adresses doit être de 30 jours pour éviter toute perte de connectivité IP en cas de mise à jour ou de reprovisionnement d’une machine virtuelle.  
+ - Pour un déploiement réussi, les nœuds de cluster Azure Stack HCI et les machines virtuelles du cluster Kubernetes doivent disposer d’une connectivité Internet externe. 
 
  - La résolution de noms DNS est requise pour que tous les nœuds puissent communiquer entre eux. Pour la résolution de noms externes Kubernetes, utilisez les serveurs DNS fournis par le serveur DHCP au moment de l’obtention de l’adresse IP. Pour la résolution de noms internes Kubernetes, utilisez la solution DNS principale de Kubernetes par défaut. 
- 
- - Dans cette préversion, nous ne fournissons la prise en charge que d’un seul VLAN pour l’ensemble du déploiement.
 
- - Dans cette préversion, nous avons une prise en charge limitée des serveurs proxy pour les clusters Kubernetes créés via PowerShell.
+ - Dans cette préversion, nous ne fournissons la prise en charge que d’un seul VLAN pour l’ensemble du déploiement. 
 
+ - Dans cette préversion, nous avons une prise en charge limitée des serveurs proxy pour les clusters Kubernetes créés via PowerShell. 
+  
 ### <a name="network-port-and-url-requirements"></a>Configuration requise des ports réseau et URL 
 
 Au moment de la création d’un cluster Azure Kubernetes sur Azure Stack HCI, les ports de pare-feu suivants sont automatiquement ouverts sur chaque serveur du cluster. 
@@ -76,7 +70,8 @@ Au moment de la création d’un cluster Azure Kubernetes sur Azure Stack HCI, l
 | 45000           | Port de serveur wssdagent GPRC           |
 | 45001             | Port d’authentification wssdagent GPRC  | 
 | 55000           | Port de serveur wssdcloudagent GPRC           |
-| 55001             | Port d’authentification wssdcloudagent GPRC  | 
+| 65 000             | Port d’authentification wssdcloudagent GPRC  | 
+
 
 
 Des exceptions d’URL de pare-feu sont nécessaires pour l’ordinateur de Windows Admin Center et tous les nœuds dans le cluster Azure Stack HCI. 

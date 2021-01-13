@@ -1,7 +1,7 @@
 ---
-title: Ajouter un registre de conteneurs à Azure Stack Hub | Microsoft Docs
+title: Ajouter un registre de conteneurs - Azure Stack Hub | Microsoft Docs
 titleSuffix: Azure Stack
-description: Apprenez à ajouter un registre de conteneurs sur la Place de marché Azure Stack Hub.
+description: Apprenez à ajouter un registre de conteneurs sur la Place de marché Azure Stack Hub (renforcé).
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,18 +12,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/10/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 5d97f12e6bc933edf7b5b335ebd52a86a1a7f01d
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: a517fc2bef86584c6bdf5aff6f9b7907ac9c0b1e
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96940977"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910565"
 ---
-# <a name="add-a-container-registry-to-azure-stack-hub"></a>Ajouter un registre de conteneurs à Azure Stack Hub
+# <a name="add-a-container-registry-to-azure-stack-hub-ruggedized"></a>Ajouter un registre de conteneurs à Azure Stack Hub (renforcé)
 
 Vous pouvez ajouter un registre de conteneurs sur votre Place de marché Azure Stack Hub afin de permettre à vos utilisateurs de déployer et de gérer leur propre registre de conteneurs. Ce modèle de solution installe et configure le service open source Docker Container Registry dans le cadre d'un abonnement utilisateur exécuté sur l'image de base AKS Ubuntu 16.04-LTS. Le modèle prend en charge les déploiements connectés et déconnectés ainsi qu’Azure Active Directory (AAD) et les services de fédération Active Directory (AD FS) déployés sur Azure Stack Hub.
 
@@ -117,15 +117,15 @@ L'installation du Modèle de registre de conteneurs nécessite la création de p
 
 2. Sélectionnez **Créer** > **Calculer** > **Modèle de registre de conteneurs**.
 
-    ![Modèle de registre de conteneurs](./media/container-registry-template-install-tzl/image1.png)
+    ![Capture d’écran montrant la page « Tableau de bord > Nouveau » avec l’option « Compute » sélectionnée et la sélection « Modèle de registre de conteneurs » affichée.](./media/container-registry-template-install-tzl/image1.png)
 
 3. Sélectionnez l'abonnement, le groupe de ressources et l'emplacement où vous souhaitez déployer le modèle de registre de conteneurs.
 
-    ![Modèle de registre de conteneurs](./media/container-registry-template-install-tzl/image2.png)
+    ![Capture d’écran montrant la page « Créer un modèle de registre de conteneurs - Notions de base ».](./media/container-registry-template-install-tzl/image2.png)
 
 4. Renseignez les détails de la configuration de la machine virtuelle. Par défaut, la référence SKU de l'image est **aks-ubuntu-1604-201909**, mais la sortie de la fonction `Set-ContainerRegistryPrerequisites` comprend la liste des références SKU qui peuvent être utilisées pour le déploiement. En présence de plusieurs références SKU, choisissez la plus récente pour le déploiement.
 
-    ![Modèle de registre de conteneurs](./media/container-registry-template-install-tzl/image3.png)
+    ![Capture d’écran montrant la page « Créer un modèle de registre de conteneurs - Configuration de machine virtuelle ».](./media/container-registry-template-install-tzl/image3.png)
 
     | Paramètre | Détails |
     | --- | --- |
@@ -141,7 +141,7 @@ L'installation du Modèle de registre de conteneurs nécessite la création de p
 
 1. Procédez à la configuration des services Stockage et Key Vault.
 
-    ![Modèle de registre de conteneurs](./media/container-registry-template-install-tzl/image4.png)
+    ![Capture d’écran montrant la page « Créer un modèle de registre de conteneurs - Configuration Stockage et Key Vault ».](./media/container-registry-template-install-tzl/image4.png)
 
     | Paramètre | Détails |
     | --- | --- |

@@ -1,18 +1,18 @@
 ---
 title: Allumer le nœud d’unité d’échelle
 description: Découvrez comment mettre sous tension un nœud d’unité d’échelle.
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 65ce2d6eb9244700ac00e2e477dcaaa999a07347
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 8eaf2442187d18f0fadee316f629686ab25b4780
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97392813"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910701"
 ---
 # <a name="powering-on-a-scale-unit-node"></a>Mise sous tension d’un nœud d’unité d’échelle
 
@@ -20,15 +20,15 @@ ms.locfileid: "97392813"
 
 1.  Démarrez le nœud d’unité d’échelle.
 
-    1.  Revenez au **portail d’administration**. Si le nœud est toujours **Arrêté**, sélectionnez-le puis sélectionnez **Démarrer** : ![](media/image-46.png)
+    1.  Revenez au **portail d’administration**. Si le nœud est toujours **Arrêté**, sélectionnez-le puis sélectionnez **Démarrer** : ![Capture d’écran montrant la page « Administration - Nœuds » avec un nœud et l’action « Démarrer » sélectionnée.](media/image-46.png)
 
     1.  Sélectionnez **Oui** pour confirmer l’opération de démarrage :
 
-        ![](media/image-47.png)
+        ![Capture d’écran montrant la page « Administration - Nœuds » avec la boîte de dialogue « Nœud Démarrer » affichée.](media/image-47.png)
         
     1.  Suivez la progression dans le volet de notification :
     
-        ![](media/image-48.png)
+        ![Capture d’écran montrant la page « Administration - Nœuds » avec la progression affichée dans le volet de notification.](media/image-48.png)
             
     > [!NOTE]
     > Vous pouvez également utiliser la console virtuelle iDRAC pour vérifier qu’il n’y a aucun problème avec le composant échangé pendant l’opération.
@@ -37,13 +37,13 @@ ms.locfileid: "97392813"
 
     1.  Maintenant que le nœud est de nouveau sous tension, dans le **portail d’administration**, sélectionnez le nœud, puis **Reprendre**.
 
-        ![](media/image-49.png)
+        ![Capture d’écran montrant la page « Administration - Nœuds » avec un nœud et l’action « Reprendre » sélectionnée.](media/image-49.png)
         
     1.  Sélectionnez **Oui** pour confirmer l’opération de reprise :
     
-        ![](media/image-50.png)
+        ![Capture d’écran montrant la page « Administration - Nœuds » avec la boîte de dialogue « Nœud Reprendre » affichée.](media/image-50.png)
     
     1.  Suivez la progression dans le volet de notification :
     
-        ![](media/image-51.png)
+        ![Capture d’écran montrant la page « Administration - Nœuds » avec la progression du nœud affichée dans le volet de notification.](media/image-51.png)
         

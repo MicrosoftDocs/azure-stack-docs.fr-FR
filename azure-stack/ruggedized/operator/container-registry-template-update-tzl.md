@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/8/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 1239e12235debaa8ab6a3037c34ea27e11da0ce2
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: f63f0d550a841902e1d7c27d9c7688a8b5373149
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941040"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910582"
 ---
 # <a name="update-the-container-registry-in-azure-stack-hub"></a>Mettre à jour le registre de conteneurs dans Azure Stack Hub
 
@@ -33,13 +33,13 @@ Les utilisateurs d’Azure Stack Hub peuvent mettre à jour leur déploiement de
 
 1.  Syndiquez la dernière image de base AKS à partir de la Place de marché Azure Stack. L’image de base AKS est mise à jour une fois par mois.
 
-> ![Modèle de registre de conteneurs](./media/container-registry-template-updating-tzl/image1.png)
+> ![Capture d’écran montrant la page « Ajouter à partir d’Azure » avec les résultats de recherche pour « AKS De base Ubu » affichés.](./media/container-registry-template-updating-tzl/image1.png)
 
 ### <a name="user"></a>Utilisateur
 
 1.  Vérifiez la référence SKU de l’image de base AKS utilisée pour déployer le modèle de registre de conteneurs en accédant à l’enregistrement de déploiement dans le groupe de ressources, puis sélectionnez **Entrées**.
 
-    ![Modèle de registre de conteneurs](./media/container-registry-template-updating-tzl/image2.png)
+    ![Capture d’écran de la page « Entrées ».](./media/container-registry-template-updating-tzl/image2.png)
 
 2.  Déterminez si des références SKU plus récentes de l’image de base AKS sont disponibles à l’aide de la fonction **Get-VMImageSku**, `Import-Module .\pre-reqs.ps1` à partir des scripts de modèle de registre de conteneurs.
 
@@ -75,29 +75,29 @@ Les utilisateurs d’Azure Stack Hub peuvent mettre à jour leur déploiement de
 
 1.  Installez une nouvelle instance du modèle de registre de conteneurs dans un nouveau groupe de ressources.
 
-    ![Modèle de registre de conteneurs](./media/container-registry-template-updating-tzl/image3.png)
+    ![Capture d’écran montrant la page « Créer un modèle de registre de conteneurs - Notions de base ».](./media/container-registry-template-updating-tzl/image3.png)
 
 2.  Spécifiez la dernière version de la référence SKU du script `Get-VMImage` et utilisez un paramètre **dnsname** unique de l’installation initiale dans la configuration de la machine virtuelle. Utilisez le même principal de service et le même secret que pour l’installation initiale.
 
-    ![Modèle de registre de conteneurs](./media/container-registry-template-updating-tzl/image4.png)
+    ![Capture d’écran montrant la page « Créer un modèle de registre de conteneurs - Configuration de machine virtuelle ».](./media/container-registry-template-updating-tzl/image4.png)
 
 3.  Utilisez les mêmes paramètres de stockage et Key Vault que lors de l’installation initiale pour la configuration du stockage et de la Key Vault.
 
-    ![Modèle de registre de conteneurs](./media/container-registry-template-updating-tzl/image5.png)
+    ![Capture d’écran montrant la page « Créer un modèle de registre de conteneurs - Configuration Stockage et Key Vault ».](./media/container-registry-template-updating-tzl/image5.png)
 
 1.  Une fois le nouveau modèle de registre de conteneurs déployé, accédez au groupe de ressources initial, puis sélectionnez la ressource d’adresse IP publique.
 
-    ![Modèle de registre de conteneurs](./media/container-registry-template-updating-tzl/image6.png)
+    ![Capture d’écran montrant une liste de ressources d’adresse IP publiques.](./media/container-registry-template-updating-tzl/image6.png)
 
 1.  Dans la ressource d’adresse IP publique, accédez à Configuration et modifiez l’étiquette du nom DNS afin de l’utiliser pour la ressource nouvellement déployée. Notez qu’après avoir modifié l’étiquette du nom DNS et sélectionné **Enregistrer**, les appels au registre de conteneurs commencent à échouer.
 
-    ![Modèle de registre de conteneurs](./media/container-registry-template-updating-tzl/image7.png)
+    ![Capture d’écran montrant la page de ressources « Adresse IP publique » avec l’option « Statique » sélectionnée.](./media/container-registry-template-updating-tzl/image7.png)
     
-    ![Modèle de registre de conteneurs](./media/container-registry-template-updating-tzl/image8.png)
+    ![Capture d’écran montrant la page de ressources « Adresse IP publique » avec « Étiquette de nom DNS (facultatif) » mis en surbrillance.](./media/container-registry-template-updating-tzl/image8.png)
 
 2.  Accédez au nouveau groupe de ressources utilisé pour déployer la nouvelle instance du modèle de registre de conteneurs, sélectionnez la ressource IP publique, la configuration et mettez à jour l’étiquette du nom DNS vers le nom utilisé dans le déploiement d’origine, dans cet exemple `myreg`, puis sélectionnez **Enregistrer**.
 
-    ![Modèle de registre de conteneurs](./media/container-registry-template-updating-tzl/image9.png)
+    ![Capture d’écran montrant la page de ressources « Adresse IP publique » avec l’étiquette de noms DNS d’origine entrée.](./media/container-registry-template-updating-tzl/image9.png)
     
     ![Modèle de registre de conteneurs](./media/container-registry-template-updating-tzl/image10.png)
 

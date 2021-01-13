@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/8/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: ed1809d44f54ec65c60c5a1e17ca472ee401b5ba
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 60caf869fef5537aa6adc35bd2233a81a4fe749d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96940994"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97909818"
 ---
 # <a name="rotate-container-registry-secrets-in-azure-stack-hub"></a>Effectuer la rotation des secrets dans Azure Stack Hub
 
@@ -253,19 +253,19 @@ Suivez les instructions ci-dessous pour définir de nouveaux secrets dans Key Va
 
 2.  Accédez au groupe de ressources dans lequel la machine virtuelle du modèle de registre de conteneurs est déployée.
 
-    ![Modèle de registre de conteneurs](./media/container-registry-template-rotating-secrets-tzl/image1.png)
+    ![Capture d’écran montrant le groupe de ressources dans lequel la machine virtuelle du modèle de registre de conteneurs est déployée.](./media/container-registry-template-rotating-secrets-tzl/image1.png)
 
 3. Sélectionnez les déploiements sous **Déploiements**.
 
-    ![Modèle de registre de conteneurs](./media/container-registry-template-rotating-secrets-tzl/image2.png)
+    ![Capture d’écran montrant un déploiement sélectionné sur la page « Déploiements ».](./media/container-registry-template-rotating-secrets-tzl/image2.png)
 
 4.  Si vous effectuez la rotation des secrets pour la première fois, sélectionnez le déploiement d’origine. Si ce n’est pas le cas, sélectionnez le déploiement le plus récent, puis **Redéployer**.
 
-    ![Modèle de registre de conteneurs](./media/container-registry-template-rotating-secrets-tzl/image3.png)
+    ![Capture d’écran montrant la page « Présentation » du modèle avec l’action « Redéployer » mise en surbrillance.](./media/container-registry-template-rotating-secrets-tzl/image3.png)
 
 5.  Dans **Déployer un modèle de solution**, sélectionnez **Utiliser un groupe de ressources existant**, puis le groupe de ressources utilisé pour déployer initialement le modèle de registre de conteneurs. Pour qu’un redéploiement aboutisse, il doit utiliser le même groupe de ressources.
 
-    ![Modèle de registre de conteneurs](./media/container-registry-template-rotating-secrets-tzl/image4.png)
+    ![Capture d’écran montrant les pages « Déployer le modèle de solution » et « Paramètres ».](./media/container-registry-template-rotating-secrets-tzl/image4.png)
 
 6.  Dans **Paramètres**, vérifiez que les paramètres correspondent au déploiement d’origine. L’ID client et le secret du principal du service devront être ajoutés.
 

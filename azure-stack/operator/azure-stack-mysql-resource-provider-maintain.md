@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 681f02fa220331a93a59448cd1c15bc490ee4b24
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: e85d20755a92806177e7d5e7a9f1d425e4a18018
+ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011176"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97950686"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Opérations de maintenance sur le fournisseur de ressources MySQL dans Azure Stack Hub
 
@@ -175,6 +175,14 @@ Les journaux d’activité de la rotation des secrets ne sont pas automatiquemen
 Utilisez le cmdlet Get-AzsDBAdapterLogs pour collecter tous les journaux d’activité du fournisseur de ressources, notamment AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log, enregistré sous C:\Logs.
 
 ## <a name="collect-diagnostic-logs"></a>Collecter des journaux de diagnostic
+
+::: moniker range=">= azs-2008"
+
+Différentes méthodes sont proposées par Azure Stack Hub pour collecter, enregistrer et envoyer les journaux de diagnostic au Support Microsoft. À partir de la version 1.1.93, le fournisseur de ressources MySQL prend en charge le mode standard de collecte des journaux à partir de votre environnement Azure Stack Hub. Pour plus d’informations, consultez [Collecte des journaux de diagnostic](diagnostic-log-collection.md).
+
+::: moniker-end
+
+À partir de la version 1.1.93, le fournisseur de ressources MySQL prend en charge le mode standard de collecte des journaux à partir de votre environnement Azure Stack Hub. Si vous utilisez une version antérieure, il est recommandé de mettre à jour votre fournisseur de ressources MySQL vers la dernière version.
 
 Pour collecter les journaux d’activité de la machine virtuelle verrouillée, utilisez le point de terminaison PowerShell JEA (Just Enough Administration) DBAdapterDiagnostics. Ce point de terminaison propose les commandes suivantes :
 

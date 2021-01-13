@@ -7,12 +7,12 @@ ms.date: 12/08/2020
 ms.author: sethm
 ms.reviewer: danlewi
 ms.lastreviewed: 12/08/2020
-ms.openlocfilehash: fac088f56dc7de04d8f78bfef1ab63c87b83f336
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: a7765eb44017b8d6521930de24794b630ae22344
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96940970"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965458"
 ---
 # <a name="azure-stack-hub-ruggedized-2008-oem-release-notes"></a>Notes de publication OEM pour Azure Stack Hub renforcé 2008
 
@@ -35,7 +35,7 @@ Ce document décrit le contenu des mises à jour internes renforcées d’Azure 
 
 ### <a name="bios"></a>Bios
 
-| Version commerciale | Version du microprogramme | Modifications                                                                                                                                                                                                                                                                                                                                                                                                       |   |   |
+| Version commerciale | Version du microprogramme | Modifications |
 |-----------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
 | 2008            | 2.8.2            | Correction d’un problème connu dans les versions du BIOS 2.6.4 à 2.8.1, où le système peut se réinitialiser durant la mise sous tension au moment où « Configuring Memory » (Configuration de la mémoire) s’affiche sur l’écran de démarrage. Le problème s’applique aux configurations de mémoire DDR4 et NVDIMM-N.<br><br>Améliorations apportées pour résoudre les failles de sécurité CVE (Common Vulnerabilities and Exposures), notamment les CVE-2020-0545, CVE-2020-0548 et CVE-2020-0549. |   |   |
 | 2005            | 2.7.7            |                                                                                                                                                                                                                                                                                                                                                                                                               |   |   |
@@ -43,7 +43,7 @@ Ce document décrit le contenu des mises à jour internes renforcées d’Azure 
 
 ### <a name="idrac"></a>IDRAC
 
-| Version commerciale | Version du microprogramme | Modifications                                                                                                                                                                                                                                                                          |   |   |
+| Version commerciale | Version du microprogramme | Modifications |
 |-----------------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
 | 2008            | 4.22.0.0         | 167411 : Correction d’un problème qui entraînait le redémarrage forcé du système au moment de la mise à jour du microprogramme via l’API Redfish.<br><br>155376 : Correction d’un problème qui entraînait le redémarrage d’iDRAC au moment de la collecte des journaux SupportAssist.<br><br>162778 : Correction d’un problème d’insuffisance de mémoire sur iDRAC en lien avec le service de console virtuelle. |   |   |
 | 2005            | 4.10.10.10       |                                                                                                                                                                                                                                                                                  |   |   |
@@ -53,7 +53,7 @@ Ce document décrit le contenu des mises à jour internes renforcées d’Azure 
 
 | Version commerciale    | Version du microprogramme    | Modifications                                                                                                          |
 |--------------------|---------------------|------------------------------------------------------------------------------------------------------------------|
-|     2008           |     14.27.60.08     | Correction d’une assertion de microprogramme irrécupérable indiquant un plantage IRISC, car init_hca est en attente de la libération du verrou de flux des minuteurs. |
+|     2008           |     14.27.60.08     | Correction d’une assertion de microprogramme irrécupérable provoquant l’absence de réponse de IRISC en raison de init_hca qui était en attente de la libération du verrou de flux des minuteurs. |
 |     2005           |     14.26.60.00     |                                                                                                                  |
 
 ### <a name="nic-hlh"></a>Cartes d’interface réseau - HLH
@@ -74,7 +74,7 @@ Ce document décrit le contenu des mises à jour internes renforcées d’Azure 
 
 |     Version commerciale |     Version du microprogramme |     Modifications                                                                                           |
 |---------------------|----------------------|-------------------------------------------------------------------------------------------------------|
-| 2005, 2008          | 25.5.7.0005          | Correction d’un problème où le contrôleur peut planter au démarrage en raison d’une configuration incomplète de la mémoire non volatile. |
+| 2005, 2008          | 25.5.7.0005          | Correction d’un problème où le contrôleur pouvait arrêter de répondre au démarrage en raison d’une configuration incomplète de la mémoire non volatile. |
 
 ### <a name="hba---boot-drives"></a>HBA - Lecteurs de démarrage
 
@@ -86,7 +86,7 @@ Ce document décrit le contenu des mises à jour internes renforcées d’Azure 
 
 | Version commerciale | Version du microprogramme | Modifications                                                                                                                                                                                                |
 |-----------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     2008        |     9.0.6        | Corrige un éventuel problème de plantage d’IDRAC durant la mise à jour du microprogramme.<br> Ajout d’un filtrage de bruit du signal pour éviter le signalement de fausses erreurs.<br> Modification du mappage de la mémoire de l’hôte pour empêcher une éventuelle désactivation du port USB avant. |
+|     2008        |     9.0.6        | Résout un problème possible où IDRAC peut cesser de répondre pendant la mise à jour du microprogramme.<br> Ajout d’un filtrage de bruit du signal pour éviter le signalement de fausses erreurs.<br> Modification du mappage de la mémoire de l’hôte pour empêcher une éventuelle désactivation du port USB avant. |
 |     2005        |     1.0.6        |                                                                                                                                                                                                        |
 
 ### <a name="drive-fw"></a>Microprogramme de lecteur

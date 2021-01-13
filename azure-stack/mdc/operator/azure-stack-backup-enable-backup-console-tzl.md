@@ -1,6 +1,6 @@
 ---
-title: Activer la sauvegarde Azure Stack à partir du portail d’administration | Microsoft Docs
-description: Découvrez comment activer le service Infrastructure Backup sur le portail d’administration pour restaurer Azure Stack en cas de panne.
+title: Activer la sauvegarde Azure Stack à partir du portail d’administration - MDC
+description: Découvrez comment activer le service Infrastructure Backup sur le portail d’administration pour restaurer Azure Stack en cas de panne. Pour un Modular Data Center.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 12/16/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 3864183ecda856500db1fcbfe38df84d70f3bae9
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: db0980511b2272a6c92c1644401ce1d577ddcf8d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330079"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910940"
 ---
-# <a name="configure-backup-for-azure-stack-hub-from-the-administrator-portal"></a>Configurer la sauvegarde d’Azure Stack Hub à partir du portail d’administration
+# <a name="configure-backup-for-azure-stack-hub-from-the-administrator-portal---modular-data-center-mdc"></a>Configurer la sauvegarde d’Azure Stack Hub à partir du portail d’administration - Modular Data Center (MDC)
 
 *S’applique à : Modular Data Center, Azure Stack Hub renforcé*
 
@@ -32,9 +32,9 @@ Vous pouvez configurer le service Infrastructure Backup depuis le portail d’ad
 
 1. Ouvrez le [portail d’administration Azure Stack](../../operator/azure-stack-manage-portals.md).
 
-2. Sélectionnez **Tous les services** puis, sous la catégorie **Administration** , sélectionnez **Sauvegarde d’infrastructure**. Choisissez **Configuration** dans le panneau **Sauvegarde d’infrastructure**.
+2. Sélectionnez **Tous les services** puis, sous la catégorie **Administration**, sélectionnez **Sauvegarde d’infrastructure**. Choisissez **Configuration** dans le panneau **Sauvegarde d’infrastructure**.
 
-3. Saisissez le chemin d’accès à l’ **emplacement de stockage de sauvegarde**. Utilisez une chaîne UNC (Universal Naming Convention) pour le chemin d’un partage de fichiers hébergé sur un appareil distinct. Une chaîne UNC spécifie l’emplacement de ressources telles que des appareils ou des fichiers partagés. Pour le service, vous pouvez utiliser une adresse IP. Pour garantir la disponibilité des données de sauvegarde après un sinistre, l’appareil doit se trouver dans un emplacement distinct.
+3. Saisissez le chemin d’accès à l’**emplacement de stockage de sauvegarde**. Utilisez une chaîne UNC (Universal Naming Convention) pour le chemin d’un partage de fichiers hébergé sur un appareil distinct. Une chaîne UNC spécifie l’emplacement de ressources telles que des appareils ou des fichiers partagés. Pour le service, vous pouvez utiliser une adresse IP. Pour garantir la disponibilité des données de sauvegarde après un sinistre, l’appareil doit se trouver dans un emplacement distinct.
 
     > [!NOTE]  
     > Si votre environnement prend en charge la résolution de noms entre le réseau d’infrastructure Azure Stack et votre environnement d’entreprise, vous pouvez utiliser un nom de domaine complet plutôt que l’adresse IP.
@@ -52,7 +52,7 @@ Vous pouvez configurer le service Infrastructure Backup depuis le portail d’ad
    > [!NOTE]
    > Si vous souhaitez archiver des sauvegardes antérieures à la période de conservation, veillez à sauvegarder les fichiers de sauvegarde avant que le planificateur ne les supprime. Si vous réduisez la période de rétention de sauvegarde (par exemple, de 7 à 5 jours), le planificateur supprime toutes les sauvegardes antérieures à la nouvelle période de rétention. Confirmez que vous acceptez la suppression des sauvegardes avant de mettre à jour cette valeur.
 
-9. Dans **Paramètres de chiffrement** , l’empreinte de certificat public correspond au certificat fourni lors du déploiement. Il n’est pas nécessaire de mettre à jour le certificat existant.
+9. Dans **Paramètres de chiffrement**, l’empreinte de certificat public correspond au certificat fourni lors du déploiement. Il n’est pas nécessaire de mettre à jour le certificat existant.
 
 10. Sélectionnez **OK** pour enregistrer vos paramètres de contrôleur de sauvegarde.
 
@@ -68,7 +68,7 @@ Si vous devez désactiver les futures sauvegardes planifiées, sélectionnez **D
 
 ![Azure Stack - Désactiver les sauvegardes planifiées](media/azure-stack-backup-enable-backup-console-tzl/disable-auto-backup.png)
 
-Vérifiez que les futures sauvegardes planifiées ont été désactivées dans **Éléments principaux** :
+Vérifiez que les futures sauvegardes planifiées ont été désactivées dans **Éléments principaux**:
 
 ![Azure Stack - confirmer que les sauvegardes ont été désactivées](media/azure-stack-backup-enable-backup-console-tzl/confirm-disable.png)
 
