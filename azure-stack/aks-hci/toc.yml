@@ -37,11 +37,11 @@
       href: adapt-apps-mixed-os-clusters.md
     - name: Utiliser des conteneurs Windows Server
       items:
-        - name: "Déployer des applications .NET dans AKS sur Azure Stack\_HCI"
+        - name: Déployer des applications .NET
           href: deploy-windows-application.md
         - name: Préparer des nœuds Windows pour la prise en charge de compte de service administré de groupe
           href: prepare-windows-nodes-gmsa.md
-        - name: "Utiliser un volume persistant dans un cluster AKS sur Azure Stack\_HCI"
+        - name: Utiliser le volume persistant
           href: persistent-volume.md
     - name: Dépannage
       href: troubleshoot.md
