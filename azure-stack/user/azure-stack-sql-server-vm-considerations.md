@@ -7,12 +7,12 @@ ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: f222334bcc6535b82b105494d907c8a69a463073
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: b1aae77d4247c80ace7a94e2b034f29f10220b55
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573766"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974028"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack-hub"></a>Meilleures pratiques SQL Server pour optimiser les performances dans Azure Stack Hub
 
@@ -123,14 +123,14 @@ Nous vous recommandons de stocker TempDB sur un disque de données, car chaque d
 
 ## <a name="io-guidance"></a>Recommandations liées aux E/S
 
-- Envisagez d’activer l’initialisation instantanée des fichiers pour réduire le temps requis pour l’allocation initiale des fichiers. Pour tirer parti de l’initialisation instantanée des fichiers, vous devez accorder l’autorisation **SE_MANAGE_VOLUME_NAME** au compte de service SQL Server (MSSQLSERVER) et l’ajouter à la stratégie de sécurité **Effectuer des tâches de maintenance sur les volumes**. Si vous utilisez une image de plateforme SQL Server pour Azure, le compte de service par défaut (**NT Service\MSSQLSERVER**) n’est pas ajouté à la stratégie de sécurité **Effectuer des tâches de maintenance sur les volumes**. En d’autres termes, l’initialisation instantanée des fichiers n’est pas activée dans une image de plateforme SQL Server pour Azure. Après avoir ajouté le compte de service SQL Server à la stratégie de sécurité **Effectuer les tâches de maintenance de volume** , redémarrez le service SQL Server. Des considérations de sécurité liées à l’utilisation de cette fonctionnalité peuvent exister. Pour plus d’informations, consultez [Initialisation des fichiers de base de données](/sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver15).
+- Envisagez d’activer l’initialisation instantanée des fichiers pour réduire le temps requis pour l’allocation initiale des fichiers. Pour tirer parti de l’initialisation instantanée des fichiers, vous devez accorder l’autorisation **SE_MANAGE_VOLUME_NAME** au compte de service SQL Server (MSSQLSERVER) et l’ajouter à la stratégie de sécurité **Effectuer des tâches de maintenance sur les volumes**. Si vous utilisez une image de plateforme SQL Server pour Azure, le compte de service par défaut (**NT Service\MSSQLSERVER**) n’est pas ajouté à la stratégie de sécurité **Effectuer des tâches de maintenance sur les volumes**. En d’autres termes, l’initialisation instantanée des fichiers n’est pas activée dans une image de plateforme SQL Server pour Azure. Après avoir ajouté le compte de service SQL Server à la stratégie de sécurité **Effectuer les tâches de maintenance de volume** , redémarrez le service SQL Server. Des considérations de sécurité liées à l’utilisation de cette fonctionnalité peuvent exister. Pour plus d’informations, consultez [Initialisation des fichiers de base de données](/sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver15&preserve-view=true).
 - **autogrow** est un plan d’urgence en cas de croissance plus rapide que prévu. Ne gérez pas la croissance de vos données et journaux quotidiennement avec la croissance automatique. En cas d’utilisation de la croissance automatique, augmentez préalablement le fichier à l’aide du commutateur **Taille**.
 - Vérifiez que la fonctionnalité de réduction automatique ( **autoshrink** ) est désactivée afin d’éviter une surcharge inutile susceptible d’affecter négativement les performances.
-- Configurez les emplacements par défaut du fichier de sauvegarde et du fichier de base de données. Utilisez les suggestions de cet article, puis apportez les modifications souhaitées dans la fenêtre Propriétés du serveur. Pour obtenir des instructions, consultez [Afficher ou modifier les emplacements par défaut des fichiers de données et des fichiers journaux (SQL Server Management Studio)](/sql/database-engine/configure-windows/view-or-change-the-default-locations-for-data-and-log-files?view=sql-server-ver15). La capture d’écran suivante montre comment effectuer ces modifications :
+- Configurez les emplacements par défaut du fichier de sauvegarde et du fichier de base de données. Utilisez les suggestions de cet article, puis apportez les modifications souhaitées dans la fenêtre Propriétés du serveur. Pour obtenir des instructions, consultez [Afficher ou modifier les emplacements par défaut des fichiers de données et des fichiers journaux (SQL Server Management Studio)](/sql/database-engine/configure-windows/view-or-change-the-default-locations-for-data-and-log-files?view=sql-server-ver15&preserve-view=true). La capture d’écran suivante montre comment effectuer ces modifications :
 
     > ![Afficher ou changer les emplacements par défaut](./media/sql-server-vm-considerations/image1.png)
 
-- Activez les pages verrouillées pour réduire les activités d’E/S et de pagination. Pour plus d’informations, consultez [Activer l’option Lock Pages in Memory (Windows)](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows?view=sql-server-ver15).
+- Activez les pages verrouillées pour réduire les activités d’E/S et de pagination. Pour plus d’informations, consultez [Activer l’option Lock Pages in Memory (Windows)](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows?view=sql-server-ver15&preserve-view=true).
 
 - Envisagez de compresser tous les fichiers de données lors des transferts à destination et à partir d’Azure Stack Hub, y compris les sauvegardes.
 
@@ -140,7 +140,7 @@ Certains déploiements peuvent bénéficier de plus grands avantages en termes d
 
 - **Sauvegardez sur** **Stockage Azure.** Lors de sauvegardes de SQL Server s’exécutant sur des machines virtuelles Azure Stack Hub, vous pouvez utiliser l’option Sauvegarde SQL Server vers une URL. Cette fonctionnalité est disponible à partir de SQL Server 2012 SP1 CU2, et recommandée pour la sauvegarde vers les disques de données attachés.
 
-    Durant la sauvegarde ou la restauration à l’aide du stockage Azure, suivez les suggestions indiquées dans [Meilleures pratiques et dépannage de sauvegarde SQL Server vers une URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting?view=sql-server-ver15) et [Restauration à partir de sauvegardes stockées dans Microsoft Azure](/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017). Vous pouvez également automatiser ces sauvegardes en utilisant la [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup).
+    Durant la sauvegarde ou la restauration à l’aide du stockage Azure, suivez les suggestions indiquées dans [Meilleures pratiques et dépannage de sauvegarde SQL Server vers une URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting?view=sql-server-ver15&preserve-view=true) et [Restauration à partir de sauvegardes stockées dans Microsoft Azure](/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017&preserve-view=true). Vous pouvez également automatiser ces sauvegardes en utilisant la [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup).
 
 -   **Sauvegardez vers le stockage Azure Stack Hub.** Vous pouvez effectuer une sauvegarde vers le stockage Azure Stack Hub de la même manière qu’une sauvegarde vers Stockage Azure. Quand vous créez une sauvegarde dans SQL Server Management Studio (SSMS), vous devez entrer manuellement les informations de configuration. Vous ne pouvez pas utiliser SSMS pour créer le conteneur de stockage ou la signature d’accès partagé. SSMS se connecte uniquement à des abonnements Azure, pas à des abonnements Azure Stack Hub. Au lieu de cela, vous devez créer le compte de stockage, le conteneur et la signature d’accès partagé dans le portail Azure Stack Hub ou avec PowerShell.
 

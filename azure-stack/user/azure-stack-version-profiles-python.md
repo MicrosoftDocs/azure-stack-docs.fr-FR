@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 676cd4fe93a464df0cd0a4cddeb3e12ddee1f229
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 1359ce67220040a326251802b35ad72ec526d09e
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96526031"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973977"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Utiliser des profils de version d’API avec Python dans Azure Stack Hub
 
@@ -38,7 +38,7 @@ Le Kit de développement logiciel (SDK) Python prend en charge les profils d’A
 ## <a name="install-the-azure-python-sdk"></a>Installer le kit SDK Azure Python
 
 1. [Installer Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-2. Pour des instructions sur l’installation du SDK Python, consultez [Azure pour développeurs Python](/python/azure/python-sdk-azure-install?view=azure-python).
+2. Pour des instructions sur l’installation du SDK Python, consultez [Azure pour développeurs Python](/python/azure/python-sdk-azure-install?view=azure-python&preserve-view=true).
 3. Si vous n’en avez pas de disponible, créez un abonnement et enregistrez l’ID d’abonnement pour l’utiliser plus tard. Pour des instructions sur la création d’un abonnement, voir [Créer des abonnements pour des offres dans Azure Stack Hub](../operator/azure-stack-subscribe-plan-provision-vm.md).
 4. Créez un principal de service et enregistrez son ID et son secret. Pour plus d’informations sur la création d’un principal de service pour Azure Stack Hub, voir [Fournir à des applications l’accès à Azure Stack Hub](../operator/azure-stack-create-service-principals.md).
 5. Vérifiez que votre principal de service bénéficie du rôle contributeur/propriétaire sur votre abonnement. Pour plus d’informations sur l’attribution d’un rôle à votre principal de service, voir [Fournir à des applications l’accès à Azure Stack Hub](../operator/azure-stack-create-service-principals.md).

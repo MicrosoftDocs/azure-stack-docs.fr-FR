@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 0d8425fa11f6de0e909a697527074c779acd27da
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 02a3fdb862f3a4c04a63d5e5694487b62435ee16
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525793"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974096"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>Extension du stockage sur Azure Stack Hub
 
@@ -50,7 +50,7 @@ Dans ce scénario, vous allez déployer et configurer une machine virtuelle Wind
 
 2.  Une fois que vous disposez d’une image Windows Server 2019 dans votre environnement Azure Stack Hub, **connectez-vous au portail utilisateur d’Azure Stack Hub**.
 
-3.  Une fois que vous êtes connecté au portail utilisateur Azure Stack Hub, vérifiez que vous disposez d’un [abonnement à une offre](../operator/azure-stack-subscribe-plan-provision-vm.md?view=azs-1908), ce qui vous permet de provisionner des ressources IaaS (calcul, stockage et réseau).
+3.  Une fois que vous êtes connecté au portail utilisateur Azure Stack Hub, vérifiez que vous disposez d’un [abonnement à une offre](../operator/azure-stack-subscribe-plan-provision-vm.md), ce qui vous permet de provisionner des ressources IaaS (calcul, stockage et réseau).
 
 4.  Une fois que vous disposez d’un abonnement, revenez dans le **tableau de bord** du portail utilisateur Azure Stack Hub, sélectionnez **Créer une ressource**, **Calcul**, puis l’**élément de galerie Windows Server 2019 Datacenter**.
 

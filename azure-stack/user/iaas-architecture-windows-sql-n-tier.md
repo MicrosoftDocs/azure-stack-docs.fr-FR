@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 50b08f594b121601b8e049c4c4875cb31143cbaa
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: b543a94c75ac50c7b0e75f5635956093340b970d
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873671"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973575"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>Application multiniveau Windows sur Azure Stack Hub avec SQL Server
 
@@ -34,7 +34,7 @@ L’architecture possède les composants suivants :
 
 -   **Réseau virtuel et sous-réseaux**. Chaque machine virtuelle Azure est déployée dans un réseau virtuel qui peut être segmenté en sous-réseaux. Créez un sous-réseau distinct pour chaque niveau.
 
--   **Équilibreur de charge de couche 7.** Application Gateway n’étant pas encore disponible sur Azure Stack Hub, des alternatives sont proposées sur la [Place de marché Azure Stack Hub ](../operator/azure-stack-marketplace-azure-items.md?view=azs-1908), par exemple : [Commutateur de contenu ADC Load Balancer KEMP LoadMaster](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [f5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) ou [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
+-   **Équilibreur de charge de couche 7.** Application Gateway n’étant pas encore disponible sur Azure Stack Hub, des alternatives sont proposées sur la [Place de marché Azure Stack Hub ](../operator/azure-stack-marketplace-azure-items.md), par exemple : [Commutateur de contenu ADC Load Balancer KEMP LoadMaster](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [f5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) ou [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
 
 -   **Équilibreurs de charge** : Utilisez [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) pour répartir le trafic réseau de la couche Web vers la couche Entreprise, et de la couche Entreprise vers SQL Server.
 
@@ -98,15 +98,15 @@ Créez les règles 2 à 4 en leur attribuant une priorité plus élevée qu'à l
 
 ## <a name="sql-server-always-on-availability-groups"></a>Groupes de disponibilité SQL Server Always On
 
-Nous vous recommandons d'utiliser des [groupes de disponibilité AlwaysOn](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15) pour la haute disponibilité de SQL Server. Avec les versions antérieures à Windows Server 2016, les groupes de disponibilité AlwaysOn nécessitent un contrôleur de domaine et tous les nœuds du groupe de disponibilité doivent être dans le même domaine Active Directory.
+Nous vous recommandons d'utiliser des [groupes de disponibilité AlwaysOn](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true) pour la haute disponibilité de SQL Server. Avec les versions antérieures à Windows Server 2016, les groupes de disponibilité AlwaysOn nécessitent un contrôleur de domaine et tous les nœuds du groupe de disponibilité doivent être dans le même domaine Active Directory.
 
 Pour la haute disponibilité de la couche Machines virtuelles, toutes les machines virtuelles SQL doivent se trouver dans un groupe à haute disponibilité.
 
-Les autres couches se connectent à la base de données par le biais d'un [écouteur de groupe de disponibilité](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15). L’écouteur permet à un client SQL de se connecter sans connaître le nom de l’instance physique de SQL Server. Les machines virtuelles qui accèdent à la base de données doivent être jointes au domaine. Le client (dans ce cas, un autre niveau) utilise le système DNS pour résoudre le nom du réseau virtuel de l’écouteur en adresses IP.
+Les autres couches se connectent à la base de données par le biais d'un [écouteur de groupe de disponibilité](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15&preserve-view=true). L’écouteur permet à un client SQL de se connecter sans connaître le nom de l’instance physique de SQL Server. Les machines virtuelles qui accèdent à la base de données doivent être jointes au domaine. Le client (dans ce cas, un autre niveau) utilise le système DNS pour résoudre le nom du réseau virtuel de l’écouteur en adresses IP.
 
 Configurez le groupe de disponibilité SQL Server AlwaysOn comme suit :
 
-1.  Créez un cluster WSFC (clustering de basculement Windows Server), un groupe de disponibilité SQL Server AlwaysOn et un réplica principal. Pour plus d'informations, consultez [Prise en main des groupes de disponibilité AlwaysOn](/sql/database-engine/availability-groups/windows/getting-started-with-always-on-availability-groups-sql-server?view=sql-server-ver15).
+1.  Créez un cluster WSFC (clustering de basculement Windows Server), un groupe de disponibilité SQL Server AlwaysOn et un réplica principal. Pour plus d'informations, consultez [Prise en main des groupes de disponibilité AlwaysOn](/sql/database-engine/availability-groups/windows/getting-started-with-always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true).
 
 2.  Créez un équilibreur de charge interne avec une adresse IP privée statique.
 
@@ -121,9 +121,9 @@ Quand un client SQL tente de se connecter, l’équilibreur de charge achemine l
 
 Lors d’un basculement, les connexions clientes existantes sont fermées. Une fois le basculement terminé, les nouvelles connexions sont acheminées vers le nouveau réplica principal.
 
-Si votre application effectue plus de lectures que d'écritures, vous pouvez décharger certaines des requêtes en lecture seule vers un réplica secondaire. Voir [Utilisation d'un écouteur pour se connecter à un réplica secondaire en lecture seule (routage en lecture seule)](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15#ConnectToSecondary).
+Si votre application effectue plus de lectures que d'écritures, vous pouvez décharger certaines des requêtes en lecture seule vers un réplica secondaire. Voir [Utilisation d'un écouteur pour se connecter à un réplica secondaire en lecture seule (routage en lecture seule)](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15&preserve-view=true#ConnectToSecondary).
 
-Testez votre déploiement en [forçant un basculement manuel](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15) du groupe de disponibilité.
+Testez votre déploiement en [forçant un basculement manuel](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15&preserve-view=true) du groupe de disponibilité.
 
 Pour optimiser les performances de SQL, vous pouvez également consulter l’article [Meilleures pratiques SQL Server pour optimiser les performances dans Azure Stack Hub](./azure-stack-sql-server-vm-considerations.md).
 

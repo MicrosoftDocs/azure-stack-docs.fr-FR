@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: df65f32abdc7c643c953f176ae8a4fd0b47309f5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 6978e6c86df577fc3d0446a8ecc8ce13a57781b7
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873739"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973574"
 ---
 # <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>Exécuter une application multiniveau dans plusieurs régions Azure Stack Hub pour une haute disponibilité
 
@@ -35,9 +35,9 @@ Cette architecture repose sur celle décrite dans l’article [Application multi
 
 -   **Réseaux virtuels**. Créez un réseau virtuel distinct pour chaque région. Vérifiez que les espaces d’adressage ne se chevauchent pas.
 
--   **Groupe de disponibilité SQL Server Always On**. Si vous utilisez SQL Server, nous vous recommandons d’utiliser des [groupes de disponibilité AlwaysOn SQL](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15) pour la haute disponibilité. Créez un groupe de disponibilité unique qui comprend les instances de SQL Server dans les deux régions.
+-   **Groupe de disponibilité SQL Server Always On**. Si vous utilisez SQL Server, nous vous recommandons d’utiliser des [groupes de disponibilité AlwaysOn SQL](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true) pour la haute disponibilité. Créez un groupe de disponibilité unique qui comprend les instances de SQL Server dans les deux régions.
 
--   **Connexion VPN de réseau virtuel à réseau virtuel**. Comme VNET Peering n’est pas encore disponible sur Azure Stack Hub, utilisez une connexion VPN de réseau virtuel à réseau virtuel pour connecter les deux réseaux virtuels. Pour plus d’informations, voir [Réseau virtuel à réseau virtuel dans Azure Stack Hub](./azure-stack-network-howto-vnet-to-vnet.md?view=azs-1908).
+-   **Connexion VPN de réseau virtuel à réseau virtuel**. Comme VNET Peering n’est pas encore disponible sur Azure Stack Hub, utilisez une connexion VPN de réseau virtuel à réseau virtuel pour connecter les deux réseaux virtuels. Pour plus d’informations, voir [Réseau virtuel à réseau virtuel dans Azure Stack Hub](./azure-stack-network-howto-vnet-to-vnet.md).
 
 ## <a name="recommendations"></a>Recommandations
 
@@ -113,7 +113,7 @@ Pour configurer le groupe de disponibilité
     az network vnet update --resource-group <resource-group> --name <vnet-name> --dns-servers "10.0.0.4,10.0.0.6,172.16.0.4,172.16.0.6"
     ```
 
--   Créez un cluster [WSFC (Clustering de basculement Windows Server)](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15) qui inclut les instances de SQL Server dans les deux régions.
+-   Créez un cluster [WSFC (Clustering de basculement Windows Server)](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15&preserve-view=true) qui inclut les instances de SQL Server dans les deux régions.
 
 -   Créez un groupe de disponibilité SQL Server AlwaysOn qui inclut les instances de SQL Server dans les régions primaire et secondaire. Pour connaître les étapes, consultez [Extending AlwaysOn Availability Group to Remote Azure Datacenter (PowerShell) (Extension de groupe de disponibilité AlwaysOn à un centre de données Azure à distance (PowerShell)](https://techcommunity.microsoft.com/t5/DataCAT/Extending-AlwaysOn-Availability-Group-to-Remote-Azure-Datacenter/ba-p/305217).
 
@@ -134,10 +134,10 @@ Traffic Manager est un point de défaillance possible dans le système. Si le se
 
 Pour le cluster SQL Server, deux scénarios de basculement doivent être pris en compte :
 
--   Tous les réplicas de base de données SQL Server dans la région primaire échouent. Cela peut par exemple se produire pendant une panne régionale. Dans ce cas, vous devez faire basculer manuellement le groupe de disponibilité, même si Traffic Manager bascule automatiquement vers le frontend. Suivez les étapes de l’article [Perform a Forced Manual Failover of a SQL Server Availability Group](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15) (Effectuer un basculement manuel forcé d’un groupe de disponibilité SQL Server), qui explique comment effectuer un basculement forcé à l’aide de SQL Server Management Studio, Transact-SQL ou PowerShell dans SQL Server 2016.
+-   Tous les réplicas de base de données SQL Server dans la région primaire échouent. Cela peut par exemple se produire pendant une panne régionale. Dans ce cas, vous devez faire basculer manuellement le groupe de disponibilité, même si Traffic Manager bascule automatiquement vers le frontend. Suivez les étapes de l’article [Perform a Forced Manual Failover of a SQL Server Availability Group](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15&preserve-view=true) (Effectuer un basculement manuel forcé d’un groupe de disponibilité SQL Server), qui explique comment effectuer un basculement forcé à l’aide de SQL Server Management Studio, Transact-SQL ou PowerShell dans SQL Server 2016.
 
     > [!Warning]  
-    > Avec le basculement forcé, il existe un risque de perte de données. Une fois la région primaire de nouveau en ligne, prenez un instantané de la base de données et utilisez [tablediff](/sql/tools/tablediff-utility?view=sql-server-ver15) pour rechercher les différences.
+    > Avec le basculement forcé, il existe un risque de perte de données. Une fois la région primaire de nouveau en ligne, prenez un instantané de la base de données et utilisez [tablediff](/sql/tools/tablediff-utility?view=sql-server-ver15&preserve-view=true) pour rechercher les différences.
 
 -   Traffic Manager bascule vers la région secondaire, mais le réplica de base de données SQL Server principal est toujours disponible. Par exemple, le niveau frontend peut échouer sans affecter les machines virtuelles SQL Server. Dans ce cas, le trafic Internet est acheminé vers la région secondaire, et cette région peut toujours se connecter au réplica principal. Toutefois, il y aura une latence accrue, car les connexions SQL Server traversent différentes régions. Dans ce cas, vous devez effectuer un basculement manuel comme suit :
 

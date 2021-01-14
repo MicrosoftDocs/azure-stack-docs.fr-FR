@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/16/2020
-ms.openlocfilehash: 798b3d9e94f6263b02c291d2f5725768f1a8522a
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.openlocfilehash: d187058561f166084b672d941262c7979f7deec2
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97620685"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974045"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>Utiliser Docker pour exécuter PowerShell pour Azure Stack Hub
 
@@ -34,7 +34,7 @@ Dans cet article, vous pouvez utiliser Docker pour créer un conteneur sur leque
 
 Pour utiliser PowerShell afin d’accéder aux ressources dans Azure Stack Hub, vous avez besoin d’un principal de service dans votre locataire Azure AD (Azure Active Directory). Vous déléguez des autorisations avec contrôle d’accès en fonction du rôle (RBAC) utilisateur. Vous devrez peut-être demander le principal de service à votre opérateur cloud.
 
-1. Pour configurer votre principal de service, suivez les instructions dans [Permettre à des applications d’accéder à des ressources Azure Stack Hub en créant des principaux de service](../operator/azure-stack-create-service-principals.md?view=azs-2002).
+1. Pour configurer votre principal de service, suivez les instructions dans [Permettre à des applications d’accéder à des ressources Azure Stack Hub en créant des principaux de service](../operator/azure-stack-create-service-principals.md).
 
 2. Notez l’ID d’application, le secret, votre ID de locataire et l’ID d’objet pour les utiliser ultérieurement.
 

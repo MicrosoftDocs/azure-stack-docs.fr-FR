@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 40ec516f2f10f02716257077a4676c5724acf4ec
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 6bbca7a38e23a0dfadcd0e7654430430d55da3f2
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525691"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974062"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>Sauvegarder vos comptes de stockage sur Azure Stack Hub
 
@@ -32,7 +32,7 @@ Les données peuvent être répliquées entre les comptes de stockage sur des un
 
 AzCopy est un excellent outil qui peut être utilisé pour copier des données à partir de systèmes de fichiers locaux, du stockage cloud Azure, du stockage Azure Stack Hub et du niveau S3. Actuellement, AzCopy ne peut pas copier de données entre deux comptes de stockage Azure Stack Hub. La copie d’objets d’un compte de stockage Azure Stack Hub source vers un compte de stockage Azure Stack Hub cible nécessite un système de fichiers local intermédiaire.
 
-Pour plus d’informations, consultez l’article AzCopy [Utiliser les outils de transfert de données dans le stockage Azure Stack Hub](./azure-stack-storage-transfer.md?view=azs-1908#azcopy).
+Pour plus d’informations, consultez l’article AzCopy [Utiliser les outils de transfert de données dans le stockage Azure Stack Hub](./azure-stack-storage-transfer.md#azcopy).
 
 ### <a name="azure-stack-hub-source"></a>Azure Stack Hub (source)
 

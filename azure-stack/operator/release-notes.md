@@ -7,12 +7,12 @@ ms.date: 12/23/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: b2b72ce306d9a3801d7208a748e1bdb3720947ea
-ms.sourcegitcommit: 37e83d0b593d2d61156f4ffd4f8e1afd5f558465
+ms.openlocfilehash: 3c10ea13f3780a7c7e1e0f999d8203d4d03f4e49
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97766595"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974147"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Notes de publication d’Azure Stack Hub
 
@@ -271,7 +271,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 - Les nouveaux modules de locataire Azure PowerShell seront publiés pour Azure Stack Hub le 15 avril 2020. Les modules Azure RM utilisés continuent de fonctionner, mais ne seront plus mis à jour après la build 2002.
 - Ajout d’une nouvelle alerte d’avertissement sur le portail administrateur Azure Stack Hub pour signaler les problèmes de connectivité avec le serveur syslog configuré. Le titre de l’alerte indique que **le client Syslog a rencontré un problème de réseau lors de l’envoi d’un message Syslog**.
 - Ajout d’une nouvelle alerte d’avertissement sur le portail administrateur Azure Stack Hub pour signaler les problèmes de connectivité avec le serveur NTP (Network Time Protocol). Le titre de l’alerte indique que **la source de temps n’est pas valide sur [nom du nœud]** .
-- Le [SDK Java](https://azure.microsoft.com/develop/java/) a publié de nouveaux packages en raison d’un changement cassant dans la version 2002 lié aux restrictions TLS. Vous devez installer la nouvelle dépendance du SDK Java. Vous trouverez les instructions à la section [Java et les profils de version d’API](../user/azure-stack-version-profiles-java.md?view=azs-2002#java-and-api-version-profiles).
+- Le [SDK Java](https://azure.microsoft.com/develop/java/) a publié de nouveaux packages en raison d’un changement cassant dans la version 2002 lié aux restrictions TLS. Vous devez installer la nouvelle dépendance du SDK Java. Vous trouverez les instructions à la section [Java et les profils de version d’API](../user/azure-stack-version-profiles-java.md?view=azs-2002&preserve-view=true#java-and-api-version-profiles).
 - Une nouvelle version (1.0.5.10) du pack d’administration de System Center Operations Manager - Azure Stack Hub est disponible et est nécessaire pour tous les systèmes exécutant 2002 en raison des la rupture des changements cassants apportées aux API. Les changements apportés aux API impactent les tableaux de bord des performances de sauvegarde et de stockage, et nous vous recommandons de commencer par mettre à jour tous les systèmes vers la version 2002 avant de mettre à jour le pack d’administration.
 
 ### <a name="improvements"></a>Améliorations
@@ -282,8 +282,8 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 - L’outil de vérification de la disponibilité d’Azure Stack Hub valide désormais l’intégration d’AD Graph à l’aide de tous les ports TCP IP alloués à AD Graph.
 - L’outil de syndication hors connexion a été mis à jour avec des améliorations de la fiabilité. L’outil n’est plus disponible sur GitHub et a été [déplacé vers PowerShell Gallery](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/). Pour plus d’informations, consultez [Télécharger des éléments de la Place de marché vers Azure Stack Hub](azure-stack-download-azure-marketplace-item.md).
 - Une nouvelle fonctionnalité de supervision est sur le point d’être ajoutée. L’alerte concernant un espace disque insuffisant pour les hôtes physiques et les machines virtuelles d’infrastructure sera corrigée automatiquement par la plateforme. Si cette action échoue, l’alerte s’affichera dans le portail d’administration Azure Stack Hub pour que l’opérateur corrige le problème.
-- Améliorations apportées à la [collecte des journaux de diagnostic](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002). La nouvelle expérience rationalise et simplifie la collecte des journaux de diagnostic en éliminant la nécessité de configurer un compte de stockage d’objets blob à l’avance. L’environnement de stockage est préconfiguré afin que vous puissiez envoyer des journaux avant d’ouvrir un cas de support et consacrer moins de temps à un appel de support.
-- Le temps nécessaire à la [collecte proactive des journaux et à la collecte des journaux à la demande](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002) a été réduit de 80 %. La collecte des journaux peut prendre plus de temps que cette valeur attendue, mais elle ne nécessite aucune action de la part des opérateurs Azure Stack Hub, sauf si la collecte des journaux échoue.
+- Améliorations apportées à la [collecte des journaux de diagnostic](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002&preserve-view=true). La nouvelle expérience rationalise et simplifie la collecte des journaux de diagnostic en éliminant la nécessité de configurer un compte de stockage d’objets blob à l’avance. L’environnement de stockage est préconfiguré afin que vous puissiez envoyer des journaux avant d’ouvrir un cas de support et consacrer moins de temps à un appel de support.
+- Le temps nécessaire à la [collecte proactive des journaux et à la collecte des journaux à la demande](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002&preserve-view=true) a été réduit de 80 %. La collecte des journaux peut prendre plus de temps que cette valeur attendue, mais elle ne nécessite aucune action de la part des opérateurs Azure Stack Hub, sauf si la collecte des journaux échoue.
 - La progression du téléchargement d’un package de mise à jour Azure Stack Hub est désormais visible dans le panneau de mise à jour après le lancement d’une mise à jour. Seuls sont concernés les systèmes connectés Azure Stack Hub qui choisissent de [préparer les packages de mise à jour par le biais du téléchargement automatique](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages).
 - Améliorations de la fiabilité de l’agent hôte du contrôleur de réseau.
 - Introduction d’un nouveau micro-service nommé DNS Orchestrator qui améliore la logique de résilience pour les services DNS internes au cours des mises à jour et des correctifs.

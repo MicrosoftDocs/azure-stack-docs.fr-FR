@@ -8,12 +8,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 3472cf330efb250f20eb66a5df50239a66293307
-ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
+ms.openlocfilehash: 212d6c89bedc6f46eb6db2cbf735fa61ea0ad909
+ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97950703"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98103096"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Opérations de maintenance du fournisseur de ressources SQL
 
@@ -193,6 +193,8 @@ Différentes méthodes sont proposées par Azure Stack Hub pour collecter, enreg
 
 ::: moniker-end
 
+::: moniker range="< azs-2008"
+
 À partir de la version 1.1.93, le fournisseur de ressources SQL prend en charge le mode standard de collecte des journaux à partir de votre environnement Azure Stack Hub. Si vous utilisez une version antérieure, il est recommandé de mettre à jour votre fournisseur de ressources SQL vers la dernière version.
 
 Pour collecter les journaux de la machine virtuelle verrouillée, utilisez le point de terminaison PowerShell JEA (Just Enough Administration) *DBAdapterDiagnostics*. Ce point de terminaison propose les commandes suivantes :
@@ -245,6 +247,9 @@ $cleanup = Invoke-Command -Session $session -ScriptBlock {Remove-AzsDBAdapterLog
 # Close the session.
 $session | Remove-PSSession
 ```
+
+::: moniker-end
+
 ## <a name="configure-azure-diagnostics-extension-for-sql-resource-provider"></a>Configurer l’extension Azure Diagnostics pour le fournisseur de ressources SQL
 L’extension Azure Diagnostics est installée sur la machine virtuelle de l’adaptateur du fournisseur de ressources SQL par défaut. Les étapes suivantes montrent comment personnaliser l’extension pour la collecte des journaux des événements opérationnels du fournisseur de ressources SQL et des journaux IIS pour le dépannage et l’audit.
 

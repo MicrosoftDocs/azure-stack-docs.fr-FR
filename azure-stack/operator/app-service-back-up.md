@@ -7,12 +7,12 @@ ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 3b12c794550c3d39809369ae86117d9c684e1a53
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: d1177361f8980c44f67a0d1757f7bb146aed04be
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489791"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973433"
 ---
 # <a name="back-up-app-service-on-azure-stack-hub"></a>Sauvegarder App Service sur Azure Stack Hub
 
@@ -61,7 +61,7 @@ Si vous êtes connecté au serveur SQL Server, vous pouvez sauvegarder manuellem
   ```
 
 > [!NOTE]
-> Si vous devez sauvegarder des bases de données SQL AlwaysOn, suivez [ces instructions](/sql/database-engine/availability-groups/windows/configure-backup-on-availability-replicas-sql-server?view=sql-server-2017). 
+> Si vous devez sauvegarder des bases de données SQL AlwaysOn, suivez [ces instructions](/sql/database-engine/availability-groups/windows/configure-backup-on-availability-replicas-sql-server?view=sql-server-2017&preserve-view=true). 
 
 Une fois que vous avez sauvegardé toutes les bases de données, copiez les fichiers .bak et les secrets App Service à un emplacement sûr.
 

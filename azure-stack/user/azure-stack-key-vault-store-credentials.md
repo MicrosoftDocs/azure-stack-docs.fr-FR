@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 01/16/2020
-ms.openlocfilehash: c17ba69fedfd51681c5038efde591115ce54bddf
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: e1409105c0682552875a524aab9a222f6ab0c459
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567516"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974079"
 ---
 # <a name="store-service-principal-credentials-in-azure-stack-hub-key-vault"></a>Stocker les informations d’identification du principal de service dans un Key Vault Azure Stack Hub
 
@@ -92,6 +92,6 @@ Une fois le secret créé, les informations du principal de service y sont stock
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Utiliser les principaux de service](../operator/azure-stack-create-service-principals.md?view=azs-2002)
+- [Utiliser les principaux de service](../operator/azure-stack-create-service-principals.md)
 - [Gérer Key Vault dans Azure Stack Hub par le biais du portail](azure-stack-key-vault-manage-portal.md)  
 - [Gérer Key Vault dans Azure Stack Hub à l’aide de PowerShell](azure-stack-key-vault-manage-powershell.md)

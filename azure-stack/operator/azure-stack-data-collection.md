@@ -7,12 +7,12 @@ ms.date: 02/24/2020
 ms.author: patricka
 ms.reviewer: chengwei
 ms.lastreviewed: 02/24/2020
-ms.openlocfilehash: 2f6c46194328dd8335c2cf39ca4deca13664df63
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: fd383d25f34bcd8342b8e37468fb34f455cb790f
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870985"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974198"
 ---
 # <a name="azure-stack-hub-log-and-customer-data-handling"></a>Gestion des journaux et des données client d’Azure Stack Hub 
 
@@ -21,7 +21,7 @@ Dans la mesure où Microsoft traite directement ou indirectement des données pe
 - Le « traitement des données personnelles ; RGPD » dans la section « Conditions de la protection des données » des [Conditions des services en ligne](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 - Le Règlement général sur la protection des données (RGPD) de l’Union européenne de la pièce jointe 4 des [conditions des services en ligne](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
-Comme Azure Stack Hub réside dans des centres de données de clients, Microsoft est l’entité de contrôle uniquement pour les données partagées avec Microsoft via les [Diagnostics](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002), la [Télémétrie](azure-stack-telemetry.md) et la [Facturation](azure-stack-usage-reporting.md).  
+Comme Azure Stack Hub réside dans des centres de données de clients, Microsoft est l’entité de contrôle uniquement pour les données partagées avec Microsoft via les [Diagnostics](./azure-stack-diagnostic-log-collection-overview.md), la [Télémétrie](azure-stack-telemetry.md) et la [Facturation](azure-stack-usage-reporting.md).  
 
 ## <a name="data-access-controls"></a>Contrôles d’accès aux données 
 Les employés de Microsoft, qui doivent examiner une demande de support spécifique, auront un accès en lecture seule aux données chiffrées. Les employés de Microsoft ont également accès aux outils utilisés pour supprimer les données si nécessaire. Tout accès aux données client est audité et journalisé.  
@@ -41,7 +41,7 @@ Pour l’action de suppression automatique des données (90 jours après la cl�
 Pour l’action de suppression de données à la demande, les ingénieurs du support technique de Microsoft ont accès à l’outil qui leur permet de supprimer des données à la demande. Ils peuvent fournir une confirmation par téléphone au client quand l’opération est terminée.
 
 ## <a name="diagnostic-data"></a>Données de diagnostic
-Dans le cadre du processus de support, les opérateurs Azure Stack Hub peuvent [partager les journaux de diagnostic](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002) avec les équipes de support et d’ingénierie d’Azure Stack Hub pour faciliter la résolution des problèmes.
+Dans le cadre du processus de support, les opérateurs Azure Stack Hub peuvent [partager les journaux de diagnostic](./azure-stack-diagnostic-log-collection-overview.md) avec les équipes de support et d’ingénierie d’Azure Stack Hub pour faciliter la résolution des problèmes.
 
 Microsoft fournit un outil et un script aux clients pour collecter et charger les fichiers journaux de diagnostic demandés. Une fois collectés, les fichiers journaux sont transférés à Microsoft via une connexion HTTPS chiffrée. Comme le protocole HTTPS assure le chiffrement sur le réseau, aucun mot de passe n’est nécessaire pour le chiffrement en transit. Après réception, les journaux sont chiffrés et stockés jusqu’à ce qu’ils soient automatiquement supprimés 90 jours après la clôture de la demande de support.
 

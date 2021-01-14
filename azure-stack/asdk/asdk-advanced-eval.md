@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 912fb68695d281ee83273ff49f2f2aa24e468247
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 853a67fab66c064f7cc68093dece1030319ea1f1
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873604"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973314"
 ---
 # <a name="advanced-asdk-evaluation-tasks"></a>Tâches d’évaluation avancées ASDK
 Une fois familiarisé avec les fonctionnalités de base du kit de développement Azure Stack (ASDK), vous pouvez approfondir vos connaissances d’Azure Stack en testant des scénarios plus avancés. Ces tâches d’évaluation plus avancées sont intégralement documentées dans la documentation destinée aux opérateurs Azure Stack.
@@ -28,12 +28,12 @@ La [délégation d’offres dans Azure Stack](../operator/azure-stack-delegated-
 ## <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Mettre des bases de données SQL à la disposition de vos utilisateurs Azure Stack
 En tant qu’opérateur Azure Stack, vous pouvez créer des offres qui permettent aux utilisateurs de créer des bases de données SQL qu’ils peuvent utiliser avec leurs applications cloud natives, leurs sites web et leurs charges de travail. En fournissant à vos utilisateurs ces bases de données cloud à la demande et personnalisées, vous leur faites gagner du temps et économiser des ressources.
 
-Utilisez l’adaptateur du fournisseur de ressources SQL Server pour [mettre des bases de données SQL à disposition des utilisateurs Azure Stack](../operator/azure-stack-sql-resource-provider.md?view=azs-2002) en tant que service Azure Stack. Une fois le fournisseur de ressources installé, vous le connectez à une ou plusieurs instances de SQL Server.
+Utilisez l’adaptateur du fournisseur de ressources SQL Server pour [mettre des bases de données SQL à disposition des utilisateurs Azure Stack](../operator/azure-stack-sql-resource-provider.md) en tant que service Azure Stack. Une fois le fournisseur de ressources installé, vous le connectez à une ou plusieurs instances de SQL Server.
 
 ## <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Mettre des applications web et des API à la disposition des utilisateurs Azure Stack
 En tant qu’opérateur Azure Stack, vous pouvez créer des offres qui permettent aux utilisateurs (locataires) de créer des fonctions Azure, ainsi que des applications web et d’API. En permettant à vos utilisateurs d’accéder à ces applications informatiques à la demande, vous pouvez leur faire gagner du temps et économiser des ressources.
 
-Déployez le fournisseur de ressources App Service pour [mettre à la disposition de vos utilisateurs Azure Stack des applications web et d’API](../operator/azure-stack-app-service-overview.md?view=azs-2002).
+Déployez le fournisseur de ressources App Service pour [mettre à la disposition de vos utilisateurs Azure Stack des applications web et d’API](../operator/azure-stack-app-service-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

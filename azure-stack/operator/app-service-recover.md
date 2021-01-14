@@ -7,12 +7,12 @@ ms.date: 03/21/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: ba57de42f882ce62d433768f4fd2a265b862459c
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 3a445fde3d11d42699caf96ff45167871513a2f5
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489757"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973367"
 ---
 # <a name="app-service-recovery-on-azure-stack-hub"></a>Récupération pour App Service sur Azure Stack Hub
 
@@ -39,7 +39,7 @@ Après la [préparation de l’instance SQL Server](azure-stack-app-service-befo
 3. Vérifiez que les deux bases de données App Service ont été correctement restaurées, puis quittez SQL Server Management Studio.
 
 > [!NOTE]
-> Pour récupérer après un échec d’instance de cluster de basculement, consultez [Récupérer après un échec d’instance de cluster de basculement](/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017). 
+> Pour récupérer après un échec d’instance de cluster de basculement, consultez [Récupérer après un échec d’instance de cluster de basculement](/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017&preserve-view=true). 
 
 ## <a name="restore-the-app-service-file-share-content"></a>Restaurer le contenu du partage de fichiers App Service
 Après la [préparation du serveur de fichiers](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server) devant héberger le partage de fichiers App Service, vous devez restaurer le contenu du partage de fichiers du locataire à partir d’une sauvegarde. Vous pouvez utiliser n’importe quelle méthode disponible pour copier les fichiers à l’emplacement du nouveau partage de fichiers App Service. Cet exemple exécuté sur le serveur de fichiers utilise PowerShell et l’outil robocopy pour établir une connexion à un partage distant et copier les fichiers sur le partage :

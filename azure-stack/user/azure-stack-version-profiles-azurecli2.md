@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/16/2020
-ms.openlocfilehash: a1307ca10a2655e166b41d43da4ac83cbe601dc5
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.openlocfilehash: 2e3c25e282a84a0e41d6c69d0af6e2f352bbfba5
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97620719"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974011"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>Installer Azure CLI sur Azure Stack Hub
 
@@ -99,7 +99,7 @@ Cette section vous guide dans la configuration de l’interface CLI si vous util
 
    - Connectez-vous en tant que *principal de service* : 
     
-        avant de vous connecter, [créez un principal de service avec le portail Azure](../operator/azure-stack-create-service-principals.md?view=azs-2002) ou l’interface CLI, et attribuez-lui un rôle. Ensuite, connectez-vous avec la commande suivante :
+        avant de vous connecter, [créez un principal de service avec le portail Azure](../operator/azure-stack-create-service-principals.md) ou l’interface CLI, et attribuez-lui un rôle. Ensuite, connectez-vous avec la commande suivante :
     
         ```azurecli  
         az login `
@@ -282,7 +282,7 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack Hub :
    
    * Connectez-vous en tant que *principal de service*
     
-     avant de vous connecter, [créez un principal de service avec le portail Azure](../operator/azure-stack-create-service-principals.md?view=azs-2002) ou l’interface CLI, et attribuez-lui un rôle. Ensuite, connectez-vous avec la commande suivante :
+     avant de vous connecter, [créez un principal de service avec le portail Azure](../operator/azure-stack-create-service-principals.md) ou l’interface CLI, et attribuez-lui un rôle. Ensuite, connectez-vous avec la commande suivante :
 
      ```azurecli  
      az login \

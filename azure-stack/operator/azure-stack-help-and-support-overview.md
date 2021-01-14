@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: 7c4bb5f75118552d7f8379edac7083f8830082a5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: cb2fb8ce9ad1b24430cf545eba3f31ac9e754c43
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870713"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974317"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Aide et support d’Azure Stack Hub
 
@@ -105,6 +105,6 @@ Sélectionnez **Aide** (point d’interrogation) dans le coin supérieur droit d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez la [collecte des journaux de diagnostic](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002).
+- Découvrez la [collecte des journaux de diagnostic](./azure-stack-diagnostic-log-collection-overview.md).
 - Découvrez comment [trouver votre ID cloud](azure-stack-find-cloud-id.md).
 - Découvrez la [résolution des problèmes Azure Stack Hub](azure-stack-troubleshooting.md).
