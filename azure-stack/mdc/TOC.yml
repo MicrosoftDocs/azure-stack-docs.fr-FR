@@ -117,9 +117,9 @@
                     - name: Déployer App Service
                       href: ../operator/azure-stack-app-service-deploy.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Déployer App Service pour la haute disponibilité
-                      href: ../operator/app-service-deploy-ha.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/azure-stack-app-service-deploy.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fmdc%2ftoc.json
                     - name: Déployer App Service hors connexion
-                      href: ../operator/azure-stack-app-service-deploy-offline.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/azure-stack-app-service-deploy.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&pivots=state-disconnected%3fpivots%3dstate-disconnected&toc=%2fazure-stack%2fmdc%2ftoc.json
                 - name: Event Hubs
                   items:
                     - name: planification de la capacité
@@ -149,7 +149,7 @@
                     - name: Déployer des bases de données SQL à haute disponibilité
                       href: ../operator/azure-stack-tutorial-sql.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Référence sur les applets de commande Start-AzsReadiness
-              href: ../operator/azure-stack-azsreadiness-cmdlet.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: ../operator/azure-stack-validate-identity.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fmdc%2ftoc.json
             - name: Afficher l’état de préparation
               href: ../operator/azure-stack-validation-report.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Configuration du centre de données
@@ -217,7 +217,7 @@
                 - name: Mettre à jour App Service
                   href: ../operator/azure-stack-app-service-update.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Mettre à jour App Service hors connexion
-                  href: ../operator/azure-stack-app-service-update-offline.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-app-service-update.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&pivots=state-disconnected%3fpivots%3dstate-disconnected&toc=%2fazure-stack%2fmdc%2ftoc.json
                 - name: Mettre à jour Event Hubs
                   href: ../operator/resource-provider-apply-updates.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Mettre à jour MySQL Server
@@ -329,13 +329,13 @@
                 - name: Déployer App Service
                   href: ../operator/azure-stack-app-service-deploy.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Déployer App Service pour la haute disponibilité
-                  href: ../operator/app-service-deploy-ha.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-app-service-deploy.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fmdc%2ftoc.json
                 - name: Déployer App Service hors connexion
-                  href: ../operator/azure-stack-app-service-deploy-offline.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-app-service-deploy.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&pivots=state-disconnected%3fpivots%3dstate-disconnected&toc=%2fazure-stack%2fmdc%2ftoc.json
                 - name: Mettre à jour App Service
                   href: ../operator/azure-stack-app-service-update.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Mettre à jour App Service hors connexion
-                  href: ../operator/azure-stack-app-service-update-offline.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-app-service-update.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&pivots=state-disconnected%3fpivots%3dstate-disconnected&toc=%2fazure-stack%2fmdc%2ftoc.json
                 - name: Ajouter des rôles d’infrastructure App Service
                   href: ../operator/azure-stack-app-service-add-worker-roles.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Configurer des sources de déploiement
@@ -367,7 +367,7 @@
                     - name: Sauvegarde et restauration
                       href: operator/azure-stack-backup-infrastructure-backup-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Collecter les journaux d’activité
-                      href: ../operator/azure-stack-diagnostic-log-collection-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/diagnostic-log-collection.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fmdc%2ftoc.json
                     - name: Intégrité et alertes
                       href: operator/azure-stack-monitor-health-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Gérer
@@ -449,11 +449,11 @@
                 - name: Collecte des journaux de diagnostic
                   items:
                     - name: Vue d’ensemble
-                      href: ../operator/azure-stack-diagnostic-log-collection-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/diagnostic-log-collection.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fmdc%2ftoc.json
                     - name: Collecte proactive
-                      href: ../operator/azure-stack-configure-automatic-diagnostic-log-collection.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/diagnostic-log-collection.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fmdc%2ftoc.json
                     - name: Collecte à la demande
-                      href: ../operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/diagnostic-log-collection.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fmdc%2ftoc.json
             - name: Obtenir l’état d’Azure Stack Hub
               href: ../operator/azure-stack-diagnostic-test.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Dépannage
@@ -519,7 +519,7 @@
                     - name: Vue d’ensemble d’Azure Stack PowerShell
                       href: ../user/azure-stack-powershell-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Installer Azure Stack PowerShell
-                      href: /azure-stack/operator/powershell-install-az-module?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/powershell-install-az-module.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fuser%2ftoc.json
                       maintainContext: true
                     - name: Se connecter avec PowerShell
                       href: ../user/azure-stack-powershell-configure-user.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -584,7 +584,7 @@
                 - name: Utiliser le contrôle d’accès en fonction du rôle
                   href: ../user/azure-stack-manage-permissions.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Utiliser une identité d’application pour accéder aux ressources
-                  href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-create-service-principals.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fuser%2ftoc.json
             - name: Utiliser les services
               items:
                 - name: Calcul
@@ -797,4 +797,4 @@
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-stack'
         - name: Formation et certification
-          href: /azure-stack/operator/azure-stack-train-and-cert
+          href: ../operator/azure-stack-train-and-cert.md

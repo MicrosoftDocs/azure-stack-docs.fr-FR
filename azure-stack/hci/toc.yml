@@ -181,9 +181,9 @@
 - name: Informations de référence
   items:
     - name: "Commandes Azure\_CLI d’inscription Azure"
-      href: 'https://docs.microsoft.com/cli/azure/ext/stack-hci/stack-hci'
+      href: /cli/azure/ext/stack-hci/stack-hci
     - name: Commandes PowerShell d’inscription Azure
-      href: 'https://docs.microsoft.com/powershell/module/az.stackhci'
+      href: /powershell/module/az.stackhci
     - name: "Package Go pour l’API du service ARM Azure Stack\_HCI"
       href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/azurestackhci/mgmt/2020-10-01/azurestackhci'
     - name: "Classes et interfaces du service Java Azure Stack\_HCI"
