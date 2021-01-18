@@ -7,12 +7,12 @@ ms.date: 10/16/2020
 ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: 85f3aed4ebf5b57b1e77a5b58604eeb881204396
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: c6f58a2364378180641a7b3ea2e3a38e4bb4f183
+ms.sourcegitcommit: 330d04d39e0cf3e8965e2ccbc181c968cb71d9ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870033"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98052304"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Gérer la capacité de stockage pour Azure Stack Hub
 
@@ -345,4 +345,4 @@ La méthode la plus extrême de gestion de l’espace implique le déplacement d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur l’offre des machines virtuelles aux utilisateurs, consultez [Gérer la capacité de stockage pour Azure Stack Hub](./tutorial-offer-services.md?view=azs-2002).
+Pour en savoir plus sur l’offre des machines virtuelles aux utilisateurs, consultez [Gérer la capacité de stockage pour Azure Stack Hub](./tutorial-offer-services.md).

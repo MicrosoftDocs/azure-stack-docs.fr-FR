@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: patricka
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: de197a87478a666fe20bbd451bda76fc991b5a02
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 00357a7b16ee1ec6b158ea881d9f4a2c77d69e72
+ms.sourcegitcommit: a90b146769279ffbdb09c68ca0506875a867e177
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869931"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98123734"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>Surveiller l’intégrité et les alertes dans Azure Stack Hub
 
@@ -69,19 +69,27 @@ Vous pouvez cliquer sur une alerte spécifique pour en afficher les détails. Le
 
 ![Panneau Détails de l’alerte dans le portail d’administration Azure Stack Hub](media/azure-stack-monitor-health/alert-detail.png)
 
-## <a name="repair-alerts"></a>Alertes Réparer
+## <a name="alert-remediation"></a>Correction des alertes
 
-Vous pouvez sélectionner **Réparer** dans certaines alertes.
+### <a name="automated-remediation"></a>Élimination automatisée
 
-Quand elle est sélectionnée, l’action **Réparer** effectue des étapes spécifiques à l’alerte pour essayer de résoudre le problème. Une fois sélectionné, l’état de l’action **Réparer** est disponible sous la forme d’une notification de portail.
+Certaines alertes prennent en charge une option de **réparation**, comme indiqué dans l’image précédente. Quand elle est sélectionnée, l’action **Réparer** effectue des étapes spécifiques à l’alerte pour essayer de résoudre le problème. Une fois sélectionné, l’état de l’action **Réparer** est disponible sous la forme d’une notification de portail.
 
 ![Action Réparer l’alerte en cours d’exécution](media/azure-stack-monitor-health/repair-in-progress.png)
 
-L’action **Réparer** signale la réussite ou l’échec de l’action dans le même panneau de notification du portail.  Si une action **Réparer** échoue pour une alerte, vous pouvez la réexécuter à partir des détails de l’alerte. Si l’action **Réparer** aboutit, **ne la réexécutez pas**.
+L’action **Réparer** signale la réussite ou l’échec de l’action dans le même panneau de notification du portail.  Si une action **Réparer** échoue pour une alerte, vous pouvez la réexécuter à partir des détails de l’alerte. Si l’action **Réparer** aboutit, **ne la réexécutez pas**. Une fois l’instance de rôle d’infrastructure de nouveau en ligne, cette alerte se ferme automatiquement.
 
 ![Action Réparer terminée](media/azure-stack-monitor-health/repair-completed.png)
 
-Une fois l’instance de rôle d’infrastructure de nouveau en ligne, cette alerte se ferme automatiquement. De nombreuses alertes, mais pas toutes, se ferment automatiquement quand le problème sous-jacent est résolu. Les alertes proposant un bouton d’action Réparer se ferment automatiquement si Azure Stack Hub résout le problème. Pour toutes les autres alertes, sélectionnez **Fermer l’alerte** après avoir effectué les étapes de correction. Si le problème persiste, Azure Stack Hub génère une nouvelle alerte. Si vous résolvez le problème, l’alerte reste fermée et ne nécessite aucune étape supplémentaire.
+### <a name="manual-remediation"></a>Correction manuelle
+
+Si l’option de **réparation** n’est pas prise en charge, veillez à suivre l’ensemble complet des instructions de correction fournies dans l’alerte. Par exemple, les étapes de correction de l’expiration du certificat interne vous guident tout au long du processus de rotation des secrets :
+
+![Correction de l’expiration du certificat](media/azure-stack-monitor-health/certificate-expiration.png)
+
+### <a name="alert-closure"></a>Fermeture d’alerte
+
+De nombreuses alertes, mais pas toutes, se ferment automatiquement quand le problème sous-jacent est résolu. Les alertes proposant un bouton d’action Réparer se ferment automatiquement si Azure Stack Hub résout le problème. Pour toutes les autres alertes, sélectionnez **Fermer l’alerte** après avoir effectué les étapes de correction. Si le problème persiste, Azure Stack Hub génère une nouvelle alerte. Si vous résolvez le problème, l’alerte reste fermée et ne nécessite aucune étape supplémentaire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

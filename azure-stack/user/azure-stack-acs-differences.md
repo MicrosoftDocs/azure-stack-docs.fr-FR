@@ -8,12 +8,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviwer: jiahan
 ms.lastreviewed: 08/12/2020
-ms.openlocfilehash: 9cac2ee9798388f955bfd3376395d21438889fc9
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e49092e87f8e6801343ae0550aff4c71dd40408b
+ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867364"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98103067"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Stockage Azure Stack Hub : Différences et considérations
 
@@ -43,7 +43,7 @@ Cet article récapitule les différences connues entre le stockage Azure Stack H
 |Taille de la clé de ligne et de la clé de partition de table|1 024 caractères (2 048 octets).|400 caractères (800 octets).
 |Instantané d’objet blob|Le nombre maximal d’instantanés d’un objet blob n’est pas limité.|Le nombre maximum d’instantanés d’un objet blob est de 1 000.
 |Azure AD Authentication pour le stockage|En préversion. |Pas encore pris en charge.
-|Objets blob immuables|Disponibilité générale. |Pas encore pris en charge.
+|Objets blob immuables|Disponibilité générale. |Pris en charge lorsque vous utilisez la version 2008 ou ultérieure.
 |Règles de pare-feu et de réseau virtuel pour le stockage|Disponibilité générale. |Pas encore pris en charge.|
 
 Il existe également des différences sur le plan des métriques de stockage :
