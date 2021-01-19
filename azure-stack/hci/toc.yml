@@ -44,6 +44,8 @@
           href: deploy/create-cluster-powershell.md
     - name: Déployer les charges de travail
       items:
+        - name: Déployer une infrastructure VDI
+          href: deploy/deploy-vdi.md
         - name: Déployer SQL Server
           href: deploy/deploy-sql-server-workload.md
         - name: Déployer une virtualisation d’entreprise approuvée
