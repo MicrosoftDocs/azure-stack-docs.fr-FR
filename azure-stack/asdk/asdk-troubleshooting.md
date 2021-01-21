@@ -7,17 +7,17 @@ ms.date: 01/06/2021
 ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 01/06/2021
-ms.openlocfilehash: 002015d0d00e09de07e4a46f5ad6525dac2b7254
-ms.sourcegitcommit: 502df315764bbc4ff6d3de50b957dfd4a6c0043a
+ms.openlocfilehash: ab4a7166f0a6ae43259f3f1f919c3b24af017c1e
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98130222"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255212"
 ---
 # <a name="troubleshoot-the-asdk"></a>Résoudre les problèmes de ASDK
 Cet article fournit des informations de dépannage courantes pour le Kit de développement Azure Stack (ASDK). Pour obtenir de l’aide sur les systèmes intégrés Azure Stack, consultez [Résolution des problèmes de Microsoft Azure Stack](../operator/azure-stack-troubleshooting.md). 
 
-ASDK étant un environnement d’évaluation, le support Microsoft ne fournit pas de support. Si vous rencontrez un problème qui n’est pas documenté, vous pouvez obtenir de l’aide auprès d’experts sur la page [Microsoft Q&A pour Azure Stack](https://docs.microsoft.com/answers/questions/topics/azure-stack-hub.html).
+ASDK étant un environnement d’évaluation, le support Microsoft ne fournit pas de support. Si vous rencontrez un problème qui n’est pas documenté, vous pouvez obtenir de l’aide auprès d’experts sur la page [Microsoft Q&A pour Azure Stack](/answers/questions/topics/azure-stack-hub.html).
 
 ## <a name="deployment"></a>Déploiement
 ### <a name="deployment-failure"></a>Échec du déploiement

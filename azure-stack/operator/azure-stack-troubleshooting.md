@@ -8,12 +8,12 @@ ms.date: 12/10/2020
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: 4c5117469e1a568252e23f2794996f8d367942af
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: ff3164e16262ecfd4cdf84bbdb5fbb24942fc6ab
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974249"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255705"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Résoudre les problèmes dans Azure Stack Hub
 
@@ -30,7 +30,7 @@ Ces sections contiennent des liens vers des documents qui abordent les questions
 
 ### <a name="updates-and-diagnostics"></a>Mises à jour et diagnostics
 
-* [Utiliser les outils de diagnostic dans Azure Stack Hub](./azure-stack-diagnostic-log-collection-overview.md)
+* [Utiliser les outils de diagnostic dans Azure Stack Hub](./diagnostic-log-collection.md)
 * [Valider l’état du système Azure Stack Hub](azure-stack-diagnostic-test.md)
 * [Cadence de publication des packages de mises à jour](azure-stack-servicing-policy.md#update-package-release-cadence)
 * [Vérifier et résoudre les problèmes liés à l'état du nœud](azure-stack-node-actions.md)
@@ -199,11 +199,11 @@ Si le script Create-AADIdentityApp.ps1 nécessaire pour App Service échoue, vei
 
 Le processus relatif aux mises à jour et aux correctifs logiciels Azure Stack Hub est conçu pour permettre aux opérateurs d’appliquer les mises à jour de manière cohérente et rationalisée. Bien que cela soit rare, certains problèmes peuvent se produire pendant l’application des correctifs logiciels et des mises à jour. Les étapes suivantes sont recommandées si vous rencontrez un problème pendant le processus d’application des correctifs logiciels et des mises à jour :
 
-0. **Prérequis** : Veillez à suivre la [check-list des activités de mise à jour](release-notes-checklist.md) et à [activer la collecte proactive des journaux](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively).
+0. **Prérequis** : Veillez à suivre la [check-list des activités de mise à jour](release-notes-checklist.md) et à [activer la collecte proactive des journaux](./diagnostic-log-collection.md#send-logs-proactively).
 
 1. Suivez les étapes de correction indiquées dans l’alerte d’échec créée au moment de l’échec de votre mise à jour.
 
-2. Si vous n’êtes pas parvenu à résoudre votre problème, créez un [ticket de support Azure Stack Hub](./azure-stack-help-and-support-overview.md). Veillez à disposer des [journaux collectés](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now) pour la période pendant laquelle le problème s’est produit.
+2. Si vous n’êtes pas parvenu à résoudre votre problème, créez un [ticket de support Azure Stack Hub](./azure-stack-help-and-support-overview.md). Veillez à disposer des [journaux collectés](./diagnostic-log-collection.md#send-logs-now) pour la période pendant laquelle le problème s’est produit.
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Problèmes usuels liés aux correctifs logiciels et mises à jour Azure Stack Hub
 

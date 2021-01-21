@@ -15,12 +15,12 @@ ms.date: 12/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2020
-ms.openlocfilehash: 48cb9d6e659f8b6f3507f5c0b4d6b7e60622f025
-ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
+ms.openlocfilehash: d0aa0ce6680d45fb6c8a760ab72908e306efe0a1
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97965475"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243542"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub---ruggedized"></a>Actions de nœud d’unité d’échelle dans Azure Stack Hub – Renforcé
 
@@ -90,7 +90,7 @@ Pour exécuter l’action d’arrêt, ouvrez une invite de commandes PowerShell 
 
 Dans le cas peu probable où l’action d’arrêt ne fonctionnerait pas, réessayez l’opération et, si elle échoue une deuxième fois, utilisez l’interface web BMC à la place.
 
-Pour plus d’informations, consultez [Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
+Pour plus d’informations, consultez [Stop-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
 
 ## <a name="start"></a>Démarrer
 
@@ -104,7 +104,7 @@ Pour exécuter l’action de démarrage, ouvrez une invite de commandes PowerShe
 
 Dans le cas peu probable où l’action de démarrage ne fonctionnerait pas, répétez l’opération. Si elle échoue une seconde fois, utilisez l’interface web du BMC.
 
-Pour plus d’informations, consultez [Start-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/start-azsscaleunitnode).
+Pour plus d’informations, consultez [Start-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/start-azsscaleunitnode).
 
 ## <a name="drain"></a>Vidage
 
@@ -121,7 +121,7 @@ Pour exécuter l’action de vidage, ouvrez une invite de commandes PowerShell a
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
-Pour plus d’informations, consultez [Disable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/disable-azsscaleunitnode).
+Pour plus d’informations, consultez [Disable-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/disable-azsscaleunitnode).
 
 ## <a name="resume"></a>Reprendre
 
@@ -133,7 +133,7 @@ Pour exécuter l’action de reprise, ouvrez une invite de commandes PowerShell 
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
-Pour plus d’informations, consultez [Enable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/enable-azsscaleunitnode).
+Pour plus d’informations, consultez [Enable-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/enable-azsscaleunitnode).
 
 ## <a name="repair"></a>Réparation
 
@@ -169,4 +169,4 @@ Pour exécuter l’action d’arrêt, ouvrez une invite PowerShell avec élévat
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Découvrez le module opérateur Azure Stack Hub Fabric](https://docs.microsoft.com/powershell/module/azs.fabric.admin/).
+[Découvrez le module opérateur Azure Stack Hub Fabric](/powershell/module/azs.fabric.admin/).

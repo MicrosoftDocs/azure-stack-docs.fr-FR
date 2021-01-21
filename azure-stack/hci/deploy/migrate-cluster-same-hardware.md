@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ea19dbbdd85f29eb036a0220828bbbb7bca33ea7
-ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
+ms.openlocfilehash: d1e033ed2b8bbae2968be8125c7d0dccb3e9f3cf
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97069804"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254634"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>Migrer vers Azure Stack HCI sur le même matériel
 
@@ -36,7 +36,7 @@ Avant d’entreprendre la migration, vous devez prendre en considération plusie
 
 - Vous devez disposer d’informations d’identification de domaine avec des autorisations d’administrateur pour Azure Stack HCI.
 
-- Sauvegardez toutes les machines virtuelles sur votre cluster source. Effectuez une sauvegarde cohérente en cas d’incident de l’ensemble des applications et des données et une sauvegarde cohérente du point de vue des applications de toutes les bases de données.  Pour effectuer une sauvegarde sur Azure, consultez [Utiliser la Sauvegarde Azure](https://docs.microsoft.com/azure-stack/hci/manage/use-azure-backup).
+- Sauvegardez toutes les machines virtuelles sur votre cluster source. Effectuez une sauvegarde cohérente en cas d’incident de l’ensemble des applications et des données et une sauvegarde cohérente du point de vue des applications de toutes les bases de données.  Pour effectuer une sauvegarde sur Azure, consultez [Utiliser la Sauvegarde Azure](../manage/use-azure-backup.md).
 
 - Collectez l’inventaire et la configuration de tous les nœuds de cluster, le nommage des clusters, la configuration réseau, la résilience et de la capacité du volume partagé de cluster (CSV) et le témoin de quorum.
 
@@ -181,7 +181,7 @@ Pour plus d’informations sur la façon de créer le cluster à l’aide de Pow
     Get-StoragePool | ? IsPrimordial -eq $false | ft FriendlyName,Version
     ```
 
-1. Créez le témoin de quorum. Pour plus d’informations sur la façon de procéder, consultez [Configurer un témoin de cluster](https://docs.microsoft.com/azure-stack/hci/deploy/witness).
+1. Créez le témoin de quorum. Pour plus d’informations sur la façon de procéder, consultez [Configurer un témoin de cluster](./witness.md).
 
 1. Vérifiez que les travaux de réparation de stockage sont terminés à l’aide de la commande suivante :
 

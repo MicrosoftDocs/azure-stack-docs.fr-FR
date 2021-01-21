@@ -15,12 +15,12 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 2a3dec7699911988c4c9a958c31386c127f70694
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: 7a296065696200d83e30e33f973ed16e62e789b5
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598230"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255399"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub---modular-data-center-mdc"></a>Télécharger des éléments de la Place de marché sur Azure Stack Hub - Modular Data Center (MDC) 
 
@@ -74,7 +74,7 @@ Votre déploiement Azure Stack Hub doit disposer d’une connectivité à Intern
 
 Dans un environnement déconnecté, vous ne pouvez pas télécharger les éléments de la Place de marché depuis Azure. Vous devez utiliser l’outil de syndication hors connexion pour télécharger les éléments de la Place de marché sur un disque local, puis charger ces éléments dans votre instance Azure Stack Hub à partir de cet emplacement.
 
-Vous pouvez [télécharger les outils de syndication hors connexion ici](https://aka.ms/azsSyndicationtool).
+Vous pouvez [télécharger les outils de syndication hors connexion ici](../../operator/azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected).
 
 ### <a name="download-marketplace-items-from-azure"></a>Télécharger des éléments de la Place de marché depuis Azure
 

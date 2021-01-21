@@ -15,12 +15,12 @@ ms.date: 10/26/2020
 ms.author: mabrigg
 ms.lastreviewed: 10/26/2020
 ms.reviewer: efemmano
-ms.openlocfilehash: bfc9c4aeb2e3dfb003d3cd1e1fc9dcc71b0caf82
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 5c8b446c642414727b6e7a1f1689c86e5f7acf70
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910923"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255365"
 ---
 # <a name="alerts-akams-link-reference-for-azure-stack-hub---modular-data-center-mdc"></a>Liens de renvoi aka.ms des alertes pour Azure Stack Hub - Modular Data Center (MDC)
 
@@ -37,7 +37,7 @@ Cette rubrique répertorie les liens de renvoi qui apparaissent dans les alertes
 | `https://aka.ms/azurestackaddcapacity` | [Ajouter de nouveaux nœuds d’unité d’échelle dans Azure Stack](../../operator/azure-stack-add-scale-node.md) |
 | `https://aka.ms/azurestackaddnode` | [Ajouter de nouveaux nœuds d’unité d’échelle dans Azure Stack](../../operator/azure-stack-add-scale-node.md) |
 | `https://aka.ms/azurestackhealthreport` | [https://github.com/Azure/AzureStack-Tools/blob/master/Identity/README.md#retrieve-azure-stack-identity-health-report](https://aka.ms/aa708dy) |
-| `https://aka.ms/azurestacklogfiles` | [Collecter les journaux de diagnostic Azure Stack à la demande](../../operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md) |
+| `https://aka.ms/azurestacklogfiles` | [Collecter les journaux de diagnostic Azure Stack à la demande](../../operator/diagnostic-log-collection.md) |
 | `https://aka.ms/azurestackpep` | [Utiliser le point de terminaison privilégié dans Azure Stack](../../operator/azure-stack-privileged-endpoint.md) |
 | `https://aka.ms/azurestackreplacenode` | [Remplacer un nœud d’unité d’échelle sur un système intégré Azure Stack](../../operator/azure-stack-replace-node.md) |
 | `https://aka.ms/azurestackupdatedirectory` | [https://github.com/Azure/AzureStack-Tools/tree/master/Identity#updating-the-azure-stack-aad-home-directory-after-installing-updates-or-new-resource-providers](https://aka.ms/aa700j2) |

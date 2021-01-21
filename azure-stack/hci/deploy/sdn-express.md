@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ba28d5904e58d84a913777fe80c5aa05a8ecdffe
-ms.sourcegitcommit: 6a99a188bbad491e7d2817de0b9500a27797107e
+ms.openlocfilehash: 968782c4fd5ac0f4e057815c526fbde8f90164af
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97658295"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254838"
 ---
 # <a name="deploy-an-sdn-infrastructure-using-sdn-express"></a>Déployer une infrastructure SDN avec SDN Express
 
@@ -21,7 +21,7 @@ Dans cette rubrique, vous déployez une infrastructure SDN (Software Defined Net
 
 Les scripts prennent en charge un déploiement échelonné, où vous pouvez déployer uniquement le contrôleur de réseau pour bénéficier d’un ensemble de fonctionnalités de base avec une configuration réseau minimale. Vous pouvez également déployer le contrôleur de réseau à l’aide de l’Assistant Création d’un cluster dans Windows Admin Center. En revanche, pour déployer d’autres composants SDN tels que l’équilibreur SLB et la passerelle, vous devez utiliser les scripts SDN Express.
 
-Vous pouvez aussi déployer une infrastructure SDN à l’aide de VMM (System Center Virtual Machine Manager). Pour plus d’informations, consultez [Gérer les ressources SDN dans la structure VMM](https://docs.microsoft.com/system-center/vmm/network-sdn).
+Vous pouvez aussi déployer une infrastructure SDN à l’aide de VMM (System Center Virtual Machine Manager). Pour plus d’informations, consultez [Gérer les ressources SDN dans la structure VMM](/system-center/vmm/network-sdn).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -62,7 +62,7 @@ Assurez-vous que le système d’exploitation Azure Stack HCI est installé sur 
     SDNExpress\scripts\SDNExpress.ps1 -ConfigurationDataFile MultiNodeSampleConfig.psd1 -Verbose
     ```
 
-1. Une fois les machines virtuelles du contrôleur de réseau créées, configurez les mises à jour DNS dynamiques pour le nom du cluster du contrôleur de réseau sur le serveur DNS. Pour plus d’informations, consultez l’étape 3 dans [Configuration requise pour le déploiement du contrôleur de réseau](https://docs.microsoft.com/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller).
+1. Une fois les machines virtuelles du contrôleur de réseau créées, configurez les mises à jour DNS dynamiques pour le nom du cluster du contrôleur de réseau sur le serveur DNS. Pour plus d’informations, consultez l’étape 3 dans [Configuration requise pour le déploiement du contrôleur de réseau](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

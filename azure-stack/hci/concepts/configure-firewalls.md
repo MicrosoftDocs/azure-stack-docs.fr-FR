@@ -5,12 +5,12 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
 ms.date: 01/06/2020
-ms.openlocfilehash: 73e58c69295afc1a1bb106ea078e753647daa08d
-ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
+ms.openlocfilehash: a67881f2dd4be5e4dce5fb967c88484c27025624
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97965492"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255229"
 ---
 # <a name="configure-firewalls-for-azure-stack-hci"></a>Configurer des pare-feu pour Azure Stack HCI
 
@@ -29,7 +29,7 @@ Pour plus d’informations, consultez la section « Connectivité Azure Stack H
 Cette rubrique explique comment utiliser une configuration de pare-feu très verrouillée afin, si vous le souhaitez, de bloquer tout le trafic vers toutes les destinations, sauf celles incluses dans votre liste verte.
 
    >[!IMPORTANT]
-   > Si la connectivité sortante est limitée par votre pare-feu d’entreprise externe ou votre serveur proxy, vérifiez que les URL listées dans le tableau ci-dessous ne sont pas bloquées. Pour obtenir des informations connexes, consultez la section « Configuration de la mise en réseau » de [Présentation de l’agent des serveurs activés par Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/agent-overview#networking-configuration).
+   > Si la connectivité sortante est limitée par votre pare-feu d’entreprise externe ou votre serveur proxy, vérifiez que les URL listées dans le tableau ci-dessous ne sont pas bloquées. Pour obtenir des informations connexes, consultez la section « Configuration de la mise en réseau » de [Présentation de l’agent des serveurs activés par Azure Arc](/azure/azure-arc/servers/agent-overview#networking-configuration).
 
 
 Comme indiqué ci-dessous, Azure Stack HCI accède à Azure en utilisant potentiellement plusieurs pare-feu.
@@ -37,7 +37,7 @@ Comme indiqué ci-dessous, Azure Stack HCI accède à Azure en utilisant potenti
 :::image type="content" source="./media/configure-firewalls/firewalls-diagram.png" alt-text="Le diagramme montre Azure Stack HCI accédant aux points de terminaison d’étiquettes de service par le biais du port 443 (HTTPS) des pare-feu." lightbox="./media/configure-firewalls/firewalls-diagram.png":::
 
 ## <a name="working-with-service-tags"></a>Utilisation d’étiquettes de service
-Une *étiquette de service* représente un groupe d’adresses IP d’un service Azure donné. Microsoft gère les adresses IP incluses dans l’étiquette de service, et met automatiquement à jour l’étiquette de service à mesure que les adresses IP changent, afin de limiter les mises à jour au minimum. Pour plus d’informations, consultez [Étiquette de service de réseau virtuel](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
+Une *étiquette de service* représente un groupe d’adresses IP d’un service Azure donné. Microsoft gère les adresses IP incluses dans l’étiquette de service, et met automatiquement à jour l’étiquette de service à mesure que les adresses IP changent, afin de limiter les mises à jour au minimum. Pour plus d’informations, consultez [Étiquette de service de réseau virtuel](/azure/virtual-network/service-tags-overview).
 
 ## <a name="required-endpoint-daily-access-after-azure-registration"></a>Accès quotidien aux points de terminaison requis (après inscription auprès d’Azure)
 Azure gère les adresses IP connues pour les services Azure qui sont organisés à l’aide d’étiquettes de service. Azure publie un fichier JSON hebdomadaire de toutes les adresses IP pour chaque service. Les adresses IP ne changent pas souvent, mais elles changent tout de même quelques fois par an. Le tableau suivant présente les points de terminaison d’étiquettes de service auxquels le système d’exploitation doit accéder.

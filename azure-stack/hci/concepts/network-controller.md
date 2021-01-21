@@ -5,12 +5,12 @@ author: AnirbanPaul
 ms.author: anpaul
 ms.topic: conceptual
 ms.date: 10/7/2020
-ms.openlocfilehash: ec9ddb62dc876fbd4b99ebc2c8e2a3af4a54e8a7
-ms.sourcegitcommit: 9a91dbdaa556725f51bcf3d8e79a4ed2dd5a209f
+ms.openlocfilehash: 3ac17ca9cd54c2ec387ceb39cbda76f7cb539305
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91847667"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255076"
 ---
 # <a name="plan-to-deploy-network-controller"></a>Planifier le déploiement d’un contrôleur de réseau
 
@@ -36,11 +36,11 @@ Les éléments suivants sont requis pour déployer un contrôleur de réseau :
 
     **Option 2** : Le réseau de gestion est physiquement séparé des réseaux de charges de travail. Cette option utilise un seul commutateur virtuel pour le calcul uniquement :
 
-    :::image type="content" source="./media/network-controller/topology-option-2.png" alt-text="Option 1 pour créer un réseau physique pour le contrôleur de réseau." lightbox="./media/network-controller/topology-option-2.png":::
+    :::image type="content" source="./media/network-controller/topology-option-2.png" alt-text="Option 2 pour créer un réseau physique pour le contrôleur de réseau." lightbox="./media/network-controller/topology-option-2.png":::
 
     **Option 3** : Le réseau de gestion est physiquement séparé des réseaux de charges de travail. Cette option utilise deux commutateurs virtuels, un pour le calcul et un pour le stockage :
 
-    :::image type="content" source="./media/network-controller/topology-option-3.png" alt-text="Option 1 pour créer un réseau physique pour le contrôleur de réseau." lightbox="./media/network-controller/topology-option-3.png":::
+    :::image type="content" source="./media/network-controller/topology-option-3.png" alt-text="Option 3 pour créer un réseau physique pour le contrôleur de réseau." lightbox="./media/network-controller/topology-option-3.png":::
 
 - Vous pouvez également associer les cartes physiques de gestion afin d’utiliser le même commutateur de gestion. Dans ce cas, nous vous recommandons encore d’utiliser l’une des options de cette section.
 - Informations sur le réseau de gestion que le contrôleur de réseau utilise pour communiquer avec Windows Admin Center et les hôtes Hyper-V.
@@ -60,7 +60,7 @@ Vous êtes maintenant prêt à déployer le contrôleur de réseau sur les machi
 
 Pour plus d'informations, consultez les rubriques suivantes :
 - [Créer un cluster Azure Stack HCI](../deploy/create-cluster.md)
-- [Déployer le contrôleur de réseau à l’aide de Windows PowerShell](../deploy/network-controller-powershell.md)
+- [Déployer le contrôleur de réseau à l’aide de Windows PowerShell](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)
 
 ## <a name="see-also"></a>Voir aussi
 - [Contrôleur de réseau](/windows-server/networking/sdn/technologies/network-controller/network-controller)

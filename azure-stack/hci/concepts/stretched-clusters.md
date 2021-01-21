@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 2a09d459a44171a864729fd4163197de35995f2e
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: 8e544ff72338149c4d7ffe7a49c9ea47490a5316
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737927"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254923"
 ---
 # <a name="stretched-clusters-overview"></a>Vue d’ensemble des clusters étendus
 
@@ -25,7 +25,7 @@ Le réplica de stockage prend en charge les réplications synchrones et asynchro
 - La réplication asynchrone assure la mise en miroir des données entre des sites situés hors des zones métropolitaines sur des liaisons de réseau à latence élevée, mais sans garantie que les deux sites aient des copies identiques des données au moment de la panne.
 
 >[!NOTE]
-> Pour la réplication asynchrone, vous devez mettre les volumes de destination de l’autre site en ligne manuellement après le basculement. Pour plus d’informations, consultez [Réplication asynchrone](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview#asynchronous-replication).
+> Pour la réplication asynchrone, vous devez mettre les volumes de destination de l’autre site en ligne manuellement après le basculement. Pour plus d’informations, consultez [Réplication asynchrone](/windows-server/storage/storage-replica/storage-replica-overview#asynchronous-replication).
 
 Il existe deux types de clusters étendus : actif/passif et actif/actif. Dans une réplication de site en mode actif/passif, vous indiquez un site et une direction pour la réplication. Dans une réplication en mode actif/actif, la réplication peut être bidirectionnelle entre les deux sites. Cet article traite uniquement du mode actif/passif.
 
@@ -50,8 +50,8 @@ Dans le diagramme suivant, le site 1 et le site 2 sont actifs et la réplicati
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez plus en détail les réplicas de stockage. Consultez [Vue d’ensemble des réplicas de stockage](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview).
-- Découvrez-en plus sur l’utilisation des réplicas de stockage. Consultez [Configurer un cluster de basculement Hyper-V ou un serveur de fichiers pour un cluster à usage général](https://docs.microsoft.com/windows-server/storage/storage-replica/stretch-cluster-replication-using-shared-storage#configure-a-hyper-v-failover-cluster-or-a-file-server-for-a-general-use-cluster).
+- Découvrez plus en détail les réplicas de stockage. Consultez [Vue d’ensemble des réplicas de stockage](/windows-server/storage/storage-replica/storage-replica-overview).
+- Découvrez-en plus sur l’utilisation des réplicas de stockage. Consultez [Configurer un cluster de basculement Hyper-V ou un serveur de fichiers pour un cluster à usage général](/windows-server/storage/storage-replica/stretch-cluster-replication-using-shared-storage#configure-a-hyper-v-failover-cluster-or-a-file-server-for-a-general-use-cluster).
 - Découvrez le matériel et les autres exigences des clusters étendus. Voir [Configuration requise](system-requirements.md).
 - Découvrez comment déployer un cluster étendu à l’aide de Windows Admin Center. Consultez [Créer un cluster à l’aide de Windows Admin Center](../deploy/create-cluster.md).
 - Découvrez comment déployer un cluster étendu à l’aide de PowerShell. Consultez [Créer un cluster à l’aide de PowerShell](../deploy/create-cluster-powershell.md).

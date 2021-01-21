@@ -6,12 +6,12 @@ author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
 ms.date: 01/06/2021
-ms.openlocfilehash: 8b27859b7afab0a6e279774e43d0269f6d58065a
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.openlocfilehash: 77f1800323f57721d3f6f70050841e4adf0fd4c5
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103128"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254736"
 ---
 # <a name="add-or-remove-servers-for-an-azure-stack-hci-cluster"></a>Ajouter ou supprimer des serveurs pour un cluster Azure Stack HCI
 
@@ -71,9 +71,9 @@ Prenez quelques minutes pour visionner la vidéo sur l’ajout de nœuds de serv
 
 > [!VIDEO https://www.youtube.com/embed/AVHPkRmsZ5Y]
 
-Vous ajoutez ou vous supprimez des serveurs dans un cluster étendu à l’aide de Windows PowerShell. À l’aide des applets de commande [ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterfaultdomainxml) et [Set-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterfaultdomainxml), vous devez d’abord modifier les informations du site (domaine d’erreur) avant d’ajouter les serveurs.
+Vous ajoutez ou vous supprimez des serveurs dans un cluster étendu à l’aide de Windows PowerShell. À l’aide des applets de commande [ClusterFaultDomainXML](/powershell/module/failoverclusters/get-clusterfaultdomainxml) et [Set-ClusterFaultDomainXML](/powershell/module/failoverclusters/set-clusterfaultdomainxml), vous devez d’abord modifier les informations du site (domaine d’erreur) avant d’ajouter les serveurs.
 
-Ensuite, vous pouvez ajouter la paire de serveurs à chaque site en même temps à l’aide de l’applet de commande [Add-ClusterNode](https://docs.microsoft.com/powershell/module/failoverclusters/add-clusternode), ce qui permet également d’ajouter les lecteurs de chaque nouveau serveur.
+Ensuite, vous pouvez ajouter la paire de serveurs à chaque site en même temps à l’aide de l’applet de commande [Add-ClusterNode](/powershell/module/failoverclusters/add-clusternode), ce qui permet également d’ajouter les lecteurs de chaque nouveau serveur.
 
 En règle générale, vous gérez les clusters à partir d’un ordinateur distant plutôt que sur un serveur dans un cluster. Cet ordinateur distant est appelé ordinateur de gestion.
 
@@ -167,7 +167,7 @@ Une fois les serveurs ajoutés, les lecteurs associés sont automatiquement ajou
 
 ## <a name="remove-server-pairs-from-a-stretched-cluster"></a>Supprimer des paires de serveurs d’un cluster étendu
 
-La suppression d’une paire de serveurs d’un cluster étendu est un processus similaire à l’ajout d’une paire de serveurs, mais en utilisant l’applet de commande [Remove-ClusterNode](https://docs.microsoft.com/powershell/module/failoverclusters/remove-clusternode) à la place.
+La suppression d’une paire de serveurs d’un cluster étendu est un processus similaire à l’ajout d’une paire de serveurs, mais en utilisant l’applet de commande [Remove-ClusterNode](/powershell/module/failoverclusters/remove-clusternode) à la place.
 
 1. Utilisez les applets de commande PowerShell suivantes pour déterminer l’état du cluster :
 

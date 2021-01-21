@@ -8,12 +8,12 @@ ms.date: 11/10/2020
 ms.author: bryanla
 ms.reviewer: unknown
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: d1d19d79a3a2242ada4e3f7972fa26f61ed600ce
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: f9a7a42fafe55e7b598e6fcb67e5353c2453222e
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343204"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255824"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Corriger les problèmes courants liés aux certificats PKI Azure Stack Hub
 
@@ -23,13 +23,13 @@ Les informations contenues dans cet article vous aideront à comprendre et à r�
 
 **Problème** : Le certificat ne contient pas de liste de révocation de certificats HTTP dans l’extension CDP.
 
-**Correction** : Il ne s’agit pas d’un problème bloquant. Azure Stack exige une liste de révocation de certificats HTTP pour vérifier la révocation, conformément aux [conditions de certificat d’infrastructure à clé publique (PKI) d’Azure Stack Hub](https://aka.ms/azspki).  Aucune liste de révocation de certificats HTTP n’a été détectée sur le certificat.  Pour garantir le bon fonctionnement de la vérification de la révocation de certificats, l’autorité de certification doit émettre un certificat avec une liste de révocation de certificats HTTP dans l’extension CDP.
+**Correction** : Il ne s’agit pas d’un problème bloquant. Azure Stack exige une liste de révocation de certificats HTTP pour vérifier la révocation, conformément aux [conditions de certificat d’infrastructure à clé publique (PKI) d’Azure Stack Hub](./azure-stack-pki-certs.md).  Aucune liste de révocation de certificats HTTP n’a été détectée sur le certificat.  Pour garantir le bon fonctionnement de la vérification de la révocation de certificats, l’autorité de certification doit émettre un certificat avec une liste de révocation de certificats HTTP dans l’extension CDP.
 
 ## <a name="http-crl---fail"></a>Liste de révocation de certificats HTTP - Échec
 
 **Problème** : Impossible de se connecter à la liste de révocation de certificats HTTP dans l’extension CDP.
 
-**Correction** : Il s’agit d’un problème bloquant. Azure Stack exige une connectivité à une liste de révocation de certificats HTTP pour vérifier la révocation, conformément à [Publication des ports et URL Azure Stack Hub (trafic sortant)](https://docs.microsoft.com/azure-stack/operator/azure-stack-integrate-endpoints#ports-and-urls-outbound).
+**Correction** : Il s’agit d’un problème bloquant. Azure Stack exige une connectivité à une liste de révocation de certificats HTTP pour vérifier la révocation, conformément à [Publication des ports et URL Azure Stack Hub (trafic sortant)](./azure-stack-integrate-endpoints.md#ports-and-urls-outbound).
 
 ## <a name="pfx-encryption"></a>Chiffrement PFX
 

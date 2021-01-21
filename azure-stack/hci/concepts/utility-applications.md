@@ -5,12 +5,12 @@ author: burcuerdemir
 ms.author: burcue
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: 7f18a85b30dad52a10d2fc63d9966b05cf0331ff
-ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
+ms.openlocfilehash: ec7623243c09ffc93036ada1927cbe62acad0b9d
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97697724"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254957"
 ---
 # <a name="utility-applications-for-azure-stack-hci"></a>Applications utilitaires pour Azure Stack HCI
 
@@ -63,4 +63,4 @@ Datadog est une plateforme entièrement unifiée englobant la supervision d’in
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations, consultez également :
 - [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/)
-- [Antivirus Microsoft Defender](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-antivirus/microsoft-defender-antivirus-in-windows-10)
+- [Antivirus Microsoft Defender](/windows/security/threat-protection/microsoft-defender-antivirus/microsoft-defender-antivirus-in-windows-10)

@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 9eef242f6e422cdba3b64927d6bfda93fab530b3
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 96a4e944b6b86c8b5db314141fd3473a8512d518
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874521"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256198"
 ---
 # <a name="privileged-access-workstation-and-privileged-endpoint-access"></a>Station de travail à accès privilégié et accès aux points de terminaison privilégiés
 
@@ -44,5 +44,5 @@ Pour fermer la session de point de terminaison privilégié, exécutez la comman
 
 ## <a name="further-reading"></a>Lectures supplémentaires
 
-Pour plus d’informations sur la connexion et l’utilisation du point de terminaison privilégié, consultez [Utiliser le point de terminaison privilégié dans Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)
-[Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+Pour plus d’informations sur la connexion et l’utilisation du point de terminaison privilégié, consultez [Utiliser le point de terminaison privilégié dans Azure Stack](../../operator/azure-stack-privileged-endpoint.md)
+[Hub](../../operator/azure-stack-privileged-endpoint.md).

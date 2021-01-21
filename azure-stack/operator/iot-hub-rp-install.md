@@ -7,12 +7,12 @@ ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/6/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 13bac36ffd7d771d1b5504067bfe1d679cdda5e6
-ms.sourcegitcommit: 0e3296fb27b9dabbc2569bf85656c4c7b1d58ba9
+ms.openlocfilehash: 47d06bc7363a9ce8d4de8971bf26c38bfdb16bcc
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93050288"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256113"
 ---
 # <a name="how-to-install-iot-hub-on-azure-stack-hub"></a>Guide pratique pour installer IoT Hub sur Azure Stack Hub
 
@@ -37,7 +37,7 @@ Pour télécharger IoT Hub dans le cadre d'un déploiement connecté, procédez 
 
     [![Fournisseur de ressources IoT Hub sur la Place de marché](../operator/media/iot-hub-rp-install/download1.png)](../operator/media/iot-hub-rp-install/download1.png#lightbox)
 
-4. Sur la page du package **IoT Hub** , sélectionnez **Télécharger**.
+4. Sur la page du package **IoT Hub**, sélectionnez **Télécharger**.
 
     [![Détails du package IoT Hub](../operator/media/iot-hub-rp-install/download2.png)](../operator/media/iot-hub-rp-install/download2.png#lightbox)
 
@@ -61,9 +61,9 @@ Pour télécharger IoT Hub dans le cadre d'un déploiement déconnecté ou parti
 
 ## <a name="install-iot-hub"></a>Installer IoT Hub
 
-À partir de la page **Gestion de la Place de marché** , procédez comme suit pour installer le package IoT Hub :
+À partir de la page **Gestion de la Place de marché**, procédez comme suit pour installer le package IoT Hub :
 
-1. Cliquez sur la ligne **IoT Hub** , puis sur **Démarrer l'installation**.
+1. Cliquez sur la ligne **IoT Hub**, puis sur **Démarrer l'installation**.
 
     [![Fournisseur de ressources IoT Hub en attente d'installation](../operator/media/iot-hub-rp-install/install1.png)](../operator/media/iot-hub-rp-install/install1.png#lightbox)
 
@@ -105,11 +105,11 @@ Pour télécharger IoT Hub dans le cadre d'un déploiement déconnecté ou parti
 
 Le fournisseur de ressources IoT Hub a bien été installé. Pour démarrer, procédez comme suit :
 
-1. Si nécessaire, suivez les instructions pour [créer un plan, des offres et un abonnement](azure-stack-plan-offer-quota-overview.md).
+1. Si nécessaire, suivez les instructions pour [créer un plan, des offres et un abonnement](./service-plan-offer-subscription-overview.md).
 
 2. Si vous disposez déjà d'un abonnement, mettez à jour l'offre/le plan associé pour y inclure le service **Microsoft.Devices**. Accédez à **Plan** -> **Choisir le plan à mettre à jour** -> **Ajouter un service et un quota**.
 
-3. Ajoutez **Service Microsoft.Devices** , puis cliquez sur **Enregistrer**.
+3. Ajoutez **Service Microsoft.Devices**, puis cliquez sur **Enregistrer**.
 
     [![Ajouter le service IoT Hub au plan](../operator/media/iot-hub-rp-install/pd2.png)](../operator/media/iot-hub-rp-install/pd2.png#lightbox)
 

@@ -15,12 +15,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/05/2019
 ms.reviewer: efemmano
-ms.openlocfilehash: 780a8d7bfde9afca01a0e2c60dd6e8f772e06735
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: f4506ac5eb606d4def07fcc741ed5ad1c4900783
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867347"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256096"
 ---
 # <a name="alerts-akams-link-reference-for-azure-stack-hub"></a>Liens de renvoi aka.ms des alertes pour Azure Stack Hub
 
@@ -37,7 +37,7 @@ Cet article fournit une référence croisée pour les liens de redirection vers 
 | `https://aka.ms/azurestackaddcapacity` | [Ajouter de nouveaux nœuds d’unité d’échelle dans Azure Stack](../../operator/azure-stack-add-scale-node.md) |
 | `https://aka.ms/azurestackaddnode` | [Ajouter de nouveaux nœuds d’unité d’échelle dans Azure Stack](../../operator/azure-stack-add-scale-node.md) |
 | `https://aka.ms/azurestackhealthreport` | [https://github.com/Azure/AzureStack-Tools/blob/master/Identity/README.md#retrieve-azure-stack-identity-health-report](https://aka.ms/aa708dy) |
-| `https://aka.ms/azurestacklogfiles` | [Collecter les journaux de diagnostic Azure Stack à la demande](../../operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md) |
+| `https://aka.ms/azurestacklogfiles` | [Collecter les journaux de diagnostic Azure Stack à la demande](../../operator/diagnostic-log-collection.md) |
 | `https://aka.ms/azurestackpep` | [Utiliser le point de terminaison privilégié dans Azure Stack](../../operator/azure-stack-privileged-endpoint.md) |
 | `https://aka.ms/azurestackreplacenode` | [Remplacer un nœud d’unité d’échelle sur un système intégré Azure Stack](../../operator/azure-stack-replace-node.md) |
 | `https://aka.ms/azurestackupdatedirectory` | [https://github.com/Azure/AzureStack-Tools/tree/master/Identity#updating-the-azure-stack-aad-home-directory-after-installing-updates-or-new-resource-providers](https://aka.ms/aa700j2) |

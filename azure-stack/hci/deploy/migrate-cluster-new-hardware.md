@@ -6,18 +6,18 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 16fb7544fb223a1038b3f27d0416f0eda04012b6
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 7a0c0ca7a99b3554b74cc80911acbee92793aa52
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011758"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254821"
 ---
 # <a name="migrate-to-azure-stack-hci-on-new-hardware"></a>Migrer vers Azure Stack HCI sur du nouveau matériel
 
 > S’applique à Azure Stack HCI, version 20H2 ; Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
 
-Cette rubrique explique comment migrer des fichiers de machines virtuelles sur Windows Server 2012 R2, Windows Server 2016 ou Windows Server 2019 vers un nouveau serveur matériel Azure Stack HCI à l’aide de Windows PowerShell et Robocopy. Robocopy est une méthode fiable pour copier des fichiers d’un serveur vers un autre. En cas de déconnexion, il reprend le travail à son dernier état connu. Robocopy prend aussi en charge la copie de fichiers multithread via le protocole SMB (Server Message Block). Pour plus d’informations, consultez [Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy).
+Cette rubrique explique comment migrer des fichiers de machines virtuelles sur Windows Server 2012 R2, Windows Server 2016 ou Windows Server 2019 vers un nouveau serveur matériel Azure Stack HCI à l’aide de Windows PowerShell et Robocopy. Robocopy est une méthode fiable pour copier des fichiers d’un serveur vers un autre. En cas de déconnexion, il reprend le travail à son dernier état connu. Robocopy prend aussi en charge la copie de fichiers multithread via le protocole SMB (Server Message Block). Pour plus d’informations, consultez [Robocopy](/windows-server/administration/windows-commands/robocopy).
 
 > [!NOTE]
 > La migration dynamique et la réplication Hyper-V de Windows Server vers Azure Stack HCI ne sont pas prises en charge.
@@ -57,7 +57,7 @@ Avant d’entreprendre la migration, vous devez prendre en considération plusie
 
 - Vérifiez si Azure Stack HCI prend en charge la version de vos machines virtuelles en vue de leur importation, et mettez-les à jour si nécessaire. Pour savoir comment faire, consultez la section [Prise en charge et mise à jour des versions de machines virtuelles](#vm-version-support-and-update).
 
-- Sauvegardez toutes les machines virtuelles sur votre cluster source. Effectuez une sauvegarde cohérente en cas d’incident de l’ensemble des applications et des données et une sauvegarde cohérente du point de vue des applications de toutes les bases de données. Pour sauvegarder sur Azure, consultez [Utiliser Sauvegarde Azure](https://docs.microsoft.com/azure-stack/hci/manage/use-azure-backup).
+- Sauvegardez toutes les machines virtuelles sur votre cluster source. Effectuez une sauvegarde cohérente en cas d’incident de l’ensemble des applications et des données et une sauvegarde cohérente du point de vue des applications de toutes les bases de données. Pour sauvegarder sur Azure, consultez [Utiliser Sauvegarde Azure](../manage/use-azure-backup.md).
 
 - Créez un point de contrôle pour les machines virtuelles et le contrôleur de domaine de votre cluster source au cas où vous devriez revenir à un état antérieur. Cela ne s’applique pas aux serveurs physiques.
 
@@ -336,9 +336,9 @@ Voici le processus à utiliser :
 
     `Robocopy \\2012R2-Clus01\c$\clusterstorage\volume01\Hyper-V\ \\20H2-Clus01\c$\clusterstorage\volume01\Hyper-V\ /E /MT:32 /R:0 /w:1 /NFL /NDL /copyall /log:c:\log.txt /xf`
 
-1. Créez de nouvelles machines virtuelles de génération 1. Pour obtenir des informations détaillées sur la procédure à suivre, consultez [Gérer les machines virtuelles](https://docs.microsoft.com/azure-stack/hci/manage/vm).
+1. Créez de nouvelles machines virtuelles de génération 1. Pour obtenir des informations détaillées sur la procédure à suivre, consultez [Gérer les machines virtuelles](../manage/vm.md).
 
-1. Attachez les fichiers VHD copiés aux nouvelles machines virtuelles. Pour plus d’informations, consultez [Gérer les disques durs virtuels (VHD)](https://docs.microsoft.com/windows-server/storage/disk-management/manage-virtual-hard-disks).
+1. Attachez les fichiers VHD copiés aux nouvelles machines virtuelles. Pour plus d’informations, consultez [Gérer les disques durs virtuels (VHD)](/windows-server/storage/disk-management/manage-virtual-hard-disks).
 
 À titre d’information, les systèmes d’exploitation invités Windows Server suivants prennent en charge les machines virtuelles de génération 2 :
 
@@ -349,7 +349,7 @@ Voici le processus à utiliser :
 - Windows 10
 - Versions 64 bits de Windows 8.1 (64 bits)
 - Versions 64 bits de Windows 8 (64 bits)
-- Linux (consultez [Machines virtuelles Linux et FreeBSD prises en charge](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows))
+- Linux (consultez [Machines virtuelles Linux et FreeBSD prises en charge](/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows))
 
 ## <a name="next-steps"></a>Étapes suivantes
 

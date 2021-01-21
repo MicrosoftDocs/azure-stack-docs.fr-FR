@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 1e42f830683a1faefd8e068da1e968f9332b7e0a
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e26299a53583fa7d4e4b4b61fc46be7d2faa9eba
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872719"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255008"
 ---
 # <a name="physical-network-requirements-for-azure-stack-hci"></a>Exigences liées aux réseaux physiques pour Azure Stack HCI
 
@@ -26,7 +26,7 @@ Cette rubrique décrit le réseau physique (structure) pour Azure Stack HCI, en 
 
 Microsoft teste Azure Stack HCI par rapport aux normes et aux protocoles identifiés dans la section **Exigences liées aux commutateurs réseau** ci-dessous. Bien que Microsoft ne certifie pas les commutateurs réseau, nous travaillons avec les fournisseurs pour identifier les appareils qui prennent en charge les exigences Azure Stack HCI.
 
-Ces exigences sont également publiées dans [Spécifications et stratégies du Programme de compatibilité matérielle Windows](https://docs.microsoft.com/windows-hardware/design/compatibility/whcp-specifications-policies).  Sélectionnez **Télécharger les spécifications et les stratégies, version 1809**. Ouvrez le fichier zip, puis **WHCP-Components-Peripherals-Specification-1809.pdf**. Enfin, consultez la section **Device.Network.Switch.SDDC**.
+Ces exigences sont également publiées dans [Spécifications et stratégies du Programme de compatibilité matérielle Windows](/windows-hardware/design/compatibility/whcp-specifications-policies).  Sélectionnez **Télécharger les spécifications et les stratégies, version 1809**. Ouvrez le fichier zip, puis **WHCP-Components-Peripherals-Specification-1809.pdf**. Enfin, consultez la section **Device.Network.Switch.SDDC**.
 
 > [!IMPORTANT]
 > Il est possible que d’autres commutateurs réseau utilisant des technologies et des protocoles non répertoriés ici fonctionnent. Microsoft ne peut néanmoins pas garantir qu’ils seront compatibles avec Azure Stack HCI et ne pourra peut-être pas aider à résoudre les problèmes qui se produisent.
@@ -145,6 +145,6 @@ Azure Stack HCI prend en charge les connexions sans commutateur (directes) pour 
 
 - Pour d’informations sur les exigences liées aux cartes réseau et aux hôtes, consultez [Exigences liées aux réseaux d’hôtes](host-network-requirements.md).
 - Rafraîchissez votre connaissance des concepts de base du clustering de basculement. Consultez [Notions de base sur les réseaux de clustering de basculement](https://techcommunity.microsoft.com/t5/failover-clustering/.failover-clustering-networking-basics-and-fundamentals/ba-p/1706005?s=09).
-- Rafraîchissez vos connaissances de l’utilisation de SET. Consultez [Accès direct à la mémoire à distance (RDMA) et SET (Switch Embedded Teaming)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
-- Pour le déploiement, consultez [Création d’un cluster avec Windows Admin Center](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster).
-- Pour le déploiement, consultez [Création d’un cluster avec Windows PowerShell](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster-powershell).
+- Rafraîchissez vos connaissances de l’utilisation de SET. Consultez [Accès direct à la mémoire à distance (RDMA) et SET (Switch Embedded Teaming)](/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
+- Pour le déploiement, consultez [Création d’un cluster avec Windows Admin Center](../deploy/create-cluster.md).
+- Pour le déploiement, consultez [Création d’un cluster avec Windows PowerShell](../deploy/create-cluster-powershell.md).

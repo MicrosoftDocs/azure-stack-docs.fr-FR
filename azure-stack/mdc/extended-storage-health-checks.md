@@ -15,18 +15,18 @@ ms.date: 10/01/2020
 ms.author: patricka
 ms.reviewer: karlt
 ms.lastreviewed: 10/01/2020
-ms.openlocfilehash: ebb39f3eab90b0f976e5fee2896cbe85d0d023f5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 8dea13880e2703290e1528fca47b777f98fca7b2
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872396"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255518"
 ---
 # <a name="extended-storage-health-checks"></a>Contrôles d’intégrité du stockage étendu
 
 Cet article fournit des conseils pour contrôler l’intégrité du matériel de stockage étendu du centre de données et le déploiement d’Azure Stack Hub.
 
-Avant de commencer, consultez et suivez les étapes décrites dans [Mise à jour du microprogramme pour le stockage étendu](extended-storage-firmware-updates.md).
+Avant de commencer, consultez et suivez les étapes décrites dans [Mise à jour du microprogramme pour le stockage étendu]().
 
 La dernière étape avant l’expédition du système consiste à l’arrêter. Suivez les étapes du Guide de démarrage rapide.
 
@@ -110,4 +110,4 @@ Pour résoudre tout problème, contactez le Support Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Mise à jour du microprogramme](extended-storage-firmware-updates.md)
+- [Mise à jour du microprogramme]()

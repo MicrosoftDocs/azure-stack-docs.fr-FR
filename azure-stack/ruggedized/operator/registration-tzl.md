@@ -15,12 +15,12 @@ ms.date: 12/21/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 3d24ba3a714c8ea8f17189a7c63a134dab0f8d12
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 34dbff445ed06291712223b17f8443b384b8cac8
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97909801"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243525"
 ---
 # <a name="register-azure-stack-hub-with-azure---azure-stack-hub-ruggedized"></a>Inscrire Azure Stack Hub auprès d’Azure - Azure Stack Hub renforcé
 
@@ -310,7 +310,7 @@ Vous pouvez utiliser la vignette **Gestion des régions** pour vérifier que l�
 
 4. Vous pouvez utiliser le portail Azure pour voir les ressources d'inscription Azure Stack Hub puis vérifier que l’inscription a réussi. Connectez-vous au [portail Azure](https://portal.azure.com/) avec un compte associé à l’abonnement que vous avez utilisé pour inscrire Azure Stack Hub. Cochez **Toutes les ressources**, activez la case **Afficher les types masqués**, puis sélectionnez le nom d’inscription.
 
-5. Si l'inscription a échoué, vous devez vous réinscrire en suivant [Modifier l’abonnement que vous utilisez](https://docs.microsoft.com/azure-stack/operator/azure-stack-registration#change-the-subscription-you-use) pour résoudre le problème.
+5. Si l'inscription a échoué, vous devez vous réinscrire en suivant [Modifier l’abonnement que vous utilisez](../../operator/azure-stack-registration.md#change-the-subscription-you-use) pour résoudre le problème.
 
 Vous pouvez également vérifier si votre inscription a réussi à l’aide de la fonctionnalité Gestion de la Place de marché. Si vous voyez une liste d’éléments de la Place de marché dans le panneau **Gestion de la Place de marché**, votre inscription a réussi. Toutefois, dans des environnements déconnectés, les éléments de la Place de marché n’apparaissent pas dans Gestion de la Place de marché.
 
@@ -319,4 +319,4 @@ Vous pouvez également vérifier si votre inscription a réussi à l’aide de l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Principes de bases de l’administration d’Azure Stack Hub](../../operator/azure-stack-manage-basics.md)  
+[Principes de bases de l’administration d’Azure Stack Hub](../../operator/azure-stack-manage-basics.md)

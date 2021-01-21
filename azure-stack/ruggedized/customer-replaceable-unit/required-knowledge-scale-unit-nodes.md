@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: a46ae218cbf4b041b836ad2f204093daa449c785
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 4df7cfa84ff9b4a08d6751aa19ffdb1430a80605
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874555"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256130"
 ---
 # <a name="required-knowledge-for-working-with-scale-unit-nodes-in-a-tactical-cloud-appliance"></a>Connaissances requises dans l’utilisation des nœuds d’unité d’échelle dans une appliance cloud tactique
 
@@ -30,8 +30,8 @@ Pour plus d’informations sur la station de travail à accès privilégié et l
 ## <a name="azure-stack-hub-administrator-portal"></a>Portail administrateur Azure Stack Hub
 
 Demandez au client de vous fournir les informations d’identification et l’URL du portail administrateur.
-Pour plus d’informations, consultez [Utiliser le portail administrateur](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-portals)
-[dans Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-portals).
+Pour plus d’informations, consultez [Utiliser le portail administrateur](../../operator/azure-stack-manage-portals.md)
+[dans Azure Stack Hub](../../operator/azure-stack-manage-portals.md).
 
 ## <a name="dell-emc-poweredge-r640-installation-and-service-manual"></a>Dell EMC PowerEdge R640 - Manuel d’installation et de maintenance
 
@@ -46,4 +46,3 @@ Le Manuel de service d’appliance cloud tactique Microsoft Azure Stack Hub cont
 ## <a name="dell-emc-poweredge-idrac"></a>iDRAC Dell EMC PowerEdge
 
 Vous devez comprendre comment parcourir et utiliser l’interface web de l’iDRAC Dell EMC PowerEdge. Pour plus d’informations sur l’utilisation de l’iDRAC, consultez le [Guide de l’utilisateur Integrated Dell Remote Access Controller 9](https://www.dell.com/support/manuals/us/en/04/poweredge-r840/idrac9_4.00.00.00_ug_new/overview-of-idrac?guid=guid-a03c2558-4f39-40c8-88b8-38835d0e9003).
-

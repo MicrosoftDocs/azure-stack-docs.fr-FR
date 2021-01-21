@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/29/2020
-ms.openlocfilehash: 2d4aebd0609dff744f4c8f6ae9113fba1b7b0ba9
-ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
+ms.date: 01/14/2021
+ms.openlocfilehash: 3b29dfb35bad91ef02feebc22255b89116da1505
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354154"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243457"
 ---
 # <a name="system-requirements-for-azure-stack-hci"></a>Configuration requise pour Azure Stack HCI
 
@@ -61,20 +61,6 @@ Un cluster Azure Stack HCI requiert une connexion réseau fiable à bande passan
 
 - Vérifiez qu’au moins une carte réseau est disponible et dédiée à la gestion du cluster.
 - Vérifiez que les commutateurs physiques de votre réseau sont configurés pour autoriser le trafic sur tous les réseaux locaux virtuels que vous allez utiliser.
-
-Il existe plusieurs types de communication qui transitent entre les nœuds serveur :
-
-- Communication entre les clusters (jointures de nœuds, mises à jour de cluster, mises à jour du registre)
-- Pulsations de cluster
-- Trafic redirigé du Volume partagé de cluster (CSV)
-- Trafic de migration dynamique pour les machines virtuelles
-
-Avec les espaces de stockage direct, il existe un trafic réseau supplémentaire à prendre en compte :
-
-- Storage Bus Layer (SBL) : étendues, ou données, réparties entre les nœuds
-- Intégrité : surveillance et gestion des objets (nœuds, lecteurs, cartes réseau, service de cluster)
-
-Pour les clusters étendus, le trafic du réplica de stockage supplémentaire est également transmis entre les sites. Le trafic Storage Bus Layer (SBL) et de Volume partagé de cluster (CSV) ne passe pas entre les sites, uniquement entre les nœuds serveur de chaque site.
 
 Pour plus d’informations sur la mise en réseau d’hôtes et les exigences associées, consultez [Exigences liées aux réseaux d’hôtes](host-network-requirements.md).
 

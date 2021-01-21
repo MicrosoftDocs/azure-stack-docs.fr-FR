@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/25/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 2d31294b2b3a402efcfd4376988d1de6c3dbabd1
-ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
+ms.openlocfilehash: 3e31852e554c85ffab18aacaa336a007a97874f2
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355592"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255297"
 ---
 # <a name="host-network-requirements-for-azure-stack-hci"></a>Exigences liées aux réseaux d’hôtes pour Azure Stack HCI
 
@@ -156,7 +156,7 @@ La technologie SET offre des fonctionnalités supplémentaires par rapport à LB
 - Vitesse (débit)
 - configuration
 
-Le moyen le plus simple d’identifier si les adaptateurs sont symétriques est de regarder si la vitesse est identique et si la description de l’interface correspond. Ils ne peuvent différer que par le chiffre indiqué dans la description. Utilisez la cmdlet [`Get-NetAdapterAdvancedProperty`](https://docs.microsoft.com/powershell/module/netadapter/get-netadapteradvancedproperty) pour vérifier que la configuration signalée présente les mêmes valeurs de propriété.
+Le moyen le plus simple d’identifier si les adaptateurs sont symétriques est de regarder si la vitesse est identique et si la description de l’interface correspond. Ils ne peuvent différer que par le chiffre indiqué dans la description. Utilisez la cmdlet [`Get-NetAdapterAdvancedProperty`](/powershell/module/netadapter/get-netadapteradvancedproperty) pour vérifier que la configuration signalée présente les mêmes valeurs de propriété.
 
 Dans le tableau suivant figure un exemple de descriptions d’interface qui ne diffèrent que par le chiffre :
 
@@ -298,6 +298,6 @@ Les clusters étendus présentent les exigences et caractéristiques suivantes 
 
 - Pour plus d’informations sur les exigences liées aux commutateurs réseau et aux réseaux physiques, consultez [Exigences liées aux réseaux physiques](physical-network-requirements.md).
 - Rafraîchissez votre connaissance des concepts de base du clustering de basculement. Consultez [Failover Clustering Networking Basics](https://techcommunity.microsoft.com/t5/failover-clustering/failover-clustering-networking-basics-and-fundamentals/ba-p/1706005?s=09)
-- Rafraîchissez vos connaissances de l’utilisation de SET. Consultez [Accès direct à la mémoire à distance (Remote Direct Memory Access, RDMA) et association commutée/intégrée (Switched-Embedded Teaming, SET)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
-- Pour le déploiement, consultez [Créer un cluster en utilisant Windows Admin Center](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster).
-- Pour le déploiement, consultez [Créer un cluster en utilisant Windows PowerShell](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster-powershell).
+- Rafraîchissez vos connaissances de l’utilisation de SET. Consultez [Accès direct à la mémoire à distance (Remote Direct Memory Access, RDMA) et association commutée/intégrée (Switched-Embedded Teaming, SET)](/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
+- Pour le déploiement, consultez [Créer un cluster en utilisant Windows Admin Center](../deploy/create-cluster.md).
+- Pour le déploiement, consultez [Créer un cluster en utilisant Windows PowerShell](../deploy/create-cluster-powershell.md).

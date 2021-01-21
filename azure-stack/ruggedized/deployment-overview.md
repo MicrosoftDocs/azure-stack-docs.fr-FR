@@ -16,12 +16,12 @@ ms.date: 10/14/2020
 ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: 0fd077f405256ff0a112dd9730cdc3e8fefb10f8
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e6fccf96e44a481a0e1e0c5bb300ec238937f86b
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867534"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256181"
 ---
 # <a name="azure-stack-hub-ruggedized-deployment-overview"></a>Vue d’ensemble du déploiement d’Azure Stack Hub renforcé
 
@@ -38,7 +38,7 @@ Ce guide de déploiement est destiné à l’équipe de professionnels de terrai
 
 L’expérience technique de la virtualisation, des serveurs, des systèmes d’exploitation, de la mise en réseau et des solutions de stockage est nécessaire pour bien comprendre le contenu de ce guide. L’ingénieur de déploiement doit connaitre Microsoft Windows Server 2019 avec Hyper-V, Azure Stack Hub, Azure et Microsoft PowerShell.
 
-Ce guide se concentre sur le déploiement des composants de base de Microsoft Azure Stack Hub ainsi que sur les spécificités de la solution Azure Stack Hub renforcé. Ce guide n’explique pas les procédures de fonctionnement d’Azure Stack Hub et ne couvre pas toutes les fonctionnalités disponibles dans Azure Stack Hub. Pour plus d’informations, consultez le [Guide de l’opérateur Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/).
+Ce guide se concentre sur le déploiement des composants de base de Microsoft Azure Stack Hub ainsi que sur les spécificités de la solution Azure Stack Hub renforcé. Ce guide n’explique pas les procédures de fonctionnement d’Azure Stack Hub et ne couvre pas toutes les fonctionnalités disponibles dans Azure Stack Hub. Pour plus d’informations, consultez le [Guide de l’opérateur Azure Stack Hub](../operator/index.yml).
 
 ## <a name="introduction"></a>Introduction
 

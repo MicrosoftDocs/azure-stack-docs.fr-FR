@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 12/10/2020
-ms.openlocfilehash: 9acbb273ea67d989f3ec1e1e88c51a96dd440256
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: a81a1973d7324371cb42b23ca7905d39492401cf
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97010870"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254430"
 ---
 # <a name="manage-azure-registration"></a>Gérer une inscription Azure
 
@@ -108,7 +108,7 @@ L’option la plus restrictive consiste à créer un rôle AD personnalisé ave
       New-AzureADMSPermissionGrantPolicy -Id "AzSHCI-registration-consent-policy" -DisplayName "Azure Stack HCI registration admin app consent policy" -Description "Azure Stack HCI registration admin app consent policy"
       ```
 
-   3. Ajoutez une condition qui inclut les autorisations d’application nécessaires pour le service Azure Stack HCI, qui contient l’ID d’application 1322e676-dee7-41ee-a874-ac923822781c. Notez que les autorisations suivantes s’appliquent à la version en disponibilité générale d’Azure Stack HCI et qu’elles ne fonctionnent pas avec la préversion publique, sauf si vous avez appliqué la [mise à jour de la préversion du 23 novembre 2020 (KB4586852)](../release-notes.md) à chaque serveur de votre cluster et que vous avez téléchargé la version 0.4.1 ou une version ultérieure du module Az.StackHCI.
+   3. Ajoutez une condition qui inclut les autorisations d’application nécessaires pour le service Azure Stack HCI, qui contient l’ID d’application 1322e676-dee7-41ee-a874-ac923822781c. Notez que les autorisations suivantes s’appliquent à la version en disponibilité générale d’Azure Stack HCI et qu’elles ne fonctionnent pas avec la préversion publique, sauf si vous avez appliqué la [mise à jour de la préversion du 23 novembre 2020 (KB4586852)](https://support.microsoft.com/help/4595086/azure-stack-hci-release-notes-overview) à chaque serveur de votre cluster et que vous avez téléchargé la version 0.4.1 ou une version ultérieure du module Az.StackHCI.
    
       ```powershell
       New-AzureADMSPermissionGrantConditionSet -PolicyId "AzSHCI-registration-consent-policy" -ConditionSetType "includes" -PermissionType "application" -ResourceApplication "1322e676-dee7-41ee-a874-ac923822781c" -Permissions "bbe8afc9-f3ba-4955-bb5f-1cfb6960b242","8fa5445e-80fb-4c71-a3b1-9a16a81a1966","493bd689-9082-40db-a506-11f40b68128f","2344a320-6a09-4530-bed7-c90485b5e5e2"

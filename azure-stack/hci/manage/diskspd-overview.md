@@ -5,12 +5,12 @@ author: jasonnyi
 ms.author: jasonyi
 ms.topic: how-to
 ms.date: 11/17/2020
-ms.openlocfilehash: 03d5bf97e29009c67e9520ea59a802c55659db3b
-ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
+ms.openlocfilehash: 8d8a78d0a5faaa3c041e17c3c38f208132f19834
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94811300"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254787"
 ---
 # <a name="use-diskspd-to-test-workload-storage-performance"></a>Utiliser DISKSPD pour tester les performances de stockage d'une charge de travail
 
@@ -116,7 +116,7 @@ Vous générez le fichier de test sous l'espace de noms unifié fourni par le vo
 
 Comme vous allez le constater, il est tout à fait possible d'atteindre indépendamment le plafond d'IOPS ou de bande passante à la limite de la machine virtuelle ou du disque. Il est donc important d'identifier la taille de la machine virtuelle et le type du disque, car tous deux présentent une limite maximale d'IOPS et un plafond de bande passante. Ces informations permettent de localiser les goulots d'étranglement et d'interpréter les résultats de performances. Pour en savoir plus sur la taille qui convient à votre charge de travail, consultez les ressources suivantes :
 
-- [Tailles de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/sizes-general?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json)
+- [Tailles de machine virtuelle](/azure/virtual-machines/sizes-general?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Types de disques](https://azure.microsoft.com/pricing/details/managed-disks/)
 
 ## <a name="understand-the-output"></a>Comprendre la sortie
@@ -174,7 +174,7 @@ Maintenant que vous avez commencé à utiliser DISKSPD, différents points sont 
 Le test artificiel de DISKSPD vous donne des résultats relativement comparables pour votre charge de travail réelle. Cela dit, vous devez être très attentif aux paramètres que vous définissez et vous assurer qu'ils correspondent à votre scénario réel. Sachez que les charges de travail synthétiques ne représenteront jamais parfaitement la charge de travail réelle de votre application pendant le déploiement.
 
 ### <a name="preparation"></a>Préparation
-Avant de procéder à un test DISKSPD, nous vous recommandons de prendre quelques mesures. Vous devez notamment vérifier l'intégrité de l'espace de stockage, contrôler l'utilisation de vos ressources afin qu'aucun autre programme n'interfère pas avec le test, et préparer le gestionnaire de performances si vous souhaitez collecter des données supplémentaires. Toutefois, l'objectif de cette rubrique étant d'exécuter rapidement DISKSPD, les spécificités de ces mesures n'y sont pas présentées. Pour plus d’informations, consultez [Test Storage Spaces Performance Using Synthetic Workloads in Windows Server](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn894707(v=ws.11)).
+Avant de procéder à un test DISKSPD, nous vous recommandons de prendre quelques mesures. Vous devez notamment vérifier l'intégrité de l'espace de stockage, contrôler l'utilisation de vos ressources afin qu'aucun autre programme n'interfère pas avec le test, et préparer le gestionnaire de performances si vous souhaitez collecter des données supplémentaires. Toutefois, l'objectif de cette rubrique étant d'exécuter rapidement DISKSPD, les spécificités de ces mesures n'y sont pas présentées. Pour plus d’informations, consultez [Test Storage Spaces Performance Using Synthetic Workloads in Windows Server](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn894707(v=ws.11)).
 
 ### <a name="variables-that-affect-performance"></a>Variables qui affectent les performances
 Les performances de stockage constituent un point relativement délicat. Car de nombreuses variables peuvent affecter les performances. Il se peut donc que certaines ne soient pas conformes à vos attentes. Les variables suivantes affectent les performances (liste non exhaustive) :
@@ -213,7 +213,7 @@ Le bref résumé suivant explique pourquoi l'utilisation de la copie de fichiers
 - **Les copies de fichiers risquent ne pas être optimisées.** Il existe deux niveaux de parallélisme, l'un interne et l'autre externe. En interne, si la copie de fichiers est dirigée vers une cible distante, le moteur CopyFileEx applique une certaine parallélisation. En externe, le moteur CopyFileEx peut être appelé de différentes façons. Par exemple, les copies de l'Explorateur de fichiers sont à thread unique, mais Robocopy est multi-thread. Il est donc important de déterminer si les implications du test correspondent à ce que vous recherchez.
 - **Chaque copie possède deux côtés.** Lorsque vous copiez et collez un fichier, vous utilisez peut-être deux disques : le disque source et le disque de destination. Si l'un est plus lent que l'autre, vous mesurez les performances du disque plus lent. Il existe d'autres cas où la communication entre la source, la destination et le moteur de copie peut affecter les performances de manière unique.
     
-    Pour en savoir plus, consultez [Utiliser la copie de fichiers pour mesurer les performances de stockage](https://docs.microsoft.com/archive/blogs/josebda/using-file-copy-to-measure-storage-performance-why-its-not-a-good-idea-and-what-you-should-do-instead?ranMID=24542&ranEAID=je6NUbpObpQ&ranSiteID=je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q&epi=je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q&irgwc=1&OCID=AID2000142_aff_7593_1243925&tduid=%28ir__rcvu3tufjwkftzjukk0sohzizm2xiezdpnxvqy9i00%29%287593%29%281243925%29%28je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q%29%28%29&irclickid=_rcvu3tufjwkftzjukk0sohzizm2xiezdpnxvqy9i00).
+    Pour en savoir plus, consultez [Utiliser la copie de fichiers pour mesurer les performances de stockage](/archive/blogs/josebda/using-file-copy-to-measure-storage-performance-why-its-not-a-good-idea-and-what-you-should-do-instead?epi=je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q&irclickid=_rcvu3tufjwkftzjukk0sohzizm2xiezdpnxvqy9i00&irgwc=1&OCID=AID2000142_aff_7593_1243925&ranEAID=je6NUbpObpQ&ranMID=24542&ranSiteID=je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q&tduid=(ir__rcvu3tufjwkftzjukk0sohzizm2xiezdpnxvqy9i00)(7593)(1243925)(je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q)()).
 
 ## <a name="experiments-and-common-workloads"></a>Expériences et charges de travail courantes
 Cette section comprend d'autres exemples, expériences et types de charges de travail.
@@ -259,5 +259,5 @@ Le choix de la conception de base de ce test de charge de travail doit au minimu
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations et pour accéder à des exemples détaillés sur l'optimisation de vos paramètres de résilience, consultez également :
-- [OLTP et OLAP](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn894707(v=ws.11))
+- [OLTP et OLAP](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn894707(v=ws.11))
 - [Choix de résilience](https://techcommunity.microsoft.com/t5/storage-at-microsoft/volume-resiliency-and-efficiency-in-storage-spaces-direct/ba-p/425831)

@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Apprenez à effectuer la rotation de vos secrets dans Azure Stack Hub.
 author: BryanLa
 ms.topic: how-to
-ms.date: 01/07/2021
+ms.date: 01/19/2021
 ms.reviewer: fiseraci
 ms.author: bryanla
-ms.lastreviewed: 01/07/2021
+ms.lastreviewed: 01/19/2021
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: ec65268a76a8616d5fea213d6c4f0551a5b5ba38
-ms.sourcegitcommit: a90b146769279ffbdb09c68ca0506875a867e177
+ms.openlocfilehash: d7c75bc9864e564736b03477a3c37140e752d850
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98123695"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571346"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Effectuer la rotation des secrets dans Azure Stack Hub
 
@@ -67,6 +67,7 @@ Pour plus d’informations sur la surveillance et la correction des alertes, rep
 > - **La rotation des secrets autres que des certificats, comme les clés et chaînes sécurisées** doit être effectuée manuellement par l’administrateur. Sont inclus les mots de passe des comptes d’utilisateur et d’administrateur, ainsi que [les mots de passe de commutateur réseau](azure-stack-customer-defined.md).
 > - **La rotation des secrets de fournisseur de ressources à valeur ajoutée** est expliquée dans une aide distincte :
 >    - [App Service sur Azure Stack Hub](app-service-rotate-certificates.md)
+>    - [Event Hubs sur Azure Stack Hub](event-hubs-rp-rotate-secrets.md)
 >    - [IoT Hub sur Azure Stack Hub](iot-hub-rp-rotate-secrets.md)
 >    - [MySQL sur Azure Stack Hub](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation)
 >    - [SQL sur Azure Stack Hub](azure-stack-sql-resource-provider-maintain.md#secrets-rotation)
@@ -101,7 +102,7 @@ Avant d’effectuer la rotation des secrets externes :
      |Auto-signé|Enterprise| 1903 et versions ultérieures|
      |Auto-signé|Auto-signé|Non pris en charge|
      |Auto-signé|Public<sup>*</sup>|1803 et versions ultérieures|
-     |Enterprise|Entreprise|1803 et versions ultérieures, 1803-1903 si l’autorité de certification d’entreprise est la MÊME que celle utilisée lors du déploiement|
+     |Entreprise|Entreprise|1803 et versions ultérieures, 1803-1903 si l’autorité de certification d’entreprise est la MÊME que celle utilisée lors du déploiement|
      |Enterprise|Auto-signé|Non pris en charge|
      |Enterprise|Public<sup>*</sup>|1803 et versions ultérieures|
      |Public<sup>*</sup>|Enterprise|1903 et versions ultérieures|
@@ -238,9 +239,6 @@ Pour effectuer une rotation des secrets internes, effectuez les étapes suivante
     $PEPSession = New-PSSession -ComputerName <IP_address_of_ERCS_Machine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
 
     # Run Secret Rotation
-    $CertPassword = ConvertTo-SecureString "<Cert_Password>" -AsPlainText -Force
-    $CertShareCreds = Get-Credential
-    $CertSharePath = "<Network_Path_Of_CertShare>"
     Invoke-Command -Session $PEPSession -ScriptBlock {
         Start-SecretRotation -Internal
     }

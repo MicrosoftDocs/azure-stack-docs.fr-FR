@@ -6,12 +6,12 @@ ms.author: yiygu
 ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/6/2020
-ms.openlocfilehash: ca410a3ec5b66a3ab3243ae06f82f4cb736af836
-ms.sourcegitcommit: 0e3296fb27b9dabbc2569bf85656c4c7b1d58ba9
+ms.openlocfilehash: 3fe1459d28c399269ccdb1d4cffed024bd741000
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93050286"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255739"
 ---
 # <a name="how-to-manage-iot-hub-on-azure-stack-hub"></a>Gérer IoT Hub sur Azure Stack Hub
 
@@ -23,7 +23,7 @@ L’expérience de gestion IoT Hub vous permet de visualiser et de gérer l’é
 
 Pour accéder au tableau de bord de gestion IoT Hub :
 
-1. Connectez-vous au portail d’administration Azure Stack Hub, sélectionnez la vue **Tableau de bord** sur la gauche, puis le fournisseur de ressources **IoT Hub**  :
+1. Connectez-vous au portail d’administration Azure Stack Hub, sélectionnez la vue **Tableau de bord** sur la gauche, puis le fournisseur de ressources **IoT Hub** :
 
    [![tableau de bord de l’opérateur](media\iot-hub-rp-manage\dashboard.png)](media\iot-hub-rp-manage-capacity\dashboard.png#lightbox)
 
@@ -104,5 +104,4 @@ Pour plus d’informations sur :
 
 la fonctionnalité de supervision Azure Stack Hub, notamment la génération d’alertes, consultez [Surveiller l’intégrité et les alertes](azure-stack-monitor-health.md).
 
-la collecte des journaux Azure Stack Hub, consultez [Vue d’ensemble de la collecte automatique des journaux de diagnostic Azure Stack](azure-stack-diagnostic-log-collection-overview.md).
-
+la collecte des journaux Azure Stack Hub, consultez [Vue d’ensemble de la collecte automatique des journaux de diagnostic Azure Stack](./diagnostic-log-collection.md).

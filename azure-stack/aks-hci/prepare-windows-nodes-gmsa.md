@@ -5,12 +5,12 @@ author: v-susbo
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-susbo
-ms.openlocfilehash: 754ebc1a365efb7efa0e96eef438ae2347a069ab
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: fd08f288d816468610dadf7e5c063c08b63c0cf2
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612571"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254702"
 ---
 # <a name="prepare-windows-nodes-for-group-managed-service-account-support"></a>Préparer des nœuds Windows pour la prise en charge de compte de service administré de groupe
 
@@ -43,7 +43,7 @@ netdom.exe join %computername% /domain:DomainName /UserD:DomainName\UserName /Pa
 
 Une fois que tous les nœuds Worker Windows ont été joints à un domaine, suivez les étapes détaillées dans la [configuration de gMSA](https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa/). Ces étapes vous aideront à appliquer les Webhooks et définitions de ressources personnalisés gMSA Kubernetes à votre cluster Kubernetes.
 
-Pour plus d’informations sur les conteneurs Windows avec gMSA, consultez [Conteneurs Windows et gMSA](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/manage-serviceaccounts). 
+Pour plus d’informations sur les conteneurs Windows avec gMSA, consultez [Conteneurs Windows et gMSA](/virtualization/windowscontainers/manage-containers/manage-serviceaccounts). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
