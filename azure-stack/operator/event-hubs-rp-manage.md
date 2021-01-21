@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: aaadabe207146f200d6090c2e59bcc563831c6d4
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: 9cf3339398516688865f7aab3a696562f4974699
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343584"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571329"
 ---
 # <a name="how-to-manage-event-hubs-on-azure-stack-hub"></a>Guide pratique pour gérer Event Hubs sur Azure Stack Hub
 
@@ -50,8 +50,8 @@ Le fournisseur de ressources Event Hubs prend en charge les alertes suivantes :
 |----------|-------|------|-----------|
 | Performances | | | |
 | | EventHub-CpuUsage | Avertissement | La moyenne du pourcentage d’utilisation du processeur du cluster Event Hubs au cours des 6 dernières heures est supérieure à 50 %. |
-| | EventHub-MemoryUsage | Avertissement | La moyenne du pourcentage d’utilisation du disque de données (E:) du cluster Event Hubs au cours des 6 dernières heures est supérieure à 50 %. |
-| | EventHub-DiskUsage | Avertissement | La moyenne du pourcentage d’espace mémoire libre du cluster Event Hubs au cours des 6 dernières heures est inférieure à 50 %. |
+| | EventHub-MemoryUsage | Avertissement | La moyenne du pourcentage d’espace mémoire libre du cluster Event Hubs au cours des 6 dernières heures est inférieure à 50 %. |
+| | EventHub-DiskUsage | Avertissement | La moyenne du pourcentage d’utilisation du disque de données (E:) du cluster Event Hubs au cours des 6 dernières heures est supérieure à 50 %. |
 | Utilisation/quota | | | |
 | | EventHub-QuotaExceeded | Avertissement | Une erreur de dépassement de quota s’est produite au cours des six dernières heures. |
 | | EventHub-NamespaceCreditUsage | Avertissement | La somme des utilisations de crédit des espaces de noms au cours des six dernières heures est supérieure à 10000,0. |
@@ -72,7 +72,7 @@ La sélection d’une alerte dans la liste affiche le panneau **Détails de l’
 
 [![Gérer Event Hubs - détails des alertes](media/event-hubs-rp-manage/2-alerts-detail.png)](media/event-hubs-rp-manage/2-alerts-detail.png#lightbox)
 
-Pour plus d’informations sur la fonctionnalité de supervision Azure Stack Hub, notamment la génération d’alertes, consultez [Surveiller l’intégrité et les alertes](azure-stack-monitor-health.md). Pour plus d’informations sur la collecte des journaux, consultez [Vue d’ensemble de la collecte automatique des journaux de diagnostic Azure Stack](azure-stack-diagnostic-log-collection-overview.md).
+Pour plus d’informations sur la fonctionnalité de supervision Azure Stack Hub, notamment la génération d’alertes, consultez [Surveiller l’intégrité et les alertes](azure-stack-monitor-health.md). Pour plus d’informations sur la collecte des journaux, consultez [Vue d’ensemble de la collecte automatique des journaux de diagnostic Azure Stack](./diagnostic-log-collection.md).
 
 ## <a name="event-hubs-clusters"></a>Clusters Event Hubs
 
@@ -101,17 +101,4 @@ Pour plus d’informations sur :
 
 - les types de quotas définis pour Event Hubs, consultez [Types de quotas](azure-stack-quota-types.md#event-hubs-quota-types).
 - la fonctionnalité de supervision Azure Stack Hub, notamment la génération d’alertes, consultez [Surveiller l’intégrité et les alertes](azure-stack-monitor-health.md). 
-- la collecte des journaux Azure Stack Hub, consultez [Vue d’ensemble de la collecte automatique des journaux de diagnostic Azure Stack](azure-stack-diagnostic-log-collection-overview.md).
-
-
-
-
-
-
-
-
-
-
-
-
-
+- la collecte des journaux Azure Stack Hub, consultez [Vue d’ensemble de la collecte automatique des journaux de diagnostic Azure Stack](./diagnostic-log-collection.md).
