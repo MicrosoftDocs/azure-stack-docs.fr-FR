@@ -44,6 +44,8 @@
           href: deploy/create-cluster-powershell.md
     - name: Déployer les charges de travail
       items:
+        - name: Succursale et périphérie
+          href: deploy/branch-office-edge.md
         - name: Infrastructure de bureau virtuel
           href: deploy/virtual-desktop-infrastructure.md
         - name: SQL Server
