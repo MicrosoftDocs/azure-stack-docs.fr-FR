@@ -6,6 +6,8 @@
       href: overview.md
     - name: Comparer avec Windows Server
       href: concepts/compare-windows-server.md
+    - name: Comparer avec Azure Stack Hub
+      href: concepts/compare-azure-stack-hub.md
     - name: Informations de version
       href: release-information.md
     - name: Notes de publication
