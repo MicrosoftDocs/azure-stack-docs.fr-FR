@@ -1,6 +1,6 @@
 - name: Documentation Azure Stack HCI
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Azure Stack HCI\_?"
       href: overview.md
@@ -28,10 +28,6 @@
       href: deploy/operating-system.md
     - name: Créer un cluster
       href: deploy/create-cluster.md
-    - name: Configurer un témoin de cluster
-      href: deploy/witness.md
-    - name: Déployer une infrastructure SDN
-      href: deploy/sdn-express.md
     - name: Migrer vers du nouveau matériel
       href: deploy/migrate-cluster-new-hardware.md
     - name: Migrer sur le même matériel
@@ -96,6 +92,8 @@
           href: manage/update-cluster.md
         - name: Analyser le cluster
           href: manage/monitor-cluster.md
+        - name: Configurer un témoin de cluster
+          href: manage/witness.md
         - name: Utiliser le Pare-feu Datacenter
           href: manage/use-datacenter-firewall.md
         - name: Utiliser DISKSPD pour tester les charges de travail
@@ -114,6 +112,10 @@
           href: manage/validate-qos.md
         - name: Résoudre les problèmes CredSSP
           href: manage/troubleshoot-credssp.md
+    - name: Gérer SDN
+      items:
+        - name: Déployer une infrastructure SDN
+          href: manage/sdn-express.md
     - name: Gérer les services Azure
       items:
         - name: Inscrire Windows Admin Center avec Azure
