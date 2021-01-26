@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: d60ec2edb4247c72d35e69e199bf3fc28259e2ce
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 0503e9a97a2ca2b15447dbd837eeac9162b84654
+ms.sourcegitcommit: 48a46142ea7bccd6c8a609e188dd7f3f6444f3c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572121"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98561993"
 ---
 # <a name="understanding-cluster-and-pool-quorum-on-azure-stack-hci"></a>Présentation du quorum de cluster et de pool dans Azure Stack HCI
 
@@ -59,11 +59,11 @@ Il existe deux façons pour le cluster de rendre le *nombre total de votes* impa
 1. Tout d’abord, il peut *augmenter ce nombre* en ajoutant un *témoin* avec un vote supplémentaire. Cela nécessite une configuration de la part de l’utilisateur.
 2. Il peut également *diminuer ce nombre* en annulant le vote d’un nœud (cela se produit automatiquement lorsque c’est nécessaire).
 
-Chaque fois que les nœuds survivants vérifient qu’ils sont *majoritaires*, la définition de *majorité* est mise à jour de manière à se trouver parmi les survivants. Cela permet au cluster de perdre un nœud, puis un autre, puis un autre, et ainsi de suite. Ce concept de *nombre total de votes* qui s’adapte après des échecs successifs est appelé ***quorum dynamique***.
+Chaque fois que les nœuds survivants vérifient qu’ils sont *majoritaires*, la définition de *majorité* est mise à jour de manière à se trouver parmi les survivants. Cela permet au cluster de perdre un nœud, puis un autre, puis un autre, et ainsi de suite. Ce concept de *nombre total de votes* qui s’adapte après des échecs successifs est appelé ***quorum dynamique** _.
 
 ### <a name="dynamic-witness"></a>Témoin dynamique
 
-Le témoin dynamique modifie le vote du témoin pour faire en sorte que le *nombre total de votes* soit impair. Si le nombre de votes est impair, le témoin ne dispose pas d’un vote. Si le nombre de votes est pair, le témoin dispose d’un vote. Le témoin dynamique réduit considérablement le risque que le cluster ne soit interrompu en raison d’un échec de témoin. Le cluster décide s’il faut utiliser le vote du témoin en fonction du nombre de nœuds votants disponibles dans le cluster.
+Le témoin dynamique modifie le vote du témoin pour faire en sorte que le _nombre total de votes* soit impair. Si le nombre de votes est impair, le témoin ne dispose pas d’un vote. Si le nombre de votes est pair, le témoin dispose d’un vote. Le témoin dynamique réduit considérablement le risque que le cluster ne soit interrompu en raison d’un échec de témoin. Le cluster décide s’il faut utiliser le vote du témoin en fonction du nombre de nœuds votants disponibles dans le cluster.
 
 Le quorum dynamique fonctionne avec un témoin dynamique comme décrit ci-dessous.
 
@@ -89,11 +89,11 @@ Le scénario ci-dessus s’applique à un cluster général où les espaces de s
 ### <a name="examples"></a>Exemples
 
 #### <a name="two-nodes-without-a-witness"></a>Deux nœuds sans témoin.
-Le vote d’un nœud est annulé. La *majorité* est donc déterminée sur un total de **1 vote**. Si le nœud qui ne vote pas devient indisponible de façon inattendue, le survivant a un ratio de 1/1 et le cluster survit. Si le nœud qui vote devient indisponible de façon inattendue, le survivant a un ratio de 0/1 et le cluster devient lui aussi indisponible. Si le nœud qui vote est mis hors connexion normalement, le vote est transféré vers l’autre nœud, ce qui permet au cluster de survivre. ***C’est pour cette raison qu’il est essentiel de configurer un témoin***.
+Le vote d’un nœud est annulé. La *majorité* est donc déterminée sur un total de **1 vote**. Si le nœud qui ne vote pas devient indisponible de façon inattendue, le survivant a un ratio de 1/1 et le cluster survit. Si le nœud qui vote devient indisponible de façon inattendue, le survivant a un ratio de 0/1 et le cluster devient lui aussi indisponible. Si le nœud qui vote est mis hors connexion normalement, le vote est transféré vers l’autre nœud, ce qui permet au cluster de survivre. **_C’est pour cette raison qu’il est essentiel de configurer un témoin._* _
 
 ![Explication du quorum dans le cas de deux nœuds sans témoin](media/quorum/2-node-no-witness.png)
 
-- Peut survivre à un échec de serveur : **50 % de chance**.
+- Peut survivre à une défaillance de serveur : _*Probabilité de 50 %**.
 - Peut survivre à l’échec d’un serveur, puis d’un autre : **Non**.
 - Peut survivre à deux échecs de serveur simultanés : **Non**.
 
@@ -159,7 +159,7 @@ Le clustering de basculement prend en charge trois types de témoins de quorum 
 
 - **[Témoin cloud](/windows-server/failover-clustering/deploy-cloud-witness)**  : stockage Blob dans Azure accessible à tous les nœuds du cluster. Il conserve les informations de clustering dans un fichier witness.log, mais ne stocke pas de copie de la base de données de clusters.
 - **Témoin de partage de fichiers** : partage de fichiers SMB configuré sur un serveur de fichiers exécutant Windows Server. Il conserve les informations de clustering dans un fichier witness.log, mais ne stocke pas de copie de la base de données de clusters.
-- **Témoin de disque** : petit disque en cluster qui se trouve dans le groupe Stockage disponible du cluster. Ce disque est hautement disponible et peut basculer d’un nœud vers un autre. Il contient une copie de la base de données de cluster.  ***Les témoins de disque ne sont pas pris en charge par les espaces de stockage direct***.
+- **Témoin de disque** : petit disque en cluster qui se trouve dans le groupe Stockage disponible du cluster. Ce disque est hautement disponible et peut basculer d’un nœud vers un autre. Il contient une copie de la base de données de cluster.  **_Les témoins de disque ne sont pas pris en charge par les espaces de stockage direct_* _.
 
 ## <a name="pool-quorum-overview"></a>Présentation du quorum de pool
 
@@ -179,7 +179,7 @@ Le tableau ci-dessous donne une vue d’ensemble des résultats du quorum de poo
 
 ## <a name="how-pool-quorum-works"></a>Fonctionnement du quorum de pool
 
-Lorsque les lecteurs échouent, ou lorsque certains sous-ensembles de lecteurs perdent leur contact avec un autre sous-ensemble, les lecteurs survivants doivent vérifier qu’ils constituent la *majorité* du pool pour rester en ligne. S’ils ne peuvent pas le vérifier, ils seront mis hors connexion. Le pool est l’entité qui passe hors connexion ou qui reste en ligne selon qu’elle dispose de suffisamment de disques pour le quorum (50 % + 1). Le propriétaire de la ressource du pool (nœud de cluster actif) peut être ce « + 1 ».
+Lorsque les lecteurs échouent, ou lorsque certains sous-ensembles de lecteurs perdent leur contact avec un autre sous-ensemble, les lecteurs survivants doivent vérifier qu’ils constituent la _majorité* du pool pour rester en ligne. S’ils ne peuvent pas le vérifier, ils seront mis hors connexion. Le pool est l’entité qui passe hors connexion ou qui reste en ligne selon qu’elle dispose de suffisamment de disques pour le quorum (50 % + 1). Le propriétaire de la ressource du pool (nœud de cluster actif) peut être ce « + 1 ».
 
 Toutefois, le quorum de pool fonctionne différemment du quorum de cluster :
 
@@ -213,7 +213,7 @@ Chacun des 24 lecteurs a un vote, et le nœud 2 a également un vote (puisqu�
 ![Quorum de pool 3](media/quorum/pool-3.png)
 
 - Peut survivre à un échec de serveur : **Oui**.
-- Peut survivre à l’échec d’un serveur, puis d’un autre.**Parfois** (il ne pourra pas survivre si les nœuds 3 et 4 échouent simultanément, mais il pourra survivre à tous les autres scénarios).
+- Peut survivre à l’échec d’un serveur, puis d’un autre : **Parfois** (il ne pourra pas survivre si les nœuds 3 et 4 échouent simultanément, mais il pourra survivre à tous les autres scénarios).
 - Peut survivre à deux échecs de serveur simultanés : **Parfois** (il ne pourra pas survivre si les nœuds 3 et 4 échouent simultanément, mais il pourra survivre à tous les autres scénarios).
 
 ### <a name="pool-quorum-recommendations"></a>Recommandations relatives au quorum de pool

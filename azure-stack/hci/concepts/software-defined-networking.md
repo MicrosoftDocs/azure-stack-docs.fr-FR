@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/21/2020
-ms.openlocfilehash: 20d42c6685bb1a2a2c8de36d04434d23a97f81e1
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.date: 01/13/2021
+ms.openlocfilehash: 579ccb529ff2ac00a864a165fa5086244f0c0870
+ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737876"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208010"
 ---
 # <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Mise en réseau SDN (Software Defined Networking) dans Azure Stack HCI
 
@@ -38,7 +38,7 @@ Le déploiement du contrôleur de réseau active les fonctionnalités suivantes�
 - joindre des appliances virtuelles à vos réseaux virtuels
 - configurer des stratégies de qualité de service (QoS) pour les machines virtuelles jointes à des réseaux virtuels ou à des réseaux VLAN traditionnels.
 
-Nous vous recommandons de [déployer le contrôleur de réseau pendant la création d’un cluster](../deploy/create-cluster.md#step-5-sdn-optional). Sinon, vous pouvez [déployer le contrôleur de réseau à l’aide de PowerShell](../deploy/network-controller-powershell.md) après la création d’un cluster Azure Stack HCI.
+Nous vous recommandons de déployer le [contrôleur de réseau à l’aide de SDN Express](../deploy/sdn-express.md) après la création d’un cluster Azure Stack HCI.
 
 ## <a name="software-load-balancing"></a>Équilibrage de charge logicielle
 
@@ -60,4 +60,4 @@ Pour consulter des informations connexes, reportez-vous également à :
 
 - [Planifier une infrastructure de réseau défini par logiciel](plan-software-defined-networking-infrastructure.md)
 - [Vue d’ensemble du SDN dans Windows Server](/windows-server/networking/sdn/software-defined-networking)
-- [Déployer une infrastructure SDN (Software Defined Networking) avec des scripts](/windows-server/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts)
+- [Déployer une infrastructure SDN avec SDN Express](../deploy/sdn-express.md)

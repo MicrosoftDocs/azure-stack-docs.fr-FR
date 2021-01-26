@@ -3,16 +3,16 @@ title: Nouveautés de la Place de marché Azure Stack Hub
 description: Découvrez les nouveautés de la Place de marché Azure Stack Hub, dont les éléments nouveaux, dépréciés et mis à jour.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/04/2021
+ms.date: 01/15/2021
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: bd738fab6a424c07bd33a41f80621121e93345c4
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 6a1825577f216ad16b0150ef4adecb237e9e1f1c
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869914"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256011"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Changements sur la Place de marché Azure Stack Hub
 
@@ -167,6 +167,29 @@ L’article [Éléments de la Place de marché Azure Stack Hub](azure-stack-mark
 
 ## <a name="updated-marketplace-items"></a>Éléments mis à jour sur la Place de marché
 
+- 06/01/2021 : SQL Server 2017 Enterprise sur Windows Server 2016 - BYOL (apportez votre propre licence) - Version 14.0.20201111
+- 06/01/2021 : SQL Server 2017 Standard sur Windows Server 2016 - Paiement à l’utilisation - Version 14.0.20201111
+- 06/01/2021 : SQL Server 2017 Standard sur Windows Server 2016 - BYOL (apportez votre propre licence) - Version 14.0.20201111
+- 06/01/2021 : SQL Server 2019 Enterprise sur Windows Server 2019 - Paiement à l’utilisation - Version 15.0.20201111
+- 06/01/2021 : SQL Server 2019 Enterprise sur Windows Server 2019 - BYOL (apportez votre propre licence) - Version 15.0.20201111
+- 06/01/2021 : Licence SQL Server gratuite : SQL 2019 Développeur sur Windows Server 2019 - Paiement à l’utilisation - Version 15.0.20201111
+- 06/01/2021 : Licence SQL Server gratuite : SQL 2019 Développeur sur Windows Server 2019 - BYOL (apportez votre propre licence) - Version 15.0.20201111
+- 06/01/2021 : SQL Server 2019 Standard sur Windows Server 2019 - Paiement à l’utilisation - Version 15.0.20201111
+- 06/01/2021 : SQL Server 2019 Standard sur Windows Server 2019 - BYOL (apportez votre propre licence) - Version 15.0.20201111
+- 06/01/2021 : Licence gratuite : SQL Server 2016 SP2 Développeur sur Windows Server 2016 - Paiement à l’utilisation - Version 13.2.20201111
+- 06/01/2021 : Licence gratuite : SQL Server 2016 SP2 Développeur sur Windows Server 2016 - BYOL (apportez votre propre licence) - Version 13.2.20201111
+- 06/01/2021 : Licence gratuite : SQL Server 2016 SP2 Express sur Windows Server 2016 - Paiement à l’utilisation - Version 13.2.20201111
+- 06/01/2021 : Licence gratuite : SQL Server 2016 SP2 Express sur Windows Server 2016 - BYOL (apportez votre propre licence) - Version 13.2.20201111
+- 06/01/2021 : Licence SQL Server gratuite : SQL Server 2017 Développeur sur Windows Server 2016 - Paiement à l’utilisation - Version 14.0.20201111
+- 06/01/2021 : Licence SQL Server gratuite : SQL Server 2017 Développeur sur Windows Server 2016 - BYOL (apportez votre propre licence) - Version 14.0.20201111
+- 06/01/2021 : Licence SQL Server gratuite : SQL Server 2017 Express sur Windows Server 2016 - Paiement à l’utilisation - Version 14.0.20201111
+- 06/01/2021 : Licence SQL Server gratuite : SQL Server 2017 Express sur Windows Server 2016 - BYOL (apportez votre propre licence) - Version 14.0.20201111
+- 06/01/2021 : SQL Server 2016 SP2 Enterprise sur Windows Server 2016 - Paiement à l’utilisation - Version 13.2.20201111
+- 06/01/2021 : SQL Server 2016 SP2 Enterprise sur Windows Server 2016 - BYOL (apportez votre propre licence) - Version 13.2.20201111
+- 06/01/2021 : SQL Server 2016 SP2 Standard sur Windows Server 2016 - Paiement à l’utilisation - Version 13.2.20201111
+- 06/01/2021 : SQL Server 2016 SP2 Standard sur Windows Server 2016 - BYOL (apportez votre propre licence) - Version 13.2.20201111
+- 06/01/2021 : SQL Server 2017 Enterprise sur Windows Server 2016 - Paiement à l’utilisation - Version 14.0.20201111
+- 06/01/2021 : SqlIaaSExtension 1.3.20560
 - 22/12/2020 : Rogue Wave Software Centos 7.8 – version 7.8.2020062400
 - 07/12/2020 : Bitnami Elasticsearch Cluster - Version 1.0.2
 - 07/12/2020 : Bitnami Cassandra Cluster - Version 1.0.21

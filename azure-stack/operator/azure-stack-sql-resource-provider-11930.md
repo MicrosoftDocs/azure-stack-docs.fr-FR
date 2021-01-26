@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.author: caoyang
 ms.reviewer: xiaofmao
 ms.lastreviewed: 09/22/2020
-ms.openlocfilehash: 80caef7369a3cf5ebe79338bc907fa9b31d1a759
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: 0f03d1209587bcf27dec2a309b7cec4abc67bf32
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737910"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571312"
 ---
 # <a name="sql-resource-provider-1193x-release-notes"></a>Notes de publication de la version 1.1.93.x du fournisseur de ressources SQL
 
@@ -42,6 +42,8 @@ Nous vous recommandons d’appliquer le correctif 1.1.93.1 du fournisseur de re
 
 ## <a name="known-issue"></a>Problème connu
 Le déploiement de la version 1.1.93.0 peut échouer si le mauvais AzureRmContext est utilisé. Il est recommandé d’effectuer une mise à niveau directement vers la version 1.1.93.1. Si vous avez déjà effectué la mise à niveau vers 1.1.93.0, vous pouvez ignorer sans problème la version 1.1.93.1.
+
+Lors du redéploiement du fournisseur de ressources SQL alors que la même version a déjà été déployée (par exemple, quand le fournisseur de ressources SQL 1.1.93.1 est déjà déployé et que la même version est de nouveau déployée), la machine virtuelle qui héberge le fournisseur de ressources SQL est arrêtée. Pour résoudre ce problème, accédez au portail d’administration, recherchez et redémarrez la machine virtuelle nommée sqlvm\<version\> dans le groupe de ressources nommé system.\<region\>.sqladapter.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

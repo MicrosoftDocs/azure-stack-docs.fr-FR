@@ -3,16 +3,16 @@ title: Aide et support d’Azure Stack Hub
 description: Bénéficiez d’un support pour Microsoft Azure Stack Hub.
 author: PatAltimore
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 01/19/2021
 ms.author: patricka
 ms.reviewer: shisab
-ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: cb2fb8ce9ad1b24430cf545eba3f31ac9e754c43
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.lastreviewed: 01/19/2021
+ms.openlocfilehash: 88414f6e4198c7db04307eb4d508ee5acd9dfbe9
+ms.sourcegitcommit: 01abc9d81ced31bd727626195148b4e00cc2d62e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974317"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98584326"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Aide et support d’Azure Stack Hub
 
@@ -32,7 +32,7 @@ En haut de **Aide + support** se trouvent des actions que vous devez essayer en
 
 ![Support en libre-service dans Azure Stack Hub](media/azure-stack-help-and-support/get-support-tiles.png)
 
-- **Documentation**. La [documentation pour les opérateurs Azure Stack Hub](index.yml) inclut des concepts, des rubriques pratiques et des tutoriels qui montrent comment proposer des services Azure Stack Hub. Parmi ces services figurent les machines virtuelles, les bases de données SQL et les applications web.
+- **Documentation**. La [documentation pour les opérateurs Azure Stack Hub](index.yml) comprend des concepts, des instructions pratiques et des tutoriels qui montrent comment proposer des services Azure Stack Hub. Parmi ces services figurent les machines virtuelles, les bases de données SQL et les applications web.
 
 - **En savoir plus sur la facturation**. Lisez des conseils sur [l’utilisation et la facturation](azure-stack-billing-and-chargeback.md).
 
@@ -56,6 +56,22 @@ Vous pouvez aussi contacter les forums MSDN pour trouver de l’aide concernant 
 
 ![Bénéficier d’une aide spécialisée pour Azure Stack Hub](media/azure-stack-help-and-support/get-support-cards.png)
 
+### <a name="information-for-a-support-request"></a>Informations pour une demande de support
+
+Pour accélérer votre expérience de support, répondez aux questions suivantes :
+
+ - Êtes-vous partenaire matériel Azure Stack Hub ?
+ - Combien de nœuds Azure Stack Hub y a-t-il dans votre système ?
+ - Quel est le niveau de patch actuel de votre système ?
+ - Quel est le numéro de build de votre système en cours d’exécution ?
+ - Quel est le nom de la région de votre cloud ?
+ - Votre système est-il connecté ou déconnecté ?
+ - Quand le problème a-t-il commencé ?
+ - Pouvez-vous indiquer l’heure exacte à laquelle la dernière sauvegarde a échoué ?
+ - Pour quels rôles la sauvegarde échoue-t-elle ?
+ - Avez-vous apporté des modifications récentes ? Par exemple, avez-vous effectué une mise à jour, apporté une modification matérielle ou appliqué une mise à jour OEM ?
+ - Pouvez-vous fournir les journaux afin d’investiguer le problème ?
+
 ### <a name="get-up-to-speed-with-azure-stack-hub"></a>Apprendre tout ce qu’il faut savoir sur Azure Stack Hub
 
 Cette série de tutoriels est personnalisée selon que vous exécutez le Kit ASDK ou des systèmes intégrés afin de vous permettre d’être rapidement opérationnel dans votre environnement.
@@ -66,8 +82,8 @@ Cette série de tutoriels est personnalisée selon que vous exécutez le Kit ASD
 
 Vous pouvez envoyer des journaux de diagnostic à Microsoft de deux manières :
 
-- [Send logs proactively](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively) (Envoyer les journaux de manière proactive) : si cette option est activée, la collecte des journaux est déclenchée par des alertes d’intégrité spécifiques.
-- [Send logs now](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now) (Envoyer les journaux maintenant) : vous pouvez choisir manuellement une fenêtre glissante spécifique comme délai d’exécution pour la collecte des journaux.
+- [Send logs proactively](./diagnostic-log-collection.md#send-logs-proactively) (Envoyer les journaux de manière proactive) : si cette option est activée, la collecte des journaux est déclenchée par des alertes d’intégrité spécifiques.
+- [Send logs now](./diagnostic-log-collection.md#send-logs-now) (Envoyer les journaux maintenant) : vous pouvez choisir manuellement une fenêtre glissante spécifique comme délai d’exécution pour la collecte des journaux.
 
 ![Capture d’écran montrant comment démarrer la collecte des journaux de diagnostic.](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
 
@@ -83,7 +99,7 @@ Vous pouvez envoyer des journaux de diagnostic à Microsoft de deux manières :
 
 ![Options de collecte des journaux de diagnostic](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
-Les systèmes intégrés peuvent partager les journaux de diagnostic avec le support Microsoft. Le kit de développement Azure Stack (ASDK) étant un environnement d’évaluation, il n’est pas pris en charge par le support Microsoft. Pour plus d’informations, consultez [Vue d’ensemble de la collecte automatique des journaux de diagnostic Azure Stack Hub](azure-stack-diagnostic-log-collection-overview.md).
+Les systèmes intégrés peuvent partager les journaux de diagnostic avec le support Microsoft. Le kit de développement Azure Stack (ASDK) étant un environnement d’évaluation, il n’est pas pris en charge par le support Microsoft. Pour plus d’informations, consultez [Vue d’ensemble de la collecte automatique des journaux de diagnostic Azure Stack Hub](./diagnostic-log-collection.md).
 
 ## <a name="help-and-support-for-earlier-releases-azure-stack-hub-pre-1905"></a>Aide et support pour les versions d’Azure Stack Hub antérieures à la version 1905
 
@@ -105,6 +121,6 @@ Sélectionnez **Aide** (point d’interrogation) dans le coin supérieur droit d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez la [collecte des journaux de diagnostic](./azure-stack-diagnostic-log-collection-overview.md).
+- Découvrez la [collecte des journaux de diagnostic](./diagnostic-log-collection.md).
 - Découvrez comment [trouver votre ID cloud](azure-stack-find-cloud-id.md).
 - Découvrez la [résolution des problèmes Azure Stack Hub](azure-stack-troubleshooting.md).

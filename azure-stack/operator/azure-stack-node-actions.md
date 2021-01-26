@@ -3,16 +3,16 @@ title: Mettre à l’échelle des actions de nœud d’unité dans Azure Stack H
 description: Découvrez les actions de nœud d'unité d’échelle (mise sous tension, mise hors tension, désactivation et reprise) et la façon d’afficher l’état d’un nœud dans des systèmes intégrés Azure Stack Hub.
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 1/19/2021
 ms.author: patricka
 ms.reviewer: thoroet
-ms.lastreviewed: 11/19/2020
-ms.openlocfilehash: dc98263b16a72e6b9809e7ef3bc0c286b627749d
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.lastreviewed: 1/19/2021
+ms.openlocfilehash: 5bececf48222c9dc7401df7cb84d83f375c93d75
+ms.sourcegitcommit: 01abc9d81ced31bd727626195148b4e00cc2d62e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869761"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98584292"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Mettre à l’échelle des actions de nœud d’unité dans Azure Stack Hub
 
@@ -41,6 +41,8 @@ Pour afficher l’état d’une unité d’échelle :
    - Adresse IP du contrôleur de gestion de la carte de base (BMC).
    - Nombre total de cœurs.
    - Quantité totale de mémoire.
+   
+    Les actions de nœud peuvent également déclencher des alertes attendues dans le portail administrateur. 
 
 ![état d’une unité d’échelle](media/azure-stack-node-actions/multinodeactions.png)
 
@@ -61,8 +63,6 @@ Azure Stack Hub peut afficher l'état opérationnel **Ajout** après l'exécutio
 Cela peut se produire lorsque le cache du rôle Fournisseur de ressources d'infrastructure ne s'est pas actualisé après une opération. 
 
 Avant de passer aux étapes suivantes, vérifiez qu'aucune opération n'est en cours. Mettez à jour le point de terminaison pour qu'il corresponde à votre environnement.
-
-
 
 ### <a name="az-modules"></a>[Modules Az](#tab/az1)
 

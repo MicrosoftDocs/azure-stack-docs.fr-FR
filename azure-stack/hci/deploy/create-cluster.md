@@ -3,15 +3,15 @@ title: Créer un cluster Azure Stack HCI en utilisant Windows Admin Center
 description: Découvrez comment créer une batterie de serveurs pour Azure Stack HCI en utilisant Windows Admin Center
 author: v-dasis
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 01/13/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: e33096b2667ad9d620e942b66934f341982e619b
-ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
+ms.openlocfilehash: a81b684e86f9d13105c39607f9be1c6a1d56eaf0
+ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97364215"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208049"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Créer un cluster Azure Stack HCI en utilisant Windows Admin Center
 
@@ -199,7 +199,7 @@ L’étape 3 de l’Assistant vous permet de vérifier que tout a été correct
 
     :::image type="content" source="media/cluster/create-cluster.png" alt-text="Assistant Création d’un cluster – Créer le cluster" lightbox="media/cluster/create-cluster.png":::
 
-1. Sous **IP addresses** (Adresses IP), sélectionnez les adresses IP statiques ou dynamiques à utiliser.
+1. Sous **IP addresses** (Adresses IP), sélectionnez les adresses IP statiques ou dynamiques à utiliser. Vous devez entrer l’adresse IP selon le format suivant : *Adresse IP/longueur du sous-réseau actuel*. Exemple : 10.0.0.200/24.
 1. Sélectionnez **Avancé**. Deux options vous sont ici proposées :
 
     - **Register the cluster with DNS and Active Directory** (Inscrire le cluster auprès du service DNS et d’Active Directory)
@@ -231,74 +231,9 @@ La réplication du nom du cluster dans votre domaine peut prendre un certain tem
 
 Si la résolution du cluster échoue au bout d’un certain temps, dans la plupart des cas, vous pouvez remplacer un nom de serveur plutôt que le nom du cluster.
 
-## <a name="step-5-sdn-optional"></a>Étape 5 : SDN (facultatif)
-
-Cette étape facultative vous guide tout au long de la configuration du composant de contrôleur du réseau de [SDN (Software Defined Networking)](../concepts/software-defined-networking.md). Une fois le contrôleur de réseau paramétré, vous pouvez configurer d’autres composants de SDN, notamment l’équilibreur de charge logiciel et la passerelle RAS en fonction de vos besoins.
-
-> [!NOTE]
-> L’Assistant ne configure pas le SLB et la passerelle RAS pour SDN. Vous pouvez utiliser des scripts SDNExpress pour configurer ces composants. Pour savoir comment procéder, consultez le [dépôt GitHub SDNExpress](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts).
-
-> [!NOTE]
-> SDN n’est pas pris en charge pour les clusters étendus.
-
-1. Sélectionnez **Suivant : SDN**.
-
-    :::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Assistant Création d’un cluster : contrôleur de réseau SDN" lightbox="media/cluster/create-cluster-network-controller.png":::
-
-1. Dans **5.1 Define the Network Controller cluster** (Définir le cluster du contrôleur de réseau), sous **Host** (Hôte), entrez un nom pour le contrôleur de réseau. Il s’agit du nom DNS utilisé par les clients de gestion (par exemple Windows Admin Center) pour communiquer avec le contrôleur de réseau.
-1. Spécifiez un chemin d’accès au fichier de disque dur virtuel Azure Stack HCI. Utilisez **Parcourir** pour le trouver plus rapidement.
-1. Spécifiez le nombre de machines virtuelles à consacrer au contrôleur de réseau. Pour profiter d’une haute disponibilité, nous vous recommandons au minimum trois machines virtuelles.
-1. Sous **Réseau**, entrez l’ID VLAN du réseau de gestion. Le contrôleur de réseau a besoin d’une connectivité au même réseau de gestion que les hôtes pour communiquer avec eux et les configurer.
-
-    > [!NOTE]
-    > Les machines virtuelles du contrôleur de réseau utilisent le commutateur virtuel utilisé pour la gestion de cluster s’il est disponible. À défaut, elles utilisent le commutateur virtuel « Compute » (Calcul) comme le reste des machines virtuelles du cluster. Pour plus d’informations, consultez la section [Configuration requise pour le contrôleur de réseau](../concepts/network-controller.md#network-controller-requirements) dans [Planifier le déploiement d’un contrôleur de réseau](../concepts/network-controller.md).
-
-1. Pour l’**Adressage réseau de la machine virtuelle**, sélectionnez **DHCP** ou **Statique**.
-1. Si vous avez sélectionné **DHCP**, entrez le nom des machines virtuelles du contrôleur de réseau.
-1. Si vous avez sélectionné **Static** (Statique), spécifiez ce qui suit :
-    1. Adresse IP.
-    1. Préfixe de sous-réseau.
-    1. Passerelle par défaut.
-    1. Un ou plusieurs serveurs DNS. Cliquez sur **Ajouter** pour ajouter des serveurs DNS supplémentaires.
-1. Sous **Informations de connexion**, entrez le nom d’utilisateur et le mot de passe utilisés pour joindre les machines virtuelles du contrôleur de réseau au domaine du cluster.
-1. Entrez le mot de passe d’administrateur local pour ces machines virtuelles.
-1. Sous **Avancé**, entrez le chemin d’accès aux machines virtuelles.
-1. Entrez des valeurs pour le **Démarrage du pool d’adresses MAC** et la **Fin du pool d’adresses MAC**.
-1. Une fois que vous avez terminé, cliquez sur **Suivant**.
-1. Dans **Deploy the Network Controller** (Déployer le contrôleur de réseau), attendez que l’Assistant termine sa tâche. Restez sur cette page jusqu’à ce que toutes les tâches de progression soient terminées. Puis, cliquez sur **Terminer**.
-
-1. Une fois les machines virtuelles du contrôleur de réseau créées, configurez les mises à jour DNS dynamiques pour le nom du cluster du contrôleur de réseau sur le serveur DNS. Pour plus d’informations sur la façon de procéder, consultez [Configuration de l’inscription DNS dynamique pour le contrôleur de réseau](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller).
-
-1. Si le déploiement du contrôleur de réseau échoue, procédez comme suit avant de réessayer :
-
-- Arrêtez et supprimez toutes les machines virtuelles de contrôleur de réseau que l’Assistant a créées.  
-
-- Nettoyez les points de montage de disque dur virtuel que l’Assistant a créés.  
-
-- Vérifiez que vous disposez d’au moins 50-100 Go d’espace libre sur vos hôtes Hyper-V.  
-
-## <a name="after-you-complete-the-wizard"></a>Après avoir terminé l’Assistant
-
-Une fois que vous avez terminé d’exécuter l’Assistant, il y a encore des tâches importantes à effectuer.
-
-La première tâche consiste à désactiver le protocole CredSSP (Credential Security Support Provider) sur chaque serveur à des fins de sécurité. Gardez à l’esprit que CredSSP devait être activé pour l’Assistant. Si vous rencontrez des problèmes avec CredSSP, consultez [Résoudre les problèmes liés à CredSSP](../manage/troubleshoot-credssp.md) pour plus d’informations.
-
-1. Dans Windows Admin Center, sous **All connections (Toutes les connexions)** , sélectionnez le cluster que vous venez de créer.
-1. Sous **Outils**, sélectionnez **Serveurs**.
-1. Dans le volet droit, sélectionnez le premier serveur du cluster.
-1. Sous **Overview (Présentation)** , sélectionnez **Disable CredSSP (Désactiver CredSSP)** . La bannière rouge **CredSSP ENABLED** en haut disparaît.
-1. Répétez les étapes 3 et 4 pour chaque serveur de votre cluster.
-
-Voici d’autres tâches à effectuer :
-
-- Configurer un témoin de cluster. Consultez [Configurer un témoin de cluster](witness.md).
-- Créer vos volumes. Consultez [Créer des volumes](../manage/create-volumes.md).
-- Pour les clusters étendus, créez vos volumes et configurez la réplication. Consultez [Créer des volumes de clusters étendus et configurer la réplication](../manage/create-stretched-volumes.md).
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Inscrire votre cluster auprès d’Azure. Consultez [Gérer une inscription Azure](../manage/manage-azure-registration.md).
 - Effectuer une validation finale du cluster. Consultez [Valider un cluster Azure Stack HCI](validate.md).
 - Provisionner vos machines virtuelles. Consultez [Gérer des machines virtuelles sur Azure Stack HCI avec Windows Admin Center](../manage/vm.md).
 - Vous pouvez également déployer un cluster à l’aide de PowerShell. Consultez [Créer un cluster Azure Stack HCI à l’aide de PowerShell](create-cluster-powershell.md).
-- Vous pouvez également déployer un contrôleur de réseau à l’aide de PowerShell. Consultez [Déployer un contrôleur de réseau à l’aide de PowerShell](network-controller-powershell.md).
