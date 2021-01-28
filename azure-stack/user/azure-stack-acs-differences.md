@@ -8,12 +8,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviwer: jiahan
 ms.lastreviewed: 08/12/2020
-ms.openlocfilehash: e49092e87f8e6801343ae0550aff4c71dd40408b
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.openlocfilehash: d242658388e97512f3130a381b2793e57832f397
+ms.sourcegitcommit: 0765de47f4a73e09192d34739e40c750b6e7abaf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103067"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915204"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Stockage Azure Stack Hub : Différences et considérations
 
@@ -44,6 +44,7 @@ Cet article récapitule les différences connues entre le stockage Azure Stack H
 |Instantané d’objet blob|Le nombre maximal d’instantanés d’un objet blob n’est pas limité.|Le nombre maximum d’instantanés d’un objet blob est de 1 000.
 |Azure AD Authentication pour le stockage|En préversion. |Pas encore pris en charge.
 |Objets blob immuables|Disponibilité générale. |Pris en charge lorsque vous utilisez la version 2008 ou ultérieure.
+|API de lot pour le stockage Blob|En préversion. |Pas encore pris en charge.
 |Règles de pare-feu et de réseau virtuel pour le stockage|Disponibilité générale. |Pas encore pris en charge.|
 
 Il existe également des différences sur le plan des métriques de stockage :
