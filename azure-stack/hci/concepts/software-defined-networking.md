@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 01/13/2021
-ms.openlocfilehash: 579ccb529ff2ac00a864a165fa5086244f0c0870
-ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
+ms.date: 01/22/2021
+ms.openlocfilehash: ee4046837b012f5ea55a85db418e2af35f84a7ee
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208010"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772255"
 ---
 # <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Mise en réseau SDN (Software Defined Networking) dans Azure Stack HCI
 
@@ -38,7 +38,7 @@ Le déploiement du contrôleur de réseau active les fonctionnalités suivantes�
 - joindre des appliances virtuelles à vos réseaux virtuels
 - configurer des stratégies de qualité de service (QoS) pour les machines virtuelles jointes à des réseaux virtuels ou à des réseaux VLAN traditionnels.
 
-Nous vous recommandons de déployer le [contrôleur de réseau à l’aide de SDN Express](../deploy/sdn-express.md) après la création d’un cluster Azure Stack HCI.
+Nous vous recommandons de déployer le [contrôleur de réseau à l’aide de SDN Express](../manage/sdn-express.md) après la création d’un cluster Azure Stack HCI.
 
 ## <a name="software-load-balancing"></a>Équilibrage de charge logicielle
 
@@ -60,4 +60,4 @@ Pour consulter des informations connexes, reportez-vous également à :
 
 - [Planifier une infrastructure de réseau défini par logiciel](plan-software-defined-networking-infrastructure.md)
 - [Vue d’ensemble du SDN dans Windows Server](/windows-server/networking/sdn/software-defined-networking)
-- [Déployer une infrastructure SDN avec SDN Express](../deploy/sdn-express.md)
+- [Déployer une infrastructure SDN avec SDN Express](../manage/sdn-express.md)

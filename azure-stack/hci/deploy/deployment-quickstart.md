@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/11/2020
-ms.openlocfilehash: 2d2c122a2fd8a9e0be5d3ffd942f85f310845f2d
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.date: 01/22/2021
+ms.openlocfilehash: 6527623ba5b42f40eb24cd6269f5d45bbccb0d25
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343174"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772240"
 ---
 # <a name="quickstart-create-an-azure-stack-hci-cluster-and-register-it-with-azure"></a>Démarrage rapide : Créer un cluster Azure Stack HCI et l’inscrire auprès d’Azure
 
@@ -58,7 +58,7 @@ Si vous avez activé le protocole CredSSP dans l’Assistant, vous devrez le dé
 
 ## <a name="set-up-a-cluster-witness"></a>Configurer un témoin de cluster
 
-La configuration d’une ressource témoin est nécessaire afin que, si l’un des serveurs du cluster est mis hors connexion, l’autre nœud ne devienne alors pas également indisponible. Pour ce guide de démarrage rapide, nous allons utiliser un partage de fichiers SMB se trouvant sur un autre serveur comme témoin. Vous pouvez préférer utiliser un témoin cloud Azure, à condition que tous les nœuds de serveur du cluster disposent d’une connexion Internet fiable. Pour plus d’informations sur les options de témoin, consultez [Configurer un témoin de cluster](witness.md).
+La configuration d’une ressource témoin est nécessaire afin que, si l’un des serveurs du cluster est mis hors connexion, l’autre nœud ne devienne alors pas également indisponible. Pour ce guide de démarrage rapide, nous allons utiliser un partage de fichiers SMB se trouvant sur un autre serveur comme témoin. Vous pouvez préférer utiliser un témoin cloud Azure, à condition que tous les nœuds de serveur du cluster disposent d’une connexion Internet fiable. Pour plus d’informations sur les options de témoin, consultez [Configurer un témoin de cluster](../manage/witness.md).
 
 1. Dans Windows Admin Center, sélectionnez **Gestionnaire de cluster** à partir de la flèche déroulante du haut.
 1. Sous **Connexions de cluster**, sélectionnez le cluster.

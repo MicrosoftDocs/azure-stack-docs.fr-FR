@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/16/2020
-ms.openlocfilehash: fe68722e2cabea2cc863bbd6fb6d8414eb91031c
-ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
+ms.openlocfilehash: 8ffab5fa1ffff5012edfbce3da69f35a753ff72e
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98243576"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772288"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>Installer Azure CLI sur Azure Stack Hub
 
@@ -53,7 +53,7 @@ Cette section vous guide dans la configuration de l’interface CLI si vous util
       | Valeur | Exemple | Description |
       | --- | --- | --- |
       | Nom de l’environnement | AzureStackUser | Pour l’environnement utilisateur, utilisez `AzureStackUser`. Si vous êtes un opérateur, spécifiez `AzureStackAdmin`. |
-      | Point de terminaison Resource Manager | `https://management.contoso.onmicrosoft.com` | La propriété **ResourceManagerUrl** dans l’ASDK est : `https://management.contoso.onmicrosoft.com/`**ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<region>.<fqdn>/` Si vous avez une question sur le point de terminaison du système intégré, contactez votre opérateur cloud. |
+      | Point de terminaison Resource Manager | `https://management.contoso.onmicrosoft.com` | La propriété **ResourceManagerUrl** dans l’ASDK est : `https://management.local.azurestack.external/`**ResourceManagerUrl** dans les systèmes intégrés est : `https://management.<region>.<fqdn>/` Si vous avez une question sur le point de terminaison du système intégré, contactez votre opérateur cloud. |
       | Point de terminaison de stockage | local.contoso.onmicrosoft.com | `local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
       | Suffixe du coffre de clés | .vault.contoso.onmicrosoft.com | `.vault.local.azurestack.external` concerne l’ASDK. Pour un système intégré, utilisez un point de terminaison pour votre système.  |
       | ID de ressource de graphique Active Directory du point de terminaison | https://graph.windows.net/ | L’ID de ressource Active Directory. |

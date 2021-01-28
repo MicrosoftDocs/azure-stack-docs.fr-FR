@@ -5,13 +5,13 @@ ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
-ms.date: 01/12/2021
-ms.openlocfilehash: 7f77855945ecfb31e223db46be8b2e2e3a012c16
-ms.sourcegitcommit: 502df315764bbc4ff6d3de50b957dfd4a6c0043a
+ms.date: 01/22/2021
+ms.openlocfilehash: 4b6e7537a1111ed2e38d1783acf7197a4249b2ac
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98130286"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772098"
 ---
 # <a name="manage-azure-stack-hci-clusters-using-windows-admin-center"></a>Gérer des clusters Azure Stack HCI avec Windows Admin Center
 
@@ -97,7 +97,7 @@ Plusieurs paramètres généraux peuvent être appliqués à votre cluster. Ici,
    - **Témoin de disque** pour utiliser une ressource de disque en tant que témoin (ne pas utiliser pour les clusters étendus)
    - **Témoin de partage de fichiers** pour utiliser un partage de fichiers comme témoin
 
-        Pour plus d’informations sur la configuration d’un témoin, consultez [Configurer un témoin de cluster](../deploy/witness.md). Consultez également [Présentation du quorum de cluster et de pool dans Azure Stack HCI](../concepts/quorum.md).
+        Pour plus d’informations sur la configuration d’un témoin, consultez [Configurer un témoin de cluster](witness.md). Consultez également [Présentation du quorum de cluster et de pool dans Azure Stack HCI](../concepts/quorum.md).
 
         :::image type="content" source="media/manage-cluster/cluster-settings-witness.png" alt-text="écran du témoin de cluster" lightbox="media/manage-cluster/cluster-settings-witness.png":::
 

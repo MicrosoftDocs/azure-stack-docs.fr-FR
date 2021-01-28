@@ -1,6 +1,6 @@
 - name: Documentation pour les utilisateurs Azure Stack Hub
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Azure Stack Hub\_?"
       href: user-overview.md
@@ -219,6 +219,8 @@
               items:
                 - name: Vue d’ensemble
                   href: iot-hub-overview.md
+                - name: Connecter un appareil IoT Edge
+                  href: iot-hub-connect-iot-edge-device.md
             - name: Azure Monitor
               href: azure-stack-metrics-azure-data.md
               items:
