@@ -102,8 +102,6 @@
           href: manage/add-cluster.md
         - name: Prendre un serveur hors connexion pour maintenance
           href: manage/maintain-servers.md
-        - name: Gérer une inscription Azure
-          href: manage/manage-azure-registration.md
         - name: Changer de langue
           href: manage/languages.md
         - name: Changer les paramètres de confidentialité
@@ -120,6 +118,8 @@
       items:
         - name: Inscrire Windows Admin Center avec Azure
           href: manage/register-windows-admin-center.md
+        - name: Gérer l’inscription de clusters avec Azure
+          href: manage/manage-azure-registration.md
         - name: Utiliser le portail Azure
           href: manage/azure-portal.md
         - name: Surveiller avec Azure Monitor

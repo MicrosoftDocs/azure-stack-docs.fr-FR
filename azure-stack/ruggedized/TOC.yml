@@ -510,7 +510,7 @@
               href: ../operator/azure-stack-troubleshooting.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Informations de référence sur les liens du support
               href: operator/aks-refer-table-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Guide sur les unités remplaçables par le client des appliances cloud tactiques
+            - name: Unités remplaçables client
               items:
                 - name: Précautions relatives à la manipulation
                   href: customer-replaceable-unit/handling-precautions.md
@@ -554,9 +554,9 @@
                   href: customer-replaceable-unit/verify-scale-unit-node-disk-health.md
                 - name: Diagramme du matériel Azure Stack Hub
                   href: customer-replaceable-unit/azure-stack-hub-hardware-diagram.md
-                - name: Vue d’ensemble du serveur EMC PowerEdge Tactical R640
+                - name: Vue d'ensemble du serveur
                   href: customer-replaceable-unit/emc-poweredge-tactical-r640-server-overview.md
-                - name: Codes et indicateurs EMC PowerEdge Tactical
+                - name: Indicateurs et codes
                   href: customer-replaceable-unit/emc-poweredge-tactical-indicators-and-codes.md
                 - name: Accéder à l’interface iDRAC via une connexion USB directe
                   href: customer-replaceable-unit/access-idrac-over-usb-connection.md
