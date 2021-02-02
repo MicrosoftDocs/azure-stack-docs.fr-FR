@@ -1,6 +1,6 @@
 - name: Documentation Azure Stack HCI
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure Stack HCI\_?"
       href: overview.md
@@ -114,6 +114,8 @@
       items:
         - name: Déployer une infrastructure SDN
           href: manage/sdn-express.md
+        - name: Gérer les réseaux virtuels locataires
+          href: manage/tenant-virtual-networks.md
     - name: Gérer les services Azure
       items:
         - name: Inscrire Windows Admin Center avec Azure
