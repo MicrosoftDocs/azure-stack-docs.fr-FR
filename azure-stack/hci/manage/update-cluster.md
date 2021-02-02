@@ -4,13 +4,13 @@ description: Comment appliquer les mises à jour de système d’exploitation et
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 10/27/2020
-ms.openlocfilehash: 001cf81721423aad770093c0fe5cf92ec6b66af8
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.date: 01/25/2020
+ms.openlocfilehash: 751551b827ef5d3c871f0224bfa60d9f79fc5d45
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97010819"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772012"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Mettre à jour les clusters Azure Stack HCI
 
@@ -24,14 +24,32 @@ Cette rubrique décrit en particulier le système d’exploitation et les mises 
 
 Windows Admin Center facilite la mise à jour d’un cluster, et l’application des mises à jour du système d’exploitation et de la solution à l’aide d’une interface utilisateur simple. Si vous avez acheté un système intégré auprès d’un partenaire matériel Microsoft, il est facile d’obtenir les derniers pilotes, microprogrammes et autres mises à jour, directement à partir de Windows Admin Center, en installant les extensions de mise à jour de partenaire appropriées. Si votre matériel n’a pas été acheté comme système intégré, des mises à jour de microprogramme et de pilote devront éventuellement être effectuées séparément, conformément aux recommandations du fabricant du matériel.
 
-Windows Admin Center vérifiera si le cluster est correctement configuré pour exécuter la Mise à jour adaptée aux clusters et, si nécessaire, vous demandera si vous souhaitez que Windows Admin Center configure cette mise à jour pour vous, avec notamment l'installation du rôle de cluster Mise à jour adaptée aux clusters et l'activation des règles de pare-feu requises.
+Procédez comme suit pour installer des mises à jour :
 
 1. Quand vous vous connectez à un cluster, le tableau de bord de Windows Admin Center vous avertit si un ou plusieurs serveurs disposent de mises à jour prêtes à être installées, et vous fournit un lien pour procéder à la mise à jour immédiatement. Vous pouvez également sélectionner **Mises à jour** dans le menu **Outils** sur la gauche.
-1. Pour utiliser l’outil de mise à jour adaptée aux clusters dans Windows Admin Center, vous devez activer CredSSP (Credential Security Service Provider) et fournir des informations d’identification explicites. Quand vous êtes invité à activer CredSSP, cliquez sur **Oui**.
-1. Indiquez votre nom d’utilisateur et votre mot de passe, puis cliquez sur **Continuer**.
-1. Toutes les mises à jour disponibles seront affichées ; cliquez sur **Vérifier les mises à jour disponibles** pour actualiser la liste.
-1. Sélectionnez les mises à jour que vous souhaitez installer, puis cliquez sur **Appliquer toutes les mises à jour**. Cette opération installe les mises à jour sur chaque serveur du cluster. Si un redémarrage est nécessaire, les rôles de cluster, tels que les machines virtuelles, seront d’abord déplacés sur un autre serveur pour éviter toute interruption.
-1. Pour améliorer la sécurité, désactivez CredSSP dès que vous avez terminé l’installation des mises à jour :
+
+2. Si vous mettez à jour votre cluster pour la première fois, Windows Admin Center vérifiera si le cluster est correctement configuré pour exécuter la mise à jour adaptée aux clusters et, si nécessaire, vous demandera si vous souhaitez que Windows Admin Center configure cette mise à jour pour vous, avec notamment l'installation du rôle de cluster Mise à jour adaptée aux clusters et l'activation des règles de pare-feu requises. Pour commencer le processus de mise à jour, cliquez sur **Prise en main**.
+
+   :::image type="content" source="media/update-cluster/add-cau-role.png" alt-text="Windows Admin Center configure automatiquement le cluster pour exécuter la mise à jour adaptée aux clusters" lightbox="media/update-cluster/add-cau-role.png":::
+
+   > [!NOTE]
+   > Pour utiliser l’outil de mise à jour adaptée aux clusters dans Windows Admin Center, vous devez activer CredSSP (Credential Security Service Provider) et fournir des informations d’identification explicites. Si vous êtes invité à activer CredSSP, cliquez sur **Oui**. Indiquez votre nom d’utilisateur et votre mot de passe, puis cliquez sur **Continuer**.
+
+3. L’état de la mise à jour du cluster s’affiche. Cliquez sur **Rechercher des mises à jour** pour obtenir la liste des mises à jour du système d’exploitation disponibles pour chaque serveur du cluster. Vous devrez peut-être fournir des informations d’identification d’administrateur. Si aucune mise à jour du système d’exploitation n’est disponible, cliquez sur **Suivant : Mises à jour matérielles** et passez à l’étape 7.
+
+4. Sélectionnez **Suivant : Installer** pour poursuivre l’installation des mises à jour du système d’exploitation ou cliquez sur **Ignorer** pour les exclure. 
+
+   :::image type="content" source="media/update-cluster/operating-system-updates.png" alt-text="Cliquez sur Suivant : Installer pour poursuivre l’installation des mises à jour du système d’exploitation ou cliquez sur Ignorer pour les exclure" lightbox="media/update-cluster/operating-system-updates.png":::
+
+5. Sélectionnez **Installer** pour installer les mises à jour du système d’exploitation sur chaque serveur du cluster. L’état de la mise à jour devient « Installation des mises à jour ». Si l’une des mises à jour nécessite un redémarrage, les serveurs sont redémarrés un par un et déplacent les rôles de cluster tels que les machines virtuelles entre les serveurs pour éviter les temps d’arrêt.
+
+   :::image type="content" source="media/update-cluster/install-os-updates.png" alt-text="Cliquez sur Installer pour installer les mises à jour du système d’exploitation sur chaque serveur du cluster" lightbox="media/update-cluster/install-os-updates.png":::
+
+6. Lorsque les mises à jour du système d’exploitation sont terminées, l’état de la mise à jour devient « Opération réussie ». Cliquez sur **Suivant : Mises à jour matérielles** pour passer à l’écran des mises à jour matérielles.
+
+7. Windows Admin Center recherche dans le cluster les extensions installées qui prennent en charge votre matériel serveur spécifique. Cliquez sur **Suivant : Installer** pour installer les mises à jour matérielles sur chaque serveur du cluster. Si aucune extension ou mise à jour n’est trouvée, cliquez sur **Quitter**.
+
+8. Pour améliorer la sécurité, désactivez CredSSP dès que vous avez terminé l’installation des mises à jour :
     - Dans Windows Admin Center, sous **Toutes les connexions**, sélectionnez le premier serveur de votre cluster, puis sélectionnez **Se connecter**.
     - Sur la page **Vue d’ensemble**, sélectionnez **Désactiver CredSSP**, puis, dans la fenêtre contextuelle de **désactivation de CredSSP**, sélectionnez **Oui**.
 

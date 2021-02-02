@@ -3,15 +3,15 @@ title: Créer un cluster Azure Stack HCI en utilisant Windows Admin Center
 description: Découvrez comment créer une batterie de serveurs pour Azure Stack HCI en utilisant Windows Admin Center
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 01/27/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: a81b684e86f9d13105c39607f9be1c6a1d56eaf0
-ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
+ms.openlocfilehash: 12f2152099c935977fd42c4b63989854ca0faf88
+ms.sourcegitcommit: 27ffc5f41de3de17ff2395e44c6c5debef50bcc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208049"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98925861"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Créer un cluster Azure Stack HCI en utilisant Windows Admin Center
 
@@ -37,6 +37,7 @@ Avant d’exécuter l’Assistant Création d’un cluster, veillez à effectuer
 - Vous avez installé le système d’exploitation Azure Stack HCI sur chaque serveur du cluster. Consultez [Déployer le système d’exploitation Azure Stack HCI](operating-system.md).
 - Vous avez un compte qui est membre du groupe Administrateurs local sur chaque serveur.
 - Installer Windows Admin Center pour la gestion d’un PC ou d’un serveur. Consultez [Installer Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install).
+- Si vous utilisez un système intégré d’un partenaire matériel Microsoft, assurez-vous que la dernière version des extensions de fournisseur est installée dans Windows Admin Center pour tirer parti des mises à jour du matériel et du microprogramme intégrées.
 - Pour les clusters étendus, configurez vos deux sites au préalable dans Active Directory. Mais ne vous inquiétez pas, l’Assistant peut également les configurer pour vous.
 
 Si vous exécutez le Windows Admin Center sur un serveur (au lieu d’un ordinateur local), utilisez un compte qui est membre du groupe d’administrateurs de passerelles ou le groupe d’administrateurs local sur le serveur Windows Admin Center.
@@ -52,12 +53,13 @@ Voici les principales étapes de l’Assistant Création d’un cluster :
 
 Une fois que l’Assistant est terminé, vous configurez le témoin de cluster, vous vous inscrivez auprès d’Azure et vous créez des volumes (ce qui permet également de configurer la réplication entre les sites si vous créez un cluster étendu).
 
-Avant de démarrer l’Assistant, vérifiez que les extensions Windows Admin Center les plus récentes sont installées, en particulier l’extension de création de cluster. Pour ce faire :
+Avant de démarrer l’Assistant, vérifiez que les extensions les plus récentes sont installées, en particulier l’extension de création de cluster pour Windows Admin Center, et des extensions de partenaires. Pour ce faire :
 
 1. Ouvrez Windows Admin Center, puis cliquez sur Paramètres (icône d’engrenage) en haut à droite.
 1. Sous **Paramètres**, sélectionnez **Extensions**.
 1. Sélectionnez **Cluster Creation**, puis cliquez sur **Install**.
 1. Sélectionnez **Cluster Manager**, puis cliquez également sur **Install** pendant que vous y êtes.
+1. Sélectionnez les extensions du fournisseur de matériel applicables, puis installez-les également.
 
 Maintenant que vous êtes prêt, commençons :
 
@@ -152,9 +154,6 @@ Pour plus d’informations sur la mise en réseau d’hôtes RDMA et Hyper-V pou
 
         :::image type="content" source="media/cluster/create-cluster-virtual-switches.png" alt-text="Assistant Création d’un cluster – Commutateurs virtuels" lightbox="media/cluster/create-cluster-virtual-switches.png":::
 
-    > [!NOTE]
-    > Si vous envisagez de déployer le contrôleur de réseau pour SDN (dans **étape 5 : SDN** de l’Assistant), vous aurez besoin d’un commutateur virtuel. Par conséquent, si vous désactivez la création d’un commutateur virtuel ici et que vous n’en créez aucun en dehors de l’Assistant, ce dernier ne déploiera pas le contrôleur de réseau.
-
     Le tableau suivant affiche les configurations de commutateur virtuel prises en charge et activées pour différentes configurations de cartes réseau :
 
     | Option | 1 à 2 adapteurs | plus de 3 adapteurs | adaptateurs associés |
@@ -234,6 +233,5 @@ Si la résolution du cluster échoue au bout d’un certain temps, dans la plupa
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Inscrire votre cluster auprès d’Azure. Consultez [Gérer une inscription Azure](../manage/manage-azure-registration.md).
+- Configurez un témoin. Consultez [Configurer un témoin de cluster](../manage/witness.md).
 - Effectuer une validation finale du cluster. Consultez [Valider un cluster Azure Stack HCI](validate.md).
-- Provisionner vos machines virtuelles. Consultez [Gérer des machines virtuelles sur Azure Stack HCI avec Windows Admin Center](../manage/vm.md).
-- Vous pouvez également déployer un cluster à l’aide de PowerShell. Consultez [Créer un cluster Azure Stack HCI à l’aide de PowerShell](create-cluster-powershell.md).

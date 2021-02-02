@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/18/2020
-ms.openlocfilehash: 22f5ee148952046d78baf6fd44b52136fd81c902
-ms.sourcegitcommit: 5d292b43676a55c0acd635d5253b342de1feca1f
+ms.date: 1/21/2021
+ms.openlocfilehash: 6ac6f87281d825ef1ccb1e24b340fd9fb23e555d
+ms.sourcegitcommit: 925351b77490364b3d52746f788c4c1b93343631
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97710276"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98705145"
 ---
 # <a name="azure-stack-hci-release-information"></a>Informations de publication d’Azure Stack HCI
 
@@ -32,7 +32,9 @@ Toutes les dates sont indiquées au format ISO 8601 : *AAAA-MM-JJ*
 
 | **Build du système d’exploitation** | **Disponibilité** | **article de la Base de connaissances**                                           |
 |:------------ |:----------------------|:---------------------------------------------------------|
-| 17784.1408   | 10-12-2020            | [Article 4592441 de la base de connaissances](https://support.microsoft.com/help/4592441) |
+| 17784.1497   | 21-01-2021            | [Article 4598294 de la base de connaissances](https://support.microsoft.com/topic/january-21-2021-preview-update-kb4598294-cc405eaa-41e5-f8fb-cf3b-dd5357135f17) |
+| 17784.1466   | 2021-01-12            | [Article 4598232 de la base de connaissances](https://support.microsoft.com/help/4598232/january-12-2021-security-update-kb4598232) |
+| 17784.1408   | 10-12-2020            | [Article 4592441 de la base de connaissances](https://support.microsoft.com/topic/december-8-2020-security-update-kb4592441-81a1f99c-717f-7cd6-b9d4-76d88206634d) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

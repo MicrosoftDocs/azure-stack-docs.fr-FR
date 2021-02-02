@@ -4,13 +4,13 @@ description: Cette rubrique présente les applications utilitaires des partenair
 author: burcuerdemir
 ms.author: burcue
 ms.topic: conceptual
-ms.date: 12/18/2020
-ms.openlocfilehash: ec7623243c09ffc93036ada1927cbe62acad0b9d
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 01/22/2021
+ms.openlocfilehash: 79490100adaef813af6b8df05779620b315765b3
+ms.sourcegitcommit: ea4bb7bf0ba1bd642c769013a0280f24e71550bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254957"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98717996"
 ---
 # <a name="utility-applications-for-azure-stack-hci"></a>Applications utilitaires pour Azure Stack HCI
 
@@ -31,6 +31,7 @@ Altaro VM Backup est une solution de sauvegarde et de réplication de machines v
 
 - Référencement de l’application : [Solution de sauvegarde et de réplication de machines virtuelles pour Hyper-V et VMware](https://www.altaro.com/vm-backup/)
 - Prise en charge de l’application : [Prise en charge d’Altaro pour Azure Stack HCI](https://www.altaro.com/news/single/News-Altaro-applies-its-expertise-in-Hyper-V-backup-to-support-Microsoft.php)
+- Prise en charge de la réplication : [Réplication optimisée par le réseau WAN Altaro](https://www.altaro.com/vm-backup/wan-optimized-replication.php)
 
 :::image type="content" source="./media/utility-applications/veeam-logo.png" alt-text="Logo de la société Veeam" border="false":::
 
@@ -38,6 +39,7 @@ Veeam Backup & Replication est la solution pour une protection simple, fiable et
 
 - Référencement de l’application : [Veeam Backup & Replication](https://www.veeam.com/vm-backup-recovery-replication-software.html)
 - Prise en charge de l’application : [Prise en charge de Veeam pour Azure Stack HCI](https://www.veeam.com/kb4047)
+- [Prise en charge de la réplication des machines virtuelles Hyper-V](https://www.veeam.com/vm-advanced-replication.html?ad=in-text-link)
 
 :::image type="content" source="./media/utility-applications/commvault-logo.png" alt-text="Logo de la société Commvault" border="false":::
 
@@ -45,6 +47,7 @@ Commvault est une plateforme de gestion de données complète destinée à stock
 
 - Référencement de l’application : [Microsoft Azure Stack](https://www.commvault.com/supported-technologies/microsoft/azurestack)
 - Prise en charge de l’application : [Azure Stack HCI](https://documentation.commvault.com/11.21/essential/132799_microsoft_azure_stack_hci.html)
+- [La sauvegarde et la récupération de CommVault prennent maintenant en charge Microsoft Azure Stack HCI](https://www.commvault.com/blogs/commvault-backup-and-recovery-now-supports-microsoft-azure-stack-hci)
 
 :::image type="content" source="./media/utility-applications/veritas-logo.png" alt-text="Logo de la société Veritas" border="false":::
 
@@ -52,6 +55,7 @@ Veritas Backup Exec est une solution de sauvegarde et de récupération simple d
 
 - Référencement de l’application : [Backup Exec](https://www.veritas.com/protection/backup-exec)
 - Prise en charge de l’application : [Protéger Azure Stack HCI avec Backup Exec](https://www.veritas.com/support/en_US/article.100048860)
+- [Prise en charge de Veritas Backup Exec pour Microsoft Azure](https://www.veritas.com/protection/backup-exec/azure)
 
 :::image type="content" source="./media/utility-applications/datadog-logo.png" alt-text="Logo de la société Datadog" border="false":::
 

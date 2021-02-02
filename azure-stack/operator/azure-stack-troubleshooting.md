@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Découvrez comment résoudre les problèmes Azure Stack Hub, y compris les problèmes liés aux machines virtuelles, stockage et App Service.
 author: PatAltimore
 ms.topic: article
-ms.date: 12/10/2020
+ms.date: 01/20/2021
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: ff3164e16262ecfd4cdf84bbdb5fbb24942fc6ab
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 1706f028aff293f85ea5a0c1fb882a5d332d7196
+ms.sourcegitcommit: dd34ae1c6207aafb5218c31658123e913f51bf7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255705"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98672873"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Résoudre les problèmes dans Azure Stack Hub
 
@@ -203,7 +203,7 @@ Le processus relatif aux mises à jour et aux correctifs logiciels Azure Stack H
 
 1. Suivez les étapes de correction indiquées dans l’alerte d’échec créée au moment de l’échec de votre mise à jour.
 
-2. Si vous n’êtes pas parvenu à résoudre votre problème, créez un [ticket de support Azure Stack Hub](./azure-stack-help-and-support-overview.md). Veillez à disposer des [journaux collectés](./diagnostic-log-collection.md#send-logs-now) pour la période pendant laquelle le problème s’est produit.
+2. Si vous n’êtes pas parvenu à résoudre votre problème, créez un [ticket de support Azure Stack Hub](./azure-stack-help-and-support-overview.md). Veillez à disposer des [journaux collectés](./diagnostic-log-collection.md#send-logs-now) pour la période pendant laquelle le problème s’est produit. En cas d’échec d’une mise à jour, avec une alerte critique ou un avertissement, il est important de passer l’échec en revue et de contacter les services de support technique Microsoft comme indiqué dans l’alerte afin que votre unité d'échelle ne reste pas à l’état d’échec pendant trop de temps. Le fait de laisser une unité d'échelle dans un état d’échec de mise à jour pendant une période prolongée peut entraîner des problèmes plus difficiles à résoudre ultérieurement.
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Problèmes usuels liés aux correctifs logiciels et mises à jour Azure Stack Hub
 
