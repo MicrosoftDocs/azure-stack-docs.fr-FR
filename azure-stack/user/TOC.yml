@@ -1,6 +1,6 @@
 - name: Documentation pour les utilisateurs Azure Stack Hub
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure Stack Hub\_?"
       href: user-overview.md
@@ -305,8 +305,9 @@
         - name: Déployer un module IoT GPU
           href: gpu-deploy-sample-module.md
     - name: Déployer des modèles fondamentaux
-      href: deploy-foundational-patterns.md
       items:
+        - name: Déployer des modèles fondamentaux
+          href: deploy-foundational-patterns.md
         - name: Modèles réseau
           items:
             - name: Utiliser des appliances virtuelles réseau tierces (Fortinet FortiGate)
