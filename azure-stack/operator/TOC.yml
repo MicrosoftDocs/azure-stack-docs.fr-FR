@@ -523,6 +523,54 @@
       href: /hybrid
 - name: Ressources
   items:
+    - name: Archives des notes de publication
+      items:
+        - name: Notes de publication de la version 1910
+          href: ./relnotearchive/release-notes-1910.md
+        - name: "Problèmes connus\_1910"
+          href: ./relnotearchive/known-issues-1910.md
+        - name: "Notes de publication\_1908"
+          href: ./relnotearchive/release-notes-1908.md
+        - name: "Problèmes connus\_1908"
+          href: ./relnotearchive/known-issues-1908.md
+        - name: "Notes de publication\_1907"
+          href: ./relnotearchive/release-notes-1907.md
+        - name: "Problèmes connus\_1907"
+          href: ./relnotearchive/known-issues-1907.md
+        - name: Notes de publication de la version 1906
+          href: ./relnotearchive/release-notes-1906.md
+        - name: "Problèmes connus\_1906"
+          href: ./relnotearchive/known-issues-1906.md
+        - name: "Notes de publication\_1905"
+          href: ./relnotearchive/release-notes-1905.md
+        - name: "Problèmes connus\_1905"
+          href: ./relnotearchive/known-issues-1905.md
+        - name: "Notes de publication\_1904"
+          href: ./relnotearchive/release-notes-1904.md
+        - name: "Problèmes connus\_1904"
+          href: ./relnotearchive/known-issues-1904.md
+        - name: "Notes de publication\_1903"
+          href: ./relnotearchive/release-notes-known-issues-1903.md
+        - name: Notes de publication de la version 1902
+          href: ./relnotearchive/release-notes-known-issues-1902.md
+        - name: "Notes de publication\_1901"
+          href: ./relnotearchive/release-notes-known-issues-1901.md
+        - name: "Notes de publication\_1811"
+          href: ./relnotearchive/release-notes-known-issues-1811.md
+        - name: "Notes de publication\_1809"
+          href: ./relnotearchive/release-notes-known-issues-1809.md
+        - name: "Notes de publication\_1808"
+          href: ./relnotearchive/release-notes-known-issues-1808.md
+        - name: "Notes de publication\_1807"
+          href: ./relnotearchive/release-notes-known-issues-1807.md
+        - name: "Notes de publication\_1805"
+          href: ./relnotearchive/release-notes-known-issues-1805.md
+        - name: "Notes de publication\_1804"
+          href: ./relnotearchive/release-notes-known-issues-1804.md
+        - name: "Notes de publication\_1803"
+          href: ./relnotearchive/release-notes-known-issues-1803.md
+        - name: "Notes de publication de la version\_1802"
+          href: ./relnotearchive/release-notes-known-issues-1802.md
     - name: Formation et certification
       href: azure-stack-train-and-cert.md
     - name: Feuille de route Azure Stack Hub
