@@ -739,7 +739,7 @@
                           href: ../user/azure-stack-vpn-gateway-about-vpn-gateways.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                         - name: "Configurer des stratégies de connexion\_IPSec/IKE"
                           href: ../user/azure-stack-vpn-s2s.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                    - name: Appairage de réseaux virtuels
+                    - name: Peering de réseau virtuel
                       href: ../user/virtual-network-peering.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Connexion à Azure à l’aide d’ExpressRoute
                       href: ../operator/azure-stack-connect-expressroute.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -838,6 +838,8 @@
                   href: ../user/azure-stack-dev-start-howto-vm-nodejs.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Déployer des modèles fondamentaux
           items:
+            - name: Déployer des modèles fondamentaux
+              href: ../user/deploy-foundational-patterns.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Modèles réseau
               items:
                 - name: Utiliser des appliances virtuelles réseau tierces (Fortinet FortiGate)
@@ -848,15 +850,15 @@
                       href: ../user/azure-stack-network-howto-vnet-to-onprem.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Connectivité de réseau virtuel à réseau virtuel entre les instances Azure Stack Hub
                       href: ../user/azure-stack-network-howto-vnet-to-vnet-stacks.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Utiliser RRAS
-              items:
-                - name: Connectivité de réseau virtuel à réseau virtuel avec RRAS
-                  href: ../user/azure-stack-network-howto-vnet-peering.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: Configurer plusieurs tunnels VPN site à site
-                  href: ../user/network-howto-vpn-tunnel.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: Créer un tunnel VPN (GRE)
-                  href: ../user/network-howto-vpn-tunnel-gre.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: Créer un tunnel VPN (IPSEC)
+                - name: Utiliser RRAS
+                  items:
+                    - name: Connectivité de réseau virtuel à réseau virtuel avec RRAS
+                      href: ../user/azure-stack-network-howto-vnet-peering.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Configurer plusieurs tunnels VPN site à site
+                      href: ../user/network-howto-vpn-tunnel.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Créer un tunnel VPN (GRE)
+                      href: ../user/network-howto-vpn-tunnel-gre.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Créer un tunnel VPN (IPSEC)
                   href: ../user/network-howto-vpn-tunnel-ipsec.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Équilibreur de charge F5
               href: ../user/network-howto-f5.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
