@@ -3,16 +3,16 @@ title: Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub
 description: Découvrez comment déployer un cluster Kubernetes sur Azure Stack Hub à partir d’une machine virtuelle cliente exécutant le moteur AKS.
 author: mattbriggs
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 6284e771a4b0e326ab5c6296b0a2c09dffe791d0
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 9da037a08aaa7394306c518211fc045453530a71
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874198"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246960"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub
 
@@ -75,7 +75,7 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
 
     | Champ | Description |
     | --- | --- |
-    | count | Entrez le nombre d’agents que vous souhaitez pour votre déploiement. Le nombre maximal de nœuds à utiliser par abonnement est de 50. Si vous déployez plus d’un cluster par abonnement, veillez à ne pas dépasser 50 agents. Utilisez les éléments de configuration spécifiés dans l’[exemple de fichier JSON de modèle d’API](https://github.com/Azure/aks-engine/blob/master/examples/azure-stack/kubernetes-azurestack.json).  |
+    | count | Entrez le nombre d’agents que vous souhaitez pour votre déploiement. Le nombre maximal de nœuds à utiliser par abonnement est de 50. Si vous déployez plus d’un cluster par abonnement, veillez à ne pas dépasser 50 agents. Utilisez les éléments de configuration spécifiés dans l’[exemple de fichier JSON de modèle d’API](https://aka.ms/aksengine-json-example).  |
     | vmSize | Entrez [une taille prise en charge par Azure Stack Hub](./azure-stack-vm-sizes.md), par exemple `Standard_D2_v2`. |
     | distro | Entrez `aks-ubuntu-16.04`. |
 

@@ -3,16 +3,16 @@ title: Ajouter les prérequis du moteur Azure Kubernetes Services (AKS) à la Pl
 description: Découvrez comment ajouter les prérequis du moteur AKS à la Place de marché Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 4cbb253b88f86f18c69c7528b6beabb58d277d14
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 12532ba9e38c37bdf3253a5e33576ca63116f1e0
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899446"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246161"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Ajouter les prérequis du moteur Azure Kubernetes Services (AKS) à la Place de marché Azure Stack Hub
 

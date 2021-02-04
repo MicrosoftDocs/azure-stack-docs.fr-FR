@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: bb5d62b4e5302762b4feddfd7afd7b7a39002187
-ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
+ms.openlocfilehash: f247e8c604b9b1060f4cc011acdbd9786b487ab1
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98243321"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495497"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>Résoudre les problèmes d’appliance virtuelle réseau
 
@@ -23,7 +23,7 @@ Cet article explique comment valider les exigences de plateforme de base d’Azu
 Le fournisseur d’une appliance virtuelle réseau assure le support technique pour celle-ci ainsi que son intégration à la plateforme Azure Stack Hub.
 
 > [!NOTE]
-> Si vous rencontrez un problème de connectivité ou de routage qui implique une appliance virtuelle réseau, vous devez [contacter directement le fournisseur de l’appliance virtuelle réseau](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+> Si vous rencontrez un problème de connectivité ou de routage qui implique une appliance virtuelle réseau, vous devez [contacter directement le fournisseur de l’appliance virtuelle réseau](https://mskb.pkisolutions.com/kb/2984655).
 
 Si cet article ne traite pas votre problème d’appliance virtuelle réseau avec Azure Stack Hub, créez un [ticket de support Azure Stack Hub](../operator/azure-stack-manage-basics.md#where-to-get-support).
 
@@ -44,7 +44,7 @@ Si cet article ne traite pas votre problème d’appliance virtuelle réseau ave
 
 ## <a name="check-the-minimum-configuration-requirements-for-nvas-on-azure"></a>Vérifiez la configuration minimale requise pour les appliances virtuelles réseau sur Azure
 
-Chaque appliance virtuelle réseau doit respecter les configurations de base requises pour fonctionner correctement sur Azure Stack Hub. Cette section présente les étapes de vérification de ces configurations de base. Pour plus d’informations, [contactez le fournisseur de l’appliance virtuelle réseau](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Chaque appliance virtuelle réseau doit respecter les configurations de base requises pour fonctionner correctement sur Azure Stack Hub. Cette section présente les étapes de vérification de ces configurations de base. Pour plus d’informations, [contactez le fournisseur de l’appliance virtuelle réseau](https://mskb.pkisolutions.com/kb/2984655).
 
 > [!IMPORTANT]
 > Quand ils utilisent un tunnel S2S, les paquets sont davantage encapsulés avec des en-têtes supplémentaires. Cette encapsulation augmente la taille globale de chaque paquet.
@@ -135,7 +135,7 @@ Certains systèmes d’exploitation de niveau invité peuvent mettre en place de
    netstat -an | grep -i listen
    ```
 
-1. Recherchez les ports TCP utilisés par le logiciel de l’appliance virtuelle réseau qui est listé dans les résultats. Si vous ne les voyez pas, configurez l’application sur l’appliance virtuelle réseau et la machine virtuelle pour écouter le trafic qui atteint ces ports et y répondre. [Contactez le fournisseur de l’appliance virtuelle réseau pour obtenir de l’aide](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+1. Recherchez les ports TCP utilisés par le logiciel de l’appliance virtuelle réseau qui est listé dans les résultats. Si vous ne les voyez pas, configurez l’application sur l’appliance virtuelle réseau et la machine virtuelle pour écouter le trafic qui atteint ces ports et y répondre. [Contactez le fournisseur de l’appliance virtuelle réseau pour obtenir de l’aide](https://mskb.pkisolutions.com/kb/2984655).
 
 ## <a name="check-nva-performance"></a>Vérifier les performances de l’appliance virtuelle réseau
 
@@ -147,7 +147,7 @@ Lors d’un pic d’utilisation du processeur, recherchez sur la machine virtuel
 
 Vous devrez peut-être aussi redimensionner la machine virtuelle en définissant une taille de référence SKU supérieure ou, pour un groupe identique de machines virtuelles, augmenter le nombre d’instances.
 
-Si vous avez besoin d’aide, [contactez le fournisseur de l’appliance virtuelle réseau](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Si vous avez besoin d’aide, [contactez le fournisseur de l’appliance virtuelle réseau](https://mskb.pkisolutions.com/kb/2984655).
 
 ### <a name="validate-vm-network-statistics"></a>Valider les statistiques du réseau de machines virtuelles
 
@@ -183,7 +183,7 @@ Si vous ne voyez pas les paquets entrants dans la trace de la machine virtuelle 
 
 Si vous voyez les paquets entrants, mais qu’ils sont sans réponse, vous devrez peut-être résoudre un problème lié au pare-feu ou à l’application de la machine virtuelle.
 
-Si vous avez besoin d’aide, [contactez le fournisseur de l’appliance virtuelle réseau](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Si vous avez besoin d’aide, [contactez le fournisseur de l’appliance virtuelle réseau](https://mskb.pkisolutions.com/kb/2984655).
 
 ### <a name="create-a-support-ticket"></a>Création d’un ticket de support
 

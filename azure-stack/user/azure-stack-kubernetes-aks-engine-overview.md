@@ -3,16 +3,16 @@ title: Qu’est-ce que le moteur AKS sur Azure Stack Hub ?
 description: Apprenez à utiliser l'outil en ligne de commande du moteur AKS pour déployer et gérer un cluster Kubernetes sur Azure et Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: f1853be7d5e0441eab7afd619c4f6722de03a7c1
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 1f29698d1bae0b38a41f19f3c9eb75f76bffc59e
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874147"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246858"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack-hub"></a>Qu’est-ce que le moteur AKS sur Azure Stack Hub ?
 

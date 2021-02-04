@@ -8,12 +8,12 @@ ms.date: 06/16/2020
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: 6ee19c12e1a80e8c41c5c33d9c2b613d86fbc104
-ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
+ms.openlocfilehash: 3fdd8701fa61476caa3a6db3e3c5ce8789d1fd09
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98243491"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495480"
 ---
 # <a name="azure-stack-hub-administration-basics---ruggedized"></a>Principes de bases de l’administration d’Azure Stack Hub – Renforcé
 
@@ -53,7 +53,7 @@ Ces services nécessitent une configuration supplémentaire avant de pouvoir êt
 
 ### <a name="service-roadmap"></a>Feuille de route des services
 
-Azure Stack Hub continuera à prendre en charge de nouveaux services Azure. Pour obtenir la feuille de route prévue, voir le livre blanc [Azure Stack Hub: An extension of Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409). Vous pouvez également consulter les nouvelles annonces dans les [billets de blog Azure Stack Hub](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview).
+Azure Stack Hub continuera à prendre en charge de nouveaux services Azure. Pour obtenir la feuille de route prévue, voir le livre blanc [Azure Stack Hub: An extension of Azure](https://azure.microsoft.com/resources/videos/azure-friday-azure-stack-an-extension-of-azure/). Vous pouvez également consulter les nouvelles annonces dans les [billets de blog Azure Stack Hub](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview).
 
 ## <a name="what-account-should-i-use"></a>Quel compte dois-je utiliser ?
 
