@@ -7,12 +7,12 @@ ms.date: 1/19/2021
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 1/19/2021
-ms.openlocfilehash: 5bececf48222c9dc7401df7cb84d83f375c93d75
-ms.sourcegitcommit: 01abc9d81ced31bd727626195148b4e00cc2d62e
+ms.openlocfilehash: 67f381a50d1b98361207a00a300921a636679326
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98584292"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534162"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Mettre à l’échelle des actions de nœud d’unité dans Azure Stack Hub
 
@@ -70,7 +70,7 @@ Avant de passer aux étapes suivantes, vérifiez qu'aucune opération n'est en c
 
     ```powershell
     Add-AzEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
-    Add-AzAccount -Environment AzureStack
+    Connect-AzAccount -Environment AzureStack
     ```
 
 2. Exécutez la commande suivante pour redémarrer le rôle Fournisseur de ressources d'infrastructure.

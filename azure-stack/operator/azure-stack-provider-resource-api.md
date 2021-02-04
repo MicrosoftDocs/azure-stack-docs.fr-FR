@@ -3,16 +3,16 @@ title: API d’utilisation des ressources de fournisseur Azure Stack Hub
 description: Informations de référence sur l’API d’utilisation des ressources, qui récupère les informations relatives à l’utilisation d’Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 02/01/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: b327d7e194de672787c3a7e120857d6c2775a1a1
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 13eb197cee1da34f5e4e2b934ed05e26446b4970
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544936"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227397"
 ---
 # <a name="provider-resource-usage-api"></a>API Utilisation des ressources de fournisseur
 
@@ -26,7 +26,7 @@ Le terme *fournisseur* s’applique à l’administrateur de services et à tous
 
 La requête obtient les détails de la consommation pour les abonnements demandés et pour la période demandée. Il n’existe aucun corps de requête.
 
-Cette API d’utilisation étant une API de fournisseur, un rôle **Propriétaire** , **Collaborateur** ou **Lecteur** doit être affecté à l’appelant dans l’abonnement du fournisseur.
+Cette API d’utilisation étant une API de fournisseur, un rôle **Propriétaire**, **Collaborateur** ou **Lecteur** doit être affecté à l’appelant dans l’abonnement du fournisseur.
 
 | Méthode | URI de demande |
 | --- | --- |
@@ -36,7 +36,7 @@ Cette API d’utilisation étant une API de fournisseur, un rôle **Propriétair
 
 | Argument | Description |
 | --- | --- |
-| `armendpoint` |Point de terminaison Azure Resource Manager de votre environnement Azure Stack Hub. Par convention, dans l’infrastructure Azure Stack Hub, le nom du point de terminaison Azure Resource Manager est au format `https://adminmanagement.{domain-name}`. Par exemple, pour le Kit de développement Azure Stack (ASDK), si le nom de domaine est *local.azurestack.external* , le point de terminaison Resource Manager est `https://adminmanagement.local.azurestack.external`. |
+| `armendpoint` |Point de terminaison Azure Resource Manager de votre environnement Azure Stack Hub. Par convention, dans l’infrastructure Azure Stack Hub, le nom du point de terminaison Azure Resource Manager est au format `https://adminmanagement.{domain-name}`. Par exemple, pour le Kit de développement Azure Stack (ASDK), si le nom de domaine est *local.azurestack.external*, le point de terminaison Resource Manager est `https://adminmanagement.local.azurestack.external`. |
 | `subId` |ID d’abonnement de l’utilisateur qui effectue l’appel. |
 | `reportedStartTime` |Heure de début de la requête. La valeur de `DateTime` doit être exprimée en temps universel coordonné (UTC) et indiquer le début de l’heure ; par exemple, 13:00. Pour l’agrégation quotidienne, définissez cette valeur sur minuit au format UTC. Le format fait l’objet de séquences d’échappement ISO 8601. Par exemple, dans `2015-06-16T18%3a53%3a11%2b00%3a00Z`, le signe deux-points est remplacé par la séquence d’échappement `%3a` et le signe plus est remplacé par la séquence d’échappement `%2b` pour que la chaîne soit compatible avec le format des URI. |
 | `reportedEndTime` |Heure de fin de la requête. Les contraintes qui s’appliquent à `reportedStartTime` s’appliquent également à cet argument. La valeur de `reportedEndTime` ne peut pas être la date actuelle ou une date future. Dans ce cas, le résultat a la valeur « traitement non terminé ». |
@@ -114,13 +114,13 @@ Vous pouvez collecter des informations sur l’utilisation des abonnements suppr
 
 | Méthode | URI de demande |
 | --- | --- |
-| GET | `https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview` |
+| GET | `https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview` |
 
 #### <a name="return-usage-for-deleted-or-active-tenant"></a>Retourner l’utilisation pour un locataire supprimé ou actif
 
 | Méthode | URI de demande |
 | --- | --- |
-| GET |`https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |
+| GET |`https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

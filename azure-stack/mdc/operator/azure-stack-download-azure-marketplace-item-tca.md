@@ -15,12 +15,12 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 7a296065696200d83e30e33f973ed16e62e789b5
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 564c1feb8735a8141ccc3c010d566454d62b29a2
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255399"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534060"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub---modular-data-center-mdc"></a>Télécharger des éléments de la Place de marché sur Azure Stack Hub - Modular Data Center (MDC) 
 
@@ -107,7 +107,7 @@ Vous pouvez [télécharger les outils de syndication hors connexion ici](../../o
     Si vous êtes déjà connecté via Azure PowerShell, vous pouvez également transmettre le contexte Azure :
 
     ```powershell
-    Add-AzAccount -Environment AzureCloud -Tenant mytenant.onmicrosoft.com 
+    Connect-AzAccount -Environment AzureCloud -Tenant mytenant.onmicrosoft.com 
     .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationResourceGroup 'azurestack' -RegistrationName '<registration name>' -DownloadFolder 'F:\offlineSyndication' -AzureContext $(Get-AzureRMContext)
     ```
     Si vous ne transmettez pas le contexte Azure, vous êtes invité à vous connecter.
@@ -166,7 +166,7 @@ Vous pouvez [télécharger les outils de syndication hors connexion ici](../../o
     ```powershell
     Add-AzEnvironment -Name Redmond-Admin -ARMEndpoint https://adminmanagement.redmond.azurestack.corp.microsoft.com
 
-    Add-AzAccount -Environment Redmond-Admin
+    Connect-AzAccount -Environment Redmond-Admin
 
     .\Invoke-AzsMarketplaceUpload.ps1 -DownloadFolder F:\Downloads\offlining -AzureContext $(GetAzContext)
     ```

@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: 18c1935c1e683fab1a2cda8886a45648ee69fbf4
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 4e1a00be9f4adadee5d1bf1e647c455773211b61
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974283"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495531"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Utiliser le point de terminaison privilégié dans Azure Stack Hub
 
@@ -43,7 +43,7 @@ Vous pouvez également trouver l’adresse IP dans le portail administrateur Az
 Vous devez affecter la valeur `en-US` à votre paramètre de culture actuel au moment de l’exécution du point de terminaison privilégié. Sinon, les applets de commande telles que Test-AzureStack ou Get-AzureStackLog ne vont pas fonctionner comme prévu.
 
 > [!NOTE]
-> Pour des raisons de sécurité, vous devez vous connecter au point de terminaison privilégié uniquement à partir d’une machine virtuelle renforcée s’exécutant par-dessus l’hôte de cycle de vie du matériel, ou d’un ordinateur dédié et sécurisé, comme une [station de travail à accès privilégié](/windows-server/identity/securing-privileged-access/privileged-access-workstations). La configuration d’origine de l’hôte de cycle de vie du matériel ne doit pas être modifiée (même lors de l’installation de nouveaux logiciels), ni utilisée pour se connecter au point de terminaison privilégié.
+> Pour des raisons de sécurité, vous devez vous connecter au point de terminaison privilégié uniquement à partir d’une machine virtuelle renforcée s’exécutant par-dessus l’hôte de cycle de vie du matériel, ou d’un ordinateur dédié et sécurisé, comme une [station de travail à accès privilégié](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model). La configuration d’origine de l’hôte de cycle de vie du matériel ne doit pas être modifiée (même lors de l’installation de nouveaux logiciels), ni utilisée pour se connecter au point de terminaison privilégié.
 
 1. Établir une relation de confiance.
 
@@ -251,5 +251,5 @@ Le jeton de réponse est ensuite chiffré avec le certificat auto-signé contenu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Outils de diagnostic d’Azure Stack Hub](./azure-stack-diagnostic-log-collection-overview.md)
+- [Outils de diagnostic d’Azure Stack Hub](./diagnostic-log-collection.md)
 - [Informations de référence sur le point de terminaison privilégié Azure Stack Hub](../reference/pep-2002/index.md)
