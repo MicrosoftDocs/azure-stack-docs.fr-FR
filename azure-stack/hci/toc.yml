@@ -94,8 +94,6 @@
           href: manage/monitor-cluster.md
         - name: Configurer un témoin de cluster
           href: manage/witness.md
-        - name: Utiliser le Pare-feu Datacenter
-          href: manage/use-datacenter-firewall.md
         - name: Utiliser DISKSPD pour tester les charges de travail
           href: manage/diskspd-overview.md
         - name: Ajouter ou supprimer des serveurs
@@ -114,6 +112,10 @@
       items:
         - name: Déployer une infrastructure SDN
           href: manage/sdn-express.md
+        - name: Utiliser le Pare-feu Datacenter
+          href: manage/use-datacenter-firewall.md
+        - name: Gérer les réseaux logiques de locataire
+          href: manage/tenant-logical-networks.md
         - name: Gérer les réseaux virtuels locataires
           href: manage/tenant-virtual-networks.md
     - name: Gérer les services Azure
@@ -132,10 +134,6 @@
           href: manage/use-azure-backup.md
         - name: Utiliser une carte réseau Azure
           href: manage/use-azure-network-adapter.md
-    - name: Gérer SDN
-      items:
-        - name: Réseaux logiques de locataire
-          href: manage/tenant-logical-networks.md
 - name: Concepts
   items:
     - name: Stockage et clusters
