@@ -555,9 +555,9 @@
                 - name: Diagramme du matériel Azure Stack Hub
                   href: customer-replaceable-unit/azure-stack-hub-hardware-diagram.md
                 - name: Vue d'ensemble du serveur
-                  href: customer-replaceable-unit/emc-poweredge-tactical-r640-server-overview.md
+                  href: customer-replaceable-unit/r640-server-overview.md
                 - name: Indicateurs et codes
-                  href: customer-replaceable-unit/emc-poweredge-tactical-indicators-and-codes.md
+                  href: customer-replaceable-unit/indicators-and-codes.md
                 - name: Accéder à l’interface iDRAC via une connexion USB directe
                   href: customer-replaceable-unit/access-idrac-over-usb-connection.md
                 - name: Installer un microprogramme via l’interface iDRAC
