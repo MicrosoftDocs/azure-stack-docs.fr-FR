@@ -67,9 +67,12 @@
               href: azure-stack-configure-dns.md
             - name: Configurer le serveur de temps
               href: azure-stack-configure-time.md
-            - name: Intégration du pare-feu
-              href: azure-stack-firewall.md
+            - name: Passerelle / proxy
               items:
+                - name: Intégration du pare-feu
+                  href: azure-stack-firewall.md
+                - name: Proxy transparent
+                  href: azure-stack-transparent-proxy.md
                 - name: Publier des points de terminaison
                   href: azure-stack-integrate-endpoints.md
                 - name: Hôte d’extension
