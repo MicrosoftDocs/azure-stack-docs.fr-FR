@@ -1,22 +1,22 @@
 ---
 title: Planifier le déploiement d’un contrôleur de réseau
-description: Cette rubrique explique comment planifier le déploiement d’un contrôleur de réseau par le biais de Windows Admin Center sur un ensemble de machines virtuelles exécutant le système d’exploitation Azure Stack HCI.
+description: Cette rubrique explique comment planifier le déploiement d’un contrôleur de réseau par le biais de Windows Admin Center sur un ensemble de machines virtuelles.
 author: AnirbanPaul
 ms.author: anpaul
 ms.topic: conceptual
-ms.date: 10/7/2020
-ms.openlocfilehash: 3ac17ca9cd54c2ec387ceb39cbda76f7cb539305
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 02/02/2021
+ms.openlocfilehash: bfea9216cefdc64c7749f8b49d5ecc3a422e5130
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255076"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510786"
 ---
 # <a name="plan-to-deploy-network-controller"></a>Planifier le déploiement d’un contrôleur de réseau
 
->S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
+>S’applique à : Azure Stack HCI version 20H2, Windows Server 2019, Windows Server 2016
 
-La planification du déploiement d’un contrôleur de réseau via Windows Admin Center nécessite un ensemble de machines virtuelles exécutant le système d’exploitation Azure Stack HCI. Un contrôleur de réseau est un rôle serveur hautement disponible et scalable qui requiert un minimum de trois machines virtuelles pour fournir une haute disponibilité sur votre réseau.
+La planification du déploiement d’un contrôleur de réseau via Windows Admin Center nécessite un ensemble de machines virtuelles qui exécutent le système d’exploitation Azure Stack HCI ou Windows Server. Un contrôleur de réseau est un rôle serveur hautement disponible et scalable qui requiert un minimum de trois machines virtuelles pour fournir une haute disponibilité sur votre réseau.
 
    >[!NOTE]
    > Nous vous recommandons de déployer un contrôleur de réseau sur ses propres machines virtuelles dédiées.
@@ -56,12 +56,10 @@ Vous pouvez déployer les nœuds de cluster du contrôleur de réseau sur le mê
 Pour plus d’informations, consultez [Configurer l’inscription DNS dynamique pour le contrôleur de réseau](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous êtes maintenant prêt à déployer le contrôleur de réseau sur les machines virtuelles qui exécutent le système d’exploitation.
-
-Pour plus d'informations, consultez les rubriques suivantes :
-- [Créer un cluster Azure Stack HCI](../deploy/create-cluster.md)
-- [Déployer le contrôleur de réseau à l’aide de Windows PowerShell](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)
+Vous êtes maintenant prêt à déployer le contrôleur de réseau sur les machines virtuelles.
 
 ## <a name="see-also"></a>Voir aussi
-- [Contrôleur de réseau](/windows-server/networking/sdn/technologies/network-controller/network-controller)
+- [Créer un cluster Azure Stack HCI](../deploy/create-cluster.md)
+- [Déployer une infrastructure SDN avec SDN Express](../manage/sdn-express.md)
+- [Vue d’ensemble du contrôleur de réseau](network-controller-overview.md)
 - [Haute disponibilité du contrôleur de réseau](/windows-server/networking/sdn/technologies/network-controller/network-controller-high-availability)

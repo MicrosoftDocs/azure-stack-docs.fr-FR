@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Découvrez les systèmes d’exploitation invités pouvant être utilisés sur Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 3d535893b75cdaf49b4003fce2382ab092b328fe
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.openlocfilehash: 336a4d27adf5f0ab52fffc6b624ce84f7fd0b53c
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97620583"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99245906"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Systèmes d’exploitation invités pris en charge sur Azure Stack Hub
 
@@ -50,9 +50,17 @@ Les distributions Linux répertoriées comme disponibles sur la Place de marché
 
 | Distribution | Description | Serveur de publication | Place de marché Azure Stack Hub |
 | --- | --- | --- | --- |
-| CentOS-based 6.9 | 64 bits | Rogue Wave | Oui |
+| Basé sur CentOS 8.0 | 64 bits | Rogue Wave | Oui |
+| Basé sur CentOS 7.8 | 64 bits | Rogue Wave | Oui |
+| LVM basé sur CentOS 7.7 | 64 bits | Rogue Wave | Oui |
+| Basé sur CentOS 7.7 | 64 bits | Rogue Wave | Oui |
+| Basé sur CentOS 7.6 | 64 bits | Rogue Wave | Oui |
 | CentOS-based 7.5 | 64 bits | Rogue Wave | Oui |
+| LVM basé sur CentOS 7.5 | 64 bits | Rogue Wave | Oui |
+| CentOS-based 7.4 | 64 bits | Rogue Wave | Oui |
 | Basé sur CentOS 7.3 | 64 bits | Rogue Wave | Oui |
+| CentOS-based 6.9 | 64 bits | Rogue Wave | Oui |
+| CentOS-based 6.10 | 64 bits | Rogue Wave | Oui |
 | ClearLinux | 64 bits | ClearLinux.org | Oui |
 | CoreOS Linux (Stable) |  64 bits | CoreOS | Oui |
 | Debian 8 Jessie | 64 bits | credativ |  Oui |
@@ -64,6 +72,7 @@ Les distributions Linux répertoriées comme disponibles sur la Place de marché
 | Ubuntu 14.04-LTS | 64 bits | Canonical | Oui |
 | Ubuntu 16.04-LTS | 64 bits | Canonical | Oui |
 | Ubuntu 18.04-LTS | 64 bits | Canonical | Oui |
+| Ubuntu Server 20.04 LTS | 64 bits | Canonical | Oui |
 
 Pour plus d’informations sur la prise en charge Red Hat Enterprise Linux, consultez [Red Hat and Azure Stack Hub : Forum aux questions](https://access.redhat.com/articles/3413531).
 

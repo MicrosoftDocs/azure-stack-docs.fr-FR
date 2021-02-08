@@ -3,16 +3,16 @@ title: Protéger des machines virtuelles déployées sur Azure Stack Hub
 description: Découvrez comment créer un plan de récupération pour protéger des machines virtuelles déployées sur Azure Stack Hub contre la perte de données et les temps d’arrêt non planifiés.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: 8fe38a530477f080efafcf728e553a8194b74ec6
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: a783c4b0c30b5326220faf8655eb4f8c7a39bb29
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874062"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247640"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Protéger des machines virtuelles déployées sur Azure Stack Hub
 

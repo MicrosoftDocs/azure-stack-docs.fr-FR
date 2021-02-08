@@ -6,19 +6,19 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/28/2020
-ms.openlocfilehash: b2576bed615d6a65a5e0c61e5e3ccbc2c052132b
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.date: 01/28/2020
+ms.openlocfilehash: 17e8758dfea300f6bc3e02609877dfed8f780383
+ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872702"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050023"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Connecter Azure Stack HCI à Azure
 
 > S’applique à : Azure Stack HCI, v20H2
 
-Azure Stack HCI est fourni en tant que service Azure et doit être inscrit dans les 30 jours suivant l’installation, selon les conditions des services en ligne Azure. Cette rubrique explique comment inscrire votre cluster Azure Stack HCI à [Azure Arc](https://azure.microsoft.com/services/azure-arc/) pour la supervision, le support, la facturation et les services hybrides. Après l’inscription, une ressource Azure Resource Manager est créée pour représenter chaque cluster Azure Stack HCI local, étendant le plan de gestion Azure à Azure Stack HCI. Les informations sont régulièrement synchronisées entre la ressource Azure et le ou les clusters locaux.
+Azure Stack HCI est fourni en tant que service Azure et doit être inscrit dans les 30 jours suivant l’installation, selon les conditions des services en ligne Azure. Cette rubrique explique comment inscrire votre cluster Azure Stack HCI à [Azure Arc](https://azure.microsoft.com/services/azure-arc/) pour la supervision, le support, la facturation et les services hybrides. Après l’inscription, une ressource Azure Resource Manager est créée pour représenter chaque cluster Azure Stack HCI local, étendant le plan de gestion Azure à Azure Stack HCI. Les informations sont régulièrement synchronisées entre la ressource Azure et le ou les clusters locaux. L’inscription Azure Arc est une fonctionnalité native du système d’exploitation Azure Stack HCI : aucun agent n’est donc nécessaire pour effectuer l’inscription.
 
    > [!IMPORTANT]
    > L’inscription auprès d’Azure est requise, et votre cluster n’est pas entièrement pris en charge tant que votre inscription n’est pas activée. Si vous n’inscrivez pas votre cluster auprès d’Azure juste après le déploiement, ou si votre cluster est inscrit mais qu’il ne s’est pas connecté à Azure depuis plus de 30 jours, le système n’autorise pas la création ni l’ajout de nouvelles machines virtuelles. Dans de tels cas, le message d’erreur suivant s’affiche quand vous tentez de créer des machines virtuelles :
@@ -29,7 +29,12 @@ Azure Stack HCI est fourni en tant que service Azure et doit être inscrit dans 
 
 ## <a name="prerequisites-for-registration"></a>Prérequis pour l’inscription
 
-Vous ne pouvez pas vous inscrire auprès d’Azure tant que vous n’avez pas créé un cluster Azure Stack HCI. Pour que le cluster soit pris en charge, les nœuds de cluster doivent être des serveurs physiques. Les machines virtuelles peuvent être utilisées pour les tests, mais elles doivent prendre en charge UEFI (Unified Extensible Firmware Interface), ce qui signifie que vous ne pouvez pas utiliser des machines virtuelles Hyper-V de génération 1. L’inscription Azure Arc est une fonctionnalité native du système d’exploitation Azure Stack HCI : aucun agent n’est donc nécessaire pour effectuer l’inscription.
+Vous ne pouvez pas vous inscrire auprès d’Azure tant que vous n’avez pas créé un cluster Azure Stack HCI. Pour que le cluster soit pris en charge, les nœuds de cluster doivent être des serveurs physiques. Les machines virtuelles peuvent être utilisées pour les tests, mais elles doivent prendre en charge UEFI (Unified Extensible Firmware Interface), ce qui signifie que vous ne pouvez pas utiliser des machines virtuelles Hyper-V de génération 1.
+
+Le plus simple est de demander à l’administrateur Azure AD d’effectuer l’inscription à l’aide de Windows Admin Center ou de PowerShell.
+
+   > [!IMPORTANT]
+   > Si vous prévoyez d’inscrire le cluster en utilisant Windows Admin Center, vous devez d’abord [inscrire votre passerelle Windows Admin Center](../manage/register-windows-admin-center.md) avec l’ID d’abonnement Azure et l’ID de locataire que vous comptez utiliser pour l’inscription du cluster.
 
 ### <a name="internet-access"></a>Accès à Internet
 
@@ -97,7 +102,20 @@ Si votre abonnement Azure s’effectue par le biais d’un contrat entreprise ou
 
 Vous devez également disposer d’autorisations Azure Active Directory appropriées pour effectuer le processus d’inscription. Si vous ne les avez pas encore, demandez à votre administrateur Azure AD de vous accorder son consentement ou de vous déléguer les autorisations. Pour plus d’informations, consultez [Gérer l’inscription Azure](../manage/manage-azure-registration.md#azure-active-directory-app-permissions).
 
-## <a name="register-using-powershell"></a>S’inscrire en utilisant PowerShell
+## <a name="register-a-cluster-using-windows-admin-center"></a>Inscrire un cluster en utilisant Windows Admin Center
+
+Le moyen le plus simple d’inscrire votre cluster Azure Stack HCI consiste à utiliser Windows Admin Center. L’utilisateur doit disposer des [autorisations Azure Active Directory](../manage/manage-azure-registration.md#azure-active-directory-app-permissions). Si ce n’est pas le cas, le processus d’inscription s’interrompra dans l’attente de l’approbation de l’administrateur.
+
+1. Avant de démarrer le processus d’inscription, vous devez d’abord [inscrire votre passerelle Windows Admin Center](../manage/register-windows-admin-center.md) auprès d’Azure, si ce n’est déjà fait.
+
+   > [!IMPORTANT]
+   > Lorsque vous inscrivez Windows Admin Center auprès d’Azure, il est important d’utiliser l’ID d’abonnement Azure et l’ID de locataire que vous prévoyez d’utiliser pour l’inscription du cluster. Un ID de locataire Azure AD représente une instance Azure AD qui comprend des comptes et des groupes, tandis qu’un ID d’abonnement Azure représente un contrat d’utilisation des ressources Azure impliquant des frais. Pour connaître votre ID de locataire, rendez-vous sur le site [portal.azure.com](https://portal.azure.com), puis sélectionnez **Azure Active Directory**. Votre ID de locataire s’affichera sous **Informations sur le locataire**. Pour connaître votre ID d’abonnement Azure, accédez à **Abonnements**, puis copiez-collez votre ID à partir de la liste.
+
+2. Ouvrez Windows Admin Center, puis sélectionnez **Paramètres** tout en bas du menu **Outils** situé sur la gauche. Ensuite, sélectionnez **Inscription Azure Stack HCI** en bas du menu **Paramètres**. Si votre cluster n’est pas encore inscrit auprès d’Azure, **État de l’inscription** indiquera **Non inscrit**. Pour continuer, cliquez sur le bouton **Inscrire**.
+
+3. Pour terminer le processus d’inscription, vous devez vous authentifier (vous connecter) à l’aide de votre compte Azure. Pour que vous puissiez procéder à l’inscription, votre compte doit avoir accès à l’abonnement Azure que vous avez spécifié au moment d’inscrire la passerelle Windows Admin Center. Copiez le code fourni, accédez à microsoft.com/devicelogin sur un autre appareil (comme votre PC ou téléphone), à entrer le code et à vous y connecter. Le workflow d’inscription détecte que vous vous êtes connecté et effectue le processus. Vous devez alors être en mesure de voir votre cluster dans le portail Azure.
+
+## <a name="register-a-cluster-using-powershell"></a>Inscrire un cluster à l’aide de PowerShell
 
 Utilisez la procédure suivante pour inscrire un cluster Azure Stack HCI auprès d’Azure à l’aide d’un PC de gestion.
 
@@ -108,24 +126,22 @@ Utilisez la procédure suivante pour inscrire un cluster Azure Stack HCI auprès
    ```
 
    > [!NOTE]
-   > - Vous pouvez voir une invite comme « Voulez-vous que PowerShellGet installe et importe le fournisseur NuGet maintenant ? ». à laquelle vous devez répondre Oui (Y).
-   > - Vous pouvez après cela voir une invite « Voulez-vous vraiment installer les modules à partir de PSGallery ? », à laquelle vous devez répondre Oui (Y).
+   > - Vous pouvez voir une invite comme **Voulez-vous que PowerShellGet installe et importe le fournisseur NuGet maintenant ?** , à laquelle vous devez répondre **Oui** (O).
+   > - Ensuite, vous pouvez voir l’invite **Voulez-vous vraiment installer les modules à partir de PSGallery ?** , sélectionnez **Oui** (O).
 
-2. Effectuez l’inscription à l’aide du nom de n’importe quel serveur du cluster. Pour obtenir votre ID d’abonnement Azure, visitez [portal.azure.com](https://portal.azure.com), accédez à Abonnements, puis copiez/collez votre ID à partir de la liste.
+2. Effectuez l’inscription à l’aide du nom de n’importe quel serveur du cluster. Pour obtenir votre ID d’abonnement Azure, rendez-vous sur le site [portal.azure.com](https://portal.azure.com), accédez à **Abonnements**, puis copiez-collez votre ID à partir de la liste.
 
    ```PowerShell
-   Register-AzStackHCI  -SubscriptionId "<subscription_ID>" -ComputerName Server1 [–Credential] [-ResourceName] [-ResourceGroupName] [-Region]
+   Register-AzStackHCI  -SubscriptionId "<subscription_ID>" -ComputerName Server1
    ```
 
-   Cette syntaxe inscrit le cluster (dont Server1 est membre), en tant qu’utilisateur actuel, auprès de l’environnement cloud et de la région Azure par défaut, et utilise des noms intelligents par défaut pour la ressource et le groupe de ressources Azure, mais vous pouvez ajouter des paramètres à cette commande pour spécifier ces valeurs, si vous le souhaitez.
+   Cette syntaxe inscrit le cluster (dont Server1 est membre), en tant qu’utilisateur actuel, auprès de l’environnement cloud et de la région Azure par défaut, et utilise des noms intelligents par défaut pour la ressource et le groupe de ressources Azure. Pour spécifier ces valeurs, vous pouvez également ajouter les paramètres facultatifs `-Region`, `-ResourceName` et `-ResourceGroupName` à cette commande.
 
-   Gardez à l’esprit que l’utilisateur qui exécute l’applet de commande `Register-AzStackHCI` doit disposer des autorisations [Azure Active Directory](../manage/manage-azure-registration.md#azure-active-directory-app-permissions) ; sinon, le processus d’inscription ne se terminera pas et se fermera et l’inscription sera toujours en attente du consentement de l’administrateur. Une fois les autorisations accordées, réexécutez `Register-AzStackHCI` pour finaliser l’inscription.
+   L’utilisateur qui exécute l’applet de commande `Register-AzStackHCI` doit disposer des [autorisations Azure Active Directory](../manage/manage-azure-registration.md#azure-active-directory-app-permissions). Si ce n’est pas le cas, le processus d’inscription s’interrompra dans l’attente de l’approbation de l’administrateur. Une fois les autorisations accordées, réexécutez `Register-AzStackHCI` pour finaliser l’inscription.
 
 3. S’authentifier avec Azure
 
-   Pour terminer le processus d’inscription, vous devez vous authentifier (vous connecter) à l’aide de votre compte Azure. Votre compte doit avoir accès à l’abonnement Azure, spécifié à l’étape 4 ci-dessus, pour pouvoir procéder à l’inscription. Copiez le code fourni, accédez à microsoft.com/devicelogin sur un autre appareil (comme votre PC ou téléphone), à entrer le code et à vous y connecter. Il s’agit de la même expérience que celle que Microsoft utilise pour d’autres appareils avec des modalités d’entrée limitées, comme Xbox.
-
-Le workflow d’inscription détecte que vous vous êtes connecté et effectue le processus. Vous devez alors être en mesure de voir votre cluster dans le portail Azure.
+   Pour terminer le processus d’inscription, vous devez vous authentifier (vous connecter) à l’aide de votre compte Azure. Pour que vous puissiez procéder à l’inscription, votre compte doit avoir accès à l’abonnement Azure, spécifié à l’étape 2 ci-dessus. Copiez le code fourni, accédez à microsoft.com/devicelogin sur un autre appareil (comme votre PC ou téléphone), à entrer le code et à vous y connecter. Le workflow d’inscription détecte que vous vous êtes connecté et effectue le processus. Vous devez alors être en mesure de voir votre cluster dans le portail Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

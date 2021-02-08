@@ -3,23 +3,21 @@ title: Déployer une infrastructure SDN avec SDN Express
 description: Découvrez comment déployer une infrastructure SDN à l’aide de SDN Express
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/01/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ec4c348242910eaf78831b59659bd5943f9cb854
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.openlocfilehash: b8431b7e2cf2cad3d238386619839a760b722042
+ms.sourcegitcommit: d74f6d8630783de49667956f39cac67e1968a89d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98782008"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99473189"
 ---
 # <a name="deploy-an-sdn-infrastructure-using-sdn-express"></a>Déployer une infrastructure SDN avec SDN Express
 
 > S’applique à Azure Stack HCI, version 20H2
 
-Dans cette rubrique, vous déployez une infrastructure SDN (Software Defined Network) de bout en bout à l’aide de scripts PowerShell pour SDN Express. L’infrastructure comprend ces trois composants à haut niveau de disponibilité : un contrôleur de réseau (HA), un équilibreur de charge logiciel (SLB) et une passerelle.  
-
-Les scripts prennent en charge un déploiement échelonné, où vous pouvez déployer uniquement le contrôleur de réseau pour bénéficier d’un ensemble de fonctionnalités de base avec une configuration réseau minimale. Vous pouvez également déployer le contrôleur de réseau à l’aide de l’Assistant Création d’un cluster dans Windows Admin Center. En revanche, pour déployer d’autres composants SDN tels que l’équilibreur SLB et la passerelle, vous devez utiliser les scripts SDN Express.
+Dans cette rubrique, vous déployez une infrastructure SDN (Software Defined Network) de bout en bout à l’aide de scripts PowerShell pour SDN Express. L’infrastructure peut comprendre ces trois composants à haut niveau de disponibilité : un contrôleur de réseau (HA), un équilibreur de charge logiciel (SLB) et une passerelle.  Les scripts prennent en charge un déploiement échelonné, où vous pouvez déployer uniquement le contrôleur de réseau pour bénéficier d’un ensemble de fonctionnalités de base avec une configuration réseau minimale. 
 
 Vous pouvez aussi déployer une infrastructure SDN à l’aide de VMM (System Center Virtual Machine Manager). Pour plus d’informations, consultez [Gérer les ressources SDN dans la structure VMM](/system-center/vmm/network-sdn).
 
@@ -37,7 +35,37 @@ Vous n’avez pas besoin de déployer tous les composants SDN. Consultez la sect
 
 Assurez-vous que le système d’exploitation Azure Stack HCI est installé sur tous les serveurs hôtes. Pour cela, consultez [Déployer le système d’exploitation Azure Stack HCI](../deploy/operating-system.md).
 
-## <a name="run-the-sdn-express-scripts"></a>Exécuter les scripts SDN Express
+## <a name="requirements"></a>Configuration requise
+
+Pour un déploiement SDN, les conditions suivantes doivent être remplies :
+
+- Hyper-V doit être activé sur tous les serveurs hôtes
+- Tous les serveurs hôtes doivent être joints à Active Directory
+- Un commutateur virtuel doit être créé
+- Le réseau physique doit être configuré pour les sous-réseaux et les réseaux VLAN qui sont définis dans le fichier de configuration.
+- Le fichier VHDX spécifié dans le fichier de configuration doit être accessible à partir de l’ordinateur de déploiement sur lequel est exécuté le script SDN Express.
+
+## <a name="create-the-vdx-file"></a>Créer le fichier VDX
+
+SDN utilise un fichier VHDX qui contient le système d’exploitation Azure Stack HCI utilisé comme source de création des machines virtuelles SDN. La version du système d’exploitation de votre fichier VHDX doit correspondre à celle utilisée par les hôtes Hyper-V.
+
+Si vous avez téléchargé et installé le système d’exploitation Azure Stack HCI à partir d’une image ISO, vous pouvez créer ce fichier VHDX à l’aide de l’utilitaire `Convert-WindowsImage`, comme décrit dans [Centre de scripts](https://gallery.technet.microsoft.com/scriptcenter/Convert-WindowsImageps1-0fe23a8f).
+
+L’exemple suivant utilise `Convert-WindowsImage` :
+
+ ```powershell
+$wimpath = "d:\sources\install.wim"
+$vhdpath = "c:\temp\WindowsServerDatacenter.vhdx"
+$Edition = 4   # 4 = Full Desktop, 3 = Server Core
+
+import-module ".\convert-windowsimage.ps1"
+
+Convert-WindowsImage -SourcePath $wimpath -Edition $Edition -VHDPath $vhdpath -SizeBytes 500GB -DiskLayout UEFI
+```
+
+## <a name="download-the-github-repository"></a>Télécharger le dépôt GitHub
+
+Les fichiers de script SDN Express se trouvent dans GitHub. La première étape consiste à obtenir les fichiers et dossiers nécessaires sur votre ordinateur de déploiement.
 
 1. Accédez au dépôt GitHub [SDN Express](https://github.com/microsoft/SDN).
 
@@ -48,15 +76,27 @@ Assurez-vous que le système d’exploitation Azure Stack HCI est installé sur 
 
 1. Extrayez le fichier ZIP et copiez le dossier `SDNExpress` dans le dossier `C:\` sur l’ordinateur de déploiement.
 
+## <a name="edit-the-configuration-file"></a>Modifier le fichier de configuration
+
+Le fichier de données de configuration `MultiNodeSampleConfig.psd1` de PowerShell contient tous les paramètres dont a besoin le script SDN Express comme entrée pour les divers paramètres de configuration. Ce fichier fournit des informations spécifiques sur les valeurs à renseigner selon que vous déployez uniquement le composant contrôleur de réseau, ou également les composants équilibreur de charge logiciel et passerelle.
+
+Pour plus d’informations, consultez [Planifier une infrastructure de réseau défini par logiciel](../concepts/plan-software-defined-networking-infrastructure.md).
+
+Commençons !
+
 1. Accédez au dossier `C:\SDNExpress\scripts`.
 
-1. Exécutez le fichier de script `SDNExpress.ps1`. Ce script utilise un fichier de déploiement (PSD) PowerShell comme entrée pour les différents paramètres de configuration. Consultez le fichier `README.md` pour obtenir des instructions sur l’exécution du script.  
+1. Ouvrez le fichier `MultiNodeSampleConfig.psd1` dans l’éditeur de texte de votre choix.
 
-1. Utilisez un VHDX contenant le système d’exploitation Azure Stack HCI comme source pour la création des machines virtuelles SDN. Si vous avez téléchargé et installé le système d’exploitation Azure Stack HCI à partir d’une image ISO, vous pouvez créer ce VHDX à l’aide de l’utilitaire `convert-windowsimage`, comme décrit dans la documentation.
+1. Changez certaines valeurs de paramètre pour les adapter à votre infrastructure.
 
-1. Personnalisez le fichier `SDNExpress\scripts\MultiNodeSampleConfig.psd1` en changeant les valeurs spécifiques en fonction de votre infrastructure, notamment les noms d’hôte, les noms de domaine, les noms d’utilisateur et les mots de passe, ainsi que les informations réseau pour les réseaux listés, comme cela est indiqué dans la rubrique [Planifier une infrastructure de réseau défini par logiciel](../concepts/plan-software-defined-networking-infrastructure.md). Ce fichier fournit des informations spécifiques sur les valeurs à renseigner selon que vous déployez uniquement le composant contrôleur de réseau, ou également les composants équilibreur de charge logiciel et passerelle.
+## <a name="run-the-deployment-script"></a>Exécuter le script de déploiement
 
-1. Exécutez le script suivant à partir d’un compte d’utilisateur en tant qu’administrateur sur les hôtes Hyper-V :
+Le script SDN Express déploie votre infrastructure SDN. Une fois l’exécution du script terminée, votre infrastructure est prête à être utilisée pour les déploiements de charge de travail.
+
+1. Pour obtenir des informations de dernière minute sur la façon d’exécuter le script de déploiement, consultez le fichier `README.md`.  
+
+1. Exécutez la commande suivante à partir d’un compte d’utilisateur avec des informations d’identification d’administration pour les serveurs hôtes du cluster :
 
     ```powershell
     SDNExpress\scripts\SDNExpress.ps1 -ConfigurationDataFile MultiNodeSampleConfig.psd1 -Verbose

@@ -3,16 +3,16 @@ title: Notes de publication d’Azure Stack Hub
 description: Notes de publication des systèmes intégrés Azure Stack Hub, y compris les mises à jour et les correctifs de bogues.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/25/2021
+ms.date: 02/03/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 196313ed569a701dae9cc558ff1438d9d9df1241
-ms.sourcegitcommit: 82f7d16bc5f4224678edbbda0ba3441c8e07ca0b
+ms.openlocfilehash: ea286718f2f4c0fcd2bdf935d5e12d462d07856f
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763156"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99533924"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Notes de publication d’Azure Stack Hub
 
@@ -118,7 +118,7 @@ Pour plus d’informations sur les mises à jour de sécurité dans cette mise �
 
 ## <a name="hotfixes"></a>Correctifs logiciels
 
-Azure Stack Hub publie régulièrement des correctifs logiciels. À partir de la version 2005, lorsque vous mettez à jour vers une nouvelle version principale (par exemple, 1.2005.x vers 1.2008.x), les derniers correctifs (le cas échéant) de la nouvelle version principale sont installés automatiquement. À partir de là, si un correctif est mis en production pour votre build, vous devez l’installer.
+Azure Stack Hub publie régulièrement des correctifs logiciels. Avant d’effectuer la mise à jour vers la version 2008, veillez à installer le dernier correctif de la version 2005. De plus, depuis la version 2005, lorsque vous effectuez une mise à jour vers une nouvelle version principale (par exemple, 1.2005.x vers 1.2008.x), les derniers correctifs (s’il y en a au moment du téléchargement du package) de la nouvelle version principale sont installés automatiquement. Votre installation de la version 2008 est alors à jour de tous les correctifs logiciels. À partir de là, si un correctif est publié pour la version 2008, vous devez l’installer.
 
 > [!NOTE]
 > Les versions des correctifs logiciels Azure Stack Hub sont cumulatives. Il vous suffit d’installer le dernier correctif logiciel afin d’obtenir l’ensemble des correctifs logiciels inclus dans les versions précédentes de correctifs logiciels pour cette version.
@@ -129,11 +129,11 @@ Les correctifs logiciels Azure Stack Hub s’appliquent uniquement aux systèmes
 
 ### <a name="after-successfully-applying-the-2008-update"></a>Après l’application réussie de la mise à jour 2008
 
-Étant donné que les correctifs Azure Stack Hub sont cumulatifs, il est recommandé d’installer tous les correctifs publiés pour votre build afin de garantir la meilleure expérience de mise à jour possible entre les versions majeures. Lorsque vous mettez à jour vers une nouvelle version principale (par exemple, 1.2005.x vers 1.2008.x), les derniers correctifs (le cas échéant) de la nouvelle version principale sont installés automatiquement.
+Étant donné que les correctifs Azure Stack Hub sont cumulatifs, il est recommandé d’installer tous les correctifs publiés pour votre build afin de garantir la meilleure expérience de mise à jour possible entre les versions majeures. Lorsque vous effectuez une mise à jour vers une nouvelle version principale (par exemple, 1.2005.x vers 1.2008.x), les derniers correctifs (s’il y en a au moment du téléchargement du package) de la nouvelle version principale sont installés automatiquement.
 
 Après l’installation de 2008, si des correctifs 2008 sont mis en production par la suite, vous devez les installer :
 
-- [Correctif logiciel Azure Stack Hub 1.2008.23.108](https://support.microsoft.com/topic/c0d203fd-7585-4c8d-8ea5-ae13897e352e)
+- [Correctif logiciel Azure Stack Hub 1.2008.25.114](https://support.microsoft.com/topic/87ee234e-7f33-4342-bc0a-5779dbb33263)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
@@ -233,7 +233,7 @@ La version 2005 d’Azure Stack Hub doit être appliquée sur la version 2002 
 
 Après l’installation de 2005, si des correctifs 2005 sont mis en production par la suite, vous devez les installer :
 
-- [Correctif logiciel Azure Stack Hub 1.2005.28.98](https://support.microsoft.com/topic/ecf727b1-3dc1-4070-ace8-1291cc437389)
+- [Correctif logiciel Azure Stack Hub 1.2005.29.100](https://support.microsoft.com/topic/10c1b6e2-7bf7-4f71-8204-f1b12e2f744a)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -421,5 +421,5 @@ Après l’installation de cette mise à jour, installez les correctifs logiciel
 ::: moniker-end
 
 ::: moniker range="<azs-2002"
-Vous pouvez accéder aux [versions antérieures des notes de publication d’Azure Stack Hub dans la galerie TechNet](https://aka.ms/azsarchivedrelnotes). Ces documents archivés sont fournis uniquement pour référence et n’impliquent aucune prise en charge de ces versions. Pour plus d’informations sur le support d’Azure Stack Hub, consultez [Stratégie de maintenance Azure Stack Hub](azure-stack-servicing-policy.md). Pour obtenir de l’aide, contactez les services de support technique Microsoft.
+Vous pouvez accéder aux anciennes versions des notes de publication Azure Stack Hub dans la table des matières située sur la gauche, sous [**Ressources > Archives des notes de publication**](./relnotearchive/release-notes-1910.md). Ces articles archivés sont fournis uniquement pour référence et n’impliquent aucune prise en charge de ces versions. Pour plus d’informations sur le support d’Azure Stack Hub, consultez [Stratégie de maintenance Azure Stack Hub](azure-stack-servicing-policy.md). Pour obtenir de l’aide, contactez les services de support technique Microsoft.
 ::: moniker-end

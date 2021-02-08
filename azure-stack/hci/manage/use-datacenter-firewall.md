@@ -1,22 +1,22 @@
 ---
-title: Utiliser le Pare-feu Datacenter pour la mise en réseau SDN dans Azure Stack HCI
-description: Utilisez cette rubrique afin de vous familiariser avec le Pare-feu Datacenter pour la mise en réseau SDN (Software-Defined Networking) dans Azure Stack HCI.
+title: Utiliser le pare-feu Datacenter pour le SDN dans Azure Stack HCI et Windows Server
+description: Utilisez cette rubrique afin de vous familiariser avec le pare-feu Datacenter pour le SDN dans Azure Stack HCI, Windows Server 2019 et Windows Server 2016.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/17/2020
-ms.openlocfilehash: 833780947bd698a0e39709668715372bd8508e90
-ms.sourcegitcommit: 40d3f3f0ac088d1590d1fb64ca05ac1dabf4e00c
+ms.date: 02/02/2021
+ms.openlocfilehash: 8c150de090bd1f863a29109ddae9d6e4bb104dfc
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94881233"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510701"
 ---
-# <a name="use-datacenter-firewall-for-software-defined-networking-in-azure-stack-hci"></a>Utiliser le Pare-feu Datacenter pour la mise en réseau SDN (Software-Defined Networking) dans Azure Stack HCI
+# <a name="use-datacenter-firewall-for-software-defined-networking-in-azure-stack-hci-and-windows-server"></a>Utiliser le pare-feu Datacenter pour le SDN dans Azure Stack HCI et Windows Server
 
-> S’applique à : Azure Stack HCI, version 20H2 ; Windows Server 2019
+> S’applique à : Azure Stack HCI version 20H2, Windows Server 2019, Windows Server 2016
 
 Cette rubrique explique comment configurer des listes de contrôle d'accès afin de gérer le flux de trafic de données à l'aide du [Pare-feu Datacenter](../concepts/datacenter-firewall-overview.md) pour la mise en réseau SDN (Software-Defined Networking) dans Azure Stack HCI via Windows PowerShell. Pour activer et configurer le Pare-feu Datacenter, vous devez créer des listes de contrôle d'accès qui sont appliquées à un sous-réseau ou à une interface réseau. Les exemples de scripts de cette rubrique utilisent des commandes Windows PowerShell exportées à partir du module **NetworkController**. Vous pouvez également utiliser Windows Admin Center pour configurer et gérer les listes de contrôle d'accès.
 
@@ -207,7 +207,7 @@ New-NetworkControllerAccessControlList -ResourceId "Subnet-192-168-0-0" -Propert
 
 ## <a name="add-an-acl-to-a-network-interface"></a>Ajouter une liste de contrôle d'accès à une interface réseau
 
-Une fois que vous avez créé une liste de contrôle d'accès et que vous l'avez attribuée à un sous-réseau virtuel, vous pouvez remplacer la liste de contrôle d'accès par défaut du sous-réseau virtuel par une liste de contrôle d'accès spécifique pour une interface réseau individuelle. Dans ce cas, vous appliquez directement des listes de contrôle d'accès spécifiques aux interfaces réseau connectées aux réseaux locaux virtuels, et non au réseau virtuel. Si des listes de contrôle d'accès sont définies sur le sous-réseau virtuel connecté à l'interface réseau, toutes les listes de contrôle d'accès sont appliquées, et celles de l'interface réseau sont prioritaires sur celles du sous-réseau virtuel.
+Une fois que vous avez créé une liste de contrôle d'accès et que vous l'avez attribuée à un sous-réseau virtuel, vous pouvez remplacer la liste de contrôle d'accès par défaut du sous-réseau virtuel par une liste de contrôle d'accès spécifique pour une interface réseau individuelle. Depuis Windows Server 2019 Datacenter, vous pouvez appliquer des listes de contrôle d’accès directement aux interfaces réseau qui sont attachées aux réseaux logiques SDN, en plus des réseaux virtuels SDN. Si des listes de contrôle d’accès sont définies sur le sous-réseau virtuel connecté à l’interface réseau, toutes les listes de contrôle d’accès sont appliquées, et celles de l’interface réseau sont prioritaires sur celles du sous-réseau virtuel.
 
 Dans cet exemple, nous allons vous montrer comment ajouter une liste de contrôle d'accès à un réseau virtuel.
 
@@ -259,7 +259,7 @@ Dans cet exemple, nous allons vous montrer comment supprimer une liste de contr�
 
 ## <a name="firewall-auditing"></a>Audit du pare-feu
 
-L'audit du pare-feu est une nouvelle fonctionnalité du Pare-feu Datacenter qui enregistre tout flux traité par les règles de pare-feu SDN. Toutes les listes de contrôle d'accès pour lesquelles la journalisation est activée sont enregistrées. La syntaxe des fichiers journaux doit être cohérente avec celle des [journaux de flux Azure Network Watcher](/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Ces journaux peuvent être utilisés à des fins de diagnostic ou archivés en vue d'une analyse ultérieure.
+Dans Windows Server 2019, une nouvelle fonctionnalité appelée « audit du pare-feu » a été ajoutée au pare-feu Datacenter. Celle-ci enregistre tous les flux qui sont traités par les règles de pare-feu SDN. Toutes les listes de contrôle d'accès pour lesquelles la journalisation est activée sont enregistrées. La syntaxe des fichiers journaux doit être cohérente avec celle des [journaux de flux Azure Network Watcher](/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Ces journaux peuvent être utilisés à des fins de diagnostic ou archivés en vue d'une analyse ultérieure.
 
 Voici un exemple de script permettant d'activer l'audit du pare-feu sur les serveurs hôtes. Commencez par mettre les variables à jour, puis exécutez le script sur un cluster Azure Stack HCI sur lequel le [Contrôleur de réseau](../concepts/network-controller-overview.md) est déployé :
 
@@ -412,4 +412,4 @@ Pour consulter des informations connexes, reportez-vous également à :
 
 - [Vue d'ensemble du Pare-feu Datacenter](../concepts/datacenter-firewall-overview.md)
 - [Vue d’ensemble du contrôleur de réseau](../concepts/network-controller-overview.md)
-- [SDN dans Azure Stack HCI](../concepts/software-defined-networking.md)
+- [SDN dans Azure Stack HCI et Windows Server](../concepts/software-defined-networking.md)

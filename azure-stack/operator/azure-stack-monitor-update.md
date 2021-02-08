@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: cc3b37e6ac230133254cbb6e9f5e5487b31a26c4
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: fd7c1740d96ecea92bd4414ae1b4481e38594202
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870254"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99245974"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Superviser les mises à jour dans Azure Stack Hub à l’aide du point de terminaison privilégié
 
@@ -27,7 +27,7 @@ Les nouvelles applets de commande PowerShell suivantes pour la gestion des mises
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>Vérifier que les applets de commande sont disponibles
-Les applets de commande étant nouvelles dans le package de mise à jour 1710 d’Azure Stack Hub, le processus de mise à jour 1710 doit atteindre un certain point avant que la fonctionnalité de surveillance soit disponible. En règle générale, les applets de commande sont disponibles si l’état dans le portail d’administration indique que la mise à jour 1710 se trouve à l'étape **Redémarrer les hôtes de stockage**. Pour être plus précis, la mise à jour de la cmdlet intervient au cours de l'**Étape : Exécution de l'étape 2.6 - Mise à jour de la liste verte PrivilegedEndpoint** .
+Les applets de commande étant nouvelles dans le package de mise à jour 1710 d’Azure Stack Hub, le processus de mise à jour 1710 doit atteindre un certain point avant que la fonctionnalité de surveillance soit disponible. En règle générale, les applets de commande sont disponibles si l’état dans le portail d’administration indique que la mise à jour 1710 se trouve à l'étape **Redémarrer les hôtes de stockage**. Pour être plus précis, la mise à jour de la cmdlet intervient au cours de l'**Étape : Exécution de l’étape 2.6 - Mise à jour de la liste d’autorisation PrivilegedEndpoint**.
 
 Vous pouvez également déterminer si les applets de commande sont disponibles par programmation en interrogeant la liste des commandes à partir du point de terminaison privilégié. Pour exécuter cette requête, exécutez les commandes suivantes à partir de l’hôte de cycle de vie du matériel ou d’une station de travail avec accès privilégié. Assurez-vous également que le point de terminaison privilégié est un hôte approuvé. Pour plus d’informations, consultez l’étape 1 [Accéder au point de terminaison privilégié](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint).
 

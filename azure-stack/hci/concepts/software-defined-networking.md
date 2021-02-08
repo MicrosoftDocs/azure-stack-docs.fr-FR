@@ -1,28 +1,28 @@
 ---
-title: Mise en réseau SDN (Software Defined Networking) dans Azure Stack HCI
+title: SDN (Software defined networking) dans Azure Stack HCI et Windows Server
 description: La mise en réseau SDN (Software Defined Networking) permet de configurer et de gérer de manière centralisée des réseaux et des services réseau tels que le basculement, le routage et l’équilibrage de charge dans votre centre de données.
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 01/22/2021
-ms.openlocfilehash: ee4046837b012f5ea55a85db418e2af35f84a7ee
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.date: 02/02/2021
+ms.openlocfilehash: d67f16b65e13c700360bd85096dd1454745772c0
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772255"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510718"
 ---
-# <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Mise en réseau SDN (Software Defined Networking) dans Azure Stack HCI
+# <a name="software-defined-networking-sdn-in-azure-stack-hci-and-windows-server"></a>SDN (Software defined networking) dans Azure Stack HCI et Windows Server
 
-> S’applique à Azure Stack HCI, version 20H2 ; Windows Server 2019
+> S’applique à Azure Stack HCI version 20H2, Windows Server 2019, Windows Server 2016
 
 La mise en réseau SDN (Software Defined Networking) permet de configurer et de gérer de manière centralisée des réseaux et des services réseau tels que le basculement, le routage et l’équilibrage de charge dans votre centre de données. Vous pouvez utiliser SDN pour créer, sécuriser et connecter dynamiquement votre réseau afin de répondre aux besoins en constante évolution de vos applications. Le fonctionnement des réseaux de centres de données à l’échelle mondiale pour des services comme Microsoft Azure, qui effectue efficacement des dizaines de milliers de modifications de réseau chaque jour, est possible uniquement en raison de SDN.
 
 Les éléments de réseau virtuel, tels que le [Commutateur virtuel Hyper-V](/windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch), la [Virtualisation de réseau Hyper-V](/windows-server/networking/sdn/technologies/hyper-v-network-virtualization/hyper-v-network-virtualization), [l’équilibrage de charge logiciel](/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn) et la [Passerelle RAS](/windows-server/networking/sdn/technologies/network-function-virtualization/ras-gateway-for-sdn) sont conçus pour être des éléments intégraux de votre infrastructure SDN. Vous pouvez également utiliser vos appareils existants compatibles SDN pour bénéficier d’une intégration plus poussée entre vos charges de travail exécutées dans des réseaux virtuels et le réseau physique.
 
-Il existe trois principaux composants SDN sur Azure Stack HCI et vous pouvez choisir celui que vous souhaitez déployer : Contrôleur de réseau, équilibreur de charge logiciel et passerelle.
+Vous pouvez déployer l’un des trois principaux composants SDN suivants : Contrôleur de réseau, équilibreur de charge logiciel et passerelle.
 
    > [!NOTE]
    > SDN n’est pas pris en charge sur les clusters étirés (sur plusieurs sites).
@@ -38,7 +38,7 @@ Le déploiement du contrôleur de réseau active les fonctionnalités suivantes�
 - joindre des appliances virtuelles à vos réseaux virtuels
 - configurer des stratégies de qualité de service (QoS) pour les machines virtuelles jointes à des réseaux virtuels ou à des réseaux VLAN traditionnels.
 
-Nous vous recommandons de déployer le [contrôleur de réseau à l’aide de SDN Express](../manage/sdn-express.md) après la création d’un cluster Azure Stack HCI.
+Nous vous recommandons de déployer un [contrôleur de réseau avec SDN Express](../manage/sdn-express.md).
 
 ## <a name="software-load-balancing"></a>Équilibrage de charge logicielle
 
@@ -59,5 +59,4 @@ Les passerelles utilisent [Border Gateway Protocol](/windows-server/remote/remot
 Pour consulter des informations connexes, reportez-vous également à :
 
 - [Planifier une infrastructure de réseau défini par logiciel](plan-software-defined-networking-infrastructure.md)
-- [Vue d’ensemble du SDN dans Windows Server](/windows-server/networking/sdn/software-defined-networking)
 - [Déployer une infrastructure SDN avec SDN Express](../manage/sdn-express.md)

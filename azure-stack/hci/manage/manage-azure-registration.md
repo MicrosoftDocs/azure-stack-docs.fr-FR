@@ -1,16 +1,16 @@
 ---
 title: Gérer l’inscription Azure pour Azure Stack HCI
-description: Explique comment gérer votre inscription Azure pour Azure Stack HCI et comment connaître l’état de l’inscription à l’aide de PowerShell.
+description: Gérer votre inscription Azure pour Azure Stack HCI, connaître l’état de l’inscription et désinscrire votre cluster lorsque vous souhaitez le désactiver.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 12/10/2020
-ms.openlocfilehash: a81a1973d7324371cb42b23ca7905d39492401cf
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 01/28/2021
+ms.openlocfilehash: a187730ed43c6c4a57bbe2d1f81d39085d8b94a1
+ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254430"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050091"
 ---
 # <a name="manage-azure-registration"></a>Gérer une inscription Azure
 
@@ -18,9 +18,19 @@ ms.locfileid: "98254430"
 
 Une fois que vous avez créé un cluster Azure Stack HCI, vous devez [inscrire le cluster auprès d’Azure Arc](../deploy/register-with-azure.md). Une fois le cluster inscrit, les informations sont régulièrement synchronisées entre le cluster local et le cloud. Cette rubrique explique comment connaître l’état de votre inscription, octroyer des autorisations Azure Active Directory et désinscrire votre cluster quand vous êtes prêt à le désaffecter.
 
-## <a name="understanding-registration-status"></a>Connaître l’état de l’inscription
+## <a name="understanding-registration-status-using-windows-admin-center"></a>Connaître l’état d’une inscription avec Windows Admin Center
 
-Pour connaître l’état de l’inscription, utilisez l’applet de commande PowerShell `Get-AzureStackHCI`, ainsi que les propriétés `ClusterStatus`, `RegistrationStatus` et `ConnectionStatus`. Par exemple, après l’installation du système d’exploitation Azure Stack HCI, avant de créer ou de joindre un cluster, la propriété `ClusterStatus` indique l’état « not yet » (non inscrit) :
+Quand vous vous connectez à un cluster à l’aide de Windows Admin Center, vous voyez le tableau de bord qui affiche l’état de la connexion Azure. **Connecté** signifie que le cluster est déjà inscrit auprès d’Azure et qu’il a été synchronisé avec le cloud dans la journée.
+
+   :::image type="content" source="media/manage-azure-registration/registration-status.png" alt-text="Le tableau de bord Windows Admin Center affiche toujours l’état de la connexion au cluster." lightbox="media/manage-azure-registration/registration-status.png":::
+
+Pour obtenir plus d’informations, sélectionnez **Paramètres** en bas du menu **Outils** situé sur la gauche, puis sélectionnez **Inscription Azure Stack HCI**.
+
+   :::image type="content" source="media/manage-azure-registration/azure-stack-hci-registration.png" alt-text="Pour plus d’informations, sélectionnez Paramètres > Outils > Inscription Azure Stack HCI" lightbox="media/manage-azure-registration/azure-stack-hci-registration.png":::
+
+## <a name="understanding-registration-status-using-powershell"></a>Connaître l’état d’une inscription avec PowerShell
+
+Pour vérifier l’état d’une inscription avec Windows PowerShell, utilisez l’applet de commande PowerShell `Get-AzureStackHCI`, ainsi que les propriétés `ClusterStatus`, `RegistrationStatus` et `ConnectionStatus`. Par exemple, après l’installation du système d’exploitation Azure Stack HCI, avant de créer ou de joindre un cluster, la propriété `ClusterStatus` indique l’état « not yet » (non inscrit) :
 
 :::image type="content" source="media/manage-azure-registration/1-get-azurestackhci.png" alt-text="État de l’inscription Azure avant la création du cluster":::
 
@@ -40,7 +50,7 @@ Si la période maximale est dépassée, `ConnectionStatus` affiche `OutOfPolicy`
 
 En plus de créer une ressource Azure dans votre abonnement, l’inscription d’Azure Stack HCI crée une identité d’application, qui est similaire à un utilisateur d’un point de vue conceptuel, dans votre locataire Azure Active Directory. L’identité de l’application hérite du nom du cluster. Cette identité agit pour le compte du service cloud Azure Stack HCI au sein de votre abonnement, lorsque cela est nécessaire.
 
-Si l’utilisateur qui exécute `Register-AzureStackHCI` est un administrateur Azure Active Directory ou s’il dispose d’autorisations suffisantes, cela se produit automatiquement et aucune action supplémentaire n’est nécessaire. Si ce n’est pas le cas, une approbation peut être nécessaire de la part de votre administrateur Azure Active Directory pour finaliser l’inscription. Votre administrateur peut soit explicitement accorder son consentement à l’application, soit déléguer des autorisations afin que vous puissiez accorder un consentement à l’application :
+Si l’utilisateur qui inscrit le cluster est un administrateur Azure Active Directory ou s’il dispose d’autorisations suffisantes, cela se produit automatiquement et aucune action supplémentaire n’est nécessaire. Si ce n’est pas le cas, une approbation peut être nécessaire de la part de votre administrateur Azure Active Directory pour finaliser l’inscription. Votre administrateur peut soit explicitement accorder son consentement à l’application, soit déléguer des autorisations afin que vous puissiez accorder un consentement à l’application :
 
 :::image type="content" source="media/manage-azure-registration/aad-permissions.png" alt-text="Diagramme des identités et des autorisations Azure Active Directory" border="false":::
 
@@ -66,7 +76,7 @@ https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.Census.Sync
 https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.Billing.Sync
 ```
 
-L’obtention de l’approbation de votre administrateur Azure Active Directory peut prendre un certain temps. Par conséquent, l’applet de commande `Register-AzureStackHCI` s’arrête en laissant l’inscription à l’état « pending admin consent » (en attente du consentement administrateur), autrement dit, l’inscription n’a été effectuée qu’en partie. Une fois le consentement accordé, réexécutez `Register-AzureStackHCI` pour finaliser l’inscription.
+L’obtention de l’approbation de votre administrateur Azure Active Directory peut prendre un certain temps. Par conséquent, l’applet de commande `Register-AzStackHCI` s’arrête en laissant l’inscription à l’état « pending admin consent » (en attente du consentement administrateur), autrement dit, l’inscription n’a été effectuée qu’en partie. Une fois le consentement accordé, réexécutez `Register-AzStackHCI` pour finaliser l’inscription.
 
 ## <a name="azure-active-directory-user-permissions"></a>Autorisations d’utilisateur Azure Active Directory
 
@@ -87,7 +97,7 @@ Cela autorise tout utilisateur à inscrire des applications. Toutefois, l’util
 
 ### <a name="option-2-assign-cloud-application-administration-role"></a>Option n°2 : Affecter un rôle Administration d’application cloud
 
-Affectez le rôle Azure AD intégré « Administration d’application cloud » à l’utilisateur. Cela permet à l’utilisateur d’inscrire des clusters sans avoir besoin d’un consentement d’administrateur AD supplémentaire.
+Affectez le rôle Azure AD intégré « Administration d’application cloud » à l’utilisateur. Cela permet à l’utilisateur d’inscrire et de désinscrire des clusters sans avoir besoin d’un consentement d’administrateur AD supplémentaire.
 
 ### <a name="option-3-create-a-custom-ad-role-and-consent-policy"></a>Option 3 : Créer un rôle AD et une stratégie de consentement personnalisés
 
@@ -147,17 +157,34 @@ L’option la plus restrictive consiste à créer un rôle AD personnalisé ave
 
    6. Attribuez le nouveau rôle AD personnalisé à l’utilisateur qui inscrit le cluster Azure Stack HCI auprès d’Azure en suivant [ces instructions](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=/azure/active-directory/roles/context/ugr-context).
 
-## <a name="unregister-azure-stack-hci-with-azure"></a>Désinscrire Azure Stack HCI avec Azure
+## <a name="unregister-azure-stack-hci-using-windows-admin-center"></a>Désinscrire Azure Stack HCI avec Windows Admin Center
 
-Lorsque vous êtes prêt à désactiver votre cluster Azure Stack HCI, utilisez l’applet de commande `Unregister-AzStackHCI` pour le désinscrire. La désinscription ne vous permet plus d’utiliser les fonctionnalités de supervision, de support et de facturation qui étaient disponibles par le biais d’Azure Arc. La ressource Azure représentant le cluster et l’identité d’application Azure Active Directory sont supprimées. Toutefois, le groupe de ressources ne l’est pas, car il peut contenir d’autres ressources non liées au cluster.
+Si vous souhaitez désactiver votre cluster Azure Stack HCI, connectez-vous au cluster en utilisant Windows Admin Center, puis sélectionnez **Paramètres** en bas du menu **Outils** situé sur la gauche. Ensuite, sélectionnez **Inscription Azure Stack HCI**, puis cliquez sur le bouton **Désinscrire**. Le processus de désinscription nettoie automatiquement la ressource Azure représentant le cluster, le groupe de ressources Azure (si le groupe a été créé lors de l’inscription et ne contient pas d’autres ressources), ainsi que l’identité de l’application Azure AD. La désinscription ne vous permet plus d’utiliser les fonctionnalités de supervision, de support et de facturation qui étaient disponibles par le biais d’Azure Arc.
 
-Si vous exécutez l’applet de commande `Unregister-AzStackHCI` sur un nœud de cluster, utilisez cette syntaxe et spécifiez votre ID d’abonnement Azure, ainsi que le nom de ressource du cluster Azure Stack HCI que vous souhaitez désinscrire :
+   > [!NOTE]
+   > La désinscription d’un cluster Azure Stack HCI ne peut être effectuée que par un administrateur Azure Active Directory ou un autre utilisateur disposant des autorisations suffisantes. Voir [Autorisations d’utilisateur Azure Active Directory](#azure-active-directory-user-permissions).
+
+## <a name="unregister-azure-stack-hci-using-powershell"></a>Désinscrire Azure Stack HCI à l’aide de PowerShell
+
+Vous pouvez également utiliser l’applet de commande `Unregister-AzStackHCI` pour désinscrire un cluster Azure Stack HCI. Vous pouvez exécuter l’applet de commande sur un nœud de cluster ou à partir d’un PC de gestion.
+
+Vous devrez peut-être installer la dernière version du module `Az.StackHCI`. Si l’invite **Voulez-vous vraiment installer les modules à partir de PSGallery ?** s’affiche, sélectionnez **Oui** (O).
+
+```PowerShell
+Install-Module -Name Az.StackHCI
+```
+
+### <a name="unregister-from-a-cluster-node"></a>Effectuer une désinscription à partir d’un nœud de cluster
+
+Si vous exécutez l’applet de commande `Unregister-AzStackHCI` sur un serveur du cluster, utilisez cette syntaxe et spécifiez votre ID d’abonnement Azure, ainsi que le nom de ressource du cluster Azure Stack HCI que vous souhaitez désinscrire :
 
 ```PowerShell
 Unregister-AzStackHCI -SubscriptionId "e569b8af-6ecc-47fd-a7d5-2ac7f23d8bfe" -ResourceName HCI001
 ```
 
 Vous serez invité à visiter microsoft.com/devicelogin sur un autre appareil (comme votre PC ou téléphone), à entrer le code et à vous y connecter pour vous authentifier auprès d’Azure.
+
+### <a name="unregister-from-a-management-pc"></a>Effectuer une désinscription à partir d’un PC de gestion
 
 Si vous exécutez l’applet de commande à partir d’un PC de gestion, vous devez également spécifier le nom d’un serveur dans le cluster :
 
@@ -167,9 +194,14 @@ Unregister-AzStackHCI -ComputerName ClusterNode1 -SubscriptionId "e569b8af-6ecc-
 
 Une fenêtre de connexion Azure interactive s’affichera. Les invites exactes que vous voyez varient en fonction de vos paramètres de sécurité (par exemple, l’authentification à 2 facteurs). Suivez les invites pour vous connecter.
 
+## <a name="cleaning-up-after-a-cluster-that-was-not-properly-unregistered"></a>Effectuer un nettoyage après une désinscription incomplète de cluster
+
+Si un utilisateur détruit un cluster Azure Stack HCI sans le désinscrire, par exemple en recréant une image des serveurs hôtes ou en supprimant des nœuds de clusters virtuels, les artefacts seront conservés dans Azure. Ceux-ci ne seront pas facturés et n’utiliseront pas de ressources, cependant, ils peuvent encombrer le portail Azure. Pour les nettoyer, vous pouvez les supprimer manuellement.
+
+Pour supprimer la ressource Azure Stack HCI, accédez à sa page dans le portail Azure , puis sélectionnez **Supprimer** dans la barre d’action du haut. Tapez le nom de la ressource pour confirmer la suppression, puis sélectionnez **Supprimer**. Pour supprimer l’identité de l’application Azure AD, accédez à **Azure AD**, puis à **Inscriptions des applications**. Vous la trouverez sous **Toutes les applications**. Sélectionnez **Supprimer**, puis confirmez.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour consulter des informations connexes, reportez-vous également à :
 
 - [Connecter Azure Stack HCI à Azure](../deploy/register-with-azure.md)
-- [Superviser Azure Stack HCI avec Azure Monitor](azure-monitor.md)

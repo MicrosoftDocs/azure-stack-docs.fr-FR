@@ -5,13 +5,13 @@ ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
-ms.date: 01/06/2021
-ms.openlocfilehash: 77f1800323f57721d3f6f70050841e4adf0fd4c5
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 01/29/2021
+ms.openlocfilehash: 0d8aa3cc6418c8e64b7a8dc97290757c8be41856
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254736"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227420"
 ---
 # <a name="add-or-remove-servers-for-an-azure-stack-hci-cluster"></a>Ajouter ou supprimer des serveurs pour un cluster Azure Stack HCI
 
@@ -21,7 +21,7 @@ Vous pouvez facilement ajouter ou supprimer des serveurs pour un cluster dans Az
 
 Chaque fois que vous ajoutez ou supprimez un serveur, vous devez aussi effectuer une validation du cluster par la suite pour vérifier que le cluster fonctionne normalement. Cela s’applique aux clusters étendus et non étendus.
 
-## <a name="obtain-oem-hardware"></a>Obtenir du matériel OEM
+## <a name="before-you-begin"></a>Avant de commencer
 
 La première étape consiste à acquérir du nouveau matériel HCI auprès de votre fabricant OEM d’origine. Reportez-vous toujours à la documentation fournie par le fabricant OEM pour ajouter du matériel de serveur en vue de l’utiliser dans votre cluster.
 
@@ -29,11 +29,13 @@ La première étape consiste à acquérir du nouveau matériel HCI auprès de vo
 1. Activez les ports du commutateur physique et ajustez les listes de contrôle d’accès (ACL) et les ID de VLAN le cas échéant.
 1. Configurez l’adresse IP appropriée dans le contrôleur de gestion de la carte de base (BMC) et appliquez tous les paramètres du BIOS conformément aux instructions du fabricant OEM.
 1. Appliquez la base de référence du microprogramme actuel à tous les composants à l’aide des outils fournis par votre fabricant OEM.
-1. Exécutez des tests de validation OEM pour garantir l’homogénéité avec les serveurs de cluster existants.
+1. Exécutez des tests de validation OEM pour garantir l’homogénéité du matériel avec les serveurs de cluster existants.
+1. Installez le système d’exploitation Azure Stack HCI sur le nouveau serveur. Pour obtenir des informations détaillées, consultez [Déployer Azure Stack HCI](../deploy/operating-system.md).
+1. Joignez le serveur au domaine du cluster.
 
 ## <a name="add-a-server-to-a-cluster"></a>Ajouter un serveur à un cluster
 
-Une fois que votre serveur s’est correctement lancé, utilisez Windows Admin Center pour joindre le serveur à votre cluster.
+Utilisez Windows Admin Center pour joindre le serveur à votre cluster.
 
 :::image type="content" source="media/manage-cluster/add-server.png" alt-text="Écran d’ajout d’un serveur" lightbox="media/manage-cluster/add-server.png":::
 

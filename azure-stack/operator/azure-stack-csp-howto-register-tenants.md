@@ -7,12 +7,12 @@ ms.date: 11/17/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 11/17/2020
-ms.openlocfilehash: 81cefb08d6fd0d1fc773221d52393c8a3ae6fddf
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 7db231e1bca513bf3755f8e9c078fb40d00cfa09
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517886"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99533839"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Ajouter un locataire pour l’utilisation et la facturation sur Azure Stack Hub
 
@@ -54,11 +54,11 @@ Mettez à jour votre inscription avec l’abonnement de nouveau client. Azure si
 1. Ouvrez Windows PowerShell dans une invite de commandes avec élévation des privilèges, puis exécutez la commande suivante :  
 
    ```powershell
-   Add-AzAccount
+   Connect-AzAccount
    ```
 
    >[!NOTE]
-   > Si votre session expire, si votre mot de passe a changé ou si vous souhaitez simplement changer de compte, exécutez la cmdlet suivante avant de vous connecter en utilisant **Add-AzAccount** : `Remove-AzAccount-Scope Process`.
+   > Si votre session expire, si votre mot de passe a changé ou si vous souhaitez simplement changer de compte, exécutez l’applet de commande suivante avant de vous connecter en utilisant **Connect-AzAccount** : `Remove-AzAccount-Scope Process`.
 
 2. Entrez vos informations d’identification Azure.
 3. Dans la session PowerShell, exécutez :
@@ -87,7 +87,7 @@ La section suivante décrit les paramètres de la cmdlet **New-AzResource** :
    ```
 
    >[!NOTE]
-   > Si votre session expire, si votre mot de passe a changé ou si vous souhaitez simplement changer de compte, exécutez la cmdlet suivante avant de vous connecter en utilisant **Add-AzAccount** : `Remove-AzAccount-Scope Process`.
+   > Si votre session expire, si votre mot de passe a changé ou si vous souhaitez simplement changer de compte, exécutez l’applet de commande suivante avant de vous connecter en utilisant **Connect-AzAccount** : `Remove-AzAccount-Scope Process`.
 
 2. Entrez vos informations d’identification Azure.
 3. Dans la session PowerShell, exécutez :

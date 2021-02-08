@@ -3,15 +3,15 @@ title: Créer un cluster Azure Stack HCI en utilisant Windows PowerShell
 description: Découvrir comment créer un cluster pour Azure Stack HCI à l’aide de Windows PowerShell
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/01/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 2099d7e9dcd2d01f949d54ad5bd59ce06ecaccbc
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.openlocfilehash: ca2a9448b787a93e297d4bc666a37d81e4d02b28
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772202"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227359"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Créer un cluster Azure Stack HCI en utilisant Windows PowerShell
 
@@ -147,9 +147,11 @@ Cette étape configure différents éléments de mise en réseau, tels que les c
 
 Pour plus d’informations sur la mise en réseau d’hôtes RDMA et Hyper-V pour Azure Stack HCI, consultez [Exigences liées aux réseaux d’hôtes](../concepts/host-network-requirements.md).
 
-### <a name="disable-unused-networks"></a>Désactiver les réseaux inutilisés
+### <a name="disable-unused-network-adapters"></a>Désactiver les cartes réseau inutilisées
 
-Vous devez désactiver les réseaux déconnectés ou non utilisés pour le trafic de gestion, de stockage ou de charge de travail (comme les machines virtuelles). Voici comment identifier les réseaux inutilisés :
+Vous devez désactiver les réseaux déconnectés et les cartes réseau non utilisées pour la gestion, le stockage ou le trafic des charges de travail, comme les machines virtuelles. Cela comprend les cartes réseau utilisées pour la gestion à distance, telles que les contrôleurs de gestion de la carte de base (BMC).
+
+Voici comment identifier les réseaux inutilisés :
 
 ```powershell
 $ServerList = "Server1", "Server2", "Server3", "Server4"

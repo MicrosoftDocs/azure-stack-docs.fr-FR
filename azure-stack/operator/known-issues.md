@@ -3,16 +3,16 @@ title: Problèmes connus d’Azure Stack Hub
 description: Découvrez les problèmes connus des versions d’Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/16/2020
+ms.date: 01/28/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 161869d04e036e5265ebceb5cab9e193091baa37
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: af4187ecf610543c693aff742b1e74b8d5bef84c
+ms.sourcegitcommit: 659114a3fb90c962316eb4cddab53d2d2da35b03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935142"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99065520"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Problèmes connus d’Azure Stack Hub
 
@@ -85,6 +85,18 @@ Pour plus d’informations sur les problèmes connus de mise à jour d’Azure S
 
 - Champ d’application : Ce problème s’applique à toutes les versions prises en charge. 
 - Cause : Lors de l’activation de l’**affinité de session** sur un équilibreur de charge, le hachage à 2 tuples utilise l’adresse IP physique au lieu des adresses IP privées affectées aux machines virtuelles. Dans les scénarios où le trafic dirigé vers l’équilibreur de charge arrive via un VPN, ou si toutes les machines virtuelles clientes (adresses IP sources) se trouvent sur le même nœud et que l’affinité de session est activée, tout le trafic est dirigé vers une seule machine virtuelle back-end.
+- Occurrence : Courant
+
+#### <a name="ipv6-button-visible-in-frontend-ip-configuration"></a>Bouton IPv6 visible dans la configuration d’adresse IP front-end
+
+- Champ d’application : Ce problème s’applique à la version 2008.
+- Cause : Le bouton IPv6 est visible et activé lorsque vous créez une configuration d’IP front-end pour un équilibreur de charge public. Il s’agit d’un problème esthétique du portail. L’IPv6 n’est pas pris en charge dans Azure Stack Hub.
+- Occurrence : Courant
+
+#### <a name="backend-port-and-frontend-port-need-to-be-the-same-when-floating-ip-is-enabled"></a>Le port back-end et le port front-end doivent être identiques lorsque l’IP flottante est activée.
+
+- Champ d’application : Ce problème concerne toutes les versions. 
+- Cause : Le port back-end et le port front-end doivent être identiques dans la règle d’équilibrage de charge lorsque l’IP flottante est activée. C'est la procédure normale.
 - Occurrence : Courant
 
 <!-- ## Compute -->
