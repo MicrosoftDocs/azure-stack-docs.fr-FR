@@ -112,8 +112,8 @@
       items:
         - name: Déployer une infrastructure SDN
           href: manage/sdn-express.md
-        - name: Utiliser le Pare-feu Datacenter
-          href: manage/use-datacenter-firewall.md
+        - name: Utiliser un pare-feu de centre de données avec PowerShell
+          href: manage/use-datacenter-firewall-powershell.md
         - name: Gérer les réseaux logiques de locataire
           href: manage/tenant-logical-networks.md
         - name: Gérer les réseaux virtuels locataires

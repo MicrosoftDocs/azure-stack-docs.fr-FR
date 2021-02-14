@@ -12,6 +12,12 @@
           href: release-notes-security-updates.md
         - name: Notes de publication
           href: release-notes.md
+        - name: Correctifs
+          items:
+            - name: "Correctif\_1.2005.29.100"
+              href: hotfix-1-2005-29-100.md
+            - name: "Correctif\_1.2008.25.114"
+              href: hotfix-1-2008-25-114.md
         - name: Problèmes connus
           href: known-issues.md
 - name: Démarrages rapides
