@@ -528,7 +528,7 @@
                   href: customer-replaceable-unit/power-off-scu.md
                 - name: Remplacer DIMM
                   href: customer-replaceable-unit/replace-dimm.md
-                - name: Remplacer le disque de stockage externe défaillant
+                - name: Remplacer le lecteur de données défaillant
                   href: customer-replaceable-unit/replace-failed-external-storage-disk.md
                 - name: Remplacer le ventilateur de refroidissement
                   href: customer-replaceable-unit/replace-cooling-fan.md
@@ -544,7 +544,7 @@
                   href: customer-replaceable-unit/replace-heater.md
                 - name: Allumer le nœud d’unité d’échelle
                   href: customer-replaceable-unit/power-on-scale-unit-node.md
-                - name: Réparer le nœud d’unité d’échelle
+                - name: Réparer un nœud d’unité d’échelle
                   href: customer-replaceable-unit/repair-scale-unit-node.md
                 - name: Vérifier l’intégrité de l’hôte de cycle de vie du matériel
                   href: customer-replaceable-unit/verify-hardware-lifecycle-host-health.md
@@ -560,8 +560,6 @@
                   href: customer-replaceable-unit/indicators-and-codes.md
                 - name: Accéder à l’interface iDRAC via une connexion USB directe
                   href: customer-replaceable-unit/access-idrac-over-usb-connection.md
-                - name: Installer un microprogramme via l’interface iDRAC
-                  href: customer-replaceable-unit/install-firmware-using-idrac.md
                 - name: Station de travail à accès privilégié et accès aux points de terminaison privilégiés
                   href: customer-replaceable-unit/privileged-access-workstation.md
     - name: Informations de référence
@@ -739,7 +737,7 @@
                           href: ../user/azure-stack-vpn-gateway-about-vpn-gateways.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                         - name: "Configurer des stratégies de connexion\_IPSec/IKE"
                           href: ../user/azure-stack-vpn-s2s.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                    - name: Peering de réseau virtuel
+                    - name: Appairage de réseaux virtuels
                       href: ../user/virtual-network-peering.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Connexion à Azure à l’aide d’ExpressRoute
                       href: ../operator/azure-stack-connect-expressroute.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
