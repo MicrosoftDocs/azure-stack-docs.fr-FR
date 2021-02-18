@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: e11eedc6cade8b3546182d2abf66a0dbb7e1c91a
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: de13461f9ba2b5985b6c6500d59b047fdfc2d2b0
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414212"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562515"
 ---
 # <a name="report-azure-stack-hub-usage-data-to-azure"></a>Signaler les données d'utilisation Azure Stack Hub à Azure
 
@@ -36,12 +36,12 @@ Les données d'utilisation sont envoyées d'Azure Stack Hub à Azure via Azure B
 
 Pour configurer la génération de rapports sur les données d'utilisation, vous devez [inscrire votre instance Azure Stack Hub auprès d'Azure](azure-stack-registration.md). Le composant Azure Bridge d’Azure Stack Hub est configuré dans le cadre du processus d’inscription. Le composant Azure Bridge connecte Azure Stack Hub à Azure. Les données d'utilisation suivantes sont envoyées d'Azure Stack Hub à Azure :
 
-- **ID du compteur**  : ID unique de la ressource consommée.
+- **ID du compteur** : ID unique de la ressource consommée.
 - **Quantité** : quantité d’utilisation des ressources.
-- **Emplacement**  : emplacement où la ressource Azure Stack Hub actuelle est déployée.
-- **URI de ressource**  : URI complet de la ressource pour laquelle l’utilisation est signalée.
-- **ID d'abonnement**  : ID d'abonnement de l'utilisateur Azure Stack Hub, qui est l'abonnement (Azure Stack Hub) local.
-- **Heure**  : heure de début et de fin des données d’utilisation. Il existe un décalage entre le moment où ces ressources sont utilisées dans Azure Stack Hub et celui où les données d'utilisation sont communiquées au commerce. Azure Stack Hub agrège les données d'utilisation toutes les 24 heures, et la communication des données d'utilisation au pipeline Commerce d'Azure prend encore plusieurs heures. Par conséquent, l’utilisation qui se produit peu de temps avant minuit peut s’afficher dans Azure le jour suivant.
+- **Emplacement** : emplacement où la ressource Azure Stack Hub actuelle est déployée.
+- **URI de ressource** : URI complet de la ressource pour laquelle l’utilisation est signalée.
+- **ID d'abonnement** : ID d'abonnement de l'utilisateur Azure Stack Hub, qui est l'abonnement (Azure Stack Hub) local.
+- **Heure** : heure de début et de fin des données d’utilisation. Il existe un décalage entre le moment où ces ressources sont utilisées dans Azure Stack Hub et celui où les données d'utilisation sont communiquées au commerce. Azure Stack Hub agrège les données d'utilisation toutes les 24 heures, et la communication des données d'utilisation au pipeline Commerce d'Azure prend encore plusieurs heures. Par conséquent, l’utilisation qui se produit peu de temps avant minuit peut s’afficher dans Azure le jour suivant.
 
 ## <a name="generate-usage-data-reporting"></a>Générer des rapports de données d’utilisation
 

@@ -267,7 +267,7 @@
             - name: Remplacer le matériel
               items:
                 - name: Actions de nœud
-                  href: ../operator/azure-stack-node-actions.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: operator/azure-stack-node-actions-tzl.md
         - name: Security & Compliance
           items:
             - name: Configurer la sécurité

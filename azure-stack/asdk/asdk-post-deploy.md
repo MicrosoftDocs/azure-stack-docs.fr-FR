@@ -7,12 +7,12 @@ ms.date: 12/03/2020
 ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 12/03/2020
-ms.openlocfilehash: f2e039e2b0934e17a4335753e787c6cdf3808644
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 11e79a4d998f012a58c7f3b0ab8ecb928c861851
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873314"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975858"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>Configurations post-déploiement pour ASDK
 
@@ -197,7 +197,7 @@ En cas d’échec, suivez les étapes de dépannage.
 
 ## <a name="enable-multi-tenancy"></a>Activer l’architecture mutualisée
 
-Pour les déploiements à l’aide d’Azure AD, vous devez [activer la mutualisation](../operator/azure-stack-enable-multitenancy.md#enable-multi-tenancy) pour votre installation d’ASDK.
+Pour les déploiements à l’aide d’Azure AD, vous devez [activer la mutualisation](../operator/azure-stack-enable-multitenancy.md) pour votre installation d’ASDK.
 
 > [!NOTE]
 > Lorsque des comptes d’administrateur ou d’utilisateur de domaines autres que celui utilisé pour inscrire Azure Stack sont utilisés pour se connecter à un portail Azure Stack, le nom de domaine utilisé pour inscrire Azure Stack doit être ajouté à l’URL du portail. Par exemple, si Azure Stack a été inscrit auprès de fabrikam.onmicrosoft.com et que la connexion du compte d’utilisateur est admin@contoso.com, l’URL à utiliser pour se connecter au portail de l’utilisateur est la suivante : https\://portal.local.azurestack.external/fabrikam.onmicrosoft.com.

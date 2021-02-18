@@ -3,16 +3,16 @@ title: Ajouter une image de machine virtuelle personnalisée à Azure Stack Hub
 description: Apprenez à ajouter ou supprimer une image de machine virtuelle personnalisée dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 496d706b6ed930087207b24047d3409f29a53e53
-ms.sourcegitcommit: 8122672409954815e472a5b251bb7319fab8f951
+ms.openlocfilehash: 6b80ea5a25ab83eb5b62842fe1c21e7e698ab51a
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92060121"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850936"
 ---
 # <a name="add-and-remove-a-custom-vm-image-to-azure-stack-hub"></a>Ajouter et supprimer une image de machine virtuelle personnalisée dans Azure Stack Hub
 
@@ -48,13 +48,13 @@ Ajoutez l’image de machine virtuelle en tant qu’opérateur Azure Stack Hub �
 
    [![Ajouter une image de machine virtuelle](./media/azure-stack-add-vm-image/tca4-small.png)](./media/azure-stack-add-vm-image/tca4.png#lightbox)
 
-4. Sous **Créer une image**, entrez l’**éditeur**, l’**offre**, la **référence SKU**, la **version** et l’URI d’objet blob de disque de système d’exploitation. Ensuite, sélectionnez **Créer** pour démarrer la création de l’image de machine virtuelle.
+2. Sous **Créer une image**, entrez l’**éditeur**, l’**offre**, la **référence SKU**, la **version** et l’URI d’objet blob de disque de système d’exploitation. Ensuite, sélectionnez **Créer** pour démarrer la création de l’image de machine virtuelle.
 
    [![IU de chargement indépendant d’image personnalisée](./media/azure-stack-add-vm-image/tca5-small.png)](./media/azure-stack-add-vm-image/tca5.png#lightbox)
 
    Une fois que l’image de machine virtuelle a été créée, son état passe à **Réussi**.
 
-5. Quand vous ajoutez une image, celle-ci est disponible seulement pour des modèles Azure Resource Manager et des déploiements PowerShell. Pour rendre une image disponible pour vos utilisateurs comme élément de Place de marché, publiez cet élément en suivant les étapes de l’article [Créer et publier un élément de Place de marché](azure-stack-create-and-publish-marketplace-item.md). Notez bien les valeurs pour **Éditeur**, **Offre**, **Référence SKU** et **Version**. Vous en aurez besoin pour modifier le modèle Resource Manager et le fichier Manifest.json dans votre fichier .azpkg personnalisé.
+3. Quand vous ajoutez une image, celle-ci est disponible seulement pour des modèles Azure Resource Manager et des déploiements PowerShell. Pour rendre une image disponible pour vos utilisateurs comme élément de Place de marché, publiez cet élément en suivant les étapes de l’article [Créer et publier un élément de Place de marché](azure-stack-create-and-publish-marketplace-item.md). Notez bien les valeurs pour **Éditeur**, **Offre**, **Référence SKU** et **Version**. Vous en aurez besoin pour modifier le modèle Resource Manager et le fichier Manifest.json dans votre fichier .azpkg personnalisé.
 
 ### <a name="powershell"></a>[PowerShell](#tab/image-add-ps)
 

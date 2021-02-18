@@ -16,12 +16,12 @@ ms.date: 10/02/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7d7ba1e7e3b6686002d24df2e286af81ddda5ce7
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 3574c55568db86c96d22d43fdf1bb08ac79c061e
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248614"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009194"
 ---
 # <a name="azure-stack-1808-update"></a>Mise à jour 1808 d’Azure Stack
 
@@ -244,7 +244,7 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
       2. Sous le même abonnement, accédez à **Contrôle d’accès (IAM)** et vérifiez que **Disques managés d’Azure Stack** figure dans la liste.
    2. Si vous avez configuré un environnement multilocataire, le déploiement de machines virtuelles dans un abonnement associé à un annuaire invité peut échouer avec un message d’erreur interne. Pour résoudre cette erreur, effectuez les étapes suivantes :
       1. Appliquez le [correctif 1808 d’Azure Stack](https://support.microsoft.com/help/4465859).
-      2. Effectuez les étapes décrites dans [cet article](../azure-stack-enable-multitenancy.md#register-azure-stack-hub-with-the-guest-directory) pour reconfigurer chacun de vos annuaires invités.
+      2. Effectuez les étapes décrites dans [cet article](../azure-stack-enable-multitenancy.md#register-a-guest-directory) pour reconfigurer chacun de vos annuaires invités.
 
 <!-- 2869209 IS, ASDK --> 
 - Quand vous utilisez [l’applet de commande **Add-AzsPlatformImage**](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0&preserve-view=true), vous devez spécifier le paramètre **-OsUri** comme URI du compte de stockage où le disque est chargé. Si vous utilisez le chemin local du disque, l’applet de commande échoue avec l’erreur suivante : *Échec de l’opération de longue durée avec l’état « Failed »* . 

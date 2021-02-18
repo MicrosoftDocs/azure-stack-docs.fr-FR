@@ -362,6 +362,10 @@
                   href: event-hubs-rp-rotate-secrets.md
                 - name: Annonces de mise à jour du service
                   href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
+            - name: Notes de publication
+              items:
+                - name: "Notes de publication de 1.2012.1.0 [fév\_2021]"
+                  href: event-hubs-rp-release-1-2012-10.md
             - name: Supprimer
               href: event-hubs-rp-remove.md
         - name: IoT Hub sur Azure Stack Hub

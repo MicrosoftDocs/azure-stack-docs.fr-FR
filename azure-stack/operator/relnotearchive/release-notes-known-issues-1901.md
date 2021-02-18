@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: fe321ff69f3ef17f590dd026886e29ed3100d107
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: d3225284c8352771042742f8c8d94e4ae01abe2c
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248630"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009245"
 ---
 # <a name="azure-stack-1901-update"></a>Mise à jour 1901 d’Azure Stack
 
@@ -276,7 +276,7 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
    - Si l’abonnement a été créé avant la mise à jour 1808, le déploiement d’une machine virtuelle avec la fonctionnalité Disques managés peut échouer avec un message d’erreur interne. Pour résoudre cette erreur, effectuez les étapes suivantes pour chaque abonnement :
       1. Dans le portail locataire, accédez à **Abonnements** et recherchez l’abonnement. Sélectionnez **Fournisseurs de ressources**, **Microsoft.Compute**, puis **Réinscrire**.
       2. Sous le même abonnement, accédez à **Access Control (IAM)** et vérifiez qu’**AzureStack-DiskRP-Client** est répertorié.
-   - Si vous avez configuré un environnement multilocataire, le déploiement de machines virtuelles dans un abonnement associé à un annuaire invité peut échouer avec un message d’erreur interne. Pour résoudre le problème, effectuez les étapes décrites dans [cet article](../azure-stack-enable-multitenancy.md#register-azure-stack-hub-with-the-guest-directory) afin de reconfigurer chacun de vos annuaires invités.
+   - Si vous avez configuré un environnement multilocataire, le déploiement de machines virtuelles dans un abonnement associé à un annuaire invité peut échouer avec un message d’erreur interne. Pour résoudre le problème, effectuez les étapes décrites dans [cet article](../azure-stack-enable-multitenancy.md#register-a-guest-directory) afin de reconfigurer chacun de vos annuaires invités.
 
 - Une machine virtuelle 18.04 Ubuntu créée avec une autorisation SSH activée ne vous permet pas d’utiliser les clés SSH pour vous connecter. Pour contourner ce problème, utilisez un accès à la machine virtuelle pour l’extension Linux afin d’implémenter des clés SSH après l’approvisionnement, ou utilisez une authentification par mot de passe.
 

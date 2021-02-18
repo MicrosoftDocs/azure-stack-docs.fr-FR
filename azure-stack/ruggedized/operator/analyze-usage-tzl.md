@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2020
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 07/29/2020
-ms.openlocfilehash: f546c1ad783ded0aa686ebdcb7e08f1427bea91e
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: b3c3f352fbcb6848a2e41f2e9c3f666ba1e3c570
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941046"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562513"
 ---
 # <a name="analyze-azure-stack-usage-with-local-usage-meters"></a>Analyser l'utilisation d'Azure Stack avec des compteurs d'utilisation locaux
 
@@ -34,7 +34,7 @@ La requête obtient les détails de la consommation pour les abonnements demand�
 
 Cette API d’utilisation étant une API de fournisseur, un rôle **Propriétaire**, **Collaborateur** ou **Lecteur** doit être affecté à l’appelant dans l’abonnement du fournisseur.
 
-| Méthode | URI de demande |
+| Méthode | URI de requête |
 | --- | --- |
 | GET |`https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value}` |
 
@@ -118,12 +118,12 @@ Vous pouvez collecter des informations d’utilisation pour les abonnements supp
 
 #### <a name="return-all-tenant-usage-for-deleted-for-active-users"></a>Retourner toute l’utilisation du locataire pour les utilisateurs actifs
 
-| Méthode | URI de demande |
+| Méthode | URI de requête |
 | --- | --- |
 | GET | `https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview` |
 
 #### <a name="return-usage-for-deleted-or-active-tenant"></a>Retourner l’utilisation pour un locataire supprimé ou actif
 
-| Méthode | URI de demande |
+| Méthode | URI de requête |
 | --- | --- |
 | GET |`https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |

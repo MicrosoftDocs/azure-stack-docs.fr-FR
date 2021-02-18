@@ -3,16 +3,16 @@ title: Effacer sur demande les données utilisateur du portail dans Azure Stack 
 description: Découvrez comment effacer les données utilisateur du portail lorsque les utilisateurs Azure Stack Hub en font la demande.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 3821eced3f37902b20f13ee4d918b2ff2ea8aca9
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: f85f5a06699b11d5316a889c045a33376304a0f0
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545089"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975892"
 ---
 # <a name="clear-portal-user-data-from-azure-stack-hub"></a>Effacer les données utilisateur du portail dans Azure Stack Hub
 
@@ -25,7 +25,7 @@ La suppression des paramètres utilisateur du portail doit être effectuée uniq
 > [!NOTE]
 > Une fois que vous aurez suivi les instructions de cet article, certaines données utilisateur peuvent persister dans la section système des journaux des événements. Ces données peuvent persister pendant plusieurs jours, jusqu’à la substitution automatique des journaux.
 
-## <a name="requirements"></a>Spécifications
+## <a name="prerequisites"></a>Prérequis
 
 - [Installez PowerShell pour Azure Stack Hub](powershell-install-az-module.md).
 - [Téléchargez les derniers outils Azure Stack Hub](azure-stack-powershell-download.md) à partir de GitHub.

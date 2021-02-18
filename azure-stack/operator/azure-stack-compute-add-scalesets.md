@@ -3,16 +3,16 @@ title: Rendre les groupes identiques de machines virtuelles disponibles dans Azu
 description: Découvrez comment un opérateur cloud peut ajouter des groupes de machines virtuelles identiques à la Place de marché Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 10/07/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: a69f29a168853a2cb2bc1c757f90185e0b56636e
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: 08655238a3f0cb1212bde455a0f601211e6edc16
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91814992"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850953"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>Rendre les groupes identiques de machines virtuelles disponibles dans Azure Stack Hub
 

@@ -3,16 +3,16 @@ title: Superviser l’intégrité matérielle d’Azure Stack Hub
 description: Découvrez comment superviser l’intégrité des composants matériels d’Azure Stack Hub.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 6eb455dbcf30b1d77818b13d1fc7db6b6b11c6f9
-ms.sourcegitcommit: 62fc0592fdec706ade2b14e685448256ad0b4fe9
+ms.openlocfilehash: 0b1d107d33cb19223018f6d6ac26f11f65d6cc15
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93239561"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975909"
 ---
 # <a name="monitor-azure-stack-hub-hardware-components"></a>Superviser les composants matériels d’Azure Stack Hub
 
@@ -26,7 +26,7 @@ Le système de contrôle d’intégrité et de supervision d’Azure Stack Hub s
 - Lecteurs de démarrage
 
 > [!NOTE]
-> Avant d’activer cette fonctionnalité, vous devez vérifier auprès de votre partenaire fournisseur de matériel qu’ils sont prêts. Votre partenaire matériel fournira également les étapes détaillées permettant d’activer cette fonctionnalité dans le contrôleur de gestion de la carte de base (BMC). Le chiffrement de l’utilisateur dans le contrôleur de gestion de la carte de base doit être défini sur AES pour la build 2005 et les builds ultérieures. 
+> Avant d’activer cette fonctionnalité, vous devez vérifier auprès de votre partenaire fournisseur de matériel qu’ils sont prêts. Votre partenaire matériel fournira également les étapes détaillées permettant d’activer cette fonctionnalité dans le contrôleur de gestion de la carte de base (BMC). Le chiffrement de l’utilisateur dans le contrôleur de gestion de la carte de base doit être défini sur AES pour la build 2005 et les builds ultérieures.
 
 ## <a name="snmp-listener-scenario"></a>Scénario d’écouteur SNMP
 
