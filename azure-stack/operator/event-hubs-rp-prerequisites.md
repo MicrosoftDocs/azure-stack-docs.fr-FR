@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 2b3fcfb0325689de08e77a9fbf599d023ba26a4c
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: b4286074828a0cea911ed6ccd977b6b0690e7eb1
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343511"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562989"
 ---
 # <a name="prerequisites-for-installing-event-hubs-on-azure-stack-hub"></a>Prérequis pour l’installation d’Event Hubs sur Azure Stack Hub
 
@@ -23,7 +23,7 @@ Les prérequis suivants doivent être remplis avant de pouvoir installer Event H
 > Ces prérequis supposent que vous avez déjà déployé au moins un système intégré Azure Stack Hub à 4 nœuds. Le fournisseur de ressources Event Hubs n’est pas pris en charge sur le kit de développement Azure Stack (ASDK).
 
 > [!IMPORTANT]
-> La version de build Azure Stack Hub 2002 ou une version ultérieure est exigée par Event Hubs. Notez que les builds Azure Stack Hub sont incrémentielles. Par exemple, si la version 1910 est installée, vous devez d’abord effectuer la mise à niveau vers [2002](./release-notes.md?view=azs-2002&preserve-view=true#2002-build-reference), puis vers 2005. Autrement dit, vous ne pouvez pas ignorer les builds intermédiaires.
+> Event Hubs requiert la version de build Azure Stack Hub 2005 ou une version ultérieure. Notez que les builds Azure Stack Hub sont incrémentielles. Par exemple, si la version 1910 est installée, vous devez d’abord effectuer la mise à niveau vers [2002](./release-notes.md?view=azs-2002&preserve-view=true#2002-build-reference), puis vers 2005. Autrement dit, vous ne pouvez pas ignorer les builds intermédiaires.
 
 ## <a name="common-prerequisites"></a>Prérequis communs
 

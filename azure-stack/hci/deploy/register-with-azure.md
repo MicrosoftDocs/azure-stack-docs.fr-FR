@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 01/28/2020
-ms.openlocfilehash: 17e8758dfea300f6bc3e02609877dfed8f780383
-ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
+ms.date: 02/10/2020
+ms.openlocfilehash: 3711a0e11bac59f00ce51027ea9544f6858dd297
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050023"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487321"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Connecter Azure Stack HCI à Azure
 
@@ -34,11 +34,11 @@ Vous ne pouvez pas vous inscrire auprès d’Azure tant que vous n’avez pas cr
 Le plus simple est de demander à l’administrateur Azure AD d’effectuer l’inscription à l’aide de Windows Admin Center ou de PowerShell.
 
    > [!IMPORTANT]
-   > Si vous prévoyez d’inscrire le cluster en utilisant Windows Admin Center, vous devez d’abord [inscrire votre passerelle Windows Admin Center](../manage/register-windows-admin-center.md) avec l’ID d’abonnement Azure et l’ID de locataire que vous comptez utiliser pour l’inscription du cluster.
+   > Pour inscrire un cluster Azure Stack HCI à l’aide de Windows Admin Center, vous devez commencer par [inscrire Windows Admin Center auprès d’Azure](../manage/register-windows-admin-center.md) en utilisant l’ID (locataire) Azure Active Directory que vous comptez utiliser pour l’inscription du cluster.
 
 ### <a name="internet-access"></a>Accès à Internet
 
-Azure Stack HCI doit se connecter régulièrement au cloud public Azure. Si la connectivité sortante est limitée par votre pare-feu d’entreprise externe ou votre serveur proxy, ceux-ci doivent être configurés pour autoriser l’accès sortant vers le port 443 (HTTPS) sur un nombre limité d’adresses IP Azure connues. Pour plus d’informations sur la façon de préparer vos pare-feu, consultez [Configurer des pare-feu pour Azure Stack HCI](../concepts/configure-firewalls.md).
+Azure Stack HCI doit se connecter régulièrement au cloud public Azure. Si la connectivité sortante est limitée par votre pare-feu d’entreprise externe ou votre serveur proxy, ceux-ci doivent être configurés pour autoriser l’accès sortant vers le port 443 (HTTPS) sur un nombre limité d’adresses IP Azure connues. Pour plus d’informations sur la façon de préparer vos pare-feu et configurer un serveur proxy, consultez [Configurer des pare-feu pour Azure Stack HCI](../concepts/configure-firewalls.md).
 
    > [!NOTE]
    > Le processus d’inscription tente de contacter PowerShell Gallery pour vérifier que vous disposez de la dernière version des modules PowerShell nécessaires, comme AZ et AzureAD. Même si PowerShell Gallery est hébergé sur Azure, il n’a actuellement pas d’étiquette de service. Si vous ne pouvez pas exécuter l’applet de commande ci-dessus à partir d’un ordinateur de gestion disposant d’un accès Internet sortant, nous vous recommandons de télécharger les modules et de les transférer manuellement vers un nœud de cluster où vous exécuterez la commande `Register-AzStackHCI`. Vous pouvez également [installer les modules dans un scénario déconnecté](/powershell/scripting/gallery/how-to/working-with-local-psrepositories?view=powershell-7.1#installing-powershellget-on-a-disconnected-system).
@@ -106,10 +106,10 @@ Vous devez également disposer d’autorisations Azure Active Directory appropri
 
 Le moyen le plus simple d’inscrire votre cluster Azure Stack HCI consiste à utiliser Windows Admin Center. L’utilisateur doit disposer des [autorisations Azure Active Directory](../manage/manage-azure-registration.md#azure-active-directory-app-permissions). Si ce n’est pas le cas, le processus d’inscription s’interrompra dans l’attente de l’approbation de l’administrateur.
 
-1. Avant de démarrer le processus d’inscription, vous devez d’abord [inscrire votre passerelle Windows Admin Center](../manage/register-windows-admin-center.md) auprès d’Azure, si ce n’est déjà fait.
+1. Avant de démarrer le processus d’inscription, vous devez [inscrire Windows Admin Center auprès d’Azure](../manage/register-windows-admin-center.md) si ce n’est déjà fait.
 
    > [!IMPORTANT]
-   > Lorsque vous inscrivez Windows Admin Center auprès d’Azure, il est important d’utiliser l’ID d’abonnement Azure et l’ID de locataire que vous prévoyez d’utiliser pour l’inscription du cluster. Un ID de locataire Azure AD représente une instance Azure AD qui comprend des comptes et des groupes, tandis qu’un ID d’abonnement Azure représente un contrat d’utilisation des ressources Azure impliquant des frais. Pour connaître votre ID de locataire, rendez-vous sur le site [portal.azure.com](https://portal.azure.com), puis sélectionnez **Azure Active Directory**. Votre ID de locataire s’affichera sous **Informations sur le locataire**. Pour connaître votre ID d’abonnement Azure, accédez à **Abonnements**, puis copiez-collez votre ID à partir de la liste.
+   > Lorsque vous inscrivez Windows Admin Center auprès d’Azure, il est important d’utiliser l’ID (locataire) Azure Active Directory que vous comptez utiliser pour l’inscription du cluster réel. Un ID de locataire Azure AD représente une instance Azure AD qui comprend des comptes et des groupes, tandis qu’un ID d’abonnement Azure représente un contrat d’utilisation des ressources Azure impliquant des frais. Pour connaître votre ID de locataire, rendez-vous sur le site [portal.azure.com](https://portal.azure.com), puis sélectionnez **Azure Active Directory**. Votre ID de locataire s’affichera sous **Informations sur le locataire**. Pour connaître votre ID d’abonnement Azure, accédez à **Abonnements**, puis copiez-collez votre ID à partir de la liste.
 
 2. Ouvrez Windows Admin Center, puis sélectionnez **Paramètres** tout en bas du menu **Outils** situé sur la gauche. Ensuite, sélectionnez **Inscription Azure Stack HCI** en bas du menu **Paramètres**. Si votre cluster n’est pas encore inscrit auprès d’Azure, **État de l’inscription** indiquera **Non inscrit**. Pour continuer, cliquez sur le bouton **Inscrire**.
 

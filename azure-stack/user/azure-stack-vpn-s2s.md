@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/22/2020
 ms.author: sethm
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 27653bcb9cfee29abd4a4587ceee67eb698a93bb
-ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
+ms.openlocfilehash: fe0ff0d81ebf863ff2096675ba113a5416136e8f
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97697630"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009075"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN site à site
 
@@ -75,7 +75,7 @@ Le tableau suivant liste les algorithmes de chiffrement pris en charge et les fo
 | Intégrité IKEv2                                      | SHA384, SHA256, SHA1, MD5                                                |
 | Groupe DH                                             | ECP384, DHGroup14, DHGroup2, DHGroup1, ECP256 *, DHGroup24*             |
 | Chiffrement IPsec                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Aucun |
-| Intégrité IPsec                                      | GCMAES256, GCMAES192, GCMAES128                                          |
+| Intégrité IPsec                                      | GCMAES256, GCMAES192, GCMAES128, SHA256                                         |
 | Groupe PFS                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, PFSMM, Aucun                  |
 | Durée de vie de l’AS en mode rapide                                       | (Facultatif : les valeurs par défaut sont utilisées si rien n’est spécifié)<br />                         Secondes (entier ; min. 300 / 27 000 secondes par défaut)<br />                         Ko (entier ; min. 1 024 / 102 400 000 Ko par défaut) |
 | Sélecteur de trafic                                     | Les sélecteurs de trafic basés sur des stratégies ne sont pas pris en charge dans Azure Stack Hub.         |

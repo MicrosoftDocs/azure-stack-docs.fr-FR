@@ -1,59 +1,58 @@
 ---
 title: Configurer l’architecture multilocataire dans Azure Stack Hub
-description: Découvrez comment activer et désactiver plusieurs locataires Azure Active Directory dans Azure Stack Hub.
+description: Découvrez comment configurer une mutualisation pour des locataires Azure Active Directory invités dans Azure Stack Hub.
 author: BryanLa
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 01/26/2021
 ms.author: bryanla
 ms.reviewer: bryanr
-ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: 923c430291c742069a29806449b45d4fc9cdef07
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 01/26/2021
+ms.openlocfilehash: 3de6c5db42285f90e1d4ce6c1ebf6736d7ce4863
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544222"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975943"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Configurer l’architecture multilocataire dans Azure Stack Hub
 
-Vous pouvez configurer Azure Stack Hub pour prendre en charge l’utilisation des services Azure Stack Hub par les utilisateurs de plusieurs locataires Azure Active Directory (Azure AD). Par exemple, considérez le scénario suivant :
+Vous pouvez configurer Azure Stack Hub afin de prendre en charge les connexions d’utilisateurs résidant dans d’autres annuaires Azure Active Directory (Azure AD), en les autorisant à utiliser les services dans Azure Stack Hub. Ces annuaires ayant une relation « invité » avec votre Azure Stack Hub, ils sont considérés comme des locataires Azure AD invités. Par exemple, considérez le scénario suivant :
 
-- Vous êtes l’administrateur de services de contoso.onmicrosoft.com, où Azure Stack Hub est installé.
-- Marie est l’administrateur de l’annuaire de fabrikam.onmicrosoft.com, où se trouvent les utilisateurs invités.
-- La société de Marie reçoit des services IaaS et PaaS de la part de votre entreprise et doit autoriser les utilisateurs de l’annuaire invité (fabrikam.onmicrosoft.com) à se connecter et à utiliser des ressources Azure Stack Hub dans contoso.onmicrosoft.com.
+- Vous êtes l’administrateur de service de contoso.onmicrosoft.com, le locataire Azure AD de base fournissant des services de gestion des identités et des accès à votre Azure Stack Hub.
+- Marie est l’administratrice d’annuaire de fabrikam.onmicrosoft.com, le locataire Azure AD invité où se trouvent les utilisateurs invités.
+- La société de Mary (Fabrikam) utilise les services IaaS et PaaS de votre entreprise. Fabrikam souhaite autoriser les utilisateurs de l’annuaire invité (fabrikam.onmicrosoft.com) à se connecter et à utiliser les ressources Azure Stack Hub sécurisées par contoso.onmicrosoft.com.
 
-Ce guide fournit les étapes nécessaires, dans le cadre de ce scénario, pour configurer une architecture multilocataire dans Azure Stack Hub. Dans ce scénario, Marie et vous-même devez effectuer des étapes pour permettre aux utilisateurs de Fabrikam de se connecter et d’utiliser les services du déploiement Azure Stack Hub dans Contoso.
+Ce guide décrit les étapes requises dans le cadre de ce scénario afin d’activer ou de désactiver la mutualisation dans Azure Stack Hub pour un locataire d’annuaire invité. Mary et vous accomplissez ce processus en inscrivant ou désinscrivant le locataire d’annuaire invité, ce qui a pour effet d’activer ou de désactiver les connexions Azure Stack Hub et la consommation du service par les utilisateurs de Fabrikam. 
 
 Si vous êtes un fournisseur de solutions cloud (CSP), vous pouvez [configurer et gérer un Azure Stack Hub mutualisé](azure-stack-add-manage-billing-as-a-csp.md). 
 
-## <a name="enable-multi-tenancy"></a>Activer l’architecture mutualisée
+## <a name="prerequisites"></a>Prérequis
 
-Il existe quelques prérequis à prendre en compte avant de configurer une architecture multilocataire Azure Stack Hub :
-  
- - Marie et vous-même devez coordonner les étapes administratives dans l’annuaire où Azure Stack Hub est installé (Contoso) et dans l’annuaire invité (Fabrikam).
- - Vérifiez que vous avez [installé](powershell-install-az-module.md) et [configuré](azure-stack-powershell-configure-admin.md) PowerShell pour Azure Stack Hub.
+Avant d’inscrire ou de désinscrire un annuaire invité, Mary et vous devez suivre des étapes d’administration pour vos locataires Azure AD respectifs : l’annuaire de base Azure Stack Hub (Contoso) et l’annuaire invité (Fabrikam) :
+
+ - [Installez](powershell-install-az-module.md) et [configurez](azure-stack-powershell-configure-admin.md) PowerShell pour Azure Stack Hub.
  - [Téléchargez les outils Azure Stack Hub](azure-stack-powershell-download.md) et importez les modules de connexion et d’identité :
 
     ```powershell
     Import-Module .\Identity\AzureStack.Identity.psm1
     ```
 
-### <a name="configure-azure-stack-hub-directory"></a>Configurer l’annuaire Azure Stack Hub
+## <a name="register-a-guest-directory"></a>Inscrire un annuaire invité
 
-Dans cette section, vous allez configurer Azure Stack Hub pour autoriser les connexions à partir de locataires de l’annuaire Azure AD Fabrikam.
+Pour inscrire un annuaire invité en vue d’une mutualisation, vous devez configurer tant l’annuaire Azure Stack Hub de base que l’annuaire invité.
 
-Intégrez le locataire de l’annuaire invité (Fabrikam) à Azure Stack Hub en configurant Azure Resource Manager de façon à accepter les utilisateurs et les principaux du service du locataire d’annuaire invité.
+#### <a name="configure-azure-stack-hub-directory"></a>Configurer l’annuaire Azure Stack Hub
 
-L’administrateur de services de contoso.onmicrosoft.com exécute les commandes suivantes :
+En tant qu’administrateur de service de contoso.onmicrosoft.com, vous devez commencer par intégrer le locataire d’annuaire invité de Fabrikam à Azure Stack Hub. Le script suivant configure Azure Resource Manager pour accepter les connexions d’utilisateurs et de principaux de service dans le locataire fabrikam.onmicrosoft.com :
 
 ```powershell  
-## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
+## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint, formatted as adminmanagement.<region>.<FQDN>.
 $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
 ## Replace the value below with the Azure Stack Hub directory
 $azureStackDirectoryTenant = "contoso.onmicrosoft.com"
 
-## Replace the value below with the guest tenant directory. 
+## Replace the value below with the guest directory tenant. 
 $guestDirectoryTenantToBeOnboarded = "fabrikam.onmicrosoft.com"
 
 ## Replace the value below with the name of the resource group in which the directory tenant registration resource should be created (resource group must already exist).
@@ -73,19 +72,15 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
  -SubscriptionName $SubscriptionName
 ```
 
-### <a name="configure-guest-directory"></a>Configurer l’annuaire invité
+#### <a name="configure-guest-directory"></a>Configurer l’annuaire invité
 
-Une fois que l’opérateur Azure Stack Hub a activé l’utilisation de l’annuaire Fabrikam avec Azure Stack Hub, Marie doit inscrire Azure Stack Hub auprès du locataire d’annuaire de Fabrikam.
-
-#### <a name="register-azure-stack-hub-with-the-guest-directory"></a>Inscrire Azure Stack Hub auprès de l’annuaire invité
-
-Marie (administratrice de l’annuaire de Fabrikam) exécute les commandes suivantes dans l’annuaire invité fabrikam.onmicrosoft.com :
+Ensuite, Mary (l’administratrice d’annuaire de Fabrikam) doit inscrire Azure Stack Hub auprès de l’annuaire invité fabrikam.onmicrosoft.com en exécutant le script suivant :
 
 ```powershell
-## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
+## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint, formatted as management.<region>.<FQDN>.
 $tenantARMEndpoint = "https://management.local.azurestack.external"
     
-## Replace the value below with the guest tenant directory.
+## Replace the value below with the guest directory tenant.
 $guestDirectoryTenantName = "fabrikam.onmicrosoft.com"
 
 Register-AzSWithMyDirectoryTenant `
@@ -103,21 +98,21 @@ Register-AzSWithMyDirectoryTenant `
 
 ### <a name="direct-users-to-sign-in"></a>Inviter les utilisateurs à se connecter
 
-Maintenant que Marie et vous-même avez effectué les étapes d’intégration de l’annuaire de Marie, celle-ci peut inviter les utilisateurs de Fabrikam à se connecter. Les utilisateurs de Fabrikam (ceux avec le suffixe fabrikam.onmicrosoft.com) se connectent en accédant à https\://portal.local.azurestack.external.
+Enfin, Mary peut inviter les utilisateurs Fabrikam disposant de comptes @fabrikam.onmicrosoft.com à se connecter en visitant le [portail utilisateur Azure Stack Hub](../user/azure-stack-use-portal.md). Pour les systèmes à plusieurs nœuds, l’URL du portail utilisateur est au format `https://management.<region>.<FQDN>`. Pour un déploiement d’ASDK, l’URL est `https://portal.local.azurestack.external`.
 
-Marie invitera les [principaux étrangers](/azure/role-based-access-control/rbac-and-directory-admin-roles) dans l’annuaire Fabrikam (les utilisateurs dans l’annuaire Fabrikam sans le suffixe fabrikam.onmicrosoft.com) à se connecter à l’aide de https\://portal.local.azurestack.external/fabrikam.onmicrosoft.com. S’ils n’utilisent pas cette URL, ils sont dirigés vers leur annuaire par défaut (Fabrikam) et reçoivent une erreur indiquant que leur administrateur n’a pas donné son consentement.
+Marie doit également inviter les principaux étrangers (utilisateurs dans l’annuaire de Fabrikam sans le suffixe fabrikam.onmicrosoft.com) à se connecter à l’aide de `https://<user-portal-url>/fabrikam.onmicrosoft.com`. S’ils ne spécifient pas l’annuaire de locataire `/fabrikam.onmicrosoft.com` dans l’URL, ils sont dirigés vers l’annuaire par défaut et reçoivent une erreur indiquant que leur administrateur n’a pas donné son consentement.
 
-## <a name="disable-multi-tenancy"></a>Désactiver la mutualisation
+## <a name="unregister-a-guest-directory"></a>Désinscrire un annuaire invité
 
-Si vous ne souhaitez plus bénéficier de la mutualisation dans Azure Stack Hub, vous pouvez la désactiver en suivant les étapes suivantes dans l’ordre :
+Si vous ne souhaitez plus autoriser les connexions aux services Azure Stack Hub à partir d’un locataire d’annuaire invité, vous pouvez désinscrire l’annuaire. Une fois encore, tant l’annuaire Azure Stack Hub de base que l’annuaire invité doivent être configurés :
 
-1. En tant qu’administrateur de l’annuaire invité (Mary dans ce scénario), exécutez *Unregister-AzsWithMyDirectoryTenant*. L’applet de commande désinstalle toutes les applications Azure Stack Hub du nouvel annuaire.
+1. En tant qu’administrateur de l’annuaire invité (Mary dans ce scénario), exécutez `Unregister-AzsWithMyDirectoryTenant`. L’applet de commande désinstalle toutes les applications Azure Stack Hub du nouvel annuaire.
 
     ``` PowerShell
-    ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
+    ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint, formatted as management.<region>.<FQDN>.
     $tenantARMEndpoint = "https://management.local.azurestack.external"
         
-    ## Replace the value below with the guest tenant directory.
+    ## Replace the value below with the guest directory tenant.
     $guestDirectoryTenantName = "fabrikam.onmicrosoft.com"
     
     Unregister-AzsWithMyDirectoryTenant `
@@ -126,19 +121,19 @@ Si vous ne souhaitez plus bénéficier de la mutualisation dans Azure Stack Hub,
      -Verbose 
     ```
 
-2. En tant qu’administrateur de service d’Azure Stack Hub (vous dans ce scénario), exécutez *Unregister-AzSGuestDirectoryTenant*.
+2. En tant qu’administrateur de service d’Azure Stack Hub (vous dans ce scénario), exécutez l’applet de commande `Unregister-AzSGuestDirectoryTenant` :
 
     ``` PowerShell
-    ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
+    ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint, formatted as adminmanagement.<region>.<FQDN>.
     $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
     
     ## Replace the value below with the Azure Stack Hub directory
     $azureStackDirectoryTenant = "contoso.onmicrosoft.com"
     
-    ## Replace the value below with the guest tenant directory. 
+    ## Replace the value below with the guest directory tenant. 
     $guestDirectoryTenantToBeDecommissioned = "fabrikam.onmicrosoft.com"
     
-    ## Replace the value below with the name of the resource group in which the directory tenant registration resource should be created (resource group must already exist).
+    ## Replace the value below with the name of the resource group in which the directory tenant resource was created (resource group must already exist).
     $ResourceGroupName = "system.local"
     
     Unregister-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint `
@@ -167,16 +162,16 @@ Write-Host "Unhealthy directories: "
 $healthReport.directoryTenants | Where status -NE 'Healthy' | Select -Property tenantName,tenantId,status | ft
 ```
 
-### <a name="update-azure-ad-tenant-permissions"></a>Mettre à jour les autorisations de locataire Azure AD
+## <a name="update-azure-ad-tenant-permissions"></a>Mettre à jour les autorisations de locataire Azure AD
 
-Cette action désactivera l'alerte dans Azure Stack Hub, indiquant qu'un annuaire a besoin d'une mise à jour. Exécutez la commande suivante à partir du dossier **Azurestack-tools-master/identity**  :
+Cette action a pour effet de supprimer une alerte dans Azure Stack Hub, indiquant qu’un annuaire a besoin d’une mise à jour. Exécutez la commande suivante à partir du dossier **Azurestack-tools-master/identity** :
 
 ```powershell
 Import-Module ..\Identity\AzureStack.Identity.psm1
 
 $adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
 
-# This is the primary tenant Azure Stack is registered to:
+# This is the primary tenant Azure Stack Hub is registered to:
 $homeDirectoryTenantName = "<homeDirectoryTenant>.onmicrosoft.com"
 
 Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManagerEndpoint `

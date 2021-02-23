@@ -1,18 +1,18 @@
 ---
 title: Allumer le nœud d’unité d’échelle
-description: Découvrez comment mettre sous tension un nœud d’unité d’échelle.
+description: Découvrez comment mettre sous tension un nœud d’unité d’échelle
 author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 8eaf2442187d18f0fadee316f629686ab25b4780
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 48df8bda75ef7438e2fe86f0d05f8b170167c441
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910701"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488001"
 ---
 # <a name="powering-on-a-scale-unit-node"></a>Mise sous tension d’un nœud d’unité d’échelle
 

@@ -3,16 +3,16 @@ title: Remplacer un module DIMM
 description: Découvrez comment remplacer un module DIMM.
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 3665ac12c42cac7a87ae9c69f4fc450b4f76cf3d
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: f20cdf77cb5ed3b63bcbd9b57770039efb6d29e5
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867823"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487933"
 ---
 # <a name="replacing-a-dimm"></a>Remplacement d’un module DIMM
 
@@ -26,13 +26,13 @@ Appliquez la procédure suivante pour ajouter ou remplacer un module DIMM.
 
 3.  Révision
 
-    -   Connaissances requises pour l’utilisation des nœuds d’unité d’échelle dans une appliance cloud tactique si vous utilisez un nœud d’unité d’échelle
+    -   Connaissances requises pour l’utilisation de nœuds d’unité d’échelle dans une appliance cloud renforcée si vous utilisez un nœud d’unité d’échelle
 
     -   Connaissances requises pour l’utilisation de l’hôte de cycle de vie du matériel si vous utilisez l’hôte de cycle de vie du matériel
 
 4.  Terminé
 
-    -   Vérification de l’accès et de l’intégrité des nœuds d’unité d’échelle si vous utilisez un nœud d’unité d’échelle
+    -   Vérification de l’accès et de l’intégrité du nœud d’unité d’échelle si vous en utilisez un
 
     -   Vérification de l’intégrité et l’accès de l’hôte de cycle de vie du matériel si vous utilisez l’hôte de cycle de vie du matériel
 
@@ -53,7 +53,7 @@ Appliquez la procédure suivante pour ajouter ou remplacer un module DIMM.
     
 3.  Remplacez le ou les modules DIMM.
 
-    Suivez le processus de remplacement de module de mémoire indiqué dans [Dell EMC PowerEdge R640 Manuel d’installation et de maintenance](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) pour les nœuds d’unité d’échelle ou les hôtes de cycle de vie du matériel.
+    Suivez le [processus de remplacement de module mémoire](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) pour les nœuds d’unité d’échelle ou les hôtes de cycle de vie du matériel.
     
 4.  Mettez le nœud sous tension.
 

@@ -1,22 +1,22 @@
 ---
-title: Gérer l’inscription Azure pour Azure Stack HCI
-description: Gérer votre inscription Azure pour Azure Stack HCI, connaître l’état de l’inscription et désinscrire votre cluster lorsque vous souhaitez le désactiver.
+title: Gérer l’inscription de clusters Azure Stack HCI auprès d’Azure
+description: Comment gérer votre inscription Azure pour des clusters Azure Stack HCI, connaître l’état de l’inscription et désinscrire un cluster lorsque vous souhaitez le désactiver.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/28/2021
-ms.openlocfilehash: a187730ed43c6c4a57bbe2d1f81d39085d8b94a1
-ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
+ms.date: 02/10/2021
+ms.openlocfilehash: 7128ddae1a1b67e0085806ecd988f475c9bf8708
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050091"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487457"
 ---
-# <a name="manage-azure-registration"></a>Gérer une inscription Azure
+# <a name="manage-cluster-registration-with-azure"></a>Gérer l’inscription de clusters avec Azure
 
 > S’applique à Azure Stack HCI v20H2
 
-Une fois que vous avez créé un cluster Azure Stack HCI, vous devez [inscrire le cluster auprès d’Azure Arc](../deploy/register-with-azure.md). Une fois le cluster inscrit, les informations sont régulièrement synchronisées entre le cluster local et le cloud. Cette rubrique explique comment connaître l’état de votre inscription, octroyer des autorisations Azure Active Directory et désinscrire votre cluster quand vous êtes prêt à le désaffecter.
+Une fois que vous avez créé un cluster Azure Stack HCI, vous devez [inscrire Windows Admin Center auprès d’Azure](register-windows-admin-center.md), puis [inscrire le cluster auprès d’Azure](../deploy/register-with-azure.md). Une fois le cluster inscrit, les informations sont régulièrement synchronisées entre le cluster local et le cloud. Cette rubrique explique comment connaître l’état de votre inscription, octroyer des autorisations Azure Active Directory et désinscrire votre cluster quand vous êtes prêt à le désaffecter.
 
 ## <a name="understanding-registration-status-using-windows-admin-center"></a>Connaître l’état d’une inscription avec Windows Admin Center
 
@@ -162,7 +162,7 @@ L’option la plus restrictive consiste à créer un rôle AD personnalisé ave
 Si vous souhaitez désactiver votre cluster Azure Stack HCI, connectez-vous au cluster en utilisant Windows Admin Center, puis sélectionnez **Paramètres** en bas du menu **Outils** situé sur la gauche. Ensuite, sélectionnez **Inscription Azure Stack HCI**, puis cliquez sur le bouton **Désinscrire**. Le processus de désinscription nettoie automatiquement la ressource Azure représentant le cluster, le groupe de ressources Azure (si le groupe a été créé lors de l’inscription et ne contient pas d’autres ressources), ainsi que l’identité de l’application Azure AD. La désinscription ne vous permet plus d’utiliser les fonctionnalités de supervision, de support et de facturation qui étaient disponibles par le biais d’Azure Arc.
 
    > [!NOTE]
-   > La désinscription d’un cluster Azure Stack HCI ne peut être effectuée que par un administrateur Azure Active Directory ou un autre utilisateur disposant des autorisations suffisantes. Voir [Autorisations d’utilisateur Azure Active Directory](#azure-active-directory-user-permissions).
+   > La désinscription d’un cluster Azure Stack HCI ne peut être effectuée que par un administrateur Azure Active Directory ou un autre utilisateur disposant des autorisations suffisantes. Voir [Autorisations d’utilisateur Azure Active Directory](#azure-active-directory-user-permissions). Si votre passerelle Windows Admin Center est inscrite auprès d’un autre ID (locataire) Azure Active Directory que celui utilisé pour l’inscription initiale du cluster, vous risquez de rencontrer des problèmes en tentant de désinscrire le cluster à l’aide de Windows Admin Center. Si cela se produit, suivez les instructions PowerShell ci-dessous.
 
 ## <a name="unregister-azure-stack-hci-using-powershell"></a>Désinscrire Azure Stack HCI à l’aide de PowerShell
 
@@ -200,8 +200,27 @@ Si un utilisateur détruit un cluster Azure Stack HCI sans le désinscrire, par 
 
 Pour supprimer la ressource Azure Stack HCI, accédez à sa page dans le portail Azure , puis sélectionnez **Supprimer** dans la barre d’action du haut. Tapez le nom de la ressource pour confirmer la suppression, puis sélectionnez **Supprimer**. Pour supprimer l’identité de l’application Azure AD, accédez à **Azure AD**, puis à **Inscriptions des applications**. Vous la trouverez sous **Toutes les applications**. Sélectionnez **Supprimer**, puis confirmez.
 
+Vous pouvez également supprimer la ressource Azure Stack HCI à l’aide de PowerShell :
+
+```PowerShell
+Remove-AzResource -ResourceId "HCI001"
+```
+
+Il se peut que vous deviez installer le module `Az.Resources` :
+
+```PowerShell
+Install-Module -Name Az.Resources
+```
+
+Si le groupe de ressources a été créé lors de l’inscription et ne contient pas d’autres ressources, vous pouvez également le supprimer :
+
+```PowerShell
+Remove-AzResourceGroup -Name "HCI001-rg"
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour consulter des informations connexes, reportez-vous également à :
 
+- [Inscrire Windows Admin Center avec Azure](register-windows-admin-center.md)
 - [Connecter Azure Stack HCI à Azure](../deploy/register-with-azure.md)

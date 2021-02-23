@@ -3,16 +3,16 @@ title: Remplacer un ventilateur de refroidissement
 description: Découvrez comment remplacer un ventilateur de refroidissement.
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 418501e5ee6e2f14536ace5ea61f172d2736a31a
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 34437eea94b328d729f838aaf5050c7efee16e7f
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874504"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488086"
 ---
 # <a name="replacing-a-cooling-fan"></a>Remplacement d’un ventilateur de refroidissement
 
@@ -26,13 +26,13 @@ Appliquez la procédure suivante pour remplacer un ou plusieurs ventilateurs de 
 
 3.  Révision
 
-    -   Connaissances requises dans l’utilisation des nœuds d’unité d’échelle dans une appliance cloud tactique
+    -   Connaissances requises pour l’utilisation de nœuds d’unité d’échelle dans un Azure Stack Hub renforcé
 
     -   Connaissances requises dans l’utilisation de l’hôte de cycle de vie du matériel en page 5 si vous utilisez l’hôte de cycle de vie du matériel
 
 4.  Terminé
 
-    -   Vérification de l’accès et de l’intégrité des nœuds d’unité d’échelle si vous utilisez un nœud d’unité d’échelle
+    -   Vérification de l’accès et de l’intégrité du nœud d’unité d’échelle si vous en utilisez un
 
     -   Vérification de l’intégrité et l’accès de l’hôte de cycle de vie du matériel si vous utilisez l’hôte de cycle de vie du matériel
 
@@ -53,7 +53,7 @@ Appliquez la procédure suivante pour remplacer un ou plusieurs ventilateurs de 
     
 3.  Remplacez le ou les ventilateurs.
 
-    Suivez le processus de remplacement de ventilateur indiqué dans [Dell EMC PowerEdge R640 Manuel d’installation et de maintenance](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) pour les nœuds d’unité d’échelle ou les hôtes de cycle de vie du matériel.
+    Suivez le [processus de remplacement de ventilateur](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) pour les nœuds d’unité d’échelle ou les hôtes de cycle de vie du matériel.
     
 4.  Mettez le nœud sous tension.
 

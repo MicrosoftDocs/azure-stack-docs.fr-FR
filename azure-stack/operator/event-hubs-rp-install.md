@@ -9,16 +9,16 @@ ms.date: 09/02/2020
 ms.reviewer: jfggdl
 ms.lastreviewed: 09/02/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 975ab63a6af9f895f01d4607f998bca9fc52cebf
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: 7f20866236099dadc7e6ca3e3c201572f51069ca
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343816"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562491"
 ---
 # <a name="how-to-install-event-hubs-on-azure-stack-hub"></a>Guide pratique pour installer Event Hubs sur Azure Stack Hub
 
-Cet article vous montre comment télécharger et installer le fournisseur de ressources Event Hubs afin de pouvoir l’offrir aux clients dans le cadre de l’abonnement.
+Cet article vous montre comment télécharger et installer le fournisseur de ressources Event Hubs afin de pouvoir l’offrir aux clients dans le cadre de l’abonnement. Avant de continuer, vous devez également respecter les [Conditions préalables à l’installation d’Event Hubs](event-hubs-rp-prerequisites.md).
 
 ## <a name="download-packages"></a>Télécharger des packages
 

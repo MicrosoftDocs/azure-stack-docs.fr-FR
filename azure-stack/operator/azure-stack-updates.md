@@ -3,16 +3,16 @@ title: Gérer les mises à jour
 description: Découvrez comment gérer les mises à jour dans Azure Stack Hub
 author: sethmanheim
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.lastreviewed: 07/16/2020
 ms.reviewer: niy
-ms.openlocfilehash: e769999ce24e1571b93c94a707c62df757460705
-ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
+ms.openlocfilehash: 163485eddb18f0fdc1400aa61fee6b944c397cbf
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91367221"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850863"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Gérer les mises à jour dans Azure Stack Hub
 
@@ -33,7 +33,7 @@ Il existe trois types de packages de mises à jour pour les systèmes intégrés
 
     Les packages de mise à jour **Express** ont une étendue limitée et ne mettent pas à jour les systèmes d’exploitation hôtes physiques sous-jacents.
 
-- **Correctifs logiciels Azure Stack Hub**. Microsoft fournit des [correctifs logiciels pour Azure Stack Hub](azure-stack-servicing-policy.md#hotfixes) destinés à résoudre un problème spécifique, souvent à titre préventif ou en réponse à une situation d’urgence. Chaque correctif est publié en même temps que son article correspondant dans la Base de connaissances Microsoft, où sont détaillés le problème, la cause et la résolution. Vous téléchargez et installez des correctifs logiciels comme des packages de mises à jour complets pour Azure Stack Hub. Les correctifs sont cumulatifs et peuvent être installés en quelques minutes.
+- **Correctifs logiciels Azure Stack Hub**. Microsoft fournit des [correctifs logiciels pour Azure Stack Hub](azure-stack-servicing-policy.md#hotfixes) destinés à résoudre un problème spécifique, souvent à titre préventif ou en réponse à une situation d’urgence. Chaque correctif est publié en même temps que son article correspondant dans la Base de connaissances Microsoft, détaillant les correctifs que contient ce package. Vous téléchargez et installez des correctifs logiciels comme des packages de mises à jour complets pour Azure Stack Hub. Les correctifs sont cumulatifs et peuvent être installés en quelques minutes.
 
    À partir de la build 2005, lorsque vous mettez à jour vers une nouvelle version principale (par exemple, 1.2002.x vers 1.2005.x), les derniers correctifs (le cas échéant) de la nouvelle version principale sont installés automatiquement. À partir de là, si un correctif est mis en production pour votre build, vous devez l’installer.
 
@@ -45,7 +45,7 @@ Les trois types de mises à jour sont publiés à la cadence suivante :
 
 - **Mises à jour logicielles Azure Stack Hub**. Microsoft publie plusieurs packages de mises à jour logicielles complets et rapides par an.
 
-- **Correctifs logiciels Azure Stack Hub**. Les correctifs sont des versions urgentes qui peuvent être publiées à tout moment. Si vous effectuez une mise à niveau d’une version principale à une autre, (par exemple, 1.2002.x vers 1.2005.x), les derniers correctifs (le cas échéant) de la nouvelle version principale sont installés automatiquement.
+- **Correctifs logiciels Azure Stack Hub**. Les correctifs sont des versions urgentes qui peuvent être publiées à tout moment. Si vous effectuez une mise à niveau d’une version majeure vers une autre (par exemple, de 1.2002.x vers 1.2005.x), les derniers correctifs éventuellement publiés pour cette nouvelle version majeure sont installés automatiquement.
 
 - **Mises à jour fournies par le fabricant de matériel OEM**. Les fabricants de matériel OEM publient leurs mises à jour en fonction des besoins.
 
@@ -59,11 +59,11 @@ La notification des mises à jour dépend de plusieurs facteurs, comme votre con
 
     Une alerte pour les mises à jour et les correctifs logiciels Microsoft s’affiche dans le panneau **Mise à jour** pour les instances Azure Stack Hub connectées à Internet. Si le panneau **Mettre à jour** n’est pas affiché, redémarrez la machine virtuelle du contrôleur de gestion de l’infrastructure.
 
-    Si votre instance n’est pas connectée et que vous souhaitez être notifié chaque fois qu’un correctif logiciel est publié, abonnez-vous au flux [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) ou [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom).
+    Si votre instance n’est pas connectée et si vous souhaitez être notifié chaque fois qu’un correctif logiciel est publié, abonnez-vous au [flux RSS](https://azurestackhubdocs.azurewebsites.net/xml/hotfixes.rss).
 
 - **Mises à jour fournies par le fabricant de matériel OEM**
 
-    Les mises à jour OEM dépendent du fabricant. Vous devez établir un canal de communication avec votre OEM afin de savoir quand des mises à jour de votre OEM doivent être appliquées. Pour plus d’informations sur les OEM et le processus de mise à jour OEM, voir [Appliquer des mises à jour de fabricants de matériel (OEM) à Azure Stack Hub](azure-stack-update-oem.md).
+    Les mises à jour OEM dépendent du fabricant. Vous devez établir un canal de communication avec votre OEM afin d’être informé quand des mises à jour de votre OEM doivent être appliquées. Pour plus d’informations sur les OEM et le processus de mise à jour OEM, voir [Appliquer des mises à jour de fabricants de matériel (OEM) à Azure Stack Hub](azure-stack-update-oem.md).
 
 ### <a name="major-version-to-major-version"></a>Version principale vers version principale
 

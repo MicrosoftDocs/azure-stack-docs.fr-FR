@@ -3,22 +3,22 @@ title: Envoi de demandes API à Azure Stack Hub
 description: Découvrez comment récupérer une authentification d’Azure pour effectuer des requêtes d’API auprès d’Azure Stack Hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 70a1a6e1d2fb4eb6766948a4e02d5072f4e04281
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: c48eb869ded6be5f2c05171edf4d0cc6a88945ca
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623317"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975841"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
 # <a name="make-api-requests-to-azure-stack-hub"></a>Envoi de demandes API à Azure Stack Hub
 
-Vous pouvez utiliser les API REST Azure Stack Hub pour automatiser des opérations comme l’ajout d’une machine virtuelle à votre cloud Azure Stack Hub.
+Vous pouvez utiliser les API REST Azure Stack Hub pour automatiser des opérations telles que l’ajout d’une machine virtuelle à votre cloud Azure Stack Hub.
 
 Les API demandent à votre client de s’authentifier auprès du point de terminaison de connexion Microsoft Azure. Le point de terminaison retourne un jeton à utiliser dans l’en-tête de chaque requête envoyée aux API Azure Stack Hub. Microsoft Azure utilise Oauth 2.0.
 
@@ -212,4 +212,4 @@ https://adminmanagement.local.azurestack.external/subscriptions/800c4168-3eb1-40
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’utilisation des points de terminaison Azure REST, consultez [Informations de référence sur les API REST Azure](/rest/api/).
+Pour plus d’informations sur l’utilisation des points de terminaison REST Azure, consultez [Informations de référence sur les API REST Azure](/rest/api/).

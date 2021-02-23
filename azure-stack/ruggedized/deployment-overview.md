@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2020
+ms.date: 02/17/2021
 ms.author: patricka
 ms.reviewer: asganesh
-ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: e6fccf96e44a481a0e1e0c5bb300ec238937f86b
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.lastreviewed: 02/17/2021
+ms.openlocfilehash: 4d61fc75cd7db67f113369981fe0fa4742178dd5
+ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98256181"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100648063"
 ---
 # <a name="azure-stack-hub-ruggedized-deployment-overview"></a>Vue d’ensemble du déploiement d’Azure Stack Hub renforcé
 
@@ -63,31 +63,36 @@ Le tableau suivant répertorie certains des termes utilisés dans ce guide.
 |Pod    |Dans le contexte d’Azure Stack Hub renforcé, un pod est un conteneur physique robuste conçu pour être transporté par deux personnes. Il contient des supports de montage en rack et des amortisseurs pour protéger le matériel Azure Stack Hub renforcé des contraintes physiques liées à l’environnement. Il comprend des panneaux avant et arrière de protection du boîtier de transport, qui peuvent être installées et scellées pour permettre le transport du matériel. Une solution complète en configuration minimale comprend trois pods.|
 
 
-## <a name="deployment-overflow"></a>Dépassement du déploiement
+## <a name="deployment-workflow"></a>Workflow du déploiement
 
-De manière générale, le processus de déploiement d’Azure Stack Hub renforcé comprend les étapes suivantes.
+De manière générale, le processus de déploiement de MDC comprend les phases décrites dans les sections suivantes.
 
-1. Phase de planification :
-   1. Planification de l’alimentation électrique et du refroidissement du centre de données.
-   1. Planification de la configuration du réseau logique d’Azure Stack Hub.
-   1. Planification de l’intégration du réseau du centre de données.
-   1. Planification de l’intégration des identités et de la sécurité.
-   1. Vérification des certificats PKI.
-1. Phase de préparation :
-   1. Déballage et collecte de l’inventaire.
-   1. Connexion de l’alimentation et mise sous tension de la solution.
-   1. Validation de l'intégrité du matériel physique.
-1. Phase d’exécution :
-   1. Configuration de l’hôte du cycle de vie du matériel.
-   1. Configuration des commutateurs réseau.
-   1. Intégration du réseau du centre de données.
-   1. Configuration des paramètres matériels physiques.
-   1. Déploiement de l’infrastructure de la structure Azure Stack Hub.
-   1. Intégration des identités au centre de données.
-   1. Installation des modules complémentaires pour les fonctionnalités étendues.
-1. Phase de validation :
-   1. Validation de l’intégrité après le déploiement.
-   1. Inscription d’Azure Stack Hub auprès de Microsoft.
-   1. Transfert des opérateurs Azure Stack Hub.
-   
-Chacun des sujets ci-dessus est expliqué en détail dans ce guide.
+### <a name="planning-phase"></a>Phase de planification
+1. Planification de la puissance du centre de données.
+1. Planification de la configuration du réseau logique d’Azure Stack Hub.
+1. Planification de l’[intégration du réseau du centre de données](../operator/azure-stack-network.md).
+1. Planification de l’intégration de l’[identité](../operator/azure-stack-identity-overview.md).
+1. Planification de l’intégration de la [sécurité](../operator/azure-stack-security-foundations.md).
+1. Planification des [certificats PKI](../operator/azure-stack-pki-certs.md).
+
+### <a name="preparation-phase"></a>Phase de préparation
+1. Collecte d'inventaire.
+1. Connexion de l’alimentation et mise sous tension de la solution.
+1. Validation de l’intégrité du système HVAC.
+1. Validation de l’intégrité du système de surveillance et d’alerte des incendies.
+1. Validation de l'intégrité du matériel physique.
+
+### <a name="execution-phase--separately-for-each-of-the-three-pods"></a>Phase d’exécution (séparément pour chacun des trois pods)
+1. Configuration de l’hôte du cycle de vie du matériel.
+1. Configuration des commutateurs réseau.
+1. Intégration du réseau du centre de données.
+1. Configuration des paramètres matériels physiques.
+1. Configuration du stockage Isilon.
+1. Déploiement de l’infrastructure de la structure Azure Stack Hub.
+1. Intégration des identités au centre de données.
+1. Installation des modules complémentaires pour les fonctionnalités étendues.
+
+### <a name="validation-phase--separately-for-each-of-the-three-pods"></a>Phase de validation (séparément pour chacun des trois pods)
+1. Validation de l’intégrité après le déploiement.
+1. Inscription d’Azure Stack Hub auprès de Microsoft.
+1. Transfert des clients Azure Stack Hub.

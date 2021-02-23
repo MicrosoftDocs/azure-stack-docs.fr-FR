@@ -5,15 +5,15 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: reference
-ms.date: 2/1/2021
+ms.date: 2/8/2021
 ms.reviewer: kivenkat
-ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 84c218c36b370c5b0be2cbe415ae3f3f10a6397f
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: /8/2021
+ms.openlocfilehash: 7091ebff9fae07b1e5eb97f54a33889bc73eda7b
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247096"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009228"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Machine virtuelle du processeur graphique (GPU) sur Azure Stack Hub
 
@@ -26,11 +26,17 @@ Vous pouvez choisir parmi trois modèles GPU dans la période de préversion pub
 - [NVv4 (AMD MI25)](/azure/virtual-machines/nvv4-series)
 - [NCasT4_v3](/azure/virtual-machines/nct4-v3-series)
 
+::: moniker range=">=azs-2005"
 > [!IMPORTANT]  
-> Le support GPU Azure Stack Hub est actuellement disponible en préversion publique. Pour participer à la préversion, remplissez le formulaire sur [aka.ms/azurestackhubgpupreview](https://aka.ms/azurestackhubgpupreview).
+> La prise en charge du GPU Azure Stack Hub est en préversion publique pour les mises en production 2005 et 2008 d’Azure Stack Hub.  
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+::: moniker-end
 
+::: moniker range="<=azs-2002"
+> [!WARNING]  
+> Les machines virtuelles GPU ne sont pas prises en charge dans cette mise en production. Vous devez effectuer une mise à niveau vers Azure Stack Hub 2005 ou une version ultérieure. En outre, votre matériel Azure Stack Hub doit avoir des GPU physiques.
+::: moniker-end
 ## <a name="ncv3"></a>NCv3
 
 Les machines virtuelles de série NCv3 sont optimisées par les GPU NVIDIA Tesla V100. Les clients peuvent tirer parti de ces GPU mis à jour pour les charges de travail HPC traditionnelles telles que la modélisation de gisements, le séquençage de l’ADN, l’analyse des protéines, les simulations de Monte-Carlo, etc. 
@@ -50,6 +56,11 @@ Les machines virtuelles de la série NVv4 sont alimentées par des GPU [AMD Rade
 | Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 | 
 
 ## <a name="ncast4_v3"></a>NCasT4_v3
+
+::: moniker range=">=azs-2005"
+> [!IMPORTANT]
+> Il n’est pas possible de déployer ces tailles de machine virtuelle à l’aide de l’interface utilisateur (IU) du portail. Vous pouvez utiliser des modèles PowerShell, Azure CLI ou Azure Resource Manager.
+::: moniker-end
 
 | Taille | Processeurs virtuels | Mémoire : Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Nombre max de cartes réseau | 
 | --- | --- | --- | --- | --- | --- | --- |

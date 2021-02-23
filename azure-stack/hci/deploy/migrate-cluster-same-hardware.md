@@ -3,15 +3,15 @@ title: Migrer vers Azure Stack HCI sur le même matériel
 description: Découvrir comment migrer un cluster vers Azure Stack HCI sur le même matériel
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/12/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 35c1de7da10fbecbf6b861a23cdebb752502ca44
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.openlocfilehash: 593be52321230f3fc1ae4329f8f2284cf964298a
+ms.sourcegitcommit: 5a8b6dfdf75df1aa9474e062ec3a91ca1b8e58bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772269"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100524940"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>Migrer vers Azure Stack HCI sur le même matériel
 
@@ -215,15 +215,9 @@ Pour plus d’informations sur la façon de créer le cluster à l’aide de Pow
 
 ## <a name="refs-volumes"></a>Volumes ReFS
 
-Si vous effectuez une migration à partir de Windows Server 2016, les volumes ReFS (Resilient File System) sont pris en charge, mais ces volumes ne bénéficient pas des améliorations de performances suivantes dans Azure Stack HCI :
+Si vous effectuez une migration à partir de Windows Server 2016, les volumes ReFS (Resilient File System) sont pris en charge, mais ces volumes ne bénéficient pas des améliorations de performances dans Azure Stack HCI résultant de l’utilisation de volumes offrant une parité avec accélération par miroir (MAP). Cette amélioration nécessite la création d’un volume ReFS à l’aide de l’applet de commande PowerShell `New-Volume`.
 
-- Parité avec accélération par miroir
-- Contournement du journal de mappage
-
-Ces améliorations nécessitent la création d’un volume ReFS à l’aide de l’applet de commande `New-Volume`.
-
-> [!NOTE]
-> Pour les volumes de parité accélérés par mise en miroir de Windows Server 2016, le compactage ReFS n’était pas disponible. Par conséquent, le rattachement de ces volumes est possible mais il sera moins que la création d’un volume de mappage sur un cluster Azure Stack HCI.
+Pour les volumes MAP Windows Server 2016, le compactage ReFS n’était pas disponible. Par conséquent, le rattachement de ces volumes est possible mais il sera moins performant que la création d’un volume MAP sur un cluster Azure Stack HCI.
 
 ## <a name="import-the-vms"></a>Importer les machines virtuelles
 

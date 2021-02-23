@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 028ad9442961708820f905b73037eb55a11af72a
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 7c9fb834367d5baf1d467db590ab2b0ca7b39efe
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910531"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488137"
 ---
 # <a name="replacing-the-heater"></a>Remplacement du radiateur
 
@@ -20,7 +20,7 @@ Lisez les sections suivantes avant de retirer l’ancien radiateur et d’instal
 
 ## <a name="unpacking-and-taking-inventory-of-the-heater"></a>Déballage et inventaire du radiateur 
 
-Le Tactical 1U Heater – V2 (le radiateur) est généralement fourni sous la forme d’un sous-composant préinstallé du système Appliance cloud tactique. Lorsqu’il est fourni séparément, le radiateur est expédié dans un carton commercial d’expédition standard avec matériau d’emballage protecteur. 
+Le Ruggedized 1U Heater – V2 (radiateur) est généralement fourni sous la forme d’un sous-composant préinstallé du système d’appliance cloud renforcée. Lorsqu’il est fourni séparément, le radiateur est expédié dans un carton commercial d’expédition standard avec matériau d’emballage protecteur. 
 
 Retirez soigneusement le radiateur du carton d’expédition. Lorsqu’il est conditionné dans un carton d’expédition, tous les composants clés du radiateur sont installés dans le châssis. Le radiateur fait généralement partie d’un boîtier de transit, et est généralement intégré à un groupe entier d’appareils dans un boîtier de transit. Conservez le carton d’expédition et les matériaux d’emballage pour le cas où vous auriez besoin de réexpédier le radiateur ultérieurement. Le radiateur est robuste, mais vous devez tout de même veiller à ce que l’unité soit correctement compressée lors de l’expédition. 
 
@@ -75,7 +75,7 @@ Le radiateur est monté dans un boîtier de transit capable de contenir l’unit
 
     ![Retrait de l’assemblage de filtre.](media/image-89.png)
 
-1. Tirez les languettes hors du radiateur Tactical 1U Heater - V2 jusqu’à ce que le couvercle se libère, puis déplacez le capot vers l’extérieur du rack de châssis dans le pod. 
+1. Tirez les languettes hors du Ruggedized 1U Heater - V2 jusqu’à ce que le couvercle se libère, puis déplacez le capot vers l’extérieur du rack de châssis dans le pod. 
 
     ![Schéma qui montre les languettes.](media/image-90.png)
 
@@ -83,7 +83,7 @@ Le radiateur est monté dans un boîtier de transit capable de contenir l’unit
 
     ![Schéma qui montre le plenum en cours de retrait.](media/image-91.png)
 
-1. À l’avant du boîtier, retirez le collier en dessous du Tactical 1U Heater - V2. Si nécessaire, utilisez des pinces coupantes. 
+1. À l’avant du boîtier, retirez le collier en dessous du Ruggedized 1U Heater - V2. Si nécessaire, utilisez des pinces coupantes. 
 
     ![Schéma qui montre le support du collier et le micro connecteur pour le capteur d’entrée de température mis en surbrillance.](media/image-92.png)
 
@@ -91,7 +91,7 @@ Le radiateur est monté dans un boîtier de transit capable de contenir l’unit
 
     ![Schéma qui affiche le capteur de température d’entrée du serveur avec le câble attaché.](media/image-93.png)
 
-1. À l’avant du boîtier, retirez les quatre vis 10-32, les rondelles de verrouillage et les rondelles plates du serveur d’administration ou du serveur de nœuds d’Unité d’échelle inférieur. 
+1. À l’avant du boîtier, retirez les quatre vis 10-32, les rondelles de verrouillage et les rondelles plates du serveur d’administration ou du serveur de nœuds d’unité d’échelle inférieur. 
 
     ![Schéma qui montre l’emplacement des vis sur le devant du boîtier.](media/image-94.png)
 
@@ -103,7 +103,7 @@ Le radiateur est monté dans un boîtier de transit capable de contenir l’unit
 
     ![Deux schémas montrant les vis en train d’être retirées de chaque côté du radiateur.](media/image-97.png)
 
-1. Déroulez les câbles Ethernet à partir du plenum arrière, puis retirez tout câble connecté au serveur d’administration ou au serveur de nœud d’Unité d’échelle inférieur. 
+1. Déroulez les câbles Ethernet à partir du plenum arrière, puis retirez tout câble connecté au serveur d’administration ou au serveur de nœud d’unité d’échelle inférieur. 
 
 1. Au dos du boîtier, desserrez les six bandes Velcro et tirez les câbles hors du Velcro. 
 
@@ -126,7 +126,7 @@ Le radiateur est monté dans un boîtier de transit capable de contenir l’unit
     ![Schéma qui montre le plenum en train d’être tiré vers le bas depuis le côté gauche.](media/image-101.png)
 
 
-1. Au dos du boîtier, débranchez les câbles d’alimentation du serveur du Tactical 1U Heater - V2 et laissez-les pendre librement. 
+1. Au dos du boîtier, débranchez les câbles d’alimentation du serveur du Ruggedized 1U Heater - V2 et laissez-les pendre librement. 
 
     ![Schéma qui montre l’emplacement des câbles d’alimentation du serveur au dos du boîtier.](media/image-102.png)
 
@@ -173,7 +173,7 @@ Le radiateur est monté dans un boîtier de transit capable de contenir l’unit
 
 1. Placez les supports en lieu sûr pour la réinstallation. 
 
-1. À l’arrière du boîtier, retirez les deux câbles Ethernet noirs 25 Gbits et le câble Cat 6 bleu du serveur de nœuds de gestion ou du serveur d’Unité d’échelle inférieur. 
+1. À l’arrière du boîtier, retirez les deux câbles Ethernet noirs 25 Gbit/s et le câble Cat 6 bleu du serveur de nœuds de gestion ou du serveur d’unité d’échelle inférieur. 
 
     ![Schéma montrant l’emplacement des câbles Ethernet noir 25 Gbits/s et bleu Cat 6 à l’arrière du boîtier.](media/image-109.png)
 
@@ -235,19 +235,19 @@ Le radiateur est monté dans un boîtier de transit capable de contenir l’unit
 > [!WARNING]
 > Soyez vigilant lorsque vous soulevez le pod, afin d’éviter d’endommager l’équipement et de vous blesser. Pour de meilleurs résultats, utilisez un appareil de levage ou soulevez à deux personnes, afin de réduire les risques de blessures ou de dommages aux composants ou au pod. 
 
-1. À l’avant du pod, faites glisser un nouveau collier à travers la boucle dans la partie avant basse du Tactical 1U Heater - V2, mais ne serrez pas le collier. 
+1. À l’avant du pod, faites glisser un nouveau collier à travers la boucle dans la partie avant basse du Ruggedized 1U Heater - V2, mais ne serrez pas le collier. 
 
     ![Schéma qui affiche la boucle en bas à l’avant du radiateur.](media/image-119.png)
 
 
-1. À l’avant du pod, insérez le Tactical 1U Heater - V2 en le faisant glisser de l’avant vers l’arrière. Vérifiez que le collier ne tombe pas. 
+1. À l’avant du pod, insérez le Ruggedized 1U Heater - V2 en le faisant glisser de l’avant vers l’arrière. Vérifiez que le collier ne tombe pas. 
 
-1. À l’avant du pod, installez les deux cales de 0,16 cm entre le rack et le Tactical 1U Heater - V2. 
+1. À l’avant du pod, installez les deux cales de 0,16 cm entre le rack et le Ruggedized 1U Heater - V2. 
 
     ![Schéma qui montre l’emplacement des cales à l’avant du pod.](media/image-120.png)
 
 
-1. À l’arrière du pod, installez les deux cales de 0,16 cm entre le rack et le Tactical 1U Heater - V2. 
+1. À l’arrière du pod, installez les deux cales de 0,16 cm entre le rack et le Ruggedized 1U Heater - V2. 
 
     ![Schéma qui montre l’emplacement des cales au dos du pod.](media/image-121.png)
 
@@ -257,7 +257,7 @@ Le radiateur est monté dans un boîtier de transit capable de contenir l’unit
     ![Schéma qui montre les vis en train d’être rattachées.](media/image-122.png)
 
 
-1. À l’avant du pod, installez le serveur d’administration ou le serveur de nœuds d’Unité d’échelle inférieur, en le faisant glisser de l’avant vers l’arrière. Vérifiez qu’aucun câble libre ne gêne le serveur. 
+1. À l’avant du pod, installez le serveur d’administration ou le serveur de nœuds d’unité d’échelle inférieur, en le faisant glisser de l’avant vers l’arrière. Vérifiez qu’aucun câble libre ne gêne le serveur. 
 
 1. À l’avant du pod, rattachez les quatre vis 10-32, les rondelles de verrouillage et les rondelles plates. Appliquez un apprêt et du frein filet de faible résistance au filetage de vis, et serrez les vis à une puissance de 27 pouces-livres. 
 
@@ -269,23 +269,23 @@ Le radiateur est monté dans un boîtier de transit capable de contenir l’unit
     ![Schéma qui montre les deux vis de montage arrière du serveur en train d’être rattachées.](media/image-124.png)
 
 
-1. À l’arrière du pod, installez les quatre vis 10-32 de montage arrière du Tactical 1U Heater - V2, les rondelles de verrouillage et les rondelles plates. Appliquez un apprêt et du frein filet de faible résistance au filetage de vis, et serrez les vis à une puissance de 27 pouces-livres. 
+1. À l’arrière du pod, installez les quatre vis 10-32 de montage arrière du Ruggedized 1U Heater - V2, les rondelles de verrouillage et les rondelles plates. Appliquez un apprêt et du frein filet de faible résistance au filetage de vis, et serrez les vis à une puissance de 27 pouces-livres. 
 
     ![Schéma montrant les quatre vis du radiateur qui sont en train d’être rattachées.](media/image-125.png)
 
 
-1. À l’arrière du pod, retirez les deux cales situées sous le Tactical 1U Heater - V2, et placez-les dans le kit de radiateur pour une utilisation ultérieure. 
+1. À l’arrière du pod, retirez les deux cales situées sous le Ruggedized 1U Heater - V2, et placez-les dans le kit de radiateur pour une utilisation ultérieure. 
 
-1. À l’avant du pod, retirez les deux cales situées sous le Tactical 1U Heater - V2, et placez-les dans le kit de radiateur pour une utilisation ultérieure. 
+1. À l’avant du pod, retirez les deux cales situées sous le Ruggedized 1U Heater - V2, et placez-les dans le kit de radiateur pour une utilisation ultérieure. 
 
-1. À l’arrière du pod, installez les six vis 4-40 qui permettent de fixer la charnière du plenum au Tactical 1U Heater - V2. Appliquez un apprêt et du frein filet de faible résistance au filetage de vis, et serrez les vis à une puissance de 4,5 pouces-livres. 
+1. À l’arrière du pod, installez les six vis 4-40 qui permettent de fixer la charnière du plenum au Ruggedized 1U Heater - V2. Appliquez un apprêt et du frein filet de faible résistance au filetage de vis, et serrez les vis à une puissance de 4,5 pouces-livres. 
 
     > [!NOTE]
-    > Placez un sachet de décharge électrostatique (ESD) ou une mousse ESD sur l’évent du Tactical 1U Heater - V2 afin d’empêcher que des objets étrangers n’endommagent le radiateur. 
+    > Placez un sachet de décharge électrostatique (ESD) ou une mousse ESD sur l’évent du Ruggedized 1U Heater - V2 afin d’empêcher que des objets étrangers n’endommagent le radiateur. 
 
 1. À l’arrière du pod, installez le support de câble interne gauche. Tout en appuyant sur le support vers l’avant et vers le rack, serrez complètement les vis 6-32 captives, puis ajustez le serrage à 9 pouces-livres. 
 
-1. À l’arrière du boîtier, installez les deux câbles Ethernet noirs 25 Gbits et le câble Cat 6 bleu dans le serveur de nœuds de gestion ou le serveur d’Unité d’échelle inférieur. 
+1. À l’arrière du boîtier, installez les deux câbles Ethernet noirs 25 Gbit/s et le câble Cat 6 bleu dans le serveur de nœuds de gestion ou le serveur d’unité d’échelle inférieur. 
 
 1. À l’arrière du pod, installez le support de câble gauche à son emplacement d’origine. Réalignez soigneusement tous les câbles en position, tout en appuyant sur le support vers l’intérieur et vers le rack. 
 
@@ -293,7 +293,7 @@ Le radiateur est monté dans un boîtier de transit capable de contenir l’unit
 
 1. À l’arrière du pod, réinstallez le support de remplissage de droite à son emplacement d’origine tout en appuyant sur le support vers l’intérieur et vers le rack. Serrez complètement les deux vis captives 6-32, puis ajustez le serrage à 9 pouces-livres.
 
-1. À l’arrière du pod, installez le matériel de mise à la terre du serveur d’administration ou du serveur de nœud d’Unité d’échelle inférieur dans cet ordre : 
+1. À l’arrière du pod, installez le matériel de mise à la terre du serveur d’administration ou du serveur de nœud d’unité d’échelle inférieur dans cet ordre : 
 
     1. Deux rondelles 
     
@@ -305,7 +305,7 @@ Le radiateur est monté dans un boîtier de transit capable de contenir l’unit
 
 1. Serrez l’écrou à 16 pouces-livres. 
 
-1. À l’arrière du pod, reconnectez les deux câbles d’alimentation du serveur, puis les quatre câbles d’alimentation du Tactical 1U Heater - V2 à leurs emplacements d’origine. 
+1. À l’arrière du pod, reconnectez les deux câbles d’alimentation du serveur, puis les quatre câbles d’alimentation du Ruggedized 1U Heater - V2 à leurs emplacements d’origine. 
 
 1. À l’arrière du pod, la liaison doit reposer sur et derrière les billes de détente ; si ce n’est pas le cas, déplacez le bras de liaison jusqu’à la position requise. 
 

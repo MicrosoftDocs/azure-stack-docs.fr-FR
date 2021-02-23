@@ -3,16 +3,16 @@ title: Remplacer une carte réseau fille
 description: Découvrez comment remplacer une carte réseau fille.
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: dcf7240b3f62758fc1468890fcd4ce19ccb89bd8
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 2d63631cf1c5300c617f3a7164d1681d2edd7bc4
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874606"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487899"
 ---
 # <a name="replacing-a-network-daughter-card"></a>Remplacement d’une carte réseau fille
 
@@ -26,13 +26,13 @@ Appliquez la procédure suivante pour remplacer une ou plusieurs cartes réseau 
 
 3.  Révision
 
-    -   Connaissances requises dans l’utilisation des nœuds d’unité d’échelle dans une appliance cloud tactique
+    -   Connaissances requises pour l’utilisation de nœuds d’unité d’échelle dans un Azure Stack Hub renforcé
 
     -   Connaissances requises dans l’utilisation de l’hôte de cycle de vie du matériel en page 5 si vous utilisez l’hôte de cycle de vie du matériel
 
 4.  Terminé
 
-    -   Vérification de l’accès et de l’intégrité des nœuds d’unité d’échelle si vous utilisez un nœud d’unité d’échelle
+    -   Vérification de l’accès et de l’intégrité du nœud d’unité d’échelle si vous en utilisez un
 
     -   Vérification de l’intégrité et l’accès de l’hôte de cycle de vie du matériel si vous utilisez l’hôte de cycle de vie du matériel
 
@@ -54,7 +54,7 @@ Appliquez la procédure suivante pour remplacer une ou plusieurs cartes réseau 
     
 3.  Remplacez la ou les cartes réseau filles.
 
-    Suivez le processus de remplacement de carte réseau fille indiqué dans [Dell EMC PowerEdge R640 Manuel d’installation et de maintenance](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) pour les nœuds d’unité d’échelle ou les hôtes de cycle de vie du matériel.
+    Suivez le [processus de remplacement de carte réseau fille](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) pour les nœuds d’unité d’échelle ou les hôtes de cycle de vie du matériel.
     
 4.  Mettez le nœud sous tension.
 
@@ -64,7 +64,7 @@ Appliquez la procédure suivante pour remplacer une ou plusieurs cartes réseau 
 
 Si vous utilisez un nœud d’unité d’échelle :
 
-1.  Procédez à la mise sous tension et à la réparation du nœud d’unité d’échelle.
+1.  Procédez à la mise sous tension et à la réparation d’un nœud d’unité d’échelle.
 
 2.  Procédez à la vérification de l’intégrité du nœud d’unité d’échelle. Si vous utilisez l’hôte de cycle de vie du matériel :
 

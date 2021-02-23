@@ -3,16 +3,16 @@ title: Préparer un package de mise à jour dans Azure Stack Hub
 description: Apprenez à préparer un package de mise à jour dans Azure Stack Hub.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.lastreviewed: 09/10/2019
 ms.reviewer: sranthar
-ms.openlocfilehash: e0ad221764e116bb2b5f73601da3ac6917681ff0
-ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
+ms.openlocfilehash: b3d1f3d76d988be3647a1d26fec0a763a681d4cf
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88564783"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850919"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>Préparer une mise à jour Azure Stack Hub
 
@@ -56,7 +56,7 @@ Les mises à jour Azure Stack Hub pour les [mises à jour complètes et express]
 
 ### <a name="where-to-download-azure-stack-hub-hotfix-packages"></a>Où télécharger les packages de correctifs logiciels Azure Stack Hub
 
-Les packages des [correctifs logiciels Azure Stack Hub](./azure-stack-updates.md#update-package-types) sont hébergés dans le même point de terminaison Azure sécurisé que les mises à jour Azure Stack Hub. Les opérateurs Azure Stack Hub qui ont des instances connectées voient les [mises à jour Azure Stack Hub apparaître automatiquement dans le portail d’administration](#automatic-download-and-preparation-for-update-packages) lorsqu’elles sont disponibles. Vous pouvez les télécharger en cliquant sur les liens incorporés dans chaque article correspondant de la Base de connaissances (par exemple [correctif logiciel Azure Stack Hub 1.1906.11.52](https://support.microsoft.com/help/4515650)). Des liens aux correctifs logiciels sont également à votre disposition dans les notes de publication correspondant à votre version d’Azure Stack Hub.
+Les packages des [correctifs logiciels Azure Stack Hub](./azure-stack-updates.md#update-package-types) sont hébergés dans le même point de terminaison Azure sécurisé que les mises à jour Azure Stack Hub. Les opérateurs Azure Stack Hub qui ont des instances connectées voient les [mises à jour Azure Stack Hub apparaître automatiquement dans le portail d’administration](#automatic-download-and-preparation-for-update-packages) lorsqu’elles sont disponibles. Vous pouvez les télécharger en cliquant sur les liens incorporés dans chacun des articles correspondants de la Base de connaissances des correctifs logiciels. Des liens vers des articles de la Base de connaissances des correctifs logiciels figurent également dans les notes de publication correspondant à votre version d’Azure Stack Hub.
 
 ### <a name="where-to-download-oem-update-packages"></a>Où télécharger les packages de mise à jour OEM
 

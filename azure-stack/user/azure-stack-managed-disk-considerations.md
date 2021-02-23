@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: b1cadf68de1c072b7dcc8b2f0f5f7c02736eebd7
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: fd1f827ec9108d1412df544c94044aabf600224a
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518226"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975875"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Disques managés Azure Stack Hub : différences et considérations
 
@@ -358,7 +358,7 @@ Après avoir appliqué la mise à jour 1808 ou ultérieure, vous devez applique
 - Si un abonnement a été créé avant la mise à jour 1808, procédez comme suit pour mettre à jour l’abonnement. Sinon, le déploiement de machines virtuelles dans cet abonnement peut échouer avec un message d’erreur « Erreur interne dans le gestionnaire de disque ».
    1. Dans le portail utilisateur Azure Stack Hub, accédez à **Abonnements** et recherchez l’abonnement. Cliquez sur **Fournisseurs de ressources**, sur **Microsoft.Compute**, puis sur **Réinscrire**.
    2. Sous le même abonnement, accédez à **Contrôle d’accès (IAM)** et vérifiez que l’élément **Azure Stack Hub – Disques managés** est répertorié.
-- Si vous utilisez un environnement mutualisé, demandez à votre opérateur cloud (dans votre organisation ou chez votre fournisseur de services) de reconfigurer chacun de vos annuaires invités conformément aux étapes décrites dans [cet article](../operator/azure-stack-enable-multitenancy.md#register-azure-stack-hub-with-the-guest-directory). Sinon, le déploiement de machines virtuelles dans un abonnement associé à cet annuaire invité peut échouer avec le message d’erreur « Erreur interne dans le gestionnaire de disque ».
+- Si vous utilisez un environnement mutualisé, demandez à votre opérateur cloud (dans votre organisation ou chez votre fournisseur de services) de reconfigurer chacun de vos annuaires invités en suivant les étapes décrites dans [Configurer l’architecture multilocataire dans Azure Stack Hub](../operator/azure-stack-enable-multitenancy.md#configure-guest-directory). Sinon, le déploiement de machines virtuelles dans un abonnement associé à cet annuaire invité peut échouer avec le message d’erreur « Erreur interne dans le gestionnaire de disque ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,13 +4,13 @@ description: Cette rubrique fournit des conseils sur la façon de configurer des
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
-ms.date: 01/06/2020
-ms.openlocfilehash: a67881f2dd4be5e4dce5fb967c88484c27025624
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 02/12/2021
+ms.openlocfilehash: 0bfd97b71774662ec11074951dcc956391d0fc65
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255229"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487389"
 ---
 # <a name="configure-firewalls-for-azure-stack-hci"></a>Configurer des pare-feu pour Azure Stack HCI
 
@@ -75,7 +75,50 @@ Cette section montre comment configurer le pare-feu Microsoft Defender pour perm
     ```
 
 ## <a name="additional-endpoint-for-one-time-azure-registration"></a>Point de terminaison supplémentaire pour l’inscription Azure ponctuelle
-Pendant le processus d’inscription Azure, lorsque vous exécutez `Register-AzStackHCI` ou le Centre d’administration Windows, l’applet de commande tente de contacter PowerShell Gallery pour vérifier que vous disposez de la dernière version des modules PowerShell nécessaires, comme Az et AzureAD. Même si le référentiel PowerShell Gallery est hébergé sur Azure, il n’existe actuellement pas d’étiquette de service pour lui. Si vous ne pouvez pas exécuter l’applet de commande `Register-AzStackHCI` à partir d’un nœud de serveur car il n’a pas accès à Internet, nous vous recommandons de télécharger les modules sur votre ordinateur de gestion, puis de les transférer manuellement vers le nœud de serveur sur lequel vous souhaitez exécuter l’applet de commande.
+Pendant le processus d’inscription Azure, lorsque vous exécutez `Register-AzStackHCI` ou le Centre d’administration Windows, l’applet de commande tente de contacter PowerShell Gallery pour vérifier que vous disposez de la dernière version des modules PowerShell nécessaires, comme Az et AzureAD.
+
+Même si le référentiel PowerShell Gallery est hébergé sur Azure, il n’existe actuellement pas d’étiquette de service pour lui. Si vous ne pouvez pas exécuter l’applet de commande `Register-AzStackHCI` à partir d’un nœud de serveur car il n’a pas accès à Internet, nous vous recommandons de télécharger les modules sur votre ordinateur de gestion, puis de les transférer manuellement vers le nœud de serveur sur lequel vous souhaitez exécuter l’applet de commande.
+
+## <a name="set-up-a-proxy-server"></a>Configurer un serveur proxy
+Pour configurer un serveur proxy pour Azure Stack HCI, exécutez la commande PowerShell suivante en tant qu’administrateur :
+
+```powershell
+Set-WinInetProxy -ProxySettingsPerUser 0 -ProxyServer webproxy1.com:9090
+```
+
+Utilisez l’indicateur `ProxySettingsPerUser 0` pour étendre la configuration du proxy à l’ensemble du serveur au lieu d’effectuer une configuration par utilisateur, telle que prévue par défaut. 
+
+Téléchargez le script WinInetProxy.psm1 à partir de : [PowerShell Gallery | WinInetProxy.psm1 0.1.0](https://www.powershellgallery.com/packages/WinInetProxy/0.1.0/Content/WinInetProxy.psm1).
+
+## <a name="network-port-requirements"></a>Configuration requise des ports réseau
+Vérifiez que les ports réseau appropriés sont ouverts entre tous les nœuds serveur au sein d’un site et entre les sites (pour les clusters étendus). Vous avez besoin de règles de pare-feu et de routeur appropriées pour autoriser les protocoles ICMP, SMB (port 445, plus port 5445 pour SMB Direct) et WS-MAN (port 5985) à trafic bidirectionnel entre tous les serveurs du cluster.
+
+Lorsque vous utilisez l’Assistant Création d’un cluster dans Windows Admin Center pour créer le cluster, l’Assistant ouvre automatiquement les ports de pare-feu appropriés sur chaque serveur du cluster pour le clustering de basculement, Hyper-V et le réplica de stockage. Si vous utilisez un pare-feu différent sur chaque serveur, ouvrez les ports suivants :
+
+### <a name="failover-clustering-ports"></a>Ports de clustering de basculement
+- ICMPv4 et ICMPv6
+- Port TCP 445
+- Ports dynamiques RPC
+- Port TCP 135
+- Port TCP 137
+- Port TCP 3343
+- Port UDP 3343
+
+### <a name="hyper-v-ports"></a>Ports Hyper-V
+- Port TCP 135
+- Port TCP 80 (connectivité HTTP)
+- Port TCP 443 (connectivité HTTPS)
+- Port TCP 6600
+- Port TCP 2179
+- Ports dynamiques RPC
+- Mappeur de point de terminaison RPC
+- Port TCP 445
+
+### <a name="storage-replica-ports-stretched-cluster"></a>Ports de réplica de stockage (cluster étendu)
+- Port TCP 445
+- TCP 5445 (si vous utilisez iWarp RDMA)
+- Port TCP 5985
+- ICMPv4 et ICMPv6 (si vous utilisez l’applet de commande PowerShell `Test-SRTopology`)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations, consultez également :

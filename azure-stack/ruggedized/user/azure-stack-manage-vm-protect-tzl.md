@@ -11,22 +11,22 @@ ms.workload: tzl
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: c57e421140dfea9eac949b5dcf97cc90745ab861
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: a31b5b4498911b008ec471beca24905466efee4b
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910957"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562960"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub---ruggedized"></a>Protéger des machines virtuelles déployées sur Azure Stack Hub – Renforcé
 
 Utilisez cet article comme guide pour développer un plan de protection des machines virtuelles que vos utilisateurs déploient sur Azure Stack Hub.
 
-Pour assurer une protection contre la perte de données et les temps d’arrêt non planifiés, implémentez un plan de protection des données et de récupération d’urgence pour vos applications basées sur des machines virtuelles sur Azure Stack Hub. Le plan de protection implémenté dépend des besoins de l’entreprise et de la conception de l’application. Ce plan doit suivre un cadre établi par la stratégie globale de continuité d’activité et de récupération d’urgence de votre organisation. Pour une vue d’ensemble des considérations de continuité d’activité et de récupération d’urgence relatives à Azure Stack Hub, consultez Azure Stack : Considérations relatives à la continuité d’activité et à la reprise d’activité.
+Pour assurer une protection contre la perte de données et les temps d’arrêt non planifiés, implémentez un plan de protection des données et de récupération d’urgence pour vos applications basées sur des machines virtuelles sur Azure Stack Hub. Le plan de protection implémenté dépend des besoins de l’entreprise et de la conception de l’application. Ce plan doit suivre un cadre établi par la stratégie globale de continuité d’activité et de récupération d’urgence de votre organisation. Pour une vue d’ensemble des considérations en matière de continuité et de reprise d’activité relatives à Azure Stack Hub, consultez [Azure Stack : Considérations relatives à la continuité et la reprise d’activité](https://azure.microsoft.com/resources/azure-stack-considerations-for-business-continuity-and-disaster-recovery/) est un bon point de départ.
 
 ## <a name="application-recovery-objectives"></a>Objectifs de récupération d’application
 
@@ -84,9 +84,9 @@ Important considerations for your Azure Stack deployment: -->
 
 Cet article vous a donné des recommandations générales sur la protection des machines virtuelles utilisateur déployées sur Azure Stack. Pour plus d’informations sur l’utilisation des services Azure pour protéger les machines virtuelles des utilisateurs, voir :
 
-- [Considérations relatives à la continuité d’activité et à la reprise d’activité](https://aka.ms/azurestackbcdrconsiderationswp)
+- [Considérations relatives à la continuité d’activité et à la reprise d’activité](https://azure.microsoft.com/resources/azure-stack-considerations-for-business-continuity-and-disaster-recovery/)
 
 ### <a name="partner-products"></a>Produits de partenaires
 
-- [Feuille de données de l’écosystème des partenaires d’intégration de centre de données Azure Stack](https://aka.ms/azurestackbcdrpartners)
+- [Feuille de données de l’écosystème des partenaires d’intégration de centre de données Azure Stack](https://azure.microsoft.com/resources/azure-stack-datacenter-integration-partners/)
 - Pour en savoir plus sur les produits de partenaires qui offrent une protection de machine virtuelle sur Azure Stack, consultez [Protéger des applications et des données sur Azure Stack](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/).

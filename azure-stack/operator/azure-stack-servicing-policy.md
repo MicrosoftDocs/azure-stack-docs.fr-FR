@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Découvrez la stratégie de maintenance Azure Stack Hub et comment conserver un système intégré dans un état de prise en charge.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 02/17/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: baa622bf9d80d0896dfb3431e1363e4a8a780567
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 95686f1fc9ae56cefe2063c03e8e80d0e156af83
+ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255752"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100648029"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Stratégie de maintenance Azure Stack Hub
 
@@ -27,7 +27,7 @@ Les packages de mises à jour complètes sont hébergées dans un point de termi
 
 Les correctifs logiciels sont hébergés dans le même point de terminaison Azure sécurisé. Vous pouvez les télécharger en cliquant sur les liens incorporés dans chaque article correspondant de la Base de connaissances ; par exemple, [Correctif logiciel Azure Stack Hub 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Comme pour les mises à jour mensuelles complètes, les opérateurs Azure Stack Hub peuvent télécharger les fichiers .xml et .zip et les importer en suivant la procédure décrite dans [Effectuer des mises à jour dans Azure Stack Hub](azure-stack-apply-updates.md). Pour les opérateurs Azure Stack Hub disposant d’unités d’échelle connectées, les correctifs logiciels s’affichent automatiquement dans le portail Administrateur avec le message **Mise à jour disponible**.
 
-Si votre unité d’échelle n’est pas connectée et si vous souhaitez être notifié chaque fois qu’un correctif logiciel est publié, abonnez-vous au flux [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) ou [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) noté dans chaque version.
+Si votre unité d’échelle n’est pas connectée et si vous souhaitez être notifié chaque fois qu’un correctif logiciel est publié, abonnez-vous au [flux RSS](https://azurestackhubdocs.azurewebsites.net/xml/hotfixes.rss).
 
 ## <a name="update-package-types"></a>Types de packages de mise à jour
 

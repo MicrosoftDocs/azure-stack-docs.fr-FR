@@ -3,16 +3,16 @@ title: Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub
 description: Découvrez comment déployer un cluster Kubernetes sur Azure Stack Hub à partir d’une machine virtuelle cliente exécutant le moteur AKS.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 2/5/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 9da037a08aaa7394306c518211fc045453530a71
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: 2/5/2021
+ms.openlocfilehash: 3343dc1a4fddbac0e01d0b63fcc8f434084237f0
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246960"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850846"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Déployer un cluster Kubernetes avec le moteur AKS sur Azure Stack Hub
 
@@ -26,10 +26,10 @@ Vous pouvez préciser une spécification de cluster dans un fichier de document 
 
 Cette section présente la création d’un modèle d’API pour votre cluster.
 
-1.  Commencez par utiliser un [exemple](https://github.com/Azure/aks-engine/tree/master/examples/azure-stack) de fichier de modèle d’API Azure Stack Hub et en faire une copie locale pour votre déploiement. À partir de la machine sur laquelle vous avez installé le moteur AKS, exécutez :
+1.  Commencez par utiliser un fichier de modèle d’API Azure Stack Hub pour [Linux](https://aka.ms/aksengine-json-example-raw) ou [Windows](https://aka.ms/aksengine-json-example-raw-win) et en faire une copie locale pour votre déploiement. À partir de la machine sur laquelle vous avez installé le moteur AKS, exécutez :
 
     ```bash
-    curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json
+    curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/v0.55.4/examples/azure-stack/kubernetes-azurestack.json
     ```
 
     > [!NOTE]  
@@ -75,7 +75,7 @@ Cette section présente la création d’un modèle d’API pour votre cluster.
 
     | Champ | Description |
     | --- | --- |
-    | count | Entrez le nombre d’agents que vous souhaitez pour votre déploiement. Le nombre maximal de nœuds à utiliser par abonnement est de 50. Si vous déployez plus d’un cluster par abonnement, veillez à ne pas dépasser 50 agents. Utilisez les éléments de configuration spécifiés dans l’[exemple de fichier JSON de modèle d’API](https://aka.ms/aksengine-json-example).  |
+    | count | Entrez le nombre d’agents que vous souhaitez pour votre déploiement. Le nombre maximal de nœuds à utiliser par abonnement est de 50. Si vous déployez plus d’un cluster par abonnement, veillez à ne pas dépasser 50 agents. Utilisez les éléments de configuration spécifiés dans l’[exemple de fichier JSON de modèle d’API](https://aka.ms/aksengine-json-example-raw).  |
     | vmSize | Entrez [une taille prise en charge par Azure Stack Hub](./azure-stack-vm-sizes.md), par exemple `Standard_D2_v2`. |
     | distro | Entrez `aks-ubuntu-16.04`. |
 

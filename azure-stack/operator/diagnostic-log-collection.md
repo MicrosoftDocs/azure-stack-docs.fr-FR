@@ -3,32 +3,31 @@ title: Collecte des journaux de diagnostic
 description: Découvrez la collecte des journaux de diagnostic.
 author: PatAltimore
 ms.topic: article
-ms.date: 10/30/2020
+ms.date: 02/03/2021
 ms.author: patricka
 ms.reviewer: shisab
-ms.lastreviewed: 12/08/2020
-ms.openlocfilehash: c8913bd91b7d931baf47f249dd214dd6eea71e4a
-ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
+ms.lastreviewed: 02/03/2021
+ms.openlocfilehash: ad5f0a7f6028249dba3d63490cdc3c91d7a45e72
+ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97950737"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100013215"
 ---
 # <a name="diagnostic-log-collection"></a>Collecte des journaux de diagnostic
 
-Azure Stack Hub est un ensemble de composants Windows et de services Azure locaux qui interagissent les uns avec les autres. Tous ces composants et services génèrent leur propre ensemble de journaux. Étant donné que le Support Microsoft utilise ces journaux pour identifier et résoudre vos problèmes, nous proposons la collecte des journaux de diagnostic. La collecte des journaux de diagnostic vous permet de collecter et de partager rapidement les journaux de diagnostic avec le Support Microsoft.
+Vous pouvez partager des journaux de diagnostic créés par Azure Stack Hub. Ces journaux sont créés par les composants Windows et des services Azure locaux. Le Support Microsoft peut utiliser les journaux pour corriger ou identifier des problèmes liés à votre instance Azure Stack Hub.
 
-> [!IMPORTANT]
-> Vous devez inscrire Azure Stack Hub pour utiliser la collecte des journaux de diagnostic. Si vous n'avez pas inscrit Azure Stack Hub, utilisez [le point de terminaison privilégié (PEP)](azure-stack-get-azurestacklog.md) pour partager les journaux. 
+Pour vous familiariser avec la collecte des journaux de diagnostic Azure Stack Hub, vous devez inscrire votre instance. Si vous n'avez pas inscrit Azure Stack Hub, utilisez [le point de terminaison privilégié (PEP)](azure-stack-get-azurestacklog.md) pour partager les journaux. 
 
 ::: moniker range=">= azs-2005"
 
-Différentes méthodes sont proposées par Azure Stack Hub pour collecter, enregistrer et envoyer les journaux de diagnostic au Support Microsoft. En fonction de la connectivité à Azure, vos options de collecte et d'envoi des journaux sont les suivantes :
+Vous pouvez envoyer des journaux de diagnostic au Support Microsoft de plusieurs façons. Selon votre connectivité à Azure, vos options sont les suivantes :
 * [Envoyer les journaux de manière proactive (recommandé)](#send-logs-proactively)
 * [Envoyer des journaux maintenant](#send-logs-now)
 * [Enregistrer les journaux localement](#save-logs-locally)
 
-L'organigramme ci-dessous indique quelle option utiliser dans chaque cas pour l'envoi des journaux de diagnostic. Si Azure Stack Hub peut se connecter à Azure, nous vous recommandons d'activer l'option **Collecte proactive des journaux**, qui charge automatiquement les journaux de diagnostic vers un blob de stockage contrôlé par Microsoft dans Azure lorsqu'une alerte critique est déclenchée. Vous pouvez également collecter les journaux à la demande en utilisant l'option **Envoyer les journaux maintenant**. Si Azure Stack Hub est déconnecté d'Azure, vous pouvez utiliser l'option **Enregistrer les journaux localement**. 
+L’organigramme montre l’option à utiliser pour l’envoi des journaux de diagnostic. Si Azure Stack Hub se connecte à Azure, activez la **Collecte proactive des journaux**. La collecte proactive des journaux charge automatiquement les journaux de diagnostic vers un blob de stockage contrôlé par Microsoft dans Azure quand une alerte critique est levée. Vous pouvez également collecter les journaux à la demande en utilisant l'option **Envoyer les journaux maintenant**. Pour un Azure Stack Hub s’exécutant dans un environnement déconnecté ou si vous rencontrez des problèmes de connectivité, choisissez l’option **Enregistrer les journaux localement**.
 
 ![Organigramme montrant comment envoyer des journaux à Microsoft](media/azure-stack-help-and-support/send-logs-now-flowchart.png)
 
@@ -36,11 +35,24 @@ L'organigramme ci-dessous indique quelle option utiliser dans chaque cas pour l'
 
 ## <a name="send-logs-proactively"></a>Send logs proactively (Envoyer les journaux de manière proactive)
 
-La collecte proactive des journaux récupère et envoie automatiquement les journaux de diagnostic d’Azure Stack Hub à Microsoft avant que vous n’ouvriez un dossier de support. Ces journaux sont collectés uniquement quand une [alerte d’intégrité du système](#proactive-diagnostic-log-collection-alerts) est déclenchée et ne sont accessibles au support Microsoft que dans le contexte d’un cas de support.
+La collecte proactive des journaux récupère et envoie automatiquement les journaux de diagnostic d’Azure Stack Hub à Microsoft avant que vous n’ouvriez un dossier de support. Ces journaux sont collectés uniquement quand une alerte d’intégrité du système est déclenchée et ne sont accessibles au support Microsoft que dans le contexte d’un cas de support.
 
 ::: moniker range=">= azs-2008"
 
-Depuis Azure Stack Hub version 2008, la collecte proactive des journaux utilise un algorithme amélioré qui capture les journaux même dans des conditions d’erreur non visibles par un opérateur. Cela permet de garantir que les informations de diagnostic appropriées sont collectées au bon moment sans l’intervention d’un opérateur. Le Support Microsoft peut commencer à isoler et résoudre les problèmes plus tôt dans certains cas. Les améliorations initiales des algorithmes se concentrent sur les opérations de correction et de mise à jour. Il est recommandé d’activer la collecte de journaux proactive, car davantage d’opérations sont optimisées, et les avantages sont plus importants.
+Depuis Azure Stack Hub version 2008, la collecte proactive des journaux utilise un algorithme amélioré qui capture les journaux même dans des conditions d’erreur non visibles par un opérateur. Cela permet de garantir que les informations de diagnostic appropriées sont collectées au bon moment sans l’intervention d’un opérateur. Le Support Microsoft peut commencer à isoler et résoudre les problèmes plus tôt dans certains cas. Les améliorations initiales des algorithmes se concentrent sur les opérations de correction et de mise à jour.
+
+Azure Stack Hub collecte des journaux pour des alertes et d’autres événements d’échec masqués que vous ne pouvez pas voir.
+
+Azure Stack Hub collecte de manière proactive des journaux pour :
+
+- La mise à jour a échoué.
+- La mise à jour nécessite votre attention.
+
+Quand un événement déclenche ces alertes, Azure Stack Hub envoie de manière proactive les journaux à Microsoft.
+
+En outre, Azure Stack Hub envoie à Microsoft des journaux déclenchés par d’autres événements d’échec. Vous ne pouvez pas voir ces événements.
+
+Il est recommandé d’activer la collecte de journaux proactive, car davantage d’opérations sont optimisées, et les avantages sont plus importants.
 
 ::: moniker-end
 
@@ -63,50 +75,18 @@ Les données déjà collectées avec votre consentement ne sont pas affectées p
 
 Les journaux collectés à l’aide de la **collecte proactive des journaux** sont chargés sur un compte de stockage Azure managé et contrôlé par Microsoft. Microsoft peut accéder à ces journaux dans le contexte d'un cas de support et pour améliorer l'intégrité d'Azure Stack Hub.
 
-### <a name="proactive-diagnostic-log-collection-alerts"></a>Alertes de collecte proactive des journaux de diagnostic
-
-Si elle est activée, la collecte de journaux proactive charge les journaux quand l’un des événements suivants se déclenche.
-
-Par exemple, **Échec de la mise à jour** est une alerte qui déclenche la collecte proactive des journaux de diagnostic. Si elle est activée, les journaux de diagnostic sont capturés de manière proactive au cours d’un échec de mise à jour pour aider le support Microsoft à résoudre le problème. Les journaux de diagnostic sont collectés uniquement quand l’alerte pour **Échec de la mise à jour** est déclenchée.
-
-| Titre de l’alerte | FaultIdType |
-|---|---|
-|Impossible de se connecter au service distant | UsageBridge.NetworkError|
-|Échec de la mise à jour | Urp.UpdateFailure |
-|Infrastructure du fournisseur de ressources de stockage/dépendances non disponibles |    StorageResourceProviderDependencyUnavailable |
-|Nœud non connecté au contrôleur| ServerHostNotConnectedToController |  
-|Échec de publication de route | SlbMuxRoutePublicationFailure |
-|Magasin de données interne du fournisseur de ressources de stockage non disponible |    StorageResourceProvider. DataStoreConnectionFail |
-|Défaillance d’unité de stockage | Microsoft.Health.FaultType.VirtualDisks.Detached |
-|Le contrôleur d'intégrité n'a pas accès au compte de stockage | Microsoft.Health.FaultType.StorageError |
-|La connectivité à un disque physique a été perdue | Microsoft.Health.FaultType.PhysicalDisk.LostCommunication |
-|Le service Blob n’est pas exécuté sur un nœud | StorageService.The.blob.service.is.not.running.on.a.node-Critical |
-|Rôle d’infrastructure défectueux | Microsoft.Health.FaultType.GenericExceptionFault |
-|Erreurs du service de Table | StorageService.Table.service.errors-Critical |
-|Un partage de fichiers est utilisé à plus de 80 % | Microsoft.Health.FaultType.FileShare.Capacity.Warning.Infra |
-|Nœud d’unité d’échelle hors ligne | FRP.Heartbeat.PhysicalNode |
-|Instance de rôle d’infrastructure non disponible | FRP.Heartbeat.InfraVM |
-|Instance de rôle d’infrastructure non disponible  | FRP.Heartbeat.NonHaVm |
-|Le rôle de l'infrastructure, Gestion de répertoires, a signalé des erreurs de synchronisation temporelle | DirectoryServiceTimeSynchronizationError |
-|Pending external certificate expiration (Expiration imminente du certificat externe) | CertificateExpiration.ExternalCert.Warning |
-|Pending external certificate expiration (Expiration imminente du certificat externe) | CertificateExpiration.ExternalCert.Critical |
-|Impossible de provisionner des machines virtuelles pour une classe et une taille spécifiques en raison d’une capacité de mémoire insuffisante | AzureStack.ComputeController.VmCreationFailure.LowMemory |
-|Nœud inaccessible pour la sélection élective d’ordinateur virtuel | AzureStack.ComputeController.HostUnresponsive |
-|Échec de la sauvegarde  | AzureStack.BackupController.BackupFailedGeneralFault |
-|La sauvegarde planifiée a été ignorée en raison d’un conflit avec des opérations qui ont échoué    | AzureStack.BackupController.BackupSkippedWithFailedOperationFault |
-
 ## <a name="send-logs-now"></a>Envoyer des journaux maintenant
 
 > [!TIP]
 > Gagnez du temps en utilisant l'option [Envoyer les journaux de manière proactive](#send-logs-proactively) plutôt que l'option Envoyer les journaux maintenant.
 
-Envoyer les journaux maintenant est une option qui vous permet de collecter et de charger manuellement vos journaux de diagnostic à partir d’Azure Stack Hub, généralement avant d’ouvrir un cas de support.
+Envoyer les journaux maintenant est une option qui vous permet de collecter et charger manuellement vos journaux de diagnostic à partir d’Azure Stack Hub, généralement avant d’ouvrir un cas de support.
 
 Deux méthodes sont disponibles pour envoyer manuellement les journaux de diagnostic au Support Microsoft :
 * [Portail administrateur (recommandé)](#send-logs-now-with-the-administrator-portal)
 * [PowerShell](#send-logs-now-with-powershell)
 
-Si Azure Stack Hub est connecté à Azure, nous vous recommandons d'utiliser le portail administrateur, car il s'agit de la façon plus simple d'envoyer les journaux directement à Microsoft. Si le portail n’est pas disponible, vous devez plutôt envoyer les journaux avec PowerShell.
+Si Azure Stack Hub est connecté à Azure, nous vous recommandons d'utiliser le portail administrateur, car il s'agit de la façon plus simple d'envoyer les journaux directement à Microsoft. Si le portail n’est pas disponible, vous devez envoyer les journaux à l’aide de PowerShell.
 
 ### <a name="send-logs-now-with-the-administrator-portal"></a>Envoyer les journaux maintenant à l'aide du portail administrateur
 
@@ -117,7 +97,7 @@ Pour envoyer les journaux maintenant à l'aide du portail administrateur :
 1. Choisissez le fuseau horaire local.
 1. Sélectionnez **Collect and Upload** (Collecter et charger).
 
-Si vous êtes déconnecté d’Internet ou que vous voulez uniquement enregistrer les journaux localement, utilisez la méthode [Get-AzureStackLog](azure-stack-get-azurestacklog.md) pour envoyer les journaux.
+Si vous êtes déconnecté d’Internet ou voulez enregistrer les journaux uniquement localement, utilisez la méthode [Get-AzureStackLog](azure-stack-get-azurestacklog.md) pour envoyer les journaux.
 
 ### <a name="send-logs-now-with-powershell"></a>Envoyer les journaux maintenant à l'aide de PowerShell
 
@@ -195,7 +175,7 @@ Si vous utilisez la méthode **Envoyer les journaux maintenant** et que vous sou
   ```
 
 > [!NOTE]
-> Si vous êtes déconnecté d’Internet ou souhaitez uniquement enregistrer les journaux localement, utilisez la méthode [Get-AzureStackLog](azure-stack-get-azurestacklog.md) pour envoyer les journaux. 
+> Si vous êtes déconnecté d'Internet ou souhaitez uniquement enregistrer les journaux localement, utilisez la méthode [Get-AzureStackLog](azure-stack-get-azurestacklog.md) pour envoyer les journaux. 
 
 ### <a name="how-the-data-is-handled"></a>Gestion des données
 
@@ -205,7 +185,9 @@ En lançant la collecte des journaux de diagnostic à partir d’Azure Stack Hub
 
 ## <a name="save-logs-locally"></a>Enregistrer les journaux localement
 
-Vous pouvez enregistrer des journaux dans un partage SMB (Server Message Block) local quand Azure Stack Hub est déconnecté d’Azure. Dans le panneau **Paramètres**, entrez le chemin d’accès et un nom d’utilisateur et un mot de passe avec l’autorisation d’écrire sur le partage. Au cours d’un cas de support, le Support Microsoft fournit des étapes détaillées sur la façon dont ces journaux locaux doivent être transférés. Si le portail d’administration n’est pas disponible, vous pouvez utiliser la cmdlet [Get-AzureStackLog](azure-stack-get-azurestacklog.md) pour enregistrer les journaux localement.
+Vous pouvez enregistrer des journaux dans un partage SMB (Server Message Block) local quand Azure Stack Hub est déconnecté d’Azure. Vous pouvez, par exemple, exécuter un environnement déconnecté. Si vous êtes connecté normalement mais rencontrez des problèmes de connectivité, vous pouvez enregistrer les journaux localement pour faciliter le dépannage.
+
+ Dans le panneau **Paramètres**, entrez le chemin d’accès et un nom d’utilisateur et un mot de passe avec l’autorisation d’écrire sur le partage. Au cours d’un cas de support, le Support Microsoft fournit des étapes détaillées sur la façon dont ces journaux locaux doivent être transférés. Si le portail d’administration n’est pas disponible, vous pouvez utiliser la cmdlet [Get-AzureStackLog](azure-stack-get-azurestacklog.md) pour enregistrer les journaux localement.
 
 ![Capture d’écran des options de collecte des journaux de diagnostic](media/azure-stack-help-and-support/save-logs-locally.png)
 
@@ -221,7 +203,7 @@ Le tableau suivant répertorie les éléments à prendre en compte pour les envi
 |----|---|
 | Connexion à faible bande passante/latence élevée | Le chargement des journaux prendra beaucoup de temps. |
 | Connexion partagée | Le chargement peut également avoir un impact sur d'autres applications/utilisateurs partageant la connexion réseau. |
-| Connexion limitée | Des frais supplémentaires peuvent être facturés par votre fournisseur de services Internet pour l'utilisation supplémentaire du réseau. |
+| Connexion limitée | Il se peut que votre fournisseur de services Internet facture d’autres frais pour l'utilisation supplémentaire du réseau. |
 
 ## <a name="view-log-collection"></a>Afficher la collecte des journaux
 

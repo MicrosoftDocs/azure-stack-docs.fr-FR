@@ -1,28 +1,28 @@
 ---
 title: Éteindre les nœuds d’unité d’échelle
-description: Découvrez comment mettre hors tension les nœuds d’unité d’échelle
+description: Découvrez comment mettre hors tension des nœuds d’unité d’échelle
 author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 2eb2c85bcdb350173923b3d8b5a3b463ce6a16ff
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: f35c21320a90a68c7933e9fd0bf898496fda9398
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910718"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488052"
 ---
-# <a name="powering-off-scale-unit-nodes"></a>Mise hors tension des nœuds d’unité d’échelle
+# <a name="powering-off-scale-unit-nodes"></a>Mise hors tension de nœuds d’unité d’échelle
 
-Avant de pouvoir mettre hors tension un nœud d’unité d’échelle, vous devez vérifier l’intégrité de l’unité d’échelle et identifier le nœud qui doit être réparé.
+Avant de pouvoir mettre hors tension un nœud d’unité d’échelle, vous devez vérifier l’intégrité de l’unité d’échelle et identifier le nœud à réparer.
 
 Si l’**État de l’alimentation** du nœud n’est pas **Arrêté**, appliquez la procédure suivante pour arrêter le nœud de manière sécurisée.
 
 **Étapes**
 
-1.  Drainez le nœud d’unité d’échelle.
+1.  Videz le nœud d’unité d’échelle.
 
     1.  À partir du portail d’administration, sélectionnez le nœud nécessitant une réparation, puis sélectionnez **Drainer**.
 

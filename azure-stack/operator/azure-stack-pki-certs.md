@@ -7,12 +7,12 @@ ms.date: 08/19/2020
 ms.author: patricka
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 8304ef3fe981545ac05de64b335c1edabdf32651
-ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
+ms.openlocfilehash: 2368c38e5fc06b36e11eb19069092b4e8a999406
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97965526"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487814"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Exigences de certificat pour infrastructure à clé publique (PKI) Azure Stack Hub
 
@@ -28,7 +28,7 @@ Azure Stack Hub inclut un réseau d’infrastructure publique utilisant des adre
 ## <a name="certificate-requirements"></a>Configuration requise des certificats
 La liste suivante décrit les exigences générales en matière d’émission, de sécurité et de mise en forme des certificats :
 
-- Les certificats doivent être émis par une autorité de certification interne ou une autorité de certification publique. Si vous utilisez une autorité de certification publique, elle doit être incluse dans l’image du système d’exploitation de base dans le cadre du projet Microsoft Trusted Root Authority Program. La liste complète est disponible dans la rubrique [Programme de certification racine approuvé Microsoft : participants](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+- Les certificats doivent être émis par une autorité de certification interne ou une autorité de certification publique. Si vous utilisez une autorité de certification publique, elle doit être incluse dans l’image du système d’exploitation de base dans le cadre du projet Microsoft Trusted Root Authority Program. Pour voir la liste complète, consultez [liste des participants – Programme de certification racine approuvé Microsoft](/security/trusted-root/participants-list).
 - Votre infrastructure Azure Stack Hub doit avoir accès au réseau de l’emplacement de la liste de révocation de certificats de l’autorité de certification publiée dans le certificat. Cette CRL doit être un point de terminaison http.
 ::: moniker range="< azs-1903"
 - Lors de la rotation des certificats dans les builds antérieures à 1903, les certificats doivent être émis à partir de la même autorité de certification interne utilisée pour signer des certificats fournie au déploiement ou de toute autorité de certification publique ci-dessus.

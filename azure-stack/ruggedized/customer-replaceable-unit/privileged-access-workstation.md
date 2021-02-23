@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 96a4e944b6b86c8b5db314141fd3473a8512d518
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: b17bf72931d5e80f9cfebe6df54655856695dba2
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98256198"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487984"
 ---
 # <a name="privileged-access-workstation-and-privileged-endpoint-access"></a>Station de travail à accès privilégié et accès aux points de terminaison privilégiés
 
@@ -22,7 +22,7 @@ Pour cette procédure, vous devez vous connecter à la station de travail à acc
 
 ## <a name="configuring-the-winrm"></a>Configuration de WinRM
 
-Pour autoriser les connexions au point de terminaison privilégié à partir de la station de travail à accès privilégié, vérifiez que les adresses IP de point de terminaison privilégié, telles que définies dans le portail administrateur Azure Stack Hub, sont définies en tant qu’hôte approuvé sur la station de travail à accès privilégié. Les instructions pour obtenir ces adresses IP à partir du portail d’administration figurent dans Vérification de l’accès et de l’intégrité des nœuds d’unité d’échelle en page 16.
+Pour autoriser les connexions au point de terminaison privilégié à partir de la station de travail à accès privilégié, vérifiez que les adresses IP de point de terminaison privilégié, telles que définies dans le portail administrateur Azure Stack Hub, sont définies en tant qu’hôte approuvé sur la station de travail à accès privilégié. Les instructions relatives à l’obtention de ces adresses IP à partir du portail d’administration figurent dans Vérification de l’accès et de l’intégrité des nœuds d’unité d’échelle en page 16.
 
 Pour afficher ou modifier les hôtes approuvés WinRM, lancez une session PowerShell avec élévation de privilèges :
 

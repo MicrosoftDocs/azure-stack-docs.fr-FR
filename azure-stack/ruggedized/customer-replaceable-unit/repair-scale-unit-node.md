@@ -1,24 +1,24 @@
 ---
 title: Mettre sous tension et réparer un nœud d’unité d’échelle
-description: Apprenez-en davantage sur la mise sous tension et la réparation d’un nœud d’unité d’échelle.
+description: Découvrez comment mettre sous tension et réparer un nœud d’unité d’échelle
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: d05c696f62aad4d9305137edab777d69b6442814
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 0a2aa54234b5dccc8f1ce3425906425064463910
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97909920"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488120"
 ---
 # <a name="powering-on-and-repairing-a-scale-unit-node"></a>Mise sous tension et réparation d’un nœud d’unité d’échelle
 
 **Étapes**
 
-Pour réparer et remettre un nœud d’unité d’échelle en production, vous devez appliquer la procédure de réparation Azure Stack Hub.
+Pour réparer et remettre un nœud d’unité d’échelle en production, vous devez suivre la procédure de réparation Azure Stack Hub.
 
 > [!NOTE]
 > La procédure de réparation prend environ trois heures.
@@ -37,7 +37,7 @@ Pour réparer et remettre un nœud d’unité d’échelle en production, vous d
     
     
     > [!NOTE]
-    > Si la procédure de réparation ne se termine pas dans les trois heures, ou si un problème se produit, ouvrez un cas auprès du Support Dell Technologies, qui contactera à son tour le Support Microsoft à des fins de dépannage.
+    > Si la procédure de réparation ne se termine pas dans les trois heures, ou si un problème se produit, ouvrez un cas auprès du Support Microsoft à des fins de dépannage.
     
     Une fois le processus de réparation terminé, le nœud retourne à un **état opérationnel En cours d’exécution**.
     

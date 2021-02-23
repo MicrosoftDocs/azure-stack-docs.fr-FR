@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: fec078689ca640c66eeec338e3c3a52cd5169287
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 2b5f985f5a7ea6537a56f48f87cf77edf711fde5
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518396"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562762"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Créer un stockage sur disque de machine virtuelle dans Azure Stack Hub
 
@@ -20,7 +20,7 @@ Cet article explique comment créer du stockage sur disque de machine virtuelle 
 
 ## <a name="overview"></a>Vue d’ensemble
 
-À compter de la version 1808, Azure Stack Hub prend en charge l’utilisation de disques managés et non managés dans des machines virtuelles, tant comme disque de système d’exploitation que comme disque de données. Dans les versions antérieures à la version 1808, seuls les disques non managés sont pris en charge.
+Azure Stack Hub prend en charge l’utilisation de disques managés et non managés dans des machines virtuelles, tant comme disque de système d’exploitation que comme disque de données.
 
 Les [disques managés](/azure/virtual-machines/windows/managed-disks-overview) simplifient la gestion des disques des machines virtuelles Azure IaaS, en gérant les comptes de stockage associés aux disques de machines virtuelles. Vous devez simplement spécifier la taille de disque dont vous avez besoin pour qu’Azure Stack Hub crée et gère le disque pour vous.
 
@@ -56,19 +56,16 @@ Après avoir créé une machine virtuelle, vous pouvez utiliser le portail pour 
 
 Placez chaque disque non managé que vous ajoutez dans un conteneur distinct.
 
-> [!NOTE]  
-> Les disques créés et managés par Azure sont appelés [disques managés](/azure/virtual-machines/windows/managed-disks-overview).
-
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Utiliser le portail pour créer et attacher un disque de données
 
-1. Dans le portail, sélectionnez **Tous les services**, puis **Machines virtuelles**.
-   ![Exemple : tableau de bord de machine virtuelle](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+1. Dans le portail, sélectionnez **Tous les services**, **Compute**, puis **Machines virtuelles**.
+   [![Exemple : tableau de bord de machine virtuelle](media/azure-stack-manage-vm-disks/vm-dashboard-small.png)](media/azure-stack-manage-vm-disks/vm-dashboard.png#lightbox)
 
 2. Sélectionnez une machine virtuelle qui a déjà été créée.
    ![Capture d’écran montrant la machine virtuelle sélectionnée.](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
 3. Pour la machine virtuelle, sélectionnez **Disques**, puis **Ajouter un disque de données**.
-   ![Capture d’écran montrant comment attacher un nouveau disque à la machine virtuelle.](media/azure-stack-manage-vm-disks/Attach-disks.png)
+   [![Capture d’écran montrant comment attacher un nouveau disque à la machine virtuelle.](media/azure-stack-manage-vm-disks/attach-disks-small.png)](media/azure-stack-manage-vm-disks/attach-disks.png#lightbox)
 
 4. Pour le disque de données :
    * Entrez le **LUN** (numéro d’unité logique). Le numéro d’unité logique doit être un nombre valide.
@@ -102,9 +99,9 @@ Placez chaque disque non managé que vous ajoutez dans un conteneur distinct.
 
    * Sélectionnez **Create** (Créer). Azure Stack Hub crée et valide le disque managé.
 
-6. Après qu’Azure Stack Hub a créé le disque et l’a attaché à la machine virtuelle, le nouveau disque apparaît dans les paramètres de disque de machine virtuelle sous **DISQUES DE DONNÉES**.
+6. Après qu’Azure Stack Hub a créé le disque et l’a attaché à la machine virtuelle, le nouveau disque apparaît dans les paramètres de disque de machine virtuelle sous **Disques de données**.
 
-   ![Exemple : Afficher le disque](media/azure-stack-manage-vm-disks/view-data-disk.png)
+   [![Exemple : Afficher le disque](media/azure-stack-manage-vm-disks/view-data-disk-small.png)](media/azure-stack-manage-vm-disks/view-data-disk.png#lightbox)
 
 ### <a name="add-a-data-disk-from-a-storage-account"></a>Ajouter un disque de données à partir d’un compte de stockage
 
@@ -114,7 +111,7 @@ Pour plus d’informations sur l’utilisation des comptes de stockage dans Azur
 2. Sélectionnez le **Conteneur** dans lequel vous souhaitez placer le disque de données. Si vous le souhaitez, vous pouvez créer un conteneur dans le panneau **Conteneurs**. Vous pouvez ensuite modifier l’emplacement du nouveau disque et le définir sur son propre conteneur. Si vous utilisez un conteneur distinct pour chaque disque, vous répartissez le positionnement du disque de données, ce qui peut améliorer les performances.
 3. Pour enregistrer la sélection, choisissez **Sélectionner**.
 
-    ![Capture d’écran montrant comment sélectionner un conteneur.](media/azure-stack-manage-vm-disks/select-container.png)
+    [![Capture d’écran montrant comment sélectionner un conteneur.](media/azure-stack-manage-vm-disks/select-container-small.png)](media/azure-stack-manage-vm-disks/select-container.png#lightbox)
 
 ## <a name="attach-an-existing-data-disk-to-a-vm"></a>Ajouter un disque de données existant à une machine virtuelle
 
