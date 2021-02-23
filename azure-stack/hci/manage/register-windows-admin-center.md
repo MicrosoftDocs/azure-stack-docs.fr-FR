@@ -4,21 +4,24 @@ description: Comment inscrire votre passerelle Windows Admin Center auprès d’
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/28/2021
-ms.openlocfilehash: d98cb4f0531903d27d97d9fb055c7ae2db35a65e
-ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
+ms.date: 02/10/2021
+ms.openlocfilehash: 0b80a1e607823385d06a5255244373ca3be1af98
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050057"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487882"
 ---
 # <a name="register-windows-admin-center-with-azure"></a>Inscrire Windows Admin Center avec Azure
 
 > S’applique à Azure Stack HCI v20H2 ; Windows Server 2019
 
-Pour utiliser les services Azure avec Windows Admin Center, vous devez d’abord installer Windows Admin Center sur un PC de gestion et procéder à une inscription à usage unique de votre passerelle Windows Admin Center. Il s’agit d’une condition préalable à l’inscription de votre cluster auprès d’Azure. Cela doit être effectué sur le même PC de gestion que celui que vous prévoyez d’utiliser pour finaliser le processus d’[inscription du cluster](../deploy/register-with-azure.md), à l’aide des mêmes ID d’abonnement et de locataire Azure.
+Pour utiliser les services Azure avec Windows Admin Center, vous devez commencer par [installer Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install) sur un PC de gestion et procéder à une inscription à usage unique de votre passerelle Windows Admin Center. Il s’agit d’une condition préalable à l’[inscription de votre cluster](../deploy/register-with-azure.md) auprès d’Azure.
 
-## <a name="complete-the-gateway-registration-process-using-windows-admin-center"></a>Effectuer le processus d’inscription de passerelle à l’aide de Windows Admin Center
+   > [!IMPORTANT]
+   > Inscrivez Windows Admin Center sur le PC de gestion que vous comptez utiliser pour inscrire votre cluster, en utilisant le même ID (locataire) Azure Active Directory.
+
+## <a name="complete-the-registration-process"></a>Effectuer le processus d’inscription
 
 1. Lancez Windows Admin Center, puis cliquez sur l’icône d’engrenage **Paramètres** en haut à droite, ce qui vous permet d’accéder à la page de votre compte. Ensuite, dans le menu **Passerelle** sur la gauche, sélectionnez **Azure**, puis cliquez sur **Inscrire**.
 
