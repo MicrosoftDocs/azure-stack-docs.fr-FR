@@ -4,13 +4,13 @@ description: Comment appliquer les mises à jour de système d’exploitation et
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/25/2020
-ms.openlocfilehash: 751551b827ef5d3c871f0224bfa60d9f79fc5d45
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.date: 02/05/2021
+ms.openlocfilehash: 2ed1a6c2443f7222a873c412e991b4a39b253309
+ms.sourcegitcommit: ec19e8455b5cb90a071afb03ec1446b0a9aafb99
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772012"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99588646"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Mettre à jour les clusters Azure Stack HCI
 
@@ -24,6 +24,9 @@ Cette rubrique décrit en particulier le système d’exploitation et les mises 
 
 Windows Admin Center facilite la mise à jour d’un cluster, et l’application des mises à jour du système d’exploitation et de la solution à l’aide d’une interface utilisateur simple. Si vous avez acheté un système intégré auprès d’un partenaire matériel Microsoft, il est facile d’obtenir les derniers pilotes, microprogrammes et autres mises à jour, directement à partir de Windows Admin Center, en installant les extensions de mise à jour de partenaire appropriées. Si votre matériel n’a pas été acheté comme système intégré, des mises à jour de microprogramme et de pilote devront éventuellement être effectuées séparément, conformément aux recommandations du fabricant du matériel.
 
+   > [!WARNING]
+   > Si vous commencez le processus de mise à jour à l’aide de Windows Admin Center, continuez à utiliser l’Assistant jusqu’à ce que les mises à jour soient terminées. N’essayez pas d’utiliser l’outil Mise à jour adaptée aux clusters ni de mettre à jour un cluster avec PowerShell une fois le processus de mise à jour partiellement terminé dans Windows Admin Center. Si vous souhaitez utiliser PowerShell à la place de Windows Admin Center pour effectuer les mises à jour, passez directement à la [mise à jour d’un cluster à l’aide de PowerShell](#update-a-cluster-using-powershell).
+
 Procédez comme suit pour installer des mises à jour :
 
 1. Quand vous vous connectez à un cluster, le tableau de bord de Windows Admin Center vous avertit si un ou plusieurs serveurs disposent de mises à jour prêtes à être installées, et vous fournit un lien pour procéder à la mise à jour immédiatement. Vous pouvez également sélectionner **Mises à jour** dans le menu **Outils** sur la gauche.
@@ -36,6 +39,9 @@ Procédez comme suit pour installer des mises à jour :
    > Pour utiliser l’outil de mise à jour adaptée aux clusters dans Windows Admin Center, vous devez activer CredSSP (Credential Security Service Provider) et fournir des informations d’identification explicites. Si vous êtes invité à activer CredSSP, cliquez sur **Oui**. Indiquez votre nom d’utilisateur et votre mot de passe, puis cliquez sur **Continuer**.
 
 3. L’état de la mise à jour du cluster s’affiche. Cliquez sur **Rechercher des mises à jour** pour obtenir la liste des mises à jour du système d’exploitation disponibles pour chaque serveur du cluster. Vous devrez peut-être fournir des informations d’identification d’administrateur. Si aucune mise à jour du système d’exploitation n’est disponible, cliquez sur **Suivant : Mises à jour matérielles** et passez à l’étape 7.
+
+   > [!IMPORTANT]
+   > Si vous quittez l’écran Mises à jour pendant l’exécution d’une mise à jour, un comportement inattendu peut se produire. Par exemple, la section d’historique de la page Mises à jour peut ne pas être renseignée correctement tant que l’exécution en cours n’est pas terminée. Nous vous recommandons d’ouvrir Windows Admin Center dans une nouvelle fenêtre ou un nouvel onglet de navigateur si vous souhaitez continuer d’utiliser l’application pendant l’exécution des mises à jour.
 
 4. Sélectionnez **Suivant : Installer** pour poursuivre l’installation des mises à jour du système d’exploitation ou cliquez sur **Ignorer** pour les exclure. 
 

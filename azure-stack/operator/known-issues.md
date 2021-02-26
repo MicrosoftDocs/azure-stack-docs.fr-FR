@@ -7,12 +7,12 @@ ms.date: 01/28/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: af4187ecf610543c693aff742b1e74b8d5bef84c
-ms.sourcegitcommit: 659114a3fb90c962316eb4cddab53d2d2da35b03
+ms.openlocfilehash: 220569fd3763654f69809cc8316aca2a54e3f7ef
+ms.sourcegitcommit: af2bec84471795c0f3ac62dcaf1347a64e529906
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99065520"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99554152"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Problèmes connus d’Azure Stack Hub
 
@@ -531,5 +531,5 @@ Pour accéder aux problèmes connus archivés d'une ancienne version, utilisez l
 ::: moniker-end
 
 ::: moniker range="<azs-2002"
-Vous pouvez accéder aux [versions antérieures des problèmes connus d’Azure Stack Hub dans la galerie TechNet](https://aka.ms/azsarchivedrelnotes). Ces documents archivés sont fournis uniquement pour référence et n’impliquent aucune prise en charge de ces versions. Pour plus d’informations sur le support d’Azure Stack Hub, consultez [Stratégie de maintenance Azure Stack Hub](azure-stack-servicing-policy.md). Pour obtenir de l’aide, contactez les services de support technique Microsoft.
+Vous pouvez accéder aux anciennes versions des problèmes connus d’Azure Stack Hub dans la table des matières située à gauche, sous [**Ressources > Archives des notes de publication**](./relnotearchive/known-issues-1910.md). Ces articles archivés sont fournis uniquement pour référence et n’impliquent aucune prise en charge de ces versions. Pour plus d’informations sur le support d’Azure Stack Hub, consultez [Stratégie de maintenance Azure Stack Hub](azure-stack-servicing-policy.md). Pour obtenir de l’aide, contactez les services de support technique Microsoft.
 ::: moniker-end

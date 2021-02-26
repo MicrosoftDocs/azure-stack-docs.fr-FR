@@ -3,16 +3,16 @@ title: Connectivité frontalière et intégration réseau pour les systèmes int
 description: Apprenez à planifier la connectivité des réseaux frontaliers des centres de données dans les systèmes intégrés Azure Stack Hub.
 author: PatAltimore
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 01/14/2021
 ms.author: patricka
 ms.reviewer: wamota
-ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 1377f04a9c746a41ed1965a2798a1dbfd3b0db21
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.lastreviewed: 01/14/2021
+ms.openlocfilehash: 091b6e5d1ac4c097c39e425cb6b15da4db96a7a1
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871546"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99570648"
 ---
 # <a name="border-connectivity"></a>Connectivité de la bordure 
 La planification de l'intégration réseau est une condition préalable importante pour réussir le déploiement, l'exploitation et la gestion de systèmes intégrés Azure Stack Hub. Pour commencer la planification de la connectivité frontalière, vous devez décider si vous voulez utiliser le routage dynamique avec le protocole BGP (Border Gateway Protocol). Pour cela, vous devez attribuer un numéro de système autonome (NSA) 16 bits, public ou privé, ou utiliser le routage statique.
@@ -50,17 +50,7 @@ Le routage statique s’applique seulement aux liaisons montantes entre le TOR e
 
 <sup>\*\*\*</sup> Le réseau de gestion du commutateur est requis et peut être ajouté séparément à partir du réseau d’infrastructure du commutateur.
 
-## <a name="transparent-proxy"></a>Proxy transparent
-Si votre centre de données exige que l’ensemble du trafic utilise un proxy, vous devez configurer un *proxy transparent* pour traiter l’ensemble du trafic du rack afin de le gérer conformément à la stratégie, en séparant le trafic entre les zones de votre réseau.
-
-> [!IMPORTANT]
-> La solution Azure Stack Hub ne prend pas en charge les proxies web normaux.  
-
-Un proxy transparent (également appelé proxy d’interception, en ligne ou forcé) intercepte une communication normale sur la couche réseau sans nécessiter une configuration spéciale du client. Les clients ne doivent pas nécessairement être informés de l’existence du proxy.
-
-![Proxy transparent](media/azure-stack-border-connectivity/transparent-proxy.svg)
-
-L’interception du trafic SSL n’est [pas prise en charge](azure-stack-firewall.md#ssl-interception) et peut entraîner des échecs de service lors de l’accès aux points de terminaison. Le délai d’expiration maximal pris en charge pour communiquer avec les points de terminaison requis pour l’identité est de 60 secondes. 3 tentatives sont autorisées.
-
 ## <a name="next-steps"></a>Étapes suivantes
-[Intégration DNS](azure-stack-integrate-dns.md)
+
+- [Intégration DNS](azure-stack-integrate-dns.md)
+- [Proxy transparent pour Azure Stack Hub](azure-stack-transparent-proxy.md)

@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.author: patricka
 ms.reviewer: wamota
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: 989a20216fd5613fa1269009e5c6dc7b918b8300
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 23e97f1e91b9ee9a6a76ee6037514bb9c17636b4
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870800"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99570614"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Publier des services Azure Stack Hub dans votre centre de données
 
@@ -69,7 +69,7 @@ Avec l’ajout de l’[hôte d’extension](azure-stack-extension-host-prepare.m
 
 ## <a name="ports-and-urls-outbound"></a>Ports et URL (en sortie)
 
-Azure Stack Hub prend en charge uniquement les serveurs proxy transparents. Dans un déploiement où un proxy transparent transfère les données vers un serveur proxy traditionnel, vous devez autoriser les URL et les ports du tableau suivant pour les communications sortantes.
+Azure Stack Hub prend en charge uniquement les serveurs proxy transparents. Dans un déploiement où un proxy transparent transfère les données vers un serveur proxy traditionnel, vous devez autoriser les URL et les ports du tableau suivant pour les communications sortantes. Pour plus d’informations sur la configuration de serveurs proxy transparents, consultez [Proxy transparent pour Azure Stack Hub](azure-stack-transparent-proxy.md).
 
 L’interception du trafic SSL n’est [pas prise en charge](azure-stack-firewall.md#ssl-interception) et peut entraîner des échecs de service lors de l’accès aux points de terminaison. Le délai d’expiration maximal pris en charge pour communiquer avec les points de terminaison requis pour l’identité est de 60 secondes.
 

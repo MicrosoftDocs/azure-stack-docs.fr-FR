@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 6fc9e5cb22f1153874090bd57d48cbbbcca63482
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: d8dd3d2b3cd2bc63f1f15a1cf5c44b82c0ede44e
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867602"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571209"
 ---
 # <a name="unpack-the-heater-and-plan-the-heater-installation"></a>Déballer le radiateur et planifier son installation
 
@@ -20,7 +20,7 @@ Avant de remplacer le radiateur, lisez les sections suivantes.
 
 ## <a name="unpacking-and-taking-inventory-of-the-heater"></a>Déballage et inventaire du radiateur
 
-Le Tactical 1U Heater – V2 (le radiateur) est généralement fourni sous la forme d’un sous-composant préinstallé du système Appliance cloud tactique.
+Le Ruggedized 1U Heater -- V2 (radiateur) est généralement fourni sous la forme d’un sous-composant préinstallé du système d’appliance cloud renforcée.
 Lorsqu’il est fourni séparément, le radiateur est expédié dans un carton commercial d’expédition standard avec matériau d’emballage protecteur.
 
 Retirez soigneusement le radiateur du carton d’expédition. Lorsqu’il est conditionné dans un carton d’expédition, tous les composants clés du radiateur sont installés dans le châssis. Le radiateur fait généralement partie d’un boîtier de transit, et est généralement intégré à un groupe entier d’appareils dans un boîtier de transit. Conservez le carton d’expédition et les matériaux d’emballage pour le cas où vous auriez besoin de réexpédier le radiateur ultérieurement. Le radiateur est robuste, mais vous devez tout de même veiller à ce que l’unité soit correctement compressée lors de l’expédition.

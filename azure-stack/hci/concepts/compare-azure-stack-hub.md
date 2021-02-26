@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 01/21/2021
-ms.openlocfilehash: 2ceace372e3b15851c1fa659532bb2fd4d8f8ee8
-ms.sourcegitcommit: 925351b77490364b3d52746f788c4c1b93343631
+ms.date: 02/04/2021
+ms.openlocfilehash: 7c501650d5c9a4d2d6df66269f689d80ffd3f8e0
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98707015"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99570682"
 ---
 # <a name="compare-azure-stack-hci-to-azure-stack-hub"></a>Comparer Azure Stack HCI à Azure Stack Hub
 
@@ -42,7 +42,7 @@ Le tableau suivant compare les cas d’utilisation pour lesquels Azure Stack Hub
 | Azure Stack HCI                                                                 | Azure Stack Hub                                                                          |
 | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
 | Azure Stack HCI ne permet pas d’appliquer ni de fournir une multilocation de manière native. | Utilisez Azure Stack Hub pour bénéficier d’une fonctionnalité Infrastructure-as-a-Service (IaaS), avec une isolation renforcée, un suivi précis de l’utilisation et une facturation interne pour plusieurs locataires colocalisés. Idéal pour les fournisseurs de services et les clouds privés d’entreprise. Modèles issus de la Place de marché Azure. | 
-| Azure Stack HCI n’exécute pas de services Platform-as-a-Service (PaaS) en local. | Utilisez Azure Stack Hub pour développer et exécuter des applications qui s’appuient sur des services PaaS comme Web Apps, Functions ou Event Hubs en local. Ces services s’exécutent sur Azure Stack Hub exactement comme dans Azure, en fournissant un environnement de développement et d’exécution hybride cohérent. |
+| Azure Stack HCI n’est pas conçu pour exécuter des services PaaS (Platform-as-a-Service) au niveau local, bien qu’il offre la possibilité d’héberger [Azure Kubernetes Service](../../aks-hci/overview.md). | Utilisez Azure Stack Hub pour développer et exécuter des applications qui s’appuient sur des services PaaS comme Web Apps, Functions ou Event Hubs en local. Ces services s’exécutent sur Azure Stack Hub exactement comme dans Azure, en fournissant un environnement de développement et d’exécution hybride cohérent. |
 | Azure Stack HCI n’inclut aucun outil DevOps de manière native. | Utilisez Azure Stack Hub pour moderniser le déploiement et le fonctionnement d’applications avec des pratiques DevOps comme l’infrastructure en tant que code, l’intégration continue et le déploiement continu (CI/CD), ainsi que des fonctionnalités utiles comme les extensions de machine virtuelle cohérentes avec Azure. Idéal pour les équipes de développement et DevOps. |
 
 ## <a name="next-steps"></a>Étapes suivantes
