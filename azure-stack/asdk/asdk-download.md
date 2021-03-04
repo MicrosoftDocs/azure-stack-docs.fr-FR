@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2019
-ms.openlocfilehash: 3f8a0615f18ddf9ba4a98c2af2b947c49cfdd550
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: de9085ee201fd472a0ffd71cb97f519f66fe3621
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873263"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839672"
 ---
 # <a name="download-and-extract-the-asdk"></a>Télécharger et extraire la solution
 Après avoir vérifié que l’ordinateur hôte du Kit de développement répond bien aux exigences de base pour l’installation du Kit de développement Azure Stack (ASDK), vous devez télécharger puis extraire le package de déploiement du Kit de développement Azure Stack afin d’obtenir le fichier Cloudbuilder.vhdx.
@@ -24,7 +24,7 @@ Après avoir vérifié que l’ordinateur hôte du Kit de développement répond
    - [.NET Framework 4.6 (ou ultérieur)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) doit être installé.
 
 2. [Accédez à la page de démarrage](https://azure.microsoft.com/overview/azure-stack/try/?v=try) sur laquelle vous pouvez télécharger le kit ASDK, renseignez vos informations, puis cliquez sur **Envoyer**.
-3. Téléchargez et exécutez le script de vérification des conditions requises du [vérificateur de déploiement pour ASDK](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409). Ce script autonome passe en revue les vérifications des conditions requises réalisées par la configuration pour ASDK. Il vous permet de vous assurer que vous respectez les exigences matérielles et logicielles avant de télécharger le package plus volumineux d’ASDK.
+3. Téléchargez et exécutez le script de vérification des conditions requises du [vérificateur de déploiement pour ASDK](https://github.com/Azure/AzureStack-Tools/blob/master/Deployment/asdk-prechecker.ps1). Ce script autonome passe en revue les vérifications des conditions requises réalisées par la configuration pour ASDK. Il vous permet de vous assurer que vous respectez les exigences matérielles et logicielles avant de télécharger le package plus volumineux d’ASDK.
 4. Sous **Télécharger le logiciel**, cliquez sur **Kit de développement Azure Stack**.
 
    > [!NOTE]

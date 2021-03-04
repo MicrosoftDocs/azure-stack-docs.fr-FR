@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 7372cea4544a2cdb4b0d0e6ed54d07253d6d782c
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.openlocfilehash: 593ea0ca882b5aa7d57ff5a3267d35519be3b6f2
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103085"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840063"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Opérations de maintenance sur le fournisseur de ressources MySQL dans Azure Stack Hub
 
@@ -51,7 +51,7 @@ Vous pouvez modifier et exécuter le script suivant pour mettre à jour les déf
 
 ```powershell
 # Set credentials for the local admin on the resource provider VM.
-$vmLocalAdminPass = ConvertTo-SecureString "<local admin user password>" -AsPlainText -Force
+$vmLocalAdminPass = ConvertTo-SecureString '<local admin user password>' -AsPlainText -Force
 $vmLocalAdminUser = "<local admin user name>"
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential `
     ($vmLocalAdminUser, $vmLocalAdminPass)
@@ -252,11 +252,11 @@ L’extension Azure Diagnostics est installée sur la machine virtuelle de l’a
    
    ![Accéder aux paramètres de diagnostic](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
 
-4. Ajoutez **Microsoft-AzureStack-DatabaseAdapter/Operational!\** _ pour collecter les journaux des événements opérationnels du fournisseur de ressources MySQL.
+4. Ajoutez **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** pour collecter les journaux des événements opérationnels du fournisseur de ressources MySQL.
 
    ![Ajouter des journaux des événements](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
 
-5. Pour activer la collecte des journaux IIS, cochez _ *Journaux IIS** et **Journaux des requêtes ayant échoué**.
+5. Pour activer la collecte des journaux IIS, cochez **Journaux IIS** et **Journaux des requêtes ayant échoué**.
 
    ![Ajouter des journaux IIS](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-iis-logs.png)
 

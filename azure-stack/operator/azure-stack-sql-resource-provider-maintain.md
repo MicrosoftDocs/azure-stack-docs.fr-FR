@@ -8,12 +8,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 212d6c89bedc6f46eb6db2cbf735fa61ea0ad909
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.openlocfilehash: 05ff121ccba8076276c8dd7106d56992500b57d8
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103096"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840284"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Opérations de maintenance du fournisseur de ressources SQL
 
@@ -44,7 +44,7 @@ Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèm
 - Certificat SSL externe [fourni au cours du déploiement](azure-stack-pki-certs.md).
 - Mot de passe de compte d’administrateur local des machines virtuelles du fournisseur de ressources fourni au cours du déploiement.
 - Mot de passe (dbadapterdiag) utilisateur de diagnostic du fournisseur de ressources.
-- (version >= 1.1.47.0) Certificat Key Vault généré pendant le déploiement.
+- Certificat Key Vault (version >= 1.1.47.0) généré lors du déploiement.
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>Exemples PowerShell pour la rotation des secrets
 
@@ -157,7 +157,7 @@ Vous pouvez modifier et exécuter le script suivant pour mettre à jour les déf
 
 ```powershell
 # Set credentials for local admin on the resource provider VM.
-$vmLocalAdminPass = ConvertTo-SecureString "<local admin user password>" -AsPlainText -Force
+$vmLocalAdminPass = ConvertTo-SecureString '<local admin user password>' -AsPlainText -Force
 $vmLocalAdminUser = "<local admin user name>"
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential `
     ($vmLocalAdminUser, $vmLocalAdminPass)
@@ -260,10 +260,10 @@ L’extension Azure Diagnostics est installée sur la machine virtuelle de l’a
 3. Dans les **Paramètres de diagnostic** de la machine virtuelle, accédez à l’onglet **Journaux** et choisissez **Personnalisé** pour personnaliser les journaux des événements à collecter.
 ![Accéder aux paramètres de diagnostic](media/azure-stack-sql-resource-provider-maintain/sqlrp-diagnostics-settings.png)
 
-4. Ajoutez **Microsoft-AzureStack-DatabaseAdapter/Operational!\** _ pour collecter les journaux des événements opérationnels du fournisseur de ressources SQL.
+4. Ajoutez **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** pour collecter les journaux des événements opérationnels du fournisseur de ressources SQL.
 ![Ajouter des journaux des événements](media/azure-stack-sql-resource-provider-maintain/sqlrp-event-logs.png)
 
-5. Pour activer la collecte des journaux IIS, cochez _ *Journaux IIS** et **Journaux des requêtes ayant échoué**.
+5. Pour activer la collecte des journaux IIS, cochez **Journaux IIS** et **Journaux des requêtes ayant échoué**.
 ![Ajouter des journaux IIS](media/azure-stack-sql-resource-provider-maintain/sqlrp-iis-logs.png)
 
 6. Enfin, sélectionnez **Enregistrer** pour enregistrer tous les paramètres de diagnostic.
