@@ -21,6 +21,8 @@
           href: create-kubernetes-cluster-powershell.md
 - name: Tutoriels
   items:
+    - name: Déployer des applications .NET
+      href: deploy-windows-application.md
     - name: Utilisation de conteneurs Linux
       href: deploy-linux-application.md
 - name: Concepts
@@ -29,16 +31,30 @@
       href: kubernetes-concepts.md
     - name: Configuration système requise
       href: system-requirements.md
+    - name: Mise en réseau
+      href: concepts-networking.md
 - name: Guides pratiques
   items:
+    - name: Évaluer sur une machine virtuelle Azure
+      href: 'https://github.com/Azure/aks-hci/blob/main/eval/readme.md'
     - name: Se connecter à Azure Arc pour Kubernetes
       href: connect-to-arc.md
     - name: Adapter des applications à des clusters Kubernetes à système d’exploitation mixte
       href: adapt-apps-mixed-os-clusters.md
+    - name: Configurer la mise en réseau
+      items:
+        - name: Configuration des paramètres de proxy
+          href: proxy.md
+    - name: Sécurité et authentification
+      items:
+        - name: Utiliser l’authentification unique Active Directory
+          href: ad-sso.md
+        - name: Chiffrer les secrets etcd
+          href: encrypt-secrets.md
+    - name: Superviser AKS sur les clusters Azure Stack HCI
+      href: monitor-logging.md
     - name: Utiliser des conteneurs Windows Server
       items:
-        - name: Déployer des applications .NET
-          href: deploy-windows-application.md
         - name: Préparer des nœuds Windows pour la prise en charge de compte de service administré de groupe
           href: prepare-windows-nodes-gmsa.md
         - name: Utiliser le volume persistant
@@ -59,6 +75,8 @@
   items:
     - name: Notes de publication
       href: 'https://aka.ms/aks-hci-relnotes/'
+    - name: PowerShell
+      href: AksHci.md
     - name: Problèmes connus
       href: known-issues.md
     - name: Feuille de route Azure

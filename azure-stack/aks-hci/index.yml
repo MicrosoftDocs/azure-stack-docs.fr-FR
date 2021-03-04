@@ -8,12 +8,12 @@ metadata:
   author: jasongerend
   ms.author: jgerend
   ms.date: 09/22/2020
-  ms.openlocfilehash: 808debaa0953bc19939bc1ffbf02c96688496bca
-  ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+  ms.openlocfilehash: 8e000bd1fe847c9d35b2ed680102a33424c86d6a
+  ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/04/2020
-  ms.locfileid: "96612282"
+  ms.lasthandoff: 03/04/2021
+  ms.locfileid: "101840097"
 landingContent:
 - title: À propos d’Azure Kubernetes Service
   linkLists:
@@ -47,12 +47,16 @@ landingContent:
     links:
     - text: Utilisation de conteneurs Linux
       url: deploy-linux-application.md
+    - text: Déployer des applications .NET
+      url: deploy-windows-application.md
   - linkListType: how-to-guide
     links:
     - text: Adapter des applications à des clusters Kubernetes à système d’exploitation mixte
       url: adapt-apps-mixed-os-clusters.md
-    - text: Déployer des applications Windows
-      url: deploy-windows-application.md
+    - text: Utiliser des informations d’identification de connexion unique Active Directory
+      url: ad-sso.md
+    - text: Configuration des paramètres de proxy
+      url: proxy.md
     - text: Préparer les nœuds Windows pour la prise en charge de gMSA
       url: prepare-windows-nodes-gmsa.md
     - text: Utiliser des volumes persistants
@@ -63,3 +67,5 @@ landingContent:
     links:
     - text: Se connecter à Azure Arc pour Kubernetes
       url: connect-to-arc.md
+    - text: Superviser AKS sur les clusters Azure Stack HCI
+      url: monitor-logging.md
