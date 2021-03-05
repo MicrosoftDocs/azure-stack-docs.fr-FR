@@ -27,7 +27,7 @@
       href: deploy-linux-application.md
 - name: Concepts
   items:
-    - name: Concepts Azure Kubernetes sur Azure Stack HCI
+    - name: Clusters et charges de travail
       href: kubernetes-concepts.md
     - name: Configuration système requise
       href: system-requirements.md
@@ -51,8 +51,12 @@
           href: ad-sso.md
         - name: Chiffrer les secrets etcd
           href: encrypt-secrets.md
-    - name: Superviser AKS sur les clusters Azure Stack HCI
-      href: monitor-logging.md
+    - name: Surveillance et journalisation
+      items:
+        - name: Utiliser Azure Monitor pour conteneurs
+          href: 'https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-overview'
+        - name: Supervision locale
+          href: monitor-logging.md
     - name: Utiliser des conteneurs Windows Server
       items:
         - name: Préparer des nœuds Windows pour la prise en charge de compte de service administré de groupe
