@@ -13,7 +13,7 @@
     - name: Notes de publication
       href: 'https://support.microsoft.com/help/4595086'
     - name: Questions fréquentes (FAQ)
-      href: faq.md
+      href: faq.yml
 - name: Démarrages rapides
   items:
     - name: Utiliser Azure Stack HCI avec Windows Admin Center
