@@ -260,6 +260,10 @@
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
                     - name: Activer la projection du volume de jeton de compte de service
                       href: kubernetes-aks-engine-service-account.md
+                    - name: Ajouter un stockage de conteneurs
+                      href: kubernetes-aks-engine-container-storage-interface.md
+                    - name: Permuter les certificats
+                      href: kubernetes-aks-engine-rotate-certs.md
                     - name: Résoudre les problèmes du moteur AKS
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
                     - name: Utiliser Azure Monitor pour conteneurs
