@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: f30a8b82a07aafed80fc75329516bd3b3d91df04
-ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
+ms.openlocfilehash: 78573a16d9fc376d7903badfd28bda9366ca1ddb
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100009041"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102116986"
 ---
 # <a name="azure-app-service-and-azure-functions-on-azure-stack-hub-overview"></a>Vue d'ensemble d'Azure App Service et d'Azure Functions sur Azure Stack Hub
 
@@ -33,7 +33,7 @@ Voici quelques fonctionnalités et capacités clés d'Azure App Service :
 App Service offre plusieurs types d’application, chacun d’eux étant destiné à héberger une charge de travail spécifique :
 
 - [Web Apps](/azure/app-service/overview) pour l’hébergement de sites web, d’applications web et d’API REST.
-- [Azure Functions v1](/azure/azure-functions) pour l'hébergement de charges de travail serverless pilotées par les événements.
+- [Azure Functions v1](/azure/azure-functions/functions-versions) pour l'hébergement de charges de travail serverless pilotées par les événements.
 
 Le mot *application* fait référence aux ressources d’hébergement dédiées à l’exécution d’une charge de travail. Par exemple, vous avez certainement coutume de penser qu’une *application web* se compose de ressources de calcul et de code d’application qui, ensemble, offrent des fonctionnalités à un navigateur. Dans Azure App Service, une application web est la ressource de calcul qu'Azure Stack Hub fournit pour héberger le code de votre application.
 

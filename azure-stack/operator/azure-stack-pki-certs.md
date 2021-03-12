@@ -1,18 +1,18 @@
 ---
 title: Exigences de certificat d’infrastructure de clés publiques Azure Stack Hub
 description: Découvrez les exigences de certificat d’infrastructure de clés publiques Azure Stack Hub pour les systèmes intégrés Azure Stack Hub.
-author: PatAltimore
+author: BryanLa
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 2368c38e5fc06b36e11eb19069092b4e8a999406
-ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
+ms.openlocfilehash: 33beba13cf9d71cf2b591f6b3ee87a8076a8172d
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100487814"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231215"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Exigences de certificat pour infrastructure à clé publique (PKI) Azure Stack Hub
 

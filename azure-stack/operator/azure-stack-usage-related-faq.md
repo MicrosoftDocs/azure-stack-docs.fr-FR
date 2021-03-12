@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 01/14/2021
+ms.date: 02/18/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: dc49218a5abce85c1ca1bcfd7ea5ef2077e8265a
-ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
+ms.openlocfilehash: a874e4ee0c3183f7f99da70375d5fc8b0e0818ab
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98207993"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840658"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Questions fréquentes sur l’utilisation d’Azure Stack Hub
 
@@ -212,15 +212,10 @@ Des rapports d’utilisation sont générés pour les fournisseurs de ressources
 
 ### <a name="event-hubs"></a>Event Hubs
 
-**ID du compteur** : d3a257e7-cf59-43bd-82c0-cf29ca8f7da0 (compteur payant)  
-**Nom du compteur** : 1 cœur    
+**ID du compteur** : CB6A35C5-FADE-406C-B14D-6DDB7C4CA3D5  
+**Nom du compteur** : 1 cœur  
 **Unité** : Cœur\*heures  
-**Remarques**: Nombre de cœurs utilisés par les clusters Event Hubs déployés. Le nombre de cœurs est exprimé en multiples de 10.
-
-**ID du compteur** : 29ea0bfc-6780-4711-98fc-2c7db191e1a4 (compteur administrateur)  
-**Nom du compteur** : 1 cœur administrateur   
-**Unité** : Cœur\*heures  
-**Remarques**: Nombre de cœurs utilisés par les clusters Event Hubs déployés. Le nombre de cœurs est exprimé en multiples de 10.
+**Remarque** : L’unité représente le nombre de cœurs par heure utilisés par les clusters Event Hubs déployés. Le nombre de cœurs est un multiple de 10, car chaque unité de capacité (CU) configurée utilise 10 cœurs.
 
 ### <a name="key-vault"></a>Key Vault
   

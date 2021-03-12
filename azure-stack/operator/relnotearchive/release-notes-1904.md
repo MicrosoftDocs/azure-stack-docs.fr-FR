@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/30/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9222315f9a055ddc2b49ed470b0f22b653197473
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 9ca014878021d0fbe02a8997e1436910557e93f5
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248641"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515921"
 ---
 # <a name="azure-stack-1904-update"></a>Mise à jour 1904 d’Azure Stack
 
@@ -71,7 +71,7 @@ Le type de build de la mise à jour 1904 d’Azure Stack est **Express**. Pour 
 - Amélioration du volume de messages Syslog en filtrant les événements inutiles et en fournissant un paramètre de configuration pour sélectionner le niveau de gravité souhaité pour les messages transférés. Pour plus d’informations sur la façon de configurer le niveau de gravité, consultez [Intégration au centre de données Azure Stack - transfert syslog](../azure-stack-integrate-security.md).
 
 <!--this applied to Bug 1473487 -->
-- Ajout d’une nouvelle fonctionnalité à l’applet de commande **Get-AzureStackLog** en incorporant le paramètre supplémentaire `-OutputSASUri`. Vous pouvez maintenant collecter des journaux Azure Stack à partir de votre environnement et les stocker dans le conteneur d’objets blob Stockage Azure spécifié. Pour plus d’informations, consultez [Diagnostics Azure Stack](../azure-stack-configure-on-demand-diagnostic-log-collection.md#examples).
+- Ajout d’une nouvelle fonctionnalité à l’applet de commande **Get-AzureStackLog** en incorporant le paramètre supplémentaire `-OutputSASUri`. Vous pouvez maintenant collecter des journaux Azure Stack à partir de votre environnement et les stocker dans le conteneur d’objets blob Stockage Azure spécifié. Pour plus d’informations, consultez [Diagnostics Azure Stack](/azure-stack/operator/diagnostic-log-collection).
 
 - Ajout d’un nouveau contrôle de la mémoire dans le groupe **Test-AzureStack** `UpdateReadiness`, qui vérifie si vous avez suffisamment de mémoire disponible sur la pile pour que la mise à jour s’effectue correctement.
 
@@ -88,7 +88,7 @@ Le type de build de la mise à jour 1904 d’Azure Stack est **Express**. Pour 
 - Améliorations de l’idempotence du plan d’action de sauvegarde de l’infrastructure.
 
 <!--Bug/Task 3139609 -->
-- Améliorations apportées à la collecte des journaux Azure Stack. Ces améliorations réduisent le temps nécessaire pour récupérer l’ensemble des journaux. De plus, l’applet de commande [Get-AzureStackLog](../azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) ne génère plus de journaux par défaut pour le rôle OEM. Vous devez exécuter l’applet de commande [Invoke-AzureStackOnDemandLog](../azure-stack-configure-on-demand-diagnostic-log-collection.md#invoke-azurestackondemandlog), en spécifiant le rôle pour récupérer les journaux OEM. Pour plus d’informations, consultez [Diagnostics Azure Stack](../azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+- Améliorations apportées à la collecte des journaux Azure Stack. Ces améliorations réduisent le temps nécessaire pour récupérer l’ensemble des journaux. De plus, l’applet de commande [Get-AzureStackLog](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) ne génère plus de journaux par défaut pour le rôle OEM. Vous devez exécuter l’applet de commande [Invoke-AzureStackOnDemandLog](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#invoke-azurestackondemandlog), en spécifiant le rôle pour récupérer les journaux OEM. Pour plus d’informations, consultez [Diagnostics Azure Stack](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
 - Azure Stack surveille à présent l’URL de données de fédération fournie pour l’intégration de centre de données avec ADFS. Cela améliore la fiabilité au cours de la rotation des secrets de l’instance ADFS cliente ou de la batterie de serveurs.
 
@@ -205,5 +205,4 @@ Les clients utilisant des systèmes qui peuvent accéder à Internet à partir d
 - Pour obtenir une vue d’ensemble de la gestion des mises à jour dans Azure Stack, consultez [Gérer les mises à jour dans Azure Stack - Vue d’ensemble](../azure-stack-updates.md).  
 - Pour plus d’informations sur la façon d’appliquer des mises à jour avec Azure Stack, consultez [Effectuer des mises à jour dans Azure Stack](../azure-stack-apply-updates.md).
 - Pour passer en revue la stratégie de maintenance pour les systèmes intégrés Azure Stack et pour connaître la marche à suivre afin de conserver votre système dans un état de prise en charge, consultez [Stratégie de maintenance Azure Stack](../azure-stack-servicing-policy.md).  
-- Pour utiliser le Point de terminaison privilégié (PEP) afin de surveiller et de reprendre les mises à jour, consultez [Surveiller les mises à jour dans Azure Stack à l’aide du point de terminaison privilégié](../azure-stack-monitor-update.md).  
-
+- Pour utiliser le Point de terminaison privilégié (PEP) afin de surveiller et de reprendre les mises à jour, consultez [Surveiller les mises à jour dans Azure Stack à l’aide du point de terminaison privilégié](../azure-stack-monitor-update.md).

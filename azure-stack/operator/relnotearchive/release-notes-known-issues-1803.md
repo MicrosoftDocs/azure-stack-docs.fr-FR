@@ -16,12 +16,12 @@ ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6f15453ce20988929728a9d326ab5f7bf901beca
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 69af9b142f4fb198075dd751274caa3a10a96744
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248631"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187127"
 ---
 # <a name="azure-stack-1803-update"></a>Mise à jour 1803 d’Azure Stack
 
@@ -69,14 +69,14 @@ Cette mise à jour inclut les améliorations et les correctifs suivants pour Azu
 - **Accès à la Place de marché** : il est maintenant possible d’ouvrir la Place de marché Azure Stack avec l’option [+ Nouveau](https://ms.portal.azure.com/#create/hub) sur le portail d’administration et le portail utilisateur, de la même façon que sur les portails Azure.
  
 <!-- 2202621 --> 
-- **Azure Monitor** : Azure Stack ajoute [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) au portail d’administration et au portail utilisateur. Il comprend de nouveaux explorateurs de mesures et de journaux d’activité. Le port **13012** doit être ouvert dans les configurations de pare-feu pour qu’Azure Monitor soit accessible à partir de réseaux externes. Pour plus d’informations sur les ports requis par Azure Stack, voir [Intégration de centre de données Azure Stack – Publier des points de terminaison](../azure-stack-integrate-endpoints.md).
+- **Azure Monitor** : Azure Stack ajoute [Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) au portail d’administration et au portail utilisateur. Il comprend de nouveaux explorateurs de mesures et de journaux d’activité. Le port **13012** doit être ouvert dans les configurations de pare-feu pour qu’Azure Monitor soit accessible à partir de réseaux externes. Pour plus d’informations sur les ports requis par Azure Stack, voir [Intégration de centre de données Azure Stack – Publier des points de terminaison](../azure-stack-integrate-endpoints.md).
 
    Également dans le cadre de cette modification, sous **Plus de services**, *Journaux d’audits* est désormais remplacé par *Journaux d’activités*. La fonctionnalité est désormais compatible avec le portail Azure. 
 
 <!-- 1664791 --> 
 - **Fichiers partiellement alloués** : toute image ajoutée à Azure Stack ou par le biais de la syndication Marketplace est convertie en fichier partiellement alloué. Cette conversion n’est pas possible pour celles qui ont été ajoutées avant la version 1803 d’Azure Stack. Il faut alors utiliser la syndication Marketplace pour renvoyer ces images de façon à tirer parti de cette fonctionnalité. 
  
-   Les fichiers partiellement alloués sont un format de fichier efficace utilisé pour réduire l’utilisation de l’espace de stockage et améliorer les E/S. Pour plus d’informations, consultez [Fsutil sparse](https://docs.microsoft.com/windows-server/administration/windows-commands/fsutil-sparse) pour Windows Server. 
+   Les fichiers partiellement alloués sont un format de fichier efficace utilisé pour réduire l’utilisation de l’espace de stockage et améliorer les E/S. Pour plus d’informations, consultez [Fsutil sparse](/windows-server/administration/windows-commands/fsutil-sparse) pour Windows Server. 
 
 ### <a name="fixed-issues"></a>Problèmes résolus
 
@@ -99,7 +99,7 @@ Cette mise à jour inclut les améliorations et les correctifs suivants pour Azu
 -  Les données d’utilisation des machines virtuelles sont désormais triées toutes les heures. Ce comportement est cohérent avec Azure. 
 
 <!--  2253274 --> 
--  Sur le portail d’administration et le portail utilisateur, le chargement du panneau Paramètres des sous-réseaux virtuels échoue. Pour contourner le problème, utilisez PowerShell et la cmdlet [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0&preserve-view=true) afin de voir et de gérer ces informations.
+-  Sur le portail d’administration et le portail utilisateur, le chargement du panneau Paramètres des sous-réseaux virtuels échoue. Pour contourner le problème, utilisez PowerShell et la cmdlet [Get-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?preserve-view=true&view=azurermps-5.5.0) afin de voir et de gérer ces informations.
 
 - Lorsque vous créez une machine virtuelle, le message *Impossible d’afficher les tarifs* ne s’affiche plus lors du choix d’une taille pour la machine virtuelle.
 
@@ -178,7 +178,7 @@ Les éléments suivants sont des problèmes connus depuis l’installation du bu
 
 
 #### <a name="compute"></a>Calcul
-- Les paramètres de mise à l’échelle des groupes de machines virtuelles identiques ne sont pas disponibles dans le portail. Pour résoudre ce problème, vous pouvez utiliser [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). En raison des différences de version de PowerShell, vous devez utiliser le paramètre `-Name` au lieu du paramètre `-VMScaleSetName`.
+- Les paramètres de mise à l’échelle des groupes de machines virtuelles identiques ne sont pas disponibles dans le portail. Pour résoudre ce problème, vous pouvez utiliser [Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). En raison des différences de version de PowerShell, vous devez utiliser le paramètre `-Name` au lieu du paramètre `-VMScaleSetName`.
 
 - Lorsque vous créez un groupe à haute disponibilité dans le portail en accédant à **Nouveau** > **Compute** > **Groupe à haute disponibilité**, vous pouvez uniquement créer un groupe à haute disponibilité avec un domaine d’erreur et un domaine de mise à jour de 1. Pour contourner ce problème, lors de la création d’une nouvelle machine virtuelle, créez le groupe à haute disponibilité à l’aide de PowerShell, CLI, ou depuis le portail.
 

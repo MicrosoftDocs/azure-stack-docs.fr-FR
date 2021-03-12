@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: b9334a3079a767f723240946af8091508204b8ae
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 63a42e4b3cab1273c84c52367178c00442bf2cf2
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248636"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187229"
 ---
 # <a name="azure-stack-1802-update"></a>Mise à jour 1802 d’Azure Stack
 
@@ -129,7 +129,7 @@ Les éléments suivants sont des problèmes connus après l’installation pour 
     Cette alerte peut être ignorée en toute sécurité. 
 
 <!-- 2253274 --> 
-- Sur le portail d’administration et le portail utilisateur, le chargement du panneau Paramètres des sous-réseaux virtuels échoue. Pour contourner le problème, utilisez PowerShell et l’applet de commande [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0&preserve-view=true) afin de voir et de gérer ces informations.
+- Sur le portail d’administration et le portail utilisateur, le chargement du panneau Paramètres des sous-réseaux virtuels échoue. Pour contourner le problème, utilisez PowerShell et l’applet de commande [Get-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?preserve-view=true&view=azurermps-5.5.0) afin de voir et de gérer ces informations.
 
 - Dans le portail d’administration et le portail utilisateur, le panneau Vue d’ensemble ne parvient pas à charger lorsque vous sélectionnez le panneau Vue d’ensemble des comptes de stockage qui ont été créés avec une ancienne version de l’API (exemple : 2015-06-15). Cela inclut les comptes de stockage de système comme **updateadminaccount** utilisé pendant la mise à jour et le correctif. 
 
@@ -161,7 +161,7 @@ Les éléments suivants sont des problèmes connus après l’installation pour 
 - Les utilisateurs ont la possibilité de parcourir entièrement le marketplace, et peuvent voir des éléments administratifs, tels que des plans et des offres, qui ne sont pas fonctionnels pour eux.
 
 #### <a name="compute"></a>Calcul
-- Les paramètres de mise à l’échelle des groupes de machines virtuelles identiques ne sont pas disponibles dans le portail. Pour résoudre ce problème, vous pouvez utiliser [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). En raison des différences de version de PowerShell, vous devez utiliser le paramètre `-Name` au lieu du paramètre `-VMScaleSetName`.
+- Les paramètres de mise à l’échelle des groupes de machines virtuelles identiques ne sont pas disponibles dans le portail. Pour résoudre ce problème, vous pouvez utiliser [Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). En raison des différences de version de PowerShell, vous devez utiliser le paramètre `-Name` au lieu du paramètre `-VMScaleSetName`.
 
 <!-- 2290877  --> 
 - Vous ne pouvez pas effectuer de scale-up pour un groupe de machines virtuelles identiques (VMSS) si celui-ci a été créé avec une version d’Azure Stack antérieure à 1802. Ceci est dû à la modification de la prise en charge de l’utilisation des groupes à haute disponibilité avec les groupes de machines virtuelles identiques. Cette prise en charge a été ajoutée avec la version 1802.  Si vous tentez d’ajouter des instances en vue de mettre à l’échelle un groupe VMSS qui a été créé avant l’ajout de cette prise en charge, l’ajout échoue avec le message suivant : *Échec du provisionnement*. 
@@ -314,7 +314,7 @@ Vous pouvez télécharger le package de mise à jour Azure Stack 1802 à partir 
 ## <a name="more-information"></a>Informations complémentaires
 Microsoft fournit un moyen de surveiller et de reprendre les mises à jour à l’aide du point de terminaison privilégié (PEP) installé avec la mise à jour 1710.
 
-- Consultez la documentation [Surveiller les mises à jour dans Azure Stack à l’aide du point de terminaison privilégié](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update).
+- Consultez la documentation [Surveiller les mises à jour dans Azure Stack à l’aide du point de terminaison privilégié](/azure/azure-stack/azure-stack-monitor-update).
 
 ## <a name="see-also"></a>Voir aussi
 

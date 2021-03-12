@@ -7,12 +7,12 @@ ms.date: 1/11/2021
 ms.author: mabrigg
 ms.reviewer: gara
 ms.lastreviewed: 1/11/2021
-ms.openlocfilehash: 4413070dc3d55a7a879b5c4589d9f453a617e0e0
-ms.sourcegitcommit: 51ce5ba6cf0a377378d25dac63f6f2925339c23d
+ms.openlocfilehash: 1421917f870d09d61f665a2cee6eb9b617ae75f3
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98224759"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187348"
 ---
 # <a name="use-the-azure-login-action-with-azure-cli-and-powershell-on-azure-stack-hub"></a>Utiliser l’action de connexion Azure avec Azure CLI et PowerShell sur Azure Stack Hub
 
@@ -136,8 +136,8 @@ Vous pouvez utiliser des secrets GitHub pour chiffrer les informations sensibles
 1. Créez votre exécuteur auto-hébergé. 
 
     Ces instructions créent un exécuteur sous forme de machine virtuelle Windows dans Azure. Si vous avez besoin de vous connecter à votre service Azure Stack Hub hébergé dans un centre de données, vous pouvez avoir besoin d’une connexion VPN. Vous trouverez des instructions sur l’activation de cette connexion dans la section [Installer les outils Azure Stack Hub sur votre exécuteur auto-hébergé](#optional-install-azure-stack-hub-tools-on-your-self-hosted-runner) qui a éventuellement besoin d’une connexion VPN.
-    - Pour obtenir des conseils sur la création d’une machine virtuelle Windows dans Azure, consultez [Démarrage rapide : Création d’une machine virtuelle Windows dans le portail Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal). Quand vous suivez ces instructions, installez Windows Server 2016 Core.
-    - Pour obtenir des conseils sur la création d’une machine virtuelle Windows dans Azure Stack Hub, consultez [Démarrage rapide : Créez une machine virtuelle Windows Server avec le portail Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal). Quand vous suivez ces instructions, installez Windows Server 2016 Core.
+    - Pour obtenir des conseils sur la création d’une machine virtuelle Windows dans Azure, consultez [Démarrage rapide : Création d’une machine virtuelle Windows dans le portail Azure](/azure/virtual-machines/windows/quick-create-portal). Quand vous suivez ces instructions, installez Windows Server 2016 Core.
+    - Pour obtenir des conseils sur la création d’une machine virtuelle Windows dans Azure Stack Hub, consultez [Démarrage rapide : Créez une machine virtuelle Windows Server avec le portail Azure Stack Hub](./azure-stack-quick-windows-portal.md). Quand vous suivez ces instructions, installez Windows Server 2016 Core.
 1. Utilisez une connexion à distance pour vous connecter à votre serveur Windows 2016 à l’aide de l’adresse IP du serveur, du nom d’utilisateur et du mot de passe que vous avez définis lors de la création de la machine.
 1. Installez Chocolatey. Chocolatey est un gestionnaire de package pour Windows que vous pouvez utiliser pour installer et gérer des dépendances à partir de la ligne de commande. À partir d’une invite PowerShell avec des privilèges élevés :
     ```powershell
@@ -159,7 +159,7 @@ Vous pouvez utiliser des secrets GitHub pour chiffrer les informations sensibles
     Install-AzProfile -Profile 2019-03-01-hybrid -Force
     Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
     ```
-    Pour plus d’informations sur l’utilisation des modules Az pour Azure Stack Hub, consultez [Installer le module PowerShell Az pour Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/powershell-install-az-module).
+    Pour plus d’informations sur l’utilisation des modules Az pour Azure Stack Hub, consultez [Installer le module PowerShell Az pour Azure Stack Hub](../operator/powershell-install-az-module.md).
 7. Redémarrez votre machine. À partir d’une invite PowerShell avec des privilèges élevés :
     ```powershell  
     shutdown /r
@@ -172,7 +172,7 @@ Vous pouvez utiliser des secrets GitHub pour chiffrer les informations sensibles
 
 ### <a name="optional-install-azure-stack-hub-tools-on-your-self-hosted-runner"></a>Facultatif : Installer les outils Azure Stack Hub sur exécuteur auto-hébergé
 
-Les instructions données dans cet article ne nécessitent pas d’accès aux [outils Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?&tabs=az), mais quand vous allez développer votre propre workflow, vous risquez d’avoir besoin de les utiliser. Les instructions qui suivent peuvent vous aider à installer les outils sur votre exécuteur auto-hébergé Windows. Pour plus d’informations sur les outils Azure Stack Hub, consultez [Télécharger les outils Azure Stack Hub à partir de GitHub](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?&tabs=az). Ces instructions partent du principe que vous avez installé le gestionnaire de package Chocolatey.
+Les instructions données dans cet article ne nécessitent pas d’accès aux [outils Azure Stack Hub](../operator/azure-stack-powershell-download.md?tabs=az), mais quand vous allez développer votre propre workflow, vous risquez d’avoir besoin de les utiliser. Les instructions qui suivent peuvent vous aider à installer les outils sur votre exécuteur auto-hébergé Windows. Pour plus d’informations sur les outils Azure Stack Hub, consultez [Télécharger les outils Azure Stack Hub à partir de GitHub](../operator/azure-stack-powershell-download.md?tabs=az). Ces instructions partent du principe que vous avez installé le gestionnaire de package Chocolatey.
 
 1. Installez Git.
     ```powershell  
@@ -199,7 +199,7 @@ Les instructions données dans cet article ne nécessitent pas d’accès aux [o
     cd AzureStack-Tools-az
     ```
 
-3. Si vous avez besoin que votre exécuteur se connecte à votre instance Azure Stack Hub, vous pouvez utiliser PowerShell. Vous trouverez les instructions correspondantes dans l’article [Se connecter à Azure Stack Hub avec PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-configure-admin?&tabs=az1%2Caz2%2Caz3).
+3. Si vous avez besoin que votre exécuteur se connecte à votre instance Azure Stack Hub, vous pouvez utiliser PowerShell. Vous trouverez les instructions correspondantes dans l’article [Se connecter à Azure Stack Hub avec PowerShell](../operator/azure-stack-powershell-configure-admin.md?tabs=az1%2Caz2%2Caz3).
 
 ## <a name="create-a-self-hosted-runner"></a>Créer un exécuteur auto-hébergé
 
@@ -295,4 +295,4 @@ Remarques sur le fichier et l’action du workflow :
 - Recherchez d’autres actions dans la [marketplace de GitHub](https://github.com/marketplace).
 - Découvrez les [déploiements courants pour Azure Stack Hub](azure-stack-dev-start-deploy-app.md).  
 - Découvrez comment [utiliser les modèles Azure Resource Manager dans Azure Stack Hub](azure-stack-arm-templates.md).  
-- Passez en revue le [modèle cloud hybride DevOps](https://docs.microsoft.com/hybrid/app-solutions/pattern-cicd-pipeline).
+- Passez en revue le [modèle cloud hybride DevOps](/hybrid/app-solutions/pattern-cicd-pipeline).

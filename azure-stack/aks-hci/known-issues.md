@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 36c2d735f3652f4f195b4b9e1dda30fe8bce858c
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 5865c7cfea0231c811199ff4abbc05011e4d0a66
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557002"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840046"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Problèmes connus liés à Azure Kubernetes Service sur Azure Stack HCI - Préversion publique
 Cet article décrit les problèmes connus avec la préversion publique d’Azure Kubernetes Service sur Azure Stack HCI.
@@ -85,3 +85,6 @@ az connectedk8s delete
 
 ## <a name="when-setting-up-an-azure-kubernetes-service-host-using-windows-admin-center-setup-may-fail-if-file-explorer-is-open"></a>La configuration d’un hôte Azure Kubernetes Service à l’aide de Windows Admin Center risque de ne pas réussir, si l’Explorateur de fichiers est ouvert
 Si le répertoire **C:\Program Files\AksHci** est ouvert dans l’Explorateur de fichiers quand vous atteignez l’étape « Vérifier + créer », l’opération de création risque de se solder par un échec et l’affichage de l’erreur suivante : « Le processus n’a pas pu accéder au fichier C:\Program Files\AksHci\wssdcloudagent.exe ». Cela est dû au fait qu’il est utilisé par un autre processus. Pour éviter cette erreur, fermez l’Explorateur de fichiers, ou accédez à un autre répertoire avant d’atteindre cette étape. 
+
+## <a name="cannot-connect-windows-admin-center-to-azure-as-create-new-azure-app-id-fails"></a>Impossible de connecter Windows Admin Center à Azure en raison de l’échec de la création d’un ID d’application Azure
+Si vous ne parvenez pas à connecter Windows Admin Center à Azure parce que vous ne pouvez pas créer et utiliser automatiquement un ID d’application Azure sur la passerelle, créez un ID d’application Azure et attribuez-lui les autorisations appropriées sur le portail. Ensuite, sélectionnez **Use existing in the gateway** (Utiliser l’existant dans la passerelle). Pour plus d’informations, consultez [Connexion de votre passerelle à Azure](/windows-server/manage/windows-admin-center/azure/azure-integration).

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: e7a407e587918a6ee9648c51c2c218ab51e7132f
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 96e1996cbf22e354b960b1a46a8848543942b0cc
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612350"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839859"
 ---
 # <a name="connect-an-azure-kubernetes-service-on-azure-stack-hci-cluster-to-azure-arc-for-kubernetes"></a>Connecter un cluster Azure Kubernetes Service sur Azure Stack HCI à Azure Arc pour Kubernetes
 
@@ -31,9 +31,9 @@ Vérifiez que les exigences suivantes sont remplies :
 
 * Un cluster Azure Kubernetes Service sur Azure Stack HCI avec au moins un nœud Worker Linux en cours d’exécution. 
 
-* Vous avez besoin d’un fichier kubeconfig pour accéder au cluster et au rôle d’administrateur de cluster sur le cluster pour le déploiement d’agents Kubernetes activés pour Arc.
+* Vous aurez besoin d’un fichier kubeconfig pour accéder au cluster, et du rôle d’administrateur de cluster sur le cluster pour le déploiement d’agents Kubernetes compatibles avec Arc.
 * Module PowerShell Azure Kubernetes Service sur Azure Stack HCI installé.
-* Pour installer les extensions CLI de Kubernetes activées d’Azure Arc, vous avez besoin de la version 2.3+ d’Azure CLI. [Installez l’interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Vous pouvez également mettre à jour vers la dernière version pour vous assurer d’avoir Azure CLI version 2.3+.
+* Pour installer les extensions Kubernetes CLI compatibles avec Azure Arc, vous devez disposer de la version 2.3+ de l’interface Azure CLI. [Installez l’interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Vous pouvez également mettre à jour vers la dernière version pour vous assurer d’avoir Azure CLI version 2.3+.
 * Un abonnement Azure sur lequel vous êtes propriétaire ou contributeur. 
 * Exécutez les commandes dans ce document dans une fenêtre d’administration PowerShell.
 
@@ -66,7 +66,7 @@ az account set --subscription "00000000-aaaa-bbbb-cccc-000000000000"
 
 ## <a name="step-2-register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Étape 2 : Inscrire les deux fournisseurs pour Kubernetes à extension Azure Arc :
 
-Vous pouvez ignorer cette étape si vous avez déjà inscrit les deux fournisseurs pour le service Kubernetes avec Azure Arc sur votre abonnement. L’inscription est un processus asynchrone et doit être effectuée une fois par abonnement. L’inscription peut prendre environ 10 minutes. 
+Vous pouvez ignorer cette étape si vous avez déjà inscrit les deux fournisseurs pour le service Kubernetes compatible avec Azure Arc sur votre abonnement. L’inscription est un processus asynchrone et doit être effectuée une fois par abonnement. L’inscription peut prendre environ 10 minutes. 
 
 ```console
 az provider register --namespace Microsoft.Kubernetes
@@ -141,33 +141,33 @@ Nous allons ensuite connecter notre cluster Kubernetes à Azure à l’aide du p
 Référencez le principal du service nouvellement créé et exécutez la commande `Install-AksHciArcOnboarding` disponible dans le module PowerShell Aks-Hci.
 
 ```PowerShell
-Install-AksHciArcOnboarding -clusterName $clusterName -resourcegroup $resourceGroup -location $location -subscriptionid $subscriptionId -clientid $appId -clientsecret $password -tenantid $tenant
+Install-AksHciArcOnboarding -name $clusterName -resourcegroup $resourceGroup -location $location -subscriptionid $subscriptionId -clientid $appId -clientsecret $password -tenantid $tenant
 ```
 ## <a name="verify-connected-cluster"></a>Vérifier un cluster connecté
 
 Vous pouvez voir votre ressource de cluster Kubernetes sur le [Portail Azure](https://portal.azure.com/). Après avoir ouvert le portail dans votre navigateur, accédez au groupe de ressources et à la ressource Kubernetes avec Azure Arc basée sur le nom de ressource et le nom de du groupe de ressources utilisés plus tôt dans la commande PowerShell `Install-AksHciArcOnboarding`.
 
 > [!NOTE]
-> Après l’intégration du cluster, il faut environ 5 à 10 minutes pour que les métadonnées du cluster (version du cluster, version de l’agent, nombre de nœuds) soient visibles sur la page Vue d’ensemble de la ressource Kubernetes avec Azure Arc activé dans le portail Azure.
+> Après l’intégration du cluster, il faut environ 5 à 10 minutes pour que les métadonnées du cluster (version du cluster, version de l’agent, nombre de nœuds) soient visibles sur la page Vue d’ensemble de la ressource Kubernetes avec Azure Arc dans le portail Azure.
 
 Pour supprimer votre cluster, ou pour vous connecter à votre cluster s’il se trouve derrière un serveur proxy sortant, consultez [Connecter un cluster Kubernetes avec Azure Arc](/azure/azure-arc/kubernetes/connect-cluster).
 
 ## <a name="azure-arc-agents-for-kubernetes"></a>Agents Azure Arc pour Kubernetes
 
-Un Kubernetes à extension Azure Arc déploie quelques opérateurs dans l’espace de noms `azure-arc`. Vous pouvez afficher ces déploiements et pods ici :
+Kubernetes avec Azure Arc déploie quelques opérateurs dans l’espace de noms `azure-arc`. Vous affichez ces déploiements et ces pods par `kubectl` ci-dessous. 
 
 ```console
 kubectl -n azure-arc get deployments,pods
 ```
 
-Un Kubernetes à extension Azure Arc se compose de quelques agents (opérateurs) qui s’exécutent dans votre cluster déployé dans l’espace de noms `azure-arc`.
+Kubernetes avec Azure Arc se compose de quelques agents (opérateurs) qui s’exécutent dans votre cluster déployé dans l’espace de noms `azure-arc`.
 
 * `deployment.apps/config-agent` : surveille le cluster connecté pour les ressources de configuration de contrôle de code source appliquées au cluster, et met à jour l’état de conformité.
 * `deployment.apps/controller-manager` : opérateur d’opérateurs orchestrant les interactions entre les composants Azure Arc.
 * `deployment.apps/metrics-agent` : collecte les métriques d’autres agents Arc pour s’assurer que ces agents offrent des performances optimales.
 * `deployment.apps/cluster-metadata-operator` : collecte des métadonnées de cluster : version du cluster, nombre de nœuds et version de l’agent Azure Arc
 * `deployment.apps/resource-sync-agent` : synchronise les métadonnées de cluster précitées dans Azure.
-* `deployment.apps/clusteridentityoperator`: Kubernetes avec Azure Arc prend actuellement en charge l’identité attribuée par le système. clusteridentityoperator gère le certificat d’identité de service managé (MSI) utilisé par d’autres agents pour la communication avec Azure.
+* `deployment.apps/clusteridentityoperator` : Kubernetes avec Azure Arc prend actuellement en charge l’identité affectée par le système. clusteridentityoperator gère le certificat d’identité de service managé (MSI) utilisé par d’autres agents pour la communication avec Azure.
 * `deployment.apps/flux-logs-agent` : collecte des journaux des opérateurs de flux déployés dans le cadre de la configuration du contrôle de code source.
 
 ## <a name="next-steps"></a>Étapes suivantes

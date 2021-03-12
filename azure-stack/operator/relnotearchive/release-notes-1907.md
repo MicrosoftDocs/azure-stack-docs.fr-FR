@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9d5aeb68190f8e2b13ec2a49c3237b59ee33bfff
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 5ac273ef07747ffa0f5f32e681afd25ecc60bad6
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248637"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187212"
 ---
 # <a name="azure-stack-updates-1907-release-notes"></a>Mises à jour d’Azure Stack: Notes de publication 1907
 
@@ -44,7 +44,7 @@ Avant d’appliquer la mise à jour, veillez à consulter les informations suiva
 - [Mises à jour de sécurité](../release-notes-security-updates.md)
 - [Liste de vérification des activités avant et après l’application de la mise à jour](../release-notes-checklist.md)
 
-Pour obtenir de l'aide sur le dépannage des mises à jour et le processus de mise à jour, voir [Résolution des problèmes liés aux correctifs et aux mises à jour pour Azure Stack](../azure-stack-updates-troubleshoot.md).
+Pour obtenir de l'aide sur le dépannage des mises à jour et le processus de mise à jour, voir [Résolution des problèmes liés aux correctifs et aux mises à jour pour Azure Stack](../azure-stack-troubleshooting.md).
 
 ## <a name="1907-build-reference"></a>Référence de build 1907
 
@@ -66,7 +66,7 @@ Le type de build de la mise à jour 1907 d’Azure Stack est **Express**. Pour 
 
 <!-- What's new, also net new experiences and features. -->
 
-- Mise à la disposition générale du service de collecte des journaux de diagnostic Azure Stack pour faciliter et améliorer la collecte des journaux de diagnostic. Le service de collecte des journaux de diagnostic Azure Stack propose un moyen simplifié de collecter et de partager des journaux de diagnostic avec les services de support technique Microsoft. Ce service de collecte des journaux de diagnostic offre une nouvelle expérience utilisateur dans le portail d’administration Azure Stack, qui permet aux opérateurs de configurer le chargement automatique des journaux de diagnostic sur un objet blob de stockage lorsque certaines alertes critiques sont générées, ou d’effectuer la même opération à la demande. Pour plus d’informations, consultez l'article [Collecte des journaux de diagnostic](../azure-stack-diagnostic-log-collection-overview.md).
+- Mise à la disposition générale du service de collecte des journaux de diagnostic Azure Stack pour faciliter et améliorer la collecte des journaux de diagnostic. Le service de collecte des journaux de diagnostic Azure Stack propose un moyen simplifié de collecter et de partager des journaux de diagnostic avec les services de support technique Microsoft. Ce service de collecte des journaux de diagnostic offre une nouvelle expérience utilisateur dans le portail d’administration Azure Stack, qui permet aux opérateurs de configurer le chargement automatique des journaux de diagnostic sur un objet blob de stockage lorsque certaines alertes critiques sont générées, ou d’effectuer la même opération à la demande. Pour plus d’informations, consultez l'article [Collecte des journaux de diagnostic](../diagnostic-log-collection.md).
 
 - Mise à la disposition générale de la validation de l’infrastructure réseau Azure Stack dans le cadre de l'outil de validation Azure Stack **Test-AzureStack**. L'infrastructure réseau Azure Stack fera partie de **Test-AzureStack** pour identifier toute défaillance sur l'infrastructure. Le test vérifie la connectivité de l’infrastructure réseau en contournant le réseau à définition logicielle Azure Stack. Il démontre la connectivité d’une adresse IP virtuelle publique aux redirecteurs DNS, serveurs NTP et points de terminaison d'identité configurés. En outre, il vérifie la connectivité à Azure quand Azure AD est utilisé en tant que fournisseur d’identité ou au serveur fédéré quand ADFS est utilisé. Pour plus d’informations, consultez l'article [Outil de validation Azure Stack](../azure-stack-diagnostic-test.md).
 

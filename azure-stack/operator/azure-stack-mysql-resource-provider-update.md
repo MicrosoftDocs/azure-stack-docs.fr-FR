@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 33c7d66b7a8b0d352bbf9227cec11adf7cd001fe
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: a61ff3bc477e1019f1a8d21a9ab4aec6fb42aa2b
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737740"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839995"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>Mettre à jour le fournisseur de ressources MySQL dans Azure Stack Hub
 
@@ -46,6 +46,9 @@ Une fois que le script *UpdateMySQLProvider.ps1* a créé une machine virtuelle,
 * les informations de base de données
 * les informations sur le serveur d’hébergement
 * l’enregistrement DNS requis
+
+> [!IMPORTANT]
+> Nous vous recommandons fortement d’utiliser **Clear-AzureRmContext -Scope CurrentUser** et **Clear-AzureRmContext -Scope Process** pour effacer le cache avant d’exécuter le script de déploiement ou de mise à jour.
 
 ## <a name="update-script-parameters"></a>Paramètres du script de mise à jour 
 Spécifiez les paramètres suivants à partir de la ligne de commande quand vous exécutez le script PowerShell **UpdateMySQLProvider.ps1**. Si vous ne le faites pas, ou si la validation d’un paramètre échoue, vous êtes invité à fournir les paramètres requis.
@@ -103,19 +106,19 @@ $tempDir = 'C:\TEMP\MYSQLRP'
 
 # The service admin account (can be Azure Active Directory or Active Directory Federation Services).
 $serviceAdmin = "admin@mydomain.onmicrosoft.com" 
-$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+$AdminPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force 
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass) 
  
 # Set credentials for the new resource provider VM.
-$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+$vmLocalAdminPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force 
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass) 
  
 # And the cloudadmin credential required for privileged endpoint access.
-$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+$CloudAdminPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force 
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass) 
 
 # Change the following as appropriate.
-$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+$PfxPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force 
 
 # For version 1.1.47.0 or later, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
 # The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.

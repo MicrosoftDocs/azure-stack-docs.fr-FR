@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1d62407d1ebca7924466d5cb5e38bb48c79c8ddf
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 9a51d7c7b1470e95fd9c8b6905c2ac31f59bf7b9
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248640"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187246"
 ---
 # <a name="azure-stack-updates-1906-release-notes"></a>Mises à jour d’Azure Stack: Notes de publication 1906
 
@@ -44,7 +44,7 @@ Avant d’appliquer la mise à jour, veillez à consulter les informations suiva
 - [Mises à jour de sécurité](../release-notes-security-updates.md)
 - [Liste de vérification des activités avant et après l’application de la mise à jour](../release-notes-checklist.md)
 
-Pour obtenir de l'aide sur le dépannage des mises à jour et le processus de mise à jour, voir [Résolution des problèmes liés aux correctifs et aux mises à jour pour Azure Stack](../azure-stack-updates-troubleshoot.md).
+Pour obtenir de l'aide sur le dépannage des mises à jour et le processus de mise à jour, voir [Résolution des problèmes liés aux correctifs et aux mises à jour pour Azure Stack](../azure-stack-troubleshooting.md).
 
 ## <a name="1906-build-reference"></a>Référence de build 1906
 

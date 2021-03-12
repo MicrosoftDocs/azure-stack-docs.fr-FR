@@ -7,12 +7,12 @@ ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/0102020
-ms.openlocfilehash: 0322d72f3cd28a8e499b2a900d57e4e9d2e9bce4
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 9969447ab737c6913576c73b2e53453a6cb8e1f6
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246722"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231759"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Stratégies de support pour le moteur AKS sur Azure Stack Hub
 
@@ -85,7 +85,6 @@ Microsoft n’assure pas de support technique pour les éléments suivants :
 -  Modifications de configuration Kubernetes conservées en dehors du magasin de configuration Kubernetes etcd. Par exemple, les pods statiques s’exécutant dans des nœuds du cluster.
 -  Questions sur l’utilisation de Kubernetes. Par exemple, le Support Microsoft ne fournit pas de conseils sur la façon dont les contrôleurs d’entrée doivent être créés, sur l’utilisation des charges de travail d’application ou sur l’application d’outils ou de packages logiciels open source ou tiers.
 -  Projets open source tiers non fournis avec le cluster Kubernetes déployé par le moteur AKS. Ces projets peuvent inclure Kubeadm, Kubespray, Native, Istio, Helm, Envoy, etc.
--  Utilisation du moteur AKS dans des cas d’usage autres que ceux spécifiés dans [Scénarios pris en charge avec le moteur AKS](azure-stack-kubernetes-aks-engine-overview.md#supported-scenarios-with-the-aks-engine).
 -  Logiciels tiers. Ces logiciels peuvent inclure des outils d’analyse de sécurité et des logiciels ou appareils réseau.
 -  Problèmes de solutions multifournisseur ou multicloud. Par exemple, Microsoft n’assure pas le support des problèmes liés à l’exécution d’une solution de fournisseur cloud multipublic fédérée.
 -  Personnalisations du réseau autres que celles listées dans la section [Domaines de prise en charge du moteur AKS](#aks-engine-supported-areas).

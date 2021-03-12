@@ -7,12 +7,12 @@ ms.date: 10/15/2019
 ms.author: patricka
 ms.lastreviewed: 03/04/2020
 ms.reviewer: ppacent
-ms.openlocfilehash: 8b8c3a39f61693cad9904b99bd1f82b175d53a7b
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 1f8b08a83e3597165b8d641b735fd8da070d8b4e
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97868861"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515734"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Appliquer des mises à jour de fabricants d’ordinateurs (OEM) à Azure Stack Hub
 
@@ -40,7 +40,7 @@ Cette section contient des informations de contact OEM et des liens vers des doc
 |  | EMEA ET ÉTATS-UNIS | [Support des produits et systèmes informatiques Fujitsu](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
 | HPE | Tous | [HPE ProLiant pour Microsoft Azure Stack Hub](http://www.hpe.com/info/MASupdates) |
 | Lenovo | Tous | [Meilleures recettes ThinkAgile SXM](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
-| Wortmann |  | [Package OEM/microprogramme](https://aka.ms/AA6z600)<br>[Documentation Terra Azure Stack Hub (y compris FRU)](https://aka.ms/aa6zktc)
+| Wortmann |  | [Package OEM/microprogramme](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/)<br>[Documentation Terra Azure Stack Hub (y compris FRU)](https://aka.ms/aa6zktc)
 
 ## <a name="apply-oem-updates"></a>Appliquer les mises à jour OEM
 

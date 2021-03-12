@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: caoyang
 ms.lastreviewed: 12/07/2020
-ms.openlocfilehash: 0d123679c0394d740876df2fcc78f7347049c61c
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: e66bdd376a5055e78c261bed5980ee4772f078fb
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737831"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840335"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Déployer le fournisseur de ressources MySQL sur Azure Stack Hub
 
@@ -118,7 +118,7 @@ Une fois tous les prérequis respectés, exécutez le script **DeployMySqlProvid
 Pour déployer le fournisseur de ressources MySQL, ouvrez une **nouvelle** fenêtre PowerShell (pas PowerShell ISE) avec élévation de privilèges et basculez vers le répertoire où vous avez extrait les fichiers binaires du fournisseur de ressources MySQL. 
 
 > [!IMPORTANT]
-> Nous vous recommandons fortement d’utiliser **Clear-AzureRmContext -Scope CurrentUser** et **Clear-AzureRmContext -Scope Process** pour effacer le cache avant d’exécuter le script de mise à jour.
+> Nous vous recommandons fortement d’utiliser **Clear-AzureRmContext -Scope CurrentUser** et **Clear-AzureRmContext -Scope Process** pour effacer le cache avant d’exécuter le script de déploiement ou de mise à jour.
 
 Exécutez le script **DeployMySqlProvider.ps1**, qui complète les tâches suivantes :
 

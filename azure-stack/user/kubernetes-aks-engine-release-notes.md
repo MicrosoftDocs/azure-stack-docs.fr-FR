@@ -3,16 +3,16 @@ title: Notes de publication du moteur AKS (Azure Kubernetes Service) sur Azure S
 description: Découvrez les étapes à suivre avec la mise à jour du moteur AKS sur Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/11/2021
+ms.date: 02/23/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 2/11/2021
-ms.openlocfilehash: fd8453c55be6222badd577666293653a45f67273
-ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
+ms.lastreviewed: 02/23/2021
+ms.openlocfilehash: a9f1217777fbdf5a6efd752388a15b4573d2d851
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100488035"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840811"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Notes de publication du moteur AKS sur Azure Stack Hub
 ::: moniker range=">=azs-2002"
@@ -132,7 +132,7 @@ Dans le fichier JSON du modèle d’API, spécifiez les valeurs de release et de
 -   Étant donné que l’outil aks-engine est un dépôt de code source de partage sur Azure et Azure Stack Hub. L’examen de nombreuses notes de version et demandes de tirage (pull request) vous incitera à croire que l’outil prend en charge d’autres versions de Kubernetes et de la plateforme de système d’exploitation en plus de celles listées ci-dessus. Ignorez-les et utiliser le tableau de versions ci-dessus comme guide officiel pour cette mise à jour.
 
 > [!NOTE]  
-> La prise en charge du conteneur Windows et d’Azure CNI est disponible dans la préversion privée. Si vous le souhaitez, vous pouvez demander à accéder à la préversion ici : [https://aka.ms/ash-k8s-win-azurecni](https://aka.ms/ash-k8s-win-azurecni)
+> La prise en charge du conteneur Windows et d’Azure CNI est disponible dans la préversion publique. Si vous le souhaitez, vous pouvez demander à accéder à la préversion ici : [https://aka.ms/ash-k8s-win-azurecni](https://aka.ms/ash-k8s-win-azurecni)
 
 ## <a name="reference"></a>Informations de référence
 

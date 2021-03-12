@@ -1,18 +1,18 @@
 ---
 title: Gestion des journaux et des données client d’Azure Stack Hub
 description: Découvrez comment Azure Stack Hub collecte les données et informations client.
-author: PatAltimore
+author: BryanLa
 ms.topic: article
 ms.date: 02/24/2020
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: chengwei
 ms.lastreviewed: 02/24/2020
-ms.openlocfilehash: 60301776ae496a33622005bed3011e773ea321f2
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 2b0194ba2955ee0c04c574571cbf16ec27edeef7
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255977"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231742"
 ---
 # <a name="azure-stack-hub-log-and-customer-data-handling"></a>Gestion des journaux et des données client d’Azure Stack Hub 
 

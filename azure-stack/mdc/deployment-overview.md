@@ -16,12 +16,12 @@ ms.date: 02/17/2021
 ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 02/17/2021
-ms.openlocfilehash: ad0a80f28b26e3c7da71860670feefd7efc15a0f
-ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
+ms.openlocfilehash: 60ff62282f9fadf3b2475cffe057f10a8bbe8b3b
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100647791"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839655"
 ---
 # <a name="mdc-requirements-overview"></a>Présentation des exigences en lien avec un MDC
 
@@ -39,9 +39,7 @@ Ce guide se concentre sur le déploiement des composants de base de Microsoft Az
 
 ## <a name="introduction"></a>Introduction
 
-MDC est une offre intégrée à Azure Stack Hub, empaquetée dans un conteneur de transport métallique standard de 40 mètres. Le conteneur comprend une unité de contrôle climatique, un système d’éclairage et un système d’alerte. Les principaux composants Azure Stack Hub sont installés sous la forme de trois pods indépendants : Pod 1, Rack 1 et Rack 2, Pod 2, Rack 1 et Rack 2, et Pod 3, Rack 1 et Rack 2.
-
-Chaque pod est constitué de deux racks 42U. Un pod comprend les commutateurs ToR (Top of Rack), les commutateurs de périphérie et un commutateur du contrôleur de gestion de la carte de base (BMC). En outre, chaque pod comprend un hôte de cycle de vie du matériel (HLH) et un concentrateur de port série. La capacité de stockage et de calcul de base est fournie par les unités d’échelle Azure Stack Hub, composées de huit serveurs R840 de l’appliance Edge robuste. Une capacité de stockage supplémentaire est fournie par 48 nœuds de stockage Isilon. La configuration physique de tous les pods est identique.
+MDC est une offre intégrée à Azure Stack Hub, empaquetée dans un conteneur de transport métallique standard de 40 mètres. Le conteneur comprend une unité de contrôle climatique, un système d’éclairage et un système d’alerte. Les principaux composants Azure Stack Hub sont installés sous la forme de pods.
 
 ## <a name="terminology"></a>Terminologie
 
@@ -54,9 +52,9 @@ Le tableau suivant répertorie certains des termes utilisés dans ce guide.
 |Azure Stack Hub Partner Toolkit|    Ensemble d’outils logiciels utilisés pour capturer des paramètres d’entrée spécifiques au client et initier l’installation et la configuration d’Azure Stack Hub. Il comprend la feuille de travail de déploiement, qui est un outil d’interface utilisateur graphique (GUI) utilisé pour capturer et stocker des paramètres configurables pour l’installation d’Azure Stack Hub. Il comprend également l’outil de génération de configuration réseau qui utilise les entrées de la feuille de calcul de déploiement pour produire des fichiers de configuration réseau pour tous les périphériques réseau physiques de la solution.|
 |Package d’extension OEM    |Package de microprogrammes, pilotes de périphériques et outils de gestion du matériel dans un format spécialisé utilisé par Azure Stack Hub lors du déploiement et de la mise à jour initiaux.|
 |Concentrateur de ports série    |Appareil physique installé dans chaque pod fournissant un accès réseau aux ports série des commutateurs réseau à des fins de déploiement et de gestion.|
-|Unité d'échelle    |Composant principal d’Azure Stack Hub qui fournit des ressources de calcul et de stockage à l’infrastructure de structure et aux charges de travail Azure Stack Hub. Chaque pod comprend huit serveurs MDC R840 également appelés nœuds.|
-|Stockage Isilon |    Composant Azure Stack Hub spécifique à la solution MDC. Isilon fournit un stockage Blob et de fichiers supplémentaire pour les charges de travail Azure Stack Hub. Chaque pod comprend 48 nœuds de stockage Isilon.|
-|Pod    |Dans le contexte de MDC, un pod est une unité logique indépendante constituée de deux racks physiques interconnectés. Une solution complète comprend trois pods installés dans un seul conteneur.|
+|Unité d'échelle    |Composant principal d’Azure Stack Hub qui fournit des ressources de calcul et de stockage à l’infrastructure de structure et aux charges de travail Azure Stack Hub.|
+|Stockage Isilon |    Composant Azure Stack Hub spécifique à la solution MDC. Isilon fournit un stockage Blob et de fichiers supplémentaire pour les charges de travail Azure Stack Hub. |
+|Pod    |Dans le contexte de MDC, un pod est une unité logique indépendante constituée de deux racks physiques interconnectés.|
 
 ## <a name="deployment-workflow"></a>Workflow du déploiement
 

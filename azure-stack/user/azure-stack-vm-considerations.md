@@ -3,16 +3,16 @@ title: Fonctionnalités des machines virtuelles Azure Stack Hub
 description: Découvrez les différentes fonctionnalités et les éléments à prendre en compte lors de l'utilisation de machines virtuelles dans Azure Stack Hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/22/2020
+ms.date: 03/02/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 0eb0c763b8ebd144576ac9ac773d17f191e30dc9
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.openlocfilehash: be51e93a54ed39ca53edd6d776100f5ca512e060
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778136"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840845"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Fonctionnalités des machines virtuelles Azure Stack Hub
 
@@ -36,7 +36,7 @@ Les machines virtuelles Azure Stack Hub fournissent des ressources de calcul év
 | Groupes identiques de machines virtuelles|La mise à l’échelle automatique est prise en charge.|La mise à l’échelle automatique n’est pas prise en charge.<br><br>Pour ajouter d’autres instances à un groupe identique, utilisez le portail, les modèles Resource Manager ou PowerShell. |
 | Témoin cloud | Sélectionnez les points de terminaison dans les propriétés du compte de stockage disponibles dans Azure Stack Hub. | Le [témoin de cloud](/windows-server/failover-clustering/deploy-cloud-witness) est un type de témoin de quorum de cluster de basculement qui utilise Microsoft Azure pour fournir un vote sur le quorum du cluster.<br>Voici à quoi peuvent ressembler les points de terminaison dans Azure global par rapport à Azure Stack Hub :<br>Azure global :<br>`https://mywitness.blob.core.windows.net/`<br>Azure Stack Hub :<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | Diagnostics de machine virtuelle | Les diagnostics de machine virtuelle Linux sont pris en charge. | Les diagnostics de machine virtuelle Linux ne sont pas pris en charge dans Azure Stack Hub. Lorsque vous déployez une machine virtuelle Linux en activant les diagnostics de machine virtuelle, le déploiement échoue. Le déploiement échoue également si vous activez les mesures de base de la machine virtuelle Linux dans les paramètres de diagnostic. |
-| Tailles de machine virtuelle de virtualisation imbriquée | Prise en charge | Non pris en charge |
+| Tailles de machine virtuelle de virtualisation imbriquée | Prise en charge | Pris en charge à partir de la version 2102 et ultérieures. |
 
 ## <a name="vm-sizes"></a>Tailles de machine virtuelle
 
@@ -148,6 +148,10 @@ Même si l’infrastructure d’Azure Stack Hub est déjà résiliente aux défa
 |-------------------|-------------|
 | **Domaines d'erreur** | Les machines virtuelles placées dans un groupe à haute disponibilité sont physiquement isolées les unes des autres grâce à une répartition aussi équilibrée que possible sur plusieurs domaines d’erreur (nœuds Azure Stack Hub). En cas de défaillance matérielle, les machines virtuelles du domaine défaillant sont redémarrées dans d’autres domaines d’erreur. Elles seront conservées dans des domaines d’erreur distincts des autres machines virtuelles, mais si possible dans le même groupe à haute disponibilité. Une fois le matériel rétabli, les machines virtuelles seront rééquilibrées de façon à maintenir une haute disponibilité. |
 | **Domaines de mise à jour**| Les domaines de mise à jour sont utilisés par Azure pour fournir la haute disponibilité aux groupes à haute disponibilité. Un domaine de mise à jour est un groupe logique de matériel sous-jacent pouvant faire l’objet simultanément d’une opération de maintenance. Les machines virtuelles qui se trouvent dans le même domaine de mise à jour sont redémarrées ensemble lors de la maintenance planifiée. Lorsqu’un client crée des machines virtuelles au sein d’un groupe à haute disponibilité, la plateforme Azure les distribue automatiquement dans ces différents domaines de mise à jour. <br>Dans Azure Stack Hub, les machines virtuelles sont migrées en direct sur les autres hôtes en ligne du cluster avant que leur hôte sous-jacent soit mis à jour. Comme il ne se produit aucun temps d’arrêt du côté du locataire pendant la mise à jour d’un hôte, la fonctionnalité de domaine de mise à jour d’Azure Stack Hub n’existe que pour des raisons de compatibilité des modèles avec Azure. Les machines virtuelles d’un groupe à haute disponibilité affichent 0 comme numéro de domaine de mise à jour sur le portail. |
+
+## <a name="arc-on-azure-stack-hub-vms"></a>Arc sur les machines virtuelles Azure Stack Hub
+
+Les serveurs avec Arc ne prennent pas en charge l’installation de Connected Machine Agent sur les machines virtuelles qui s’exécutent dans Azure, ni les machines virtuelles qui s’exécutent sur Azure Stack Hub ou Azure Stack Edge, car elles sont déjà modélisées en tant que machines virtuelles Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.date: 12/07/2020
 ms.lastreviewed: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 9a88620fa333bd55a99796f4de292555f6cfd159
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: 7f3813d241b01e46f4a0eac639e3e6c78d74e50f
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737859"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840318"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Déployer le fournisseur de ressources SQL Server sur Azure Stack Hub
 
@@ -115,7 +115,7 @@ Une fois tous les prérequis respectés, exécutez le script **DeploySqlProvider
 Pour déployer le fournisseur de ressources SQL, ouvrez une **nouvelle** fenêtre PowerShell (pas PowerShell ISE) avec élévation de privilèges et basculez vers le répertoire où vous avez extrait les fichiers binaires du fournisseur de ressources SQL. 
 
 > [!IMPORTANT]
-> Nous vous recommandons fortement d’utiliser **Clear-AzureRmContext -Scope CurrentUser** et **Clear-AzureRmContext -Scope Process** pour effacer le cache avant d’exécuter le script de mise à jour.
+> Nous vous recommandons vivement d’utiliser **Clear-AzureRmContext -Scope CurrentUser** et **Clear-AzureRmContext -Scope Process** pour effacer le cache avant d’exécuter le script de déploiement ou de mise à jour.
 
 Exécutez le script DeploySqlProvider.ps1, qui complète les tâches suivantes :
 

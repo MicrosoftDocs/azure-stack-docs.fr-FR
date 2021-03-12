@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 02/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1548ee295eddd2b386f637301abef208918c21ad
-ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
+ms.openlocfilehash: f98f0f28037cfc1de648f36cce20dd1c5334f93b
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100009211"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186940"
 ---
 # <a name="azure-stack-1809-update"></a>Mise à jour 1809 d’Azure Stack
 
@@ -51,7 +51,7 @@ Cette mise à jour inclut les améliorations suivantes pour Azure Stack :
 
 - Vous pouvez à présent [déplacer la ressource d’inscription](../azure-stack-registration.md#move-a-registration-resource) sur Azure entre des groupes de ressources sans avoir à vous réinscrire. Les fournisseurs de solutions cloud (CSP) peuvent également déplacer la ressource d’inscription entre des abonnements, tant que les anciens et nouveaux abonnements sont mappés vers le même ID de partenaire CSP. Cela n’affecte pas les mappages du locataire client existants. 
 
-- Ajout de la prise en charge de l’attribution de plusieurs adresses IP par interface réseau.  Pour plus d’informations, consultez [Affecter plusieurs adresses IP à des machines virtuelles avec PowerShell](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
+- Ajout de la prise en charge de l’attribution de plusieurs adresses IP par interface réseau.  Pour plus d’informations, consultez [Affecter plusieurs adresses IP à des machines virtuelles avec PowerShell](/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
 
 ### <a name="fixed-issues"></a>Problèmes résolus
 
@@ -78,7 +78,7 @@ Cette mise à jour inclut les améliorations suivantes pour Azure Stack :
 ### <a name="changes"></a>Modifications
 
 <!-- 2635202 - IS, ASDK -->
-- Le service de sauvegarde de l’infrastructure se passe du [réseau d’infrastructure publique](https://docs.microsoft.com/azure/azure-stack/azure-stack-network) au [réseau d’adresse IP virtuelle publique](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Les clients doivent vérifier que le service a accès à l’emplacement de stockage de sauvegarde à partir du réseau d’adresse IP virtuelle publique.  
+- Le service de sauvegarde de l’infrastructure se passe du [réseau d’infrastructure publique](/azure/azure-stack/azure-stack-network) au [réseau d’adresse IP virtuelle publique](/azure/azure-stack/azure-stack-network#public-vip-network). Les clients doivent vérifier que le service a accès à l’emplacement de stockage de sauvegarde à partir du réseau d’adresse IP virtuelle publique.  
 
 > [!IMPORTANT]  
 > Si vous avez un pare-feu qui n’autorise pas les connexions du réseau d’adresse IP virtuelle publique au serveur de fichiers, ce changement entraîne l’échec des sauvegardes d’infrastructure avec l’« Erreur 53 Le chemin réseau n’a pas été trouvé ». Il s’agit d’un changement cassant pour lequel il n’existe aucune solution de contournement raisonnable. Sur la base des remarques des clients, Microsoft établira ce changement dans un correctif. Pour plus d’informations sur les correctifs logiciels disponibles pour 1809, passez en revue la [section relative aux étapes post-mise à jour](#post-update-steps). Une fois le correctif logiciel disponible, veillez à l’appliquer après avoir effectué la mise à jour vers 1809 uniquement si vos stratégies réseau n’autorisent pas le réseau d’adresse IP virtuelle publique à accéder aux ressources d’infrastructure. Dans 1811, cette modification sera appliquée à tous les systèmes. Si vous avez appliqué le correctif logiciel dans 1809, aucune action supplémentaire n’est nécessaire.  
@@ -265,7 +265,7 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 -  Quand vous créez une machine virtuelle à l’aide du portail Azure Stack et sélectionnez la taille de machine virtuelle, la colonne EUR/mois s’affiche avec le message **Indisponible**. Cette colonne ne devrait pas s’afficher, car l’affichage de la colonne des prix des machines virtuelles n’est pas pris en charge dans Azure Stack.
 
 <!-- 2869209 - IS, ASDK --> 
-- Quand vous utilisez [l’applet de commande **Add-AzsPlatformImage**](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0&preserve-view=true), vous devez spécifier le paramètre **-OsUri** comme URI du compte de stockage où le disque est chargé. Si vous utilisez le chemin local du disque, l’applet de commande échoue avec l’erreur suivante : *Échec de l’opération de longue durée avec l’état « Failed »* . 
+- Quand vous utilisez [l’applet de commande **Add-AzsPlatformImage**](/powershell/module/azs.compute.admin/add-azsplatformimage?preserve-view=true&view=azurestackps-1.4.0), vous devez spécifier le paramètre **-OsUri** comme URI du compte de stockage où le disque est chargé. Si vous utilisez le chemin local du disque, l’applet de commande échoue avec l’erreur suivante : *Échec de l’opération de longue durée avec l’état « Failed »* . 
 
 <!--  2795678 - IS, ASDK --> 
 - Quand vous utilisez le portail pour créer des machines virtuelles de taille Premium (DS, Ds_v2, FS, FSv2), celles-ci sont créées dans un compte de stockage standard. La création dans un compte de stockage standard n’a pas d’impact sur les fonctionnalités, l’IOP ou la facturation. 
@@ -352,4 +352,4 @@ Vous pouvez télécharger la mise à jour 1809 d’Azure Stack à partir de [cet
 - Pour passer en revue la stratégie de maintenance pour les systèmes intégrés Azure Stack et pour connaître la marche à suivre afin de conserver votre système dans un état de prise en charge, consultez [Stratégie de maintenance Azure Stack](../azure-stack-servicing-policy.md).  
 - Pour utiliser le Point de terminaison privilégié (PEP) afin de surveiller et de reprendre les mises à jour, consultez [Surveiller les mises à jour dans Azure Stack à l’aide du point de terminaison privilégié](../azure-stack-monitor-update.md).  
 - Pour obtenir une vue d’ensemble de la gestion des mises à jour dans Azure Stack, consultez [Gérer les mises à jour dans Azure Stack - Vue d’ensemble](../azure-stack-updates.md).  
-- Pour plus d’informations sur la façon d’appliquer des mises à jour avec Azure Stack, consultez [Effectuer des mises à jour dans Azure Stack](../azure-stack-apply-updates.md).  
+- Pour plus d’informations sur la façon d’appliquer des mises à jour avec Azure Stack, consultez [Effectuer des mises à jour dans Azure Stack](../azure-stack-apply-updates.md).

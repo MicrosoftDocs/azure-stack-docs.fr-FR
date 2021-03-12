@@ -1,38 +1,41 @@
 ---
-title: Créer des volumes dans Azure Stack HCI
-description: Guide pratique pour créer des volumes dans Azure Stack HCI à l’aide de Windows Admin Center et de PowerShell.
+title: Créer des volumes sur des clusters Azure Stack HCI et Windows Server
+description: Comment créer des volumes sur des clusters Azure Stack HCI et Windows Server avec Windows Admin Center et PowerShell.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/04/2021
-ms.openlocfilehash: 9bb0ff34863f8262d5919e5eae6f735709097bf5
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.date: 02/17/2021
+ms.openlocfilehash: f5c585bd612cb25b32df22c342988bbad17d08ee
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99570733"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839779"
 ---
-# <a name="create-volumes-in-azure-stack-hci"></a>Créer des volumes dans Azure Stack HCI
+# <a name="create-volumes-in-azure-stack-hci-and-windows-server-clusters"></a>Créer des volumes sur des clusters Azure Stack HCI et Windows Server
 
-> S’applique à : Azure Stack HCI, version 20H2
+> S’applique à : Azure Stack HCI version 20H2, Windows Server 2019, Windows Server 2016
 
-Cette rubrique explique comment créer des volumes sur un cluster Azure Stack HCI à l’aide de Windows Admin Center et de Windows PowerShell, comment utiliser des fichiers sur les volumes, et comment activer la déduplication et la compression des données sur les volumes. Pour apprendre à créer des volumes et à configurer la réplication pour des clusters étendus, consultez [Créer des volumes étendus](create-stretched-volumes.md).
+Cette rubrique explique comment créer des volumes sur un cluster avec Windows Admin Center et Windows PowerShell, comment utiliser des fichiers sur les volumes, et comment activer la déduplication et la compression des données, les sommes de contrôle d’intégrité et le chiffrement BitLocker sur les volumes. Pour apprendre à créer des volumes et à configurer la réplication pour des clusters étendus, consultez [Créer des volumes étendus](create-stretched-volumes.md).
 
-## <a name="create-a-three-way-mirror-volume"></a>Créer un volume miroir triple
+> [!TIP]
+> Vous devez d’abord consulter [Planifier des volumes](../concepts/plan-volumes.md).
 
-Pour créer un volume miroir triple à l’aide de Windows Admin Center :
+## <a name="create-a-two-way-or-three-way-mirror-volume"></a>Créer un volume miroir double ou triple
+
+Pour créer un volume miroir double ou triple avec Windows Admin Center :
 
 1. Dans Windows Admin Center, connectez-vous à un cluster, puis sélectionnez **Volumes** dans le volet **Outils**.
-2. Dans la page **Volumes**, sélectionnez l’onglet **Inventaire**, puis sélectionnez **Créer un volume**.
-3. Dans le volet **Créer un volume**, entrez le nom du volume, puis laissez **Résilience** avec la valeur **Miroir triple**.
-4. Dans **Size on HDD** (Taille sur le disque HDD), spécifiez la taille du volume. Par exemple, 5 To (téraoctets).
-5. Sélectionnez **Create** (Créer).
+1. Dans la page **Volumes**, sélectionnez l’onglet **Inventaire**, puis sélectionnez **Créer**.
+1. Dans le volet **Créer un volume**, entrez le nom du volume.
+1. Dans **Résilience**, sélectionnez **Miroir double** ou **Miroir triple** en fonction du nombre de serveurs de votre cluster.
+1. Dans **Size on HDD** (Taille sur le disque HDD), spécifiez la taille du volume. Par exemple, 5 To (téraoctets).
+1. Sous **Autres options**, vous pouvez activer la déduplication et la compression, les sommes de contrôle d’intégrité ou le chiffrement BitLocker en cochant les cases correspondantes.
+1. Sélectionnez **Create** (Créer).
 
-Selon la taille, la création du volume peut prendre quelques minutes. Les notifications en haut à droite vous permettent de savoir quand le volume a été créé. Le nouveau volume apparaît dans la liste Inventaire.
+   :::image type="content" source="media/create-volumes/create-mirror-volume.png" alt-text="Vous pouvez utiliser Windows Admin Center pour créer un volume miroir double ou triple" lightbox="media/create-volumes/create-mirror-volume.png":::
 
-Regardez une courte vidéo sur la création d’un volume miroir triple.
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/o66etKq70N8]
+Selon la taille, la création du volume peut prendre quelques minutes. Les notifications en haut à droite vous permettent de savoir quand le volume a été créé. Le nouveau volume apparaîtra alors dans la liste Inventaire.
 
 ## <a name="create-a-mirror-accelerated-parity-volume"></a>Créer un volume paritaire avec accélération par miroir
 
@@ -44,15 +47,12 @@ La parité avec accélération par miroir (MAP) réduit l’empreinte du volume 
 Pour créer un volume paritaire avec accélération par miroir dans Windows Admin Center :
 
 1. Dans Windows Admin Center, connectez-vous à un cluster, puis sélectionnez **Volumes** dans le volet **Outils**.
-2. Dans la page Volumes, sélectionnez l’onglet **Inventaire**, puis sélectionnez **Créer un volume**.
-3. Dans le volet **Créer un volume**, entrez le nom du volume.
-4. Dans **Résilience**, sélectionnez **Mirror-accelerated parity** (Parité avec accélération par miroir).
-5. Dans **Parity percentage** (Pourcentage de parité), sélectionnez le pourcentage de parité.
-6. Sélectionnez **Create** (Créer).
-
-Regardez une courte vidéo sur la création d’un volume paritaire avec accélération par miroir.
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/R72QHudqWpE]
+1. Dans la page Volumes, sélectionnez l’onglet **Inventaire**, puis sélectionnez **Créer**.
+1. Dans le volet **Créer un volume**, entrez le nom du volume.
+1. Dans **Résilience**, sélectionnez **Mirror-accelerated parity** (Parité avec accélération par miroir).
+1. Dans **Parity percentage** (Pourcentage de parité), sélectionnez le pourcentage de parité.
+1. Sous **Autres options**, vous pouvez activer la déduplication et la compression, les sommes de contrôle d’intégrité ou le chiffrement BitLocker en cochant les cases correspondantes.
+1. Sélectionnez **Create** (Créer).
 
 ## <a name="open-volume-and-add-files"></a>Ouvrir un volume et ajouter des fichiers
 
@@ -68,10 +68,6 @@ Pour ouvrir un volume et y ajouter des fichiers dans Windows Admin Center :
 5. Accédez au chemin du volume. Ici, vous pouvez parcourir les fichiers du volume.
 6. Sélectionnez **Charger**, puis sélectionnez un fichier à charger.
 7. Utilisez le bouton **Précédent** du navigateur pour revenir au volet **Outils** dans Windows Admin Center.
-
-Regardez une courte vidéo sur l’ouverture d’un volume et l’ajout de fichiers.
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/j59z7ulohs4]
 
 ## <a name="turn-on-deduplication-and-compression"></a>Activer la déduplication et la compression
 
@@ -118,9 +114,12 @@ New-Volume -FriendlyName "Volume3" -FileSystem CSVFS_ReFS -StoragePoolFriendlyNa
 
 Dans les déploiements avec trois types de lecteur, un volume peut s’étendre sur les niveaux SSD et HDD pour résider partiellement sur chacun d’eux. De même, dans les déploiements avec quatre serveurs ou plus, un volume peut mélanger la mise en miroir et la double parité pour résider partiellement sur chacun d’eux.
 
-Pour vous aider à créer de tels volumes, Azure Stack HCI fournit des modèles de niveau par défaut appelés **MirrorOn*MediaType*** et **NestedMirrorOn*MediaType*** (pour les performances), et **ParityOn*MediaType*** et **NestedParityOn*MediaType*** (pour la capacité), où *MediaType* est HDD ou SSD. Les modèles représentent des niveaux de stockage basés sur des types de médias et encapsulent les définitions de la mise en miroir triple sur les lecteurs plus rapides (le cas échéant), et de la double parité sur les lecteurs plus lents (le cas échéant).
+Pour vous aider à créer de tels volumes, Azure Stack HCI et Windows Server 2019 fournissent des modèles de niveau par défaut appelés **MirrorOn*MediaType*** et **NestedMirrorOn*MediaType*** (pour les performances), et **ParityOn*MediaType*** et **NestedParityOn*MediaType*** (pour la capacité), où *MediaType* est HDD ou SSD. Les modèles représentent des niveaux de stockage basés sur des types de médias et encapsulent les définitions de la mise en miroir triple sur les lecteurs plus rapides (le cas échéant), et de la double parité sur les lecteurs plus lents (le cas échéant).
 
-Vous pouvez les voir en exécutant l’applet de commande **Get-StorageTier** sur n’importe quel serveur du cluster.
+   > [!NOTE]
+   > Sur les clusters Windows Server 2016 qui exécutaient des espaces de stockage direct, les modèles de niveau par défaut étaient simplement appelés **Performances** et **Capacité**.
+
+Vous pouvez voir les niveaux de stockage en exécutant l’applet de commande **Get-StorageTier** sur n’importe quel serveur du cluster.
 
 ```PowerShell
 Get-StorageTier | Select FriendlyName, ResiliencySettingName, PhysicalDiskRedundancy
@@ -147,7 +146,7 @@ Répétez l’opération selon les besoins pour créer plusieurs volumes.
 
 ### <a name="nested-resiliency-volumes"></a>Volumes à résilience imbriquée
 
-La résilience imbriquée s’applique uniquement aux clusters à deux serveurs ; vous ne pouvez pas utiliser la résilience imbriquée si votre cluster contient trois serveurs ou plus. La résilience imbriquée permet à un cluster à deux serveurs de résister à plusieurs défaillances matérielles en même temps sans perte de disponibilité du stockage, ce qui permet aux utilisateurs, applications et machines virtuelles de continuer à fonctionner sans interruption. Pour en savoir plus, consultez [Planifier des volumes : choix du type de résilience](../concepts/plan-volumes.md#choosing-the-resiliency-type).
+La résilience imbriquée s’applique uniquement aux clusters à deux serveurs qui exécutent Azure Stack HCI ou Windows Server 2019. Vous ne pouvez pas utiliser la résilience imbriquée si votre cluster contient trois serveurs ou plus, ou si votre cluster exécute Windows Server 2016. La résilience imbriquée permet à un cluster à deux serveurs de résister à plusieurs défaillances matérielles en même temps sans perte de disponibilité du stockage, ce qui permet aux utilisateurs, applications et machines virtuelles de continuer à fonctionner sans interruption. Pour en savoir plus, consultez [Planifier des volumes : choix du type de résilience](../concepts/plan-volumes.md#choosing-the-resiliency-type).
 
 #### <a name="create-nested-storage-tiers"></a>Créer des niveaux de stockage imbriqués
 
@@ -179,7 +178,7 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName MyParityNestedVolume -Sto
 
 ### <a name="storage-tier-summary-table"></a>Tableau de synthèse des niveaux de stockage
 
-Les tableaux suivants récapitulent les niveaux de stockage qui peuvent être créés dans Azure Stack HCI.
+Les tableaux suivants récapitulent les niveaux de stockage qui peuvent être créés dans Azure Stack HCI et Windows Server 2019.
 
 **NumberOfNodes : 2**
 
@@ -219,6 +218,5 @@ Les tableaux suivants récapitulent les niveaux de stockage qui peuvent être cr
 Pour consulter des rubriques connexes et d’autres tâches de gestion du stockage, référez-vous également à :
 
 - [Vue d’ensemble des espaces de stockage direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [Planifier des volumes](../concepts/plan-volumes.md)
 - [Étendre les volumes](extend-volumes.md)
 - [Supprimer des volumes](delete-volumes.md)

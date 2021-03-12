@@ -5,12 +5,12 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 0bfd97b71774662ec11074951dcc956391d0fc65
-ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
+ms.openlocfilehash: 28fd04d9fb84f612dca6b241b8935b8f9cbfe049
+ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100487389"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102250318"
 ---
 # <a name="configure-firewalls-for-azure-stack-hci"></a>Configurer des pare-feu pour Azure Stack HCI
 
@@ -24,7 +24,7 @@ Azure Stack HCI doit se connecter régulièrement à Azure. L’accès est limit
 - Direction sortante
 - Port 443 (HTTPS)
 
-Pour plus d’informations, consultez la section « Connectivité Azure Stack HCI » du [FAQ Azure Stack HCI](../faq.md).
+Pour plus d’informations, consultez la section « Connectivité Azure Stack HCI » du [FAQ Azure Stack HCI](../faq.yml).
 
 Cette rubrique explique comment utiliser une configuration de pare-feu très verrouillée afin, si vous le souhaitez, de bloquer tout le trafic vers toutes les destinations, sauf celles incluses dans votre liste verte.
 
@@ -122,4 +122,4 @@ Lorsque vous utilisez l’Assistant Création d’un cluster dans Windows Admin 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations, consultez également :
-- La section Connectivité du [FAQ sur Azure Stack HCI](../faq.md)
+- La section Connectivité du [FAQ sur Azure Stack HCI](../faq.yml)

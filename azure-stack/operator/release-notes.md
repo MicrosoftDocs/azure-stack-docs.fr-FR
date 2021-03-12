@@ -3,16 +3,16 @@ title: Notes de publication d’Azure Stack Hub
 description: Notes de publication des systèmes intégrés Azure Stack Hub, y compris les mises à jour et les correctifs de bogues.
 author: sethmanheim
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 02/18/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 441e764231e9ce85de69d7cd4020325883fde7ec
-ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
+ms.openlocfilehash: 0d1b3f65f36e3aae5095fc3535f5df6290cb51f7
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100648080"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840828"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Notes de publication d’Azure Stack Hub
 
@@ -87,7 +87,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 - Mise en œuvre de la surveillance interne pour le contrôleur de réseau et les agents hôtes SLB. Les services sont donc corrigés automatiquement s’ils entrent dans un état arrêté.
-- Les services de fédération Active Directory (AD FS) récupèrent maintenant le nouveau certificat de signature de jetons après que le client a effectué sa rotation sur son propre serveur AD FS. Pour tirer parti de cette nouvelle fonctionnalité pour les systèmes déjà configurés, l’intégration de AD FS doit être reconfigurée. Pour plus d’informations, consultez [Intégrer l’identité AD FS avec votre centre de données Azure Stack Hub](azure-stack-integrate-identity.md).
+- Les services de fédération Active Directory (AD FS) récupèrent désormais le nouveau certificat de signature de jetons après que le client a effectué sa rotation sur son propre serveur AD FS. Pour tirer parti de cette nouvelle fonctionnalité pour les systèmes déjà configurés, l’intégration de AD FS doit être reconfigurée. Pour plus d’informations, consultez [Intégrer l’identité AD FS avec votre centre de données Azure Stack Hub](azure-stack-integrate-identity.md).
 - Modifications apportées au processus de démarrage et d’arrêt sur les instances de rôle d’infrastructure et leurs dépendances sur les nœuds d’unité d’échelle. Cela augmente la fiabilité du démarrage et de l’arrêt d’Azure Stack Hub.
 - La suite **AzSScenarios** de l’outil de validation **Test-AzureStack** a été mise à jour pour permettre aux fournisseurs de services cloud d’exécuter correctement cette suite avec l’authentification multifacteur appliquée à tous les comptes clients.
 - Amélioration de la fiabilité des alertes en ajoutant une logique de suppression pour 29 alertes côté client pendant les opérations de cycle de vie.
@@ -103,7 +103,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 
   Notez que ces modifications sont ajoutées au niveau de l’hôte d’un système Azure Stack Hub. Contactez votre fabricant OEM pour lui demander d’apporter les modifications nécessaires aux commutateurs réseau ToR (top-of-rack). Cette modification des commutateurs ToR peut être effectuée tant avant qu’après la mise à jour vers la version 2008. Pour plus d’informations, consultez la [documentation relative à l’intégration réseau](azure-stack-network.md).
 
-- Les tailles de machines virtuelles compatibles GPU **NCas_v4 (NVIDIA T4)** ont été remplacées dans cette version par les tailles de machines virtuelles **NCasT4_v3**, à des fins de mise en cohérence avec Azure. Notez que celles-ci ne sont pas encore visibles dans le portail et peuvent être utilisées uniquement par le biais de modèles Azure Resource Manager.
+- Les tailles de machines virtuelles compatibles GPU **NCas_v4 (NVIDIA T4)** ont été remplacées dans cette version par les tailles de machines virtuelles **NCasT4_v3**, à des fins de mise en cohérence avec Azure. Notez que celles-ci ne sont pas encore visibles sur le portail et qu’elles peuvent uniquement être utilisées via des modèles Azure Resource Manager.
 
 ### <a name="fixes"></a>Correctifs
 
@@ -136,7 +136,7 @@ Les correctifs logiciels Azure Stack Hub s’appliquent uniquement aux systèmes
 
 Après l’installation de 2008, si des correctifs 2008 sont mis en production par la suite, vous devez les installer :
 
-- [Correctif logiciel Azure Stack Hub 1.2008.25.114](hotfix-1-2008-25-114.md)
+- [Correctif logiciel Azure Stack Hub 1.2008.26.116](hotfix-1-2008-26-116.md)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
@@ -189,7 +189,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 
 - Suppression des actions pour arrêter, interrompre et redémarrer une instance de rôle d’infrastructure à partir du portail d’administration. Les API correspondantes ont également été supprimées dans le fournisseur de ressources d’infrastructure. Les cmdlets PowerShell suivantes dans le module RM administrateur et préversion AZ pour Azure Stack Hub ne fonctionnent plus : **Stop-AzsInfrastructureRoleInstance**, **Disable-InfrastructureRoleInstance** et **Restart-InfrastructureRoleInstance**. Ces cmdlets seront supprimées de la prochaine version du module AZ administrateur pour Azure Stack Hub.
 - Azure Stack Hub 2005 prend désormais en charge uniquement [App Service sur Azure Stack Hub 2020 (versions 87. x)](app-service-release-notes-2020-Q2.md).
-- Le paramètre de chiffrement des utilisateurs requis pour la surveillance du matériel est passé de DES à AES afin de renforcer la sécurité. Contactez votre fournisseur de matériel pour savoir comment modifier le paramètre dans le contrôleur de gestion de la carte de base (BMC). Une fois la modification apportée dans le BMC, vous devrez peut-être réexécuter la commande **Set-BmcCredential** à l’aide du point de terminaison privilégié. Pour plus de détails, consultez [Effectuer la rotation des secrets dans Azure Stack Hub](azure-stack-rotate-secrets.md).
+- Le paramètre de chiffrement des utilisateurs requis pour la surveillance du matériel est passé de DES à AES afin de renforcer la sécurité. Contactez votre fournisseur de matériel pour savoir comment modifier le paramètre dans le contrôleur de gestion de la carte de base (BMC). Une fois la modification apportée dans le BMC, vous devrez peut-être réexécuter la commande **Set-BmcCredential** en utilisant le point de terminaison privilégié. Pour plus de détails, consultez [Effectuer la rotation des secrets dans Azure Stack Hub](azure-stack-rotate-secrets.md).
 
 ### <a name="fixes"></a>Correctifs
 
@@ -228,7 +228,7 @@ Les correctifs logiciels Azure Stack Hub s’appliquent uniquement aux systèmes
 
 La version 2005 d’Azure Stack Hub doit être appliquée sur la version 2002 avec les correctifs logiciels suivants :
 
-- [Correctif logiciel Azure Stack Hub 1.2002.65.171](https://support.microsoft.com/topic/d743db84-df31-496b-b37c-6e5618b4cc8f)
+- [Correctif logiciel Azure Stack Hub 1.2002.66.173](hotfix-1-2002-66-173.md)
 
 ### <a name="after-successfully-applying-the-2005-update"></a>Après l’application réussie de la mise à jour 2005
 
@@ -236,7 +236,7 @@ La version 2005 d’Azure Stack Hub doit être appliquée sur la version 2002 
 
 Après l’installation de 2005, si des correctifs 2005 sont mis en production par la suite, vous devez les installer :
 
-- [Correctif logiciel Azure Stack Hub 1.2005.29.100](hotfix-1-2005-29-100.md)
+- [Correctif logiciel Azure Stack Hub 1.2005.30.102](hotfix-1-2005-30-102.md)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -336,7 +336,7 @@ Pour plus d’informations sur les types de build de mise à jour, consultez [G�
 - Résolution d’un problème lié au fait que la licence des images de machine virtuelle Windows du canal de vente au détail n’a pas pu être activée par AVMA.
 - Résolution d’un problème qui entraînait l’échec de la création de machines virtuelles si le nombre de cœurs virtuels demandés par la machine virtuelle était égal au nombre de cœurs physiques du nœud. Nous autorisons maintenant les machines virtuelles à avoir un nombre de cœurs virtuels égal ou inférieur au nombre de cœurs physiques du nœud.
 - Résolution d’un problème lié au fait que nous n’autorisons pas la définition du type de licence sur « null » pour basculer les images avec paiement à l’utilisation vers BYOL.
-- Résolution d’un problème empêchant l’ajout d’extensions à un groupe de machines virtuelles identiques.
+- Résolution d’un problème pour permettre l’ajout d’extensions à un groupe de machines virtuelles identiques.
 
 ## <a name="security-updates"></a>Mises à jour de sécurité
 
@@ -365,7 +365,7 @@ La version 2002 d’Azure Stack Hub doit être appliquée sur la version 1910 
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables.
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Correctif logiciel Azure Stack Hub 1.2002.65.171](https://support.microsoft.com/topic/d743db84-df31-496b-b37c-6e5618b4cc8f)
+- [Correctif logiciel Azure Stack Hub 1.2002.66.173](hotfix-1-2002-66-173.md)
 ::: moniker-end
 
 <!------------------------------------------------------------>

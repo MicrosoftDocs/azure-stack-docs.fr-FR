@@ -1,18 +1,18 @@
 ---
 title: Intégrer Azure Stack Hub avec des solutions de supervision via un transfert Syslog
 description: Découvrez comment intégrer Azure Stack Hub à des solutions de supervision avec le transfert Syslog.
-author: PatAltimore
+author: BryanLa
 ms.topic: article
 ms.date: 01/10/2020
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/15/2020
-ms.openlocfilehash: 9a6da457b32bf9a224a906bc24ec65c7adcf1fab
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 6b1b4a206813178686b924b1de71ad957b4feb18
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870407"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231283"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Intégrer Azure Stack Hub à des solutions de supervision avec le transfert Syslog
 

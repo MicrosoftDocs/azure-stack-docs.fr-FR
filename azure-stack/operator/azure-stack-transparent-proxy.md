@@ -3,16 +3,16 @@ title: Proxy transparent pour les systèmes intégrés Azure Stack Hub
 description: Vue d’ensemble d’un proxy transparent dans les systèmes intégrés Azure Stack Hub.
 author: PatAltimore
 ms.topic: conceptual
-ms.date: 01/25/2021
+ms.date: 02/24/2021
 ms.author: patricka
 ms.reviewer: sranthar
 ms.lastreviewed: 01/25/2021
-ms.openlocfilehash: 974f40364b4eed13bd7440b35596597312c98624
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: a7fc47edf63a83e1ee05c46b03d8533787b1983c
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99577355"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840692"
 ---
 # <a name="transparent-proxy-for-azure-stack-hub"></a>Proxy transparent pour Azure Stack Hub
 
@@ -42,10 +42,11 @@ Microsoft a conclu un partenariat avec les principaux fournisseurs de proxy du s
 
 Pour obtenir un exemple de configuration frontière, consultez la section [Exemple de configuration frontière](#example-border-configuration) dans cet article.
 
-Passez en revue les documents suivants pour obtenir les configurations validées de proxy transparent avec Azure Stack Hub : 
+Passez en revue les documents suivants pour connaître les configurations validées de proxy transparent avec Azure Stack Hub :
 
 - [Configurer un proxy transparent Check Point Security Gateway](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk171559)
 - [Configurer le pare-feu Sophos XG en tant que proxy transparent](https://community.sophos.com/xg-firewall/f/recommended-reads/124106/xg-firewall-integration-with-azure-stack-hub)
+- [Intégration de Citrix ADC, Citrix Secure Web Gateway avec Azure Stack Hub](https://www.citrix.com/blogs/2021/02/19/integrating-citrix-adc-citrix-secure-web-gateway-with-azure-stack-hub/)
 
 Dans les scénarios où le trafic sortant d’Azure Stack Hub doit transiter par un proxy explicite, les appareils Sophos et Check Point proposent une fonctionnalité de mode double qui autorise des plages de trafic spécifiques à passer par le mode transparent, tandis que d’autres plages peuvent être configurées pour passer par le mode explicite. Grâce à cette fonctionnalité, vous pouvez configurer ces appareils proxy de manière à envoyer uniquement le trafic d’infrastructure par le bais du proxy transparent et tout le trafic de locataire par le bais du proxy explicite.
 
@@ -56,7 +57,7 @@ Dans les scénarios où le trafic sortant d’Azure Stack Hub doit transiter par
 
 La solution repose sur le routage basé sur des stratégies (PBR), lequel utilise un jeu de critères défini par l’administrateur et implémenté par une liste de contrôle d’accès (ACL). Cette liste catégorise le trafic qui est dirigé vers l’adresse IP de tronçon suivant des appareils proxy implémentés dans un route-map, et non dans un routage normal basé uniquement sur l’adresse IP de destination. Le trafic réseau d’infrastructure spécifique pour les ports 80 et 443 est acheminé des appareils frontière vers le déploiement du proxy transparent. Le proxy transparent effectue le filtrage d’URL, *aucun trafic autorisé* n’étant supprimé.
 
-L’exemple de configuration suivant est destiné à un châssis Cisco Nexus 9508. 
+L’exemple de configuration suivant est destiné à un châssis Cisco Nexus 9508.
 
 Dans ce scénario, les réseaux d’infrastructure source qui nécessitent un accès à Internet sont les suivants :
 
@@ -64,7 +65,7 @@ Dans ce scénario, les réseaux d’infrastructure source qui nécessitent un ac
 - Réseau d’infrastructure - Dernière plage /27
 - Réseau BMC - Dernière plage /27
 
-Les sous-réseaux suivants reçoivent le traitement du routage basé sur des stratégies (PBR) dans ce scénario :
+Les sous-réseaux suivants reçoivent le traitement du routage basé sur des stratégies (PBR) de ce scénario :
 
 | Réseau | Plage d’adresses IP | Sous-réseau recevant le traitement PBR
 |---------|----------|-------------------------------

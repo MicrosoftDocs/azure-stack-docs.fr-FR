@@ -4,13 +4,13 @@ description: Avant de commencer Azure Kubernetes Service sur Azure Stack HCI
 ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
-ms.date: 12/02/2020
-ms.openlocfilehash: 71c842cf44963988da7926003646b246bf80f802
-ms.sourcegitcommit: 8776cbe4edca5b63537eb10bcd83be4b984c374a
+ms.date: 02/02/2021
+ms.openlocfilehash: 16d4e7b1de239ee1b08aa696696796fa6f12dff7
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98175734"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839740"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Configuration requise pour Azure Kubernetes Service sur Azure Stack HCI
 
@@ -44,7 +44,7 @@ Pour qu’Azure Kubernetes Service sur Azure Stack HCI ou Windows Server 2019 D
 
  - Pour cette version préliminaire, vous devez installer le système d’exploitation Azure Stack HCI sur chaque serveur dans le cluster à l’aide des sélections de la région en-US et de la langue. Leur modification après l’installation n’est pas suffisante pour l’instant.
 
-## <a name="network-requirements"></a>Conditions requises en matière de réseau 
+## <a name="general-network-requirements"></a>Configuration réseau requise générale 
 
 Les impératifs suivants s’appliquent à un cluster Azure Stack HCI ainsi qu’à un cluster Windows Server 2019 Datacenter : 
 
@@ -53,52 +53,44 @@ Les impératifs suivants s’appliquent à un cluster Azure Stack HCI ainsi qu�
  - Vérifiez que vous avez désactivé IPv6 sur toutes les cartes réseau. 
 
  - Pour un déploiement réussi, les nœuds de cluster Azure Stack HCI et les machines virtuelles du cluster Kubernetes doivent disposer d’une connectivité Internet externe.
+ 
+ - Vérifiez que tous les sous-réseaux que vous définissez pour le cluster sont routables entre eux et vers Internet.
   
  - Assurez-vous qu’il existe une connectivité réseau entre les hôtes Azure Stack HCI et les machines virtuelles du locataire.
 
- - La résolution de noms DNS est requise pour que tous les nœuds puissent communiquer entre eux. Pour la résolution de noms externes Kubernetes, utilisez les serveurs DNS fournis par le serveur DHCP au moment de l’obtention de l’adresse IP. Pour la résolution de noms internes Kubernetes, utilisez la solution DNS principale de Kubernetes par défaut. 
+ - La résolution de noms DNS est requise pour que tous les nœuds puissent communiquer entre eux. 
 
- - Dans cette préversion, nous ne fournissons la prise en charge que d’un seul VLAN pour l’ensemble du déploiement. 
+## <a name="ip-address-assignment"></a>Affectation d’adresses IP  
 
- - Dans cette préversion, nous avons une prise en charge limitée des serveurs proxy pour les clusters Kubernetes créés via PowerShell. 
- 
-### <a name="ip-address-assignment"></a>Affectation d’adresses IP  
- 
-Dans le cadre d’un déploiement réussi d’AKS sur Azure Stack HCI, nous vous recommandons de configurer une plage de pool d’adresses IP virtuelles avec votre serveur DHCP. Il est également recommandé de configurer trois à cinq nœuds de plan de contrôle à haut niveau de disponibilité pour tous vos clusters de charge de travail. 
+Dans AKS sur Azure Stack HCI, les réseaux virtuels sont utilisés pour allouer des adresses IP aux ressources Kubernetes qui en ont besoin, comme indiqué ci-dessus. Vous avez le choix entre deux modèles réseau, en fonction de l’architecture réseau AKS sur Azure Stack HCI que vous souhaitez. 
 
 > [!NOTE]
-> L’utilisation seule d’attributions d’adresses IP statiques n’est pas prise en charge. Vous devez configurer un serveur DHCP dans le cadre de cette préversion.
+ > L’architecture réseau virtuel définie ici pour vos déploiements AKS sur Azure Stack HCI est différente de l’architecture réseau physique sous-jacente dans votre centre de centres.
 
-#### <a name="dhcp"></a>DHCP
-Procédez comme suit lors de l’utilisation de DHCP pour attribuer des adresses IP à l’ensemble du cluster :  
+- Réseau IP statique : le réseau virtuel alloue des adresses IP statiques au serveur d’API de cluster Kubernetes, aux nœuds Kubernetes, aux machines virtuelles sous-jacentes, aux équilibreurs de charge et aux services Kubernetes que vous exécutez sur votre cluster.
 
- - Le réseau doit disposer d’un serveur DHCP disponible pour fournir des adresses TCP/IP aux machines virtuelles et aux ordinateurs hôtes de machines virtuelles. Le serveur DHCP doit également contenir des informations sur l’hôte NTP et DNS.
- 
- - Nous vous recommandons également de disposer d’un serveur DHCP avec une étendue dédiée d’adresses IPv4 accessibles par le cluster Azure Stack HCI.
- 
- - Les adresses IPv4 fournies par le serveur DHCP doivent être routables. De plus, le délai d’expiration du bail de ces adresses doit être de 30 jours pour éviter toute perte de connectivité IP en cas de mise à jour ou de reprovisionnement d’une machine virtuelle.  
+- Réseau DHCP : le réseau virtuel alloue des adresses IP dynamiques aux nœuds Kubernetes, aux machines virtuelles sous-jacentes et aux équilibreurs de charge à l’aide d’un serveur DHCP. Des adresses IP statiques sont toujours allouées au serveur d’API de cluster Kubernetes et à tous les services Kubernetes que vous exécutez sur votre cluster.
 
-Au minimum, vous devez réserver le nombre d’adresses DHCP suivantes :
+### <a name="minimum-ip-address-reservation"></a>Réservation d’adresse IP minimale
 
-| Type de cluster  | Nœud Plan de contrôle | Nœud Worker | Update | Équilibrage de charge  |
+Au minimum, vous devez réserver le nombre suivant d’adresses IP pour votre déploiement :
+
+| Type de cluster  | Nœud Plan de contrôle | Nœud Worker | Pour les opérations de mise à jour | Équilibrage de charge  |
 | ------------- | ------------------ | ---------- | ----------| -------------|
-| Hôte AKS |  1  |  0  |  2  |  0  |
-| Cluster de charge de travail  |  1 par nœud  | 1 par nœud |  5  |  1  |
+| Hôte AKS |  1 IP |  N/D  |  2 IP |  N/D  |
+| Cluster de charge de travail  |  1 IP par nœud  | 1 IP par nœud |  5 IP  |  1 IP |
 
-Vous pouvez voir la façon dont le nombre d’adresses IP requises varie en fonction du nombre de clusters de charge de travail, du plan de contrôle et des nœuds Worker dans votre environnement. Nous vous recommandons de réserver des adresses IP 256 (sous-réseau/24) dans votre pool d’adresses IP DHCP.
-  
-    
-#### <a name="vip-pool-range"></a>Plage du pool d’adresses IP virtuelles
+En outre, vous devez réserver le nombre suivant d’adresses IP pour votre pool d’adresses IP virtuelles :
 
-Les pools d’adresses IP virtuelles (VIP) sont fortement recommandés pour un déploiement réussi d’AKS sur Azure Stack HCI. Les pools d’adresses IP virtuelles sont une plage d’adresses IP statiques réservées qui sont utilisées pour les déploiements à long terme afin de garantir que vos charges de travail de déploiement et d’application sont toujours accessibles. Actuellement, nous ne prenons en charge que les adresses IPv4. Vous devez donc vérifier que vous avez désactivé IPv6 sur toutes les cartes réseau. En outre, assurez-vous que vos adresses IP virtuelles ne font pas partie de la réserve d’adresses IP DHCP.
+| Type de ressource  | Nombre d’adresses IP 
+| ------------- | ------------------
+| Serveur d’API de cluster |  1 par cluster 
+| Services Kubernetes  |  1 par service  
 
-Au minimum, vous devez réserver une adresse IP par cluster (charge de travail et hôte AKS) et une adresse IP par service Kubernetes. Le nombre d’adresses IP requises dans la plage du pool d’adresses IP virtuelles varie selon le nombre de clusters de charge de travail et de services Kubernetes dont vous disposez dans votre environnement. Nous vous recommandons de réserver 16 adresses IP statiques pour votre déploiement AKS-HCI. 
+Comme vous pouvez le voir, le nombre d’adresses IP requises est variable en fonction de l’architecture AKS sur Azure Stack HCI et du nombre de services que vous exécutez sur votre cluster Kubernetes. Nous vous recommandons de réserver un total de 256 adresses IP (sous-réseau /24) pour votre déploiement.
 
-Lors de la configuration de l’hôte AKS, utilisez les paramètres `-vipPoolStartIp` et `-vipPoolEndIp` dans `Set-AksHciConfig` pour créer un pool d’adresses IP virtuelles.
+Pour plus d’informations sur la configuration réseau requise, consultez [Concepts relatifs aux réseaux dans AKS sur Azure Stack HCI](./concepts-networking.md).
 
-#### <a name="mac-pool-range"></a>Plage du pool d’adresses MAC
-Nous vous recommandons d’avoir un minimum de 16 adresses MAC dans la plage pour autoriser plusieurs nœuds de plan de contrôle dans chaque cluster. Lors de la configuration de l’hôte AKS, utilisez les paramètres `-macPoolStart` et `-macPoolEnd` dans `Set-AksHciConfig` pour réserver des adresses MAC à partir du pool d’adresses Mac DHCP pour les services Kubernetes.
-  
 ### <a name="network-port-and-url-requirements"></a>Configuration requise des ports réseau et URL 
 
 Au moment de la création d’un cluster Azure Kubernetes sur Azure Stack HCI, les ports de pare-feu suivants sont automatiquement ouverts sur chaque serveur du cluster. 
@@ -153,9 +145,8 @@ Windows Admin Center est l’interface utilisateur permettant de créer et de g�
 
 La machine qui exécute la passerelle Windows Admin Center doit respecter les conditions suivantes : 
 
- - Machine Windows 10 ou Windows Server (nous ne prenons pas en charge l’exécution de Windows Admin Center sur le cluster Azure Stack HCI ou Windows Server 2019 Datacenter pour le moment)
- - 60 Go d’espace libre
- - Inscription auprès d’Azure
+ - Ordinateur Windows 10 ou Windows Server
+ - [Inscription auprès d’Azure](/windows-server/manage/windows-admin-center/azure/azure-integration)
  - Se trouver dans le même domaine que le cluster Azure Stack HCI ou Windows Server 2019 Datacenter
 
 ## <a name="next-steps"></a>Étapes suivantes 

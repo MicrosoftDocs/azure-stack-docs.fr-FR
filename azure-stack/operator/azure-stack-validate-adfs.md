@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: bryanla
 ms.reviewer: jerskine
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 0b032929496646de763336a630f22782bd03091c
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: cdbd069fee0584f78a4a62b7910428f47e8966d1
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545679"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840250"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>Valider l’intégration d’AD FS pour Azure Stack Hub
 
@@ -24,7 +24,7 @@ Utilisez l’outil Azure Stack Hub Readiness Checker (AzsReadinessChecker) pour 
 L’outil Readiness Checker valide ce qui suit :
 
 * Les *métadonnées de fédération* contiennent les éléments XML valides pour la fédération.
-* Le *certificat SSL AD FS* peut être récupéré et une chaîne d’approbation peut être générée. L’AD FS avec tampon doit approuver la chaîne de certificats SSL. Le certificat doit être signé par la même *autorité de certification* que celle utilisée pour les certificats de déploiement Azure Stack Hub ou par un partenaire d’autorité racine approuvé. Pour obtenir la liste complète des partenaires d’autorité racine approuvés, consultez : [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+* Le *certificat SSL AD FS* peut être récupéré et une chaîne d’approbation peut être générée. L’AD FS avec tampon doit approuver la chaîne de certificats SSL. Le certificat doit être signé par la même *autorité de certification* que celle utilisée pour les certificats de déploiement Azure Stack Hub ou par un partenaire d’autorité racine approuvé. Pour obtenir la liste complète des partenaires d’autorité racine approuvée, consultez [Liste des participants – Programme racine approuvé Microsoft](/security/trusted-root/participants-list).
 * Le *Certificat de signature AD FS* est approuvé et n’approche pas l’expiration.
 
 Pour plus d’informations sur l’intégration de centre de données Azure Stack Hub, voir [Intégration de centre de données Azure Stack Hub – Identité](azure-stack-integrate-identity.md).
@@ -102,8 +102,8 @@ Par défaut, les deux fichiers sont écrits dans `C:\Users\<username>\AppData\Lo
 
 Utilisez :
 
-* `-OutputPath`: Le paramètre *path* situé à la fin de la commande d’exécution pour spécifier un emplacement de rapport différent.
-* `-CleanReport`: Le paramètre à la fin de la commande d’exécution pour effacer les informations AzsReadinessCheckerReport.json du rapport précédent. Pour plus d’informations, voir [Rapport de validation Azure Stack Hub](azure-stack-validation-report.md).
+* `-OutputPath` : Paramètre *path* à la fin de la commande d’exécution pour spécifier un emplacement de rapport différent.
+* `-CleanReport` : Paramètre à la fin de la commande d’exécution pour effacer AzsReadinessCheckerReport.json des informations du rapport précédent. Pour plus d’informations, voir [Rapport de validation Azure Stack Hub](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Échec de validation
 
@@ -117,9 +117,9 @@ Les exemples suivants donnent des conseils sur la façon de résoudre les échec
 Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 ```
 
-**Cause**  : La fonctionnalité de chargement automatique PowerShell n’a pas pu charger le module Readiness Checker correctement.
+**Cause** : la fonctionnalité de chargement automatique PowerShell n’a pas pu charger le module Readiness Checker correctement.
 
-**Résolution**  : Importez le module Readiness Checker de façon explicite. Copiez et collez le code suivant dans PowerShell et mettez à jour `<version>` avec le numéro de la version actuellement installée.
+**Résolution** : importez le module Readiness Checker de façon explicite. Copiez et collez le code suivant dans PowerShell et mettez à jour `<version>` avec le numéro de la version actuellement installée.
 
 ```powershell
 Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force
